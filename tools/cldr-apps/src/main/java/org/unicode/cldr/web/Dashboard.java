@@ -23,6 +23,7 @@ import org.unicode.cldr.util.VettingParameters;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.util.VoterReportStatus.ReportStatus;
 import org.unicode.cldr.util.VoterProgress;
+import org.unicode.cldr.util.VoterReportStatus;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -84,6 +85,9 @@ public class Dashboard {
 
         public VoterProgress voterProgress = null;
 
+        @Schema(description = "Coverage level for this dashboard")
+        public String coverageLevel = null;
+
         /**
          * Add Report status
          * @param userId
@@ -93,6 +97,7 @@ public class Dashboard {
             final CLDRLocale locale = CLDRLocale.getInstance(localeId);
             ReportStatus reportStatus = ReportsDB.getInstance().getReportStatus(userId, locale);
             EnumSet<ReportId> incomplete = EnumSet.complementOf(reportStatus.completed);
+            incomplete.retainAll(VoterReportStatus.ReportId.getReportsAvailable()); // remove reports not actually available
             if (!incomplete.isEmpty()) {
                 ReviewNotificationGroup rng = new ReviewNotificationGroup("Reports", "", "");
                 incomplete.forEach(r -> rng.add(r.name()));

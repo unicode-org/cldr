@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.OutputOption;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -18,6 +19,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
@@ -25,11 +27,8 @@ public class LikelySubtags {
     static final boolean DEBUG = true;
     static final String TAG_SEPARATOR = "_";
 
-    private Map<String, String> toMaximized;
     private boolean favorRegion = false;
-    private static SupplementalDataInfo supplementalDataInfo;
-    private static Map<String, String> currencyToLikelyTerritory;
-    private static final Object SYNC = new Object();
+    private final Map<String, String> toMaximized;
 
     /**
      * Create the likely subtags.
@@ -37,21 +36,23 @@ public class LikelySubtags {
      * @param toMaximized
      */
     public LikelySubtags(Map<String, String> toMaximized) {
-        loadStaticVariables();
-        if (this.toMaximized == null) {
-            this.toMaximized = supplementalDataInfo.getLikelySubtags();
-        } else {
-            this.toMaximized = toMaximized;
-        }
+        this.toMaximized = toMaximized == null ? LikelySubtagsData.getInstance().defaultToMaximized : ImmutableMap.copyOf(toMaximized);
     }
 
-    private static void loadStaticVariables() {
-        if (supplementalDataInfo != null && currencyToLikelyTerritory != null) {
-            return;
+    /**
+     * thread-safe data loading. Retooled so that the constant data is shared across instances.
+     */
+    private static class LikelySubtagsData {
+        private static final LikelySubtagsData SINGLETON = new LikelySubtagsData();
+        private static LikelySubtagsData getInstance() {
+            return SINGLETON;
         }
-        synchronized(SYNC) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance();
-            currencyToLikelyTerritory = new HashMap<>();
+        private final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
+        private final Map<String, String> defaultToMaximized = supplementalDataInfo.getLikelySubtags();
+        private final Map<String, String> currencyToLikelyTerritory;
+
+        private LikelySubtagsData() {
+            Map<String, String> _currencyToLikelyTerritory = new HashMap<>();
             Date now = new Date();
             Set<Row.R2<Double, String>> sorted = new TreeSet<>();
             for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {
@@ -67,12 +68,13 @@ public class LikelySubtags {
                 }
                 for (CurrencyDateInfo cdi : targetCurrencyInfo) {
                     String currency = cdi.getCurrency();
-                    if (!currencyToLikelyTerritory.containsKey(currency) && cdi.getStart().before(now)
+                    if (!_currencyToLikelyTerritory.containsKey(currency) && cdi.getStart().before(now)
                         && cdi.getEnd().after(now) && cdi.isLegalTender()) {
-                        currencyToLikelyTerritory.put(currency, territory);
+                        _currencyToLikelyTerritory.put(currency, territory);
                     }
                 }
             }
+            currencyToLikelyTerritory = ImmutableMap.copyOf(_currencyToLikelyTerritory);
         }
     }
 
@@ -98,11 +100,6 @@ public class LikelySubtags {
         return toMaximized;
     }
 
-    public LikelySubtags setToMaximized(Map<String, String> toMaximized) {
-        this.toMaximized = toMaximized;
-        return this;
-    }
-
     public static String maximize(String languageTag, Map<String, String> toMaximized) {
         return new LikelySubtags(toMaximized).maximize(languageTag);
     }
@@ -125,7 +122,17 @@ public class LikelySubtags {
         return maximize(ltp);
     }
 
-    private String maximize(LanguageTagParser ltp) {
+    /** Maximize to a string (modifying the LanguageTagParser in so doing) */
+    public String maximize(LanguageTagParser ltp) {
+        if (maximizeInPlace(ltp)) {
+            return ltp.toString();
+        } else {
+            return null;
+        }
+    }
+
+    /** Maximize in place, for use when the modified LanguageTagParser is the desired return value */
+    public boolean maximizeInPlace(LanguageTagParser ltp) {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();
@@ -155,11 +162,11 @@ public class LikelySubtags {
         // check whole
         String result = toMaximized.get(ltp.toString());
         if (result != null) {
-            return ltp.set(result)
-                .setVariants(variants)
-                .setExtensions(extensions)
-                .setLocaleExtensions(localeExtensions)
-                .toString();
+            ltp.set(result)
+            .setVariants(variants)
+            .setExtensions(extensions)
+            .setLocaleExtensions(localeExtensions);
+            return true;
         }
 
         boolean noLanguage = language.equals("und");
@@ -184,10 +191,10 @@ public class LikelySubtags {
                     if (!noRegion) {
                         ltp.setRegion(region);
                     }
-                    return ltp.setVariants(variants)
-                        .setExtensions(extensions)
-                        .setLocaleExtensions(localeExtensions)
-                        .toString();
+                    ltp.setVariants(variants)
+                    .setExtensions(extensions)
+                    .setLocaleExtensions(localeExtensions);
+                    return true;
                 }
             }
         }
@@ -208,14 +215,14 @@ public class LikelySubtags {
                 if (!noRegion) {
                     ltp.setRegion(region);
                 }
-                return ltp.setVariants(variants)
-                    .setExtensions(extensions)
-                    .setLocaleExtensions(localeExtensions)
-                    .toString();
+                ltp.setVariants(variants)
+                .setExtensions(extensions)
+                .setLocaleExtensions(localeExtensions);
+                return true;
             }
         }
 
-        return null; // couldn't maximize
+        return false; // couldn't maximize
     }
 
     // TODO, optimize if needed by adding private routine that maximizes a LanguageTagParser instead of multiple parsings
@@ -278,7 +285,7 @@ public class LikelySubtags {
         if (max != null) {
             script = new LanguageTagParser().set(max).getScript();
         } else {
-            Map<Type, BasicLanguageData> data = supplementalDataInfo.getBasicLanguageDataMap(code);
+            Map<Type, BasicLanguageData> data = LikelySubtagsData.getInstance().supplementalDataInfo.getBasicLanguageDataMap(code);
             if (data != null) {
                 for (BasicLanguageData item : data.values()) {
                     Set<String> scripts = item.getScripts();
@@ -301,6 +308,6 @@ public class LikelySubtags {
     }
 
     public String getLikelyTerritoryFromCurrency(String code) {
-        return currencyToLikelyTerritory.get(code);
+        return LikelySubtagsData.getInstance().currencyToLikelyTerritory.get(code);
     }
 }

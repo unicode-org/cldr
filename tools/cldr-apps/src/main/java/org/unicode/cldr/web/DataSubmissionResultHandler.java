@@ -1,8 +1,8 @@
 package org.unicode.cldr.web;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.DataPage.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 
 /**
  * Callback interface for handling the results of user input changes to survey

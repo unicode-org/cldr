@@ -44,6 +44,15 @@ import com.ibm.icu.util.Output;
  */
 public class StandardCodes {
 
+    /**
+     * Convenient for testing whether a locale is at least at Basic level
+     * @param locale
+     * @return
+     */
+    public static boolean isLocaleAtLeastBasic(String locale) {
+        return CalculatedCoverageLevels.getInstance().isLocaleAtLeastBasic(locale);
+    }
+
     public enum CodeType {
         language, script, territory, extlang, legacy, redundant, variant, currency, tzid;
         public static CodeType from(String name) {
@@ -293,7 +302,7 @@ public class StandardCodes {
                 default:
                     for (Iterator<String> it = result.iterator(); it.hasNext();) {
                         String code = it.next();
-                        if (code.equals("root") || code.equals("QO"))
+                        if (code.equals(LocaleNames.ROOT) || code.equals("QO"))
                             continue;
                         List<String> data = getFullData(type, code);
                         if (data.size() < 3) {
@@ -390,6 +399,25 @@ public class StandardCodes {
      */
     public Map<String, Level> getLocaleToLevel(Organization org) {
         return getLocaleTypes().get(org);
+    }
+
+    /**
+     * returns the highest level in the hierarchy, not including root.
+     */
+    public Level getHighestLocaleCoverageLevel(String organization, String locale) {
+        // first get parent
+        final String parentId = LocaleIDParser.getParent(locale);
+        Level parentLevel = Level.UNDETERMINED;
+        if (parentId != null && !parentId.equals("root")) {
+            parentLevel = getHighestLocaleCoverageLevel(organization, parentId); // recurse
+        }
+        final Level ourLevel = getLocaleCoverageLevel(organization, locale);
+        if (parentLevel.getLevel() > ourLevel.getLevel()) {
+            // if parentLevel is higher
+            return parentLevel;
+        } else {
+            return ourLevel;
+        }
     }
 
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
@@ -497,7 +525,7 @@ public class StandardCodes {
         // Next, Find maximum coverage level
         for (final Organization o : Organization.values()) {
             if (o == Organization.cldr ||  // Already handled, above
-                o == Organization.guest ||
+                o == Organization.unaffiliated ||
                 o == Organization.surveytool) {
                 continue; // Skip some 'special' orgs
             }
@@ -775,7 +803,7 @@ public class StandardCodes {
     }
 
     /**
-     * @param string
+     * @param type
      * @param string2
      * @param string3
      */
@@ -955,7 +983,7 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"),
+        language(LocaleNames.UND, LocaleNames.ZXX, LocaleNames.MUL, LocaleNames.MIS, LocaleNames.ROOT),
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
         variant(),

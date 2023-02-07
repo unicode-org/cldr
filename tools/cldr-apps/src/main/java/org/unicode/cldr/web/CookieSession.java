@@ -13,7 +13,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.sql.Connection;
 import java.util.Base64;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -78,8 +77,6 @@ public class CookieSession {
      */
     public static SurveyMain sm = null;
 
-    private Connection conn = null;
-
     /**
      * The time (in millis since 1970) when the user last took an explicit action.
      *
@@ -115,15 +112,15 @@ public class CookieSession {
             return 1000000; // anything more than one minute, to prevent browser console countdown
         }
         final long nowMillisSinceEpoch = System.currentTimeMillis();
-        final boolean guest = (user == null);
+        final boolean observer = (user == null);
         long myTimeoutSecs; // timeout in seconds.
 
-        if (guest) {
-            myTimeoutSecs = Params.CLDR_GUEST_TIMEOUT_SECS.value();
+        if (observer) {
+            myTimeoutSecs = Params.CLDR_OBSERVER_TIMEOUT_SECS.value();
             /*
-             * Allow twice as much time, if there aren't too many guests.
+             * Allow twice as much time, if there aren't too many observers.
              */
-            if (!tooManyGuests()) {
+            if (!tooManyObservers()) {
                 myTimeoutSecs *= 2;
             }
         } else {
@@ -188,19 +185,13 @@ public class CookieSession {
      */
     public static Set<CookieSession> getAllSet() {
         synchronized (gHash) {
-            TreeSet<CookieSession> sessSet = new TreeSet<>(new Comparator<Object>() {
-                @Override
-                public int compare(Object a, Object b) {
-                    CookieSession aa = (CookieSession) a;
-                    CookieSession bb = (CookieSession) b;
-                    if (aa == bb)
-                        return 0;
-                    if (aa.lastBrowserCallMillisSinceEpoch > bb.lastBrowserCallMillisSinceEpoch)
-                        return -1;
-                    if (aa.lastBrowserCallMillisSinceEpoch < bb.lastBrowserCallMillisSinceEpoch)
-                        return 1;
-                    return 0; // same age
-                }
+            TreeSet<CookieSession> sessSet = new TreeSet<>((Comparator<Object>) (a, b) -> {
+                CookieSession aa = (CookieSession) a;
+                CookieSession bb = (CookieSession) b;
+                if (aa == bb)
+                    return 0;
+                return Long.compare(bb.lastBrowserCallMillisSinceEpoch, aa.lastBrowserCallMillisSinceEpoch);
+                // same age
             });
             sessSet.addAll(gHash.values()); // ALL sessions
             return sessSet;
@@ -237,8 +228,7 @@ public class CookieSession {
     public static CookieSession retrieveWithoutTouch(String sessionid) {
         checkForExpiredSessions();
         synchronized (gHash) {
-            CookieSession c = gHash.get(sessionid);
-            return c;
+            return gHash.get(sessionid);
         }
     }
 
@@ -251,8 +241,7 @@ public class CookieSession {
      */
     public static CookieSession retrieveUserWithoutTouch(String email) {
         synchronized (gHash) {
-            CookieSession c = uHash.get(email);
-            return c;
+            return uHash.get(email);
         }
     }
 
@@ -292,7 +281,7 @@ public class CookieSession {
      * @return
      */
     public static CookieSession newSession(User user, final String ip) {
-        CookieSession session = CookieSession.newSession((user == null), ip);
+        CookieSession session = CookieSession.newSession(ip);
         session.setUser(user);
         return session;
     }
@@ -316,13 +305,11 @@ public class CookieSession {
     /**
      * Create a new session.
      *
-     * @param isGuest
-     *            True if the user is a guest.
      */
-    private CookieSession(boolean isGuest, String ip, String fromId) {
+    private CookieSession(String ip, String fromId) {
         this.ip = ip;
         if (fromId == null) {
-            id = newId(isGuest);
+            id = newId();
         } else {
             id = fromId;
         }
@@ -336,12 +323,12 @@ public class CookieSession {
         }
     }
 
-    public static CookieSession newSession(boolean isGuest, String ip) {
-        return newSession(isGuest, ip, CookieSession.newId(isGuest));
+    public static CookieSession newSession(String ip) {
+        return newSession(ip, CookieSession.newId());
     }
 
-    public static CookieSession newSession(boolean isGuest, String ip, String fromId) {
-        CookieSession rv = null;
+    public static CookieSession newSession(String ip, String fromId) {
+        CookieSession rv;
         synchronized (gHash) {
             rv = gHash.get(fromId);
             if (rv != null) {
@@ -352,7 +339,7 @@ public class CookieSession {
                     rv.touch();
                 }
             } else {
-                rv = new CookieSession(isGuest, ip, fromId);
+                rv = new CookieSession(ip, fromId);
             }
         }
         return rv;
@@ -383,8 +370,6 @@ public class CookieSession {
             }
             gHash.remove(id);
         }
-        // clear out any database sessions in use
-        DBUtils.closeDBConnection(conn);
         if (DEBUG_INOUT) System.out.println("S: Removing session: " + id + " - " + user);
     }
 
@@ -420,23 +405,20 @@ public class CookieSession {
     // secure stuff
     static SecureRandom myRand = null;
 
-    /** Secure random number generator **/
+    /* Secure random number generator */
 
     /**
      * Generate a new ID.
      *
-     * @param isGuest
-     *            true if user is a guest. The guest namespace is separate from
-     *            the nonguest.
      */
-    public static synchronized String newId(boolean isGuest) {
+    public static synchronized String newId() {
         try {
             if (myRand == null) {
                 myRand = SecureRandom.getInstance("SHA1PRNG");
             }
 
             MessageDigest aDigest = MessageDigest.getInstance("SHA-1");
-            byte[] outBytes = aDigest.digest(new Integer(myRand.nextInt()).toString().getBytes());
+            byte[] outBytes = aDigest.digest(Integer.toString(myRand.nextInt()).getBytes());
             return cheapEncode(outBytes);
         } catch (NoSuchAlgorithmException nsa) {
             SurveyMain.busted("MessageDigest error", nsa);
@@ -477,17 +459,6 @@ public class CookieSession {
      *
      * @param key
      *            parameter to look at
-     * @return boolean result, or false as default
-     */
-    boolean prefGetBool(String key) {
-        return prefGetBool(key, false);
-    }
-
-    /**
-     * Fetch a named boolean from the preferences string
-     *
-     * @param key
-     *            parameter to look at
      * @param defVal
      *            default value of parameter
      * @return boolean result, or defVal as default
@@ -497,7 +468,7 @@ public class CookieSession {
         if (b == null) {
             return defVal;
         } else {
-            return b.booleanValue();
+            return b;
         }
     }
 
@@ -509,12 +480,7 @@ public class CookieSession {
      * @return named pref, or null as default
      */
     String prefGet(String key) {
-        String b = (String) prefs.get(key);
-        if (b == null) {
-            return null;
-        } else {
-            return b;
-        }
+        return (String) prefs.get(key);
     }
 
     /**
@@ -526,7 +492,7 @@ public class CookieSession {
      *            boolean value
      */
     void prefPut(String key, boolean value) {
-        prefs.put(key, new Boolean(value));
+        prefs.put(key, value);
     }
 
     /**
@@ -571,7 +537,7 @@ public class CookieSession {
         StringBuilder out = new StringBuilder(10);
         if (l < 0) {
             out.append("-");
-            l = 0 - l;
+            l = -l;
         } else if (l == 0) {
             return "0";
         }
@@ -586,19 +552,19 @@ public class CookieSession {
         return out.toString();
     }
 
-    public static final String cheapEncode(byte b[]) {
+    public static String cheapEncode(byte[] b) {
         return Base64.getUrlEncoder().withoutPadding().encodeToString(b);
     }
 
-    public static final String cheapEncodeString(String s) {
+    public static String cheapEncodeString(String s) {
         return cheapEncode(s.getBytes(StandardCharsets.UTF_8));
     }
 
-    public static final String cheapDecodeString(String s) {
+    public static String cheapDecodeString(String s) {
         return new String(cheapDecode(s), StandardCharsets.UTF_8);
     }
 
-    public static final byte[] cheapDecode(String s) {
+    public static byte[] cheapDecode(String s) {
         return Base64.getUrlDecoder().decode(s);
     }
 
@@ -619,26 +585,25 @@ public class CookieSession {
         CLDR_MAX_USERS(30),
 
         /**
-         * max guests allowed before guests start getting shut out (should be < CLDR_MAX_USERS)
+         * max observers allowed before observers start getting shut out (should be < CLDR_MAX_USERS)
          */
-        CLDR_MAX_GUESTS(0), // zero means tooManyGuests == tooManyUsers
+        CLDR_MAX_OBSERVERS(0), // zero means tooManyObservers == tooManyUsers
 
         /**
-         * how many seconds guest can be absent/inactive before getting kicked
+         * how many seconds observer can be absent/inactive before getting kicked
          */
-        CLDR_GUEST_TIMEOUT_SECS(5 * 60), // 5 minutes
+        CLDR_OBSERVER_TIMEOUT_SECS(5 * 60), // 5 minutes
 
         /**
          * how many seconds logged-in user can be absent/inactive before getting kicked
          */
         CLDR_USER_TIMEOUT_SECS(30 * 60); // 30 minutes
 
-        private int defVal;
+        private final int defVal;
         private Integer value;
 
         /**
          * Construct a new parameter
-         * @param name
          * @param defVal
          */
         Params(int defVal) {
@@ -683,24 +648,24 @@ public class CookieSession {
     }
 
     /**
-     * Return true if too many guests are logged in.
+     * Return true if too many observers are logged in.
      * @return
      */
-    public static boolean tooManyGuests() {
-        int limit = Params.CLDR_MAX_GUESTS.value();
+    public static boolean tooManyObservers() {
+        int limit = Params.CLDR_MAX_OBSERVERS.value();
         if (tooManyUsers()) {
-            return true; // implies too many guests..
+            return true; // implies too many observers..
         } else if (limit == 0) {
             return false;
         } else {
-            int count = CookieSession.getGuestCount();
+            int count = CookieSession.getObserverCount();
             if (count >= limit) {
                 if (SurveyMain.isUnofficial())
-                    System.out.println("TOO MANY GUESTS. limit=" + limit + ", count=" + count);
+                    System.out.println("TOO MANY OBSERVERS. limit=" + limit + ", count=" + count);
                 return true;
             } else {
                 if (false && DEBUG_INOUT && SurveyMain.isUnofficial())
-                    System.out.println("Guest count OK. . limit=" + limit + ", count=" + count);
+                    System.out.println("Oberver count OK. . limit=" + limit + ", count=" + count);
                 return false;
             }
         }
@@ -714,18 +679,18 @@ public class CookieSession {
     static long lastReapMillisSinceEpoch = 0;
 
     /**
-     * Number of guests
+     * Number of observers (users who are not logged in)
      */
-    private static int nGuests = 0;
+    private static int nObservers = 0;
 
     /**
      * Number of users
      */
     private static int nUsers = 0;
 
-    public static int getGuestCount() {
+    public static int getObserverCount() {
         getUserCount();
-        return nGuests;
+        return nObservers;
     }
 
     /**
@@ -748,29 +713,29 @@ public class CookieSession {
             long elapsedMillis = (nowMillisSinceEpoch - lastReapMillisSinceEpoch);
 
             final boolean tooManyUsers = tooManyUsers();
-            final boolean tooManyGuests = tooManyGuests();
+            final boolean tooManyObservers = tooManyObservers();
 
             final long CHECK_SECS = 5; // check every 5 seconds or if count grows
-            if (elapsedMillis < (1000 * CHECK_SECS) && allCount <= lastCount && !tooManyGuests) {
+            if (elapsedMillis < (1000 * CHECK_SECS) && allCount <= lastCount && !tooManyObservers) {
                 return nUsers;
             }
 
             lastCount = allCount;
 
-            int guests = 0;
+            int observers = 0;
             int users = 0;
             lastReapMillisSinceEpoch = nowMillisSinceEpoch;
 
             // remove any sessions we need to get rid of, count the rest.
             List<CookieSession> toRemove = new LinkedList<>();
             for (CookieSession cs : gHash.values()) {
-                if (cs.user == null) { // guest
+                if (cs.user == null) { // observer
                     if (tooManyUsers
-                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_GUEST_TIMEOUT_SECS.value() * 1000)
+                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_OBSERVER_TIMEOUT_SECS.value() * 1000L)
                             || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
-                        guests++;
+                        observers++;
                     }
                 } else {
                     if ((KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
@@ -787,14 +752,14 @@ public class CookieSession {
                 }
                 cs.remove();
             }
-            nGuests = guests;
+            nObservers = observers;
             return (nUsers = users);
         }
     }
 
     public static void shutdownDB() {
         synchronized (gHash) {
-            CookieSession sessions[] = gHash.values().toArray(new CookieSession[0]);
+            CookieSession[] sessions = gHash.values().toArray(new CookieSession[0]);
             for (CookieSession cs : sessions) {
                 try {
                     cs.remove();
@@ -820,14 +785,13 @@ public class CookieSession {
 
     private UserSettings settings;
 
-    static CookieSession specialGuest = null;
+    static CookieSession specialObserver = null;
 
-    private static synchronized CookieSession getSpecialGuest() {
-        if (specialGuest == null) {
-            specialGuest = new CookieSession(true, "[throttled]", null);
-            // gHash.put("throttled", specialGuest);
+    private static synchronized CookieSession getSpecialObserver() {
+        if (specialObserver == null) {
+            specialObserver = new CookieSession("[throttled]", null);
         }
-        return specialGuest;
+        return specialObserver;
     }
 
     private static class BadUserRecord {
@@ -860,7 +824,7 @@ public class CookieSession {
         if (BAD_IPS.containsKey(userIP)) {
             BadUserRecord bur = (BadUserRecord) BAD_IPS.get(userIP);
             bur.hit(userAgent);
-            return getSpecialGuest();
+            return getSpecialObserver();
         }
 
         if (SurveyMain.isUnofficial()) {
@@ -872,8 +836,7 @@ public class CookieSession {
         int noSes = 0;
         long nowMillisSinceEpoch = System.currentTimeMillis();
         synchronized (gHash) {
-            for (Object o : gHash.values()) {
-                CookieSession cs = (CookieSession) o;
+            for (CookieSession cs : gHash.values()) {
                 if (!userIP.equals(cs.ip)) {
                     continue;
                 }
@@ -888,13 +851,11 @@ public class CookieSession {
         }
         if ((noSes > 10) || userAgent.contains("Googlebot") || userAgent.contains("MJ12bot") || userAgent.contains("ezooms.bot")
             || userAgent.contains("bingbot")) {
-            // System.err.println(userIP+" has " + noSes +
-            // " sessions recently.");
             BadUserRecord bur = new BadUserRecord(userIP);
             bur.hit(userAgent);
 
             BAD_IPS.put(userIP, bur);
-            return getSpecialGuest();
+            return getSpecialObserver();
         } else {
             return null; // OK.
         }
@@ -939,8 +900,8 @@ public class CookieSession {
      * @return
      */
     public String getEffectiveCoverageLevel(String locale) {
-        String level = sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
-        if ((level == null) || (level.equals(WebContext.COVLEV_RECOMMENDED)) || (level.equals("default"))) {
+        String level = sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
+        if (level == null || level.equals(WebContext.COVLEV_RECOMMENDED)) {
             // fetch from org
             level = getOrgCoverageLevel(locale);
         }
@@ -955,10 +916,5 @@ public class CookieSession {
 
     public void setMessage(String s) {
         sessionMessage = s;
-    }
-
-    String getLevelString() {
-        String levelString = settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-        return levelString;
     }
 }

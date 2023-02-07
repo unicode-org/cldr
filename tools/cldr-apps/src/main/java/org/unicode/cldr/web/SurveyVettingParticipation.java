@@ -24,7 +24,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class SurveyVettingParticipation {
-    static final private int STREET_STLEVEL = VoteResolver.Level.street.getSTLevel();
+    static final private int GUEST_STLEVEL = VoteResolver.Level.guest.getSTLevel();
 
     final private String org;
     final private String missingLocalesForOrg;
@@ -77,7 +77,7 @@ public class SurveyVettingParticipation {
                 int theirId = rsu.getInt("id");
                 final User theUser = sm.reg.getInfo(theirId);
 
-                if ((theUser.userlevel > STREET_STLEVEL) ||
+                if ((theUser.userlevel > GUEST_STLEVEL) ||
                     UserRegistry.userIsLocked(theUser) // skip these
                 ) {
                     continue;

@@ -10,4 +10,4 @@ see [../../README.md](../../README.md)
 
 Copyright &copy; 1991-2020 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)

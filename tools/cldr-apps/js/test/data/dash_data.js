@@ -324,7 +324,7 @@ let dashJson =
 // The data is specific to a single path, with three notification categories.
 let dashUpdateJson1 =
 {
-  "section": {
+  "page": {
     "rows": {
       "_xctnmb": {
         "xpstrid": "710b6e70773e5764",
@@ -402,10 +402,10 @@ let dashUpdateJson1 =
 }
 
 // This getrow data is specific to a single path, with zero notification categories.
-// Since notifications is empty, we need to get xpstrid from section.rows...xpstrid
+// Since notifications is empty, we need to get xpstrid from page.rows...xpstrid
 let dashUpdateJson2 =
 {
-  "section": {
+  "page": {
     "rows": {
       "_xctnmb": {
         "xpstrid": "710b6e70773e5764",

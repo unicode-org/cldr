@@ -521,6 +521,14 @@ public abstract class MatchValue implements Predicate<String> {
         public String getSample() {
             return items.iterator().next();
         }
+
+        /**
+         * Return immutable set of items
+         * @return
+         */
+        public Set<String> getItems() {
+            return items;
+        }
     }
 
     static public class RegexMatchValue extends MatchValue {

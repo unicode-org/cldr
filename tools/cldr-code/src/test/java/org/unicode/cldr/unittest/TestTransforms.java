@@ -3,8 +3,10 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -12,33 +14,46 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.ExemplarUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestTransforms extends TestFmwkPlus {
+    private static final String GENERATE_FILE = null; // set to a filename like "und-Latn-t-und-mlym.txt" to regenerate it
+
     CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
@@ -426,7 +441,7 @@ public class TestTransforms extends TestFmwkPlus {
             Set<String> foundTranslitsLower = new TreeSet();
 
             for (String file : fileDirectory.list()) {
-                if (!file.endsWith(".txt") || file.startsWith("_readme")) {
+                if (!file.endsWith(".txt") || file.startsWith("_readme") || file.startsWith("_Generated_")) {
                     continue;
                 }
                 logln("Testing file: " + file);
@@ -437,6 +452,14 @@ public class TestTransforms extends TestFmwkPlus {
                     // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba"
                 }
 
+//              When debugging, this can be used to produce a file with the generated results
+                PrintWriter output = file.equals(GENERATE_FILE)
+                    ? FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+GENERATE_FILE)
+                        : null;
+//                if (file.equals("und-Latn-t-und-mlym.txt")) {
+//                     output = FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+file);
+//                }
+
                 Transliterator trans = getTransliterator(transName);
                 String id = trans.getID().toLowerCase(Locale.ROOT);
                 foundTranslitsLower.add(id);
@@ -444,12 +467,15 @@ public class TestTransforms extends TestFmwkPlus {
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;
                 while (true) {
-                    String line = in.readLine();
-                    if (line == null)
+                    final String original = in.readLine();
+                    if (original == null)
                         break;
-                    line = line.trim();
+                    String line = original.trim();
                     counter += 1;
                     if (line.startsWith("#")) {
+                        if (output != null) {
+                            output.println(original);
+                        }
                         continue;
                     }
                     String[] parts = line.split("\t");
@@ -458,24 +484,26 @@ public class TestTransforms extends TestFmwkPlus {
                     String result = trans.transform(source);
                     assertEquals(transName + " " + counter + " Transform "
                         + source, expected, result);
+                    if (output != null) {
+                        output.println(source + "\t" + result);
+                    }
+                }
+                if (output != null) {
+                    output.close();
                 }
                 in.close();
             }
             Set<String> allTranslitsLower = oldEnumConvertLower(Transliterator.getAvailableIDs(), new TreeSet<>());
             // see which are missing tests
-            for (String s : allTranslitsLower) {
-                if (!foundTranslitsLower.contains(s)) {
-                    warnln("Translit with no test file:\t" + s);
-                }
+            Set<String> missingTranslits = Sets.difference(allTranslitsLower, foundTranslitsLower);
+            if (!missingTranslits.isEmpty()) {
+                warnln("Translit with no test file:\t" + missingTranslits);
             }
-
             // all must be superset of found tests
-            for (String s : foundTranslitsLower) {
-                if (!allTranslitsLower.contains(s)) {
-                    warnln("Test file with no translit:\t" + s);
-                }
+            Set<String> missingFiles = Sets.difference(foundTranslitsLower, allTranslitsLower);
+            if (!missingFiles.isEmpty()) {
+                warnln("Translit with no test file:\t" + missingFiles);
             }
-
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
@@ -630,7 +658,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     private void showTransliterator(Transliterator t) {
-        org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
+        org.unicode.cldr.util.CLDRTransforms.showTransliterator("", t, 999);
     }
 
     public void Test9925() {
@@ -645,51 +673,228 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
-  public void TestZawgyiToUnicode10899() {
-    // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
-    Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
+    public void TestZawgyiToUnicode10899() {
+        // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
+        Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
 
-    String z1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String z1 =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String expected =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = z2u.transform(z1);
+        String actual = z2u.transform(z1);
 
-    assertEquals("z1 to u1", expected, actual);
+        assertEquals("z1 to u1", expected, actual);
 
-    String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
-    expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = z2u.transform(z2);
-    assertEquals("z2 to u2", expected, actual);
+        String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
+        expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = z2u.transform(z2);
+        assertEquals("z2 to u2", expected, actual);
 
-    String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
-    expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = z2u.transform(z3);
-    assertEquals("z3 to u3", expected, actual);
-  }
+        String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+        expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = z2u.transform(z3);
+        assertEquals("z3 to u3", expected, actual);
+    }
 
-  public void TestUnicodeToZawgyi111107() {
-    // Some tests for the transformation from Unicode to Zawgyi font encoding
-    Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
+    public void TestUnicodeToZawgyi111107() {
+        // Some tests for the transformation from Unicode to Zawgyi font encoding
+        Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
 
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String u1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String expected =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String u1 =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = u2z.transform(u1);
+        String actual = u2z.transform(u1);
 
-    assertEquals("u1 to z1", expected, actual);
+        assertEquals("u1 to z1", expected, actual);
 
-    expected = "တကယ္ဆို အၿငႇိဳးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
-    String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = u2z.transform(u2);
-    assertEquals("u2 to z2", expected, actual);
+        expected = "တကယ္ဆို အၿငႇိဳးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
+        String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = u2z.transform(u2);
+        assertEquals("u2 to z2", expected, actual);
 
-    expected = "ျပန္လမ္းမဲ့ကြၽန္းအပိုင္း၄";
-    String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = u2z.transform(u3);
-    assertEquals("u3 to z3", expected, actual);
-  }
+        expected = "ျပန္လမ္းမဲ့ကြၽန္းအပိုင္း၄";
+        String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = u2z.transform(u3);
+        assertEquals("u3 to z3", expected, actual);
+    }
+
+    public void TestLocales() {
+        Set<String> modernCldr = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
+        Set<String> special = StandardCodes.make().getLocaleCoverageLocales(Organization.special, ImmutableSet.of(Level.MODERN));
+        Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        Set<String> missing = new TreeSet<>();
+        SampleDataSet badPlusSample = new SampleDataSet();
+        SampleDataSet allMissing = new SampleDataSet();
+
+        LikelySubtags ls = new LikelySubtags();
+        LanguageTagParser ltp = new LanguageTagParser();
+
+        if (!registered) { // register just those modified, unless already done
+            CLDRTransforms.getInstance().registerModified();
+        }
+
+        for (String locale : modernCldr) {
+            if (special.contains(locale)) {
+                continue;
+            }
+            if (!ltp.set(locale).getRegion().isEmpty()) {
+                continue;
+            }
+            String max = ls.maximize(locale);
+            final String script = ltp.set(max).getScript();
+            if (script.equals("Latn")) {
+                continue;
+            }
+
+            Transliterator t;
+            try {
+                t = CLDRTransforms.getTestingLatinScriptTransform(script);
+            } catch (Exception e) {
+                missing.add(locale);
+                continue;
+            }
+            badPlusSample.clear();
+            CLDRFile file = factory.make(locale, false);
+            for (String path : file) {
+                if (path.contains("/exemplar") || path.contains("/parseLenients")) {
+                    continue;
+                }
+                String value = file.getStringValue(path);
+                String transformed = t.transform(value);
+                badPlusSample.addNonLatin(locale, script, path, value, transformed);
+            }
+            if (!badPlusSample.isEmpty()) {
+                logln(locale + " " + script + " transform doesn't handle " + badPlusSample.size()
+                + " code points:\n" + badPlusSample);
+                allMissing.addAll(badPlusSample);
+            }
+        }
+        if (!allMissing.isEmpty()) {
+            if (false) {
+                System.out.println();
+                Transliterator spacedHan = Transliterator.getInstance("Han-SpacedHan");
+                final String result = spacedHan.transform("《");
+                System.out.println("《 => " + result);
+                CLDRTransforms.showTransliterator("", spacedHan, 100000);
+
+                Transliterator hantLatin = CLDRTransforms.getTestingLatinScriptTransform("Hans");
+                System.out.println("《 => " + hantLatin.transform("《"));
+                CLDRTransforms.showTransliterator("", hantLatin, 100000);
+            }
+
+            warnln("Some X-Latn transforms don't handle " + allMissing.size()
+            + " code points:" + allMissing.dataSet.keySet().toPattern(false)
+            + "=" + allMissing.dataSet.keySet());
+            for (String script : allMissing.scriptMissing.values()) {
+                UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(script);
+                errln("Transliterator for\t" + script + "\tmissing\t" + missingFoScript.size()
+                + ":\t" + missingFoScript.toPattern(false)
+                + "=" + missingFoScript);
+            }
+        }
+    }
+
+    static class SampleDataSet {
+        UnicodeMap<SampleData> dataSet = new UnicodeMap<>();
+        UnicodeRelation<String> scriptMissing = new UnicodeRelation<>();
+
+        static class SampleData {
+            final String locale;
+            final String path;
+            final String value;
+            final String transformed;
+            public SampleData(String locale, String path, String value, String transformed) {
+                this.locale = locale;
+                this.path = path;
+                this.value = value;
+                this.transformed = transformed;
+            }
+            @Override
+            public String toString() {
+                return String.format("%s;\t%s;\t%s;\t%s;\t%s", locale, ExemplarUtilities.getScript(locale), path, value, transformed);
+            }
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder result = new StringBuilder();
+            result
+            .append("size=\t").append(dataSet.size())
+            .append("\nkeys=\t").append(dataSet.keySet().toPattern(false))
+            .append("\ndetails=")
+            ;
+            for (Entry<String, SampleData> entry : dataSet.entrySet()) {
+                final String key = entry.getKey();
+                final int cp = key.codePointAt(0);
+                result
+                .append("\n").append(Utility.hex(cp))
+                .append("\t").append(key)
+                .append("\t").append(UScript.getShortName(UScript.getScript(cp)))
+                .append("\t").append(entry.getValue())
+                ;
+            }
+            return result.toString();
+        }
+
+        private void addNonLatin(String locale, String script, String path, String source, String transformed) {
+            int cp = 0;
+            BitSet bs = new BitSet();
+            for (int ci = 0; ci < transformed.length(); ci += Character.charCount(cp)) {
+                cp = transformed.codePointAt(ci);
+                if (ExemplarUtilities.nonNativeCharacterAllowed(path, cp)) {
+                    continue;
+                }
+                int scriptCode = UScript.getScriptExtensions(cp, bs);
+                switch(scriptCode) {
+                case UScript.LATIN: case UScript.COMMON: case UScript.INHERITED:
+                    continue;
+                default:
+                    // add(locale, script, path, source, transformed, cp);
+                    if (scriptCode >= 0) { // no extensions, not latin, etc.
+                        add(locale, script, path, source, transformed, cp);
+                    } else {
+                        bs.clear(UScript.LATIN);
+                        if (!bs.isEmpty()) {
+                            add(locale, script, path, source, transformed, cp);
+                        }
+                    }
+                }
+            }
+        }
+
+        public int size() {
+            return dataSet.size();
+        }
+
+        public boolean isEmpty() {
+            return dataSet.isEmpty();
+        }
+
+        public void clear() {
+            dataSet.clear();
+        }
+
+        private void add(String locale, String script, String path, String source, String transformed, int cp) {
+            SampleData old = dataSet.get(cp);
+            if (old == null || old.transformed.length() > transformed.length()) {
+                dataSet.put(cp, new SampleData(locale, path, source, transformed));
+                scriptMissing.add(cp, script);
+            }
+        }
+        private void addAll(SampleDataSet badPlusSample) {
+            for (String c : badPlusSample.scriptMissing.keySet()) {
+                scriptMissing.addAll(c, badPlusSample.scriptMissing.get(c));
+            }
+            for (Entry<String, SampleData> entry : badPlusSample.dataSet.entrySet()) {
+                SampleData newData = entry.getValue();
+                SampleData old = dataSet.get(entry.getKey());
+                if (old == null || old.transformed.length() > newData.transformed.length()) {
+                    dataSet.put(entry.getKey(), newData);
+                }
+            }
+        }
+    }
 }

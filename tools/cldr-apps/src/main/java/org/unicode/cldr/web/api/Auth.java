@@ -112,19 +112,21 @@ public class Auth {
                             .entity(new STError(tooManyMessage)).build();
                     }
 
-                    // Also check for too many guests.
-                    if (CookieSession.tooManyGuests()) {
+                    // Also check for too many observers.
+                    if (CookieSession.tooManyObservers()) {
                         final String tooManyMessage = "We have too many people ("+
                             CookieSession.getUserCount() +
                             ") browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
-                            return Response.status(429, "Too many guests")
+                            return Response.status(429, "Too many observers")
                             .entity(new STError(tooManyMessage)).build();
                     }
 
                     // All clear. Make an anonymous session.
-                    session = CookieSession.newSession(true, userIP);
+                    session = CookieSession.newSession(userIP);
                 }
             }
+            // Always reset coverage level preference when log in
+            session.settings().set(SurveyMain.PREF_COVLEV, null);
             LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
             return Response.ok().entity(resp)

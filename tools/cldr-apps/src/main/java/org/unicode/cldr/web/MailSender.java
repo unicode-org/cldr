@@ -35,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.EmailValidator;
 
 /**
  * Helper class. Sends mail with a simple interface
@@ -74,9 +75,6 @@ public class MailSender implements Runnable {
             CLDR_MAIL_DELAY_EACH = CLDRConfig.getInstance().getProperty("CLDR_MAIL_DELAY_EACH", 60);
         }
     }
-    int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
-    int eachTime = 60; /* Check for outbound mail every 60 seconds */
-
 
     private UserRegistry.User getUser(int user) {
         if (user < 1) user = 1;
@@ -92,7 +90,9 @@ public class MailSender implements Runnable {
         if (u == null || UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u)) {
             return null;
         }
-
+        if (!EmailValidator.passes(u.email)) {
+            return null;
+        }
         if (u.email.equals(UserRegistry.ADMIN_EMAIL)) {
             return null; // no mail to admin
         }
@@ -128,6 +128,9 @@ public class MailSender implements Runnable {
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
+            if (conn == null) {
+                return false;
+            }
             ps = DBUtils.prepareStatementWithArgs(conn, "update " + CLDR_MAIL
                 + " set read_date=? where id=? and " + USER + "=?", DBUtils.sqlNow(), id, user);
             if (ps.executeUpdate() == 1) {
@@ -153,8 +156,11 @@ public class MailSender implements Runnable {
         PreparedStatement s = null, s2 = null, s3 = null;
         try {
             conn = db.getDBConnection();
+            if (conn == null) {
+                return;
+            }
             conn.setAutoCommit(false);
-            if (!DBUtils.hasTable(conn, CLDR_MAIL)) {
+            if (!DBUtils.hasTable(CLDR_MAIL)) {
                 logger.info("Creating " + CLDR_MAIL);
                 s = DBUtils.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL
                     + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
@@ -265,7 +271,7 @@ public class MailSender implements Runnable {
                 "INSERT INTO " + CLDR_MAIL + "(sender, " + USER +
                 ",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)",
                 fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(),
-                ccstr, locale, xpath, post);
+                ccstr, locale, xpath, post)
         ) {
             if (DBUtils.db_Derby) { // hack around derby
                 setArgsForDerby(locale, xpath, post, ccstr, s2);
@@ -309,13 +315,17 @@ public class MailSender implements Runnable {
         if (cc != null && !cc.isEmpty()) {
             StringBuilder sb = null;
             for (int u : cc) {
+                String email = getEmailForUser(u);
+                if (email == null) {
+                    continue;
+                }
                 if (sb == null) {
                     sb = new StringBuilder();
                 } else {
                     sb.append(", ");
                 }
                 sb.append('<');
-                sb.append(getEmailForUser(u));
+                sb.append(email);
                 sb.append('>');
             }
             ccstr = sb.toString();
@@ -349,10 +359,9 @@ public class MailSender implements Runnable {
         + " You may request a password reset if needed.";
 
     private Properties getProperties() {
-        CLDRConfig env = CLDRConfig.getInstance();
 
         // set up some presets
-        return env;
+        return CLDRConfig.getInstance();
     }
 
     private int lastIdProcessed = -1; // spinner
@@ -411,7 +420,7 @@ public class MailSender implements Runnable {
             transport = processOneMail(ourSession, transport);
             logger.finest(() -> String.format("Sleep %ds", MailConfig.INSTANCE.CLDR_MAIL_DELAY_BATCH_ITEM));
             try {
-                Thread.sleep(MailConfig.INSTANCE.CLDR_MAIL_DELAY_BATCH_ITEM * 1000);
+                Thread.sleep(MailConfig.INSTANCE.CLDR_MAIL_DELAY_BATCH_ITEM * 1000L);
             } catch (InterruptedException e) {
                 logger.log(Level.WARNING, "processAllMail() interrupted sleep", e);
             }
@@ -421,16 +430,17 @@ public class MailSender implements Runnable {
     private Transport processOneMail(Session ourSession, Transport transport) {
         DBUtils db = DBUtils.getInstance();
         java.sql.Timestamp sqlnow = DBUtils.sqlNow();
+
         try (
             Connection conn = db.getAConnection();
             PreparedStatement s = DBUtils.prepareStatementWithArgsUpdateable(conn, "select * from " + CLDR_MAIL
                 + " where sent_date is NULL and id > ? and try_count < 3 order by id "
                 + (DBUtils.db_Mysql ? "limit 1" : ""), lastIdProcessed);
-            ResultSet rs = s.executeQuery();
+            ResultSet rs = s.executeQuery()
         ) {
             try {
                 // Inner try while we still have the ResultSet
-                if (rs.next() == false) { // No mail to send.
+                if (!rs.next()) { // No mail to send.
                     resetLastIdProcessed();
                     logger.fine("No mail to check.");
                     return transport; // nothing to do
@@ -449,7 +459,7 @@ public class MailSender implements Runnable {
                 }
 
                 // collect other fieds
-                final Integer from = rs.getInt("sender");
+                final int from = rs.getInt("sender");
                 final UserRegistry.User fromUser = getUser(from); // Sending user, or SurveyTool
                 final Timestamp queue_date = rs.getTimestamp("queue_date");
                 final String subject = DBUtils.getStringUTF8(rs, "subject");
@@ -473,7 +483,7 @@ public class MailSender implements Runnable {
     private void handleMailException(java.sql.Timestamp sqlnow, ResultSet rs, Exception e) throws SQLException {
         // Catch these and mark the mail
         SurveyLog.logException(logger, e, "Trying to process mail id#" + lastIdProcessed);
-        int badCount = 0;
+        int badCount;
         rs.updateInt("try_count", (badCount = (rs.getInt("try_count") + 1)));
         rs.updateString("audit", e.getMessage() + e.getCause());
         rs.updateTimestamp("try_date", sqlnow);
@@ -499,7 +509,7 @@ public class MailSender implements Runnable {
             if (transport != null) {
                 try {
                     if (!transport.isConnected()) {
-                        logger.finest("reconnecting to " + transport.toString());
+                        logger.finest("reconnecting to " + transport);
                         transport.connect();
                     }
                 } catch (MessagingException me) {
@@ -571,7 +581,7 @@ public class MailSender implements Runnable {
     private void handleMissingUser(java.sql.Timestamp sqlnow, ResultSet rs, Integer to) throws SQLException {
         String why;
         UserRegistry.User u = CookieSession.sm.reg.getInfo(to);
-        if (u != null && (UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
+        if ((UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
             why = "user " + u + " is locked or anonymous";
         } else {
             why = "user (#" + to + ") does not exist";
@@ -594,10 +604,9 @@ public class MailSender implements Runnable {
     private Session getMailSession() {
         // setup the session
         Properties env = getProperties();
-        Session ourSession = getMailSession(env);
 
         // Note: set mail.debug=true in cldr.properties to turn on session debugging.
-        return ourSession;
+        return getMailSession(env);
     }
 
     private Session getMailSession(Properties env) {

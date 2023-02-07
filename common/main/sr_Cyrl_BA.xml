@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -9428,27 +9428,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given2" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
 			<nameField type="given">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
-		</sampleName>
-		<sampleName item="given12Surname">
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
-		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">↑↑↑</nameField>
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="given-informal">↑↑↑</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname-prefix">↑↑↑</nameField>
-			<nameField type="surname-core">↑↑↑</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+		<sampleName item="foreignFull">
+			<nameField type="title" draft="provisional">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given-informal" draft="provisional">↑↑↑</nameField>
+			<nameField type="given2" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
+			<nameField type="credentials" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

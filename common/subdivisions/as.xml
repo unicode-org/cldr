@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,56 +12,66 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type="at9" draft="contributed">ভিয়েনা</subdivision>
-			<subdivision type="bd46" draft="contributed">নীলফামাৰী জিলা</subdivision>
-			<subdivision type="cnbj" draft="contributed">বেইজিং</subdivision>
-			<subdivision type="cnhk" draft="contributed">হংকং</subdivision>
-			<subdivision type="cnmo" draft="contributed">মাকাও</subdivision>
-			<subdivision type="cnsh" draft="contributed">ছাংহাই</subdivision>
-			<subdivision type="cnxz" draft="contributed">তিব্বত স্বায়ত্তশাসিত অঞ্চল</subdivision>
-			<subdivision type="gbshf" draft="contributed">শ্বেফিল্ড</subdivision>
-			<subdivision type="gbukm" draft="contributed">যুক্তৰাজ্য</subdivision>
-			<subdivision type="idjk" draft="contributed">জাকাৰ্টা</subdivision>
-			<subdivision type="inan" draft="contributed">আন্দামান আৰু নিকোবৰ দ্বীপপুঞ্জ</subdivision>
-			<subdivision type="inap" draft="contributed">অন্ধ্ৰপ্ৰদেশ</subdivision>
-			<subdivision type="inar" draft="contributed">অৰুণাচল প্ৰদেশ</subdivision>
-			<subdivision type="inas" draft="contributed">অসম</subdivision>
-			<subdivision type="inbr" draft="contributed">বিহাৰ</subdivision>
-			<subdivision type="inct" draft="contributed">ছত্তীছগঢ়</subdivision>
-			<subdivision type="indl" draft="contributed">দিল্লী</subdivision>
-			<subdivision type="inga" draft="contributed">গোৱা</subdivision>
-			<subdivision type="ingj" draft="contributed">গুজৰাট</subdivision>
-			<subdivision type="inhp" draft="contributed">হিমাচল প্ৰদেশ</subdivision>
-			<subdivision type="inhr" draft="contributed">হাৰিয়ানা</subdivision>
-			<subdivision type="injh" draft="contributed">ঝাড়খণ্ড</subdivision>
-			<subdivision type="injk" draft="contributed">জম্মু আৰু কাশ্মীৰ</subdivision>
-			<subdivision type="inka" draft="contributed">কৰ্ণাটক</subdivision>
-			<subdivision type="inkl" draft="contributed">কেৰেলা</subdivision>
-			<subdivision type="inmh" draft="contributed">মহাৰাষ্ট্ৰ</subdivision>
-			<subdivision type="inml" draft="contributed">মেঘালয়</subdivision>
-			<subdivision type="inmn" draft="contributed">মণিপুৰ</subdivision>
-			<subdivision type="inmp" draft="contributed">মধ্য প্ৰদেশ</subdivision>
-			<subdivision type="inmz" draft="contributed">মিজোৰাম</subdivision>
-			<subdivision type="innl" draft="contributed">নাগালেণ্ড</subdivision>
-			<subdivision type="inor" draft="contributed">উৰিষ্যা</subdivision>
-			<subdivision type="inpb" draft="contributed">পঞ্জাব, ভাৰত</subdivision>
-			<subdivision type="inrj" draft="contributed">ৰাজস্থান</subdivision>
-			<subdivision type="insk" draft="contributed">ছিক্কিম</subdivision>
-			<subdivision type="intg" draft="contributed">তেলেংগানা</subdivision>
-			<subdivision type="intn" draft="contributed">তামিলনাডু</subdivision>
-			<subdivision type="intr" draft="contributed">ত্ৰিপুৰা</subdivision>
-			<subdivision type="inup" draft="contributed">উত্তৰ প্ৰদেশ</subdivision>
-			<subdivision type="inut" draft="contributed">উত্তৰাখণ্ড</subdivision>
-			<subdivision type="inwb" draft="contributed">পশ্চিমবঙ্গ</subdivision>
-			<subdivision type="jp13" draft="contributed">টকিঅ’</subdivision>
-			<subdivision type="kp01" draft="contributed">পিয়ং ইয়াং</subdivision>
-			<subdivision type="kr11" draft="contributed">ছিউল</subdivision>
-			<subdivision type="mm11" draft="contributed">কাচিন</subdivision>
-			<subdivision type="my14" draft="contributed">কুয়ালা লামপুৰ</subdivision>
-			<subdivision type="th10" draft="contributed">বেংকক</subdivision>
-			<subdivision type="usdc" draft="contributed">ৱাশ্বিংটন ডি.চি.</subdivision>
-			<subdivision type="uswi" draft="contributed">উইচকনচিন</subdivision>
-			<subdivision type="uswy" draft="contributed">ৱায়মিং</subdivision>
+			<subdivision type="at9" draft="provisional">ভিয়েনা</subdivision>
+			<subdivision type="bd04" draft="provisional">ব্ৰাহ্মণবাৰিয়া জিলা</subdivision>
+			<subdivision type="bd46" draft="provisional">নীলফামাৰী জিলা</subdivision>
+			<subdivision type="cnbj" draft="provisional">বেইজিং</subdivision>
+			<subdivision type="cnhk" draft="provisional">হংকং</subdivision>
+			<subdivision type="cnmo" draft="provisional">মাকাও</subdivision>
+			<subdivision type="cnsh" draft="provisional">ছাংহাই</subdivision>
+			<subdivision type="cnxz" draft="provisional">তিব্বত স্বায়ত্তশাসিত অঞ্চল</subdivision>
+			<subdivision type="fr75c" draft="provisional">পেৰিছ</subdivision>
+			<subdivision type="gbeng" draft="provisional">ইংলেণ্ড</subdivision>
+			<subdivision type="gbshf" draft="provisional">শ্বেফিল্ড</subdivision>
+			<subdivision type="gbukm" draft="provisional">যুক্তৰাজ্য</subdivision>
+			<subdivision type="idjk" draft="provisional">জাকাৰ্টা</subdivision>
+			<subdivision type="inan" draft="provisional">আন্দামান আৰু নিকোবৰ দ্বীপপুঞ্জ</subdivision>
+			<subdivision type="inap" draft="provisional">অন্ধ্ৰপ্ৰদেশ</subdivision>
+			<subdivision type="inar" draft="provisional">অৰুণাচল প্ৰদেশ</subdivision>
+			<subdivision type="inas" draft="provisional">অসম</subdivision>
+			<subdivision type="inbr" draft="provisional">বিহাৰ</subdivision>
+			<subdivision type="inch" draft="provisional">চণ্ডীগড়</subdivision>
+			<subdivision type="inct" draft="provisional">ছত্তীছগঢ়</subdivision>
+			<subdivision type="indh" draft="provisional">দাদৰা আৰু নগৰ হাভেলী আৰু দমন আৰু দিউ</subdivision>
+			<subdivision type="indl" draft="provisional">দিল্লী</subdivision>
+			<subdivision type="inga" draft="provisional">গোৱা</subdivision>
+			<subdivision type="ingj" draft="provisional">গুজৰাট</subdivision>
+			<subdivision type="inhp" draft="provisional">হিমাচল প্ৰদেশ</subdivision>
+			<subdivision type="inhr" draft="provisional">হাৰিয়ানা</subdivision>
+			<subdivision type="injh" draft="provisional">ঝাড়খণ্ড</subdivision>
+			<subdivision type="injk" draft="provisional">জম্মু আৰু কাশ্মীৰ</subdivision>
+			<subdivision type="inka" draft="provisional">কৰ্ণাটক</subdivision>
+			<subdivision type="inkl" draft="provisional">কেৰেলা</subdivision>
+			<subdivision type="inla" draft="provisional">লাডাখ</subdivision>
+			<subdivision type="inld" draft="provisional">লাক্ষাদ্বীপ</subdivision>
+			<subdivision type="inmh" draft="provisional">মহাৰাষ্ট্ৰ</subdivision>
+			<subdivision type="inml" draft="provisional">মেঘালয়</subdivision>
+			<subdivision type="inmn" draft="provisional">মণিপুৰ</subdivision>
+			<subdivision type="inmp" draft="provisional">মধ্য প্ৰদেশ</subdivision>
+			<subdivision type="inmz" draft="provisional">মিজোৰাম</subdivision>
+			<subdivision type="innl" draft="provisional">নাগালেণ্ড</subdivision>
+			<subdivision type="inor" draft="provisional">উৰিষ্যা</subdivision>
+			<subdivision type="inpb" draft="provisional">পঞ্জাব, ভাৰত</subdivision>
+			<subdivision type="inpy" draft="provisional">পুডুছেৰী</subdivision>
+			<subdivision type="inrj" draft="provisional">ৰাজস্থান</subdivision>
+			<subdivision type="insk" draft="provisional">ছিক্কিম</subdivision>
+			<subdivision type="intg" draft="provisional">তেলেংগানা</subdivision>
+			<subdivision type="intn" draft="provisional">তামিলনাডু</subdivision>
+			<subdivision type="intr" draft="provisional">ত্ৰিপুৰা</subdivision>
+			<subdivision type="inup" draft="provisional">উত্তৰ প্ৰদেশ</subdivision>
+			<subdivision type="inut" draft="provisional">উত্তৰাখণ্ড</subdivision>
+			<subdivision type="inwb" draft="provisional">পশ্চিমবঙ্গ</subdivision>
+			<subdivision type="jp13" draft="provisional">টকিঅ’</subdivision>
+			<subdivision type="kp01" draft="provisional">পিয়ং ইয়াং</subdivision>
+			<subdivision type="kr11" draft="provisional">ছিউল</subdivision>
+			<subdivision type="mm11" draft="provisional">কাচিন</subdivision>
+			<subdivision type="my14" draft="provisional">কুয়ালা লামপুৰ</subdivision>
+			<subdivision type="th10" draft="provisional">বেংকক</subdivision>
+			<subdivision type="usdc" draft="provisional">ৱাশ্বিংটন ডি.চি.</subdivision>
+			<subdivision type="uswa" draft="provisional">ৱাশ্বিংটন</subdivision>
+			<subdivision type="uswi" draft="provisional">উইচকনচিন</subdivision>
+			<subdivision type="uswv" draft="provisional">ৱেষ্ট ভাৰ্জিনিয়া</subdivision>
+			<subdivision type="uswy" draft="provisional">ৱায়মিং</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

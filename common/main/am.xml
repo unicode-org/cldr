@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -4359,6 +4359,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ኸርሞዚሎ</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>ሳዮዳድ ሁዋሬዝ</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>ማዛትላን</exemplarCity>
@@ -10712,7 +10715,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und am</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ja ko zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
@@ -10842,27 +10845,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
-			<nameField type="given">ሲንባድ</nameField>
+		<sampleName item="nativeG">
+			<nameField type="given">ዜንዳያ</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">ኢሬን</nameField>
 			<nameField type="surname">አድለር</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">ጆን</nameField>
 			<nameField type="given2">ሃሚሽ</nameField>
 			<nameField type="surname">ዋትሰን</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">ፕ/ር ዶ/ር</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">አቶ</nameField>
+			<nameField type="given">በርታም ዊልበርፎርስ</nameField>
+			<nameField type="given-informal">በርቲ</nameField>
+			<nameField type="given2">ሄነሪ ሮበርት</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">ዉስተር</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">ተማሪ</nameField>
+			<nameField type="credentials">ኤምፒ</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">ሲንባድ</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">ካቲ</nameField>
+			<nameField type="surname">ሙለር</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">ዛዚላ</nameField>
+			<nameField type="given2">ሃሚሽ</nameField>
+			<nameField type="surname">ስቶበር</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">ፕ/ር ዶ/ር</nameField>
 			<nameField type="given">አዳ ኮርኔሊያ</nameField>
 			<nameField type="given-informal">ኒል</nameField>
 			<nameField type="given2">ኢቫ ሶፊያ</nameField>
 			<nameField type="surname-prefix">ቫን ደን</nameField>
-			<nameField type="surname-core">ዎልፍ</nameField>
-			<nameField type="surname2">ቤከር ሽሚት</nameField>
-			<nameField type="suffix">ሚ/ዶ ዶ/ር</nameField>
+			<nameField type="surname-core">ብሩህል</nameField>
+			<nameField type="surname2">ጎንዛሌዝ ዶሚንጎ</nameField>
+			<nameField type="generation">ተማሪ</nameField>
+			<nameField type="credentials">ሚ/ዶ ዶ/ር</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

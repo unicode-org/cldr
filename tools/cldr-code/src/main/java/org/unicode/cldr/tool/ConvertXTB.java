@@ -574,7 +574,7 @@ public class ConvertXTB {
             pathDescription = new PathDescription(supplementalDataInfo, englishFile, null, null,
                 PathDescription.ErrorHandling.CONTINUE);
         }
-        final String description = pathDescription.getDescription(path, value, null, null);
+        final String description = pathDescription.getDescription(path, value, null);
         return description;
     }
 

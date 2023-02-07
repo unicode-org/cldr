@@ -123,8 +123,7 @@ public class TestUtilities {
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile english = mainCldrFactory.make("en", true);
         System.out.println("Creating Example Generator");
-        ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, english,
-            CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, english);
         // invoke once
         System.out.println("Processing paths");
         StringBuilder result = new StringBuilder();

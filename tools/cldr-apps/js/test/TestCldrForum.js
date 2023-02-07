@@ -31,13 +31,12 @@ describe("cldrForum.parseContent", function () {
     const content = cldrForum.parseContent(posts, "info");
     assert(content != null, "content is not null");
 
-    assert.equal(content.childElementCount, 1065, "content has 1065 children");
+    assert.equal(content.childElementCount, 1542, "content has 1542 children");
 
     assert(content.firstChild != null, "first child is not null");
-    assert.equal(content.firstChild.id, "fthr_fr_CA|45347");
+    assert.equal(content.firstChild.id, "fthr_96854");
     const s1 =
-      "n (Gaeilge) TC[v38] 2020-02-06 17:26 UTCClosedClosetest" +
-      "n (Gaeilge) TC[v38] 2020-02-06 17:28 UTCClosetest reply blah!";
+      "Requesting “₾”Google#1158 (google) Vetter[v42] 2022-07-04 19:1 UTCOpenRequest(redacted 🆗)Google#2303 (google) TC[v42] 2022-07-15 04:36 UTCComment(redacted 🆗)";
     assert.equal(
       cldrTest.normalizeWhitespace(content.firstChild.textContent),
       cldrTest.normalizeWhitespace(s1)
@@ -45,8 +44,9 @@ describe("cldrForum.parseContent", function () {
 
     const firstSibling = content.firstChild.nextSibling;
     assert(firstSibling != null, "first sibling is not null");
-    assert.equal(firstSibling.id, "fthr_fr_CA|45346");
-    const s2 = "n (Gaeilge) TC[v38] 2020-02-06 17:20 UTCClosedCloseFUrthermore";
+    assert.equal(firstSibling.id, "fthr_98899");
+    const s2 =
+      "Requesting “Micronésie”Facebook#2542 (meta) Vetter[v42] 2022-07-06 10:40 UTCOpenRequest(redacted 🆗)Guest#566 (unaffiliated) Guest[v42] 2022-07-06 12:1 UTCAgree(redacted 🆗)Google#2482 (google) Vetter[v42] 2022-07-11 08:40 UTCComment(redacted 🆗)Guest#566 (unaffiliated) Guest[v42] 2022-07-11 11:28 UTCComment(redacted 🆗)Google#2482 (google) Vetter[v42] 2022-07-11 16:10 UTCComment(redacted 🆗)";
     assert.equal(
       cldrTest.normalizeWhitespace(firstSibling.textContent),
       cldrTest.normalizeWhitespace(s2)
@@ -54,11 +54,9 @@ describe("cldrForum.parseContent", function () {
 
     const secondSibling = firstSibling.nextSibling;
     assert(secondSibling != null, "second sibling is not null");
-    assert.equal(secondSibling.id, "fthr_fr_CA|45343");
+    assert.equal(secondSibling.id, "fthr_100716");
     const s3 =
-      "n (Gaeilge) TC[v38] 2020-02-06 17:17 UTCClosedClosetest" +
-      "n (Gaeilge) TC[v38] 2020-02-06 17:18 UTCCloseOK, replying to test in Dashboard" +
-      "n (Gaeilge) TC[v38] 2020-02-06 17:19 UTCCloseAnd replying to reply";
+      "Requesting “pt typog.”Google#2482 (google) Vetter[v42] 2022-07-11 09:1 UTCOpenRequest(redacted 🆗)Apple#2291 (apple) Vetter[v42] 2022-07-11 10:29 UTCAgree(redacted 🆗)Apple#2291 (apple) Vetter[v42] 2022-07-11 10:30 UTCComment(redacted 🆗)Guest#566 (unaffiliated) Guest[v42] 2022-07-11 11:55 UTCComment(redacted 🆗)";
     assert.equal(
       cldrTest.normalizeWhitespace(secondSibling.textContent),
       cldrTest.normalizeWhitespace(s3)
@@ -66,19 +64,18 @@ describe("cldrForum.parseContent", function () {
 
     const thirdSibling = secondSibling.nextSibling;
     assert(thirdSibling != null, "third sibling is not null");
-    assert.equal(thirdSibling.id, "fthr_fr_CA|45341");
+    assert.equal(thirdSibling.id, "fthr_100751");
     const s4 =
-      "n (Gaeilge) TC[v38] 2020-02-06 17:12 UTCClosedCloseAnd another post from Dashboard." +
-      "n (Gaeilge) TC[v38] 2020-02-06 17:14 UTCCloseAnd another reply, this time from Dashboard Fix pop-up!!!";
+      "Requesting “El Salvador”Google#2482 (google) Vetter[v42] 2022-07-11 09:16 UTCOpenRequest(redacted 🆗)Guest#566 (unaffiliated) Guest[v42] 2022-07-11 11:53 UTCComment(redacted 🆗)";
     assert.equal(
       cldrTest.normalizeWhitespace(thirdSibling.textContent),
       cldrTest.normalizeWhitespace(s4)
     );
 
     assert(content.lastChild != null, "last child is not null");
-    assert.equal(content.lastChild.id, "fthr_fr|363");
+    assert.equal(content.lastChild.id, "fthr_363");
     const sLast =
-      "n (Microsoft) Vetter[v28] 2015-05-19 15:58 UTCClosedClose...";
+      "Microsoft#1530 (microsoft) Vetter[v28] 2015-05-19 15:58 UTCClosedDiscuss(redacted 🆗)";
     assert.equal(
       cldrTest.normalizeWhitespace(content.lastChild.textContent),
       cldrTest.normalizeWhitespace(sLast)

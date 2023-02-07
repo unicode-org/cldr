@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1134,7 +1134,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">ตูนิเซีย</territory>
 			<territory type="TO">ตองกา</territory>
 			<territory type="TR">ตุรกี</territory>
-			<territory type="TR" alt="variant">ทือร์คีแย</territory>
+			<territory type="TR" alt="variant">ทูร์เคีย</territory>
 			<territory type="TT">ตรินิแดดและโตเบโก</territory>
 			<territory type="TV">ตูวาลู</territory>
 			<territory type="TW">ไต้หวัน</territory>
@@ -5399,6 +5399,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>เอร์โมซีโย</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>ซิวดัดฮัวเรซ</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>มาซาทลาน</exemplarCity>
@@ -11308,10 +11311,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{given} {given2} {surname} {surname2} {suffix}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11320,10 +11323,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11338,16 +11341,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11377,7 +11380,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11392,7 +11395,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
@@ -11416,10 +11419,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname-core} {given} {given2} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern>{surname} {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11433,27 +11436,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">ธนา</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">ไอริณ</nameField>
 			<nameField type="surname">กล้าหาญ</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
-			<nameField type="given">วีระพล</nameField>
+		<sampleName item="nativeGGS">
+			<nameField type="given">มานี</nameField>
 			<nameField type="given2">ชัยยศ</nameField>
 			<nameField type="surname">พิชิตชัย</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">ศ.ดร.</nameField>
-			<nameField type="given">โสพล</nameField>
-			<nameField type="given-informal">สอง</nameField>
-			<nameField type="given2">ชัยฤทธิ์</nameField>
-			<nameField type="surname-prefix">ณ</nameField>
-			<nameField type="surname-core">นคร</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">คุณ</nameField>
+			<nameField type="given">ปรีชา</nameField>
+			<nameField type="given-informal">ชาติ</nameField>
+			<nameField type="given2">กล้าหาญ</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">แสงระวี</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">∅∅∅</nameField>
+			<nameField type="credentials">∅∅∅</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">ซินแบด</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">เคเทอ</nameField>
+			<nameField type="surname">มึลเลอร์</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">ซาซิเลีย</nameField>
+			<nameField type="given2">ฮามิช</nameField>
+			<nameField type="surname">สโตเบอร์</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">ศ.ดร.</nameField>
+			<nameField type="given">เอดา คอร์เนเลีย</nameField>
+			<nameField type="given-informal">นีเลอะ</nameField>
+			<nameField type="given2">เซซาร์ มาร์ติน</nameField>
+			<nameField type="surname-prefix">วอน</nameField>
+			<nameField type="surname-core">บรืล</nameField>
+			<nameField type="surname2">กอนซาเลซ โดมิงโก</nameField>
+			<nameField type="generation">จูเนียร์</nameField>
+			<nameField type="credentials">พ.บ. ท.บ.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

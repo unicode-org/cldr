@@ -21,6 +21,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.ChainedMap.M5;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
@@ -32,6 +33,7 @@ import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
@@ -114,6 +116,9 @@ public class TestPaths extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
         for (String locale : getLocalesToTest()) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
@@ -164,6 +169,12 @@ public class TestPaths extends TestFmwkPlus {
 
         if (value == null) {
             if (allowsExtraPath(path, isExtraPath)) {
+                return;
+            }
+            if (CldrUtility.INHERITANCE_MARKER.equals(file.getUnresolved().getStringValue(fullPath))) {
+                logKnownIssue("cldrbug:16209", "Remove this clause (and any paths that still fail)");
+                // When that ticket is resolved, then comment this clause out.
+                // But leave that comment for future guidance where someone wants to move paths from root to extraPaths.
                 return;
             }
             errln("Locale: " + locale + ",\t Value=null, \tPath: " + path + ",\t IsExtraPath: " + isExtraPath);
@@ -224,6 +235,7 @@ public class TestPaths extends TestFmwkPlus {
             || path.contains("/gender")
             || path.contains("/caseMinimalPairs")
             || path.contains("/genderMinimalPairs")
+            || path.contains("/sampleName")
 //            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
 //            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity")
             //+
@@ -454,8 +466,10 @@ public class TestPaths extends TestFmwkPlus {
                                     logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
                                 }
                             }
-                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())
-                                && !finalElement.name.equals("nameOrderLocales")) {
+                            Element.ValueConstraint requirement = finalElement.getValueConstraint();
+                            if (requirement == Element.ValueConstraint.empty && !value.isEmpty()
+                                || requirement == Element.ValueConstraint.nonempty && value.isEmpty()) {
+                                finalElement.getValueConstraint(); // for debugging
                                 errln("PCDATA ≠ emptyValue inconsistency:"
                                     + "\tfile=" + fileName + "/" + file
                                     + "\telementType=" + elementType

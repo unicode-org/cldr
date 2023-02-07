@@ -169,10 +169,10 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
     }
 
     public static XPathMatcher getMatcherForString(String str) {
-        if (str.contains(DataSection.CONTINENT_DIVIDER)) {
+        if (str.contains(DataPage.CONTINENT_DIVIDER)) {
             // just return prefix
             return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,
-                str.substring(0, str.indexOf(DataSection.CONTINENT_DIVIDER)));
+                str.substring(0, str.indexOf(DataPage.CONTINENT_DIVIDER)));
         } else {
             return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, str);
         }

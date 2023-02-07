@@ -962,7 +962,7 @@ public class CLDRTransforms {
         for (String file : files) {
             // Very simple test that depends on standard format
             // eg
-            //            ::[॑ ॒ ॔ ॓ ़ ँ-ः । ॥ ॰ ०-९ ॐ ॲ ऄ-ऋ ॠ ऌ ॡ ऍ-कक़ खख़ गग़ घ-जज़ झ-डड़ ढढ़ ण-फफ़ ब-यय़ र-ह ऽ ॽ ा-ॄ ॢ ॣ ॅ-्];
+            //            ::[॑ ॒ ॔ ॓ ़ ँ-ः । ॥ ॰ ०-९ ॐ ॲ ऄ-ऋ ॠ ऌ ॡ ऍ-कक़ खख़ गग़ घ-जज़ झ-डड़ ढढ़ ण-फफ़ ब-यय़ र-ह ऽ ॽ ा-ॄ ॢ ॣ ॅ-्];
             //            ::NFD;
             //            ::Devanagari-InterIndic;
             //            ::InterIndic-Latin;

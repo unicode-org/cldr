@@ -2,15 +2,12 @@
  * cldrCreateLogin: encapsulate the "Create and Login" part of the Admin Panel.
  */
 import * as cldrAjax from "./cldrAjax.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
 // called as special.load
 function load() {
-  cldrInfo.showNothing();
-
   const ourDiv = document.createElement("div");
   ourDiv.setAttribute("id", "createLoginDiv");
   ourDiv.innerHTML = getHtml();

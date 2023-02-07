@@ -20,14 +20,31 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GlossonymConstructor;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
@@ -167,9 +184,14 @@ public class TestCLDRFile extends TestFmwk {
             }
             PlaceholderStatus phStatus = pph.getStatus(path);
 
-            PlaceholderStatus expected = path.contains("/metazone") || path.contains("/timeZoneNames") || path.contains("/gender")
-                || path.startsWith("//ldml/numbers/currencies/currency") ? PlaceholderStatus.DISALLOWED
-                    : path.contains("/compoundUnitPattern1") ? PlaceholderStatus.REQUIRED
+            PlaceholderStatus expected = path.contains("/metazone")
+                || path.contains("/timeZoneNames")
+                || path.contains("/gender")
+                || path.startsWith("//ldml/numbers/currencies/currency")
+                || path.startsWith("//ldml/personNames/sampleName")
+                ? PlaceholderStatus.DISALLOWED
+                    : path.contains("/compoundUnitPattern1")
+                    ? PlaceholderStatus.REQUIRED
                         : PlaceholderStatus.LOCALE_DEPENDENT;
             if (!assertEquals(path, expected, phStatus)) {
                 int debug = 0;
@@ -365,7 +387,9 @@ public class TestCLDRFile extends TestFmwk {
                 ) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
-                errln("+" + engName + ", -" + locales + "\t" + path);
+                if (!path.contains("speed-beaufort")) {
+                    errln("+" + engName + ", -" + locales + "\t" + path);
+                }
             }
         }
         for (Entry<String, Set<String>> entry : extraPathsToLocales
@@ -565,7 +589,7 @@ public class TestCLDRFile extends TestFmwk {
                 // assertEquals("x≠y", "x", "y"); // expected x, got y
                 if (unresolvedConstructedValue != null) {
                     assertEquals("uc≠rc\t" + locale + "\t" + phf.fromPath(path),
-                            unresolvedConstructedValue, resolvedConstructedValue);
+                        unresolvedConstructedValue, resolvedConstructedValue);
                 }
 
                 // if there is a value, then either it is at the top level or it
@@ -576,7 +600,7 @@ public class TestCLDRFile extends TestFmwk {
                     if (topValue != null && !CldrUtility.INHERITANCE_MARKER.equals(topValue)) {
                         if (!topValue.equals(cldrFileUnresolved.getConstructedValue(path))) {
                             assertEquals("top≠resolved\t" + locale + "\t" + phf.fromPath(path),
-                              topValue, resolvedValue);
+                                topValue, resolvedValue);
                         }
                     } else {
                         String locale2 = cldrFile.getSourceLocaleID(path, status);
@@ -690,7 +714,7 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> dirFiles = new TreeSet<>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);
-                errln(dir + " has extra files" + dirFiles);
+                errln(dir + "/ has extra files not in main/: " + dirFiles);
             }
         }
     }

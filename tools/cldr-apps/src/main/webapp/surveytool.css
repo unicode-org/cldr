@@ -31,6 +31,25 @@ ul.adminList li.notselected {
 	border-right:  1px solid #ddd;
 }
 
+.transcript-container {
+	display: none;
+}
+
+.transcript-container.visible {
+	display: block;
+}
+
+a.show-transcript {
+	float: right;
+}
+
+pre.transcript-text {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: small;
+	white-space: pre-line;
+	word-break: normal;
+}
+
 #small_login_shower button {
     float:  right;
 }
@@ -179,7 +198,7 @@ div.adminUserUser i {
     border:  2px solid black;
 }
 
-i.userlevel_street {
+i.userlevel_guest {
 	background-color: navy !important;
 	color:  white !important;
 }
@@ -191,11 +210,6 @@ i.userlevel_locked {
 	background-color: gray !important;
 	color:  silver !important;
 }
-i.userlevel_expert {
-	background-color: teal !important;
-	color:  black !important;
-}
-
 i.userlevel_manager{
 	background-color: #e77de7 !important;
 	color: white !important;
@@ -981,6 +995,7 @@ i.loadingMsgSpin {
 	left:15px;
 }
 */
+
 
 .loaderAnimIcon {
 	background-image: url('loader.gif');
@@ -1910,12 +1925,13 @@ p.errCodeMsg {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: normal;
     font-style: normal;
-    padding-left:  20px;
     margin-left:  3em;
     margin-right:  3em;
     border:  2px solid silver;
 	font-size: larger;
 	white-space: pre-line;
+	padding: 0.5em;
+	background-color: #ecd290;
 }
 
 p.errCodeMsg .fgred {
@@ -1923,9 +1939,10 @@ p.errCodeMsg .fgred {
 }
 
 #LoadingMessageSection p.errCodeMsg button {
-    display:  block;
+    display:  inline-block;
     margin-top: 1em;
-    font-size: x-large;
+    font-size: larger;
+	margin-left: 0.5em;
 }
 
 .cldr_substituted {
@@ -2349,45 +2366,24 @@ span.pathChunk:after
 }
 
 .d-dr-approved {
-	width: 16px;
-	height: 16px;
-	background: url(approved.png) no-repeat center;
+	color: green;
 }
 
-.d-dr-contributed {
-	width: 16px;
-	height: 16px;
-	background: url(contributed.png) no-repeat center;
+.d-dr-contributed,.d-dr-provisional,.d-dr-inherited-provisional {
+	color: orange;
 }
 
-.d-dr-provisional {
-	width: 16px;
-	height: 16px;
-	background: url(provisional.png) no-repeat center;
-}
-
-.d-dr-inherited-provisional {
-	width: 16px;
-	height: 16px;
-	background: url(inherited-provisional.png) no-repeat center;
-}
-
-.d-dr-unconfirmed {
-	width: 16px;
-	height: 16px;
-	background: url(unconfirmed.png) no-repeat center;
-}
-
-.d-dr-inherited-unconfirmed {
-	width: 16px;
-	height: 16px;
-	background: url(inherited-unconfirmed.png) no-repeat center;
+.d-dr-unconfirmed,.d-dr-inherited-unconfirmed {
+	color: red;
 }
 
 .d-dr-missing {
-	width: 16px;
-	height: 16px;
-	background: url(missing.png) no-repeat center;
+	color: black;
+}
+
+.statuscell {
+	text-align: center;
+	font-weight: bold;
 }
 
 .voteDiv .winningStatus  {
@@ -2675,7 +2671,7 @@ transition: background-color 0.2s;
 	background: url(star.png) no-repeat center center;
 }
 
-.d-dr-approved,.d-dr-contributed,.d-dr-unconfirmed,.d-dr-provisional,.d-dr-missing,.i-star,.label-icon {
+.i-star,.label-icon {
 	position:relative;
 	left:5px;
 	display:inline-block;
@@ -2853,19 +2849,6 @@ div.voterList p {
 	margin-top:0;
 	margin-bottom:  0.5em;
 }
-
-/* formatting for date time review */
-.dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}
-.dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}
-.dtf-th {background-color:#EEE; padding:4px}
-.dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}
-.dtf-sep {background-color:#EEF; text-align:center}
-.dtf-s {text-align:center;}
-.dtf-int {width:100%; height:100%}
-.dtf-fix {width:1px}
-.dtf-left {text-align:left;}
-.dtf-nopad {padding:0px; vertical-align:top;}
-.dtf-gray {background-color:#EEF}
 
 .rolloverspan:hover {
 	color: white !important;

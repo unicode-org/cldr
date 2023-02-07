@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -130,7 +131,7 @@ public class LanguageInfoTest extends TestFmwk {
             matcher.getBestMatch("zh"));
     }
 
-    static final ULocale MUL = new ULocale("mul");
+    static final ULocale MUL = new ULocale(LocaleNames.MUL);
 
     public void testFallbacks() {
         if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
@@ -154,7 +155,7 @@ public class LanguageInfoTest extends TestFmwk {
                 continue;
             }
 
-            // we put "mul" first in the list, to verify that the fallback works enough to be better than the default.
+            // we put LocaleNames.MUL first in the list, to verify that the fallback works enough to be better than the default.
 
             @SuppressWarnings("deprecation")
             final LocaleMatcher matcher = new LocaleMatcher(

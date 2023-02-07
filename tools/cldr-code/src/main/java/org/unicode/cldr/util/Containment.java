@@ -214,11 +214,19 @@ public class Containment {
             targets.add(target);
         } else if (size == 1) {
             for (String parent : parents) {
-                getAllDirected(multimap, parent, target, targets);
+                if (parent.equals(lang)) {
+                    System.err.println("ERR: "+ lang + " is its own parent");
+                } else {
+                    getAllDirected(multimap, parent, target, targets);
+                }
             }
         } else {
             for (String parent : parents) {
-                getAllDirected(multimap, parent, (ArrayList<String>) target.clone(), targets);
+                if (parent.equals(lang)) {
+                    System.err.println("ERR: "+ lang + " is its own parent");
+                } else {
+                    getAllDirected(multimap, parent, (ArrayList<String>) target.clone(), targets);
+                }
             }
         }
     }

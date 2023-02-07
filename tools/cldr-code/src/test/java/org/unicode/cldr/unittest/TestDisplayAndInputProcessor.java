@@ -441,12 +441,20 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
                     "\u00A0  DUCK \u00A0  GOOSE \u00A0", "DUCK GOOSE", PathSpaceType.allowSp),
 
+                // removed temporarily per CLDR-16210
+                // new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
+                //     "\u202F  BOOK \u202F  HORSE \u202F", "BOOK HORSE", PathSpaceType.allowSp),
+
                 new PathSpaceData("//ldml/numbers/currencies/currency/group",
                     " \u00A0  ፊደል \u00A0 ", "ፊደል", PathSpaceType.allowNbsp),
                 new PathSpaceData("//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
                     "\u00A0  ding \u00A0\u00A0 dong \u00A0", "ding\u00A0dong", PathSpaceType.allowNbsp),
                 new PathSpaceData("//ldml/numbers/symbols/nan",
                     "\u00A0  HA   HU \u00A0", "HA\u00A0HU", PathSpaceType.allowNbsp),
+
+                // removed temporarily per CLDR-16210
+                // new PathSpaceData("//ldml/numbers/symbols/nan",
+                //    "\u202F  BA \u202F  BU \u202F", "BA\u00A0BU", PathSpaceType.allowNbsp),
 
                 new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"telu\"]/approximatelySign",
                     " \u00A0  试 \u00A0 ", "试", PathSpaceType.allowSpOrNbsp),
@@ -459,6 +467,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 new PathSpaceData(
                     "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MEd\"]/greatestDifference[@id=\"M\"]",
                     "〖\u00A0\u00A0〗", "〖\u00A0〗", PathSpaceType.allowSpOrNbsp),
+
+                // removed temporarily per CLDR-16210
+                // new PathSpaceData(
+                //    "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MEd\"]/greatestDifference[@id=\"M\"]",
+                //    "*〖\u202F\u00A0〗*", "*〖\u00A0〗*", PathSpaceType.allowSpOrNbsp),
+
                 /*
                  * The following path is an exception in which regular space is changed to NBSP
                  * in spite of the path being allowSpOrNbsp; see comment "fix grouping separator if space"
@@ -472,6 +486,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 new PathSpaceData("//ldml/annotations/annotation[@cp=\"🍊\"]",
                     "\u00A0  fruit   |   orange   | \u00A0  tangerine \u00A0", "fruit | orange | tangerine",
                     PathSpaceType.allowSpOrNbsp),
+                /*
+                 * The following path expects NNBSP (U+202F)
+                 */
+                // removed temporarily per CLDR-16210
+                // new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
+                //    " pizza \u00A0\u202F cardboard ", "pizza\u202Fcardboard",
+                //    PathSpaceType.allowNNbsp),
             };
             return a;
         }
@@ -563,4 +584,18 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
     }
+
+    public void TestFSR() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.FSR_START_PATH);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.NOL_START_PATH);
+    }
+
+    public void checkPathAllowsEmpty(DisplayAndInputProcessor daip, String xpath) {
+        String val = daip.processInput(xpath, DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE, null);
+        assertEquals(DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE + " input for " + xpath, "", val);
+        String roundTrip = daip.processForDisplay(xpath, "");
+        assertEquals("Empty FSR output for" + xpath, DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE, roundTrip);
+    }
+
 }

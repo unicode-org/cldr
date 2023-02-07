@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2063,19 +2063,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="d">d.–d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">G y. – G y.</greatestDifference>
+							<greatestDifference id="G">G y. – G y.</greatestDifference>
 							<greatestDifference id="y">G y.–y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">GGGGG MM-y. – GGGGG MM-y.</greatestDifference>
-							<greatestDifference id="M">GGGGG MM-y. – MM-y.</greatestDifference>
-							<greatestDifference id="y">GGGGG MM-y. – MM-y.</greatestDifference>
+							<greatestDifference id="G">GGGGG MM-y. – GGGGG MM-y.</greatestDifference>
+							<greatestDifference id="M">GGGGG MM-y. – MM-y.</greatestDifference>
+							<greatestDifference id="y">GGGGG MM-y. – MM-y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
-							<greatestDifference id="G">GGGGG dd-MM-y. – GGGGG dd-MM-y.</greatestDifference>
-							<greatestDifference id="M">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
-							<greatestDifference id="y">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="d">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="G">GGGGG dd-MM-y. – GGGGG dd-MM-y.</greatestDifference>
+							<greatestDifference id="M">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="y">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
 							<greatestDifference id="d">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
@@ -2140,8 +2140,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">dd.MM.–dd.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E, dd.MM. – E, dd.MM.</greatestDifference>
-							<greatestDifference id="M">E, dd.MM. – E, dd.MM.</greatestDifference>
+							<greatestDifference id="d">E, dd.MM. – E, dd.MM.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM. – E, dd.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL–LLL</greatestDifference>
@@ -2167,9 +2167,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">dd.MM.y.–dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y. 'gada' MMM–MMM</greatestDifference>
@@ -4007,6 +4007,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Hermosillo">
 				<exemplarCity>Ermosiljo</exemplarCity>
 			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>Huaresa</exemplarCity>
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Masatlana</exemplarCity>
 			</zone>
@@ -5560,7 +5563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤</pattern>
@@ -12503,13 +12506,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{suffix} {prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{credentials} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -12521,19 +12524,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{suffix} {prefix} {given} {given2-initial} {surname} {surname2}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="contributed">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
@@ -12545,7 +12548,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -12557,13 +12560,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {suffix} {surname} {surname2} {given} {given2}</namePattern>
-		</personName>
-		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {given}</namePattern>
 		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -12575,13 +12578,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{suffix} {surname} {given} {given2-initial}</namePattern>
+			<namePattern>{credentials} {surname} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{surname} {given}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -12599,7 +12602,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -12611,7 +12614,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{suffix} {surname}, {given} {given2}</namePattern>
+			<namePattern>{surname} {given} {given2}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern>{surname}, {given} {given2}</namePattern>
@@ -12628,27 +12631,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Jānis</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Aina</nameField>
 			<nameField type="surname">Kalniņa</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
-			<nameField type="given">Džons</nameField>
-			<nameField type="given2">Kārlis</nameField>
-			<nameField type="surname">Bērziņš</nameField>
+		<sampleName item="nativeGGS">
+			<nameField type="given">Anna</nameField>
+			<nameField type="given2">Paula</nameField>
+			<nameField type="surname">Bērziņa</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">Prof.</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">kungs</nameField>
+			<nameField type="given">Pēteris</nameField>
+			<nameField type="given-informal">Pēcis</nameField>
+			<nameField type="given2">Kārlis</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">Ozoliņš</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">jaunākais</nameField>
+			<nameField type="credentials">MP</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Sinbads</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Keita</nameField>
+			<nameField type="surname">Millere</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">Pīters</nameField>
+			<nameField type="given2">Džims</nameField>
+			<nameField type="surname">Millers</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">Prof.</nameField>
 			<nameField type="given">Laima Kristīne</nameField>
 			<nameField type="given-informal">Ella</nameField>
 			<nameField type="given2">Eva Sofija</nameField>
 			<nameField type="surname-prefix">van den</nameField>
-			<nameField type="surname-core">Volfs</nameField>
-			<nameField type="surname2">Bērziņš-Kalniņš</nameField>
-			<nameField type="suffix">Dr.philol.</nameField>
+			<nameField type="surname-core">Volfa</nameField>
+			<nameField type="surname2">Bērziņa-Kalniņa</nameField>
+			<nameField type="generation">jaunākā</nameField>
+			<nameField type="credentials">Dr.philol.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

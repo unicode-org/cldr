@@ -12,10 +12,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST version number CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
-<!ATTLIST version cldrVersion CDATA #FIXED "42" >
+<!ATTLIST version cldrVersion CDATA #FIXED "43" >
     <!--@MATCH:version-->
     <!--@VALUE-->
-<!ATTLIST version unicodeVersion CDATA #FIXED "14.0.0" >
+<!ATTLIST version unicodeVersion CDATA #FIXED "15.0.0" >
     <!--@MATCH:version-->
     <!--@VALUE-->
 
@@ -250,6 +250,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST era end CDATA #IMPLIED >
     <!--@MATCH:time/yyyy-MM-dd-->
     <!--@VALUE-->
+<!ATTLIST era code NMTOKEN #IMPLIED >
+    <!--@MATCH:regex/[a-z0-9]{3,8}(\-[a-z0-9]{3,8})*-->
+    <!--@VALUE-->
+<!ATTLIST era aliases NMTOKENS #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST era named (true | false) #IMPLIED >
     <!--@VALUE-->
 
@@ -374,7 +379,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST unitIdComponent type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/prefix, suffix, power, and, per-->
 <!ATTLIST unitIdComponent values NMTOKENS #REQUIRED >
-    <!--@MATCH:set/regex/[a-z]+[0-9]* -->
+    <!--@MATCH:set/regex/[a-z]+[0-9]*-->
     <!--@VALUE-->
 
 <!ELEMENT unitConstants ( unitConstant* ) >
@@ -456,7 +461,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 <!ATTLIST unitPreference alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/informal, variant-->
-    
+
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
     <!--@DEPRECATED-->
 

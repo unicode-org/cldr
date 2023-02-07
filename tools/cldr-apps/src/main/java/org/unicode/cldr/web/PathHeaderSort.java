@@ -6,8 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.Partition.Membership;
+import org.unicode.cldr.web.DataPage.DataRow;
 
 public class PathHeaderSort extends SortMode {
 
@@ -24,26 +23,18 @@ public class PathHeaderSort extends SortMode {
     }
 
     @Override
-    Membership[] memberships() {
-        return null; // not used
-    }
-
-    @Override
     Comparator<DataRow> getComparator() {
         return null; // not used
     }
 
     @Override
-    public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
-        // final Set<String> headings = new TreeSet<String>();
-        DataRow rows[] = createSortedList(new Comparator<DataRow>() {
+    public DataPage.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
+        DataRow[] rows = createSortedList(new Comparator<>() {
 
             @Override
             public int compare(DataRow ll, DataRow rr) {
                 PathHeader l = ll.getPathHeader();
                 PathHeader r = rr.getPathHeader();
-                // headings.add(l.getHeader());
-                // headings.add(r.getHeader());
                 return l.compareTo(r);
             }
         }, matcher, values);
@@ -64,7 +55,7 @@ public class PathHeaderSort extends SortMode {
             }
         }
 
-        return new DataSection.DisplaySet(rows, this, thePartitions.toArray(new Partition[thePartitions.size()]));
+        return new DataPage.DisplaySet(rows, this, thePartitions.toArray(new Partition[0]));
     }
 
 }

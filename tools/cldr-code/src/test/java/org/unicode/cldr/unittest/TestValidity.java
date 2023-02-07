@@ -16,17 +16,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.TransliteratorUtilities;
-import org.unicode.cldr.util.Units;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Objects;
@@ -51,12 +43,12 @@ public class TestValidity extends TestFmwkPlus {
         Object[][] tests = {
             { LstrType.language, Validity.Status.regular, true, "aa", "en" },
             { LstrType.language, null, false, "eng" }, // null means never found under any status
-            { LstrType.language, null, false, "root" },
-            { LstrType.language, Validity.Status.special, true, "mul" },
+            { LstrType.language, null, false, LocaleNames.ROOT },
+            { LstrType.language, Validity.Status.special, true, LocaleNames.MUL },
             { LstrType.language, Validity.Status.deprecated, true, "aju" },
             { LstrType.language, Validity.Status.reserved, true, "qaa", "qfy" },
             { LstrType.language, Validity.Status.private_use, true, "qfz" },
-            { LstrType.language, Validity.Status.unknown, true, "und" },
+            { LstrType.language, Validity.Status.unknown, true, LocaleNames.UND },
 
             { LstrType.script, Validity.Status.reserved, true, "Qaaa", "Qaap"},
             { LstrType.script, Validity.Status.private_use, true, "Qaaq", "Qabx"},
@@ -124,9 +116,10 @@ public class TestValidity extends TestFmwkPlus {
         "no",
         "escn",
         "gbeng", "gbnir", "gbsct", "gbwls",
-        "itgo", "itpn", "itts", "itud"
+        "itgo", "itpn", "itts", "itud",
+        "SLE"
         );
-    static final Set<String> ALLOWED_MISSING = ImmutableSet.of("root", "POSIX", "REVISED", "SAAHO");
+    static final Set<String> ALLOWED_MISSING = ImmutableSet.of(LocaleNames.ROOT, "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");
 
     public void TestCompatibility() {
@@ -400,7 +393,7 @@ public class TestValidity extends TestFmwkPlus {
             { "eng-840", "en" },
             { "sh_ba", "sr_Latn_BA" },
             { "iw-arab-010", "he_Arab_AQ" },
-            { "und", "und" },
+            { LocaleNames.UND, LocaleNames.UND },
             { "und_us", "und_US" },
             { "und_su", "und_RU" },
         };

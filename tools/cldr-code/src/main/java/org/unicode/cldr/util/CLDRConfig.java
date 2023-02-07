@@ -312,7 +312,7 @@ public class CLDRConfig extends Properties {
     }
 
     public CLDRFile getRoot() {
-        return getCLDRFile("root", true);
+        return getCLDRFile(LocaleNames.ROOT, true);
     }
 
     private static final class CollatorRootHelper {
@@ -321,7 +321,7 @@ public class CLDRConfig extends Properties {
         private static final RuleBasedCollator make() {
             RuleBasedCollator colRoot;
 
-            CLDRFile root = getInstance().getCollationFactory().make("root", false);
+            CLDRFile root = getInstance().getCollationFactory().make(LocaleNames.ROOT, false);
             String rules = root.getStringValue("//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr");
             try {
                 colRoot = new RuleBasedCollator(rules);

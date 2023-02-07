@@ -19,7 +19,3 @@ cldr_st_path: /srv/st
 cldr_path: "{{ cldr_st_path }}/config"
 # this is the path to the CLDR checkout
 cldr_trunk_path: "{{ cldr_st_path }}/src/cldr"
-
-# Java
-adoptopenjdk_package: adoptopenjdk-11-openj9
-adoptopenjdk_state: present

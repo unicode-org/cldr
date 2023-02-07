@@ -1,7 +1,7 @@
 /*
  * cldrForumFilter: encapsulate filtering of forum threads.
  */
-import * as cldrForum from "./cldrForum.js";
+import * as cldrStatus from "./cldrStatus.js";
 
 /**
  * The zero-based index of 'Open topics' in the filters array
@@ -97,9 +97,16 @@ function createMenu(reloadFunction) {
  * @return the filtered array of threadId strings
  */
 function getFilteredThreadIds(threadHash, applyFilter) {
+  // Show this "exceptional" thread even if it doesn't pass the filter; if it matches the URL
+  // like "100923" matches "...cldr-apps/v#forum/en_AU//100923" then don't filter it out
+  const exceptionalId = cldrStatus.getCurrentId();
   const filteredArray = [];
   Object.keys(threadHash).forEach(function (threadId) {
-    if (!applyFilter || threadPasses(threadHash[threadId])) {
+    if (
+      !applyFilter ||
+      threadPasses(threadHash[threadId]) ||
+      threadId == exceptionalId
+    ) {
       filteredArray.push(threadId);
     }
   });

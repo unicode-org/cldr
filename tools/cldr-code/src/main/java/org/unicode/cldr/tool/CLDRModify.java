@@ -26,42 +26,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.CLDRTest;
-import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.QuickCheck;
-import org.unicode.cldr.util.Annotations;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.test.*;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRTool;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.FileProcessor;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
 // import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.PathChecker;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -349,13 +323,25 @@ public class CLDRModify {
             try {
                 Factory cldrFactoryForAvailable = Factory.make(sourceDir, ".*");
                 Factory cldrFactory = cldrFactoryForAvailable;
-                // Fix for annotations.  Need root.xml or else cannot load resolved
-                // locales.
+                // Need root.xml or else cannot load resolved locales.
+                /*
+                 * TODO: when seed and common are merged per https://unicode-org.atlassian.net/browse/CLDR-6396
+                 * this will become moot; in the meantime it became necessary to do this not only for "Q"
+                 * but also for "p" per https://unicode-org.atlassian.net/browse/CLDR-15054
+                 */
                 if (sourceDir.endsWith("/seed/annotations/") && "Q".equals(options[FIX].value)) {
                     System.err.println("Correcting factory so that annotations can load, including " + CLDRPaths.ANNOTATIONS_DIRECTORY);
                     final File[] paths = {
                         new File(sourceDir),
                         new File(CLDRPaths.ANNOTATIONS_DIRECTORY) // common/annotations - to load root.xml
+                    };
+                    cldrFactory = SimpleFactory.make(paths, ".*");
+                } else if (sourceDir.contains("/seed/") && "p".equals(options[FIX].value)) {
+                    System.err.println("Correcting factory to enable getting root");
+                    final File[] paths = {
+                        new File(sourceDir),
+                        new File(CLDRPaths.ANNOTATIONS_DIRECTORY), // to load common/annotations/root.xml
+                        new File(CLDRPaths.MAIN_DIRECTORY) // to load common/main/root.xml
                     };
                     cldrFactory = SimpleFactory.make(paths, ".*");
                 } else {
@@ -598,6 +584,9 @@ public class CLDRModify {
 
     static PathChecker pathChecker = new PathChecker();
 
+    /**
+     * Implementation for a certain type of filter. Each filter has a letter associated with it.
+     */
     abstract static class CLDRFilter {
         protected CLDRFile cldrFileToFilter;
         protected CLDRFile cldrFileToFilterResolved;
@@ -607,6 +596,13 @@ public class CLDRModify {
         private CLDRFile toBeReplaced;
         protected Factory factory;
 
+        /**
+         * Called when a new locale is being processed
+         * @param k
+         * @param factory
+         * @param removal
+         * @param replacements
+         */
         public final void setFile(CLDRFile k, Factory factory, Set<String> removal, CLDRFile replacements) {
             this.cldrFileToFilter = k;
             cldrFileToFilterResolved = null;
@@ -617,11 +613,21 @@ public class CLDRModify {
             handleStart();
         }
 
+        /**
+         * Called by setFile() before all processing for a file
+         */
         public void handleStart() {
         }
 
+        /**
+         * Called for each xpath
+         * @param xpath
+         */
         public abstract void handlePath(String xpath);
 
+        /**
+         * Called after all xpaths in this file are handled
+         */
         public void handleEnd() {
         }
 
@@ -634,8 +640,8 @@ public class CLDRModify {
                 }
             }
             return cldrFileToFilterResolved;
-
         }
+
         public void show(String reason, String detail) {
             System.out.println("%" + localeID + "\t" + reason + "\tConsidering " + detail);
         }
@@ -753,11 +759,22 @@ public class CLDRModify {
             return toBeReplaced;
         }
 
+        /**
+         * Called before all files are processed.
+         * Note: TODO: This is called unconditionally, whether the filter is enabled or not. It should
+         * only be called if the filter is enabled. Reference: https://unicode-org.atlassian.net/browse/CLDR-16343
+         */
+        public void handleSetup() {
+        }
+
+        /**
+         * Called after all files are processed.
+         * Note: TODO: This is called unconditionally, whether the filter is enabled or not. It should
+         * only be called if the filter is enabled. Reference: https://unicode-org.atlassian.net/browse/CLDR-16343
+         */
         public void handleCleanup() {
         }
 
-        public void handleSetup() {
-        }
 
         public String getLocaleID() {
             return localeID;
@@ -1227,6 +1244,7 @@ public class CLDRModify {
             @Override
             public void handleStart() {
                 inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter, true);
+                inputProcessor.enableInheritanceReplacement(getResolved());
             }
 
             @Override
@@ -1243,6 +1261,116 @@ public class CLDRModify {
                 }
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
                 replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // 'P' Process, like 'p' but without inheritance replacement
+        fixList.add('P', "input-Processor-no-inheritance-replacement", new CLDRFilter() {
+            private DisplayAndInputProcessor inputProcessor;
+
+            @Override
+            public void handleStart() {
+                inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter, true);
+            }
+
+            @Override
+            public void handleEnd() {
+                inputProcessor = null; // clean up, just in case
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String newValue = inputProcessor.processInput(xpath, value, null);
+                if (value.equals(newValue)) {
+                    return;
+                }
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // use DAIP for one thing only: replaceBaileyWithInheritanceMarker
+        fixList.add('I', "Inheritance-substitution", new CLDRFilter() {
+            private DisplayAndInputProcessor inputProcessor;
+            private final int STEPS_FROM_ROOT = 1; // only process if locale's level matches; root = 0, en = 1, ...
+
+            @Override
+            public void handleStart() {
+                int steps = stepsFromRoot(cldrFileToFilter.getLocaleID());
+                if (steps == STEPS_FROM_ROOT) {
+                    inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter, true);
+                    inputProcessor.enableInheritanceReplacement(getResolved());
+                } else {
+                    inputProcessor = null;
+                }
+            }
+
+            @Override
+            public void handleEnd() {
+                inputProcessor = null; // clean up, just in case
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                if (inputProcessor == null) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String newValue = inputProcessor.replaceBaileyWithInheritanceMarker(xpath, value);
+                if (value.equals(newValue)) {
+                    return;
+                }
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // Un-drop hard inheritance: revert INHERITANCE_MARKER to pre-drop-hard-inheritance values
+        fixList.add('U', "Un-drop inheritance", new CLDRFilter() {
+            // baseDir needs to be the "pre-drop" path of an existing copy of old common/main
+            // For example, 2022_10_07_pre folder gets xml from pull request 2433, commit 80029f1
+            // Also ldml.dtd is required; for example:
+            //   mkdir ../2022_10_07_pre/common/dtd
+            //   cp common/dtd/ldml.dtd ../2022_10_07_pre/common/dtd
+            final private String baseDir = "../2022_10_07_pre/";
+            final private File[] list = new File[]{
+                new File(baseDir + "common/main/"),
+                new File(baseDir + "common/annotations/")
+            };
+            private Factory preFactory = null;
+            private CLDRFile preFile = null;
+
+            @Override
+            public void handleStart() {
+                if (preFactory == null) {
+                    preFactory = SimpleFactory.make(list, ".*");
+                 }
+                String localeID = cldrFileToFilter.getLocaleID();
+                try {
+                    preFile = preFactory.make(localeID, false /* not resolved */);
+                } catch (Exception e) {
+                    System.out.println("Skipping " + localeID + " due to " + e);
+                    preFile = null;
+                }
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                if (preFile == null) {
+                    return;
+                }
+                if (xpath.contains("personName")) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    String preValue = preFile.getStringValue(xpath);
+                    if (!CldrUtility.INHERITANCE_MARKER.equals(preValue)) {
+                        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullXPath, fullXPath, preValue);
+                    }
+                }
             }
         });
 
@@ -2089,6 +2217,191 @@ public class CLDRModify {
                 seen.addAll(paths);
             }
         });
+
+        // 'R' = Revert to baseline version under certain conditions
+        fixList.add('R', "Revert under certain conditions", new CLDRFilter() {
+            // vxmlDir needs to be the "plain" (without post-processing) path of an existing copy of common/main
+            // For example, vetdata-2023-01-23-plain-dropfalse ... see https://github.com/unicode-org/cldr/pull/2659
+            // Also ldml.dtd is required -- and should already have been created by ST when generating vxml
+            final private String vxmlDir = "../vetdata-2023-01-23-plain-dropfalse/vxml/";
+            private Factory vxmlFactory = null;
+            private CLDRFile vxmlFile = null;
+            private CLDRFile baselineFileUnresolved = null;
+            private CLDRFile baselineFileResolved = null;
+            private File[] list = null;
+
+            @Override
+            public void handleSetup() {
+                final String vxmlSubPath = vxmlDir + "common/" + new File(options[SOURCEDIR].value).getName();
+                System.out.println(vxmlSubPath);
+                list = new File[]{
+                    new File(vxmlSubPath)
+                };
+            }
+
+            @Override
+            public void handleStart() {
+                if (vxmlFactory == null) {
+                    vxmlFactory = SimpleFactory.make(list, ".*");
+                    if (!pathHasError("zh_Hant", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]")) {
+                        throw new RuntimeException("pathHasError wrong?");
+                    }
+                }
+                String localeID = cldrFileToFilter.getLocaleID();
+                if (cldrFileToFilter.isResolved()) { // true only if "-z" added to command line
+                    baselineFileResolved = cldrFileToFilter;
+                    baselineFileUnresolved = cldrFileToFilter.getUnresolved();
+                } else { // true unless "-z" added to command line
+                    baselineFileResolved = getResolved();
+                    baselineFileUnresolved = cldrFileToFilter;
+                }
+                try {
+                    vxmlFile = vxmlFactory.make(localeID, false /* not resolved */);
+                } catch (Exception e) {
+                    System.out.println("Skipping " + localeID + " due to " + e);
+                    vxmlFile = null;
+                }
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                boolean debugging = false; // xpath.contains("Ciudad_Juarez");
+                if (debugging) {
+                    System.out.println("handlePath: got Ciudad_Juarez");
+                }
+                if (vxmlFile == null) {
+                    if (debugging) {
+                        System.out.println("handlePath: vxmlFile is null");
+                    }
+                    return; // use baseline
+                }
+                String vxmlValue = vxmlFile.getStringValue(xpath);
+                if (vxmlValue == null) {
+                    throw new RuntimeException(this.getLocaleID() + ":" + xpath + ": vxmlValue == null");
+                }
+                if (!wantRevertToBaseline(xpath, vxmlValue)) {
+                    if (debugging) {
+                        System.out.println("handlePath: wantRevertToBaseline false");
+                    }
+                    String fullXPath = vxmlFile.getFullXPath(xpath);
+                    replace(fullXPath, fullXPath, vxmlValue);
+                } else {
+                    if (debugging) {
+                        System.out.println("handlePath: wantRevertToBaseline true");
+                    }
+                }
+            }
+
+            private boolean wantRevertToBaseline(String xpath, String vxmlValue) {
+                String localeID = cldrFileToFilter.getLocaleID();
+                boolean debugging = false; // xpath.contains("Ciudad_Juarez");
+                // boolean deb = "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath);
+                // boolean deb = ("ru".equals(localeID) && "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath));
+                if (debugging) {
+                    System.out.println("wantRevertToBaseline: got Ciudad_Juarez");
+                }
+                String fullXPath = vxmlFile.getFullXPath(xpath);
+                if (!changesWereAllowed(localeID, xpath, fullXPath)) {
+                    // criterion 2: if Survey Tool did NOT allow changes in the locale/path in v43, MUST revert to baseline
+                    if (debugging) {
+                        System.out.println("wantRevertToBaseline: return true since changes not allowed");
+                    }
+                    return true;
+                }
+                if (!CldrUtility.INHERITANCE_MARKER.equals(vxmlValue)) {
+                    // criterion zero: if vxml value is not ↑↑↑, don't revert to baseline
+                    if (debugging) {
+                        System.out.println("wantRevertToBaseline: return for 0");
+                    }
+                    return false;
+                }
+                // String baselineValue = baselineFileResolved.getStringValue(xpath);
+                String baselineValue = baselineFileUnresolved.getStringValue(xpath);
+                if (baselineValue == null || CldrUtility.INHERITANCE_MARKER.equals(baselineValue)) {
+                    // criterion 1: if baseline value is not a hard value, don't revert to baseline
+                    if (debugging) {
+                        System.out.println("wantRevertToBaseline: return for 1; baselineValue = " + baselineValue);
+                    }
+                    return false;
+                }
+                Output<String> inheritancePathWhereFound = new Output<>();
+                Output<String> localeWhereFound = new Output<>();
+                baselineFileResolved.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+                if (localeID.equals(localeWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
+                    // criterion 3: if bailey value is not from different path and locale, don't revert to baseline
+                    if (debugging) {
+                        System.out.println("wantRevertToBaseline: found at " + localeWhereFound.value + " " + inheritancePathWhereFound.value);
+                        System.out.println("wantRevertToBaseline: return for 3");
+                    }
+                    return false;
+                }
+                if (debugging) {
+                    System.out.println("wantRevertToBaseline: return true");
+                }
+                return true;
+            }
+
+            private boolean changesWereAllowed(String localeID, String xpath, String fullXPath) {
+                boolean isError = pathHasError(localeID, xpath);
+                String oldValue = baselineFileUnresolved.getWinningValue(xpath);
+                boolean isMissing = (oldValue == null || CLDRFile.DraftStatus.forXpath(fullXPath).ordinal() <= CLDRFile.DraftStatus.provisional.ordinal());
+                String locOrAncestor = localeID;
+                while (!"root".equals(locOrAncestor)) {
+                    if (SubmissionLocales.allowEvenIfLimited(locOrAncestor, xpath, isError, isMissing)) {
+                        return true;
+                    }
+                    locOrAncestor = LocaleIDParser.getParent(locOrAncestor);
+                }
+                return false;
+            }
+
+            /**
+             * These were derived from all errors found running this command:
+             * java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
+             * >> org.unicode.cldr.test.ConsoleCheckCLDR
+             *
+             * TODO: this is incomplete? Should include some "errors" that are not in personNames??
+             */
+            private final String[] ERR_LOCALES_PATHS = new String[] {
+                "ja", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
+                "nl_BE", "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname\"]",
+                "yue", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"title\"]",
+                "yue", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
+                "yue", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
+                "zh", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"title\"]",
+                "zh", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
+                "zh", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
+                "zh_Hant", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"title\"]",
+                "zh_Hant", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
+                "zh_Hant", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
+            };
+
+            private boolean pathHasError(String localeID, String xpath) {
+                for (int i = 0; i < ERR_LOCALES_PATHS.length; i += 2) {
+                    String errLoc = ERR_LOCALES_PATHS[i];
+                    String errPath = ERR_LOCALES_PATHS[i + 1];
+                    if (localeID.equals(errLoc) && xpath.equals(errPath)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            public void handleEnd() {
+                // look for paths in vxmlFile that aren't in baselineFileUnresolved
+                final Set<String> vPaths = new HashSet<>();
+                final Set<String> bPaths = new HashSet<>();
+                vxmlFile.getPaths("", null, vPaths);
+                baselineFileUnresolved.getPaths("", null, bPaths);
+                vPaths.removeAll(bPaths);
+                for (final String dPath : vPaths) {
+                    // System.out.println(">!> " + dPath);
+                    final String fPath = vxmlFile.getFullXPath(dPath);
+                    add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                }
+            }
+        });
     }
 
     public static String getLast2Dirs(File sourceDir1) {
@@ -2164,10 +2477,6 @@ public class CLDRModify {
     /**
      * Perform various fixes
      * TODO add options to pick which one.
-     *
-     * @param options
-     * @param config
-     * @param cldrFactory
      */
     private static void fix(CLDRFile k, String inputOptions, String config, Factory cldrFactory) {
 
@@ -2215,6 +2524,26 @@ public class CLDRModify {
             k.removeAll(removal, COMMENT_REMOVALS);
         }
         k.putAll(replacements, CLDRFile.MERGE_REPLACE_MINE);
+    }
+
+    /**
+     * How many steps from root is the given locale?
+     *
+     * @param origLoc
+     * @return the number of steps; e.g., 0 for "root", -1 for "code-fallback", 1 for "fr", 2 for "fr_CA", ...
+     */
+    private static int stepsFromRoot(String origLoc) {
+        int steps = 0;
+        String loc = origLoc;
+        while (!LocaleNames.ROOT.equals(loc)) {
+            loc = LocaleIDParser.getParent(loc);
+            if (loc == null) {
+                throw new IllegalArgumentException("Missing root in inheritance chain");
+            }
+            ++steps;
+        }
+        System.out.println("stepsFromRoot = " + steps + " for " + origLoc);
+        return steps;
     }
 
     /**

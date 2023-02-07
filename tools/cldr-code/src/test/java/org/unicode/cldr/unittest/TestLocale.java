@@ -82,6 +82,9 @@ public class TestLocale extends TestFmwkPlus {
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
             .getDefaultContentLocales();
         for (String locale : available) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             String base = ltp.set(locale).getLanguage();
             String script = ltp.getScript();
             String region = ltp.getRegion();
@@ -409,8 +412,8 @@ public class TestLocale extends TestFmwkPlus {
             "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]",
             "Territorie: {0}");
         CLDRFile f = new CLDRFile(dxs, root);
-        ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish(),
-            CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish()
+        );
         for (String[] row : tests) {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);

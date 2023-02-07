@@ -323,7 +323,7 @@ public class TestPathHeader extends TestFmwkPlus {
         PathDescription pathDescription = new PathDescription(supplemental,
             english, null, null, PathDescription.ErrorHandling.CONTINUE);
         String description = pathDescription.getDescription(APPEND_TIMEZONE,
-            "tempvalue", null, null);
+            "tempvalue", null);
         assertTrue("appendItem:Timezone pathDescription",
             description.contains("“Timezone”"));
 
@@ -343,7 +343,7 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("appendItem:Timezone placeholders", "Pacific Time",
                 placeholderInfo2.example);
         }
-        ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile);
         String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
         assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
@@ -782,7 +782,7 @@ public class TestPathHeader extends TestFmwkPlus {
         PathDescription pathDescription, Matcher normal, String path,
         Set<String> alreadySeen, PathStarrer starrer) {
         String value = english.getStringValue(path);
-        String description = pathDescription.getDescription(path, value, null,
+        String description = pathDescription.getDescription(path, value,
             null);
         String starred = starrer.set(path);
         if (alreadySeen.contains(starred)) {
@@ -1197,8 +1197,8 @@ public class TestPathHeader extends TestFmwkPlus {
         final String path1 = prefix + "stand-alone" + suffix;
         String v0 = english.getStringValue(path0);
         String v1 = english.getStringValue(path1);
-        String p0 = pathDescription.getDescription(path0, v0, null, null);
-        String p1 = pathDescription.getDescription(path1, v1, null, null);
+        String p0 = pathDescription.getDescription(path0, v0, null);
+        String p1 = pathDescription.getDescription(path1, v1, null);
         assertTrue("Check pd for format", p0.contains("in the morning"));
         assertTrue("Check pd for stand-alone", !p1.contains("in the morning"));
     }

@@ -101,7 +101,7 @@ public class TestExampleDependencies extends TestFmwk {
         // time-consuming
         cldrFile.forEach(paths::add);
 
-        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile);
         egTest.setCachingEnabled(false); // will not employ a cache -- this should save some time, since cache would be wasted
 
         for (String pathB : paths) {
@@ -160,7 +160,7 @@ public class TestExampleDependencies extends TestFmwk {
         // time-consuming
         cldrFile.forEach(paths::add);
 
-        ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator egBase = new ExampleGenerator(cldrFile, englishFile);
 
         HashMap<String, String> originalValues = new HashMap<>();
 
@@ -173,7 +173,7 @@ public class TestExampleDependencies extends TestFmwk {
          */
         egBase.setCacheOnly(true);
 
-        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile);
         egTest.setCachingEnabled(false); // will not employ a cache -- this should save some time, since cache would be wasted
 
         CLDRFile top = cldrFile.getUnresolved(); // can mutate top

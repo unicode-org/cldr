@@ -38,7 +38,12 @@
           <td v-if="canChooseOrg">
             <select id="new_org" name="new_org" v-model="newUser.org">
               <option disabled value="">Please select one</option>
-              <option v-for="org in orgList">{{ org }}</option>
+              <option
+                v-for="displayName of orgs.sortedDisplayNames"
+                v-bind:value="orgs.displayToShort[displayName]"
+              >
+                {{ displayName }}
+              </option>
             </select>
           </td>
           <td v-else>
@@ -60,7 +65,7 @@
             </select>
           </td>
         </tr>
-        <tr>
+        <tr v-if="newUser.level && newUser.level >= 5">
           <th><label for="new_locales">Languages responsible:</label></th>
           <td>
             <input
@@ -70,6 +75,7 @@
               @change="validateLocales"
               placeholder="en de de_CH fr zh_Hant"
             />
+            &nbsp;
             <button v-on:click="setAllLocales()">All Locales</button><br />
             (Space separated. Use the All Locales button to grant access to all
             locales. )<br />
@@ -80,7 +86,7 @@
               >
               <ul>
                 <li v-bind:key="loc" v-for="loc in Object.keys(locWarnings)">
-                  <tt>{{ loc }}</tt>
+                  <code>{{ loc }}</code>
                   {{ getParenthesizedName(loc) }}
                   — {{ explainWarning(locWarnings[loc]) }}
                 </li>
@@ -90,7 +96,14 @@
         </tr>
         <tr class="addButton">
           <td colspan="2">
-            <button v-on:click="add()">Add</button>
+            <button
+              v-if="
+                newUser.name && newUser.email && newUser.org && newUser.level
+              "
+              v-on:click="add()"
+            >
+              Add
+            </button>
           </td>
         </tr>
       </table>
@@ -122,9 +135,11 @@
 <script>
 import * as cldrAccount from "../esm/cldrAccount.js";
 import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrOrganizations from "../esm/cldrOrganizations.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
+import * as cldrUserLevels from "../esm/cldrUserLevels.js";
 
 export default {
   data() {
@@ -142,7 +157,7 @@ export default {
         name: null,
         org: null,
       },
-      orgList: null,
+      orgs: null,
       userId: null,
     };
   },
@@ -154,30 +169,37 @@ export default {
   methods: {
     initializeData() {
       this.addedNewUser = false;
-      this.userId = null;
-      this.newUser.name = "";
+      this.errors = [];
+      this.locWarnings = null;
       this.newUser.email = "";
       this.newUser.level = "";
-      this.newUser.locales = "und";
+      this.newUser.locales = "";
+      this.newUser.name = "";
+      this.userId = null;
       this.getLevelList();
       if (cldrStatus.getPermissions().userIsAdmin) {
         this.canChooseOrg = true;
         this.newUser.org = "";
-        this.getOrgList();
+        this.getOrgs();
       } else {
         this.canChooseOrg = false;
         this.newUser.org = cldrStatus.getOrganizationName();
-        this.orgList = "";
+        this.orgs = null;
       }
     },
 
     async validateLocales() {
+      const skipOrg = cldrUserLevels.canVoteInNonOrgLocales(
+        this.newUser.level,
+        this.levelList
+      );
+      const orgForValidation = skipOrg ? "" : this.newUser.org;
       await cldrAjax
         .doFetch(
           "./api/locales/normalize?" +
             new URLSearchParams({
               locs: this.newUser.locales,
-              org: this.newUser.org,
+              org: orgForValidation,
             })
         )
         .then(cldrAjax.handleFetchErrors)
@@ -193,29 +215,17 @@ export default {
     },
 
     getLevelList() {
-      this.levelList = cldrAccount.getLevelList();
-      if (this.levelList) {
-        return;
-      }
       this.loading = true;
-      const xhrArgs = {
-        url: this.getLevelsUrl(),
-        handleAs: "json",
-        load: (json) => this.loadLevelList(json),
-        error: (err) => this.errors.push(err),
-      };
-      cldrAjax.sendXhr(xhrArgs);
+      this.levelList = cldrUserLevels.getLevelList().then(this.loadLevelList);
     },
 
-    loadLevelList(json) {
-      if (!json.levels) {
-        this.errors.push("Level list not received from server");
+    loadLevelList(list) {
+      if (!list) {
+        this.errors.push("User-level list not received from server");
         this.loading = false;
       } else {
-        this.levelList = json.levels;
-        if (this.orgList || this.newUser.org) {
-          this.loading = false;
-        }
+        this.levelList = list;
+        this.areWeLoading();
       }
     },
 
@@ -236,31 +246,23 @@ export default {
       return cldrText.get(`locale_rejection_${reason}`, reason);
     },
 
-    getOrgList() {
-      this.orgList = cldrAccount.getOrgList();
-      if (this.orgList) {
-        return;
-      }
+    getOrgs() {
       this.loading = true;
-      const xhrArgs = {
-        url: cldrAjax.makeApiUrl("organizations", null),
-        handleAs: "json",
-        load: (json) => this.loadOrgList(json),
-        error: (err) => this.errors.push(err),
-      };
-      cldrAjax.sendXhr(xhrArgs);
+      cldrOrganizations.get().then(this.loadOrgs);
     },
 
-    loadOrgList(json) {
-      if (!json.list) {
-        this.errors.push("Organization list not received from server");
-        this.loading = false;
+    loadOrgs(o) {
+      if (o) {
+        this.orgs = o;
+        this.areWeLoading();
       } else {
-        this.orgList = json.list;
-        if (this.levelList) {
-          this.loading = false;
-        }
+        this.errors.push("Organization names not received from server");
+        this.loading = false;
       }
+    },
+
+    areWeLoading() {
+      this.loading = !(this.levelList && (this.orgs || this.newUser.org));
     },
 
     async add() {
@@ -270,7 +272,7 @@ export default {
         return;
       }
       const xhrArgs = {
-        url: this.getAddUserUrl(),
+        url: cldrAjax.makeApiUrl("adduser", null),
         postData: this.newUser,
         handleAs: "json",
         load: this.loadHandler,
@@ -294,6 +296,10 @@ export default {
       }
       if (!this.newUser.level) {
         this.errors.push("Level required.");
+      } else if (this.newUser.level >= 5 && !this.newUser.locales) {
+        this.errors.push(
+          "Languages responsible is required for this userlevel."
+        );
       }
     },
 
@@ -361,18 +367,6 @@ export default {
 
     manageThisUser() {
       cldrAccount.zoomUser(this.newUser.email);
-    },
-
-    getAddUserUrl() {
-      const p = new URLSearchParams();
-      p.append("s", cldrStatus.getSessionId());
-      return cldrAjax.makeApiUrl("adduser", p);
-    },
-
-    getLevelsUrl() {
-      const p = new URLSearchParams();
-      p.append("s", cldrStatus.getSessionId());
-      return cldrAjax.makeApiUrl("userlevels", p);
     },
   },
 };

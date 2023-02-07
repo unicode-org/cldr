@@ -15,6 +15,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -81,7 +82,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         // we test stuff matching specialsToKeep, or code fallback
         // skip anything else
         if (!source.equals(XMLSource.CODE_FALLBACK_ID)
-            && !source.equals("root")
+            && !source.equals(LocaleNames.ROOT)
             && (path.indexOf("metazone") < 0 || value != null && value.length() > 0)) {
             return this; // skip!
         }
@@ -128,7 +129,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
             supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
             coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
-            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")
+            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, LocaleNames.ROOT)
                    && !SpecialLocales.isScratchLocale(localeID)) {
                 possibleErrors.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
@@ -139,7 +140,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
 
         if (options != null && options.get(Options.Option.CheckCoverage_skip) != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        if (localeID.equals("root")) return this;
+        if (localeID.equals(LocaleNames.ROOT)) return this;
 
         requiredLevel = options.getRequiredLevel(localeID);
         if (DEBUG) {

@@ -82,7 +82,8 @@ class LdmlConvertRules {
         "pluralRules:pluralRule:count",
         "languageMatches:languageMatch:desired",
         "styleNames:styleName:subtype",
-        "styleNames:styleName:alt");
+        "styleNames:styleName:alt"
+        );
 
     /**
      * The set of attributes that should become part of the name in form of
@@ -220,7 +221,6 @@ class LdmlConvertRules {
         "grammaticalFeatures:grammaticalDefiniteness:values",
         "grammaticalFeatures:grammaticalCase:values",
         "grammaticalDerivations:deriveCompound:value"
-
     );
 
     /**
@@ -265,7 +265,7 @@ class LdmlConvertRules {
         "decimalFormat", "standard", "type",
         "percentFormat", "standard", "type",
         "scientificFormat", "standard", "type",
-        "pattern", "standard", "type",
+        "pattern", "standard", "type"
     };
 
     /**
@@ -378,7 +378,7 @@ class LdmlConvertRules {
      * These objects values should be output as arrays.
      */
     public static final Pattern VALUE_IS_SPACESEP_ARRAY = PatternCache.get(
-        "(grammaticalCase|grammaticalGender|grammaticalDefiniteness)"
+        "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales)"
     );
     public static final Set<String> CHILD_VALUE_IS_SPACESEP_ARRAY = ImmutableSet.of(
         "weekOfPreference",

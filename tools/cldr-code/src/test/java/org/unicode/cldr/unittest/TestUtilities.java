@@ -28,34 +28,14 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.DelegatingIterator;
-import org.unicode.cldr.util.EscapingUtilities;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.NotificationCategory;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.PluralSamples;
-import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
-import org.unicode.cldr.util.VoterInfoList;
-import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 import com.google.common.collect.ImmutableMap;
@@ -78,7 +58,7 @@ public class TestUtilities extends TestFmwkPlus {
         .getSupplementalDataInfo();
     private static final int STRING_ID_TEST_COUNT = 1024 * 16;
 
-    final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.guest);
+    final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.unaffiliated);
     final int TWO_VETTER_BAR = 2 * ONE_VETTER_BAR;
 
     public static void main(String[] args) {
@@ -337,21 +317,21 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     /** Test user data. Restructured to be easier to read, more typesafe */
-    enum TestUser {
-        guestS(801, Organization.guest, Level.street),
-        gnomeS(701, Organization.gnome, Level.street),
+    public enum TestUser {
+        unaffiliatedS(801, Organization.unaffiliated, Level.guest),
+        gnomeS(701, Organization.gnome, Level.guest),
         gnomeV(702, Organization.gnome, Level.vetter),
         googleV(404, Organization.google, Level.vetter),
-        googleS(411, Organization.google, Level.street),
+        googleS(411, Organization.google, Level.guest),
         googleV2(424, Organization.google, Level.vetter),
         appleV(304, Organization.apple, Level.vetter),
         adobeE(204, Organization.adobe, Level.manager),
         adobeV(209, Organization.adobe, Level.vetter),
-        ibmS(101, Organization.ibm, Level.street),
+        ibmS(101, Organization.ibm, Level.guest),
         microsoftV(134, Organization.microsoft, Level.vetter),
         ibmE(114, Organization.ibm, Level.manager),
         ibmT(129, Organization.ibm, Level.tc),
-        guestS2(802, Organization.guest, Level.street);
+        unaffiliatedS2(802, Organization.unaffiliated, Level.guest);
 
         public static final Map<Integer, VoterInfo> TEST_USERS;
         public final Integer voterId;
@@ -377,14 +357,17 @@ public class TestUtilities extends TestFmwkPlus {
         return TestUser.valueOf(s).voterId;
     }
 
-    private VoterInfoList getTestVoterInfoList() {
+    /**
+     * Public to use from other tests
+     */
+    public static VoterInfoList getTestVoterInfoList() {
         return new VoterInfoList().setVoterToInfo(testdata);
     }
 
     public void TestTrunkStatus() {
         VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-
+        resolver.setBaileyValue("bailey");
         resolver.setBaseline("new-item", Status.approved);
         assertEquals("", "new-item", resolver.getWinningValue());
 
@@ -397,6 +380,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestVoteResolverNgombaTrunkStatus() {
         VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
+        resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("jgo"), null);
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         resolver.setBaseline(jgo22trunk, Status.approved); // seed/jgo.xml from 22
@@ -446,6 +430,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setLocale(CLDRLocale.getInstance("af"), null);
         resolver.setBaseline("BQ", Status.missing);
+        resolver.setBaileyValue("bailey");
         VoteStatus status = resolver
             .getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);
@@ -718,7 +703,7 @@ public class TestUtilities extends TestFmwkPlus {
             // first test
             "oldValue=old-value",
             "oldStatus=provisional",
-            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
+            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + guest = vetter)",
             "404=next",
             "411=next",
             "304=best",
@@ -775,7 +760,7 @@ public class TestUtilities extends TestFmwkPlus {
             "status=approved",
             "check",
 
-            "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
+            "comment=now not so clear, throw in a guest value. So it is 8 to 5. (used to be provisional)",
             "404=next",
             // "424=best",
             "411=best",
@@ -890,21 +875,20 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     void assertSpecialLocale(String loc, SpecialLocales.Type type) {
-        assertEquals("SpecialLocales.txt for " + loc, type,
+        assertEquals("SpecialLocales type for " + loc, type,
             SpecialLocales.getType(CLDRLocale.getInstance(loc)));
     }
 
     public void TestSpecialLocales() {
         assertSpecialLocale("sr", null);
-        assertSpecialLocale("ha_NE", SpecialLocales.Type.readonly);
-        assertSpecialLocale("sr_Latn", SpecialLocales.Type.readonly);
-        assertSpecialLocale("sr_Latn_BA", SpecialLocales.Type.readonly);
+        assertSpecialLocale("ha_NE", SpecialLocales.Type.algorithmic);
+        assertSpecialLocale("sr_Latn", SpecialLocales.Type.algorithmic);
+        assertSpecialLocale("sr_Latn_BA", SpecialLocales.Type.algorithmic);
         assertSpecialLocale("yue_Hans", null); // not readonly, because it is not policy DISCARD
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
-        assertSpecialLocale("en_ZZ", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined
-        assertSpecialLocale("und", null);
-        assertSpecialLocale("mul", SpecialLocales.Type.scratch);
+        assertSpecialLocale(LocaleNames.UND, null);
+        assertSpecialLocale(LocaleNames.MUL, SpecialLocales.Type.scratch);
         assertSpecialLocale("mul_ZZ", SpecialLocales.Type.scratch);
         assertSpecialLocale("und_001", null); // not defined
 
@@ -1152,7 +1136,7 @@ public class TestUtilities extends TestFmwkPlus {
             "check",
 
             //test 3
-            "comment=timestamp guest case",
+            "comment=timestamp unaffiliated case",
             "locale=de",
             "oldValue=_",
             "oldStatus=unconfirmed",
@@ -1165,7 +1149,7 @@ public class TestUtilities extends TestFmwkPlus {
             "value=Bar",
             "status=contributed",
             "sameVotes=Bar",
-            "conflicts=[google, guest]",
+            "conflicts=[google, unaffiliated]",
             "check",
         };
 
@@ -1260,7 +1244,7 @@ public class TestUtilities extends TestFmwkPlus {
         PathHeader path = null;
 
         /*
-         * Simple case, all = bailey
+         * Simple case, all = bailey -- should get INHERITANCE_MARKER now that we have "dropped hard inheritance"
          */
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
@@ -1269,7 +1253,11 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("bailey", TestUser.microsoftV.voterId);
         resolver.add("bailey", TestUser.googleV.voterId);
-        assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
+        if (VoteResolver.DROP_HARD_INHERITANCE) {
+            assertEquals("Simple case, all = bailey", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        } else {
+            assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
+        }
 
         /*
          * Another simple case, all = INHERITANCE_MARKER
@@ -1328,11 +1316,8 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
 
         /*
-         * Bailey should win if it has MORE votes than INHERITANCE_MARKER, helped
-         * by the presence of INHERITANCE_MARKER to win over other-vote.
-         * Changed per https://unicode.org/cldr/trac/ticket/11299
-         * Previously, "the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are";
-         * now we already have several tests above where INHERITANCE_MARKER wins.
+         * Bailey should lose even if it has MORE votes than INHERITANCE_MARKER, now that we
+         * have "dropped hard inheritance"
          */
         resolver.clear();
         resolver.setLocale(locale, path);
@@ -1344,7 +1329,11 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.adobeV.voterId);
         resolver.add("other-vote", TestUser.gnomeV.voterId);
-        assertEquals("Bailey wins with help of INHERITANCE_MARKER", "bailey", resolver.getWinningValue());
+        if (VoteResolver.DROP_HARD_INHERITANCE) {
+            assertEquals("Bailey never beats INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        } else {
+            assertEquals("Bailey can beat INHERITANCE_MARKER if not dropped", "bailey", resolver.getWinningValue());
+        }
     }
 
     /**
@@ -1467,9 +1456,9 @@ public class TestUtilities extends TestFmwkPlus {
      * Compare org.unicode.cldr.unittest.web.TestUserRegistry.TestCanSetUserLevel()
      */
     public void TestCanCreateOrSetLevelTo() {
-        if (Level.vetter.canCreateOrSetLevelTo(Level.street)
-            || Level.anonymous.canCreateOrSetLevelTo(Level.street)
-            || Level.street.canCreateOrSetLevelTo(Level.locked)
+        if (Level.vetter.canCreateOrSetLevelTo(Level.guest)
+            || Level.anonymous.canCreateOrSetLevelTo(Level.guest)
+            || Level.guest.canCreateOrSetLevelTo(Level.locked)
             || Level.locked.canCreateOrSetLevelTo(Level.locked)
             ) {
             errln("Only managers and above can change levels at all");

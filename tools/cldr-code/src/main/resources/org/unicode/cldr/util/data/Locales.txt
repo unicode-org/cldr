@@ -63,7 +63,7 @@ IBM	;	cy	;	basic
 IBM	;	da	;	modern
 IBM	;	de	;	modern
 IBM	;	el	;	moderate
-IBM	;	en	;	comprehensive
+IBM	;	en	;	modern
 IBM	;	es	;	modern
 IBM	;	et	;	basic
 IBM ; eu ; moderate ;
@@ -149,7 +149,7 @@ Google	;	de	;	modern	;	T1	German
 Google	;	de_CH	;	modern	; TR High German (Switzerland) // generated
 Google    ; doi ; basic ; Dogri
 Google	;	el	;	modern	;	T2	Greek
-Google	;	en	;	comprehensive	;	T0	American English
+Google	;	en	;	modern	;	T0	American English
 Google	;	en_AU	;	modern	; TR English (Australia)
 Google	;	en_CA	;	modern	; TR English (Canada)
 Google	;	en_GB	;	modern	;	T1	British English
@@ -171,6 +171,7 @@ Google	;	gu	;	modern	;	T4	Gujarati
 Google	;	ha	;	modern	;	Hausa
 Google	;	he	;	modern	;	T2	Hebrew
 Google	;	hi	;	modern	;	T2	Hindi
+Google  ; hi_Latn ; modern ; Hindi (Latin)
 Google	;	hr	;	modern	;	T2	Croatian
 Google	;	hu	;	modern	;	T2	Hungarian
 Google	;	hy	;	modern	;	T3.1	Armenian
@@ -255,7 +256,7 @@ Apple	;	cv	;	basic
 Apple	;	da	;	modern
 Apple	;	de	;	modern
 Apple	;	el	;	modern
-Apple	;	en	;	comprehensive
+Apple	;	en	;	modern
 Apple	;	en_AU	;	modern
 Apple	;	en_GB	;	modern
 Apple	;	es	;	modern
@@ -322,14 +323,14 @@ Adobe	;	bs	;	basic
 Adobe	;	ca	;	basic
 Adobe	;	cs	;	basic
 Adobe	;	da	;	moderate
-Adobe	;	de	;	comprehensive
+Adobe	;	de	;	modern
 Adobe	;	el	;	basic
-Adobe	;	en	;	comprehensive
+Adobe	;	en	;	modern
 Adobe	;	es	;	basic
 Adobe	;	et	;	basic
 Adobe	;	fa	;	basic
 Adobe	;	fi	;	basic
-Adobe	;	fr	;	comprehensive
+Adobe	;	fr	;	modern
 Adobe	;	he	;	moderate
 Adobe	;	hi	;	basic
 Adobe	;	hr	;	basic
@@ -338,7 +339,7 @@ Adobe	;	hy	;	basic
 Adobe	;	id	;	basic
 Adobe	;	is	;	basic
 Adobe	;	it	;	moderate
-Adobe	;	ja	;	comprehensive
+Adobe	;	ja	;	modern
 Adobe	;	kk	;	basic
 Adobe	;	km	;	basic
 Adobe	;	ko	;	moderate
@@ -373,7 +374,7 @@ Adobe	;	zh	;	moderate
 Adobe	;	zh	;	moderate
 
 #Cldr	Tier	0
-Cldr	;	en	;	comprehensive	;	T0	American English
+Cldr	;	en	;	modern	;	T0	American English
 
 #Cldr	Tier	1
 Cldr	;	en_GB	;	modern	;	T1	British English
@@ -531,6 +532,7 @@ Cldr  ; hsb ; modern ; Upper Sorbian
 Cldr  ; dsb ; modern  ; Lower Sorbian
 Cldr  ; gd  ; modern  ; Scottish Gaelic
 Cldr  ; chr ; modern  ; Cherokee
+Cldr	;	to	;	modern ; Tongan
 Cldr  ; yue_Hans  ; modern  ; Cantonese (Simplified)
 
 Cldr  ; fo  ; moderate  ; Faroese
@@ -542,10 +544,14 @@ Cldr  ; yrl ; moderate  ; Nheetgatu
 Cldr  ; ast ; moderate  ; Asturian
 Cldr  ; ff_Adlm ; moderate ; Fulah (Adlam)
 
-Cldr	;	to	;	modern ; Tongan
+Cldr  ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
+Cldr  ; ia  ; basic ; Interlingua
+Cldr  ; kea ; basic ; Kabuverdianu
+Cldr  ; rm  ; basic ; Romansh
 Cldr	;	tg	;	basic ; Tajik
 Cldr	;	ti	;	basic ; Tigrinya
 Cldr	;	tt	;	basic ; Tatar
+Cldr  ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
 Cldr	;	wo	;	basic ; Wolof
 
 Bangor_Univ ;   cy   ;    modern  ; Welsh
@@ -597,7 +603,7 @@ OpenInstitute	;	km	;	modern	;	Khmer
 
 kunsill_malti   ;   mt  ;   modern  ;   Malta
 
-Microsoft	;	en	;	comprehensive	;	English
+Microsoft	;	en	;	modern	;	English
 Microsoft	;	af	;	modern	;	Afrikaans
 Microsoft	;	am	;	modern	;	Amharic
 Microsoft	;	ar	;	modern	;	Arabic
@@ -715,7 +721,7 @@ SIL	;	*	;	moderate	;
 
 Srilanka	;	si	;	modern	; All others
 
-Surveytool	;	*	; comprehensive	;	(Administrative)
+Surveytool	;	*	; modern	;	(Administrative)
 
 longnow ; am ; modern ;
 longnow	;	eo	;	modern	;	Esperanto
@@ -760,47 +766,53 @@ nyiakeng_puachue_hmong ; hnj      ; modern ; Green Hmong (hnj_Hmnp) - default co
 #The following is not in CLDR (yet)
 #nyiakeng_puachue_hmong ; mww_Hmnp ; modern ; White Hmong (mww_Hmnp)
 
-Meta	;	ar	;	modern
-Meta ; az ; moderate ;
-Meta  ; bn  ; modern
-Meta ; cy ; moderate ;
-Meta	;	da	;	modern
-Meta ; de ; moderate ;
-Meta ; en ; comprehensive # added explicitly (was implicit before, parent of en_GB)
-Meta ; en_GB ; moderate ;
-Meta	;	es	;	modern
-Meta	;	es_419	;	modern
-Meta ; fa ; moderate ;
-Meta ; fr ; moderate ;
-Meta	;	gn	;	modern
-Meta  ; gu  ; modern
-Meta ; hi ; moderate ;
-Meta	;	hr	;	modern
-Meta	;	hu	;	modern
-Meta ; id ; moderate ;
-Meta	;	it	;	modern
-Meta ; kl ; moderate ;
-Meta  ; kn  ; modern
-Meta  ; mr  ; modern
-Meta ; ps ; moderate ;
-Meta	;	pt_PT	;	modern
-Meta ; pt ; modern ;
-Meta ; ru ; moderate ;
-Meta ; sc ; moderate ;
-Meta ; sd ; moderate ;
-Meta ; sk ; moderate ;
-Meta ; sr ; moderate ;
-Meta ; szl ; moderate ;
-Meta  ; ta  ; modern  ;
-Meta ; tg ; moderate ;
-Meta ; tr ; moderate ;
-Meta  ; ur  ; modern ;
-Meta ; vi ; moderate ;
-# The following were added in response to this org's vetter assignment.
-Meta ; ja ; moderate ;
-Meta ; ko ; moderate ;
-Meta ; my ; moderate ;
-Meta ; th ; moderate ;
+Meta	;	ar	;	modern	;	Arabic
+Meta	;	az	;	modern	;	Azerbaijani
+Meta  ;	bn	;	modern	;	Bengali
+Meta	;	cs	;	modern	;	Czech
+Meta	;	cy	;	modern	;	Welsh
+Meta	;	da	;	modern	;	Danish
+Meta	;	de	;	modern	;	German
+Meta	;	en	;	modern	;	American English
+Meta	;	en_GB	;	modern	;	British English
+Meta	;	es	;	modern	;	European Spanish
+Meta	;	es_419	;	modern	;	Latin American Spanish
+Meta 	;	fa	;	modern 	;	Persian
+Meta	;	fr	;	modern	;	French
+Meta  ;	gu	;	modern	;	Gujarati
+Meta 	;	he	;	modern	;	Hebrew
+Meta 	;	hi	;	modern	;	Hindi
+Meta	;	hr	;	modern	;	Croatian
+Meta	;	hu	;	modern	;	Hungarian
+Meta	;	id	;	modern	;	Indonesian
+Meta	;	it	;	modern	;	Italian
+Meta	;	ja	;	modern	;	Japanese
+Meta  ;	kn	;	modern	;	Kannada
+Meta	;	ko	;	modern	;	Korean
+Meta	;	ml	;	modern	;	Malayalam
+Meta	;	mr	;	modern	;	Marathi
+Meta	;	ms	;	modern	;	Malay
+Meta	;	my	;	modern	;	Burmese (Myanmar)
+Meta	;	nl	;	modern	;	Dutch
+Meta 	;	pa	;	modern	;	Punjabi
+Meta	;	pl	;	modern	;	Polish
+Meta 	;	ps	;	modern	;	Pashto
+Meta	;	pt	;	modern	;	Brazilian Portuguese
+Meta	;	pt_PT	;	modern	;	European Portuguese
+Meta	;	ro	;	modern	;	Romanian
+Meta	;	ru	;	modern	;	Russian
+Meta	;	sk	;	modern	;	Slovak
+Meta	;	sr	;	modern	;	Serbian
+Meta	;	sw	;	modern	;	Swahili
+Meta 	;	ta	;	modern	;	Tamil
+Meta 	;	te	;	modern	;	Telugu 
+Meta	;	th	;	modern	;	Thai
+Meta	;	tr	;	modern	;	Turkish
+Meta	;	ur	;	modern	;	Urdu
+Meta	;	uk	;	modern	;	Ukrainian
+Meta	;	vi	;	modern	;	Vietnamese
+Meta	;	zh	;	modern	;	Simplified Chinese
+Meta	;	zh_Hant	;	modern	;	Traditional Chinese
 
 Mozilla	;	mul	;	modern
 # ^no votes in 30…40 for this org
@@ -883,15 +895,21 @@ yahoo ; mul ; modern ;
 
 special	;	ast	;	moderate	;	Asturian
 special ;	br	;	moderate	;	Breton
+special ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
 special ;	chr	;	modern	;	Cherokee
 special ;	dsb	;	modern	;	Lower Sorbian
 special ;	ff	;	basic	;	Fulah
 special ;	ff_Adlm	;	moderate	;	Fulah (Adlam)
 special ;	fo	;	moderate	;	Faroese
-special ;	hi_Latn	;	modern	;	Hindi (Latin)
+special ; ia  ; basic ; Interlingua
 special ;	hsb	;	modern	;	Upper Sorbian
+special ; kea ; basic ; Kabuverdianu
 special ;	kgp	;	moderate	;	Kaingang
+special ; rm  ; basic ; Romansh
 special ;	sc	;	moderate	;	Sardinian
+special ;	sr_Latn	;	modern	;	Serbian (Latn)
 special ;	yrl	;	moderate	;	Nheengatu
 special ;	yue_Hans	;	modern	;	Cantonese (Simplified)
-special ;	sr_Latn	;	modern	;	Cantonese (Simplified)
+special ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
+special	;	to	;	modern ; Tongan
+special  ; qu  ; modern  ; Quechua

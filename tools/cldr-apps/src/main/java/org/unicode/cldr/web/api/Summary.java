@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
@@ -404,7 +405,7 @@ public class Summary {
     @Path("/dashboard/{locale}/{level}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Fetch the Dashboard for a locale",
+        summary = "Fetch the user's Dashboard for a locale",
         description = "Given a locale, get the summary information, aka Dashboard")
     @Counted(name = "getDashboardCount", absolute = true, description = "Number of dashboards computed")
     @Timed(absolute = true, name = "getDashboardTime", description = "Time to fetch the Dashboard")
@@ -433,6 +434,62 @@ public class Summary {
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */);
+        ret.coverageLevel = coverageLevel.name();
+
+        return Response.ok().entity(ret).build();
+    }
+
+    @GET
+    @Path("/dashboard/for/{user}/{locale}/{level}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+        summary = "Fetch another user's Dashboard for a locale. Manager only.",
+        description = "Given a locale, get the summary information, aka Dashboard, for another user")
+    @Counted(name = "getDashboardCount", absolute = true, description = "Number of dashboards computed")
+    @Timed(absolute = true, name = "getDashboardTime", description = "Time to fetch the Dashboard")
+    @APIResponses(
+        value = {
+            @APIResponse(
+                responseCode = "200",
+                description = "Dashboard results",
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ReviewOutput.class))) // TODO: SummaryResults.class
+        })
+    public Response getDashboardFor(
+        @PathParam("user") @Schema(required = true, description = "User ID") Integer user,
+        @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
+        @PathParam("level") @Schema(required = true, description = "Coverage Level or 'org'") String level,
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+        CLDRLocale loc = CLDRLocale.getInstance(locale);
+        CookieSession cs = Auth.getSession(sessionString);
+        if (cs == null) {
+            return Auth.noSessionResponse();
+        }
+        if (!UserRegistry.userIsManagerOrStronger(cs.user)) {
+            // exit early if user is not a manager.
+            return Response.status(403, "Forbidden").build();
+        }
+        UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
+        if (target == null) {
+            // Could not find userid
+            return Response.status(404).build(); // user not found
+        }
+        if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
+            // not manager for target's org OR superadmin
+            return Response.status(403, "Forbidden").build();
+        }
+        cs.userDidAction();
+
+        // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
+        Level coverageLevel = null;
+        if (level.equals("org")) {
+            coverageLevel = StandardCodes.make().getLocaleCoverageLevel(target.getOrganization(), locale);
+        } else {
+            coverageLevel = org.unicode.cldr.util.Level.fromString(level);
+        }
+        ReviewOutput ret = new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
+
+        ret.coverageLevel = coverageLevel.name();
 
         return Response.ok().entity(ret).build();
     }

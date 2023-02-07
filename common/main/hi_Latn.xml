@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1021,7 +1021,7 @@ annotations.
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
-			<territory type="TR">Turkey</territory>
+			<territory type="TR">Turkiye</territory>
 			<territory type="TR" alt="variant">Turkiye</territory>
 			<territory type="TT">Trinidad &amp; Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
@@ -1086,6 +1086,7 @@ annotations.
 			<key type="lw">Words Setting mein Line Breaks</key>
 			<key type="m0">↑↑↑</key>
 			<key type="ms">Measurement kaa system</key>
+			<key type="mu">↑↑↑</key>
 			<key type="numbers">Numbers</key>
 			<key type="rg">Supplemental Data ke liye region</key>
 			<key type="s0">↑↑↑</key>
@@ -2400,9 +2401,15 @@ annotations.
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0">↑↑↑</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">Saka</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 			<calendar type="islamic">
@@ -2445,6 +2452,9 @@ annotations.
 					<eraAbbr>
 						<era type="0">Hijri</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+					</eraNarrow>
 				</eras>
 			</calendar>
 		</calendars>
@@ -3899,6 +3909,9 @@ annotations.
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
 			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>Ciudad Juarez</exemplarCity>
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlan</exemplarCity>
 			</zone>
@@ -5348,58 +5361,58 @@ annotations.
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 hazaar</pattern>
-					<pattern type="1000" count="other">0 hazaar</pattern>
-					<pattern type="10000" count="one">00 hazaar</pattern>
-					<pattern type="10000" count="other">00 hazaar</pattern>
-					<pattern type="100000" count="one">0 laakh</pattern>
-					<pattern type="100000" count="other">0 laakh</pattern>
-					<pattern type="1000000" count="one">00 laakh</pattern>
-					<pattern type="1000000" count="other">00 laakh</pattern>
-					<pattern type="10000000" count="one">0 karod</pattern>
-					<pattern type="10000000" count="other">0 karod</pattern>
-					<pattern type="100000000" count="one">00 karod</pattern>
-					<pattern type="100000000" count="other">00 karod</pattern>
-					<pattern type="1000000000" count="one">0 arab</pattern>
-					<pattern type="1000000000" count="other">0 arab</pattern>
-					<pattern type="10000000000" count="one">00 arab</pattern>
-					<pattern type="10000000000" count="other">00 arab</pattern>
-					<pattern type="100000000000" count="one">0 kharab</pattern>
-					<pattern type="100000000000" count="other">0 kharab</pattern>
-					<pattern type="1000000000000" count="one">00 kharab</pattern>
-					<pattern type="1000000000000" count="other">00 kharab</pattern>
-					<pattern type="10000000000000" count="one">000 kharab</pattern>
-					<pattern type="10000000000000" count="other">000 kharab</pattern>
-					<pattern type="100000000000000" count="one">0000 kharab</pattern>
-					<pattern type="100000000000000" count="other">0000 kharab</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 hazaar</pattern>
-					<pattern type="1000" count="other">0 hazaar</pattern>
-					<pattern type="10000" count="one">00Th</pattern>
-					<pattern type="10000" count="other">00Th</pattern>
-					<pattern type="100000" count="one">0 laakh</pattern>
-					<pattern type="100000" count="other">0 laakh</pattern>
-					<pattern type="1000000" count="one">00 laakh</pattern>
-					<pattern type="1000000" count="other">00 laakh</pattern>
-					<pattern type="10000000" count="one">0 ka'.'</pattern>
-					<pattern type="10000000" count="other">0 ka'.'</pattern>
-					<pattern type="100000000" count="one">00 ka'.'</pattern>
-					<pattern type="100000000" count="other">00 ka'.'</pattern>
-					<pattern type="1000000000" count="one">0 a'.'</pattern>
-					<pattern type="1000000000" count="other">0 a'.'</pattern>
-					<pattern type="10000000000" count="one">00 a'.'</pattern>
-					<pattern type="10000000000" count="other">00 a'.'</pattern>
-					<pattern type="100000000000" count="one">0 kha'.'</pattern>
-					<pattern type="100000000000" count="other">0 kha'.'</pattern>
-					<pattern type="1000000000000" count="one">00 kha'.'</pattern>
-					<pattern type="1000000000000" count="other">00 kha'.'</pattern>
-					<pattern type="10000000000000" count="one">000 kha'.'</pattern>
-					<pattern type="10000000000000" count="other">000 kha'.'</pattern>
-					<pattern type="100000000000000" count="one">000kha'.'</pattern>
-					<pattern type="100000000000000" count="other">000kha'.'</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5432,53 +5445,53 @@ annotations.
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">¤0 hazaar</pattern>
-					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0 hazaar</pattern>
-					<pattern type="1000" count="other">¤0 hazaar</pattern>
-					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0 hazaar</pattern>
-					<pattern type="10000" count="one">¤00 hazaar</pattern>
-					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00 hazaar</pattern>
-					<pattern type="10000" count="other">¤00 hazaar</pattern>
-					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00 hazaar</pattern>
-					<pattern type="100000" count="one">¤0 laakh</pattern>
-					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 0 laakh</pattern>
-					<pattern type="100000" count="other">¤0 laakh</pattern>
-					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 0 laakh</pattern>
-					<pattern type="1000000" count="one">¤00 laakh</pattern>
-					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 00 laakh</pattern>
-					<pattern type="1000000" count="other">¤00 laakh</pattern>
-					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 00 laakh</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
 					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000" count="other">¤0 ka'.'</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
 					<pattern type="10000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000" count="one">¤00 ka'.'</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
 					<pattern type="100000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000" count="other">¤00 ka'.'</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
 					<pattern type="100000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000" count="one">¤0 a'.'</pattern>
-					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0B</pattern>
-					<pattern type="1000000000" count="other">¤0 a'.'</pattern>
-					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0B</pattern>
-					<pattern type="10000000000" count="one">¤00 a'.'</pattern>
-					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00B</pattern>
-					<pattern type="10000000000" count="other">¤00 a'.'</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00B</pattern>
-					<pattern type="100000000000" count="one">¤0 kha'.'</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
 					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">¤0 kha'.'</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one">¤00 kha'.'</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">¤00 kha'.'</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one">¤000 kha'.'</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">¤000 kha'.'</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one">¤0000 kha'.'</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">¤0000 kha'.'</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -9929,7 +9942,7 @@ annotations.
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und hi</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko si ta te vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
@@ -10059,27 +10072,51 @@ annotations.
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
+			<nameField type="given">Lalit</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given">Lalit</nameField>
+			<nameField type="surname">Bharati</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given">Lalit</nameField>
+			<nameField type="given2">Mohan</nameField>
+			<nameField type="surname">Bharati</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">Shree</nameField>
+			<nameField type="given">Lalit</nameField>
+			<nameField type="given-informal">Lakhan</nameField>
+			<nameField type="given2">Kumaar</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">Bharati</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="generation">Dviteey</nameField>
+			<nameField type="credentials">MD</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
 			<nameField type="given">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
+		<sampleName item="foreignGS">
+			<nameField type="given">Kathe</nameField>
+			<nameField type="surname">Muller</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
-			<nameField type="given">↑↑↑</nameField>
+		<sampleName item="foreignGGS">
+			<nameField type="given">Zazilia</nameField>
 			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
+			<nameField type="surname">Stober</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">↑↑↑</nameField>
+		<sampleName item="foreignFull">
+			<nameField type="title">Prof. Dr.</nameField>
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="given-informal">↑↑↑</nameField>
-			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="given2">Cesar Martin</nameField>
 			<nameField type="surname-prefix">↑↑↑</nameField>
-			<nameField type="surname-core">↑↑↑</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+			<nameField type="surname-core">Bruhl</nameField>
+			<nameField type="surname2">Gonzalez Domingo</nameField>
+			<nameField type="generation">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

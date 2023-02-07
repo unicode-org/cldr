@@ -965,8 +965,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">聞かざる</annotation>
 		<annotation cp="🙊">三猿 | 猿 | 言わざる</annotation>
 		<annotation cp="🙊" type="tts">言わざる</annotation>
-		<annotation cp="💋">キス | キスマーク | ちゅっ | 唇</annotation>
-		<annotation cp="💋" type="tts">キスマーク</annotation>
 		<annotation cp="💌">ハート | ラブレター | 封筒 | 恋文 | 手紙</annotation>
 		<annotation cp="💌" type="tts">ラブレター</annotation>
 		<annotation cp="💘">キューピッド | ハート | ハートに矢 | 矢</annotation>
@@ -995,6 +993,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❤‍🩹" type="tts">包帯を巻いたハート</annotation>
 		<annotation cp="❤">ハート | 赤いハート</annotation>
 		<annotation cp="❤" type="tts">赤いハート</annotation>
+		<annotation cp="🩷">かわいい | ハート | ピンク | ピンクのハート | ラブ | 好き</annotation>
+		<annotation cp="🩷" type="tts">ピンクのハート</annotation>
 		<annotation cp="🧡">オレンジのハート | ハート</annotation>
 		<annotation cp="🧡" type="tts">オレンジのハート</annotation>
 		<annotation cp="💛">ハート | 黄色のハート</annotation>
@@ -1003,20 +1003,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">緑のハート</annotation>
 		<annotation cp="💙">ハート | 青いハート</annotation>
 		<annotation cp="💙" type="tts">青いハート</annotation>
-		<annotation cp="💜">ハート | 紫のハート</annotation>
-		<annotation cp="💜" type="tts">紫のハート</annotation>
 		<annotation cp="🩵">シアン | ティールブルー | ハート | 薄い青 | 薄い青のハート</annotation>
 		<annotation cp="🩵" type="tts">薄い青のハート</annotation>
-		<annotation cp="🩶">スレートグレー | ハート | 灰色 | 灰色のハート | 銀色</annotation>
-		<annotation cp="🩶" type="tts">灰色のハート</annotation>
-		<annotation cp="🩷">かわいい | ハート | ピンク | ピンクのハート | ラブ | 好き</annotation>
-		<annotation cp="🩷" type="tts">ピンクのハート</annotation>
+		<annotation cp="💜">ハート | 紫のハート</annotation>
+		<annotation cp="💜" type="tts">紫のハート</annotation>
 		<annotation cp="🤎">ハート | 茶色いハート</annotation>
 		<annotation cp="🤎" type="tts">茶色いハート</annotation>
 		<annotation cp="🖤">ハート | 黒いハート</annotation>
 		<annotation cp="🖤" type="tts">黒いハート</annotation>
+		<annotation cp="🩶">スレートグレー | ハート | 灰色 | 灰色のハート | 銀色</annotation>
+		<annotation cp="🩶" type="tts">灰色のハート</annotation>
 		<annotation cp="🤍">ハート | 白いハート</annotation>
 		<annotation cp="🤍" type="tts">白いハート</annotation>
+		<annotation cp="💋">キス | キスマーク | ちゅっ | 唇</annotation>
+		<annotation cp="💋" type="tts">キスマーク</annotation>
 		<annotation cp="💯">100 | 100点 | 100点満点 | 全問正解 | 満点</annotation>
 		<annotation cp="💯" type="tts">100点満点</annotation>
 		<annotation cp="💢">＃ | むかっ | 怒り</annotation>
@@ -1031,8 +1031,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">ダッシュ</annotation>
 		<annotation cp="🕳">穴</annotation>
 		<annotation cp="🕳" type="tts">穴</annotation>
-		<annotation cp="💣">爆弾</annotation>
-		<annotation cp="💣" type="tts">爆弾</annotation>
 		<annotation cp="💬">セリフ | 会話 | 会話の吹き出し | 吹き出し</annotation>
 		<annotation cp="💬" type="tts">会話の吹き出し</annotation>
 		<annotation cp="👁‍🗨">吹き出し | 吹き出しの目 | 目 | 目撃</annotation>
@@ -1063,6 +1061,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">下に向けた手</annotation>
 		<annotation cp="🫴">上 | 上に向けた手 | 受ける | 手</annotation>
 		<annotation cp="🫴" type="tts">上に向けた手</annotation>
+		<annotation cp="🫷">ストップ | ハイタッチ | 左向き | 左向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫷" type="tts">左向きに押している手</annotation>
+		<annotation cp="🫸">ストップ | ハイタッチ | 右向き | 右向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫸" type="tts">右向きに押している手</annotation>
 		<annotation cp="👌">OK | OKの手 | オーケー | オッケー | 手</annotation>
 		<annotation cp="👌" type="tts">OKの手</annotation>
 		<annotation cp="🤌">ジェスチャー | すぼめる | 上向きにすぼめた手 | 手 | 指</annotation>
@@ -1121,10 +1123,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤝" type="tts">握手</annotation>
 		<annotation cp="🙏">お願い | ごめんなさい | 合掌 | 祈り</annotation>
 		<annotation cp="🙏" type="tts">祈り</annotation>
-		<annotation cp="🫷">ストップ | ハイタッチ | 左向き | 左向きに押している手 | 待て | 押す | 断る</annotation>
-		<annotation cp="🫷" type="tts">左向きに押している手</annotation>
-		<annotation cp="🫸">ストップ | ハイタッチ | 右向き | 右向きに押している手 | 待て | 押す | 断る</annotation>
-		<annotation cp="🫸" type="tts">右向きに押している手</annotation>
 		<annotation cp="✍">手 | 手で書く | 手書き | 書いている手</annotation>
 		<annotation cp="✍" type="tts">書いている手</annotation>
 		<annotation cp="💅">ネイル | マニキュア | マニキュアを塗る手 | 爪</annotation>
@@ -1993,6 +1991,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪹" type="tts">空っぽの巣</annotation>
 		<annotation cp="🪺">営巣 | 巣 | 巣作り | 鳥の卵と巣</annotation>
 		<annotation cp="🪺" type="tts">鳥の卵と巣</annotation>
+		<annotation cp="🍄">きのこ | キノコ | マッシュルーム | 毒 | 野菜</annotation>
+		<annotation cp="🍄" type="tts">キノコ</annotation>
 		<annotation cp="🍇">グレープ | ぶどう | 果物</annotation>
 		<annotation cp="🍇" type="tts">ぶどう</annotation>
 		<annotation cp="🍈">メロン | 果物 | 野菜</annotation>
@@ -2055,8 +2055,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">ニンニク</annotation>
 		<annotation cp="🧅">タマネギ | ねぎ | 玉ねぎ | 薬味 | 野菜</annotation>
 		<annotation cp="🧅" type="tts">タマネギ</annotation>
-		<annotation cp="🍄">きのこ | キノコ | マッシュルーム | 毒 | 野菜</annotation>
-		<annotation cp="🍄" type="tts">キノコ</annotation>
 		<annotation cp="🥜">ナッツ | ピーナッツ | 落花生 | 野菜</annotation>
 		<annotation cp="🥜" type="tts">ピーナッツ</annotation>
 		<annotation cp="🫘">レッドキドニー | 小豆 | 豆 | 金時豆</annotation>
@@ -2811,16 +2809,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">ヨーヨー</annotation>
 		<annotation cp="🪁">おもちゃ | カイト | たこ | 凧揚げ | 玩具</annotation>
 		<annotation cp="🪁" type="tts">たこ</annotation>
+		<annotation cp="🔫">ピストル | リボルバー | 拳銃 | 武器 | 水鉄砲 | 銃</annotation>
+		<annotation cp="🔫" type="tts">水鉄砲</annotation>
 		<annotation cp="🎱">エイトボール | スポーツ | ビリヤード | ボール</annotation>
 		<annotation cp="🎱" type="tts">ビリヤード</annotation>
 		<annotation cp="🔮">占い | 水晶 | 水晶玉 | 玉 | 運命</annotation>
 		<annotation cp="🔮" type="tts">水晶玉</annotation>
 		<annotation cp="🪄">つえ | 杖 | 魔法の杖 | 魔術</annotation>
 		<annotation cp="🪄" type="tts">魔法の杖</annotation>
-		<annotation cp="🧿">お守り | ナザール | ナザール・ボンジュウ | ビーズ | 邪視 | 魔除け</annotation>
-		<annotation cp="🧿" type="tts">ナザール・ボンジュウ</annotation>
-		<annotation cp="🪬">お守り | ハムサ | ファーティマ | ミリアム | 手 | 目 | 護符</annotation>
-		<annotation cp="🪬" type="tts">ハムサ</annotation>
 		<annotation cp="🎮">ゲーム | コントローラ | テレビゲーム | ビデオゲーム</annotation>
 		<annotation cp="🎮" type="tts">テレビゲーム</annotation>
 		<annotation cp="🕹">ゲーム | コントローラ | ジョイスティック | スティック | テレビゲーム</annotation>
@@ -2911,8 +2907,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👚" type="tts">婦人服</annotation>
 		<annotation cp="🪭">あおぐ | 団扇 | 夏 | 扇 | 扇子 | 風</annotation>
 		<annotation cp="🪭" type="tts">扇子</annotation>
-		<annotation cp="🪮">アフロ | アフロコーム | くし | コーム | 髪</annotation>
-		<annotation cp="🪮" type="tts">アフロコーム</annotation>
 		<annotation cp="👛">がま口 | 小銭入れ | 財布</annotation>
 		<annotation cp="👛" type="tts">がま口</annotation>
 		<annotation cp="👜">かばん | バッグ | ハンドバッグ</annotation>
@@ -2941,6 +2935,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">トウシューズ</annotation>
 		<annotation cp="👢">ブーツ | ロングブーツ | 靴</annotation>
 		<annotation cp="👢" type="tts">ブーツ</annotation>
+		<annotation cp="🪮">アフロ | アフロコーム | くし | コーム | 髪</annotation>
+		<annotation cp="🪮" type="tts">アフロコーム</annotation>
 		<annotation cp="👑">クラウン | 冠 | 王冠</annotation>
 		<annotation cp="👑" type="tts">王冠</annotation>
 		<annotation cp="👒">婦人帽子 | 帽子 | 麦わら | 麦わら帽子</annotation>
@@ -3259,8 +3255,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">短刀</annotation>
 		<annotation cp="⚔">クロスした剣 | つるぎ | 刀 | 剣 | 武器</annotation>
 		<annotation cp="⚔" type="tts">クロスした剣</annotation>
-		<annotation cp="🔫">ピストル | リボルバー | 拳銃 | 武器 | 水鉄砲 | 銃</annotation>
-		<annotation cp="🔫" type="tts">水鉄砲</annotation>
+		<annotation cp="💣">爆弾</annotation>
+		<annotation cp="💣" type="tts">爆弾</annotation>
 		<annotation cp="🪃">オーストラリア | ブーメラン | 武器 | 玩具 | 跳ね返り | 返って来る</annotation>
 		<annotation cp="🪃" type="tts">ブーメラン</annotation>
 		<annotation cp="🏹">射手 | 弓矢 | 星座 | 武器 | 矢</annotation>
@@ -3381,6 +3377,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪦" type="tts">墓石</annotation>
 		<annotation cp="⚱">埋葬 | 死 | 葬儀 | 遺灰 | 骨壺</annotation>
 		<annotation cp="⚱" type="tts">骨壺</annotation>
+		<annotation cp="🧿">お守り | ナザール | ナザール・ボンジュウ | ビーズ | 邪視 | 魔除け</annotation>
+		<annotation cp="🧿" type="tts">ナザール・ボンジュウ</annotation>
+		<annotation cp="🪬">お守り | ハムサ | ファーティマ | ミリアム | 手 | 目 | 護符</annotation>
+		<annotation cp="🪬" type="tts">ハムサ</annotation>
 		<annotation cp="🗿">モアイ | モヤイ | 像 | 顔</annotation>
 		<annotation cp="🗿" type="tts">モアイ</annotation>
 		<annotation cp="🪧">デモ | プラカード | 主張 | 抗議 | 異議 | 看板</annotation>
@@ -3579,12 +3579,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">高輝度</annotation>
 		<annotation cp="📶">アンテナマーク | スマートフォン | スマホ | 圏内 | 携帯電話 | 電波</annotation>
 		<annotation cp="📶" type="tts">アンテナマーク</annotation>
+		<annotation cp="🛜">Wi-Fi | インターネット | スマホ | ネットワーク | パソコン | 電波</annotation>
+		<annotation cp="🛜" type="tts">Wi-Fi</annotation>
 		<annotation cp="📳">スマートフォン | スマホ | マナーモード | 携帯 | 携帯電話</annotation>
 		<annotation cp="📳" type="tts">マナーモード</annotation>
 		<annotation cp="📴">スマートフォン | スマホ | 携帯電話電源オフ | 電源オフ</annotation>
 		<annotation cp="📴" type="tts">携帯電話電源オフ</annotation>
-		<annotation cp="🛜">Wi-Fi | インターネット | スマホ | ネットワーク | パソコン | 電波</annotation>
-		<annotation cp="🛜" type="tts">Wi-Fi</annotation>
 		<annotation cp="♀">シンボル | 女 | 女性 | 女性のマーク</annotation>
 		<annotation cp="♀" type="tts">女性のマーク</annotation>
 		<annotation cp="♂">シンボル | 男 | 男性 | 男性のマーク</annotation>

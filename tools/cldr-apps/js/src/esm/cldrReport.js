@@ -1,10 +1,11 @@
 /**
  * cldrReport: common functions for reports (r_*)
  */
+import * as cldrAjax from "./cldrAjax.js";
 import * as cldrClient from "./cldrClient.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVueRouter from "../cldrVueRouter.js";
@@ -33,31 +34,10 @@ function reportLoadHandler(html, report) {
     lastrr.unmount();
   }
   lastrr = rr;
-  cldrGui.hideRightPanel();
 }
 
 function reportName(report) {
   return cldrText.get(`special_r_${report}`);
-}
-
-function reportClass(completed, acceptable) {
-  if (completed && acceptable) {
-    return "d-dr-approved";
-  } else if (completed && !acceptable) {
-    return "d-dr-contributed";
-  } else {
-    return "d-dr-missing";
-  }
-}
-
-async function internalFetchAllReports(user) {
-  const client = await cldrClient.getClient();
-  const raw = (
-    await client.apis.voting.getAllReports({
-      user: user || "-",
-    })
-  ).body;
-  return raw;
 }
 
 async function internalFetchAllReportStatus() {
@@ -200,12 +180,59 @@ async function downloadAllReports() {
   XLSX.writeFile(wb, `survey_reports.xlsx`);
 }
 
+// View Section
+
+// called as special.load
+function load(section) {
+  // section = r_datetime. We are only called if isReport(section) = true
+  section = section.substring(2); // remove initial r_
+  cldrSurvey.showLoader(null);
+  const url = getUrl(section);
+  cldrSurvey.hideLoader();
+  const xhrArgs = {
+    url: url,
+    // TODO: get json from server and do the presentation on the front end
+    handleAs: "text", // not "html" or "json"!
+    load: loadHandler,
+    error: errorHandler,
+  };
+  cldrAjax.sendXhr(xhrArgs);
+}
+
+function getUrl(section) {
+  const locale = cldrStatus.getCurrentLocale();
+  const report = section;
+  return (
+    cldrStatus.getContextPath() +
+    `/api/voting/reports/locales/${locale}/reports/${report}.html?` +
+    cldrSurvey.cacheKill()
+  );
+}
+
+function loadHandler(html) {
+  const section = cldrStatus.getCurrentSpecial().substring(2); // pull section name from current special
+  reportLoadHandler(html, section);
+}
+
+function errorHandler(err) {
+  cldrSurvey.hideLoader();
+  cldrLoad.setLoading(false);
+  const html =
+    "<div style='padding-top: 4em; font-size: x-large !important;' class='ferrorbox warning'>" +
+    "<span class='icon i-stop'>" +
+    " &nbsp; &nbsp;</span>Error: could not load: " +
+    err +
+    "</div>";
+  const frag = cldrDom.construct(html);
+  cldrLoad.flipToOtherDiv(frag);
+}
+
 export {
   downloadAllReports,
   fetchAllReports,
   getOneLocaleStatus,
   getOneReportLocaleStatus,
-  reportClass,
+  load,
   reportLoadHandler,
   reportName,
   reportTypes,

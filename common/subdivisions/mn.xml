@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,693 +12,786 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type="aeaj" draft="contributed">Эмирт Ажман</subdivision>
-			<subdivision type="aeaz" draft="contributed">Эмирт Абу-Даби</subdivision>
-			<subdivision type="aedu" draft="contributed">Эмирт Дубай</subdivision>
-			<subdivision type="afbal" draft="contributed">Балх аймаг</subdivision>
-			<subdivision type="afbam" draft="contributed">Бамиан аймаг</subdivision>
-			<subdivision type="afbdg" draft="contributed">Бадгис аймаг</subdivision>
-			<subdivision type="afbds" draft="contributed">Бадахшан аймаг</subdivision>
-			<subdivision type="afbgl" draft="contributed">Баглан аймаг</subdivision>
-			<subdivision type="afday" draft="contributed">Дайкунди аймаг</subdivision>
-			<subdivision type="affra" draft="contributed">Фарах аймаг</subdivision>
-			<subdivision type="affyb" draft="contributed">Фарьяб аймаг</subdivision>
-			<subdivision type="afgha" draft="contributed">Газни аймаг</subdivision>
-			<subdivision type="afgho" draft="contributed">Гор аймаг</subdivision>
-			<subdivision type="afhel" draft="contributed">Хильменд аймаг</subdivision>
-			<subdivision type="afher" draft="contributed">Херат аймаг</subdivision>
-			<subdivision type="afjow" draft="contributed">Жаузжан аймаг</subdivision>
-			<subdivision type="afkab" draft="contributed">Кабул аймаг</subdivision>
-			<subdivision type="afkan" draft="contributed">Кандахар аймаг</subdivision>
-			<subdivision type="afkap" draft="contributed">Каписа аймаг</subdivision>
-			<subdivision type="afkdz" draft="contributed">Кундуз аймаг</subdivision>
-			<subdivision type="afkho" draft="contributed">Хост аймаг</subdivision>
-			<subdivision type="afknr" draft="contributed">Кунар аймаг</subdivision>
-			<subdivision type="aflag" draft="contributed">Лагман аймаг</subdivision>
-			<subdivision type="aflog" draft="contributed">Логар аймаг</subdivision>
-			<subdivision type="afnan" draft="contributed">Нангархар аймаг</subdivision>
-			<subdivision type="afnim" draft="contributed">Нимроз аймаг</subdivision>
-			<subdivision type="afnur" draft="contributed">Нуристан аймаг</subdivision>
-			<subdivision type="afpan" draft="contributed">Панжшер аймаг</subdivision>
-			<subdivision type="afpar" draft="contributed">Парван аймаг</subdivision>
-			<subdivision type="afpia" draft="contributed">Пактия аймаг</subdivision>
-			<subdivision type="afpka" draft="contributed">Пактика аймаг</subdivision>
-			<subdivision type="afsam" draft="contributed">Саманган аймаг</subdivision>
-			<subdivision type="afsar" draft="contributed">Сари-Пуль аймаг</subdivision>
-			<subdivision type="aftak" draft="contributed">Тахар аймаг</subdivision>
-			<subdivision type="afuru" draft="contributed">Урузган аймаг</subdivision>
-			<subdivision type="afwar" draft="contributed">Вардаг аймаг</subdivision>
-			<subdivision type="afzab" draft="contributed">Забуль аймаг</subdivision>
-			<subdivision type="al01" draft="contributed">Берат хошуу</subdivision>
-			<subdivision type="al02" draft="contributed">Дуррес хошуу</subdivision>
-			<subdivision type="al03" draft="contributed">Эльбасан хошуу</subdivision>
-			<subdivision type="al04" draft="contributed">Фиер хошуу</subdivision>
-			<subdivision type="al08" draft="contributed">Лежа хошуу</subdivision>
-			<subdivision type="al10" draft="contributed">Шкодер хошуу</subdivision>
-			<subdivision type="al11" draft="contributed">Тиран хошуу</subdivision>
-			<subdivision type="amag" draft="contributed">Арагацотн аймаг</subdivision>
-			<subdivision type="amar" draft="contributed">Арарат аймаг</subdivision>
-			<subdivision type="amav" draft="contributed">Армавир аймаг</subdivision>
-			<subdivision type="amer" draft="contributed">Ереван</subdivision>
-			<subdivision type="amgr" draft="contributed">Гехаркуник аймаг</subdivision>
-			<subdivision type="amkt" draft="contributed">Котайк аймаг</subdivision>
-			<subdivision type="amlo" draft="contributed">Лори аймаг</subdivision>
-			<subdivision type="amsh" draft="contributed">Ширак аймаг</subdivision>
-			<subdivision type="amsu" draft="contributed">Сюник аймаг</subdivision>
-			<subdivision type="amtv" draft="contributed">Тавуш аймаг</subdivision>
-			<subdivision type="amvd" draft="contributed">Вайоцзор аймаг</subdivision>
-			<subdivision type="arb" draft="contributed">Буэнос-Айрес муж</subdivision>
-			<subdivision type="arc" draft="contributed">Буэнос-Айрес</subdivision>
-			<subdivision type="arg" draft="contributed">Сантьяго-дель-Эстеро муж</subdivision>
-			<subdivision type="at1" draft="contributed">Бургенланд</subdivision>
-			<subdivision type="at2" draft="contributed">Каринт</subdivision>
-			<subdivision type="at3" draft="contributed">Доор Австри</subdivision>
-			<subdivision type="at4" draft="contributed">Дээр Австри</subdivision>
-			<subdivision type="at5" draft="contributed">Зальцбург муж</subdivision>
-			<subdivision type="at6" draft="contributed">Штир</subdivision>
-			<subdivision type="at7" draft="contributed">Тироль</subdivision>
-			<subdivision type="at9" draft="contributed">Вена</subdivision>
-			<subdivision type="auact" draft="contributed">Австралийн Нийслэлийн Нутаг Дэвсгэр</subdivision>
-			<subdivision type="aunsw" draft="contributed">Шинэ Өмнөд Вэльс</subdivision>
-			<subdivision type="aunt" draft="contributed">Хойд Нутаг Дэвсгэр</subdivision>
-			<subdivision type="auqld" draft="contributed">Квийнслэнд</subdivision>
-			<subdivision type="ausa" draft="contributed">Өмнөд Австрали</subdivision>
-			<subdivision type="autas" draft="contributed">Тасмани</subdivision>
-			<subdivision type="auvic" draft="contributed">Викториа</subdivision>
-			<subdivision type="auwa" draft="contributed">Баруун Австрали</subdivision>
-			<subdivision type="azabs" draft="contributed">Абшерон аймаг</subdivision>
-			<subdivision type="azaga" draft="contributed">Акстафа аймаг</subdivision>
-			<subdivision type="azagc" draft="contributed">Агжабеди аймаг</subdivision>
-			<subdivision type="azagm" draft="contributed">Агдам аймаг</subdivision>
-			<subdivision type="azags" draft="contributed">Агдаш аймаг</subdivision>
-			<subdivision type="azagu" draft="contributed">Агсу аймаг</subdivision>
-			<subdivision type="azast" draft="contributed">Астара аймаг</subdivision>
-			<subdivision type="azba" draft="contributed">Баку</subdivision>
-			<subdivision type="azbal" draft="contributed">Балакен аймаг</subdivision>
-			<subdivision type="azbar" draft="contributed">Барде аймаг</subdivision>
-			<subdivision type="azbey" draft="contributed">Бейлеган аймаг</subdivision>
-			<subdivision type="azbil" draft="contributed">Билесувар аймаг</subdivision>
-			<subdivision type="azcab" draft="contributed">Жабраил аймаг</subdivision>
-			<subdivision type="azcal" draft="contributed">Жалилабад аймаг</subdivision>
-			<subdivision type="azdas" draft="contributed">Дашкесан аймаг</subdivision>
-			<subdivision type="azga" draft="contributed">Гянжа</subdivision>
-			<subdivision type="azgad" draft="contributed">Кадебай аймаг</subdivision>
-			<subdivision type="azhac" draft="contributed">Хажигабул аймаг</subdivision>
-			<subdivision type="azla" draft="contributed">Ланкеран аймаг</subdivision>
-			<subdivision type="azlan" draft="contributed">Ланкеран хот</subdivision>
-			<subdivision type="azmi" draft="contributed">Мингечевир хот</subdivision>
-			<subdivision type="aznx" draft="contributed">Нахчыван</subdivision>
-			<subdivision type="azsa" draft="contributed">Шеки</subdivision>
-			<subdivision type="azsbn" draft="contributed">Шабран аймаг</subdivision>
-			<subdivision type="azsm" draft="contributed">Сумгаит</subdivision>
-			<subdivision type="azsr" draft="contributed">Азербайжаны Ширван</subdivision>
-			<subdivision type="azye" draft="contributed">Евлах</subdivision>
-			<subdivision type="bda" draft="contributed">Барисал муж</subdivision>
-			<subdivision type="bdb" draft="contributed">Читтагонг муж</subdivision>
-			<subdivision type="bdc" draft="contributed">Дакка муж</subdivision>
-			<subdivision type="bdd" draft="contributed">Кхулна муж</subdivision>
-			<subdivision type="bebru" draft="contributed">Брюссель</subdivision>
-			<subdivision type="bg01" draft="contributed">Благоевград аймаг</subdivision>
-			<subdivision type="bg02" draft="contributed">Бургас аймаг</subdivision>
-			<subdivision type="bg03" draft="contributed">Варна аймаг</subdivision>
-			<subdivision type="bg04" draft="contributed">Велико-Тырново аймаг</subdivision>
-			<subdivision type="bg05" draft="contributed">Видин аймаг</subdivision>
-			<subdivision type="bg06" draft="contributed">Враца аймаг</subdivision>
-			<subdivision type="bg07" draft="contributed">Габрово аймаг</subdivision>
-			<subdivision type="bg08" draft="contributed">Добрич аймаг</subdivision>
-			<subdivision type="bg09" draft="contributed">Кыржали аймаг</subdivision>
-			<subdivision type="bg11" draft="contributed">Ловеч аймаг</subdivision>
-			<subdivision type="bg12" draft="contributed">Монтана аймаг</subdivision>
-			<subdivision type="bg13" draft="contributed">Пазаржик аймаг</subdivision>
-			<subdivision type="bg14" draft="contributed">Перник аймаг</subdivision>
-			<subdivision type="bg15" draft="contributed">Плевен аймаг</subdivision>
-			<subdivision type="bg16" draft="contributed">Пловдив аймаг</subdivision>
-			<subdivision type="bg17" draft="contributed">Разград аймаг</subdivision>
-			<subdivision type="bg18" draft="contributed">Русе аймаг</subdivision>
-			<subdivision type="bg19" draft="contributed">Силистра аймаг</subdivision>
-			<subdivision type="bg20" draft="contributed">Сливен аймаг</subdivision>
-			<subdivision type="bg21" draft="contributed">Смолян аймаг</subdivision>
-			<subdivision type="bg23" draft="contributed">Софи аймаг</subdivision>
-			<subdivision type="bg24" draft="contributed">Стара-Загора аймаг</subdivision>
-			<subdivision type="bg25" draft="contributed">Тырговиште аймаг</subdivision>
-			<subdivision type="bg26" draft="contributed">Хасково аймаг</subdivision>
-			<subdivision type="bg27" draft="contributed">Шумен аймаг</subdivision>
-			<subdivision type="bg28" draft="contributed">Ямбол аймаг</subdivision>
-			<subdivision type="brsp" draft="contributed">Сан-Паулу муж</subdivision>
-			<subdivision type="bt15" draft="contributed">Тхимпху зонкаг</subdivision>
-			<subdivision type="bwga" draft="contributed">Габороне</subdivision>
-			<subdivision type="byhm" draft="contributed">Минск</subdivision>
-			<subdivision type="caab" draft="contributed">Альберта</subdivision>
-			<subdivision type="cabc" draft="contributed">Бритиш Коламбиа</subdivision>
-			<subdivision type="camb" draft="contributed">Манитоба</subdivision>
-			<subdivision type="canb" draft="contributed">Нью-Брансвик</subdivision>
-			<subdivision type="canl" draft="contributed">Ньюфаундленд ба Лабрадор</subdivision>
-			<subdivision type="cans" draft="contributed">Нова Скоша</subdivision>
-			<subdivision type="cant" draft="contributed">Баруун Хойд Нутаг Дэвсгэр</subdivision>
-			<subdivision type="canu" draft="contributed">Нунавут</subdivision>
-			<subdivision type="caon" draft="contributed">Онтарио</subdivision>
-			<subdivision type="cape" draft="contributed">Принс Эдвардын Арал</subdivision>
-			<subdivision type="caqc" draft="contributed">Кэбэк</subdivision>
-			<subdivision type="cask" draft="contributed">Саскачеван</subdivision>
-			<subdivision type="cayt" draft="contributed">Юкон</subdivision>
-			<subdivision type="cdkn" draft="contributed">Киншаса</subdivision>
-			<subdivision type="cfbgf" draft="contributed">Банги</subdivision>
-			<subdivision type="ciab" draft="contributed">Абижан хот</subdivision>
-			<subdivision type="ciym" draft="contributed">Ямусукро хот</subdivision>
-			<subdivision type="cnah" draft="contributed">Аньхуй муж</subdivision>
-			<subdivision type="cnbj" draft="contributed">Бээжин</subdivision>
-			<subdivision type="cncq" draft="contributed">Чунцин</subdivision>
-			<subdivision type="cnfj" draft="contributed">Фужянь муж</subdivision>
-			<subdivision type="cngd" draft="contributed">Гуандун муж</subdivision>
-			<subdivision type="cngs" draft="contributed">Ганьсү</subdivision>
-			<subdivision type="cngz" draft="contributed">Гуйжоу муж</subdivision>
-			<subdivision type="cnha" draft="contributed">Хэнань</subdivision>
-			<subdivision type="cnhe" draft="contributed">Хэбэй</subdivision>
-			<subdivision type="cnhi" draft="contributed">Хайнань</subdivision>
-			<subdivision type="cnhk" draft="contributed">Хонг Конг</subdivision>
-			<subdivision type="cnhl" draft="contributed">Хармөрөн</subdivision>
-			<subdivision type="cnhn" draft="contributed">Хүнань</subdivision>
-			<subdivision type="cnjl" draft="contributed">Гирин</subdivision>
-			<subdivision type="cnjs" draft="contributed">Жянсү</subdivision>
-			<subdivision type="cnjx" draft="contributed">Жянши муж</subdivision>
-			<subdivision type="cnln" draft="contributed">Ляонин</subdivision>
-			<subdivision type="cnmo" draft="contributed">Макао</subdivision>
-			<subdivision type="cnnm" draft="contributed">Өвөр Монголын Өөртөө Засах Орон</subdivision>
-			<subdivision type="cnnx" draft="contributed">Ниншя - Хотонгийн өөртөө засах орон</subdivision>
-			<subdivision type="cnqh" draft="contributed">Хөхнуур</subdivision>
-			<subdivision type="cnsc" draft="contributed">Сычуань муж</subdivision>
-			<subdivision type="cnsd" draft="contributed">Шаньдун</subdivision>
-			<subdivision type="cnsh" draft="contributed">Шанхай</subdivision>
-			<subdivision type="cnsn" draft="contributed">Шэньси муж</subdivision>
-			<subdivision type="cnsx" draft="contributed">Шаньси муж</subdivision>
-			<subdivision type="cntj" draft="contributed">Тяньжинь</subdivision>
-			<subdivision type="cnxj" draft="contributed">Шиньжян - Уйгурын өөртөө засах орон</subdivision>
-			<subdivision type="cnxz" draft="contributed">Төвөдийн өөртөө засах орон</subdivision>
-			<subdivision type="cnyn" draft="contributed">Юньнань муж</subdivision>
-			<subdivision type="cnzj" draft="contributed">Жөжян</subdivision>
-			<subdivision type="codc" draft="contributed">Богота</subdivision>
-			<subdivision type="cz10" draft="contributed">Прага</subdivision>
-			<subdivision type="debb" draft="contributed">Бранденбург</subdivision>
-			<subdivision type="debe" draft="contributed">Берлин</subdivision>
-			<subdivision type="debw" draft="contributed">Баден-Вюртемберг</subdivision>
-			<subdivision type="deby" draft="contributed">Бавар</subdivision>
-			<subdivision type="dehb" draft="contributed">Бремен муж</subdivision>
-			<subdivision type="dehe" draft="contributed">Хессен</subdivision>
-			<subdivision type="dehh" draft="contributed">Хамбург</subdivision>
-			<subdivision type="demv" draft="contributed">Мекленбург – Өрнө Померан</subdivision>
-			<subdivision type="deni" draft="contributed">Доор Саксон</subdivision>
-			<subdivision type="denw" draft="contributed">Умар Райн-Вестфален</subdivision>
-			<subdivision type="derp" draft="contributed">Райнланд-Пфальц</subdivision>
-			<subdivision type="desh" draft="contributed">Шлесвиг-Хольштайн</subdivision>
-			<subdivision type="desl" draft="contributed">Заарланд</subdivision>
-			<subdivision type="desn" draft="contributed">Саксон</subdivision>
-			<subdivision type="dest" draft="contributed">Саксон-Анхальт</subdivision>
-			<subdivision type="deth" draft="contributed">Тюринг</subdivision>
-			<subdivision type="djdj" draft="contributed">Жибути</subdivision>
-			<subdivision type="esan" draft="contributed">Андалус орон</subdivision>
-			<subdivision type="esar" draft="contributed">Арагон орон</subdivision>
-			<subdivision type="esas" draft="contributed">Астур муж</subdivision>
-			<subdivision type="esct" draft="contributed">Каталон орон</subdivision>
-			<subdivision type="esib" draft="contributed">Балеарын арлууд</subdivision>
-			<subdivision type="espm" draft="contributed">Балеарын арлууд²</subdivision>
-			<subdivision type="espv" draft="contributed">Баск орон</subdivision>
-			<subdivision type="etaa" draft="contributed">Аддис-Абеба</subdivision>
-			<subdivision type="etdd" draft="contributed">Дыре-Дауа</subdivision>
-			<subdivision type="fr11" draft="contributed">Од аймаг</subdivision>
-			<subdivision type="fr30" draft="contributed">Гар аймаг</subdivision>
-			<subdivision type="fr34" draft="contributed">Эро аймаг</subdivision>
-			<subdivision type="fr66" draft="contributed">Дорно Пиреней</subdivision>
-			<subdivision type="fr75" draft="contributed">Парис</subdivision>
-			<subdivision type="frbfc" draft="contributed">Бургунд муж</subdivision>
-			<subdivision type="frbre" draft="contributed">Бретань муж</subdivision>
-			<subdivision type="fridf" draft="contributed">Иль-де-Франс</subdivision>
-			<subdivision type="gbabe" draft="contributed">Абердин</subdivision>
-			<subdivision type="gbbir" draft="contributed">Бирмингем</subdivision>
-			<subdivision type="gbcrf" draft="contributed">Кардифф</subdivision>
-			<subdivision type="gbedh" draft="contributed">Эдинбург</subdivision>
-			<subdivision type="gbgbn" draft="contributed">Их Британи</subdivision>
-			<subdivision type="gbliv" draft="contributed">Ливерпүүл</subdivision>
-			<subdivision type="gblnd" draft="contributed">Лондон</subdivision>
-			<subdivision type="gbman" draft="contributed">Манчестер</subdivision>
-			<subdivision type="gbnet" draft="contributed">Ньюкасл</subdivision>
-			<subdivision type="gbngm" draft="contributed">Ноттингем</subdivision>
-			<subdivision type="gbnir" draft="contributed">Умард Ирланд</subdivision>
-			<subdivision type="gbukm" draft="contributed">Нэгдсэн Вант Улс</subdivision>
-			<subdivision type="geab" draft="contributed">Абхаз</subdivision>
-			<subdivision type="getb" draft="contributed">Тбилис</subdivision>
-			<subdivision type="gnc" draft="contributed">Конакри</subdivision>
-			<subdivision type="gwbs" draft="contributed">Биссау</subdivision>
-			<subdivision type="hr21" draft="contributed">Загреб</subdivision>
-			<subdivision type="hubu" draft="contributed">Будапешт</subdivision>
-			<subdivision type="hude" draft="contributed">Дебрецен</subdivision>
-			<subdivision type="hufe" draft="contributed">Фейер</subdivision>
-			<subdivision type="hugs" draft="contributed">Дьёр-Мошон-Шопрон</subdivision>
-			<subdivision type="hujn" draft="contributed">Яс-Надькун-Сольнок</subdivision>
-			<subdivision type="huke" draft="contributed">Комаром-Эстергом</subdivision>
-			<subdivision type="huso" draft="contributed">Шомодь</subdivision>
-			<subdivision type="huva" draft="contributed">Ваш</subdivision>
-			<subdivision type="huza" draft="contributed">Зала</subdivision>
-			<subdivision type="idac" draft="contributed">Аче</subdivision>
-			<subdivision type="idbt" draft="contributed">Бантен</subdivision>
-			<subdivision type="idja" draft="contributed">Жамби</subdivision>
-			<subdivision type="idjb" draft="contributed">Өрнө Жава</subdivision>
-			<subdivision type="idji" draft="contributed">Дорно Жава</subdivision>
-			<subdivision type="idjk" draft="contributed">Жакарта</subdivision>
-			<subdivision type="idjt" draft="contributed">Төв Жава</subdivision>
-			<subdivision type="idjw" draft="contributed">Жава</subdivision>
-			<subdivision type="idkb" draft="contributed">Өрнө Калимантан</subdivision>
-			<subdivision type="idkr" draft="contributed">Риау арлуудын муж</subdivision>
-			<subdivision type="idks" draft="contributed">Өмнө Калимантан</subdivision>
-			<subdivision type="idkt" draft="contributed">Төв Калимантан</subdivision>
-			<subdivision type="idla" draft="contributed">Лампун</subdivision>
-			<subdivision type="idnu" draft="contributed">Бага Зондын арлууд</subdivision>
-			<subdivision type="idpp" draft="contributed">Папуа-Шинэ Гвиней</subdivision>
-			<subdivision type="idri" draft="contributed">Риау</subdivision>
-			<subdivision type="idsa" draft="contributed">Умар Сулавеси</subdivision>
-			<subdivision type="idsb" draft="contributed">Өрнө Суматра</subdivision>
-			<subdivision type="idsr" draft="contributed">Өрнө Сулавеси</subdivision>
-			<subdivision type="idss" draft="contributed">Өмнө Суматра</subdivision>
-			<subdivision type="idst" draft="contributed">Төв Сулавеси</subdivision>
-			<subdivision type="idsu" draft="contributed">Умар Суматра</subdivision>
-			<subdivision type="inap" draft="contributed">Андра Прадеш</subdivision>
-			<subdivision type="inar" draft="contributed">Аруначалпрадеш</subdivision>
-			<subdivision type="inas" draft="contributed">Ассам</subdivision>
-			<subdivision type="inbr" draft="contributed">Бихар</subdivision>
-			<subdivision type="inct" draft="contributed">Чаттисгар</subdivision>
-			<subdivision type="indl" draft="contributed">Дели</subdivision>
-			<subdivision type="inga" draft="contributed">Гоа</subdivision>
-			<subdivision type="ingj" draft="contributed">Гужарат</subdivision>
-			<subdivision type="inhp" draft="contributed">Химачалпрадеш</subdivision>
-			<subdivision type="inhr" draft="contributed">Харяна</subdivision>
-			<subdivision type="injh" draft="contributed">Жарканд</subdivision>
-			<subdivision type="injk" draft="contributed">Жамму-Кашмир</subdivision>
-			<subdivision type="inka" draft="contributed">Карнатака</subdivision>
-			<subdivision type="inkl" draft="contributed">Керала</subdivision>
-			<subdivision type="inmh" draft="contributed">Махараштра</subdivision>
-			<subdivision type="inml" draft="contributed">Мегалая</subdivision>
-			<subdivision type="inmn" draft="contributed">Манипур</subdivision>
-			<subdivision type="inmp" draft="contributed">Мадхья-Прадеш</subdivision>
-			<subdivision type="inmz" draft="contributed">Мизорам</subdivision>
-			<subdivision type="innl" draft="contributed">Нагаланд</subdivision>
-			<subdivision type="inor" draft="contributed">Орисса</subdivision>
-			<subdivision type="inpb" draft="contributed">Панжаб</subdivision>
-			<subdivision type="inrj" draft="contributed">Ражастан</subdivision>
-			<subdivision type="insk" draft="contributed">Сикким</subdivision>
-			<subdivision type="intg" draft="contributed">Телангана</subdivision>
-			<subdivision type="intn" draft="contributed">Тамилнаду</subdivision>
-			<subdivision type="intr" draft="contributed">Трипура</subdivision>
-			<subdivision type="inup" draft="contributed">Уттар Прадеш</subdivision>
-			<subdivision type="inut" draft="contributed">Уттараканд</subdivision>
-			<subdivision type="inwb" draft="contributed">Өрнө Бенгал</subdivision>
-			<subdivision type="ir03" draft="contributed">Ардебиль муж</subdivision>
-			<subdivision type="ir17" draft="contributed">Керманшах муж</subdivision>
-			<subdivision type="ir19" draft="contributed">Гилян муж</subdivision>
-			<subdivision type="ir32" draft="contributed">Альборз муж</subdivision>
-			<subdivision type="it25" draft="contributed">Ломбард муж</subdivision>
-			<subdivision type="it62" draft="contributed">Лацио муж</subdivision>
-			<subdivision type="itkr" draft="contributed">Кротоне</subdivision>
-			<subdivision type="itme" draft="contributed">Мессина</subdivision>
-			<subdivision type="itmi" draft="contributed">Милан аймаг</subdivision>
-			<subdivision type="itpa" draft="contributed">Палермо аймаг</subdivision>
-			<subdivision type="itrm" draft="contributed">Ром аймаг</subdivision>
-			<subdivision type="jp01" draft="contributed">Хоккайдо</subdivision>
-			<subdivision type="jp02" draft="contributed">Аомори</subdivision>
-			<subdivision type="jp03" draft="contributed">Иватэ</subdivision>
-			<subdivision type="jp04" draft="contributed">Мияги</subdivision>
-			<subdivision type="jp05" draft="contributed">Акита</subdivision>
-			<subdivision type="jp06" draft="contributed">Ямагата-кэн</subdivision>
-			<subdivision type="jp07" draft="contributed">Фүкүшима</subdivision>
-			<subdivision type="jp08" draft="contributed">Ибараки</subdivision>
-			<subdivision type="jp11" draft="contributed">Сайтама аймаг</subdivision>
-			<subdivision type="jp12" draft="contributed">Чиба-кэн</subdivision>
-			<subdivision type="jp13" draft="contributed">Токио</subdivision>
-			<subdivision type="jp14" draft="contributed">Канагава</subdivision>
-			<subdivision type="jp23" draft="contributed">Айчи</subdivision>
-			<subdivision type="jp24" draft="contributed">Миэ</subdivision>
-			<subdivision type="jp25" draft="contributed">Шига</subdivision>
-			<subdivision type="jp30" draft="contributed">Вакаяма</subdivision>
-			<subdivision type="jp39" draft="contributed">Кочи-кэн</subdivision>
-			<subdivision type="kgb" draft="contributed">Баткен аймаг</subdivision>
-			<subdivision type="kgc" draft="contributed">Чүй муж</subdivision>
-			<subdivision type="kggb" draft="contributed">Бишкек</subdivision>
-			<subdivision type="kggo" draft="contributed">Ош</subdivision>
-			<subdivision type="kgj" draft="contributed">Жалалабат муж</subdivision>
-			<subdivision type="kgn" draft="contributed">Нарийн аймаг</subdivision>
-			<subdivision type="kgo" draft="contributed">Ош аймаг</subdivision>
-			<subdivision type="kgt" draft="contributed">Талас аймаг</subdivision>
-			<subdivision type="kgy" draft="contributed">Иссык-Күл аймаг</subdivision>
-			<subdivision type="kh12" draft="contributed">Пномпень</subdivision>
-			<subdivision type="kp01" draft="contributed">Пхеньян</subdivision>
-			<subdivision type="kp02" draft="contributed">Өмнө Пён-Ань</subdivision>
-			<subdivision type="kp03" draft="contributed">Умар Пён-Ань</subdivision>
-			<subdivision type="kp04" draft="contributed">Чаган-ду</subdivision>
-			<subdivision type="kp05" draft="contributed">Өмнө Хуанхэ</subdivision>
-			<subdivision type="kp06" draft="contributed">Умар Хуанхэ</subdivision>
-			<subdivision type="kp07" draft="contributed">Умард Солонгосын Канвон</subdivision>
-			<subdivision type="kp08" draft="contributed">Өмнө Хамгён</subdivision>
-			<subdivision type="kp09" draft="contributed">Умар Хамгён</subdivision>
-			<subdivision type="kp10" draft="contributed">Янган</subdivision>
-			<subdivision type="kp14" draft="contributed">Нампу</subdivision>
-			<subdivision type="kr11" draft="contributed">Сөүл</subdivision>
-			<subdivision type="kr26" draft="contributed">Пүсан</subdivision>
-			<subdivision type="kr27" draft="contributed">Тэгү</subdivision>
-			<subdivision type="kr28" draft="contributed">Инчон</subdivision>
-			<subdivision type="kr29" draft="contributed">Куанжү</subdivision>
-			<subdivision type="kr30" draft="contributed">Тэжон</subdivision>
-			<subdivision type="kr31" draft="contributed">Үлсан</subdivision>
-			<subdivision type="kr41" draft="contributed">Кёнги</subdivision>
-			<subdivision type="kr42" draft="contributed">Өмнө Солонгосын Канвонь аймаг</subdivision>
-			<subdivision type="kr43" draft="contributed">Умар Чүнчон</subdivision>
-			<subdivision type="kr44" draft="contributed">Өмнөд Чүнчон</subdivision>
-			<subdivision type="kr45" draft="contributed">Умард Чолла</subdivision>
-			<subdivision type="kr46" draft="contributed">Өмнөд Чолла</subdivision>
-			<subdivision type="kr47" draft="contributed">Умар Кёнсан</subdivision>
-			<subdivision type="kr48" draft="contributed">Өмнө Кёнсан</subdivision>
-			<subdivision type="kr50" draft="contributed">Сэжун хот</subdivision>
-			<subdivision type="kzala" draft="contributed">Алматы</subdivision>
-			<subdivision type="kzast" draft="contributed">Астана</subdivision>
-			<subdivision type="lach" draft="contributed">Чампасак аймаг</subdivision>
-			<subdivision type="lalp" draft="contributed">Луангпхабанг аймаг</subdivision>
-			<subdivision type="lasv" draft="contributed">Саваннакхет аймаг</subdivision>
-			<subdivision type="lavi" draft="contributed">Вьентьян аймаг</subdivision>
-			<subdivision type="lavt" draft="contributed">Вьентьян тойрог</subdivision>
-			<subdivision type="li07" draft="contributed">Шаан</subdivision>
-			<subdivision type="li11" draft="contributed">Вадуц</subdivision>
-			<subdivision type="lvrix" draft="contributed">Рига</subdivision>
-			<subdivision type="macas" draft="contributed">Касабланка</subdivision>
-			<subdivision type="marab" draft="contributed">Рабат</subdivision>
-			<subdivision type="matng" draft="contributed">Танжер</subdivision>
-			<subdivision type="mdba" draft="contributed">Балць</subdivision>
-			<subdivision type="mdcu" draft="contributed">Кишинёв</subdivision>
-			<subdivision type="mdga" draft="contributed">Гагауз нутаг</subdivision>
-			<subdivision type="mk85" draft="contributed">Скопье</subdivision>
-			<subdivision type="mlbko" draft="contributed">Бамако</subdivision>
-			<subdivision type="mn1" draft="contributed">Улаанбаатар</subdivision>
-			<subdivision type="mn035" draft="contributed">Орхон</subdivision>
-			<subdivision type="mn037" draft="contributed">Дархан-Уул</subdivision>
-			<subdivision type="mn039" draft="contributed">Хэнтий</subdivision>
-			<subdivision type="mn041" draft="contributed">Хөвсгөл</subdivision>
-			<subdivision type="mn043" draft="contributed">Ховд</subdivision>
-			<subdivision type="mn046" draft="contributed">Увс</subdivision>
-			<subdivision type="mn047" draft="contributed">Төв</subdivision>
-			<subdivision type="mn049" draft="contributed">Сэлэнгэ</subdivision>
-			<subdivision type="mn051" draft="contributed">Сүхбаатар</subdivision>
-			<subdivision type="mn053" draft="contributed">Өмнөговь</subdivision>
-			<subdivision type="mn055" draft="contributed">Өвөрхангай</subdivision>
-			<subdivision type="mn057" draft="contributed">Завхан</subdivision>
-			<subdivision type="mn059" draft="contributed">Дундговь</subdivision>
-			<subdivision type="mn061" draft="contributed">Дорнод</subdivision>
-			<subdivision type="mn063" draft="contributed">Дорноговь</subdivision>
-			<subdivision type="mn064" draft="contributed">Говьсүмбэр</subdivision>
-			<subdivision type="mn065" draft="contributed">Говь-Алтай</subdivision>
-			<subdivision type="mn067" draft="contributed">Булган</subdivision>
-			<subdivision type="mn069" draft="contributed">Баянхонгор</subdivision>
-			<subdivision type="mn071" draft="contributed">Баян-Өлгий</subdivision>
-			<subdivision type="mn073" draft="contributed">Архангай</subdivision>
-			<subdivision type="mt60" draft="contributed">Валлетта</subdivision>
-			<subdivision type="mupu" draft="contributed">Порт Луйс</subdivision>
-			<subdivision type="mvmle" draft="contributed">Мале</subdivision>
-			<subdivision type="mxcmx" draft="contributed">Мехико</subdivision>
-			<subdivision type="mxoax" draft="contributed">Оахака</subdivision>
-			<subdivision type="my14" draft="contributed">Куала Лумпур</subdivision>
-			<subdivision type="mzmpm" draft="contributed">Мапуто</subdivision>
-			<subdivision type="ne8" draft="contributed">Ниамей</subdivision>
-			<subdivision type="nlge" draft="contributed">Гелдерланд</subdivision>
-			<subdivision type="nlnb" draft="contributed">Умар Брабант</subdivision>
-			<subdivision type="nlnh" draft="contributed">Умар Холланд</subdivision>
-			<subdivision type="nlzh" draft="contributed">Өмнө Холланд</subdivision>
-			<subdivision type="no03" draft="contributed">Осло</subdivision>
-			<subdivision type="no22" draft="contributed">Ян-Майен</subdivision>
-			<subdivision type="pgncd" draft="contributed">Порт-Морсби</subdivision>
-			<subdivision type="pkba" draft="contributed">Балучистан</subdivision>
-			<subdivision type="pkpb" draft="contributed">Панжаб</subdivision>
-			<subdivision type="pl30" draft="contributed">Их Польш</subdivision>
-			<subdivision type="pl32" draft="contributed">Өрнөд Померан</subdivision>
-			<subdivision type="pt20" draft="contributed">Азорын арлууд</subdivision>
-			<subdivision type="pyasu" draft="contributed">Асунсион</subdivision>
-			<subdivision type="qada" draft="contributed">Доха</subdivision>
-			<subdivision type="roab" draft="contributed">Алба аймаг</subdivision>
-			<subdivision type="roag" draft="contributed">Аржеш аймаг</subdivision>
-			<subdivision type="roar" draft="contributed">Арад аймаг</subdivision>
-			<subdivision type="rob" draft="contributed">Бухарест</subdivision>
-			<subdivision type="robc" draft="contributed">Бакау аймаг</subdivision>
-			<subdivision type="robh" draft="contributed">Бихор аймаг</subdivision>
-			<subdivision type="robn" draft="contributed">Бистрица-Насауд аймаг</subdivision>
-			<subdivision type="robr" draft="contributed">Браила аймаг</subdivision>
-			<subdivision type="robt" draft="contributed">Ботошани аймаг</subdivision>
-			<subdivision type="robv" draft="contributed">Брашов аймаг</subdivision>
-			<subdivision type="robz" draft="contributed">Бузау аймаг</subdivision>
-			<subdivision type="rocj" draft="contributed">Клуж аймаг</subdivision>
-			<subdivision type="rocl" draft="contributed">Калараш аймаг</subdivision>
-			<subdivision type="rocs" draft="contributed">Караш-Северин аймаг</subdivision>
-			<subdivision type="roct" draft="contributed">Констанца аймаг</subdivision>
-			<subdivision type="rocv" draft="contributed">Ковасна аймаг</subdivision>
-			<subdivision type="rodb" draft="contributed">Дымбовица аймаг</subdivision>
-			<subdivision type="rodj" draft="contributed">Долж аймаг</subdivision>
-			<subdivision type="rogj" draft="contributed">Горж аймаг</subdivision>
-			<subdivision type="rogl" draft="contributed">Галац аймаг</subdivision>
-			<subdivision type="rogr" draft="contributed">Журжу аймаг</subdivision>
-			<subdivision type="rohd" draft="contributed">Хунедоара аймаг</subdivision>
-			<subdivision type="rohr" draft="contributed">Харгита аймаг</subdivision>
-			<subdivision type="roif" draft="contributed">Илфов аймаг</subdivision>
-			<subdivision type="roil" draft="contributed">Яломица аймаг</subdivision>
-			<subdivision type="rois" draft="contributed">Яаш аймаг</subdivision>
-			<subdivision type="romh" draft="contributed">Мехединци аймаг</subdivision>
-			<subdivision type="romm" draft="contributed">Марамуреш аймаг</subdivision>
-			<subdivision type="roms" draft="contributed">Муреш аймаг</subdivision>
-			<subdivision type="ront" draft="contributed">Нямц аймаг</subdivision>
-			<subdivision type="root" draft="contributed">Олт аймаг</subdivision>
-			<subdivision type="roph" draft="contributed">Прахова аймаг</subdivision>
-			<subdivision type="rosb" draft="contributed">Сибиу аймаг</subdivision>
-			<subdivision type="rosj" draft="contributed">Салаж аймаг</subdivision>
-			<subdivision type="rosm" draft="contributed">Сату-Маре аймаг</subdivision>
-			<subdivision type="rosv" draft="contributed">Сучава аймаг</subdivision>
-			<subdivision type="rotl" draft="contributed">Тулча аймаг</subdivision>
-			<subdivision type="rotm" draft="contributed">Тимиш аймаг</subdivision>
-			<subdivision type="rotr" draft="contributed">Телеорман аймаг</subdivision>
-			<subdivision type="rovl" draft="contributed">Вылча аймаг</subdivision>
-			<subdivision type="rovn" draft="contributed">Вранча аймаг</subdivision>
-			<subdivision type="rovs" draft="contributed">Васлуй аймаг</subdivision>
-			<subdivision type="rs00" draft="contributed">Белград</subdivision>
-			<subdivision type="rs01" draft="contributed">Умар Бачка аймаг</subdivision>
-			<subdivision type="rs02" draft="contributed">Төв Банат аймаг</subdivision>
-			<subdivision type="rs03" draft="contributed">Умар Банат аймаг</subdivision>
-			<subdivision type="rs04" draft="contributed">Өмнө Банат аймаг</subdivision>
-			<subdivision type="rs05" draft="contributed">Өрнө Бачка аймаг</subdivision>
-			<subdivision type="rs06" draft="contributed">Өмнө Бачка аймаг</subdivision>
-			<subdivision type="rs09" draft="contributed">Колубар аймаг</subdivision>
-			<subdivision type="rs10" draft="contributed">Подунай аймаг</subdivision>
-			<subdivision type="rs11" draft="contributed">Браничев аймаг</subdivision>
-			<subdivision type="rs12" draft="contributed">Шумад аймаг</subdivision>
-			<subdivision type="rs13" draft="contributed">Поморав аймаг</subdivision>
-			<subdivision type="rs15" draft="contributed">Заечар аймаг</subdivision>
-			<subdivision type="rs16" draft="contributed">Златибор аймаг</subdivision>
-			<subdivision type="rs17" draft="contributed">Моравич аймаг</subdivision>
-			<subdivision type="rs18" draft="contributed">Рашка аймаг</subdivision>
-			<subdivision type="rs19" draft="contributed">Расин аймаг</subdivision>
-			<subdivision type="rs20" draft="contributed">Нишав аймаг</subdivision>
-			<subdivision type="rs21" draft="contributed">Топлич аймаг</subdivision>
-			<subdivision type="rs22" draft="contributed">Пирот аймаг</subdivision>
-			<subdivision type="rs23" draft="contributed">Ябланич аймаг</subdivision>
-			<subdivision type="rs25" draft="contributed">Косов аймаг</subdivision>
-			<subdivision type="rs26" draft="contributed">Печ аймаг</subdivision>
-			<subdivision type="rs27" draft="contributed">Призрен аймаг</subdivision>
-			<subdivision type="rs28" draft="contributed">Косов-Митровиц аймаг</subdivision>
-			<subdivision type="rs29" draft="contributed">Косов-Поморав аймаг</subdivision>
-			<subdivision type="rskm" draft="contributed">Косов-Метох</subdivision>
-			<subdivision type="rsvo" draft="contributed">Воеводин</subdivision>
-			<subdivision type="ruad" draft="contributed">Адыгей</subdivision>
-			<subdivision type="rual" draft="contributed">Алтайн Бүгд Найрамдах Улс</subdivision>
-			<subdivision type="rualt" draft="contributed">Алтайн хязгаар</subdivision>
-			<subdivision type="ruark" draft="contributed">Архангельск муж</subdivision>
-			<subdivision type="ruba" draft="contributed">Башкортостан</subdivision>
-			<subdivision type="rubry" draft="contributed">Брянск муж</subdivision>
-			<subdivision type="rubu" draft="contributed">Бүгд Найрамдах Буриад Улс</subdivision>
-			<subdivision type="ruce" draft="contributed">Чечень</subdivision>
-			<subdivision type="ruche" draft="contributed">Челябинск муж</subdivision>
-			<subdivision type="rucu" draft="contributed">Чуваш</subdivision>
-			<subdivision type="ruda" draft="contributed">Дагестан</subdivision>
-			<subdivision type="ruin" draft="contributed">Ингушет</subdivision>
-			<subdivision type="ruirk" draft="contributed">Эрхүү муж</subdivision>
-			<subdivision type="ruiva" draft="contributed">Иваново муж</subdivision>
-			<subdivision type="rukam" draft="contributed">Камчаткын Хязгаар</subdivision>
-			<subdivision type="rukb" draft="contributed">Кабардино-Балкар</subdivision>
-			<subdivision type="rukc" draft="contributed">Карачай-Черкесс</subdivision>
-			<subdivision type="rukda" draft="contributed">Краснодарын хязгаар</subdivision>
-			<subdivision type="rukem" draft="contributed">Кемерово муж</subdivision>
-			<subdivision type="rukgd" draft="contributed">Калининград муж</subdivision>
-			<subdivision type="rukgn" draft="contributed">Курган муж</subdivision>
-			<subdivision type="rukha" draft="contributed">Хабаровскийн хязгаар</subdivision>
-			<subdivision type="rukir" draft="contributed">Киров муж</subdivision>
-			<subdivision type="rukk" draft="contributed">Хакас</subdivision>
-			<subdivision type="rukl" draft="contributed">Бүгд Найрамдах Халимаг Улс</subdivision>
-			<subdivision type="ruko" draft="contributed">Коми</subdivision>
-			<subdivision type="rukr" draft="contributed">Бүгд Найрамдах Карель Улс</subdivision>
-			<subdivision type="rukya" draft="contributed">Красноярскийн хязгаар</subdivision>
-			<subdivision type="rulen" draft="contributed">Ленинград муж</subdivision>
-			<subdivision type="rumag" draft="contributed">Магадан муж</subdivision>
-			<subdivision type="rume" draft="contributed">Мари Эл</subdivision>
-			<subdivision type="rumo" draft="contributed">Мордова</subdivision>
-			<subdivision type="rumos" draft="contributed">Москва муж</subdivision>
-			<subdivision type="rumow" draft="contributed">Москва</subdivision>
-			<subdivision type="rumur" draft="contributed">Мурманск муж</subdivision>
-			<subdivision type="runiz" draft="contributed">Нижегород муж</subdivision>
-			<subdivision type="ruore" draft="contributed">Оренбург муж</subdivision>
-			<subdivision type="ruorl" draft="contributed">Орёл муж</subdivision>
-			<subdivision type="ruros" draft="contributed">Ростов муж</subdivision>
-			<subdivision type="rurya" draft="contributed">Рязань муж</subdivision>
-			<subdivision type="rusa" draft="contributed">Саха</subdivision>
-			<subdivision type="rusak" draft="contributed">Сахалин муж</subdivision>
-			<subdivision type="ruse" draft="contributed">Хойд Осет-Алани</subdivision>
-			<subdivision type="ruspe" draft="contributed">Санкт-Петербург</subdivision>
-			<subdivision type="rusta" draft="contributed">Ставрополийн хязгаар</subdivision>
-			<subdivision type="ruta" draft="contributed">Татарстан</subdivision>
-			<subdivision type="rutul" draft="contributed">Тула муж</subdivision>
-			<subdivision type="rutve" draft="contributed">Тверь муж</subdivision>
-			<subdivision type="ruty" draft="contributed">Бүгд Найрамдах Тува Улс</subdivision>
-			<subdivision type="ruud" draft="contributed">Удмурт</subdivision>
-			<subdivision type="ruuly" draft="contributed">Ульяновск муж</subdivision>
-			<subdivision type="ruvla" draft="contributed">Владимир муж</subdivision>
-			<subdivision type="ruvor" draft="contributed">Воронеж муж</subdivision>
-			<subdivision type="ruzab" draft="contributed">Өвөр Байгалын хязгаар</subdivision>
-			<subdivision type="si129" draft="contributed">Трбовле</subdivision>
-			<subdivision type="skbl" draft="contributed">Братислав аймаг</subdivision>
-			<subdivision type="skta" draft="contributed">Трнав аймаг</subdivision>
-			<subdivision type="skzi" draft="contributed">Жилин аймаг</subdivision>
-			<subdivision type="sm07" draft="contributed">Сан-Марино</subdivision>
-			<subdivision type="tdnd" draft="contributed">Нжамена</subdivision>
-			<subdivision type="th10" draft="contributed">Бангкок</subdivision>
-			<subdivision type="th34" draft="contributed">Убонрачатхани аймаг</subdivision>
-			<subdivision type="tjdu" draft="contributed">Душанбе</subdivision>
-			<subdivision type="tma" draft="contributed">Ахал муж</subdivision>
-			<subdivision type="tmb" draft="contributed">Балкан муж</subdivision>
-			<subdivision type="tmd" draft="contributed">Дашогуз муж</subdivision>
-			<subdivision type="tml" draft="contributed">Лебап муж</subdivision>
-			<subdivision type="tmm" draft="contributed">Мары муж</subdivision>
-			<subdivision type="tms" draft="contributed">Ашгабат</subdivision>
-			<subdivision type="twcha" draft="contributed">Жанхуа</subdivision>
-			<subdivision type="twcyi" draft="contributed">Жяи шянь</subdivision>
-			<subdivision type="twcyq" draft="contributed">Жяи</subdivision>
-			<subdivision type="twhsq" draft="contributed">Шиньжү шянь</subdivision>
-			<subdivision type="twhsz" draft="contributed">Шиньжү</subdivision>
-			<subdivision type="twhua" draft="contributed">Хуалянь</subdivision>
-			<subdivision type="twila" draft="contributed">Илань</subdivision>
-			<subdivision type="twkee" draft="contributed">Жилун</subdivision>
-			<subdivision type="twkhh" draft="contributed">Гаошюн</subdivision>
-			<subdivision type="twkin" draft="contributed">Жиньмэнь</subdivision>
-			<subdivision type="twmia" draft="contributed">Мяоли</subdivision>
-			<subdivision type="twnan" draft="contributed">Наньтоу</subdivision>
-			<subdivision type="twpen" draft="contributed">Пөнхү</subdivision>
-			<subdivision type="twpif" draft="contributed">Пиндун</subdivision>
-			<subdivision type="twtao" draft="contributed">Таоюань</subdivision>
-			<subdivision type="twtnn" draft="contributed">Тайнань</subdivision>
-			<subdivision type="twtpe" draft="contributed">Тайбэй</subdivision>
-			<subdivision type="twttt" draft="contributed">Тайдун</subdivision>
-			<subdivision type="twtxg" draft="contributed">Тайжун</subdivision>
-			<subdivision type="twyun" draft="contributed">Юньлинь</subdivision>
-			<subdivision type="ua05" draft="contributed">Винниц муж</subdivision>
-			<subdivision type="ua07" draft="contributed">Волынь муж</subdivision>
-			<subdivision type="ua09" draft="contributed">Луганск муж</subdivision>
-			<subdivision type="ua12" draft="contributed">Днепропетровск муж</subdivision>
-			<subdivision type="ua14" draft="contributed">Донецк муж</subdivision>
-			<subdivision type="ua18" draft="contributed">Житомир муж</subdivision>
-			<subdivision type="ua21" draft="contributed">Закарпат муж</subdivision>
-			<subdivision type="ua23" draft="contributed">Запорожье муж</subdivision>
-			<subdivision type="ua26" draft="contributed">Ивано-Франковск муж</subdivision>
-			<subdivision type="ua30" draft="contributed">Киев</subdivision>
-			<subdivision type="ua32" draft="contributed">Киев муж</subdivision>
-			<subdivision type="ua35" draft="contributed">Кировоград муж</subdivision>
-			<subdivision type="ua40" draft="contributed">Севастополь</subdivision>
-			<subdivision type="ua43" draft="contributed">Бүгд Найрамдах Өөртөө Засах Крым Улс</subdivision>
-			<subdivision type="ua46" draft="contributed">Львов муж</subdivision>
-			<subdivision type="ua48" draft="contributed">Николаев муж</subdivision>
-			<subdivision type="ua51" draft="contributed">Одесс муж</subdivision>
-			<subdivision type="ua53" draft="contributed">Полтав муж</subdivision>
-			<subdivision type="ua56" draft="contributed">Ровно муж</subdivision>
-			<subdivision type="ua59" draft="contributed">Сумы муж</subdivision>
-			<subdivision type="ua61" draft="contributed">Тернополь муж</subdivision>
-			<subdivision type="ua63" draft="contributed">Харьков муж</subdivision>
-			<subdivision type="ua65" draft="contributed">Херсон муж</subdivision>
-			<subdivision type="ua68" draft="contributed">Хмельницкий муж</subdivision>
-			<subdivision type="ua71" draft="contributed">Черкас муж</subdivision>
-			<subdivision type="ua74" draft="contributed">Чернигов муж</subdivision>
-			<subdivision type="ua77" draft="contributed">Черновцы муж</subdivision>
-			<subdivision type="um71" draft="contributed">Мидвей</subdivision>
-			<subdivision type="usak" draft="contributed">Аляска</subdivision>
-			<subdivision type="usal" draft="contributed">Алабама</subdivision>
-			<subdivision type="usar" draft="contributed">Арканзас</subdivision>
-			<subdivision type="usaz" draft="contributed">Аризона</subdivision>
-			<subdivision type="usca" draft="contributed">Калифорни</subdivision>
-			<subdivision type="usco" draft="contributed">Колорадо</subdivision>
-			<subdivision type="usct" draft="contributed">Коннектикут</subdivision>
-			<subdivision type="usdc" draft="contributed">Вашингтон хот</subdivision>
-			<subdivision type="usde" draft="contributed">Делавар</subdivision>
-			<subdivision type="usfl" draft="contributed">Флорида</subdivision>
-			<subdivision type="usga" draft="contributed">Жоржиа</subdivision>
-			<subdivision type="ushi" draft="contributed">Хавай</subdivision>
-			<subdivision type="usia" draft="contributed">Айова</subdivision>
-			<subdivision type="usid" draft="contributed">Айдахо</subdivision>
-			<subdivision type="usil" draft="contributed">Иллиной</subdivision>
-			<subdivision type="usin" draft="contributed">Индиана муж</subdivision>
-			<subdivision type="usks" draft="contributed">Канзас</subdivision>
-			<subdivision type="usky" draft="contributed">Кентакки</subdivision>
-			<subdivision type="usla" draft="contributed">Луйзиана</subdivision>
-			<subdivision type="usma" draft="contributed">Массачусеттс</subdivision>
-			<subdivision type="usmd" draft="contributed">Мэрилэнд</subdivision>
-			<subdivision type="usme" draft="contributed">Мэн</subdivision>
-			<subdivision type="usmi" draft="contributed">Мичиган</subdivision>
-			<subdivision type="usmn" draft="contributed">Миннесота</subdivision>
-			<subdivision type="usmo" draft="contributed">Миссури</subdivision>
-			<subdivision type="usms" draft="contributed">Миссиссиппи</subdivision>
-			<subdivision type="usnd" draft="contributed">Хойд Дакота</subdivision>
-			<subdivision type="usne" draft="contributed">Небраска</subdivision>
-			<subdivision type="usnh" draft="contributed">Нью-Хэмпшир</subdivision>
-			<subdivision type="usnm" draft="contributed">Нью-Мексико</subdivision>
-			<subdivision type="usnv" draft="contributed">Невада</subdivision>
-			<subdivision type="usny" draft="contributed">Нью-Йорк Муж Улс</subdivision>
-			<subdivision type="usoh" draft="contributed">Охайо</subdivision>
-			<subdivision type="usok" draft="contributed">Оклахома</subdivision>
-			<subdivision type="usor" draft="contributed">Орегон</subdivision>
-			<subdivision type="uspa" draft="contributed">Пеннсилвани</subdivision>
-			<subdivision type="usri" draft="contributed">Рөүд-Айленд</subdivision>
-			<subdivision type="ussd" draft="contributed">Өмнөд Дакота</subdivision>
-			<subdivision type="ustn" draft="contributed">Теннесси</subdivision>
-			<subdivision type="ustx" draft="contributed">Техас</subdivision>
-			<subdivision type="usut" draft="contributed">Юта</subdivision>
-			<subdivision type="usva" draft="contributed">Виржини</subdivision>
-			<subdivision type="usvt" draft="contributed">Вермонт</subdivision>
-			<subdivision type="uswa" draft="contributed">Вашингтон Муж Улс</subdivision>
-			<subdivision type="uswi" draft="contributed">Висконсин</subdivision>
-			<subdivision type="uswv" draft="contributed">Баруун Виржини</subdivision>
-			<subdivision type="uswy" draft="contributed">Вайоминг</subdivision>
-			<subdivision type="uymo" draft="contributed">Монтевидео</subdivision>
-			<subdivision type="uzqr" draft="contributed">Хархалпак орон</subdivision>
-			<subdivision type="uztk" draft="contributed">Ташкент</subdivision>
-			<subdivision type="vn02" draft="contributed">Лау Гаая</subdivision>
-			<subdivision type="vn03" draft="contributed">Хай Жяан</subdivision>
-			<subdivision type="vn04" draft="contributed">Гау Бан</subdivision>
-			<subdivision type="vn06" draft="contributed">Иэньбай</subdivision>
-			<subdivision type="vn07" draft="contributed">Туэньгуан</subdivision>
-			<subdivision type="vn09" draft="contributed">Ланшонь</subdivision>
-			<subdivision type="vn13" draft="contributed">Гуан Нэн</subdivision>
-			<subdivision type="vn14" draft="contributed">Хуа Бэн</subdivision>
-			<subdivision type="vn18" draft="contributed">Нэн Бэн</subdivision>
-			<subdivision type="vn20" draft="contributed">Таая Бэн</subdivision>
-			<subdivision type="vn53" draft="contributed">Бак Гайн</subdivision>
-			<subdivision type="vn54" draft="contributed">Бак Жяан</subdivision>
-			<subdivision type="vn56" draft="contributed">Бак Нэн</subdivision>
-			<subdivision type="vn61" draft="contributed">Хайя Зыон</subdivision>
-			<subdivision type="vn63" draft="contributed">Хай Наам</subdivision>
-			<subdivision type="vn66" draft="contributed">Хыниэнь</subdivision>
-			<subdivision type="vn67" draft="contributed">Наам Дэн</subdivision>
-			<subdivision type="vn68" draft="contributed">Фү Тоо</subdivision>
-			<subdivision type="vn69" draft="contributed">Тайнюэнь</subdivision>
-			<subdivision type="vn70" draft="contributed">Вэн Фүк</subdivision>
-			<subdivision type="vnct" draft="contributed">Кантхо</subdivision>
-			<subdivision type="vndn" draft="contributed">Данан</subdivision>
-			<subdivision type="vnhn" draft="contributed">Ханой</subdivision>
-			<subdivision type="vnsg" draft="contributed">Хо Ши Мин хот</subdivision>
-			<subdivision type="yesa" draft="contributed">Санаа хот</subdivision>
+			<subdivision type="ad07" draft="provisional">Андорра-ла-Велья</subdivision>
+			<subdivision type="aeaj" draft="provisional">Эмирт Ажман</subdivision>
+			<subdivision type="aeaz" draft="provisional">Эмирт Абу-Даби</subdivision>
+			<subdivision type="aedu" draft="provisional">Эмирт Дубай</subdivision>
+			<subdivision type="afbal" draft="provisional">Балх аймаг</subdivision>
+			<subdivision type="afbam" draft="provisional">Бамиан аймаг</subdivision>
+			<subdivision type="afbdg" draft="provisional">Бадгис аймаг</subdivision>
+			<subdivision type="afbds" draft="provisional">Бадахшан аймаг</subdivision>
+			<subdivision type="afbgl" draft="provisional">Баглан аймаг</subdivision>
+			<subdivision type="afday" draft="provisional">Дайкунди аймаг</subdivision>
+			<subdivision type="affra" draft="provisional">Фарах аймаг</subdivision>
+			<subdivision type="affyb" draft="provisional">Фарьяб аймаг</subdivision>
+			<subdivision type="afgha" draft="provisional">Газни аймаг</subdivision>
+			<subdivision type="afgho" draft="provisional">Гор аймаг</subdivision>
+			<subdivision type="afhel" draft="provisional">Хильменд аймаг</subdivision>
+			<subdivision type="afher" draft="provisional">Херат аймаг</subdivision>
+			<subdivision type="afjow" draft="provisional">Жаузжан аймаг</subdivision>
+			<subdivision type="afkab" draft="provisional">Кабул аймаг</subdivision>
+			<subdivision type="afkan" draft="provisional">Кандахар аймаг</subdivision>
+			<subdivision type="afkap" draft="provisional">Каписа аймаг</subdivision>
+			<subdivision type="afkdz" draft="provisional">Кундуз аймаг</subdivision>
+			<subdivision type="afkho" draft="provisional">Хост аймаг</subdivision>
+			<subdivision type="afknr" draft="provisional">Кунар аймаг</subdivision>
+			<subdivision type="aflag" draft="provisional">Лагман аймаг</subdivision>
+			<subdivision type="aflog" draft="provisional">Логар аймаг</subdivision>
+			<subdivision type="afnan" draft="provisional">Нангархар аймаг</subdivision>
+			<subdivision type="afnim" draft="provisional">Нимроз аймаг</subdivision>
+			<subdivision type="afnur" draft="provisional">Нуристан аймаг</subdivision>
+			<subdivision type="afpan" draft="provisional">Панжшер аймаг</subdivision>
+			<subdivision type="afpar" draft="provisional">Парван аймаг</subdivision>
+			<subdivision type="afpia" draft="provisional">Пактия аймаг</subdivision>
+			<subdivision type="afpka" draft="provisional">Пактика аймаг</subdivision>
+			<subdivision type="afsam" draft="provisional">Саманган аймаг</subdivision>
+			<subdivision type="afsar" draft="provisional">Сари-Пуль аймаг</subdivision>
+			<subdivision type="aftak" draft="provisional">Тахар аймаг</subdivision>
+			<subdivision type="afuru" draft="provisional">Урузган аймаг</subdivision>
+			<subdivision type="afwar" draft="provisional">Вардаг аймаг</subdivision>
+			<subdivision type="afzab" draft="provisional">Забуль аймаг</subdivision>
+			<subdivision type="al01" draft="provisional">Берат хошуу</subdivision>
+			<subdivision type="al02" draft="provisional">Дуррес хошуу</subdivision>
+			<subdivision type="al03" draft="provisional">Эльбасан хошуу</subdivision>
+			<subdivision type="al04" draft="provisional">Фиер хошуу</subdivision>
+			<subdivision type="al08" draft="provisional">Лежа хошуу</subdivision>
+			<subdivision type="al10" draft="provisional">Шкодер хошуу</subdivision>
+			<subdivision type="al11" draft="provisional">Тиран хошуу</subdivision>
+			<subdivision type="amag" draft="provisional">Арагацотн аймаг</subdivision>
+			<subdivision type="amar" draft="provisional">Арарат аймаг</subdivision>
+			<subdivision type="amav" draft="provisional">Армавир аймаг</subdivision>
+			<subdivision type="amer" draft="provisional">Ереван</subdivision>
+			<subdivision type="amgr" draft="provisional">Гехаркуник аймаг</subdivision>
+			<subdivision type="amkt" draft="provisional">Котайк аймаг</subdivision>
+			<subdivision type="amlo" draft="provisional">Лори аймаг</subdivision>
+			<subdivision type="amsh" draft="provisional">Ширак аймаг</subdivision>
+			<subdivision type="amsu" draft="provisional">Сюник аймаг</subdivision>
+			<subdivision type="amtv" draft="provisional">Тавуш аймаг</subdivision>
+			<subdivision type="amvd" draft="provisional">Вайоцзор аймаг</subdivision>
+			<subdivision type="arb" draft="provisional">Буэнос-Айрес муж</subdivision>
+			<subdivision type="arc" draft="provisional">Буэнос-Айрес</subdivision>
+			<subdivision type="arg" draft="provisional">Сантьяго-дель-Эстеро муж</subdivision>
+			<subdivision type="at1" draft="provisional">Бургенланд</subdivision>
+			<subdivision type="at2" draft="provisional">Каринт</subdivision>
+			<subdivision type="at3" draft="provisional">Доор Австри</subdivision>
+			<subdivision type="at4" draft="provisional">Дээр Австри</subdivision>
+			<subdivision type="at5" draft="provisional">Зальцбург муж</subdivision>
+			<subdivision type="at6" draft="provisional">Штир</subdivision>
+			<subdivision type="at7" draft="provisional">Тироль</subdivision>
+			<subdivision type="at9" draft="provisional">Вена</subdivision>
+			<subdivision type="auact" draft="provisional">Австралийн Нийслэлийн Нутаг Дэвсгэр</subdivision>
+			<subdivision type="aunsw" draft="provisional">Шинэ Өмнөд Вэльс</subdivision>
+			<subdivision type="aunt" draft="provisional">Хойд Нутаг Дэвсгэр</subdivision>
+			<subdivision type="auqld" draft="provisional">Квийнслэнд</subdivision>
+			<subdivision type="ausa" draft="provisional">Өмнөд Австрали</subdivision>
+			<subdivision type="autas" draft="provisional">Тасмани</subdivision>
+			<subdivision type="auvic" draft="provisional">Викториа</subdivision>
+			<subdivision type="auwa" draft="provisional">Баруун Австрали</subdivision>
+			<subdivision type="azabs" draft="provisional">Абшерон аймаг</subdivision>
+			<subdivision type="azaga" draft="provisional">Акстафа аймаг</subdivision>
+			<subdivision type="azagc" draft="provisional">Агжабеди аймаг</subdivision>
+			<subdivision type="azagm" draft="provisional">Агдам аймаг</subdivision>
+			<subdivision type="azags" draft="provisional">Агдаш аймаг</subdivision>
+			<subdivision type="azagu" draft="provisional">Агсу аймаг</subdivision>
+			<subdivision type="azast" draft="provisional">Астара аймаг</subdivision>
+			<subdivision type="azba" draft="provisional">Баку</subdivision>
+			<subdivision type="azbal" draft="provisional">Балакен аймаг</subdivision>
+			<subdivision type="azbar" draft="provisional">Барде аймаг</subdivision>
+			<subdivision type="azbey" draft="provisional">Бейлеган аймаг</subdivision>
+			<subdivision type="azbil" draft="provisional">Билесувар аймаг</subdivision>
+			<subdivision type="azcab" draft="provisional">Жабраил аймаг</subdivision>
+			<subdivision type="azcal" draft="provisional">Жалилабад аймаг</subdivision>
+			<subdivision type="azdas" draft="provisional">Дашкесан аймаг</subdivision>
+			<subdivision type="azga" draft="provisional">Гянжа</subdivision>
+			<subdivision type="azgad" draft="provisional">Кадебай аймаг</subdivision>
+			<subdivision type="azhac" draft="provisional">Хажигабул аймаг</subdivision>
+			<subdivision type="azla" draft="provisional">Ланкеран аймаг</subdivision>
+			<subdivision type="azlan" draft="provisional">Ланкеран хот</subdivision>
+			<subdivision type="azmi" draft="provisional">Мингечевир хот</subdivision>
+			<subdivision type="aznx" draft="provisional">Нахчыван</subdivision>
+			<subdivision type="azsa" draft="provisional">Шеки</subdivision>
+			<subdivision type="azsbn" draft="provisional">Шабран аймаг</subdivision>
+			<subdivision type="azsm" draft="provisional">Сумгаит</subdivision>
+			<subdivision type="azsr" draft="provisional">Азербайжаны Ширван</subdivision>
+			<subdivision type="azye" draft="provisional">Евлах</subdivision>
+			<subdivision type="bda" draft="provisional">Барисал муж</subdivision>
+			<subdivision type="bdb" draft="provisional">Читтагонг муж</subdivision>
+			<subdivision type="bdc" draft="provisional">Дакка муж</subdivision>
+			<subdivision type="bdd" draft="provisional">Кхулна муж</subdivision>
+			<subdivision type="bebru" draft="provisional">Брюссель</subdivision>
+			<subdivision type="bg01" draft="provisional">Благоевград аймаг</subdivision>
+			<subdivision type="bg02" draft="provisional">Бургас аймаг</subdivision>
+			<subdivision type="bg03" draft="provisional">Варна аймаг</subdivision>
+			<subdivision type="bg04" draft="provisional">Велико-Тырново аймаг</subdivision>
+			<subdivision type="bg05" draft="provisional">Видин аймаг</subdivision>
+			<subdivision type="bg06" draft="provisional">Враца аймаг</subdivision>
+			<subdivision type="bg07" draft="provisional">Габрово аймаг</subdivision>
+			<subdivision type="bg08" draft="provisional">Добрич аймаг</subdivision>
+			<subdivision type="bg09" draft="provisional">Кыржали аймаг</subdivision>
+			<subdivision type="bg10" draft="provisional">Кюстендил аймаг</subdivision>
+			<subdivision type="bg11" draft="provisional">Ловеч аймаг</subdivision>
+			<subdivision type="bg12" draft="provisional">Монтана аймаг</subdivision>
+			<subdivision type="bg13" draft="provisional">Пазаржик аймаг</subdivision>
+			<subdivision type="bg14" draft="provisional">Перник аймаг</subdivision>
+			<subdivision type="bg15" draft="provisional">Плевен аймаг</subdivision>
+			<subdivision type="bg16" draft="provisional">Пловдив аймаг</subdivision>
+			<subdivision type="bg17" draft="provisional">Разград аймаг</subdivision>
+			<subdivision type="bg18" draft="provisional">Русе аймаг</subdivision>
+			<subdivision type="bg19" draft="provisional">Силистра аймаг</subdivision>
+			<subdivision type="bg20" draft="provisional">Сливен аймаг</subdivision>
+			<subdivision type="bg21" draft="provisional">Смолян аймаг</subdivision>
+			<subdivision type="bg23" draft="provisional">Софи аймаг</subdivision>
+			<subdivision type="bg24" draft="provisional">Стара-Загора аймаг</subdivision>
+			<subdivision type="bg25" draft="provisional">Тырговиште аймаг</subdivision>
+			<subdivision type="bg26" draft="provisional">Хасково аймаг</subdivision>
+			<subdivision type="bg27" draft="provisional">Шумен аймаг</subdivision>
+			<subdivision type="bg28" draft="provisional">Ямбол аймаг</subdivision>
+			<subdivision type="brsp" draft="provisional">Сан-Паулу муж</subdivision>
+			<subdivision type="bt15" draft="provisional">Тхимпху зонкаг</subdivision>
+			<subdivision type="bwga" draft="provisional">Габороне</subdivision>
+			<subdivision type="byhm" draft="provisional">Минск</subdivision>
+			<subdivision type="caab" draft="provisional">Альберта</subdivision>
+			<subdivision type="cabc" draft="provisional">Бритиш Коламбиа</subdivision>
+			<subdivision type="camb" draft="provisional">Манитоба</subdivision>
+			<subdivision type="canb" draft="provisional">Нью-Брансвик</subdivision>
+			<subdivision type="canl" draft="provisional">Ньюфаундленд ба Лабрадор</subdivision>
+			<subdivision type="cans" draft="provisional">Нова Скоша</subdivision>
+			<subdivision type="cant" draft="provisional">Баруун Хойд Нутаг Дэвсгэр</subdivision>
+			<subdivision type="canu" draft="provisional">Нунавут</subdivision>
+			<subdivision type="caon" draft="provisional">Онтарио</subdivision>
+			<subdivision type="cape" draft="provisional">Принс Эдвардын Арал</subdivision>
+			<subdivision type="caqc" draft="provisional">Кэбэк</subdivision>
+			<subdivision type="cask" draft="provisional">Саскачеван</subdivision>
+			<subdivision type="cayt" draft="provisional">Юкон</subdivision>
+			<subdivision type="cdkn" draft="provisional">Киншаса</subdivision>
+			<subdivision type="cfbgf" draft="provisional">Банги</subdivision>
+			<subdivision type="ciab" draft="provisional">Абижан хот</subdivision>
+			<subdivision type="ciym" draft="provisional">Ямусукро хот</subdivision>
+			<subdivision type="cnah" draft="provisional">Аньхуй муж</subdivision>
+			<subdivision type="cnbj" draft="provisional">Бээжин</subdivision>
+			<subdivision type="cncq" draft="provisional">Чунцин</subdivision>
+			<subdivision type="cnfj" draft="provisional">Фужянь муж</subdivision>
+			<subdivision type="cngd" draft="provisional">Гуандун муж</subdivision>
+			<subdivision type="cngs" draft="provisional">Ганьсү</subdivision>
+			<subdivision type="cngz" draft="provisional">Гуйжоу муж</subdivision>
+			<subdivision type="cnha" draft="provisional">Хэнань</subdivision>
+			<subdivision type="cnhb" draft="provisional">Хүбэй</subdivision>
+			<subdivision type="cnhe" draft="provisional">Хэбэй</subdivision>
+			<subdivision type="cnhi" draft="provisional">Хайнань</subdivision>
+			<subdivision type="cnhk" draft="provisional">Хонг Конг</subdivision>
+			<subdivision type="cnhl" draft="provisional">Хармөрөн</subdivision>
+			<subdivision type="cnhn" draft="provisional">Хүнань</subdivision>
+			<subdivision type="cnjl" draft="provisional">Гирин</subdivision>
+			<subdivision type="cnjs" draft="provisional">Жянсү</subdivision>
+			<subdivision type="cnjx" draft="provisional">Жянши муж</subdivision>
+			<subdivision type="cnln" draft="provisional">Ляонин</subdivision>
+			<subdivision type="cnmo" draft="provisional">Макао</subdivision>
+			<subdivision type="cnnm" draft="provisional">Өвөр Монголын Өөртөө Засах Орон</subdivision>
+			<subdivision type="cnnx" draft="provisional">Ниншя - Хотонгийн өөртөө засах орон</subdivision>
+			<subdivision type="cnqh" draft="provisional">Хөхнуур</subdivision>
+			<subdivision type="cnsc" draft="provisional">Сычуань муж</subdivision>
+			<subdivision type="cnsd" draft="provisional">Шаньдун</subdivision>
+			<subdivision type="cnsh" draft="provisional">Шанхай</subdivision>
+			<subdivision type="cnsn" draft="provisional">Шэньси муж</subdivision>
+			<subdivision type="cnsx" draft="provisional">Шаньси муж</subdivision>
+			<subdivision type="cntj" draft="provisional">Тяньжинь</subdivision>
+			<subdivision type="cnxj" draft="provisional">Шиньжян - Уйгурын өөртөө засах орон</subdivision>
+			<subdivision type="cnxz" draft="provisional">Төвөдийн өөртөө засах орон</subdivision>
+			<subdivision type="cnyn" draft="provisional">Юньнань муж</subdivision>
+			<subdivision type="cnzj" draft="provisional">Жөжян</subdivision>
+			<subdivision type="codc" draft="provisional">Богота</subdivision>
+			<subdivision type="cz10" draft="provisional">Прага</subdivision>
+			<subdivision type="debb" draft="provisional">Бранденбург</subdivision>
+			<subdivision type="debe" draft="provisional">Берлин</subdivision>
+			<subdivision type="debw" draft="provisional">Баден-Вюртемберг</subdivision>
+			<subdivision type="deby" draft="provisional">Бавар</subdivision>
+			<subdivision type="dehb" draft="provisional">Бремен муж</subdivision>
+			<subdivision type="dehe" draft="provisional">Хессен</subdivision>
+			<subdivision type="dehh" draft="provisional">Хамбург</subdivision>
+			<subdivision type="demv" draft="provisional">Мекленбург – Өрнө Померан</subdivision>
+			<subdivision type="deni" draft="provisional">Доор Саксон</subdivision>
+			<subdivision type="denw" draft="provisional">Умар Райн-Вестфален</subdivision>
+			<subdivision type="derp" draft="provisional">Райнланд-Пфальц</subdivision>
+			<subdivision type="desh" draft="provisional">Шлесвиг-Хольштайн</subdivision>
+			<subdivision type="desl" draft="provisional">Заарланд</subdivision>
+			<subdivision type="desn" draft="provisional">Саксон</subdivision>
+			<subdivision type="dest" draft="provisional">Саксон-Анхальт</subdivision>
+			<subdivision type="deth" draft="provisional">Тюринг</subdivision>
+			<subdivision type="djdj" draft="provisional">Жибути</subdivision>
+			<subdivision type="dk83" draft="provisional">Өмнөд Дани</subdivision>
+			<subdivision type="dk84" draft="provisional">Ховедстаден</subdivision>
+			<subdivision type="esan" draft="provisional">Андалус орон</subdivision>
+			<subdivision type="esar" draft="provisional">Арагон орон</subdivision>
+			<subdivision type="esas" draft="provisional">Астур муж</subdivision>
+			<subdivision type="escb" draft="provisional">Кантабри</subdivision>
+			<subdivision type="esce" draft="provisional">Сеута</subdivision>
+			<subdivision type="escl" draft="provisional">Кастили ба Леон</subdivision>
+			<subdivision type="escm" draft="provisional">Кастили-Ла Манча</subdivision>
+			<subdivision type="escn" draft="provisional">Канарын Арлууд</subdivision>
+			<subdivision type="esct" draft="provisional">Каталон орон</subdivision>
+			<subdivision type="esex" draft="provisional">Эстремадура</subdivision>
+			<subdivision type="esga" draft="provisional">Галиси</subdivision>
+			<subdivision type="esib" draft="provisional">Балеарын арлууд</subdivision>
+			<subdivision type="esmc" draft="provisional">Мурси (муж)</subdivision>
+			<subdivision type="esmd" draft="provisional">Мадридын Өөртөө Засах Нийгэмлэг</subdivision>
+			<subdivision type="esml" draft="provisional">Мелилья</subdivision>
+			<subdivision type="esna" draft="provisional">Наварра</subdivision>
+			<subdivision type="esnc" draft="provisional">Наварра²</subdivision>
+			<subdivision type="espm" draft="provisional">Балеарын арлууд²</subdivision>
+			<subdivision type="espv" draft="provisional">Баск орон</subdivision>
+			<subdivision type="esri" draft="provisional">Ла Риоха (Испанийн муж)</subdivision>
+			<subdivision type="esvc" draft="provisional">Валенсийн Нийгэмлэг</subdivision>
+			<subdivision type="etaa" draft="provisional">Аддис-Абеба</subdivision>
+			<subdivision type="etdd" draft="provisional">Дыре-Дауа</subdivision>
+			<subdivision type="fr11" draft="provisional">Од аймаг</subdivision>
+			<subdivision type="fr20r" draft="provisional">Корсика</subdivision>
+			<subdivision type="fr29" draft="provisional">Финистер (департамент)</subdivision>
+			<subdivision type="fr30" draft="provisional">Гар аймаг</subdivision>
+			<subdivision type="fr34" draft="provisional">Эро аймаг</subdivision>
+			<subdivision type="fr40" draft="provisional">Ланд аймаг</subdivision>
+			<subdivision type="fr44" draft="provisional">Атлантын Луар (департамент)</subdivision>
+			<subdivision type="fr47" draft="provisional">Ло – Гаронна</subdivision>
+			<subdivision type="fr48" draft="provisional">Лозер</subdivision>
+			<subdivision type="fr66" draft="provisional">Дорно Пиреней</subdivision>
+			<subdivision type="fr75c" draft="provisional">Парис</subdivision>
+			<subdivision type="frara" draft="provisional">Овернь-Рона-Альп</subdivision>
+			<subdivision type="frbfc" draft="provisional">Бургунд муж</subdivision>
+			<subdivision type="frbre" draft="provisional">Бретань муж</subdivision>
+			<subdivision type="frcvl" draft="provisional">Төв-Вал де Луар</subdivision>
+			<subdivision type="frges" draft="provisional">Гранд Эст</subdivision>
+			<subdivision type="frhdf" draft="provisional">О-де-Франс</subdivision>
+			<subdivision type="fridf" draft="provisional">Иль-де-Франс</subdivision>
+			<subdivision type="frnaq" draft="provisional">Нувел-Аквитани</subdivision>
+			<subdivision type="frnor" draft="provisional">Норманди</subdivision>
+			<subdivision type="frocc" draft="provisional">Окситани (муж)</subdivision>
+			<subdivision type="frpac" draft="provisional">Прованс-Альп-Номин эрэг</subdivision>
+			<subdivision type="frpdl" draft="provisional">Пеи де ла Луар</subdivision>
+			<subdivision type="gbabe" draft="provisional">Абердин</subdivision>
+			<subdivision type="gbbir" draft="provisional">Бирмингем</subdivision>
+			<subdivision type="gbcrf" draft="provisional">Кардифф</subdivision>
+			<subdivision type="gbedh" draft="provisional">Эдинбург</subdivision>
+			<subdivision type="gbeng" draft="provisional">Англи</subdivision>
+			<subdivision type="gbgbn" draft="provisional">Их Британи</subdivision>
+			<subdivision type="gbglg" draft="provisional">Глазгоу</subdivision>
+			<subdivision type="gbliv" draft="provisional">Ливерпүүл</subdivision>
+			<subdivision type="gblnd" draft="provisional">Лондон</subdivision>
+			<subdivision type="gbman" draft="provisional">Манчестер</subdivision>
+			<subdivision type="gbnet" draft="provisional">Ньюкасл</subdivision>
+			<subdivision type="gbngm" draft="provisional">Ноттингем</subdivision>
+			<subdivision type="gbnir" draft="provisional">Умард Ирланд</subdivision>
+			<subdivision type="gbsct" draft="provisional">Шотланд</subdivision>
+			<subdivision type="gbukm" draft="provisional">Нэгдсэн Вант Улс</subdivision>
+			<subdivision type="gbwls" draft="provisional">Уэльс</subdivision>
+			<subdivision type="geab" draft="provisional">Абхаз</subdivision>
+			<subdivision type="getb" draft="provisional">Тбилис</subdivision>
+			<subdivision type="gnc" draft="provisional">Конакри</subdivision>
+			<subdivision type="gwbs" draft="provisional">Биссау</subdivision>
+			<subdivision type="hr21" draft="provisional">Загреб</subdivision>
+			<subdivision type="hubk" draft="provisional">Бач-Кишкун</subdivision>
+			<subdivision type="hubu" draft="provisional">Будапешт</subdivision>
+			<subdivision type="hude" draft="provisional">Дебрецен</subdivision>
+			<subdivision type="hufe" draft="provisional">Фейер</subdivision>
+			<subdivision type="hugs" draft="provisional">Дьёр-Мошон-Шопрон</subdivision>
+			<subdivision type="hujn" draft="provisional">Яс-Надькун-Сольнок</subdivision>
+			<subdivision type="huke" draft="provisional">Комаром-Эстергом</subdivision>
+			<subdivision type="huso" draft="provisional">Шомодь</subdivision>
+			<subdivision type="huva" draft="provisional">Ваш</subdivision>
+			<subdivision type="huza" draft="provisional">Зала</subdivision>
+			<subdivision type="idac" draft="provisional">Аче</subdivision>
+			<subdivision type="idbt" draft="provisional">Бантен</subdivision>
+			<subdivision type="idja" draft="provisional">Жамби</subdivision>
+			<subdivision type="idjb" draft="provisional">Өрнө Жава</subdivision>
+			<subdivision type="idji" draft="provisional">Дорно Жава</subdivision>
+			<subdivision type="idjk" draft="provisional">Жакарта</subdivision>
+			<subdivision type="idjt" draft="provisional">Төв Жава</subdivision>
+			<subdivision type="idjw" draft="provisional">Жава</subdivision>
+			<subdivision type="idkb" draft="provisional">Өрнө Калимантан</subdivision>
+			<subdivision type="idkr" draft="provisional">Риау арлуудын муж</subdivision>
+			<subdivision type="idks" draft="provisional">Өмнө Калимантан</subdivision>
+			<subdivision type="idkt" draft="provisional">Төв Калимантан</subdivision>
+			<subdivision type="idla" draft="provisional">Лампун</subdivision>
+			<subdivision type="idnu" draft="provisional">Бага Зондын арлууд</subdivision>
+			<subdivision type="idpp" draft="provisional">Папуа-Шинэ Гвиней</subdivision>
+			<subdivision type="idri" draft="provisional">Риау</subdivision>
+			<subdivision type="idsa" draft="provisional">Умар Сулавеси</subdivision>
+			<subdivision type="idsb" draft="provisional">Өрнө Суматра</subdivision>
+			<subdivision type="idsr" draft="provisional">Өрнө Сулавеси</subdivision>
+			<subdivision type="idss" draft="provisional">Өмнө Суматра</subdivision>
+			<subdivision type="idst" draft="provisional">Төв Сулавеси</subdivision>
+			<subdivision type="idsu" draft="provisional">Умар Суматра</subdivision>
+			<subdivision type="ild" draft="provisional">Израилын өмнөд дүүрэг</subdivision>
+			<subdivision type="ilha" draft="provisional">Хайфа дүүрэг</subdivision>
+			<subdivision type="iljm" draft="provisional">Иерусалим дүүрэг</subdivision>
+			<subdivision type="ilm" draft="provisional">Израилын төв дүүрэг</subdivision>
+			<subdivision type="ilta" draft="provisional">Тел-Авив дүүрэг</subdivision>
+			<subdivision type="ilz" draft="provisional">Израилын умард дүүрэг</subdivision>
+			<subdivision type="inap" draft="provisional">Андра Прадеш</subdivision>
+			<subdivision type="inar" draft="provisional">Аруначалпрадеш</subdivision>
+			<subdivision type="inas" draft="provisional">Ассам</subdivision>
+			<subdivision type="inbr" draft="provisional">Бихар</subdivision>
+			<subdivision type="inct" draft="provisional">Чаттисгар</subdivision>
+			<subdivision type="indl" draft="provisional">Дели</subdivision>
+			<subdivision type="inga" draft="provisional">Гоа</subdivision>
+			<subdivision type="ingj" draft="provisional">Гужарат</subdivision>
+			<subdivision type="inhp" draft="provisional">Химачалпрадеш</subdivision>
+			<subdivision type="inhr" draft="provisional">Харяна</subdivision>
+			<subdivision type="injh" draft="provisional">Жарканд</subdivision>
+			<subdivision type="injk" draft="provisional">Жамму-Кашмир</subdivision>
+			<subdivision type="inka" draft="provisional">Карнатака</subdivision>
+			<subdivision type="inkl" draft="provisional">Керала</subdivision>
+			<subdivision type="inla" draft="provisional">Ладакх</subdivision>
+			<subdivision type="inmh" draft="provisional">Махараштра</subdivision>
+			<subdivision type="inml" draft="provisional">Мегалая</subdivision>
+			<subdivision type="inmn" draft="provisional">Манипур</subdivision>
+			<subdivision type="inmp" draft="provisional">Мадхья-Прадеш</subdivision>
+			<subdivision type="inmz" draft="provisional">Мизорам</subdivision>
+			<subdivision type="innl" draft="provisional">Нагаланд</subdivision>
+			<subdivision type="inor" draft="provisional">Орисса</subdivision>
+			<subdivision type="inpb" draft="provisional">Панжаб</subdivision>
+			<subdivision type="inrj" draft="provisional">Ражастан</subdivision>
+			<subdivision type="insk" draft="provisional">Сикким</subdivision>
+			<subdivision type="intg" draft="provisional">Телангана</subdivision>
+			<subdivision type="intn" draft="provisional">Тамилнаду</subdivision>
+			<subdivision type="intr" draft="provisional">Трипура</subdivision>
+			<subdivision type="inup" draft="provisional">Уттар Прадеш</subdivision>
+			<subdivision type="inut" draft="provisional">Уттараканд</subdivision>
+			<subdivision type="inwb" draft="provisional">Өрнө Бенгал</subdivision>
+			<subdivision type="ir01" draft="provisional">Гилян муж²</subdivision>
+			<subdivision type="ir03" draft="provisional">Ардебиль муж</subdivision>
+			<subdivision type="ir05" draft="provisional">Керманшах муж²</subdivision>
+			<subdivision type="ir17" draft="provisional">Керманшах муж</subdivision>
+			<subdivision type="ir19" draft="provisional">Гилян муж</subdivision>
+			<subdivision type="ir24" draft="provisional">Ардебиль муж²</subdivision>
+			<subdivision type="ir30" draft="provisional">Альборз муж</subdivision>
+			<subdivision type="it25" draft="provisional">Ломбард муж</subdivision>
+			<subdivision type="it62" draft="provisional">Лацио муж</subdivision>
+			<subdivision type="itkr" draft="provisional">Кротоне</subdivision>
+			<subdivision type="itme" draft="provisional">Мессина</subdivision>
+			<subdivision type="itmi" draft="provisional">Милан аймаг</subdivision>
+			<subdivision type="itpa" draft="provisional">Палермо аймаг</subdivision>
+			<subdivision type="itrm" draft="provisional">Ром аймаг</subdivision>
+			<subdivision type="jp01" draft="provisional">Хоккайдо</subdivision>
+			<subdivision type="jp02" draft="provisional">Аомори</subdivision>
+			<subdivision type="jp03" draft="provisional">Иватэ</subdivision>
+			<subdivision type="jp04" draft="provisional">Мияги</subdivision>
+			<subdivision type="jp05" draft="provisional">Акита</subdivision>
+			<subdivision type="jp06" draft="provisional">Ямагата-кэн</subdivision>
+			<subdivision type="jp07" draft="provisional">Фүкүшима</subdivision>
+			<subdivision type="jp08" draft="provisional">Ибараки</subdivision>
+			<subdivision type="jp11" draft="provisional">Сайтама аймаг</subdivision>
+			<subdivision type="jp12" draft="provisional">Чиба-кэн</subdivision>
+			<subdivision type="jp13" draft="provisional">Токио</subdivision>
+			<subdivision type="jp14" draft="provisional">Канагава</subdivision>
+			<subdivision type="jp23" draft="provisional">Айчи</subdivision>
+			<subdivision type="jp24" draft="provisional">Миэ</subdivision>
+			<subdivision type="jp25" draft="provisional">Шига</subdivision>
+			<subdivision type="jp30" draft="provisional">Вакаяма</subdivision>
+			<subdivision type="jp39" draft="provisional">Кочи-кэн</subdivision>
+			<subdivision type="jp47" draft="provisional">Окинава</subdivision>
+			<subdivision type="kgb" draft="provisional">Баткен аймаг</subdivision>
+			<subdivision type="kgc" draft="provisional">Чүй муж</subdivision>
+			<subdivision type="kggb" draft="provisional">Бишкек</subdivision>
+			<subdivision type="kggo" draft="provisional">Ош</subdivision>
+			<subdivision type="kgj" draft="provisional">Жалалабат муж</subdivision>
+			<subdivision type="kgn" draft="provisional">Нарийн аймаг</subdivision>
+			<subdivision type="kgo" draft="provisional">Ош аймаг</subdivision>
+			<subdivision type="kgt" draft="provisional">Талас аймаг</subdivision>
+			<subdivision type="kgy" draft="provisional">Иссык-Күл аймаг</subdivision>
+			<subdivision type="kh12" draft="provisional">Пномпень</subdivision>
+			<subdivision type="kp01" draft="provisional">Пхеньян</subdivision>
+			<subdivision type="kp02" draft="provisional">Өмнө Пён-Ань</subdivision>
+			<subdivision type="kp03" draft="provisional">Умар Пён-Ань</subdivision>
+			<subdivision type="kp04" draft="provisional">Чаган-ду</subdivision>
+			<subdivision type="kp05" draft="provisional">Өмнө Хуанхэ</subdivision>
+			<subdivision type="kp06" draft="provisional">Умар Хуанхэ</subdivision>
+			<subdivision type="kp07" draft="provisional">Умард Солонгосын Канвон</subdivision>
+			<subdivision type="kp08" draft="provisional">Өмнө Хамгён</subdivision>
+			<subdivision type="kp09" draft="provisional">Умар Хамгён</subdivision>
+			<subdivision type="kp10" draft="provisional">Янган</subdivision>
+			<subdivision type="kp13" draft="provisional">Расон</subdivision>
+			<subdivision type="kp14" draft="provisional">Нампу</subdivision>
+			<subdivision type="kr11" draft="provisional">Сөүл</subdivision>
+			<subdivision type="kr26" draft="provisional">Пүсан</subdivision>
+			<subdivision type="kr27" draft="provisional">Тэгү</subdivision>
+			<subdivision type="kr28" draft="provisional">Инчон</subdivision>
+			<subdivision type="kr29" draft="provisional">Куанжү</subdivision>
+			<subdivision type="kr30" draft="provisional">Тэжон</subdivision>
+			<subdivision type="kr31" draft="provisional">Үлсан</subdivision>
+			<subdivision type="kr41" draft="provisional">Кёнги</subdivision>
+			<subdivision type="kr42" draft="provisional">Өмнө Солонгосын Канвонь аймаг</subdivision>
+			<subdivision type="kr43" draft="provisional">Умар Чүнчон</subdivision>
+			<subdivision type="kr44" draft="provisional">Өмнөд Чүнчон</subdivision>
+			<subdivision type="kr45" draft="provisional">Умард Чолла</subdivision>
+			<subdivision type="kr46" draft="provisional">Өмнөд Чолла</subdivision>
+			<subdivision type="kr47" draft="provisional">Умар Кёнсан</subdivision>
+			<subdivision type="kr48" draft="provisional">Өмнө Кёнсан</subdivision>
+			<subdivision type="kr50" draft="provisional">Сэжун хот</subdivision>
+			<subdivision type="kzala" draft="provisional">Алматы</subdivision>
+			<subdivision type="kzast" draft="provisional">Астана</subdivision>
+			<subdivision type="kzshy" draft="provisional">Шымкент</subdivision>
+			<subdivision type="lach" draft="provisional">Чампасак аймаг</subdivision>
+			<subdivision type="lalp" draft="provisional">Луангпхабанг аймаг</subdivision>
+			<subdivision type="lasv" draft="provisional">Саваннакхет аймаг</subdivision>
+			<subdivision type="lavi" draft="provisional">Вьентьян аймаг</subdivision>
+			<subdivision type="lavt" draft="provisional">Вьентьян тойрог</subdivision>
+			<subdivision type="li07" draft="provisional">Шаан</subdivision>
+			<subdivision type="li09" draft="provisional">Трийзен</subdivision>
+			<subdivision type="li11" draft="provisional">Вадуц</subdivision>
+			<subdivision type="lvrix" draft="provisional">Рига</subdivision>
+			<subdivision type="macas" draft="provisional">Касабланка</subdivision>
+			<subdivision type="marab" draft="provisional">Рабат</subdivision>
+			<subdivision type="matng" draft="provisional">Танжер</subdivision>
+			<subdivision type="mdba" draft="provisional">Балць</subdivision>
+			<subdivision type="mdcu" draft="provisional">Кишинёв</subdivision>
+			<subdivision type="mdga" draft="provisional">Гагауз нутаг</subdivision>
+			<subdivision type="mk85" draft="provisional">Скопье</subdivision>
+			<subdivision type="mlbko" draft="provisional">Бамако</subdivision>
+			<subdivision type="mn1" draft="provisional">Улаанбаатар</subdivision>
+			<subdivision type="mn035" draft="provisional">Орхон</subdivision>
+			<subdivision type="mn037" draft="provisional">Дархан-Уул</subdivision>
+			<subdivision type="mn039" draft="provisional">Хэнтий</subdivision>
+			<subdivision type="mn041" draft="provisional">Хөвсгөл</subdivision>
+			<subdivision type="mn043" draft="provisional">Ховд</subdivision>
+			<subdivision type="mn046" draft="provisional">Увс</subdivision>
+			<subdivision type="mn047" draft="provisional">Төв</subdivision>
+			<subdivision type="mn049" draft="provisional">Сэлэнгэ</subdivision>
+			<subdivision type="mn051" draft="provisional">Сүхбаатар</subdivision>
+			<subdivision type="mn053" draft="provisional">Өмнөговь</subdivision>
+			<subdivision type="mn055" draft="provisional">Өвөрхангай</subdivision>
+			<subdivision type="mn057" draft="provisional">Завхан</subdivision>
+			<subdivision type="mn059" draft="provisional">Дундговь</subdivision>
+			<subdivision type="mn061" draft="provisional">Дорнод</subdivision>
+			<subdivision type="mn063" draft="provisional">Дорноговь</subdivision>
+			<subdivision type="mn064" draft="provisional">Говьсүмбэр</subdivision>
+			<subdivision type="mn065" draft="provisional">Говь-Алтай</subdivision>
+			<subdivision type="mn067" draft="provisional">Булган</subdivision>
+			<subdivision type="mn069" draft="provisional">Баянхонгор</subdivision>
+			<subdivision type="mn071" draft="provisional">Баян-Өлгий</subdivision>
+			<subdivision type="mn073" draft="provisional">Архангай</subdivision>
+			<subdivision type="mt60" draft="provisional">Валлетта</subdivision>
+			<subdivision type="mupu" draft="provisional">Порт Луйс</subdivision>
+			<subdivision type="mvmle" draft="provisional">Мале</subdivision>
+			<subdivision type="mxcmx" draft="provisional">Мехико</subdivision>
+			<subdivision type="mxoax" draft="provisional">Оахака</subdivision>
+			<subdivision type="my14" draft="provisional">Куала Лумпур</subdivision>
+			<subdivision type="mzmpm" draft="provisional">Мапуто</subdivision>
+			<subdivision type="ne8" draft="provisional">Ниамей</subdivision>
+			<subdivision type="nlge" draft="provisional">Гелдерланд</subdivision>
+			<subdivision type="nlnb" draft="provisional">Умар Брабант</subdivision>
+			<subdivision type="nlnh" draft="provisional">Умар Холланд</subdivision>
+			<subdivision type="nlzh" draft="provisional">Өмнө Холланд</subdivision>
+			<subdivision type="no03" draft="provisional">Осло</subdivision>
+			<subdivision type="no22" draft="provisional">Ян-Майен</subdivision>
+			<subdivision type="pgncd" draft="provisional">Порт-Морсби</subdivision>
+			<subdivision type="pkba" draft="provisional">Балучистан</subdivision>
+			<subdivision type="pkpb" draft="provisional">Панжаб</subdivision>
+			<subdivision type="pl12" draft="provisional">Бага Польш муж</subdivision>
+			<subdivision type="pl16" draft="provisional">Ополе муж</subdivision>
+			<subdivision type="pl18" draft="provisional">Подкарпат муж</subdivision>
+			<subdivision type="pl20" draft="provisional">Подласки муж</subdivision>
+			<subdivision type="pl24" draft="provisional">Силези муж</subdivision>
+			<subdivision type="pl30" draft="provisional">Их Польш</subdivision>
+			<subdivision type="pl32" draft="provisional">Өрнөд Померан</subdivision>
+			<subdivision type="pt20" draft="provisional">Азорын арлууд</subdivision>
+			<subdivision type="pyasu" draft="provisional">Асунсион</subdivision>
+			<subdivision type="qada" draft="provisional">Доха</subdivision>
+			<subdivision type="roab" draft="provisional">Алба аймаг</subdivision>
+			<subdivision type="roag" draft="provisional">Аржеш аймаг</subdivision>
+			<subdivision type="roar" draft="provisional">Арад аймаг</subdivision>
+			<subdivision type="rob" draft="provisional">Бухарест</subdivision>
+			<subdivision type="robc" draft="provisional">Бакау аймаг</subdivision>
+			<subdivision type="robh" draft="provisional">Бихор аймаг</subdivision>
+			<subdivision type="robn" draft="provisional">Бистрица-Насауд аймаг</subdivision>
+			<subdivision type="robr" draft="provisional">Браила аймаг</subdivision>
+			<subdivision type="robt" draft="provisional">Ботошани аймаг</subdivision>
+			<subdivision type="robv" draft="provisional">Брашов аймаг</subdivision>
+			<subdivision type="robz" draft="provisional">Бузау аймаг</subdivision>
+			<subdivision type="rocj" draft="provisional">Клуж аймаг</subdivision>
+			<subdivision type="rocl" draft="provisional">Калараш аймаг</subdivision>
+			<subdivision type="rocs" draft="provisional">Караш-Северин аймаг</subdivision>
+			<subdivision type="roct" draft="provisional">Констанца аймаг</subdivision>
+			<subdivision type="rocv" draft="provisional">Ковасна аймаг</subdivision>
+			<subdivision type="rodb" draft="provisional">Дымбовица аймаг</subdivision>
+			<subdivision type="rodj" draft="provisional">Долж аймаг</subdivision>
+			<subdivision type="rogj" draft="provisional">Горж аймаг</subdivision>
+			<subdivision type="rogl" draft="provisional">Галац аймаг</subdivision>
+			<subdivision type="rogr" draft="provisional">Журжу аймаг</subdivision>
+			<subdivision type="rohd" draft="provisional">Хунедоара аймаг</subdivision>
+			<subdivision type="rohr" draft="provisional">Харгита аймаг</subdivision>
+			<subdivision type="roif" draft="provisional">Илфов аймаг</subdivision>
+			<subdivision type="roil" draft="provisional">Яломица аймаг</subdivision>
+			<subdivision type="rois" draft="provisional">Яаш аймаг</subdivision>
+			<subdivision type="romh" draft="provisional">Мехединци аймаг</subdivision>
+			<subdivision type="romm" draft="provisional">Марамуреш аймаг</subdivision>
+			<subdivision type="roms" draft="provisional">Муреш аймаг</subdivision>
+			<subdivision type="ront" draft="provisional">Нямц аймаг</subdivision>
+			<subdivision type="root" draft="provisional">Олт аймаг</subdivision>
+			<subdivision type="roph" draft="provisional">Прахова аймаг</subdivision>
+			<subdivision type="rosb" draft="provisional">Сибиу аймаг</subdivision>
+			<subdivision type="rosj" draft="provisional">Салаж аймаг</subdivision>
+			<subdivision type="rosm" draft="provisional">Сату-Маре аймаг</subdivision>
+			<subdivision type="rosv" draft="provisional">Сучава аймаг</subdivision>
+			<subdivision type="rotl" draft="provisional">Тулча аймаг</subdivision>
+			<subdivision type="rotm" draft="provisional">Тимиш аймаг</subdivision>
+			<subdivision type="rotr" draft="provisional">Телеорман аймаг</subdivision>
+			<subdivision type="rovl" draft="provisional">Вылча аймаг</subdivision>
+			<subdivision type="rovn" draft="provisional">Вранча аймаг</subdivision>
+			<subdivision type="rovs" draft="provisional">Васлуй аймаг</subdivision>
+			<subdivision type="rs00" draft="provisional">Белград</subdivision>
+			<subdivision type="rs01" draft="provisional">Умар Бачка аймаг</subdivision>
+			<subdivision type="rs02" draft="provisional">Төв Банат аймаг</subdivision>
+			<subdivision type="rs03" draft="provisional">Умар Банат аймаг</subdivision>
+			<subdivision type="rs04" draft="provisional">Өмнө Банат аймаг</subdivision>
+			<subdivision type="rs05" draft="provisional">Өрнө Бачка аймаг</subdivision>
+			<subdivision type="rs06" draft="provisional">Өмнө Бачка аймаг</subdivision>
+			<subdivision type="rs07" draft="provisional">Срем аймаг</subdivision>
+			<subdivision type="rs08" draft="provisional">Мачва аймаг</subdivision>
+			<subdivision type="rs09" draft="provisional">Колубар аймаг</subdivision>
+			<subdivision type="rs10" draft="provisional">Подунай аймаг</subdivision>
+			<subdivision type="rs11" draft="provisional">Браничев аймаг</subdivision>
+			<subdivision type="rs12" draft="provisional">Шумад аймаг</subdivision>
+			<subdivision type="rs13" draft="provisional">Поморав аймаг</subdivision>
+			<subdivision type="rs14" draft="provisional">Бор аймаг</subdivision>
+			<subdivision type="rs15" draft="provisional">Заечар аймаг</subdivision>
+			<subdivision type="rs16" draft="provisional">Златибор аймаг</subdivision>
+			<subdivision type="rs17" draft="provisional">Моравич аймаг</subdivision>
+			<subdivision type="rs18" draft="provisional">Рашка аймаг</subdivision>
+			<subdivision type="rs19" draft="provisional">Расин аймаг</subdivision>
+			<subdivision type="rs20" draft="provisional">Нишав аймаг</subdivision>
+			<subdivision type="rs21" draft="provisional">Топлич аймаг</subdivision>
+			<subdivision type="rs22" draft="provisional">Пирот аймаг</subdivision>
+			<subdivision type="rs23" draft="provisional">Ябланич аймаг</subdivision>
+			<subdivision type="rs25" draft="provisional">Косов аймаг</subdivision>
+			<subdivision type="rs26" draft="provisional">Печ аймаг</subdivision>
+			<subdivision type="rs27" draft="provisional">Призрен аймаг</subdivision>
+			<subdivision type="rs28" draft="provisional">Косов-Митровиц аймаг</subdivision>
+			<subdivision type="rs29" draft="provisional">Косов-Поморав аймаг</subdivision>
+			<subdivision type="rskm" draft="provisional">Косов-Метох</subdivision>
+			<subdivision type="rsvo" draft="provisional">Воеводин</subdivision>
+			<subdivision type="ruad" draft="provisional">Адыгей</subdivision>
+			<subdivision type="rual" draft="provisional">Алтайн Бүгд Найрамдах Улс</subdivision>
+			<subdivision type="rualt" draft="provisional">Алтайн хязгаар</subdivision>
+			<subdivision type="ruamu" draft="provisional">Амур муж</subdivision>
+			<subdivision type="ruark" draft="provisional">Архангельск муж</subdivision>
+			<subdivision type="ruast" draft="provisional">Астрахань муж</subdivision>
+			<subdivision type="ruba" draft="provisional">Башкортостан</subdivision>
+			<subdivision type="rubel" draft="provisional">Белгород муж</subdivision>
+			<subdivision type="rubry" draft="provisional">Брянск муж</subdivision>
+			<subdivision type="rubu" draft="provisional">Бүгд Найрамдах Буриад Улс</subdivision>
+			<subdivision type="ruce" draft="provisional">Чечень</subdivision>
+			<subdivision type="ruche" draft="provisional">Челябинск муж</subdivision>
+			<subdivision type="ruchu" draft="provisional">Чукоткийн өөртөө засах тойрог</subdivision>
+			<subdivision type="rucu" draft="provisional">Чуваш</subdivision>
+			<subdivision type="ruda" draft="provisional">Дагестан</subdivision>
+			<subdivision type="ruin" draft="provisional">Ингушет</subdivision>
+			<subdivision type="ruirk" draft="provisional">Эрхүү муж</subdivision>
+			<subdivision type="ruiva" draft="provisional">Иваново муж</subdivision>
+			<subdivision type="rukam" draft="provisional">Камчаткын Хязгаар</subdivision>
+			<subdivision type="rukb" draft="provisional">Кабардино-Балкар</subdivision>
+			<subdivision type="rukc" draft="provisional">Карачай-Черкесс</subdivision>
+			<subdivision type="rukda" draft="provisional">Краснодарын хязгаар</subdivision>
+			<subdivision type="rukem" draft="provisional">Кемерово муж</subdivision>
+			<subdivision type="rukgd" draft="provisional">Калининград муж</subdivision>
+			<subdivision type="rukgn" draft="provisional">Курган муж</subdivision>
+			<subdivision type="rukha" draft="provisional">Хабаровскийн хязгаар</subdivision>
+			<subdivision type="rukhm" draft="provisional">Ханты-Мансийн өөртөө засах тойрог</subdivision>
+			<subdivision type="rukir" draft="provisional">Киров муж</subdivision>
+			<subdivision type="rukk" draft="provisional">Хакас</subdivision>
+			<subdivision type="rukl" draft="provisional">Бүгд Найрамдах Халимаг Улс</subdivision>
+			<subdivision type="ruklu" draft="provisional">Калуга муж</subdivision>
+			<subdivision type="ruko" draft="provisional">Коми</subdivision>
+			<subdivision type="rukos" draft="provisional">Кострома муж</subdivision>
+			<subdivision type="rukr" draft="provisional">Бүгд Найрамдах Карель Улс</subdivision>
+			<subdivision type="rukrs" draft="provisional">Курск муж</subdivision>
+			<subdivision type="rukya" draft="provisional">Красноярскийн хязгаар</subdivision>
+			<subdivision type="rulen" draft="provisional">Ленинград муж</subdivision>
+			<subdivision type="rulip" draft="provisional">Липецк муж</subdivision>
+			<subdivision type="rumag" draft="provisional">Магадан муж</subdivision>
+			<subdivision type="rume" draft="provisional">Мари Эл</subdivision>
+			<subdivision type="rumo" draft="provisional">Мордова</subdivision>
+			<subdivision type="rumos" draft="provisional">Москва муж</subdivision>
+			<subdivision type="rumow" draft="provisional">Москва</subdivision>
+			<subdivision type="rumur" draft="provisional">Мурманск муж</subdivision>
+			<subdivision type="runen" draft="provisional">Ненецийн өөртөө засах тойрог</subdivision>
+			<subdivision type="rungr" draft="provisional">Новгород муж</subdivision>
+			<subdivision type="runiz" draft="provisional">Нижегород муж</subdivision>
+			<subdivision type="runvs" draft="provisional">Новосибирск муж</subdivision>
+			<subdivision type="ruoms" draft="provisional">Омск муж</subdivision>
+			<subdivision type="ruore" draft="provisional">Оренбург муж</subdivision>
+			<subdivision type="ruorl" draft="provisional">Орёл муж</subdivision>
+			<subdivision type="ruper" draft="provisional">Пермийн хязгаар</subdivision>
+			<subdivision type="rupnz" draft="provisional">Пенза муж</subdivision>
+			<subdivision type="rupri" draft="provisional">Приморийн хязгаар</subdivision>
+			<subdivision type="rupsk" draft="provisional">Псков муж</subdivision>
+			<subdivision type="ruros" draft="provisional">Ростов муж</subdivision>
+			<subdivision type="rurya" draft="provisional">Рязань муж</subdivision>
+			<subdivision type="rusa" draft="provisional">Саха</subdivision>
+			<subdivision type="rusak" draft="provisional">Сахалин муж</subdivision>
+			<subdivision type="rusam" draft="provisional">Самара муж</subdivision>
+			<subdivision type="rusar" draft="provisional">Саратов муж</subdivision>
+			<subdivision type="ruse" draft="provisional">Хойд Осет-Алани</subdivision>
+			<subdivision type="rusmo" draft="provisional">Смоленск муж</subdivision>
+			<subdivision type="ruspe" draft="provisional">Санкт-Петербург</subdivision>
+			<subdivision type="rusta" draft="provisional">Ставрополийн хязгаар</subdivision>
+			<subdivision type="rusve" draft="provisional">Свердловск муж</subdivision>
+			<subdivision type="ruta" draft="provisional">Татарстан</subdivision>
+			<subdivision type="rutam" draft="provisional">Тамбов муж</subdivision>
+			<subdivision type="rutom" draft="provisional">Томск муж</subdivision>
+			<subdivision type="rutul" draft="provisional">Тула муж</subdivision>
+			<subdivision type="rutve" draft="provisional">Тверь муж</subdivision>
+			<subdivision type="ruty" draft="provisional">Бүгд Найрамдах Тува Улс</subdivision>
+			<subdivision type="rutyu" draft="provisional">Тюмень муж</subdivision>
+			<subdivision type="ruud" draft="provisional">Удмурт</subdivision>
+			<subdivision type="ruuly" draft="provisional">Ульяновск муж</subdivision>
+			<subdivision type="ruvgg" draft="provisional">Волгоград муж</subdivision>
+			<subdivision type="ruvla" draft="provisional">Владимир муж</subdivision>
+			<subdivision type="ruvlg" draft="provisional">Вологда муж</subdivision>
+			<subdivision type="ruvor" draft="provisional">Воронеж муж</subdivision>
+			<subdivision type="ruyan" draft="provisional">Ямало-Ненецийн өөртөө засах тойрог</subdivision>
+			<subdivision type="ruyar" draft="provisional">Ярославль муж</subdivision>
+			<subdivision type="ruyev" draft="provisional">Еврейн өөртөө засах муж</subdivision>
+			<subdivision type="ruzab" draft="provisional">Өвөр Байгалын хязгаар</subdivision>
+			<subdivision type="si129" draft="provisional">Трбовле</subdivision>
+			<subdivision type="skbl" draft="provisional">Братислав аймаг</subdivision>
+			<subdivision type="skta" draft="provisional">Трнав аймаг</subdivision>
+			<subdivision type="skzi" draft="provisional">Жилин аймаг</subdivision>
+			<subdivision type="sm07" draft="provisional">Сан-Марино</subdivision>
+			<subdivision type="tdnd" draft="provisional">Нжамена</subdivision>
+			<subdivision type="th10" draft="provisional">Бангкок</subdivision>
+			<subdivision type="th34" draft="provisional">Убонрачатхани аймаг</subdivision>
+			<subdivision type="tjdu" draft="provisional">Душанбе</subdivision>
+			<subdivision type="tjgb" draft="provisional">Горно-Бадахшан</subdivision>
+			<subdivision type="tma" draft="provisional">Ахал муж</subdivision>
+			<subdivision type="tmb" draft="provisional">Балкан муж</subdivision>
+			<subdivision type="tmd" draft="provisional">Дашогуз муж</subdivision>
+			<subdivision type="tml" draft="provisional">Лебап муж</subdivision>
+			<subdivision type="tmm" draft="provisional">Мары муж</subdivision>
+			<subdivision type="tms" draft="provisional">Ашгабат</subdivision>
+			<subdivision type="twcha" draft="provisional">Жанхуа</subdivision>
+			<subdivision type="twcyi" draft="provisional">Жяи шянь</subdivision>
+			<subdivision type="twcyq" draft="provisional">Жяи</subdivision>
+			<subdivision type="twhsq" draft="provisional">Шиньжү шянь</subdivision>
+			<subdivision type="twhsz" draft="provisional">Шиньжү</subdivision>
+			<subdivision type="twhua" draft="provisional">Хуалянь</subdivision>
+			<subdivision type="twila" draft="provisional">Илань</subdivision>
+			<subdivision type="twkee" draft="provisional">Жилун</subdivision>
+			<subdivision type="twkhh" draft="provisional">Гаошюн</subdivision>
+			<subdivision type="twkin" draft="provisional">Жиньмэнь</subdivision>
+			<subdivision type="twmia" draft="provisional">Мяоли</subdivision>
+			<subdivision type="twnan" draft="provisional">Наньтоу</subdivision>
+			<subdivision type="twnwt" draft="provisional">Шиньбэй</subdivision>
+			<subdivision type="twpen" draft="provisional">Пөнхү</subdivision>
+			<subdivision type="twpif" draft="provisional">Пиндун</subdivision>
+			<subdivision type="twtao" draft="provisional">Таоюань</subdivision>
+			<subdivision type="twtnn" draft="provisional">Тайнань</subdivision>
+			<subdivision type="twtpe" draft="provisional">Тайбэй</subdivision>
+			<subdivision type="twttt" draft="provisional">Тайдун</subdivision>
+			<subdivision type="twtxg" draft="provisional">Тайжун</subdivision>
+			<subdivision type="twyun" draft="provisional">Юньлинь</subdivision>
+			<subdivision type="ua05" draft="provisional">Винниц муж</subdivision>
+			<subdivision type="ua07" draft="provisional">Волынь муж</subdivision>
+			<subdivision type="ua09" draft="provisional">Луганск муж</subdivision>
+			<subdivision type="ua12" draft="provisional">Днепропетровск муж</subdivision>
+			<subdivision type="ua14" draft="provisional">Донецк муж</subdivision>
+			<subdivision type="ua18" draft="provisional">Житомир муж</subdivision>
+			<subdivision type="ua21" draft="provisional">Закарпат муж</subdivision>
+			<subdivision type="ua23" draft="provisional">Запорожье муж</subdivision>
+			<subdivision type="ua26" draft="provisional">Ивано-Франковск муж</subdivision>
+			<subdivision type="ua30" draft="provisional">Киев</subdivision>
+			<subdivision type="ua32" draft="provisional">Киев муж</subdivision>
+			<subdivision type="ua35" draft="provisional">Кировоград муж</subdivision>
+			<subdivision type="ua40" draft="provisional">Севастополь</subdivision>
+			<subdivision type="ua43" draft="provisional">Бүгд Найрамдах Өөртөө Засах Крым Улс</subdivision>
+			<subdivision type="ua46" draft="provisional">Львов муж</subdivision>
+			<subdivision type="ua48" draft="provisional">Николаев муж</subdivision>
+			<subdivision type="ua51" draft="provisional">Одесс муж</subdivision>
+			<subdivision type="ua53" draft="provisional">Полтав муж</subdivision>
+			<subdivision type="ua56" draft="provisional">Ровно муж</subdivision>
+			<subdivision type="ua59" draft="provisional">Сумы муж</subdivision>
+			<subdivision type="ua61" draft="provisional">Тернополь муж</subdivision>
+			<subdivision type="ua63" draft="provisional">Харьков муж</subdivision>
+			<subdivision type="ua65" draft="provisional">Херсон муж</subdivision>
+			<subdivision type="ua68" draft="provisional">Хмельницкий муж</subdivision>
+			<subdivision type="ua71" draft="provisional">Черкас муж</subdivision>
+			<subdivision type="ua74" draft="provisional">Чернигов муж</subdivision>
+			<subdivision type="ua77" draft="provisional">Черновцы муж</subdivision>
+			<subdivision type="um71" draft="provisional">Мидвей</subdivision>
+			<subdivision type="usak" draft="provisional">Аляска</subdivision>
+			<subdivision type="usal" draft="provisional">Алабама</subdivision>
+			<subdivision type="usar" draft="provisional">Арканзас</subdivision>
+			<subdivision type="usaz" draft="provisional">Аризона</subdivision>
+			<subdivision type="usca" draft="provisional">Калифорни</subdivision>
+			<subdivision type="usco" draft="provisional">Колорадо</subdivision>
+			<subdivision type="usct" draft="provisional">Коннектикут</subdivision>
+			<subdivision type="usdc" draft="provisional">Вашингтон хот</subdivision>
+			<subdivision type="usde" draft="provisional">Делавар</subdivision>
+			<subdivision type="usfl" draft="provisional">Флорида</subdivision>
+			<subdivision type="usga" draft="provisional">Жоржиа</subdivision>
+			<subdivision type="ushi" draft="provisional">Хавай</subdivision>
+			<subdivision type="usia" draft="provisional">Айова</subdivision>
+			<subdivision type="usid" draft="provisional">Айдахо</subdivision>
+			<subdivision type="usil" draft="provisional">Иллиной</subdivision>
+			<subdivision type="usin" draft="provisional">Индиана муж</subdivision>
+			<subdivision type="usks" draft="provisional">Канзас</subdivision>
+			<subdivision type="usky" draft="provisional">Кентакки</subdivision>
+			<subdivision type="usla" draft="provisional">Луйзиана</subdivision>
+			<subdivision type="usma" draft="provisional">Массачусеттс</subdivision>
+			<subdivision type="usmd" draft="provisional">Мэрилэнд</subdivision>
+			<subdivision type="usme" draft="provisional">Мэн</subdivision>
+			<subdivision type="usmi" draft="provisional">Мичиган</subdivision>
+			<subdivision type="usmn" draft="provisional">Миннесота</subdivision>
+			<subdivision type="usmo" draft="provisional">Миссури</subdivision>
+			<subdivision type="usms" draft="provisional">Миссиссиппи</subdivision>
+			<subdivision type="usnd" draft="provisional">Хойд Дакота</subdivision>
+			<subdivision type="usne" draft="provisional">Небраска</subdivision>
+			<subdivision type="usnh" draft="provisional">Нью-Хэмпшир</subdivision>
+			<subdivision type="usnj" draft="provisional">Нью-Жерси</subdivision>
+			<subdivision type="usnm" draft="provisional">Нью-Мексико</subdivision>
+			<subdivision type="usnv" draft="provisional">Невада</subdivision>
+			<subdivision type="usny" draft="provisional">Нью-Йорк Муж Улс</subdivision>
+			<subdivision type="usoh" draft="provisional">Охайо</subdivision>
+			<subdivision type="usok" draft="provisional">Оклахома</subdivision>
+			<subdivision type="usor" draft="provisional">Орегон</subdivision>
+			<subdivision type="uspa" draft="provisional">Пеннсилвани</subdivision>
+			<subdivision type="usri" draft="provisional">Рөүд-Айленд</subdivision>
+			<subdivision type="ussd" draft="provisional">Өмнөд Дакота</subdivision>
+			<subdivision type="ustn" draft="provisional">Теннесси</subdivision>
+			<subdivision type="ustx" draft="provisional">Техас</subdivision>
+			<subdivision type="usut" draft="provisional">Юта</subdivision>
+			<subdivision type="usva" draft="provisional">Виржини</subdivision>
+			<subdivision type="usvt" draft="provisional">Вермонт</subdivision>
+			<subdivision type="uswa" draft="provisional">Вашингтон Муж Улс</subdivision>
+			<subdivision type="uswi" draft="provisional">Висконсин</subdivision>
+			<subdivision type="uswv" draft="provisional">Баруун Виржини</subdivision>
+			<subdivision type="uswy" draft="provisional">Вайоминг</subdivision>
+			<subdivision type="uymo" draft="provisional">Монтевидео</subdivision>
+			<subdivision type="uzqr" draft="provisional">Хархалпак орон</subdivision>
+			<subdivision type="uztk" draft="provisional">Ташкент</subdivision>
+			<subdivision type="vn02" draft="provisional">Лау Гаая</subdivision>
+			<subdivision type="vn03" draft="provisional">Хай Жяан</subdivision>
+			<subdivision type="vn04" draft="provisional">Гау Бан</subdivision>
+			<subdivision type="vn06" draft="provisional">Иэньбай</subdivision>
+			<subdivision type="vn07" draft="provisional">Туэньгуан</subdivision>
+			<subdivision type="vn09" draft="provisional">Ланшонь</subdivision>
+			<subdivision type="vn13" draft="provisional">Гуан Нэн</subdivision>
+			<subdivision type="vn14" draft="provisional">Хуа Бэн</subdivision>
+			<subdivision type="vn18" draft="provisional">Нэн Бэн</subdivision>
+			<subdivision type="vn20" draft="provisional">Таая Бэн</subdivision>
+			<subdivision type="vn53" draft="provisional">Бак Гайн</subdivision>
+			<subdivision type="vn54" draft="provisional">Бак Жяан</subdivision>
+			<subdivision type="vn56" draft="provisional">Бак Нэн</subdivision>
+			<subdivision type="vn61" draft="provisional">Хайя Зыон</subdivision>
+			<subdivision type="vn63" draft="provisional">Хай Наам</subdivision>
+			<subdivision type="vn66" draft="provisional">Хыниэнь</subdivision>
+			<subdivision type="vn67" draft="provisional">Наам Дэн</subdivision>
+			<subdivision type="vn68" draft="provisional">Фү Тоо</subdivision>
+			<subdivision type="vn69" draft="provisional">Тайнюэнь</subdivision>
+			<subdivision type="vn70" draft="provisional">Вэн Фүк</subdivision>
+			<subdivision type="vnct" draft="provisional">Кантхо</subdivision>
+			<subdivision type="vndn" draft="provisional">Данан</subdivision>
+			<subdivision type="vnhn" draft="provisional">Ханой</subdivision>
+			<subdivision type="vnsg" draft="provisional">Хо Ши Мин хот</subdivision>
+			<subdivision type="yesa" draft="provisional">Санаа хот</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

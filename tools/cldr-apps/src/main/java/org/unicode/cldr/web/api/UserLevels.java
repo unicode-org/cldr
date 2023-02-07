@@ -1,9 +1,6 @@
 package org.unicode.cldr.web.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -39,19 +36,19 @@ public class UserLevels {
                             + "    \"1\":{\"string\":\"1: (TC)\",\"isManagerFor\":true,\"name\":\"tc\",\"canCreateOrSetLevelTo\":true},\n"
                             + "    \"2\":{\"string\":\"2: (MANAGER)\",\"isManagerFor\":true,\"name\":\"manager\",\"canCreateOrSetLevelTo\":true},\n"
                             + "    \"5\":{\"string\":\"5: (VETTER)\",\"isManagerFor\":true,\"name\":\"vetter\",\"canCreateOrSetLevelTo\":true},\n"
-                            + "    \"10\":{\"string\":\"10: (STREET)\",\"isManagerFor\":true,\"name\":\"street\",\"canCreateOrSetLevelTo\":true},\n"
+                            + "    \"10\":{\"string\":\"10: (GUEST)\",\"isManagerFor\":true,\"name\":\"guest\",\"canCreateOrSetLevelTo\":true},\n"
                             + "    \"999\":{\"string\":\"999: (LOCKED)\",\"isManagerFor\":true,\"name\":\"locked\",\"canCreateOrSetLevelTo\":true}\n"
                             + "  }\n"
                             + "}"))),
         })
     public Response getLevels(
-        @QueryParam("s") @Schema(required = true, description = "Session String") String sessionString) {
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         CookieSession session = Auth.getSession(sessionString);
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userCanCreateUsers(session.user)) {
-            return Response.status(403, "Forbidden").build();
+        if (session.user == null) {
+            return Response.status(Response.Status.FORBIDDEN).build();
         }
         session.userDidAction();
         try {

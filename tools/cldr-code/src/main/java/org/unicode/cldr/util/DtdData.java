@@ -22,9 +22,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
+import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
+
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -49,6 +54,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private Map<String, Element> nameToElement = new HashMap<>();
     private MapComparator<String> elementComparator;
     private MapComparator<String> attributeComparator;
+
+    // TODO Make this data driven
+    public static final Multimap<DtdType, String> HACK_PCDATA_ALLOWS_EMPTY = ImmutableMultimap.<DtdType, String>builder()
+        .putAll(DtdType.ldml, "nameOrderLocales", "foreignSpaceReplacement", "language", "script", "region", "variant", "territory")
+        .putAll(DtdType.supplementalData, "variable", "attributeValues")
+        .build();
 
     public final Element ROOT;
     public final Element PCDATA = elementFrom("#PCDATA");
@@ -113,7 +124,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public final Mode mode;
         public final String defaultValue;
         public final AttributeType type;
-        public final Map<String, Integer> values;
+        public final Map<String, Integer> values; // immutable
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
@@ -324,6 +335,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     : "";
         }
 
+        public Set<String> getMatchLiterals() {
+            if (type == AttributeType.ENUMERATED_TYPE) {
+                return values.keySet();
+            } else if (matchValue != null && matchValue instanceof LiteralMatchValue) {
+                return ((LiteralMatchValue)matchValue).getItems();
+            }
+            return null;
+        }
+
         public Attribute getMatchingName(Map<Attribute, Integer> attributes) {
             for (Attribute attribute : attributes.keySet()) {
                 if (name.equals(attribute.getName())) {
@@ -374,6 +394,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public static class Element implements Named {
+        public enum ValueConstraint {
+            empty, nonempty, any
+        }
         public final String name;
         private String rawModel;
         private ElementType type;
@@ -384,7 +407,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private String model;
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
+        private boolean isTechPreviewElement;
         private ElementStatus elementStatus = ElementStatus.regular;
+        private ValueConstraint valueConstraint = ValueConstraint.nonempty;
 
         private Element(String name2) {
             name = name2.intern();
@@ -394,6 +419,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             this.commentsPre = precomments;
             rawModel = model;
             this.model = clean(model);
+            valueConstraint = ValueConstraint.empty;
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
                 return;
@@ -403,6 +429,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 if (part.length() != 0) {
                     if (part.equals("#PCDATA")) {
                         type = ElementType.PCDATA;
+                        if (HACK_PCDATA_ALLOWS_EMPTY.get(dtdData.dtdType).contains(name)) {
+                            // TODO move to @ annotation in .dtd file
+                            valueConstraint = ValueConstraint.any;
+                        } else {
+                            valueConstraint = ValueConstraint.nonempty;
+                        }
                     } else if (part.equals("ANY")) {
                         type = ElementType.ANY;
                     } else {
@@ -485,7 +517,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public void addComment(String addition) {
             if (addition.startsWith("@")) {
-                // there are exactly 3 cases: deprecated, ordered, and metadata
+                // there are exactly 4 cases: deprecated, ordered, techPreview and metadata
                 switch (addition) {
                 case "@ORDERED":
                     isOrderedElement = true;
@@ -495,6 +527,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     break;
                 case "@METADATA":
                     elementStatus = ElementStatus.metadata;
+                    break;
+                case "@TECHPREVIEW":
+                    isTechPreviewElement = true;
                     break;
                 default:
                     if (addition.startsWith("@MATCH") ||
@@ -554,8 +589,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return isOrderedElement;
         }
 
+        public boolean isTechPreview() {
+            return isTechPreviewElement;
+        }
+
         public ElementStatus getElementStatus() {
             return elementStatus;
+        }
+
+        public ValueConstraint getValueConstraint() {
+            return valueConstraint;
         }
 
         /**
@@ -1056,6 +1099,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
+        if (isTechPreview(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(COMMENT_PREFIX + "<!--@"
                 + current.getElementStatus().toString().toUpperCase(Locale.ROOT)
@@ -1217,10 +1263,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     //@SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
-        Element element = nameToElement.get(elementName);
-        if (element == null) {
-            throw new IllegalByDtdException(elementName, attributeName, attributeValue);
-        } else if (element.isDeprecatedElement) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        if (element.isDeprecatedElement) {
             return true;
         }
         if ("*".equals(attributeName) || "_q".equals(attributeName)) {
@@ -1241,12 +1285,28 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      * throw IllegalByDtdException for unknown elements. See CLDR-8614 for more background.
      */
     public boolean isOrdered(String elementName) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        return element.isOrdered();
+    }
+
+    public Element getElementThrowingIfNull(String elementName, String attributeName, String value) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
-            throw new IllegalByDtdException(elementName, null, null);
+            throw new IllegalByDtdException(elementName, attributeName, value);
         }
-        return element.isOrderedElement;
+        return element;
     }
+
+    /**
+     * Returns whether an element (specified by its full name) is a tech preview. This method
+     * understands all elements in the DTDs used (including the ICU extensions), but will
+     * throw IllegalByDtdException for unknown elements. See CLDR-8614 for more background.
+     */
+    public boolean isTechPreview(String elementName) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        return element.isTechPreview();
+    }
+
 
     public AttributeStatus getAttributeStatus(String elementName, String attributeName) {
         if ("_q".equals(attributeName)) {
@@ -1310,19 +1370,26 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
-    static MapComparator<String> nameFieldOrder = new MapComparator<String>().add(
-        "prefix", "given", "given-informal", "given2",
-        "surname", "surname-prefix", "surname-core", "surname2", "suffix").freeze();
-    static MapComparator<String> orderValueOrder = new MapComparator<String>().add(
-        "givenFirst", "surnameFirst", "sorting").freeze();
-    static MapComparator<String> lengthValueOrder = new MapComparator<String>().add(
-        "long", "medium", "short").freeze();
-    static MapComparator<String> usageValueOrder = new MapComparator<String>().add(
-        "referring", "addressing", "monogram").freeze();
-    static MapComparator<String> formalityValueOrder = new MapComparator<String>().add(
-        "formal", "informal").freeze();
-    static MapComparator<String> sampleNameItemOrder = new MapComparator<String>().add(
-        "givenOnly", "givenSurnameOnly", "given12Surname", "full").freeze();
+    static MapComparator<String> nameFieldOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.ModifiedField.ALL_SAMPLES)
+        .freeze();
+    static MapComparator<String> orderValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Order.ALL, Object::toString)
+        .freeze();
+    static MapComparator<String> lengthValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Length.ALL, Object::toString)
+        .freeze();
+    static MapComparator<String> usageValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Usage.ALL, Object::toString)
+        .freeze();
+    static MapComparator<String> formalityValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Formality.ALL, Object::toString)
+        .freeze();
+    static MapComparator<String> sampleNameItemOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.SampleType.ALL, Object::toString)
+        .freeze();
+
+    // TODO We could build these from the dtd data for literal values. That way they would always be in sync.
 
     /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
 
@@ -1409,7 +1476,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "pressure-hectopascal",
         "pressure-kilopascal",
         "pressure-megapascal",
-        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
+        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot", "speed-beaufort",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "torque-pound-force-foot",
         "torque-pound-foot", // deprecated
@@ -1812,5 +1879,22 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         return ImmutableSetMultimap.copyOf(nonEnumeratedElementToAttribute);
+    }
+
+    /**
+     * Get the value constraint on the last element in a path
+     */
+    public static ValueConstraint getValueConstraint(String xpath) {
+        return getElement(xpath, -1).getValueConstraint();
+    }
+
+    /**
+     * Get an element from a path and element index.
+     */
+    public static Element getElement(String xpath,  int elementIndex) {
+        XPathParts parts = XPathParts.getFrozenInstance(xpath);
+        return DtdData.getInstance(DtdType.valueOf(parts.getElement(0)))
+            .getElementFromName()
+            .get(parts.getElement(elementIndex));
     }
 }

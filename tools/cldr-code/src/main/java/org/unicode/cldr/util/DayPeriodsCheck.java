@@ -72,7 +72,7 @@ public class DayPeriodsCheck {
 
                 // add a couple of strange locales for checking
                 localesToCheck.add(new ULocale("en-Arab"));
-                localesToCheck.add(new ULocale("und"));
+                localesToCheck.add(new ULocale(LocaleNames.UND));
                 for (ULocale locale : localesToCheck) {
                     DayPeriods dayPeriods = DayPeriods.getInstance(locale);
                     if (dayPeriods == null) {

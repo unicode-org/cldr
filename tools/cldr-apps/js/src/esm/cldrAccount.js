@@ -3,18 +3,18 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrOrganizations from "./cldrOrganizations.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrUserLevels from "./cldrUserLevels.js";
 
 const CLDR_ACCOUNT_DEBUG = false;
 const SHOW_GRAVATAR = !CLDR_ACCOUNT_DEBUG;
 
-const WHAT_USER_LIST = "user_list"; // cf. org.unicode.cldr.web.SurveyAjax.WHAT_USER_LIST
-const LIST_JUST = "justu"; // cf. org.unicode.cldr.web.UserList.LIST_JUST
+const WHAT_USER_LIST = "user_list"; // cf. SurveyAjax.WHAT_USER_LIST
+const LIST_JUST = "justu"; // cf. UserList.LIST_JUST
 
 // cf. UserList.java and SurveyMain.java for these constants
 const LIST_ACTION_SETLEVEL = "set_userlevel_";
@@ -30,7 +30,6 @@ const LIST_MAILUSER_CONFIRM = "mailthem_c";
 const LIST_MAILUSER_CONFIRM_CODE = "confirm";
 const PREF_SHOWLOCKED = "p_showlocked";
 const PREF_JUSTORG = "p_justorg";
-const GET_ORGS = "get_orgs";
 
 const userListTableId = "userListTable";
 
@@ -76,7 +75,7 @@ const bulkActionChangeButtonDiv =
   "</div>\n";
 
 const infoType = {
-  // this MUST agree with org.unicode.cldr.web.UserRegistry.InfoType
+  // this MUST agree with UserRegistry.InfoType
   INFO_EMAIL: "E-mail",
   INFO_NAME: "Name",
   INFO_PASSWORD: "Password",
@@ -100,7 +99,7 @@ let isJustMe = false;
 let justUser = null;
 
 let showLockedUsers = false;
-let orgList = null;
+let orgs = null;
 let levelList = null;
 let shownUsers = null;
 let justOrg = null;
@@ -195,8 +194,21 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  cldrGui.hideRightPanel();
-  cldrInfo.showNothing();
+  getOrgsAndLevels().then(reallyReallyLoad);
+}
+
+async function getOrgsAndLevels() {
+  orgs = await cldrOrganizations.get();
+  if (!orgs) {
+    throw new Error("Organization names not received from server");
+  }
+  levelList = await cldrUserLevels.getLevelList();
+  if (!levelList) {
+    throw new Error("User levels not received from server");
+  }
+}
+
+function reallyReallyLoad() {
   const xhrArgs = {
     url: getUrl(),
     handleAs: "json",
@@ -211,9 +223,6 @@ function loadHandler(json) {
   if (json.err) {
     ourDiv.innerHTML = json.err;
   } else {
-    if (json.orgList) {
-      orgList = json.orgList;
-    }
     shownUsers = json.shownUsers;
     if (
       justUser &&
@@ -221,9 +230,6 @@ function loadHandler(json) {
       getSelectedAction(shownUsers[0]) === "change_INFO_EMAIL"
     ) {
       justUser = shownUsers[0].email;
-    }
-    if (json.userPerms.levels) {
-      levelList = json.userPerms.levels;
     }
     ourDiv.innerHTML = getHtml(json);
   }
@@ -247,7 +253,7 @@ function getHtml(json) {
   if (isJustMe) {
     html += "<h2>My Account</h2>\n";
   } else {
-    const org = json.org ? json.org : "ALL";
+    const org = json.org ? orgs.shortToDisplay[json.org] : "ALL";
     html += "<h2>Users for " + org + "</h2>\n";
   }
   html += getEmailNotification(json);
@@ -257,7 +263,7 @@ function getHtml(json) {
       html += " " + participatingUsersButton;
     }
     html += "</p>\n";
-    if (orgList && !justUser) {
+    if (orgs && !justUser && cldrStatus.getPermissions()?.userIsAdmin) {
       html += getOrgFilterMenu();
     }
   }
@@ -280,28 +286,44 @@ function getHtml(json) {
 }
 
 function getTable(json) {
-  shownUsers = json.shownUsers;
+  shownUsers = json.shownUsers; // redundant except for unit test
   byEmail = {};
   let html = getTableStart();
-  let oldOrg = "";
-  for (let i in shownUsers) {
-    const u = {
-      data: shownUsers[i],
-    };
-    byEmail[u.data.email] = u;
-    if (oldOrg !== u.data.org) {
-      html +=
-        "<tr class='heading'><th class='partsection' colspan='6'><a name='" +
-        u.data.org +
-        "'><h4>" +
-        u.data.org +
-        "</h4></a></th></tr>\n";
-      oldOrg = u.data.org;
+  for (let org of getSortedOrgsToShow()) {
+    const orgDisplayName = orgs.shortToDisplay[org];
+    html +=
+      "<tr class='heading'><th class='partsection' colspan='6'><a name='" +
+      org +
+      "'><h4>" +
+      orgDisplayName +
+      "</h4></a></th></tr>\n";
+    for (let userData of shownUsers) {
+      if (org === userData.org) {
+        const u = {
+          data: userData,
+        };
+        byEmail[userData.email] = u;
+        html += getUserTableRow(u, json);
+      }
     }
-    html += getUserTableRow(u, json);
   }
   html += getTableEnd(json);
   return html;
+}
+
+function getSortedOrgsToShow() {
+  const sortedOrgs = [];
+  const orgsFound = {};
+  for (let userData of shownUsers) {
+    orgsFound[userData.org] = true;
+  }
+  for (let displayName of orgs.sortedDisplayNames) {
+    const shortName = orgs.displayToShort[displayName];
+    if (orgsFound[shortName]) {
+      sortedOrgs.push(shortName);
+    }
+  }
+  return sortedOrgs;
 }
 
 function getTableStart() {
@@ -467,11 +489,12 @@ function getChangeLevelOptions(u, theirLevel) {
     const me = cldrStatus.getSurveyUser();
     if (!(me && me.email && u.data.email === me.email)) {
       for (let number in levelList) {
-        if (levelList[number].name === "anonymous") {
+        const name = levelList[number].name;
+        if (cldrUserLevels.match(name, cldrUserLevels.ANONYMOUS)) {
           continue;
         }
         // only allow mass LOCK
-        if (justUser || levelList[number].name === "locked") {
+        if (justUser || cldrUserLevels.match(name, cldrUserLevels.LOCKED)) {
           html += doChangeUserOption(number, theirLevel);
         }
       }
@@ -582,10 +605,13 @@ function getDeleteUserOptions(u, json) {
 }
 
 function getUserLocales(u) {
-  const UserRegistry_MANAGER = 2; // TODO -- get from levelList? See UserRegistry.MANAGER in java
+  const MANAGER_LEVEL = cldrUserLevels.getUserLevel(
+    cldrUserLevels.MANAGER,
+    levelList
+  );
   const theirLevel = u.data.userlevel;
   if (
-    theirLevel <= UserRegistry_MANAGER ||
+    theirLevel <= MANAGER_LEVEL ||
     u.data.locales === "*" ||
     u.data.locales === "all" ||
     u.data.locales === "all locales"
@@ -944,10 +970,18 @@ function getOrgFilterMenu() {
     "<label class='menutop-active'>Filter Organization " +
     "<select id='filterOrgSelect' class='menutop-other'>\n" +
     "<option value='all'>Show All</option>\n";
-  orgList.forEach(function (org) {
-    const sel = org === justOrg ? " selected='selected'" : "";
-    html += "<option value='" + org + "'" + sel + ">" + org + "</option>\n";
-  });
+  for (let displayName of orgs.sortedDisplayNames) {
+    const shortName = orgs.displayToShort[displayName];
+    const sel = shortName === justOrg ? " selected='selected'" : "";
+    html +=
+      "<option value='" +
+      shortName +
+      "'" +
+      sel +
+      ">" +
+      displayName +
+      "</option>\n";
+  }
   html += "</select>\n";
   html += "</label>\n";
   return html;
@@ -987,7 +1021,7 @@ function getBulkActionMenuLevels() {
   html += "<option>" + LIST_ACTION_NONE + "</option>";
   // Example: <option class='user999' value='999'>999: (LOCKED)</option>
   for (let n in levelList) {
-    if (levelList[n].name !== "anonymous") {
+    if (!cldrUserLevels.match(levelList[n].name, cldrUserLevels.ANONYMOUS)) {
       html +=
         "<option class='user" +
         n +
@@ -1175,9 +1209,6 @@ function getUrl() {
   const allowCache = false;
   const p = new URLSearchParams();
   p.append("what", WHAT_USER_LIST);
-  if (needOrgList()) {
-    p.append(GET_ORGS, true);
-  }
   p.append(PREF_SHOWLOCKED, showLockedUsers);
   if (justOrg) {
     p.append(PREF_JUSTORG, justOrg);
@@ -1190,15 +1221,6 @@ function getUrl() {
     p.append("cacheKill", cldrSurvey.cacheBuster());
   }
   return cldrAjax.makeUrl(p);
-}
-
-function needOrgList() {
-  if (orgList) {
-    return false; // already got orgList
-  }
-  // Only Admin needs orgList
-  const perm = cldrStatus.getPermissions();
-  return perm && perm.userIsAdmin;
 }
 
 function getLoginUrl(email, password) {
@@ -1216,7 +1238,7 @@ function getUserActivityUrl() {
 }
 
 function getInterestLocalesUrl() {
-  cldrAjax.makeApiUrl("intlocs", null);
+  return cldrAjax.makeApiUrl("intlocs", null);
 }
 
 function getInterestLocalesPostData(interestLocales) {
@@ -1338,27 +1360,16 @@ function setActionMenuOnChange() {
   }
 }
 
-/**
- * Get the list of organizations
- *
- * @returns an array of strings, or null
- *
- * This only works if the user is admin and the #account page has already been opened,
- * as is the case for AddUser.vue
- */
-function getOrgList() {
-  return orgList;
+function setMockLevels(list) {
+  levelList = list;
 }
 
-function getLevelList() {
-  return levelList;
+function setMockOrgs(o) {
+  orgs = o;
 }
 
 export {
   createUser,
-  filterOrg,
-  getLevelList,
-  getOrgList,
   load,
   loadListUsers,
   zoomUser,
@@ -1367,4 +1378,6 @@ export {
    */
   getHtml,
   getTable,
+  setMockLevels,
+  setMockOrgs,
 };

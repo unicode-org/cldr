@@ -23,7 +23,7 @@ public class UserSettingsData {
     public static final String SET_KINDS = "set_kinds";
     public static final String SET_VALUES = "set_values";
 
-    CLDRProgressIndicator sm = null;
+    CLDRProgressIndicator sm;
 
     private static final boolean debug = CldrUtility.getProperty("CLDR_SETTINGS_DEBUG", false);
 
@@ -31,7 +31,7 @@ public class UserSettingsData {
 
     // One of these per user. Caches the values.
     public class DBUserSettings extends UserSettings {
-        private int id;
+        private final int id;
 
         HashMap<String, String> values = new HashMap<>();
 
@@ -85,7 +85,7 @@ public class UserSettingsData {
                 }
             } catch (SQLException se) {
                 se.printStackTrace();
-                SurveyMain.busted("getting " + name + " for user id " + id + " : " + se.toString(), se);
+                SurveyMain.busted("getting " + name + " for user id " + id + " : " + se, se);
                 throw new InternalError("SQL err: " + DBUtils.unchainSqlException(se));
             }
         }
@@ -125,7 +125,7 @@ public class UserSettingsData {
                 }
             } catch (SQLException se) {
                 se.printStackTrace();
-                SurveyMain.busted("getting " + name + " for user id " + id + " : " + se.toString(), se);
+                SurveyMain.busted("getting " + name + " for user id " + id + " : " + se, se);
                 throw new InternalError("SQL err: " + DBUtils.unchainSqlException(se));
             }
         }
@@ -148,7 +148,7 @@ public class UserSettingsData {
             : null;
         try {
 
-            if (!DBUtils.hasTable(conn, SET_KINDS)) {
+            if (!DBUtils.hasTable(SET_KINDS)) {
                 Statement s = conn.createStatement();
                 if (progress != null)
                     progress.update("Creating table " + SET_KINDS);
@@ -156,7 +156,7 @@ public class UserSettingsData {
                     + "set_name varchar(128) not null UNIQUE " + (!DBUtils.db_Mysql ? ",primary key(set_id)" : "") + ")");
                 s.execute(sql);
                 conn.commit();
-                if (DBUtils.hasTable(conn, SET_VALUES)) {
+                if (DBUtils.hasTable(SET_VALUES)) {
                     if (progress != null)
                         progress.update("Clearing old values");
                     sql = "drop table " + SET_VALUES;
@@ -166,7 +166,7 @@ public class UserSettingsData {
                 conn.commit();
             }
 
-            if (!DBUtils.hasTable(conn, SET_VALUES)) {
+            if (!DBUtils.hasTable(SET_VALUES)) {
                 Statement s = conn.createStatement();
                 if (progress != null)
                     progress.update("Creating table " + SET_VALUES);
@@ -177,7 +177,6 @@ public class UserSettingsData {
                 conn.commit();
             }
             DBUtils.closeDBConnection(conn);
-            conn = null;
             if (progress != null)
                 progress.update("done");
         } catch (SQLException se) {
@@ -331,7 +330,7 @@ public class UserSettingsData {
         }
     }
 
-    private Map<Integer, UserSettings> idToSettings = new HashMap<>();
-    private Map<String, Integer> knownSettings = new HashMap<>();
+    private final Map<Integer, UserSettings> idToSettings = new HashMap<>();
+    private final Map<String, Integer> knownSettings = new HashMap<>();
 
 }

@@ -974,8 +974,6 @@ annotations.
 		<annotation cp="🙉" type="tts">hear-no-evil monkey</annotation>
 		<annotation cp="🙊">evil | face | forbidden | monkey | speak | speak-no-evil monkey</annotation>
 		<annotation cp="🙊" type="tts">speak-no-evil monkey</annotation>
-		<annotation cp="💋">kiss | kiss mark | lips</annotation>
-		<annotation cp="💋" type="tts">kiss mark</annotation>
 		<annotation cp="💌">heart | letter | love | mail</annotation>
 		<annotation cp="💌" type="tts">love letter</annotation>
 		<annotation cp="💘">arrow | cupid | heart with arrow</annotation>
@@ -1004,6 +1002,8 @@ annotations.
 		<annotation cp="❤‍🩹" type="tts">mending heart</annotation>
 		<annotation cp="❤">heart | red heart</annotation>
 		<annotation cp="❤" type="tts">red heart</annotation>
+		<annotation cp="🩷">cute | heart | like | love | pink</annotation> <!-- 1FA77 -->
+		<annotation cp="🩷" type="tts">pink heart</annotation>
 		<annotation cp="🧡">orange | orange heart</annotation>
 		<annotation cp="🧡" type="tts">orange heart</annotation>
 		<annotation cp="💛">yellow | yellow heart</annotation>
@@ -1012,20 +1012,20 @@ annotations.
 		<annotation cp="💚" type="tts">green heart</annotation>
 		<annotation cp="💙">blue | blue heart</annotation>
 		<annotation cp="💙" type="tts">blue heart</annotation>
-		<annotation cp="💜">purple | purple heart</annotation>
-		<annotation cp="💜" type="tts">purple heart</annotation>
 		<annotation cp="🩵">cyan | heart | light blue | light blue heart | teal</annotation> <!-- 1FA75 -->
 		<annotation cp="🩵" type="tts">light blue heart</annotation>
-		<annotation cp="🩶">gray | grey heart | heart | silver | slate</annotation> <!-- 1FA76 -->
-		<annotation cp="🩶" type="tts">grey heart</annotation>
-		<annotation cp="🩷">cute | heart | like | love | pink</annotation> <!-- 1FA77 -->
-		<annotation cp="🩷" type="tts">pink heart</annotation>
+		<annotation cp="💜">purple | purple heart</annotation>
+		<annotation cp="💜" type="tts">purple heart</annotation>
 		<annotation cp="🤎">brown | heart</annotation>
 		<annotation cp="🤎" type="tts">brown heart</annotation>
 		<annotation cp="🖤">black | black heart | evil | wicked</annotation>
 		<annotation cp="🖤" type="tts">black heart</annotation>
+		<annotation cp="🩶">gray | grey heart | heart | silver | slate</annotation> <!-- 1FA76 -->
+		<annotation cp="🩶" type="tts">grey heart</annotation>
 		<annotation cp="🤍">heart | white</annotation>
 		<annotation cp="🤍" type="tts">white heart</annotation>
+		<annotation cp="💋">kiss | kiss mark | lips</annotation>
+		<annotation cp="💋" type="tts">kiss mark</annotation>
 		<annotation cp="💯">100 | full | hundred | hundred points | score</annotation>
 		<annotation cp="💯" type="tts">hundred points</annotation>
 		<annotation cp="💢">anger symbol | angry | comic | mad</annotation>
@@ -1040,8 +1040,6 @@ annotations.
 		<annotation cp="💨" type="tts">dashing away</annotation>
 		<annotation cp="🕳">hole</annotation>
 		<annotation cp="🕳" type="tts">hole</annotation>
-		<annotation cp="💣">bomb | comic</annotation>
-		<annotation cp="💣" type="tts">bomb</annotation>
 		<annotation cp="💬">balloon | bubble | comic | dialog | speech</annotation>
 		<annotation cp="💬" type="tts">speech balloon</annotation>
 		<annotation cp="👁‍🗨">balloon | bubble | eye | eye in speech bubble | speech | witness</annotation>
@@ -1072,6 +1070,10 @@ annotations.
 		<annotation cp="🫳" type="tts">palm down hand</annotation>
 		<annotation cp="🫴">beckon | catch | come | offer | palm up hand</annotation> <!-- 1FAF4 -->
 		<annotation cp="🫴" type="tts">palm up hand</annotation>
+		<annotation cp="🫷">high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation> <!-- 1FAF7 -->
+		<annotation cp="🫷" type="tts">leftwards pushing hand</annotation>
+		<annotation cp="🫸">high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation> <!-- 1FAF8 -->
+		<annotation cp="🫸" type="tts">rightwards pushing hand</annotation>
 		<annotation cp="👌">hand | OK</annotation>
 		<annotation cp="👌" type="tts">OK hand</annotation>
 		<annotation cp="🤌">fingers | hand gesture | interrogation | pinched | sarcastic</annotation>
@@ -1130,10 +1132,6 @@ annotations.
 		<annotation cp="🤝" type="tts">handshake</annotation>
 		<annotation cp="🙏">ask | folded hands | hand | high 5 | high five | please | pray | thanks</annotation>
 		<annotation cp="🙏" type="tts">folded hands</annotation>
-		<annotation cp="🫷">high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation> <!-- 1FAF7 -->
-		<annotation cp="🫷" type="tts">leftwards pushing hand</annotation>
-		<annotation cp="🫸">high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation> <!-- 1FAF8 -->
-		<annotation cp="🫸" type="tts">rightwards pushing hand</annotation>
 		<annotation cp="✍">hand | write | writing hand</annotation>
 		<annotation cp="✍" type="tts">writing hand</annotation>
 		<annotation cp="💅">care | cosmetics | manicure | nail | polish</annotation>
@@ -1829,7 +1827,7 @@ annotations.
 		<annotation cp="🦦" type="tts">otter</annotation>
 		<annotation cp="🦨">skunk | stink</annotation>
 		<annotation cp="🦨" type="tts">skunk</annotation>
-		<annotation cp="🦘">Australia | joey | jump | kangaroo | marsupial</annotation>
+		<annotation cp="🦘">joey | jump | kangaroo | marsupial</annotation>
 		<annotation cp="🦘" type="tts">kangaroo</annotation>
 		<annotation cp="🦡">badger | honey badger | pester</annotation>
 		<annotation cp="🦡" type="tts">badger</annotation>
@@ -1873,10 +1871,10 @@ annotations.
 		<annotation cp="🦜" type="tts">parrot</annotation>
 		<annotation cp="🪽">angelic | aviation | bird | flying | mythology | wing</annotation> <!-- 1FABD -->
 		<annotation cp="🪽" type="tts">wing</annotation>
-		<annotation cp="🪿">bird | fowl | goose | honk | silly</annotation> <!-- 1FABF -->
-		<annotation cp="🪿" type="tts">goose</annotation>
 		<annotation cp="🐦‍⬛">bird | black | crow | raven | rook</annotation> <!-- 1F426 200D 2B1B -->
 		<annotation cp="🐦‍⬛" type="tts">black bird</annotation>
+		<annotation cp="🪿">bird | fowl | goose | honk | silly</annotation> <!-- 1FABF -->
+		<annotation cp="🪿" type="tts">goose</annotation>
 		<annotation cp="🐸">face | frog</annotation>
 		<annotation cp="🐸" type="tts">frog</annotation>
 		<annotation cp="🐊">crocodile</annotation>
@@ -1957,7 +1955,7 @@ annotations.
 		<annotation cp="🌸" type="tts">cherry blossom</annotation>
 		<annotation cp="💮">flower | white flower</annotation>
 		<annotation cp="💮" type="tts">white flower</annotation>
-		<annotation cp="🪷">Buddhism | flower | Hinduism | India | lotus | purity | Vietnam</annotation> <!-- 1FAB7 -->
+		<annotation cp="🪷">Buddhism | flower | Hinduism | lotus | purity</annotation> <!-- 1FAB7 -->
 		<annotation cp="🪷" type="tts">lotus</annotation>
 		<annotation cp="🏵">plant | rosette</annotation>
 		<annotation cp="🏵" type="tts">rosette</annotation>
@@ -2005,6 +2003,8 @@ annotations.
 		<annotation cp="🪹" type="tts">empty nest</annotation>
 		<annotation cp="🪺">nest with eggs | nesting</annotation> <!-- 1FABA -->
 		<annotation cp="🪺" type="tts">nest with eggs</annotation>
+		<annotation cp="🍄">mushroom | toadstool</annotation>
+		<annotation cp="🍄" type="tts">mushroom</annotation>
 		<annotation cp="🍇">fruit | grape | grapes</annotation>
 		<annotation cp="🍇" type="tts">grapes</annotation>
 		<annotation cp="🍈">fruit | melon</annotation>
@@ -2067,8 +2067,6 @@ annotations.
 		<annotation cp="🧄" type="tts">garlic</annotation>
 		<annotation cp="🧅">flavoring | onion</annotation>
 		<annotation cp="🧅" type="tts">onion</annotation>
-		<annotation cp="🍄">mushroom | toadstool</annotation>
-		<annotation cp="🍄" type="tts">mushroom</annotation>
 		<annotation cp="🥜">food | nut | peanut | peanuts | vegetable</annotation>
 		<annotation cp="🥜" type="tts">peanuts</annotation>
 		<annotation cp="🫘">beans | food | kidney | legume</annotation> <!-- 1FAD8 -->
@@ -2823,16 +2821,14 @@ annotations.
 		<annotation cp="🪀" type="tts">yo-yo</annotation>
 		<annotation cp="🪁">fly | kite | soar</annotation>
 		<annotation cp="🪁" type="tts">kite</annotation>
+		<annotation cp="🔫">gun | handgun | pistol | revolver | tool | water | weapon</annotation>
+		<annotation cp="🔫" type="tts">water pistol</annotation>
 		<annotation cp="🎱">8 | ball | billiard | eight | game | pool 8 ball</annotation>
 		<annotation cp="🎱" type="tts">pool 8 ball</annotation>
 		<annotation cp="🔮">ball | crystal | fairy tale | fantasy | fortune | tool</annotation>
 		<annotation cp="🔮" type="tts">crystal ball</annotation>
 		<annotation cp="🪄">magic | magic wand | witch | wizard</annotation>
 		<annotation cp="🪄" type="tts">magic wand</annotation>
-		<annotation cp="🧿">bead | charm | evil-eye | nazar | nazar amulet | talisman</annotation>
-		<annotation cp="🧿" type="tts">nazar amulet</annotation>
-		<annotation cp="🪬">amulet | Fatima | hamsa | hand | Mary | Miriam | protection</annotation> <!-- 1FAAC -->
-		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🎮">controller | game | video game</annotation>
 		<annotation cp="🎮" type="tts">video game</annotation>
 		<annotation cp="🕹">game | joystick | video game</annotation>
@@ -2923,8 +2919,6 @@ annotations.
 		<annotation cp="👚" type="tts">woman’s clothes</annotation>
 		<annotation cp="🪭">cooling | dance | fan | flutter | folding hand fan | hot | shy</annotation> <!-- 1FAAD -->
 		<annotation cp="🪭" type="tts">folding hand fan</annotation>
-		<annotation cp="🪮">Afro | comb | hair | pick</annotation> <!-- 1FAAE -->
-		<annotation cp="🪮" type="tts">hair pick</annotation>
 		<annotation cp="👛">clothing | coin | purse</annotation>
 		<annotation cp="👛" type="tts">purse</annotation>
 		<annotation cp="👜">bag | clothing | handbag | purse</annotation>
@@ -2953,6 +2947,8 @@ annotations.
 		<annotation cp="🩰" type="tts">ballet shoes</annotation>
 		<annotation cp="👢">boot | clothing | shoe | woman | woman’s boot</annotation>
 		<annotation cp="👢" type="tts">woman’s boot</annotation>
+		<annotation cp="🪮">Afro | comb | hair | pick</annotation> <!-- 1FAAE -->
+		<annotation cp="🪮" type="tts">hair pick</annotation>
 		<annotation cp="👑">clothing | crown | king | queen</annotation>
 		<annotation cp="👑" type="tts">crown</annotation>
 		<annotation cp="👒">clothing | hat | woman | woman’s hat</annotation>
@@ -3271,9 +3267,9 @@ annotations.
 		<annotation cp="🗡" type="tts">dagger</annotation>
 		<annotation cp="⚔">crossed | swords | weapon</annotation>
 		<annotation cp="⚔" type="tts">crossed swords</annotation>
-		<annotation cp="🔫">gun | handgun | pistol | revolver | tool | water | weapon</annotation>
-		<annotation cp="🔫" type="tts">water pistol</annotation>
-		<annotation cp="🪃">australia | boomerang | rebound | repercussion</annotation>
+		<annotation cp="💣">bomb | comic</annotation>
+		<annotation cp="💣" type="tts">bomb</annotation>
+		<annotation cp="🪃">boomerang | rebound | repercussion</annotation>
 		<annotation cp="🪃" type="tts">boomerang</annotation>
 		<annotation cp="🏹">archer | arrow | bow | bow and arrow | Sagittarius | zodiac</annotation>
 		<annotation cp="🏹" type="tts">bow and arrow</annotation>
@@ -3393,6 +3389,10 @@ annotations.
 		<annotation cp="🪦" type="tts">headstone</annotation>
 		<annotation cp="⚱">ashes | death | funeral | urn</annotation>
 		<annotation cp="⚱" type="tts">funeral urn</annotation>
+		<annotation cp="🧿">bead | charm | evil-eye | nazar | nazar amulet | talisman</annotation>
+		<annotation cp="🧿" type="tts">nazar amulet</annotation>
+		<annotation cp="🪬">amulet | Fatima | hamsa | hand | Mary | Miriam | protection</annotation> <!-- 1FAAC -->
+		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🗿">face | moai | moyai | statue</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🪧">demonstration | picket | placard | protest | sign</annotation>
@@ -3591,12 +3591,12 @@ annotations.
 		<annotation cp="🔆" type="tts">bright button</annotation>
 		<annotation cp="📶">antenna | antenna bars | bar | cell | mobile | phone</annotation>
 		<annotation cp="📶" type="tts">antenna bars</annotation>
+		<annotation cp="🛜">computer | internet | network | wireless</annotation> <!-- 1F6DC -->
+		<annotation cp="🛜" type="tts">wireless</annotation>
 		<annotation cp="📳">cell | mobile | mode | phone | telephone | vibration</annotation>
 		<annotation cp="📳" type="tts">vibration mode</annotation>
 		<annotation cp="📴">cell | mobile | off | phone | telephone</annotation>
 		<annotation cp="📴" type="tts">mobile phone off</annotation>
-		<annotation cp="🛜">computer | internet | network | wireless</annotation> <!-- 1F6DC -->
-		<annotation cp="🛜" type="tts">wireless</annotation>
 		<!-- End Generated lines from Emoji Data v15, using GenerateCldrData.java -->
 		<annotation cp="♀">female sign | woman</annotation>
 		<annotation cp="♀" type="tts">female sign</annotation>

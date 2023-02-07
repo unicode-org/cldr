@@ -16,7 +16,7 @@ Please use the parent [CLDR/tools/pom.xml](../pom.xml) with maven to build and r
 web server, listening on port 9080
 - Navigate to http://localhost:9080/cldr-apps to view the app
 
-See <http://cldr.unicode.org/development/running-survey-tool> for further information
+See <https://cldr.unicode.org/development/running-survey-tool> for further information
 about the Survey Tool.
 
 ## Using Logging
@@ -94,7 +94,7 @@ CLDR_MAIL_DELAY_BATCH_ITEM=0
 
 ### Licenses
 
-- Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
+- Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](../../unicode-license.txt).
 
 For more details, see the main [README.md](../../README.md).
@@ -103,4 +103,4 @@ For more details, see the main [README.md](../../README.md).
 
 Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)

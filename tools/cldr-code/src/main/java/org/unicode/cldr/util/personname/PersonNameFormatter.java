@@ -3,6 +3,7 @@ package org.unicode.cldr.util.personname;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -15,8 +16,15 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.draft.ScriptMetadata.Trinary;
+import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
@@ -38,12 +46,15 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -58,12 +69,13 @@ public class PersonNameFormatter {
     public static final boolean DEBUG = System.getProperty("PersonNameFormatter.DEBUG") != null;
 
     public enum Field {
-        prefix,
+        title,
         given,
         given2,
         surname,
         surname2,
-        suffix;
+        generation,
+        credentials;
         public static final Comparator<Iterable<Field>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Field>naturalOrder());
         public static final Set<Field> ALL = ImmutableSet.copyOf(Field.values());
     }
@@ -228,20 +240,74 @@ public class PersonNameFormatter {
         }
     }
 
+    private static final ImmutableSet<String> G = ImmutableSet.of("given");
+    private static final ImmutableSet<String> GS = ImmutableSet.of("given", "surname");
+    private static final ImmutableSet<String> GGS = ImmutableSet.of("given", "given2", "surname");
+    private static final ImmutableSet<String> GGSWithSurnameCore = ImmutableSet.of("given", "given2", "surname-core");
+    private static final ImmutableSet<String> Full = ImmutableSet.of("title", "given", "given-informal", "given2", "surname-prefix", "surname-core", "surname2", "generation", "credentials");
+    private static final ImmutableSet<String> FullMinusSurname = ImmutableSet.copyOf(Sets.difference(Full, Collections.singleton("surname2")));
+
+    public enum Optionality {required, optional, disallowed}
     /**
      * Types of samples, only for use by CLDR
      * @internal
      */
     public enum SampleType {
-        givenOnly,
-        givenSurnameOnly,
-        given12Surname,
-        full,
-        foreign;
-        public static final Set<SampleType> ALL = ImmutableSet.of(givenOnly,
-            givenSurnameOnly,
-            given12Surname,
-            full); // exclude foreign for now
+        nativeG(G, G),
+        nativeGS(GS, GS),
+        nativeGGS(GGS, GS),
+        nativeFull(Full, GGSWithSurnameCore),
+        foreignG(G, G),
+        foreignGS(GS, GS),
+        foreignGGS(GGS, GGS),
+        foreignFull(Full, FullMinusSurname),
+        ;
+        public static final Set<SampleType> ALL = ImmutableSet.copyOf(values());
+        public static final List<String> ALL_STRINGS = ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableList());
+
+        private final boolean isNative;
+        private final String abbreviation;
+        private final Set<String> allFields;
+        private final Set<String> requiredFields;
+
+        private SampleType(ImmutableSet<String> allFields, ImmutableSet<String> requiredFields) {
+            if (!allFields.containsAll(requiredFields)) {
+                throw new IllegalArgumentException(allFields + " must contain all of " + requiredFields);
+            }
+            this.allFields = allFields;
+            this.requiredFields = requiredFields;
+
+            String _abbreviation = null;
+            if (name().startsWith("native")) {
+                isNative = true;
+                _abbreviation = "N" + name().substring(6);
+            } else if (name().startsWith("foreign")) {
+                isNative = false;
+                _abbreviation = "F" + name().substring(7);
+            } else {
+                throw new IllegalArgumentException("Code needs adjustment!");
+            }
+            abbreviation = _abbreviation.replace("Full", "F");
+        }
+
+        public boolean isNative() {
+            return isNative;
+        }
+
+        public String toAbbreviation() {
+            return abbreviation;
+        }
+        public Optionality getOptionality(String field) {
+            return requiredFields.contains(field) ? Optionality.required
+                : allFields.contains(field) ? Optionality.optional
+                    : Optionality.disallowed;
+        }
+        public Set<String> getAllFields() {
+            return allFields;
+        }
+        public Set<String> getRequiredFields() {
+            return requiredFields;
+        }
     }
 
     /**
@@ -327,6 +393,10 @@ public class PersonNameFormatter {
                 .compare(modifiers, o.modifiers, Modifier.ITERABLE_COMPARE)
                 .result();
         }
+        public static final Set<String> ALL_SAMPLES = ImmutableSet.of(
+            "title", "given", "given-informal", "given2", //
+            "surname", "surname-prefix", "surname-core", "surname2", "generation", "generation", "credentials"
+            );
     }
 
     /**
@@ -401,24 +471,49 @@ public class PersonNameFormatter {
      * @internal
      */
     public static class FallbackFormatter {
+        private static final LikelySubtags LIKELY_SUBTAGS = new LikelySubtags();
         final private ULocale formatterLocale;
+        final private String formatterLanguage;
+        final private String formatterScript;
         final private BreakIterator characterBreakIterator;
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
         final private String foreignSpaceReplacement;
+        final private String nativeSpaceReplacement;
+
+        public String getForeignSpaceReplacement() {
+            return foreignSpaceReplacement;
+        }
+
         final private boolean uppercaseSurnameIfSurnameFirst;
 
         public FallbackFormatter(ULocale uLocale,
             String initialPattern,
             String initialSequencePattern,
             String foreignSpaceReplacement,
+            String nativeSpaceReplacement,
             boolean uppercaseSurnameIfSurnameFirst) {
             formatterLocale = uLocale;
+            LanguageTagParser ltp = new LanguageTagParser().set(uLocale.toString());
+            LIKELY_SUBTAGS.maximizeInPlace(ltp);
+            formatterLanguage = ltp.getLanguage();
+            formatterScript = ltp.getScript();
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
-            this.foreignSpaceReplacement = foreignSpaceReplacement;
+            this.foreignSpaceReplacement = foreignSpaceReplacement == null ? " " : foreignSpaceReplacement;
             this.uppercaseSurnameIfSurnameFirst = uppercaseSurnameIfSurnameFirst;
+            this.nativeSpaceReplacement = nativeSpaceReplacement == null ? " " : nativeSpaceReplacement;
+        }
+
+        /** Is foreign language: determines whether the maximized (aka likely) respective language subtags and script subtags are identical.
+         * For purposes of language comparison, regional variants, etc are not consider relevant.
+         * TODO add this to the spec
+         */
+        public boolean sharesLanguageScript(ULocale nameLocale) {
+            LanguageTagParser ltp = new LanguageTagParser().set(nameLocale.toString());
+            LIKELY_SUBTAGS.maximizeInPlace(ltp);
+            return formatterLanguage.equals(ltp.getLanguage()) && formatterScript.equals(ltp.getScript());
         }
 
         /**
@@ -427,6 +522,15 @@ public class PersonNameFormatter {
          */
         public String applyModifierFallbacks(FormatParameters nameFormatParameters, Set<Modifier> remainingModifers, String bestValue) {
             // apply default algorithms
+
+            boolean isBackground = false;
+
+            // apply HACK special treatment for ExampleGenerator
+            if (bestValue.startsWith(ExampleGenerator.backgroundStartSymbol)
+                && bestValue.endsWith(ExampleGenerator.backgroundEndSymbol)) {
+                isBackground = true;
+                bestValue = bestValue.substring(1,bestValue.length()-1);
+            }
 
             for (Modifier modifier : remainingModifers) {
                 switch(modifier) {
@@ -452,7 +556,9 @@ public class PersonNameFormatter {
                     break;
                 }
             }
-            return bestValue;
+            return isBackground && bestValue != null
+                    ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
+                        : bestValue ;
         }
 
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
@@ -480,6 +586,14 @@ public class PersonNameFormatter {
 
             // For the case of monograms, don't use the initialFormatter or initialSequenceFormatter
             // And just take the first grapheme.
+
+            // special case for Survey Tool ExampleGenerator
+
+            if (bestValue.startsWith(ExampleGenerator.backgroundStartSymbol)
+                && bestValue.endsWith(ExampleGenerator.backgroundEndSymbol)) {
+                bestValue = bestValue.substring(1,bestValue.length()-1);
+                return ExampleGenerator.backgroundStartSymbol + getFirstGrapheme(bestValue) + ExampleGenerator.backgroundEndSymbol;
+            }
 
             return getFirstGrapheme(bestValue);
         }
@@ -517,11 +631,11 @@ public class PersonNameFormatter {
      */
     public static class NamePattern implements Comparable<NamePattern> {
         private final int rank;
-        private final List<NamePatternElement> elements;
-        private final Set<Field> fields;
+        private final ImmutableList<NamePatternElement> elements;
+        private final ImmutableSet<Field> fields;
 
         public Set<Field> getFields() {
-            return ImmutableSet.copyOf(fields);
+            return fields;
         }
 
         public int getFieldsSize() {
@@ -544,6 +658,10 @@ public class PersonNameFormatter {
             StringBuilder literalTextBefore = new StringBuilder();
             StringBuilder literalTextAfter = new StringBuilder();
 
+            // Check that we either have a given value in the pattern or a surname value in the name object
+            if (!nameObject.getAvailableFields().contains(Field.surname) && !hasNonInitialGiven()) {
+                nameObject = new GivenToSurnameNameObject(nameObject);
+            }
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
@@ -582,17 +700,31 @@ public class PersonNameFormatter {
             if (!seenEmptyField) {
                 result.append(literalTextBefore);
             }
-            if (fallbackInfo.foreignSpaceReplacement != null && !fallbackInfo.foreignSpaceReplacement.equals(" ")) {
+            if (!fallbackInfo.foreignSpaceReplacement.equals(" ") || !fallbackInfo.nativeSpaceReplacement.equals(" ")) {
                 ULocale nameLocale = nameObject.getNameLocale();
-                if (!sharesLanguageScript(nameLocale, fallbackInfo.formatterLocale)) {
+                if (!fallbackInfo.sharesLanguageScript(nameLocale)) {
                     return SPACES.matcher(result).replaceAll(fallbackInfo.foreignSpaceReplacement);
+                } else {
+                    return SPACES.matcher(result).replaceAll(fallbackInfo.nativeSpaceReplacement);
+                    // TODO add this to the spec
                 }
             }
             return result.toString();
         }
 
-        private boolean sharesLanguageScript(ULocale nameLocale, ULocale formatterLocale) {
-            return Objects.equals(nameLocale, formatterLocale); // TODO, fix to check language and script (maximized)
+        static final ImmutableSet<Modifier> INITIALS = ImmutableSet.of(Modifier.initialCap, Modifier.initial);
+
+        public boolean hasNonInitialGiven() {
+            if (!getFields().contains(Field.given)) {
+                return false;
+            }
+            for (int index : getFieldPositions().get(Field.given)) {
+                ModifiedField modifiedField = getModifiedField(index);
+                if (Collections.disjoint(modifiedField.getModifiers(), INITIALS)) {
+                    return true; // there is a given, and it doesn't have an initial modifier.
+                }
+            }
+            return false;
         }
 
         static final Pattern SPACES = Pattern.compile("\\s+"); // TODO pick whitespace
@@ -643,7 +775,7 @@ public class PersonNameFormatter {
 
         public NamePattern(int rank, List<NamePatternElement> elements) {
             this.rank = rank;
-            this.elements = elements;
+            this.elements = ImmutableList.copyOf(elements);
             Set<Field> result = EnumSet.noneOf(Field.class);
             for (NamePatternElement element : elements) {
                 ModifiedField modifiedField = element.getModifiedField();
@@ -951,6 +1083,24 @@ public class PersonNameFormatter {
             }
             return JOIN_DASH.join(items);
         }
+
+        public String dashed() {
+            List<String> items = new ArrayList<>();
+            if (order != null) {
+                items.add(order.toString());
+            }
+            if (length != null) {
+                items.add(length.toString());
+            }
+            if (usage != null) {
+                items.add(usage.toString());
+            }
+            if (formality != null) {
+                items.add(formality.toString());
+            }
+            return JOIN_DASH.join(items);
+        }
+
         public static FormatParameters from(String string) {
             Order order = null;
             Length length = null;
@@ -1204,6 +1354,10 @@ public class PersonNameFormatter {
             this.parameterMatcherToNamePattern = ImmutableListMultimap.copyOf(formatParametersToNamePattern);
         }
 
+        public Map<ULocale, Order> getLocaleToOrder() {
+            return localeToOrder;
+        }
+
         /**
          * Build from strings for ease of testing
          */
@@ -1280,6 +1434,82 @@ public class PersonNameFormatter {
         public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
     }
 
+    /**
+     * Specialized NameObject that returns the given value instead of the surname value. Only used for monograms.
+     */
+    public static class GivenToSurnameNameObject implements NameObject {
+        private final NameObject nameObject;
+
+        public GivenToSurnameNameObject(NameObject nameObject) {
+            this.nameObject = nameObject;
+        }
+
+        @Override
+        public ULocale getNameLocale() {
+            return nameObject.getNameLocale();
+        }
+
+        @Override
+        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public Set<Field> getAvailableFields() {
+            Set<Field> temp = EnumSet.copyOf(nameObject.getAvailableFields());
+            temp.add(Field.surname);
+            return temp;
+        }
+
+        @Override
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+            switch(modifiedField.getField()) {
+            case surname:
+                modifiedField = new ModifiedField(Field.given, modifiedField.getModifiers());
+                break;
+            case given:
+                return null;
+            }
+            return nameObject.getBestValue(modifiedField, remainingModifers);
+        }
+
+    }
+
+    /**
+     * Transforms the fields based upon a supplied function.
+     */
+    public static class TransformingNameObject implements NameObject {
+        NameObject other;
+        Function<String, String> stringTransform;
+
+        public TransformingNameObject(NameObject other, Function<String, String> stringTransform) {
+            this.other = other;
+            this.stringTransform = stringTransform;
+        }
+
+        public TransformingNameObject(NameObject other, Transliterator t) {
+            this(other, x -> t.transform(x));
+        }
+
+        @Override
+        public ULocale getNameLocale() {
+            return other.getNameLocale();
+        }
+        @Override
+        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
+            throw new IllegalArgumentException("Not needed");
+        }
+        @Override
+        public Set<Field> getAvailableFields() {
+            return other.getAvailableFields();
+        }
+        @Override
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+            String best = other.getBestValue(modifiedField, remainingModifers);
+            return best == null ? null : stringTransform.apply(best);
+        }
+    }
+
     private final NamePatternData namePatternMap;
     private final FallbackFormatter fallbackFormatter;
 
@@ -1305,6 +1535,25 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
+    static final class LocaleSpacingData {
+        static LocaleSpacingData getInstance() {
+            return LocaleSpacingData.SINGLETON;
+        }
+        static LocaleSpacingData SINGLETON = new LocaleSpacingData();
+        final Set<String> LOCALES_NOT_NEEDING_SPACES;
+        LocaleSpacingData() {
+            Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
+            _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
+            for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
+                Info info = ScriptMetadata.getInfo(i);
+                if (info != null && info.lbLetters == Trinary.YES) {
+                    _LOCALE_NOT_NEEDING_SPACES.add(UScript.getShortName(i));
+                }
+            }
+            LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
+        }
+    }
+
     /**
      * Create a formatter from a CLDR file.
      * @internal
@@ -1314,7 +1563,9 @@ public class PersonNameFormatter {
         Set<Pair<FormatParameters, NamePattern>> ordered = new TreeSet<>();
         String initialPattern = null;
         String initialSequencePattern = null;
-        String foreignSpaceReplacement = null;
+        String foreignSpaceReplacement = " ";
+        String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
+        String nativeSpaceReplacement = LocaleSpacingData.getInstance().LOCALES_NOT_NEEDING_SPACES.contains(formattingScript) ? "" : " ";
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1343,12 +1594,15 @@ public class PersonNameFormatter {
                 case "nameOrderLocales":
                     //ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of locales
                     for (String locale : SPLIT_SPACE.split(value)) {
-                        // TODO fix Order.valueOf(parts.getAttributeValue(-1, "order")) to work.
-                        _localeToOrder.put(new ULocale(locale), Order.surnameFirst);
+                        Order order = Order.valueOf(parts.getAttributeValue(-1, "order"));
+                        _localeToOrder.put(new ULocale(locale), order);
                     }
                     break;
                 case "foreignSpaceReplacement":
                     foreignSpaceReplacement = value;
+                    break;
+                case "nativeSpaceReplacement":
+                    nativeSpaceReplacement = value;
                     break;
                 case "sampleName":
                     // skip
@@ -1365,7 +1619,7 @@ public class PersonNameFormatter {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.copyOf(_localeToOrder);
         this.namePatternMap = new NamePatternData(localeToOrder, formatParametersToNamePattern);
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()),
-            initialPattern, initialSequencePattern, foreignSpaceReplacement, false);
+            initialPattern, initialSequencePattern, foreignSpaceReplacement, nativeSpaceReplacement, false);
     }
 
     /**
@@ -1486,23 +1740,31 @@ public class PersonNameFormatter {
                 String value = cldrFile.getStringValue(path);
                 if (value != null && !value.equals("∅∅∅")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
-                    names.put(SampleType.valueOf(parts.getAttributeValue(-2, "item")), ModifiedField.from(parts.getAttributeValue(-1, "type")), value);
+                    names.put(
+                        SampleType.valueOf(parts.getAttributeValue(-2, "item")),
+                        ModifiedField.from(parts.getAttributeValue(-1, "type")),
+                        value);
                 }
             }
         }
 
         Map<SampleType, SimpleNameObject> result = new TreeMap<>();
+        final String fileLocale = cldrFile.getLocaleID();
+        final ULocale nativeLocale = new ULocale(fileLocale);
+        final ULocale foreignLocale = new ULocale(fileLocale.equals("es") || fileLocale.startsWith("es_") ? "nl" : "es");
         for (Entry<SampleType, Map<ModifiedField, String>> entry : names) {
-            SimpleNameObject name = new SimpleNameObject(new ULocale(cldrFile.getLocaleID()), entry.getValue());
+            SampleType key = entry.getKey();
+            ULocale nameLocale = key.isNative() ? nativeLocale : foreignLocale;
+            SimpleNameObject name = new SimpleNameObject(nameLocale, entry.getValue());
             result.put(entry.getKey(), name);
         }
 
-        // add special foreign name for non-spacing languages
-        LanguageTagParser ltp = new LanguageTagParser();
-        SimpleNameObject extraName = FOREIGN_NAME_FOR_NON_SPACING.get(ltp.set(cldrFile.getLocaleID()).getLanguageScript());
-        if (extraName != null) {
-            result.put(SampleType.foreign, extraName);
-        }
+//        // add special foreign name for non-spacing languages
+//        LanguageTagParser ltp = new LanguageTagParser();
+//        SimpleNameObject extraName = FOREIGN_NAME_FOR_NON_SPACING.get(ltp.set(cldrFile.getLocaleID()).getLanguageScript());
+//        if (extraName != null) {
+//            result.put(SampleType.foreignGGS, extraName);
+//        }
         return ImmutableMap.copyOf(result);
     }
 

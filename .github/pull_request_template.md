@@ -4,7 +4,7 @@ CLDR-_____
 
 <!--
 Thank you for your pull request.
-Please see http://cldr.unicode.org/index/process for general
+Please see https://cldr.unicode.org/index/process for general
 information on contributing to CLDR.
 
 1. Make sure the ticket is filed at
@@ -14,5 +14,7 @@ message to include the ticket ID (CLDR-_____)
 3. You will be automatically asked to sign the contributors’
 license before the PR is accepted.
 - sign: https://cla-assistant.io/unicode-org/cldr
-- license: http://www.unicode.org/copyright.html#License
+- license: https://www.unicode.org/copyright.html#License
 -->
+
+ALLOW_MANY_COMMITS=true

@@ -1,10 +1,6 @@
 package org.unicode.cldr.web.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -14,6 +10,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.EmailValidator;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
@@ -46,8 +44,8 @@ public class AddUser {
                 description = "Forbidden"),
         })
     public Response addUser(
-        @QueryParam("s") @Schema(required = true, description = "Session String") String sessionString,
-        AddUserRequest request) {
+        AddUserRequest request,
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         try {
             CookieSession session = Auth.getSession(sessionString);
             if (session == null) {
@@ -104,8 +102,7 @@ public class AddUser {
         String new_org = getNewUserOrg(request.org, session.user);
         if ((request.name == null) || (request.name.length() <= 0)) {
             return new AddUserResponse(AddUserError.BAD_NAME);
-        } else if ((request.email == null) || (request.email.length() <= 0)
-            || ((-1 == request.email.indexOf('@')) || (-1 == request.email.indexOf('.')))) {
+        } else if (!EmailValidator.passes(request.email)) {
             return new AddUserResponse(AddUserError.BAD_EMAIL);
         } else if (new_org == null || new_org.length() <= 0) {
             return new AddUserResponse(AddUserError.BAD_ORG);
@@ -117,7 +114,7 @@ public class AddUser {
         u.org = new_org;
         u.userlevel = request.level;
         u.locales = new_locales;
-        u.setPassword(UserRegistry.makePassword(u.email + u.org + session.user.email));
+        u.setPassword(UserRegistry.makePassword());
         if (request.level < 0 || !reg.canSetUserLevel(session.user, u, request.level)) {
             return new AddUserResponse(AddUserError.BAD_LEVEL);
         }
@@ -127,7 +124,7 @@ public class AddUser {
     private String getNewUserLocales(String requestLocales) {
         requestLocales = LocaleNormalizer.normalizeQuietly(requestLocales);
         if (requestLocales.isEmpty()) {
-            return "mul";
+            return LocaleNames.MUL;
         }
         return requestLocales;
     }

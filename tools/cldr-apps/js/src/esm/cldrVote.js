@@ -12,7 +12,7 @@ import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 
-const CLDR_VOTE_DEBUG = true;
+const CLDR_VOTE_DEBUG = false;
 
 /**
  * The special "vote level" selected by the user, or zero for default.
@@ -31,13 +31,15 @@ let voteLevelChanged = 0;
  * @param vHash
  */
 function wireUpButton(button, tr, theRow, vHash) {
+  let vHashStr = vHash;
   if (vHash == null) {
     // this is an "Abstain" ("no") button
     button.id = "NO_" + tr.rowHash;
-    vHash = "";
+    vHash = null;
+    vHashStr = "";
   } else {
     // this is a vote button for a candidate item
-    button.id = "v" + vHash + "_" + tr.rowHash;
+    button.id = "v" + vHashStr + "_" + tr.rowHash;
   }
   cldrDom.listenFor(button, "change", function (e) {
     if (button.checked) {
@@ -57,7 +59,11 @@ function wireUpButton(button, tr, theRow, vHash) {
       button.className = "ichoice-o";
       button.checked = false;
     }
-  } else if (theRow.voteVhash == vHash) {
+  } else if (
+    theRow.voteVhash === vHash ||
+    (theRow.voteVhash === undefined && vHash === null)
+  ) {
+    // JSON may transit voteVHash=null as omitting the element
     button.className = "ichoice-x";
     button.checked = true;
     tr.lastOn = button;
@@ -72,9 +78,9 @@ function wireUpButton(button, tr, theRow, vHash) {
  *
  * @param {Element} tr the table row
  * @param {Object} theRow object describing the table row
- * @param {String} vHash hash of the value of the candidate item (cf. DataSection.getValueHash on back end),
+ * @param {String} vHash hash of the value of the candidate item (cf. DataPage.getValueHash on back end),
  *                       or empty string for newly submitted value
- * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (button.value)
+ * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (buttonb)
  * @param {Element} button the GUI button
  *
  * TODO: shorten this function, using (non-nested) subroutines
@@ -88,12 +94,9 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   }
   var value = "";
   var valToShow;
-  if (newValue) {
+  if (newValue || newValue === "") {
     valToShow = newValue;
     value = newValue;
-    if (value.length == 0) {
-      return; // nothing entered.
-    }
   } else {
     valToShow = button.value;
   }
@@ -121,23 +124,16 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   cldrInfo.reset();
   theRow.proposedResults = null;
 
-  console.log(
-    "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
-  );
-  var ourContent = {
-    what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
-    xpath: tr.xpathId,
-    _: cldrStatus.getCurrentLocale(),
-    fhash: tr.rowHash,
-    vhash: vHash,
-    s: tr.theTable.session,
-  };
-
-  let ourUrl = cldrStatus.getContextPath() + "/SurveyAjax";
-
-  if (voteLevelChanged) {
-    ourContent.voteLevelChanged = voteLevelChanged;
+  if (CLDR_VOTE_DEBUG) {
+    console.log(
+      "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
+    );
   }
+  const ourContent = {
+    value: valToShow,
+    voteLevelChanged: voteLevelChanged,
+  };
+  const ourUrl = getSubmitUrl(theRow.xpstrid);
 
   var originalTrClassName = tr.className;
   tr.className = "tr_checking1";
@@ -152,7 +148,6 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
     try {
       if (json.err && json.err.length > 0) {
         tr.className = "tr_err";
-        cldrRetry.handleDisconnect("Error submitting a vote", json);
         tr.innerHTML =
           "<td colspan='4'>" +
           cldrStatus.stopIcon() +
@@ -162,7 +157,7 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
         myUnDefer();
         cldrRetry.handleDisconnect("Error submitting a vote", json);
       } else {
-        if (json.submitResultRaw) {
+        if (json.didVote) {
           // if submitted..
           tr.className = "tr_checking2";
           cldrTable.refreshSingleRow(
@@ -239,9 +234,6 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
       "</div>";
     myUnDefer();
   };
-  if (newValue) {
-    ourContent.value = value;
-  }
   const xhrArgs = {
     url: ourUrl,
     handleAs: "json",
@@ -252,6 +244,12 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   };
   oneMorePendingVote();
   cldrAjax.sendXhr(xhrArgs);
+}
+
+function getSubmitUrl(xpstrid) {
+  const loc = cldrStatus.getCurrentLocale();
+  const api = "voting/" + loc + "/row/" + xpstrid;
+  return cldrAjax.makeApiUrl(api, null);
 }
 
 /**
@@ -284,7 +282,11 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     tr.myProposal.value = value;
     tr.myProposal.button = newButton;
     if (newButton) {
-      newButton.value = value;
+      if (value === "") {
+        newButton.value = cldrTable.EMPTY_ELEMENT_VALUE; // Special case for ''
+      } else {
+        newButton.value = value;
+      }
       if (tr.lastOn) {
         tr.lastOn.checked = false;
         tr.lastOn.className = "ichoice-o";
@@ -296,7 +298,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       ourDiv.appendChild(wrap);
     }
     var h3 = document.createElement("span");
-    var span = appendItem(h3, value, "value");
+    appendItem(h3, value, "value");
     ourDiv.appendChild(h3);
     if (otherCell) {
       otherCell.appendChild(tr.myProposal);
@@ -359,7 +361,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     return;
   } else if (json && json.didNotSubmit) {
     ourDiv.className = "d-item-err";
-    const message = "(ERROR: Unknown error - did not submit this value.)";
+    const message = "Did not submit this value: " + json.didNotSubmit;
     cldrInfo.showWithRow(message, tr);
     return;
   } else {

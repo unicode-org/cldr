@@ -25,9 +25,7 @@ import * as cldrMail from "./cldrMail.js";
 import * as cldrMenu from "./cldrMenu.js";
 import * as cldrOldVotes from "./cldrOldVotes.js";
 import * as cldrRecentActivity from "./cldrRecentActivity.js";
-import * as cldrReportDates from "./cldrReportDates.js";
-import * as cldrReportNumbers from "./cldrReportNumbers.js";
-import * as cldrReportZones from "./cldrReportZones.js";
+import * as cldrReport from "./cldrReport.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -63,13 +61,6 @@ let flipper = null;
  */
 function showV() {
   flipper = new Flipper([pages.loading, pages.data, pages.other]);
-
-  const pucontent = document.getElementById("itemInfo");
-  const theDiv = flipper.get(pages.data);
-  theDiv.pucontent = pucontent;
-  pucontent.appendChild(
-    cldrDom.createChunk(cldrText.get("itemInfoBlank"), "i")
-  );
   cldrDom.updateIf(
     "title-dcontent-link",
     cldrText.get("defaultContent_titleLink")
@@ -282,6 +273,7 @@ function verifyJson(json, subkey) {
     );
     loadingChunk.appendChild(cldrDom.createChunk(msg_fmt));
     flipper.flipTo(pages.loading, loadingChunk);
+    loadingChunk.appendChild(cldrDom.createChunk("", "br"));
     var retryButton = cldrDom.createChunk(
       cldrText.get("loading_reload"),
       "button"
@@ -289,6 +281,14 @@ function verifyJson(json, subkey) {
     loadingChunk.appendChild(retryButton);
     retryButton.onclick = function () {
       window.location.reload(true);
+    };
+    var homeButton = cldrDom.createChunk(
+      cldrText.get("loading_home"),
+      "button"
+    );
+    loadingChunk.appendChild(homeButton);
+    homeButton.onclick = function () {
+      window.location.href = cldrStatus.getContextPath();
     };
     return false;
   } else if (json.err) {
@@ -600,24 +600,20 @@ function shower(itemLoadInfo) {
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
   cldrGui.setToptitleVisibility(curSpecial !== "menu");
-  if (curSpecial === "none") {
-    // TODO: clarify when and why this would happen
-    cldrSurvey.hideLoader();
-    isLoading = false;
-    window.location = cldrStatus.getSurvUrl(); // redirect home
-  } else {
-    specialLoad(itemLoadInfo, curSpecial, theDiv);
-  }
+  specialLoad(itemLoadInfo, curSpecial, theDiv);
 }
 
 function specialLoad(itemLoadInfo, curSpecial, theDiv) {
-  const special = getSpecial(curSpecial);
+  const special = getSpecial(curSpecial); // special is an object; curSpecial is a string
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
     if (curSpecial !== "general") {
       cldrGui.hideDashboard();
     }
-    special.load(curSpecial); // pass the special name to the loader
+    cldrInfo.closePanel();
+    // Most special.load() functions do not use a parameter; an exception is
+    // cldrGenericVue.load() which expects the special name as a parameter
+    special.load(curSpecial);
   } else if (curSpecial !== "general") {
     // Avoid recursion.
     unspecialLoad(itemLoadInfo, theDiv);
@@ -634,7 +630,8 @@ function unspecialLoad(itemLoadInfo, theDiv) {
     const curPage = cldrStatus.getCurrentPage();
     const curId = cldrStatus.getCurrentId();
     if (!curPage && !curId) {
-      specialLoad(itemLoadInfo, "general", theDiv); //formerly: loadGeneral(itemLoadInfo);
+      cldrStatus.setCurrentSpecial("general");
+      specialLoad(itemLoadInfo, "general", theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       loadExclamationPoint();
@@ -710,8 +707,14 @@ function handleMissingSpecial(curSpecial) {
  * @return the special object, or null if no such object
  */
 function getSpecial(str) {
+  if (!str) {
+    return null;
+  }
   if (isVueSpecial(str)) {
     return cldrGenericVue; // see specialToComponentMap.js
+  }
+  if (isReport(str)) {
+    return cldrReport; // handle these as one.
   }
   const specials = {
     // Other special pages.
@@ -728,9 +731,6 @@ function getSpecial(str) {
     locales: cldrLocales,
     mail: cldrMail,
     oldvotes: cldrOldVotes,
-    r_compact: cldrReportNumbers,
-    r_datetime: cldrReportDates,
-    r_zones: cldrReportZones,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
     vetting_participation: cldrVettingParticipation,
@@ -744,7 +744,6 @@ function getSpecial(str) {
 
 /**
  * Is the given "special" name for a report, that is, does it start with "r_"?
- * Really only 3: "r_datetime", "r_zones", "r_compact"
  * (No longer applicable to Dashboard)
  * Cf. SurveyMain.ReportMenu.PRIORITY_ITEMS
  *
@@ -771,7 +770,6 @@ function loadExclamationPoint() {
 }
 
 function loadAllRows(itemLoadInfo, theDiv) {
-  // TODO: curId (aka strid) appears to be ignored by the server; if so, remove it from the request
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -780,47 +778,57 @@ function loadAllRows(itemLoadInfo, theDiv) {
       locmap.getLocaleName(curLocale) + "/" + curPage + "/" + curId
     )
   );
-  const url = getPageUrl(curLocale, curPage, curId);
+  const url = cldrTable.getPageUrl(curLocale, curPage, curId);
   $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
-  myLoad(url, "section", function (json) {
-    loadAllRowsFromJson(json, theDiv);
-  });
-}
-
-function getPageUrl(curLocale, curPage, curId) {
-  if (cldrTable.TABLE_USES_NEW_API) {
-    const api = "voting/" + curLocale + "/page/" + curPage;
-    return cldrAjax.makeApiUrl(api, null);
-  }
-  return (
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=getrow&_=" +
-    curLocale +
-    "&x=" +
-    curPage +
-    "&strid=" +
-    curId +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill()
-  );
+  cldrAjax
+    .doFetch(url)
+    .then((response) => response.json())
+    .then((json) => loadAllRowsFromJson(json, theDiv))
+    .catch((err) => {
+      console.error(err);
+      isLoading = false;
+      cldrSurvey.showLoader(cldrText.get("loading2"));
+      flipper.flipTo(
+        pages.other,
+        cldrDom.createChunk(`Error ${err} loading rows.`, "p", "ferrbox")
+      );
+    });
 }
 
 function loadAllRowsFromJson(json, theDiv) {
   isLoading = false;
   cldrSurvey.showLoader(cldrText.get("loading2"));
-  if (!json) {
-    // Failed to load
+  if (json.err) {
+    // Err is set
     cldrSurvey.hideLoader();
-    cldrStatus.setCurrentSection("");
-    cldrInfo.showMessage("Could not load SurveyTool.");
-    flipper.flipTo(
-      pages.other,
-      cldrDom.createChunk("SurveyTool could not load", "i", "loadingMsg")
+    const surveyCurrentId = cldrStatus.getCurrentId();
+    const surveyCurrentPage = cldrStatus.getCurrentPage();
+    const surveyCurrentLocale = cldrStatus.getCurrentLocale();
+    cldrInfo.showMessage(
+      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`
     );
-  } else if (!verifyJson(json, "section")) {
+    cldrStatus.setCurrentSection("");
+    let msg = "";
+    if (json.code) {
+      // 'json' is a serialized org.unicode.cldr.web.api.STError
+      // json.code has an error code which can be rendered (E_BAD_SECTION etc).
+      // Use that code to show a more specific error to the user
+      // instead of just "failed to load".
+      msg = cldrText.sub(json.code, {
+        what: "Load rows",
+        code: json.code,
+        surveyCurrentId,
+        surveyCurrentLocale,
+        surveyCurrentPage,
+      });
+    } else {
+      // We don't have further information.
+      msg = "Could not load rows. Try reloading or a different section/URL.";
+    }
+    flipper.flipTo(pages.other, cldrDom.createChunk(msg, "p", "ferrbox"));
+  } else if (!verifyJson(json, "page")) {
     return;
-  } else if (json.section.nocontent) {
+  } else if (json.page.nocontent) {
     cldrStatus.setCurrentSection("");
     if (json.pageId) {
       cldrStatus.setCurrentPage(json.pageId);
@@ -829,8 +837,8 @@ function loadAllRowsFromJson(json, theDiv) {
     }
     cldrSurvey.showLoader(null);
     updateHashAndMenus(); // find out why there's no content. (locmap)
-  } else if (!json.section.rows) {
-    console.log("!json.section.rows");
+  } else if (!json.page.rows) {
+    console.log("!json.page.rows");
     cldrSurvey.showLoader(
       "Error while loading: <br><div style='border: 1px solid red;'>" +
         "no rows" +
@@ -845,16 +853,6 @@ function loadAllRowsFromJson(json, theDiv) {
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
     updateHashAndMenus(); // now that we have a pageid
-    if (!cldrStatus.getSurveyUser()) {
-      const message = cldrText.get("loginGuidance");
-      cldrInfo.showMessage(message);
-    } else if (!json.canModify) {
-      const message = cldrText.get("readonlyGuidance");
-      cldrInfo.showMessage(message);
-    } else {
-      const message = cldrText.get("dataPageInitialGuidance");
-      cldrInfo.showMessage(message);
-    }
     if (!cldrSurvey.isInputBusy()) {
       cldrSurvey.showLoader(cldrText.get("loading3"));
       cldrTable.insertRows(
@@ -868,7 +866,20 @@ function loadAllRowsFromJson(json, theDiv) {
       showCurrentId(); // already calls scroll
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
+      if (!cldrStatus.getCurrentId()) {
+        cldrInfo.showMessage(getGuidanceMessage(json.canModify));
+      }
     }
+  }
+}
+
+function getGuidanceMessage(canModify) {
+  if (!cldrStatus.getSurveyUser()) {
+    return cldrText.get("loginGuidance");
+  } else if (!canModify) {
+    return cldrText.get("readonlyGuidance");
+  } else {
+    return cldrText.get("dataPageInitialGuidance");
   }
 }
 
@@ -893,12 +904,14 @@ function trimNull(x) {
 }
 
 /**
+ * Common function for loading.
+ * @deprecated use cldrAjax.doFetch() instead
  * @param postData optional - makes this a POST
  */
 function myLoad(url, message, handler, postData, headers) {
   const otime = new Date().getTime();
   console.log("MyLoad: " + url + " for " + message);
-  const errorHandler = function (err) {
+  const errorHandler = function (err, request) {
     console.log("Error: " + err);
     notification.error({
       message: `Could not fetch ${message}`,

@@ -165,7 +165,7 @@ function newPathUpdater(data, json) {
 }
 
 function getSinglePathFromUpdate(json) {
-  for (let row of Object.values(json.section.rows)) {
+  for (let row of Object.values(json.page.rows)) {
     if (row.xpstrid) {
       return row.xpstrid;
     }

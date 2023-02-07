@@ -10,14 +10,16 @@ public class TestOrganization {
     @Test
     void testStOrgs() {
         // Static test, for now
-        assertEquals(3, Organization.getTCOrgs().size());
+        assertEquals(4, Organization.getTCOrgs().size());
 
         assertTrue(Organization.getTCOrgs().contains(Organization.apple));
         assertTrue(Organization.getTCOrgs().contains(Organization.google));
+        assertTrue(Organization.getTCOrgs().contains(Organization.meta));
         assertTrue(Organization.getTCOrgs().contains(Organization.microsoft));
 
         assertTrue(Organization.apple.isTCOrg());
         assertTrue(Organization.google.isTCOrg());
+        assertTrue(Organization.meta.isTCOrg());
         assertTrue(Organization.microsoft.isTCOrg());
 
         assertFalse(Organization.surveytool.isTCOrg());

@@ -7,7 +7,7 @@
 
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
-	<version>42.0-SNAPSHOT</version>
+	<version>43.0-SNAPSHOT</version>
 	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
 	<licenses>
@@ -22,13 +22,13 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions
 			for the icu4j.version tag to use -->
-		<icu4j.version>72.0.1-SNAPSHOT-cldr-2022-08-11</icu4j.version>
+		<icu4j.version>73.0.1-SNAPSHOT-cldr-2023-02-02</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.2</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
 		<httpcomponents-version>5.0.3</httpcomponents-version>
 		<!--  web-specific properties are under cldr-apps -->
-		<mysql.version>8.0.28</mysql.version>
+		<mysql.version>8.0.30</mysql.version>
 		<derby.version>10.15.2.0</derby.version>
 	</properties>
 
@@ -135,7 +135,7 @@
 			<dependency>
 				<groupId>org.jsoup</groupId>
 				<artifactId>jsoup</artifactId>
-				<version>1.14.2</version>
+				<version>1.15.3</version>
 			</dependency>
 
 			<!-- db connectors -->
@@ -194,7 +194,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.0</version>
+					<version>3.10.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -214,7 +214,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>2.5.2</version>
+					<version>3.0.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
@@ -236,7 +236,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
-					<version>3.2.2</version>
+					<version>3.4.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>

@@ -385,7 +385,7 @@ public class ConsoleCheckCLDR {
 
         CheckCLDR.setDisplayInformation(english);
         checkCldr.setEnglishFile(english);
-        setExampleGenerator(new ExampleGenerator(english, english, CLDRPaths.SUPPLEMENTAL_DIRECTORY));
+        setExampleGenerator(new ExampleGenerator(english, english));
         PathShower pathShower = new PathShower();
 
         // call on the files
@@ -411,7 +411,7 @@ public class ConsoleCheckCLDR {
 
         final Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(organization);
 
-        final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX", "en_ZZ"));
+        final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX"));
         for (String localeID : locales) {
             if (CLDRFile.isSupplementalName(localeID)) continue;
             if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
@@ -551,8 +551,7 @@ public class ConsoleCheckCLDR {
             pathShower.set(localeID);
 
             // only create if we are going to use
-            ExampleGenerator exampleGenerator = SHOW_EXAMPLES ? new ExampleGenerator(file, englishFile,
-                CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY) : null;
+            ExampleGenerator exampleGenerator = SHOW_EXAMPLES ? new ExampleGenerator(file, englishFile) : null;
 
             int pathCount = 0;
             Status otherPath = new Status();
@@ -1385,7 +1384,7 @@ public class ConsoleCheckCLDR {
             pathDescription = new PathDescription(supplementalDataInfo, english, null, null,
                 PathDescription.ErrorHandling.CONTINUE);
         }
-        final String description = pathDescription.getDescription(path, value, null, null);
+        final String description = pathDescription.getDescription(path, value, null);
         return "\t" + StringId.getId(path) + "" + "\t" + description + "";
     }
 
@@ -1557,7 +1556,7 @@ public class ConsoleCheckCLDR {
         String localizedName = CheckCLDR.getDisplayInformation().getName(locale);
         if (localizedName == null || localizedName.equals(locale)) return locale;
         if (linkToXml) {
-            locale = "<a href='http://unicode.org/cldr/data/common/main/" + locale + ".xml'>" + locale + "</a>";
+            locale = "<a href='https://github.com/unicode-org/cldr/tree/main/common/main/" + locale + ".xml'>" + locale + "</a>";
         }
         return localizedName + " [" + locale + "]";
     }

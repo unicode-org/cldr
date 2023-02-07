@@ -21,6 +21,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -55,7 +56,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // mainLocales has the locales in common/main, which is basically the set in attributeValueValidity.xml $language..
         // We add in additionsToTranslate below the set in attributeValueValidity.xml $languageExceptions
         // (both sets are included in SDI.getCLDRLanguageCodes() but we do not use that until later).
-        Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "mul",
+        Set<String> additionsToTranslate = ImmutableSortedSet.of(LocaleNames.ZXX, LocaleNames.MUL,
             "ab", "ace", "ada", "ady", "ain", "ale", "alt", "an", "anp", "arn", "arp", "ars", "atj", "av", "awa", "ay",
             "ba", "ban", "bho", "bi", "bin", "bla", "bug", "byn",
             "cay", "ch", "chk", "chm", "cho", "chp", "chy", "clc", "co", "crg", "crj", "crk", "crl", "crm", "crr", "csw", "cv",
@@ -89,7 +90,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
         Set<String> regular = (Set<String>) statusToLang.get(Status.regular);
-        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add("und").add("zxx").add("mul").build();
+        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add(LocaleNames.UND).add(LocaleNames.ZXX).add(LocaleNames.MUL).build();
         Set<String> valid = validity.keySet();
 
         Factory factory = CLDRCONFIG.getCldrFactory();
@@ -97,7 +98,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : factory.getAvailableLanguages()) {
             String language = ltp.set(locale).getLanguage();
-            if (language.equals("root")) language = "und";
+            if (language.equals(LocaleNames.ROOT)) {
+                language = LocaleNames.UND;
+            } else if(!StandardCodes.isLocaleAtLeastBasic(language)) {
+                continue;
+            }
             mainLocales.add(language);
         }
         mainLocales = ImmutableSet.copyOf(mainLocales);
@@ -108,7 +113,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);
 
-        CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance("und");
+        CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(LocaleNames.UND);
         Multimap<Level, String> levelToLanguage = TreeMultimap.create();
         for (String locale : valid) {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, locale);
@@ -209,6 +214,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     private boolean assertContains(String title, Collection<String> set, Collection<String> subset) {
+        set = removeBelowBasic(set);
+        subset = removeBelowBasic(subset);
         boolean result = set.containsAll(subset);
         if (!result) {
             Set<String> temp = new LinkedHashSet<>(subset);
@@ -220,6 +227,16 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             errln(title + ": Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
         return result;
+    }
+
+    private Collection<String> removeBelowBasic(Collection<String> set) {
+        Collection<String> set2 = new TreeSet<>();
+        for (String locale: set) {
+            if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                set2.add(locale);
+            }
+        }
+        return set2;
     }
 
     /**
@@ -277,7 +294,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         checkCldrContains("cldr", cldr, "microsoft", microsoft);
         checkCldrContains("cldr", cldr, "special", apple);
 
-        // check that special doesn't overlap with TC, except for generated locales
+        // check that special doesn't overlap with TC, except for locales in LOCALE_CONTAINMENT_EXCEPTIONS
 
         checkDisjoint("special", special, "apple", apple);
         checkDisjoint("special", special, "google", google);
@@ -292,7 +309,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");
     private static final Set<String> LOCALE_CONTAINMENT_EXCEPTIONS = ImmutableSet.of(
         "sr_Latn", // auto-generated
-        "hi", "sr", "yue" // these are inserted by Locales.txt processing TODO don't add to special
+        "hi", "sr", "yue", // these are inserted by Locales.txt processing TODO don't add to special
+        "to", "qu" // optional locales
         );
 
     private void checkCldrContains(String firstName, Map<String, Level> first, String otherName, Map<String, Level> other) {
@@ -315,7 +333,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                 String locale = originalLevel;
                 while (true) {
                     String parent = LocaleIDParser.getParent(locale);
-                    if (parent == null || parent.equals("root")) {
+                    if (parent == null || parent.equals(LocaleNames.ROOT)) {
                         break;
                     }
                     if (!parent.equals("en_001")) { // en_001 is generated later from en_GB

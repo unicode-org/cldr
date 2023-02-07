@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -52,6 +52,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bem">ቤምባ</language>
 			<language type="bez">በና</language>
 			<language type="bg">ቡልጋርኛ</language>
+			<language type="bgc">ሃርያንቪ</language>
 			<language type="bho">ቦጅፑሪ</language>
 			<language type="bi">ቢስላማ</language>
 			<language type="bin">ቢኒ</language>
@@ -3944,7 +3945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>ግዜ ጋላፓጎስ</standard>
 				</long>
-			 </metazone>
+			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>GMT</standard>
@@ -5516,6 +5517,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wght" subtype="900">ጸሊም</styleName>
 	</typographicNames>
 	<personNames>
+		<nameOrderLocales order="givenFirst">und ti</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko si ta te vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>

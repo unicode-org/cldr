@@ -95,6 +95,7 @@ public abstract class CLDRURLS {
     public static final String CHARACTERS_HELP = "https://cldr.unicode.org/translation/characters";
     public static final String CHARACTER_LABELS = "https://cldr.unicode.org/translation/characters/character-labels";
     public static final String CHARTS_URL = "https://cldr.unicode.org/index/charts#TOC-Summary";
+    public static final String COMPOUND_UNITS_HELP = "https://cldr.unicode.org/translation/units/unit-names-and-patterns#h.7kdholgw8hpx";
     public static final String COUNTRY_NAMES = "https://cldr.unicode.org/translation/displaynames/countryregion-territory-names";
     public static final String CURRENCY_NAMES = "https://cldr.unicode.org/translation/currency-names-and-symbols";
     public static final String DATE_TIME_HELP = "https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k";

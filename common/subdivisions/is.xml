@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,646 +12,783 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type="aeaj" draft="contributed">Adsman</subdivision>
-			<subdivision type="afnur" draft="contributed">Núristan</subdivision>
-			<subdivision type="amer" draft="contributed">Jerevan</subdivision>
-			<subdivision type="arc" draft="contributed">Búenos Aíres</subdivision>
-			<subdivision type="aru" draft="contributed">Chubut-fylki</subdivision>
-			<subdivision type="at1" draft="contributed">Burgenland</subdivision>
-			<subdivision type="at2" draft="contributed">Kärnten</subdivision>
-			<subdivision type="at3" draft="contributed">Neðra Austurríki</subdivision>
-			<subdivision type="at4" draft="contributed">Efra Austurríki</subdivision>
-			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
-			<subdivision type="at6" draft="contributed">Steiermark</subdivision>
-			<subdivision type="at7" draft="contributed">Tirol</subdivision>
-			<subdivision type="at8" draft="contributed">Vorarlberg</subdivision>
-			<subdivision type="at9" draft="contributed">Vín</subdivision>
-			<subdivision type="auact" draft="contributed">Höfuðborgarsvæði Ástralíu</subdivision>
-			<subdivision type="aunsw" draft="contributed">Nýja Suður-Wales</subdivision>
-			<subdivision type="aunt" draft="contributed">Norður-svæðið</subdivision>
-			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
-			<subdivision type="ausa" draft="contributed">Suður-Ástralía</subdivision>
-			<subdivision type="autas" draft="contributed">Tasmanía</subdivision>
-			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
-			<subdivision type="auwa" draft="contributed">Vestur-Ástralía</subdivision>
-			<subdivision type="azba" draft="contributed">Bakú</subdivision>
-			<subdivision type="azsm" draft="contributed">Sumqayit</subdivision>
-			<subdivision type="bebru" draft="contributed">Brussel</subdivision>
-			<subdivision type="bevan" draft="contributed">Antwerpen-hérað</subdivision>
-			<subdivision type="bevbr" draft="contributed">Flæmska Brabant</subdivision>
-			<subdivision type="bevlg" draft="contributed">Flæmingjaland</subdivision>
-			<subdivision type="bevli" draft="contributed">Limburg</subdivision>
-			<subdivision type="bevov" draft="contributed">Austur-Flæmingjaland</subdivision>
-			<subdivision type="bevwv" draft="contributed">Vestur-Flæmingjaland</subdivision>
-			<subdivision type="bewal" draft="contributed">Vallónía</subdivision>
-			<subdivision type="bewbr" draft="contributed">Vallónska Brabant</subdivision>
-			<subdivision type="bewht" draft="contributed">Hainaut</subdivision>
-			<subdivision type="bewlg" draft="contributed">Liege</subdivision>
-			<subdivision type="bewlx" draft="contributed">Lúxemborg</subdivision>
-			<subdivision type="bg23" draft="contributed">Sófía</subdivision>
-			<subdivision type="brac" draft="contributed">Acre</subdivision>
-			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
-			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
-			<subdivision type="brba" draft="contributed">Bahia</subdivision>
-			<subdivision type="brce" draft="contributed">Ceará</subdivision>
-			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
-			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
-			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
-			<subdivision type="brpi" draft="contributed">Piauí</subdivision>
-			<subdivision type="brpr" draft="contributed">Paraná</subdivision>
-			<subdivision type="brrn" draft="contributed">Rio Grande do Norte</subdivision>
-			<subdivision type="brrr" draft="contributed">Roraima</subdivision>
-			<subdivision type="brrs" draft="contributed">Rio Grande do Sul</subdivision>
-			<subdivision type="brsc" draft="contributed">Santa Catarina</subdivision>
-			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
-			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
-			<subdivision type="bwga" draft="contributed">Gaboróne</subdivision>
-			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
-			<subdivision type="caab" draft="contributed">Alberta</subdivision>
-			<subdivision type="cabc" draft="contributed">Breska Kólumbía</subdivision>
-			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
-			<subdivision type="canb" draft="contributed">Nýja-Brúnsvík</subdivision>
-			<subdivision type="canl" draft="contributed">Nýfundnaland og Labrador</subdivision>
-			<subdivision type="cans" draft="contributed">Nýja-Skotland</subdivision>
-			<subdivision type="cant" draft="contributed">Norðvesturhéruðin</subdivision>
-			<subdivision type="canu" draft="contributed">Nunavut</subdivision>
-			<subdivision type="caon" draft="contributed">Ontario</subdivision>
-			<subdivision type="cape" draft="contributed">Eyja Játvarðs prins</subdivision>
-			<subdivision type="caqc" draft="contributed">Québec</subdivision>
-			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
-			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
-			<subdivision type="cdkn" draft="contributed">Kinsasa</subdivision>
-			<subdivision type="cfbgf" draft="contributed">Bangví</subdivision>
-			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
-			<subdivision type="chag" draft="contributed">Aargau</subdivision>
-			<subdivision type="chbe" draft="contributed">Bern</subdivision>
-			<subdivision type="chfr" draft="contributed">Fribourg</subdivision>
-			<subdivision type="chgl" draft="contributed">Glarus</subdivision>
-			<subdivision type="chgr" draft="contributed">Graubünden</subdivision>
-			<subdivision type="chju" draft="contributed">Júra</subdivision>
-			<subdivision type="chne" draft="contributed">Neuchatel</subdivision>
-			<subdivision type="chsg" draft="contributed">St. Gallen</subdivision>
-			<subdivision type="chso" draft="contributed">Solothurn</subdivision>
-			<subdivision type="chsz" draft="contributed">Schwyz</subdivision>
-			<subdivision type="chtg" draft="contributed">Thurgau</subdivision>
-			<subdivision type="chti" draft="contributed">Ticino</subdivision>
-			<subdivision type="chur" draft="contributed">Uri</subdivision>
-			<subdivision type="chvd" draft="contributed">Vaud</subdivision>
-			<subdivision type="chvs" draft="contributed">Valais</subdivision>
-			<subdivision type="chzh" draft="contributed">Zürich</subdivision>
-			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
-			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
-			<subdivision type="clar" draft="contributed">Araucanía-fylki</subdivision>
-			<subdivision type="clbi" draft="contributed">Biobío-fylki</subdivision>
-			<subdivision type="clll" draft="contributed">Los Lagos-fylki</subdivision>
-			<subdivision type="cllr" draft="contributed">Los Ríos-fylki</subdivision>
-			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
-			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
-			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
-			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
-			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
-			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
-			<subdivision type="cnmo" draft="contributed">Makaó</subdivision>
-			<subdivision type="cnsc" draft="contributed">Sesúan</subdivision>
-			<subdivision type="cnsh" draft="contributed">Sjanghæ</subdivision>
-			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
-			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
-			<subdivision type="cnxz" draft="contributed">Tíbet</subdivision>
-			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
-			<subdivision type="codc" draft="contributed">Bógóta</subdivision>
-			<subdivision type="cz10" draft="contributed">Prag</subdivision>
-			<subdivision type="debb" draft="contributed">Brandenborg</subdivision>
-			<subdivision type="debe" draft="contributed">Berlín</subdivision>
-			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
-			<subdivision type="deby" draft="contributed">Bæjaraland</subdivision>
-			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
-			<subdivision type="dehh" draft="contributed">Hamborg</subdivision>
-			<subdivision type="demv" draft="contributed">Mecklenborg-Vorpommern</subdivision>
-			<subdivision type="deni" draft="contributed">Neðra-Saxland</subdivision>
-			<subdivision type="denw" draft="contributed">Norðurrín-Vestfalía</subdivision>
-			<subdivision type="derp" draft="contributed">Rínarland-Pfalz</subdivision>
-			<subdivision type="desh" draft="contributed">Slésvík-Holtsetaland</subdivision>
-			<subdivision type="desl" draft="contributed">Saarland</subdivision>
-			<subdivision type="desn" draft="contributed">Saxland</subdivision>
-			<subdivision type="dest" draft="contributed">Saxland-Anhalt</subdivision>
-			<subdivision type="deth" draft="contributed">Þýringaland</subdivision>
-			<subdivision type="djdj" draft="contributed">Djíbútí</subdivision>
-			<subdivision type="dk84" draft="contributed">Höfuðborgarsvæði Danmerkur</subdivision>
-			<subdivision type="esan" draft="contributed">Andalúsía</subdivision>
-			<subdivision type="esar" draft="contributed">Aragon</subdivision>
-			<subdivision type="esas" draft="contributed">Astúría</subdivision>
-			<subdivision type="escb" draft="contributed">Kantabría</subdivision>
-			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
-			<subdivision type="escl" draft="contributed">Kastilía-León</subdivision>
-			<subdivision type="escm" draft="contributed">Kastilía-La Mancha</subdivision>
-			<subdivision type="esct" draft="contributed">Katalónía</subdivision>
-			<subdivision type="esex" draft="contributed">Extremadúra</subdivision>
-			<subdivision type="esga" draft="contributed">Galisía</subdivision>
-			<subdivision type="esib" draft="contributed">Baleareyjar</subdivision>
-			<subdivision type="esj" draft="contributed">Jaén</subdivision>
-			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
-			<subdivision type="esmc" draft="contributed">Múrsía</subdivision>
-			<subdivision type="esmd" draft="contributed">Madríd (hérað)</subdivision>
-			<subdivision type="esml" draft="contributed">Melilla</subdivision>
-			<subdivision type="esna" draft="contributed">Navarra²</subdivision>
-			<subdivision type="esnc" draft="contributed">Navarra</subdivision>
-			<subdivision type="espm" draft="contributed">Baleareyjar²</subdivision>
-			<subdivision type="espv" draft="contributed">Baskaland</subdivision>
-			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
-			<subdivision type="ess" draft="contributed">Kantabría²</subdivision>
-			<subdivision type="esvc" draft="contributed">Valensía (hérað)</subdivision>
-			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
-			<subdivision type="fjr" draft="contributed">Rotuma</subdivision>
-			<subdivision type="fr18" draft="contributed">Cher</subdivision>
-			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
-			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
-			<subdivision type="fr28" draft="contributed">Eure-et-Loir</subdivision>
-			<subdivision type="fr29" draft="contributed">Finistère</subdivision>
-			<subdivision type="fr35" draft="contributed">Ille-et-Vilaine</subdivision>
-			<subdivision type="fr36" draft="contributed">Indre</subdivision>
-			<subdivision type="fr37" draft="contributed">Indre-et-Loire</subdivision>
-			<subdivision type="fr41" draft="contributed">Loir-et-Cher</subdivision>
-			<subdivision type="fr45" draft="contributed">Loiret</subdivision>
-			<subdivision type="fr56" draft="contributed">Morbihan</subdivision>
-			<subdivision type="fr75" draft="contributed">París</subdivision>
-			<subdivision type="fr85" draft="contributed">Vendée</subdivision>
-			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
-			<subdivision type="frbre" draft="contributed">Bretanía</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsíka</subdivision>
-			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
-			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
-			<subdivision type="frnaq" draft="contributed">Nýja-Akvitanía</subdivision>
-			<subdivision type="gbabe" draft="contributed">Aberdeen</subdivision>
-			<subdivision type="gbagy" draft="contributed">Öngulsey</subdivision>
-			<subdivision type="gbbdg" draft="contributed">Barking og Dagenham</subdivision>
-			<subdivision type="gbben" draft="contributed">Brent</subdivision>
-			<subdivision type="gbbex" draft="contributed">Bexley</subdivision>
-			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
-			<subdivision type="gbbkm" draft="contributed">Buckinghamshire</subdivision>
-			<subdivision type="gbbne" draft="contributed">Barnet</subdivision>
-			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
-			<subdivision type="gbbry" draft="contributed">Bromley</subdivision>
-			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
-			<subdivision type="gbcam" draft="contributed">Cambridgeshire</subdivision>
-			<subdivision type="gbcma" draft="contributed">Cumbria</subdivision>
-			<subdivision type="gbcmd" draft="contributed">Camden</subdivision>
-			<subdivision type="gbcon" draft="contributed">Cornwall</subdivision>
-			<subdivision type="gbcov" draft="contributed">Coventry</subdivision>
-			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
-			<subdivision type="gbcry" draft="contributed">Croydon</subdivision>
-			<subdivision type="gbdby" draft="contributed">Derbyshire</subdivision>
-			<subdivision type="gbder" draft="contributed">Derby</subdivision>
-			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
-			<subdivision type="gbdnd" draft="contributed">Dundee</subdivision>
-			<subdivision type="gbdor" draft="contributed">Dorset</subdivision>
-			<subdivision type="gbdur" draft="contributed">Durham-sýsla</subdivision>
-			<subdivision type="gbeal" draft="contributed">Ealing</subdivision>
-			<subdivision type="gbedh" draft="contributed">Edinborg</subdivision>
-			<subdivision type="gbels" draft="contributed">Ytri Suðureyjar</subdivision>
-			<subdivision type="gbenf" draft="contributed">Enfield</subdivision>
-			<subdivision type="gbery" draft="contributed">Austur-Yorkshire</subdivision>
-			<subdivision type="gbess" draft="contributed">Essex</subdivision>
-			<subdivision type="gbesx" draft="contributed">Austur-Sussex</subdivision>
-			<subdivision type="gbfif" draft="contributed">Fife</subdivision>
-			<subdivision type="gbgbn" draft="contributed">Stóra-Bretland</subdivision>
-			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
-			<subdivision type="gbgls" draft="contributed">Gloucestershire</subdivision>
-			<subdivision type="gbgre" draft="contributed">Greenwich</subdivision>
-			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
-			<subdivision type="gbhav" draft="contributed">Havering</subdivision>
-			<subdivision type="gbhck" draft="contributed">Hackney</subdivision>
-			<subdivision type="gbhef" draft="contributed">Herefordshire</subdivision>
-			<subdivision type="gbhil" draft="contributed">Hillingdon</subdivision>
-			<subdivision type="gbhmf" draft="contributed">Hammersmith og Fulham</subdivision>
-			<subdivision type="gbhns" draft="contributed">Hounslow</subdivision>
-			<subdivision type="gbhrt" draft="contributed">Hertfordshire</subdivision>
-			<subdivision type="gbhrw" draft="contributed">Harrow</subdivision>
-			<subdivision type="gbhry" draft="contributed">Haringey</subdivision>
-			<subdivision type="gbios" draft="contributed">Syllingar</subdivision>
-			<subdivision type="gbiow" draft="contributed">Wighteyja</subdivision>
-			<subdivision type="gbisl" draft="contributed">Islington</subdivision>
-			<subdivision type="gbkec" draft="contributed">Kensington og Chelsea</subdivision>
-			<subdivision type="gbken" draft="contributed">Kent</subdivision>
-			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
-			<subdivision type="gbktt" draft="contributed">Kingston upon Thames</subdivision>
-			<subdivision type="gblan" draft="contributed">Lancashire</subdivision>
-			<subdivision type="gblbh" draft="contributed">Lambeth</subdivision>
-			<subdivision type="gblce" draft="contributed">Leicester</subdivision>
-			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
-			<subdivision type="gblew" draft="contributed">Lewisham</subdivision>
-			<subdivision type="gblin" draft="contributed">Lincolnshire</subdivision>
-			<subdivision type="gbliv" draft="contributed">Liverpool</subdivision>
-			<subdivision type="gblnd" draft="contributed">Lundúnaborg</subdivision>
-			<subdivision type="gblut" draft="contributed">Luton</subdivision>
-			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
-			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
-			<subdivision type="gbmrt" draft="contributed">Merton</subdivision>
-			<subdivision type="gbnbl" draft="contributed">Norðymbraland</subdivision>
-			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
-			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
-			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
-			<subdivision type="gbnir" draft="contributed">Norður-Írland</subdivision>
-			<subdivision type="gbnlk" draft="contributed">Norður-Lanarkshire</subdivision>
-			<subdivision type="gbnth" draft="contributed">Northamptonshire</subdivision>
-			<subdivision type="gbntt" draft="contributed">Nottinghamshire</subdivision>
-			<subdivision type="gbnwm" draft="contributed">Newham</subdivision>
-			<subdivision type="gbnyk" draft="contributed">Norður-Yorkshire</subdivision>
-			<subdivision type="gbork" draft="contributed">Orkneyjar</subdivision>
-			<subdivision type="gboxf" draft="contributed">Oxfordshire</subdivision>
-			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
-			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
-			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
-			<subdivision type="gbrdb" draft="contributed">Redbridge</subdivision>
-			<subdivision type="gbric" draft="contributed">Richmond upon Thames</subdivision>
-			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
-			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
-			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
-			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
-			<subdivision type="gbslg" draft="contributed">Slough</subdivision>
-			<subdivision type="gbslk" draft="contributed">Suður-Lanarkshire</subdivision>
-			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
-			<subdivision type="gbsos" draft="contributed">Southend-on-Sea</subdivision>
-			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
-			<subdivision type="gbste" draft="contributed">Stoke-on-Trent</subdivision>
-			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
-			<subdivision type="gbstn" draft="contributed">Sutton</subdivision>
-			<subdivision type="gbsts" draft="contributed">Staffordshire</subdivision>
-			<subdivision type="gbswa" draft="contributed">Swansea</subdivision>
-			<subdivision type="gbswk" draft="contributed">Southwark</subdivision>
-			<subdivision type="gbtwh" draft="contributed">Tower Hamlets</subdivision>
-			<subdivision type="gbukm" draft="contributed">Bretland</subdivision>
-			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
-			<subdivision type="gbwft" draft="contributed">Waltham Forest</subdivision>
-			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
-			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
-			<subdivision type="gbwnd" draft="contributed">Wandsworth</subdivision>
-			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
-			<subdivision type="gbwsm" draft="contributed">Westminsterborg</subdivision>
-			<subdivision type="gbwsx" draft="contributed">Vestur-Sussex</subdivision>
-			<subdivision type="gbyor" draft="contributed">York</subdivision>
-			<subdivision type="gbzet" draft="contributed">Hjaltlandseyjar</subdivision>
-			<subdivision type="geab" draft="contributed">Abkasía</subdivision>
-			<subdivision type="getb" draft="contributed">Tíblisi</subdivision>
-			<subdivision type="glku" draft="contributed">Kujalleq</subdivision>
-			<subdivision type="glqa" draft="contributed">Qaasuitsup</subdivision>
-			<subdivision type="glqe" draft="contributed">Qeqqata</subdivision>
-			<subdivision type="glsm" draft="contributed">Sermersooq</subdivision>
-			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
-			<subdivision type="gnc" draft="contributed">Kónakrí</subdivision>
-			<subdivision type="gr69" draft="contributed">Aþos</subdivision>
-			<subdivision type="gre" draft="contributed">Þessalía</subdivision>
-			<subdivision type="gwbs" draft="contributed">Bissá</subdivision>
-			<subdivision type="hr21" draft="contributed">Zagreb</subdivision>
-			<subdivision type="hubu" draft="contributed">Búdapest</subdivision>
-			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
-			<subdivision type="husd" draft="contributed">Szeged</subdivision>
-			<subdivision type="idac" draft="contributed">Aceh</subdivision>
-			<subdivision type="idba" draft="contributed">Bali</subdivision>
-			<subdivision type="idjk" draft="contributed">Djakarta</subdivision>
-			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
-			<subdivision type="idjw" draft="contributed">Java</subdivision>
-			<subdivision type="idml" draft="contributed">Mólúkkaeyjar</subdivision>
-			<subdivision type="idnu" draft="contributed">Litlu-Sundaeyjar</subdivision>
-			<subdivision type="idpp" draft="contributed">Vestur-Nýja-Gínea</subdivision>
-			<subdivision type="idsl" draft="contributed">Súlavesí</subdivision>
-			<subdivision type="idsm" draft="contributed">Súmatra</subdivision>
-			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
-			<subdivision type="iece" draft="contributed">County Clare</subdivision>
-			<subdivision type="ieco" draft="contributed">County Cork</subdivision>
-			<subdivision type="ied" draft="contributed">County Dublin</subdivision>
-			<subdivision type="ieg" draft="contributed">County Galway</subdivision>
-			<subdivision type="ielm" draft="contributed">County Leitrim</subdivision>
-			<subdivision type="iemo" draft="contributed">County Mayo</subdivision>
-			<subdivision type="iern" draft="contributed">County Roscommon</subdivision>
-			<subdivision type="ieso" draft="contributed">County Sligo</subdivision>
-			<subdivision type="ieu" draft="contributed">Ulster</subdivision>
-			<subdivision type="inan" draft="contributed">Andaman- og Níkóbareyjar</subdivision>
-			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
-			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
-			<subdivision type="inas" draft="contributed">Assam</subdivision>
-			<subdivision type="inbr" draft="contributed">Bíhar</subdivision>
-			<subdivision type="inch" draft="contributed">Chandigarh</subdivision>
-			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
-			<subdivision type="indd" draft="contributed">Daman og Diu</subdivision>
-			<subdivision type="indl" draft="contributed">Delí</subdivision>
-			<subdivision type="indn" draft="contributed">Dadra og Nagar Haveli</subdivision>
-			<subdivision type="inga" draft="contributed">Góa</subdivision>
-			<subdivision type="ingj" draft="contributed">Gujarat</subdivision>
-			<subdivision type="inhp" draft="contributed">Himachal Pradesh</subdivision>
-			<subdivision type="inhr" draft="contributed">Haryana</subdivision>
-			<subdivision type="injh" draft="contributed">Jharkhand</subdivision>
-			<subdivision type="injk" draft="contributed">Jammú og Kasmír</subdivision>
-			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
-			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
-			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
-			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
-			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
-			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
-			<subdivision type="inmp" draft="contributed">Madhya Pradesh</subdivision>
-			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
-			<subdivision type="innl" draft="contributed">Nagaland</subdivision>
-			<subdivision type="inor" draft="contributed">Odisha</subdivision>
-			<subdivision type="inpb" draft="contributed">Púnjab</subdivision>
-			<subdivision type="inpy" draft="contributed">Puducherry</subdivision>
-			<subdivision type="inrj" draft="contributed">Rajasthan</subdivision>
-			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
-			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
-			<subdivision type="intr" draft="contributed">Tripura</subdivision>
-			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
-			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
-			<subdivision type="inwb" draft="contributed">Vestur-Bengal</subdivision>
-			<subdivision type="ir12" draft="contributed">Semnan-hérað, Íran</subdivision>
-			<subdivision type="is1" draft="contributed">Höfuðborgarsvæðið</subdivision>
-			<subdivision type="is2" draft="contributed">Suðurnes</subdivision>
-			<subdivision type="is3" draft="contributed">Vesturland</subdivision>
-			<subdivision type="is4" draft="contributed">Vestfirðir</subdivision>
-			<subdivision type="is5" draft="contributed">Norðurland vestra</subdivision>
-			<subdivision type="is6" draft="contributed">Norðurland eystra</subdivision>
-			<subdivision type="is7" draft="contributed">Austurland</subdivision>
-			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
-			<subdivision type="it21" draft="contributed">Fjallaland</subdivision>
-			<subdivision type="it23" draft="contributed">Ágústudalur</subdivision>
-			<subdivision type="it25" draft="contributed">Langbarðaland</subdivision>
-			<subdivision type="it32" draft="contributed">Trentínó-Suður-Týról</subdivision>
-			<subdivision type="it34" draft="contributed">Venetó</subdivision>
-			<subdivision type="it36" draft="contributed">Friúlí</subdivision>
-			<subdivision type="it42" draft="contributed">Lígúría</subdivision>
-			<subdivision type="it45" draft="contributed">Emilía-Rómanja</subdivision>
-			<subdivision type="it52" draft="contributed">Toskana</subdivision>
-			<subdivision type="it55" draft="contributed">Úmbría</subdivision>
-			<subdivision type="it57" draft="contributed">Marke</subdivision>
-			<subdivision type="it62" draft="contributed">Latíum</subdivision>
-			<subdivision type="it65" draft="contributed">Abrútsi</subdivision>
-			<subdivision type="it67" draft="contributed">Mólíse</subdivision>
-			<subdivision type="it72" draft="contributed">Kampanía</subdivision>
-			<subdivision type="it75" draft="contributed">Apúlía</subdivision>
-			<subdivision type="it77" draft="contributed">Basilíkata</subdivision>
-			<subdivision type="it78" draft="contributed">Kalabría</subdivision>
-			<subdivision type="it82" draft="contributed">Sikiley</subdivision>
-			<subdivision type="it88" draft="contributed">Sardinía</subdivision>
-			<subdivision type="ital" draft="contributed">Alessandria</subdivision>
-			<subdivision type="itar" draft="contributed">Arezzo</subdivision>
-			<subdivision type="itat" draft="contributed">Asti</subdivision>
-			<subdivision type="itbi" draft="contributed">Biella</subdivision>
-			<subdivision type="itcn" draft="contributed">Cuneo</subdivision>
-			<subdivision type="itfi" draft="contributed">Flórens</subdivision>
-			<subdivision type="itkr" draft="contributed">Crotone</subdivision>
-			<subdivision type="itli" draft="contributed">Livorno</subdivision>
-			<subdivision type="itme" draft="contributed">Messina</subdivision>
-			<subdivision type="itno" draft="contributed">Novara</subdivision>
-			<subdivision type="itto" draft="contributed">Tórínó</subdivision>
-			<subdivision type="itvb" draft="contributed">Verbania</subdivision>
-			<subdivision type="itvc" draft="contributed">Vercelli</subdivision>
-			<subdivision type="jp01" draft="contributed">Hokkaidō</subdivision>
-			<subdivision type="jp13" draft="contributed">Tókýó</subdivision>
-			<subdivision type="jp22" draft="contributed">Shizuoka-umdæmi</subdivision>
-			<subdivision type="jp28" draft="contributed">Hyogo-hérað</subdivision>
-			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
-			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
-			<subdivision type="kig" draft="contributed">Gilbertseyjar</subdivision>
-			<subdivision type="kil" draft="contributed">Línueyjar</subdivision>
-			<subdivision type="kip" draft="contributed">Fönixeyjar</subdivision>
-			<subdivision type="kp01" draft="contributed">Pjongjang</subdivision>
-			<subdivision type="kr11" draft="contributed">Seúl</subdivision>
-			<subdivision type="kr26" draft="contributed">Busan</subdivision>
-			<subdivision type="kzakm" draft="contributed">Aqmolafylki</subdivision>
-			<subdivision type="kzakt" draft="contributed">Aktöbefylki</subdivision>
-			<subdivision type="kzala" draft="contributed">Almaty</subdivision>
-			<subdivision type="kzalm" draft="contributed">Almatyfylki</subdivision>
-			<subdivision type="kzast" draft="contributed">Astana</subdivision>
-			<subdivision type="kzaty" draft="contributed">Atýráfylki</subdivision>
-			<subdivision type="kzkar" draft="contributed">Karagandyfylki</subdivision>
-			<subdivision type="kzkus" draft="contributed">Kóstanæfylki</subdivision>
-			<subdivision type="kzkzy" draft="contributed">Kusulórdafylki</subdivision>
-			<subdivision type="kzman" draft="contributed">Mangystáfylki</subdivision>
-			<subdivision type="kzpav" draft="contributed">Pavlódarfylki</subdivision>
-			<subdivision type="kzsev" draft="contributed">Norður-Kasakstanfylki</subdivision>
-			<subdivision type="kzvos" draft="contributed">Austur-Kasakstanfylki</subdivision>
-			<subdivision type="kzyuz" draft="contributed">Suður-Kasakstanfylki</subdivision>
-			<subdivision type="kzzap" draft="contributed">Vestur-Kasakstanfylki</subdivision>
-			<subdivision type="kzzha" draft="contributed">Djambýlfylki</subdivision>
-			<subdivision type="li11" draft="contributed">Vaduz</subdivision>
-			<subdivision type="lvrix" draft="contributed">Ríga</subdivision>
-			<subdivision type="lvvmr" draft="contributed">Valmiera</subdivision>
-			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
-			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
-			<subdivision type="mafes" draft="contributed">Fez</subdivision>
-			<subdivision type="mammd" draft="contributed">Marrakess</subdivision>
-			<subdivision type="mammn" draft="contributed">Marrakess²</subdivision>
-			<subdivision type="marab" draft="contributed">Rabat</subdivision>
-			<subdivision type="masyb" draft="contributed">Marrakess³</subdivision>
-			<subdivision type="mcmc" draft="contributed">Monte Carlo</subdivision>
-			<subdivision type="mdba" draft="contributed">Bălţi</subdivision>
-			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
-			<subdivision type="mdcu" draft="contributed">Kisínev</subdivision>
-			<subdivision type="mdga" draft="contributed">Gagásía</subdivision>
-			<subdivision type="mhmaj" draft="contributed">Majúró</subdivision>
-			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
-			<subdivision type="mlbko" draft="contributed">Bamakó</subdivision>
-			<subdivision type="mn1" draft="contributed">Úlan Bator</subdivision>
-			<subdivision type="mt04" draft="contributed">Birkirkara</subdivision>
-			<subdivision type="mt07" draft="contributed">Dingli</subdivision>
-			<subdivision type="mt08" draft="contributed">Fgura</subdivision>
-			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
-			<subdivision type="mt60" draft="contributed">Valletta</subdivision>
-			<subdivision type="mupu" draft="contributed">Port Lois</subdivision>
-			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
-			<subdivision type="mwde" draft="contributed">Dedza</subdivision>
-			<subdivision type="mwnk" draft="contributed">Nkhotakota</subdivision>
-			<subdivision type="mxcmx" draft="contributed">Mexíkóborg</subdivision>
-			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
-			<subdivision type="my14" draft="contributed">Kúala Lúmpúr</subdivision>
-			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
-			<subdivision type="mzmpm" draft="contributed">Mapútó</subdivision>
-			<subdivision type="ne8" draft="contributed">Níamey</subdivision>
-			<subdivision type="ngba" draft="contributed">Bauchi-fylki</subdivision>
-			<subdivision type="nged" draft="contributed">Edo-fylki</subdivision>
-			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
-			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
-			<subdivision type="nlfr" draft="contributed">Frísland</subdivision>
-			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
-			<subdivision type="nlgr" draft="contributed">Groningen</subdivision>
-			<subdivision type="nlli" draft="contributed">Limburg</subdivision>
-			<subdivision type="nlnb" draft="contributed">Norður-Brabant</subdivision>
-			<subdivision type="nlnh" draft="contributed">Norður-Holland</subdivision>
-			<subdivision type="nlov" draft="contributed">Overijssel</subdivision>
-			<subdivision type="nlut" draft="contributed">Utrecht</subdivision>
-			<subdivision type="nlze" draft="contributed">Sjáland</subdivision>
-			<subdivision type="nlzh" draft="contributed">Suður-Holland</subdivision>
-			<subdivision type="no01" draft="contributed">Austfold</subdivision>
-			<subdivision type="no02" draft="contributed">Akurshús</subdivision>
-			<subdivision type="no03" draft="contributed">Osló</subdivision>
-			<subdivision type="no04" draft="contributed">Heiðmörk</subdivision>
-			<subdivision type="no05" draft="contributed">Upplönd</subdivision>
-			<subdivision type="no06" draft="contributed">Buskerud</subdivision>
-			<subdivision type="no07" draft="contributed">Vestfold</subdivision>
-			<subdivision type="no08" draft="contributed">Þelamörk</subdivision>
-			<subdivision type="no09" draft="contributed">Austur-Agðir</subdivision>
-			<subdivision type="no10" draft="contributed">Vestur-Agðir</subdivision>
-			<subdivision type="no11" draft="contributed">Rogaland</subdivision>
-			<subdivision type="no12" draft="contributed">Hörðaland</subdivision>
-			<subdivision type="no14" draft="contributed">Sogn og Firðafylki</subdivision>
-			<subdivision type="no15" draft="contributed">Mæri og Raumsdalur</subdivision>
-			<subdivision type="no16" draft="contributed">Suður-Þrændalög</subdivision>
-			<subdivision type="no17" draft="contributed">Norður-Þrændalög</subdivision>
-			<subdivision type="no18" draft="contributed">Norðurland</subdivision>
-			<subdivision type="no19" draft="contributed">Tromsfylki</subdivision>
-			<subdivision type="no20" draft="contributed">Finnmörk</subdivision>
-			<subdivision type="no21" draft="contributed">Svalbarði</subdivision>
-			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
-			<subdivision type="nzcan" draft="contributed">Canterbury</subdivision>
-			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
-			<subdivision type="phaur" draft="contributed">Aurora</subdivision>
-			<subdivision type="pksd" draft="contributed">Sind</subdivision>
-			<subdivision type="pl02" draft="contributed">Neðri-Slesía</subdivision>
-			<subdivision type="pl04" draft="contributed">Kujavíska-Pommern</subdivision>
-			<subdivision type="pl06" draft="contributed">Lublin</subdivision>
-			<subdivision type="pl08" draft="contributed">Lubusz</subdivision>
-			<subdivision type="pl10" draft="contributed">Łódź</subdivision>
-			<subdivision type="pl12" draft="contributed">Litla-Pólland</subdivision>
-			<subdivision type="pl14" draft="contributed">Masóvía</subdivision>
-			<subdivision type="pl16" draft="contributed">Opole</subdivision>
-			<subdivision type="pl18" draft="contributed">Neðri-Karpatía</subdivision>
-			<subdivision type="pl20" draft="contributed">Podlasía</subdivision>
-			<subdivision type="pl22" draft="contributed">Pommern (hérað)</subdivision>
-			<subdivision type="pl24" draft="contributed">Slesía</subdivision>
-			<subdivision type="pl26" draft="contributed">Święty Krzyż</subdivision>
-			<subdivision type="pl28" draft="contributed">Ermland-Masúría</subdivision>
-			<subdivision type="pl30" draft="contributed">Stóra-Pólland</subdivision>
-			<subdivision type="pl32" draft="contributed">Vestur-Pommern</subdivision>
-			<subdivision type="pt20" draft="contributed">Asóreyjar</subdivision>
-			<subdivision type="pt30" draft="contributed">Madeiraeyjar</subdivision>
-			<subdivision type="pyasu" draft="contributed">Asúnsjón</subdivision>
-			<subdivision type="qada" draft="contributed">Doha</subdivision>
-			<subdivision type="rob" draft="contributed">Búkarest</subdivision>
-			<subdivision type="rs00" draft="contributed">Belgrad</subdivision>
-			<subdivision type="ruad" draft="contributed">Adigea</subdivision>
-			<subdivision type="ruamu" draft="contributed">Amúrfylki</subdivision>
-			<subdivision type="ruark" draft="contributed">Arkangelskfylki</subdivision>
-			<subdivision type="ruast" draft="contributed">Astrakanfylki</subdivision>
-			<subdivision type="ruba" draft="contributed">Basjkortostan</subdivision>
-			<subdivision type="rubel" draft="contributed">Belgorodfylki</subdivision>
-			<subdivision type="ruce" draft="contributed">Téténía</subdivision>
-			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
-			<subdivision type="rukam" draft="contributed">Kamtsjatka skagi</subdivision>
-			<subdivision type="rukda" draft="contributed">Krasnodarfylki</subdivision>
-			<subdivision type="rulen" draft="contributed">Leníngradfylki</subdivision>
-			<subdivision type="rumag" draft="contributed">Magadanfylki</subdivision>
-			<subdivision type="rumow" draft="contributed">Moskva</subdivision>
-			<subdivision type="rupri" draft="contributed">Prímorja</subdivision>
-			<subdivision type="rusa" draft="contributed">Saka</subdivision>
-			<subdivision type="rusak" draft="contributed">Sakalínfylki</subdivision>
-			<subdivision type="ruse" draft="contributed">Norður-Ossetía</subdivision>
-			<subdivision type="ruspe" draft="contributed">Sankti Pétursborg</subdivision>
-			<subdivision type="ruta" draft="contributed">Tatarstan</subdivision>
-			<subdivision type="ruud" draft="contributed">Údmúrtía</subdivision>
-			<subdivision type="ruvlg" draft="contributed">Vologdafylki</subdivision>
-			<subdivision type="ruyev" draft="contributed">Hebreska sjálfstjórnarfylkið</subdivision>
-			<subdivision type="rw01" draft="contributed">Kígalí</subdivision>
-			<subdivision type="sbct" draft="contributed">Honíara</subdivision>
-			<subdivision type="seab" draft="contributed">Stokkhólms lán</subdivision>
-			<subdivision type="sec" draft="contributed">Uppsala län</subdivision>
-			<subdivision type="sed" draft="contributed">Södermanlands län</subdivision>
-			<subdivision type="see" draft="contributed">Östergötlands län</subdivision>
-			<subdivision type="sef" draft="contributed">Jönköpings län</subdivision>
-			<subdivision type="seh" draft="contributed">Kalmar län</subdivision>
-			<subdivision type="sek" draft="contributed">Blekinge län</subdivision>
-			<subdivision type="sen" draft="contributed">Hallands län</subdivision>
-			<subdivision type="seo" draft="contributed">Västra Götalands län</subdivision>
-			<subdivision type="ses" draft="contributed">Värmlands län</subdivision>
-			<subdivision type="sez" draft="contributed">Jämtlands län</subdivision>
-			<subdivision type="shhl" draft="contributed">Sankti Helena</subdivision>
-			<subdivision type="si090" draft="contributed">Píran</subdivision>
-			<subdivision type="si148" draft="contributed">Benedikt</subdivision>
-			<subdivision type="sm07" draft="contributed">San Marínó</subdivision>
-			<subdivision type="syhi" draft="contributed">Homshérað</subdivision>
-			<subdivision type="syhm" draft="contributed">Hamahérað</subdivision>
-			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
-			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
-			<subdivision type="th21" draft="contributed">Rayong</subdivision>
-			<subdivision type="th83" draft="contributed">Phuket</subdivision>
-			<subdivision type="ths" draft="contributed">Pattaya</subdivision>
-			<subdivision type="tjdu" draft="contributed">Dúsjanbe</subdivision>
-			<subdivision type="tms" draft="contributed">Asgabat</subdivision>
-			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
-			<subdivision type="tr31" draft="contributed">Hatay</subdivision>
-			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
-			<subdivision type="tvfun" draft="contributed">Fúnafútí</subdivision>
-			<subdivision type="twpen" draft="contributed">Penghu</subdivision>
-			<subdivision type="twtpe" draft="contributed">Taípei</subdivision>
-			<subdivision type="ua18" draft="contributed">Zjytómýrfylki</subdivision>
-			<subdivision type="ua23" draft="contributed">Zapórizjyskfylki</subdivision>
-			<subdivision type="ua30" draft="contributed">Kíev</subdivision>
-			<subdivision type="ua40" draft="contributed">Sevastópol</subdivision>
-			<subdivision type="um67" draft="contributed">Johnstoneyja</subdivision>
-			<subdivision type="um71" draft="contributed">Midwayeyja</subdivision>
-			<subdivision type="um76" draft="contributed">Navassaeyja</subdivision>
-			<subdivision type="um79" draft="contributed">Varsímaeyja</subdivision>
-			<subdivision type="um81" draft="contributed">Bakereyja</subdivision>
-			<subdivision type="um84" draft="contributed">Howlandeyja</subdivision>
-			<subdivision type="um86" draft="contributed">Jarviseyja</subdivision>
-			<subdivision type="um89" draft="contributed">Kingmanrif</subdivision>
-			<subdivision type="um95" draft="contributed">Palmyraeyja</subdivision>
-			<subdivision type="usak" draft="contributed">Alaska</subdivision>
-			<subdivision type="usal" draft="contributed">Alabama</subdivision>
-			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
-			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
-			<subdivision type="usca" draft="contributed">Kalifornía</subdivision>
-			<subdivision type="usco" draft="contributed">Colorado</subdivision>
-			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
-			<subdivision type="usdc" draft="contributed">Washington</subdivision>
-			<subdivision type="usde" draft="contributed">Delaware</subdivision>
-			<subdivision type="usfl" draft="contributed">Flórída</subdivision>
-			<subdivision type="usga" draft="contributed">Georgía</subdivision>
-			<subdivision type="ushi" draft="contributed">Hawaii / Havaí / Hawaí</subdivision>
-			<subdivision type="usia" draft="contributed">Iowa</subdivision>
-			<subdivision type="usid" draft="contributed">Idaho</subdivision>
-			<subdivision type="usil" draft="contributed">Illinois</subdivision>
-			<subdivision type="usin" draft="contributed">Indiana</subdivision>
-			<subdivision type="usks" draft="contributed">Kansas</subdivision>
-			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
-			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
-			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
-			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
-			<subdivision type="usme" draft="contributed">Maine</subdivision>
-			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
-			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
-			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
-			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
-			<subdivision type="usmt" draft="contributed">Montana</subdivision>
-			<subdivision type="usnc" draft="contributed">Norður-Karólína</subdivision>
-			<subdivision type="usnd" draft="contributed">Norður-Dakóta</subdivision>
-			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
-			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
-			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
-			<subdivision type="usnm" draft="contributed">New Mexico</subdivision>
-			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
-			<subdivision type="usny" draft="contributed">New York-fylki</subdivision>
-			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
-			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
-			<subdivision type="usor" draft="contributed">Oregon</subdivision>
-			<subdivision type="uspa" draft="contributed">Pennsylvanía</subdivision>
-			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
-			<subdivision type="ussc" draft="contributed">Suður-Karólína</subdivision>
-			<subdivision type="ussd" draft="contributed">Suður-Dakóta</subdivision>
-			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
-			<subdivision type="ustx" draft="contributed">Texas</subdivision>
-			<subdivision type="usut" draft="contributed">Utah</subdivision>
-			<subdivision type="usva" draft="contributed">Virginía</subdivision>
-			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
-			<subdivision type="uswa" draft="contributed">Washington²</subdivision>
-			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
-			<subdivision type="uswv" draft="contributed">Vestur-Virginía</subdivision>
-			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
-			<subdivision type="uymo" draft="contributed">Montevídeó</subdivision>
-			<subdivision type="uztk" draft="contributed">Taskent</subdivision>
-			<subdivision type="vn18" draft="contributed">Ninh Bình</subdivision>
-			<subdivision type="vnhn" draft="contributed">Hanoí</subdivision>
-			<subdivision type="vnsg" draft="contributed">Ho Chi Minh-borg</subdivision>
-			<subdivision type="wfal" draft="contributed">Alo</subdivision>
-			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
-			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
-			<subdivision type="yesa" draft="contributed">Sana</subdivision>
+			<subdivision type="ad07" draft="provisional">Andorra la Vella</subdivision>
+			<subdivision type="aeaj" draft="provisional">Adsman</subdivision>
+			<subdivision type="aefu" draft="provisional">Fúdsaíra</subdivision>
+			<subdivision type="aerk" draft="provisional">Ras al-Kaíma</subdivision>
+			<subdivision type="afnur" draft="provisional">Núristan</subdivision>
+			<subdivision type="amer" draft="provisional">Jerevan</subdivision>
+			<subdivision type="arc" draft="provisional">Búenos Aíres</subdivision>
+			<subdivision type="aru" draft="provisional">Chubut-fylki</subdivision>
+			<subdivision type="at1" draft="provisional">Burgenland</subdivision>
+			<subdivision type="at2" draft="provisional">Kärnten</subdivision>
+			<subdivision type="at3" draft="provisional">Neðra Austurríki</subdivision>
+			<subdivision type="at4" draft="provisional">Efra Austurríki</subdivision>
+			<subdivision type="at5" draft="provisional">Salzburg</subdivision>
+			<subdivision type="at6" draft="provisional">Steiermark</subdivision>
+			<subdivision type="at7" draft="provisional">Tirol</subdivision>
+			<subdivision type="at8" draft="provisional">Vorarlberg</subdivision>
+			<subdivision type="at9" draft="provisional">Vín</subdivision>
+			<subdivision type="auact" draft="provisional">Höfuðborgarsvæði Ástralíu</subdivision>
+			<subdivision type="aunsw" draft="provisional">Nýja Suður-Wales</subdivision>
+			<subdivision type="aunt" draft="provisional">Norður-svæðið</subdivision>
+			<subdivision type="auqld" draft="provisional">Queensland</subdivision>
+			<subdivision type="ausa" draft="provisional">Suður-Ástralía</subdivision>
+			<subdivision type="autas" draft="provisional">Tasmanía</subdivision>
+			<subdivision type="auvic" draft="provisional">Victoria</subdivision>
+			<subdivision type="auwa" draft="provisional">Vestur-Ástralía</subdivision>
+			<subdivision type="azba" draft="provisional">Bakú</subdivision>
+			<subdivision type="azsm" draft="provisional">Sumqayit</subdivision>
+			<subdivision type="azxa" draft="provisional">Stepanakert</subdivision>
+			<subdivision type="bebru" draft="provisional">Brussel</subdivision>
+			<subdivision type="bevan" draft="provisional">Antwerpen-hérað</subdivision>
+			<subdivision type="bevbr" draft="provisional">Flæmska Brabant</subdivision>
+			<subdivision type="bevlg" draft="provisional">Flæmingjaland</subdivision>
+			<subdivision type="bevli" draft="provisional">Limburg</subdivision>
+			<subdivision type="bevov" draft="provisional">Austur-Flæmingjaland</subdivision>
+			<subdivision type="bevwv" draft="provisional">Vestur-Flæmingjaland</subdivision>
+			<subdivision type="bewal" draft="provisional">Vallónía</subdivision>
+			<subdivision type="bewbr" draft="provisional">Vallónska Brabant</subdivision>
+			<subdivision type="bewht" draft="provisional">Hainaut</subdivision>
+			<subdivision type="bewlg" draft="provisional">Liege</subdivision>
+			<subdivision type="bewlx" draft="provisional">Lúxemborg</subdivision>
+			<subdivision type="bg23" draft="provisional">Sófía</subdivision>
+			<subdivision type="brac" draft="provisional">Acre</subdivision>
+			<subdivision type="bral" draft="provisional">Alagoas</subdivision>
+			<subdivision type="bram" draft="provisional">Amazonas</subdivision>
+			<subdivision type="brba" draft="provisional">Bahia</subdivision>
+			<subdivision type="brce" draft="provisional">Ceará</subdivision>
+			<subdivision type="brdf" draft="provisional">Distrito Federal</subdivision>
+			<subdivision type="brmg" draft="provisional">Minas Gerais</subdivision>
+			<subdivision type="brpb" draft="provisional">Paraíba</subdivision>
+			<subdivision type="brpe" draft="provisional">Pernambuco</subdivision>
+			<subdivision type="brpi" draft="provisional">Piauí</subdivision>
+			<subdivision type="brpr" draft="provisional">Paraná</subdivision>
+			<subdivision type="brrn" draft="provisional">Rio Grande do Norte</subdivision>
+			<subdivision type="brrr" draft="provisional">Roraima</subdivision>
+			<subdivision type="brrs" draft="provisional">Rio Grande do Sul</subdivision>
+			<subdivision type="brsc" draft="provisional">Santa Catarina</subdivision>
+			<subdivision type="brse" draft="provisional">Sergipe</subdivision>
+			<subdivision type="brsp" draft="provisional">São Paulo</subdivision>
+			<subdivision type="bwga" draft="provisional">Gaboróne</subdivision>
+			<subdivision type="byhm" draft="provisional">Minsk</subdivision>
+			<subdivision type="caab" draft="provisional">Alberta</subdivision>
+			<subdivision type="cabc" draft="provisional">Breska Kólumbía</subdivision>
+			<subdivision type="camb" draft="provisional">Manitoba</subdivision>
+			<subdivision type="canb" draft="provisional">Nýja-Brúnsvík</subdivision>
+			<subdivision type="canl" draft="provisional">Nýfundnaland og Labrador</subdivision>
+			<subdivision type="cans" draft="provisional">Nýja-Skotland</subdivision>
+			<subdivision type="cant" draft="provisional">Norðvesturhéruðin</subdivision>
+			<subdivision type="canu" draft="provisional">Nunavut</subdivision>
+			<subdivision type="caon" draft="provisional">Ontario</subdivision>
+			<subdivision type="cape" draft="provisional">Eyja Játvarðs prins</subdivision>
+			<subdivision type="caqc" draft="provisional">Québec</subdivision>
+			<subdivision type="cask" draft="provisional">Saskatchewan</subdivision>
+			<subdivision type="cayt" draft="provisional">Yukon</subdivision>
+			<subdivision type="cdkn" draft="provisional">Kinsasa</subdivision>
+			<subdivision type="cfbgf" draft="provisional">Bangví</subdivision>
+			<subdivision type="cgbzv" draft="provisional">Brazzaville</subdivision>
+			<subdivision type="chag" draft="provisional">Aargau</subdivision>
+			<subdivision type="chbe" draft="provisional">Bern</subdivision>
+			<subdivision type="chfr" draft="provisional">Fribourg</subdivision>
+			<subdivision type="chgl" draft="provisional">Glarus</subdivision>
+			<subdivision type="chgr" draft="provisional">Graubünden</subdivision>
+			<subdivision type="chju" draft="provisional">Júra</subdivision>
+			<subdivision type="chne" draft="provisional">Neuchatel</subdivision>
+			<subdivision type="chsg" draft="provisional">St. Gallen</subdivision>
+			<subdivision type="chso" draft="provisional">Solothurn</subdivision>
+			<subdivision type="chsz" draft="provisional">Schwyz</subdivision>
+			<subdivision type="chtg" draft="provisional">Thurgau</subdivision>
+			<subdivision type="chti" draft="provisional">Ticino</subdivision>
+			<subdivision type="chur" draft="provisional">Uri</subdivision>
+			<subdivision type="chvd" draft="provisional">Vaud</subdivision>
+			<subdivision type="chvs" draft="provisional">Valais</subdivision>
+			<subdivision type="chzh" draft="provisional">Zürich</subdivision>
+			<subdivision type="ciab" draft="provisional">Abidjan</subdivision>
+			<subdivision type="ciym" draft="provisional">Yamoussoukro</subdivision>
+			<subdivision type="clar" draft="provisional">Araucanía-fylki</subdivision>
+			<subdivision type="clbi" draft="provisional">Biobío-fylki</subdivision>
+			<subdivision type="clll" draft="provisional">Los Lagos-fylki</subdivision>
+			<subdivision type="cllr" draft="provisional">Los Ríos-fylki</subdivision>
+			<subdivision type="cnah" draft="provisional">Anhui</subdivision>
+			<subdivision type="cnbj" draft="provisional">Beijing</subdivision>
+			<subdivision type="cncq" draft="provisional">Chongqing</subdivision>
+			<subdivision type="cnfj" draft="provisional">Fujian</subdivision>
+			<subdivision type="cngd" draft="provisional">Guangdong</subdivision>
+			<subdivision type="cngs" draft="provisional">Gansu</subdivision>
+			<subdivision type="cngx" draft="provisional">Guangxi</subdivision>
+			<subdivision type="cngz" draft="provisional">Guizhou</subdivision>
+			<subdivision type="cnha" draft="provisional">Henan</subdivision>
+			<subdivision type="cnhb" draft="provisional">Hubei</subdivision>
+			<subdivision type="cnhe" draft="provisional">Hebei</subdivision>
+			<subdivision type="cnhi" draft="provisional">Hainan</subdivision>
+			<subdivision type="cnhk" draft="provisional">Hong Kong</subdivision>
+			<subdivision type="cnhl" draft="provisional">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="provisional">Hunan</subdivision>
+			<subdivision type="cnjl" draft="provisional">Jilin</subdivision>
+			<subdivision type="cnjs" draft="provisional">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="provisional">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="provisional">Liaoning</subdivision>
+			<subdivision type="cnmo" draft="provisional">Makaó</subdivision>
+			<subdivision type="cnnm" draft="provisional">Innri Mongólía</subdivision>
+			<subdivision type="cnnx" draft="provisional">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="provisional">Qinghai</subdivision>
+			<subdivision type="cnsc" draft="provisional">Sesúan</subdivision>
+			<subdivision type="cnsd" draft="provisional">Shandong</subdivision>
+			<subdivision type="cnsh" draft="provisional">Sjanghæ</subdivision>
+			<subdivision type="cnsn" draft="provisional">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="provisional">Shansi</subdivision>
+			<subdivision type="cntj" draft="provisional">Tianjin</subdivision>
+			<subdivision type="cnxj" draft="provisional">Xinjiang</subdivision>
+			<subdivision type="cnxz" draft="provisional">Tíbet</subdivision>
+			<subdivision type="cnyn" draft="provisional">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="provisional">Zhejiang</subdivision>
+			<subdivision type="codc" draft="provisional">Bógóta</subdivision>
+			<subdivision type="cz10" draft="provisional">Prag</subdivision>
+			<subdivision type="debb" draft="provisional">Brandenborg</subdivision>
+			<subdivision type="debe" draft="provisional">Berlín</subdivision>
+			<subdivision type="debw" draft="provisional">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="provisional">Bæjaraland</subdivision>
+			<subdivision type="dehb" draft="provisional">Bremen (sambandsríki)</subdivision>
+			<subdivision type="dehe" draft="provisional">Hessen</subdivision>
+			<subdivision type="dehh" draft="provisional">Hamborg</subdivision>
+			<subdivision type="demv" draft="provisional">Mecklenborg-Vorpommern</subdivision>
+			<subdivision type="deni" draft="provisional">Neðra-Saxland</subdivision>
+			<subdivision type="denw" draft="provisional">Norðurrín-Vestfalía</subdivision>
+			<subdivision type="derp" draft="provisional">Rínarland-Pfalz</subdivision>
+			<subdivision type="desh" draft="provisional">Slésvík-Holtsetaland</subdivision>
+			<subdivision type="desl" draft="provisional">Saarland</subdivision>
+			<subdivision type="desn" draft="provisional">Saxland</subdivision>
+			<subdivision type="dest" draft="provisional">Saxland-Anhalt</subdivision>
+			<subdivision type="deth" draft="provisional">Þýringaland</subdivision>
+			<subdivision type="djdj" draft="provisional">Djíbútí</subdivision>
+			<subdivision type="dk84" draft="provisional">Höfuðborgarsvæði Danmerkur</subdivision>
+			<subdivision type="esan" draft="provisional">Andalúsía</subdivision>
+			<subdivision type="esar" draft="provisional">Aragon</subdivision>
+			<subdivision type="esas" draft="provisional">Astúría</subdivision>
+			<subdivision type="esb" draft="provisional">Barselóna-hérað</subdivision>
+			<subdivision type="escb" draft="provisional">Kantabría</subdivision>
+			<subdivision type="esce" draft="provisional">Ceuta</subdivision>
+			<subdivision type="escl" draft="provisional">Kastilía-León</subdivision>
+			<subdivision type="escm" draft="provisional">Kastilía-La Mancha</subdivision>
+			<subdivision type="escn" draft="provisional">Kanaríeyjar</subdivision>
+			<subdivision type="esct" draft="provisional">Katalónía</subdivision>
+			<subdivision type="esex" draft="provisional">Extremadúra</subdivision>
+			<subdivision type="esga" draft="provisional">Galisía</subdivision>
+			<subdivision type="esib" draft="provisional">Baleareyjar</subdivision>
+			<subdivision type="esj" draft="provisional">Jaén</subdivision>
+			<subdivision type="eslo" draft="provisional">La Rioja</subdivision>
+			<subdivision type="esmc" draft="provisional">Múrsía</subdivision>
+			<subdivision type="esmd" draft="provisional">Madríd (hérað)</subdivision>
+			<subdivision type="esml" draft="provisional">Melilla</subdivision>
+			<subdivision type="esna" draft="provisional">Navarra²</subdivision>
+			<subdivision type="esnc" draft="provisional">Navarra</subdivision>
+			<subdivision type="espm" draft="provisional">Baleareyjar²</subdivision>
+			<subdivision type="espv" draft="provisional">Baskaland</subdivision>
+			<subdivision type="esri" draft="provisional">La Rioja²</subdivision>
+			<subdivision type="ess" draft="provisional">Kantabría²</subdivision>
+			<subdivision type="esvc" draft="provisional">Valensía (hérað)</subdivision>
+			<subdivision type="etaa" draft="provisional">Addis Ababa</subdivision>
+			<subdivision type="fi08" draft="provisional">Mið-Finnland</subdivision>
+			<subdivision type="fi10" draft="provisional">Lappland</subdivision>
+			<subdivision type="fi14" draft="provisional">Norður-Austurbotn</subdivision>
+			<subdivision type="fi17" draft="provisional">Satakunta</subdivision>
+			<subdivision type="fi18" draft="provisional">Uusimaa</subdivision>
+			<subdivision type="fi19" draft="provisional">Suðvestur-Finnland</subdivision>
+			<subdivision type="fjr" draft="provisional">Rotuma</subdivision>
+			<subdivision type="fr18" draft="provisional">Cher</subdivision>
+			<subdivision type="fr20r" draft="provisional">Korsíka</subdivision>
+			<subdivision type="fr21" draft="provisional">Côte-d’Or</subdivision>
+			<subdivision type="fr22" draft="provisional">Côtes-d’Armor</subdivision>
+			<subdivision type="fr28" draft="provisional">Eure-et-Loir</subdivision>
+			<subdivision type="fr29" draft="provisional">Finistère</subdivision>
+			<subdivision type="fr35" draft="provisional">Ille-et-Vilaine</subdivision>
+			<subdivision type="fr36" draft="provisional">Indre</subdivision>
+			<subdivision type="fr37" draft="provisional">Indre-et-Loire</subdivision>
+			<subdivision type="fr41" draft="provisional">Loir-et-Cher</subdivision>
+			<subdivision type="fr45" draft="provisional">Loiret</subdivision>
+			<subdivision type="fr56" draft="provisional">Morbihan</subdivision>
+			<subdivision type="fr75c" draft="provisional">París</subdivision>
+			<subdivision type="fr85" draft="provisional">Vendée</subdivision>
+			<subdivision type="fr86" draft="provisional">Vienne</subdivision>
+			<subdivision type="fr971" draft="provisional">Gvadelúpeyjar</subdivision>
+			<subdivision type="frara" draft="provisional">Auvergne-Rhône-Alpes</subdivision>
+			<subdivision type="frbfc" draft="provisional">Búrgund-Franche-Comté</subdivision>
+			<subdivision type="frbre" draft="provisional">Bretanía</subdivision>
+			<subdivision type="frcvl" draft="provisional">Centre</subdivision>
+			<subdivision type="frges" draft="provisional">Grand Est</subdivision>
+			<subdivision type="frhdf" draft="provisional">Hauts-de-France</subdivision>
+			<subdivision type="fridf" draft="provisional">Île-de-France</subdivision>
+			<subdivision type="frnaq" draft="provisional">Nýja-Akvitanía</subdivision>
+			<subdivision type="frocc" draft="provisional">Occitanie</subdivision>
+			<subdivision type="frpac" draft="provisional">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="provisional">Pays de la Loire</subdivision>
+			<subdivision type="gbabe" draft="provisional">Aberdeen</subdivision>
+			<subdivision type="gbagy" draft="provisional">Öngulsey</subdivision>
+			<subdivision type="gbbdg" draft="provisional">Barking og Dagenham</subdivision>
+			<subdivision type="gbben" draft="provisional">Brent</subdivision>
+			<subdivision type="gbbex" draft="provisional">Bexley</subdivision>
+			<subdivision type="gbbir" draft="provisional">Birmingham</subdivision>
+			<subdivision type="gbbkm" draft="provisional">Buckinghamshire</subdivision>
+			<subdivision type="gbbne" draft="provisional">Barnet</subdivision>
+			<subdivision type="gbbnh" draft="provisional">Brighton og Hove</subdivision>
+			<subdivision type="gbbpl" draft="provisional">Blackpool</subdivision>
+			<subdivision type="gbbry" draft="provisional">Bromley</subdivision>
+			<subdivision type="gbbst" draft="provisional">Bristol</subdivision>
+			<subdivision type="gbcam" draft="provisional">Cambridgeshire</subdivision>
+			<subdivision type="gbcma" draft="provisional">Cumbria</subdivision>
+			<subdivision type="gbcmd" draft="provisional">Camden</subdivision>
+			<subdivision type="gbcon" draft="provisional">Cornwall</subdivision>
+			<subdivision type="gbcov" draft="provisional">Coventry</subdivision>
+			<subdivision type="gbcrf" draft="provisional">Cardiff</subdivision>
+			<subdivision type="gbcry" draft="provisional">Croydon</subdivision>
+			<subdivision type="gbdby" draft="provisional">Derbyshire</subdivision>
+			<subdivision type="gbder" draft="provisional">Derby</subdivision>
+			<subdivision type="gbdev" draft="provisional">Devon</subdivision>
+			<subdivision type="gbdnd" draft="provisional">Dundee</subdivision>
+			<subdivision type="gbdor" draft="provisional">Dorset</subdivision>
+			<subdivision type="gbdur" draft="provisional">Durham-sýsla</subdivision>
+			<subdivision type="gbeal" draft="provisional">Ealing</subdivision>
+			<subdivision type="gbedh" draft="provisional">Edinborg</subdivision>
+			<subdivision type="gbels" draft="provisional">Ytri Suðureyjar</subdivision>
+			<subdivision type="gbenf" draft="provisional">Enfield</subdivision>
+			<subdivision type="gbeng" draft="provisional">England</subdivision>
+			<subdivision type="gbery" draft="provisional">Austur-Yorkshire</subdivision>
+			<subdivision type="gbess" draft="provisional">Essex</subdivision>
+			<subdivision type="gbesx" draft="provisional">Austur-Sussex</subdivision>
+			<subdivision type="gbfif" draft="provisional">Fife</subdivision>
+			<subdivision type="gbgbn" draft="provisional">Stóra-Bretland</subdivision>
+			<subdivision type="gbglg" draft="provisional">Glasgow</subdivision>
+			<subdivision type="gbgls" draft="provisional">Gloucestershire</subdivision>
+			<subdivision type="gbgre" draft="provisional">Greenwich</subdivision>
+			<subdivision type="gbham" draft="provisional">Hampshire</subdivision>
+			<subdivision type="gbhav" draft="provisional">Havering</subdivision>
+			<subdivision type="gbhck" draft="provisional">Hackney</subdivision>
+			<subdivision type="gbhef" draft="provisional">Herefordshire</subdivision>
+			<subdivision type="gbhil" draft="provisional">Hillingdon</subdivision>
+			<subdivision type="gbhmf" draft="provisional">Hammersmith og Fulham</subdivision>
+			<subdivision type="gbhns" draft="provisional">Hounslow</subdivision>
+			<subdivision type="gbhrt" draft="provisional">Hertfordshire</subdivision>
+			<subdivision type="gbhrw" draft="provisional">Harrow</subdivision>
+			<subdivision type="gbhry" draft="provisional">Haringey</subdivision>
+			<subdivision type="gbios" draft="provisional">Syllingar</subdivision>
+			<subdivision type="gbiow" draft="provisional">Wighteyja</subdivision>
+			<subdivision type="gbisl" draft="provisional">Islington</subdivision>
+			<subdivision type="gbkec" draft="provisional">Kensington og Chelsea</subdivision>
+			<subdivision type="gbken" draft="provisional">Kent</subdivision>
+			<subdivision type="gbkhl" draft="provisional">Kingston upon Hull</subdivision>
+			<subdivision type="gbktt" draft="provisional">Kingston upon Thames</subdivision>
+			<subdivision type="gblan" draft="provisional">Lancashire</subdivision>
+			<subdivision type="gblbh" draft="provisional">Lambeth</subdivision>
+			<subdivision type="gblce" draft="provisional">Leicester</subdivision>
+			<subdivision type="gblec" draft="provisional">Leicestershire</subdivision>
+			<subdivision type="gblew" draft="provisional">Lewisham</subdivision>
+			<subdivision type="gblin" draft="provisional">Lincolnshire</subdivision>
+			<subdivision type="gbliv" draft="provisional">Liverpool</subdivision>
+			<subdivision type="gblnd" draft="provisional">Lundúnaborg</subdivision>
+			<subdivision type="gblut" draft="provisional">Luton</subdivision>
+			<subdivision type="gbman" draft="provisional">Manchester</subdivision>
+			<subdivision type="gbmdb" draft="provisional">Middlesbrough</subdivision>
+			<subdivision type="gbmdw" draft="provisional">Medway</subdivision>
+			<subdivision type="gbmrt" draft="provisional">Merton</subdivision>
+			<subdivision type="gbnbl" draft="provisional">Norðymbraland</subdivision>
+			<subdivision type="gbnet" draft="provisional">Newcastle upon Tyne</subdivision>
+			<subdivision type="gbnfk" draft="provisional">Norfolk</subdivision>
+			<subdivision type="gbngm" draft="provisional">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="provisional">Norður-Írland</subdivision>
+			<subdivision type="gbnlk" draft="provisional">Norður-Lanarkshire</subdivision>
+			<subdivision type="gbnth" draft="provisional">Northamptonshire</subdivision>
+			<subdivision type="gbntt" draft="provisional">Nottinghamshire</subdivision>
+			<subdivision type="gbnwm" draft="provisional">Newham</subdivision>
+			<subdivision type="gbnyk" draft="provisional">Norður-Yorkshire</subdivision>
+			<subdivision type="gbork" draft="provisional">Orkneyjar</subdivision>
+			<subdivision type="gboxf" draft="provisional">Oxfordshire</subdivision>
+			<subdivision type="gbply" draft="provisional">Plymouth</subdivision>
+			<subdivision type="gbpor" draft="provisional">Portsmouth</subdivision>
+			<subdivision type="gbpte" draft="provisional">Peterborough</subdivision>
+			<subdivision type="gbrdb" draft="provisional">Redbridge</subdivision>
+			<subdivision type="gbric" draft="provisional">Richmond upon Thames</subdivision>
+			<subdivision type="gbrut" draft="provisional">Rutland</subdivision>
+			<subdivision type="gbsct" draft="provisional">Skotland</subdivision>
+			<subdivision type="gbsfk" draft="provisional">Suffolk</subdivision>
+			<subdivision type="gbshf" draft="provisional">Sheffield</subdivision>
+			<subdivision type="gbshr" draft="provisional">Shropshire</subdivision>
+			<subdivision type="gbslg" draft="provisional">Slough</subdivision>
+			<subdivision type="gbslk" draft="provisional">Suður-Lanarkshire</subdivision>
+			<subdivision type="gbsom" draft="provisional">Somerset</subdivision>
+			<subdivision type="gbsos" draft="provisional">Southend-on-Sea</subdivision>
+			<subdivision type="gbsry" draft="provisional">Surrey</subdivision>
+			<subdivision type="gbste" draft="provisional">Stoke-on-Trent</subdivision>
+			<subdivision type="gbsth" draft="provisional">Southampton</subdivision>
+			<subdivision type="gbstn" draft="provisional">Sutton</subdivision>
+			<subdivision type="gbsts" draft="provisional">Staffordshire</subdivision>
+			<subdivision type="gbswa" draft="provisional">Swansea</subdivision>
+			<subdivision type="gbswk" draft="provisional">Southwark</subdivision>
+			<subdivision type="gbtwh" draft="provisional">Tower Hamlets</subdivision>
+			<subdivision type="gbukm" draft="provisional">Bretland</subdivision>
+			<subdivision type="gbwar" draft="provisional">Warwickshire</subdivision>
+			<subdivision type="gbwft" draft="provisional">Waltham Forest</subdivision>
+			<subdivision type="gbwil" draft="provisional">Wiltshire</subdivision>
+			<subdivision type="gbwls" draft="provisional">Wales</subdivision>
+			<subdivision type="gbwlv" draft="provisional">Wolverhampton</subdivision>
+			<subdivision type="gbwnd" draft="provisional">Wandsworth</subdivision>
+			<subdivision type="gbwor" draft="provisional">Worcestershire</subdivision>
+			<subdivision type="gbwsm" draft="provisional">Westminsterborg</subdivision>
+			<subdivision type="gbwsx" draft="provisional">Vestur-Sussex</subdivision>
+			<subdivision type="gbyor" draft="provisional">York</subdivision>
+			<subdivision type="gbzet" draft="provisional">Hjaltlandseyjar</subdivision>
+			<subdivision type="geab" draft="provisional">Abkasía</subdivision>
+			<subdivision type="getb" draft="provisional">Tíblisi</subdivision>
+			<subdivision type="glku" draft="provisional">Kujalleq</subdivision>
+			<subdivision type="glqa" draft="provisional">Qaasuitsup</subdivision>
+			<subdivision type="glqe" draft="provisional">Qeqqata</subdivision>
+			<subdivision type="glqt" draft="provisional">Qeqertalik</subdivision>
+			<subdivision type="glsm" draft="provisional">Sermersooq</subdivision>
+			<subdivision type="gmb" draft="provisional">Banjul</subdivision>
+			<subdivision type="gnc" draft="provisional">Kónakrí</subdivision>
+			<subdivision type="gr69" draft="provisional">Aþos</subdivision>
+			<subdivision type="gre" draft="provisional">Þessalía</subdivision>
+			<subdivision type="gwbs" draft="provisional">Bissá</subdivision>
+			<subdivision type="hr21" draft="provisional">Zagreb</subdivision>
+			<subdivision type="hubu" draft="provisional">Búdapest</subdivision>
+			<subdivision type="hude" draft="provisional">Debrecen</subdivision>
+			<subdivision type="husd" draft="provisional">Szeged</subdivision>
+			<subdivision type="idac" draft="provisional">Aceh</subdivision>
+			<subdivision type="idba" draft="provisional">Bali</subdivision>
+			<subdivision type="idjk" draft="provisional">Djakarta</subdivision>
+			<subdivision type="idjt" draft="provisional">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="provisional">Java</subdivision>
+			<subdivision type="idml" draft="provisional">Mólúkkaeyjar</subdivision>
+			<subdivision type="idnu" draft="provisional">Litlu-Sundaeyjar</subdivision>
+			<subdivision type="idpp" draft="provisional">Vestur-Nýja-Gínea</subdivision>
+			<subdivision type="idsl" draft="provisional">Súlavesí</subdivision>
+			<subdivision type="idsm" draft="provisional">Súmatra</subdivision>
+			<subdivision type="idyo" draft="provisional">Yogyakarta</subdivision>
+			<subdivision type="iece" draft="provisional">County Clare</subdivision>
+			<subdivision type="ieco" draft="provisional">County Cork</subdivision>
+			<subdivision type="ied" draft="provisional">County Dublin</subdivision>
+			<subdivision type="iedl" draft="provisional">County Donegal</subdivision>
+			<subdivision type="ieg" draft="provisional">County Galway</subdivision>
+			<subdivision type="ielm" draft="provisional">County Leitrim</subdivision>
+			<subdivision type="iemo" draft="provisional">County Mayo</subdivision>
+			<subdivision type="iern" draft="provisional">County Roscommon</subdivision>
+			<subdivision type="ieso" draft="provisional">County Sligo</subdivision>
+			<subdivision type="ieu" draft="provisional">Ulster</subdivision>
+			<subdivision type="inan" draft="provisional">Andaman- og Níkóbareyjar</subdivision>
+			<subdivision type="inap" draft="provisional">Andhra Pradesh</subdivision>
+			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="provisional">Assam</subdivision>
+			<subdivision type="inbr" draft="provisional">Bíhar</subdivision>
+			<subdivision type="inch" draft="provisional">Chandigarh</subdivision>
+			<subdivision type="inct" draft="provisional">Chhattisgarh</subdivision>
+			<subdivision type="indd" draft="provisional">Daman og Diu</subdivision>
+			<subdivision type="indl" draft="provisional">Delí</subdivision>
+			<subdivision type="indn" draft="provisional">Dadra og Nagar Haveli</subdivision>
+			<subdivision type="inga" draft="provisional">Góa</subdivision>
+			<subdivision type="ingj" draft="provisional">Gujarat</subdivision>
+			<subdivision type="inhp" draft="provisional">Himachal Pradesh</subdivision>
+			<subdivision type="inhr" draft="provisional">Haryana</subdivision>
+			<subdivision type="injh" draft="provisional">Jharkhand</subdivision>
+			<subdivision type="injk" draft="provisional">Jammú og Kasmír</subdivision>
+			<subdivision type="inka" draft="provisional">Karnataka</subdivision>
+			<subdivision type="inkl" draft="provisional">Kerala</subdivision>
+			<subdivision type="inld" draft="provisional">Lakshadweep</subdivision>
+			<subdivision type="inmh" draft="provisional">Maharashtra</subdivision>
+			<subdivision type="inml" draft="provisional">Meghalaya</subdivision>
+			<subdivision type="inmn" draft="provisional">Manipur</subdivision>
+			<subdivision type="inmp" draft="provisional">Madhya Pradesh</subdivision>
+			<subdivision type="inmz" draft="provisional">Mizoram</subdivision>
+			<subdivision type="innl" draft="provisional">Nagaland</subdivision>
+			<subdivision type="inor" draft="provisional">Odisha</subdivision>
+			<subdivision type="inpb" draft="provisional">Púnjab</subdivision>
+			<subdivision type="inpy" draft="provisional">Puducherry</subdivision>
+			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
+			<subdivision type="insk" draft="provisional">Sikkim</subdivision>
+			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
+			<subdivision type="intr" draft="provisional">Tripura</subdivision>
+			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
+			<subdivision type="inut" draft="provisional">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="provisional">Vestur-Bengal</subdivision>
+			<subdivision type="ir12" draft="provisional">Semnan-hérað, Íran</subdivision>
+			<subdivision type="ir20" draft="provisional">Semnan-hérað, Íran²</subdivision>
+			<subdivision type="is1" draft="provisional">Höfuðborgarsvæðið</subdivision>
+			<subdivision type="is2" draft="provisional">Suðurnes</subdivision>
+			<subdivision type="is3" draft="provisional">Vesturland</subdivision>
+			<subdivision type="is4" draft="provisional">Vestfirðir</subdivision>
+			<subdivision type="is5" draft="provisional">Norðurland vestra</subdivision>
+			<subdivision type="is6" draft="provisional">Norðurland eystra</subdivision>
+			<subdivision type="is7" draft="provisional">Austurland</subdivision>
+			<subdivision type="is8" draft="provisional">Suðurland</subdivision>
+			<subdivision type="isakh" draft="provisional">Akrahreppur</subdivision>
+			<subdivision type="isakn" draft="provisional">Akraneskaupstaður</subdivision>
+			<subdivision type="isaku" draft="provisional">Akureyri</subdivision>
+			<subdivision type="isarn" draft="provisional">Árneshreppur</subdivision>
+			<subdivision type="isasa" draft="provisional">Ásahreppur</subdivision>
+			<subdivision type="isbla" draft="provisional">Bláskógabyggð</subdivision>
+			<subdivision type="isblo" draft="provisional">Blönduósbær</subdivision>
+			<subdivision type="isbog" draft="provisional">Borgarbyggð</subdivision>
+			<subdivision type="isbol" draft="provisional">Bolungarvíkurkaupstaður</subdivision>
+			<subdivision type="isdab" draft="provisional">Dalabyggð</subdivision>
+			<subdivision type="isdav" draft="provisional">Dalvíkurbyggð</subdivision>
+			<subdivision type="iseom" draft="provisional">Eyja- og Miklaholtshreppur</subdivision>
+			<subdivision type="iseyf" draft="provisional">Eyjafjarðarsveit</subdivision>
+			<subdivision type="isfjd" draft="provisional">Fjarðabyggð</subdivision>
+			<subdivision type="isfjl" draft="provisional">Fjallabyggð</subdivision>
+			<subdivision type="isfla" draft="provisional">Flóahreppur</subdivision>
+			<subdivision type="isflr" draft="provisional">Fljótsdalshreppur</subdivision>
+			<subdivision type="isgrn" draft="provisional">Grindavíkurbær</subdivision>
+			<subdivision type="isgru" draft="provisional">Grundarfjarðarbær</subdivision>
+			<subdivision type="ishuv" draft="provisional">Húnaþing vestra</subdivision>
+			<subdivision type="ismul" draft="provisional">Múlaþing</subdivision>
+			<subdivision type="issdv" draft="provisional">Súðavíkurhreppur</subdivision>
+			<subdivision type="issfa" draft="provisional">Sveitarfélagið Árborg</subdivision>
+			<subdivision type="issss" draft="provisional">Sveitarfélagið Skagaströnd</subdivision>
+			<subdivision type="it21" draft="provisional">Fjallaland</subdivision>
+			<subdivision type="it23" draft="provisional">Ágústudalur</subdivision>
+			<subdivision type="it25" draft="provisional">Langbarðaland</subdivision>
+			<subdivision type="it32" draft="provisional">Trentínó-Suður-Týról</subdivision>
+			<subdivision type="it34" draft="provisional">Venetó</subdivision>
+			<subdivision type="it36" draft="provisional">Friúlí</subdivision>
+			<subdivision type="it42" draft="provisional">Lígúría</subdivision>
+			<subdivision type="it45" draft="provisional">Emilía-Rómanja</subdivision>
+			<subdivision type="it52" draft="provisional">Toskana</subdivision>
+			<subdivision type="it55" draft="provisional">Úmbría</subdivision>
+			<subdivision type="it57" draft="provisional">Marke</subdivision>
+			<subdivision type="it62" draft="provisional">Latíum</subdivision>
+			<subdivision type="it65" draft="provisional">Abrútsi</subdivision>
+			<subdivision type="it67" draft="provisional">Mólíse</subdivision>
+			<subdivision type="it72" draft="provisional">Kampanía</subdivision>
+			<subdivision type="it75" draft="provisional">Apúlía</subdivision>
+			<subdivision type="it77" draft="provisional">Basilíkata</subdivision>
+			<subdivision type="it78" draft="provisional">Kalabría</subdivision>
+			<subdivision type="it82" draft="provisional">Sikiley</subdivision>
+			<subdivision type="it88" draft="provisional">Sardinía</subdivision>
+			<subdivision type="ital" draft="provisional">Alessandria</subdivision>
+			<subdivision type="itar" draft="provisional">Arezzo</subdivision>
+			<subdivision type="itat" draft="provisional">Asti</subdivision>
+			<subdivision type="itbi" draft="provisional">Biella</subdivision>
+			<subdivision type="itcn" draft="provisional">Cuneo</subdivision>
+			<subdivision type="itfi" draft="provisional">Flórens</subdivision>
+			<subdivision type="itkr" draft="provisional">Crotone</subdivision>
+			<subdivision type="itli" draft="provisional">Livorno</subdivision>
+			<subdivision type="itme" draft="provisional">Messina</subdivision>
+			<subdivision type="itno" draft="provisional">Novara</subdivision>
+			<subdivision type="itto" draft="provisional">Tórínó</subdivision>
+			<subdivision type="itvb" draft="provisional">Verbania</subdivision>
+			<subdivision type="itvc" draft="provisional">Vercelli</subdivision>
+			<subdivision type="jp01" draft="provisional">Hokkaidō</subdivision>
+			<subdivision type="jp13" draft="provisional">Tókýó</subdivision>
+			<subdivision type="jp22" draft="provisional">Shizuoka-umdæmi</subdivision>
+			<subdivision type="jp28" draft="provisional">Hyogo-hérað</subdivision>
+			<subdivision type="kggb" draft="provisional">Bishkek</subdivision>
+			<subdivision type="kh12" draft="provisional">Phnom Penh</subdivision>
+			<subdivision type="kig" draft="provisional">Gilbertseyjar</subdivision>
+			<subdivision type="kil" draft="provisional">Línueyjar</subdivision>
+			<subdivision type="kip" draft="provisional">Fönixeyjar</subdivision>
+			<subdivision type="kp01" draft="provisional">Pjongjang</subdivision>
+			<subdivision type="kr11" draft="provisional">Seúl</subdivision>
+			<subdivision type="kr26" draft="provisional">Busan</subdivision>
+			<subdivision type="kzakm" draft="provisional">Aqmolafylki</subdivision>
+			<subdivision type="kzakt" draft="provisional">Aktöbefylki</subdivision>
+			<subdivision type="kzala" draft="provisional">Almaty</subdivision>
+			<subdivision type="kzalm" draft="provisional">Almatyfylki</subdivision>
+			<subdivision type="kzast" draft="provisional">Astana</subdivision>
+			<subdivision type="kzaty" draft="provisional">Atýráfylki</subdivision>
+			<subdivision type="kzkar" draft="provisional">Karagandyfylki</subdivision>
+			<subdivision type="kzkus" draft="provisional">Kóstanæfylki</subdivision>
+			<subdivision type="kzkzy" draft="provisional">Kusulórdafylki</subdivision>
+			<subdivision type="kzman" draft="provisional">Mangystáfylki</subdivision>
+			<subdivision type="kzpav" draft="provisional">Pavlódarfylki</subdivision>
+			<subdivision type="kzsev" draft="provisional">Norður-Kasakstanfylki</subdivision>
+			<subdivision type="kzshy" draft="provisional">Sjimkent</subdivision>
+			<subdivision type="kzvos" draft="provisional">Austur-Kasakstanfylki</subdivision>
+			<subdivision type="kzyuz" draft="provisional">Suður-Kasakstanfylki</subdivision>
+			<subdivision type="kzzap" draft="provisional">Vestur-Kasakstanfylki</subdivision>
+			<subdivision type="kzzha" draft="provisional">Djambýlfylki</subdivision>
+			<subdivision type="li11" draft="provisional">Vaduz</subdivision>
+			<subdivision type="lvrix" draft="provisional">Ríga</subdivision>
+			<subdivision type="lvvmr" draft="provisional">Valmiera</subdivision>
+			<subdivision type="lyba" draft="provisional">Benghazi</subdivision>
+			<subdivision type="macas" draft="provisional">Casablanca</subdivision>
+			<subdivision type="mafes" draft="provisional">Fez</subdivision>
+			<subdivision type="mammd" draft="provisional">Marrakess</subdivision>
+			<subdivision type="mammn" draft="provisional">Marrakess²</subdivision>
+			<subdivision type="marab" draft="provisional">Rabat</subdivision>
+			<subdivision type="masyb" draft="provisional">Marrakess³</subdivision>
+			<subdivision type="mcmc" draft="provisional">Monte Carlo</subdivision>
+			<subdivision type="mdba" draft="provisional">Bălţi</subdivision>
+			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
+			<subdivision type="mdcu" draft="provisional">Kisínev</subdivision>
+			<subdivision type="mdga" draft="provisional">Gagásía</subdivision>
+			<subdivision type="mhmaj" draft="provisional">Majúró</subdivision>
+			<subdivision type="mk85" draft="provisional">Skopje</subdivision>
+			<subdivision type="mlbko" draft="provisional">Bamakó</subdivision>
+			<subdivision type="mn1" draft="provisional">Úlan Bator</subdivision>
+			<subdivision type="mt04" draft="provisional">Birkirkara</subdivision>
+			<subdivision type="mt07" draft="provisional">Dingli</subdivision>
+			<subdivision type="mt08" draft="provisional">Fgura</subdivision>
+			<subdivision type="mt21" draft="provisional">Kalkara</subdivision>
+			<subdivision type="mt60" draft="provisional">Valletta</subdivision>
+			<subdivision type="mupu" draft="provisional">Port Lois</subdivision>
+			<subdivision type="mvmle" draft="provisional">Malé</subdivision>
+			<subdivision type="mwde" draft="provisional">Dedza</subdivision>
+			<subdivision type="mwnk" draft="provisional">Nkhotakota</subdivision>
+			<subdivision type="mxcmx" draft="provisional">Mexíkóborg</subdivision>
+			<subdivision type="mxsin" draft="provisional">Sinaloa</subdivision>
+			<subdivision type="my14" draft="provisional">Kúala Lúmpúr</subdivision>
+			<subdivision type="my16" draft="provisional">Putrajaya</subdivision>
+			<subdivision type="mzmpm" draft="provisional">Mapútó</subdivision>
+			<subdivision type="ne8" draft="provisional">Níamey</subdivision>
+			<subdivision type="ngba" draft="provisional">Bauchi-fylki</subdivision>
+			<subdivision type="nged" draft="provisional">Edo-fylki</subdivision>
+			<subdivision type="nldr" draft="provisional">Drenthe</subdivision>
+			<subdivision type="nlfl" draft="provisional">Flevoland</subdivision>
+			<subdivision type="nlfr" draft="provisional">Frísland</subdivision>
+			<subdivision type="nlge" draft="provisional">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="provisional">Groningen</subdivision>
+			<subdivision type="nlli" draft="provisional">Limburg</subdivision>
+			<subdivision type="nlnb" draft="provisional">Norður-Brabant</subdivision>
+			<subdivision type="nlnh" draft="provisional">Norður-Holland</subdivision>
+			<subdivision type="nlov" draft="provisional">Overijssel</subdivision>
+			<subdivision type="nlut" draft="provisional">Utrecht</subdivision>
+			<subdivision type="nlze" draft="provisional">Sjáland</subdivision>
+			<subdivision type="nlzh" draft="provisional">Suður-Holland</subdivision>
+			<subdivision type="no01" draft="provisional">Austfold</subdivision>
+			<subdivision type="no02" draft="provisional">Akurshús</subdivision>
+			<subdivision type="no03" draft="provisional">Osló</subdivision>
+			<subdivision type="no04" draft="provisional">Heiðmörk</subdivision>
+			<subdivision type="no05" draft="provisional">Upplönd</subdivision>
+			<subdivision type="no06" draft="provisional">Buskerud</subdivision>
+			<subdivision type="no07" draft="provisional">Vestfold</subdivision>
+			<subdivision type="no08" draft="provisional">Þelamörk</subdivision>
+			<subdivision type="no09" draft="provisional">Austur-Agðir</subdivision>
+			<subdivision type="no10" draft="provisional">Vestur-Agðir</subdivision>
+			<subdivision type="no11" draft="provisional">Rogaland</subdivision>
+			<subdivision type="no12" draft="provisional">Hörðaland</subdivision>
+			<subdivision type="no14" draft="provisional">Sogn og Firðafylki</subdivision>
+			<subdivision type="no15" draft="provisional">Mæri og Raumsdalur</subdivision>
+			<subdivision type="no16" draft="provisional">Suður-Þrændalög</subdivision>
+			<subdivision type="no17" draft="provisional">Norður-Þrændalög</subdivision>
+			<subdivision type="no18" draft="provisional">Norðurland</subdivision>
+			<subdivision type="no19" draft="provisional">Tromsfylki</subdivision>
+			<subdivision type="no20" draft="provisional">Finnmörk</subdivision>
+			<subdivision type="no21" draft="provisional">Svalbarði</subdivision>
+			<subdivision type="no22" draft="provisional">Jan Mayen</subdivision>
+			<subdivision type="no30" draft="provisional">Viken</subdivision>
+			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="no38" draft="provisional">Vestfold og Þelamörk</subdivision>
+			<subdivision type="no42" draft="provisional">Agðir</subdivision>
+			<subdivision type="no46" draft="provisional">Vesturland (fylki í Noregi)</subdivision>
+			<subdivision type="no50" draft="provisional">Þrændalög</subdivision>
+			<subdivision type="no54" draft="provisional">Troms og Finnmörk</subdivision>
+			<subdivision type="nr14" draft="provisional">Jaren</subdivision>
+			<subdivision type="nzcan" draft="provisional">Canterbury</subdivision>
+			<subdivision type="pgncd" draft="provisional">Port Moresby</subdivision>
+			<subdivision type="pgnsb" draft="provisional">Bougainville</subdivision>
+			<subdivision type="phaur" draft="provisional">Aurora</subdivision>
+			<subdivision type="phboh" draft="provisional">Bóhol</subdivision>
+			<subdivision type="pksd" draft="provisional">Sind</subdivision>
+			<subdivision type="pl02" draft="provisional">Neðri-Slesía</subdivision>
+			<subdivision type="pl04" draft="provisional">Kujavíska-Pommern</subdivision>
+			<subdivision type="pl06" draft="provisional">Lublin</subdivision>
+			<subdivision type="pl08" draft="provisional">Lubusz</subdivision>
+			<subdivision type="pl10" draft="provisional">Łódź</subdivision>
+			<subdivision type="pl12" draft="provisional">Litla-Pólland</subdivision>
+			<subdivision type="pl14" draft="provisional">Masóvía</subdivision>
+			<subdivision type="pl16" draft="provisional">Opole</subdivision>
+			<subdivision type="pl18" draft="provisional">Neðri-Karpatía</subdivision>
+			<subdivision type="pl20" draft="provisional">Podlasía</subdivision>
+			<subdivision type="pl22" draft="provisional">Pommern (hérað)</subdivision>
+			<subdivision type="pl24" draft="provisional">Slesía</subdivision>
+			<subdivision type="pl26" draft="provisional">Święty Krzyż</subdivision>
+			<subdivision type="pl28" draft="provisional">Ermland-Masúría</subdivision>
+			<subdivision type="pl30" draft="provisional">Stóra-Pólland</subdivision>
+			<subdivision type="pl32" draft="provisional">Vestur-Pommern</subdivision>
+			<subdivision type="pt20" draft="provisional">Asóreyjar</subdivision>
+			<subdivision type="pt30" draft="provisional">Madeiraeyjar</subdivision>
+			<subdivision type="pyasu" draft="provisional">Asúnsjón</subdivision>
+			<subdivision type="qada" draft="provisional">Doha</subdivision>
+			<subdivision type="rob" draft="provisional">Búkarest</subdivision>
+			<subdivision type="rs00" draft="provisional">Belgrad</subdivision>
+			<subdivision type="ruad" draft="provisional">Adigea</subdivision>
+			<subdivision type="rualt" draft="provisional">Altaífylki</subdivision>
+			<subdivision type="ruamu" draft="provisional">Amúrfylki</subdivision>
+			<subdivision type="ruark" draft="provisional">Arkangelskfylki</subdivision>
+			<subdivision type="ruast" draft="provisional">Astrakanfylki</subdivision>
+			<subdivision type="ruba" draft="provisional">Basjkortostan</subdivision>
+			<subdivision type="rubel" draft="provisional">Belgorodfylki</subdivision>
+			<subdivision type="rubry" draft="provisional">Brjanskfylki</subdivision>
+			<subdivision type="ruce" draft="provisional">Téténía</subdivision>
+			<subdivision type="ruche" draft="provisional">Tsjeljabinskfylki</subdivision>
+			<subdivision type="ruda" draft="provisional">Dagestan</subdivision>
+			<subdivision type="ruirk" draft="provisional">Irkútskfylki</subdivision>
+			<subdivision type="ruiva" draft="provisional">Ívanovófylki</subdivision>
+			<subdivision type="rukam" draft="provisional">Kamtsjatka skagi</subdivision>
+			<subdivision type="rukda" draft="provisional">Krasnodarfylki</subdivision>
+			<subdivision type="rukem" draft="provisional">Kemeróvofylki</subdivision>
+			<subdivision type="rukgd" draft="provisional">Kaliníngradfylki</subdivision>
+			<subdivision type="rukgn" draft="provisional">Kúrganfylki</subdivision>
+			<subdivision type="rukha" draft="provisional">Kabarovskfylki</subdivision>
+			<subdivision type="rukir" draft="provisional">Kírovfylki</subdivision>
+			<subdivision type="ruklu" draft="provisional">Kalúgafylki</subdivision>
+			<subdivision type="rukos" draft="provisional">Kostrómafylki</subdivision>
+			<subdivision type="rukrs" draft="provisional">Kúrskfylki</subdivision>
+			<subdivision type="rukya" draft="provisional">Krasnojarskfylki</subdivision>
+			<subdivision type="rulen" draft="provisional">Leníngradfylki</subdivision>
+			<subdivision type="rulip" draft="provisional">Lípetskfylki</subdivision>
+			<subdivision type="rumag" draft="provisional">Magadanfylki</subdivision>
+			<subdivision type="rumos" draft="provisional">Moskvufylki</subdivision>
+			<subdivision type="rumow" draft="provisional">Moskva</subdivision>
+			<subdivision type="rumur" draft="provisional">Múrmanskfylki</subdivision>
+			<subdivision type="rungr" draft="provisional">Novgorodfylki</subdivision>
+			<subdivision type="runiz" draft="provisional">Nisjníj-Novgorodfylki</subdivision>
+			<subdivision type="runvs" draft="provisional">Novosíbírskfylki</subdivision>
+			<subdivision type="ruoms" draft="provisional">Omskfylki</subdivision>
+			<subdivision type="ruore" draft="provisional">Orenbúrgfylki</subdivision>
+			<subdivision type="ruorl" draft="provisional">Orjolfylki</subdivision>
+			<subdivision type="ruper" draft="provisional">Permfylki</subdivision>
+			<subdivision type="rupnz" draft="provisional">Pensafylki</subdivision>
+			<subdivision type="rupri" draft="provisional">Prímorja</subdivision>
+			<subdivision type="rupsk" draft="provisional">Pskovfylki</subdivision>
+			<subdivision type="ruros" draft="provisional">Rostovfylki</subdivision>
+			<subdivision type="rurya" draft="provisional">Rjasanfylki</subdivision>
+			<subdivision type="rusa" draft="provisional">Saka</subdivision>
+			<subdivision type="rusak" draft="provisional">Sakalínfylki</subdivision>
+			<subdivision type="rusam" draft="provisional">Samarafylki</subdivision>
+			<subdivision type="rusar" draft="provisional">Saratovfylki</subdivision>
+			<subdivision type="ruse" draft="provisional">Norður-Ossetía</subdivision>
+			<subdivision type="rusmo" draft="provisional">Smolenskfylki</subdivision>
+			<subdivision type="ruspe" draft="provisional">Sankti Pétursborg</subdivision>
+			<subdivision type="rusta" draft="provisional">Stavrópolfylki</subdivision>
+			<subdivision type="rusve" draft="provisional">Sverdlovskfylki</subdivision>
+			<subdivision type="ruta" draft="provisional">Tatarstan</subdivision>
+			<subdivision type="rutam" draft="provisional">Tambovfylki</subdivision>
+			<subdivision type="rutom" draft="provisional">Tomskfylki</subdivision>
+			<subdivision type="rutul" draft="provisional">Túlafylki</subdivision>
+			<subdivision type="rutve" draft="provisional">Tverfylki</subdivision>
+			<subdivision type="rutyu" draft="provisional">Tjúmenfylki</subdivision>
+			<subdivision type="ruud" draft="provisional">Údmúrtía</subdivision>
+			<subdivision type="ruuly" draft="provisional">Úljanovskfylki</subdivision>
+			<subdivision type="ruvgg" draft="provisional">Volgógradfylki</subdivision>
+			<subdivision type="ruvla" draft="provisional">Vladimírfylki</subdivision>
+			<subdivision type="ruvlg" draft="provisional">Vologdafylki</subdivision>
+			<subdivision type="ruvor" draft="provisional">Voronesjfylki</subdivision>
+			<subdivision type="ruyar" draft="provisional">Yaroslavlfylki</subdivision>
+			<subdivision type="ruyev" draft="provisional">Hebreska sjálfstjórnarfylkið</subdivision>
+			<subdivision type="ruzab" draft="provisional">Tsabajkalfylki</subdivision>
+			<subdivision type="rw01" draft="provisional">Kígalí</subdivision>
+			<subdivision type="sbct" draft="provisional">Honíara</subdivision>
+			<subdivision type="seab" draft="provisional">Stokkhólms lán</subdivision>
+			<subdivision type="sec" draft="provisional">Uppsala län</subdivision>
+			<subdivision type="sed" draft="provisional">Södermanlands län</subdivision>
+			<subdivision type="see" draft="provisional">Östergötlands län</subdivision>
+			<subdivision type="sef" draft="provisional">Jönköpings län</subdivision>
+			<subdivision type="seh" draft="provisional">Kalmar län</subdivision>
+			<subdivision type="sek" draft="provisional">Blekinge län</subdivision>
+			<subdivision type="sen" draft="provisional">Hallands län</subdivision>
+			<subdivision type="seo" draft="provisional">Västra Götalands län</subdivision>
+			<subdivision type="ses" draft="provisional">Värmlands län</subdivision>
+			<subdivision type="sez" draft="provisional">Jämtlands län</subdivision>
+			<subdivision type="shhl" draft="provisional">Sankti Helena</subdivision>
+			<subdivision type="si090" draft="provisional">Píran</subdivision>
+			<subdivision type="si148" draft="provisional">Benedikt</subdivision>
+			<subdivision type="sm07" draft="provisional">San Marínó</subdivision>
+			<subdivision type="syhi" draft="provisional">Homshérað</subdivision>
+			<subdivision type="syhm" draft="provisional">Hamahérað</subdivision>
+			<subdivision type="tdnd" draft="provisional">N’Djamena</subdivision>
+			<subdivision type="th10" draft="provisional">Bangkok</subdivision>
+			<subdivision type="th21" draft="provisional">Rayong</subdivision>
+			<subdivision type="th83" draft="provisional">Phuket</subdivision>
+			<subdivision type="ths" draft="provisional">Pattaya</subdivision>
+			<subdivision type="tjdu" draft="provisional">Dúsjanbe</subdivision>
+			<subdivision type="tms" draft="provisional">Asgabat</subdivision>
+			<subdivision type="tr09" draft="provisional">Aydın</subdivision>
+			<subdivision type="tr31" draft="provisional">Hatay</subdivision>
+			<subdivision type="ttpos" draft="provisional">Port of Spain</subdivision>
+			<subdivision type="tttob" draft="provisional">Tóbagó</subdivision>
+			<subdivision type="tvfun" draft="provisional">Fúnafútí</subdivision>
+			<subdivision type="twkhh" draft="provisional">Kaohsiung</subdivision>
+			<subdivision type="twpen" draft="provisional">Penghu</subdivision>
+			<subdivision type="twtnn" draft="provisional">Taínan</subdivision>
+			<subdivision type="twtpe" draft="provisional">Taípei</subdivision>
+			<subdivision type="ua09" draft="provisional">Lúhanska Oblast</subdivision>
+			<subdivision type="ua12" draft="provisional">Dníprópetrovskfylki</subdivision>
+			<subdivision type="ua14" draft="provisional">Donetska Oblast</subdivision>
+			<subdivision type="ua18" draft="provisional">Zjytómýrfylki</subdivision>
+			<subdivision type="ua23" draft="provisional">Zapórizjyskfylki</subdivision>
+			<subdivision type="ua30" draft="provisional">Kíev</subdivision>
+			<subdivision type="ua40" draft="provisional">Sevastópol</subdivision>
+			<subdivision type="ua59" draft="provisional">Sumska oblast (hérað)</subdivision>
+			<subdivision type="ua61" draft="provisional">Ternopílska oblast</subdivision>
+			<subdivision type="um67" draft="provisional">Johnstoneyja</subdivision>
+			<subdivision type="um71" draft="provisional">Midwayeyja</subdivision>
+			<subdivision type="um76" draft="provisional">Navassaeyja</subdivision>
+			<subdivision type="um79" draft="provisional">Varsímaeyja</subdivision>
+			<subdivision type="um81" draft="provisional">Bakereyja</subdivision>
+			<subdivision type="um84" draft="provisional">Howlandeyja</subdivision>
+			<subdivision type="um86" draft="provisional">Jarviseyja</subdivision>
+			<subdivision type="um89" draft="provisional">Kingmanrif</subdivision>
+			<subdivision type="um95" draft="provisional">Palmyraeyja</subdivision>
+			<subdivision type="usak" draft="provisional">Alaska</subdivision>
+			<subdivision type="usal" draft="provisional">Alabama</subdivision>
+			<subdivision type="usar" draft="provisional">Arkansas</subdivision>
+			<subdivision type="usaz" draft="provisional">Arizona</subdivision>
+			<subdivision type="usca" draft="provisional">Kalifornía</subdivision>
+			<subdivision type="usco" draft="provisional">Colorado</subdivision>
+			<subdivision type="usct" draft="provisional">Connecticut</subdivision>
+			<subdivision type="usdc" draft="provisional">Washington</subdivision>
+			<subdivision type="usde" draft="provisional">Delaware</subdivision>
+			<subdivision type="usfl" draft="provisional">Flórída</subdivision>
+			<subdivision type="usga" draft="provisional">Georgía</subdivision>
+			<subdivision type="ushi" draft="provisional">Hawaii / Havaí / Hawaí</subdivision>
+			<subdivision type="usia" draft="provisional">Iowa</subdivision>
+			<subdivision type="usid" draft="provisional">Idaho</subdivision>
+			<subdivision type="usil" draft="provisional">Illinois</subdivision>
+			<subdivision type="usin" draft="provisional">Indiana</subdivision>
+			<subdivision type="usks" draft="provisional">Kansas</subdivision>
+			<subdivision type="usky" draft="provisional">Kentucky</subdivision>
+			<subdivision type="usla" draft="provisional">Louisiana</subdivision>
+			<subdivision type="usma" draft="provisional">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="provisional">Maryland</subdivision>
+			<subdivision type="usme" draft="provisional">Maine</subdivision>
+			<subdivision type="usmi" draft="provisional">Michigan</subdivision>
+			<subdivision type="usmn" draft="provisional">Minnesota</subdivision>
+			<subdivision type="usmo" draft="provisional">Missouri</subdivision>
+			<subdivision type="usms" draft="provisional">Mississippi</subdivision>
+			<subdivision type="usmt" draft="provisional">Montana</subdivision>
+			<subdivision type="usnc" draft="provisional">Norður-Karólína</subdivision>
+			<subdivision type="usnd" draft="provisional">Norður-Dakóta</subdivision>
+			<subdivision type="usne" draft="provisional">Nebraska</subdivision>
+			<subdivision type="usnh" draft="provisional">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="provisional">New Jersey</subdivision>
+			<subdivision type="usnm" draft="provisional">New Mexico</subdivision>
+			<subdivision type="usnv" draft="provisional">Nevada</subdivision>
+			<subdivision type="usny" draft="provisional">New York-fylki</subdivision>
+			<subdivision type="usoh" draft="provisional">Ohio</subdivision>
+			<subdivision type="usok" draft="provisional">Oklahoma</subdivision>
+			<subdivision type="usor" draft="provisional">Oregon</subdivision>
+			<subdivision type="uspa" draft="provisional">Pennsylvanía</subdivision>
+			<subdivision type="usri" draft="provisional">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="provisional">Suður-Karólína</subdivision>
+			<subdivision type="ussd" draft="provisional">Suður-Dakóta</subdivision>
+			<subdivision type="ustn" draft="provisional">Tennessee</subdivision>
+			<subdivision type="ustx" draft="provisional">Texas</subdivision>
+			<subdivision type="usut" draft="provisional">Utah</subdivision>
+			<subdivision type="usva" draft="provisional">Virginía</subdivision>
+			<subdivision type="usvt" draft="provisional">Vermont</subdivision>
+			<subdivision type="uswa" draft="provisional">Washington²</subdivision>
+			<subdivision type="uswi" draft="provisional">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="provisional">Vestur-Virginía</subdivision>
+			<subdivision type="uswy" draft="provisional">Wyoming</subdivision>
+			<subdivision type="uymo" draft="provisional">Montevídeó</subdivision>
+			<subdivision type="uztk" draft="provisional">Taskent</subdivision>
+			<subdivision type="vn18" draft="provisional">Ninh Bình</subdivision>
+			<subdivision type="vnhn" draft="provisional">Hanoí</subdivision>
+			<subdivision type="vnsg" draft="provisional">Ho Chi Minh-borg</subdivision>
+			<subdivision type="wfal" draft="provisional">Alo</subdivision>
+			<subdivision type="wfsg" draft="provisional">Sigave</subdivision>
+			<subdivision type="wfuv" draft="provisional">Uvea</subdivision>
+			<subdivision type="yesa" draft="provisional">Sana</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

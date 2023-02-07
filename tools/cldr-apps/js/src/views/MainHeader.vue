@@ -62,6 +62,7 @@
           v-bind:title="org"
         ></span>
         &nbsp;
+        <cldr-searchbutton />
         <cldr-loginbutton />
       </li>
     </ul>

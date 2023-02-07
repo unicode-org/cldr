@@ -678,7 +678,7 @@ public class ShowLocaleCoverage {
                 + "The Core values are described on <a target='_blank' href='https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales'>Core Data</a>. "
                 + "</td></tr>\n"
                 + "<tr><th>Missing Features</th><td>These are not single items, but rather specific features, such as plural rules or unit grammar info. "
-                + "They are listed if missing at the computed level.<br>"
+                + "They are listed if missing at the computed level. For more information, see <a href='https://cldr.unicode.org/index/locale-coverage'>Missing Features</a><br>"
                 + "Example: <i>ⓜ collation</i> means this feature should be supported at a Moderate level.<br>"
                 + "<ul><li>"
                 + "<i>Except for Core, these are not accounted for in the percent values.</i>"

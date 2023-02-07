@@ -928,6 +928,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST likelySubtag to NMTOKEN #REQUIRED >
     <!--@MATCH:validity/locale-->
     <!--@VALUE-->
+<!ATTLIST likelySubtag origin NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/sil22,wikidata,special-->
+    <!--@METADATA-->
 
 <!ELEMENT metazoneInfo ( timezone* ) >
 

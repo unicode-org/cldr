@@ -40,7 +40,7 @@ import com.ibm.icu.util.Output;
 
 public class GenerateAdditionalLikely {
 
-    private static final String SIL = "sil22";
+    private static final String SIL = "sil1";
     private static final boolean ADD_SEED_EXEMPLARS = false;
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -69,7 +69,7 @@ public class GenerateAdditionalLikely {
                 int debug = 0;
             }
             data = Row.of(lang, script, region, source);
-        }
+            data.freeze();       }
 
         @Override
         public String toString() {
@@ -92,11 +92,14 @@ public class GenerateAdditionalLikely {
             // TODO Auto-generated method stub
             //      <likelySubtag from="aa" to="aa_Latn_ET"/>
             // <!--{ Afar; ?; ? } => { Afar; Latin; Ethiopia }-->
-            String target = combineLSR(data.get0(), data.get1(), data.get2());
-            return "<likelySubtag from=\"" + source + "\" to=\"" + target + "\"/>"
-            + "\t<!-- " + english.getName(source) + " ➡︎ " + english.getName(target)
-            + "; " + data.get3()
-            + " -->";
+            final String target = combineLSR(data.get0(), data.get1(), data.get2());
+            final String origin = data.get3();
+            final String result = "<likelySubtag from=\"" + source
+                + "\" to=\"" + target
+                + (origin.isBlank() ? "" : "\" origin=\"" + origin)
+                + "\"/>"
+                + "\t<!-- " + english.getName(source) + " ➡︎ " + english.getName(target) + " -->";
+            return result;
         }
 
         public static String combineLSR(String lang, String script, String region) {
@@ -197,7 +200,7 @@ public class GenerateAdditionalLikely {
             }
         }
 
-        System.out.println("\nData to add\n");
+        System.out.println("\nData to add: " + (result.entrySet().size() - defects.size()) + "\n");
 
         for (Entry<String, LSRSource> entry : result.entrySet()) {
             String source = entry.getKey();
@@ -356,7 +359,7 @@ public class GenerateAdditionalLikely {
                                     Collection<String> tempRegions = langToRegion.get(fullLang); // synthesize
                                     if (!tempRegions.isEmpty()) {
                                         fullRegion = tempRegions.iterator().next();
-                                        reference += "+wikipedia";
+                                        reference += " wikidata";
                                     }
                                 }
 

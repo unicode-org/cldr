@@ -1730,6 +1730,11 @@ public class SupplementalDataInfo {
         }
 
         private void handleParentLocales(XPathParts parts) {
+            if (parts.getAttributeValue(1, "component") != null) {
+                // CLDR-16253 added component-specific parents, which we ignore for now.
+                // TODO(CLDR-16361): Figure out how to handle these in CLDR itself.
+                return;
+            }
             String parent = parts.getAttributeValue(-1, "parent");
             String locales = parts.getAttributeValue(-1, "locales");
             String[] pl = locales.split(" ");

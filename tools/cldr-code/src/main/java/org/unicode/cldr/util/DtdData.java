@@ -138,6 +138,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             element = element2;
             name = aName.intern();
             if (name.equals("draft") // normally never permitted on elements with children, but special cases...
+                && dtdType == DtdType.ldml
                 && !DRAFT_ON_NON_LEAF_ALLOWED.contains(element.getName())) {
                 int elementChildrenCount = element.getChildren().size();
                 if (elementChildrenCount > 1

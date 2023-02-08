@@ -465,6 +465,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@METADATA-->
 <!ATTLIST exemplarCharacters validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
@@ -2829,6 +2830,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST cr draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cr references CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!-- # Use the cr element instead, with ICU syntax. -->
@@ -3123,7 +3125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:or/range/-1.0E20~1.0E20||literal/-x, 0, 0.x, NaN, -Inf, Inf, x,x, x.x-->
     <!--@VALUE-->
 <!ATTLIST rbnfrule radix CDATA #IMPLIED >
-    <!--@MATCH:literal/1,000, 100, 1000, 100000, 20-->
+    <!--@MATCH:literal/1,000, 100, 1000, 100000, 5, 20, 400, 8000, 160,000, 3,200,000, 64,000,000-->
     <!--@VALUE-->
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
     <!--@VALUE-->

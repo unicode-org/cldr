@@ -2826,7 +2826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT cr ( #PCDATA ) >
 <!ATTLIST cr alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant, proposed-->
+    <!--@MATCH:literal/variant, proposed, short-->
 <!ATTLIST cr draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cr references CDATA #IMPLIED >

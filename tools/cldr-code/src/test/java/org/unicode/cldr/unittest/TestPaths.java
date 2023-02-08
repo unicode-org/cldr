@@ -34,13 +34,15 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableSet;
 
 public class TestPaths extends TestFmwkPlus {
-    static CLDRConfig testInfo = CLDRConfig.getInstance();
+    static final CLDRConfig testInfo = CLDRConfig.getInstance();
+    static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo(); // Load first, before XPartPaths is called
 
     public static void main(String[] args) {
         new TestPaths().run(args);
@@ -294,7 +296,8 @@ public class TestPaths extends TestFmwkPlus {
         static final Set<String> ALLOWED = new HashSet<>(Arrays.asList("postalCodeData", "postCodeRegex"));
         static final Set<String> OK_IF_MISSING = new HashSet<>(Arrays.asList("alt", "draft", "references"));
 
-        public boolean check(DtdData dtdData, XPathParts parts, String fullName) {
+        public boolean check(XPathParts parts, String fullName) {
+            DtdData dtdData = parts.getDtdData();
             for (int i = 0; i < parts.size(); ++i) {
                 String elementName = parts.getElement(i);
                 if (dtdData.isDeprecated(elementName, "*", "*")) {
@@ -443,7 +446,6 @@ public class TestPaths extends TestFmwkPlus {
                         DtdData dtdData = parts.getDtdData();
                         DtdType type = dtdData.dtdType;
 
-
                         String finalElementString = parts.getElement(-1);
                         Element finalElement = dtdData.getElementFromName().get(finalElementString);
                         if (!haveErrorsAlready.contains(finalElement)) {
@@ -475,7 +477,7 @@ public class TestPaths extends TestFmwkPlus {
                             }
                         }
 
-                        if (checkDeprecated.check(dtdData, parts, fullName)) {
+                        if (checkDeprecated.check(parts, fullName)) {
                             break;
                         }
 
@@ -483,12 +485,15 @@ public class TestPaths extends TestFmwkPlus {
                         if (skipLast.contains(last)) {
                             continue;
                         }
+
+                        checkParts(fileName + "/" + file, parts);
+
                         String dpath = CLDRFile.getDistinguishingXPath(path, normalizedPath);
                         if (!dpath.equals(path)) {
-                            checkParts(fileName + "/" + file, dpath, dtdData);
+                            checkParts(fileName + "/" + file, dpath);
                         }
                         if (!normalizedPath.equals(path) && !normalizedPath[0].equals(dpath)) {
-                            checkParts(fileName + "/" + file, normalizedPath[0], dtdData);
+                            checkParts(fileName + "/" + file, normalizedPath[0]);
                         }
                         XPathParts mutableParts = parts.cloneAsThawed();
                         counter = removeNonDistinguishing(mutableParts, dtdData, counter, removed, nonFinalValues);
@@ -522,8 +527,12 @@ public class TestPaths extends TestFmwkPlus {
         checkDeprecated.show(getInclusion());
     }
 
-    private void checkParts(String file, String path, DtdData dtdData) {
-        XPathParts parts = XPathParts.getFrozenInstance(path);
+    private void checkParts(String file, String path) {
+        checkParts(file, XPathParts.getFrozenInstance(path));
+    }
+
+    public void checkParts(String file, XPathParts parts) {
+        DtdData dtdData = parts.getDtdData();
         Element current = dtdData.ROOT;
         for (int i = 0; i < parts.size(); ++i) {
             String elementName = parts.getElement(i);

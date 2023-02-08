@@ -26,16 +26,45 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.*;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileProcessor;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PathChecker;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.SupplementalDataInfo;
 // import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -2399,6 +2428,30 @@ public class CLDRModify {
                     // System.out.println(">!> " + dPath);
                     final String fPath = vxmlFile.getFullXPath(dPath);
                     add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                }
+            }
+        });
+
+        fixList.add('V', "Fix values that would inherit laterally", new CLDRFilter() {
+            boolean skip;
+            @Override
+            public void handleStart() {
+                skip = "ROOT".equals(LocaleIDParser.getParent(cldrFileToFilter.getLocaleID()));
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (skip) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    Output<String> pathWhereFound = new Output<>();
+                    Output<String> localeWhereFound = new Output<>();
+                    String baileyValue = getResolved().getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                    if (baileyValue != null && !xpath.equals(pathWhereFound.value)) {
+                        String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullPath, fullPath, baileyValue, "fix lateral");
+                    }
                 }
             }
         });

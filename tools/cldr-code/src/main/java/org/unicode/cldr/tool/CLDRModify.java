@@ -2436,7 +2436,7 @@ public class CLDRModify {
             boolean skip;
             @Override
             public void handleStart() {
-                skip = "ROOT".equals(LocaleIDParser.getParent(cldrFileToFilter.getLocaleID()));
+                skip = !XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(getLocaleID()));
             }
             @Override
             public void handlePath(String xpath) {
@@ -2448,7 +2448,9 @@ public class CLDRModify {
                     Output<String> pathWhereFound = new Output<>();
                     Output<String> localeWhereFound = new Output<>();
                     String baileyValue = getResolved().getBaileyValue(xpath, pathWhereFound, localeWhereFound);
-                    if (baileyValue != null && !xpath.equals(pathWhereFound.value)) {
+                    if (baileyValue != null
+                        && !xpath.equals(pathWhereFound.value)
+                        && !"constructed".equals(pathWhereFound.value)) {
                         String fullPath = cldrFileToFilter.getFullXPath(xpath);
                         replace(fullPath, fullPath, baileyValue, "fix lateral");
                     }

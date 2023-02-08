@@ -127,7 +127,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chy">cheyenne</language>
 			<language type="ckb">soranî</language>
 			<language type="ckb" alt="menu">kurdi – soranî</language>
-			<language type="ckb" alt="variant">↑↑↑</language>
+			<language type="ckb" alt="variant">soranî</language>
 			<language type="clc">chilcotin</language>
 			<language type="co">korsika</language>
 			<language type="cop">kopti</language>
@@ -1176,7 +1176,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkki</territory>
-			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TR" alt="variant">Turkki</territory>
 			<territory type="TT">Trinidad ja Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
@@ -1609,37 +1609,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d">↑↑↑</dateFormatItem>
-						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">d.M.y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M.</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="contributed">d. MMMM</dateFormatItem>
@@ -1900,7 +1900,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2216,11 +2216,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<day type="sat">la</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
 							<day type="wed">K</day>
-							<day type="thu">↑↑↑</day>
+							<day type="thu">T</day>
 							<day type="fri">P</day>
 							<day type="sat">L</day>
 						</dayWidth>
@@ -2498,7 +2498,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2950,7 +2950,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<calendar type="japanese">
 				<eras>
 					<eraNames>
-						<era type="236" draft="contributed">↑↑↑</era>
+						<era type="236" draft="contributed">Reiwa</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="236" draft="contributed">↑↑↑</era>
@@ -6046,7 +6046,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator>.</timeSeparator>
 		</symbols>
 		<symbols numberSystem="sora">
-			<nan draft="contributed">↑↑↑</nan>
+			<nan draft="contributed">epäluku</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -7600,7 +7600,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="SLE">
 				<displayName>Sierra Leonen leone</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">Sierra Leonen leonea</displayName>
 				<displayName count="other">Sierra Leonen leonea</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -8214,7 +8214,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other">kuutio{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G-voimat</displayName>
@@ -8227,7 +8227,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} G-voimasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} G-voiman</unitPattern>
 				<unitPattern count="other" case="illative">{0} G-voimaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} G-voimaa</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>metrit per sekunti toiseen</displayName>
@@ -8240,7 +8240,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} metristä per sekunti toiseen</unitPattern>
 				<unitPattern count="other" case="genitive">{0} metrin per sekunti toiseen</unitPattern>
 				<unitPattern count="other" case="illative">{0} metriin per sekunti toiseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} metriä per sekunti toiseen</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>kierros</displayName>
@@ -8253,7 +8253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kierroksesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kierroksen</unitPattern>
 				<unitPattern count="other" case="illative">{0} kierrokseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kierrosta</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>radiaanit</displayName>
@@ -8266,7 +8266,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} radiaanista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} radiaanin</unitPattern>
 				<unitPattern count="other" case="illative">{0} radiaaniin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} radiaania</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>asteet</displayName>
@@ -8279,7 +8279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} asteesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} asteen</unitPattern>
 				<unitPattern count="other" case="illative">{0} asteeseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} astetta</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>kulmaminuutit</displayName>
@@ -8292,7 +8292,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kulmaminuutista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kulmaminuutin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kulmaminuuttiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kulmaminuuttia</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>kulmasekunnit</displayName>
@@ -8305,7 +8305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kulmasekunnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kulmasekunnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kulmasekuntiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kulmasekuntia</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>neliökilometrit</displayName>
@@ -8318,7 +8318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} neliökilometristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} neliökilometrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} neliökilometriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} neliökilometriä</unitPattern>
 				<perUnitPattern>{0} / neliökilometri</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
@@ -8332,7 +8332,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} hehtaarista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} hehtaarin</unitPattern>
 				<unitPattern count="other" case="illative">{0} hehtaariin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} hehtaaria</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>neliömetrit</displayName>
@@ -8345,7 +8345,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} neliömetristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} neliömetrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} neliömetriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} neliömetriä</unitPattern>
 				<perUnitPattern>{0} / neliömetri</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
@@ -8359,7 +8359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} neliösenttimetristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} neliösenttimetrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} neliösenttimetriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} neliösenttimetriä</unitPattern>
 				<perUnitPattern>{0} / neliösenttimetri</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
@@ -8391,7 +8391,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>dunamit</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} dunam</unitPattern>
 				<unitPattern count="other">{0} dunamia</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -8405,7 +8405,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} karaatista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} karaatin</unitPattern>
 				<unitPattern count="other" case="illative">{0} karaattiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} karaattia</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>milligrammat desilitrassa</displayName>
@@ -8423,7 +8423,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} millimoolista litrassa</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millimoolin litrassa</unitPattern>
 				<unitPattern count="other" case="illative">{0} millimooliin litrassa</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} millimoolia litrassa</unitPattern>
 			</unit>
 			<unit type="concentr-item">
 				<displayName>kohteet</displayName>
@@ -8436,7 +8436,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kohteesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kohteen</unitPattern>
 				<unitPattern count="other" case="illative">{0} kohteeseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kohdetta</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>miljoonasosat</displayName>
@@ -8449,7 +8449,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} miljoonasosasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} miljoonasosan</unitPattern>
 				<unitPattern count="other" case="illative">{0} miljoonasosaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} miljoonasosaa</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>prosentit</displayName>
@@ -8462,7 +8462,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} prosentista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} prosentin</unitPattern>
 				<unitPattern count="other" case="illative">{0} prosenttiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} prosenttia</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>promillet</displayName>
@@ -8475,7 +8475,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} promillesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} promillen</unitPattern>
 				<unitPattern count="other" case="illative">{0} promilleen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} promillea</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>peruspiste</displayName>
@@ -8488,7 +8488,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} peruspisteestä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} peruspisteen</unitPattern>
 				<unitPattern count="other" case="illative">{0} peruspisteeseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} peruspistettä</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>moolit</displayName>
@@ -8501,7 +8501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} moolista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} moolin</unitPattern>
 				<unitPattern count="other" case="illative">{0} mooliin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} moolia</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrat / kilometri</displayName>
@@ -8527,7 +8527,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} litrasta / 100 km</unitPattern>
 				<unitPattern count="other" case="genitive">{0} litran / 100 km</unitPattern>
 				<unitPattern count="other" case="illative">{0} litraan / 100 km</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} litraa / 100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mailit / am. gallona</displayName>
@@ -8550,7 +8550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} petatavusta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} petatavun</unitPattern>
 				<unitPattern count="other" case="illative">{0} petatavuun</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} petatavua</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>teratavut</displayName>
@@ -8563,7 +8563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} teratavusta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} teratavun</unitPattern>
 				<unitPattern count="other" case="illative">{0} teratavuun</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} teratavua</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>terabitit</displayName>
@@ -8576,7 +8576,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} terabitistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} terabitin</unitPattern>
 				<unitPattern count="other" case="illative">{0} terabittiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} terabittiä</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName>gigatavut</displayName>
@@ -8641,7 +8641,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilotavusta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilotavun</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilotavuun</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilotavua</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>kilobitit</displayName>
@@ -8667,7 +8667,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} tavusta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} tavun</unitPattern>
 				<unitPattern count="other" case="illative">{0} tavuun</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} tavua</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName>bitit</displayName>
@@ -8680,7 +8680,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} bitistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} bitin</unitPattern>
 				<unitPattern count="other" case="illative">{0} bittiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} bittiä</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>vuosisadat</displayName>
@@ -8693,7 +8693,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} vuosisadasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} vuosisadan</unitPattern>
 				<unitPattern count="other" case="illative">{0} vuosisataan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} vuosisataa</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>vuosikymmenet</displayName>
@@ -8706,7 +8706,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} vuosikymmenestä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} vuosikymmenen</unitPattern>
 				<unitPattern count="other" case="illative">{0} vuosikymmeneen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} vuosikymmentä</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>vuodet</displayName>
@@ -8775,7 +8775,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} päivästä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} päivän</unitPattern>
 				<unitPattern count="other" case="illative">{0} päivään</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} päivää</unitPattern>
 				<perUnitPattern>{0} / päivä</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
@@ -8789,7 +8789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} tunnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} tunnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} tuntiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} tuntia</unitPattern>
 				<perUnitPattern>{0} / tunti</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
@@ -8831,7 +8831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} millisekunnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millisekunnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} millisekuntiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} millisekuntia</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>mikrosekunnit</displayName>
@@ -8844,7 +8844,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} mikrosekunnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} mikrosekunnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} mikrosekuntiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} mikrosekuntia</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>nanosekunnit</displayName>
@@ -8870,7 +8870,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} ampeerista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} ampeerin</unitPattern>
 				<unitPattern count="other" case="illative">{0} ampeeriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} ampeeria</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>milliampeerit</displayName>
@@ -8883,7 +8883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} milliampeerista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} milliampeerin</unitPattern>
 				<unitPattern count="other" case="illative">{0} milliampeeriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} milliampeeria</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName>ohmit</displayName>
@@ -8896,7 +8896,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} ohmista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} ohmin</unitPattern>
 				<unitPattern count="other" case="illative">{0} ohmiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} ohmia</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName>voltit</displayName>
@@ -8909,7 +8909,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} voltista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} voltin</unitPattern>
 				<unitPattern count="other" case="illative">{0} volttiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} volttia</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>kilokalorit</displayName>
@@ -8927,7 +8927,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kalorista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kalorin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kaloriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kaloria</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>kilokalorit</displayName>
@@ -8945,7 +8945,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilojoulesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilojoulen</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilojouleen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilojoulea</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>joulet</displayName>
@@ -8958,7 +8958,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} joulesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} joulen</unitPattern>
 				<unitPattern count="other" case="illative">{0} jouleen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} joulea</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>kilowattitunnit</displayName>
@@ -8971,7 +8971,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilowattitunnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilowattitunnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilowattituntiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilowattituntia</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>elektronivoltit</displayName>
@@ -8984,9 +8984,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} brittiläistä termistä yksikköä</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>US therm</displayName>
+				<unitPattern count="one">{0} US therm</unitPattern>
+				<unitPattern count="other">{0} US therm</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>pauna-voimat</displayName>
@@ -9004,7 +9004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} newtonista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} newtonin</unitPattern>
 				<unitPattern count="other" case="illative">{0} newtoniin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} newtonia</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kilowattitunnit / 100 kilometriä</displayName>
@@ -9030,7 +9030,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} gigahertsistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} gigahertsin</unitPattern>
 				<unitPattern count="other" case="illative">{0} gigahertsiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} gigahertsiä</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName>megahertsit</displayName>
@@ -9043,7 +9043,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} megahertsistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} megahertsin</unitPattern>
 				<unitPattern count="other" case="illative">{0} megahertsiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} megahertsiä</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>kilohertsit</displayName>
@@ -9056,7 +9056,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilohertsistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilohertsin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilohertsiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilohertsiä</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName>hertsit</displayName>
@@ -9069,7 +9069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} hertsistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} hertsin</unitPattern>
 				<unitPattern count="other" case="illative">{0} hertsiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} hertsiä</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>em-väli</displayName>
@@ -9124,14 +9124,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="partitive">{0} pikseliä / senttimetri</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppi</displayName>
+				<unitPattern count="one">{0} ppi</unitPattern>
+				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppcm</displayName>
+				<unitPattern count="one">{0} ppcm</unitPattern>
+				<unitPattern count="other">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>dpi</displayName>
@@ -9159,7 +9159,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilometristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilometrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilometriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilometriä</unitPattern>
 				<perUnitPattern>{0} / kilometri</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
@@ -9187,7 +9187,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} desimetristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} desimetrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} desimetriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} desimetriä</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>senttimetrit</displayName>
@@ -9200,7 +9200,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} senttimetristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} senttimetrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} senttimetriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} senttimetriä</unitPattern>
 				<perUnitPattern>{0} / senttimetri</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
@@ -9214,7 +9214,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} millimetristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millimetrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} millimetriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} millimetriä</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>mikrometrit</displayName>
@@ -9253,7 +9253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} pikometristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} pikometrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} pikometriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} pikometriä</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>mailit</displayName>
@@ -9318,7 +9318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} peninkulmasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} peninkulman</unitPattern>
 				<unitPattern count="other" case="illative">{0} peninkulmaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} peninkulmaa</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>pt</displayName>
@@ -9341,7 +9341,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} luksista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} luksin</unitPattern>
 				<unitPattern count="other" case="illative">{0} luksiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} luksia</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>kandelat</displayName>
@@ -9367,7 +9367,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} luumenista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} luumenin</unitPattern>
 				<unitPattern count="other" case="illative">{0} luumeniin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} luumenia</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>Auringon luminositeetit</displayName>
@@ -9385,7 +9385,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} tonnista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} tonnin</unitPattern>
 				<unitPattern count="other" case="illative">{0} tonniin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} tonnia</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>kilogrammat</displayName>
@@ -9398,7 +9398,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilogrammasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilogramman</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilogrammaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilogrammaa</unitPattern>
 				<perUnitPattern>{0} / kilogramma</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
@@ -9412,7 +9412,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} grammasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} gramman</unitPattern>
 				<unitPattern count="other" case="illative">{0} grammaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} grammaa</unitPattern>
 				<perUnitPattern>{0} / gramma</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
@@ -9426,7 +9426,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} milligrammasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} milligramman</unitPattern>
 				<unitPattern count="other" case="illative">{0} milligrammaan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} milligrammaa</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>mikrogrammat</displayName>
@@ -9479,7 +9479,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} karaatista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} karaatin</unitPattern>
 				<unitPattern count="other" case="illative">{0} karaattiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} karaattia</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>atomimassayksiköt</displayName>
@@ -9512,7 +9512,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} gigawatista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} gigawatin</unitPattern>
 				<unitPattern count="other" case="illative">{0} gigawattiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} gigawattia</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>megawatit</displayName>
@@ -9525,7 +9525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} megawatista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} megawatin</unitPattern>
 				<unitPattern count="other" case="illative">{0} megawattiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} megawattia</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>kilowatit</displayName>
@@ -9551,7 +9551,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} watista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} watin</unitPattern>
 				<unitPattern count="other" case="illative">{0} wattiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} wattia</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>milliwatit</displayName>
@@ -9597,7 +9597,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} baarista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} baarin</unitPattern>
 				<unitPattern count="other" case="illative">{0} baariin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} baaria</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>millibaarit</displayName>
@@ -9610,7 +9610,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} millibaarista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millibaarin</unitPattern>
 				<unitPattern count="other" case="illative">{0} millibaariin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} millibaaria</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName>normaali-ilmakehät</displayName>
@@ -9623,7 +9623,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} normaali-ilmakehästä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} normaali-ilmakehän</unitPattern>
 				<unitPattern count="other" case="illative">{0} normaali-ilmakehään</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} normaali-ilmakehää</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>pascalit</displayName>
@@ -9636,7 +9636,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} pascalista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} pascalin</unitPattern>
 				<unitPattern count="other" case="illative">{0} pascaliin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} pascalia</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hehtopascalit</displayName>
@@ -9649,7 +9649,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} hehtopascalista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} hehtopascalin</unitPattern>
 				<unitPattern count="other" case="illative">{0} hehtopascaliin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} hehtopascalia</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>kilopascalit</displayName>
@@ -9662,7 +9662,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilopascalista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilopascalin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilopascaliin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilopascalia</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>megapascalit</displayName>
@@ -9675,7 +9675,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} megapascalista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} megapascalin</unitPattern>
 				<unitPattern count="other" case="illative">{0} megapascaliin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} megapascalia</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometrit tunnissa</displayName>
@@ -9688,7 +9688,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kilometristä tunnissa</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilometrin tunnissa</unitPattern>
 				<unitPattern count="other" case="illative">{0} kilometriin tunnissa</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kilometriä tunnissa</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metrit sekunnissa</displayName>
@@ -9737,7 +9737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} celsiusasteesta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} celsiusasteen</unitPattern>
 				<unitPattern count="other" case="illative">{0} celsiusasteeseen</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} celsiusastetta</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>fahrenheitasteet</displayName>
@@ -9755,7 +9755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kelvinistä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kelvinin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kelviniin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kelviniä</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>pauna-jalat</displayName>
@@ -9786,7 +9786,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kuutiokilometristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kuutiokilometrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kuutiokilometriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kuutiokilometriä</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>kuutiometrit</displayName>
@@ -9799,7 +9799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} kuutiometristä</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kuutiometrin</unitPattern>
 				<unitPattern count="other" case="illative">{0} kuutiometriin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} kuutiometriä</unitPattern>
 				<perUnitPattern>{0} / kuutiometri</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
@@ -9847,7 +9847,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} megalitrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} megalitran</unitPattern>
 				<unitPattern count="other" case="illative">{0} megalitraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} megalitraa</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hehtolitrat</displayName>
@@ -9860,7 +9860,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} hehtolitrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} hehtolitran</unitPattern>
 				<unitPattern count="other" case="illative">{0} hehtolitraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} hehtolitraa</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>litrat</displayName>
@@ -9873,7 +9873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} litrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} litran</unitPattern>
 				<unitPattern count="other" case="illative">{0} litraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} litraa</unitPattern>
 				<perUnitPattern>{0} / litra</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -9887,7 +9887,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} desilitrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} desilitran</unitPattern>
 				<unitPattern count="other" case="illative">{0} desilitraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} desilitraa</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>senttilitrat</displayName>
@@ -9900,7 +9900,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} senttilitrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} senttilitran</unitPattern>
 				<unitPattern count="other" case="illative">{0} senttilitraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} senttilitraa</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>millilitrat</displayName>
@@ -9913,7 +9913,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} millilitrasta</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millilitran</unitPattern>
 				<unitPattern count="other" case="illative">{0} millilitraan</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} millilitraa</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>tuopit</displayName>
@@ -9926,7 +9926,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} tuopista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} tuopin</unitPattern>
 				<unitPattern count="other" case="illative">{0} tuoppiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} tuoppia</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>teekupit</displayName>
@@ -9939,7 +9939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="elative">{0} teekupista</unitPattern>
 				<unitPattern count="other" case="genitive">{0} teekupin</unitPattern>
 				<unitPattern count="other" case="illative">{0} teekuppiin</unitPattern>
-				<unitPattern count="other" case="partitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="partitive">{0} teekuppia</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>eekkerijalat</displayName>
@@ -10364,7 +10364,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-decade">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} dec</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
@@ -10375,7 +10375,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>q</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} q</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
@@ -10447,7 +10447,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="electric-volt">
 				<displayName>V</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} V</unitPattern>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
@@ -10492,7 +10492,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} US therm</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
@@ -10502,7 +10502,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-newton">
 				<displayName>newton</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} N</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
@@ -10532,38 +10532,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} em</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} px</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} MP</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ppcm</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ppi</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppcm</displayName>
+				<unitPattern count="one">{0} ppcm</unitPattern>
+				<unitPattern count="other">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppi</displayName>
+				<unitPattern count="one">{0} ppi</unitPattern>
+				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>piste</displayName>
@@ -10572,7 +10572,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} R⊕</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
@@ -10682,7 +10682,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>auringon säteet</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} R☉</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -10692,12 +10692,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-candela">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} cd</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} lm</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
@@ -10766,12 +10766,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>atomimassayksiköt</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Da</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>Maan massat</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} M⊕</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
@@ -10831,7 +10831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} bar</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -10841,12 +10841,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} atm</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Pa</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
@@ -10856,12 +10856,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} kPa</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} MPa</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -11051,7 +11051,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>barrelit</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} bbl</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
@@ -11099,104 +11099,104 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="10p-1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>d{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>c{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>m{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>n{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-12">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>p{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-15">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>f{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-18">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>a{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-21">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>z{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-24">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>y{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>da{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>h{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>k{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>M{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p9">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>G{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p12">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>T{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p15">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>P{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p18">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>E{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p21">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Z{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Y{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ki{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Mi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Gi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p4">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ti{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Pi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ei{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Zi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Yi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G</displayName>
@@ -11284,7 +11284,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
+				<displayName>dunamit</displayName>
 				<unitPattern count="one">{0}dunam</unitPattern>
 				<unitPattern count="other">{0}dunam</unitPattern>
 			</unit>
@@ -11314,12 +11314,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
-				<displayName>↑↑↑</displayName>
+				<displayName>%</displayName>
 				<unitPattern count="one">{0} %</unitPattern>
 				<unitPattern count="other">{0} %</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName>↑↑↑</displayName>
+				<displayName>‰</displayName>
 				<unitPattern count="one">{0}‰</unitPattern>
 				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
@@ -11414,9 +11414,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} vs</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>dec</displayName>
+				<unitPattern count="one">{0} dec</unitPattern>
+				<unitPattern count="other">{0} dec</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>v</displayName>
@@ -11426,9 +11426,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>q</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<unitPattern count="one">{0} q</unitPattern>
+				<unitPattern count="other">{0} q</unitPattern>
+				<perUnitPattern>{0}/q</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>kk</displayName>
@@ -11537,12 +11537,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}eV</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
+				<displayName>BTU</displayName>
 				<unitPattern count="one">{0}Btu</unitPattern>
 				<unitPattern count="other">{0}Btu</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
+				<displayName>US therm</displayName>
 				<unitPattern count="one">{0}US therm</unitPattern>
 				<unitPattern count="other">{0}US therm</unitPattern>
 			</unit>
@@ -11582,47 +11582,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}Hz</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
+				<displayName>em</displayName>
 				<unitPattern count="one">{0}em</unitPattern>
 				<unitPattern count="other">{0}em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
+				<displayName>px</displayName>
 				<unitPattern count="one">{0}px</unitPattern>
 				<unitPattern count="other">{0}px</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
+				<displayName>MP</displayName>
 				<unitPattern count="one">{0}MP</unitPattern>
 				<unitPattern count="other">{0}MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppcm</displayName>
 				<unitPattern count="one">{0}ppcm</unitPattern>
 				<unitPattern count="other">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppi</displayName>
 				<unitPattern count="one">{0}ppi</unitPattern>
 				<unitPattern count="other">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppcm</displayName>
 				<unitPattern count="one">{0}dpcm</unitPattern>
 				<unitPattern count="other">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppi</displayName>
 				<unitPattern count="one">{0}dpi</unitPattern>
 				<unitPattern count="other">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
+				<displayName>piste</displayName>
 				<unitPattern count="one">{0}piste</unitPattern>
 				<unitPattern count="other">{0}pistettä</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
+				<displayName>R⊕</displayName>
 				<unitPattern count="one">{0}R⊕</unitPattern>
 				<unitPattern count="other">{0}R⊕</unitPattern>
 			</unit>
@@ -11727,7 +11727,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}pnk</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
+				<displayName>pt</displayName>
 				<unitPattern count="one">{0}pt</unitPattern>
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
@@ -11742,12 +11742,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
+				<displayName>cd</displayName>
 				<unitPattern count="one">{0}cd</unitPattern>
 				<unitPattern count="other">{0}cd</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
+				<displayName>lm</displayName>
 				<unitPattern count="one">{0}lm</unitPattern>
 				<unitPattern count="other">{0}lm</unitPattern>
 			</unit>
@@ -11831,7 +11831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}M☉</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
+				<displayName>graanit</displayName>
 				<unitPattern count="one">{0}graani</unitPattern>
 				<unitPattern count="other">{0}graania</unitPattern>
 			</unit>
@@ -11891,12 +11891,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mbar</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
+				<displayName>atm</displayName>
 				<unitPattern count="one">{0}atm</unitPattern>
 				<unitPattern count="other">{0}atm</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>Pa</displayName>
 				<unitPattern count="one">{0}Pa</unitPattern>
 				<unitPattern count="other">{0}Pa</unitPattern>
 			</unit>
@@ -11906,12 +11906,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>kPa</displayName>
 				<unitPattern count="one">{0}kPa</unitPattern>
 				<unitPattern count="other">{0}kPa</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>MPa</displayName>
 				<unitPattern count="one">{0}MPa</unitPattern>
 				<unitPattern count="other">{0}MPa</unitPattern>
 			</unit>
@@ -11956,12 +11956,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName>lbf⋅ft</displayName>
 				<unitPattern count="one">{0}lbf⋅ft</unitPattern>
 				<unitPattern count="other">{0}lbf⋅ft</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName>Nm</displayName>
 				<unitPattern count="one">{0}Nm</unitPattern>
 				<unitPattern count="other">{0}Nm</unitPattern>
 			</unit>
@@ -12106,7 +12106,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}bbl</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>↑↑↑</displayName>
+				<displayName>jrkl</displayName>
 				<unitPattern count="one">{0}jrkl</unitPattern>
 				<unitPattern count="other">{0}jrkl</unitPattern>
 			</unit>
@@ -12121,17 +12121,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}gtt</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>↑↑↑</displayName>
+				<displayName>dramit</displayName>
 				<unitPattern count="one">{0}dram</unitPattern>
 				<unitPattern count="other">{0}dramia</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
+				<displayName>jiggerit</displayName>
 				<unitPattern count="one">{0}jigger</unitPattern>
 				<unitPattern count="other">{0}jiggeriä</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ripaus</displayName>
 				<unitPattern count="one">{0}ripaus</unitPattern>
 				<unitPattern count="other">{0}ripausta</unitPattern>
 			</unit>
@@ -12172,22 +12172,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} tai {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} tai {1}</listPatternPart>
+			<listPatternPart type="2">{0} tai {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} tai {1}</listPatternPart>
+			<listPatternPart type="2">{0} tai {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} ja {1}</listPatternPart>
+			<listPatternPart type="2">{0} ja {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -12414,10 +12414,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
@@ -12468,7 +12468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
 			<namePattern>{surname} {surname2} {given}, {title}</namePattern>
@@ -12483,10 +12483,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
 			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>

@@ -26,16 +26,45 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.*;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileProcessor;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PathChecker;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.SupplementalDataInfo;
 // import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -2399,6 +2428,110 @@ public class CLDRModify {
                     // System.out.println(">!> " + dPath);
                     final String fPath = vxmlFile.getFullXPath(dPath);
                     add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                }
+            }
+        });
+
+        fixList.add('V', "Fix values that would inherit laterally", new CLDRFilter() {
+            boolean skip;
+            @Override
+            public void handleStart() {
+                // skip if the locale id's parent isn't root. That is, it must be at level-1 locale.
+                skip = !XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(getLocaleID()));
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (skip) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    Output<String> pathWhereFound = new Output<>();
+                    Output<String> localeWhereFound = new Output<>();
+                    String baileyValue = getResolved().getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                    if (baileyValue != null
+                        && !xpath.equals(pathWhereFound.value)
+                        && !"constructed".equals(pathWhereFound.value)) {
+                        String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullPath, fullPath, baileyValue, "fix lateral");
+                    }
+                }
+            }
+        });
+
+        // 'F' = compare Fully resolved versions
+        // given two directories (main and production), verify that the corresponding fully resolved CLDRFiles
+        // for each locale are identical (and listing differences if they are not)”
+        fixList.add('F', "compare Fully resolved versions", new CLDRFilter() {
+            // vxmlDir needs to be the "production (post-vxml)" path of an existing copy of common/main
+            // For example, vetdata-2023-02-09-production ... see https://github.com/unicode-org/cldr/pull/2703
+            // Also ldml.dtd is required -- and should already have been created by ST when generating vxml
+            final private String vxmlDir = "../vetdata-2023-02-09-production/vxml/";
+            private Factory vxmlFactory = null;
+            private CLDRFile vxmlFileResolved = null;
+            private CLDRFile baselineFileResolved = null;
+            private File[] list = null;
+
+            @Override
+            public void handleSetup() {
+                final String vxmlSubPath = vxmlDir + "common/" + new File(options[SOURCEDIR].value).getName();
+                System.out.println(vxmlSubPath);
+                list = new File[]{
+                    new File(vxmlSubPath)
+                };
+            }
+
+            @Override
+            public void handleStart() {
+                if (vxmlFactory == null) {
+                    vxmlFactory = SimpleFactory.make(list, ".*");
+                 }
+                String localeID = cldrFileToFilter.getLocaleID();
+                if (cldrFileToFilter.isResolved()) { // true if "-z" added to command line
+                    baselineFileResolved = cldrFileToFilter;
+                } else {
+                    throw new RuntimeException(this.getLocaleID() + ": file is not resolved; use -z");
+                }
+                try {
+                    vxmlFileResolved = vxmlFactory.make(localeID, true /* resolved */);
+                } catch (Exception e) {
+                    System.err.println("Skipping " + localeID + " due to " + e);
+                    vxmlFileResolved = null;
+                }
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                boolean debugging = false;
+                if (debugging) {
+                    System.out.println("handlePath: got " + xpath);
+                }
+                String vxmlResolvedValue = vxmlFileResolved.getStringValue(xpath);
+                if (vxmlResolvedValue == null) {
+                    throw new RuntimeException(this.getLocaleID() + ":" + xpath + ": vxmlValue == null");
+                }
+                String baselineResolvedValue = baselineFileResolved.getStringValue(xpath);
+                if (baselineResolvedValue == null) {
+                    throw new RuntimeException(this.getLocaleID() + ":" + xpath + ": resolvedValue == null");
+                }
+                if (!baselineResolvedValue.equals(vxmlResolvedValue)) {
+                    System.err.println("Resolved values differ: vxml ["
+                            + vxmlResolvedValue + "] differs from baseline [" + baselineResolvedValue + "] for " + xpath);
+                }
+            }
+
+            @Override
+            public void handleEnd() {
+                // look for paths in vxmlFileResolved that aren't in baselineFileResolved
+                final Set<String> vPaths = new HashSet<>();
+                final Set<String> bPaths = new HashSet<>();
+                vxmlFileResolved.getPaths("", null, vPaths);
+                baselineFileResolved.getPaths("", null, bPaths);
+                vPaths.removeAll(bPaths);
+                for (final String dPath : vPaths) {
+                    // final String fPath = vxmlFile.getFullXPath(dPath);
+                    // add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                    throw new RuntimeException("in vxmlFile, missing from baseline: " + dPath);
                 }
             }
         });

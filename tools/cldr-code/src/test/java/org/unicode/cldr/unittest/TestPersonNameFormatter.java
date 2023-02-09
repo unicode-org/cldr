@@ -366,7 +366,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] thTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬มานีชัยยศพิชิตชัย❭〗〖❬คุณปรีชากล้าหาญแสงระวี❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ซินแบด❭〗〖❬เคเทอ❭ ❬มึลเลอร์❭〗〖❬ซาซิเลีย❭ ❬ฮามิช❭ ❬สโตเบอร์❭〗〖❬ศ.ดร.❭ ❬เอดา คอร์เนเลีย❭ ❬เซซาร์ มาร์ติน❭ ❬วอน บรืล❭ ❬พ.บ. ท.บ.❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณ❭ ❬กล้าหาญ❭〗〖❬มานี❭ ❬ชัยยศ❭ ❬พิชิตชัย❭〗〖❬คุณ❭ ❬ปรีชา❭ ❬กล้าหาญ❭ ❬แสงระวี❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ซินแบด❭〗〖❬เคเทอ❭ ❬มึลเลอร์❭〗〖❬ซาซิเลีย❭ ❬ฮามิช❭ ❬สโตเบอร์❭〗〖❬ศ.ดร.❭ ❬เอดา คอร์เนเลีย❭ ❬เซซาร์ มาร์ติน❭ ❬วอน บรืล❭ ❬พ.บ. ท.บ.❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
             }
         };
         ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);

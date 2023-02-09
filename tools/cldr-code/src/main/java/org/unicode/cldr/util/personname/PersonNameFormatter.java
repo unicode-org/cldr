@@ -557,8 +557,8 @@ public class PersonNameFormatter {
                 }
             }
             return isBackground && bestValue != null
-                    ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
-                        : bestValue ;
+                ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
+                    : bestValue ;
         }
 
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
@@ -1543,11 +1543,16 @@ public class PersonNameFormatter {
         final Set<String> LOCALES_NOT_NEEDING_SPACES;
         LocaleSpacingData() {
             Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
+            Set<String> EXCLUSIONS = ImmutableSet.of("Thai");
             _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
             for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
                 Info info = ScriptMetadata.getInfo(i);
-                if (info != null && info.lbLetters == Trinary.YES) {
-                    _LOCALE_NOT_NEEDING_SPACES.add(UScript.getShortName(i));
+                if (info != null
+                    && info.lbLetters == Trinary.YES) {
+                    final String script = UScript.getShortName(i);
+                    if (!EXCLUSIONS.contains(script)) {
+                        _LOCALE_NOT_NEEDING_SPACES.add(script);
+                    }
                 }
             }
             LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);

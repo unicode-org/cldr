@@ -14,8 +14,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -415,6 +431,10 @@ public class DisplayAndInputProcessor {
             value = normalizeWhitespace(path, value);
         }
 
+        // remove the empty value (mostly relevant for person names,
+        // but prevents it showing up elsewhere by mistake
+        value = value.replace(EMPTY_ELEMENT_VALUE, "");
+
         // all of our values should not have leading or trailing spaces, except insertBetween,
         // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
         if (!path.contains("/insertBetween") && !path.contains("/foreignSpaceReplacement") &&
@@ -494,15 +514,10 @@ public class DisplayAndInputProcessor {
             value = value.replace("...", "…");
         }
 
-        if (path.startsWith("//ldml/personNames/")) {
-            if (path.startsWith(NOL_START_PATH)) {
-                value = normalizeNameOrderLocales(value);
-            } else if (path.startsWith(FSR_START_PATH)) {
-                if (value.contains(EMPTY_ELEMENT_VALUE)) {
-                    value = "";
-                }
-            }
+        if (path.startsWith(NOL_START_PATH)) {
+            value = normalizeNameOrderLocales(value);
         }
+
         // Replace Arabic presentation forms with their nominal counterparts
         value = replaceArabicPresentationForms(value);
 

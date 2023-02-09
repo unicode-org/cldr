@@ -243,9 +243,9 @@ public class PersonNameFormatter {
     private static final ImmutableSet<String> G = ImmutableSet.of("given");
     private static final ImmutableSet<String> GS = ImmutableSet.of("given", "surname");
     private static final ImmutableSet<String> GGS = ImmutableSet.of("given", "given2", "surname");
-    private static final ImmutableSet<String> GGSWithSurnameCore = ImmutableSet.of("given", "given2", "surname-core");
+    private static final ImmutableSet<String> GWithSurnameCore = ImmutableSet.of("given", "surname-core");
     private static final ImmutableSet<String> Full = ImmutableSet.of("title", "given", "given-informal", "given2", "surname-prefix", "surname-core", "surname2", "generation", "credentials");
-    private static final ImmutableSet<String> FullMinusSurname = ImmutableSet.copyOf(Sets.difference(Full, Collections.singleton("surname2")));
+    private static final ImmutableSet<String> FullMinusSurname2 = ImmutableSet.copyOf(Sets.difference(Full, Collections.singleton("surname2")));
 
     public enum Optionality {required, optional, disallowed}
     /**
@@ -256,11 +256,11 @@ public class PersonNameFormatter {
         nativeG(G, G),
         nativeGS(GS, GS),
         nativeGGS(GGS, GS),
-        nativeFull(Full, GGSWithSurnameCore),
+        nativeFull(Full, GWithSurnameCore),
         foreignG(G, G),
         foreignGS(GS, GS),
         foreignGGS(GGS, GGS),
-        foreignFull(Full, FullMinusSurname),
+        foreignFull(Full, FullMinusSurname2),
         ;
         public static final Set<SampleType> ALL = ImmutableSet.copyOf(values());
         public static final List<String> ALL_STRINGS = ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableList());
@@ -1535,12 +1535,12 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
-    static final class LocaleSpacingData {
-        static LocaleSpacingData getInstance() {
+    public static final class LocaleSpacingData {
+        public static LocaleSpacingData getInstance() {
             return LocaleSpacingData.SINGLETON;
         }
         static LocaleSpacingData SINGLETON = new LocaleSpacingData();
-        final Set<String> LOCALES_NOT_NEEDING_SPACES;
+        private final Set<String> LOCALES_NOT_NEEDING_SPACES;
         LocaleSpacingData() {
             Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
             Set<String> EXCLUSIONS = ImmutableSet.of("Thai");
@@ -1557,6 +1557,9 @@ public class PersonNameFormatter {
             }
             LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
         }
+        public Set<String> getScriptsNotNeedingSpacesInNames() {
+            return LOCALES_NOT_NEEDING_SPACES;
+        }
     }
 
     /**
@@ -1570,7 +1573,7 @@ public class PersonNameFormatter {
         String initialSequencePattern = null;
         String foreignSpaceReplacement = " ";
         String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
-        String nativeSpaceReplacement = LocaleSpacingData.getInstance().LOCALES_NOT_NEEDING_SPACES.contains(formattingScript) ? "" : " ";
+        String nativeSpaceReplacement = LocaleSpacingData.getInstance().getScriptsNotNeedingSpacesInNames().contains(formattingScript) ? "" : " ";
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly

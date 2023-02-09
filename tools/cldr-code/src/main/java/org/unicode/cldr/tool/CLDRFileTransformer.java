@@ -17,6 +17,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.text.Normalizer;
@@ -295,16 +296,14 @@ public class CLDRFileTransformer {
                     System.out.println("SKIPPING missing file: " + dir + "/" + localeTransform.inputLocale + ".xml");
                     continue;
                 }
-                String outputDir = CLDRPaths.GEN_DIRECTORY + "common/" + dir + File.separator;
                 String outputFile = output.getLocaleID() + ".xml";
-
-                try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile)) {
-                    System.out.println("Generating locale file: " + outputDir + outputFile);
+                try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(sourceDirectory, outputFile).skipCopyright(true)) {
+                    // System.out.println("Generating locale file: " + outputDir + outputFile);
                     if (!transformer.unconverted.isEmpty()) {
                         System.out.println("Untransformed characters: " + transformer.unconverted);
                         transformer.unconverted.clear();
                     }
-                    output.write(out);
+                    output.write(out.asPrintWriter());
                 }
             }
         }

@@ -481,7 +481,7 @@ _Attribute:_ `normalization`
 >
 > All keyboards in the CLDR repository will be in `NFC` form.  However, users and implementations may produce and consume other normalization forms.
 >
-> Tooling should verify that all possible keystrokes and gestures on the keyboard only produce the specified normalization form.
+> When using `NFC` or `NFD`, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.
 
 _Attribute:_ `layout`
 

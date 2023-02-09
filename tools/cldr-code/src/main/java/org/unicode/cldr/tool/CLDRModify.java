@@ -2436,6 +2436,7 @@ public class CLDRModify {
             boolean skip;
             @Override
             public void handleStart() {
+                // skip if the locale id's parent isn't root. That is, it must be at level-1 locale.
                 skip = !XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(getLocaleID()));
             }
             @Override

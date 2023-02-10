@@ -8961,7 +8961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
 			<namePattern>↑↑↑</namePattern>
@@ -9015,7 +9015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
 			<namePattern>↑↑↑</namePattern>

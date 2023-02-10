@@ -1165,4 +1165,21 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
     }
 
+    public void testDuplicateAdjacentLiterals() {
+        FormatParameters parameters = FormatParameters.from("length=long; formality=formal");
+        NamePattern namePattern;
+        String actual;
+
+        namePattern = NamePattern.from(0, "•{given}.{given2}.{surname}•");
+        actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
+        assertEquals("duplicates", "•Shinzō.Abe•", actual);
+
+       namePattern = NamePattern.from(0, "•{given}. {given2}. {surname}•");
+        actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
+        assertEquals("duplicates", "•Shinzō. Abe•", actual);
+
+        namePattern = NamePattern.from(0, "•{given} {given2} {surname}•");
+        actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
+        assertEquals("duplicates", "•Shinzō Abe•", actual);
+    }
 }

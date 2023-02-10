@@ -652,11 +652,27 @@ public class PersonNameFormatter {
 
         public String format(NameObject nameObject, FormatParameters nameFormatParameters, FallbackFormatter fallbackInfo) {
             StringBuilder result = new StringBuilder();
-            boolean seenLeadingField = false;
-            boolean seenEmptyLeadingField = false;
-            boolean seenEmptyField = false;
-            StringBuilder literalTextBefore = new StringBuilder();
-            StringBuilder literalTextAfter = new StringBuilder();
+            /*
+             * We have a series of literals and placeholders.
+             * • The literals are never "",
+             * • while the placeholders may have a value or may be missing (null).
+             * If we have a missing placeholder at the start, we discard the literal (if any) before it.
+             *      1. Effectively, that means that we don't append it to result until we've seen the following field.
+             * If we have a missing placeholder at the end, we discard a literal (if any) after it.
+             *      2. Effectively, that means that we don't append it to result if the last placeholder was missing.
+             * If we have adjacent missing placeholders, then we discard the literal between them.
+             *
+             * We also coalesce literals A and B. This can only happen if we had one or more empty placeholders:
+             *      3. If A.endsWith(B) then we discard it.
+             *      4. Any sequence of multiple whitespace is reduced to the first.
+             * The following booleans represent the state we are in:
+             */
+            boolean seenLeadingField = false; // set to true with not missing (so we have at least 1 non-missing field)
+            boolean seenEmptyLeadingField = false; // set to false with not missing; set to true with missing and !seenLeadingField
+            boolean seenEmptyField = false; // set to false with seenEmptyField & not missing; set to true with missing & seenLeadingField
+
+            StringBuilder literalTextBefore = new StringBuilder(); // literal right after a non-missing placeholder
+            StringBuilder literalTextAfter = new StringBuilder();  // literal right after a missing placeholder
 
             // Check that we either have a given value in the pattern or a surname value in the name object
             if (!nameObject.getAvailableFields().contains(Field.surname) && !hasNonInitialGiven()) {
@@ -686,10 +702,11 @@ public class PersonNameFormatter {
                         seenLeadingField = true;
                         seenEmptyLeadingField = false;
                         if (seenEmptyField) {
-                            result.append(coalesceLiterals(literalTextBefore, literalTextAfter));
+                            result.append(coalesceLiterals(literalTextBefore, literalTextAfter)); // also clears literalTextBefore&After
                             result.append(bestValue);
                             seenEmptyField = false;
                         } else {
+                            // discard literalTextAfter
                             result.append(literalTextBefore);
                             literalTextBefore.setLength(0);
                             result.append(bestValue);
@@ -743,6 +760,9 @@ public class PersonNameFormatter {
         }
 
         private String coalesceLiterals(StringBuilder l1, StringBuilder l2) {
+            if (endsWith(l1,l2)) {
+                l2.setLength(0);
+            }
             // get the range of nonwhitespace characters at the beginning of l1
             int p1 = 0;
             while (p1 < l1.length() && !Character.isWhitespace(l1.charAt(p1))) {
@@ -771,6 +791,21 @@ public class PersonNameFormatter {
             l2.setLength(0);
 
             return result;
+        }
+
+        private boolean endsWith(StringBuilder l1, StringBuilder l2) {
+            final int l2Length = l2.length();
+            final int delta = l1.length() - l2Length;
+            if (delta < 0) {
+                return false;
+            }
+            for (int i = 0; i < l2Length; ++i) {
+                // don't have to worry about unpaired surrogates.
+                if (l1.charAt(i+delta) != l2.charAt(i)) {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public NamePattern(int rank, List<NamePatternElement> elements) {

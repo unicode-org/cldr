@@ -94,8 +94,10 @@ public class CompareResolved {
         Output<String> comparePathFound = new Output<>();
         Output<String> compareLocaleFound = new Output<>();
 
-        // cycle over locales
+        int filterCountAllLocales = 0;
+        int diffCountAllLocales = 0;
 
+        // cycle over locales
         for (String localeID : sourceFactory.getAvailable()) {
             if (fileMatcher != null && !fileMatcher.reset(localeID).find()) {
                 continue;
@@ -159,7 +161,11 @@ public class CompareResolved {
             if (verbose) {
                 System.out.println("\tfilteredCount: " + filterCount + ", diffCount: " + diffCount);
             }
-
+            filterCountAllLocales += filterCount;
+            diffCountAllLocales += diffCount;
+        }
+        if (verbose) {
+            System.out.println("ALL LOCALES: filteredCountAllLocales: " + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
         }
     }
 }

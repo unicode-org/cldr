@@ -2233,7 +2233,7 @@ public class CLDRModify {
             @Override
             public void handleSetup() {
                 final String vxmlSubPath = vxmlDir + "common/" + new File(options[SOURCEDIR].value).getName();
-                System.out.println(vxmlSubPath);
+                // System.out.println(vxmlSubPath);
                 list = new File[]{
                     new File(vxmlSubPath)
                 };
@@ -2399,6 +2399,33 @@ public class CLDRModify {
                     // System.out.println(">!> " + dPath);
                     final String fPath = vxmlFile.getFullXPath(dPath);
                     add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                }
+            }
+        });
+
+        fixList.add('V', "Fix values that would inherit laterally", new CLDRFilter() {
+            boolean skip;
+            @Override
+            public void handleStart() {
+                // skip if the locale id's parent isn't root. That is, it must be at level-1 locale.
+                skip = !XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(getLocaleID()));
+            }
+            @Override
+            public void handlePath(String xpath) {
+                if (skip) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    Output<String> pathWhereFound = new Output<>();
+                    Output<String> localeWhereFound = new Output<>();
+                    String baileyValue = getResolved().getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                    if (baileyValue != null
+                        && !xpath.equals(pathWhereFound.value)
+                        && !GlossonymConstructor.PSEUDO_PATH.equals(pathWhereFound.value)) {
+                        String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullPath, fullPath, baileyValue, "fix lateral");
+                    }
                 }
             }
         });

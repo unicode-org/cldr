@@ -1014,7 +1014,7 @@ public class ShowLocaleCoverage {
                     }
 
                     Set<CoreItems> shownMissingPaths = EnumSet.noneOf(CoreItems.class);
-                    Level computedWithCore = computed == Level.UNDETERMINED ? Level.CORE : computed;
+                    Level computedWithCore = computed == Level.UNDETERMINED ? Level.BASIC : computed;
                     for (CoreItems item : specialMissingPaths) {
                         if (item.desiredLevel.compareTo(computedWithCore) <= 0) {
                             shownMissingPaths.add(item);

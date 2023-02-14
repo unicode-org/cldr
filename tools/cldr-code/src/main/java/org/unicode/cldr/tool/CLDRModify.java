@@ -26,16 +26,46 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.*;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileProcessor;
+import org.unicode.cldr.util.GlossonymConstructor;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.PathChecker;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.SupplementalDataInfo;
 // import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -252,25 +282,25 @@ public class CLDRModify {
         + "\tr\t replace contents (otherwise new data will be draft=\"unconfirmed\")"
         + XPathParts.NEWLINE
         + "\tc\t ignore comments in <merge_dir> files"
-+ XPathParts.NEWLINE
-+ "-v\t incorporate vetting information, and generate diff files."
-+ XPathParts.NEWLINE
-+ "-z\t generate resolved files"
-+ XPathParts.NEWLINE
-+ "-p\t set path for -fx"
-+ XPathParts.NEWLINE
-+ "-u\t set user for -fb"
-+ XPathParts.NEWLINE
-+ "-a\t pattern: recurse over all subdirectories that match pattern"
-+ XPathParts.NEWLINE
-+ "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
-+ XPathParts.NEWLINE
-+ "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
-+ XPathParts.NEWLINE
-+ "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
-+ XPathParts.NEWLINE
-+ "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-+ XPathParts.NEWLINE;
+        + XPathParts.NEWLINE
+        + "-v\t incorporate vetting information, and generate diff files."
+        + XPathParts.NEWLINE
+        + "-z\t generate resolved files"
+        + XPathParts.NEWLINE
+        + "-p\t set path for -fx"
+        + XPathParts.NEWLINE
+        + "-u\t set user for -fb"
+        + XPathParts.NEWLINE
+        + "-a\t pattern: recurse over all subdirectories that match pattern"
+        + XPathParts.NEWLINE
+        + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
+        + XPathParts.NEWLINE
+        + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
+        + XPathParts.NEWLINE
+        + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
+        + XPathParts.NEWLINE
+        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
+        + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
         + XPathParts.NEWLINE;
@@ -1345,7 +1375,7 @@ public class CLDRModify {
             public void handleStart() {
                 if (preFactory == null) {
                     preFactory = SimpleFactory.make(list, ".*");
-                 }
+                }
                 String localeID = cldrFileToFilter.getLocaleID();
                 try {
                     preFile = preFactory.make(localeID, false /* not resolved */);

@@ -703,11 +703,11 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         if (limit < 0) {
             limit += size();
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = start; i < limit; ++i) {
-            result += elements.get(i).toString(XPATH_STYLE);
+            result.append(elements.get(i).toString(XPATH_STYLE));
         }
-        return result;
+        return result.toString();
     }
 
     /**

@@ -182,7 +182,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             warnln("To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
         }
 
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J. B.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J.B.");
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "Dr. John Bob Smith Jr, MD");
 
 //        checkFormatterData(ENGLISH_NAME_FORMATTER);
@@ -576,7 +576,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             case allCaps:
                 expected = "VAN BERK"; break;
             case initial:
-                expected = "v. B."; break;
+                expected = "v.B."; break;
             case initialCap:
                 expected = "Van Berk"; break;
             case monogram:
@@ -1104,7 +1104,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void testInitials() {
         String[][] tests = {{
             "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
+            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M.S.H.❭ ❬Watson❭〗〖❬B.W.H.R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.H.❭ ❬Stöber❭〗〖❬A.C.C.M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
         }};
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }

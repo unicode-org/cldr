@@ -158,5 +158,4 @@ public class CheckPersonNames extends CheckCLDR {
         }
         return this;
     }
-
 }

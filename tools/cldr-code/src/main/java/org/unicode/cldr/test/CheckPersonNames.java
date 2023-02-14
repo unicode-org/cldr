@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -10,9 +11,11 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 
 public class CheckPersonNames extends CheckCLDR {
@@ -21,6 +24,7 @@ public class CheckPersonNames extends CheckCLDR {
 
     boolean isRoot = false;
     boolean hasRootParent = false;
+    String initialSeparator = " ";
 
     private UnicodeSet allowedCharacters;
     private boolean spacesNeededInNames;
@@ -44,6 +48,9 @@ public class CheckPersonNames extends CheckCLDR {
         spacesNeededInNames = !PersonNameFormatter.LocaleSpacingData.getInstance()
             .getScriptsNotNeedingSpacesInNames()
             .contains(script);
+
+        String initialPatternSequence = cldrFileToCheck.getStringValue("//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
+        initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
 //
         return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
@@ -65,14 +72,30 @@ public class CheckPersonNames extends CheckCLDR {
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
-        if (value == null
-            || isRoot
+        if (isRoot
             || !path.startsWith("//ldml/personNames/")) {
             return this;
         }
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch(parts.getElement(2)) {
+        case "personName":
+            value = fixedValueIfInherited(path, value).toString();
+            NamePattern namePattern = NamePattern.from(0, value);
+
+            ArrayList<List<String>> failures = namePattern.findInitialFailures(initialSeparator);
+            for (List<String> row :    failures) {
+                String previousField = row.get(0);
+                String intermediateLiteral = row.get(1);
+                String followingField = row.get(1);
+                result.add(new CheckStatus().setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalCharactersInPattern)
+                                .setMessage("The gap between {0} and {2} must be the same as the pattern-initialSequence, =“{1}”",
+                                    previousField, intermediateLiteral, followingField));
+            }
+
+            break;
         case "foreignSpaceReplacement":
             if (spacesNeededInNames && !" ".equals(value)) {
                 result.add(new CheckStatus().setCause(this)
@@ -82,6 +105,9 @@ public class CheckPersonNames extends CheckCLDR {
             }
             break;
         case "sampleName":
+            if (value == null) {
+                break;
+            }
             if (!allowedCharacters.containsAll(value) && !value.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 UnicodeSet bad = new UnicodeSet().addAll(value).removeAll(allowedCharacters);
                 final Type mainType = getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType; // we need to be able to check this in without error
@@ -132,4 +158,5 @@ public class CheckPersonNames extends CheckCLDR {
         }
         return this;
     }
+
 }

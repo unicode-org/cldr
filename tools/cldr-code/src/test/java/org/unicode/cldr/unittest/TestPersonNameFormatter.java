@@ -60,12 +60,14 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -911,6 +913,26 @@ public class TestPersonNameFormatter extends TestFmwk{
                 continue;
             }
             PersonNameFormatter formatter = new PersonNameFormatter(cldrFile);
+            String initialPatternSequence = cldrFile.getStringValue("//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
+            final String initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
+
+            NamePatternData namePatternData = formatter.getNamePatternData();
+            Set<NamePattern> seen = new HashSet<>();
+            final ImmutableCollection<Entry<FormatParameters, NamePattern>> entries = namePatternData.getMatcherToPatterns().entries();
+            for (Entry<FormatParameters, NamePattern> entry2 : entries) {
+                NamePattern pattern = entry2.getValue();
+                if (!seen.contains(pattern)) {
+                    seen.add(pattern);
+                    ArrayList<List<String>> failures = pattern.findInitialFailures(initialSeparator);
+                    failures.forEach(x -> errln(
+                        "Conflict with initial pattern:\t" + locale
+                        + "\t«" + initialPatternSequence + "»"
+                        + "\t{" + x.get(0) + "}"
+                        + "\t«" + x.get(1) + "»"
+                        + "\t{" + x.get(2) + "}"
+                        ));
+                }
+            }
             Multimap<String, FormatParameters> formattedToParameters = TreeMultimap.create();
             for (Entry<SampleType, SimpleNameObject> entry : names.entrySet()) {
                 final SampleType sampleType = entry.getKey();

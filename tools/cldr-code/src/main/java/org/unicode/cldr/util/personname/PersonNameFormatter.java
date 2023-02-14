@@ -55,6 +55,8 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -160,6 +162,7 @@ public class PersonNameFormatter {
         prefix,
         core,
         ;
+        public static final Set<Modifier> INITIALS = ImmutableSet.of(initialCap, initial);
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
         public static final Comparator<Collection<Modifier>> LONGEST_FIRST = new Comparator<>() {
 
@@ -1005,6 +1008,50 @@ public class PersonNameFormatter {
                 }
             }
             return null;
+        }
+
+        /**
+         * Returns a list of (field, literal, field) that are inconsistent with the initialSeparator (derived from the initialPattern)
+         */
+        public ArrayList<List<String>> findInitialFailures(String _initialSeparator) {
+            ArrayList<List<String>> failures;
+            String initialSeparator = finalWhitespace(_initialSeparator);
+
+            // check that the literal between initial fields matches the initial pattern
+            ModifiedField lastField = null;
+            boolean lastFieldInitial = false;
+            String lastLiteral = "";
+            failures = new ArrayList<>();
+            for (int i = 0; i < getElementCount(); ++i) {
+                // we can have {field}<literal>{field} or {field}{field}
+                ModifiedField field = getModifiedField(i);
+                if (field == null) {
+                    lastLiteral = finalWhitespace(getLiteral(i));
+                } else {
+                    boolean currentFieldInitial = !Collections.disjoint(field.getModifiers(), Modifier.INITIALS);
+                    if (currentFieldInitial && lastFieldInitial) {
+                        if (!initialSeparator.equals(lastLiteral)) {
+                            failures.add(ImmutableList.of(lastField.toString(), lastLiteral, field.toString()));
+                        }
+                    }
+                    lastField = field;
+                    lastFieldInitial = currentFieldInitial;
+                    lastLiteral = "";
+                }
+            }
+            return failures;
+        }
+
+        static final UnicodeSet WS = new UnicodeSet("\\p{whitespace}").freeze();
+
+        private String finalWhitespace(String string) {
+            if (!string.isEmpty()) {
+                int finalCp = string.codePointBefore(string.length());
+                if (WS.contains(finalCp)) {
+                    return UTF16.valueOf(finalCp);
+                }
+            }
+            return "";
         }
     }
 

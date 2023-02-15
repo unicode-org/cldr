@@ -129,10 +129,10 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             //assertContains("mainLocales.containsAll(coverage:" + level + ")", localesForNames, levelToLanguage.get(level));
             coverageLocales.addAll(levelToLanguage.get(level));
         }
-        if (logKnownIssue("CLDR-15888", "modern coverage not yet updated for bgc, raj")) {
-            coverageLocales.add("bgc");
-            coverageLocales.add("raj");
-        }
+
+        // added for CLDR-15888
+        coverageLocales.add("bgc");
+        coverageLocales.add("raj");
 
         // If this fails, it is because of a mismatch between coverage and the getCLDRLanguageCodes.
         // Usually a problem with coverage.

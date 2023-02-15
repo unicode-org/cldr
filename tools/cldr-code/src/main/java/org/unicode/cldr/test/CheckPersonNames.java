@@ -80,9 +80,7 @@ public class CheckPersonNames extends CheckCLDR {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch(parts.getElement(2)) {
         case "personName":
-            value = fixedValueIfInherited(path, value).toString();
             NamePattern namePattern = NamePattern.from(0, value);
-
             ArrayList<List<String>> failures = namePattern.findInitialFailures(initialSeparator);
             for (List<String> row :    failures) {
                 String previousField = row.get(0);

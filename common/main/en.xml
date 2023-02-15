@@ -9318,7 +9318,7 @@ annotations.
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
-		<initialPattern type="initialSequence">{0} {1}</initialPattern>
+		<initialPattern type="initialSequence">{0}{1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
 			<namePattern>{title} {given} {given2} {surname} {generation}, {credentials}</namePattern>
 		</personName>
@@ -9356,7 +9356,7 @@ annotations.
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial}{given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname-initial}</namePattern>
@@ -9410,7 +9410,7 @@ annotations.
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname} {given-initial}{given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
 			<namePattern>{surname} {given-initial}</namePattern>
@@ -9440,7 +9440,7 @@ annotations.
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern>{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given-initial}{given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>

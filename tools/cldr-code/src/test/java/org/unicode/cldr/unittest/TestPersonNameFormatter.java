@@ -60,12 +60,14 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -180,7 +182,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             warnln("To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
         }
 
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J. B.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J.B.");
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "Dr. John Bob Smith Jr, MD");
 
 //        checkFormatterData(ENGLISH_NAME_FORMATTER);
@@ -574,7 +576,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             case allCaps:
                 expected = "VAN BERK"; break;
             case initial:
-                expected = "v. B."; break;
+                expected = "v.B."; break;
             case initialCap:
                 expected = "Van Berk"; break;
             case monogram:
@@ -911,6 +913,26 @@ public class TestPersonNameFormatter extends TestFmwk{
                 continue;
             }
             PersonNameFormatter formatter = new PersonNameFormatter(cldrFile);
+            String initialPatternSequence = cldrFile.getStringValue("//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
+            final String initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
+
+            NamePatternData namePatternData = formatter.getNamePatternData();
+            Set<NamePattern> seen = new HashSet<>();
+            final ImmutableCollection<Entry<FormatParameters, NamePattern>> entries = namePatternData.getMatcherToPatterns().entries();
+            for (Entry<FormatParameters, NamePattern> entry2 : entries) {
+                NamePattern pattern = entry2.getValue();
+                if (!seen.contains(pattern)) {
+                    seen.add(pattern);
+                    ArrayList<List<String>> failures = pattern.findInitialFailures(initialSeparator);
+                    failures.forEach(x -> errln(
+                        "Conflict with initial pattern:\t" + locale
+                        + "\t«" + initialPatternSequence + "»"
+                        + "\t{" + x.get(0) + "}"
+                        + "\t«" + x.get(1) + "»"
+                        + "\t{" + x.get(2) + "}"
+                        ));
+                }
+            }
             Multimap<String, FormatParameters> formattedToParameters = TreeMultimap.create();
             for (Entry<SampleType, SimpleNameObject> entry : names.entrySet()) {
                 final SampleType sampleType = entry.getKey();
@@ -1082,7 +1104,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void testInitials() {
         String[][] tests = {{
             "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
+            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M.S.H.❭ ❬Watson❭〗〖❬B.W.H.R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.H.❭ ❬Stöber❭〗〖❬A.C.C.M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
         }};
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }

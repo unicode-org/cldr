@@ -450,20 +450,6 @@ public class TestPaths extends TestFmwkPlus {
                         Element finalElement = dtdData.getElementFromName().get(finalElementString);
                         if (!haveErrorsAlready.contains(finalElement)) {
                             ElementType elementType = finalElement.getType();
-                            // HACK!!
-                            if (parts.size() > 1 && "identity".equals(parts.getElement(1))) {
-                                elementType = ElementType.EMPTY;
-                                logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
-                            } else if (parts.size() > 2
-                                && "validity".equals(parts.getElement(2))
-                                && value.isEmpty()) {
-                                String typeValue = parts.getAttributeValue(-1, "type");
-                                if ("TODO".equals(typeValue)
-                                    || "locale".equals(typeValue)) {
-                                    elementType = ElementType.EMPTY;
-                                    logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
-                                }
-                            }
                             Element.ValueConstraint requirement = finalElement.getValueConstraint();
                             if (requirement == Element.ValueConstraint.empty && !value.isEmpty()
                                 || requirement == Element.ValueConstraint.nonempty && value.isEmpty()) {

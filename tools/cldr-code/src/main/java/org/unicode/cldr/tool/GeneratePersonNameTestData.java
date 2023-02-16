@@ -82,7 +82,7 @@ public class GeneratePersonNameTestData {
 
 
                 try (PrintWriter output2 = FileUtilities.openUTF8Writer(dir, locale + ".txt");) {
-                    output2.write("# Person name test data for: " + locale + "\n"
+                    output2.write("# CLDR person name formatting test data for: " + locale + "\n"
                         + "#\n"
                         + "# Test lines have the following structure:\n"
                         + "#\n"
@@ -93,7 +93,7 @@ public class GeneratePersonNameTestData {
                         + "#   This line follows a sequence of name lines, and indicates the that all the following parameter lines have this expected value.\n"
                         + "#\n"
                         + "# parameters; <order>; <length>; <usage>; <formality>\n"
-                        + "#   Each of these parameters should be tested to see that when formatting the current name with these parameters produces the expected value.\n"
+                        + "#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, the expected value is produced.\n"
                         + "#\n"
                         + "# endName\n"
                         + "#   Indicates the end of the values to be tested with the current name.\n"

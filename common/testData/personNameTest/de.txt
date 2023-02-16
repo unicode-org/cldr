@@ -1,4 +1,4 @@
-# Person name test data for: de
+# CLDR person name formatting test data for: de
 #
 # Test lines have the following structure:
 #
@@ -9,7 +9,7 @@
 #   This line follows a sequence of name lines, and indicates the that all the following parameter lines have this expected value.
 #
 # parameters; <order>; <length>; <usage>; <formality>
-#   Each of these parameters should be tested to see that when formatting the current name with these parameters produces the expected value.
+#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, the expected value is produced.
 #
 # endName
 #   Indicates the end of the values to be tested with the current name.

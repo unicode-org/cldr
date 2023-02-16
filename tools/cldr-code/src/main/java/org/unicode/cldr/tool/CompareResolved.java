@@ -32,11 +32,12 @@ public class CompareResolved {
             .setMatch(".*")),
         pathFilter(new Params().setHelp("Filter paths in each source file.")
             .setMatch(".*")),
-        verbose(new Params().setMatch(null)),
-        Vertical(new Params().setHelp("True to only check values with vertical inheritance")
-            .setMatch("true|false")),
-        Horizontal(new Params().setHelp("True to only check values with horizontal inheritance")
-            .setMatch("true|false")),
+        verbose(new Params()
+            .setMatch(null)),
+        Vertical(new Params().setHelp("Only check values with vertical inheritance")
+            .setMatch(null)),
+        Horizontal(new Params().setHelp("Only check values with horizontal inheritance")
+            .setMatch(null)),
         ;
 
         // BOILERPLATE TO COPY
@@ -106,7 +107,7 @@ public class CompareResolved {
         int diffCountAllLocales = 0;
 
         // cycle over locales
-        System.out.println("Locale\tPath\tChanged\tOriginal\tVert?\tHoriz?");
+        System.out.println("Locale\tRequested Path\tResolved Value (GEN)\ttResolved Value (Main)\tFound Locale (GEN)\tFound Locale (Main)\tFound Path (GEN)\tFound Path (Main)");
         for (String localeID : sourceFactory.getAvailable()) {
             if (fileMatcher != null && !fileMatcher.reset(localeID).find()) {
                 continue;
@@ -170,21 +171,22 @@ public class CompareResolved {
                     + "\t" + path //
                     + "\t" + sourceValue
                     + "\t" + compareValue //
-                    + "\t" + (verticalDiff ? "VΔ" : "")  //
-                    + "\t" + (horizontalDiff ? "HΔ" : "")
+                    + "\t" + sourceLocaleFound.value
                     + "\t" + compareLocaleFound.value
+                    + "\t" + abbreviate(sourcePathFound.value, path)
                     + "\t" + abbreviate(comparePathFound.value, path)
                     );
             }
-            if (verbose) {
+            if (verbose || diffCount != 0) {
                 System.out.println(localeID + "\t#filteredCount:\t" + filterCount + ", diffCount:\t" + diffCount);
             }
             filterCountAllLocales += filterCount;
             diffCountAllLocales += diffCount;
         }
-        if (verbose) {
-            System.out.println("ALL LOCALES: filteredCountAllLocales: " + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
+        if (verbose || diffCountAllLocales != 0) {
+            System.out.println("ALL LOCALES" + "\t#filteredCount:\t" + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
         }
+        System.out.println("DONE");
     }
 
     /*

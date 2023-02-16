@@ -126,7 +126,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chr">柴羅基文</language>
 			<language type="chy">沙伊安文</language>
 			<language type="ckb">中庫德文</language>
-			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="menu">中庫德文</language>
 			<language type="ckb" alt="variant">庫德文（索拉尼）</language>
 			<language type="clc">齊爾柯廷語</language>
 			<language type="co">科西嘉文</language>
@@ -674,9 +674,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zh">中文</language>
 			<language type="zh" alt="menu">中文</language>
 			<language type="zh_Hans">簡體中文</language>
-			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hans" alt="long">簡體中文</language>
 			<language type="zh_Hant">繁體中文</language>
-			<language type="zh_Hant" alt="long">↑↑↑</language>
+			<language type="zh_Hant" alt="long">繁體中文</language>
 			<language type="zu">祖魯文</language>
 			<language type="zun">祖尼文</language>
 			<language type="zxx">無語言內容</language>
@@ -1086,7 +1086,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="NR">諾魯</territory>
 			<territory type="NU">紐埃島</territory>
 			<territory type="NZ">紐西蘭</territory>
-			<territory type="NZ" alt="variant" draft="contributed">↑↑↑</territory>
+			<territory type="NZ" alt="variant" draft="contributed">紐西蘭</territory>
 			<territory type="OM">阿曼</territory>
 			<territory type="PA">巴拿馬</territory>
 			<territory type="PE">秘魯</territory>
@@ -1146,7 +1146,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
 			<territory type="TR">土耳其</territory>
-			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TR" alt="variant">土耳其</territory>
 			<territory type="TT">千里達及托巴哥</territory>
 			<territory type="TV">吐瓦魯</territory>
 			<territory type="TW">台灣</territory>
@@ -1573,7 +1573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -2920,7 +2920,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -3914,27 +3914,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d日</dateFormatItem>
-						<dateFormatItem id="E" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">d日E</dateFormatItem>
 						<dateFormatItem id="Gy" draft="contributed">rU年</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="contributed">rU年MMM</dateFormatItem>
@@ -3943,7 +3943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="M" draft="contributed">MMM</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">M/d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">M/dE</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">MMMd日E</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="contributed">MMMMd日</dateFormatItem>
@@ -3974,7 +3974,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="h" draft="contributed">Bh時至h時</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH至HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="B" draft="contributed">Bh:mm至Bh:mm</greatestDifference>
@@ -3982,8 +3982,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m" draft="contributed">Bh:mm至h:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH:mm至HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm至HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="B" draft="contributed">Bh:mm至Bh:mm [v]</greatestDifference>
@@ -4250,7 +4250,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -4395,7 +4395,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -4403,7 +4403,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -4411,7 +4411,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -4419,7 +4419,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4785,10 +4785,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">第1季</quarter>
+							<quarter type="2">第2季</quarter>
+							<quarter type="3">第3季</quarter>
+							<quarter type="4">第4季</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -4805,8 +4805,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
+							<quarter type="1">第1季</quarter>
+							<quarter type="2">第2季</quarter>
 							<quarter type="3">第3季</quarter>
 							<quarter type="4">第4季</quarter>
 						</quarterWidth>
@@ -4974,7 +4974,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -4982,7 +4982,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -4990,7 +4990,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -4998,7 +4998,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -5396,7 +5396,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -5672,7 +5672,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -5948,7 +5948,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -6842,7 +6842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -7118,7 +7118,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -7314,7 +7314,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d日至d日</greatestDifference>
 						</intervalFormatItem>
@@ -10493,7 +10493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
-			<approximatelySign>↑↑↑</approximatelySign>
+			<approximatelySign>~</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -11863,7 +11863,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern draft="contributed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -14241,7 +14241,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other">立方{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G 力</displayName>
@@ -14345,8 +14345,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>‱</displayName>
+				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>莫耳</displayName>
@@ -14534,7 +14534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName draft="contributed">每百公里千瓦小時</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kWh/100km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>吉赫</displayName>
@@ -14553,8 +14553,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 赫茲</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>em</displayName>
+				<unitPattern count="other">{0} em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>像素</displayName>
@@ -14565,24 +14565,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 百萬像素</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppcm</displayName>
+				<unitPattern count="other">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ppi</displayName>
+				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpcm</displayName>
 				<unitPattern count="other">{0} dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>dpi</displayName>
+				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>px</displayName>
+				<unitPattern count="other">{0} px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半徑</displayName>
@@ -14755,7 +14755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-grain">
 				<displayName>格林</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} 格林</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>吉瓦</displayName>
@@ -14984,7 +14984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-drop">
 				<displayName>滴</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} 滴</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<displayName>打蘭</displayName>
@@ -15447,8 +15447,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>px</displayName>
+				<unitPattern count="other">{0} px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -15938,42 +15938,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>{0} 佑米</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ki{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Mi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Gi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p4">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ti{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Pi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Ei{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Zi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Yi{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="contributed">G 力</displayName>
@@ -16006,7 +16006,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-kilometer">
 				<displayName draft="contributed">平方公里</displayName>
 				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/平方公里</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="contributed">公頃</displayName>
@@ -16015,17 +16015,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-meter">
 				<displayName draft="contributed">平方公尺</displayName>
 				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/平方公尺</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="contributed">平方公分</displayName>
 				<unitPattern count="other" draft="contributed">{0}cm²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/平分公分</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="contributed">平方英里</displayName>
 				<unitPattern count="other">{0}平方英里</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/平方英里</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName draft="contributed">英畝</displayName>
@@ -16042,10 +16042,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-inch">
 				<displayName draft="contributed">平方英寸</displayName>
 				<unitPattern count="other" draft="contributed">{0}in²</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/平方英寸</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">杜納畝</displayName>
 				<unitPattern count="other" draft="contributed">{0}杜納畝</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -16061,8 +16061,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}mmol/L</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">個項目</displayName>
+				<unitPattern count="other" draft="contributed">{0} 個項目</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName draft="contributed">百萬分率</displayName>
@@ -16073,15 +16073,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">千分比</displayName>
+				<unitPattern count="other" draft="contributed">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">‱</displayName>
+				<unitPattern count="other" draft="contributed">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">莫耳</displayName>
 				<unitPattern count="other" draft="contributed">{0}莫耳</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -16101,7 +16101,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}m/gUK</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">PB</displayName>
 				<unitPattern count="other" draft="contributed">{0}PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
@@ -16149,8 +16149,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} 世紀</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">10 年</displayName>
+				<unitPattern count="other" draft="contributed">{0}0 年</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
@@ -16245,27 +16245,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}kWh</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">電子伏特</displayName>
 				<unitPattern count="other" draft="contributed">{0}電子伏特</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">英熱單位</displayName>
 				<unitPattern count="other" draft="contributed">{0}英熱單位</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">美制撒姆</displayName>
 				<unitPattern count="other" draft="contributed">{0}美制撒姆</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">lbf</displayName>
 				<unitPattern count="other" draft="contributed">{0}lbf</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">N</displayName>
 				<unitPattern count="other" draft="contributed">{0}N</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">kWh/100km</displayName>
 				<unitPattern count="other" draft="contributed">{0}kWh/100km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
@@ -16285,23 +16285,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}Hz</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
+				<displayName>em</displayName>
 				<unitPattern count="other">{0}em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
+				<displayName>px</displayName>
 				<unitPattern count="other">{0}px</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
+				<displayName>MP</displayName>
 				<unitPattern count="other">{0}MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppcm</displayName>
 				<unitPattern count="other">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppi</displayName>
 				<unitPattern count="other">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
@@ -16313,11 +16313,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">px</displayName>
 				<unitPattern count="other">{0}px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
+				<displayName>R⊕</displayName>
 				<unitPattern count="other" draft="contributed">{0}R⊕</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
@@ -16406,7 +16406,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}點</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">R☉</displayName>
 				<unitPattern count="other" draft="contributed">{0}R☉</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -16414,15 +16414,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">燭光</displayName>
 				<unitPattern count="other" draft="contributed">{0}燭光</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">流明</displayName>
 				<unitPattern count="other" draft="contributed">{0}流明</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">L☉</displayName>
 				<unitPattern count="other" draft="contributed">{0}L☉</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -16432,12 +16432,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-kilogram">
 				<displayName>公斤</displayName>
 				<unitPattern count="other">{0} 公斤</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/公斤</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>克</displayName>
 				<unitPattern count="other">{0}克</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/克</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName draft="contributed">毫克</displayName>
@@ -16463,7 +16463,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-ounce">
 				<displayName draft="contributed">盎司</displayName>
 				<unitPattern count="other">{0}盎司</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/盎司</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName draft="contributed">金衡盎司</displayName>
@@ -16474,19 +16474,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}CD</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">達爾頓</displayName>
 				<unitPattern count="other" draft="contributed">{0}達爾頓</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">地球質量</displayName>
 				<unitPattern count="other" draft="contributed">{0}地球質量</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">太陽質量</displayName>
 				<unitPattern count="other" draft="contributed">{0}太陽質量</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">格林</displayName>
 				<unitPattern count="other" draft="contributed">{0}格林</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -16526,7 +16526,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}英吋汞柱</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">巴</displayName>
 				<unitPattern count="other" draft="contributed">{0}巴</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -16534,11 +16534,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}毫巴</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">atm</displayName>
 				<unitPattern count="other" draft="contributed">{0}atm</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">帕</displayName>
 				<unitPattern count="other" draft="contributed">{0}帕</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
@@ -16546,11 +16546,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}百帕</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">千帕</displayName>
 				<unitPattern count="other" draft="contributed">{0}千帕</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">兆帕</displayName>
 				<unitPattern count="other" draft="contributed">{0}兆帕</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -16586,26 +16586,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}°K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">磅英尺</displayName>
 				<unitPattern count="other" draft="contributed">{0}磅英尺</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">牛頓米</displayName>
 				<unitPattern count="other" draft="contributed">{0}牛頓米</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">立方公里</displayName>
 				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName draft="contributed">立方公尺</displayName>
 				<unitPattern count="other" draft="contributed">{0}m³</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/立方公尺</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName draft="contributed">立方公分</displayName>
 				<unitPattern count="other" draft="contributed">{0}cm³</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="contributed">{0}/立方公分</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="contributed">立方英里</displayName>
@@ -16691,7 +16691,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}fl-oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">英液盎司</displayName>
 				<unitPattern count="other" draft="contributed">{0}英液盎司</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -16703,35 +16703,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0}tsp</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">桶</displayName>
 				<unitPattern count="other" draft="contributed">{0}桶</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">甜品匙</displayName>
 				<unitPattern count="other" draft="contributed">{0}甜品匙</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">英制甜品匙</displayName>
 				<unitPattern count="other" draft="contributed">{0}dsp-Imp</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">滴</displayName>
 				<unitPattern count="other" draft="contributed">{0}滴</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">打蘭</displayName>
 				<unitPattern count="other" draft="contributed">{0}打蘭</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">量酒杯</displayName>
 				<unitPattern count="other" draft="contributed">{0}量酒杯</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">小撮</displayName>
 				<unitPattern count="other" draft="contributed">{0}小撮</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">英制夸脫</displayName>
 				<unitPattern count="other" draft="contributed">{0}英制夸脫</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -16766,22 +16766,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0}或{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}或{1}</listPatternPart>
+			<listPatternPart type="2">{0}或{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}或{1}</listPatternPart>
+			<listPatternPart type="2">{0}或{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}和{1}</listPatternPart>
+			<listPatternPart type="2">{0}和{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}、{1}</listPatternPart>
@@ -16995,7 +16995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
 			<namePattern>{surname} {title}</namePattern>
@@ -17007,13 +17007,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
 			<namePattern>{surname} {title}</namePattern>
@@ -17022,16 +17022,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
 			<namePattern>{surname} {title}</namePattern>
@@ -17040,10 +17040,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
 			<namePattern>{surname}{given}{given2}{generation}{credentials}</namePattern>
@@ -17061,7 +17061,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
 			<namePattern>{surname}{given}{given2-initial}{generation}{credentials}</namePattern>
@@ -17079,7 +17079,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
 			<namePattern>{surname}{given}{given2}</namePattern>

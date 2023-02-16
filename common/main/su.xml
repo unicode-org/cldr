@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -203,7 +203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">Péb</month>
 							<month type="3">Mar</month>
 							<month type="4">Apr</month>
-							<month type="5">↑↑↑</month>
+							<month type="5">Méi</month>
 							<month type="6">Jun</month>
 							<month type="7">Jul</month>
 							<month type="8">Ags</month>
@@ -243,18 +243,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">Jan</month>
+							<month type="2">Péb</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">Méi</month>
+							<month type="6">Jun</month>
+							<month type="7">Jul</month>
+							<month type="8">Ags</month>
+							<month type="9">Sép</month>
+							<month type="10">Okt</month>
+							<month type="11">Nop</month>
+							<month type="12">Dés</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
@@ -272,17 +272,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Januari</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="2">Pébruari</month>
+							<month type="3">Maret</month>
+							<month type="4">April</month>
+							<month type="5">Méi</month>
+							<month type="6">Juni</month>
+							<month type="7">Juli</month>
+							<month type="8">Agustus</month>
+							<month type="9">Séptémber</month>
+							<month type="10">Oktober</month>
+							<month type="11">Nopémber</month>
+							<month type="12">Désémber</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -355,10 +355,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">kuartal ka-1</quarter>
@@ -391,8 +391,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -541,10 +541,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>éra</displayName>
 			</field>
 			<field type="era-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>éra</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>éra</displayName>
 			</field>
 			<field type="year">
 				<displayName>taun</displayName>

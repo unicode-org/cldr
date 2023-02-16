@@ -9428,13 +9428,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>min.</displayName>
 				<unitPattern count="one">{0}min.</unitPattern>
 				<unitPattern count="other">{0}min.</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/min.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sec.</displayName>
 				<unitPattern count="one">{0}s.</unitPattern>
 				<unitPattern count="other">{0}s.</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0} ps.</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>msec.</displayName>

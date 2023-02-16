@@ -49,7 +49,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="awa" draft="contributed">awadhi</language>
 			<language type="ay" draft="contributed">aymara</language>
 			<language type="az" draft="contributed">aserbeidschanic</language>
-			<language type="az" alt="short">↑↑↑</language>
+			<language type="az" alt="short">aserbeidschanic</language>
 			<language type="ba" draft="contributed">baschkir</language>
 			<language type="bal" draft="contributed">belutschi</language>
 			<language type="ban" draft="contributed">balinais</language>
@@ -1836,10 +1836,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">l’onn proxim</relative>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>onn</displayName>
 			</field>
 			<field type="year-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>onn</displayName>
 			</field>
 			<field type="quarter">
 				<displayName>quartal</displayName>
@@ -1854,19 +1854,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">mais</displayName>
 			</field>
 			<field type="month-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>mais</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>mais</displayName>
 			</field>
 			<field type="week">
 				<displayName draft="contributed">emna</displayName>
 			</field>
 			<field type="week-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>emna</displayName>
 			</field>
 			<field type="week-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>emna</displayName>
 			</field>
 			<field type="day">
 				<displayName>di</displayName>
@@ -1878,15 +1878,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>di</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">ier</relative>
+				<relative type="0">oz</relative>
+				<relative type="1">damaun</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>d</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">ier</relative>
+				<relative type="0">oz</relative>
+				<relative type="1">damaun</relative>
 			</field>
 			<field type="weekday">
 				<displayName>di da l’emna</displayName>
@@ -1904,10 +1904,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ura</displayName>
 			</field>
 			<field type="hour-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ura</displayName>
 			</field>
 			<field type="hour-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>ura</displayName>
 			</field>
 			<field type="minute">
 				<displayName>minuta</displayName>
@@ -2703,7 +2703,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ARS">
 				<displayName>peso argentin</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">pesos argentins</displayName>
 				<displayName count="other">pesos argentins</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -2723,7 +2723,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="AWG">
 				<displayName>flurin da l’Aruba</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">flurins da l’Aruba</displayName>
 				<displayName count="other">flurins da l’Aruba</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -2761,7 +2761,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BBD">
 				<displayName>dollar da Barbados</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars da Barbados</displayName>
 				<displayName count="other">dollars da Barbados</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -2829,7 +2829,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BMD">
 				<displayName>dollar da las Bermudas</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars da las Bermudas</displayName>
 				<displayName count="other">dollars da las Bermudas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -2884,7 +2884,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BSD">
 				<displayName>dollar da las Bahamas</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars da las Bahamas</displayName>
 				<displayName count="other">dollars da las Bahamas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -2919,7 +2919,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">rubel bieloruss</displayName>
 				<displayName count="other">rubels bieloruss</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">BYN</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>rubel bieloruss (2000–2016)</displayName>
@@ -2929,7 +2929,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BZD">
 				<displayName>dollar dal Belize</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars dal Belize</displayName>
 				<displayName count="other">dollars dal Belize</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -2973,7 +2973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CLP">
 				<displayName>peso chilen</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">pesos chilens</displayName>
 				<displayName count="other">pesos chilens</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3009,7 +3009,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CRC">
 				<displayName>colon da la Costa Rica</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">colons da la Costa Rica</displayName>
 				<displayName count="other">colons da la Costa Rica</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3035,7 +3035,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CUP">
 				<displayName>peso cuban</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">pesos cubans</displayName>
 				<displayName count="other">pesos cubans</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3086,7 +3086,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="DOP">
 				<displayName>peso dominican</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">pesos dominicans</displayName>
 				<displayName count="other">pesos dominicans</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3169,7 +3169,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="FKP">
 				<displayName>glivra dal Falkland</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">glivras dal Falkland</displayName>
 				<displayName count="other">glivras dal Falkland</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3235,13 +3235,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GNS">
 				<displayName draft="contributed">syli da la Guinea</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">sylis da la Guinea</displayName>
 				<displayName count="other" draft="unconfirmed">sylis da la Guinea</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName draft="contributed">ekwele da la Guinea Equatoriala</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">ekweles da la Guinea Equatoriala</displayName>
 				<displayName count="other" draft="unconfirmed">ekweles da la Guinea Equatoriala</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -3253,14 +3253,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GTQ">
 				<displayName>quetzal da la Guatemala</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">quetzals da la Guatemala</displayName>
 				<displayName count="other">quetzals da la Guatemala</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName draft="contributed">escudo da la Guinea Portugaisa</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">escudos da la Guinea Portugaisa</displayName>
 				<displayName count="other" draft="unconfirmed">escudos da la Guinea Portugaisa</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -3272,7 +3272,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GYD">
 				<displayName>dollar da la Guyana</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars da la Guyana</displayName>
 				<displayName count="other">dollars da la Guyana</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3306,7 +3306,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="HTG">
 				<displayName>gourde haitian</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">gourdes haitians</displayName>
 				<displayName count="other">gourdes haitians</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3515,7 +3515,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="LTL">
 				<displayName draft="contributed">litas lituan</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">litas lituans</displayName>
 				<displayName count="other" draft="unconfirmed">litas lituans</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
@@ -3528,7 +3528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="LUC">
 				<displayName draft="contributed">franc convertibel luxemburgais</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">francs convertibels luxemburgais</displayName>
 				<displayName count="other" draft="unconfirmed">francs convertibels luxemburgais</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -3790,7 +3790,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="PAB">
 				<displayName>balboa dal Panama</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">balboas dal Panama</displayName>
 				<displayName count="other">balboas dal Panama</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3799,7 +3799,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="PEN">
 				<displayName>sol peruan</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">soles peruans</displayName>
 				<displayName count="other">soles peruans</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3847,7 +3847,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="PYG">
 				<displayName>guarani paraguaian</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">guaranis paraguaians</displayName>
 				<displayName count="other">guaranis paraguaians</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -3860,7 +3860,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="RHD">
 				<displayName draft="contributed">dollar rodesian</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">dollars rodesians</displayName>
 				<displayName count="other" draft="unconfirmed">dollars rodesians</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -3889,14 +3889,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">rubels russ</displayName>
 				<symbol draft="contributed">RUB</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
+				<symbol alt="variant" draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName draft="contributed">rubel russ (vegl)</displayName>
 				<displayName count="one" draft="contributed">rubel russ (vegl)</displayName>
 				<displayName count="other" draft="contributed">rubel russ (vegl)</displayName>
 				<symbol draft="contributed">RUR</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>franc ruandais</displayName>
@@ -3989,7 +3989,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="SRD">
 				<displayName>dollar surinam</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars surinams</displayName>
 				<displayName count="other">dollars surinams</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -4105,7 +4105,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TTD">
 				<displayName>dollar da Trinidad e Tobago</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">dollars da Trinidad e Tobago</displayName>
 				<displayName count="other">dollars da Trinidad e Tobago</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -4234,7 +4234,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XBA">
 				<displayName draft="contributed">unitad europeica cumponida</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">unitads europeicas cumponidas</displayName>
 				<displayName count="other" draft="unconfirmed">unitads europeicas cumponidas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -4246,7 +4246,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XBD">
 				<displayName draft="contributed">unitad dal quint europeica (XBD)</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">unitads dal quint europeicas (XBD)</displayName>
 				<displayName count="other" draft="unconfirmed">unitads dal quint europeicas (XBD)</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -4260,7 +4260,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XDR">
 				<displayName draft="contributed">dretgs da prelevaziun spezials</displayName>
 				<displayName count="one" draft="unconfirmed">dretg da prelevaziun spezial</displayName>
-				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="other" draft="unconfirmed">dretgs da prelevaziun spezials</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XEU">
@@ -4271,13 +4271,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XFO">
 				<displayName draft="contributed">franc d’aur franzos</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">francs d’aur franzos</displayName>
 				<displayName count="other" draft="unconfirmed">francs d’aur franzos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName draft="contributed">franc UIC franzos</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">francs UIC franzos</displayName>
 				<displayName count="other" draft="unconfirmed">francs UIC franzos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -4437,7 +4437,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="digital-petabyte">
 				<displayName>petabytes</displayName>
@@ -4649,7 +4649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="digital-byte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} byte</unitPattern>
 				<unitPattern count="other">{0} byte</unitPattern>
 			</unit>
 			<unit type="digital-bit">
@@ -4759,10 +4759,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="duration-year">
 				<displayName>onn</displayName>
@@ -4868,7 +4868,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<coordinateUnit>
 				<displayName>direcziun</displayName>
 				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
 				<coordinateUnitPattern type="west">{0}V</coordinateUnitPattern>
 			</coordinateUnit>
@@ -4897,34 +4897,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} u {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} u {1}</listPatternPart>
 			<listPatternPart type="2">{0} u {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} u {1}</listPatternPart>
 			<listPatternPart type="2">{0} u {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} e {1}</listPatternPart>
+			<listPatternPart type="2">{0} e {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} e {1}</listPatternPart>
+			<listPatternPart type="2">{0} e {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} e {1}</listPatternPart>
+			<listPatternPart type="2">{0} e {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
 			<listPatternPart type="start">{0} {1}</listPatternPart>
@@ -4933,10 +4933,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} e {1}</listPatternPart>
+			<listPatternPart type="2">{0} e {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

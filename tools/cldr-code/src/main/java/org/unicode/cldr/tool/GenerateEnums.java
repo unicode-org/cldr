@@ -385,6 +385,7 @@ public class GenerateEnums {
         missing.remove("IC");
         missing.remove("QU");
         missing.remove("UN");
+        missing.remove("CQ");
 
         if (missing.size() != 0) {
             throw new IllegalArgumentException("Codes in Registry but not in CLDR: "

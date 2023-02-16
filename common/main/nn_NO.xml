@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,4 +11,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nn"/>
 		<territory type="NO"/>
 	</identity>
+	<units>
+		<unitLength type="narrow">
+			<unit type="area-square-mile">
+				<perUnitPattern>{0}/mi²</perUnitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>eng. mil/gal</displayName>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>eng. mil/brit. gal</displayName>
+			</unit>
+			<unit type="digital-byte">
+				<unitPattern count="other">{0} byte</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<unitPattern count="one">{0} dpcm</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<unitPattern count="one">{0} ppt</unitPattern>
+				<unitPattern count="other">{0} ppt</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<displayName>pikometer</displayName>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>au</displayName>
+			</unit>
+			<unit type="length-fathom">
+				<displayName>famner</displayName>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stones</displayName>
+				<unitPattern count="one">{0} eng. st.</unitPattern>
+				<unitPattern count="other">{0} eng. st.</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>m. koppar</displayName>
+			</unit>
+			<unit type="volume-pint">
+				<unitPattern count="one">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>væskeunse</displayName>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>britisk væskeunse</displayName>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>brit. quart</displayName>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>

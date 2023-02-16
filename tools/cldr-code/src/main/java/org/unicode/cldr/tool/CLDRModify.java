@@ -6,8 +6,7 @@
  */
 package org.unicode.cldr.tool;
 
-import java.io.File;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -2426,6 +2425,64 @@ public class CLDRModify {
                         String fullPath = cldrFileToFilter.getFullXPath(xpath);
                         replace(fullPath, fullPath, baileyValue, "fix lateral");
                     }
+                }
+            }
+        });
+
+        fixList.add('W', "Harden values to prevent CompareResolved differences", new CLDRFilter() {
+            HashMap<String, String> diffMap = null;
+            CLDRFile baselineFileResolved = null;
+
+            @Override
+            public void handleStart() {
+                if (diffMap == null) {
+                    diffMap = new HashMap();
+                    final String resDifFileName = "ResolvedDifferences.txt";
+                    File resolvedDifferenceFile = new File("..", resDifFileName);
+                    try {
+                        FileReader fr = new FileReader(resolvedDifferenceFile);
+                        BufferedReader br = new BufferedReader(fr);
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            String[] columns = line.split("\t", -1);
+                            // columns 1, 2, 3 have locale, path, resolvedValue
+                            String key = columns[1] + " " + columns[2];
+                            String value = columns[3];
+                            if (diffMap.containsKey(key)) {
+                                throw new RuntimeException("Duplicate key " + key + " in " + resDifFileName);
+                            }
+                            diffMap.put(key, value);
+                        }
+                        fr.close();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+            @Override
+            public void handlePath(String xpath) {
+                String key = getLocaleID() + " " + xpath;
+                if (diffMap.containsKey(key)) {
+                    String resolvedValue = diffMap.get(key);
+                    if (resolvedValue == null) {
+                        throw new RuntimeException("resolvedValue == null");
+                    }
+                    String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                    replace(fullPath, fullPath, resolvedValue, "harden");
+                }
+            }
+
+            @Override
+            public void handleEnd() {
+                // handle paths from baselineFileResolved that aren't in (unresolved) cldrFileToFilter
+                CLDRFile baselineFileResolved = getResolved();
+                final Set<String> rPaths = new HashSet<>();
+                final Set<String> uPaths = new HashSet<>();
+                baselineFileResolved.getPaths("", null, rPaths);
+                cldrFileToFilter.getPaths("", null, uPaths);
+                rPaths.removeAll(uPaths);
+                for (final String rPath : rPaths) {
+                    handlePath(rPath);
                 }
             }
         });

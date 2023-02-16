@@ -156,7 +156,10 @@ public class CompareResolved {
                 // fell through, so record diff
 
                 ++diffCount;
-                System.out.println(path + "\t" + sourceValue + "\t" + compareValue);
+                if (sourceValue == null || compareValue == null || sourceValue.isEmpty() || compareValue.isEmpty()) {
+                    throw new RuntimeException("Null or empty sourceValue or compareValue: [" + sourceValue + "/" + compareValue + "]");
+                }
+                System.out.println("≠DIFF\t" + localeID + "\t" + path + "\t" + sourceValue + "\t" + compareValue);
             }
             if (verbose) {
                 System.out.println("\tfilteredCount: " + filterCount + ", diffCount: " + diffCount);

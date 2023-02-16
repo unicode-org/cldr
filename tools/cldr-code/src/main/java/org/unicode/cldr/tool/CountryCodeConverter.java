@@ -114,14 +114,16 @@ public class CountryCodeConverter {
 
         @Override
         public boolean handle(String line) {
-            if (line.trim().length() == 0) {
-                return true; // don't show skips
+            if (line.trim().length() == 0 || line.trim().startsWith("#")) {
+                return true; // don't show skips, ignore comment lines
             }
             String[] pieces = line.split(";");
             String country = pieces[0].trim();
             if (!goodAvailableCodes.contains(country)) {
-
+                // TODO- ?
             }
+            // Note: field 1 is ignored.
+
             addName(pieces[2].trim(), country);
             return true;
         }

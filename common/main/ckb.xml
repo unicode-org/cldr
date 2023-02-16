@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -404,7 +404,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zgh">ئەمازیغیی مەغریب</language>
 			<language type="zh">چینی</language>
 			<language type="zh_Hans">چینی (چینیی ئاسانکراو)</language>
-			<language type="zh_Hans" alt="long" draft="unconfirmed">↑↑↑</language>
+			<language type="zh_Hans" alt="long" draft="unconfirmed">چینی (چینیی ئاسانکراو)</language>
 			<language type="zh_Hant">چینی (چینیی دێرین)</language>
 			<language type="zu">زوولوو</language>
 			<language type="zun">زوونی</language>
@@ -538,7 +538,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">کۆماری کۆنگۆ</territory>
 			<territory type="CH">سویسڕا</territory>
 			<territory type="CI">کۆتدیڤوار</territory>
-			<territory type="CI" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="CI" alt="variant" draft="unconfirmed">کۆتدیڤوار</territory>
 			<territory type="CK">دوورگەکانی کوک</territory>
 			<territory type="CL">چیلی</territory>
 			<territory type="CM">کامیرۆن</territory>
@@ -552,7 +552,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">دوورگەی کریسمس</territory>
 			<territory type="CY">قیبرس</territory>
 			<territory type="CZ">کۆماری چیک</territory>
-			<territory type="CZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="CZ" alt="variant" draft="unconfirmed">کۆماری چیک</territory>
 			<territory type="DE">ئەڵمانیا</territory>
 			<territory type="DG">دیەگۆ گارسیا</territory>
 			<territory type="DJ">جیبووتی</territory>
@@ -720,7 +720,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SX">سینت مارتن</territory>
 			<territory type="SY">سووریا</territory>
 			<territory type="SZ">سوازیلاند</territory>
-			<territory type="SZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="SZ" alt="variant" draft="unconfirmed">سوازیلاند</territory>
 			<territory type="TA">تریستێن دا کوونا</territory>
 			<territory type="TC">دوورگەکانی تورکس و کایکۆس</territory>
 			<territory type="TD">چاد</territory>
@@ -730,7 +730,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">تاجیکستان</territory>
 			<territory type="TK">تۆکێلاو</territory>
 			<territory type="TL">تیمۆری ڕۆژھەڵات</territory>
-			<territory type="TL" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="TL" alt="variant" draft="unconfirmed">تیمۆری ڕۆژھەڵات</territory>
 			<territory type="TM">تورکمانستان</territory>
 			<territory type="TN">توونس</territory>
 			<territory type="TO">تۆنگا</territory>
@@ -1507,14 +1507,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1" draft="unconfirmed">سبەی</relative>
 			</field>
 			<field type="day-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">دوێنێ</relative>
+				<relative type="0" draft="unconfirmed">ئەمڕۆ</relative>
+				<relative type="1" draft="unconfirmed">سبەی</relative>
 			</field>
 			<field type="day-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">دوێنێ</relative>
+				<relative type="0" draft="unconfirmed">ئەمڕۆ</relative>
+				<relative type="1" draft="unconfirmed">سبەی</relative>
 			</field>
 			<field type="weekday">
 				<displayName draft="unconfirmed">ڕۆژی ھەفتە</displayName>
@@ -1682,8 +1682,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TTD">
 				<displayName draft="unconfirmed">دۆلاری ترینیداد و تۆباگۆ</displayName>
-				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
-				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">دۆلاری ترینیداد و تۆباگۆ</displayName>
+				<displayName count="other" draft="unconfirmed">دۆلاری ترینیداد و تۆباگۆ</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="unconfirmed">زێڕ</displayName>

@@ -34,10 +34,6 @@ public class CompareResolved {
             .setMatch(".*")),
         verbose(new Params()
             .setMatch(null)),
-        Vertical(new Params().setHelp("Only check values with vertical inheritance")
-            .setMatch(null)),
-        Horizontal(new Params().setHelp("Only check values with horizontal inheritance")
-            .setMatch(null)),
         ;
 
         // BOILERPLATE TO COPY
@@ -79,10 +75,6 @@ public class CompareResolved {
         }
 
         boolean verbose = MyOptions.verbose.option.doesOccur();
-
-        // TODO
-        Boolean onlyVertical = null; // !MyOptions.Vertical.option.doesOccur() ? null : Boolean.valueOf(MyOptions.Horizontal.option.getValue());
-        Boolean onlyHorizontal = null; // !MyOptions.Horizontal.option.doesOccur() ? null : Boolean.valueOf(MyOptions.Horizontal.option.getValue());
 
         // set up factories
 

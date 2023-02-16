@@ -681,6 +681,8 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return toString(elements.size());
     }
 
+    // TODO combine and optimize these
+
     public String toString(int limit) {
         if (limit < 0) {
             limit += size();

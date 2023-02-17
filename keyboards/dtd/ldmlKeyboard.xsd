@@ -312,7 +312,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:any -->
-  <!-- @MATCH:regex/(none|((alt[LR]?|ctrl[LR]?|caps|shift)[ ]?)+) -->
+  <!-- @MATCH:regex/^(none|(\b(alt[LR]?)?\b[ ]?\b(ctrl[LR]?)?\b[ ]?\b(shift)?\b[ ]?\b(caps)?\b))$ -->
   <xs:element name="row">
     <xs:complexType>
       <xs:attribute name="keys" use="required" type="xs:NMTOKENS"/>

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -118,7 +119,7 @@ public class ConvertLanguageData {
     public static void main(String[] args) throws IOException, ParseException {
         final File oldSupp = new File(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
         final File genSupp = new File(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
-        final File genLsraw = new File(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
+        final File genLsraw = new File(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script.tsv");
         try (
             final BufferedReader oldFile = FileUtilities.openUTF8Reader(oldSupp);
             final PrintWriter newFile = FileUtilities.openUTF8Writer(genSupp);
@@ -224,16 +225,18 @@ public class ConvertLanguageData {
             CldrUtility.copyUpTo(oldFile, null, newFile, false);
 
             getLanguageScriptSpreadsheet(newLsraw);
+
+            // Only write if there's no exception.
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            System.out.println("Wrote: " + genLsraw);
-            System.out.println("Wrote: " + genSupp);
-            System.out.println("Copying " + genSupp + " to " + oldSupp);
-            oldSupp.delete();
-            Files.copy(genSupp.toPath(), oldSupp.toPath());
-            System.out.println("DONE");
+            return;
         }
+
+        System.out.println("Wrote: " + genLsraw);
+        System.out.println("Wrote: " + genSupp);
+        System.out.println("Moving " + genSupp + " to " + oldSupp);
+        Files.move(genSupp.toPath(), oldSupp.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        System.out.println("DONE");
     }
 
     public static String getLanguageCodeAndName(String code) {
@@ -700,7 +703,7 @@ public class ConvertLanguageData {
             if (Math.abs(diff) > maxRelativeDiff) {
                 System.out.println(formatPercent(diff, 0, false)
                     + "\t" + countryCode + "\t" + getDisplayCountry(countryCode)
-                    + (showLang ? "\t" + languageCode + "\t" + getLanguageName(languageCode) : "")
+                    + (showLang ? "\t" + languageCode + "\t" + ConvertLanguageData.getLanguageName(languageCode) : "")
                     + "\t" + formatNumber(a, 0, false) + "\t=>\t" + formatNumber(new_a, 0, false));
             }
         }
@@ -815,7 +818,7 @@ public class ConvertLanguageData {
 
         static boolean MARK_OUTPUT = false;
 
-        public String getRickLanguageCode() {
+        public String getLanguageCode() {
             if (languageCode.contains("_")) return languageCode;
             Source source = Iso639Data.getSource(languageCode);
             if (source == null) {
@@ -831,9 +834,9 @@ public class ConvertLanguageData {
 
         static Map<String, String> oldToFixed = new HashMap<>();
 
-        public String getRickLanguageName() {
+        public String getLanguageName() {
             String cldrResult = getExcelQuote(english.getName(languageCode, true));
-//            String result = getRickLanguageName2();
+//            String result = getLanguageName2();
 //            if (!result.equalsIgnoreCase(cldrResult)) {
 //                if (null == oldToFixed.put(result, cldrResult)) {
 //                    System.out.println("## " + result + "!=" + cldrResult);
@@ -842,7 +845,7 @@ public class ConvertLanguageData {
             return cldrResult;
         }
 
-        public String getRickLanguageName2() {
+        public String getLanguageName2() {
             String result = new ULocale(languageCode).getDisplayName();
             if (!result.equals(languageCode)) return getExcelQuote(result);
             Set<String> names = Iso639Data.getNames(languageCode);
@@ -908,12 +911,12 @@ public class ConvertLanguageData {
         return english.getName(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
     }
 
-    static class RickComparator implements Comparator<RowData> {
+    static class RowComparator implements Comparator<RowData> {
         @Override
         public int compare(RowData me, RowData that) {
             int result;
             if (0 != (result = GENERAL_COLLATOR.compare(me.getCountryName(), that.getCountryName()))) return result;
-            if (0 != (result = GENERAL_COLLATOR.compare(me.getRickLanguageName(), that.getRickLanguageName())))
+            if (0 != (result = GENERAL_COLLATOR.compare(me.getLanguageName(), that.getLanguageName())))
                 return result;
             return me.compareTo(that);
         }
@@ -1124,14 +1127,16 @@ public class ConvertLanguageData {
         LanguageTagParser ltp = new LanguageTagParser();
 
         String dir = CLDRPaths.GEN_DIRECTORY + "supplemental/";
-        final String ricksFile = "country_language_population_raw.txt";
-        System.out.println("\n# Problems in " + ricksFile + "\n");
-        List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data(ricksFile));
+        final String countryLanguagePopulation = "country_language_population.tsv";
+        System.out.println("\n# Problems in " + countryLanguagePopulation + "\n");
+        List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data(countryLanguagePopulation));
 
+        // TODO: Why is this called? Should it be sc.getGoodAvailableCodes?
         Set<String> languages = languagesNeeded; // sc.getGoodAvailableCodes("language");
 
         Set<String> territories = new TreeSet<>(sc.getGoodAvailableCodes("territory"));
         territories.removeAll(supplementalData.getContainers());
+        // TODO: Why are these removed if they are "good" (per above function)?
         territories.remove("EU");
         territories.remove("QO");
 
@@ -1220,8 +1225,7 @@ public class ConvertLanguageData {
             countriesWithoutOfficial.remove(row.countryCode);
         }
 
-        // write out file for rick
-        PrintWriter log = FileUtilities.openUTF8Writer(dir, ricksFile);
+        PrintWriter log = FileUtilities.openUTF8Writer(dir, countryLanguagePopulation);
         log.println(
             "*\tCName" +
                 "\tCCode" +
@@ -1235,11 +1239,11 @@ public class ConvertLanguageData {
                 "\tWritingPop" +
                 "\tReferences" +
                 "\tNotes");
-        RickComparator rickSorting = new RickComparator();
-        Set<RowData> rickSorted = new TreeSet<>(rickSorting);
-        rickSorted.addAll(sortedInput);
+        RowComparator rowSorting = new RowComparator();
+        Set<RowData> rowSorted = new TreeSet<>(rowSorting);
+        rowSorted.addAll(sortedInput);
 
-        for (RowData row : rickSorted) {
+        for (RowData row : rowSorted) {
             final String langLit = row.getLanguageLiteracyString();
             final String countryLit = row.getCountryLiteracyString();
             log.println(
@@ -1249,8 +1253,8 @@ public class ConvertLanguageData {
                     + "\t" + countryLit
                     + "\t" + row.getCountryGdpString()
                     + "\t" + (row.officialStatus == OfficialStatus.unknown ? "" : row.officialStatus)
-                    + "\t" + row.getRickLanguageName()
-                    + "\t" + row.getRickLanguageCode()
+                    + "\t" + row.getLanguageName()
+                    + "\t" + row.getLanguageCode()
                     + "\t" + row.getLanguagePopulationString()
                     + "\t" + (langLit.equals(countryLit) ? "" : langLit)
                     + "\t" + getExcelQuote(row.comment)
@@ -1390,8 +1394,10 @@ public class ConvertLanguageData {
         Set<String> needsADoin = new TreeSet<>(locales);
 
         Set<String> deprecatedLanguages = new TreeSet<>();
+        // TODO: why are these here and not read from metadata?
         deprecatedLanguages.add("sh");
         Set<String> deprecatedRegions = new TreeSet<>();
+        // TODO: why are these here and not read from metadata?
         deprecatedRegions.add("YU");
         deprecatedRegions.add("CS");
         deprecatedRegions.add("ZZ");
@@ -1693,6 +1699,7 @@ public class ConvertLanguageData {
     }
 
     static Set<String> languagesNeeded = new TreeSet<>(
+        // TODO: what is this list?
         Arrays
             .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na no rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
                 .split("\\s")));
@@ -1741,8 +1748,8 @@ public class ConvertLanguageData {
         // System.out.println("Language 2 scripts: " + language_status_scripts);
 
         // #Lcode LanguageName Status Scode ScriptName References
-        List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data("language_script_raw.txt"));
-        System.out.println(CldrUtility.LINE_SEPARATOR + "# Problems in language_script_raw.txt"
+        List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data("language_script.tsv"));
+        System.out.println(CldrUtility.LINE_SEPARATOR + "# Problems in language_script.tsv"
             + CldrUtility.LINE_SEPARATOR);
         //int count = -1;
         for (List<String> row : input) {

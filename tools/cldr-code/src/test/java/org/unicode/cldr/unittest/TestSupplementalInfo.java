@@ -1624,10 +1624,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 } else if (!data.getScripts().contains(defaultScript)) {
                     if (StandardCodes.isLocaleAtLeastBasic(locale)) {
                         errln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv  " + data.getScripts());
                     } else {
                         logln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt (not a basic loc) " + data.getScripts());
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv (not a basic loc) " + data.getScripts());
                     }
                 }
             }

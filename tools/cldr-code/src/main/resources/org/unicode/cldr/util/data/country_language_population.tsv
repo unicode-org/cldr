@@ -1,4 +1,4 @@
-#	CName	CCode	CPopulation	CLiteracy	CGdp	OfficialStatus	Language	LCode	LPopulation	WritingPop	References	Notes
+#CName	CCode	CPopulation	CLiteracy	CGdp	OfficialStatus	Language	LCode	LPopulation	WritingPop	References	Notes
 #######
 #WARNING: this file is in TSV format (for pasting from a spreadsheet); make sure you maintain tabs!
 #######
@@ -174,7 +174,7 @@ Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Ngiemboon	nnh	"347,000"	8%		http:
 Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Ngomba	jgo	"87,500"	30%		http://www.ethnologue.com/language/jgo 2nd lang literacy 30%
 Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Yangben	yav	"2,300"
 Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Yemba	ybb	"416,000"	2%		http://www.ethnologue.com/language/ybb
-Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Kenyang	ken	"65,000"			
+Cameroon	CM	"25,640,965"	71%	"89,540,000,000"		Kenyang	ken	"65,000"
 Canada	CA	"35,881,659"	99%	"1,774,000,000,000"	official	English	en	86%			https://en.wikipedia.org/wiki/Languages_of_Canada In total 86.2% of Canadians have working knowledge of English while 29.8% have a working knowledge of French.
 Canada	CA	"35,881,659"	99%	"1,774,000,000,000"	official	French	fr	30%			https://en.wikipedia.org/wiki/Languages_of_Canada In total 86.2% of Canadians have working knowledge of English while 29.8% have a working knowledge of French.
 Canada	CA	"35,881,659"	99%	"1,774,000,000,000"		Mandarin Chinese	zh	1.8%			https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&Lang=E&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=0&GID=1235625&GK=0&GRP=1&PID=110212&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2016&THEME=118&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0 Canada 2016 census language data; official status from Wikipedia Languages_of_Canada
@@ -683,7 +683,7 @@ Italy	IT	"62,246,674"	99%	"2,317,000,000,000"	recognized	German	de	"996,000"			c
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Greek	el	"21,600"
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"	official	Italian	it	95%
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Ligurian	lij	"535,000"
-Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Lombard	lmo	"18,600"
+Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Lombard	lmo	"3,530,000"			"https://en.wikipedia.org/wiki/Lombard_language#Usage but subtracting 270,000 per https://en.wikipedia.org/wiki/Swiss_Italian"
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Neapolitan	nap	"603,000"	5%		5% writing pop estimated in absence of other data; literacy rate reported at 12%
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Piedmontese	pms	"6,170"
 Italy	IT	"62,246,674"	99%	"2,317,000,000,000"		Romagnol	rgn	1			No estimate available.
@@ -700,6 +700,7 @@ Japan	JP	"126,168,156"	99%	"5,443,000,000,000"		Korean	ko	"661,000"
 Jersey	JE	"99,602"	99%	"5,569,000,000"	official	English	en	95%
 Jordan	JO	"10,458,413"	96%	"89,000,000,000"	official	Arabic	ar	100%			"http://memory.loc.gov/cgi-bin/query/r?frd/cstdy:@field(DOCID+jo0039) says: All Jordanians, regardless of ethnicity or religion, speak Arabic, the official language of Jordan"
 Jordan	JO	"10,458,413"	96%	"89,000,000,000"		English	en	45%			"http://memory.loc.gov/cgi-bin/query/r?frd/cstdy:@field(DOCID+jo0039) says: All Jordanians, regardless of ethnicity or religion, speak Arabic, the official language of Jordan"
+Jordan	JO	"10,458,413"	96%	"89,000,000,000"		Levantine Arabic	apc	"6,860,000"			https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country
 Kazakhstan	KZ	"18,744,548"	100%	"478,600,000,000"		English	en	15%
 Kazakhstan	KZ	"18,744,548"	100%	"478,600,000,000"		German	de	6.4%
 Kazakhstan	KZ	"18,744,548"	100%	"478,600,000,000"	official	Kazakh	kk	64%			https://www.cia.gov/cia/publications/factbook/geos/kz.html CIA Factbook entry on Kazakhstan
@@ -747,6 +748,7 @@ Lebanon	LB	"6,100,075"	90%	"88,250,000,000"		Armenian	hy	5.2%
 Lebanon	LB	"6,100,075"	90%	"88,250,000,000"		English	en	40%
 Lebanon	LB	"6,100,075"	90%	"88,250,000,000"		French	fr	"22,300"
 Lebanon	LB	"6,100,075"	90%	"88,250,000,000"		Kurdish (Arabic)	ku_Arab	"101,000"
+Lebanon	LB	"6,100,075"	90%	"88,250,000,000"		Levantine Arabic	apc	"6,759,000"			https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country
 Lesotho	LS	"1,962,461"	90%	"6,656,000,000"	official	English	en	27%			"http://www.ethnologue.com/show_country.asp?name=LS Lesotho English-using pop estimated at 5%, no figs available. Probably too low."
 Lesotho	LS	"1,962,461"	90%	"6,656,000,000"	official	Southern Sotho	st	98%
 Lesotho	LS	"1,962,461"	90%	"6,656,000,000"		Swati	ss	"46,700"
@@ -1019,6 +1021,7 @@ Pakistan	PK	"207,862,518"	55%	"1,061,000,000,000"		Western Balochi	bgn	"1,190,00
 Palau	PW	"21,516"	92%	"264,000,000"	official	English	en	"1,880"			"https://www.cia.gov/cia/publications/factbook/fields/2098.html English official on some islands, total 9.4%"
 Palau	PW	"21,516"	92%	"264,000,000"	official	Palauan	pau	74%
 Palestinian Territories	PS	"4,635,207"	95%	"21,220,000,000"	official	Arabic	ar	100%
+Palestinian Territories	PS	"4,635,207"	95%	"21,220,000,000"		Levantine Arabic	apc	"4,014,800"			https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country
 Panama	PA	"3,800,644"	94%	"104,100,000,000"		Chinese (Traditional)	zh_Hant	"6,000"
 Panama	PA	"3,800,644"	94%	"104,100,000,000"		English	en	14%
 Panama	PA	"3,800,644"	94%	"104,100,000,000"	official	Spanish	es	69%
@@ -1131,6 +1134,7 @@ Samoa	WS	"201,316"	99%	"1,137,000,000"	official	Samoan	sm	100%
 San Marino	SM	"33,779"	96%	"2,064,000,000"		Esperanto	eo	300			"http://en.wikipedia.org/wiki/Esperanto http://en.wikipedia.org/wiki/Akademio_Internacia_de_la_Sciencoj_San_Marino - estimate 100% of the academy can use Esperanto; the language is used as 1st language of instruction; academy has 300 """"""""""""""""""""""""""""""""members""""""""""""""""""""""""""""""""."
 San Marino	SM	"33,779"	96%	"2,064,000,000"	official	Italian	it	89%
 São Tomé & Príncipe	ST	"204,454"	70%	"686,000,000"	official	Portuguese	pt	85%
+Sark	CQ	"492"	99%	"21,943,200"	official	English	en	98%			https://en.wikipedia.org/wiki/Sark#Economy and https://islandstudies.com/files/2016/11/Guernsey-Herm-Sark.pdf - extrapolated GDP from per capita x population
 Saudi Arabia	SA	"33,091,113"	87%	"1,775,000,000,000"	official	Arabic	ar	100%
 Saudi Arabia	SA	"33,091,113"	87%	"1,775,000,000,000"		Najdi Arabic	ars	2.99%	5%		"For languages not customarily written, the writing population is artificially set to 5% in the absence of better information."
 Senegal	SN	"15,020,945"	50%	"54,800,000,000"	official_regional	Balanta-Ganja	bjt	"91,200"	100%		"http://en.wikipedia.org/wiki/Senegal 50k Europeans, mostly French. The figure for writing population is derived from literacy * population, and may be too high."
@@ -1272,6 +1276,7 @@ Syria	SY	"19,454,263"	84%	"50,280,000,000"		Armenian	hy	"350,000"
 Syria	SY	"19,454,263"	84%	"50,280,000,000"	official	French	fr	5.9%			http://www.nationsonline.org/oneworld/syria.htm Crude estimate based on import partner data.
 Syria	SY	"19,454,263"	84%	"50,280,000,000"		Kurdish	ku	8%
 Syria	SY	"19,454,263"	84%	"50,280,000,000"		Syriac	syr	"16,400"	5%		"For languages not customarily written, the writing population is artificially set to 5% in the absence of better information."
+Syria	SY	"19,454,263"	84%	"50,280,000,000"		Levantine Arabic	apc	"16,633,300"			https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country
 Taiwan	TW	"23,545,963"	96%	"1,189,000,000,000"	official	Chinese (Traditional)	zh_Hant	95%
 Taiwan	TW	"23,545,963"	96%	"1,189,000,000,000"		Taroko	trv	"4,750"
 Tajikistan	TJ	"8,604,882"	100%	"28,430,000,000"		Arabic	ar	"1,000"
@@ -1346,6 +1351,7 @@ Turkey	TR	"81,257,239"	94%	"2,186,000,000,000"	official	Turkish	tr	93%			"http:/
 Turkey	TR	"81,257,239"	94%	"2,186,000,000,000"		Turoyo	tru	"3,000"
 Turkey	TR	"81,257,239"	94%	"2,186,000,000,000"		Uzbek	uz	"1,980"
 Turkey	TR	"81,257,239"	94%	"2,186,000,000,000"		Zaza	zza	"1,140,000"
+Turkey	TR	"81,257,239"	94%	"2,186,000,000,000"		Levantine Arabic	apc	"4,250,000"			https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country
 Turkmenistan	TM	"5,411,012"	100%	"103,700,000,000"		Kurdish	ku	"21,900"
 Turkmenistan	TM	"5,411,012"	100%	"103,700,000,000"		Russian	ru	12%
 Turkmenistan	TM	"5,411,012"	100%	"103,700,000,000"	official	Turkmen	tk	70%
@@ -1408,7 +1414,7 @@ United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"		Lithuanian	lt	0.2%			htt
 United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"	official_regional	Irish	ga	0.15%			https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom Analyzed from 2011 UK census and other sources
 United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"	official_regional	Scottish Gaelic	gd	0.11%	5%		https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom Analyzed from 2011 UK census and other sources
 United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"		Cornish	kw	0.003%			http://en.wikipedia.org/wiki/Cornish_language The 2008 estimate is ~2000 speakers due to revival efforts
-United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"		English (Shavian)	en_Shaw	1			
+United Kingdom	GB	"65,105,246"	99%	"2,925,000,000,000"		English (Shavian)	en_Shaw	1
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Caddo	cad	"25"
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Cajun French	frc	"27,800"
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Central Yupik	esu	"20,600"
@@ -1435,8 +1441,8 @@ United States	US	"329,256,465"	99%	"19,490,000,000,000"	official_regional	Spanis
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Vietnamese	vi	"1,130,000"
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Yiddish	yi	"162,000"			http://en.wikipedia.org/wiki/Languages_of_the_United_States#Yiddish
 United States	US	"329,256,465"	99%	"19,490,000,000,000"		Hmong Njua	hnj	"114,000"			https://joshuaproject.net/languages/hnj
-United States	US	"329,256,465"	99%	"19,490,000,000,000"		Lojban	jbo	"10"			
-United States	US	"329,256,465"	99%	"19,490,000,000,000"		Ido	io	"100"			
+United States	US	"329,256,465"	99%	"19,490,000,000,000"		Lojban	jbo	"10"
+United States	US	"329,256,465"	99%	"19,490,000,000,000"		Ido	io	"100"
 Unknown Region	ZZ	0	0%	0		Ido	io	0	99%
 Unknown Region	ZZ	0	0%	0		Interlingua	ia	0	99%
 Unknown Region	ZZ	0	0%	0		Kotava	avk	0	99%
@@ -1461,7 +1467,7 @@ Vietnam	VN	"97,040,334"	93%	"648,700,000,000"		Chinese (Traditional)	zh_Hant	"1,
 Vietnam	VN	"97,040,334"	93%	"648,700,000,000"		Eastern Cham	cjm	"86,000"	60%
 Vietnam	VN	"97,040,334"	93%	"648,700,000,000"	official	Vietnamese	vi	86%			http://en.wikipedia.org/wiki/Vietnamese_language (could be higher if 2nd lang included; no data yet)
 Vietnam	VN	"97,040,334"	93%	"648,700,000,000"		Hmong Njua	hnj	"164,000"			https://joshuaproject.net/languages/hnj
-Vietnam	VN	"97,040,334"	93%	"648,700,000,000"		Tai Dam	blt	"669,000"			
+Vietnam	VN	"97,040,334"	93%	"648,700,000,000"		Tai Dam	blt	"669,000"
 Wallis & Futuna	WF	"15,763"	50%	"60,000,000"		East Futuna	fud	"4,820"
 Wallis & Futuna	WF	"15,763"	50%	"60,000,000"	official	French	fr	"7,620"			http://en.wikipedia.org/wiki/Wallis_and_futuna#Languages
 Wallis & Futuna	WF	"15,763"	50%	"60,000,000"		Wallisian	wls	"9,440"

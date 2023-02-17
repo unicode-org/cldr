@@ -542,10 +542,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     if (fieldType.matches(".*-(short|narrow)|quarter")) {
                         continue;
                     }
-                    // "now" - [JCE] not sure on this so I opened ticket #8833
-                    if (fieldType.equals("second") && xpp.findAttributeValue("relative", "type").equals("0")) {
-                        continue;
-                    }
                 }
             } else if (xpp.containsElement("language")) {
                 // Comprehensive coverage is OK for some languages.
@@ -567,11 +563,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
             } else if (xpp.containsElement("territory")) {
-                // All territories are usually modern, unless the territory code is deprecated.  The only
-                // such one right now is "AN" (Netherlands Antilles), which should go outside the 5-year
-                // deprecation window in 2016.
                 String territoryType = xpp.findAttributeValue("territory", "type");
-                if (territoryType.equals("AN")) {
+                if (territoryType.equals("CQ")) { // Exceptionally reserved by ISO-3166
                     continue;
                 }
             } else if (xpp.containsElement("key")) {

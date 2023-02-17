@@ -772,7 +772,7 @@ public class PersonNameFormatter {
                 ++p1;
             }
 
-            // get the range of nonwhitespace characters at the end of l2
+            // get the range of nonwhitespace   characters at the end of l2
             int p2 = l2.length() - 1;
             while (p2 >= 0 && !Character.isWhitespace(l2.charAt(p2))) {
                 --p2;

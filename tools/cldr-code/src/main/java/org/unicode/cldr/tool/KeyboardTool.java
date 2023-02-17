@@ -1,7 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.PrintStream;
-import java.io.Writer;
 import java.util.Iterator;
 import java.util.TreeSet;
 

@@ -1,5 +1,5 @@
 <!--
-Copyright © 1991-2022 Unicode, Inc.
+Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -90,14 +90,17 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT display EMPTY >
 <!ATTLIST display to CDATA #REQUIRED >
     <!--@MATCH:any-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST display display CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 
 <!ELEMENT displayOptions EMPTY >
 <!ATTLIST displayOptions baseCharacter CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 
 <!ELEMENT keys ( import*, ( key | flicks )*, special* ) >
 
@@ -111,14 +114,18 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST key to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST key longPress CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST key longPressDefault CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST key multiTap CDATA #IMPLIED >
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST key switch NMTOKEN #IMPLIED >
     <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
     <!--@VALUE-->
@@ -138,6 +145,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST flick to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 
 <!ELEMENT layers ( import*, layer*, special* ) >
 <!ATTLIST layers form (hardware | touch) #REQUIRED >
@@ -169,6 +177,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST transform to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST transform error (fail) #IMPLIED >
     <!--@VALUE-->
 

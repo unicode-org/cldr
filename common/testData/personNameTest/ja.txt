@@ -1,0 +1,393 @@
+# CLDR person name formatting test data for: ja
+#
+# Test lines have the following structure:
+#
+# enum ; <type> ; <value>(', ' <value)
+#   For all the elements in <…> below, the possible choices that could appear in the file.
+#   For example, <field> could be any of title, given, … credentials.
+#   Verify that all of these values work with the implementation.
+#
+# name ; <field>('-'<modifier>) ; <value>
+#   A sequence of these is to be used to build a person name object with the given field values.
+#   If the <field> is 'locale', then the value is the locale of the name.
+#     That will always be the last field in the name.
+#     NOTE: the locale for the name (where different than the test file's locale) will generally not match the text.
+#     It is chosen to exercise the person name formatting, by having a different given-surname order than the file's locale.
+#
+# expectedResult; <value>
+#   This line follows a sequence of name lines, and indicates the that all the following parameter lines have this expected value.
+#
+# parameters; <options>; <length>; <usage>; <formality>
+#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, 
+#   the expected value is produced.
+#   <options> = sorting, n/a
+#
+# endName
+#   Indicates the end of the values to be tested with the current name.
+#
+# =====
+# Example:
+#     enum ; field ; title, given, given2, surname, surname2, generation, credentials
+#     …
+#
+#     name ; given; Iris
+#     name ; surname; Falke
+#     name ; locale; de
+#
+#     expectedResult; Falke, Iris
+#
+#     parameters; sorting; long; referring; formal
+#     parameters; sorting; medium; referring; informal
+#
+#     endName
+#
+#     name ; given; Max
+#     name ; given2; Ben
+#     name ; surname; Mustermann
+#     …
+# =====
+
+enum ; field ; title, given, given2, surname, surname2, generation, credentials
+enum ; modifiers ; informal, allCaps, initialCap, initial, monogram, prefix, core
+enum ; options ; n/a, sorting
+enum ; length ; long, medium, short
+enum ; usage ; referring, addressing, monogram
+enum ; formality ; formal, informal
+
+name ; given; 慎太郎
+name ; locale; ja_AQ
+
+expectedResult; 慎太郎
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; formal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; formal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; addressing; formal
+parameters; n/a; short; addressing; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+parameters; sorting; long; referring; formal
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; formal
+parameters; sorting; short; referring; informal
+
+expectedResult; 慎
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; given; 一郎
+name ; surname; 安藤
+name ; locale; ja_AQ
+
+expectedResult; 安藤一郎
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; formal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; formal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+parameters; sorting; long; referring; formal
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; formal
+parameters; sorting; short; referring; informal
+
+expectedResult; 一郎
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; 安藤
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; 一
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; given; 太郎
+name ; given2; トーマス
+name ; surname; 山田
+name ; locale; ja_AQ
+
+expectedResult; 山田トーマス太郎
+
+parameters; n/a; long; referring; formal
+parameters; sorting; long; referring; formal
+parameters; sorting; medium; referring; formal
+
+expectedResult; 山田太郎
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; formal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; formal
+parameters; sorting; short; referring; informal
+
+expectedResult; 太郎
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; 山田
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; 太
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; title; さん
+name ; given; 恵子
+name ; given-informal; けいこ
+name ; given2; グレース
+name ; surname-core; 佐藤
+name ; generation; ジュニア
+name ; credentials; 国会議員
+name ; locale; ja_AQ
+
+expectedResult; 佐藤グレース恵子さん
+
+parameters; n/a; long; referring; formal
+
+expectedResult; 佐藤グレース恵子
+
+parameters; sorting; long; referring; formal
+parameters; sorting; medium; referring; formal
+
+expectedResult; 佐藤けいこさん
+
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; informal
+
+expectedResult; 佐藤恵子さん
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; referring; formal
+parameters; n/a; short; referring; formal
+
+expectedResult; けいこさん
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; 佐藤けいこ
+
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; informal
+
+expectedResult; 佐藤さん
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; 佐藤恵子
+
+parameters; sorting; short; referring; formal
+
+expectedResult; 恵
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; given; マイケル
+name ; locale; _AQ
+
+expectedResult; マイケル
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; formal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; formal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; addressing; formal
+parameters; n/a; short; addressing; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+
+expectedResult; マ
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; given; アルベルト
+name ; surname; アインシュタイン
+name ; locale; _AQ
+
+expectedResult; アルベルト・アインシュタイン
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; formal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; formal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+
+expectedResult; アインシュタイン
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; アルベルト
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; ア
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; given; セシリア
+name ; given2; ローズ
+name ; surname; ブラウン
+name ; locale; _AQ
+
+expectedResult; セシリア・ローズ・ブラウン
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; referring; formal
+parameters; n/a; medium; referring; formal
+
+expectedResult; セシリア・ブラウン
+
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; formal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; formal
+parameters; n/a; short; referring; informal
+
+expectedResult; セシリア
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; ブラウン
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; セ
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName
+
+name ; title; 博士
+name ; given; ジェニファー
+name ; given-informal; ジェニー
+name ; given2; ソフィア
+name ; surname-prefix; フォン
+name ; surname-core; スミス
+name ; generation; ジュニア
+name ; credentials; 医学博士
+name ; locale; _AQ
+
+expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+
+parameters; n/a; long; addressing; formal
+parameters; n/a; long; referring; formal
+parameters; n/a; medium; referring; formal
+
+expectedResult; ジェニファー・フォン・スミス博士
+
+parameters; n/a; medium; addressing; formal
+parameters; n/a; short; referring; formal
+
+expectedResult; ジェニー・フォン・スミス博士
+
+parameters; n/a; long; addressing; informal
+parameters; n/a; long; referring; informal
+parameters; n/a; medium; addressing; informal
+parameters; n/a; medium; referring; informal
+parameters; n/a; short; referring; informal
+
+expectedResult; フォン・スミス博士
+
+parameters; n/a; short; addressing; formal
+
+expectedResult; ジェニー博士
+
+parameters; n/a; short; addressing; informal
+
+expectedResult; ジ
+
+parameters; n/a; long; monogram; formal
+parameters; n/a; long; monogram; informal
+parameters; n/a; medium; monogram; formal
+parameters; n/a; medium; monogram; informal
+parameters; n/a; short; monogram; formal
+parameters; n/a; short; monogram; informal
+
+endName

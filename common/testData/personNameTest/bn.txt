@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: bn
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; সিনবাদ
+name ; locale; bn_AQ
 
-expectedResult; 慎太郎
+expectedResult; সিনবাদ
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; সি
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,22 +88,12 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; আইরিন
+name ; surname; অ্যাডলার
+name ; locale; bn_AQ
 
-expectedResult; 安藤一郎
+expectedResult; অ্যাডলার আইরিন
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
@@ -111,15 +101,22 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; আইরিন অ্যাডলার
 
-parameters; none; short; addressing; informal
-
-expectedResult; 安藤
-
+parameters; none; long; addressing; formal
+parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
 parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
+parameters; none; short; referring; informal
 
-expectedResult; 一
+expectedResult; আঅ্
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -130,42 +127,36 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; জন
+name ; given2; হামিশ
+name ; surname; ওয়াটসন
+name ; locale; bn_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; ওয়াটসন জন হামিশ
 
-parameters; none; long; referring; formal
 parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 山田太郎
-
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
+expectedResult; জন হামিশ ওয়াটসন
 
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
+parameters; none; long; addressing; formal
+parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
 parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
+parameters; none; short; referring; informal
 
-expectedResult; 太
+expectedResult; জহাও
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -176,58 +167,46 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
+name ; title; শ্রী
+name ; given; বার্ট্রাম উইলবারফোর্স
+name ; given-informal; বার্টি
+name ; given2; হেনরি রবার্ট
+name ; surname-core; উস্টার
+name ; generation; জুনিয়র
+name ; credentials; এমপি
+name ; locale; bn_AQ
 
-expectedResult; 佐藤グレース恵子さん
-
-parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
+expectedResult; উস্টার শ্রী বার্ট্রাম উইলবারফোর্স হেনরি রবার্ট এমপি
 
 parameters; sorting; long; referring; formal
 parameters; sorting; medium; referring; formal
+parameters; sorting; short; referring; formal
 
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; 佐藤恵子さん
+expectedResult; শ্রী বার্ট্রাম উইলবারফোর্স হেনরি রবার্ট উস্টার এমপি
 
 parameters; none; long; addressing; formal
+parameters; none; long; referring; formal
 parameters; none; medium; addressing; formal
 parameters; none; medium; referring; formal
+parameters; none; short; addressing; formal
 parameters; none; short; referring; formal
 
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; উস্টার বার্ট্রাম উইলবারফোর্স হেনরি রবার্ট
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; বার্ট্রাম উইলবারফোর্স হেনরি রবার্ট উস্টার
 
-parameters; none; short; addressing; formal
+parameters; none; long; addressing; informal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; informal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; informal
 
-expectedResult; 佐藤恵子
-
-parameters; sorting; short; referring; formal
-
-expectedResult; 恵
+expectedResult; বাহেউ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -238,10 +217,10 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; সিনবাদ
+name ; locale; ko_AQ
 
-expectedResult; マイケル
+expectedResult; সিনবাদ
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +235,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; সি
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,11 +246,11 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; কাথে
+name ; surname; মুলার
+name ; locale; ko_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; মুলার কাথে
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -281,18 +260,12 @@ parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
-
-parameters; none; short; addressing; formal
-
-expectedResult; アルベルト
-
-parameters; none; short; addressing; informal
-
-expectedResult; ア
+expectedResult; মুকা
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -303,36 +276,27 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; জাজিলিয়া
+name ; given2; হামিশ
+name ; surname; স্টোবা
+name ; locale; ko_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; স্টোবা জাজিলিয়া হামিশ
 
 parameters; none; long; addressing; formal
-parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; セシリア・ブラウン
-
 parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
 parameters; none; long; referring; informal
 parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
-
-parameters; none; short; addressing; informal
-
-expectedResult; ブラウン
-
-parameters; none; short; addressing; formal
-
-expectedResult; セ
+expectedResult; স্টোজাহা
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -343,44 +307,36 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; title; প্রঃ ডঃ
+name ; given; আদা কর্নেলিয়া
+name ; given-informal; নিলে
+name ; given2; ইভা সোফিয়া
+name ; surname-prefix; ভ্যান ডেন
+name ; surname-core; উলফ
+name ; surname2; বেকার শ্মিড্ট
+name ; generation; জুনিয়র
+name ; credentials; এম.ডি.পিএইচ.ডি.
+name ; locale; ko_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; ভ্যান ডেন উলফ বেকার শ্মিড্ট প্রঃ ডঃ আদা কর্নেলিয়া ইভা সোফিয়া এম.ডি.পিএইচ.ডি.
 
 parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; ジェニファー・フォン・スミス博士
-
 parameters; none; medium; addressing; formal
+parameters; none; medium; referring; formal
+parameters; none; short; addressing; formal
 parameters; none; short; referring; formal
 
-expectedResult; ジェニー・フォン・スミス博士
+expectedResult; ভ্যান ডেন উলফ বেকার শ্মিড্ট আদা কর্নেলিয়া ইভা সোফিয়া
 
 parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; informal
 
-expectedResult; フォン・スミス博士
-
-parameters; none; short; addressing; formal
-
-expectedResult; ジェニー博士
-
-parameters; none; short; addressing; informal
-
-expectedResult; ジ
+expectedResult; ভ্যাআই
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal

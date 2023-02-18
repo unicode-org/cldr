@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: hi
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; ललित
+name ; locale; hi_AQ
 
-expectedResult; 慎太郎
+expectedResult; ललित
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; ल
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,41 +88,53 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; ललित
+name ; surname; शर्मा
+name ; locale; hi_AQ
 
-expectedResult; 安藤一郎
+expectedResult; शर्मा, ललित
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
-parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; ललित शर्मा
 
-parameters; none; short; addressing; informal
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+parameters; none; short; referring; informal
 
-expectedResult; 安藤
+expectedResult; शर्मा, ल॰
 
+parameters; sorting; short; referring; formal
+
+expectedResult; ल॰ शर्मा
+
+parameters; none; medium; referring; formal
+parameters; none; short; referring; formal
+
+expectedResult; शर्मा
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 一
+expectedResult; ललित
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; लश
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
+
+expectedResult; ल
+
 parameters; none; medium; monogram; formal
 parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
@@ -130,107 +142,146 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; ललित
+name ; given2; मोहन
+name ; surname; शर्मा
+name ; locale; hi_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; शर्मा, ललित मोहन
+
+parameters; sorting; long; referring; formal
+
+expectedResult; ललित मोहन शर्मा
 
 parameters; none; long; referring; formal
-parameters; sorting; long; referring; formal
+
+expectedResult; शर्मा, ललित मो॰
+
 parameters; sorting; medium; referring; formal
 
-expectedResult; 山田太郎
+expectedResult; शर्मा, ल॰ मो॰
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
-parameters; sorting; long; referring; informal
-parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
-parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
+expectedResult; ल॰ मो॰ शर्मा
 
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
-
-expectedResult; 佐藤グレース恵子さん
-
-parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
-
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; 佐藤恵子さん
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
 parameters; none; medium; referring; formal
 parameters; none; short; referring; formal
 
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; शर्मा, ललित
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; ललित शर्मा
 
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+parameters; none; short; referring; informal
+
+expectedResult; शर्मा
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 佐藤恵子
+expectedResult; लमोश
+
+parameters; none; long; monogram; formal
+
+expectedResult; ललित
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; लश
+
+parameters; none; long; monogram; informal
+
+expectedResult; ल
+
+parameters; none; medium; monogram; formal
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; formal
+parameters; none; short; monogram; informal
+
+endName
+
+name ; title; श्री
+name ; given; ललित
+name ; given-informal; लखन
+name ; given2; कुमार
+name ; surname-core; शर्मा
+name ; generation; द्वितीय
+name ; credentials; एम॰डी॰
+name ; locale; hi_AQ
+
+expectedResult; श्री ललित कुमार शर्मा एम॰डी॰
+
+parameters; none; long; referring; formal
+
+expectedResult; श्री ल॰ कु॰ शर्मा, एम॰डी॰
+
+parameters; none; medium; referring; formal
+
+expectedResult; शर्मा, ललित कुमार एम॰डी॰
+
+parameters; sorting; long; referring; formal
+
+expectedResult; शर्मा, ललित कु॰ एम॰डी॰
+
+parameters; sorting; medium; referring; formal
+
+expectedResult; श्री लखन शर्मा
+
+parameters; none; long; referring; informal
+
+expectedResult; शर्मा, ल॰ कु॰
 
 parameters; sorting; short; referring; formal
 
-expectedResult; 恵
+expectedResult; ल॰ कु॰ शर्मा
+
+parameters; none; short; referring; formal
+
+expectedResult; शर्मा, लखन
+
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; informal
+
+expectedResult; श्री शर्मा
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; लखन शर्मा
+
+parameters; none; medium; referring; informal
+parameters; none; short; referring; informal
+
+expectedResult; श्री लखन
+
+parameters; none; long; addressing; informal
+
+expectedResult; लकुश
 
 parameters; none; long; monogram; formal
+
+expectedResult; लखन
+
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; लश
+
 parameters; none; long; monogram; informal
+
+expectedResult; ल
+
 parameters; none; medium; monogram; formal
 parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
@@ -238,10 +289,10 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; रॉबर्ट
+name ; locale; ko_AQ
 
-expectedResult; マイケル
+expectedResult; रॉबर्ट
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +307,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; रॉ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,126 +318,169 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; कीथ
+name ; surname; ब्राउन
+name ; locale; ko_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; ब्राउन की॰
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
+expectedResult; ब्राउन कीथ
 
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; ब्राउन
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; アルベルト
-
-parameters; none; short; addressing; informal
-
-expectedResult; ア
+expectedResult; ब्राकी
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
+
+expectedResult; ब्रा
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; कीथ
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; की
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; मैरी
+name ; given2; सिलविया
+name ; surname; जोनस
+name ; locale; ko_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; जोनस मैरी सिलविया
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; जोनस मै॰ सि॰
+
 parameters; none; medium; referring; formal
-
-expectedResult; セシリア・ブラウン
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
 parameters; none; short; referring; formal
+
+expectedResult; जोनस मैरी
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; जोनस मै॰
+
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
-
-parameters; none; short; addressing; informal
-
-expectedResult; ブラウン
-
-parameters; none; short; addressing; formal
-
-expectedResult; セ
+expectedResult; जोमैसि
 
 parameters; none; long; monogram; formal
+
+expectedResult; जोनस
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; जोमै
+
 parameters; none; long; monogram; informal
+
+expectedResult; मैरी
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; जो
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; मै
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; title; प्रो॰ डॉ॰
+name ; given; माइकल
+name ; given-informal; माइक
+name ; given2; जॉन
+name ; surname-prefix; वॉन
+name ; surname-core; वॉटसन
+name ; surname2; चेस्टर
+name ; generation; जूनियर
+name ; credentials; एम॰डी॰, पी॰एच॰डी॰
+name ; locale; ko_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; प्रो॰ डॉ॰ वॉन वॉटसन माइकल जॉन, एम॰डी॰, पी॰एच॰डी॰
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; प्रो॰ डॉ॰ वॉन वॉटसन मा॰ जॉ॰, एम॰डी॰, पी॰एच॰डी॰
+
 parameters; none; medium; referring; formal
 
-expectedResult; ジェニファー・フォン・スミス博士
+expectedResult; प्रो॰ डॉ॰ वॉन वॉटसन माइक
 
-parameters; none; medium; addressing; formal
-parameters; none; short; referring; formal
-
-expectedResult; ジェニー・フォン・スミス博士
-
-parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
 
-expectedResult; フォン・スミス博士
+expectedResult; प्रो॰ डॉ॰ वॉन वॉटसन
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; ジェニー博士
+expectedResult; वॉन वॉटसन मा॰ जॉ॰
 
-parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
 
-expectedResult; ジ
+expectedResult; वॉन वॉटसन माइक
+
+parameters; none; medium; referring; informal
+
+expectedResult; वॉन वॉटसन मा॰
+
+parameters; none; short; referring; informal
+
+expectedResult; वॉमाजॉ
 
 parameters; none; long; monogram; formal
+
+expectedResult; माइक
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; वॉमा
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; मा
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; वॉ
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName

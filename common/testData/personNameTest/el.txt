@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: el
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; Δημήτρης
+name ; locale; el_AQ
 
-expectedResult; 慎太郎
+expectedResult; Δημήτρης
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; Δ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,22 +88,12 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; Ειρήνη
+name ; surname; Πολίτη
+name ; locale; el_AQ
 
-expectedResult; 安藤一郎
+expectedResult; Πολίτη, Ειρήνη
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
@@ -111,15 +101,28 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; Ειρήνη Πολίτη
 
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; referring; formal
+parameters; none; short; referring; informal
+
+expectedResult; Ειρήνη
+
+parameters; none; long; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; 安藤
+expectedResult; Πολίτη
 
-parameters; none; short; addressing; formal
+parameters; none; long; addressing; formal
 
-expectedResult; 一
+expectedResult; ΕΠ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -130,104 +133,105 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; Πέτρος
+name ; given2; Νικόλαος
+name ; surname; Καρατζής
+name ; locale; el_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; Καρατζής, Πέτρος Νικόλαος
 
-parameters; none; long; referring; formal
 parameters; sorting; long; referring; formal
 parameters; sorting; medium; referring; formal
-
-expectedResult; 山田太郎
-
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
-parameters; sorting; long; referring; informal
-parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
-parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
-
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
-
-expectedResult; 佐藤グレース恵子さん
+expectedResult; Πέτρος Νικόλαος Καρατζής
 
 parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
-
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; 佐藤恵子さん
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; medium; referring; formal
-parameters; none; short; referring; formal
-
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; Καρατζής, Πέτρος
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; Πέτρος Καρατζής
 
+parameters; none; long; referring; informal
+
+expectedResult; Καρατζής
+
+parameters; none; long; addressing; formal
+
+expectedResult; Πέτρος
+
+parameters; none; long; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; ΠΝΚ
+
+parameters; none; long; monogram; formal
+parameters; none; long; monogram; informal
+parameters; none; medium; monogram; formal
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; formal
+parameters; none; short; monogram; informal
+
+endName
+
+name ; title; Κος
+name ; given; Νικόλαος Καρατζής
+name ; given-informal; Νίκος
+name ; given2; Κωνσταντίνος Μάριος
+name ; surname-core; Χατζής
+name ; locale; el_AQ
+
+expectedResult; Κος Νικόλαος Καρατζής Κωνσταντίνος Μάριος Χατζής
+
+parameters; none; long; referring; formal
+parameters; none; medium; addressing; formal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
 parameters; none; short; addressing; formal
+parameters; none; short; referring; formal
+parameters; none; short; referring; informal
 
-expectedResult; 佐藤恵子
+expectedResult; Χατζής, Νικόλαος Καρατζής Κωνσταντίνος Μάριος
 
+parameters; sorting; long; referring; formal
+parameters; sorting; medium; referring; formal
 parameters; sorting; short; referring; formal
 
-expectedResult; 恵
+expectedResult; Νικόλαος Καρατζής
+
+parameters; none; short; addressing; informal
+
+expectedResult; Χατζής, Νίκος
+
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; informal
+
+expectedResult; Νίκος Χατζής
+
+parameters; none; long; referring; informal
+
+expectedResult; Κος Χατζής
+
+parameters; none; long; addressing; formal
+
+expectedResult; Νίκος
+
+parameters; none; long; addressing; informal
+
+expectedResult; ΝΚΧ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -238,10 +242,10 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; Σινμπάντ
+name ; locale; ja_AQ
 
-expectedResult; マイケル
+expectedResult; Σινμπάντ
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +260,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; Σ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,32 +271,35 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; Κάτε
+name ; surname; Μίλερ
+name ; locale; ja_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; Μίλερ Κάτε
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+
+expectedResult; Μίλερ Κ.
+
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
+expectedResult; Μίλερ
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; アルベルト
+expectedResult; Κάτε
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ア
+expectedResult; ΜΚ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -303,36 +310,45 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; Ζεζίλια
+name ; given2; Χάμις
+name ; surname; Στέμπερ
+name ; locale; ja_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; Στέμπερ Ζεζίλια Χάμις
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; Στέμπερ Ζεζίλια Χ.
+
 parameters; none; medium; referring; formal
 
-expectedResult; セシリア・ブラウン
+expectedResult; Στέμπερ Ζεζίλια
 
-parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; informal
+
+expectedResult; Στέμπερ Ζ. Χ.
+
 parameters; none; short; referring; formal
+
+expectedResult; Στέμπερ Ζ.
+
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
+expectedResult; Ζεζίλια
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ブラウン
+expectedResult; Στέμπερ
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; セ
+expectedResult; ΣΖΧ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -343,44 +359,51 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; title; Καθ. δρ.
+name ; given; Άντα Κορνέλια
+name ; given-informal; Νιλ
+name ; given2; Σέσαρ Μαρτίν
+name ; surname-prefix; φον
+name ; surname-core; Μπριλ
+name ; surname2; Γκονθάλεθ Δομίνγκο
+name ; generation; Τζούνιορ
+name ; credentials; Δρ.Ι. Δρ.Χ.Ο
+name ; locale; ja_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; φον Μπριλ Άντα Κορνέλια Σέσαρ Μαρτίν Δρ.Ι. Δρ.Χ.Ο
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; φον Μπριλ Άντα Κορνέλια Σ. Μ. Δρ.Ι. Δρ.Χ.Ο
+
 parameters; none; medium; referring; formal
 
-expectedResult; ジェニファー・フォン・スミス博士
+expectedResult; φον Μπριλ Ά. Κ. Σ. Μ.
 
-parameters; none; medium; addressing; formal
 parameters; none; short; referring; formal
 
-expectedResult; ジェニー・フォン・スミス博士
+expectedResult; Καθ. δρ. φον Μπριλ
 
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; フォン・スミス博士
-
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; ジェニー博士
+expectedResult; φον Μπριλ Ά. Κ.
 
+parameters; none; short; referring; informal
+
+expectedResult; φον Μπριλ Νιλ
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; Νιλ
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ジ
+expectedResult; ΦΑΣ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal

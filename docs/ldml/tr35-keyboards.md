@@ -1236,6 +1236,8 @@ _Attribute:_ `modifier` (required for `hardware`)
 > - `shift`
 >
 > Note that `alt` is sometimes referred to as _opt_ or _option_.
+>
+> Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
 
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 

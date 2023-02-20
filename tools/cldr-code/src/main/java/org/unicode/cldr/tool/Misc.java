@@ -30,6 +30,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -784,7 +785,7 @@ public class Misc {
         System.out.println("Countries without zones");
         temp.clear();
         temp.addAll(countries);
-        temp.removeAll(sc.getOld3166());
+        temp.removeAll(Iso3166Data.getOld3166());
         for (Iterator<List<String>> it = sc.getZoneData().values().iterator(); it.hasNext();) {
             List<String> x = it.next();
             List<String> list = x;

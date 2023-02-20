@@ -33,6 +33,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GenderValues;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -810,6 +811,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> results = showContained("001", 0, new HashSet<>(
             goodAvailableCodes));
         results.remove("ZZ");
+        results.removeAll(Iso3166Data.getRegionCodesNotForTranslation());
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);
             String cont = Containment.getContinent(territory);

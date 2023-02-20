@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
 <!--
-	Copyright © 1991-2022 Unicode, Inc.
+	Copyright © 1991-2023 Unicode, Inc.
 	For terms of use, see http://www.unicode.org/copyright.html
 	SPDX-License-Identifier: Unicode-DFS-2016
 	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,7 +12,7 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<idValidity>
-		<id type='currency' idStatus='regular'>		<!-- 156 items -->
+		<id type='currency' idStatus='regular'>		<!-- 154 items -->
 			AED AFN ALL AMD ANG AOA ARS AUD AWG AZN
 			BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD
 			CAD CDF CHF CLP CNY COP CRC CUC CUP CVE CZK
@@ -20,7 +20,7 @@
 			EGP ERN ETB EUR
 			FJD FKP
 			GBP GEL GHS GIP GMD GNF GTQ GYD
-			HKD HNL HRK HTG HUF
+			HKD HNL HTG HUF
 			IDR ILS INR IQD IRR ISK
 			JMD JOD JPY
 			KES KGS KHR KMF KPW KRW KWD KYD KZT
@@ -31,7 +31,7 @@
 			PAB PEN PGK PHP PKR PLN PYG
 			QAR
 			RON RSD RUB RWF
-			SAR SBD SCR SDG SEK SGD SHP SLE SLL SOS SRD SSP STN SYP SZL
+			SAR SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STN SYP SZL
 			THB TJS TMT TND TOP TRY TTD TWD TZS
 			UAH UGX USD UYU UZS
 			VES VND VUV
@@ -40,9 +40,9 @@
 			YER
 			ZAR ZMW
 		</id>
-		<!-- Deprecated values are those that are not legal tender in some country after 2022.
+		<!-- Deprecated values are those that are not legal tender in some country after 2023.
 			 More detailed usage information needed for some implementations is in supplemental data. -->
-		<id type='currency' idStatus='deprecated'>		<!-- 148 items -->
+		<id type='currency' idStatus='deprecated'>		<!-- 150 items -->
 			ADP AFA ALK AOK AON AOR ARA ARL~M ARP ATS AZM
 			BAD BAN BEC BEF BEL BGL~M BGO BOL BOP BOV BRB~C BRE BRN BRR BRZ BUK BYB BYR
 			CHE CHW CLE~F CNH CNX COU CSD CSK CYP
@@ -50,7 +50,7 @@
 			ECS ECV EEK ESA~B ESP
 			FIM FRF
 			GEK GHC GNS GQE GRD GWE GWP
-			HRD
+			HRD HRK
 			IEP ILP ILR ISJ ITL
 			KRH KRO
 			LTL LTT LUC LUF LUL LVL LVR
@@ -58,7 +58,7 @@
 			NIC NLG
 			PEI PES PLZ PTE
 			RHD ROL RUR
-			SDD SDP SIT SKK SRG STD SUR SVC
+			SDD SDP SIT SKK SLL SRG STD SUR SVC
 			TJR TMM TPE TRL
 			UAK UGS USN USS UYI UYP UYW
 			VEB VED VEF VNN

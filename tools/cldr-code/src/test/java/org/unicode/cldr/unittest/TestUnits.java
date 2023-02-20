@@ -2142,7 +2142,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestDerivedCase() {
         // needs further work
-        if (logKnownIssue("CLDR-13920", "finish this as part of unit derivation work")) {
+        if (logKnownIssue("CLDR-16395", "finish this as part of unit derivation work")) {
             return;
         }
         for (String locale : Arrays.asList("pl", "ru")) {

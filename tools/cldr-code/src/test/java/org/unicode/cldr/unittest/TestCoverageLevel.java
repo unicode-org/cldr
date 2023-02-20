@@ -909,7 +909,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
             seenPt.remove(expectedPathType);
         }
         assertEquals("PathTypes tested", Collections.emptySet(), seenPt);
-        logKnownIssue("CLDR-13951", "Add more LogicalGrouping tests, fix DECIMAL_FORMAT_LENGTH, etc.");
     }
 
     private Multimap<String,String> delta(Set<String> expected, Set<String> grouping) {

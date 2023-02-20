@@ -5017,7 +5017,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="dei" to="dei_Latn_ID" origin="sil1"/>	<!-- Demisa ➡︎ Demisa (Latin, Indonesia) -->
 		<likelySubtag from="dek" to="dek_Latn_CM" origin="sil1"/>	<!-- Dek ➡︎ Dek (Latin, Cameroon) -->
 		<likelySubtag from="del" to="del_Latn_US" origin="sil1"/>	<!-- Delaware ➡︎ Delaware (Latin, United States) -->
-		<likelySubtag from="del_Latn_CA" to="del_Latn_CA" origin="sil1"/>	<!-- Delaware (Latin, Canada) ➡︎ Delaware (Latin, Canada) -->
+		<!-- CLDR-16405 the next entry causes problems, and is likely unnecessary, or maybe just want one from del_CA? -->
+		<!-- <likelySubtag from="del_Latn_CA" to="del_Latn_CA" origin="sil1"/> -->	<!-- Delaware (Latin, Canada) ➡︎ Delaware (Latin, Canada) -->
 		<likelySubtag from="dem" to="dem_Latn_ID" origin="sil1"/>	<!-- Dem ➡︎ Dem (Latin, Indonesia) -->
 		<likelySubtag from="deq" to="deq_Latn_CF" origin="sil1"/>	<!-- Dendi [Central African Republic] ➡︎ Dendi [Central African Republic] (Latin, Central African Republic) -->
 		<likelySubtag from="der" to="der_Beng_IN" origin="sil1"/>	<!-- Deori ➡︎ Deori (Bangla, India) -->
@@ -5969,8 +5970,9 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="jpa" to="jpa_Hebr_PS" origin="sil1"/>	<!-- Jewish Palestinian Aramaic ➡︎ Jewish Palestinian Aramaic (Hebrew, Palestinian Territories) -->
 		<likelySubtag from="jpr" to="jpr_Hebr_IL" origin="sil1"/>	<!-- Judeo-Persian ➡︎ Judeo-Persian (Hebrew, Israel) -->
 		<likelySubtag from="jqr" to="jqr_Latn_PE" origin="sil1"/>	<!-- Jaqaru ➡︎ Jaqaru (Latin, Peru) -->
-		<likelySubtag from="jrb" to="jrb_Hebr_IL" origin="sil1"/>	<!-- Judeo-Arabic ➡︎ Judeo-Arabic (Hebrew, Israel) -->
-		<likelySubtag from="jrb_Arab_MA" to="jrb_Arab_MA" origin="sil1"/>	<!-- Judeo-Arabic (Arabic, Morocco) ➡︎ Judeo-Arabic (Arabic, Morocco) -->
+		<!-- CLDR-16405 the following two conflict with the metadata aliases treating aju as the primary child of jrb -->
+		<!-- <likelySubtag from="jrb" to="jrb_Hebr_IL" origin="sil1"/> -->	<!-- Judeo-Arabic ➡︎ Judeo-Arabic (Hebrew, Israel) -->
+		<!-- <likelySubtag from="jrb_Arab_MA" to="jrb_Arab_MA" origin="sil1"/>-->	<!-- Judeo-Arabic (Arabic, Morocco) ➡︎ Judeo-Arabic (Arabic, Morocco) -->
 		<likelySubtag from="jrr" to="jrr_Latn_NG" origin="sil1"/>	<!-- Jiru ➡︎ Jiru (Latin, Nigeria) -->
 		<likelySubtag from="jrt" to="jrt_Latn_NG" origin="sil1"/>	<!-- Jakattoe ➡︎ Jakattoe (Latin, Nigeria) -->
 		<likelySubtag from="jru" to="jru_Latn_VE" origin="sil1"/>	<!-- Japrería ➡︎ Japrería (Latin, Venezuela) -->
@@ -8223,7 +8225,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="rol" to="rol_Latn_PH" origin="sil1"/>	<!-- Romblomanon ➡︎ Romblomanon (Latin, Philippines) -->
 		<likelySubtag from="rom" to="rom_Latn_RO" origin="sil1"/>	<!-- Romany ➡︎ Romany (Latin, Romania) -->
 		<likelySubtag from="rom_Cyrl" to="rom_Cyrl_RO" origin="sil1"/>	<!-- Romany (Cyrillic) ➡︎ Romany (Cyrillic, Romania) -->
-		<likelySubtag from="rom_Cyrl_BG" to="rom_Cyrl_BG" origin="sil1"/>	<!-- Romany (Cyrillic, Bulgaria) ➡︎ Romany (Cyrillic, Bulgaria) -->
+		<!-- CLDR-16405 the next entry causes problems; maybe just want one from rom_BG ?) -->
+		<!-- <likelySubtag from="rom_Cyrl_BG" to="rom_Cyrl_BG" origin="sil1"/> -->	<!-- Romany (Cyrillic, Bulgaria) ➡︎ Romany (Cyrillic, Bulgaria) -->
 		<likelySubtag from="rop" to="rop_Latn_AU" origin="sil1"/>	<!-- Kriol ➡︎ Kriol (Latin, Australia) -->
 		<likelySubtag from="ror" to="ror_Latn_ID" origin="sil1"/>	<!-- Rongga ➡︎ Rongga (Latin, Indonesia) -->
 		<likelySubtag from="rou" to="rou_Latn_TD" origin="sil1"/>	<!-- Runga ➡︎ Runga (Latin, Chad) -->

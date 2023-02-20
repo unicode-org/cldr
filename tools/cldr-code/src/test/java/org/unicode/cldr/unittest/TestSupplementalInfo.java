@@ -1056,6 +1056,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             bcp47RegionData.keySet());
         bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the
         // unknown region...
+        bcp47Regions.removeAll(Iso3166Data.getRegionCodesNotForTranslation()); // skip these also
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -1361,6 +1362,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Map<String, Date> currencyFirstValid = new TreeMap<>();
         Map<String, Date> currencyLastValid = new TreeMap<>();
         territoriesWithoutModernCurrencies.remove("ZZ");
+        territoriesWithoutModernCurrencies.removeAll(Iso3166Data.getRegionCodesNotForTranslation());
 
         for (String territory : STANDARD_CODES
             .getGoodAvailableCodes("territory")) {

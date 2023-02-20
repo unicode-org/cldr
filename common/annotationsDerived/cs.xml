@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
-<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -142,6 +143,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">ruka otočená dlaní vzhůru: středně tmavý odstín pleti</annotation>
 		<annotation cp="🫴🏿">blíž | chycení | nabídka | pojď | pokynutí | ruka otočená dlaní vzhůru | tmavý odstín pleti</annotation>
 		<annotation cp="🫴🏿" type="tts">ruka otočená dlaní vzhůru: tmavý odstín pleti</annotation>
+		<annotation cp="🫷🏻">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | světlý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫷🏻" type="tts">ruka tlačící vlevo: světlý odstín pleti</annotation>
+		<annotation cp="🫷🏼">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | středně světlý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫷🏼" type="tts">ruka tlačící vlevo: středně světlý odstín pleti</annotation>
+		<annotation cp="🫷🏽">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | střední odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫷🏽" type="tts">ruka tlačící vlevo: střední odstín pleti</annotation>
+		<annotation cp="🫷🏾">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | středně tmavý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫷🏾" type="tts">ruka tlačící vlevo: středně tmavý odstín pleti</annotation>
+		<annotation cp="🫷🏿">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | tlak | tmavý odstín pleti | vpravo</annotation>
+		<annotation cp="🫷🏿" type="tts">ruka tlačící vlevo: tmavý odstín pleti</annotation>
+		<annotation cp="🫸🏻">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | světlý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫸🏻" type="tts">ruka tlačící vpravo: světlý odstín pleti</annotation>
+		<annotation cp="🫸🏼">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | středně světlý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫸🏼" type="tts">ruka tlačící vpravo: středně světlý odstín pleti</annotation>
+		<annotation cp="🫸🏽">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | střední odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫸🏽" type="tts">ruka tlačící vpravo: střední odstín pleti</annotation>
+		<annotation cp="🫸🏾">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | středně tmavý odstín pleti | tlak | vpravo</annotation>
+		<annotation cp="🫸🏾" type="tts">ruka tlačící vpravo: středně tmavý odstín pleti</annotation>
+		<annotation cp="🫸🏿">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | tlak | tmavý odstín pleti | vpravo</annotation>
+		<annotation cp="🫸🏿" type="tts">ruka tlačící vpravo: tmavý odstín pleti</annotation>
 		<annotation cp="👌🏻">gesto OK | OK | ruka | světlý odstín pleti | tělo</annotation>
 		<annotation cp="👌🏻" type="tts">gesto OK: světlý odstín pleti</annotation>
 		<annotation cp="👌🏼">gesto OK | OK | ruka | středně světlý odstín pleti | tělo</annotation>
@@ -432,26 +453,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">sepjaté ruce: středně tmavý odstín pleti</annotation>
 		<annotation cp="🙏🏿">díky | gesto | modlitba | otázka | prosím | ruka | sepjaté | sepjaté ruce | tělo | tmavý odstín pleti | úklona</annotation>
 		<annotation cp="🙏🏿" type="tts">sepjaté ruce: tmavý odstín pleti</annotation>
-		<annotation cp="🫷🏻">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | světlý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫷🏻" type="tts">ruka tlačící vlevo: světlý odstín pleti</annotation>
-		<annotation cp="🫷🏼">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | středně světlý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫷🏼" type="tts">ruka tlačící vlevo: středně světlý odstín pleti</annotation>
-		<annotation cp="🫷🏽">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | střední odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫷🏽" type="tts">ruka tlačící vlevo: střední odstín pleti</annotation>
-		<annotation cp="🫷🏾">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | středně tmavý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫷🏾" type="tts">ruka tlačící vlevo: středně tmavý odstín pleti</annotation>
-		<annotation cp="🫷🏿">high five | odmítnutí | plácnutí | počkej | ruka tlačící vlevo | stop | tlak | tmavý odstín pleti | vpravo</annotation>
-		<annotation cp="🫷🏿" type="tts">ruka tlačící vlevo: tmavý odstín pleti</annotation>
-		<annotation cp="🫸🏻">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | světlý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫸🏻" type="tts">ruka tlačící vpravo: světlý odstín pleti</annotation>
-		<annotation cp="🫸🏼">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | středně světlý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫸🏼" type="tts">ruka tlačící vpravo: středně světlý odstín pleti</annotation>
-		<annotation cp="🫸🏽">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | střední odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫸🏽" type="tts">ruka tlačící vpravo: střední odstín pleti</annotation>
-		<annotation cp="🫸🏾">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | středně tmavý odstín pleti | tlak | vpravo</annotation>
-		<annotation cp="🫸🏾" type="tts">ruka tlačící vpravo: středně tmavý odstín pleti</annotation>
-		<annotation cp="🫸🏿">high five | odmítnutí | plácnutí | počkej | ruka tlačící vpravo | stop | tlak | tmavý odstín pleti | vpravo</annotation>
-		<annotation cp="🫸🏿" type="tts">ruka tlačící vpravo: tmavý odstín pleti</annotation>
 		<annotation cp="✍🏻">píšící ruka | psát | ruka | světlý odstín pleti | tělo</annotation>
 		<annotation cp="✍🏻" type="tts">píšící ruka: světlý odstín pleti</annotation>
 		<annotation cp="✍🏼">píšící ruka | psát | ruka | středně světlý odstín pleti | tělo</annotation>

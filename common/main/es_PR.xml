@@ -259,9 +259,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</numbers>
 	<units>
 		<unitLength type="narrow">
+			<unit type="length-nautical-mile">
+				<displayName>nmi</displayName>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+			</unit>
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>cdas.</displayName>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>cdtas.</displayName>
 			</unit>
 		</unitLength>
 	</units>

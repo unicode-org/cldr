@@ -976,7 +976,348 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="chinese">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="coptic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="dangi">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="ethiopic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="ethiopic-amete-alem">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
 			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1312,13 +1653,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">À</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Àìk</day>
-							<day type="mon">Aj</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
 							<day type="tue">Ìsɛ́g</day>
 							<day type="wed">Ɔjɔ́r</day>
 							<day type="thu">Ɔjɔ́b</day>
 							<day type="fri">Ɛt</day>
-							<day type="sat">Àbám</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Ɔjɔ́ Àìkú</day>
@@ -1332,13 +1673,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">Àìk</day>
-							<day type="mon">Aj</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
 							<day type="tue">Ìsɛ́g</day>
 							<day type="wed">Ɔjɔ́r</day>
 							<day type="thu">Ɔjɔ́b</day>
 							<day type="fri">Ɛt</day>
-							<day type="sat">Àbám</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">À</day>
@@ -1350,13 +1691,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">À</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">Àìk</day>
-							<day type="mon">Aj</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
 							<day type="tue">Ìsɛ́g</day>
 							<day type="wed">Ɔjɔ́r</day>
 							<day type="thu">Ɔjɔ́b</day>
 							<day type="fri">Ɛt</day>
-							<day type="sat">Àbám</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Àìkú</day>
@@ -1737,6 +2078,496 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="hebrew">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="indian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="islamic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="islamic-civil">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="islamic-rgsa">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="islamic-tbla">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="islamic-umalqura">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="japanese">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="persian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+			<calendar type="roc">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="tue">Ìsɛ́g</day>
+							<day type="wed">Ɔjɔ́r</day>
+							<day type="thu">Ɔjɔ́b</day>
+							<day type="fri">Ɛt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="3">Ìdámɛ́rin Kɛta</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Ìdámɛ́rin kíní</quarter>
+							<quarter type="2">Ìdámɛ́rin Kejì</quarter>
+							<quarter type="4">Ìdámɛ́rin Kɛrin</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
@@ -1827,7 +2658,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-short">
-				<displayName>Osù</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">óshù tó kɔjá</relative>
 				<relative type="0">oshù yìí</relative>
 				<relative type="1">óshù tó ń bɔ̀,</relative>
@@ -1914,8 +2745,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>Ɔjɔ́</displayName>
-				<relative type="-1">Àná</relative>
-				<relative type="0">Òní</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">Ɔ̀la</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} d</relativeTimePattern>
@@ -1926,8 +2757,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>Ɔjɔ́</displayName>
-				<relative type="-1">Àná</relative>
-				<relative type="0">Òní</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">Ɔ̀la</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} d</relativeTimePattern>
@@ -5712,7 +6543,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>ara/milíɔ̀nù</displayName>
-				<unitPattern count="other">{0} ppm</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
@@ -8145,15 +8976,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</listPattern>
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">{0} pɛ̀lú {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, tabi {1}</listPatternPart>
-			<listPatternPart type="2">{0} tàbí {1}</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">{0} pɛ̀lú {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, tabi {1}</listPatternPart>
-			<listPatternPart type="2">{0} tàbí {1}</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

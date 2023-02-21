@@ -856,15 +856,6 @@ public class StandardCodes {
         codes.add(code);
     }
 
-    private List<String> DELETED3166 = Collections.unmodifiableList(Arrays
-        .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
-            "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
-            "VD", "WK", "YD", "YU", "ZR" }));
-
-    public List<String> getOld3166() {
-        return DELETED3166;
-    }
-
     private Map<String, List<String>> WorldBankInfo;
 
     public Map<String, List<String>> getWorldBankInfo() {

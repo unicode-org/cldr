@@ -487,16 +487,16 @@ public class AddPopulationData {
                 double gdp = getGdp(territory);
                 double literacy = getLiteracy(territory);
                 double population = getPopulation(territory);
-                if (gdp == 0) {
+                if (population == 0) {
                     // AX;Aland Islands;population;26,200;www.aland.ax
+                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory)
+                        + ";population;0;reason");
+                }
+                if (gdp == 0) {
                     myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";gdp-ppp;0;reason");
                 }
                 if (literacy == 0) {
                     myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";literacy;0;reason");
-                }
-                if (population == 0) {
-                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory)
-                        + ";population;0;reason");
                 }
             }
             if (myErrors.length() != 0) {

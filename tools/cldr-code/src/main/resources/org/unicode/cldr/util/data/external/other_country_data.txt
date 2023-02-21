@@ -1,5 +1,5 @@
 Code;Name;Type;Data;Source
-# the data in the case of gdp-ppp or literacy can be a country code. 
+# the data in the case of gdp-ppp or literacy can be a country code.
 # For literacy, it is copied. For gdp it is scaled.
 # the population MUST be set before gdp occurs!
 
@@ -89,6 +89,9 @@ CC;Cocos (Keeling) Islands;literacy;AU;reason
 CP;Clipperton Island;population;1;reason
 CP;Clipperton Island;gdp-ppp;FR;reason
 CP;Clipperton Island;literacy;FR;reason
+CQ;Sark;population;492;wikipedia
+CQ;Sark;gdp-ppp;21,943,200;wikipedia
+CQ;Sark;literacy;GB;wikipedia
 CX;Christmas Island;gdp-ppp;AU;reason
 CX;Christmas Island;literacy;AU;reason
 DG;Diego Garcia;population;500;reason

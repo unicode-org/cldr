@@ -1,18 +1,17 @@
 package org.unicode.cldr.tool;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Iso3166Data;
+import org.unicode.cldr.util.Iso3166Data.Iso3166Status;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -21,7 +20,6 @@ import org.unicode.cldr.util.StringRange.Adder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
 import com.ibm.icu.lang.CharSequences;
 
 @SuppressWarnings("deprecation")
@@ -29,27 +27,14 @@ public class CompareIso3166_1Status {
 
     private static final Joiner SPACE_JOINER = Joiner.on(" ");
 
-    public enum Iso3166Status {
-        officially_assigned, private_use, exceptionally_reserved, indeterminately_reserved, transitionally_reserved, formerly_used, out_of_scope
-    }
 
     public enum CldrStatus {
         region, macroregion, deprecated, privateUse, unused,
     }
 
     public static void main(String[] args) {
-
-        Map<String, Iso3166Status> isoStatus = new TreeMap<>();
-        Map<String, String> isoDescription = new TreeMap<>();
-        Splitter semi = Splitter.on(';').trimResults();
-        for (String line : FileUtilities.in(StandardCodes.class, "data/external/iso_3166_status.txt")) {
-            if (line.startsWith("#")) continue;
-            List<String> parts = semi.splitToList(line);
-            // AC ; Exceptionally reserved  ; Refers to the United Nations and reserved by the ISO 3166 Maintenance Agency.
-            final String regionCode = parts.get(0);
-            isoStatus.put(regionCode, Iso3166Status.valueOf(parts.get(1).toLowerCase(Locale.ROOT).replace(' ', '_')));
-            isoDescription.put(regionCode, parts.get(1));
-        }
+        final Map<String, Iso3166Status> isoStatus = Iso3166Data.getIsoStatus();
+        final Map<String, String> isoDescription = Iso3166Data.getIsoDescription();
 
         Map<String, Map<LstrField, String>> lstregRegions = StandardCodes.getEnumLstreg().get(LstrType.region);
         Map<String, Map<LstrField, String>> lstregRegionsRaw = StandardCodes.getLstregEnumRaw().get(LstrType.region);

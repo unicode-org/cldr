@@ -1056,6 +1056,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             bcp47RegionData.keySet());
         bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the
         // unknown region...
+        bcp47Regions.removeAll(Iso3166Data.getRegionCodesNotForTranslation()); // skip these also
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -1361,6 +1362,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Map<String, Date> currencyFirstValid = new TreeMap<>();
         Map<String, Date> currencyLastValid = new TreeMap<>();
         territoriesWithoutModernCurrencies.remove("ZZ");
+        territoriesWithoutModernCurrencies.removeAll(Iso3166Data.getRegionCodesNotForTranslation());
 
         for (String territory : STANDARD_CODES
             .getGoodAvailableCodes("territory")) {
@@ -1624,10 +1626,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 } else if (!data.getScripts().contains(defaultScript)) {
                     if (StandardCodes.isLocaleAtLeastBasic(locale)) {
                         errln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv  " + data.getScripts());
                     } else {
                         logln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt (not a basic loc) " + data.getScripts());
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv (not a basic loc) " + data.getScripts());
                     }
                 }
             }

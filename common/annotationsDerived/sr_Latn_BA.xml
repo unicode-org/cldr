@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -101,24 +101,38 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫲🏼" type="tts">ruka okrenuta nalevo: srednje svijetla koža</annotation>
 		<annotation cp="🫲🏽">levo | nalevo | ni svijetla ni tamna koža | ruka | ruka okrenuta nalevo</annotation>
 		<annotation cp="🫲🏽" type="tts">ruka okrenuta nalevo: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫳🏻">dlan okrenut nadole | ispustiti | otpustiti | poteratiu | svijetla koža</annotation>
+		<annotation cp="🫳🏻">dlan okrenut nadole | ispustiti | otpustiti | poterati | svijetla koža</annotation>
 		<annotation cp="🫳🏻" type="tts">dlan okrenut nadole: svijetla koža</annotation>
-		<annotation cp="🫳🏼">dlan okrenut nadole | ispustiti | otpustiti | poteratiu | srednje svijetla koža</annotation>
+		<annotation cp="🫳🏼">dlan okrenut nadole | ispustiti | otpustiti | poterati | srednje svijetla koža</annotation>
 		<annotation cp="🫳🏼" type="tts">dlan okrenut nadole: srednje svijetla koža</annotation>
-		<annotation cp="🫳🏽">dlan okrenut nadole | ispustiti | ni svijetla ni tamna koža | otpustiti | poteratiu</annotation>
+		<annotation cp="🫳🏽">dlan okrenut nadole | ispustiti | ni svijetla ni tamna koža | otpustiti | poterati</annotation>
 		<annotation cp="🫳🏽" type="tts">dlan okrenut nadole: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫴🏻">dlan okrenut nagore | dozivati | ponuda | pozuiv | svijetla koža | uhvatiti</annotation>
+		<annotation cp="🫴🏻">dlan okrenut nagore | dozivati | ponuda | poziv | svijetla koža | uhvatiti</annotation>
 		<annotation cp="🫴🏻" type="tts">dlan okrenut nagore: svijetla koža</annotation>
-		<annotation cp="🫴🏼">dlan okrenut nagore | dozivati | ponuda | pozuiv | srednje svijetla koža | uhvatiti</annotation>
+		<annotation cp="🫴🏼">dlan okrenut nagore | dozivati | ponuda | poziv | srednje svijetla koža | uhvatiti</annotation>
 		<annotation cp="🫴🏼" type="tts">dlan okrenut nagore: srednje svijetla koža</annotation>
-		<annotation cp="🫴🏽">dlan okrenut nagore | dozivati | ni svijetla ni tamna koža | ponuda | pozuiv | uhvatiti</annotation>
+		<annotation cp="🫴🏽">dlan okrenut nagore | dozivati | ni svijetla ni tamna koža | ponuda | poziv | uhvatiti</annotation>
 		<annotation cp="🫴🏽" type="tts">dlan okrenut nagore: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🫷🏻">baci pet | čekaj | nalevo | odbij | odgurni | ruka gura ulevo | stop | svijetla koža</annotation>
+		<annotation cp="🫷🏻" type="tts">ruka gura ulevo: svijetla koža</annotation>
+		<annotation cp="🫷🏼">baci pet | čekaj | nalevo | odbij | odgurni | ruka gura ulevo | srednje svijetla koža | stop</annotation>
+		<annotation cp="🫷🏼" type="tts">ruka gura ulevo: srednje svijetla koža</annotation>
+		<annotation cp="🫷🏽">baci pet | čekaj | nalevo | ni svijetla ni tamna koža | odbij | odgurni | ruka gura ulevo | stop</annotation>
+		<annotation cp="🫷🏽" type="tts">ruka gura ulevo: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🫸🏻">baci pet | čekaj | nadesno | odbij | odgurni | ruka gura udesno | stop | svijetla koža</annotation>
+		<annotation cp="🫸🏻" type="tts">ruka gura udesno: svijetla koža</annotation>
+		<annotation cp="🫸🏼">baci pet | čekaj | nadesno | odbij | odgurni | ruka gura udesno | srednje svijetla koža | stop</annotation>
+		<annotation cp="🫸🏼" type="tts">ruka gura udesno: srednje svijetla koža</annotation>
+		<annotation cp="🫸🏽">baci pet | čekaj | nadesno | ni svijetla ni tamna koža | odbij | odgurni | ruka gura udesno | stop</annotation>
+		<annotation cp="🫸🏽" type="tts">ruka gura udesno: ni svijetla ni tamna koža</annotation>
 		<annotation cp="👌🏻">ruka | svijetla koža | u redu | znak rukom „u redu“</annotation>
 		<annotation cp="👌🏻" type="tts">znak rukom „u redu“: svijetla koža</annotation>
 		<annotation cp="👌🏼">ruka | srednje svijetla koža | u redu | znak rukom „u redu“</annotation>
 		<annotation cp="👌🏼" type="tts">znak rukom „u redu“: srednje svijetla koža</annotation>
 		<annotation cp="👌🏽">ni svijetla ni tamna koža | ruka | u redu | znak rukom „u redu“</annotation>
 		<annotation cp="👌🏽" type="tts">znak rukom „u redu“: ni svijetla ni tamna koža</annotation>
+		<annotation cp="👌🏾">ruka | srednje tamna koža | u redu | znak rukom „u redu“</annotation>
+		<annotation cp="👌🏿">ruka | tamna koža | u redu | znak rukom „u redu“</annotation>
 		<annotation cp="🤌🏻">prsti | sarkastično | skupljeni prsti | svijetla koža | upitno | znak rukom</annotation>
 		<annotation cp="🤌🏻" type="tts">skupljeni prsti: svijetla koža</annotation>
 		<annotation cp="🤌🏼">prsti | sarkastično | skupljeni prsti | srednje svijetla koža | upitno | znak rukom</annotation>
@@ -367,8 +381,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦵🏼" type="tts">noga: srednje svijetla koža</annotation>
 		<annotation cp="🦵🏽">ni svijetla ni tamna koža | noga | šut | ud</annotation>
 		<annotation cp="🦵🏽" type="tts">noga: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🦵🏾">noga | srednje tamna koža | šut | ud</annotation>
-		<annotation cp="🦵🏿">noga | šut | tamna koža | ud</annotation>
 		<annotation cp="🦶🏻">stopalo | svijetla koža | zgaziti</annotation>
 		<annotation cp="🦶🏻" type="tts">stopalo: svijetla koža</annotation>
 		<annotation cp="🦶🏼">srednje svijetla koža | stopalo | zgaziti</annotation>
@@ -2735,30 +2747,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍👧‍👧">djevojčica | porodica | žena</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">porodica: žena, djevojčica i djevojčica</annotation>
 		<annotation cp="🇦🇨" type="tts">zastava: ostrvo Asension</annotation>
+		<annotation cp="🇦🇽" type="tts">zastava: Olandska ostrva</annotation>
+		<annotation cp="🇧🇱" type="tts">zastava: Sen Bartelemi</annotation>
+		<annotation cp="🇧🇳" type="tts">zastava: Bruneji</annotation>
+		<annotation cp="🇧🇻" type="tts">zastava: ostrvo Buve</annotation>
 		<annotation cp="🇧🇾" type="tts">zastava: Bjelorusija</annotation>
 		<annotation cp="🇨🇨" type="tts">zastava: Kokosova (Kiling) ostrva</annotation>
-		<annotation cp="🇨🇬" type="tts">zastava: Kongo</annotation>
 		<annotation cp="🇨🇵" type="tts">zastava: ostrvo Kliperton</annotation>
-		<annotation cp="🇨🇻" type="tts">zastava: Kabo Verde</annotation>
 		<annotation cp="🇨🇿" type="tts">zastava: Češka Republika</annotation>
 		<annotation cp="🇩🇪" type="tts">zastava: Njemačka</annotation>
+		<annotation cp="🇫🇰" type="tts">zastava: Foklandska ostrva</annotation>
+		<annotation cp="🇫🇴" type="tts">zastava: Farska ostrva</annotation>
 		<annotation cp="🇬🇸" type="tts">zastava: Južna Džordžija i Južna Sendvička ostrva</annotation>
 		<annotation cp="🇬🇺" type="tts">zastava: Gvam</annotation>
+		<annotation cp="🇬🇼" type="tts">zastava: Gvineja Bisao</annotation>
 		<annotation cp="🇭🇰" type="tts">zastava: Hongkong (SAO Kine)</annotation>
 		<annotation cp="🇭🇲" type="tts">zastava: ostrvo Herd i ostrva Makdonald</annotation>
-		<annotation cp="🇰🇳" type="tts">zastava: Sveti Kits i Nevis</annotation>
+		<annotation cp="🇰🇲" type="tts">zastava: Komori</annotation>
 		<annotation cp="🇰🇵" type="tts">zastava: Sjeverna Koreja</annotation>
 		<annotation cp="🇲🇰" type="tts">zastava: Sjeverna Makedonija</annotation>
-		<annotation cp="🇲🇴" type="tts">zastava: SAR Makao</annotation>
+		<annotation cp="🇲🇲" type="tts">zastava: Mjanmar (Burma)</annotation>
 		<annotation cp="🇲🇵" type="tts">zastava: Sjeverna Marijanska ostrva</annotation>
 		<annotation cp="🇳🇫" type="tts">zastava: ostrvo Norfok</annotation>
 		<annotation cp="🇳🇺" type="tts">zastava: Nijue</annotation>
-		<annotation cp="🇵🇲" type="tts">zastava: Sveti Pjer i Mikelon</annotation>
 		<annotation cp="🇵🇸" type="tts">zastava: palestinske teritorije</annotation>
 		<annotation cp="🇷🇪" type="tts">zastava: Reunion</annotation>
+		<annotation cp="🇹🇫" type="tts">zastava: Francuske južne teritorije</annotation>
 		<annotation cp="🇺🇲" type="tts">zastava: Spoljna ostrva SAD</annotation>
 		<annotation cp="🇻🇨" type="tts">zastava: Sveti Vinsent i Grenadini</annotation>
-		<annotation cp="🇻🇬" type="tts">zastava: Britanska Djevičanska Ostrva</annotation>
-		<annotation cp="🇻🇮" type="tts">zastava: Američka Djevičanska Ostrva</annotation>
+		<annotation cp="🇻🇬" type="tts">zastava: Britanska Djevičanska ostrva</annotation>
+		<annotation cp="🇻🇮" type="tts">zastava: Američka Djevičanska ostrva</annotation>
 	</annotations>
 </ldml>

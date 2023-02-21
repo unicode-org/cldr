@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -104,21 +104,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕵🏽‍♀">detective | investigator | medium skin tone | sleuth | spy | woman</annotation>
 		<annotation cp="🕵🏾‍♀">detective | investigator | medium-dark skin tone | sleuth | spy | woman</annotation>
 		<annotation cp="🕵🏿‍♀">dark skin tone | detective | investigator | sleuth | spy | woman</annotation>
-		<annotation cp="🤵🏻">groom | light skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
-		<annotation cp="🤵🏼">groom | medium-light skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
-		<annotation cp="🤵🏽">groom | medium skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
-		<annotation cp="🤵🏾">groom | medium-dark skin tone | person | person in tux | person in tuxedo | tuxedo</annotation>
-		<annotation cp="🤵🏿">dark skin tone | groom | person | person in tux | person in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵🏻‍♂">light skin tone | man | man in tux | man in tuxedo | tux | tuxedo</annotation>
 		<annotation cp="🤵🏼‍♂">man | man in tux | man in tuxedo | medium-light skin tone | tux | tuxedo</annotation>
 		<annotation cp="🤵🏽‍♂">man | man in tux | man in tuxedo | medium skin tone | tux | tuxedo</annotation>
 		<annotation cp="🤵🏾‍♂">man | man in tux | man in tuxedo | medium-dark skin tone | tux | tuxedo</annotation>
 		<annotation cp="🤵🏿‍♂">dark skin tone | man | man in tux | man in tuxedo | tux | tuxedo</annotation>
-		<annotation cp="🤵🏻‍♀">light skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="🤵🏼‍♀">medium-light skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="🤵🏽‍♀">medium skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="🤵🏾‍♀">medium-dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="🤵🏿‍♀">dark skin tone | tuxedo | woman | woman in tux | woman in tuxedo</annotation>
 		<annotation cp="👰🏻‍♀">bride | light skin tone | veil | woman | woman with veil</annotation>
 		<annotation cp="👰🏼‍♀">bride | medium-light skin tone | veil | woman | woman with veil</annotation>
 		<annotation cp="👰🏽‍♀">bride | medium skin tone | veil | woman | woman with veil</annotation>
@@ -314,6 +304,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛌🏽">hotel | medium skin tone | person in bed | sleep | sleeping</annotation>
 		<annotation cp="🛌🏾">hotel | medium-dark skin tone | person in bed | sleep | sleeping</annotation>
 		<annotation cp="🛌🏿">dark skin tone | hotel | person in bed | sleep | sleeping</annotation>
+		<annotation cp="🇧🇱" type="tts">flag: St. Barthélemy</annotation>
+		<annotation cp="🇰🇳" type="tts">flag: St. Kitts &amp; Nevis</annotation>
+		<annotation cp="🇱🇨" type="tts">flag: St. Lucia</annotation>
+		<annotation cp="🇲🇫" type="tts">flag: St. Martin</annotation>
+		<annotation cp="🇻🇨" type="tts">flag: St. Vincent &amp; Grenadines</annotation>
 		<annotation cp="₪" type="tts">Israeli Shekel</annotation>
 	</annotations>
 </ldml>

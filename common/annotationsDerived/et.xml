@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -142,6 +142,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">käsi peopesaga ülespoole: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🫴🏿">käsi peopesaga ülespoole | kutsuma | pakkuma | püüdma | tule | tume nahatoon</annotation>
 		<annotation cp="🫴🏿" type="tts">käsi peopesaga ülespoole: tume nahatoon</annotation>
+		<annotation cp="🫷🏻">hele nahatoon | keeldu | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏻" type="tts">vasakule lükkav käsi: hele nahatoon</annotation>
+		<annotation cp="🫷🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏼" type="tts">vasakule lükkav käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫷🏽">keeldu | keskmine nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏽" type="tts">vasakule lükkav käsi: keskmine nahatoon</annotation>
+		<annotation cp="🫷🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏾" type="tts">vasakule lükkav käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫷🏿">keeldu | lükka | oota | stopp | tume nahatoon | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏿" type="tts">vasakule lükkav käsi: tume nahatoon</annotation>
+		<annotation cp="🫸🏻">hele nahatoon | keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏻" type="tts">paremale lükkav käsi: hele nahatoon</annotation>
+		<annotation cp="🫸🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏼" type="tts">paremale lükkav käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫸🏽">keeldu | keskmine nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏽" type="tts">paremale lükkav käsi: keskmine nahatoon</annotation>
+		<annotation cp="🫸🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏾" type="tts">paremale lükkav käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫸🏿">keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | tume nahatoon | viska viis</annotation>
+		<annotation cp="🫸🏿" type="tts">paremale lükkav käsi: tume nahatoon</annotation>
 		<annotation cp="👌🏻">hele nahatoon | käsi | keha | OK-käemärk</annotation>
 		<annotation cp="👌🏻" type="tts">OK-käemärk: hele nahatoon</annotation>
 		<annotation cp="👌🏼">käsi | keha | keskmiselt hele nahatoon | OK-käemärk</annotation>
@@ -432,26 +452,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">palveasendis käed: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙏🏿">aitäh | käed | palve | palveasendis käed | tänan | tume nahatoon | žest</annotation>
 		<annotation cp="🙏🏿" type="tts">palveasendis käed: tume nahatoon</annotation>
-		<annotation cp="🫷🏻">hele nahatoon | keeldu | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
-		<annotation cp="🫷🏻" type="tts">vasakule lükkav käsi: hele nahatoon</annotation>
-		<annotation cp="🫷🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
-		<annotation cp="🫷🏼" type="tts">vasakule lükkav käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫷🏽">keeldu | keskmine nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
-		<annotation cp="🫷🏽" type="tts">vasakule lükkav käsi: keskmine nahatoon</annotation>
-		<annotation cp="🫷🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
-		<annotation cp="🫷🏾" type="tts">vasakule lükkav käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫷🏿">keeldu | lükka | oota | stopp | tume nahatoon | vasakue | vasakule lükkav käsi | viska viis</annotation>
-		<annotation cp="🫷🏿" type="tts">vasakule lükkav käsi: tume nahatoon</annotation>
-		<annotation cp="🫸🏻">hele nahatoon | keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
-		<annotation cp="🫸🏻" type="tts">paremale lükkav käsi: hele nahatoon</annotation>
-		<annotation cp="🫸🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
-		<annotation cp="🫸🏼" type="tts">paremale lükkav käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫸🏽">keeldu | keskmine nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
-		<annotation cp="🫸🏽" type="tts">paremale lükkav käsi: keskmine nahatoon</annotation>
-		<annotation cp="🫸🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
-		<annotation cp="🫸🏾" type="tts">paremale lükkav käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫸🏿">keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | tume nahatoon | viska viis</annotation>
-		<annotation cp="🫸🏿" type="tts">paremale lükkav käsi: tume nahatoon</annotation>
 		<annotation cp="✍🏻">hele nahatoon | käsi | keha | kirjutamine | kirjutav käsi</annotation>
 		<annotation cp="✍🏻" type="tts">kirjutav käsi: hele nahatoon</annotation>
 		<annotation cp="✍🏼">käsi | keha | keskmiselt hele nahatoon | kirjutamine | kirjutav käsi</annotation>

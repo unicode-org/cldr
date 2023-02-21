@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -144,6 +144,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫴🏾" type="tts">palm up hand: medium-dark skin</annotation>
 		<annotation cp="🫴🏿">beckon | catch | come | dark skin | offer | palm up hand</annotation>
 		<annotation cp="🫴🏿" type="tts">palm up hand: dark skin</annotation>
+		<annotation cp="🫷🏻">Fair skin | high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷🏻" type="tts">leftwards pushing hand: Fair skin</annotation>
+		<annotation cp="🫷🏼">high five | leftward | leftwards pushing hand | medium-fair skin | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷🏼" type="tts">leftwards pushing hand: medium-fair skin</annotation>
+		<annotation cp="🫷🏽">high five | leftward | leftwards pushing hand | medium skin | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷🏽" type="tts">leftwards pushing hand: medium skin</annotation>
+		<annotation cp="🫷🏾">high five | leftward | leftwards pushing hand | medium-dark skin | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷🏾" type="tts">leftwards pushing hand: medium-dark skin</annotation>
+		<annotation cp="🫷🏿">dark skin | high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷🏿" type="tts">leftwards pushing hand: dark skin</annotation>
+		<annotation cp="🫸🏻">Fair skin | high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸🏻" type="tts">rightwards pushing hand: Fair skin</annotation>
+		<annotation cp="🫸🏼">high five | medium-fair skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸🏼" type="tts">rightwards pushing hand: medium-fair skin</annotation>
+		<annotation cp="🫸🏽">high five | medium skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸🏽" type="tts">rightwards pushing hand: medium skin</annotation>
+		<annotation cp="🫸🏾">high five | medium-dark skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸🏾" type="tts">rightwards pushing hand: medium-dark skin</annotation>
+		<annotation cp="🫸🏿">dark skin | high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸🏿" type="tts">rightwards pushing hand: dark skin</annotation>
 		<annotation cp="👌🏻">Fair skin | haath | OK | OK kaa symbol</annotation>
 		<annotation cp="👌🏻" type="tts">OK kaa symbol: Fair skin</annotation>
 		<annotation cp="👌🏼">haath | medium-fair skin | OK | OK kaa symbol</annotation>
@@ -434,26 +454,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">namaste karna: medium-dark skin</annotation>
 		<annotation cp="🙏🏿">ask | dark skin | high 5 | high five | namaste karna | please | pray | thanks</annotation>
 		<annotation cp="🙏🏿" type="tts">namaste karna: dark skin</annotation>
-		<annotation cp="🫷🏻">Fair skin | high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation>
-		<annotation cp="🫷🏻" type="tts">leftwards pushing hand: Fair skin</annotation>
-		<annotation cp="🫷🏼">high five | leftward | leftwards pushing hand | medium-fair skin | push | refuse | stop | wait</annotation>
-		<annotation cp="🫷🏼" type="tts">leftwards pushing hand: medium-fair skin</annotation>
-		<annotation cp="🫷🏽">high five | leftward | leftwards pushing hand | medium skin | push | refuse | stop | wait</annotation>
-		<annotation cp="🫷🏽" type="tts">leftwards pushing hand: medium skin</annotation>
-		<annotation cp="🫷🏾">high five | leftward | leftwards pushing hand | medium-dark skin | push | refuse | stop | wait</annotation>
-		<annotation cp="🫷🏾" type="tts">leftwards pushing hand: medium-dark skin</annotation>
-		<annotation cp="🫷🏿">dark skin | high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation>
-		<annotation cp="🫷🏿" type="tts">leftwards pushing hand: dark skin</annotation>
-		<annotation cp="🫸🏻">Fair skin | high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
-		<annotation cp="🫸🏻" type="tts">rightwards pushing hand: Fair skin</annotation>
-		<annotation cp="🫸🏼">high five | medium-fair skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
-		<annotation cp="🫸🏼" type="tts">rightwards pushing hand: medium-fair skin</annotation>
-		<annotation cp="🫸🏽">high five | medium skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
-		<annotation cp="🫸🏽" type="tts">rightwards pushing hand: medium skin</annotation>
-		<annotation cp="🫸🏾">high five | medium-dark skin | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
-		<annotation cp="🫸🏾" type="tts">rightwards pushing hand: medium-dark skin</annotation>
-		<annotation cp="🫸🏿">dark skin | high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
-		<annotation cp="🫸🏿" type="tts">rightwards pushing hand: dark skin</annotation>
 		<annotation cp="✍🏻">Fair skin | haath | likhna | likhta hua haath</annotation>
 		<annotation cp="✍🏻" type="tts">likhta hua haath: Fair skin</annotation>
 		<annotation cp="✍🏼">haath | likhna | likhta hua haath | medium-fair skin</annotation>
@@ -3594,9 +3594,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇱" type="tts">flag: St. Barthelemy</annotation>
 		<annotation cp="🇨🇮" type="tts">flag: Cote d’Ivoire</annotation>
 		<annotation cp="🇨🇼" type="tts">flag: Curacao</annotation>
+		<annotation cp="🇰🇳" type="tts">flag: St. Kitts &amp; Nevis</annotation>
+		<annotation cp="🇱🇨" type="tts">flag: St. Lucia</annotation>
+		<annotation cp="🇲🇫" type="tts">flag: St. Martin</annotation>
+		<annotation cp="🇵🇲" type="tts">flag: St. Pierre &amp; Miquelon</annotation>
 		<annotation cp="🇷🇪" type="tts">flag: Reunion</annotation>
+		<annotation cp="🇸🇭" type="tts">flag: St. Helena</annotation>
 		<annotation cp="🇸🇹" type="tts">flag: Sao Tome &amp; Principe</annotation>
+		<annotation cp="🇹🇷" type="tts">flag: Turkiye</annotation>
 		<annotation cp="🇺🇲" type="tts">flag: U.S. Outlying Islands</annotation>
+		<annotation cp="🇻🇨" type="tts">flag: St. Vincent &amp; Grenadines</annotation>
 		<annotation cp="🇻🇮" type="tts">flag: U.S. Virgin Islands</annotation>
 		<annotation cp="₡" type="tts">Costa Rican colon</annotation>
 	</annotations>

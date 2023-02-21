@@ -34,7 +34,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.LookupType;
 import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
@@ -50,9 +49,7 @@ public class ChartLocaleGrowth {
     private static final boolean DEBUG = true;
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
-    private static final String LATEST = ToolConstants.CHART_VERSION;
     private static CLDRConfig testInfo = ToolConfig.getToolInstance();
-    private static final StandardCodes SC = StandardCodes.make();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
 
     private static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();

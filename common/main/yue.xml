@@ -122,8 +122,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chr">柴羅基文</language>
 			<language type="chy">沙伊安文</language>
 			<language type="ckb">索拉尼庫爾德文</language>
-			<language type="ckb" alt="menu">索拉尼庫爾德文</language>
-			<language type="ckb" alt="variant">索拉尼庫爾德文</language>
+			<language type="ckb" alt="menu">↑↑↑</language>
+			<language type="ckb" alt="variant">↑↑↑</language>
 			<language type="clc">奇爾科延文</language>
 			<language type="co">科西嘉文</language>
 			<language type="cop">科普特文</language>
@@ -1068,7 +1068,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NR">諾魯</territory>
 			<territory type="NU">紐埃島</territory>
 			<territory type="NZ">紐西蘭</territory>
-			<territory type="NZ" alt="variant">紐西蘭</territory>
+			<territory type="NZ" alt="variant">↑↑↑</territory>
 			<territory type="OM">阿曼王國</territory>
 			<territory type="PA">巴拿馬</territory>
 			<territory type="PE">秘魯</territory>
@@ -1128,7 +1128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TN">突尼西亞</territory>
 			<territory type="TO">東加</territory>
 			<territory type="TR">土耳其</territory>
-			<territory type="TR" alt="variant">土耳其</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">千里達同多巴哥</territory>
 			<territory type="TV">吐瓦魯</territory>
 			<territory type="TW">台灣</territory>
@@ -2337,7 +2337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -2361,7 +2361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2940,7 +2940,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4039,9 +4039,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>年</displayName>
-				<relative type="-1">舊年</relative>
-				<relative type="0">今年</relative>
-				<relative type="1">下年</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
 				</relativeTime>
@@ -4051,9 +4051,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>年</displayName>
-				<relative type="-1">舊年</relative>
-				<relative type="0">今年</relative>
-				<relative type="1">下年</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 年後</relativeTimePattern>
 				</relativeTime>
@@ -4111,9 +4111,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName>月</displayName>
-				<relative type="-1">上個月</relative>
-				<relative type="0">今個月</relative>
-				<relative type="1">下個月</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
 				</relativeTime>
@@ -4123,9 +4123,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName>月</displayName>
-				<relative type="-1">上個月</relative>
-				<relative type="0">今個月</relative>
-				<relative type="1">下個月</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個月後</relativeTimePattern>
 				</relativeTime>
@@ -4148,9 +4148,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>週</displayName>
-				<relative type="-1">上星期</relative>
-				<relative type="0">今個星期</relative>
-				<relative type="1">下星期</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期後</relativeTimePattern>
 				</relativeTime>
@@ -4161,9 +4161,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-narrow">
 				<displayName>週</displayName>
-				<relative type="-1">上星期</relative>
-				<relative type="0">今個星期</relative>
-				<relative type="1">下星期</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 個星期後</relativeTimePattern>
 				</relativeTime>
@@ -4197,9 +4197,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>日</displayName>
-				<relative type="-1">尋日</relative>
-				<relative type="0">今日</relative>
-				<relative type="1">聽日</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
 				</relativeTime>
@@ -4209,9 +4209,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>日</displayName>
-				<relative type="-1">尋日</relative>
-				<relative type="0">今日</relative>
-				<relative type="1">聽日</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
 				</relativeTime>
@@ -6874,7 +6874,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<percentSign>%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign>~</approximatelySign>
+			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
@@ -8731,7 +8731,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern1 count="other">立方{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G 力</displayName>
@@ -9344,8 +9344,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 克耳文</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>尺磅</displayName>
-				<unitPattern count="other">{0} 尺磅</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>牛頓米</displayName>
@@ -10463,189 +10463,189 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern1 count="other">立方{0}</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>G 力</displayName>
-				<unitPattern count="other">{0} G 力</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName>米/平方秒</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每平方秒 {0} 米</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>圈</displayName>
-				<unitPattern count="other">{0} 圈</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>弧度</displayName>
-				<unitPattern count="other">{0} 弧度</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>角度</displayName>
-				<unitPattern count="other">{0} 度</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>角分</displayName>
-				<unitPattern count="other">{0} 角分</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>角秒</displayName>
-				<unitPattern count="other">{0} 角秒</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>平方公里</displayName>
-				<unitPattern count="other">{0} 平方公里</unitPattern>
-				<perUnitPattern>每平方公里{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>公頃</displayName>
-				<unitPattern count="other">{0} 公頃</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>平方米</displayName>
-				<unitPattern count="other">{0} 平方米</unitPattern>
-				<perUnitPattern>每平方米{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>平方厘米</displayName>
-				<unitPattern count="other">{0} 平方厘米</unitPattern>
-				<perUnitPattern>每平方厘米{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>平方英里</displayName>
-				<unitPattern count="other">{0} 平方英里</unitPattern>
-				<perUnitPattern>每平方英里{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>英畝</displayName>
-				<unitPattern count="other">{0} 英畝</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>平方碼</displayName>
-				<unitPattern count="other">{0} 平方碼</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>平方英呎</displayName>
-				<unitPattern count="other">{0} 平方英呎</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>平方英吋</displayName>
-				<unitPattern count="other">{0} 平方英吋</unitPattern>
-				<perUnitPattern>每平方英吋{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>德南</displayName>
-				<unitPattern count="other">{0} 德南</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0} 克拉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>毫克/公合</displayName>
-				<unitPattern count="other">{0} 毫克/公合</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>毫摩爾/公升</displayName>
-				<unitPattern count="other">{0} 毫摩爾/公升</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>項</displayName>
-				<unitPattern count="other">{0} 項</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>百萬分率</displayName>
-				<unitPattern count="other">{0} 百萬分率</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
 				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName>‰</displayName>
-				<unitPattern count="other">{0}‰</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>點子</displayName>
-				<unitPattern count="other">{0} 點子</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>摩爾</displayName>
-				<unitPattern count="other">{0} 摩爾</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>公升/公里</displayName>
-				<unitPattern count="other">{0} 公升/公里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>公升/100 公里</displayName>
-				<unitPattern count="other">{0} 公升/100 公里</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>英里/加侖</displayName>
-				<unitPattern count="other">{0} 英里/加侖</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>英里/英制加侖</displayName>
-				<unitPattern count="other">{0} 英里/英制加侖</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName>PB</displayName>
-				<unitPattern count="other">{0} PB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>TB</displayName>
-				<unitPattern count="other">{0} TB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="other">{0} GB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0} kB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>B</displayName>
 				<unitPattern count="other">{0}B</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>bit</displayName>
-				<unitPattern count="other">{0} bit</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>世紀</displayName>
-				<unitPattern count="other">{0} 世紀</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>十年</displayName>
-				<unitPattern count="other">{0} 個十年</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>年</displayName>
 				<unitPattern count="other">{0} 年</unitPattern>
-				<perUnitPattern>每年{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>季</displayName>
@@ -10655,132 +10655,132 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-month">
 				<displayName>月</displayName>
 				<unitPattern count="other">{0} 個月</unitPattern>
-				<perUnitPattern>每月{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>週</displayName>
 				<unitPattern count="other">{0} 週</unitPattern>
-				<perUnitPattern>每週{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>天</displayName>
 				<unitPattern count="other">{0} 天</unitPattern>
-				<perUnitPattern>每天{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>小時</displayName>
 				<unitPattern count="other">{0} 小時</unitPattern>
-				<perUnitPattern>每小時{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>分鐘</displayName>
 				<unitPattern count="other">{0} 分鐘</unitPattern>
-				<perUnitPattern>每分鐘{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
-				<perUnitPattern>每秒{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>毫秒</displayName>
 				<unitPattern count="other">{0} 毫秒</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>微秒</displayName>
-				<unitPattern count="other">{0} 微秒</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>奈秒</displayName>
-				<unitPattern count="other">{0} 奈秒</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>安培</displayName>
-				<unitPattern count="other">{0} 安培</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>毫安培</displayName>
-				<unitPattern count="other">{0} 毫安培</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName>歐姆</displayName>
-				<unitPattern count="other">{0} 歐姆</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>伏特</displayName>
-				<unitPattern count="other">{0} 伏</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>千卡</displayName>
-				<unitPattern count="other">{0} 千卡</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>卡路里</displayName>
-				<unitPattern count="other">{0} 卡路里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>大卡</displayName>
-				<unitPattern count="other">{0} 大卡</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>千焦耳</displayName>
-				<unitPattern count="other">{0} 千焦</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>焦耳</displayName>
-				<unitPattern count="other">{0} 焦耳</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName>千瓦小時</displayName>
-				<unitPattern count="other">{0} 千瓦小時</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName>電子伏特</displayName>
-				<unitPattern count="other">{0} 電子伏特</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>英制熱量單位</displayName>
-				<unitPattern count="other">{0} 英制熱量單位</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>美制熱量單位</displayName>
-				<unitPattern count="other">{0} 美制熱量單位</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>磅力</displayName>
-				<unitPattern count="other">{0} 磅力</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>牛頓</displayName>
-				<unitPattern count="other">{0} 牛頓</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>千瓦時/每 100 公里</displayName>
-				<unitPattern count="other">{0} 千瓦時/每 100 公里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>吉赫</displayName>
-				<unitPattern count="other">{0} 吉赫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>兆赫</displayName>
-				<unitPattern count="other">{0} 兆赫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>千赫</displayName>
-				<unitPattern count="other">{0} 千赫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>赫茲</displayName>
-				<unitPattern count="other">{0} 赫茲</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>em</displayName>
-				<unitPattern count="other">{0} em</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>像素</displayName>
-				<unitPattern count="other">{0} 像素</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>MP</displayName>
@@ -10791,438 +10791,438 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>每吋像素</displayName>
-				<unitPattern count="other">{0} 像素/吋</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>每厘米點數</displayName>
-				<unitPattern count="other">{0} 點/厘米</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>每吋點數</displayName>
-				<unitPattern count="other">{0} 點/吋</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>圓點</displayName>
-				<unitPattern count="other">{0} 個圓點</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>地球半徑</displayName>
-				<unitPattern count="other">{0} 地球半徑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>公里</displayName>
 				<unitPattern count="other">{0} 公里</unitPattern>
-				<perUnitPattern>每公里{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>米</displayName>
 				<unitPattern count="other">{0} 米</unitPattern>
-				<perUnitPattern>每米{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>公寸</displayName>
-				<unitPattern count="other">{0} 公寸</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>厘米</displayName>
 				<unitPattern count="other">{0} 厘米</unitPattern>
-				<perUnitPattern>每厘米{0}</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>毫米</displayName>
 				<unitPattern count="other">{0} 毫米</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>微米</displayName>
-				<unitPattern count="other">{0} 微米</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>奈米</displayName>
-				<unitPattern count="other">{0} 奈米</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>皮米</displayName>
-				<unitPattern count="other">{0} 皮米</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName>英里</displayName>
-				<unitPattern count="other">{0} 英里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName>碼</displayName>
-				<unitPattern count="other">{0} 碼</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName>英呎</displayName>
-				<unitPattern count="other">{0} 英呎</unitPattern>
-				<perUnitPattern>每英呎{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>英吋</displayName>
-				<unitPattern count="other">{0} 英吋</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>每英吋 {0}</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>秒差距</displayName>
-				<unitPattern count="other">{0} 秒差距</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>光年</displayName>
-				<unitPattern count="other">{0} 光年</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>天文單位</displayName>
-				<unitPattern count="other">{0} 天文單位</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>化朗</displayName>
-				<unitPattern count="other">{0} 化朗</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
 				<displayName>英尋</displayName>
-				<unitPattern count="other">{0} 英尋</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>海里</displayName>
-				<unitPattern count="other">{0} 海里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>斯堪地那維亞英里</displayName>
-				<unitPattern count="other">{0} 斯堪地那維亞英里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>點</displayName>
-				<unitPattern count="other">{0} 點</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>太陽半徑</displayName>
-				<unitPattern count="other">{0} 太陽半徑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>勒克斯</displayName>
-				<unitPattern count="other">{0} 勒克斯</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>坎德拉</displayName>
-				<unitPattern count="other">{0} 坎德拉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>流明</displayName>
-				<unitPattern count="other">{0} 流明</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>太陽光度</displayName>
-				<unitPattern count="other">{0} 太陽光度</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName>公噸</displayName>
-				<unitPattern count="other">{0} 公噸</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>公斤</displayName>
-				<unitPattern count="other">{0} 公斤</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>每公斤 {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>克</displayName>
-				<unitPattern count="other">{0} 克</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>每克 {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>毫克</displayName>
-				<unitPattern count="other">{0} 毫克</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>微克</displayName>
-				<unitPattern count="other">{0} 微克</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>英噸</displayName>
-				<unitPattern count="other">{0} 英噸</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>英石</displayName>
-				<unitPattern count="other">{0} 英石</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName>磅</displayName>
-				<unitPattern count="other">{0} 磅</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>每磅 {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>安士</displayName>
-				<unitPattern count="other">{0} 安士</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>每安士 {0}</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName>金衡安士</displayName>
-				<unitPattern count="other">{0} 金衡安士</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0} 克拉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>道爾頓</displayName>
-				<unitPattern count="other">{0} 道爾頓</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>地球質量</displayName>
-				<unitPattern count="other">{0} 地球質量</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>太陽質量</displayName>
-				<unitPattern count="other">{0} 太陽質量</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>喱</displayName>
-				<unitPattern count="other">{0} 喱</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>吉瓦</displayName>
-				<unitPattern count="other">{0} 吉瓦</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>百萬瓦特</displayName>
-				<unitPattern count="other">{0} 百萬瓦特</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName>千瓦特</displayName>
-				<unitPattern count="other">{0} 千瓦特</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>瓦特</displayName>
-				<unitPattern count="other">{0} 瓦特</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>毫瓦特</displayName>
-				<unitPattern count="other">{0} 毫瓦特</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>匹</displayName>
-				<unitPattern count="other">{0} 匹</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>毫米汞柱</displayName>
-				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>磅力/平方英吋</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每平方吋 {0} 磅</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>英吋汞柱</displayName>
-				<unitPattern count="other">{0} 英吋汞柱</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>巴</displayName>
-				<unitPattern count="other">{0} 巴</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName>毫巴</displayName>
-				<unitPattern count="other">{0} 毫巴</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>atm</displayName>
-				<unitPattern count="other">{0} atm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>帕斯卡</displayName>
-				<unitPattern count="other">{0} 帕斯卡</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>百帕</displayName>
-				<unitPattern count="other">{0} 百帕</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>千帕</displayName>
-				<unitPattern count="other">{0} 千帕</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>兆帕</displayName>
-				<unitPattern count="other">{0} 兆帕</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName>公里/小時</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每小時 {0} 公里</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName>米/秒</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每秒 {0} 米</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName>英里/小時</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每小時 {0} 英里</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName>節</displayName>
-				<unitPattern count="other">{0} 節</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>°</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>華氏</displayName>
-				<unitPattern count="other">{0}°F</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>克耳文</displayName>
-				<unitPattern count="other">{0} 克耳文</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>尺磅</displayName>
-				<unitPattern count="other">{0} 尺磅</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>牛頓米</displayName>
-				<unitPattern count="other">{0} 牛頓米</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>立方公里</displayName>
-				<unitPattern count="other">{0} 立方公里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>立方米</displayName>
-				<unitPattern count="other">{0} 立方米</unitPattern>
-				<perUnitPattern>每立方米{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>立方厘米</displayName>
-				<unitPattern count="other">{0} 立方厘米</unitPattern>
-				<perUnitPattern>每立方厘米{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>立方英里</displayName>
-				<unitPattern count="other">{0} 立方英里</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>立方碼</displayName>
-				<unitPattern count="other">{0} 立方碼</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>立方英呎</displayName>
-				<unitPattern count="other">{0} 立方英呎</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
-				<displayName>立方英吋</displayName>
-				<unitPattern count="other">{0} 立方英吋</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>兆升</displayName>
-				<unitPattern count="other">{0} 兆升</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>公石</displayName>
-				<unitPattern count="other">{0} 公石</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>公升</displayName>
-				<unitPattern count="other">{0} 公升</unitPattern>
-				<perUnitPattern>每公升{0}</perUnitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>公合</displayName>
-				<unitPattern count="other">{0} 公合</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>釐升</displayName>
-				<unitPattern count="other">{0} 釐升</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>毫升</displayName>
-				<unitPattern count="other">{0} 毫升</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>公制品脫</displayName>
-				<unitPattern count="other">{0} 公制品脫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>公制量杯</displayName>
-				<unitPattern count="other">{0} 公制杯</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>英畝英呎</displayName>
-				<unitPattern count="other">{0} 英畝英呎</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>蒲式耳</displayName>
-				<unitPattern count="other">{0} 蒲式耳</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>加侖</displayName>
-				<unitPattern count="other">{0} 加侖</unitPattern>
-				<perUnitPattern>每加侖{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>英制加侖</displayName>
-				<unitPattern count="other">{0} 英制加侖</unitPattern>
-				<perUnitPattern>每英制加侖{0}</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>夸脫</displayName>
-				<unitPattern count="other">{0} 夸脫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>品脫</displayName>
-				<unitPattern count="other">{0} 品脫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>量杯</displayName>
-				<unitPattern count="other">{0} 杯</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
-				<displayName>液盎司</displayName>
-				<unitPattern count="other">{0} 液盎司</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>英制液盎司</displayName>
-				<unitPattern count="other">{0} 英制液盎司</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>湯匙</displayName>
-				<unitPattern count="other">{0} 湯匙</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>茶匙</displayName>
-				<unitPattern count="other">{0} 茶匙</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>桶</displayName>
-				<unitPattern count="other">{0} 桶</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>甜品匙</displayName>
-				<unitPattern count="other">{0}甜品匙</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName>英制甜品匙</displayName>
-				<unitPattern count="other">{0}英制甜品匙</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>滴</displayName>
-				<unitPattern count="other">{0}滴</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>英制液量打蘭</displayName>
-				<unitPattern count="other">{0}英制液量打蘭</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>量酒杯</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">量酒器{0}杯</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>小撮</displayName>
-				<unitPattern count="other">{0} 小撮</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>英制夸脫</displayName>
-				<unitPattern count="other">{0} 英制夸脫</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>方向</displayName>
@@ -11256,22 +11256,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} 或 {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">{0}、{1}</listPatternPart>
-			<listPatternPart type="middle">{0}、{1}</listPatternPart>
-			<listPatternPart type="end">{0} 或 {1}</listPatternPart>
-			<listPatternPart type="2">{0} 或 {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">{0}、{1}</listPatternPart>
-			<listPatternPart type="middle">{0}、{1}</listPatternPart>
-			<listPatternPart type="end">{0} 或 {1}</listPatternPart>
-			<listPatternPart type="2">{0} 或 {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}、{1}</listPatternPart>
-			<listPatternPart type="middle">{0}、{1}</listPatternPart>
-			<listPatternPart type="end">{0}同{1}</listPatternPart>
-			<listPatternPart type="2">{0}同{1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}、{1}</listPatternPart>
@@ -11595,7 +11595,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname-core} {given} {given2}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname} {given-informal}</namePattern>

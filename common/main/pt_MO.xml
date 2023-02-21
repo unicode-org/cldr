@@ -80,4 +80,97 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="mass-earth-mass">
+				<displayName>massas da Terra</displayName>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="area-square-meter">
+				<displayName>m²</displayName>
+			</unit>
+			<unit type="area-square-inch">
+				<unitPattern count="one">{0} in²</unitPattern>
+				<unitPattern count="other">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>quilates</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<unitPattern count="other">{0} bit</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>ppp</displayName>
+				<unitPattern count="one">{0} ppp</unitPattern>
+				<unitPattern count="other">{0} ppp</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<unitPattern count="other">{0} p</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<unitPattern count="one">{0} ton</unitPattern>
+				<unitPattern count="other">{0} ton</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<unitPattern count="one">{0} in³</unitPattern>
+				<unitPattern count="other">{0} in³</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="one">{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>chám</displayName>
+				<unitPattern count="one">{0} chám</unitPattern>
+				<unitPattern count="other">{0} chám</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="one">{0} ac ft</unitPattern>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>gal imp.</displayName>
+				<unitPattern count="one">{0} gal imp.</unitPattern>
+				<unitPattern count="other">{0} gal imp.</unitPattern>
+				<perUnitPattern>{0}/gal imp.</perUnitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<unitPattern count="one">{0} cháv.</unitPattern>
+				<unitPattern count="other">{0} cháv.</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>onças fluidas imp.</displayName>
+				<unitPattern count="one">{0} onça fluida imp.</unitPattern>
+				<unitPattern count="other">{0} onças fluidas imp.</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>cs</displayName>
+				<unitPattern count="one">{0} cs</unitPattern>
+				<unitPattern count="other">{0} cs</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>cc</displayName>
+				<unitPattern count="one">{0} cc</unitPattern>
+				<unitPattern count="other">{0} cc</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>doseador</displayName>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>quarto imp.</displayName>
+				<unitPattern count="one">{0} quarto imp.</unitPattern>
+				<unitPattern count="other">{0} quartos imp.</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>

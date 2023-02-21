@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -242,9 +242,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">दि</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">जनवरी</month>
-							<month type="2">फरवरी</month>
-							<month type="3">मार्च</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
 							<month type="4">अप्रैल</month>
 							<month type="5">मेई</month>
 							<month type="6">जून</month>
@@ -409,12 +409,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">ई.पू.</era>
+						<era type="0">↑↑↑</era>
 						<era type="1">ई. सन्</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ई.पू.</era>
-						<era type="0" alt="variant">ई.पू.</era>
+						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">ईसवी</era>
 						<era type="1" alt="variant">सन्</era>
 					</eraAbbr>
@@ -533,7 +533,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">MMMM दा हफ्ता W</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM दा हफ्ता W</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
@@ -745,13 +745,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>दिन</displayName>
-				<relative type="-1">जंदा कल</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">अज्ज</relative>
-				<relative type="1">औंदे कल</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>दिन</displayName>
-				<relative type="-1">जंदा कल</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">अज्ज</relative>
 				<relative type="1">औंदे कल</relative>
 			</field>

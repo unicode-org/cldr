@@ -99,4 +99,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unitLength type="narrow">
+			<unit type="length-nautical-mile">
+				<displayName>nmi</displayName>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>hp</displayName>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>cdas.</displayName>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>cdtas.</displayName>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>

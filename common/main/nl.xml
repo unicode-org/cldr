@@ -1169,7 +1169,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">Tunesië</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkije</territory>
-			<territory type="TR" alt="variant">Turkije</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinidad en Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
@@ -1640,7 +1640,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1648,7 +1648,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1656,7 +1656,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
@@ -1682,54 +1682,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -2724,7 +2724,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -2732,7 +2732,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2740,7 +2740,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -2748,7 +2748,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3065,7 +3065,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -3073,7 +3073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3081,7 +3081,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E d MMM y G</dateFormatItem>
@@ -3107,54 +3107,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -4165,7 +4165,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -4173,7 +4173,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1} {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4184,9 +4184,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMMM" draft="contributed">MMM r (U)</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM r</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E d MMM r (U)</dateFormatItem>
-						<dateFormatItem id="GyMMMM" draft="contributed">MMMM r(U)</dateFormatItem>
-						<dateFormatItem id="GyMMMMd" draft="contributed">d MMMM r(U)</dateFormatItem>
-						<dateFormatItem id="GyMMMMEd" draft="contributed">E d MMMM r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMM" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d-M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E d-M</dateFormatItem>
@@ -4208,21 +4208,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMMMd" draft="contributed">d MMM r</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="contributed">E d MMM r (U)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM r (U)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMd" draft="contributed">d MMMM r(U)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMEd" draft="contributed">E d MMMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ r (U)</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ r (U)</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
@@ -4478,7 +4478,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -4486,7 +4486,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4494,7 +4494,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
@@ -4520,54 +4520,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -5032,9 +5032,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Z</day>
-							<day type="mon">M</day>
+							<day type="mon">↑↑↑</day>
 							<day type="tue">D</day>
-							<day type="wed">W</day>
+							<day type="wed">↑↑↑</day>
 							<day type="thu">D</day>
 							<day type="fri">V</day>
 							<day type="sat">Z</day>
@@ -5293,7 +5293,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -5301,7 +5301,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -5511,17 +5511,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1">Tisjrie</month>
 							<month type="2">Chesjwan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
 							<month type="5">Sjevat</month>
 							<month type="6">Adar A</month>
-							<month type="7">Adar</month>
+							<month type="7">↑↑↑</month>
 							<month type="7" yeartype="leap">Adar B</month>
-							<month type="8">Nisan</month>
+							<month type="8">↑↑↑</month>
 							<month type="9">Ijar</month>
-							<month type="10">Sivan</month>
+							<month type="10">↑↑↑</month>
 							<month type="11">Tammoez</month>
-							<month type="12">Av</month>
+							<month type="12">↑↑↑</month>
 							<month type="13">Elloel</month>
 						</monthWidth>
 						<monthWidth type="narrow">
@@ -5561,17 +5561,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1">Tisjrie</month>
 							<month type="2">Chesjwan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
 							<month type="5">Sjevat</month>
 							<month type="6">Adar A</month>
-							<month type="7">Adar</month>
+							<month type="7">↑↑↑</month>
 							<month type="7" yeartype="leap">Adar B</month>
-							<month type="8">Nisan</month>
+							<month type="8">↑↑↑</month>
 							<month type="9">Ijar</month>
-							<month type="10">Sivan</month>
+							<month type="10">↑↑↑</month>
 							<month type="11">Tammoez</month>
-							<month type="12">Av</month>
+							<month type="12">↑↑↑</month>
 							<month type="13">Elloel</month>
 						</monthWidth>
 						<monthWidth type="narrow">
@@ -5593,17 +5593,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="wide">
 							<month type="1">Tisjrie</month>
 							<month type="2">Chesjwan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
 							<month type="5">Sjevat</month>
 							<month type="6">Adar A</month>
-							<month type="7">Adar</month>
+							<month type="7">↑↑↑</month>
 							<month type="7" yeartype="leap">Adar B</month>
-							<month type="8">Nisan</month>
+							<month type="8">↑↑↑</month>
 							<month type="9">Ijar</month>
-							<month type="10">Sivan</month>
+							<month type="10">↑↑↑</month>
 							<month type="11">Tammoez</month>
-							<month type="12">Av</month>
+							<month type="12">↑↑↑</month>
 							<month type="13">Elloel</month>
 						</monthWidth>
 					</monthContext>
@@ -5667,7 +5667,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -5675,7 +5675,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -5683,7 +5683,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E d MMM y G</dateFormatItem>
@@ -5709,54 +5709,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -6003,7 +6003,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -6011,7 +6011,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -6019,7 +6019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E d MMM y G</dateFormatItem>
@@ -6045,54 +6045,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -6238,14 +6238,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">Moeh.</month>
-							<month type="2">Saf.</month>
-							<month type="3">Rab. I</month>
-							<month type="4">Rab. II</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
 							<month type="5">Joem. I</month>
 							<month type="6">Joem. II</month>
-							<month type="7">Raj.</month>
+							<month type="7">↑↑↑</month>
 							<month type="8">Sja.</month>
-							<month type="9">Ram.</month>
+							<month type="9">↑↑↑</month>
 							<month type="10">Sjaw.</month>
 							<month type="11">Doe al k.</month>
 							<month type="12">Doe al h.</month>
@@ -6266,14 +6266,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moeharram</month>
-							<month type="2">Safar</month>
+							<month type="2">↑↑↑</month>
 							<month type="3">Rabiʻa al awal</month>
 							<month type="4">Rabiʻa al thani</month>
 							<month type="5">Joemadʻal awal</month>
 							<month type="6">Joemadʻal thani</month>
-							<month type="7">Rajab</month>
+							<month type="7">↑↑↑</month>
 							<month type="8">Sjaʻaban</month>
-							<month type="9">Ramadan</month>
+							<month type="9">↑↑↑</month>
 							<month type="10">Sjawal</month>
 							<month type="11">Doe al kaʻaba</month>
 							<month type="12">Doe al hizja</month>
@@ -6339,7 +6339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -6347,7 +6347,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -6355,7 +6355,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
@@ -6381,54 +6381,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -6764,7 +6764,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="233" draft="contributed">Taishō</era>
 						<era type="234" draft="contributed">Shōwa</era>
 						<era type="235" draft="contributed">Heisei</era>
-						<era type="236">Reiwa</era>
+						<era type="236">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="contributed">Taika (645–650)</era>
@@ -7293,7 +7293,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -7301,7 +7301,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -7309,7 +7309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
@@ -7335,54 +7335,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -7629,7 +7629,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -7637,7 +7637,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -7645,7 +7645,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
 						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E d MMM y G</dateFormatItem>
@@ -7671,54 +7671,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -7878,7 +7878,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -7886,7 +7886,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="contributed">{1}, {0}</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -7894,7 +7894,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="E" draft="contributed">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
@@ -7920,54 +7920,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B" draft="contributed">h B – h B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B" draft="contributed">h:mm B – h:mm B</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h:mm–h:mm B</greatestDifference>
-							<greatestDifference id="m" draft="contributed">h:mm–h:mm B</greatestDifference>
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G" draft="contributed">y G – y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">y – y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G" draft="contributed">M-y GGGGG – M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">M-y – M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">M-y – M-y GGGGG</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d-M-y GGGGG – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d-M-y – d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d-M-y GGGGG – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d-M-y – E d-M-y GGGGG</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G" draft="contributed">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d" draft="contributed">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="G" draft="contributed">E d MMM y G – E d MMM y G</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E d MMM – E d MMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E d MMM y – E d MMM y G</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -11078,19 +11078,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</otherNumberingSystems>
 		<minimumGroupingDigits>1</minimumGroupingDigits>
 		<symbols numberSystem="adlm">
-			<decimal draft="contributed">,</decimal>
-			<group draft="contributed">.</group>
-			<list draft="contributed">;</list>
-			<percentSign draft="contributed">%</percentSign>
-			<plusSign draft="contributed">+</plusSign>
-			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
-			<exponential draft="contributed">E</exponential>
-			<superscriptingExponent draft="contributed">×</superscriptingExponent>
-			<perMille draft="contributed">‰</perMille>
-			<infinity draft="contributed">∞</infinity>
-			<nan draft="contributed">NaN</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
+			<decimal draft="contributed">↑↑↑</decimal>
+			<group draft="contributed">↑↑↑</group>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
+			<exponential draft="contributed">↑↑↑</exponential>
+			<superscriptingExponent draft="contributed">↑↑↑</superscriptingExponent>
+			<perMille draft="contributed">↑↑↑</perMille>
+			<infinity draft="contributed">↑↑↑</infinity>
+			<nan draft="contributed">↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="arab">
 			<decimal draft="contributed">٫</decimal>
@@ -11129,7 +11129,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11144,7 +11144,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11159,7 +11159,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11174,7 +11174,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11189,7 +11189,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11204,7 +11204,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11219,7 +11219,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11234,7 +11234,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11249,7 +11249,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11264,7 +11264,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11279,7 +11279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11294,7 +11294,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11303,19 +11303,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="hmnp">
-			<decimal draft="contributed">,</decimal>
-			<group draft="contributed">.</group>
-			<list draft="contributed">;</list>
-			<percentSign draft="contributed">%</percentSign>
-			<plusSign draft="contributed">+</plusSign>
-			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
-			<exponential draft="contributed">E</exponential>
-			<superscriptingExponent draft="contributed">×</superscriptingExponent>
-			<perMille draft="contributed">‰</perMille>
-			<infinity draft="contributed">∞</infinity>
-			<nan draft="contributed">NaN</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
+			<decimal draft="contributed">↑↑↑</decimal>
+			<group draft="contributed">↑↑↑</group>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
+			<exponential draft="contributed">↑↑↑</exponential>
+			<superscriptingExponent draft="contributed">↑↑↑</superscriptingExponent>
+			<perMille draft="contributed">↑↑↑</perMille>
+			<infinity draft="contributed">↑↑↑</infinity>
+			<nan draft="contributed">↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="java">
 			<decimal draft="contributed">,</decimal>
@@ -11324,7 +11324,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11339,7 +11339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11354,7 +11354,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11369,7 +11369,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11384,7 +11384,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11399,7 +11399,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11414,7 +11414,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11444,7 +11444,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11459,7 +11459,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11474,7 +11474,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11489,7 +11489,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11504,7 +11504,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11519,7 +11519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11534,7 +11534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11549,7 +11549,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11564,7 +11564,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11579,7 +11579,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11594,7 +11594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11609,7 +11609,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11624,7 +11624,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11639,7 +11639,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11654,7 +11654,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11669,7 +11669,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11684,7 +11684,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11699,7 +11699,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11714,7 +11714,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11729,7 +11729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11744,7 +11744,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11759,7 +11759,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11774,7 +11774,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<percentSign draft="contributed">%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
 			<minusSign draft="contributed">-</minusSign>
-			<approximatelySign draft="contributed">~</approximatelySign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
 			<exponential draft="contributed">E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille draft="contributed">‰</perMille>
@@ -11785,7 +11785,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="adlm">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -12163,7 +12163,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scientificFormats numberSystem="adlm">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="contributed">#E0</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
@@ -12485,7 +12485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<percentFormats numberSystem="adlm">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">#,##0%</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -12807,17 +12807,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<currencyFormats numberSystem="adlm">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
@@ -12827,7 +12827,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -12835,14 +12835,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12850,14 +12850,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12865,14 +12865,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12880,14 +12880,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12895,14 +12895,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12910,14 +12910,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12925,14 +12925,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12940,14 +12940,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12955,14 +12955,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12970,14 +12970,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -12985,14 +12985,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13000,14 +13000,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13015,14 +13015,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13030,14 +13030,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13045,14 +13045,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13060,14 +13060,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13075,14 +13075,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13090,14 +13090,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13105,14 +13105,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13120,14 +13120,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13178,14 +13178,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13193,14 +13193,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13208,14 +13208,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13223,14 +13223,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13238,14 +13238,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13253,14 +13253,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13268,14 +13268,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13283,14 +13283,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13298,14 +13298,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13313,14 +13313,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13328,14 +13328,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13343,14 +13343,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13358,14 +13358,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13373,14 +13373,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13388,14 +13388,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13403,14 +13403,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13418,14 +13418,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13433,14 +13433,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13448,14 +13448,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13463,14 +13463,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13478,14 +13478,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13493,14 +13493,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -13508,14 +13508,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<currencyPatternAppendISO draft="contributed">{0} ¤¤</currencyPatternAppendISO>
+			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -14952,8 +14952,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="SLE">
 				<displayName>Sierra Leoonse leone</displayName>
-				<displayName count="one">Sierra Leoonse leone</displayName>
-				<displayName count="other">Sierra Leoonse leone</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
@@ -15456,10 +15456,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="adlm">
-			<pattern type="approximately" draft="contributed">~{0}</pattern>
-			<pattern type="atLeast" draft="contributed">{0}+</pattern>
-			<pattern type="atMost" draft="contributed">≤{0}</pattern>
-			<pattern type="range" draft="contributed">{0}-{1}</pattern>
+			<pattern type="approximately" draft="contributed">↑↑↑</pattern>
+			<pattern type="atLeast" draft="contributed">↑↑↑</pattern>
+			<pattern type="atMost" draft="contributed">↑↑↑</pattern>
+			<pattern type="range" draft="contributed">↑↑↑</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="arab">
 			<pattern type="approximately" draft="contributed">~{0}</pattern>
@@ -15831,16 +15831,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>vierkante {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">vierkante {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="common">vierkante {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="common">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">vierkante {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="common">vierkante {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="common">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>kubieke {0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kubieke {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="common">kubieke {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="common">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kubieke {0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="common">kubieke {0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="common">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>{0}{1}</compoundUnitPattern>
@@ -15945,9 +15945,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} per vierkante inch</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>dunam</displayName>
-				<unitPattern count="one">{0} dunam</unitPattern>
-				<unitPattern count="other">{0} dunam</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<gender>neuter</gender>
@@ -15998,9 +15998,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<gender>common</gender>
-				<displayName>mol</displayName>
-				<unitPattern count="one">{0} mol</unitPattern>
-				<unitPattern count="other">{0} mol</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<gender>common</gender>
@@ -16089,7 +16089,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-bit">
 				<gender>common</gender>
 				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -16583,7 +16583,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-grain">
 				<gender>neuter</gender>
 				<displayName>grein</displayName>
-				<unitPattern count="one">{0} grein</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} grein</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -16924,7 +16924,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-jigger">
 				<gender>common</gender>
-				<displayName>jigger</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} jigger</unitPattern>
 				<unitPattern count="other">{0} jiggers</unitPattern>
 			</unit>
@@ -17038,12 +17038,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
@@ -17136,7 +17136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} dunam</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -17176,12 +17176,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} mol</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -17384,12 +17384,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} eV</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Btu</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
@@ -17399,17 +17399,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} lbf</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} N</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kWh/100km</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
@@ -17468,13 +17468,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>pixels</displayName>
-				<unitPattern count="one">{0} px</unitPattern>
-				<unitPattern count="other">{0} px</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} R⊕</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
@@ -17584,7 +17584,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} R☉</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -17594,17 +17594,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-candela">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} cd</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} lm</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} L☉</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -17668,17 +17668,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Da</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} M⊕</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} M☉</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
@@ -17758,12 +17758,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kPa</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} MPa</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -17813,7 +17813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} lbf⋅ft</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
@@ -17943,7 +17943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} fl oz Imp.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -17958,7 +17958,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} bbl</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
@@ -17983,7 +17983,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-jigger">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} jigger</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
@@ -18006,101 +18006,101 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="10p-1">
-				<unitPrefixPattern>d{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-2">
-				<unitPrefixPattern>c{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-3">
-				<unitPrefixPattern>m{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>μ{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
-				<unitPrefixPattern>n{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-12">
-				<unitPrefixPattern>p{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-15">
-				<unitPrefixPattern>f{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-18">
-				<unitPrefixPattern>a{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-21">
-				<unitPrefixPattern>z{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-24">
-				<unitPrefixPattern>y{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
-				<unitPrefixPattern>da{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p2">
-				<unitPrefixPattern>h{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p3">
-				<unitPrefixPattern>k{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p6">
-				<unitPrefixPattern>M{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p9">
-				<unitPrefixPattern>G{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p12">
-				<unitPrefixPattern>T{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p15">
-				<unitPrefixPattern>P{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p18">
-				<unitPrefixPattern>E{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p21">
-				<unitPrefixPattern>Z{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
-				<unitPrefixPattern>Y{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
-				<unitPrefixPattern>Ki{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p2">
-				<unitPrefixPattern>Mi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p3">
-				<unitPrefixPattern>Gi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p4">
-				<unitPrefixPattern>Ti{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p5">
-				<unitPrefixPattern>Pi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p6">
-				<unitPrefixPattern>Ei{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p7">
-				<unitPrefixPattern>Zi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>Yi{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>{0}{1}</compoundUnitPattern>
@@ -18191,9 +18191,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>dunam</displayName>
-				<unitPattern count="one">{0} dunam</unitPattern>
-				<unitPattern count="other">{0} dunam</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>K</displayName>
@@ -18231,14 +18231,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>‱</displayName>
-				<unitPattern count="one">{0}‱</unitPattern>
-				<unitPattern count="other">{0}‱</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>mol</displayName>
-				<unitPattern count="one">{0} mol</unitPattern>
-				<unitPattern count="other">{0} mol</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -18312,7 +18312,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-bit">
 				<displayName>bit</displayName>
-				<unitPattern count="one">{0} bit</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -18335,7 +18335,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>kw.</displayName>
 				<unitPattern count="one">{0} kw.</unitPattern>
 				<unitPattern count="other">{0} kw.</unitPattern>
-				<perUnitPattern>{0}/kw.</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>m</displayName>
@@ -18439,32 +18439,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} kWh</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName>eV</displayName>
-				<unitPattern count="one">{0} eV</unitPattern>
-				<unitPattern count="other">{0} eV</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>Btu</displayName>
-				<unitPattern count="one">{0} Btu</unitPattern>
-				<unitPattern count="other">{0} Btu</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>US therm</displayName>
-				<unitPattern count="one">{0} US therm</unitPattern>
-				<unitPattern count="other">{0} US therms</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName>lbf</displayName>
-				<unitPattern count="one">{0} lbf</unitPattern>
-				<unitPattern count="other">{0} lbf</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>N</displayName>
-				<unitPattern count="one">{0} N</unitPattern>
-				<unitPattern count="other">{0} N</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>kWh/100km</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}kWh/100km</unitPattern>
 				<unitPattern count="other">{0}kWh/100km</unitPattern>
 			</unit>
@@ -18489,39 +18489,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Hz</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>em</displayName>
-				<unitPattern count="one">{0} em</unitPattern>
-				<unitPattern count="other">{0} em</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>px</displayName>
-				<unitPattern count="one">{0} px</unitPattern>
-				<unitPattern count="other">{0} px</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>MP</displayName>
-				<unitPattern count="one">{0} MP</unitPattern>
-				<unitPattern count="other">{0} MP</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>ppcm</displayName>
-				<unitPattern count="one">{0} ppcm</unitPattern>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>ppi</displayName>
-				<unitPattern count="one">{0} ppi</unitPattern>
-				<unitPattern count="other">{0} ppi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0} dpcm</unitPattern>
-				<unitPattern count="other">{0} dpcm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="one">{0} dpi</unitPattern>
-				<unitPattern count="other">{0} dpi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>dot</displayName>
@@ -18529,9 +18529,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dot</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>R⊕</displayName>
-				<unitPattern count="one">{0} R⊕</unitPattern>
-				<unitPattern count="other">{0} R⊕</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -18639,9 +18639,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>R☉</displayName>
-				<unitPattern count="one">{0} R☉</unitPattern>
-				<unitPattern count="other">{0} R☉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -18649,19 +18649,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>cd</displayName>
-				<unitPattern count="one">{0} cd</unitPattern>
-				<unitPattern count="other">{0} cd</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>lm</displayName>
-				<unitPattern count="one">{0} lm</unitPattern>
-				<unitPattern count="other">{0} lm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>L☉</displayName>
-				<unitPattern count="one">{0} L☉</unitPattern>
-				<unitPattern count="other">{0} L☉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName>t</displayName>
@@ -18723,19 +18723,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>Da</displayName>
-				<unitPattern count="one">{0} Da</unitPattern>
-				<unitPattern count="other">{0} Da</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>M⊕</displayName>
-				<unitPattern count="one">{0} M⊕</unitPattern>
-				<unitPattern count="other">{0} M⊕</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>M☉</displayName>
-				<unitPattern count="one">{0} M☉</unitPattern>
-				<unitPattern count="other">{0} M☉</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
 				<displayName>gr</displayName>
@@ -18788,9 +18788,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>bar</displayName>
-				<unitPattern count="one">{0} bar</unitPattern>
-				<unitPattern count="other">{0} bar</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
@@ -18803,9 +18803,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} atm</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName>Pa</displayName>
-				<unitPattern count="one">{0} Pa</unitPattern>
-				<unitPattern count="other">{0} Pa</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
@@ -18813,14 +18813,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>kPa</displayName>
-				<unitPattern count="one">{0} kPa</unitPattern>
-				<unitPattern count="other">{0} kPa</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>MPa</displayName>
-				<unitPattern count="one">{0} MPa</unitPattern>
-				<unitPattern count="other">{0} MPa</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/u</displayName>
@@ -18863,14 +18863,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} K</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName>lbf⋅ft</displayName>
-				<unitPattern count="one">{0} lbf⋅ft</unitPattern>
-				<unitPattern count="other">{0} lbf⋅ft</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<displayName>Nm</displayName>
-				<unitPattern count="one">{0} Nm</unitPattern>
-				<unitPattern count="other">{0} Nm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -18952,8 +18952,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>acre ft</displayName>
-				<unitPattern count="one">{0} ac ft</unitPattern>
-				<unitPattern count="other">{0} ac ft</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>bu</displayName>
@@ -18993,7 +18993,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>Imp. fl oz</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} fl ozIm</unitPattern>
 				<unitPattern count="other">{0} fl ozIm</unitPattern>
 			</unit>
@@ -19008,14 +19008,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} tl</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>bbl</displayName>
-				<unitPattern count="one">{0} bbl</unitPattern>
-				<unitPattern count="other">{0} bbl</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>des l</displayName>
-				<unitPattern count="one">{0} des l</unitPattern>
-				<unitPattern count="other">{0} des l</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>imp. d l</displayName>
@@ -19033,9 +19033,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} fl dr</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>jigger</displayName>
-				<unitPattern count="one">{0} jigger</unitPattern>
-				<unitPattern count="other">{0} jigger</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>sn</displayName>
@@ -19043,9 +19043,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} sn</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>imp. qt</displayName>
-				<unitPattern count="one">{0} imp. qt</unitPattern>
-				<unitPattern count="other">{0} imp. qt</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>windstreek</displayName>
@@ -19079,22 +19079,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} of {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} of {1}</listPatternPart>
-			<listPatternPart type="2">{0} of {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} of {1}</listPatternPart>
-			<listPatternPart type="2">{0} of {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} en {1}</listPatternPart>
-			<listPatternPart type="2">{0} en {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>

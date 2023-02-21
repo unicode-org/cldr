@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -13,7 +12,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Sets;
@@ -24,16 +22,13 @@ public class CompareResolved {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDR_CONFIG.getSupplementalDataInfo();
 
     private enum MyOptions {
-        source(new Params().setHelp("Set the source directory name. Only these files will be compared")
-            .setDefault(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-42.0/common/main").setMatch(".*")),
-        compare(new Params().setHelp("Set the comparison directory name.")
-            .setMatch(".*").setDefault(CLDRPaths.MAIN_DIRECTORY)),
-        fileFilter(new Params().setHelp("Filter files in source dir.")
-            .setMatch(".*")),
-        pathFilter(new Params().setHelp("Filter paths in each source file.")
-            .setMatch(".*")),
-        verbose(new Params()
-            .setMatch(null)),
+        source(new Params().setHelp("Set the source directory name. Only these files will be compared").setDefault(CLDRPaths.MAIN_DIRECTORY).setMatch(".*")),
+        compare(new Params().setHelp("Set the comparison directory name.").setMatch(".*").setDefault(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-42.0/common/main")),
+        fileFilter(new Params().setHelp("Filter files in source dir.").setMatch(".*")),
+        pathFilter(new Params().setHelp("Filter paths in each source file.").setMatch(".*")),
+        verbose(new Params().setMatch(null)),
+        Vertical(new Params().setHelp("True to only check values with vertical inheritance").setMatch("true|false")),
+        Horizontal(new Params().setHelp("True to only check values with horizontal inheritance").setMatch("true|false")),
         ;
 
         // BOILERPLATE TO COPY
@@ -76,6 +71,10 @@ public class CompareResolved {
 
         boolean verbose = MyOptions.verbose.option.doesOccur();
 
+        // TODO
+        Boolean onlyVertical = null; // !MyOptions.Vertical.option.doesOccur() ? null : Boolean.valueOf(MyOptions.Horizontal.option.getValue());
+        Boolean onlyHorizontal = null; // !MyOptions.Horizontal.option.doesOccur() ? null : Boolean.valueOf(MyOptions.Horizontal.option.getValue());
+
         // set up factories
 
         Factory sourceFactory = Factory.make(sourceDir, ".*");
@@ -99,7 +98,6 @@ public class CompareResolved {
         int diffCountAllLocales = 0;
 
         // cycle over locales
-        System.out.println("Locale\tRequested Path\tResolved Value (GEN)\ttResolved Value (Main)\tFound Locale (GEN)\tFound Locale (Main)\tFound Path (GEN)\tFound Path (Main)");
         for (String localeID : sourceFactory.getAvailable()) {
             if (fileMatcher != null && !fileMatcher.reset(localeID).find()) {
                 continue;
@@ -141,84 +139,36 @@ public class CompareResolved {
                     continue;
                 }
 
-                final boolean verticalDiff = !Objects.equal(sourceLocaleFound.value, compareLocaleFound.value);
-                final boolean horizontalDiff = !Objects.equal(sourcePathFound.value, comparePathFound.value);
-
-//                // inheritance filters, if not null, follow it.
-//                if (onlyVertical != null) {
-//                    if (verticalDiff != (onlyVertical == true)) {
-//                        continue;
-//                    }
-//                }
-//                if (onlyHorizontal != null) {
-//                    if (horizontalDiff != (onlyHorizontal == true)) {
-//                        continue;
-//                    }
-//                }
+                // inheritance filters, if not null, follow it.
+                if (onlyVertical != null) {
+                    final boolean isVertical = !Objects.equal(sourceLocaleFound.value, compareLocaleFound.value);
+                    if (isVertical != (onlyVertical == true)) {
+                        continue;
+                    }
+                }
+                if (onlyHorizontal != null) {
+                    final boolean isHorizontal = !Objects.equal(sourcePathFound.value, comparePathFound.value);
+                    if (isHorizontal != (onlyHorizontal == true)) {
+                        continue;
+                    }
+                }
 
                 // fell through, so record diff
 
                 ++diffCount;
-                System.out.println(localeID
-                    + "\t" + path //
-                    + "\t" + sourceValue
-                    + "\t" + compareValue //
-                    + "\t" + sourceLocaleFound.value
-                    + "\t" + compareLocaleFound.value
-                    + "\t" + abbreviate(sourcePathFound.value, path)
-                    + "\t" + abbreviate(comparePathFound.value, path)
-                    );
+                if (sourceValue == null || compareValue == null || sourceValue.isEmpty() || compareValue.isEmpty()) {
+                    throw new RuntimeException("Null or empty sourceValue or compareValue: [" + sourceValue + "/" + compareValue + "]");
+                }
+                System.out.println("≠DIFF\t" + localeID + "\t" + path + "\t" + sourceValue + "\t" + compareValue);
             }
-            if (verbose || diffCount != 0) {
-                System.out.println(localeID + "\t#filteredCount:\t" + filterCount + ", diffCount:\t" + diffCount);
+            if (verbose) {
+                System.out.println("\tfilteredCount: " + filterCount + ", diffCount: " + diffCount);
             }
             filterCountAllLocales += filterCount;
             diffCountAllLocales += diffCount;
         }
-        if (verbose || diffCountAllLocales != 0) {
-            System.out.println("ALL LOCALES" + "\t#filteredCount:\t" + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
+        if (verbose) {
+            System.out.println("ALL LOCALES: filteredCountAllLocales: " + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
         }
-        System.out.println("DONE");
-    }
-
-    /*
-     * Abbreviate the pathToAbbreviate, replacing leading and trailing identical elements/attributes by …
-     */
-    private static String abbreviate(String pathToAbbreviate, String referencePath) {
-        if (pathToAbbreviate.equals(referencePath)) {
-            return "…";
-        }
-        XPathParts compare = XPathParts.getFrozenInstance(pathToAbbreviate);
-        XPathParts source = XPathParts.getFrozenInstance(referencePath);
-        final int cSize = compare.size();
-        final int sSize = source.size();
-        int min = Math.min(cSize, sSize);
-
-        int initialSame = 0;
-        for (; initialSame < min; ++initialSame) {
-            String cElement = compare.getElement(initialSame);
-            String sElement = source.getElement(initialSame);
-            Map<String, String> cAttributes = compare.getAttributes(initialSame);
-            Map<String, String> sAttributes = source.getAttributes(initialSame);
-            if (!cElement.equals(sElement) || !cAttributes.equals(sAttributes)) {
-                break;
-            }
-        }
-        // at this point elements less than initialSame are identical
-
-        int trailingSame = cSize;
-        int cDelta = -1;
-        int sDelta = sSize-cSize - 1;
-        for (; trailingSame > initialSame; --trailingSame) {
-            String cElement = compare.getElement(trailingSame + cDelta);
-            String sElement = source.getElement(trailingSame + sDelta);
-            Map<String, String> cAttributes = compare.getAttributes(trailingSame + cDelta);
-            Map<String, String> sAttributes = source.getAttributes(trailingSame + sDelta);
-            if (!cElement.equals(sElement) || !cAttributes.equals(sAttributes)) {
-                break;
-            }
-        }
-        // at this point elements at or after trailingSame are identical
-        return "…" + compare.toString(initialSame, trailingSame) + (trailingSame == cSize ? "" : "…");
     }
 }

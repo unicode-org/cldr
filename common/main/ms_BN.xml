@@ -53,6 +53,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 			</calendar>
+			<calendar type="islamic-civil">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>dd MMMM y G</pattern>
+							<datetimeSkeleton>GyMMMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="islamic-rgsa">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>dd MMMM y G</pattern>
+							<datetimeSkeleton>GyMMMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="islamic-tbla">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>dd MMMM y G</pattern>
+							<datetimeSkeleton>GyMMMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="islamic-umalqura">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>dd MMMM y G</pattern>
+							<datetimeSkeleton>GyMMMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 		</calendars>
 	</dates>
 	<numbers>

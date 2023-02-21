@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -799,7 +799,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UM">यू॰एस॰ आउटलाइंग द्वीपसमूह</territory>
 			<territory type="UN">संयुक्त राष्ट्र</territory>
 			<territory type="US">संयुक्त राज्य</territory>
-			<territory type="US" alt="short">संयुक्त राज्य</territory>
+			<territory type="US" alt="short">↑↑↑</territory>
 			<territory type="UY">उरुग्वे</territory>
 			<territory type="UZ">उजबेकिस्तान</territory>
 			<territory type="VA">वेटिकन सिटी</territory>
@@ -979,7 +979,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -987,7 +987,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1258,13 +1258,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">श</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">रवि</day>
-							<day type="mon">सोम</day>
-							<day type="tue">मंगल</day>
-							<day type="wed">बुध</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
 							<day type="thu">बृहस्पति</day>
-							<day type="fri">शुक्र</day>
-							<day type="sat">शनि</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">रवि दिन</day>
@@ -1296,13 +1296,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">श</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">रवि</day>
-							<day type="mon">सोम</day>
-							<day type="tue">मंगल</day>
-							<day type="wed">बुध</day>
-							<day type="thu">बृहस्पति</day>
-							<day type="fri">शुक्र</day>
-							<day type="sat">शनि</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">रवि दिन</day>
@@ -1324,10 +1324,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">ति4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">पहिल तिमाही</quarter>
@@ -1364,8 +1364,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">सांझ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">भोर</dayPeriod>
-							<dayPeriod type="pm">सांझ</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">भोर</dayPeriod>
@@ -1378,8 +1378,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">अपराह्न</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">पूर्वाह्न</dayPeriod>
-							<dayPeriod type="pm">अपराह्न</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">पूर्वाह्न</dayPeriod>
@@ -1389,10 +1389,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">ईसा-पूर्व</era>
-						<era type="0" alt="variant">ईसवी पूर्व</era>
-						<era type="1">ईसवी</era>
-						<era type="1" alt="variant">ईसवी</era>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="1" alt="variant">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ईसा-पूर्व</era>
@@ -1475,7 +1475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1483,7 +1483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1686,51 +1686,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">चैत</month>
-							<month type="2">बैशाख</month>
-							<month type="3">जेठ</month>
-							<month type="4">अखाढ़</month>
-							<month type="5">सउन</month>
-							<month type="6">भादो</month>
-							<month type="7">आसिन</month>
-							<month type="8">कातिक</month>
-							<month type="9">अगहन</month>
-							<month type="10">पूस</month>
-							<month type="11">माघ</month>
-							<month type="12">फागुन</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">चैत</month>
-							<month type="2">बैशाख</month>
-							<month type="3">जेठ</month>
-							<month type="4">अखाढ़</month>
-							<month type="5">सउन</month>
-							<month type="6">भादो</month>
-							<month type="7">आसिन</month>
-							<month type="8">कातिक</month>
-							<month type="9">अगहन</month>
-							<month type="10">पूस</month>
-							<month type="11">माघ</month>
-							<month type="12">फागुन</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">चैत</month>
+							<month type="1">↑↑↑</month>
 							<month type="2">बैशाख</month>
 							<month type="3">जेठ</month>
 							<month type="4">अखाढ़</month>
@@ -1772,6 +1728,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">फागुन</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
@@ -1788,7 +1788,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>जुग</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName>जुग</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="year">
 				<displayName>वर्ष</displayName>
@@ -1804,19 +1804,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>वर्ष</displayName>
-				<relative type="-1">बीतल बरख</relative>
-				<relative type="0">एहि बरख</relative>
-				<relative type="1">अगिला बरख</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} बरख मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} बरख पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
 				<displayName>वर्ष</displayName>
-				<relative type="-1">बीतल बरख</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">एहि बरख</relative>
 				<relative type="1">अगिला बरख</relative>
 				<relativeTime type="future">
@@ -1841,19 +1841,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="quarter-short">
 				<displayName>तिमाही</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} तिमाही मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} तिमाही पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
 				<displayName>तिमाही</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} तिमाही मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} तिमाही पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1907,38 +1907,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName>सप्ताह</displayName>
-				<relative type="-1">बीतल सप्ताह</relative>
-				<relative type="0">एहि सप्ताह</relative>
-				<relative type="1">अगिला सप्ताह</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सप्ताह मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सप्ताह पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0} केर सप्ताह</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>सप्ताह</displayName>
-				<relative type="-1">बीतल सप्ताह</relative>
-				<relative type="0">एहि सप्ताह</relative>
-				<relative type="1">अगिला सप्ताह</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सप्ताह मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सप्ताह पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>{0} केर सप्ताह</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>महीना केर सप्ताह</displayName>
 			</field>
 			<field type="weekOfMonth-short">
-				<displayName>महीना केर सप्ताह</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName>महीना केर सप्ताह</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
 				<displayName>दिन</displayName>
@@ -1955,10 +1955,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-short">
 				<displayName>दिन</displayName>
 				<relative type="-1">बीतल काल्हि</relative>
-				<relative type="0">आजुक दिन</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">आबय वला काल्हि</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} दिन मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0}दिन पहिले</relativeTimePattern>
@@ -1970,7 +1970,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">आजुक दिन</relative>
 				<relative type="1">आबय वला काल्हि</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} दिन मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0}दिन पहिले</relativeTimePattern>
@@ -1980,28 +1980,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>बरखक दिन</displayName>
 			</field>
 			<field type="dayOfYear-short">
-				<displayName>बरखक दिन</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName>बरखक दिन</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>सप्ताहक दिन</displayName>
 			</field>
 			<field type="weekday-short">
-				<displayName>सप्ताहक दिन</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>सप्ताहक दिन</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>माहक कार्यदिवस</displayName>
 			</field>
 			<field type="weekdayOfMonth-short">
-				<displayName>माहक कार्यदिवस</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName>माहक कार्यदिवस</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">बीतल रवि</relative>
@@ -2015,25 +2015,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-short">
-				<relative type="-1">बीतल रवि</relative>
-				<relative type="0">एहि रवि</relative>
-				<relative type="1">अगिला रवि</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} रवि मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} रवि पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1">बीतल रवि</relative>
-				<relative type="0">एहि रवि</relative>
-				<relative type="1">अगिला रवि</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} रवि मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} रवि पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -2048,25 +2048,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-short">
-				<relative type="-1">बीतल सोम</relative>
-				<relative type="0">एहि सोम</relative>
-				<relative type="1">अगिला सोम</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सोम मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सोम पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1">बीतल सोम</relative>
-				<relative type="0">एहि सोम</relative>
-				<relative type="1">अगिला सोम</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सोम मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सोम पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2081,25 +2081,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-short">
-				<relative type="-1">बीतल मंगल</relative>
-				<relative type="0">एहि मंगल</relative>
-				<relative type="1">अगिला मंगल</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} मंगल मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} मंगल पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1">बीतल मंगल</relative>
-				<relative type="0">एहि मंगल</relative>
-				<relative type="1">अगिला मंगल</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} मंगल मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} मंगल पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2114,25 +2114,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-short">
-				<relative type="-1">पिछला बुध</relative>
-				<relative type="0">एहि बुध</relative>
-				<relative type="1">अगिला बुध</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} बुध मे</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} बुध पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">पिछला बुध</relative>
-				<relative type="0">एहि बुध</relative>
-				<relative type="1">अगिला बुध</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} बुध मे</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} बुध पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2147,25 +2147,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1">बीतल बृहस्पति</relative>
-				<relative type="0">एहि बृहस्पति</relative>
-				<relative type="1">अगिला बृहस्पति</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} बृहस्पति मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} बृहस्पति पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">बीतल बृहस्पति</relative>
-				<relative type="0">एहि बृहस्पति</relative>
-				<relative type="1">अगिला बृहस्पति</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} बृहस्पति मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} बृहस्पति पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2180,25 +2180,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-short">
-				<relative type="-1">पिछलका शुक्र</relative>
-				<relative type="0">एहि शुक्र</relative>
-				<relative type="1">अगिला शुक्र</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} शुक्र मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} शुक्र पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1">पिछलका शुक्र</relative>
-				<relative type="0">एहि शुक्र</relative>
-				<relative type="1">अगिला शुक्र</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} शुक्र मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} शुक्र पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2213,35 +2213,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-short">
-				<relative type="-1">बीतल शनि</relative>
-				<relative type="0">एहि शनि</relative>
-				<relative type="1">अगिला शनि</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} शनि मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} शनि पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1">बीतल शनि</relative>
-				<relative type="0">एहि शनि</relative>
-				<relative type="1">अगिला शनि</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} शनि मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} शनि पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>पूर्वाह्न/अपराह्न</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>पूर्वाह्न/अपराह्न</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>पूर्वाह्न/अपराह्न</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour">
 				<displayName>घंटा</displayName>
@@ -2254,21 +2254,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>घंटा</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} घंटा मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} घंटा पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>घंटा</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} घंटा मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} घंटा पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -2282,21 +2282,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<displayName>मिनट</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} मिनट मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} मिनट पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>मिनट</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} मिनट मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} मिनट पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -2310,31 +2310,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second-short">
-				<displayName>सेकंड</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सेकेंड मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सेकेंड पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
-				<displayName>सेकंड</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">{0} सेकेंड मे</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} सेकेंड पहिले</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>समय क्षेत्र</displayName>
 			</field>
 			<field type="zone-short">
-				<displayName>समय क्षेत्र</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="zone-narrow">
-				<displayName>समय क्षेत्र</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>

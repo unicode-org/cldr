@@ -289,7 +289,7 @@ public class ShowLocaleCoverage {
         }
     }
 
-    private static void showCoverage(Anchors anchors, Matcher matcher) throws IOException {
+    static void showCoverage(Anchors anchors, Matcher matcher) throws IOException {
         showCoverage(anchors, matcher, null, false);
     }
 

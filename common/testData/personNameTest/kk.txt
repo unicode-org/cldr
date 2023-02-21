@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: kk
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; Нұрлан
+name ; locale; kk_AQ
 
-expectedResult; 慎太郎
+expectedResult; Нұрлан
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; Н
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,22 +88,12 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; Әсем
+name ; surname; Мұхамеджан
+name ; locale; kk_AQ
 
-expectedResult; 安藤一郎
+expectedResult; Мұхамеджан, Әсем
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
@@ -111,137 +101,168 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; Әсем Мұхамеджан
 
-parameters; none; short; addressing; informal
+parameters; none; long; referring; formal
+parameters; none; medium; referring; formal
 
-expectedResult; 安藤
+expectedResult; Ә. Мұхамеджан
 
+parameters; none; short; referring; formal
+
+expectedResult; Мұхамеджан
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 一
+expectedResult; Әсем
+
+parameters; none; long; addressing; informal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; informal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; informal
+
+expectedResult; ӘМ
 
 parameters; none; long; monogram; formal
+
+expectedResult; Ә
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; М
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; Айдар
+name ; surname; Қасым
+name ; locale; kk_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; Қасым, Айдар
 
-parameters; none; long; referring; formal
 parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 山田太郎
-
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
-
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
-
-expectedResult; 佐藤グレース恵子さん
+expectedResult; Айдар Қасым
 
 parameters; none; long; referring; formal
+parameters; none; medium; referring; formal
 
-expectedResult; 佐藤グレース恵子
+expectedResult; А. Қасым
 
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
+parameters; none; short; referring; formal
 
-expectedResult; 佐藤けいこさん
+expectedResult; Айдар
 
 parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; informal
 
-expectedResult; 佐藤恵子さん
+expectedResult; Қасым
 
 parameters; none; long; addressing; formal
 parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; АҚ
+
+parameters; none; long; monogram; formal
+
+expectedResult; А
+
+parameters; none; long; monogram; informal
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; informal
+
+expectedResult; Қ
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
+
+endName
+
+name ; title; мырза
+name ; given; Заңғар
+name ; given-informal; Зәке
+name ; given2; Ермекұлы
+name ; surname-core; Тәуекел
+name ; locale; kk_AQ
+
+expectedResult; Тәуекел, Заңғар Ермекұлы
+
+parameters; sorting; long; referring; formal
+
+expectedResult; Тәуекел, Заңғар
+
+parameters; sorting; medium; referring; formal
+parameters; sorting; short; referring; formal
+
+expectedResult; Заңғар Тәуекел
+
+parameters; none; long; referring; formal
 parameters; none; medium; referring; formal
-parameters; none; short; referring; formal
 
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; Тәуекел, Зәке
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; З. Тәуекел
 
+parameters; none; short; referring; formal
+
+expectedResult; Тәуекел
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 佐藤恵子
+expectedResult; Зәке
 
-parameters; sorting; short; referring; formal
+parameters; none; long; addressing; informal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; informal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; informal
 
-expectedResult; 恵
+expectedResult; ЗТ
 
 parameters; none; long; monogram; formal
+
+expectedResult; З
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; Т
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; Синдбад
+name ; locale; ko_AQ
 
-expectedResult; マイケル
+expectedResult; Синдбад
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +277,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; С
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,126 +288,151 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; Кейт
+name ; surname; Мюллер
+name ; locale; ko_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; Мюллер Кейт
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+
+expectedResult; Мюллер К.
+
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
+expectedResult; Мюллер
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; アルベルト
+expectedResult; Кейт
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ア
+expectedResult; МК
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; К
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; М
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; Сесилия
+name ; given2; Хэмиш
+name ; surname; Штобер
+name ; locale; ko_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; Штобер Сесилия
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; セシリア・ブラウン
-
-parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+
+expectedResult; Штобер С.
+
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
+expectedResult; Сесилия
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ブラウン
+expectedResult; Штобер
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; セ
+expectedResult; ШС
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; С
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; Ш
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; title; проф.
+name ; given; Ада Корнелия
+name ; given-informal; Нелли
+name ; given2; Сезар Мартин
+name ; surname-prefix; фон
+name ; surname-core; Брюль
+name ; surname2; Гонсалес
+name ; generation; Джуниор
+name ; credentials; тіс дәрігері
+name ; locale; ko_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; фон Брюль Ада Корнелия
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
 parameters; none; medium; referring; formal
 
-expectedResult; ジェニファー・フォン・スミス博士
+expectedResult; фон Брюль А. К.
 
-parameters; none; medium; addressing; formal
 parameters; none; short; referring; formal
-
-expectedResult; ジェニー・フォン・スミス博士
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
 parameters; none; short; referring; informal
 
-expectedResult; フォン・スミス博士
+expectedResult; фон Брюль Нелли
 
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; фон Брюль
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; ジェニー博士
+expectedResult; Нелли
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ジ
+expectedResult; ФА
 
 parameters; none; long; monogram; formal
+
+expectedResult; ФН
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; Н
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; Ф
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName

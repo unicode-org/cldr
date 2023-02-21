@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: ca
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; Carolina
+name ; locale; ca_AQ
 
-expectedResult; 慎太郎
+expectedResult; Carolina
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; C
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,22 +88,73 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; Gal·la
+name ; surname; Roig
+name ; locale; ca_AQ
 
-expectedResult; 安藤一郎
+expectedResult; Roig, Gal·la
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
+parameters; sorting; long; referring; formal
+parameters; sorting; medium; referring; formal
+parameters; sorting; short; referring; formal
+
+expectedResult; Gal·la Roig
+
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
+
+expectedResult; Roig Gal·la
+
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; informal
+
+expectedResult; Gal·la R.
+
 parameters; none; short; referring; informal
+
+expectedResult; G. Roig
+
+parameters; none; short; referring; formal
+
+expectedResult; Gal·la
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; Roig
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; GR
+
+parameters; none; long; monogram; formal
+parameters; none; long; monogram; informal
+
+expectedResult; G
+
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; informal
+
+expectedResult; R
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
+
+endName
+
+name ; given; Rosa Maria
+name ; given2; Ferran
+name ; surname; Ferrer
+name ; locale; ca_AQ
+
+expectedResult; Ferrer, Rosa Maria Ferran
+
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
@@ -111,137 +162,141 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; Rosa Maria Ferran Ferrer
 
+parameters; none; long; referring; formal
+parameters; none; medium; referring; formal
+
+expectedResult; Rosa Maria Ferrer
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; R. M. F. Ferrer
+
+parameters; none; short; referring; formal
+
+expectedResult; Rosa Maria F.
+
+parameters; none; short; referring; informal
+
+expectedResult; Rosa Maria
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; 安藤
+expectedResult; Ferrer
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 一
+expectedResult; RFF
 
 parameters; none; long; monogram; formal
+
+expectedResult; RF
+
 parameters; none; long; monogram; informal
+
+expectedResult; F
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; R
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; title; Sr.
+name ; given; Josep Antoni
+name ; given-informal; Pep
+name ; given2; Carles Joan
+name ; surname-core; Lloret
+name ; surname2; Palol
+name ; generation; II
+name ; credentials; Excm.
+name ; locale; ca_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; Excm. Sr. Josep Antoni Carles Joan Lloret Palol II
+
+parameters; none; medium; referring; formal
+
+expectedResult; Excm. Sr. Josep Antoni Carles Joan Lloret Palol
 
 parameters; none; long; referring; formal
+
+expectedResult; Lloret Palol, Josep Antoni Carles Joan
+
 parameters; sorting; long; referring; formal
+
+expectedResult; Lloret Palol, Josep Antoni C. J.
+
 parameters; sorting; medium; referring; formal
 
-expectedResult; 山田太郎
+expectedResult; Lloret Palol, J. A. C. J.
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
-parameters; sorting; long; referring; informal
-parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
-parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
+expectedResult; J. A. C. J. Lloret Palol
 
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
-
-expectedResult; 佐藤グレース恵子さん
-
-parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
-
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; 佐藤恵子さん
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; medium; referring; formal
 parameters; none; short; referring; formal
 
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; Lloret Palol, Pep
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; Pep Lloret Palol
 
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; Sr. Lloret
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 佐藤恵子
+expectedResult; Pep L.
 
-parameters; sorting; short; referring; formal
+parameters; none; short; referring; informal
 
-expectedResult; 恵
+expectedResult; JCL
 
 parameters; none; long; monogram; formal
+
+expectedResult; Pep
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; PL
+
 parameters; none; long; monogram; informal
+
+expectedResult; L
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; P
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; Iñaki
+name ; locale; ko_AQ
 
-expectedResult; マイケル
+expectedResult; Iñaki
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +311,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; I
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,126 +322,169 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; Jacqueline
+name ; surname; Beauchêne
+name ; locale; ko_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; Beauchêne Jacqueline
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+
+expectedResult; Beauchêne J.
+
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
+expectedResult; Jacqueline
 
-parameters; none; short; addressing; formal
-
-expectedResult; アルベルト
-
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ア
+expectedResult; Beauchêne
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; BJ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
+
+expectedResult; B
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; J
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; Adrian
+name ; given2; Dragos
+name ; surname; Ionescu
+name ; locale; ko_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; Ionescu Adrian Dragos
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; Ionescu Adrian D.
+
 parameters; none; medium; referring; formal
 
-expectedResult; セシリア・ブラウン
+expectedResult; Ionescu Adrian
 
-parameters; none; long; addressing; informal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; informal
+
+expectedResult; Ionescu A. D.
+
 parameters; none; short; referring; formal
+
+expectedResult; Ionescu A.
+
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
+expectedResult; Ionescu
 
-parameters; none; short; addressing; informal
-
-expectedResult; ブラウン
-
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; セ
+expectedResult; Adrian
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; IAD
 
 parameters; none; long; monogram; formal
+
+expectedResult; IA
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; A
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; I
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; title; Dra.
+name ; given; Maria da Graça
+name ; given-informal; Lise
+name ; given2; César Martín
+name ; surname-prefix; van
+name ; surname-core; Dalen
+name ; surname2; Hoogeveen
+name ; generation; II
+name ; credentials; Excma.
+name ; locale; ko_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; Excma. Dra. Van Dalen Hoogeveen II, Maria da Graça César Martín
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; Excma. van Dalen Hoogeveen II, Maria da Graça C. M.
+
 parameters; none; medium; referring; formal
 
-expectedResult; ジェニファー・フォン・スミス博士
+expectedResult; Van Dalen Hoogeveen, M. d. G. C. M.
 
-parameters; none; medium; addressing; formal
 parameters; none; short; referring; formal
 
-expectedResult; ジェニー・フォン・スミス博士
+expectedResult; Van Dalen Hoogeveen, M. d. G.
 
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
 parameters; none; short; referring; informal
 
-expectedResult; フォン・スミス博士
+expectedResult; Van Dalen Hoogeveen, Lise
 
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; Dra. Van Dalen Hoogeveen
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; ジェニー博士
+expectedResult; Lise
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ジ
+expectedResult; VMC
 
 parameters; none; long; monogram; formal
+
+expectedResult; VL
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; L
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; V
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName

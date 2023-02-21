@@ -3,12 +3,12 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,7 +30,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
@@ -45,22 +44,35 @@ public class GeneratePersonNameTestData {
     static final Comparator<String> LENGTH_FIRST = Comparator.comparingInt(String::length).reversed()
         .thenComparing(Collator.getInstance(Locale.ROOT));
 
+    enum Options {none, sorting}
+
     public static void main(String[] args) {
         File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
         Factory factory = CLDR_CONFIG.getCldrFactory();
-        Matcher localeMatcher = Pattern.compile("de|ja|fr|cs").matcher("");
+        Matcher localeMatcher = Pattern.compile(".").matcher("");
+
+        ULocale undLocale = new ULocale("und");
+
         for (String locale : factory.getAvailable()) {
             if (!localeMatcher.reset(locale).lookingAt()) {
-                continue;
-            }
-            // TODO we want to skip sublocales that just copy the L1 data
-            // for now, we just use base locales
-            if (locale.contains("_")) {
                 continue;
             }
 
             try {
                 CLDRFile cldrFile = factory.make(locale, true);
+                CLDRFile unresolved = cldrFile.getUnresolved();
+
+                // Check that we have person data
+
+                String givenOrder = unresolved.getStringValue("//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
+                if (givenOrder == null) {
+                    continue; // skip unless we have person data
+                }
+                String surnameOrder = unresolved.getStringValue("//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
+                if (surnameOrder == null) {
+                    continue; // skip unless we have person data
+                }
+
 
                 Map<SampleType, SimpleNameObject> names;
                 PersonNameFormatter formatter;
@@ -74,27 +86,46 @@ public class GeneratePersonNameTestData {
                     continue;
                 }
 
-                // TODO Add lower-level test of field, modifiers
-                // we have to jump through some hoops to get locales corresponding to the order
+                // We have to jump through some hoops to get locales corresponding to the order
+                // First get the locale for native sample names
 
-                Map<ULocale, Order> localeToOrder = formatter.getNamePatternData().getLocaleToOrder();
                 ULocale myLocale = new ULocale(locale);
-                Order myOrder = localeToOrder.get(myLocale);
+
+                Order myOrder = formatter.getOrderFromLocale(myLocale);
                 if (myOrder == null) {
+                    formatter.getOrderFromLocale(myLocale);
                     throw new IllegalArgumentException("Missing order for: " + locale);
                 }
 
-                Multimap<Order, ULocale> orderToLocale = TreeMultimap.create();
-                Multimaps.invertFrom(Multimaps.forMap(localeToOrder), orderToLocale);
+                // Now get the locale for non-native sample names
+                // We see if we can get a locale of the other direction
+                // Otherwise we pick either English or German
+
                 Order otherOrder = myOrder == Order.givenFirst ? Order.surnameFirst : Order.givenFirst;
-                Collection<ULocale>  otherLocales = orderToLocale.get(otherOrder);
-                String otherLocaleString = otherLocales.isEmpty() ? null : otherLocales.iterator().next().toString();
+                Map<ULocale, Order> localeToOrder = formatter.getNamePatternData().getLocaleToOrder();
+                Multimap<Order, ULocale> orderToLocale = Multimaps.invertFrom(Multimaps.forMap(localeToOrder), TreeMultimap.create());
+                ULocale otherLocale = null;
+                for (ULocale tryLocale : orderToLocale.get(otherOrder)) {
+                    if (!undLocale.equals(tryLocale)) {
+                        otherLocale = tryLocale;
+                        break;
+                    }
+                }
+                if (otherLocale == null) {
+                    otherLocale = myLocale.equals(ULocale.FRENCH) ? ULocale.GERMAN : ULocale.FRENCH;
+                }
+
+                // now change region to AQ, just to check for inheritance
+                myLocale = addRegionIfMissing(myLocale, "AQ");
+                otherLocale =  addRegionIfMissing(otherLocale, "AQ");
+
+                // Start collecting output
 
                 StringWriter output = new StringWriter();
                 output.write("\n");
                 writeChoices("field", Field.ALL, output);
                 writeChoices("modifiers", Modifier.ALL, output);
-                writeChoices("options", ImmutableSet.of("n/a", "sorting"), output);
+                writeChoices("options", Arrays.asList(Options.values()), output);
                 writeChoices("length", Length.ALL, output);
                 writeChoices("usage", Usage.ALL, output);
                 writeChoices("formality", Formality.ALL, output);
@@ -107,31 +138,33 @@ public class GeneratePersonNameTestData {
                         output.write("name ; " + x.getKey() + "; " + x.getValue() + "\n");
                     }
 
-                    // handle that ICU's formatter doesn't give us low-level access
+                    // handle the situation that ICU's formatter doesn't give us low-level access
                     // so we have to use the name locale to set the direction
 
                     Order nameOrder;
                     if (sampleType.isNative()) {
-                        output.write("name ; " + "locale" + "; " + myLocale + "_AQ\n");
+                        output.write("name ; " + "locale" + "; " + myLocale + "\n");
                         nameOrder = myOrder;
-                    } else if (otherLocaleString == null) {
+                    } else if (otherLocale == null) {
                         continue;
                     } else {
-                        output.write("name ; " + "locale" + "; " + otherLocaleString + "_AQ\n");
+                        output.write("name ; " + "locale" + "; " + otherLocale + "\n");
                         nameOrder = otherOrder;
                     }
 
+                    // Group the formatted names, longest first
+
                     Multimap<String, String> valueToSource = TreeMultimap.create(LENGTH_FIRST, Comparator.naturalOrder());
                     for (FormatParameters parameters : FormatParameters.allCldr()) {
-                        String orderString = "n/a";
+                        Options options;
                         Order order = parameters.getOrder();
 
                         if (order == nameOrder) {
-                            // cool
+                            options = Options.none;
                         } else if (order == Order.sorting && nameOrder == myOrder) {
-                            orderString = "sorting";
+                            options = Options.sorting;
                         } else {
-                            continue;
+                            continue; // skip otherwise
                         }
 
                         String formatted = formatter.format(entry.getValue(), parameters);
@@ -139,7 +172,7 @@ public class GeneratePersonNameTestData {
                             continue;
                         }
                         valueToSource.put(formatted,
-                            orderString + "; "
+                            options.name() + "; "
                                 + parameters.getLength() + "; "
                                 + parameters.getUsage() + "; "
                                 + parameters.getFormality());
@@ -176,7 +209,6 @@ public class GeneratePersonNameTestData {
                         + "\n# parameters; <options>; <length>; <usage>; <formality>"
                         + "\n#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, "
                         + "\n#   the expected value is produced."
-                        + "\n#   <options> = sorting, n/a"
                         + "\n#"
                         + "\n# endName"
                         + "\n#   Indicates the end of the values to be tested with the current name."
@@ -215,7 +247,12 @@ public class GeneratePersonNameTestData {
         }
     }
 
-    public static <T> void writeChoices(String kind, Set<T> choices, StringWriter output) {
+    public static ULocale addRegionIfMissing(ULocale myLocale, String region) {
+        return !myLocale.getCountry().isEmpty() ? myLocale
+            : new ULocale.Builder().setLocale(myLocale).setRegion(region).build();
+    }
+
+    public static <T> void writeChoices(String kind, Collection<T> choices, StringWriter output) {
         output.write("enum ; " + kind + " ; " + COMMA_JOINER.join(choices) + "\n");
     }
 }

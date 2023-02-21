@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: fr
+# CLDR person name formatting test data for: as
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; Adèle
-name ; locale; fr_AQ
+name ; given; চিন্দবাদ
+name ; locale; as_AQ
 
-expectedResult; Adèle
+expectedResult; চিন্দবাদ
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; A
+expectedResult; চি
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,11 +88,11 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; Louise
-name ; surname; Péricourt
-name ; locale; fr_AQ
+name ; given; আইৰিণ
+name ; surname; এডলাৰ
+name ; locale; as_AQ
 
-expectedResult; Péricourt, Louise
+expectedResult; এডলাৰ, আইৰিণ
 
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
@@ -100,217 +100,214 @@ parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; Louise Péricourt
+expectedResult; আইৰিণ এডলাৰ
 
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
 
-expectedResult; Péricourt, L.
+expectedResult; এডলাৰ, আ.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; L. Péricourt
+expectedResult; আ. এডলাৰ
 
 parameters; none; short; referring; formal
 
-expectedResult; Louise P.
+expectedResult; আইৰিণ এ.
 
 parameters; none; short; referring; informal
 
-expectedResult; Péricourt
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; short; addressing; formal
-
-expectedResult; Louise
+expectedResult; আইৰিণ
 
 parameters; none; long; addressing; informal
 parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; LP
+expectedResult; এডলাৰ
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; আএ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; আ
+
 parameters; none; medium; monogram; informal
-
-expectedResult; L
-
 parameters; none; short; monogram; informal
 
-expectedResult; P
+expectedResult; এ
 
+parameters; none; medium; monogram; formal
 parameters; none; short; monogram; formal
 
 endName
 
-name ; given; Marie-Agnès
-name ; given2; Suzanne
-name ; surname; Gilot
-name ; locale; fr_AQ
+name ; given; জ’ন
+name ; given2; হামিশ্ব
+name ; surname; ৱাটছন
+name ; locale; as_AQ
 
-expectedResult; Gilot, Marie-Agnès Suzanne
+expectedResult; ৱাটছন, জ’ন হামিশ্ব
 
 parameters; sorting; long; referring; formal
 
-expectedResult; Marie-Agnès Suzanne Gilot
+expectedResult; জ’ন হামিশ্ব ৱাটছন
 
 parameters; none; long; referring; formal
 
-expectedResult; Gilot, Marie-Agnès S.
+expectedResult; ৱাটছন, জ’ন হা.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Marie-Agnès S. Gilot
+expectedResult; জ’ন হা. ৱাটছন
 
 parameters; none; medium; referring; formal
 
-expectedResult; Gilot, Marie-Agnès
+expectedResult; ৱাটছন, জ. হা.
+
+parameters; sorting; short; referring; formal
+
+expectedResult; জ. হা. ৱাটছন
+
+parameters; none; short; referring; formal
+
+expectedResult; ৱাটছন, জ’ন
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; Marie-Agnès Gilot
+expectedResult; জ’ন ৱাটছন
 
 parameters; none; long; referring; informal
 parameters; none; medium; referring; informal
 
-expectedResult; Marie-Agnès G.
+expectedResult; জ’ন ৱা.
 
 parameters; none; short; referring; informal
 
-expectedResult; Gilot, M. S.
+expectedResult; জহাৱা
 
-parameters; sorting; short; referring; formal
+parameters; none; long; monogram; formal
 
-expectedResult; M. S. Gilot
-
-parameters; none; short; referring; formal
-
-expectedResult; Marie-Agnès
-
-parameters; none; long; addressing; informal
-parameters; none; medium; addressing; informal
-parameters; none; short; addressing; informal
-
-expectedResult; Gilot
+expectedResult; ৱাটছন
 
 parameters; none; long; addressing; formal
 parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; MSG
+expectedResult; জ’ন
 
-parameters; none; long; monogram; formal
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
 
-expectedResult; MG
+expectedResult; জৱা
 
 parameters; none; long; monogram; informal
+
+expectedResult; ৱা
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-
-expectedResult; G
-
 parameters; none; short; monogram; formal
 
-expectedResult; M
+expectedResult; জ
 
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; title; M.
-name ; given; Jean-Nicolas
-name ; given-informal; Nico
-name ; given2; Louis Marcel
-name ; surname-prefix; de
-name ; surname-core; Bouchart
-name ; generation; fils
-name ; locale; fr_AQ
+name ; title; শ্ৰী
+name ; given; নৰেন কলিতা
+name ; given-informal; নমী
+name ; given2; ৰুমী বৰুৱা
+name ; surname-core; কাকতি
+name ; generation; ক.
+name ; credentials; এম. পি.
+name ; locale; as_AQ
 
-expectedResult; M. Jean-Nicolas Louis Marcel de Bouchart fils
+expectedResult; নৰেন কলিতা ৰুমী বৰুৱা কাকতি এম. পি.
 
 parameters; none; long; referring; formal
 
-expectedResult; Bouchart, Jean-Nicolas Louis Marcel de
-
-parameters; sorting; long; referring; formal
-
-expectedResult; Bouchart, Jean-Nicolas L. M. de
-
-parameters; sorting; medium; referring; formal
-
-expectedResult; Jean-Nicolas L. M. de Bouchart
+expectedResult; নৰেন কলিতা ৰু. ব. কাকতি এম. পি.
 
 parameters; none; medium; referring; formal
 
-expectedResult; Bouchart, J. L. M. de
+expectedResult; কাকতি, নৰেন কলিতা ৰুমী বৰুৱা
+
+parameters; sorting; long; referring; formal
+
+expectedResult; কাকতি, নৰেন কলিতা ৰু. ব.
+
+parameters; sorting; medium; referring; formal
+
+expectedResult; কাকতি, ন. ক. ৰু. ব.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; J. L. M. de Bouchart
+expectedResult; ন. ক. ৰু. ব. কাকতি
 
 parameters; none; short; referring; formal
 
-expectedResult; de Bouchart, Nico
+expectedResult; কাকতি, নমী
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; Nico de Bouchart
-
-parameters; none; long; referring; informal
-parameters; none; medium; referring; informal
-
-expectedResult; M. de Bouchart
+expectedResult; শ্ৰী কাকতি
 
 parameters; none; long; addressing; formal
 parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; Nico d. B.
+expectedResult; নমী কাকতি
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; নমী কা.
 
 parameters; none; short; referring; informal
 
-expectedResult; Nico
+expectedResult; নৰুকা
+
+parameters; none; long; monogram; formal
+
+expectedResult; নকা
+
+parameters; none; long; monogram; informal
+
+expectedResult; নমী
 
 parameters; none; long; addressing; informal
 parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; JLB
-
-parameters; none; long; monogram; formal
-
-expectedResult; JB
+expectedResult; কা
 
 parameters; none; medium; monogram; formal
-
-expectedResult; NB
-
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; informal
-
-expectedResult; B
-
 parameters; none; short; monogram; formal
 
-expectedResult; N
+expectedResult; ন
 
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; Asmar
+name ; given; চিন্দবাদ
 name ; locale; ko_AQ
 
-expectedResult; Asmar
+expectedResult; চিন্দবাদ
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -325,7 +322,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; A
+expectedResult; চি
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -336,172 +333,169 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; Hermione
-name ; surname; Granger
+name ; given; নগেন
+name ; surname; বৰা
 name ; locale; ko_AQ
 
-expectedResult; Granger Hermione
+expectedResult; বৰা নগেন
 
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
 
-expectedResult; Granger H.
+expectedResult; বৰা ন.
 
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; Hermione
+expectedResult; নগেন
 
 parameters; none; long; addressing; informal
 parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; Granger
+expectedResult; বৰা
 
 parameters; none; long; addressing; formal
 parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; GH
+expectedResult; বন
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; ন
+
 parameters; none; medium; monogram; informal
-
-expectedResult; G
-
-parameters; none; short; monogram; formal
-
-expectedResult; H
-
 parameters; none; short; monogram; informal
 
-endName
+expectedResult; ব
 
-name ; given; Ginevra
-name ; given2; Molly
-name ; surname; Weasley
-name ; locale; ko_AQ
-
-expectedResult; Weasley Ginevra Molly
-
-parameters; none; long; referring; formal
-
-expectedResult; Weasley Ginevra M.
-
-parameters; none; medium; referring; formal
-
-expectedResult; Weasley Ginevra
-
-parameters; none; long; referring; informal
-parameters; none; medium; referring; informal
-
-expectedResult; Weasley G. M.
-
-parameters; none; short; referring; formal
-
-expectedResult; Weasley G.
-
-parameters; none; short; referring; informal
-
-expectedResult; Ginevra
-
-parameters; none; long; addressing; informal
-parameters; none; medium; addressing; informal
-parameters; none; short; addressing; informal
-
-expectedResult; Weasley
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; short; addressing; formal
-
-expectedResult; WGM
-
-parameters; none; long; monogram; formal
-
-expectedResult; WG
-
-parameters; none; long; monogram; informal
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-
-expectedResult; G
-
-parameters; none; short; monogram; informal
-
-expectedResult; W
-
 parameters; none; short; monogram; formal
 
 endName
 
-name ; title; Prof. Dr.
-name ; given; María Florencia
-name ; given-informal; Flor
-name ; given2; Martina Cristina
-name ; surname-prefix; von
-name ; surname-core; Brühl
-name ; surname2; González Domingo
-name ; generation; Jr.
-name ; credentials; MD DDS
+name ; given; মণিমালা
+name ; given2; অজিত
+name ; surname; বৰুৱা
 name ; locale; ko_AQ
 
-expectedResult; Prof. Dr. von Brühl María Florencia Martina Cristina Jr., MD DDS
+expectedResult; বৰুৱা মণিমালা অজিত
 
 parameters; none; long; referring; formal
 
-expectedResult; von Brühl María Florencia M. C.
+expectedResult; বৰুৱা মণিমালা অ.
 
 parameters; none; medium; referring; formal
 
-expectedResult; von Brühl M. F. M. C.
-
-parameters; none; short; referring; formal
-
-expectedResult; Prof. Dr. von Brühl
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; short; addressing; formal
-
-expectedResult; von Brühl M. F.
-
-parameters; none; short; referring; informal
-
-expectedResult; von Brühl Flor
+expectedResult; বৰুৱা মণিমালা
 
 parameters; none; long; referring; informal
 parameters; none; medium; referring; informal
 
-expectedResult; Flor
+expectedResult; বৰুৱা ম. অ.
+
+parameters; none; short; referring; formal
+
+expectedResult; বৰুৱা ম.
+
+parameters; none; short; referring; informal
+
+expectedResult; মণিমালা
 
 parameters; none; long; addressing; informal
 parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; BMM
+expectedResult; বৰুৱা
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; বমঅ
 
 parameters; none; long; monogram; formal
 
-expectedResult; BF
+expectedResult; বম
 
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; informal
 
-expectedResult; BM
+expectedResult; ব
 
 parameters; none; medium; monogram; formal
-
-expectedResult; B
-
 parameters; none; short; monogram; formal
 
-expectedResult; F
+expectedResult; ম
 
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
+
+endName
+
+name ; title; প্ৰফ. ডা০
+name ; given; আডা কৰ্ণেলিয়া
+name ; given-informal; নীলে
+name ; given2; ইভা চ’ফিয়া
+name ; surname-prefix; ভেন ডেন
+name ; surname-core; কুকুৰনেচীয়া
+name ; surname2; বেকাৰ স্মিট
+name ; generation; জুনিয়ৰ
+name ; credentials; এম. ডি. ডি. ডি. এছ
+name ; locale; ko_AQ
+
+expectedResult; ভেন ডেন কুকুৰনেচীয়া আডা কৰ্ণেলিয়া ইভা চ’ফিয়া এম. ডি. ডি. ডি. এছ
+
+parameters; none; long; referring; formal
+
+expectedResult; ভেন ডেন কুকুৰনেচীয়া আডা কৰ্ণেলিয়া ই. চ. এম. ডি. ডি. ডি. এছ
+
+parameters; none; medium; referring; formal
+
+expectedResult; ভেন ডেন কুকুৰনেচীয়া আ. ক. ই. চ.
+
+parameters; none; short; referring; formal
+
+expectedResult; প্ৰফ. ডা০ ভেন ডেন কুকুৰনেচীয়া
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; ভেন ডেন কুকুৰনেচীয়া আ. ক.
+
+parameters; none; short; referring; informal
+
+expectedResult; ভেন ডেন কুকুৰনেচীয়া নীলে
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; নীলে
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; ভেআই
+
+parameters; none; long; monogram; formal
+
+expectedResult; ভেনী
+
+parameters; none; long; monogram; informal
+
+expectedResult; নী
+
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; informal
+
+expectedResult; ভে
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName

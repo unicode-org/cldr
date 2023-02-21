@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: ur
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; احمد
+name ; locale; ur_AQ
 
-expectedResult; 慎太郎
+expectedResult; احمد
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; ا
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,160 +88,226 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; شازیہ
+name ; surname; اصغر
+name ; locale; ur_AQ
 
-expectedResult; 安藤一郎
+expectedResult; اصغر، شازیہ
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; formal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
-parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
+expectedResult; شازیہ اصغر
 
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
+
+expectedResult; اصغر، ش.
+
+parameters; sorting; short; referring; formal
+
+expectedResult; شازیہ ا.
+
+parameters; none; short; referring; informal
+
+expectedResult; ش. اصغر
+
+parameters; none; short; referring; formal
+
+expectedResult; شازیہ
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; 安藤
+expectedResult; اصغر
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 一
+expectedResult; ش ا
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
+
+expectedResult; ا
+
 parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
 parameters; none; short; monogram; formal
+
+expectedResult; ش
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; مریم
+name ; given2; نواز
+name ; surname; خان
+name ; locale; ur_AQ
 
-expectedResult; 山田トーマス太郎
+expectedResult; خان، مریم نواز
+
+parameters; sorting; long; referring; formal
+
+expectedResult; مریم نواز خان
 
 parameters; none; long; referring; formal
-parameters; sorting; long; referring; formal
+
+expectedResult; خان، مریم ن.
+
 parameters; sorting; medium; referring; formal
 
-expectedResult; 山田太郎
+expectedResult; مریم ن. خان
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
-parameters; sorting; long; referring; informal
-parameters; sorting; medium; referring; informal
+
+expectedResult; خان، م. ن.
+
 parameters; sorting; short; referring; formal
-parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
-
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
-
-expectedResult; 佐藤グレース恵子さん
-
-parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
-
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; 佐藤恵子さん
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; medium; referring; formal
-parameters; none; short; referring; formal
-
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
+expectedResult; خان، مریم
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
+expectedResult; م. ن. خان
 
+parameters; none; short; referring; formal
+
+expectedResult; مریم خان
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; مریم خ.
+
+parameters; none; short; referring; informal
+
+expectedResult; م ن خ
+
+parameters; none; long; monogram; formal
+
+expectedResult; مریم
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; خان
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; 佐藤恵子
+expectedResult; م خ
+
+parameters; none; long; monogram; informal
+
+expectedResult; خ
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
+
+expectedResult; م
+
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; informal
+
+endName
+
+name ; title; محترم
+name ; given; عبد الکریم
+name ; given-informal; پٹھان
+name ; given2; عبد الحمید
+name ; surname-core; سید
+name ; generation; جونیئر
+name ; credentials; ایم پی
+name ; locale; ur_AQ
+
+expectedResult; سید، عبد الکریم عبد الحمید ایم پی
+
+parameters; sorting; long; referring; formal
+
+expectedResult; عبد الکریم عبد الحمید سید ایم پی
+
+parameters; none; long; referring; formal
+
+expectedResult; سید، عبد الکریم ع. ا. ایم پی
+
+parameters; sorting; medium; referring; formal
+
+expectedResult; عبد الکریم ع. ا. سید ایم پی
+
+parameters; none; medium; referring; formal
+
+expectedResult; سید، ع. ا. ع. ا.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; 恵
+expectedResult; ع. ا. ع. ا. سید
+
+parameters; none; short; referring; formal
+
+expectedResult; سید، پٹھان
+
+parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; informal
+
+expectedResult; پٹھان سید
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; محترم سید
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; پٹھان س.
+
+parameters; none; short; referring; informal
+
+expectedResult; پٹھان
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; ع ع س
 
 parameters; none; long; monogram; formal
+
+expectedResult; پ س
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; پ
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; س
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName
 
-name ; given; マイケル
-name ; locale; fr_AQ
+name ; given; سندباد
+name ; locale; ja_AQ
 
-expectedResult; マイケル
+expectedResult; سندباد
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +322,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; س
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,126 +333,169 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; حاتم
+name ; surname; منصور
+name ; locale; ja_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; منصور حاتم
 
-parameters; none; long; addressing; formal
-parameters; none; long; addressing; informal
 parameters; none; long; referring; formal
 parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+
+expectedResult; منصور ح.
+
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
+expectedResult; منصور
 
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
 
-expectedResult; アルベルト
+expectedResult; حاتم
 
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
 parameters; none; short; addressing; informal
 
-expectedResult; ア
+expectedResult; م ح
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; ح
+
 parameters; none; medium; monogram; informal
+parameters; none; short; monogram; informal
+
+expectedResult; م
+
+parameters; none; medium; monogram; formal
 parameters; none; short; monogram; formal
+
+endName
+
+name ; given; محمد
+name ; given2; ہاشم
+name ; surname; صابری
+name ; locale; ja_AQ
+
+expectedResult; صابری محمد ہاشم
+
+parameters; none; long; referring; formal
+
+expectedResult; صابری محمد ہ.
+
+parameters; none; medium; referring; formal
+
+expectedResult; صابری م. ہ.
+
+parameters; none; short; referring; formal
+
+expectedResult; صابری محمد
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; صابری م.
+
+parameters; none; short; referring; informal
+
+expectedResult; ص م ہ
+
+parameters; none; long; monogram; formal
+
+expectedResult; صابری
+
+parameters; none; long; addressing; formal
+parameters; none; medium; addressing; formal
+parameters; none; short; addressing; formal
+
+expectedResult; محمد
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; ص م
+
+parameters; none; long; monogram; informal
+
+expectedResult; ص
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
+
+expectedResult; م
+
+parameters; none; medium; monogram; informal
 parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; title; پروفیسر ڈاکٹر
+name ; given; یاسمین راشد
+name ; given-informal; ملک
+name ; given2; سدرہ منیر
+name ; surname-prefix; ندیم
+name ; surname-core; رضا
+name ; surname2; یوسف زئی
+name ; generation; جونيئر
+name ; credentials; ایم ڈی ڈی ڈی ایس
+name ; locale; ja_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; ندیم رضا یاسمین راشد سدرہ منیر ایم ڈی ڈی ڈی ایس
 
-parameters; none; long; addressing; formal
 parameters; none; long; referring; formal
+
+expectedResult; ندیم رضا یاسمین راشد س. م. ایم ڈی ڈی ڈی ایس
+
 parameters; none; medium; referring; formal
 
-expectedResult; セシリア・ブラウン
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; formal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; formal
-parameters; none; short; referring; informal
-
-expectedResult; セシリア
-
-parameters; none; short; addressing; informal
-
-expectedResult; ブラウン
-
-parameters; none; short; addressing; formal
-
-expectedResult; セ
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
-
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; پروفیسر ڈاکٹر ندیم رضا
 
 parameters; none; long; addressing; formal
-parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; ジェニファー・フォン・スミス博士
-
 parameters; none; medium; addressing; formal
-parameters; none; short; referring; formal
-
-expectedResult; ジェニー・フォン・スミス博士
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; フォン・スミス博士
-
 parameters; none; short; addressing; formal
 
-expectedResult; ジェニー博士
+expectedResult; ندیم رضا ی. ر. س. م.
 
-parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
 
-expectedResult; ジ
+expectedResult; ندیم رضا ی. ر.
+
+parameters; none; short; referring; informal
+
+expectedResult; ندیم رضا ملک
+
+parameters; none; long; referring; informal
+parameters; none; medium; referring; informal
+
+expectedResult; ن ی س
 
 parameters; none; long; monogram; formal
+
+expectedResult; ملک
+
+parameters; none; long; addressing; informal
+parameters; none; medium; addressing; informal
+parameters; none; short; addressing; informal
+
+expectedResult; ن م
+
 parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
+
+expectedResult; م
+
 parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
 parameters; none; short; monogram; informal
+
+expectedResult; ن
+
+parameters; none; medium; monogram; formal
+parameters; none; short; monogram; formal
 
 endName

@@ -1,4 +1,4 @@
-# CLDR person name formatting test data for: ja
+# CLDR person name formatting test data for: kok
 #
 # Test lines have the following structure:
 #
@@ -53,10 +53,10 @@ enum ; length ; long, medium, short
 enum ; usage ; referring, addressing, monogram
 enum ; formality ; formal, informal
 
-name ; given; 慎太郎
-name ; locale; ja_AQ
+name ; given; दिशा
+name ; locale; kok_AQ
 
-expectedResult; 慎太郎
+expectedResult; दिशा
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -77,7 +77,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 慎
+expectedResult; दि
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -88,11 +88,11 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 一郎
-name ; surname; 安藤
-name ; locale; ja_AQ
+name ; given; उमेश
+name ; surname; भंडारकर
+name ; locale; kok_AQ
 
-expectedResult; 安藤一郎
+expectedResult; उमेश भंडारकर
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -102,8 +102,13 @@ parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
+
+expectedResult; भंडारकर उमेश
+
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; formal
@@ -111,15 +116,7 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 一郎
-
-parameters; none; short; addressing; informal
-
-expectedResult; 安藤
-
-parameters; none; short; addressing; formal
-
-expectedResult; 一
+expectedResult; उभं
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -130,42 +127,36 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; 太郎
-name ; given2; トーマス
-name ; surname; 山田
-name ; locale; ja_AQ
+name ; given; अतुल
+name ; given2; मनोहर
+name ; surname; प्रभुकोंकार
+name ; locale; kok_AQ
 
-expectedResult; 山田トーマス太郎
-
-parameters; none; long; referring; formal
-parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 山田太郎
+expectedResult; अतुल मनोहर प्रभुकोंकार
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
 parameters; none; long; referring; informal
 parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
+
+expectedResult; प्रभुकोंकार अतुल मनोहर
+
+parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 太郎
-
-parameters; none; short; addressing; informal
-
-expectedResult; 山田
-
-parameters; none; short; addressing; formal
-
-expectedResult; 太
+expectedResult; अमप्र
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -176,72 +167,26 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; さん
-name ; given; 恵子
-name ; given-informal; けいこ
-name ; given2; グレース
-name ; surname-core; 佐藤
-name ; generation; ジュニア
-name ; credentials; 国会議員
-name ; locale; ja_AQ
+name ; title; श्री.
+name ; given; उमेश भंडारकर
+name ; given-informal; साक्षी
+name ; given2; अनुसुया कुंकळ्येकार
+name ; surname-core; प्रभु
+name ; surname2; मावजो
+name ; generation; क.
+name ; credentials; एमपी
+name ; locale; kok_AQ
 
-expectedResult; 佐藤グレース恵子さん
-
-parameters; none; long; referring; formal
-
-expectedResult; 佐藤グレース恵子
+expectedResult; प्रभु मावजो, श्री. उमेश भंडारकर अनुसुया कुंकळ्येकार एमपी
 
 parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
-
-expectedResult; 佐藤けいこさん
-
-parameters; none; long; addressing; informal
-parameters; none; long; referring; informal
-parameters; none; medium; addressing; informal
-parameters; none; medium; referring; informal
-parameters; none; short; referring; informal
-
-expectedResult; 佐藤恵子さん
-
-parameters; none; long; addressing; formal
-parameters; none; medium; addressing; formal
-parameters; none; medium; referring; formal
-parameters; none; short; referring; formal
-
-expectedResult; けいこさん
-
-parameters; none; short; addressing; informal
-
-expectedResult; 佐藤けいこ
-
 parameters; sorting; long; referring; informal
+parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
+parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
-expectedResult; 佐藤さん
-
-parameters; none; short; addressing; formal
-
-expectedResult; 佐藤恵子
-
-parameters; sorting; short; referring; formal
-
-expectedResult; 恵
-
-parameters; none; long; monogram; formal
-parameters; none; long; monogram; informal
-parameters; none; medium; monogram; formal
-parameters; none; medium; monogram; informal
-parameters; none; short; monogram; formal
-parameters; none; short; monogram; informal
-
-endName
-
-name ; given; マイケル
-name ; locale; fr_AQ
-
-expectedResult; マイケル
+expectedResult; श्री. उमेश भंडारकर अनुसुया कुंकळ्येकार प्रभु मावजो एमपी
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -256,7 +201,7 @@ parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; マ
+expectedResult; उअप्र
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -267,11 +212,10 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; アルベルト
-name ; surname; アインシュタイン
-name ; locale; fr_AQ
+name ; given; सिंदबाद
+name ; locale; ko_AQ
 
-expectedResult; アルベルト・アインシュタイン
+expectedResult; सिंदबाद
 
 parameters; none; long; addressing; formal
 parameters; none; long; addressing; informal
@@ -281,18 +225,12 @@ parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
 parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; アインシュタイン
-
-parameters; none; short; addressing; formal
-
-expectedResult; アルベルト
-
-parameters; none; short; addressing; informal
-
-expectedResult; ア
+expectedResult; सिं
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -303,36 +241,26 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; given; セシリア
-name ; given2; ローズ
-name ; surname; ブラウン
-name ; locale; fr_AQ
+name ; given; आरवी
+name ; surname; कामत
+name ; locale; ko_AQ
 
-expectedResult; セシリア・ローズ・ブラウン
+expectedResult; कामत आरवी
 
 parameters; none; long; addressing; formal
-parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; セシリア・ブラウン
-
 parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
 parameters; none; long; referring; informal
 parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
 parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; セシリア
-
-parameters; none; short; addressing; informal
-
-expectedResult; ブラウン
-
-parameters; none; short; addressing; formal
-
-expectedResult; セ
+expectedResult; काआ
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal
@@ -343,44 +271,64 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; 博士
-name ; given; ジェニファー
-name ; given-informal; ジェニー
-name ; given2; ソフィア
-name ; surname-prefix; フォン
-name ; surname-core; スミス
-name ; generation; ジュニア
-name ; credentials; 医学博士
-name ; locale; fr_AQ
+name ; given; मनोहर
+name ; given2; माधव
+name ; surname; नायक
+name ; locale; ko_AQ
 
-expectedResult; ジェニファー・ソフィア・フォン・スミス・ジュニア博士
+expectedResult; नायक मनोहर माधव
 
 parameters; none; long; addressing; formal
-parameters; none; long; referring; formal
-parameters; none; medium; referring; formal
-
-expectedResult; ジェニファー・フォン・スミス博士
-
-parameters; none; medium; addressing; formal
-parameters; none; short; referring; formal
-
-expectedResult; ジェニー・フォン・スミス博士
-
 parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
 parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
 parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
 parameters; none; medium; referring; informal
+parameters; none; short; addressing; formal
+parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
 parameters; none; short; referring; informal
 
-expectedResult; フォン・スミス博士
+expectedResult; नाममा
 
+parameters; none; long; monogram; formal
+parameters; none; long; monogram; informal
+parameters; none; medium; monogram; formal
+parameters; none; medium; monogram; informal
+parameters; none; short; monogram; formal
+parameters; none; short; monogram; informal
+
+endName
+
+name ; title; प्रो. डॉ.
+name ; given; विक्रम सिंह
+name ; given-informal; विकी
+name ; given2; रामचरण दास
+name ; surname-prefix; शेणवी कुंकळ्येकार
+name ; surname-core; शर्मा
+name ; surname2; सरदेसाय
+name ; generation; जेआर
+name ; credentials; बी.ए. एल.एल.बी
+name ; locale; ko_AQ
+
+expectedResult; शेणवी कुंकळ्येकार शर्मा सरदेसाय प्रो. डॉ. विक्रम सिंह रामचरण दास बी.ए. एल.एल.बी
+
+parameters; none; long; addressing; formal
+parameters; none; long; addressing; informal
+parameters; none; long; referring; formal
+parameters; none; long; referring; informal
+parameters; none; medium; addressing; formal
+parameters; none; medium; addressing; informal
+parameters; none; medium; referring; formal
+parameters; none; medium; referring; informal
 parameters; none; short; addressing; formal
-
-expectedResult; ジェニー博士
-
 parameters; none; short; addressing; informal
+parameters; none; short; referring; formal
+parameters; none; short; referring; informal
 
-expectedResult; ジ
+expectedResult; शेविरा
 
 parameters; none; long; monogram; formal
 parameters; none; long; monogram; informal

@@ -27,6 +27,7 @@ import com.ibm.icu.text.PersonNameFormatter.Options;
 import com.ibm.icu.text.PersonNameFormatter.Usage;
 import com.ibm.icu.text.SimplePersonName;
 import com.ibm.icu.text.SimplePersonName.Builder;
+import com.ibm.icu.util.ULocale;
 
 public class CheckPersonNamesTest {
     /**
@@ -41,6 +42,7 @@ public class CheckPersonNamesTest {
      *        options.remove(PersonNameFormatter.Options.SORTING);
      * 4. It would be useful for testing to have an @internal method to override the order with givenFirst or surnameFirst
      * 5. No enum constant com.ibm.icu.text.PersonName.FieldModifier.informal
+     * 6. It appears that ICU isn't handling the SORTING option properly, so the test is skipping all but 1 of those per locale.
      */
 
     private static final Splitter DASH_SPLITTER = Splitter.on('-');
@@ -86,6 +88,7 @@ public class CheckPersonNamesTest {
         NameField nameField = null;
         AbstractTestLog testIcuPersonNames;
         boolean skipSameExpectedValue = false;
+        boolean skipAllSortingErrors = false;
 
         public LineHandler(String fileNameStr, AbstractTestLog testIcuPersonNames) {
             String localeStr = fileNameStr.substring(0, fileNameStr.length()-4); // remove suffix .txt
@@ -117,7 +120,7 @@ public class CheckPersonNamesTest {
                 String fieldValue = fields.next();
 
                 if (field.equals("locale")) {
-                    personNameBuilder.setLocale(new Locale(fieldValue));
+                    personNameBuilder.setLocale(new ULocale(fieldValue).toLocale());
                 } else {
                     nameField = null;
                     DASH_SPLITTER.split(field).forEach(fieldPart -> {
@@ -156,7 +159,7 @@ public class CheckPersonNamesTest {
 
                 PersonNameFormatter formatter = PersonNameFormatter.builder()
                     .setLocale(locale)
-                    .setOptions(new HashSet(options)) // HACK because PNF requires mutability
+                    .setOptions(options) // HACKed above because PNF requires mutability
                     .setLength(length)
                     .setUsage(usage)
                     .setFormality(formality)
@@ -164,18 +167,24 @@ public class CheckPersonNamesTest {
 
                 String actual = formatter.formatToString(personName);
 
-                if (!skipSameExpectedValue && !Objects.equals(expectedResult, actual)) { testIcuPersonNames.errln(
-                    locale
-                    + ", " + personName.getNameLocale()
-                    + ", " + options
-                    + ", " + length
-                    + ", " + usage
-                    + ", " + formality
-                    + ": expected: \"" + expectedResult
-                    + "\" actual: \"" + actual
-                    + "\""
-                    );
+                if (!skipSameExpectedValue
+                    && !(skipAllSortingErrors && options.contains(Options.SORTING))
+                    && !Objects.equals(expectedResult, actual)) {
+                    testIcuPersonNames.errln(
+                        locale
+                        + ", " + personName.getNameLocale()
+                        + ", " + options
+                        + ", " + length
+                        + ", " + usage
+                        + ", " + formality
+                        + ": expected: \"" + expectedResult
+                        + "\" actual: \"" + actual
+                        + "\""
+                        );
                     skipSameExpectedValue = true;
+                    if (options.contains(Options.SORTING)) {
+                        skipAllSortingErrors = true;
+                    }
                 }
                 break;
 

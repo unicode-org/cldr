@@ -988,8 +988,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Hmong Njua; ?; Suriname } => { Hmong Njua; Lao; Suriname }-->
 		<likelySubtag from="hnj_TH" to="hnj_Laoo_TH"/>
 		<!--{ Hmong Njua; ?; Thailand } => { Hmong Njua; Lao; Thailand }-->
-		<likelySubtag from="hnj_US" to="hnj_Laoo_US"/>
-		<!--{ Hmong Njua; ?; United States } => { Hmong Njua; Lao; United States }-->
+		<likelySubtag from="hnj_US" to="hnj_Hmnp_US"/> <!-- manual update -->
 		<likelySubtag from="hnj_VN" to="hnj_Laoo_VN"/>
 		<!--{ Hmong Njua; ?; Vietnam } => { Hmong Njua; Lao; Vietnam }-->
 		<likelySubtag from="hnj_Laoo" to="hnj_Laoo_LA"/>
@@ -3438,6 +3437,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Coptic; ? } => { Coptic; Coptic; Egypt }-->
 		<likelySubtag from="und_Cpmn" to="und_Cpmn_CY"/> <!-- TODO: manually re-added -->
  		<!--{ ?; Cypro-Minoan; ? } => { ?; Cypro-Minoan; Cyprus }-->
+		<likelySubtag from="und_Cpmn_CY" to="und_Cpmn_CY"/>  <!-- TODO: manually re-added -->
+ 		<!--{ ?; Cypro-Minoan; Cyprus } => { ?; Cypro-Minoan; Cyprus }-->
 		<likelySubtag from="und_Cprt" to="grc_Cprt_CY"/>
 		<!--{ ?; Cypriot; ? } => { Ancient Greek; Cypriot; Cyprus }-->
 		<likelySubtag from="und_Cyrl" to="ru_Cyrl_RU"/>

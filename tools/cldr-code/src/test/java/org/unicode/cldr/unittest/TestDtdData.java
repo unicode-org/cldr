@@ -636,7 +636,6 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("layer") && attribute.equals("modifier")
                 || elementName.equals("map") && attribute.equals("id")
                 || elementName.equals("key") && attribute.equals("id")
-                || elementName.equals("key") && attribute.equals("stretch")
                 || elementName.equals("layer") && attribute.equals("id")) {
                 return true;
             }

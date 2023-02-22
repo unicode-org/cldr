@@ -13,8 +13,9 @@
 
   This DTD is a work in progress.
 
-  Please see CLDR-15034 for the latest information.
+Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
 -->
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="keyboard">
     <xs:complexType>
@@ -229,6 +230,13 @@
       <xs:attribute name="longPress"/>
       <xs:attribute name="longPressDefault"/>
       <xs:attribute name="multiTap"/>
+      <xs:attribute name="stretch">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="switch" type="xs:NMTOKEN"/>
       <xs:attribute name="transform">
         <xs:simpleType>
@@ -254,6 +262,7 @@
   <!-- @ALLOWS_UESC -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
+  <!-- @VALUE -->
   <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <!-- @VALUE -->
   <!-- @VALUE -->

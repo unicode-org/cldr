@@ -9,11 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -30,17 +26,12 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
-import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
-import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -54,13 +45,11 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.RegexLookup.LookupType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
-import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
@@ -68,12 +57,10 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.VersionInfo;
 
 public class ShowLocaleCoverage {
 
@@ -83,9 +70,6 @@ public class ShowLocaleCoverage {
     private static final double BASIC_THRESHOLD = 1;
     private static final double MODERATE_THRESHOLD = 0.995;
     private static final double MODERN_THRESHOLD = 0.995;
-
-    // used to show higher level in properties file
-    private static final double THRESHOLD_HIGHER = 0.90d;
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final String TSV_MISSING_SUMMARY_HEADER =
@@ -137,25 +121,13 @@ public class ShowLocaleCoverage {
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
-    public static CLDRConfig testInfo = ToolConfig.getToolInstance();
+    private static CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final StandardCodes SC = StandardCodes.make();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final StandardCodes STANDARD_CODES = SC;
 
-    static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
+    private static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
     private static final CLDRFile ENGLISH = factory.make("en", true);
-
-    // added info using pattern in VettingViewer.
-
-    static final RegexLookup<Boolean> HACK = RegexLookup.<Boolean> of(LookupType.STANDARD, RegexLookup.RegexFinderTransformPath)
-        .add("//ldml/localeDisplayNames/keys/key[@type=\"(d0|em|fw|i0|k0|lw|m0|rg|s0|ss|t0|x0)\"]", true)
-        .add("//ldml/localeDisplayNames/types/type[@key=\"(em|fw|kr|lw|ss)\"].*", true)
-        .add("//ldml/localeDisplayNames/languages/language[@type=\".*_.*\"]", true)
-        .add("//ldml/localeDisplayNames/languages/language[@type=\".*\"][@alt=\".*\"]", true)
-        .add("//ldml/localeDisplayNames/territories/territory[@type=\".*\"][@alt=\".*\"]", true)
-        .add("//ldml/localeDisplayNames/territories/territory[@type=\"EZ\"]", true);
-
-    //private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
 
     final static Options myOptions = new Options();
 
@@ -163,7 +135,6 @@ public class ShowLocaleCoverage {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
         //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
         chart(null, null, "chart only"),
-        growth("true", "true", "Compute growth data"),
         organization(".+", null, "Only locales for organization"),
         version(".+",
             LATEST, "To get different versions"),
@@ -185,7 +156,7 @@ public class ShowLocaleCoverage {
         }
     }
 
-    static final RegexLookup<Boolean> SUPPRESS_PATHS_CAN_BE_EMPTY = new RegexLookup<Boolean>()
+    private static final RegexLookup<Boolean> SUPPRESS_PATHS_CAN_BE_EMPTY = new RegexLookup<Boolean>()
         .add("\\[@alt=\"accounting\"]", true)
         .add("\\[@alt=\"variant\"]", true)
         .add("^//ldml/localeDisplayNames/territories/territory.*@alt=\"short", true)
@@ -193,19 +164,18 @@ public class ShowLocaleCoverage {
         .add("^//ldml/numbers/currencies/currency.*/symbol", true)
         .add("^//ldml/characters/exemplarCharacters", true);
 
-    static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
-    static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
+    private static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
+    private static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
 
-    static boolean RAW_DATA = true;
     private static Set<String> COMMON_LOCALES;
 
 
-    static class StatusData {
+    private static class StatusData {
         int missing;
         int provisional;
         int unconfirmed;
     }
-    static class StatusCounter {
+    private static class StatusCounter {
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
@@ -246,14 +216,6 @@ public class ShowLocaleCoverage {
             return;
         }
 
-
-        if (MyOptions.growth.option.doesOccur()) {
-            try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-growth.tsv")) {
-                doGrowth(matcher, out);
-                return;
-            }
-        }
-
         Set<String> locales = null;
         String organization = MyOptions.organization.option.getValue();
         boolean useOrgLevel = MyOptions.organization.option.doesOccur();
@@ -292,176 +254,16 @@ public class ShowLocaleCoverage {
         }
         fixCommonLocales();
 
-        RAW_DATA = MyOptions.rawData.option.doesOccur();
-
-        //showEnglish();
-
         showCoverage(null, matcher, locales, useOrgLevel);
     }
 
-    public static void fixCommonLocales() {
+    private static void fixCommonLocales() {
         if (COMMON_LOCALES == null) {
             COMMON_LOCALES = factory.getAvailableLanguages();
         }
     }
 
-    private static void doGrowth(Matcher matcher, PrintWriter out) {
-        TreeMap<String, List<Double>> growthData = new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
-//        if (DEBUG) {
-//            for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
-//                if (!dir.startsWith("cldr")) {
-//                    continue;
-//                }
-//                String version = getNormalizedVersion(dir);
-//                if (version == null) {
-//                    continue;
-//                }
-//                org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
-//                    CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
-//                System.out.println("Reading: " + version);
-//                Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
-//                System.out.println("Read: " + version + "\t" + currentData);
-//                break;
-//            }
-//        }
-        Map<String, FoundAndTotal> latestData = null;
-        for (ReleaseInfo versionNormalizedVersionAndYear : versionToYear) {
-            VersionInfo version = versionNormalizedVersionAndYear.version;
-            int year = versionNormalizedVersionAndYear.year;
-            String dir = ToolConstants.getBaseDirectory(version.getVersionString(2, 3));
-            Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
-            long found = 0;
-            long total = 0;
-            for (Entry<String, FoundAndTotal> entry : currentData.entrySet()) {
-                found += entry.getValue().found;
-                total += entry.getValue().total;
-            }
-            System.out.println("year\t" + year
-                + "\tversion\t" + version
-                + "\tlocales\t" + currentData.size()
-                + "\tfound\t" + found
-                + "\ttotal\t" + total
-                + "\tdetails\t" + currentData
-                );
-            out.flush();
-            if (latestData == null) {
-                latestData = currentData;
-            }
-            Counter2<String> completionData = getCompletion(latestData, currentData);
-            addCompletionList(year+"", completionData, growthData);
-            if (DEBUG) System.out.println(currentData);
-        }
-        boolean first = true;
-        for (Entry<String, List<Double>> entry : growthData.entrySet()) {
-            if (first) {
-                for (int i = 0; i < entry.getValue().size(); ++i) {
-                    out.print("\t" + i);
-                }
-                out.println();
-                first = false;
-            }
-            out.println(entry.getKey() + "\t" + Joiner.on("\t").join(entry.getValue()));
-        }
-    }
-
-    static final class ReleaseInfo {
-        public ReleaseInfo(VersionInfo versionInfo, int year) {
-            this.version = versionInfo;
-            this.year = year;
-        }
-        VersionInfo version;
-        int year;
-    }
-
-    // TODO merge this into ToolConstants, and have the version expressed as VersionInfo.
-    static final List<ReleaseInfo> versionToYear;
-    static {
-        Object[][] mapping = {
-            { VersionInfo.getInstance(42), 2022 },
-            { VersionInfo.getInstance(40), 2021 },
-            { VersionInfo.getInstance(38), 2020 },
-            { VersionInfo.getInstance(36), 2019 },
-            { VersionInfo.getInstance(34), 2018 },
-            { VersionInfo.getInstance(32), 2017 },
-            { VersionInfo.getInstance(30), 2016 },
-            { VersionInfo.getInstance(28), 2015 },
-            { VersionInfo.getInstance(26), 2014 },
-            { VersionInfo.getInstance(24), 2013 },
-            { VersionInfo.getInstance(22,1), 2012 },
-            { VersionInfo.getInstance(2,0,1), 2011 },
-            { VersionInfo.getInstance(1,9,1), 2010 },
-            { VersionInfo.getInstance(1,7,2), 2009 },
-            { VersionInfo.getInstance(1,6,1), 2008 },
-            { VersionInfo.getInstance(1,5,1), 2007 },
-            { VersionInfo.getInstance(1,4,1), 2006 },
-            { VersionInfo.getInstance(1,3), 2005 },
-            { VersionInfo.getInstance(1,2), 2004 },
-            { VersionInfo.getInstance(1,1,1), 2003 },
-        };
-        List<ReleaseInfo> _versionToYear = new ArrayList<>();
-        for (Object[] row : mapping) {
-            _versionToYear.add(new ReleaseInfo((VersionInfo)row[0], (int)row[1]));
-        }
-        versionToYear = ImmutableList.copyOf(_versionToYear);
-    }
-
-//    public static String getNormalizedVersion(String dir) {
-//        String rawVersion = dir.substring(dir.indexOf('-') + 1);
-//        int firstDot = rawVersion.indexOf('.');
-//        int secondDot = rawVersion.indexOf('.', firstDot + 1);
-//        if (secondDot > 0) {
-//            rawVersion = rawVersion.substring(0, firstDot) + rawVersion.substring(firstDot + 1, secondDot);
-//        } else {
-//            rawVersion = rawVersion.substring(0, firstDot);
-//        }
-//        String result = getYearFromVersion(rawVersion, true);
-//        return result == null ? null : result.toString();
-//    }
-
-//    private static String getYearFromVersion(String version, boolean allowNull) {
-//        String result = versionToYear.get(version);
-//        if (!allowNull && result == null) {
-//            throw new IllegalArgumentException("No year for version: " + version);
-//        }
-//        return result;
-//    }
-//
-//    private static String getVersionFromYear(String year, boolean allowNull) {
-//        String result = versionToYear.inverse().get(year);
-//        if (!allowNull && result == null) {
-//            throw new IllegalArgumentException("No version for year: " + year);
-//        }
-//        return result;
-//    }
-
-    public static void addCompletionList(String version, Counter2<String> completionData, TreeMap<String, List<Double>> growthData) {
-        List<Double> x = new ArrayList<>();
-        for (String key : completionData.getKeysetSortedByCount(false)) {
-            x.add(completionData.getCount(key));
-        }
-        growthData.put(version, x);
-        System.out.println(version + "\t" + x.size());
-    }
-
-    public static Counter2<String> getCompletion(Map<String, FoundAndTotal> latestData, Map<String, FoundAndTotal> currentData) {
-        Counter2<String> completionData = new Counter2<>();
-        for (Entry<String, FoundAndTotal> entry : latestData.entrySet()) {
-            final String locale = entry.getKey();
-            final FoundAndTotal currentRecord = currentData.get(locale);
-            if (currentRecord == null) {
-                continue;
-            }
-            double total = entry.getValue().total;
-            if (total == 0) {
-                continue;
-            }
-            double completion = currentRecord.found / total;
-            completionData.add(locale, completion);
-        }
-        return completionData;
-    }
-
-    static class FoundAndTotal {
+    private static class FoundAndTotal {
         final int found;
         final int total;
 
@@ -487,125 +289,11 @@ public class ShowLocaleCoverage {
         }
     }
 
-    private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory latestFactory, String dir, Matcher matcher, boolean showMissing) {
-        final File mainDir = new File(dir + "/common/main/");
-        final File annotationDir = new File(dir + "/common/annotations/");
-        File[] paths = annotationDir.exists() ? new File[] {mainDir, annotationDir} : new File[] {mainDir};
-        org.unicode.cldr.util.Factory newFactory;
-        try {
-            newFactory = SimpleFactory.make(paths, ".*");
-        } catch (RuntimeException e1) {
-            throw e1;
-        }
-        Map<String, FoundAndTotal> data = new HashMap<>();
-        char c = 0;
-        Set<String> latestAvailable = newFactory.getAvailableLanguages();
-        for (String locale : newFactory.getAvailableLanguages()) {
-            if (!matcher.reset(locale).matches()) {
-                continue;
-            }
-            if (!latestAvailable.contains(locale)) {
-                continue;
-            }
-            if (SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales().contains(locale)
-                || locale.equals(LocaleNames.ROOT)
-                || locale.equals(LocaleNames.UND)
-                || locale.equals("supplementalData")) {
-                continue;
-            }
-            char nc = locale.charAt(0);
-            if (nc != c) {
-                System.out.println("\t" + locale);
-                c = nc;
-            }
-            if (DEBUG_FILTER != 0 && DEBUG_FILTER != nc) {
-                continue;
-            }
-            CLDRFile latestFile = null;
-            try {
-                latestFile = latestFactory.make(locale, true);
-            } catch (Exception e2) {
-                System.out.println("Can't make latest CLDRFile for: " + locale + "\tpast: " + mainDir + "\tlatest: " + Arrays.asList(latestFactory.getSourceDirectories()));
-                continue;
-            }
-            CLDRFile file = null;
-            try {
-                file = newFactory.make(locale, true);
-            } catch (Exception e2) {
-                System.out.println("Can't make CLDRFile for: " + locale + "\tpast: " + mainDir);
-                continue;
-            }
-            // HACK check bogus
-//            Collection<String> extra = file.getExtraPaths();
-//
-//            final Iterable<String> fullIterable = file.fullIterable();
-//            for (String path : fullIterable) {
-//                if (path.contains("\"one[@")) {
-//                    boolean inside = extra.contains(path);
-//                    Status status = new Status();
-//                    String loc = file.getSourceLocaleID(path, status );
-//                    int debug = 0;
-//                }
-//            }
-            // END HACK
-            Counter<Level> foundCounter = new Counter<>();
-            Counter<Level> unconfirmedCounter = new Counter<>();
-            Counter<Level> missingCounter = new Counter<>();
-            Set<String> unconfirmedPaths = null;
-            Relation<MissingStatus, String> missingPaths = null;
-            unconfirmedPaths = new LinkedHashSet<>();
-            missingPaths = Relation.of(new LinkedHashMap<MissingStatus, Set<String>>(), LinkedHashSet.class);
-            VettingViewer.getStatus(latestFile.fullIterable(), file,
-                pathHeaderFactory, foundCounter, unconfirmedCounter,
-                missingCounter, missingPaths, unconfirmedPaths);
-
-            // HACK
-            Set<Entry<MissingStatus, String>> missingRemovals = new HashSet<>();
-            for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
-                if (e.getKey() == MissingStatus.ABSENT) {
-                    final String path = e.getValue();
-                    if (HACK.get(path) != null) {
-                        missingRemovals.add(e);
-                        missingCounter.add(Level.MODERN, -1);
-                        foundCounter.add(Level.MODERN, 1);
-                    } else {
-                        Status status = new Status();
-                        String loc = file.getSourceLocaleID(path, status);
-                        int debug = 0;
-                    }
-                }
-            }
-            for (Entry<MissingStatus, String> e : missingRemovals) {
-                missingPaths.remove(e.getKey(), e.getValue());
-            }
-            // END HACK
-
-            if (showMissing) {
-                int count = 0;
-                for (String s : unconfirmedPaths) {
-                    System.out.println(++count + "\t" + locale + "\tunconfirmed\t" + s);
-                }
-                for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
-                    String path = e.getValue();
-                    Status status = new Status();
-                    String loc = file.getSourceLocaleID(path, status);
-                    int debug = 0;
-
-                    System.out.println(++count + "\t" + locale + "\t" + CldrUtility.toString(e));
-                }
-                int debug = 0;
-            }
-
-            data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));
-        }
-        return Collections.unmodifiableMap(data);
-    }
-
-    public static void showCoverage(Anchors anchors, Matcher matcher) throws IOException {
+    static void showCoverage(Anchors anchors, Matcher matcher) throws IOException {
         showCoverage(anchors, matcher, null, false);
     }
 
-    public static void showCoverage(Anchors anchors, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
+    private static void showCoverage(Anchors anchors, Matcher matcher, Set<String> locales, boolean useOrgLevel) throws IOException {
         final String title = "Locale Coverage";
         try (PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, title, null, anchors));
             PrintWriter tsv_summary = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-coverage.tsv");
@@ -861,8 +549,6 @@ public class ShowLocaleCoverage {
                         sublocales = Collections.emptySet();
                     }
                     sublocales = ImmutableSet.copyOf(sublocales);
-
-                    final String seedString = isSeed ? "seed" : "common";
 
                     // get the totals
 
@@ -1171,15 +857,15 @@ public class ShowLocaleCoverage {
         }
     }
 
-    public static String linkTsv(String tsvFileName) {
+    private static String linkTsv(String tsvFileName) {
         return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + tsvFileName + "</a>";
     }
 
-    public static String linkTsv(String tsvFileName, String anchorText) {
+    private static String linkTsv(String tsvFileName, String anchorText) {
         return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + anchorText + "</a>";
     }
 
-    public static String getSpecialFlag(String locale) {
+    private static String getSpecialFlag(String locale) {
         return SC.getLocaleCoverageLevel(Organization.special, locale) == Level.UNDETERMINED ? "" : "‡";
     }
 
@@ -1194,91 +880,14 @@ public class ShowLocaleCoverage {
          * When some paths are defined after submission, we need to change them to COMPREHENSIVE in computing the vetting status.
          */
 
-        static final Set<String> SUPPRESS_PATHS_AFTER_SUBMISSION = ImmutableSet.of(
-            "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
-            "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
-            "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"preserve\"]",
-            "//ldml/personNames/initialPattern[@type=\"initial\"]",
-            "//ldml/personNames/initialPattern[@type=\"initialSequence\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
-            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
-
-            "//ldml/personNames/sampleName[@item=\"nativeG\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"surname\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given2\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"surname\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"prefix\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given-informal\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given2\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-prefix\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-core\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname2\"]",
-            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"suffix\"]",
-
-            "//ldml/personNames/sampleName[@item=\"foreignG\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"surname\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given2\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"surname\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"prefix\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given-informal\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given2\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
-            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"suffix\"]"
+        private static final Set<String> SUPPRESS_PATHS_AFTER_SUBMISSION = ImmutableSet.of(
             );
         @Override
         public Iterator<String> iterator() {
             return new IteratorFilter(source.iterator());
         }
 
-        static class IteratorFilter implements Iterator<String> {
+        private static class IteratorFilter implements Iterator<String> {
             Iterator<String> source;
             String peek;
 
@@ -1312,48 +921,7 @@ public class ShowLocaleCoverage {
         }
 
     }
-    static final CoverageInfo coverageInfo = new CoverageInfo(SUPPLEMENTAL_DATA_INFO);
-
-// userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc)
-    static final VoterInfo dummyVoterInfo = new VoterInfo(Organization.cldr, org.unicode.cldr.util.VoteResolver.Level.vetter, "somename");
-
-    static final UserInfo dummyUserInfo = new UserInfo() {
-        @Override
-        public VoterInfo getVoterInfo() {
-            return dummyVoterInfo;
-        }
-    };
-    static final PathValueInfo dummyPathValueInfo = new PathValueInfo() {
-        // pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE)
-        @Override
-        public Collection<? extends CandidateInfo> getValues() {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public CandidateInfo getCurrentItem() {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public String getBaselineValue() {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public Level getCoverageLevel() {
-            return Level.MODERN;
-        }
-        @Override
-        public boolean hadVotesSometimeThisRelease() {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public CLDRLocale getLocale() {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public String getXpath() {
-            throw new UnsupportedOperationException();
-        }
-    };
+    private static final CoverageInfo coverageInfo = new CoverageInfo(SUPPLEMENTAL_DATA_INFO);
 
     private static String spreadsheetLine(String locale, String language, String script, String specialFlag,
         String nativeValue, Level cldrLocaleLevelGoal, Level itemLevel, String status, String path,
@@ -1400,5 +968,5 @@ public class ShowLocaleCoverage {
         return ICU_Locales.contains(new ULocale(locale)) ? "ICU" : "";
     }
 
-    static final Set<ULocale> ICU_Locales = ImmutableSet.copyOf(ULocale.getAvailableLocales());
+    private static final Set<ULocale> ICU_Locales = ImmutableSet.copyOf(ULocale.getAvailableLocales());
 }

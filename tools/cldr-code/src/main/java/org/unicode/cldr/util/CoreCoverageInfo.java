@@ -124,11 +124,11 @@ public class CoreCoverageInfo {
 
         //      (01) Plural rules [supplemental/plurals.xml and ordinals.xml]
         //      For more information, see cldr-spec/plural-rules.
-        if (sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
+        if (!sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
             detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"" + locale
                 + "\"]/pluralRule[@count=\"other\"]");
         }
-        if (sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
+        if (!sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
             detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"" + locale
                 + "\"]/pluralRule[@count=\"other\"]");
         }
@@ -246,7 +246,7 @@ public class CoreCoverageInfo {
         //      Note that the "search" collators (which tend to be large) are not needed initially.
 
         // check for file cldr/collation/<language>.xml
-        if (hasFile(SpecialDir.collation, baseLanguage)) {
+        if (!hasFile(SpecialDir.collation, baseLanguage)) {
             detailedErrors.put(CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
         }
 

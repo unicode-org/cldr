@@ -206,12 +206,12 @@ public class ChartLocaleGrowth {
     }
 
     private static class FoundAndTotal {
-        final int found;
-        final int total;
+        final long found;
+        final long total;
 
         @SafeVarargs
         private FoundAndTotal(Counter<Level>... counters) {
-            final int[] count = { 0, 0, 0 };
+            final long[] count = { 0, 0, 0 };
             for (Level level : Level.values()) {
                 if (level == Level.COMPREHENSIVE) {
                     continue;

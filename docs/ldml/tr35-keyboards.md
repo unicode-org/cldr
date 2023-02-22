@@ -684,6 +684,7 @@ This element defines a mapping between an abstract key and its output. This elem
  [longPress="{long press keys}"]
  [longPressDefault="{default longpress target}"]
  [multiTap="{the output on subsequent taps}"]
+ [stretch="true"]
  [switch="{layer id}"]
  [to="{the output}"]
  [transform="no"]
@@ -745,6 +746,11 @@ _Attribute:_ `multiTap` (optional) (discouraged, see [Accessibility])
 
 **Note**: Behavior past the end of the multiTap list is implementation specific.
 
+_Attribute:_ `stretch="true"` (optional)
+
+> The `stretch` attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
+> This is used, for example, on the spacebar. Note that `stretch=` is ignored for hardware layouts.
+
 _Attribute:_ `switch="shift"` (optional)
 
 > The `switch` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
@@ -794,25 +800,43 @@ _Attribute:_ `width="1.2"` (optional, default "1.0")
 
 ##### Implied Keys
 
-Not all keys need to be listed explicitly.  The following keys can be assumed to already exist:
+Not all keys need to be listed explicitly.  The following two can be assumed to already exist:
 
 ```xml
-<!--  all 26 upper and lower case English letters -->
-<key id="a" to="a"/>
-<key id="b" to="b"/>
-<key id="c" to="c"/>
+<key id="gap" gap="true" width="1"/>
+<key id="space" to=" " stretch="true" width="1"/>
+```
+
+In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the `id` is the same as the `to`, are assumed to exist:
+
+```xml
+<key id="0" to="0"/>
+<key id="1" to="1"/>
+<key id="2" to="2"/>
 …
 <key id="A" to="A"/>
 <key id="B" to="B"/>
 <key id="C" to="C"/>
 …
-
-<key id="space" to=" "/>  <!-- Note: 'space' is always considered 'stretchable'-->
-
-<!-- modifiers-->
-<key id="shift" shift="shift"/>
-… 
+<key id="a" to="a"/>
+<key id="b" to="b"/>
+<key id="c" to="c"/>
+…
 ```
+
+These implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
+
+Thus, the implied keys behave as if the following import were present.
+
+```xml
+<keyboard>
+    <keys>
+        <import base="cldr" path="techpreview/keys-Latn-implied.xml" />
+    </keys>
+</keyboard>
+```
+
+**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
 
 * * *
 
@@ -883,36 +907,55 @@ where a flick to the Northeast then South produces two code points.
 ### <a name="Element_import" href="#Element_import">Element: import</a>
 
 The `import` element is used to reference another xml file so that elements are imported from
-another file.
-
-_Attribute:_ `base`
-
-> The base may be omitted (indicating a local import) or have the value `"cldr"` (specifying CLDR standard files).
-
-_Attribute:_ `path` (required)
-
-The use case is to be able to import a standard set of vkeys, transforms, and similar
+another file. The use case is to be able to import a standard set of vkeys, transforms, and similar
 from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
 split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
 
-`<import>` can be used as a child of a number of elements. Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
+`<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
+If two identical elements are defined, the later element will take precedence, that is, override.
 
-<!-- TODO: which ones?-->
+**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`info` element](#Element_info) for further details.
 
 **Syntax**
+```xml
+<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml"/>
+```
+> <small>
+>
+> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeys](#Element_vkeys)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+>
+> </small>
+
+_Attribute:_ `base`
+
+> The base may be omitted (indicating a local import) or have the value `"cldr"`.
+
+**Note:** `base="cldr"` is required for all `<import>` statements within keyboard files in the CLDR repository.
+
+_Attribute:_ `path` (required)
+
+> If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
+> If `base` is omitted, then `path` is an absolute or relative file path.
+
+
+**Further Examples**
 
 ```xml
 <!-- in a keyboard xml file-->
 …
 <transforms type="simple">
-    <import path="cldr/standard_transforms.xml"/>
+    <import base="cldr" path="techpreview/transforms-example.xml"/>
     <transform from="` " to="`" />
     <transform from="^ " to="^" />
 </transforms>
 …
 
 
-<!-- contents of cldr/standard_transforms.xml -->
+<!-- contents of transforms-example.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard.dtd">
 <transforms>
@@ -926,7 +969,7 @@ split up their keyboard into multiple files, as the intent is for each single XM
 </transforms>
 ```
 
-Note that the DOCTYPE and root element, here `transforms`, is the same as
+**Note:** The DOCTYPE and root element, here `transforms`, is the same as
 the _parent_ of the `<import/>` element. It is an error to import an XML file
 whois root element is different than the parent element of the `<import/>` element.
 
@@ -947,55 +990,6 @@ After loading, the above example will be the equivalent of the following.
     <transform from="` " to="`" />
 </transforms>
 ```
-
-> <small>
->
-> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeys](#Element_vkeys)
->
-> Children: _none_
->
-> Occurrence: optional, multiple
->
-> </small>
-
-_Attribute:_ `path` (required)
-
-> The value is contains a relative path to the included XML file. There is a standard set of directories to be searched that an application may provide. This set is always prepended with the directory in which the current file being read is stored.
-
-If two identical elements <!-- , as described below, --> are defined, the later element will take precedence.
-
-<!-- TODO: Rework the below discussion. -->
-
-<!-- Thus if a `hardwareMap/map` for the same keycode on the same page is defined twice (for example once in an included file), the later one will be the resulting mapping.
-
-Elements are considered to have three attributes that make them unique: the tag of the element, the parent and the identifying attribute. The parent in its turn is a unique element and so on up the chain. If the distinguishing attribute is optional, its non-existence is represented with an empty value. Here is a list of elements and their defining attributes. If an element is not listed then if it is a leaf element, only one occurs and it is merely replaced. If it has children, then the subelements are considered, in effect merging the element in question.
-
-| Element      | Parent       | Distinguishing attribute     |
-|--------------|--------------|------------------------------|
-| `import`     | `keyboard`   | `@path`                      |
-| `keyMap`     | `keyboard`   | `@modifiers`                 |
-| `map`        | `keyMap`     | `@iso`                       |
-| `flicks`     | `keyMap`     | `@iso`                       |
-| `flick`      | `flicks`     | `@directions`                |
-| `display`    | `displays`   | `@to`                        |
-| `layer`      | `keyboard`   | `@modifier`                  |
-| `row`        | `layer`      | `@keys`                      |
-| `switch`     | `layer`      | `@iso`                       |
-| `vkeys`      | `layer`      | `@iso`                       |
-| `transforms` | `keyboard`   | `@type`                      |
-| `transform`  | `keyboard`   | `@before`, `@from`           |
-| `reorder`    | `reorders`   | `@before`, `@from`           |
-
-In order to help identify mistakes, it is an error if a file contains two elements that override each other. All element overrides must come as a result of an `<include>` element either for the element overridden or the element overriding.
-
-The following elements are not imported from the source file:
-
-* `version`
-* `generation`
-* `names`
-* `settings`
-
--->
 
 * * *
 

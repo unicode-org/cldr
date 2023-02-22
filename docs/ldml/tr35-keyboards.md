@@ -485,7 +485,12 @@ _Attribute:_ `author`
 _Attribute:_ `normalization`
 
 > The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
+>
 > An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
+>
+> All keyboards in the CLDR repository will be in `NFC` or `NFD` forms.  However, users and implementations may produce and consume other normalization forms or mixed output, use the `other` value to indicate this case.
+>
+> When using `NFC` or `NFD`, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.
 
 _Attribute:_ `layout`
 

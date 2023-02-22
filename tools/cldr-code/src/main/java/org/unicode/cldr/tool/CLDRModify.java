@@ -72,7 +72,6 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
@@ -2539,7 +2538,7 @@ public class CLDRModify {
                 onlyValues = null;
                 message = "fix null lateral";
 
-                List<String> parentChain = getParentChain(getLocaleID());
+                List<String> parentChain = LocaleIDParser.getParentChain(getLocaleID());
                 String localeL1 = parentChain.get(parentChain.size() - 2); // get last before root
                 CLDRFile fileL1 = factory.make(localeL1, false); // only unresolved paths
                 for (String path : fileL1) {
@@ -2549,47 +2548,6 @@ public class CLDRModify {
                 }
             }
         });
-    }
-
-    // TODO Move to central location
-
-    static final ImmutableList<String> FALLBACK_CHAIN = ImmutableList.of();
-    static final ImmutableList<String> ROOT_PARENT_CHAIN = ImmutableList.of(XMLSource.ROOT_ID);
-
-    /**
-     * Return the L1 locale in localeIds getParent chain.
-     * Return null if there is none (localeID == root or code-fallback).
-     * TODO optimize by caching the chains
-     * Returns a
-     */
-    public static List<String> getParentChain(String localeID) {
-        if (XMLSource.ROOT_ID.equals(localeID)) {
-            return FALLBACK_CHAIN;
-        }
-        List<String> result = null;
-        while (true) {
-            String parent = LocaleIDParser.getParent(localeID);
-            if (parent.equals(XMLSource.ROOT_ID)) {
-                if (result == null) {
-                    return ROOT_PARENT_CHAIN;
-                } else {
-                    result.addAll(ROOT_PARENT_CHAIN);
-                    return ImmutableList.copyOf(result);
-                }
-            }
-            if (result == null) {
-                result = new ArrayList<>();
-            }
-            result.add(parent);
-            localeID = parent;
-        }
-    }
-
-    static {
-        System.out.println("en_DE" + "\t" + getParentChain("en_DE"));
-        System.out.println("fr_CA" + "\t" + getParentChain("fr_CA"));
-        System.out.println("fr" + "\t" + getParentChain("fr"));
-        System.out.println("root" + "\t" + getParentChain("root"));
     }
 
     public static String getLast2Dirs(File sourceDir1) {

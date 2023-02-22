@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -273,5 +274,42 @@ public class LocaleIDParser {
             }
         }
         return result.toString();
+    }
+
+    public static final ImmutableList<String> FALLBACK_CHAIN = ImmutableList.of();
+    public static final ImmutableList<String> ROOT_PARENT_CHAIN = ImmutableList.of(XMLSource.ROOT_ID);
+
+    /**
+     * Return localeIds getParent chain.
+     * Return null if there is none (localeID == root or code-fallback).
+     * Note: an L1 locale will have exactly 1 element, and be identical to ROOT_PARENT_CHAIN.
+     * TODO optimize by caching the chains
+     * Returns a
+     */
+    public static List<String> getParentChain(String localeID) {
+        if (XMLSource.ROOT_ID.equals(localeID)) {
+            return FALLBACK_CHAIN;
+        }
+        List<String> result = null;
+        while (true) {
+            String parent = getParent(localeID);
+            if (parent.equals(XMLSource.ROOT_ID)) {
+                if (result == null) {
+                    return ROOT_PARENT_CHAIN;
+                } else {
+                    result.addAll(ROOT_PARENT_CHAIN);
+                    return ImmutableList.copyOf(result);
+                }
+            }
+            if (result == null) {
+                result = new ArrayList<>();
+            }
+            result.add(parent);
+            localeID = parent;
+        }
+    }
+
+    public static boolean isL1(String localeId) {
+        return XMLSource.ROOT_ID.equals(getParent(localeId));
     }
 }

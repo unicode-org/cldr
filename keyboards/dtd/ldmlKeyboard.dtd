@@ -11,8 +11,7 @@ CLDR keyboard specification.
 
 This DTD is a work in progress.
 
-Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
--->
+Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information. -->
 
 <!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, transforms*, reorders?, special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
@@ -159,7 +158,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
 <!ATTLIST layer id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST layer modifier NMTOKENS #IMPLIED >
-    <!--@MATCH:regex/^(none|(\b(alt[LR]?)?\b[ ]?\b(ctrl[LR]?)?\b[ ]?\b(shift)?\b[ ]?\b(caps)?\b))$-->
+    <!--@MATCH:any-->
 
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->

@@ -7,15 +7,14 @@
 -->
 <!--
   Important Note:
-
+  
   The CLDR Keyboard Workgroup is currently developing major changes to the
   CLDR keyboard specification.
-
+  
   This DTD is a work in progress.
-
-Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
+  
+  Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
 -->
-
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="keyboard">
     <xs:complexType>
@@ -321,7 +320,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:any -->
-  <!-- @MATCH:regex/^(none|(\b(alt[LR]?)?\b[ ]?\b(ctrl[LR]?)?\b[ ]?\b(shift)?\b[ ]?\b(caps)?\b))$ -->
+  <!-- @MATCH:any -->
   <xs:element name="row">
     <xs:complexType>
       <xs:attribute name="keys" use="required" type="xs:NMTOKENS"/>

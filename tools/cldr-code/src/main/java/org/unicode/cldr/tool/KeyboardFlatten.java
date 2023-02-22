@@ -66,6 +66,12 @@ public class KeyboardFlatten {
                 Node item = imports.item(i);
                 flattenImport(dfactory, doc, item);
             }
+            // now remove the import nodes
+            while (imports.getLength() > 0) {
+                Node item = imports.item(0);
+                item.getParentNode().removeChild(item);
+                // item is no longer in list
+            }
         }
     }
 
@@ -129,9 +135,7 @@ public class KeyboardFlatten {
         }
         System.err.println("Moved " + moveChildren.getLength() + " children");
         // Add a comment
-        // remove the import node
         importParent.insertBefore(postComment, item);
-        importParent.removeChild(item);
 
         // done
     }

@@ -46,7 +46,8 @@ public class TestKeyboardFlatten {
         KeyboardFlatten.flatten(mtxml.getAbsolutePath(), baos);
         baos.close();
         String outstr = baos.toString("UTF-8");
-        assertTrue(outstr.contains("<key id=\"bang\" to=\"!\"/>")); // has one of the imported sequences
+        assertTrue(outstr.contains("<key id=\"bang\"")); // has one of the imported sequences
+        assertTrue(outstr.contains("<key id=\"pound\"")); // has one of the imported sequences
         assertFalse(outstr.contains("<import")); // no imports
     }
 }

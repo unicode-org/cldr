@@ -87,7 +87,8 @@ public class CompareResolved {
             return;
         }
 
-        System.out.println("Comparing " + sourceDir + ", to " + compareDir);
+        System.out.println("## Comparing\t\tSource (S) dir\tCompare (C) dir");
+        System.out.println("## Comparing\t\t" + sourceDir + "\t" + compareDir);
 
         // don't currently use these, but might filter on these in the future
         Output<String> sourcePathFound = new Output<>();
@@ -99,7 +100,7 @@ public class CompareResolved {
         int diffCountAllLocales = 0;
 
         // cycle over locales
-        System.out.println("Locale\tRequested Path\tResolved Value (GEN)\ttResolved Value (Main)\tFound Locale (GEN)\tFound Locale (Main)\tFound Path (GEN)\tFound Path (Main)");
+        System.out.println("## Locale\tRequested Path\tResolved Value (S)\tResolved Value (C)\tFound Locale (S)\tFound Locale (C)\tFound Path (S)\tFound Path (C)");
         for (String localeID : sourceFactory.getAvailable()) {
             if (fileMatcher != null && !fileMatcher.reset(localeID).find()) {
                 continue;
@@ -121,9 +122,6 @@ public class CompareResolved {
             Set<String> sortedPaths = new TreeSet<>(); // could sort by PathHeader also
             sortedPaths.addAll(Sets.newTreeSet(sourceFile));
             sortedPaths.addAll(Sets.newTreeSet(compareFile));
-            if (verbose) {
-                System.out.println("Comparing " + localeID);
-            }
 
             // cycle over the union of paths
             int filterCount = 0;
@@ -170,13 +168,13 @@ public class CompareResolved {
                     );
             }
             if (verbose || diffCount != 0) {
-                System.out.println(localeID + "\t#filteredCount:\t" + filterCount + ", diffCount:\t" + diffCount);
+                System.out.println("# " + localeID + "\tfilteredCount:\t" + filterCount + "\tdiffCount:\t" + diffCount);
             }
             filterCountAllLocales += filterCount;
             diffCountAllLocales += diffCount;
         }
         if (verbose || diffCountAllLocales != 0) {
-            System.out.println("ALL LOCALES" + "\t#filteredCount:\t" + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
+            System.out.println("# " + "ALL LOCALES" + "\t#filteredCount:\t" + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
         }
         System.out.println("DONE");
     }

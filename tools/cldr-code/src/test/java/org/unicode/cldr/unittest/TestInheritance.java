@@ -984,4 +984,17 @@ public class TestInheritance extends TestFmwk {
             logln(e.getMessage());
         }
     }
+
+    public void TestParentChain() {
+        String[][] tests = {
+            {"en_DE", "[en_150, en_001, en, root]"},
+            {"fr_CA", "[fr, root]"},
+            {"fr", "[root]"},
+            {"root", "[]"},
+            };
+
+        for (String[] test : tests) {
+            assertEquals(test[0], test[1], LocaleIDParser.getParentChain(test[0]).toString());
+        }
+    }
 }

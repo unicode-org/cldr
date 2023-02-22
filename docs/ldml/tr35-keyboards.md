@@ -807,7 +807,7 @@ Not all keys need to be listed explicitly.  The following two can be assumed to 
 <key id="space" stretch="true" width="1"/>
 ```
 
-In addition, these 62 keys where the `id` is the same as the `to` are assumed to exist:
+In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the `id` is the same as the `to`, are assumed to exist:
 
 ```xml
 <key id="0" to="0"/>

@@ -1153,29 +1153,40 @@ hardware or touch layout.
 >
 > </small>
 
+- At least one `layers` element is required.
+
 _Attribute:_ `form` (required)
 
-> `form` may be either `hardware` or `touch`.
+> This attribute specifies the physical layout of a hardware keyboard,
+> or that the form is a `touch` layout.
 >
-> There may only be a single `layers` with `form="hardware"`.
->
-> It is recommended to always have one
-> `<layers form="hardware">` element.
+> It is recommended to always have at least one hardware (non-touch) form.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
 >
+> Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
+> At most one hardware (non-`touch`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.
+>
+> The typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (`<layers form="us">`) in their design, rather than having to work with an unfamiliar form.
+>
+> A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
+>
+>
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the `<layers form="hardware">` element can be used for on-screen use.
-
-_Attribute:_ `hardware`
-
-This attribute specifies the physical layout for the hardware keyboard.
-Currently supported values are `us`, `iso`, `jis` and `abnt2`.
+> element, the hardware elements can be used for on-screen use.
+>
+> The following values are allowed for the `form` attribute:
+>
+> - `touch` - Touch (non-hardware) layout.
+> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
+> - `iso` - European 102 key layout (extra key right of left shift)
+> - `jis` - Japanese 109 key layout
+> - `us` - ANSI 101 key layout
 
 _Attribute:_ `minDeviceWidth`
 
-This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for `form="hardware"`.
+> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms.
 
 ### <a name="Element_layer" href="#Element_layer">Element: layer</a>
 

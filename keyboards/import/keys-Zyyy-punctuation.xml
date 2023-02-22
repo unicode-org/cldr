@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This file is part of the CLDR Keyboard Technical Preview.
+    This is a sample of how imports can be used.
+    This file is subject to change.
+    Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
+-->
 <!DOCTYPE keys SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keys>
     <!-- General Symbols -->
@@ -34,9 +40,4 @@
     <key id="tilde" to="~" />
     <key id="umlaut" to="¨" />
     <key id="underscore" to="_" />
-
-    <!-- Currency -->
-    <key id="euro" to="€" />
-    <key id="pound" to="£" />
-    <key id="dollar" to="$" />
 </keys>

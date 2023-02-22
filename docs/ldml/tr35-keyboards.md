@@ -824,7 +824,7 @@ In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, 
 …
 ```
 
-All of these implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
+These implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
 
 Thus, the implied keys behave as if the following import were present.
 
@@ -835,6 +835,8 @@ Thus, the implied keys behave as if the following import were present.
     </keys>
 </keyboard>
 ```
+
+**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
 
 * * *
 

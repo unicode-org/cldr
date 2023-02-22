@@ -474,6 +474,7 @@ public class GenerateMaximalLocales {
             System.out.println("Copying " + newLikelySubtags + " to " + oldLikelySubtags);
             oldLikelySubtags.delete();
             Files.copy(newLikelySubtags.toPath(), oldLikelySubtags.toPath());
+            System.err.println("TODO: Please revert removal of 'sil1' entries, see CLDR-16380");
         }
 
         System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);

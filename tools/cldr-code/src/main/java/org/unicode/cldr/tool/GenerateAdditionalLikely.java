@@ -19,6 +19,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Type;
@@ -38,6 +39,10 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 
+/**
+ * TODO: Merge into GenerateMaximalLocales, see CLDR-16380
+ */
+@CLDRTool(description = "Generate additional likely subtag data, see CLDR-16380", url="https://unicode-org.atlassian.net/browse/CLDR-16380", alias = "generate-additional-likely")
 public class GenerateAdditionalLikely {
 
     private static final String SIL = "sil1";

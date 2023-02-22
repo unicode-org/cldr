@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
@@ -69,6 +70,7 @@ public class TestInheritance extends TestFmwk {
         // language is official
         Set<String> SKIP_TERRITORIES = new HashSet<>(Arrays.asList("001",
             "150"));
+        SKIP_TERRITORIES.addAll(Iso3166Data.getRegionCodesNotForTranslation());
         for (Entry<String, R2<List<String>, String>> s : dataInfo
             .getLocaleAliasInfo().get("territory").entrySet()) {
             SKIP_TERRITORIES.add(s.getKey());

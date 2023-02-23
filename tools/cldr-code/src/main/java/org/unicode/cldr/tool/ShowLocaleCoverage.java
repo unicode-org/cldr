@@ -100,7 +100,7 @@ public class ShowLocaleCoverage {
     private static final String PROPERTIES_HEADER =
         // Extra tabs are for github table formatting
         "#\tcoverageLevels.txt\t\n"
-        + "#\tCopyright © 2022 Unicode, Inc.\n"
+        + "#\tCopyright © 2023 Unicode, Inc.\n"
         + "#\tCLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
         + "#\tFor terms of use, see http://www.unicode.org/copyright.html\n"
         + "#\t\n"

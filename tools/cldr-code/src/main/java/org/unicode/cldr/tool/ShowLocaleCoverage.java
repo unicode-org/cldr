@@ -101,7 +101,7 @@ public class ShowLocaleCoverage {
 
     private static final String PROPERTIES_HEADER =
         "# coverageLevels.txt\n"
-        + "# Copyright © 2022 Unicode, Inc.\n"
+        + "# Copyright © 2023 Unicode, Inc.\n"
         + "# CLDR data files are interpreted according to the\n"
         + "# LDML specification: http://unicode.org/reports/tr35/\n"
         + "# For terms of use, see http://www.unicode.org/copyright.html\n"

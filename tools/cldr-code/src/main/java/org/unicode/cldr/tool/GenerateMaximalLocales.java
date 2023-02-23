@@ -162,10 +162,8 @@ public class GenerateMaximalLocales {
 
         "hi_Latn_IN",
         "no_Latn_NO",
-        "und_Cpmn_CY",
 
-        "hnj_Hmnp_US",
-        "rhg_Arab_MM"
+        "tok_Latn_001",
     };
 
     /**
@@ -211,10 +209,10 @@ public class GenerateMaximalLocales {
         { "pap_Latn", "pap_Latn_CW" },
         { "prg", "prg_Latn_001" },
         { "prg_Latn", "prg_Latn_001" },
-        { "rif", "rif_Tfng_MA" },
+        { "rif", "rif_Latn_MA" }, // https://unicode-org.atlassian.net/browse/CLDR-14962?focusedCommentId=165053
         { "rif_Latn", "rif_Latn_MA" },
         { "rif_Tfng", "rif_Tfng_MA" },
-        { "rif_MA", "rif_Tfng_MA" },
+        { "rif_MA", "rif_Latn_MA" }, // Ibid
         { "shi", "shi_Tfng_MA" },
         { "shi_Tfng", "shi_Tfng_MA" },
         { "shi_MA", "shi_Tfng_MA" },
@@ -237,6 +235,8 @@ public class GenerateMaximalLocales {
         { "und_Kana", "ja_Kana_JP" },
         { "und_Kana_JP", "ja_Kana_JP" },
         { "und_Latn", "en_Latn_US" },
+        { "und_001", "en_Latn_US" }, // to not be overridden by tok_Latn_001
+        { "und_Latn_001", "en_Latn_US" }, // to not be overridden by tok_Latn_001
         { "und_Latn_ET", "en_Latn_ET" },
         { "und_Latn_NE", "ha_Latn_NE" },
         { "und_Latn_PH", "fil_Latn_PH" },
@@ -299,6 +299,20 @@ public class GenerateMaximalLocales {
 
         { "ku_Yezi", "ku_Yezi_GE" },
         { "und_EU", "en_Latn_IE" },
+
+        { "hnj", "hnj_Hmnp_US" }, // preferred lang/script in CLDR
+        { "hnj_Hmnp", "hnj_Hmnp_US" },
+        { "und_Hmnp", "hnj_Hmnp_US" },
+        { "rhg", "rhg_Rohg_MM" }, // preferred lang/script in CLDR
+        { "rhg_Arab", "rhg_Arab_MM" },
+        { "und_Arab_MM", "rhg_Arab_MM" },
+        { "sd_IN", "sd_Deva_IN" }, // preferred in CLDR
+        // { "sd_Deva", "sd_Deva_IN"},
+        { "und_Cpmn", "und_Cpmn_CY" },
+        { "oc_ES", "oc_Latn_ES" },
+        { "os", "os_Cyrl_GE" },
+        { "os_Cyrl", "os_Cyrl_GE" },
+
     });
 
     /**
@@ -474,6 +488,7 @@ public class GenerateMaximalLocales {
             System.out.println("Copying " + newLikelySubtags + " to " + oldLikelySubtags);
             oldLikelySubtags.delete();
             Files.copy(newLikelySubtags.toPath(), oldLikelySubtags.toPath());
+            System.err.println("TODO: Please revert removal of 'sil1' entries, see CLDR-16380");
         }
 
         System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);
@@ -572,6 +587,10 @@ public class GenerateMaximalLocales {
         final Set<String> CLDRMainLanguages = new TreeSet<>(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr));
 
         for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
+            if (Iso3166Data.isRegionCodeNotForTranslation(territory)) {
+                System.out.println("Iso3166Data.isRegionCodeNotForTranslation(" + territory + ") true, skipping");
+                continue;
+            }
             PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
             double territoryPopulation = territoryPop.getLiteratePopulation();
             for (String languageScript : supplementalData.getLanguagesForTerritoryWithPopulationData(territory)) {
@@ -605,8 +624,12 @@ public class GenerateMaximalLocales {
                 }
                 if (add) {
                     add(languageToReason, language, territory, status, literatePopulation);
+                    Set<String> containers = Containment.leafToContainer(territory);
+                    if (containers == null) {
+                        throw new NullPointerException("Containment.leafToContainer(" + territory + ") is null");
+                    }
                     // Add the containing regions
-                    for (String container : Containment.leafToContainer(territory)) {
+                    for (String container : containers) {
                         add(languageToReason, language, container, OfficialStatus.unknown, literatePopulation);
                     }
                 }

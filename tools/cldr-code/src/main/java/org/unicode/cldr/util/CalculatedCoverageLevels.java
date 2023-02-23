@@ -59,15 +59,16 @@ public class CalculatedCoverageLevels {
         while ((line = r.readLine()) != null) {
             no++;
             line = line.trim();
-            if(line.startsWith("#") || line.isBlank()) {
+            if(line.isBlank() || line.startsWith("#")) {
                 continue;
             }
             final List<String> l = SEMICOLON.splitToList(line);
-            if (l.size() != 2) {
+            if (l.size() != 3) {
                 throw new IllegalArgumentException("coverageLevels.txt:"+no+": expected 2 fields, got " + l.size());
             }
             final String uloc = l.get(0);
             final String level = l.get(1);
+            final String name = l.get(2);
             final Level lev = Level.fromString(level);
             if (levels.put(uloc, lev) != null) {
                 throw new IllegalArgumentException("coverageLevels.txt:"+no+": duplicate locale " + uloc);

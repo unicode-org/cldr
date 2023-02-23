@@ -1022,6 +1022,8 @@ As in other cases, **narrow** may be ambiguous out of context.
 <!ATTLIST era type NMTOKENS #REQUIRED>
 <!ATTLIST era start CDATA #IMPLIED>
 <!ATTLIST era end CDATA #IMPLIED>
+<!ATTLIST era code NMTOKEN #IMPLIED >
+<!ATTLIST era aliases NMTOKENS #IMPLIED >
 ```
 
 The `<calendarData>` element now provides only locale-independent data about calendar behaviors via its `<calendar>` subelements, which for each calendar can specify the astronomical basis of the calendar (solar, lunar, etc.) and the date ranges for its eras.
@@ -1029,8 +1031,8 @@ The `<calendarData>` element now provides only locale-independent data about cal
 Era start or end dates are specified in terms of the equivalent proleptic Gregorian date (in "y-M-d" format). Eras may be open-ended, with unspecified start or end dates. For example, here are the eras for the Gregorian calendar:
 
 ```xml
-<era type="0" end="0" />
-<era type="1" start="1" />
+<era type="0" end="0-12-31" code="gregory-inverse" aliases="bc bce"/>
+<era type="1" start="1-01-01" code="gregory" aliases="ad ce"/>
 ```
 
 For a sequence of eras with specified start dates, the end of each era need not be explicitly specified (it is assumed to match the start of the subsequent era). For example, here are the first few eras for the Japanese calendar:
@@ -1041,6 +1043,12 @@ For a sequence of eras with specified start dates, the end of each era need not 
 <era type="2" start="672-1-1" />
 …
 ```
+
+Some eras have additional `code` and `aliases` attributes that define invariant strings for identifying the eras. The `code` is a single globally unique identifier, and `aliases` are space-separated identifiers unique within the calendar. The code and aliases follow the following rules:
+
+1. Every calendar has an era with a `code` that is the same as the BCP-47 name of that calendar. This era should be used for anchoring the "extended year" in the calendar (`u` in the date format pattern).
+2. Eras that count backwards (larger numbers for older years) are suffixed with `-inverse`.
+3. If the same era code is used in multiple calendars, then the calculations for year, month, and day in that era must be the same in all calendars in which it is used. For example, the `ethioaa` era is used in two calendar systems.
 
 **Note:** The `territories` attribute in the `calendar` element is deprecated. It was formerly used to indicate calendar preference by territory, but this is now given by the _[Calendar Preference Data](#Calendar_Preference_Data)_ below.
 

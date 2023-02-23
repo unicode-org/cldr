@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
@@ -167,6 +168,7 @@ public class FormattedFileWriter extends java.io.Writer {
     public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements)  {
         try {
             PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
+            System.err.println("Writing: " + Paths.get(targetdir, targetFileName));
             FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
         } catch (IOException e) {

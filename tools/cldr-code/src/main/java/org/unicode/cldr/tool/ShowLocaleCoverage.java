@@ -100,9 +100,8 @@ public class ShowLocaleCoverage {
             ;
 
     private static final String PROPERTIES_HEADER =
-        // Extra tabs are for github table formatting
         "# coverageLevels.txt\n"
-        + "# Copyright © 2022 Unicode, Inc.\n"
+        + "# Copyright © 2023 Unicode, Inc.\n"
         + "# CLDR data files are interpreted according to the\n"
         + "# LDML specification: http://unicode.org/reports/tr35/\n"
         + "# For terms of use, see http://www.unicode.org/copyright.html\n"
@@ -111,7 +110,6 @@ public class ShowLocaleCoverage {
         + "# https://cldr.unicode.org/index/cldr-spec/coverage-levels.\n"
         + "\n"
         ;
-
     private static final String TSV_MISSING_BASIC_HEADER = "#Locale\tProv.\tUnconf.\tMissing\tPath*";
     private static final String TSV_MISSING_COUNTS_HEADER = "#Locale\tTargetLevel\t№ Found\t№ Unconfirmed\t№ Missing";
 

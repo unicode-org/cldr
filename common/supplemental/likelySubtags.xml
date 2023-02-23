@@ -988,7 +988,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Hmong Njua; ?; Suriname } => { Hmong Njua; Lao; Suriname }-->
 		<likelySubtag from="hnj_TH" to="hnj_Laoo_TH"/>
 		<!--{ Hmong Njua; ?; Thailand } => { Hmong Njua; Lao; Thailand }-->
-		<likelySubtag from="hnj_US" to="hnj_Hmnp_US"/> <!-- manual update -->
+		<likelySubtag from="hnj_US" to="hnj_Hmnp_US"/>
+		<!--{ Hmong Njua US } => { Hmong Njua; Nyiakeng Puachue Hmong; United States }--> <!-- Manually re-added, revisit in CLDR-16424 -->
 		<likelySubtag from="hnj_VN" to="hnj_Laoo_VN"/>
 		<!--{ Hmong Njua; ?; Vietnam } => { Hmong Njua; Lao; Vietnam }-->
 		<likelySubtag from="hnj_Laoo" to="hnj_Laoo_LA"/>
@@ -2897,8 +2898,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Zaza; ?; ? } => { Zaza; Latin; Türkiye }-->
 		<likelySubtag from="und" to="en_Latn_US"/>
 		<!--{ ?; ?; ? } => { English; Latin; United States }-->
-		<likelySubtag from="und_001" to="en_Latn_US"/>
-		<!--{ ?; ?; world } => { English; Latin; United States }-->
 		<likelySubtag from="und_002" to="en_Latn_NG"/>
 		<!--{ ?; ?; Africa } => { English; Latin; Nigeria }-->
 		<likelySubtag from="und_003" to="en_Latn_US"/>
@@ -3435,10 +3434,10 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Chorasmian; ? } => { Chorasmian; Chorasmian; Uzbekistan }-->
 		<likelySubtag from="und_Copt" to="cop_Copt_EG"/>
 		<!--{ ?; Coptic; ? } => { Coptic; Coptic; Egypt }-->
-		<likelySubtag from="und_Cpmn" to="und_Cpmn_CY"/> <!-- TODO: manually re-added -->
- 		<!--{ ?; Cypro-Minoan; ? } => { ?; Cypro-Minoan; Cyprus }-->
-		<likelySubtag from="und_Cpmn_CY" to="und_Cpmn_CY"/>  <!-- TODO: manually re-added -->
- 		<!--{ ?; Cypro-Minoan; Cyprus } => { ?; Cypro-Minoan; Cyprus }-->
+		<likelySubtag from="und_Cpmn" to="und_Cpmn_CY"/>
+		<!--{ ?; Cypro-Minoan; ? } => { ?; Cypro-Minoan; Cyprus } Manually re-added, revisit in CLDR-16424 -->
+		<likelySubtag from="und_Cpmn_CY" to="und_Cpmn_CY"/>
+		<!--{ ?; Cypro-Minoan; Cyprus } => { ?; Cypro-Minoan; Cyprus } Manually re-added, revisit in CLDR-16424 -->
 		<likelySubtag from="und_Cprt" to="grc_Cprt_CY"/>
 		<!--{ ?; Cypriot; ? } => { Ancient Greek; Cypriot; Cyprus }-->
 		<likelySubtag from="und_Cyrl" to="ru_Cyrl_RU"/>

@@ -1,6 +1,5 @@
 package org.unicode.cldr.json;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -432,7 +431,7 @@ public class Ldml2JsonConverter {
 
             // discard draft before transforming
             final String pathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(path).replaceAll("");
-            final String fullPathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(fullPath).replaceAll("");            
+            final String fullPathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(fullPath).replaceAll("");
 
             final String pathNoXmlSpace = CLDRFile.XML_SPACE_PATTERN.matcher(pathNoDraft).replaceAll("");
             final String fullPathNoXmlSpace = CLDRFile.XML_SPACE_PATTERN.matcher(fullPathNoDraft).replaceAll("");
@@ -1119,32 +1118,23 @@ public class Ldml2JsonConverter {
 
     public void writeCoverageLevels(String outputDir) throws IOException {
         final Splitter SEMICOLON = Splitter.on(';').trimResults();
-        try (BufferedReader r = FileUtilities.openUTF8Reader(CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt");
-            PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json");) {
-                final Map<String, String> covlocs = new TreeMap<>();
-                System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
-                String line;
-                int no = 0;
-                while ((line = r.readLine()) != null) {
-                    no++;
-                    line = line.trim();
-                    if(line.startsWith("#") || line.isBlank()) {
-                        continue;
-                    }
-                    final List<String> l = SEMICOLON.splitToList(line);
-                    if (l.size() != 2) {
-                        throw new IllegalArgumentException("coverageLevels.txt:"+no+": expected 2 fields, got " + l.size());
-                    }
-                    final String uloc = l.get(0);
-                    final String level = l.get(1);
-                    final String bcp47loc = unicodeLocaleToString(uloc);
-                    if (covlocs.put(bcp47loc, level) != null) {
-                        throw new IllegalArgumentException("coverageLevels.txt:"+no+": duplicate locale " + bcp47loc);
-                    }
+        try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json");) {
+            final Map<String, String> covlocs = new TreeMap<>();
+            System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
+            for (final Map.Entry<String, org.unicode.cldr.util.Level> e : CalculatedCoverageLevels.getInstance().getLevels().entrySet()) {
+                final String uloc = e.getKey();
+                final String level = e.getValue().name().toLowerCase();
+                final String bcp47loc = unicodeLocaleToString(uloc);
+                if (covlocs.put(bcp47loc, level) != null) {
+                    throw new IllegalArgumentException("coverageLevels.txt: duplicate locale " + bcp47loc);
                 }
-                JsonObject obj = new JsonObject();
-                obj.add("coverageLevels", gson.toJsonTree(covlocs));
-                outf.println(gson.toJson(obj));
+            }
+            if( covlocs.put("und", "modern") != null ) {
+                throw new IllegalArgumentException("'und' was already present in coverageLevels, see CLDR-16420 and adjust tool");
+            }
+            JsonObject obj = new JsonObject();
+            obj.add("coverageLevels", gson.toJsonTree(covlocs));
+            outf.println(gson.toJson(obj));
         }
     }
 
@@ -1716,7 +1706,7 @@ public class Ldml2JsonConverter {
                 }
                 return new Pair<>(dirName + "/" + filename, totalForThisFile);
             })
-            .filter(p -> p.getSecond() == 0)
+            .filter(p -> p.getSecond() == 0) // filter out only files which produced no output
             .map(p -> p.getFirst())
             .toArray();
         System.out.println(progressPrefix(total, total) + " Completed parallel process of " + total + " file(s)");

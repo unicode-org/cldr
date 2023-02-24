@@ -170,3 +170,6 @@
 < (.*/personNames)/(sampleName)\[@item="([^"]*)"\]/nameField\[@type="([^"]*)"\]$
 > $1/$2/$3/$4
 
+# ParentLocales
+< (.*/parentLocales)\[@component="([^"]*)"\]/(parentLocale)(.*)$
+> $1/$2$4

@@ -43,6 +43,7 @@ import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.util.NoUnit;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
@@ -60,7 +61,7 @@ public class Ldml2JsonConverter {
     enum RunType {
         all,
         main,
-        supplemental(false, false), // aka 'core'
+        supplemental(false, false), // aka 'cldr-core'
         segments, rbnf(false, true), annotations, annotationsDerived, bcp47(false, false);
 
         private final boolean isTiered;
@@ -145,7 +146,8 @@ public class Ldml2JsonConverter {
                 .add("identity", 'i', "(true|false)", "true",
                     "Whether to copy the identity info into all sections containing data")
                 .add("konfig", 'k', ".*", null, "LDML to JSON configuration file")
-                .add("pkgversion",  'V', ".*", getDefaultVersion(), "Version to be used in writing package files");
+                .add("pkgversion",  'V', ".*", getDefaultVersion(), "Version to be used in writing package files")
+                .add("Modern", 'M', "(true|false)", "true", "Whether to include the -modern tier");
 
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
@@ -185,7 +187,8 @@ public class Ldml2JsonConverter {
             options.get("konfig").getValue(),
             options.get("pkgversion").getValue(),
             Boolean.parseBoolean(options.get("bcp47").getValue()),
-            Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue())
+            Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue()),
+            Boolean.parseBoolean(options.get("Modern").getValue())
         );
 
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
@@ -225,12 +228,14 @@ public class Ldml2JsonConverter {
     private Set<String> packages;
     final private String pkgVersion;
     final private boolean strictBcp47;
+    final private boolean writeModernPackage;
     final private boolean skipBcp47LocalesWithSubtags;
     private LdmlConfigFileReader configFileReader;
 
     public Ldml2JsonConverter(String cldrDir, String outputDir, String runType, boolean fullNumbers, boolean resolve, String coverage, String match,
         boolean writePackages, String configFile, String pkgVersion,
-        boolean strictBcp47, boolean skipBcp47LocalesWithSubtags) {
+        boolean strictBcp47, boolean skipBcp47LocalesWithSubtags, boolean writeModernPackage) {
+        this.writeModernPackage = writeModernPackage;
         this.strictBcp47 = strictBcp47;
         this.skipBcp47LocalesWithSubtags = strictBcp47 && skipBcp47LocalesWithSubtags;
         this.cldrCommonDir = cldrDir;
@@ -558,7 +563,7 @@ public class Ldml2JsonConverter {
                             continue;
                         }
                         final boolean isModernTier = localeIsModernTier(filename);
-                        if (isModernTier) {
+                        if (isModernTier && writeModernPackage) {
                             tier = MODERN_TIER_SUFFIX;
                             if (type == RunType.main) {
                                 avl.modern.add(filenameAsLangTag);
@@ -597,9 +602,9 @@ public class Ldml2JsonConverter {
                 List<String> outputDirs = new ArrayList<>();
                 outputDirs.add(outputDirname.toString());
                 if (writePackages && tier.equals(MODERN_TIER_SUFFIX) && js.packageName != null) {
-                    // if it is in 'modern', add it to 'full' also.
+                    // if it is in 'modern', add it to 'full' and core also.
                     outputDirs.add(outputDirname.toString().replaceFirst(MODERN_TIER_SUFFIX, FULL_TIER_SUFFIX));
-                    // Also need to make sure that the full package is added
+                    // Also need to make sure that the full and core package is added
                     packages.add(CLDR_PKG_PREFIX + js.packageName + FULL_TIER_SUFFIX);
                 }
 
@@ -745,12 +750,15 @@ public class Ldml2JsonConverter {
     }
 
     private boolean localeIsModernTier(String filename) {
-        boolean isModernTier;
-        {
-            final Level localeCoverageLevel = sc.getHighestLocaleCoverageLevel("Cldr", filename);
-            isModernTier = (localeCoverageLevel.getLevel() >= Level.MODERN.getLevel()) || filename.equals(LocaleNames.ROOT) || filename.equals(LocaleNames.UND);
-        }
-        return isModernTier;
+        Level lev = CalculatedCoverageLevels.getInstance().getEffectiveCoverageLevel(filename);
+        if (lev == null) return false;
+        return lev.isAtLeast(Level.MODERN);
+    }
+
+    private boolean localeIsBasicTier(String filename) {
+        Level lev = CalculatedCoverageLevels.getInstance().getEffectiveCoverageLevel(filename);
+        if (lev == null) return false;
+        return lev.isAtLeast(Level.BASIC);
     }
 
     /**
@@ -964,11 +972,10 @@ public class Ldml2JsonConverter {
             outf.println(configFileReader.getPackageDescriptions().get(basePackageName));
             outf.println();
             if (packageName.endsWith(FULL_TIER_SUFFIX)) {
-                outf.println("This package contains the complete set of locales, including what is in the `" +
-                CLDR_PKG_PREFIX + basePackageName + MODERN_TIER_SUFFIX + "` package.");
+                outf.println("This package contains all locales.");
                 outf.println();
             } else if (packageName.endsWith(MODERN_TIER_SUFFIX)) {
-                outf.println("This package contains the set of locales listed as modern coverage. See also the `" +
+                outf.println("This package contains only the set of locales listed as modern coverage. See also the `" +
                 CLDR_PKG_PREFIX + basePackageName + FULL_TIER_SUFFIX + "` package.");
                 outf.println();
             }
@@ -1046,7 +1053,7 @@ public class Ldml2JsonConverter {
         final String basePackageName = getBasePackageName(packageName);
         String description = configFileReader.getPackageDescriptions().get(basePackageName);
         if (packageName.endsWith(FULL_TIER_SUFFIX)) {
-            description = description + " (complete)";
+            description = description + " (all locales)";
         } else if (packageName.endsWith(MODERN_TIER_SUFFIX)) {
             description = description + " (modern coverage locales)";
         }
@@ -1121,7 +1128,8 @@ public class Ldml2JsonConverter {
         try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json");) {
             final Map<String, String> covlocs = new TreeMap<>();
             System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
-            for (final Map.Entry<String, org.unicode.cldr.util.Level> e : CalculatedCoverageLevels.getInstance().getLevels().entrySet()) {
+            CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
+            for (final Map.Entry<String, org.unicode.cldr.util.Level> e : ccl.getLevels().entrySet()) {
                 final String uloc = e.getKey();
                 final String level = e.getValue().name().toLowerCase();
                 final String bcp47loc = unicodeLocaleToString(uloc);
@@ -1129,11 +1137,20 @@ public class Ldml2JsonConverter {
                     throw new IllegalArgumentException("coverageLevels.txt: duplicate locale " + bcp47loc);
                 }
             }
-            if( covlocs.put("und", "modern") != null ) {
-                throw new IllegalArgumentException("'und' was already present in coverageLevels, see CLDR-16420 and adjust tool");
-            }
+            final Map<String, String> effectiveCovlocs = new TreeMap<>();
+            avl.full.forEach(loc -> {
+                final String uloc = ULocale.forLanguageTag(loc).toString();
+                final Level lev = ccl.getEffectiveCoverageLevel(uloc);
+                if (lev != null) {
+                    effectiveCovlocs.put(loc, lev.name().toLowerCase());
+                }
+            });
             JsonObject obj = new JsonObject();
+            // exactly what is in CLDR .txt file
             obj.add("coverageLevels", gson.toJsonTree(covlocs));
+
+            // resolved, including all available locales
+            obj.add("effectiveCoverageLevels", gson.toJsonTree(effectiveCovlocs));
             outf.println(gson.toJson(obj));
         }
     }
@@ -1203,7 +1220,7 @@ public class Ldml2JsonConverter {
             } else {
                 {
                     JsonObject packageEntry = new JsonObject();
-                    packageEntry.addProperty("description", e.getValue() + " (full)");
+                    packageEntry.addProperty("description", e.getValue() + " (basic)");
                     packageEntry.addProperty("tier", "full");
                     packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName + FULL_TIER_SUFFIX);
                     packages.add(packageEntry);
@@ -1211,7 +1228,15 @@ public class Ldml2JsonConverter {
                 }
                 {
                     JsonObject packageEntry = new JsonObject();
-                    packageEntry.addProperty("description", e.getValue() + " (modern only)");
+                    packageEntry.addProperty("description", e.getValue() + " (basic)");
+                    packageEntry.addProperty("tier", "full");
+                    packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName + FULL_TIER_SUFFIX);
+                    packages.add(packageEntry);
+                    pkgsToDesc.put(packageEntry.get("name").getAsString(), packageEntry.get("description").getAsString());
+                }
+                {
+                    JsonObject packageEntry = new JsonObject();
+                    packageEntry.addProperty("description", e.getValue() + " (modern)");
                     packageEntry.addProperty("tier", "modern");
                     packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName + MODERN_TIER_SUFFIX);
                     packages.add(packageEntry);

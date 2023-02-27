@@ -841,8 +841,8 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ol>
 </li>
-</ol><p>For example, here is a parent locale lookup chain: </p><pre><code>de_Latn_de ⇒ de_Latn ⇒ de_de ⇒ de ⇒ und
-</code></pre><p>In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:</p><pre><code>de_Latin_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
+</ol><p>For example, here is a parent locale lookup chain: </p><pre><code>de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
+</code></pre><p>In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:</p><pre><code>de_Latn_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
 </code></pre><p>This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements.</p><p>For example, the data for a particular locale might look like the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">nameOrderLocales</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"surnameFirst"</span>&gt;</span>zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP<span class="hljs-tag">&lt;/<span class="hljs-name">nameOrderLocales</span>&gt;</span>
 </code></pre><p>The nameOrderLocales will match any locale with a zh or ja <a href="https://unicode.org/reports/tr35/#unicode_language_subtag">unicode_language_subtag</a> and any locale with a CN, TW, SG, HK MO, HU, or JP <a href="https://unicode.org/reports/tr35/#unicode_region_subtag">unicode_region_subtag</a>.</p><p>Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.</p><table>
 <thead>

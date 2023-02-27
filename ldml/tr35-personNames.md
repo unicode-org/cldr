@@ -520,11 +520,11 @@ A PersonName object’s fields are used to derive an order, as follows:
 
 For example, here is a parent locale lookup chain: 
 
-    de_Latn_de ⇒ de_Latn ⇒ de_de ⇒ de ⇒ und
+    de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
 
 In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:
 
-    de_Latin_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
+    de_Latn_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
 
 This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements.
 

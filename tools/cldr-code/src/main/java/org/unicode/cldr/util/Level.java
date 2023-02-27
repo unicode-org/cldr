@@ -160,4 +160,14 @@ public enum Level {
         }
         return result;
     }
+
+    /**
+     * Returns true if this is at least the other level.
+     * Example:  lev.isAtLeast(Level.MODERN)
+     * @param other
+     * @return
+     */
+    public boolean isAtLeast(Level other) {
+        return getLevel() >= other.getLevel();
+    }
 }

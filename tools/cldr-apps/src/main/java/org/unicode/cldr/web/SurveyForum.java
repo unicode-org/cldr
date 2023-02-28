@@ -272,13 +272,14 @@ public class SurveyForum {
      * @return true or false
      */
     private boolean userCanUsePostType(PostInfo postInfo) {
-        if (SurveyMain.isPhaseReadonly()) {
+        User user = postInfo.getUser();
+        boolean isTC = UserRegistry.userIsTC(user);
+        if (!isTC && SurveyMain.isPhaseReadonly()) {
             return false;
         }
         int replyTo = postInfo.getReplyTo();
         PostType postType = postInfo.getType();
-        User user = postInfo.getUser();
-        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !UserRegistry.userIsTC(user)) {
+        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !isTC) {
             return false; // only TC can initiate Discuss; others can reply
         }
         if (postType != PostType.CLOSE) {
@@ -290,7 +291,7 @@ public class SurveyForum {
         if (getUserId(postInfo.getRoot()) == user.id) {
             return true;
         }
-        return UserRegistry.userIsTC(user);
+        return isTC;
     }
 
     /**

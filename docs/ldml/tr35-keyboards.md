@@ -1211,9 +1211,31 @@ _Attribute_ `id` (required for `touch`)
 
 _Attribute:_ `modifier` (required for `hardware`)
 
-> This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`. To indicate that no modifiers apply, the reserved name of "none" can be used. For the purposes of fallback vkey mapping, the following modifier components are reserved: "shift", "ctrl", "alt", "caps", "cmd", "opt" along with the "L" and "R" optional single suffixes for the first 3 in that list.
+> This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
+>
+> To indicate that no modifiers apply, the reserved name of `none` can be used.
+> The following modifier components can be used, separated by spaces.
+> Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
+> whereas `alt` indicates _either_ left or right alt key.
+> `shift` also indicates either shift key.
+>
+> - `none` (no modifier, may not be combined with others)
+> - `alt`
+> - `altL`
+> - `altR`
+> - `caps`
+> - `ctrl`
+> - `ctrlL`
+> - `ctrlR`
+> - `shift`
+>
+> Note that `alt` is sometimes referred to as _opt_ or _option_.
+>
+> Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
+>
+> Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
 
-For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+> For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 
 * * *
 

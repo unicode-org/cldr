@@ -7,15 +7,14 @@
 -->
 <!--
   Important Note:
-
+  
   The CLDR Keyboard Workgroup is currently developing major changes to the
   CLDR keyboard specification.
-
+  
   This DTD is a work in progress.
-
-Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
+  
+  Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
 -->
-
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="keyboard">
     <xs:complexType>
@@ -317,7 +316,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NMTOKEN"/>
-      <xs:attribute name="modifier" type="xs:NMTOKEN"/>
+      <xs:attribute name="modifier" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:any -->

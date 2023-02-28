@@ -6,7 +6,7 @@
   "scripts": {
     "build-test": "webpack --config webpack-test.config.js",
     "test": "npm run nonbrowser-test && npm run browser-test",
-    "nonbrowser-test": "mocha --require esm --reporter spec test/nonbrowser/test-*.js",
+    "nonbrowser-test": "mocha --reporter spec test/nonbrowser/test-*.mjs",
     "browser-test": "npm run build-test && mocha-chrome test/Test.html --chrome-launcher.connectionPollInterval=2000 --chrome-launcher.maxConnectionRetries=300",
     "lint": "exit 0",
     "build": "webpack",
@@ -29,8 +29,7 @@
     "@vue/compiler-sfc": "^3.0.7",
     "chai": "^4.3.6",
     "css-loader": "^5.1.1",
-    "esm": "^3.2.25",
-    "mocha": "^8.4.0",
+    "mocha": "^10.0.0",
     "mocha-chrome": "^2.2.0",
     "style-loader": "^2.0.0",
     "vue-loader": "^16.1.2",

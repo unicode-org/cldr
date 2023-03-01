@@ -14,11 +14,13 @@ This DTD is a work in progress.
 Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT keyboardTest ( info, repertoire*, tests*, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST keyboardTest conformsTo (techpreview) #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT info EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST info keyboard CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST info author CDATA #IMPLIED >
@@ -26,6 +28,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST info name NMTOKEN #REQUIRED >
 
 <!ELEMENT repertoire EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST repertoire chars CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -34,12 +37,15 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST repertoire name NMTOKEN #REQUIRED >
 
 <!ELEMENT tests ( test+, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST tests name NMTOKEN #REQUIRED >
 
 <!ELEMENT test ( startContext?, ( keystroke | emit | backspace | check )*, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST test name NMTOKEN #REQUIRED >
 
 <!ELEMENT startContext EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST startContext to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -47,6 +53,7 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT keystroke EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST keystroke key NMTOKEN #REQUIRED >
     <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
     <!--@VALUE-->
@@ -62,6 +69,7 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT emit EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST emit to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -69,12 +77,15 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT backspace EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT check EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST check result CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT special ANY >
+    <!--@TECHPREVIEW-->

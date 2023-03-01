@@ -7,12 +7,12 @@
 -->
 <!--
   Important Note:
-
+  
   The CLDR Keyboard Workgroup is currently developing major changes to the
   CLDR keyboard specification.
-
+  
   This DTD is a work in progress.
-
+  
   Please see CLDR-15034 for the latest information.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
@@ -33,6 +33,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @METADATA -->
   <xs:element name="info">
@@ -42,6 +43,7 @@
       <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @VALUE -->
   <!-- @METADATA -->
   <xs:element name="repertoire">
@@ -63,6 +65,7 @@
       <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @VALUE -->
@@ -75,6 +78,7 @@
       <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="test">
     <xs:complexType>
       <xs:sequence>
@@ -90,11 +94,13 @@
       <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="startContext">
     <xs:complexType>
       <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
@@ -107,6 +113,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <!-- @VALUE -->
   <!-- @MATCH:any -->
@@ -121,6 +128,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
@@ -128,12 +136,14 @@
     <xs:complexType/>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <xs:element name="check">
     <xs:complexType>
       <xs:attribute name="result" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
@@ -144,3 +154,4 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
+<!-- @TECHPREVIEW -->

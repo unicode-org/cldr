@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,6 +13,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="provisional">Andorra la Vella</subdivision>
 			<subdivision type="aeaj" draft="provisional">Ajman</subdivision>
 			<subdivision type="aefu" draft="provisional">Fujairah</subdivision>
 			<subdivision type="aerk" draft="provisional">Ras al Khaimah</subdivision>
@@ -136,20 +137,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="deth" draft="provisional">Thuringia</subdivision>
 			<subdivision type="djdj" draft="provisional">Ìlú Djibouti</subdivision>
 			<subdivision type="esce" draft="provisional">Ceuta</subdivision>
+			<subdivision type="escn" draft="provisional">Àwɔn Erékùshù Kánárì</subdivision>
 			<subdivision type="esml" draft="provisional">Melilla</subdivision>
 			<subdivision type="etaa" draft="provisional">Addis Ababa</subdivision>
 			<subdivision type="fjr" draft="provisional">Rotuma</subdivision>
 			<subdivision type="fr74" draft="provisional">Haute-Savoie</subdivision>
-			<subdivision type="fr75" draft="provisional">Parisi</subdivision>
+			<subdivision type="fr75c" draft="provisional">Parisi</subdivision>
+			<subdivision type="fr971" draft="provisional">Guadeloupe</subdivision>
 			<subdivision type="gbabd" draft="provisional">Aberdeenshire</subdivision>
 			<subdivision type="gbabe" draft="provisional">Aberdeen</subdivision>
 			<subdivision type="gbbst" draft="provisional">Bristol</subdivision>
+			<subdivision type="gbeng" draft="provisional">Ilɛ̀gɛ̀ɛ́sì</subdivision>
 			<subdivision type="gbgbn" draft="provisional">Erékùshù Brítánì Olókìkí</subdivision>
 			<subdivision type="gbglg" draft="provisional">Glasgow</subdivision>
 			<subdivision type="gblnd" draft="provisional">Lɔndɔnu</subdivision>
 			<subdivision type="gbnir" draft="provisional">Írɛ́lándì Apáàríwá</subdivision>
+			<subdivision type="gbsct" draft="provisional">Skɔ́tlándì</subdivision>
 			<subdivision type="gbsry" draft="provisional">Surrey</subdivision>
 			<subdivision type="gbukm" draft="provisional">Ilɛ̀ɔba Ashɔ̀kan</subdivision>
+			<subdivision type="gbwls" draft="provisional">Wélsì</subdivision>
 			<subdivision type="geaj" draft="provisional">Adjara</subdivision>
 			<subdivision type="getb" draft="provisional">Tbilisi</subdivision>
 			<subdivision type="ghah" draft="provisional">Agbègbè Ashanti</subdivision>
@@ -233,6 +239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngby" draft="provisional">Ìpínlɛ̀ Bàyélsà</subdivision>
 			<subdivision type="ngcr" draft="provisional">Ìpínlɛ̀ Cross River</subdivision>
 			<subdivision type="ngde" draft="provisional">Ìpínlɛ̀ Dɛ́ltà</subdivision>
+			<subdivision type="ngeb" draft="provisional">Ebonyi State</subdivision>
 			<subdivision type="nged" draft="provisional">Ìpínlɛ̀ Ɛdó</subdivision>
 			<subdivision type="ngek" draft="provisional">Ìpínlɛ̀ Èkìtì</subdivision>
 			<subdivision type="ngen" draft="provisional">Ìpínlɛ̀ Ɛnúgu</subdivision>
@@ -251,6 +258,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngni" draft="provisional">Ìpínlɛ̀ Niger</subdivision>
 			<subdivision type="ngog" draft="provisional">Ìpínlɛ̀ Ògùn</subdivision>
 			<subdivision type="ngon" draft="provisional">Ìpínlɛ̀ Òndó</subdivision>
+			<subdivision type="ngos" draft="provisional">Osun State</subdivision>
+			<subdivision type="ngoy" draft="provisional">Oyo State</subdivision>
 			<subdivision type="ngpl" draft="provisional">Ìpínlɛ̀ Plateau</subdivision>
 			<subdivision type="ngri" draft="provisional">Ìpínlɛ̀ Rivers</subdivision>
 			<subdivision type="ngso" draft="provisional">Ìpínlɛ̀ Sókótó</subdivision>
@@ -261,6 +270,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no03" draft="provisional">Oslo</subdivision>
 			<subdivision type="no21" draft="provisional">Svalbard</subdivision>
 			<subdivision type="no22" draft="provisional">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="nzcit" draft="provisional">Àwɔn Erékùshù Chatham</subdivision>
 			<subdivision type="pgncd" draft="provisional">Port Moresby</subdivision>
 			<subdivision type="pksd" draft="provisional">Sindh</subdivision>
 			<subdivision type="pt20" draft="provisional">Àwɔn Azore</subdivision>
@@ -282,6 +293,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th10" draft="provisional">Bangkok</subdivision>
 			<subdivision type="tjdu" draft="provisional">Dushanbe</subdivision>
 			<subdivision type="tms" draft="provisional">Ashgabat</subdivision>
+			<subdivision type="tr68" draft="provisional">Çetin</subdivision>
 			<subdivision type="ttpos" draft="provisional">Port of Spain</subdivision>
 			<subdivision type="ttsfo" draft="provisional">San Fernando</subdivision>
 			<subdivision type="tttob" draft="provisional">Tòbágò</subdivision>
@@ -376,11 +388,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yesa" draft="provisional">Sana’a</subdivision>
 			<subdivision type="zaec" draft="provisional">Eastern Cape</subdivision>
 			<subdivision type="zafs" draft="provisional">Free State</subdivision>
-			<subdivision type="zagt" draft="provisional">Gauteng</subdivision>
+			<subdivision type="zagp" draft="provisional">Gauteng</subdivision>
+			<subdivision type="zakzn" draft="provisional">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="provisional">Limpopo</subdivision>
 			<subdivision type="zamp" draft="provisional">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="provisional">Northern Cape</subdivision>
-			<subdivision type="zanl" draft="provisional">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="provisional">Àríwá-Ìwɔòrùn</subdivision>
 			<subdivision type="zawc" draft="provisional">Western Cape</subdivision>
 		</subdivisions>

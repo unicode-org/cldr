@@ -4,30 +4,8 @@ import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
 import java.io.File;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Deque;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -675,8 +653,8 @@ public class SupplementalDataInfo {
 
         /**
          * @param metazone
-         * @param from
-         * @param to
+         * @param fromString
+         * @param toString
          */
         public MetaZoneRange(String metazone, String fromString, String toString) {
             super();
@@ -1752,6 +1730,11 @@ public class SupplementalDataInfo {
         }
 
         private void handleParentLocales(XPathParts parts) {
+            if (parts.getAttributeValue(1, "component") != null) {
+                // CLDR-16253 added component-specific parents, which we ignore for now.
+                // TODO(CLDR-16361): Figure out how to handle these in CLDR itself.
+                return;
+            }
             String parent = parts.getAttributeValue(-1, "parent");
             String locales = parts.getAttributeValue(-1, "locales");
             String[] pl = locales.split(" ");
@@ -2194,7 +2177,6 @@ public class SupplementalDataInfo {
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
      *
      * @param language
-     * @param output
      * @return
      */
     public PopulationData getLanguagePopulationData(String language) {
@@ -2399,7 +2381,7 @@ public class SupplementalDataInfo {
      * Given a default locale (such as 'wo_Arab_SN') return the base locale (such as 'wo'), or null if the input wasn't
      * a default conetnt locale.
      *
-     * @param baseLocale
+     * @param dcLocale
      * @return
      */
     public CLDRLocale getBaseFromDefaultContent(CLDRLocale dcLocale) {
@@ -2692,7 +2674,7 @@ public class SupplementalDataInfo {
         org.unicode.cldr.util.Factory factory = CLDRConfig.getInstance().getCldrFactory();
         for (CLDRLocale locale : factory.getAvailableCLDRLocales()) {
             String language = locale.getLanguage();
-            if (language.length() == 0 || language.equals("root")) {
+            if (language.length() == 0 || language.equals(LocaleNames.ROOT)) {
                 continue;
             }
             BasicLanguageData scriptsAndRegions = langToScriptsRegions.get(language);
@@ -2773,14 +2755,19 @@ public class SupplementalDataInfo {
 
     private Set<String> getTargetTerritories(String language) {
         Set<String> targetTerritories = new HashSet<>();
+        Set<String> secondaryTerritories = new HashSet<>();
         try {
             Set<BasicLanguageData> langData = getBasicLanguageData(language);
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while (ldi.hasNext()) {
                 BasicLanguageData bl = ldi.next();
                 Set<String> addTerritories = bl.territories;
-                if (addTerritories != null && bl.getType() != BasicLanguageData.Type.secondary) {
-                    targetTerritories.addAll(addTerritories);
+                if (addTerritories != null) {
+                    if (bl.getType() == BasicLanguageData.Type.secondary) {
+                        secondaryTerritories.addAll(addTerritories);
+                    } else {
+                        targetTerritories.addAll(addTerritories);
+                    }
                 }
             }
             Map<String, BasicLanguageData> languageToScriptsAndRegions = getLanguageToScriptsAndRegions();
@@ -2794,9 +2781,25 @@ public class SupplementalDataInfo {
             // fall through
         }
         if (targetTerritories.size() == 0) {
-            targetTerritories.add("ZZ");
+            getFallbackTargetTerritories(language, targetTerritories, secondaryTerritories);
         }
         return targetTerritories;
+    }
+
+    private void getFallbackTargetTerritories(String language, Set<String> targetTerritories, Set<String> secondaryTerritories) {
+        String region = null;
+        String maximized = new LikelySubtags().maximize(language);
+        if (maximized != null) {
+            CLDRLocale cldrLocale = CLDRLocale.getInstance(maximized);
+            region = cldrLocale.getCountry();
+        }
+        if (region != null) {
+            targetTerritories.add(region);
+        } else if (secondaryTerritories.size() > 0) {
+            targetTerritories.addAll(secondaryTerritories);
+        } else {
+            targetTerritories.add("ZZ");
+        }
     }
 
     private Set<String> getCalendars(Set<String> territories) {
@@ -2930,7 +2933,7 @@ public class SupplementalDataInfo {
                     return VoteResolver.LOWER_BAR;
                 }
                 final VoteResolver.Level l = VoteResolver.Level.valueOf(votesStr);
-                return l.getVotes(Organization.guest); // use non-TC vote count
+                return l.getVotes(Organization.unaffiliated); // use non-TC vote count
             } else {
                 return Integer.parseInt(votesStr);
             }
@@ -3033,7 +3036,7 @@ public class SupplementalDataInfo {
      * is only a rough proxy for weight of each language in the economy of the
      * territory.
      *
-     * @param languageId
+     * @param targetLanguage
      * @return
      */
     public double getApproximateEconomicWeight(String targetLanguage) {
@@ -3113,6 +3116,33 @@ public class SupplementalDataInfo {
         return allMetazones;
     }
 
+    /**
+     * Is the given metazone outdated?
+     *
+     * @param metazone the metazone such as "Liberia"
+     * @param tzid the timezone id such as "Africa/Monrovia"
+     * @param timeInMillis the time in milliseconds since 1970
+     * @return true if the metazone is outdated
+     */
+    public boolean metazoneIsOutdated(String metazone, String tzid, long timeInMillis) {
+        final MetaZoneRange range = getMetaZoneRange(tzid, timeInMillis);
+        // For example, for metazone = "Liberia", if range.metazone = "GMT",
+        // that implies "GMT" is current and "Liberia" is outdated
+        if (range == null) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range is null");
+            }
+            return true;
+        }
+        if (!metazone.equals(range.metazone)) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range.metazone = " + range.metazone);
+            }
+            return true;
+        }
+        return false;
+    }
+
     public Map<String, String> getLikelySubtags() {
         return likelySubtags;
     }
@@ -3178,7 +3208,7 @@ public class SupplementalDataInfo {
             // System.out.println(type + ", " + locales + ", " + path);
         }
         if (path.size() != 4) {
-            if (locales.equals("root")) return; // we allow root to be empty
+            if (locales.equals(LocaleNames.ROOT)) return; // we allow root to be empty
             throw new IllegalArgumentException(locales + " must have dayPeriodRule elements");
         }
         DayPeriod dayPeriod;
@@ -4003,7 +4033,7 @@ public class SupplementalDataInfo {
     public PluralInfo getPlurals(PluralType type, String locale, boolean allowRoot) {
         Map<String, PluralInfo> infoMap = localeToPluralInfo2.get(type);
         while (locale != null) {
-            if (!allowRoot && locale.equals("root")) {
+            if (!allowRoot && locale.equals(LocaleNames.ROOT)) {
                 break;
             }
             PluralInfo result = infoMap.get(locale);
@@ -4074,7 +4104,6 @@ public class SupplementalDataInfo {
     /**
      * Returns ordered set of currency data information
      *
-     * @param territory
      * @return
      */
     public Set<String> getCurrencyTerritories() {
@@ -4118,7 +4147,7 @@ public class SupplementalDataInfo {
      * CLDRLocale. The default currency is the first one listed which is legal
      * tender at the present moment.
      *
-     * @param territory
+     * @param loc
      * @return
      */
     public String getDefaultCurrency(CLDRLocale loc) {
@@ -4351,7 +4380,7 @@ public class SupplementalDataInfo {
                 if (nextParent == null) {
                     throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for "
                         + child);
-                } else if (nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
+                } else if (nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance(LocaleNames.ROOT)) {
                     throw new InternalError(
                         "SupplementalDataInfo.defaultContentToChild(): Parent is root for default content locale "
                             + child);
@@ -4465,7 +4494,7 @@ public class SupplementalDataInfo {
         Set<String> temp = new HashSet<>();
         for (Entry<String, String> entry : likely.entrySet()) {
             String source = entry.getKey();
-            if (source.startsWith("und")) {
+            if (source.startsWith(LocaleNames.UND)) {
                 continue;
             }
             for (String s : getCombinations(source, ltp, likely, temp)) {
@@ -4679,7 +4708,7 @@ public class SupplementalDataInfo {
 
     /**
      * Grammar info for locales, with inheritance
-     * @param seedOnly
+     * @param locale
      * @return
      */
     public GrammarInfo getGrammarInfo(String locale) {

@@ -40,6 +40,6 @@ SPDX-License-Identifier: Unicode-DFS-2016
 
 ### Copyright
 
-Copyright &copy; 1991-2022 Unicode, Inc.
+Copyright &copy; 1991-2023 Unicode, Inc.
 All rights reserved.
 [Terms of use](https://www.unicode.org/copyright.html)

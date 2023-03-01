@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const marked = require("marked");
+const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");

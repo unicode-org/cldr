@@ -19,6 +19,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.MatchValue;
@@ -313,8 +314,12 @@ public class TestDtdData extends TestFmwk {
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
                     boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
-                    assertEquals("isDistinguished " + type
-                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew);
+                    if (!assertEquals("isDistinguished " + type
+                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew)) {
+                        // for debugging
+                        dtdData.isDistinguishing(element.name, attribute.name);
+                        isDistinguishingOld(type, element.name, attribute.name);
+                    }
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
                     assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
@@ -513,7 +518,7 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("matchVariable") && attribute.equals("id"))
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
-                || attribute.equals("code")
+                || attribute.equals("code") && elementName.equals("telephoneCountryCode")
                 || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone")
                     && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
                 || attribute.equals("id") && elementName.equals("variable")
@@ -594,6 +599,8 @@ public class TestDtdData extends TestFmwk {
                 && attribute.equals("to")
                 || elementName.equals("currency")
                 && attribute.equals("iso4217")
+                || elementName.equals("parentLocales")
+                && attribute.equals("component")
                 || (elementName.equals("parentLocale") || elementName.equals("languageGroup"))
                 && attribute.equals("parent")
                 || elementName.equals("currencyCodes")
@@ -730,5 +737,46 @@ public class TestDtdData extends TestFmwk {
             final boolean actual = matcher.is(toMatch);
             assertEquals(Arrays.asList(test).toString(), expectedValue, actual);
         }
+    }
+
+    public void testGetAltMatch() {
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        String[][] tests = {
+            /* Example
+            <!ELEMENT script ( #PCDATA ) >
+            <!ATTLIST script alt NMTOKENS #IMPLIED >
+                <!--@MATCH:literal/secondary, short, stand-alone, variant-->
+             */
+            {"script", "alt", "secondary", "short", "stand-alone", "variant"},
+            /* Example
+            <!ELEMENT languages ( alias | ( language | special )* ) >
+             <!ATTLIST languages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+             */
+            {"languages", "draft", "approved", "contributed", "provisional", "unconfirmed", "true", "false"},
+        };
+        for (String[] test : tests) {
+            Element element = dtdData.getElementFromName().get(test[0]);
+            Attribute attribute = element.getAttributeNamed(test[1]);
+            Set<String> expected = new HashSet<>(Arrays.asList(test).subList(2, test.length));
+            assertEquals("Match items for «" + test[0] + "@" + test[1] + "»",
+                expected,
+                attribute.getMatchLiterals());
+        }
+    }
+
+    public void testEmptyPcdata() {
+        String[][] tests = {
+            {"//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]", "any"},
+            {"//ldml/personNames/foreignSpaceReplacement", "any"},
+            {"//ldml/personNames/initialPattern[@type=\"initial\"]", "nonempty"},
+            };
+        for (String[] test : tests) {
+            String path = test[0];
+            ValueConstraint expected = ValueConstraint.valueOf(test[1]);
+            ValueConstraint actual = DtdData.getValueConstraint(path);
+            ValueConstraint check = DtdData.Element.ValueConstraint.nonempty;
+            assertEquals(path, expected, actual);
+        }
+
     }
 }

@@ -20,9 +20,10 @@ import com.ibm.icu.util.VersionInfo;
 /**
  * Enums that should exactly match what is in cldr-archive; eg, v2_0_1 means that there is a folder "cldr-2.0.1"
  * @author markdavis
+ * @see CheckoutArchive for a toool to automatically populate the cldr-archive
  *
  */
-// TODO compute the VersionInfo for each at creation time, and stash as field.
+// TODO merge with all other copies of the CLDR version and replace with supplemental metadata, CLDR-9149
 public enum CldrVersion {
     unknown,
     v1_1,
@@ -63,6 +64,7 @@ public enum CldrVersion {
     v39_0,
     v40_0,
     v41_0,
+    v42_0,
     baseline;
 
     private final String baseDirectory;

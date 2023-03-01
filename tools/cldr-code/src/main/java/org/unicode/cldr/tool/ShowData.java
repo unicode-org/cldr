@@ -51,6 +51,8 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 public class ShowData {
+    private static final boolean TOO_BIG_FOR_GITHUB = true;
+
     private static final int HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
         MATCH = 4, GET_SCRIPTS = 5,
         LAST_DIR = 6,
@@ -366,30 +368,31 @@ public class ShowData {
                 pw.println(headerAndFooter[1]);
                 pw.close();
             }
-            PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, "all-changed.html");
-            String[] headerAndFooter = new String[2];
+            if (!TOO_BIG_FOR_GITHUB) {
+                PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, "all-changed.html");
+                String[] headerAndFooter = new String[2];
 
-            getChartTemplate(
-                "Locale Data Summary for ALL-CHANGED",
-                ToolConstants.CHART_DISPLAY_VERSION,
-                "",
-                headerAndFooter, null, false);
-            pw.println(headerAndFooter[0]);
-            pw.println("<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">");
-            pw.println("<tr>" +
-                "<th>Section</th>" +
-                "<th>Page</th>" +
-                "<th>Header</th>" +
-                "<th>Code</th>" +
-                "<th>Old</th>" +
-                "<th>Changed</th>" +
-                "<th>Locales</th>" +
-                "</tr>");
-            for (Entry<PathHeader, Relation<String, String>> entry : pathHeaderToValuesToLocale.entrySet()) {
-                PathHeader ph = entry.getKey();
-                Set<Entry<String, Set<String>>> keyValuesSet = entry.getValue().keyValuesSet();
-                String rowspan = keyValuesSet.size() == 1 ? ">" : " rowSpan='" + keyValuesSet.size() + "'>";
-                pw
+                getChartTemplate(
+                    "Locale Data Summary for ALL-CHANGED",
+                    ToolConstants.CHART_DISPLAY_VERSION,
+                    "",
+                    headerAndFooter, null, false);
+                pw.println(headerAndFooter[0]);
+                pw.println("<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">");
+                pw.println("<tr>" +
+                    "<th>Section</th>" +
+                    "<th>Page</th>" +
+                    "<th>Header</th>" +
+                    "<th>Code</th>" +
+                    "<th>Old</th>" +
+                    "<th>Changed</th>" +
+                    "<th>Locales</th>" +
+                    "</tr>");
+                for (Entry<PathHeader, Relation<String, String>> entry : pathHeaderToValuesToLocale.entrySet()) {
+                    PathHeader ph = entry.getKey();
+                    Set<Entry<String, Set<String>>> keyValuesSet = entry.getValue().keyValuesSet();
+                    String rowspan = keyValuesSet.size() == 1 ? ">" : " rowSpan='" + keyValuesSet.size() + "'>";
+                    pw
                     .append("<tr><td class='g'").append(rowspan)
                     .append(ph.getSectionId().toString())
                     .append("</td><td class='g'").append(rowspan)
@@ -399,14 +402,14 @@ public class ShowData {
                     .append("</td><td class='g'").append(rowspan)
                     .append(ph.getCode())
                     .append("</td>");
-                boolean addRow = false;
-                for (Entry<String, Set<String>> s : keyValuesSet) {
-                    String value = s.getKey();
-                    int breakPoint = value.indexOf("→→");
-                    if (addRow) {
-                        pw.append("<tr>");
-                    }
-                    pw.append("<td>")
+                    boolean addRow = false;
+                    for (Entry<String, Set<String>> s : keyValuesSet) {
+                        String value = s.getKey();
+                        int breakPoint = value.indexOf("→→");
+                        if (addRow) {
+                            pw.append("<tr>");
+                        }
+                        pw.append("<td>")
                         .append(DataShower.getPrettyValue(value.substring(0, breakPoint)))
                         .append("</td><td class='v'>")
                         .append(DataShower.getPrettyValue(value.substring(breakPoint + 2)))
@@ -414,11 +417,12 @@ public class ShowData {
                         .append(Joiner.on(", ").join(s.getValue()))
                         .append("</td></tr>")
                         .append(System.lineSeparator());
-                    addRow = true;
+                        addRow = true;
+                    }
                 }
+                pw.println(headerAndFooter[1]);
+                pw.close();
             }
-            pw.println(headerAndFooter[1]);
-            pw.close();
         } finally {
             deltaTime = System.currentTimeMillis() - deltaTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");

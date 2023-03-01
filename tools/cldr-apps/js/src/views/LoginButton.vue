@@ -27,9 +27,15 @@
         v-model:message="loginErrorMessage"
       />
     </template>
-    <a-button class="cldr-nav-btn" v-on:click="loginout()">{{
-      logText
-    }}</a-button>
+    <a-tooltip placement="bottomRight">
+      <template #title>
+        {{ logTitle }}
+      </template>
+      <a-button class="cldr-nav-btn" v-on:click="loginout()">
+        <span v-if="loggedIn" class="glyphicon glyphicon-log-out" />&nbsp;
+        {{ logText }}</a-button
+      >
+    </a-tooltip>
   </a-popover>
 </template>
 
@@ -65,10 +71,13 @@ export default {
 
       if (this.loginShown.value) {
         this.logText = "Cancel";
+        this.logTitle = null;
       } else if (loggedIn) {
-        this.logText = "Log Out";
+        this.logText = ""; // "Log Out"; (no text, just icon)
+        this.logTitle = "Log out";
       } else {
         this.logText = "Log In";
+        this.logTitle = "";
       }
     },
     /**
@@ -146,10 +155,12 @@ export default {
         // cancel
         this.loginShown = false;
         this.logText = "Log In";
+        this.logTitle = null;
       } else if (!this.loggedIn) {
         // Log In (show popup)
         this.loginShown = true;
         this.logText = "Cancel";
+        this.logTitle = null;
       } else {
         await this.logout();
       }
@@ -161,6 +172,7 @@ export default {
       user: null,
       logText: "",
       logLink: "",
+      logTitle: null,
       userName: "",
       password: "",
       remember: true,

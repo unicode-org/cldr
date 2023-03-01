@@ -2,6 +2,8 @@ import * as cldrProgress from "../src/esm/cldrProgress.js";
 
 const assert = chai.assert;
 
+export const TestCldrProgress = "ok";
+
 describe("cldrProgress.friendlyPercent", function () {
   it("should return a number", function () {
     const fp = cldrProgress.friendlyPercent(0, 0);

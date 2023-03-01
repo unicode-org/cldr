@@ -6,56 +6,204 @@ import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrSideways from "./cldrSideways.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrUserLevels from "./cldrUserLevels.js";
 import * as cldrVote from "./cldrVote.js";
+
+import InfoPanel from "../views/InfoPanel.vue";
+
+import { createCldrApp } from "../cldrVueRouter";
+
+let containerId = null;
+let neighborId = null;
+let buttonClass = null;
+
+// Start with panel closed; it will get opened when a Page is chosen
+let panelVisible = false;
+let panelVisibleForPageView = true;
 
 let unShow = null;
 let lastShown = null;
 
 /**
+ * Initialize the Info Panel
+ *
+ * @param {String} cid the id of the container element for the panel
+ * @param {String} nid the id of the neighboring element to the left of the panel
+ * @param {String} bclass the class for "Open Info Panel" buttons
+ */
+function initialize(cid, nid, bclass) {
+  containerId = cid;
+  neighborId = nid;
+  buttonClass = bclass;
+  insertWidget();
+  setPanelAndNeighborStyles();
+  updateOpenPanelButtons();
+}
+
+function insertWidget() {
+  try {
+    const fragment = document.createDocumentFragment();
+    createCldrApp(InfoPanel).mount(fragment); // returns App object "wrapper", currently not saved
+    const containerEl = document.getElementById(containerId);
+    const vueEl = document.createElement("section");
+    containerEl.appendChild(vueEl);
+    vueEl.replaceWith(fragment);
+    insertLegacyElement(containerEl);
+  } catch (e) {
+    console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
+    notification.error({
+      message: `${e.name} while loading InfoPanel.vue`,
+      description: `${e.message}`,
+      duration: 0,
+    });
+  }
+}
+
+/**
+ * Create an element to display the Info Panel contents.
+ *
+ * For compatibility with legacy Survey Tool code, this is not a Vue component.
+ * The legacy code involving showRowObjFunc, etc., does extensive direct DOM manipulation.
+ * Ideally, eventually Vue components will be used for the entire Info Panel.
+ *
+ * @param {Element} containerEl the element whose new child will be created
+ */
+function insertLegacyElement(containerEl) {
+  const nonVueEl = document.createElement("section");
+  nonVueEl.className = "sidebyside-scrollable";
+  nonVueEl.id = "itemInfo";
+  containerEl.appendChild(nonVueEl);
+}
+
+function openPanel() {
+  if (!panelVisible) {
+    panelVisible = true;
+    openOrClosePanel();
+  }
+}
+
+function closePanel() {
+  if (panelVisible) {
+    panelVisible = false;
+    openOrClosePanel();
+  }
+}
+
+function openOrClosePanel() {
+  setPanelAndNeighborStyles();
+  rememberPanelVisibilityIfPageView();
+  updateOpenPanelButtons();
+}
+
+function setPanelAndNeighborStyles() {
+  const main = document.getElementById(neighborId);
+  const info = document.getElementById(containerId);
+  if (main && info) {
+    if (panelVisible) {
+      main.style.width = "75%";
+      info.style.width = "25%";
+      info.style.display = "flex";
+    } else {
+      main.style.width = "100%";
+      info.style.display = "none";
+    }
+  }
+}
+
+/**
+ * Remember whether the Info Panel should be visible when the
+ * Page table is displayed (rather than a "special").
+ *
+ * If there is no current "special", the main Page table view is visible,
+ * and the Info Panel visibility state corresponds to the Page table view.
+ *
+ * Call this after setting panelVisible to true/false.
+ */
+function rememberPanelVisibilityIfPageView() {
+  if (!cldrStatus.getCurrentSpecial()) {
+    panelVisibleForPageView = panelVisible;
+  }
+}
+
+/**
+ * Show or hide the "Open Info Panel" button(s), and set their onclick action.
+ * Such buttons should only be displayed when the panel is not already visible.
+ */
+function updateOpenPanelButtons() {
+  const els = document.getElementsByClassName(buttonClass);
+  Array.from(els).forEach((element) => {
+    element.style.display = panelVisible ? "none" : "inline";
+    element.onclick = () => openPanel();
+  });
+}
+
+/**
  * Make the object "theObj" cause the info window to show when clicked.
  *
- * @param {String} str
+ * @param {String} str the string to display
  * @param {Node} tr the TR element that is clicked
- * @param {Node} theObj to listen to
+ * @param {Node} theObj to listen to, a.k.a. "hideIfLast"
  * @param {Function} fn the draw function
  */
 function listen(str, tr, theObj, fn) {
   cldrDom.listenFor(theObj, "click", function (e) {
-    show(str, tr, theObj /* hideIfLast */, fn);
+    if (panelShouldBeShown()) {
+      show(str, tr, theObj /* hideIfLast */, fn);
+    }
     cldrEvent.stopPropagation(e);
     return false;
   });
 }
 
-function showNothing() {
-  show(null, null, null, null);
-}
-
 function showMessage(str) {
-  show(str, null, null, null);
+  if (panelShouldBeShown()) {
+    show(str, null, null, null);
+  }
 }
 
 function showWithRow(str, tr) {
-  show(str, tr, null, null);
+  if (panelShouldBeShown()) {
+    show(str, tr, null, null);
+  }
 }
 
 function showRowObjFunc(tr, hideIfLast, fn) {
-  show(null, tr, hideIfLast, fn);
+  if (panelShouldBeShown()) {
+    show(null, tr, hideIfLast, fn);
+  }
 }
 
 /**
- * Display the right-hand "info" panel.
+ * Should the Info Panel be shown?
+ *
+ * @returns true if the Info Panel should be shown, else false
+ *
+ * This is only called when one of the show... functions is called.
+ * In all special views, return true (if the special never calls us, the panel
+ * will remain hidden).
+ * In the Page view (not special), rely on the setting of panelVisibleForPageView.
+ */
+function panelShouldBeShown() {
+  return panelVisibleForPageView || Boolean(cldrStatus.getCurrentSpecial());
+}
+
+/**
+ * Display the given information in the Info Panel
+ *
+ * Open the panel if it's not already open
  *
  * @param {String} str the string to show at the top
  * @param {Node} tr the <TR> of the row
- * @param {Object} hideIfLast
- * @param {Function} fn
+ * @param {Object} hideIfLast mysterious parameter
+ * @param {Function} fn the draw function
  */
 function show(str, tr, hideIfLast, fn) {
+  openPanel();
   if (unShow) {
     unShow();
     unShow = null;
@@ -74,9 +222,15 @@ function show(str, tr, hideIfLast, fn) {
 
   if (tr && tr.theRow) {
     const { theRow } = tr;
-    const { helpHtml, rdf, placeholderStatus, placeholderInfo } = theRow;
-    if (helpHtml || rdf) {
-      cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf);
+    const {
+      helpHtml,
+      rdf,
+      placeholderStatus,
+      placeholderInfo,
+      translationHint,
+    } = theRow;
+    if (helpHtml || rdf || translationHint) {
+      cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf, translationHint);
     }
     if (placeholderStatus !== "DISALLOWED") {
       // Hide the placeholder status if DISALLOWED
@@ -112,6 +266,7 @@ function show(str, tr, hideIfLast, fn) {
 
   // forum stuff
   if (tr && tr.forumDiv) {
+    cldrSideways.loadMenu(fragment, tr);
     /*
      * The name forumDivClone is a reminder that forumDivClone !== tr.forumDiv.
      * TODO: explain the reason for using cloneNode here, rather than using
@@ -224,12 +379,28 @@ function updateRowVoteInfo(tr, theRow) {
     console.error("theRow is null or undefined in updateRowVoteInfo");
     return;
   }
-  var vr = theRow.voteResolver;
+  const vr = theRow.votingResults;
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
+
+  //add the 'explain' icon
+  const showTranscriptIcon = cldrDom.createChunk(
+    "",
+    "i",
+    "glyphicon glyphicon-info-sign show-transcript"
+  );
+  showTranscriptIcon.setAttribute("title", cldrText.get("transcript_flyover"));
+  const showTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
+  showTranscriptLink.setAttribute(
+    "href",
+    "javascript:window.cldrBundle.toggleTranscript()"
+  );
+  showTranscriptLink.appendChild(showTranscriptIcon);
+  tr.voteDiv.appendChild(showTranscriptLink);
+
   const surveyUser = cldrStatus.getSurveyUser();
   if (theRow.voteVhash && theRow.voteVhash !== "" && surveyUser) {
-    var voteForItem = theRow.items[theRow.voteVhash];
+    const voteForItem = theRow.items[theRow.voteVhash];
     if (
       voteForItem &&
       voteForItem.votes &&
@@ -275,14 +446,11 @@ function updateRowVoteInfo(tr, theRow) {
    * The value_vote array has an even number of elements,
    * like [value0, vote0, value1, vote1, value2, vote2, ...].
    */
-  var n = 0;
+  let n = 0;
   while (n < vr.value_vote.length) {
-    var value = vr.value_vote[n++];
-    var vote = vr.value_vote[n++];
-    if (
-      value == null /* TODO: impossible? */ ||
-      value === cldrTable.NO_WINNING_VALUE
-    ) {
+    const value = vr.value_vote[n++];
+    const vote = parseInt(vr.value_vote[n++]);
+    if (value === cldrTable.NO_WINNING_VALUE) {
       continue;
     }
     var item = tr.rawValueToItem[value]; // backlink to specific item in hash
@@ -365,14 +533,6 @@ function updateRowVoteInfo(tr, theRow) {
         value,
         value === theRow.winningValue ? "winner" : "value"
       );
-      if (value === theRow.inheritedValue) {
-        valdiv.appendChild(
-          cldrDom.createChunk(
-            cldrText.get("voteInfo_votesForSpecificValue"),
-            "p"
-          )
-        );
-      }
     }
     if (isectionIsUsed) {
       valdiv.appendChild(isection);
@@ -389,7 +549,10 @@ function updateRowVoteInfo(tr, theRow) {
     const itemVotesLength = item.votes ? Object.keys(item.votes).length : 0;
     const anon =
       itemVotesLength == 1 &&
-      item.votes[Object.keys(item.votes)[0]].level === "anonymous";
+      cldrUserLevels.match(
+        item.votes[Object.keys(item.votes)[0]].level,
+        cldrUserLevels.ANONYMOUS
+      );
     if (itemVotesLength == 0 || anon) {
       var vrow = cldrDom.createChunk(
         null,
@@ -430,6 +593,38 @@ function updateRowVoteInfo(tr, theRow) {
       cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
     );
   }
+  if (theRow.voteTranscript) {
+    const transcriptBox = cldrDom.createChunk(
+      "",
+      "div",
+      "transcript-container"
+    );
+    const hideTranscriptIcon = cldrDom.createChunk(
+      "",
+      "i",
+      "glyphicon glyphicon-remove-sign show-transcript"
+    );
+    const hideTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
+    hideTranscriptLink.setAttribute(
+      "href",
+      "javascript:window.cldrBundle.toggleTranscript()"
+    );
+    hideTranscriptLink.appendChild(hideTranscriptIcon);
+    transcriptBox.appendChild(hideTranscriptLink);
+    const transcriptText = cldrDom.createChunk(
+      theRow.voteTranscript,
+      "pre",
+      "transcript-text"
+    );
+    transcriptBox.appendChild(transcriptText);
+    const transcriptNote = cldrDom.createChunk(
+      cldrText.get("transcript_note"),
+      "p",
+      "alert alert-warning"
+    );
+    transcriptBox.appendChild(transcriptNote);
+    tr.voteDiv.appendChild(transcriptBox);
+  }
 }
 
 /**
@@ -445,7 +640,6 @@ function updateRowVoteInfo(tr, theRow) {
 function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
   for (let org in vr.orgs) {
     var theOrg = vr.orgs[org];
-    var vrRaw = {};
     var orgVoteValue = theOrg.votes[value];
     /*
      * We should display something under "Org." and "User" even when orgVoteValue is zero (not undefined),
@@ -479,7 +673,8 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
             }
           }
         }
-      } else {
+      }
+      if (!topVoter) {
         // just find someone in the right org..
         for (var voter in item.votes) {
           if (item.votes[voter].org == org) {
@@ -599,7 +794,7 @@ function showItemInfoFn(theRow, item) {
       displayValue = theRow.inheritedValue;
     }
 
-    var span = cldrVote.appendItem(h3, displayValue, item.pClass);
+    cldrVote.appendItem(h3, displayValue, item.pClass);
     h3.className = "span";
     td.appendChild(h3);
 
@@ -607,7 +802,7 @@ function showItemInfoFn(theRow, item) {
       /*
        * Strings produced here, used as keys for cldrText.sub(), may include:
        *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
-       *  See getPClass in DataSection.java.
+       *  See getPClass in DataPage.java.
        *
        *  TODO: why not show stars, etc., here?
        */
@@ -696,11 +891,13 @@ function addJumpToOriginal(theRow, el) {
 }
 
 export {
+  closePanel,
+  initialize,
   listen,
+  openPanel,
   reset,
   showItemInfoFn,
   showMessage,
-  showNothing,
   showRowObjFunc,
   showWithRow,
   updateRowVoteInfo,

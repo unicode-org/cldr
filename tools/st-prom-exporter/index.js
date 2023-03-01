@@ -102,7 +102,7 @@ async function update(e) {
     if(res.status) {
       const{phase, memtotal, sysprocs, isBusted, isUnofficial, lockOut,
         users, uptime, memfree, environment, pages, specialHeader, currev,
-        dbopen, surveyRunningStamp, guests, dbused,sysload, isSetup, newVersion} = res.status;
+        dbopen, surveyRunningStamp, observers, dbused,sysload, isSetup, newVersion} = res.status;
         items.pages.set({instance}, Number(pages));
         items.users.set({instance}, Number(users));
         items.memtotal.set({instance}, Number(memtotal));

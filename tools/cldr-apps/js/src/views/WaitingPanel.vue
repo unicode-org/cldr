@@ -1,9 +1,7 @@
 <template>
   <div id="home">
     <!-- if $specialPage == retry then we have reached this page 'directly' -->
-    <h1 v-if="$specialPage != 'retry'" class="hang">
-      Waiting for the SurveyTool to start up…
-    </h1>
+    <h1 v-if="$specialPage != 'retry'" class="hang">Loading the SurveyTool…</h1>
     <h1>
       <a-spin size="large" :delay="1000" />
     </h1>

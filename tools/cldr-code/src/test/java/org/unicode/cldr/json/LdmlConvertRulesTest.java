@@ -70,6 +70,7 @@ class LdmlConvertRulesTest {
 
         // Handled manually
         jsonSplittableAttrs.add(Pair.of("defaultContent", "locales"));
+        jsonSplittableAttrs.add(Pair.of("era", "aliases"));
 
         // handled as calendarPreferenceData
         jsonSplittableAttrs.add(Pair.of("calendarPreference", "ordering"));

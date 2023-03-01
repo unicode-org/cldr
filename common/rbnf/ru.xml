@@ -848,7 +848,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячный;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-й;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -900,7 +900,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячное;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-е;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -952,7 +952,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячная;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-я;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-plural">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -1004,7 +1004,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячные;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-e;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine-genitive">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -1056,7 +1056,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячного;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-го;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter-genitive">
                 <rbnfrule value="0">=%spellout-ordinal-masculine-genitive=;</rbnfrule>
@@ -1111,7 +1111,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячной;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-й;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-plural-genitive">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -1163,7 +1163,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячных;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-х;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine-dative">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -1215,7 +1215,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячному;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-му;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter-dative">
                 <rbnfrule value="0">=%spellout-ordinal-masculine-dative=;</rbnfrule>
@@ -1282,7 +1282,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячную;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-ю;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-plural-accusative">
                 <rbnfrule value="0">=%spellout-ordinal-plural=;</rbnfrule>
@@ -1337,7 +1337,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячном;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-м;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter-locative">
                 <rbnfrule value="0">=%spellout-ordinal-masculine-locative=;</rbnfrule>
@@ -1398,7 +1398,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячным;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-м;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter-ablative">
                 <rbnfrule value="0">=%spellout-ordinal-masculine-ablative=;</rbnfrule>
@@ -1456,13 +1456,13 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2001" radix="1000">←%%thousandsprefixseparate←тысячи[ →→];</rbnfrule>
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячными;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21001">=0=.;</rbnfrule>
+                <rbnfrule value="21001">=0=-ми;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=.;</rbnfrule>
+                <rbnfrule value="0">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>

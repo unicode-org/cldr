@@ -25,6 +25,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With.SimpleIterator;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
@@ -376,15 +377,6 @@ public class PathHeader implements Comparable<PathHeader> {
         "\\[@alt=\"([^\"]*+)\"]")
         .matcher("");
 
-    static final Collator alphabetic = CLDRConfig.getInstance().getCollatorRoot();
-
-//    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
-//            .getInstance(ULocale.ENGLISH);
-//    static {
-//        alphabetic.setNumericCollation(true);
-//        alphabetic.freeze();
-//    }
-
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     static final Map<String, String> metazoneToContinent = supplementalDataInfo
         .getMetazoneToContinentMap();
@@ -421,18 +413,6 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
-    /**
-     * @param section
-     * @param sectionOrder
-     * @param page
-     * @param pageOrder
-     * @param header
-     * @param headerOrder
-     * @param code
-     * @param codeOrder
-     * @param suborder
-     * @param status
-     */
     private PathHeader(SectionId sectionId, PageId pageId, String header,
         int headerOrder, String code, long codeOrder, SubstringOrder suborder, SurveyToolStatus status,
         String originalPath) {
@@ -1417,7 +1397,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTerritory",
-                catFromTerritory = new Transform<String, String>() {
+                catFromTerritory = new Transform<>() {
                 @Override
                 public String transform(String source) {
                     String territory = getSubdivisionsTerritory(source, null);
@@ -1456,7 +1436,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTimezone",
-                catFromTimezone = new Transform<String, String>() {
+                catFromTimezone = new Transform<>() {
                 @Override
                 public String transform(String source0) {
                     String territory = Containment.getRegionFromZone(source0);
@@ -1472,8 +1452,12 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source0) {
                     String theTerritory = Containment.getRegionFromZone(source0);
-                    if (theTerritory == null || theTerritory == "001") {
-                        theTerritory = "ZZ";
+                    if (theTerritory == null || "001".equals(theTerritory)  || "ZZ".equals(theTerritory)) {
+                        if ("Etc/Unknown".equals(source0)) {
+                            theTerritory = "ZZ";
+                        } else {
+                            throw new IllegalArgumentException("ICU needs zone update? Source: " + source0 + "; Territory: " + theTerritory);
+                        }
                     }
                     if (singlePageTerritories.contains(theTerritory)) {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
@@ -1859,7 +1843,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source) {
                     // sampleName item values in desired sort order
-                    final List<String> itemValues = Arrays.asList("givenOnly", "givenSurnameOnly", "given12Surname", "full");
+                    final List<String> itemValues = PersonNameFormatter.SampleType.ALL_STRINGS;
                     // personName attribute values: each group in desired
                     // sort order, but groups from least important to most
                     final List<String> pnAttrValues = Arrays.asList(
@@ -2128,15 +2112,32 @@ public class PathHeader implements Comparable<PathHeader> {
 
     private static final List<String> COUNTS = Arrays.asList("displayName", "zero", "one", "two", "few", "many", "other", "per");
 
+    private static Collator alphabetic;
+
     private static int alphabeticCompare(String aa, String bb) {
-        // A frozen Collator is thread-safe.
+        if (alphabetic == null) {
+            initializeAlphabetic();
+         }
         return alphabetic.compare(aa, bb);
     }
 
+    private static synchronized void initializeAlphabetic() {
+        // Lazy initialization: don't call CLDRConfig.getInstance() too early or we'll get
+        // "CLDRConfig.getInstance() was called prior to SurveyTool setup" when called from
+        // com.ibm.ws.microprofile.openapi.impl.core.jackson.ModelResolver._addEnumProps
+        if (alphabetic == null) {
+            alphabetic = CLDRConfig.getInstance().getCollatorRoot();
+        }
+    }
+
+    /**
+     * @deprecated use CLDRConfig.getInstance().urls() instead
+     */
+    @Deprecated
     public enum BaseUrl {
         //http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
         //http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
-        SMOKE("http://st.unicode.org/smoketest/survey"), PRODUCTION("http://st.unicode.org/cldr-apps/survey");
+        SMOKE("https://st.unicode.org/smoketest/survey"), PRODUCTION("https://st.unicode.org/cldr-apps/survey");
         final String base;
 
         private BaseUrl(String url) {
@@ -2187,11 +2188,22 @@ public class PathHeader implements Comparable<PathHeader> {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
-    private static String SURVEY_URL = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
-
+    /**
+     * @deprecated use the version with CLDRURLS instead
+     * @param baseUrl
+     * @param file
+     * @param path
+     * @return
+     */
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path) + "'><em>view</em></a>";
     }
+    
+    public static String getLinkedView(CLDRURLS urls, CLDRFile file, String path) {
+        return SECTION_LINK + urls.forXpath(file.getLocaleID(), path) + "'><em>view</em></a>";
+    }
+
+    private static String SURVEY_URL = CLDRConfig.getInstance().urls().base();
 
     /**
      * If a subdivision, return the (uppercased) territory and if suffix != null, the suffix. Otherwise return the input as is.

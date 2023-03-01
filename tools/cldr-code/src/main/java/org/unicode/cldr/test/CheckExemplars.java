@@ -45,7 +45,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             AlwaysOK = new UnicodeSet(
                 "[[[:Nd:][:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]-[:C:] - [_]] [\u05BE \u05F3 \u066A-\u066C]" +
                     "[[؉][་ །༌][ཱ]‎‎{য়}য়]" + // TODO Fix this Hack
-                    "]"); // [\\u200c-\\u200f] [:script=common:][:script=inherited:]
+                    "-[❮❯]]"); // [\\u200c-\\u200f] [:script=common:][:script=inherited:]
         }
         AlwaysOK.freeze();
     }

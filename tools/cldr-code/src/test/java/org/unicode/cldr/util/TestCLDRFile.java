@@ -93,8 +93,6 @@ public class TestCLDRFile {
         "common/supplemental",
         "common/validity",
 
-        // Test a couple of others:
-        "seed/main",
         "exemplars/main",
     })
     public void TestReadAllDTDs(final String subdir) {

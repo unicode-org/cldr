@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -666,7 +666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yo">↑↑↑</language>
 			<language type="yrl">↑↑↑</language>
 			<language type="yue">廣東話</language>
-			<language type="yue" alt="menu">↑↑↑</language>
+			<language type="yue" alt="menu">粵語</language>
 			<language type="za">↑↑↑</language>
 			<language type="zap">↑↑↑</language>
 			<language type="zbl">↑↑↑</language>
@@ -3980,12 +3980,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4451,7 +4451,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -6849,7 +6849,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -8843,6 +8843,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>華雷斯城</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -14881,7 +14884,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
+				<displayName>坎德拉</displayName>
 				<unitPattern count="other">{0}坎德拉</unitPattern>
 			</unit>
 			<unit type="light-lumen">
@@ -14953,7 +14956,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
+				<displayName>格令</displayName>
 				<unitPattern count="other">{0}格令</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -15067,7 +15070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-cubic-meter">
 				<displayName>立方米</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0} 每立方米</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>立方厘米</displayName>
@@ -15158,7 +15161,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName>英制液安士</displayName>
 				<unitPattern count="other">{0}英液安士</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -15247,8 +15250,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}及{1}</listPatternPart>
+			<listPatternPart type="2">{0}及{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
@@ -15452,4 +15455,183 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<featureName type="tnum">表格式數字</featureName>
 		<featureName type="zero">↑↑↑</featureName>
 	</typographicNames>
+	<personNames>
+		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
+		<initialPattern type="initial">↑↑↑</initialPattern>
+		<initialPattern type="initialSequence">↑↑↑</initialPattern>
+		<personName order="givenFirst" length="long" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<sampleName item="nativeG">
+			<nameField type="given">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given-informal">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">↑↑↑</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="generation">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given-informal">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">↑↑↑</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="generation">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
+		</sampleName>
+	</personNames>
 </ldml>

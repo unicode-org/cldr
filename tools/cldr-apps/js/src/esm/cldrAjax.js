@@ -110,7 +110,7 @@ function onChange(request, xhrArgs) {
       xhrArgs.load(request.response);
     }
   } else if (xhrArgs.error) {
-    xhrArgs.error(makeErrorMessage(request, xhrArgs.url));
+    xhrArgs.error(makeErrorMessage(request, xhrArgs.url), request);
   }
 }
 

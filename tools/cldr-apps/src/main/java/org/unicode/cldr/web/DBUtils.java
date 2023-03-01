@@ -3,8 +3,6 @@
  */
 package org.unicode.cldr.web;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,11 +10,11 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -40,7 +38,6 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -76,14 +73,6 @@ public class DBUtils {
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
-    // DB stuff
-    public static String db_driver = null;
-    public static String db_protocol = null;
-    public static String CLDR_DB_U = null;
-    public static String CLDR_DB_P = null;
-    public static String cldrdb_u = null;
-    public static String CLDR_DB;
-    // public static String cldrdb = null;
     public static boolean db_Derby = false;
     public static boolean db_Mysql = false;
 
@@ -92,7 +81,7 @@ public class DBUtils {
      *
      * @return
      */
-    public static final String getDBKind() {
+    public static String getDBKind() {
         if (db_Derby) {
             return "Derby";
         } else if (db_Mysql) {
@@ -170,55 +159,12 @@ public class DBUtils {
         }
     }
 
-    public static final String escapeBasic(byte what[]) {
+    public static String escapeBasic(byte[] what) {
         return escapeLiterals(what);
     }
 
-    public static final String escapeForMysql(byte what[]) {
-        boolean hasEscapeable = false;
-        boolean hasNonEscapeable = false;
-        for (byte b : what) {
-            int j = (b) & 0xff;
-            char c = (char) j;
-            if (escapeIsBasic(c)) {
-                continue;
-            } else if (escapeIsEscapeable(c)) {
-                hasEscapeable = true;
-            } else {
-                hasNonEscapeable = true;
-            }
-        }
-        if (hasNonEscapeable) {
-            return escapeHex(what);
-        } else if (hasEscapeable) {
-            return escapeLiterals(what);
-        } else {
-            return escapeBasic(what);
-        }
-    }
-
-    public static String escapeForMysql(String what) throws UnsupportedEncodingException {
-        if (what == null) {
-            return "NULL";
-        } else if (what.length() == 0) {
-            return "\"\"";
-        } else {
-            return escapeForMysql(what.getBytes("ASCII"));
-        }
-    }
-
-    public static String escapeForMysqlUtf8(String what) throws UnsupportedEncodingException {
-        if (what == null) {
-            return "NULL";
-        } else if (what.length() == 0) {
-            return "\"\"";
-        } else {
-            return escapeForMysql(what.getBytes("UTF-8"));
-        }
-    }
-
-    public static final String escapeHex(byte what[]) {
-        StringBuffer out = new StringBuffer("x'");
+    public static String escapeHex(byte[] what) {
+        StringBuilder out = new StringBuilder("x'");
         for (byte b : what) {
             int j = (b) & 0xff;
             if (j < 0x10) {
@@ -230,18 +176,18 @@ public class DBUtils {
         return out.toString();
     }
 
-    public static final boolean escapeIsBasic(char c) {
+    public static boolean escapeIsBasic(char c) {
         return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c == ' ' || c == '.' || c == '/'
             || c == '[' || c == ']' || c == '=' || c == '@' || c == '_' || c == ',' || c == '&' || c == '-' || c == '('
             || c == ')' || c == '#' || c == '$' || c == '!'));
     }
 
-    public static final boolean escapeIsEscapeable(char c) {
+    public static boolean escapeIsEscapeable(char c) {
         return (c == 0 || c == '\'' || c == '"' || c == '\b' || c == '\n' || c == '\r' || c == '\t' || c == 26 || c == '\\');
     }
 
-    public static final String escapeLiterals(byte what[]) {
-        StringBuffer out = new StringBuffer("'");
+    public static String escapeLiterals(byte[] what) {
+        StringBuilder out = new StringBuilder("'");
         for (byte b : what) {
             int j = (b) & 0xff;
             char c = (char) j;
@@ -281,7 +227,7 @@ public class DBUtils {
         return out.toString();
     }
 
-    public final static DBUtils getInstance() {
+    public static DBUtils getInstance() {
         return DBUtilsHelper.SINGLETON;
     }
 
@@ -312,17 +258,12 @@ public class DBUtils {
                 return null;
             return str;
         }
-        byte rv[] = rs.getBytes(which);
+        byte[] rv = rs.getBytes(which);
         if (rs.wasNull())
             return null;
         if (rv != null) {
             String unicode;
-            try {
-                unicode = new String(rv, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                throw new InternalError(e.toString());
-            }
+            unicode = new String(rv, StandardCharsets.UTF_8);
             return unicode;
         } else {
             return null;
@@ -330,33 +271,23 @@ public class DBUtils {
     }
 
     // fix the UTF-8 fail
-    public static final String getStringUTF8(ResultSet rs, int which) throws SQLException {
+    public static String getStringUTF8(ResultSet rs, int which) throws SQLException {
         if (db_Derby) { // unicode
             String str = rs.getString(which);
             if (rs.wasNull())
                 return null;
             return str;
         }
-        byte rv[] = rs.getBytes(which);
+        byte[] rv = rs.getBytes(which);
         if (rs.wasNull())
             return null;
         if (rv != null) {
             String unicode;
-            try {
-                unicode = new String(rv, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                throw new InternalError(e.toString());
-            }
+            unicode = new String(rv, StandardCharsets.UTF_8);
             return unicode;
         } else {
             return null;
         }
-    }
-
-    public static boolean hasTable(Connection conn, String table) {
-        getInstance();
-        return DBUtils.hasTable(table);
     }
 
     /**
@@ -370,7 +301,7 @@ public class DBUtils {
         throws SQLException {
         DatabaseMetaData dbmd = conn.getMetaData();
         try (ResultSet rs = dbmd.getTables(null, null, null, null)) {
-            Set<String> r = new TreeSet<String>();
+            Set<String> r = new TreeSet<>();
             while(rs.next()) {
                 final String name = rs.getString("TABLE_NAME");
                 if (matching == null || matching.test(name)) {
@@ -388,12 +319,10 @@ public class DBUtils {
         try {
             Connection conn = getDBConnection();
             ResultSet rs = null;
-            Statement s = null;
             try {
                 DatabaseMetaData dbmd = conn.getMetaData();
                 rs = dbmd.getTables(null, null, canonName, null);
-
-                if (rs.next() == true) {
+                if (rs.next()) {
                     if (DEBUG) SurveyLog.warnOnce(logger, "table " + canonName + " already existed.");
                     return true;
                 } else {
@@ -401,7 +330,7 @@ public class DBUtils {
                     return false;
                 }
             } finally {
-                DBUtils.close(s, rs, conn);
+                DBUtils.close(rs, conn);
             }
         } catch (SQLException se) {
             SurveyMain.busted("While looking for table '" + table + "': ", se);
@@ -410,7 +339,7 @@ public class DBUtils {
         // TODO: OLD TO REMOVE
     }
 
-    public final static boolean hasTable(String table) {
+    public static boolean hasTable(String table) {
         return getInstance().tableExists(table);
     }
 
@@ -420,7 +349,7 @@ public class DBUtils {
         String canonName = canonTableName(table);
         try (Connection conn = DBUtils.getInstance().getAConnection();
             ResultSet rs = conn.getMetaData().getTables(null, null, canonName, null)) {
-            final boolean hadTable = (rs.next() == true);
+            final boolean hadTable = rs.next();
 
             if (hadTable) {
                 // flush remaining rows
@@ -442,8 +371,7 @@ public class DBUtils {
     }
 
     private static String canonTableName(String table) {
-        String canonName = db_Derby ? table.toUpperCase() : table;
-        return canonName;
+        return db_Derby ? table.toUpperCase() : table;
     }
 
     public static boolean tableHasColumn(Connection conn, String table, String column) {
@@ -454,7 +382,7 @@ public class DBUtils {
                 ResultSet rs;
                 DatabaseMetaData dbmd = conn.getMetaData();
                 rs = dbmd.getColumns(null, null, canonTable, canonColumn);
-                if (rs.next() == true) {
+                if (rs.next()) {
                     rs.close();
                     //logger.severe("column " + table +"."+column + " did exist.");
                     return true;
@@ -471,22 +399,17 @@ public class DBUtils {
         }
     }
 
-    private static final byte[] encode_u8(String what) {
-        byte u8[];
+    private static byte[] encode_u8(String what) {
+        byte[] u8;
         if (what == null) {
             u8 = null;
         } else {
-            try {
-                u8 = what.getBytes("UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                throw new InternalError(e.toString());
-            }
+            u8 = what.getBytes(StandardCharsets.UTF_8);
         }
         return u8;
     }
 
-    public static final void setStringUTF8(PreparedStatement s, int which, String what) throws SQLException {
+    public static void setStringUTF8(PreparedStatement s, int which, String what) throws SQLException {
         if (what == null) {
             s.setNull(which, db_UnicodeType);
         }
@@ -497,7 +420,7 @@ public class DBUtils {
         }
     }
 
-    public static final Object prepareUTF8(String what) {
+    public static Object prepareUTF8(String what) {
         if (what == null) return null;
         if (db_Derby) {
             return what; // sanity
@@ -526,7 +449,7 @@ public class DBUtils {
         try {
             ps = prepareForwardReadOnly(conn, sql);
             setArgs(ps, args);
-            return sqlCount(conn, ps);
+            return sqlCount(ps);
         } catch (SQLException sqe) {
             SurveyLog.logException(sqe, "running sqlcount " + sql);
             return -1;
@@ -535,7 +458,7 @@ public class DBUtils {
         }
     }
 
-    static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
+    static int sqlCount(PreparedStatement ps) throws SQLException {
         int rv = -1;
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
@@ -543,17 +466,6 @@ public class DBUtils {
         }
         rs.close();
         return rv;
-    }
-
-    static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
-        try {
-            return sqlCount(conn, ps);
-        } catch (SQLException se) {
-            String complaint = " Couldn't query count - " + unchainSqlException(se) + " -  ps";
-            logger.severe(complaint);
-            ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
-            return -1;
-        }
     }
 
     static int sqlCount(WebContext ctx, Connection conn, String sql) {
@@ -574,82 +486,25 @@ public class DBUtils {
         return rv;
     }
 
-    public static String[] sqlQueryArray(Connection conn, String str) throws SQLException {
-        return sqlQueryArrayArray(conn, str)[0];
-    }
-
-    public static String[][] sqlQueryArrayArray(Connection conn, String str) throws SQLException {
-        Statement s = null;
-        ResultSet rs = null;
-        try {
-            s = conn.createStatement();
-            try {
-                rs = s.executeQuery(str);
-            } catch (SQLException se) {
-                SurveyLog.logException(se, "Error [SQL was: " + str + "]");
-                throw se; // rethrow
-            }
-            ArrayList<String[]> al = new ArrayList<>();
-            while (rs.next()) {
-                al.add(arrayOfResult(rs));
-            }
-            return al.toArray(new String[al.size()][]);
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (s != null) {
-                s.close();
-            }
-        }
-    }
-
-    //
-    // private String[] arrayOfResult(ResultSet rs) throws SQLException {
-    // ResultSetMetaData rsm = rs.getMetaData();
-    // String ret[] = new String[rsm.getColumnCount()];
-    // for(int i=0;i<ret.length;i++) {
-    // ret[i]=rs.getString(i+1);
-    // }
-    // return ret;
-    // }
-    public static String sqlQuery(Connection conn, String str) throws SQLException {
-        return sqlQueryArray(conn, str)[0];
-    }
-
-    public static int sqlUpdate(WebContext ctx, Connection conn, PreparedStatement ps) {
-        int rv = -1;
-        try {
-            rv = ps.executeUpdate();
-        } catch (SQLException se) {
-            String complaint = " Couldn't sqlUpdate  - " + unchainSqlException(se) + " -  ps";
-            logger.severe(complaint);
-            ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
-        }
-        return rv;
-    }
-
-    public static final String unchainSqlException(SQLException e) {
+    public static String unchainSqlException(SQLException e) {
         String echain = "SQL exception: \n ";
         SQLException laste = null;
         while (e != null) {
             laste = e;
-            echain = echain + " -\n " + e.toString();
+            echain = echain + " -\n " + e;
             e = e.getNextException();
         }
-        String stackStr = "\n unknown Stack";
+        String stackStr;
         try {
             StringWriter asString = new StringWriter();
             laste.printStackTrace(new PrintWriter(asString));
-            stackStr = "\n Stack: \n " + asString.toString();
+            stackStr = "\n Stack: \n " + asString;
         } catch (Throwable tt) {
-            stackStr = "\n unknown stack (" + tt.toString() + ")";
+            stackStr = "\n unknown stack (" + tt + ")";
         }
         return echain + stackStr;
     }
 
-    File dbDir = null;
-    // File dbDir_u = null;
     static String dbInfo = null;
 
     public boolean isBogus() {
@@ -695,7 +550,7 @@ public class DBUtils {
             }
 
             if (datasource != null) {
-                logger.info("Got datasource: " + datasource.toString() + " in " + et);
+                logger.info("Got datasource: " + datasource + " in " + et);
             }
             Connection c = null;
             try {
@@ -710,13 +565,13 @@ public class DBUtils {
             } catch (SQLException t) {
                 datasource = null;
                 throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t + "\n" + unchainSqlException(t));
             } finally {
                 if (c != null)
                     try {
                         c.close();
                     } catch (Throwable tt) {
-                        logger.severe("Couldn't close datasource's conn: " + tt.toString());
+                        logger.severe("Couldn't close datasource's conn: " + tt);
                         tt.printStackTrace();
                     }
             }
@@ -752,20 +607,20 @@ public class DBUtils {
             setupSqlForServerType();
             c.setAutoCommit(false);
             boolean autoCommit = c.getAutoCommit();
-            if (autoCommit == true) {
+            if (autoCommit) {
                 throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
             }
-            SurveyLog.debug("Metadata: " + dbInfo + ", autocommit: " + autoCommit);
+            SurveyLog.debug("Metadata: " + dbInfo + ", autocommit: false");
         } catch (SQLException t) {
             datasource = null;
             throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+                + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t + "\n" + unchainSqlException(t));
         } finally {
             if (c != null)
                 try {
                     c.close();
                 } catch (Throwable tt) {
-                    logger.severe("Couldn't close datasource's conn: " + tt.toString());
+                    logger.severe("Couldn't close datasource's conn: " + tt);
                     tt.printStackTrace();
                 }
         }
@@ -825,8 +680,7 @@ public class DBUtils {
         DBUtilsHelper.shutdown(this);
     }
 
-    long lastMsg = -1;
-    private int db_max_open = 0;
+    private final int db_max_open = 0;
 
 
     /**
@@ -850,7 +704,7 @@ public class DBUtils {
      * Internal method to get the immediate caller (discounting DBUtils functions)
      * @return string
      */
-    private static final String getDBOpenStack() {
+    private static String getDBOpenStack() {
         final String myClass = DBUtils.class.getName();
         final StackTraceElement callerElement = StackTracker
             .firstCallerMatching(
@@ -890,7 +744,7 @@ public class DBUtils {
         }
     }
 
-    public void validateDatasourceExists(SurveyMain sm, CLDRProgressIndicator.CLDRProgressTask progress) {
+    public void validateDatasourceExists(CLDRProgressIndicator.CLDRProgressTask progress) {
         logger.info("validateDatasourceExists: datasource=" + datasource);
         if (datasource == null) {
             throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage());
@@ -906,7 +760,7 @@ public class DBUtils {
      * @return
      * @throws SQLException
      */
-    public static final PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
+    public static PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
         logger.finest("SQL: " + str);
         return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
     }
@@ -919,7 +773,7 @@ public class DBUtils {
      * @return
      * @throws SQLException
      */
-    public static final PreparedStatement prepareForwardUpdateable(Connection conn, String str) throws SQLException {
+    public static PreparedStatement prepareForwardUpdateable(Connection conn, String str) throws SQLException {
         return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
     }
 
@@ -928,7 +782,7 @@ public class DBUtils {
      *
      * @throws SQLException
      **/
-    public static final PreparedStatement prepareStatementForwardReadOnly(Connection conn, String name, String sql)
+    public static PreparedStatement prepareStatementForwardReadOnly(Connection conn, String name, String sql)
         throws SQLException {
         PreparedStatement ps = null;
         try {
@@ -946,7 +800,7 @@ public class DBUtils {
      *
      * @throws SQLException
      **/
-    public static final PreparedStatement prepareStatement(Connection conn, String name, String sql) throws SQLException {
+    public static PreparedStatement prepareStatement(Connection conn, String name, String sql) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -961,16 +815,9 @@ public class DBUtils {
     /**
      * Close all of the objects in order, if not null. Knows how to close
      * Connection, Statement, ResultSet, otherwise you'll get an IAE.
-     *
-     * @param a1
-     * @throws SQLException
      */
     public static void close(Object... list) {
         for (Object o : list) {
-            // if(o!=null) {
-            // logger.severe("Closing " +
-            // an(o.getClass().getSimpleName())+" " + o.getClass().getName());
-            // }
             try {
                 if (o == null) {
                     continue;
@@ -995,10 +842,8 @@ public class DBUtils {
                         try {
                             // try to find a "close"
                             final Method m = theClass.getDeclaredMethod("close");
-                            if (m != null) {
-                                logger.warning("Attempting to call close() on " + theClass.getName());
-                                m.invoke(o);
-                            }
+                            logger.warning("Attempting to call close() on " + theClass.getName());
+                            m.invoke(o);
                         } catch (Exception nsm) {
                             nsm.printStackTrace();
                             logger.severe("Caught exception " + nsm + " - so, don't know how to close " + simpleName + " "
@@ -1125,7 +970,7 @@ public class DBUtils {
         while (rs.next()) {
             al.add(assocOfResult(rs, rsm));
         }
-        return al.toArray(new Map[al.size()]);
+        return al.toArray(new Map[0]);
     }
 
     public static Map<String, Object> assocOfResult(ResultSet rs) throws SQLException {
@@ -1142,15 +987,8 @@ public class DBUtils {
         return m;
     }
 
-    /**
-     * @param rs
-     * @param rsm
-     * @param i
-     * @return
-     * @throws SQLException
-     */
     private static Object extractObject(ResultSet rs, ResultSetMetaData rsm, int i) throws SQLException {
-        Object obj = null;
+        Object obj;
         int colType = rsm.getColumnType(i);
         if (colType == java.sql.Types.BLOB) {
             obj = DBUtils.getStringUTF8(rs, i);
@@ -1167,33 +1005,11 @@ public class DBUtils {
         return obj;
     }
 
-    public static String sqlQuery(Connection conn, String sql, Object... args) throws SQLException {
-        return sqlQueryArray(conn, sql, args)[0];
-    }
-
-    public static String[] sqlQueryArray(Connection conn, String sql, Object... args) throws SQLException {
-        return sqlQueryArrayArray(conn, sql, args)[0];
-    }
-
-    public static String[][] sqlQueryArrayArray(Connection conn, String str, Object... args) throws SQLException {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = prepareStatementWithArgs(conn, str, args);
-
-            rs = ps.executeQuery();
-            return resultToArrayArray(rs);
-        } finally {
-            DBUtils.close(rs, ps);
-        }
-    }
-
     public static Object[][] sqlQueryArrayArrayObj(Connection conn, String str, Object... args) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = prepareStatementWithArgs(conn, str, args);
-
             rs = ps.executeQuery();
             return resultToArrayArrayObj(rs);
         } finally {
@@ -1201,24 +1017,13 @@ public class DBUtils {
         }
     }
 
-    public static int sqlUpdate(Connection conn, String str, Object... args) throws SQLException {
-        PreparedStatement ps = null;
-        try {
-            ps = prepareStatementWithArgs(conn, str, args);
-
-            return (ps.executeUpdate());
-        } finally {
-            DBUtils.close(ps);
-        }
-    }
-
     @SuppressWarnings("rawtypes")
     public Map[] sqlQueryArrayAssoc(Connection conn, String sql, Object... args) throws SQLException {
+        // caution: this may be called by jsp
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = prepareStatementWithArgs(conn, sql, args);
-
             rs = ps.executeQuery();
             return resultToArrayAssoc(rs);
         } finally {
@@ -1253,7 +1058,7 @@ public class DBUtils {
 
     private static String[] arrayOfResult(ResultSet rs) throws SQLException {
         ResultSetMetaData rsm = rs.getMetaData();
-        String ret[] = new String[rsm.getColumnCount()];
+        String[] ret = new String[rsm.getColumnCount()];
         for (int i = 0; i < ret.length; i++) {
             ret[i] = rs.getString(i + 1);
         }
@@ -1261,25 +1066,12 @@ public class DBUtils {
     }
 
     private static Object[] arrayOfResultObj(ResultSet rs, int colCount, ResultSetMetaData rsm) throws SQLException {
-        Object ret[] = new Object[colCount];
+        Object[] ret = new Object[colCount];
         for (int i = 0; i < ret.length; i++) {
             Object obj = extractObject(rs, rsm, i + 1);
             ret[i] = obj;
         }
         return ret;
-    }
-
-    /**
-     * Interface to an object that contains a held Connection
-     *
-     * @author srl
-     *
-     */
-    public interface ConnectionHolder {
-        /**
-         * @return alias to held connection
-         */
-        public Connection getConnectionAlias();
     }
 
     /**
@@ -1292,7 +1084,7 @@ public class DBUtils {
         /**
          * Close this object
          */
-        public void close() throws SQLException;
+        void close() throws SQLException;
     }
 
     public static void writeCsv(final String query, Writer out) throws SQLException, IOException {
@@ -1385,7 +1177,6 @@ public class DBUtils {
         }
 
         ret.put("header", header);
-        //ret.put("types", rsm2);
         final STFactory stFactory = CookieSession.sm.getSTFactory();
 
         while (rs.next()) {
@@ -1482,7 +1273,7 @@ public class DBUtils {
         }
     }
 
-    private Map<String, Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<>();
+    private final Map<String, Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<>();
 
     /**
      * Run a query, caching the JSON response
@@ -1497,11 +1288,11 @@ public class DBUtils {
      * @throws JSONException
      */
     public static JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
-        if (SurveyMain.isSetup == false || SurveyMain.isBusted()) {
+        if (!SurveyMain.isSetup || SurveyMain.isBusted()) {
             return null;
         }
 
-        /**
+        /*
          * Debug the cachedJSON
          */
         final boolean CDEBUG = SurveyMain.isUnofficial() && CldrUtility.getProperty("CLDR_QUERY_CACHEDEBUG", false);
@@ -1531,7 +1322,7 @@ public class DBUtils {
             long queryms = System.currentTimeMillis() - now;
             result.put("birth", (Long) now);
             if (CDEBUG) {
-                logger.info("cachedjson: id " + id + " fetched in " + Double.toString(queryms / 1000.0) + "s");
+                logger.info("cachedjson: id " + id + " fetched in " + queryms / 1000.0 + "s");
             }
             result.put("queryms", (Long) (queryms));
             result.put("id", id);
@@ -1544,11 +1335,11 @@ public class DBUtils {
 
     /**
      * Get the first row of the first column.  Useful when the query is very simple, such as a count.
-     * @param obj
+     * @param json
      * @return the int
      * @throws JSONException
      */
-    public static final int getFirstInt(JSONObject json) throws JSONException {
+    public static int getFirstInt(JSONObject json) throws JSONException {
         return json.getJSONArray("data").getJSONArray(0).getInt(0);
     }
 
@@ -1563,9 +1354,9 @@ public class DBUtils {
     public static Map<String, Object>[] queryToArrayAssoc(String string, Object... args) throws SQLException, IOException {
         try (
             Connection conn = getInstance().getAConnection();
-            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string);) {
+            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string)) {
             setArgs(s, args);
-            try (ResultSet rs = s.executeQuery();) {
+            try (ResultSet rs = s.executeQuery()) {
                 return resultToArrayAssoc(rs);
             }
         }
@@ -1582,9 +1373,9 @@ public class DBUtils {
     public static Object[][] queryToArrayArrayObj(String string, Object... args) throws SQLException, IOException {
         try (
             Connection conn = getInstance().getAConnection();
-            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string);) {
+            PreparedStatement s = DBUtils.prepareForwardReadOnly(conn, string)) {
             setArgs(s, args);
-            try (ResultSet rs = s.executeQuery();) {
+            try (ResultSet rs = s.executeQuery()) {
                 return resultToArrayArrayObj(rs);
             }
         }
@@ -1691,7 +1482,7 @@ public class DBUtils {
      * @return false if caller needs to 'manually' update the item.
      * @throws SQLException
      */
-    public static final boolean updateTimestamp(ResultSet rs, String string, Timestamp sqlnow) throws SQLException {
+    public static boolean updateTimestamp(ResultSet rs, String string, Timestamp sqlnow) throws SQLException {
         if (tryUpdates) {
             try {
                 rs.updateTimestamp(string, sqlnow);
@@ -1699,7 +1490,7 @@ public class DBUtils {
             } catch (SQLFeatureNotSupportedException sfns) {
                 tryUpdates = false;
                 SurveyLog.warnOnce(logger,
-                    "SQL: Apparently updates aren't supported: " + sfns.toString() + " - falling back.");
+                    "SQL: Apparently updates aren't supported: " + sfns + " - falling back.");
             }
         }
         return false; // caller needs to do an update
@@ -1728,14 +1519,14 @@ public class DBUtils {
      */
     public static void execSql(String sqlName) throws IOException, SQLException {
         try (InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
-        Reader r = new InputStreamReader(s);) {
+        Reader r = new InputStreamReader(s)) {
             execSql(sqlName, r);
         }
     }
 
     public static void execSql(String sqlName, Reader r) throws IOException, SQLException {
         logger.severe("Running SQL:  sql/"+sqlName);
-        try (Connection conn = getInstance().getAConnection();) {
+        try (Connection conn = getInstance().getAConnection()) {
             ScriptRunner runner = new ScriptRunner(conn);
             runner.runScript(r);
             logger.severe("SQL OK: sql/"+sqlName);
@@ -1745,7 +1536,7 @@ public class DBUtils {
     public static void execSqlWithSubs(String sqlName, String... subs) throws IOException, SQLException {
         try (InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
         Reader r = new InputStreamReader(s);
-        Reader r2 = substituteInStream(r, subs);) {
+        Reader r2 = substituteInStream(r, subs)) {
             execSql(sqlName, r2);
         }
     }
@@ -1753,7 +1544,7 @@ public class DBUtils {
     public static Reader substituteInStream(Reader r, String[] subs) throws IOException {
         String asString = CharStreams.toString(r);
         for (int i=0; i<subs.length; i+=2) {
-            asString = asString.replace(subs[i+0], subs[i+1]);
+            asString = asString.replace(subs[i], subs[i+1]);
         }
         return new StringReader(asString);
     }

@@ -3,15 +3,7 @@ package org.unicode.cldr.web.api;
 import java.util.List;
 import java.util.Map;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -34,23 +26,17 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.web.CookieSession;
-// import org.unicode.cldr.web.DataSection;
+import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.DataPage;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
-
-/*
- * TODO: use this instead of the deprecated SurveyAjax.getRow. First we must implement a replacement
- * here for the "dashboard=true" query parameter getRow uses for calling VettingViewerQueue.getErrorOnPath.
- * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
- */
 
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class VoteAPI {
-    final boolean DEBUG = false;
 
     @GET
-    @Path("/{locale}/row/{xpath}")
+    @Path("/{locale}/row/{xpstrid}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Get row info",
@@ -82,12 +68,13 @@ public class VoteAPI {
             schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
 
         @Parameter(example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpath") String xpath,
+            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
 
-        @QueryParam("dashboard") @Schema(required = false, description = "Whether to get dashboard info") Boolean getDashboard,
+        @QueryParam("dashboard") @Schema(description = "Whether to get dashboard info")
+            @DefaultValue("false") Boolean getDashboard,
 
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetOneRow(loc, session, xpath, getDashboard);
+        return VoteAPIHelper.handleGetOneRow(loc, session, xpstrid, getDashboard);
     }
 
     @GET
@@ -111,7 +98,9 @@ public class VoteAPI {
                 description = "Forbidden, no access to this data"),
             @APIResponse(
                 responseCode = "404",
-                description = "Row or Locale does not exist"),
+                description = "Row or Locale does not exist. More details in the 'code' field.",
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = STError.class))),
             @APIResponse(
                 responseCode = "500",
                 description = "Internal Server Error",
@@ -125,8 +114,20 @@ public class VoteAPI {
         @Parameter(example = "Languages_K_N",
             schema = @Schema(type = SchemaType.STRING)) @PathParam("page") String page,
 
+        @QueryParam("xpstrid") @Schema(description = "Xpath string ID if page is auto")
+            @DefaultValue("") String xpstrid,
+
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetOnePage(loc, session, page);
+
+        /*
+         * The optional xpstrid query parameter enables requests like
+         *    /cldr-apps/api/voting/fr/page/auto?xpstrid=2703e9d07ab2ef3a
+         * so that a URL like
+         *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant//2703e9d07ab2ef3a
+         * can be used instead of
+         *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
+         */
+        return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
     }
 
     public static final class RowResponse {
@@ -134,48 +135,95 @@ public class VoteAPI {
         public static final class Row {
 
             public static final class Candidate {
-                public String value;
                 public String displayValue;
-                public String pClass;
                 public String example;
+                public String history;
                 public boolean isBaselineValue;
-                public VoteEntry[] votes;
+                public String pClass;
+                public String rawValue;
+                public List<CheckStatusSummary> tests;
+                public String value;
+                public String valueHash;
+                public Map<String,VoteEntry> votes;
             }
 
-            public Candidate[] items;
-            public String xpath;
+            public static final class OrgValueVotes {
+                public boolean conflicted;
+                public String orgVote; // value like "↑↑↑"
+                public String status; // like "ok"
+                public Map<String,Long> votes; // key is value like "↑↑↑"
+            }
+
+            public static final class VotingResults {
+                public Map<String, Long> nameTime;
+                public Map<String,OrgValueVotes> orgs; // key is organization name like "apple", "google"
+                public int requiredVotes;
+                public String[] value_vote;
+                public boolean valueIsLocked;
+            }
+
+            public boolean canFlagOnLosing;
             public String code;
-            public VoteResolver<String> resolver;
+            public VoteResolver.Status confirmStatus;
+            public int coverageValue;
             public String dir;
-            public StatusAction statusAction;
-            public String displayName;
             public String displayExample;
+            public String displayName;
             public Map<String, String> extraAttributes;
-            public boolean hasVoted;
             public boolean flagged;
-            public VoteResolver<String> voteResolver;
+            public boolean hasVoted;
             public String helpHtml;
-            public String rdf;
             public String inheritedLocale;
-            public String winningValue;
-            public String inheritedXpath;
-            @Schema(description = "status of placeholder value", example = "REQUIRED")
-            public PlaceholderStatus placeholderStatus;
+            public String inheritedValue;
+            public String inheritedXpid;
+            public Map<String, Candidate> items;
+
             @Schema(description = "map of placeholder string to example value")
             public Map<String, PlaceholderInfo> placeholderInfo;
+
+            @Schema(description = "status of placeholder value", example = "REQUIRED")
+            public PlaceholderStatus placeholderStatus;
+
+            public String rdf;
+            public boolean rowFlagged;
+            public StatusAction statusAction;
+            public String translationHint;
+            public String voteVhash;
+            public VotingResults votingResults;
+            public String winningValue;
+            public String winningVhash;
+            public String xpath;
+            public int xpathId;
+            public String xpstrid;
+
+            @Schema(description = "prose description of voting outcome")
+            public String voteTranscript;
         }
 
-        public String localeDisplayName;
-        public String pageId;
-        public boolean isReadOnly;
+        public static final class Page {
+            public boolean nocontent; // true if dcParent is set
+            public Map<String, RowResponse.Row> rows;
+        }
+
+        public static final class DisplaySets {
+            public DataPage.DisplaySet ph; // path header; cf. PathHeaderSort.name
+        }
+
+        public Object canModify;
+
         @Schema(description = "If set, row is not available because there is a Default Content parent. See the specified locale instead.")
         public String dcParent;
-        public Row[] rows;
+
+        public DisplaySets displaySets;
         public JSONArray issues;
+        public String localeDisplayName;
+        public Dashboard.ReviewNotification[] notifications;
+        public Page page;
+        public String pageId;
     }
 
     @POST
-    @Path("/{locale}/row/{xpath}")
+    @Path("/{locale}/row/{xpstrid}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
@@ -205,7 +253,7 @@ public class VoteAPI {
             schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
 
         @Parameter(required = true, example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpath") String xpath,
+            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
 
         @HeaderParam(Auth.SESSION_HEADER) String session,
 
@@ -215,31 +263,43 @@ public class VoteAPI {
         if (mySession == null) {
             return Auth.noSessionResponse();
         }
-
-        return VoteAPIHelper.handleVote(loc, xpath, request, mySession);
+        final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
+        if (xp == null) {
+            return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        return VoteAPIHelper.handleVote(loc, xp, request.value, request.voteLevelChanged, mySession, true /* forbiddenIsOk */);
     }
 
     final static public class VoteResponse {
-        @Schema(description = "true if voting succeeded.")
+        @Schema(description = "True if voting succeeded.")
         public boolean didVote;
         @Schema(description = "If set, some other reason why the submission failed.")
         public String didNotSubmit;
-        @Schema(description = "VoteResolver info about the voting results")
-        public VoteResolver<String> submitResult;
         @Schema(description = "If not ALLOW_*, gives reason why the voting was not allowed.")
         public StatusAction statusAction = null;
-        @Schema()
-        public boolean dataEmpty;
-        @Schema(description = "Tests which were run.")
-        public String testsRun;
         @Schema(description = "Results of status checks.")
-        public CheckStatusSummary[] results;
+        public CheckStatusSummary[] testResults;
+        @Schema(description = "True if testResults include warnings.")
+        public boolean testWarnings;
+        @Schema(description = "True if testResults include errors.")
+        public boolean testErrors;
 
-        void setResults(List<CheckStatus> results) {
-            this.results = new CheckStatusSummary[results.size()];
-            for (int i = 0; i < results.size(); i++) {
-                this.results[i] = new CheckStatusSummary(results.get(i));
+        void setTestResults(List<CheckStatus> testResults) {
+            this.testResults = new CheckStatusSummary[testResults.size()];
+            this.testWarnings = has(testResults, CheckStatus.warningType);
+            this.testErrors = has(testResults, CheckStatus.errorType);
+            for (int i = 0; i < testResults.size(); i++) {
+                this.testResults[i] = new CheckStatusSummary(testResults.get(i));
             }
+        }
+
+        private static boolean has(List<CheckStatus> result, CheckStatus.Type type) {
+            for (CheckStatus s : result) {
+                if (s.getType().equals(type)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
@@ -249,18 +309,15 @@ public class VoteAPI {
         public Subtype subtype;
         public String subtypeUrl;
         public Phase phase;
-
-        @JsonbProperty("class")
-        private String clazz;
+        public String cause;
 
         public CheckStatusSummary(CheckStatus checkStatus) {
             this.message = checkStatus.getMessage();
             this.type = checkStatus.getType();
-            // cause
-            CheckCLDR cause = checkStatus.getCause();
-            if (cause != null) {
-                this.clazz = cause.getClass().getSimpleName();
-                this.phase = cause.getPhase();
+            CheckCLDR cccause = checkStatus.getCause();
+            if (cccause != null) {
+                this.cause = cccause.getClass().getSimpleName();
+                this.phase = cccause.getPhase(); // unused on front end
             }
             // subtype
             this.subtype = checkStatus.getSubtype();

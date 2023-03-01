@@ -266,6 +266,17 @@ public class ExampleDependencies {
         "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
     .putAll("//ldml/personNames/initialPattern[@type=\"*\"]",
         "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
-        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern",
+        "//ldml/personNames/initialPattern[@type=\"*\"]"
+        )
+    .putAll("//ldml/personNames/nameOrderLocales[@order=\"*\"]",
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern",
+        "//ldml/personNames/nameOrderLocales[@order=\"*\"]"
+        )
+    .putAll("//ldml/personNames/foreignSpaceReplacement",
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern"
+        )
     .build();
 }

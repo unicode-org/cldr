@@ -38,31 +38,51 @@ const menubuttons = {
   dcontent: "title-dcontent", // cf. id='title-dcontent-container'
 
   /**
-   * Set the innerHTML of an element, and display or hide it
-   * Called as menubuttons.set(id, html) to show or menubuttons.set(id) to hide
+   * Set the textContent of an element, and display or hide it
+   * Called as menubuttons.set(id, text) to show or menubuttons.set(id) to hide
    *
    * @param {string} id - one of the id strings above (title-locale/section/page/dcontent)
-   * @param {string} html - text (html) to show, or undefined to hide
+   * @param {string} text - text to show, or undefined to hide
    */
-  set: function (id, html) {
-    let cnode = document.getElementById(id + "-container");
-    if (!cnode) {
-      // for Elements that do their own stunts -- in fact there are none currently (2021-01-04)
-      cnode = document.getElementById(id);
+  set: function (id, text) {
+    const el = document.getElementById(id);
+    const containerEl = document.getElementById(id + "-container");
+    if (!el || !containerEl) {
+      return;
     }
-    if (html && html !== "-") {
-      // Here "updateIf" seems to have no effect; if the element with id exists, it already has html for innerHTML.
-      // Commenting it out seems to make no difference. But I haven't confirmed yet that's ALWAYS true.
-      cldrDom.updateIf(id, html);
-      cldrDom.setDisplayed(cnode, true);
+    if (text) {
+      el.textContent = text;
+      if (id === "title-locale") {
+        const safeLocale = makeSafe(cldrStatus.getCurrentLocale());
+        el.href = "#/" + safeLocale + "//";
+      }
+      containerEl.style.display = "inline";
     } else {
-      cldrDom.setDisplayed(cnode, false);
-      cldrDom.updateIf(id, "-");
+      containerEl.style.display = "none";
+      el.textContent = "-";
     }
   },
 };
 
-function getInitialMenusEtc(sessionId) {
+/**
+ * Process a string to avoid html vulnerability
+ *
+ * @param {String} s the possibly dangerous string
+ * @returns the safe string containing only ASCII letters/digits, hyphen, or underscore
+ *
+ * This is currently only intended for use on locale codes such as "fr_CA", so it can simply
+ * remove all but a very small set of characters. Supposedly a more general method would be:
+ *    const div = document.createElement("div");
+ *    div.innerHTML = s;
+ *    return div.textContent;
+ * however that would need testing/confirmation. Another method would require the ESAPI library:
+ *    ESAPI.encoder().encodeForJavascript(ESAPI.encoder().encodeForHTML(s))
+ */
+function makeSafe(s) {
+  return s.replace(/[^-_a-zA-Z0-9]/g, "");
+}
+
+function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
   const xurl = getMenusAjaxUrl(theLocale, true /* get locmap */);
   cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
@@ -313,7 +333,7 @@ function update() {
   }
 }
 
-function getMenusFromServer(s) {
+function getMenusFromServer() {
   // show the raw IDs while loading.
   // TODO: clarify whether it's necessary -- the code would be cleaner without null here
   updateMenuTitles(null);
@@ -455,7 +475,7 @@ function updateTitleAndSection(menuMap) {
   const curSpecial = cldrStatus.getCurrentSpecial();
   const titlePageContainer = document.getElementById("title-page-container");
 
-  if (curSpecial != null && curSpecial != "") {
+  if (curSpecial) {
     const specialId = "special_" + curSpecial;
     $("#section-current").html(cldrText.get(specialId));
     cldrDom.setDisplayed(titlePageContainer, false);
@@ -473,9 +493,6 @@ function updateTitleAndSection(menuMap) {
       cldrStatus.setCurrentSection(mySection.id);
       $("#section-current").html(mySection.name);
       cldrDom.setDisplayed(titlePageContainer, false); // will fix title later
-    } else {
-      $("#section-current").html(cldrText.get("section_general"));
-      cldrDom.setDisplayed(titlePageContainer, false);
     }
   }
 }

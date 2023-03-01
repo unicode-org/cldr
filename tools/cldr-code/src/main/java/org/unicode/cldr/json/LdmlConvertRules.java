@@ -248,7 +248,7 @@ class LdmlConvertRules {
     /**
      * The set of attributes that should be ignored in the conversion process.
      */
-    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET = ImmutableSet.of("draft", "references");
+    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET = ImmutableSet.of("draft", "references", "origin");
 
     /**
      * List of attributes that should be suppressed.
@@ -313,6 +313,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("measurementSystem-category-temperature", "territories", "type"),
         new SplittableAttributeSpec("paperSize", "territories", "type"),
         new SplittableAttributeSpec("parentLocale", "locales", "parent"),
+        new SplittableAttributeSpec("collations", "locales", "parent"), // parentLocale component=collations
+        new SplittableAttributeSpec("segmentations", "locales", "parent"), // parentLocale component=segmentations
         new SplittableAttributeSpec("hours", "regions", null),
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
         // new SplittableAttributeSpec("group", "contains", "group"),
@@ -334,7 +336,7 @@ class LdmlConvertRules {
      * as a single string.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET = Builder.with(new HashSet<String>())
-        .add("territories").add("scripts").add("contains").add("systems").freeze();
+        .add("territories").add("scripts").add("contains").add("systems").add("origin").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.

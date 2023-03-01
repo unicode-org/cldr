@@ -386,6 +386,9 @@ public class TestBasic extends TestFmwkPlus {
         CharacterFallbacks fallbacks = CharacterFallbacks.make();
 
         for (String locale : cldrFactory.getAvailable()) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRFile file = testInfo.getCLDRFile(locale, false);
             if (file.isNonInheriting())
                 continue;
@@ -1027,7 +1030,9 @@ public class TestBasic extends TestFmwkPlus {
             if (!isTopLevel(localeID)) {
                 continue;
             }
-
+            if (!StandardCodes.isLocaleAtLeastBasic(localeID)) {
+                continue;
+            }
             errors.clear();
             warnings.clear();
 
@@ -1135,11 +1140,11 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestBasicDTDCompatibility() {
 
-        if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
+        if (logKnownIssue("cldrbug:16393", "Comment out until we detect whether to enable cldr-archive for unit tests")) {
             return;
         }
 
-        final String oldCommon = CldrVersion.v22_1.getBaseDirectory() + "/common";
+        final String oldCommon = CldrVersion.LAST_RELEASE_VERSION.getBaseDirectory() + "/common";
 
         // set up exceptions
         Set<String> changedToEmpty = new HashSet<String>(
@@ -1320,7 +1325,7 @@ public class TestBasic extends TestFmwkPlus {
                     + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
 
-            if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
+            if (logKnownIssue("cldrbug:16393", "Comment out test until cldr-archive is signaled for unit tests on CI")) {
                 return;
             }
 

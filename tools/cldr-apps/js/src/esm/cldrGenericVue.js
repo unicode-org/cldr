@@ -2,7 +2,6 @@
  * cldrGenericVue: encapsulate functions for the any other special pages of Survey Tool
  * which route through Vue
  */
-import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -24,9 +23,6 @@ function loadHandler(json, specialPage) {
   }
 
   const app = document.createElement("div");
-
-  // make right hand sidebar empty. TODO: better way to do this?
-  cldrGui.hideRightPanel();
   cldrSurvey.hideLoader();
   cldrLoad.flipToOtherDiv(app);
 

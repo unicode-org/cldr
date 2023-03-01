@@ -46,9 +46,9 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
@@ -77,7 +77,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/inText",
         "/orientation",
         "/symbol[@alt=\"narrow\"]",
-        "/characters/parseLenients"
+        "/characters/parseLenients",
+        "/nameOrderLocales"
     };
 
     static String[] DATE_PARTS = {
@@ -421,7 +422,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 LocaleIDParser parser = new LocaleIDParser().set(sourceLocale);
                 String script = parser.getScript();
                 if (script.length() == 0) {
-                    String localeID = sdi.getLikelySubtags().get(sourceLocale);
+                    String localeID = sdi.getLikelySubtags().get(sourceLocale); // quick check
                     if (localeID == null) {
                         localeID = sdi.getLikelySubtags().get(parser.getLanguage());
                         if (localeID == null) {

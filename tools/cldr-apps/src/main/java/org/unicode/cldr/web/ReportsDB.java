@@ -34,7 +34,7 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
         logger.info("Setting up DB");
         try {
             try (Connection conn = DBUtils.getInstance().getDBConnection();) {
-                if (!DBUtils.hasTable(conn, table)) {
+                if (!DBUtils.hasTable(table)) {
                     DBUtils.execSqlWithSubs("cldr-reports-db.sql",
                         // Variable,   Substitution
                         "VOTE_REPORTS", table,

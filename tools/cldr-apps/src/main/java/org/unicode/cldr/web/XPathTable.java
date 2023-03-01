@@ -66,7 +66,7 @@ public class XPathTable {
      */
     public static XPathTable createTable(Connection ourConn) throws SQLException {
         try {
-            boolean isNew = !DBUtils.hasTable(ourConn, CLDR_XPATHS);
+            boolean isNew = !DBUtils.hasTable(CLDR_XPATHS);
             XPathTable reg = new XPathTable();
             if (isNew) {
                 reg.setupDB(ourConn);
@@ -655,6 +655,8 @@ public class XPathTable {
      * xpath to long
      * @param xpath a string identifying a path, for example "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
      * @return a long integer, which is a hash of xpath; for example 2795888612892500012 (decimal) = 6d37a14eec91cee6 (hex)
+     *
+     * CAUTION: this is NOT the same as getByXpath, which is generally a much smaller integer!
      */
     public static final long getStringID(String xpath) {
         return StringId.getId(xpath);

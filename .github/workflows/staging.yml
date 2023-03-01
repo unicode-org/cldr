@@ -1,0 +1,104 @@
+# Deploy to Staging
+
+name: staging
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: 'Git Ref to Deploy (hash: 40 hex digits)'
+        required: true
+      repo:
+        description: CLDR repo or fork
+        required: true
+        default: 'unicode-org/cldr'
+      option:
+        description: use --override to allow any ref
+        required: false
+        default: '--override'
+jobs:
+  build:
+    name: Build for Staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+          repository: ${{ github.event.inputs.repo }}
+          lfs: false
+      - name: Calculate Tag Name
+        id: tagname
+        run: >
+          echo "::set-output name=tag::$(env TZ=UTC date +'staging/%Y-%m-%d-%H%Mz')"
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'temurin'
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Cache local npm repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            node-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build liberty server
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
+          -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cleanup liberty server
+        run: >
+          zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
+      - name: Upload cldr-apps.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: cldr-apps-server
+          path: tools/cldr-apps/target/cldr-apps.zip
+  deploy:
+    name: Deploy to Staging
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cldr-apps.zip
+      uses: actions/download-artifact@v3
+      with:
+        name: cldr-apps-server
+    - name: Deploy to st
+      # Deploys only on push to main.
+      # Does not deploy for PRs.
+      shell: bash
+      env:
+        # the RSA key for connecting
+        RSA_KEY_SURVEYTOOL: ${{ secrets.RSA_KEY_SURVEYTOOL }}
+        # the SSH port
+        STAGING_PORT: ${{ secrets.STAGING_PORT }}
+        # the SSH host
+        STAGING_HOST: ${{ secrets.STAGING_HOST }}
+        # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+        # use 'ssh-keyscan ${SMOKETEST_HOST}' to generate
+        STAGING_KNOWNHOSTS: ${{ secrets.STAGING_KNOWNHOSTS }}
+        DEPLOY_SHA: ${{ github.event.inputs.git-ref }}
+        DEPLOY_REPO: ${{ github.event.inputs.repo }}
+        OVERRIDE: ${{ github.event.inputs.override }}
+      run: |
+        echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
+        echo "${STAGING_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
+        ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${STAGING_PORT} surveytool@${STAGING_HOST} bash /usr/local/bin/deploy-to-openliberty.sh < cldr-apps.zip --repo "${DEPLOY_REPO}" ${DEPLOY_SHA} ${OVERRIDE}

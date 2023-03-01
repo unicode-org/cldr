@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -922,7 +922,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<eraNames>
 						<era type="0">безнең эрага кадәр</era>
 						<era type="0" alt="variant">безнең эрага кадәр</era>
-						<era type="1">↑↑↑</era>
+						<era type="1">милади</era>
 						<era type="1" alt="variant">безнең эра</era>
 					</eraNames>
 					<eraAbbr>
@@ -1207,10 +1207,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>эра</displayName>
 			</field>
 			<field type="era-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>эра</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>эра</displayName>
 			</field>
 			<field type="year">
 				<displayName>ел</displayName>
@@ -1238,7 +1238,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>ел</displayName>
-				<relative type="-1">↑↑↑</relative>
+				<relative type="-1">узган ел</relative>
 				<relative type="0">быел</relative>
 				<relative type="1">киләсе елда</relative>
 				<relativeTime type="future">
@@ -1376,9 +1376,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>көн</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">кичә</relative>
+				<relative type="0">бүген</relative>
+				<relative type="1">иртәгә</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} көннән</relativeTimePattern>
 				</relativeTime>
@@ -1388,9 +1388,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>көн</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">кичә</relative>
+				<relative type="0">бүген</relative>
+				<relative type="1">иртәгә</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} көннән</relativeTimePattern>
 				</relativeTime>
@@ -1411,10 +1411,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>атна көне</displayName>
 			</field>
 			<field type="weekday-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>атна көне</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>атна көне</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>айның эш көне</displayName>
@@ -1614,7 +1614,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">узган җом.</relative>
-				<relative type="0">↑↑↑</relative>
+				<relative type="0">бу җом.</relative>
 				<relative type="1">киләсе җом.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} җом. узгач</relativeTimePattern>
@@ -1650,20 +1650,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">бу шим.</relative>
 				<relative type="1">киләсе шим.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} шим. узгач</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other">{0} шим. элек</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>AM/PM</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>AM/PM</displayName>
 			</field>
 			<field type="hour">
 				<displayName>сәгать</displayName>
@@ -1753,10 +1753,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>вакыт өлкәсе</displayName>
 			</field>
 			<field type="zone-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>вакыт өлкәсе</displayName>
 			</field>
 			<field type="zone-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>вакыт өлкәсе</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -1775,6 +1775,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>билгесез шәһәр</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic>Акр вакыты</generic>
+				</long>
+			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<generic>Төньяк Америка үзәк вакыты</generic>
@@ -1801,6 +1806,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Төньяк Америка Тын океан вакыты</generic>
 					<standard>Төньяк Америка гадәти Тын океан вакыты</standard>
 					<daylight>Төньяк Америка җәйге Тын океан вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic>Анадырь вакыты</generic>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -1834,6 +1844,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="GMT">
 				<long>
 					<standard>Гринвич уртача вакыты</standard>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>Петропавловск-Камчатский вакыты</generic>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>Самара вакыты</generic>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -1987,5 +2007,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst">und tt</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<personName order="givenFirst" length="long" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="referring" formality="informal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
+			<namePattern>{surname} {title} {given} {given2} {generation}, {credentials}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>{surname} {title} {given} {given2} {generation}, {credentials}</namePattern>
+		</personName>
+		<sampleName item="nativeG">
+			<nameField type="given">Зөхрә</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given">Гөлчәчәк</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given">Мәликә Сабирова</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="given">Бертрам Уилберфорс</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Синдбад</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Катя</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">Зазилия</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="given">Аидә Закирова</nameField>
+		</sampleName>
 	</personNames>
 </ldml>

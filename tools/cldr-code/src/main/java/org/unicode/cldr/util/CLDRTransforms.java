@@ -3,38 +3,38 @@
  */
 package org.unicode.cldr.util;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.TestTransforms;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.DiscreteComparator.Builder;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.ibm.icu.impl.Relation;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -44,6 +44,8 @@ public class CLDRTransforms {
     public static final String TRANSFORM_DIR = (CLDRPaths.COMMON_DIRECTORY + "transforms/");
 
     static final CLDRTransforms SINGLETON = new CLDRTransforms();
+
+    private static final boolean PARANOID = true;
 
     public static CLDRTransforms getInstance() {
         return SINGLETON;
@@ -59,20 +61,20 @@ public class CLDRTransforms {
     }
 
     final Set<String> overridden = new HashSet<>();
-    final DependencyOrder dependencyOrder = new DependencyOrder();
+    //final DependencyOrder dependencyOrder = new DependencyOrder();
 
-    static public class RegexFindFilenameFilter implements FilenameFilter {
-        Matcher matcher;
-
-        public RegexFindFilenameFilter(Matcher filter) {
-            matcher = filter;
-        }
-
-        @Override
-        public boolean accept(File dir, String name) {
-            return matcher.reset(name).find();
-        }
-    }
+//    static public class RegexFindFilenameFilter implements FilenameFilter {
+//        Matcher matcher;
+//
+//        public RegexFindFilenameFilter(Matcher filter) {
+//            matcher = filter;
+//        }
+//
+//        @Override
+//        public boolean accept(File dir, String name) {
+//            return matcher.reset(name).find();
+//        }
+//    }
 
     /**
      *
@@ -93,25 +95,21 @@ public class CLDRTransforms {
         }
         // reorder to preload some
         r.showProgress = showProgress;
-        List<String> files;
-        Set<String> ordered;
+        Set<String> ordered = getFileRegistrationOrder(dir);
 
-        if (namesMatchingRegex == null) {
-            files = getAvailableIds();
-            ordered = r.dependencyOrder.getOrderedItems(files, null, true);
-        } else {
+        if (namesMatchingRegex != null) {
             Matcher filter = PatternCache.get(namesMatchingRegex).matcher("");
-            r.deregisterIcuTransliterators(filter);
-            files = Arrays.asList(new File(TRANSFORM_DIR).list(new RegexFindFilenameFilter(filter)));
-            ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
+            ordered = ordered.stream().filter(x -> filter.reset(x).matches()).collect(Collectors.toCollection(LinkedHashSet::new));
+//            r.deregisterIcuTransliterators(filter);
+//            files = Arrays.asList(new File(TRANSFORM_DIR).list(new RegexFindFilenameFilter(filter)));
+//            ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
         }
 
         // System.out.println(ordered);
         for (String cldrFileName : ordered) {
-            r.registerTransliteratorsFromXML(dir, cldrFileName, files, keepDashTIds);
+            r.registerTransliteratorsFromXML(dir, cldrFileName, Collections.emptySet(), keepDashTIds);
         }
         Transliterator.registerAny(); // do this last!
-
     }
 
     public static List<String> getAvailableIds() {
@@ -123,206 +121,6 @@ public class CLDRTransforms {
     }
 
     static Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
-
-    class DependencyOrder {
-        // String[] doFirst = {"Latin-ConjoiningJamo"};
-        // the following are file names, not IDs, so the dependencies have to go both directions
-        // List<String> extras = new ArrayList<String>();
-
-        Relation<Matcher, String> dependsOn = Relation.of(new LinkedHashMap<Matcher, Set<String>>(), LinkedHashSet.class);
-        {
-            addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
-            addDependency("(Jamo|Hangul)-Latin(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
-            addDependency("Latin-Han(/.*)", "Han-Spacedhan");
-            addDependency(".*(Hiragana|Katakana|Han|han).*", "Fullwidth-Halfwidth", "Halfwidth-Fullwidth");
-            addDependency(".*(Hiragana).*", "Latin-Katakana", "Katakana-Latin");
-
-            addInterIndicDependency("Arabic");
-            addInterIndicDependency("Bengali");
-            addInterIndicDependency("Devanagari");
-            addInterIndicDependency("Gujarati");
-            addInterIndicDependency("Gurmukhi");
-            addInterIndicDependency("Kannada");
-            addInterIndicDependency("Malayalam");
-            addInterIndicDependency("Oriya");
-            addInterIndicDependency("Tamil");
-            addInterIndicDependency("Telugu");
-            addInterIndicDependency("ur");
-
-            addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
-            addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");
-            addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
-            addDependency("am-ar", "am-am_FONIPA", "und_FONIPA-ar");
-            addDependency("am-chr", "am-am_FONIPA", "und_FONIPA-chr");
-            addDependency("am-fa", "am-am_FONIPA", "und_FONIPA-fa");
-            addDependency("ch-am", "ch-ch_FONIPA", "am-am_FONIPA");
-            addDependency("ch-ar", "ch-ch_FONIPA", "und_FONIPA-ar");
-            addDependency("ch-chr", "ch-ch_FONIPA", "und_FONIPA-chr");
-            addDependency("ch-fa", "ch-ch_FONIPA", "und_FONIPA-fa");
-            addDependency("cs-am", "cs-cs_FONIPA", "am-am_FONIPA");
-            addDependency("cs-ar", "cs-cs_FONIPA", "und_FONIPA-ar");
-            addDependency("cs-chr", "cs-cs_FONIPA", "und_FONIPA-chr");
-            addDependency("cs-fa", "cs-cs_FONIPA", "und_FONIPA-fa");
-            addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
-            addDependency("cs_FONIPA-ko", "Latin-Hangul");
-            addDependency("cs-ko", "cs-cs_FONIPA", "cs_FONIPA-ko");
-            addDependency("de-ASCII", "Any-ASCII");
-            addDependency("eo-am", "eo-eo_FONIPA", "am-am_FONIPA");
-            addDependency("eo-ar", "eo-eo_FONIPA", "und_FONIPA-ar");
-            addDependency("eo-chr", "eo-eo_FONIPA", "und_FONIPA-chr");
-            addDependency("eo-fa", "eo-eo_FONIPA", "und_FONIPA-fa");
-            addDependency("es-am", "es-es_FONIPA", "am-am_FONIPA");
-            addDependency("es-ar", "es-es_FONIPA", "und_FONIPA-ar");
-            addDependency("es-chr", "es-es_FONIPA", "und_FONIPA-chr");
-            addDependency("es-fa", "es-es_FONIPA", "und_FONIPA-fa");
-            addDependency("es_419-am", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "am-am_FONIPA");
-            addDependency("es_419-ar", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-ar");
-            addDependency("es_419-chr", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-chr");
-            addDependency("es_419-fa", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-fa");
-            addDependency("es_419-ja", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "es_FONIPA-ja");
-            addDependency("es-am", "es-es_FONIPA", "es_FONIPA-am");
-            addDependency("es-ja", "es-es_FONIPA", "es_FONIPA-ja");
-            addDependency("es-zh", "es-es_FONIPA", "es_FONIPA-zh");
-
-            addDependency("Han-Latin-Names", "Han-Latin");
-
-            addDependency("hy-am", "hy-hy_FONIPA", "am-am_FONIPA");
-            addDependency("hy-ar", "hy-hy_FONIPA", "und_FONIPA-ar");
-            addDependency("hy-chr", "hy-hy_FONIPA", "und_FONIPA-chr");
-            addDependency("hy-fa", "hy-hy_FONIPA", "und_FONIPA-fa");
-            addDependency("hy_AREVMDA-am", "hy_AREVMDA-hy_AREVMDA_FONIPA", "am-am_FONIPA");
-            addDependency("hy_AREVMDA-ar", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-ar");
-            addDependency("hy_AREVMDA-chr", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-chr");
-            addDependency("hy_AREVMDA-fa", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-fa");
-            addDependency("ia-am", "ia-ia_FONIPA", "am-am_FONIPA");
-            addDependency("ia-ar", "ia-ia_FONIPA", "und_FONIPA-ar");
-            addDependency("ia-chr", "ia-ia_FONIPA", "und_FONIPA-chr");
-            addDependency("ia-fa", "ia-ia_FONIPA", "und_FONIPA-fa");
-            addDependency("kk-am", "kk-kk_FONIPA", "am-am_FONIPA");
-            addDependency("kk-ar", "kk-kk_FONIPA", "und_FONIPA-ar");
-            addDependency("kk-chr", "kk-kk_FONIPA", "und_FONIPA-chr");
-            addDependency("kk-fa", "kk-kk_FONIPA", "und_FONIPA-fa");
-            addDependency("ky-am", "ky-ky_FONIPA", "am-am_FONIPA");
-            addDependency("ky-ar", "ky-ky_FONIPA", "und_FONIPA-ar");
-            addDependency("ky-chr", "ky-ky_FONIPA", "und_FONIPA-chr");
-            addDependency("ky-fa", "ky-ky_FONIPA", "und_FONIPA-fa");
-            addDependency("my-am", "my-my_FONIPA", "am-am_FONIPA");
-            addDependency("my-ar", "my-my_FONIPA", "und_FONIPA-ar");
-            addDependency("my-chr", "my-my_FONIPA", "und_FONIPA-chr");
-            addDependency("my-fa", "my-my_FONIPA", "und_FONIPA-fa");
-            addDependency("pl-am", "pl-pl_FONIPA", "am-am_FONIPA");
-            addDependency("pl-ar", "pl-pl_FONIPA", "und_FONIPA-ar");
-            addDependency("pl-chr", "pl-pl_FONIPA", "und_FONIPA-chr");
-            addDependency("pl-fa", "pl-pl_FONIPA", "und_FONIPA-fa");
-            addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
-            addDependency("rm_SURSILV-am", "rm_SURSILV-rm_FONIPA_SURSILV", "am-am_FONIPA");
-            addDependency("rm_SURSILV-ar", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-ar");
-            addDependency("rm_SURSILV-chr", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-chr");
-            addDependency("rm_SURSILV-fa", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-fa");
-            addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
-            addDependency("ro-ar", "ro-ro_FONIPA", "und_FONIPA-ar");
-            addDependency("ro-chr", "ro-ro_FONIPA", "und_FONIPA-chr");
-            addDependency("ro-fa", "ro-ro_FONIPA", "und_FONIPA-fa");
-            addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
-            addDependency("sat-am", "sat_Olck-sat_FONIPA", "am-am_FONIPA");
-            addDependency("sat-ar", "sat_Olck-sat_FONIPA", "und_FONIPA-ar");
-            addDependency("sat-chr", "sat_Olck-sat_FONIPA", "und_FONIPA-chr");
-            addDependency("sat-fa", "sat_Olck-sat_FONIPA", "und_FONIPA-fa");
-            addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
-            addDependency("si-ar", "si-si_FONIPA", "und_FONIPA-ar");
-            addDependency("si-chr", "si-si_FONIPA", "und_FONIPA-chr");
-            addDependency("si-fa", "si-si_FONIPA", "und_FONIPA-fa");
-            addDependency("sk-am", "sk-sk_FONIPA", "am-am_FONIPA");
-            addDependency("sk-ar", "sk-sk_FONIPA", "und_FONIPA-ar");
-            addDependency("sk-chr", "sk-sk_FONIPA", "und_FONIPA-chr");
-            addDependency("sk-fa", "sk-sk_FONIPA", "und_FONIPA-fa");
-            addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
-            addDependency("tlh-am", "tlh-tlh_FONIPA", "am-am_FONIPA");
-            addDependency("tlh-ar", "tlh-tlh_FONIPA", "und_FONIPA-ar");
-            addDependency("tlh-chr", "tlh-tlh_FONIPA", "und_FONIPA-chr");
-            addDependency("tlh-fa", "tlh-tlh_FONIPA", "und_FONIPA-fa");
-            addDependency("xh-am", "xh-xh_FONIPA", "am-am_FONIPA");
-            addDependency("xh-ar", "xh-xh_FONIPA", "und_FONIPA-ar");
-            addDependency("xh-chr", "xh-xh_FONIPA", "und_FONIPA-chr");
-            addDependency("xh-fa", "xh-xh_FONIPA", "und_FONIPA-fa");
-            addDependency("zu-am", "zu-zu_FONIPA", "am-am_FONIPA");
-            addDependency("zu-ar", "zu-zu_FONIPA", "und_FONIPA-ar");
-            addDependency("zu-chr", "zu-zu_FONIPA", "und_FONIPA-chr");
-            addDependency("zu-fa", "zu-zu_FONIPA", "und_FONIPA-fa");
-            addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
-
-            // addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
-            // Pinyin-NumericPinyin.xml
-        }
-
-        private void addInterIndicDependency(String script) {
-            addPivotDependency(script, "InterIndic");
-            if (!script.equals("Arabic")) {
-                addDependency(script + "-Arabic",
-                    script + "-InterIndic", "InterIndic-Arabic");
-            }
-        }
-
-        private void addPivotDependency(String script, String pivot) {
-            addDependency(script + "-.*", "Bengali" + "-" + pivot, pivot + "-" + "Bengali");
-            addDependency(".*-" + "Bengali" + "(/.*)?", pivot + "-" + "Bengali", pivot + "-" + "Bengali");
-        }
-
-        // private void addExtras(String... strings) {
-        // for (String item : strings) {
-        // extras.add(item);
-        // }
-        // }
-
-        private void addDependency(String pattern, String... whatItDependsOn) {
-            dependsOn.putAll(PatternCache.get(pattern).matcher(""), Arrays.asList(whatItDependsOn));
-        }
-
-        public Set<String> getOrderedItems(Collection<String> rawInput, Matcher filter, boolean hasXmlSuffix) {
-            Set<String> input = new LinkedHashSet<>(rawInput);
-            // input.addAll(extras);
-
-            Set<String> ordered = new LinkedHashSet<>();
-
-            // for (String other : doFirst) {
-            // ordered.add(hasXmlSuffix ? other + ".xml" : other);
-            // }
-
-            for (String cldrFileName : input) {
-                if (hasXmlSuffix && !cldrFileName.endsWith(".xml")) {
-                    continue;
-                }
-
-                if (filter != null && !filter.reset(cldrFileName).find()) {
-                    append("Skipping " + cldrFileName + "\n");
-                    continue;
-                }
-                // add dependencies first
-                addDependenciesRecursively(cldrFileName, ordered, hasXmlSuffix);
-            }
-            append("Adding: " + ordered + "\n");
-            return ordered;
-        }
-
-        private void addDependenciesRecursively(String cldrFileName, Set<String> ordered, boolean hasXmlSuffix) {
-            String item = hasXmlSuffix && cldrFileName.endsWith(".xml") ? cldrFileName.substring(0,
-                cldrFileName.length() - 4) : cldrFileName;
-            for (Matcher m : dependsOn.keySet()) {
-                if (m.reset(item).matches()) {
-                    for (String other : dependsOn.getAll(m)) {
-                        final String toAdd = hasXmlSuffix ? other + ".xml" : other;
-                        if (other.equals(item) || ordered.contains(toAdd)) {
-                            continue;
-                        }
-                        addDependenciesRecursively(toAdd, ordered, hasXmlSuffix);
-                        append("Dependency: Adding: " + toAdd + " before " + item + "\n");
-                    }
-                }
-            }
-            ordered.add(item);
-        }
-
-    }
 
     public Transliterator getInstance(String id) {
         if (!overridden.contains(id)) {
@@ -339,7 +137,7 @@ public class CLDRTransforms {
             throw new IllegalArgumentException("**No transform for " + id);
         }
         return getInstance(matcher.group(2) + "-" + matcher.group(1)
-            + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
+        + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
     private BiMap<String,String> displayNameToId = HashBiMap.create();
@@ -352,40 +150,34 @@ public class CLDRTransforms {
         displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
     }
 
-    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
+    public String registerTransliteratorsFromXML(String dir, String cldrFileName, Set<String> cantSkip, boolean keepDashTIds) {
         ParsedTransformID directionInfo = new ParsedTransformID();
-        String ruleString;
-        final String cldrFileName2 = cldrFileName + ".xml";
-        try {
-            ruleString = getIcuRulesFromXmlFile(dir, cldrFileName2, directionInfo);
-        } catch (RuntimeException e) {
-            if (!cantSkip.contains(cldrFileName2)) {
-                return;
-            }
-            throw e;
-        }
+        String ruleString = getIcuRulesFromXmlFile(dir, cldrFileName, directionInfo);
 
         String id = directionInfo.getId();
         addDisplayNameToId(displayNameToId, directionInfo);
 
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
-            internalRegister(id, ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
                     continue;
                 }
+                Transliterator.unregister(alias);
                 Transliterator.registerAlias(alias, id);
             }
+            internalRegister(id, ruleString, Transliterator.FORWARD);
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
-            internalRegister(id, ruleString, Transliterator.REVERSE);
             for (String alias : directionInfo.getBackwardAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
                     continue;
                 }
+                Transliterator.unregister(alias);
                 Transliterator.registerAlias(alias, directionInfo.getBackwardId());
             }
+            internalRegister(id, ruleString, Transliterator.REVERSE);
         }
+        return id;
     }
 
     /**
@@ -424,25 +216,24 @@ public class CLDRTransforms {
             }
             Transliterator.unregister(id);
             Transliterator.registerInstance(t);
-            // if (false) { // for paranoid testing
-            // Transliterator t1 = Transliterator.createFromRules(id, ruleString, direction);
-            // String r1 = t1.toRules(false);
-            // Transliterator t2 = Transliterator.getInstance(id);
-            // String r2 = t2.toRules(false);
-            // if (!r1.equals(r2)) {
-            // throw (IllegalArgumentException) new IllegalArgumentException("Rules unequal" + ruleString + "$$$\n$$$" +
-            // r2);
-            // }
-            // }
+
+            if (PARANOID) { // for paranoid testing
+                String r1 = CLDRTransforms.showTransliterator("", t, 9999, new StringBuilder()).toString();
+                Transliterator t2 = Transliterator.getInstance(id);
+                String r2 = CLDRTransforms.showTransliterator("", t2, 9999, new StringBuilder()).toString();
+                if (!r1.equals(r2)) {
+                    throw new IllegalArgumentException("Rules unequal\n" + ruleString + "$$$\n$$$" + r2);
+                }
+            }
             // verifyNullFilter("halfwidth-fullwidth");
             if (showProgress != null) {
                 append("Registered new Transliterator: " + id
                     + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID())
                     + '\n');
                 if (id.startsWith("el-")) {
-                    TestTransforms.showTransliterator("", t, 999);
+                    CLDRTransforms.showTransliterator("", t, 999);
                     Transliterator t2 = Transliterator.getInstance(id);
-                    TestTransforms.showTransliterator("", t2, 999);
+                    CLDRTransforms.showTransliterator("", t2, 999);
                 }
             }
         } catch (RuntimeException e) {
@@ -478,139 +269,139 @@ public class CLDRTransforms {
 
     // ===================================
 
-    @SuppressWarnings("deprecation")
-    public void registerFromIcuFormatFiles(String directory) throws IOException {
-
-        deregisterIcuTransliterators((Matcher) null);
-
-        Matcher getId = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*").matcher("");
-        Matcher getSource = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
-        Matcher translitID = PatternCache.get("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
-
-        Map<String, String> fixedIDs = new TreeMap<>();
-        Set<String> oddIDs = new TreeSet<>();
-
-        File dir = new File(directory);
-        // get the list of files to take, and their directions
-        BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
-        String id = null;
-        String filename = null;
-        Map<String, String> aliasMap = new LinkedHashMap<>();
-
-        // deregisterIcuTransliterators();
-
-        // do first, since others depend on theseregisterFromIcuFile
-        /**
-         * Special aliases.
-         * Tone-Digit {
-         * alias {"Pinyin-NumericPinyin"}
-         * }
-         * Digit-Tone {
-         * alias {"NumericPinyin-Pinyin"}
-         * }
-         */
-        // registerFromIcuFile("Latin-ConjoiningJamo", directory, null);
-        // registerFromIcuFile("Pinyin-NumericPinyin", directory, null);
-        // Transliterator.registerAlias("Tone-Digit", "Pinyin-NumericPinyin");
-        // Transliterator.registerAlias("Digit-Tone", "NumericPinyin-Pinyin");
-        // registerFromIcuFile("Fullwidth-Halfwidth", directory, null);
-        // registerFromIcuFile("Hiragana-Katakana", directory, null);
-        // registerFromIcuFile("Latin-Katakana", directory, null);
-        // registerFromIcuFile("Hiragana-Latin", directory, null);
-
-        while (true) {
-            String line = input.readLine();
-            if (line == null) break;
-            line = line.trim();
-            if (line.startsWith("\uFEFF")) {
-                line = line.substring(1);
-            }
-            if (line.startsWith("TransliteratorNamePattern")) break; // done
-            // if (line.indexOf("Ethiopic") >= 0) {
-            // appendln("Skipping Ethiopic");
-            // continue;
-            // }
-            if (getId.reset(line).matches()) {
-                String temp = getId.group(1);
-                if (!temp.equals("file") && !temp.equals("internal")) id = temp;
-                continue;
-            }
-            if (getSource.reset(line).matches()) {
-                String operation = getSource.group(1);
-                String source = getSource.group(2);
-                if (operation.equals("alias")) {
-                    aliasMap.put(id, source);
-                    checkIdFix(id, fixedIDs, oddIDs, translitID);
-                    id = null;
-                } else if (operation.equals("resource:process(transliterator)")) {
-                    filename = source;
-                } else if (operation.equals("direction")) {
-                    try {
-                        if (id == null || filename == null) {
-                            // appendln("skipping: " + line);
-                            continue;
-                        }
-                        if (filename.indexOf("InterIndic") >= 0 && filename.indexOf("Latin") >= 0) {
-                            // append("**" + id);
-                        }
-                        checkIdFix(id, fixedIDs, oddIDs, translitID);
-
-                        final int direction = source.equals("FORWARD") ? Transliterator.FORWARD
-                            : Transliterator.REVERSE;
-                        registerFromIcuFile(id, directory, filename, direction);
-
-                        verifyNullFilter("halfwidth-fullwidth");
-
-                        id = null;
-                        filename = null;
-                    } catch (RuntimeException e) {
-                        throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                            .initCause(e);
-                    }
-                } else {
-                    append(dir + "root.txt unhandled line:" + line);
-                }
-                continue;
-            }
-            String trimmed = line.trim();
-            if (trimmed.equals("")) continue;
-            if (trimmed.equals("}")) continue;
-            if (trimmed.startsWith("//")) continue;
-            throw new IllegalArgumentException("Unhandled:" + line);
-        }
-
-        final Set<String> rawIds = idToRules.keySet();
-        Set<String> ordered = dependencyOrder.getOrderedItems(rawIds, null, false);
-        ordered.retainAll(rawIds); // since we are in ID space, kick out anything that isn't
-
-        for (String id2 : ordered) {
-            RuleDirection stuff = idToRules.get(id2);
-            internalRegisterNoReverseId(id2, stuff.ruleString, stuff.direction);
-            verifyNullFilter("halfwidth-fullwidth"); // TESTING
-        }
-
-        for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
-            id = it.next();
-            String source = aliasMap.get(id);
-            Transliterator.unregister(id);
-            Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
-            Transliterator.registerInstance(t);
-            // verifyNullFilter("halfwidth-fullwidth");
-            appendln("Registered new Transliterator Alias: " + id);
-
-        }
-        appendln("Fixed IDs");
-        for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
-            String id2 = it.next();
-            appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
-        }
-        appendln("Odd IDs");
-        for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
-            String id2 = it.next();
-            appendln("\t" + id2);
-        }
-        Transliterator.registerAny(); // do this last!
-    }
+//    @SuppressWarnings("deprecation")
+//    public void registerFromIcuFormatFiles(String directory) throws IOException {
+//
+////        deregisterIcuTransliterators((Matcher) null);
+//
+//        Matcher getId = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*").matcher("");
+//        Matcher getSource = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
+//        Matcher translitID = PatternCache.get("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
+//
+//        Map<String, String> fixedIDs = new TreeMap<>();
+//        Set<String> oddIDs = new TreeSet<>();
+//
+//        File dir = new File(directory);
+//        // get the list of files to take, and their directions
+//        BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
+//        String id = null;
+//        String filename = null;
+//        Map<String, String> aliasMap = new LinkedHashMap<>();
+//
+//        // deregisterIcuTransliterators();
+//
+//        // do first, since others depend on theseregisterFromIcuFile
+//        /**
+//         * Special aliases.
+//         * Tone-Digit {
+//         * alias {"Pinyin-NumericPinyin"}
+//         * }
+//         * Digit-Tone {
+//         * alias {"NumericPinyin-Pinyin"}
+//         * }
+//         */
+//        // registerFromIcuFile("Latin-ConjoiningJamo", directory, null);
+//        // registerFromIcuFile("Pinyin-NumericPinyin", directory, null);
+//        // Transliterator.registerAlias("Tone-Digit", "Pinyin-NumericPinyin");
+//        // Transliterator.registerAlias("Digit-Tone", "NumericPinyin-Pinyin");
+//        // registerFromIcuFile("Fullwidth-Halfwidth", directory, null);
+//        // registerFromIcuFile("Hiragana-Katakana", directory, null);
+//        // registerFromIcuFile("Latin-Katakana", directory, null);
+//        // registerFromIcuFile("Hiragana-Latin", directory, null);
+//
+//        while (true) {
+//            String line = input.readLine();
+//            if (line == null) break;
+//            line = line.trim();
+//            if (line.startsWith("\uFEFF")) {
+//                line = line.substring(1);
+//            }
+//            if (line.startsWith("TransliteratorNamePattern")) break; // done
+//            // if (line.indexOf("Ethiopic") >= 0) {
+//            // appendln("Skipping Ethiopic");
+//            // continue;
+//            // }
+//            if (getId.reset(line).matches()) {
+//                String temp = getId.group(1);
+//                if (!temp.equals("file") && !temp.equals("internal")) id = temp;
+//                continue;
+//            }
+//            if (getSource.reset(line).matches()) {
+//                String operation = getSource.group(1);
+//                String source = getSource.group(2);
+//                if (operation.equals("alias")) {
+//                    aliasMap.put(id, source);
+//                    checkIdFix(id, fixedIDs, oddIDs, translitID);
+//                    id = null;
+//                } else if (operation.equals("resource:process(transliterator)")) {
+//                    filename = source;
+//                } else if (operation.equals("direction")) {
+//                    try {
+//                        if (id == null || filename == null) {
+//                            // appendln("skipping: " + line);
+//                            continue;
+//                        }
+//                        if (filename.indexOf("InterIndic") >= 0 && filename.indexOf("Latin") >= 0) {
+//                            // append("**" + id);
+//                        }
+//                        checkIdFix(id, fixedIDs, oddIDs, translitID);
+//
+//                        final int direction = source.equals("FORWARD") ? Transliterator.FORWARD
+//                            : Transliterator.REVERSE;
+//                        registerFromIcuFile(id, directory, filename, direction);
+//
+//                        verifyNullFilter("halfwidth-fullwidth");
+//
+//                        id = null;
+//                        filename = null;
+//                    } catch (RuntimeException e) {
+//                        throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
+//                        .initCause(e);
+//                    }
+//                } else {
+//                    append(dir + "root.txt unhandled line:" + line);
+//                }
+//                continue;
+//            }
+//            String trimmed = line.trim();
+//            if (trimmed.equals("")) continue;
+//            if (trimmed.equals("}")) continue;
+//            if (trimmed.startsWith("//")) continue;
+//            throw new IllegalArgumentException("Unhandled:" + line);
+//        }
+//
+//        final Set<String> rawIds = idToRules.keySet();
+//        Set<String> ordered = dependencyOrder.getOrderedItems(rawIds, null, false);
+//        ordered.retainAll(rawIds); // since we are in ID space, kick out anything that isn't
+//
+//        for (String id2 : ordered) {
+//            RuleDirection stuff = idToRules.get(id2);
+//            internalRegisterNoReverseId(id2, stuff.ruleString, stuff.direction);
+//            verifyNullFilter("halfwidth-fullwidth"); // TESTING
+//        }
+//
+//        for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
+//            id = it.next();
+//            String source = aliasMap.get(id);
+//            Transliterator.unregister(id);
+//            Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
+//            Transliterator.registerInstance(t);
+//            // verifyNullFilter("halfwidth-fullwidth");
+//            appendln("Registered new Transliterator Alias: " + id);
+//
+//        }
+//        appendln("Fixed IDs");
+//        for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
+//            String id2 = it.next();
+//            appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
+//        }
+//        appendln("Odd IDs");
+//        for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
+//            String id2 = it.next();
+//            appendln("\t" + id2);
+//        }
+//        Transliterator.registerAny(); // do this last!
+//    }
 
     Map<String, RuleDirection> idToRules = new TreeMap<>();
 
@@ -665,64 +456,64 @@ public class CLDRTransforms {
         return source; // for now
     }
 
-    public void deregisterIcuTransliterators(Matcher filter) {
-        // Remove all of the current registrations
-        // first load into array, so we don't get sync problems.
-        List<String> rawAvailable = new ArrayList<>();
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
-            final String id = en.nextElement();
-            if (filter != null && !filter.reset(id).matches()) {
-                continue;
-            }
-            rawAvailable.add(id);
-        }
-
-        // deregisterIcuTransliterators(rawAvailable);
-
-        Set<String> available = dependencyOrder.getOrderedItems(rawAvailable, filter, false);
-        List<String> reversed = new LinkedList<>();
-        for (String item : available) {
-            reversed.add(0, item);
-        }
-        // available.retainAll(rawAvailable); // remove the items we won't touch anyway
-        // rawAvailable.removeAll(available); // now the ones whose order doesn't matter
-        // deregisterIcuTransliterators(rawAvailable);
-        deregisterIcuTransliterators(reversed);
-
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
-            String oldId = en.nextElement();
-            append("Retaining: " + oldId + "\n");
-        }
-    }
-
-    public void deregisterIcuTransliterators(Collection<String> available) {
-        for (String oldId : available) {
-            Transliterator t;
-            try {
-                t = Transliterator.getInstance(oldId);
-            } catch (IllegalArgumentException e) {
-                if (e.getMessage().startsWith("Illegal ID")) {
-                    continue;
-                }
-                append("Failure with: " + oldId);
-                t = Transliterator.getInstance(oldId);
-                throw e;
-            } catch (RuntimeException e) {
-                append("Failure with: " + oldId);
-                t = Transliterator.getInstance(oldId);
-                throw e;
-            }
-            String className = t.getClass().getName();
-            if (className.endsWith(".CompoundTransliterator")
-                || className.endsWith(".RuleBasedTransliterator")
-                || className.endsWith(".AnyTransliterator")) {
-                appendln("REMOVING: " + oldId);
-                Transliterator.unregister(oldId);
-            } else {
-                appendln("Retaining: " + oldId + "\t\t" + className);
-            }
-        }
-    }
+//    public void deregisterIcuTransliterators(Matcher filter) {
+//        // Remove all of the current registrations
+//        // first load into array, so we don't get sync problems.
+//        List<String> rawAvailable = new ArrayList<>();
+//        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+//            final String id = en.nextElement();
+//            if (filter != null && !filter.reset(id).matches()) {
+//                continue;
+//            }
+//            rawAvailable.add(id);
+//        }
+//
+//        // deregisterIcuTransliterators(rawAvailable);
+//
+//        Set<String> available = dependencyOrder.getOrderedItems(rawAvailable, filter, false);
+//        List<String> reversed = new LinkedList<>();
+//        for (String item : available) {
+//            reversed.add(0, item);
+//        }
+//        // available.retainAll(rawAvailable); // remove the items we won't touch anyway
+//        // rawAvailable.removeAll(available); // now the ones whose order doesn't matter
+//        // deregisterIcuTransliterators(rawAvailable);
+//        deregisterIcuTransliterators(reversed);
+//
+//        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+//            String oldId = en.nextElement();
+//            append("Retaining: " + oldId + "\n");
+//        }
+//    }
+//
+//    public void deregisterIcuTransliterators(Collection<String> available) {
+//        for (String oldId : available) {
+//            Transliterator t;
+//            try {
+//                t = Transliterator.getInstance(oldId);
+//            } catch (IllegalArgumentException e) {
+//                if (e.getMessage().startsWith("Illegal ID")) {
+//                    continue;
+//                }
+//                append("Failure with: " + oldId);
+//                t = Transliterator.getInstance(oldId);
+//                throw e;
+//            } catch (RuntimeException e) {
+//                append("Failure with: " + oldId);
+//                t = Transliterator.getInstance(oldId);
+//                throw e;
+//            }
+//            String className = t.getClass().getName();
+//            if (className.endsWith(".CompoundTransliterator")
+//                || className.endsWith(".RuleBasedTransliterator")
+//                || className.endsWith(".AnyTransliterator")) {
+//                appendln("REMOVING: " + oldId);
+//                Transliterator.unregister(oldId);
+//            } else {
+//                appendln("Retaining: " + oldId + "\t\t" + className);
+//            }
+//        }
+//    }
 
     public enum Direction {
         backward, both, forward
@@ -958,7 +749,7 @@ public class CLDRTransforms {
 
         @Override
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {
@@ -996,5 +787,281 @@ public class CLDRTransforms {
                 throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
             }
         }
+    }
+
+    static boolean ALREADY_REGISTERED = false;
+    /**
+     * Register just those transliterators that are different than ICU.
+     * TODO: check against the file system to make sure the list is accurate.
+     */
+    public void registerModified() {
+        synchronized(CLDRTransforms.class) {
+            if (ALREADY_REGISTERED) {
+                return;
+            }
+            // NEW
+            registerTranslit("Lao-Latin", "ບ", "b");
+            registerTranslit("Khmer-Latin", "ឥ", "ĕ");
+            registerTranslit("Sinhala-Latin", "ක", "ka");
+            registerTranslit("Japn-Latn", "譆", "aa");
+
+            // MODIFIED
+            registerTranslit("Han-SpacedHan", "《", "«");
+            registerTranslit("Greek-Latin", "΄", "´");
+            registerTranslit("Hebrew-Latin", "־", "-");
+            registerTranslit("Cyrillic-Latin", "ө", "ö");
+            registerTranslit("Myanmar-Latin", "ဿ", "s");
+            registerTranslit("Latin-Armenian", "’", "՚");
+
+            registerTranslit("Interindic-Latin", "\uE070", ".", "\uE03C", "\u0323", "\uE04D", "");
+
+            registerTranslit("Malayalam-Interindic", "ൺ", "");
+            registerTranslit("Interindic-Malayalam", "", "ണ്");
+            registerTranslit("Malayalam-Latin", "ൺ", "ṇ");
+
+            registerTranslit("Devanagari-Interindic", "ॲ", "\uE084");
+            registerTranslit("Devanagari-Latin", "ॲ", "æ");
+
+            registerTranslit("Arabic-Latin", "؉", "‰");
+            ALREADY_REGISTERED = true;
+        }
+    }
+
+    private static final ImmutableSet<String> noSkip = ImmutableSet.of();
+
+    private static final boolean SHOW = false;
+    private static final boolean SHOW_FAILED_MATCHES = false;
+
+    /**
+     * Register a transliterator and verify that a sample changed value is accurate
+     */
+    public void registerTranslit(String ID, String... sourcePairs) {
+        String internalId = registerTransliteratorsFromXML(TRANSFORM_DIR, ID, noSkip, true);
+        Transliterator.registerAny(); // do this last!
+        Transliterator t = null;
+        try {
+            t = Transliterator.getInstance(internalId);
+        } catch (Exception e) {
+            System.out.println("For " + ID + " (" + internalId + ")");
+            e.printStackTrace();
+            return;
+        }
+        testSourceTarget(t, sourcePairs);
+    }
+
+    public static void showTransliterator(String prefix, Transliterator t, int limit) {
+        showTransliterator(prefix, t, limit, System.out);
+        System.out.flush();
+    }
+
+    public static <T extends Appendable> T showTransliterator(String prefix, Transliterator t, int limit, T output) {
+        if (!prefix.isEmpty()) {
+            prefix += " ";
+        }
+        try {
+            output.append(prefix + "ID:\t" + t.getID() + "\n");
+            output.append(prefix + "Class:\t" + t.getClass().getName() + "\n");
+            if (t.getFilter() != null) {
+                output.append(prefix + "Filter:\t" + t.getFilter().toPattern(false) + "\n");
+            }
+            if (t instanceof RuleBasedTransliterator) {
+                RuleBasedTransliterator rbt = (RuleBasedTransliterator) t;
+                String[] rules = rbt.toRules(true).split("\n");
+                int length = rules.length;
+                if (limit >= 0 && limit < length) length = limit;
+                output.append(prefix + "Rules:\n");
+                prefix += "\t";
+                for (int i = 0; i < length; ++i) {
+                    output.append(prefix + rules[i] + "\n");
+                }
+            } else {
+                Transliterator[] elements = t.getElements();
+                if (elements[0] == t) {
+                    output.append(prefix + "\tNonRuleBased\n");
+                    return output;
+                } else {
+                    prefix += "\t";
+                    for (int i = 0; i < elements.length; ++i) {
+                        showTransliterator(prefix, elements[i], limit, output);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+        return output;
+    }
+
+    public static void testSourceTarget(Transliterator t, String... sourcePairs) {
+        for (int i = 0; i < sourcePairs.length; i+=2) {
+            String sourceTest = sourcePairs[i];
+            String targetTest = sourcePairs[i+1];
+            String target = t.transform(sourceTest);
+            if (!target.equals(targetTest)) {
+                throw new IllegalArgumentException(t.getID() + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
+            }
+        }
+    }
+
+    /**
+     * Gets a transform from a script to Latin. for testing
+     * For a locale, use ExemplarUtilities.getScript(locale) to get the script
+     */
+    public static Transliterator getTestingLatinScriptTransform(final String script) {
+        String id;
+
+        switch(script) {
+        case "Latn":
+            return null;
+        case "Khmr":
+            id = "Khmr-Latn/UNGEGN";
+            break;
+        case "Laoo":
+            id = "Laoo-Latn/UNGEGN";
+            break;
+        case "Sinh":
+            id = "Sinh-Latn/UNGEGN";
+            break;
+        case "Japn":
+            id = "Jpan-Latn";
+            break;
+        case "Kore":
+            id = "Hangul-Latn";
+            break;
+        case "Hant":
+        case "Hans":
+            id = "Han-Latn";
+            break;
+        case "Olck":
+            id = "sat_Olck-sat_FONIPA"; // Latin IPA
+            break;
+        default:
+            id = script + "-Latn";
+        }
+        return Transliterator.getInstance(id);
+    }
+
+    /**
+     * Returns the set of all files that can be registered, in an order
+     * that makes sure that all dependencies are handled. That is, if X uses
+     * Y in its rules, then Y has to come before X.
+     * <p>The problem is that when you build a transliterator from rules,
+     * and one of those rules is to call another transliterator X,
+     * it inserts the <b>currently</b> registered transliterator into the transliterator being built.
+     * So whenever a transliterator X is changed, you have to reregister every transliterator that calls X.
+     * Otherwise the old version of X sticks around in those calling transliterators.
+     * So the order that you register transliterators is important!
+     */
+    static public Set<String> getFileRegistrationOrder(String dir) {
+        if (dir == null) {
+            dir = TRANSFORM_DIR;
+        }
+        List<String> files = getAvailableIds();
+        Multimap<String, String> fileToAliases = HashMultimap.create();
+        Multimap<String, String> fileToDependencies = TreeMultimap.create();
+        for (String file : files) {
+            // Very simple test that depends on standard format
+            // eg
+            //            ::[॑ ॒ ॔ ॓ ़ ँ-ः । ॥ ॰ ०-९ ॐ ॲ ऄ-ऋ ॠ ऌ ॡ ऍ-कक़ खख़ गग़ घ-जज़ झ-डड़ ढढ़ ण-फफ़ ब-यय़ र-ह ऽ ॽ ा-ॄ ॢ ॣ ॅ-्];
+            //            ::NFD;
+            //            ::Devanagari-InterIndic;
+            //            ::InterIndic-Latin;
+            //            ::NFC;
+            ParsedTransformID directionInfo = new ParsedTransformID();
+            String ruleString = getIcuRulesFromXmlFile(dir, file, directionInfo);
+            Set<String> others = new LinkedHashSet<>();
+            Set<String> order = ruleString.lines()
+                .map(x -> x.trim())
+                .filter(x -> x.contains("::") && !x.trim().startsWith("#"))
+                .map(x -> parseDoubleColon(x, others))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+            order.addAll(others);
+            if (SHOW) {
+                System.out.println(file + "=>" + order);
+            }
+            if (!order.isEmpty()) {
+                fileToDependencies.putAll(file, order);
+            }
+            if (directionInfo.direction != Direction.backward) { // that is, forward or both
+                fileToAliases.put(file, directionInfo.getId());
+                fileToAliases.putAll(file, Arrays.asList(directionInfo.getAliases()));
+                if (SHOW) {
+                    System.out.println("\t" + directionInfo.getId() + "\t" + Arrays.asList(directionInfo.getAliases()));
+                }
+            }
+            if (directionInfo.direction != Direction.forward) { // that is, backward or both
+                fileToAliases.put(file, directionInfo.getBackwardId());
+                fileToAliases.putAll(file, Arrays.asList(directionInfo.getBackwardAliases()));
+                if (SHOW) {
+                    System.out.println("\t" + directionInfo.getBackwardId() + "\t" + Arrays.asList(directionInfo.getBackwardAliases()));
+                }
+            }
+        }
+        TreeMultimap<String, String> aliasesToFile = Multimaps.invertFrom(fileToAliases, TreeMultimap.create());
+        Multimap<String, String> fileToDependentFiles = TreeMultimap.create();
+
+        for (Entry<String, Collection<String>> entry : fileToDependencies.asMap().entrySet()) {
+            Set<String> v = entry.getValue()
+                .stream()
+                .filter(x -> aliasesToFile.containsKey(x))
+                .map(y -> aliasesToFile.get(y).first())
+                .collect(Collectors.toSet());
+            fileToDependentFiles.putAll(entry.getKey(), v);
+        }
+        Builder<String> comp = new DiscreteComparator.Builder<>(null);
+        fileToDependentFiles.forEach((x,y) -> {
+            if (SHOW) {
+                System.out.println(x + "=" + y);
+            }
+            comp.add(y, x); // put dependent earlier
+        });
+        //.add("c", "d", "b", "a").add("m", "n", "d").get();
+
+        DiscreteComparator<String> comp2 = comp.get();
+        Set<String> orderedDependents = new LinkedHashSet<>(comp2.getOrdering());
+        orderedDependents.retainAll(fileToDependentFiles.values()); // remove files that are not dependents
+        Set<String> remainingFiles = new TreeSet<>(files);
+        remainingFiles.removeAll(orderedDependents);
+        orderedDependents.addAll(remainingFiles);
+        if (SHOW_FAILED_MATCHES) {
+            System.out.println(orderedDependents);
+        }
+        return ImmutableSet.copyOf(orderedDependents);
+    }
+// fails match: :: [:Latin:] fullwidth-halfwidth ();
+
+    static final Pattern TRANSLIT_FINDER = Pattern.compile("\\s*::\\s*"
+        + "(?:\\[[^\\]]+\\]\\s*)?"
+        + "([A-Za-z0-9////_//-]*)?"
+        + "(?:"
+        + "\\s*\\("
+        + "(?:\\[[^\\]]+\\]\\s*)?"
+        + "([A-Za-z0-9////_//-]*)?"
+        + "\\s*\\)"
+        + ")?"
+        + "\\s*;\\s*(#.*)?");
+//    static {
+//        Matcher matcher = TRANSLIT_FINDER.matcher("::[:Latin:] fullwidth-halfwidth();");
+//        System.out.println(matcher.matches());
+//    }
+
+    static String parseDoubleColon(String x, Set<String> others) {
+        Matcher matcher = TRANSLIT_FINDER.matcher(x);
+        if (matcher.matches()) {
+            String first = matcher.group(1);
+            String second = matcher.group(2);
+            if (SHOW) {
+                System.out.println("1: " + first + "\t2:" + second);
+            }
+            if (second != null && !second.isBlank()) {
+                others.add(second);
+            }
+            return first == null || first.isBlank() ? "" : first;
+        } else {
+            if (SHOW_FAILED_MATCHES) {
+                System.out.println("fails match: " + x);
+            }
+        }
+        return "";
     }
 }

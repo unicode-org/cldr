@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -142,6 +142,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">ورغوس پورته لاس: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🫴🏿">اشاره | تور پوستکۍ | راځئ | نیول | ورغوس پورته لاس | وړاندیز</annotation>
 		<annotation cp="🫴🏿" type="tts">ورغوس پورته لاس: تور پوستکۍ</annotation>
+		<annotation cp="🫷🏻">انتظار | انکار | د روڼ پوستکي ټون | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏻" type="tts">کیڼ اړخ ته لاس وهل: د روڼ پوستکي ټون</annotation>
+		<annotation cp="🫷🏼">انتظار | انکار | غنمی-روښانه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏼" type="tts">کیڼ اړخ ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🫷🏽">انتظار | انکار | غنم رنګه | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏽" type="tts">کیڼ اړخ ته لاس وهل: غنم رنګه</annotation>
+		<annotation cp="🫷🏾">انتظار | انکار | غنمی-تورنګه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏾" type="tts">کیڼ اړخ ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🫷🏿">انتظار | انکار | تور پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏿" type="tts">کیڼ اړخ ته لاس وهل: تور پوستکۍ</annotation>
+		<annotation cp="🫸🏻">انتظار | انکار | د روڼ پوستکي ټون | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏻" type="tts">ښي خوا ته لاس وهل: د روڼ پوستکي ټون</annotation>
+		<annotation cp="🫸🏼">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-روښانه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏼" type="tts">ښي خوا ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🫸🏽">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنم رنګه | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏽" type="tts">ښي خوا ته لاس وهل: غنم رنګه</annotation>
+		<annotation cp="🫸🏾">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-تورنګه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏾" type="tts">ښي خوا ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🫸🏿">انتظار | انکار | تور پوستکۍ | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏿" type="tts">ښي خوا ته لاس وهل: تور پوستکۍ</annotation>
 		<annotation cp="👌🏻">اوکی | د روڼ پوستکي ټون | لاس</annotation>
 		<annotation cp="👌🏻" type="tts">اوکی لاس: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👌🏼">اوکی | غنمی-روښانه پوستکۍ | لاس</annotation>
@@ -432,26 +452,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">مننې لاسونه: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🙏🏿">اشاره | بند | پوښتنه | تور پوستکۍ | عبادت | غوښتل | لاس | مننه | مننې لاسونه | مهربانی</annotation>
 		<annotation cp="🙏🏿" type="tts">مننې لاسونه: تور پوستکۍ</annotation>
-		<annotation cp="🫷🏻">انتظار | انکار | د روڼ پوستکي ټون | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫷🏻" type="tts">کیڼ اړخ ته لاس وهل: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫷🏼">انتظار | انکار | غنمی-روښانه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫷🏼" type="tts">کیڼ اړخ ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫷🏽">انتظار | انکار | غنم رنګه | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫷🏽" type="tts">کیڼ اړخ ته لاس وهل: غنم رنګه</annotation>
-		<annotation cp="🫷🏾">انتظار | انکار | غنمی-تورنګه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫷🏾" type="tts">کیڼ اړخ ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫷🏿">انتظار | انکار | تور پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫷🏿" type="tts">کیڼ اړخ ته لاس وهل: تور پوستکۍ</annotation>
-		<annotation cp="🫸🏻">انتظار | انکار | د روڼ پوستکي ټون | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫸🏻" type="tts">ښي خوا ته لاس وهل: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫸🏼">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-روښانه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫸🏼" type="tts">ښي خوا ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫸🏽">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنم رنګه | فشار | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫸🏽" type="tts">ښي خوا ته لاس وهل: غنم رنګه</annotation>
-		<annotation cp="🫸🏾">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-تورنګه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫸🏾" type="tts">ښي خوا ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫸🏿">انتظار | انکار | تور پوستکۍ | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
-		<annotation cp="🫸🏿" type="tts">ښي خوا ته لاس وهل: تور پوستکۍ</annotation>
 		<annotation cp="✍🏻">د روڼ پوستکي ټون | لاس | لیکل | لیکونکې لاس</annotation>
 		<annotation cp="✍🏻" type="tts">لیکونکې لاس: د روڼ پوستکي ټون</annotation>
 		<annotation cp="✍🏼">غنمی-روښانه پوستکۍ | لاس | لیکل | لیکونکې لاس</annotation>
@@ -4192,6 +4192,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇿🇼" type="tts">بيرغ: زیمبابوی</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">بيرغ</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">بيرغ: انګلېنډ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">بيرغ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">بيرغ: سکاټ لينډ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">بيرغ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">بيرغ: ولز</annotation>
 		<annotation cp="¤" type="tts">نامعلومه مروجه پېسې</annotation>
 		<annotation cp="֏" type="tts">ارمينيايي ډرام</annotation>
 		<annotation cp="؋" type="tts">افغانۍ</annotation>

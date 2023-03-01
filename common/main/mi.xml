@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -162,6 +162,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hax">Haira ki te Tonga</language>
 			<language type="he">Hīperu</language>
 			<language type="hi">Hīni</language>
+			<language type="hi_Latn">↑↑↑</language>
+			<language type="hi_Latn" alt="variant">↑↑↑</language>
 			<language type="hil">Hirikeino</language>
 			<language type="hmn">Mōnga</language>
 			<language type="hr">Koroātiana</language>
@@ -444,9 +446,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zh">Hainamana</language>
 			<language type="zh" alt="menu">Hainamana Manarini</language>
 			<language type="zh_Hans">Hainamana Māmā</language>
-			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hans" alt="long">Hainamana Māmā</language>
 			<language type="zh_Hant">Hainamana Tukuiho</language>
-			<language type="zh_Hant" alt="long">↑↑↑</language>
+			<language type="zh_Hant" alt="long">Hainamana Tukuiho</language>
 			<language type="zu">Tūru</language>
 			<language type="zun">Tuni</language>
 			<language type="zxx">Wetereo kiko kore</language>
@@ -606,7 +608,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FR">Wīwī</territory>
 			<territory type="GA">Kāpona</territory>
 			<territory type="GB">Te Hononga o Piritene</territory>
-			<territory type="GB" alt="short">↑↑↑</territory>
+			<territory type="GB" alt="short">Te Hononga o Piritene</territory>
 			<territory type="GD">Kerenāta</territory>
 			<territory type="GF">Kaiana Wīwī</territory>
 			<territory type="GG">Kēni</territory>
@@ -664,7 +666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NL">Hōrana</territory>
 			<territory type="NO">Nōwei</territory>
 			<territory type="NZ">Aotearoa</territory>
-			<territory type="NZ" alt="variant">↑↑↑</territory>
+			<territory type="NZ" alt="variant">Aotearoa</territory>
 			<territory type="PA">Panama</territory>
 			<territory type="PE">Peru</territory>
 			<territory type="PM">Hato Piere &amp; Mikarona</territory>
@@ -699,7 +701,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG">Ukāna</territory>
 			<territory type="UN">Te Kotahitanga o Ngā Iwi o te Ao</territory>
 			<territory type="US">Hononga o Amerika</territory>
-			<territory type="US" alt="short">↑↑↑</territory>
+			<territory type="US" alt="short">Hononga o Amerika</territory>
 			<territory type="UY">Urukoi</territory>
 			<territory type="VC">Hato Wetene me Keretīni</territory>
 			<territory type="VE">Wenehūera</territory>
@@ -807,9 +809,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -817,16 +825,99 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} ki te {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">MM–MM</greatestDifference>
@@ -964,14 +1055,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">T</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
+							<month type="1">Hānuere</month>
+							<month type="2">Pēpuere</month>
+							<month type="3">Māehe</month>
+							<month type="4">Āpereira</month>
+							<month type="5">Mei</month>
+							<month type="6">Hune</month>
+							<month type="7">Hūrae</month>
+							<month type="8">Ākuhata</month>
 							<month type="9">Hepetema</month>
 							<month type="10">Oketopa</month>
 							<month type="11">Noema</month>
@@ -1117,7 +1208,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">AM</dayPeriod>
@@ -1201,7 +1292,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1209,7 +1300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1217,7 +1308,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1225,7 +1316,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1433,26 +1524,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>t.</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">i tērā tau</relative>
+				<relative type="0">i tēnei tau</relative>
+				<relative type="1">ā tērā tau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">ā te {0} tau</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">i te {0} tau</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
 				<displayName>t</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">i tērā tau</relative>
+				<relative type="0">i tēnei tau</relative>
+				<relative type="1">ā tērā tau</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">ā te {0} tau</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">i te {0} tau</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1470,10 +1561,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="quarter-short">
 				<displayName>hw.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} hwh</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} hwh</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
@@ -1482,7 +1573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">+{0} Hwh</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} hwh</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1511,14 +1602,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName>m</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">i tērā m.</relative>
+				<relative type="0">i tēnei m.</relative>
+				<relative type="1">ā tērā m.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} m.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} m.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -1540,25 +1631,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">i tēnei w.</relative>
 				<relative type="1">ā tērā w.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} w</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>t w o {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>w</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">i tērā w.</relative>
+				<relative type="0">i tēnei w.</relative>
+				<relative type="1">ā tērā w.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} w</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>↑↑↑</relativePeriod>
+				<relativePeriod>t w o {0}</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>wiki o te marama</displayName>
@@ -1583,9 +1674,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>rā.</displayName>
-				<relative type="-1">↑↑↑</relative>
+				<relative type="-1">inanahi</relative>
 				<relative type="0">i tēnei rā</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">āpōpō</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} r</relativeTimePattern>
 				</relativeTime>
@@ -1595,9 +1686,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-narrow">
 				<displayName>rā</displayName>
-				<relative type="-1">↑↑↑</relative>
+				<relative type="-1">inanahi</relative>
 				<relative type="0">i tēnei rā</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">āpōpō</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} r</relativeTimePattern>
 				</relativeTime>
@@ -1894,10 +1985,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour-narrow">
 				<displayName>hr</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} h.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} h.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -1948,7 +2039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>hēk</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
 				</relativeTime>
@@ -2556,5 +2647,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst">und mi</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<personName order="sorting" length="long" usage="referring" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
 	</personNames>
 </ldml>

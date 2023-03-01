@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -109,7 +109,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chy">الشايان</language>
 			<language type="ckb">السورانية الكردية</language>
 			<language type="ckb" alt="menu">الكردية، السورانية</language>
-			<language type="ckb" alt="variant">↑↑↑</language>
+			<language type="ckb" alt="variant">السورانية الكردية</language>
 			<language type="clc">تسيلكوتين</language>
 			<language type="co">الكورسيكية</language>
 			<language type="cop">القبطية</language>
@@ -317,6 +317,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="li">الليمبورغية</language>
 			<language type="lil">الليلويتية</language>
 			<language type="lkt">لاكوتا</language>
+			<language type="lmo" draft="contributed">اللومبردية</language>
 			<language type="ln">اللينجالا</language>
 			<language type="lo">اللاوية</language>
 			<language type="lol">منغولى</language>
@@ -591,9 +592,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zh">الصينية</language>
 			<language type="zh" alt="menu">الصينية</language>
 			<language type="zh_Hans">الصينية المبسطة</language>
-			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hans" alt="long">الصينية المبسطة</language>
 			<language type="zh_Hant">الصينية التقليدية</language>
-			<language type="zh_Hant" alt="long">↑↑↑</language>
+			<language type="zh_Hant" alt="long">الصينية التقليدية</language>
 			<language type="zu">الزولو</language>
 			<language type="zun">الزونية</language>
 			<language type="zxx">بدون محتوى لغوي</language>
@@ -948,7 +949,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="NR">ناورو</territory>
 			<territory type="NU">نيوي</territory>
 			<territory type="NZ">نيوزيلندا</territory>
-			<territory type="NZ" alt="variant">↑↑↑</territory>
+			<territory type="NZ" alt="variant">نيوزيلندا</territory>
 			<territory type="OM">عُمان</territory>
 			<territory type="PA">بنما</territory>
 			<territory type="PE">بيرو</territory>
@@ -1008,7 +1009,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">تونس</territory>
 			<territory type="TO">تونغا</territory>
 			<territory type="TR">تركيا</territory>
-			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TR" alt="variant">تركيا</territory>
 			<territory type="TT">ترينيداد وتوباغو</territory>
 			<territory type="TV">توفالو</territory>
 			<territory type="TW">تايوان</territory>
@@ -1444,7 +1445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1}، {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}، {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1452,7 +1453,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2822,9 +2823,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-short">
 				<displayName>السنة</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">السنة الماضية</relative>
+				<relative type="0">السنة الحالية</relative>
+				<relative type="1">السنة القادمة</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} سنة</relativeTimePattern>
 					<relativeTimePattern count="one">خلال سنة واحدة</relativeTimePattern>
@@ -2844,9 +2845,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="year-narrow">
 				<displayName>السنة</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">السنة الماضية</relative>
+				<relative type="0">السنة الحالية</relative>
+				<relative type="1">السنة القادمة</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} سنة</relativeTimePattern>
 					<relativeTimePattern count="one">خلال سنة واحدة</relativeTimePattern>
@@ -2954,9 +2955,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-short">
 				<displayName>الشهر</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">الشهر الماضي</relative>
+				<relative type="0">هذا الشهر</relative>
+				<relative type="1">الشهر القادم</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} شهر</relativeTimePattern>
 					<relativeTimePattern count="one">خلال شهر واحد</relativeTimePattern>
@@ -2976,9 +2977,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="month-narrow">
 				<displayName>الشهر</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">الشهر الماضي</relative>
+				<relative type="0">هذا الشهر</relative>
+				<relative type="1">الشهر القادم</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} شهر</relativeTimePattern>
 					<relativeTimePattern count="one">خلال شهر واحد</relativeTimePattern>
@@ -3021,9 +3022,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="week-short">
 				<displayName>الأسبوع</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">الأسبوع الماضي</relative>
+				<relative type="0">هذا الأسبوع</relative>
+				<relative type="1">الأسبوع القادم</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} أسبوع</relativeTimePattern>
 					<relativeTimePattern count="one">خلال أسبوع واحد</relativeTimePattern>
@@ -3044,9 +3045,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="week-narrow">
 				<displayName>الأسبوع</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">الأسبوع الماضي</relative>
+				<relative type="0">هذا الأسبوع</relative>
+				<relative type="1">الأسبوع القادم</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">خلال {0} أسبوع</relativeTimePattern>
 					<relativeTimePattern count="one">خلال أسبوع واحد</relativeTimePattern>
@@ -4608,6 +4609,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>هيرموسيلو</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>سيوداد خواريز</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>مازاتلان</exemplarCity>
@@ -6305,7 +6309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="10000" count="few">00 ألف ¤</pattern>
 					<pattern type="10000" count="many">00 ألف ¤</pattern>
 					<pattern type="10000" count="other">00 ألف ¤</pattern>
-					<pattern type="100000" count="zero">↑↑↑</pattern>
+					<pattern type="100000" count="zero">000 ألف ¤</pattern>
 					<pattern type="100000" count="one">000 ألف ¤</pattern>
 					<pattern type="100000" count="two">000 ألف ¤</pattern>
 					<pattern type="100000" count="few">000 ألف ¤</pattern>
@@ -8775,7 +8779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="two">{0} مربّعان</compoundUnitPattern1>
 				<compoundUnitPattern1 count="two" gender="feminine">{0} مربّعتان</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">{0} مربّعة</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine">{0} مربّعة</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">{0} مربّعًا</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">{0} مربّعة</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0} مربّع</compoundUnitPattern1>
@@ -8789,14 +8793,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="two">{0} مكعّبان</compoundUnitPattern1>
 				<compoundUnitPattern1 count="two" gender="feminine">{0} مكعّبتان</compoundUnitPattern1>
 				<compoundUnitPattern1 count="few">{0} مكعّبة</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few" gender="feminine">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few" gender="feminine">{0} مكعّبة</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many">{0} مكعبًا</compoundUnitPattern1>
 				<compoundUnitPattern1 count="many" gender="feminine">{0} مكعّبة</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0} مكعّب</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">{0} مكعّبة</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<gender>feminine</gender>
@@ -8853,7 +8857,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>دقيقة قوسية</displayName>
 				<unitPattern count="zero">{0} دقيقة قوسية</unitPattern>
 				<unitPattern count="one">دقيقة قوسية</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">دقيقتان قوسيتان</unitPattern>
 				<unitPattern count="few">{0} دقائق قوسية</unitPattern>
 				<unitPattern count="many">{0} دقيقة قوسية</unitPattern>
 				<unitPattern count="other">{0} دقيقة قوسية</unitPattern>
@@ -9038,13 +9042,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<gender>feminine</gender>
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>‱</displayName>
+				<unitPattern count="zero">{0}‱</unitPattern>
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="two">{0}‱</unitPattern>
+				<unitPattern count="few">{0}‱</unitPattern>
+				<unitPattern count="many">{0}‱</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<gender>masculine</gender>
@@ -9718,7 +9722,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-yard">
 				<displayName>ياردة</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="zero">{0} ياردة</unitPattern>
 				<unitPattern count="one">ياردة</unitPattern>
 				<unitPattern count="two">{0} ياردة</unitPattern>
 				<unitPattern count="few">{0} ياردة</unitPattern>
@@ -9941,7 +9945,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="zero">{0} رطل</unitPattern>
 				<unitPattern count="one">{0} رطل</unitPattern>
 				<unitPattern count="two">رطلان</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few">{0} رطل</unitPattern>
 				<unitPattern count="many">{0} رطلًا</unitPattern>
 				<unitPattern count="other">{0} رطل</unitPattern>
 				<perUnitPattern>{0}/رطل</perUnitPattern>
@@ -10683,20 +10687,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="zero">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="two">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="two">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0}²</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="zero">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="two">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="two">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0}³</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
@@ -10925,11 +10929,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="zero">{0}‱</unitPattern>
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="two">{0}‱</unitPattern>
+				<unitPattern count="few">{0}‱</unitPattern>
+				<unitPattern count="many">{0}‱</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
@@ -11304,7 +11308,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>وحدة حرارية بريطانية</displayName>
 				<unitPattern count="zero">{0} وحدة حرارية بريطانية</unitPattern>
 				<unitPattern count="one">{0} وحدة حرارية بريطانية</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} وحدة حرارية بريطانية</unitPattern>
 				<unitPattern count="few">{0} وحدات حرارية بريطانية</unitPattern>
 				<unitPattern count="many">{0} وحدة حرارية بريطانية</unitPattern>
 				<unitPattern count="other">{0} وحدة حرارية بريطانية</unitPattern>
@@ -11313,7 +11317,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>وحدة حرارية أمريكية</displayName>
 				<unitPattern count="zero">{0} وحدة حرارية أمريكية</unitPattern>
 				<unitPattern count="one">{0} وحدة حرارية أمريكية</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} وحدة حرارية أمريكية</unitPattern>
 				<unitPattern count="few">{0} وحدات حرارية أمريكية</unitPattern>
 				<unitPattern count="many">{0} وحدة حرارية أمريكية</unitPattern>
 				<unitPattern count="other">{0} وحدة حرارية أمريكية</unitPattern>
@@ -11430,7 +11434,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>نقطة/سم</displayName>
 				<unitPattern count="zero">{0} نقطة/سم</unitPattern>
 				<unitPattern count="one">{0} نقطة/سم</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} بكسل/سم</unitPattern>
 				<unitPattern count="few">{0} نقاط/سم</unitPattern>
 				<unitPattern count="many">{0} نقطة/سم</unitPattern>
 				<unitPattern count="other">{0} نقطة/سم</unitPattern>
@@ -11439,7 +11443,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>نقطة لكل بوصة</displayName>
 				<unitPattern count="zero">{0} نقطة/بوصة</unitPattern>
 				<unitPattern count="one">{0} نقطة/بوصة</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} بكسل/بوصة</unitPattern>
 				<unitPattern count="few">{0} نقاط/بوصة</unitPattern>
 				<unitPattern count="many">{0} نقطة/بوصة</unitPattern>
 				<unitPattern count="other">{0} نقطة/بوصة</unitPattern>
@@ -12335,7 +12339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>قطرة</displayName>
 				<unitPattern count="zero">{0} قطرة</unitPattern>
 				<unitPattern count="one">{0} قطرة</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} قطرة</unitPattern>
 				<unitPattern count="few">{0} قطرة</unitPattern>
 				<unitPattern count="many">{0} قطرة</unitPattern>
 				<unitPattern count="other">{0} قطرة</unitPattern>
@@ -12473,28 +12477,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="zero">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="two">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="two">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="zero">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="two">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="zero">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="two">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">قوة تسارع</displayName>
 				<unitPattern count="zero" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} قوة تسارع</unitPattern>
@@ -12503,37 +12507,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} قوة تسارع</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م/ث²</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م/ث²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م/ث²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م/ث²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م/ث²</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م/ث²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م/ث²</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">دورة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} دورة</unitPattern>
+				<unitPattern count="one" draft="contributed">دورة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} دورة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} دورة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} دورة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} دورة</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">راديان</displayName>
+				<unitPattern count="zero" draft="contributed">{0} راديان</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} راديان</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} راديان</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} راديان</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} راديان</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} راديان</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">درجة</displayName>
 				<unitPattern count="zero">{0} درجة</unitPattern>
 				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">درجتان</unitPattern>
 				<unitPattern count="few">{0} درجات</unitPattern>
 				<unitPattern count="many">{0} درجة</unitPattern>
 				<unitPattern count="other">{0} درجة</unitPattern>
@@ -12557,108 +12561,108 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ث قوسية</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>كم²</displayName>
 				<unitPattern count="zero">{0} كم²</unitPattern>
 				<unitPattern count="one">{0} كم²</unitPattern>
 				<unitPattern count="two">{0} كم²</unitPattern>
 				<unitPattern count="few">{0} كم²</unitPattern>
 				<unitPattern count="many">{0} كم²</unitPattern>
 				<unitPattern count="other">{0} كم²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/كم²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>هكتار</displayName>
+				<unitPattern count="zero">{0} هكتار</unitPattern>
+				<unitPattern count="one">{0} هكتار</unitPattern>
+				<unitPattern count="two">{0} هكتار</unitPattern>
+				<unitPattern count="few">{0} هكتار</unitPattern>
+				<unitPattern count="many">{0} هكتار</unitPattern>
+				<unitPattern count="other">{0} هكتار</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName>م²</displayName>
 				<unitPattern count="zero">{0} م²</unitPattern>
 				<unitPattern count="one">{0} م²</unitPattern>
 				<unitPattern count="two">{0} م²</unitPattern>
 				<unitPattern count="few">{0} م²</unitPattern>
 				<unitPattern count="many">{0} م²</unitPattern>
 				<unitPattern count="other">{0} م²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/م²</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>سم ²</displayName>
+				<unitPattern count="zero">{0} سم²</unitPattern>
+				<unitPattern count="one">{0} سم²</unitPattern>
+				<unitPattern count="two">{0} سم²</unitPattern>
+				<unitPattern count="few">{0} سم²</unitPattern>
+				<unitPattern count="many">{0} سم²</unitPattern>
+				<unitPattern count="other">{0} سم²</unitPattern>
+				<perUnitPattern>{0}/سم²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>ميل²</displayName>
+				<unitPattern count="zero">{0} ميل²</unitPattern>
+				<unitPattern count="one">{0} ميل²</unitPattern>
+				<unitPattern count="two">{0} ميل²</unitPattern>
+				<unitPattern count="few">{0} ميل²</unitPattern>
+				<unitPattern count="many">{0} ميل²</unitPattern>
+				<unitPattern count="other">{0} ميل²</unitPattern>
+				<perUnitPattern>{0}/ميل²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>فدان</displayName>
+				<unitPattern count="zero">{0} فدان</unitPattern>
+				<unitPattern count="one">فدان</unitPattern>
+				<unitPattern count="two">{0} فدان</unitPattern>
+				<unitPattern count="few">{0} فدان</unitPattern>
+				<unitPattern count="many">{0} فدان</unitPattern>
+				<unitPattern count="other">{0} فدان</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ياردة²</displayName>
+				<unitPattern count="zero">{0} ياردة²</unitPattern>
+				<unitPattern count="one">{0} ياردة²</unitPattern>
+				<unitPattern count="two">{0} ياردة²</unitPattern>
+				<unitPattern count="few">{0} ياردة²</unitPattern>
+				<unitPattern count="many">{0} ياردة²</unitPattern>
+				<unitPattern count="other">{0} ياردة²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>قدم²</displayName>
+				<unitPattern count="zero">{0} قدم²</unitPattern>
+				<unitPattern count="one">{0} قدم²</unitPattern>
+				<unitPattern count="two">{0} قدم²</unitPattern>
+				<unitPattern count="few">{0} قدم²</unitPattern>
+				<unitPattern count="many">{0} قدم²</unitPattern>
+				<unitPattern count="other">{0} قدم²</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>بوصة²</displayName>
+				<unitPattern count="zero">{0} بوصة²</unitPattern>
+				<unitPattern count="one">{0} بوصة²</unitPattern>
+				<unitPattern count="two">{0} بوصة²</unitPattern>
+				<unitPattern count="few">{0} بوصة²</unitPattern>
+				<unitPattern count="many">{0} بوصة²</unitPattern>
+				<unitPattern count="other">{0} بوصة²</unitPattern>
+				<perUnitPattern>{0}/بوصة²</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>دونم</displayName>
+				<unitPattern count="zero">{0} دونم</unitPattern>
+				<unitPattern count="one">{0} دونم</unitPattern>
+				<unitPattern count="two">{0} دونم</unitPattern>
+				<unitPattern count="few">{0} دونم</unitPattern>
+				<unitPattern count="many">{0} دونم</unitPattern>
+				<unitPattern count="other">{0} دونم</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">قيراط</displayName>
+				<unitPattern count="zero" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="one" draft="contributed">قيراط</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="contributed">مغ/ديسبل</displayName>
@@ -12670,13 +12674,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} مغ/ديسبل</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م.مول/ل</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م.مول/ل</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م.مول/ل</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م.مول/ل</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م.مول/ل</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م.مول/ل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م.مول/ل</unitPattern>
 			</unit>
 			<unit type="concentr-item">
 				<displayName>عنصر</displayName>
@@ -12688,13 +12692,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} عنصر</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">جزء/مليون</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جزء/مليون</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جزء/مليون</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} جزء/مليون</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} جزء/مليون</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جزء/مليون</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جزء/مليون</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>٪</displayName>
@@ -12707,12 +12711,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="contributed">؉</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0}؉</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}؉</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}؉</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}؉</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}؉</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}؉</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName draft="contributed">؊</displayName>
@@ -12724,13 +12728,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} ؊</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">مول</displayName>
+				<unitPattern count="zero" draft="contributed">{0} مول</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} مول</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} مول</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} مول</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} مول</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مول</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">ل/كم</displayName>
@@ -12751,31 +12755,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ل/١٠٠كم</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ميل/غالون</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ميل/غالون</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ميل/غالون</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ميل/غالون</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ميل/غالون</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ميل/غالون</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ميل/غالون</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ميل/غ. إمبراطوري</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ميل/غ. إمبراطوري</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">بيتابايت</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بيتابايت</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بيتابايت</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بيتابايت</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بيتابايت</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بيتابايت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بيتابايت</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="contributed">ت.ب</displayName>
@@ -12859,31 +12863,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} ب</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">بت</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بت</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بت</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بت</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بت</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بت</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>قرن</displayName>
+				<unitPattern count="zero">{0} قرن</unitPattern>
+				<unitPattern count="one">قرن</unitPattern>
+				<unitPattern count="two">قرنان</unitPattern>
+				<unitPattern count="few">{0} قرون</unitPattern>
+				<unitPattern count="many">{0} قرنًا</unitPattern>
+				<unitPattern count="other">{0} قرن</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>عقد</displayName>
+				<unitPattern count="zero">{0} عقد</unitPattern>
+				<unitPattern count="one">عقد</unitPattern>
+				<unitPattern count="two">عقدان</unitPattern>
+				<unitPattern count="few">{0} عقود</unitPattern>
+				<unitPattern count="many">{0} عقدًا</unitPattern>
+				<unitPattern count="other">{0} عقد</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>سنة</displayName>
@@ -12908,10 +12912,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-month">
 				<displayName>شهر</displayName>
 				<unitPattern count="zero">{0} شهر</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">شهر</unitPattern>
 				<unitPattern count="two">شهران</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="few">{0} أشهر</unitPattern>
+				<unitPattern count="many">{0} شهرًا</unitPattern>
 				<unitPattern count="other">{0} شهر</unitPattern>
 				<perUnitPattern>{0}/ش</perUnitPattern>
 			</unit>
@@ -12923,7 +12927,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} أ</unitPattern>
 				<unitPattern count="many">{0} أ</unitPattern>
 				<unitPattern count="other">{0} أ</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/أ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>يوم</displayName>
@@ -12933,7 +12937,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ي</unitPattern>
 				<unitPattern count="many">{0} ي</unitPattern>
 				<unitPattern count="other">{0} ي</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/ي</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ساعة</displayName>
@@ -12943,7 +12947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} س</unitPattern>
 				<unitPattern count="many">{0} س</unitPattern>
 				<unitPattern count="other">{0} س</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/س</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>د</displayName>
@@ -12953,7 +12957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} د</unitPattern>
 				<unitPattern count="many">{0} د</unitPattern>
 				<unitPattern count="other">{0} د</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/د</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ث</displayName>
@@ -12963,7 +12967,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ث</unitPattern>
 				<unitPattern count="many">{0} ث</unitPattern>
 				<unitPattern count="other">{0} ث</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/ث</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ملي ث.</displayName>
@@ -12975,58 +12979,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ملي ث</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>م.ث.</displayName>
+				<unitPattern count="zero">{0} م.ث.</unitPattern>
+				<unitPattern count="one">{0} م.ث.</unitPattern>
+				<unitPattern count="two">{0} م.ث.</unitPattern>
+				<unitPattern count="few">{0} م.ث.</unitPattern>
+				<unitPattern count="many">{0} م.ث.</unitPattern>
+				<unitPattern count="other">{0} م.ث.</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ن.ث.</displayName>
+				<unitPattern count="zero">{0} ن.ث.</unitPattern>
+				<unitPattern count="one">{0} ن.ث.</unitPattern>
+				<unitPattern count="two">{0} ن.ث.</unitPattern>
+				<unitPattern count="few">{0} ن.ث.</unitPattern>
+				<unitPattern count="many">{0} ن.ث.</unitPattern>
+				<unitPattern count="other">{0} ن.ث.</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">أمبير</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أمبير</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أمبير</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أمبير</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أمبير</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أمبير</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أمبير</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م أمبير</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م أمبير</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م أمبير</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م أمبير</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م أمبير</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م أمبير</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م أمبير</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">أوم</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أوم</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أوم</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أوم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أوم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أوم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أوم</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">فولت</displayName>
+				<unitPattern count="zero" draft="contributed">{0} فولت</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} فولت</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} فولت</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} فولت</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} فولت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} فولت</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName draft="contributed">ك سع</displayName>
@@ -13038,94 +13042,94 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} ك سع</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">سع</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سع</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">سع</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سع</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سع</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ك جول</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ك جول</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ك جول</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ك جول</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ك جول</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ك جول</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ك جول</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">جول</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جول</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جول</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} جول</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} جول</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جول</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جول</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ك.و.س</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ك.و.س</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ك.و.س</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ك.و.س</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ك.و.س</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ك.و.س</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ك.و.س</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">إلكترون فولت</displayName>
+				<unitPattern count="zero" draft="contributed">{0} إلكترون فولت</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} إلكترون فولت</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} إلكترون فولت</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} إلكترون فولت</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} إلكترون فولت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} إلكترون فولت</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">وحدة حرارية بريطانية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} وحدة حرارية بريطانية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} وحدة حرارية بريطانية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} وحدة حرارية بريطانية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} وحدات حرارية بريطانية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} وحدة حرارية بريطانية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} وحدة حرارية بريطانية</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">وحدة حرارية أمريكية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} وحدة حرارية أمريكية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} وحدة حرارية أمريكية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} وحدة حرارية أمريكية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} وحدات حرارية أمريكية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} وحدة حرارية أمريكية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} وحدة حرارية أمريكية</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">باوند قوة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} باوند قوة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} باوند قوة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} باوند قوة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} باوند قوة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} باوند قوة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} باوند قوة</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">نيوتن</displayName>
+				<unitPattern count="zero" draft="contributed">{0} نيوتن</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} نيوتن</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} نيوتن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} نيوتن</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} نيوتن</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} نيوتن</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>ك.و.س/100 كم</displayName>
@@ -13137,61 +13141,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} ك.و.س/100 كم</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">غ هرتز</displayName>
+				<unitPattern count="zero" draft="contributed">{0} غ هرتز</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} غ هرتز</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} غ هرتز</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} غ هرتز</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} غ هرتز</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} غ هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م هرتز</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م هرتز</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م هرتز</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م هرتز</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م هرتز</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م هرتز</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ك هرتز</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ك هرتز</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ك هرتز</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ك هرتز</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ك هرتز</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ك هرتز</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ك هرتز</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">هرتز</displayName>
+				<unitPattern count="zero" draft="contributed">{0} هرتز</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} هرتز</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} هرتز</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} هرتز</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} هرتز</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} هرتز</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>إم</displayName>
+				<unitPattern count="zero">{0} إم</unitPattern>
+				<unitPattern count="one">{0} إم</unitPattern>
+				<unitPattern count="two">{0} إم</unitPattern>
+				<unitPattern count="few">{0} إم</unitPattern>
+				<unitPattern count="many">{0} إم</unitPattern>
+				<unitPattern count="other">{0} إم</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بكسل</displayName>
+				<unitPattern count="zero">{0} بكسل</unitPattern>
+				<unitPattern count="one">{0} بكسل</unitPattern>
+				<unitPattern count="two">{0} بكسل</unitPattern>
+				<unitPattern count="few">{0} بكسل</unitPattern>
+				<unitPattern count="many">{0} بكسل</unitPattern>
+				<unitPattern count="other">{0} بكسل</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName>↑↑↑</displayName>
+				<displayName>م.بكسل</displayName>
 				<unitPattern count="zero">{0} م.بك</unitPattern>
 				<unitPattern count="one">{0} م.بك</unitPattern>
 				<unitPattern count="two">{0} م.بك</unitPattern>
@@ -13236,22 +13240,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ن/بوصة</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بكسل</displayName>
+				<unitPattern count="zero">{0} بكسل</unitPattern>
+				<unitPattern count="one">{0} بكسل</unitPattern>
+				<unitPattern count="two">{0} بكسل</unitPattern>
+				<unitPattern count="few">{0} بكسل</unitPattern>
+				<unitPattern count="many">{0} بكسل</unitPattern>
+				<unitPattern count="other">{0} بكسل</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>نق أرضي</displayName>
+				<unitPattern count="zero">{0} نق أرضي</unitPattern>
+				<unitPattern count="one">{0} نق أرضي</unitPattern>
+				<unitPattern count="two">{0} نق أرضي</unitPattern>
+				<unitPattern count="few">{0} نق أرضي</unitPattern>
+				<unitPattern count="many">{0} نق أرضي</unitPattern>
+				<unitPattern count="other">{0} نق أرضي</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>كم</displayName>
@@ -13261,7 +13265,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} كم</unitPattern>
 				<unitPattern count="many">{0} كم</unitPattern>
 				<unitPattern count="other">{0} كم</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/كم</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>متر</displayName>
@@ -13271,16 +13275,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} م</unitPattern>
 				<unitPattern count="many">{0} م</unitPattern>
 				<unitPattern count="other">{0} م</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/م</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>دسم</displayName>
+				<unitPattern count="zero">{0} دسم</unitPattern>
+				<unitPattern count="one">{0} دسم</unitPattern>
+				<unitPattern count="two">{0} دسم</unitPattern>
+				<unitPattern count="few">{0} دسم</unitPattern>
+				<unitPattern count="many">{0} دسم</unitPattern>
+				<unitPattern count="other">{0} دسم</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>سم</displayName>
@@ -13290,7 +13294,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} سم</unitPattern>
 				<unitPattern count="many">{0} سم</unitPattern>
 				<unitPattern count="other">{0} سم</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/سم</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>مم</displayName>
@@ -13302,25 +13306,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} مم</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ميكرومتر</displayName>
+				<unitPattern count="zero">{0} ميكرومتر</unitPattern>
+				<unitPattern count="one">{0} ميكرومتر</unitPattern>
+				<unitPattern count="two">{0} ميكرومتر</unitPattern>
+				<unitPattern count="few">{0} ميكرومتر</unitPattern>
+				<unitPattern count="many">{0} ميكرومتر</unitPattern>
+				<unitPattern count="other">{0} ميكرومتر</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>نانو متر</displayName>
+				<unitPattern count="zero">{0} نانو متر</unitPattern>
+				<unitPattern count="one">{0} نانو متر</unitPattern>
+				<unitPattern count="two">{0} نانو متر</unitPattern>
+				<unitPattern count="few">{0} نانو متر</unitPattern>
+				<unitPattern count="many">{0} نانو متر</unitPattern>
+				<unitPattern count="other">{0} نانو متر</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>بيكومتر</displayName>
 				<unitPattern count="zero">{0} بيكومتر</unitPattern>
 				<unitPattern count="one">{0} بيكومتر</unitPattern>
 				<unitPattern count="two">{0} بيكومتر</unitPattern>
@@ -13329,7 +13333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بيكومتر</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName>↑↑↑</displayName>
+				<displayName>ميل</displayName>
 				<unitPattern count="zero">{0} ميل</unitPattern>
 				<unitPattern count="one">{0} ميل</unitPattern>
 				<unitPattern count="two">{0} ميل</unitPattern>
@@ -13338,45 +13342,45 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ميل</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
+				<displayName>ياردة</displayName>
+				<unitPattern count="zero">{0} ياردة</unitPattern>
 				<unitPattern count="one">{0} ياردة</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} ياردة</unitPattern>
 				<unitPattern count="few">{0} ياردة</unitPattern>
 				<unitPattern count="many">{0} ياردة</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ياردة</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<displayName>قدم</displayName>
+				<unitPattern count="zero">{0} قدم</unitPattern>
+				<unitPattern count="one">قدم</unitPattern>
+				<unitPattern count="two">{0} قدم</unitPattern>
+				<unitPattern count="few">{0} قدم</unitPattern>
 				<unitPattern count="many">{0} قدمًا</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<unitPattern count="other">{0} قدم</unitPattern>
+				<perUnitPattern>{0}/قدم</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>بوصة</displayName>
 				<unitPattern count="zero">{0} بوصة</unitPattern>
 				<unitPattern count="one">{0} بوصة</unitPattern>
 				<unitPattern count="two">{0} بوصة</unitPattern>
 				<unitPattern count="few">{0} بوصة</unitPattern>
 				<unitPattern count="many">{0} بوصة</unitPattern>
 				<unitPattern count="other">{0} بوصة</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/بوصة</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>فرسخ فلكي</displayName>
+				<unitPattern count="zero">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="one">فرسخ فلكي</unitPattern>
+				<unitPattern count="two">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="few">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="many">{0} فرسخ فلكي</unitPattern>
+				<unitPattern count="other">{0} فرسخ فلكي</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>↑↑↑</displayName>
+				<displayName>سنة ضوئية</displayName>
 				<unitPattern count="zero">{0}س ض</unitPattern>
 				<unitPattern count="one">{0} س ض</unitPattern>
 				<unitPattern count="two">{0} س ض</unitPattern>
@@ -13385,112 +13389,112 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} س ض</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>و.ف.</displayName>
+				<unitPattern count="zero">{0} و.ف.</unitPattern>
+				<unitPattern count="one">{0} و.ف.</unitPattern>
+				<unitPattern count="two">{0} و.ف.</unitPattern>
+				<unitPattern count="few">{0} و.ف.</unitPattern>
+				<unitPattern count="many">{0} و.ف.</unitPattern>
+				<unitPattern count="other">{0} و.ف.</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>فرلنغ</displayName>
+				<unitPattern count="zero">{0} فرلنغ</unitPattern>
+				<unitPattern count="one">{0} فرلنغ</unitPattern>
+				<unitPattern count="two">{0} فرلنغ</unitPattern>
+				<unitPattern count="few">{0} فرلنغ</unitPattern>
+				<unitPattern count="many">{0} فرلنغ</unitPattern>
+				<unitPattern count="other">{0} فرلنغ</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>قامة</displayName>
+				<unitPattern count="zero">{0} قامة</unitPattern>
+				<unitPattern count="one">{0} قامة</unitPattern>
+				<unitPattern count="two">{0} قامة</unitPattern>
+				<unitPattern count="few">{0} قامة</unitPattern>
+				<unitPattern count="many">{0} قامة</unitPattern>
+				<unitPattern count="other">{0} قامة</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ميل بحري</displayName>
+				<unitPattern count="zero">{0} ميل بحري</unitPattern>
+				<unitPattern count="one">ميل بحري</unitPattern>
+				<unitPattern count="two">{0} ميل بحري</unitPattern>
+				<unitPattern count="few">{0} ميل بحري</unitPattern>
+				<unitPattern count="many">{0} ميل بحري</unitPattern>
+				<unitPattern count="other">{0} ميل بحري</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ميل اسكندنافي</displayName>
+				<unitPattern count="zero">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="one">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="two">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="few">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="many">{0} ميل اسكندنافي</unitPattern>
+				<unitPattern count="other">{0} ميل اسكندنافي</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>نقطة</displayName>
+				<unitPattern count="zero">{0} نقطة</unitPattern>
+				<unitPattern count="one">نقطة</unitPattern>
+				<unitPattern count="two">نقطتان</unitPattern>
+				<unitPattern count="few">{0} نقاط</unitPattern>
+				<unitPattern count="many">{0} نقطة</unitPattern>
+				<unitPattern count="other">{0} نقطة</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>نق شمسي</displayName>
+				<unitPattern count="zero">{0} نق شمسي</unitPattern>
+				<unitPattern count="one">{0} نق شمسي</unitPattern>
+				<unitPattern count="two">{0} نق شمسي</unitPattern>
+				<unitPattern count="few">{0} نق شمسي</unitPattern>
+				<unitPattern count="many">{0} نق شمسي</unitPattern>
+				<unitPattern count="other">{0} نق شمسي</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">لكس</displayName>
+				<unitPattern count="zero" draft="contributed">{0} لكس</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} لكس</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} لكس</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} لكس</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} لكس</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} لكس</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">شمعة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} شمعة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} شمعة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} شمعة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} شمعة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} شمعة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} شمعة</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">لومن</displayName>
+				<unitPattern count="zero" draft="contributed">{0} لومن</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} لومن</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} لومن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} لومن</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} لومن</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} لومن</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ضياء شمسي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ضياء شمسي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ضياء شمسي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ضياء شمسي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ضياء شمسي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ضياء شمسي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ضياء شمسي</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ط.م</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ط.م</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ط.م</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ط.م</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ط.م</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ط.م</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ط.م</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>كغ</displayName>
@@ -13513,135 +13517,135 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern draft="contributed">{0} غ</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">مغم</displayName>
+				<unitPattern count="zero" draft="contributed">{0} مغم</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} مغم</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} مغم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} مغم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} مغم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مغم</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">مكغم</displayName>
+				<unitPattern count="zero" draft="contributed">{0} مكغم</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} مكغم</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} مكغم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} مكغم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} مكغم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مكغم</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">طن</displayName>
+				<unitPattern count="zero" draft="contributed">{0} طن</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} طن</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} طن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} طن</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} طن</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} طن</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ستون</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ستون</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ستون</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ستون</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ستون</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ستون</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ستون</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
+				<displayName draft="contributed">رطل</displayName>
+				<unitPattern count="zero">{0} رطل</unitPattern>
+				<unitPattern count="one">{0} رطل</unitPattern>
+				<unitPattern count="two">{0} رطل</unitPattern>
+				<unitPattern count="few">{0} رطل</unitPattern>
+				<unitPattern count="many">{0} رطل</unitPattern>
+				<unitPattern count="other">{0} رطل</unitPattern>
+				<perUnitPattern draft="contributed">{0}/رطل</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>أونصة</displayName>
+				<unitPattern count="zero">{0} أونصة</unitPattern>
+				<unitPattern count="one">أونصة</unitPattern>
+				<unitPattern count="two">{0} أونصة</unitPattern>
+				<unitPattern count="few">{0} أونصة</unitPattern>
+				<unitPattern count="many">{0} أونصة</unitPattern>
+				<unitPattern count="other">{0} أونصة</unitPattern>
+				<perUnitPattern>{0}/أونصة</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">أونصة ترويسية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أونصة ترويسية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أونصة ترويسية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أونصة ترويسية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أونصة ترويسية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أونصة ترويسية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أونصة ترويسية</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">قيراط</displayName>
+				<unitPattern count="zero" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} قيراط</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">دالتون</displayName>
+				<unitPattern count="zero" draft="contributed">{0} دالتون</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} دالتون</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} دالتون</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} دالتون</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} دالتون</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} دالتون</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">كتلة أرضية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كتلة أرضية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كتلة أرضية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كتلة أرضية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كتلة أرضية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كتلة أرضية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كتلة أرضية</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">كتلة شمسية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كتلة شمسية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كتلة شمسية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كتلة شمسية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كتلة شمسية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كتلة شمسية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كتلة شمسية</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">قمحة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} قمحة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} قمحة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} قمحة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} قمحة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} قمحة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} قمحة</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">غ واط</displayName>
+				<unitPattern count="zero" draft="contributed">{0} غ واط</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} غ واط</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} غ واط</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} غ واط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} غ واط</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} غ واط</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م واط</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م واط</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م واط</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م واط</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م واط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م واط</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م واط</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">ك واط</displayName>
 				<unitPattern count="zero">{0} ك واط</unitPattern>
 				<unitPattern count="one">{0} ك واط</unitPattern>
 				<unitPattern count="two">{0} ك واط</unitPattern>
@@ -13650,7 +13654,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ك واط</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">واط</displayName>
 				<unitPattern count="zero" draft="contributed">{0} واط</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} واط</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} واط</unitPattern>
@@ -13659,40 +13663,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} واط</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ملي واط</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ملي واط</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ملي واط</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ملي واط</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ملي واط</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ملي واط</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ملي واط</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">حصان</displayName>
+				<unitPattern count="zero">{0} حصان</unitPattern>
+				<unitPattern count="one">{0} حصان</unitPattern>
+				<unitPattern count="two">{0} حصان</unitPattern>
+				<unitPattern count="few">{0} حصان</unitPattern>
+				<unitPattern count="many">{0} حصان</unitPattern>
+				<unitPattern count="other">{0} حصان</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ملم زئبقي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ملم زئبقي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ملم زئبقي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ملم زئبقي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ملم زئبقي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ملم زئبقي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ملم زئبقي</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName draft="contributed">رطل/بوصة²</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} رطل/بوصة²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} رطل/بوصة²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} رطل/بوصة²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} رطل/بوصة²</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} رطل/بوصة²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} رطل/بوصة²</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName draft="contributed">ب ز</displayName>
@@ -13704,67 +13708,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ب ز</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">بار</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بار</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بار</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بار</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بار</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بار</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بار</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">م. بار</displayName>
+				<unitPattern count="zero">{0} م. بار</unitPattern>
+				<unitPattern count="one">{0} م. بار</unitPattern>
+				<unitPattern count="two">{0} م. بار</unitPattern>
+				<unitPattern count="few">{0} م. بار</unitPattern>
+				<unitPattern count="many">{0} م. بار</unitPattern>
+				<unitPattern count="other">{0} م. بار</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ض.ج</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ض.ج</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ض.ج</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ض.ج</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ض.ج</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ض.ج</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ض.ج</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">باسكال</displayName>
+				<unitPattern count="zero" draft="contributed">{0} باسكال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} باسكال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} باسكال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} باسكال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} باسكال</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} باسكال</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>هكتوباسكال</displayName>
+				<unitPattern count="zero">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="one">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="two">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="few">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="many">{0} هكتوباسكال</unitPattern>
+				<unitPattern count="other">{0} هكتوباسكال</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">ك.باسكال</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ك.باسكال</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">م.باسكال</displayName>
+				<unitPattern count="zero" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} م.باسكال</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>كم/س</displayName>
@@ -13776,7 +13780,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كم/س</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">م/ث</displayName>
 				<unitPattern count="zero" draft="contributed">{0} م/ث</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} م/ث</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} م/ث</unitPattern>
@@ -13785,7 +13789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} م/ث</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName draft="contributed">ميل/س</displayName>
 				<unitPattern count="zero" draft="contributed">{0} ميل/س</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} ميل/س</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ميل/س</unitPattern>
@@ -13794,22 +13798,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} ميل/س</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">عقدة</displayName>
+				<unitPattern count="zero" draft="contributed">{0} عقدة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} عقدة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} عقدة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} عقدة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} عقدة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} عقدة</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">°</displayName>
+				<unitPattern count="zero" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°م</displayName>
@@ -13822,30 +13826,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName draft="contributed">°ف</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="zero">{0}°ف</unitPattern>
+				<unitPattern count="one">{0}°ف</unitPattern>
+				<unitPattern count="two">{0}°ف</unitPattern>
+				<unitPattern count="few">{0}°ف</unitPattern>
+				<unitPattern count="many">{0}°ف</unitPattern>
+				<unitPattern count="other">{0}°ف</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">د كلفن</displayName>
+				<unitPattern count="zero" draft="contributed">{0} د كلفن</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} د كلفن</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} د كلفن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} د كلفن</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} د كلفن</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} د كلفن</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="contributed">باوند قدم</displayName>
+				<unitPattern count="zero" draft="contributed">{0} باوند قدم</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} باوند قدم</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} باوند قدم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} باوند قدم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} باوند قدم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} باوند قدم</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName draft="contributed">نيوتن م</displayName>
@@ -13857,7 +13861,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">{0} نيوتن م</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>كم³</displayName>
 				<unitPattern count="zero">{0} كم³</unitPattern>
 				<unitPattern count="one">{0} كم³</unitPattern>
 				<unitPattern count="two">{0} كم³</unitPattern>
@@ -13866,51 +13870,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} كم³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>م³</displayName>
+				<unitPattern count="zero">{0} م³</unitPattern>
+				<unitPattern count="one">{0} م³</unitPattern>
+				<unitPattern count="two">{0} م³</unitPattern>
+				<unitPattern count="few">{0} م³</unitPattern>
+				<unitPattern count="many">{0} م³</unitPattern>
+				<unitPattern count="other">{0} م³</unitPattern>
+				<perUnitPattern>{0}/م³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>سم³</displayName>
+				<unitPattern count="zero">{0} سم³</unitPattern>
+				<unitPattern count="one">{0} سم³</unitPattern>
+				<unitPattern count="two">{0} سم³</unitPattern>
+				<unitPattern count="few">{0} سم³</unitPattern>
+				<unitPattern count="many">{0} سم³</unitPattern>
+				<unitPattern count="other">{0} سم³</unitPattern>
+				<perUnitPattern>{0}/سم³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ميل³</displayName>
+				<unitPattern count="zero">{0} ميل³</unitPattern>
+				<unitPattern count="one">{0} ميل³</unitPattern>
+				<unitPattern count="two">{0} ميل³</unitPattern>
+				<unitPattern count="few">{0} ميل³</unitPattern>
+				<unitPattern count="many">{0} ميل³</unitPattern>
+				<unitPattern count="other">{0} ميل³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ياردة³</displayName>
+				<unitPattern count="zero">{0} ياردة³</unitPattern>
+				<unitPattern count="one">{0} ياردة³</unitPattern>
+				<unitPattern count="two">{0} ياردة³</unitPattern>
+				<unitPattern count="few">{0} ياردة³</unitPattern>
+				<unitPattern count="many">{0} ياردة³</unitPattern>
+				<unitPattern count="other">{0} ياردة³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>قدم³</displayName>
+				<unitPattern count="zero">{0} قدم³</unitPattern>
+				<unitPattern count="one">{0} قدم³</unitPattern>
+				<unitPattern count="two">{0} قدم³</unitPattern>
+				<unitPattern count="few">{0} قدم³</unitPattern>
+				<unitPattern count="many">{0} قدم³</unitPattern>
+				<unitPattern count="other">{0} قدم³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>بوصة³</displayName>
@@ -13922,22 +13926,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بوصة³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ميغالتر</displayName>
+				<unitPattern count="zero">{0} ميغالتر</unitPattern>
+				<unitPattern count="one">{0} ميغالتر</unitPattern>
+				<unitPattern count="two">{0} ميغالتر</unitPattern>
+				<unitPattern count="few">{0} ميغالتر</unitPattern>
+				<unitPattern count="many">{0} ميغالتر</unitPattern>
+				<unitPattern count="other">{0} ميغالتر</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>هكتولتر</displayName>
+				<unitPattern count="zero">{0} هكتولتر</unitPattern>
+				<unitPattern count="one">{0} هكتولتر</unitPattern>
+				<unitPattern count="two">{0} هكتولتر</unitPattern>
+				<unitPattern count="few">{0} هكتولتر</unitPattern>
+				<unitPattern count="many">{0} هكتولتر</unitPattern>
+				<unitPattern count="other">{0} هكتولتر</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>لتر</displayName>
@@ -13947,125 +13951,125 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} ل</unitPattern>
 				<unitPattern count="many">{0} ل</unitPattern>
 				<unitPattern count="other">{0} ل</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/ل</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ديسيلتر</displayName>
+				<unitPattern count="zero">{0} ديسيلتر</unitPattern>
+				<unitPattern count="one">{0} ديسيلتر</unitPattern>
+				<unitPattern count="two">{0} ديسيلتر</unitPattern>
+				<unitPattern count="few">{0} ديسيلتر</unitPattern>
+				<unitPattern count="many">{0} ديسيلتر</unitPattern>
+				<unitPattern count="other">{0} ديسيلتر</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>سنتيلتر</displayName>
+				<unitPattern count="zero">{0} سنتيلتر</unitPattern>
+				<unitPattern count="one">{0} سنتيلتر</unitPattern>
+				<unitPattern count="two">{0} سنتيلتر</unitPattern>
+				<unitPattern count="few">{0} سنتيلتر</unitPattern>
+				<unitPattern count="many">{0} سنتيلتر</unitPattern>
+				<unitPattern count="other">{0} سنتيلتر</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ملتر</displayName>
+				<unitPattern count="zero">{0} ملتر</unitPattern>
+				<unitPattern count="one">{0} ملتر</unitPattern>
+				<unitPattern count="two">{0} ملتر</unitPattern>
+				<unitPattern count="few">{0} ملتر</unitPattern>
+				<unitPattern count="many">{0} ملتر</unitPattern>
+				<unitPattern count="other">{0} ملتر</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>مكيال متري</displayName>
+				<unitPattern count="zero">{0} مكيال متري</unitPattern>
+				<unitPattern count="one">{0} مكيال متري</unitPattern>
+				<unitPattern count="two">{0} مكيال متري</unitPattern>
+				<unitPattern count="few">{0} مكيال متري</unitPattern>
+				<unitPattern count="many">{0} مكيال متري</unitPattern>
+				<unitPattern count="other">{0} مكيال متري</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>كوب متري</displayName>
+				<unitPattern count="zero">{0} كوب متري</unitPattern>
+				<unitPattern count="one">{0} كوب متري</unitPattern>
+				<unitPattern count="two">{0} كوب متري</unitPattern>
+				<unitPattern count="few">{0} كوب متري</unitPattern>
+				<unitPattern count="many">{0} كوب متري</unitPattern>
+				<unitPattern count="other">{0} كوب متري</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>فدان قدم</displayName>
+				<unitPattern count="zero">{0} فدان قدم</unitPattern>
+				<unitPattern count="one">{0} فدان قدم</unitPattern>
+				<unitPattern count="two">{0} فدان قدم</unitPattern>
+				<unitPattern count="few">{0} فدان قدم</unitPattern>
+				<unitPattern count="many">{0} فدان قدم</unitPattern>
+				<unitPattern count="other">{0} فدان قدم</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بوشل</displayName>
+				<unitPattern count="zero">{0} بوشل</unitPattern>
+				<unitPattern count="one">{0} بوشل</unitPattern>
+				<unitPattern count="two">{0} بوشل</unitPattern>
+				<unitPattern count="few">{0} بوشل</unitPattern>
+				<unitPattern count="many">{0} بوشل</unitPattern>
+				<unitPattern count="other">{0} بوشل</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>غالون</displayName>
+				<unitPattern count="zero">{0} غالون</unitPattern>
+				<unitPattern count="one">غالون</unitPattern>
+				<unitPattern count="two">{0} غالون</unitPattern>
+				<unitPattern count="few">{0} غالون</unitPattern>
+				<unitPattern count="many">{0} غالون</unitPattern>
+				<unitPattern count="other">{0} غالون</unitPattern>
+				<perUnitPattern>{0}/غالون</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>غالون إمبراطوري</displayName>
+				<unitPattern count="zero">{0} غالون إمبراطوري</unitPattern>
+				<unitPattern count="one">{0} غالون إمبراطوري</unitPattern>
+				<unitPattern count="two">{0} غالون إمبراطوري</unitPattern>
+				<unitPattern count="few">{0} غالون إمبراطوري</unitPattern>
+				<unitPattern count="many">{0} غالون إمبراطوري</unitPattern>
+				<unitPattern count="other">{0} غالون إمبراطوري</unitPattern>
+				<perUnitPattern>{0}/غالون إمبراطوري</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ربع غالون</displayName>
+				<unitPattern count="zero">{0} ربع غالون</unitPattern>
+				<unitPattern count="one">ربع غالون</unitPattern>
+				<unitPattern count="two">{0} ربع غالون</unitPattern>
+				<unitPattern count="few">{0} ربع غالون</unitPattern>
+				<unitPattern count="many">{0} ربع غالون</unitPattern>
+				<unitPattern count="other">{0} ربع غالون</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>باينت</displayName>
+				<unitPattern count="zero">{0} باينت</unitPattern>
+				<unitPattern count="one">{0} باينت</unitPattern>
+				<unitPattern count="two">{0} باينت</unitPattern>
+				<unitPattern count="few">{0} باينت</unitPattern>
+				<unitPattern count="many">{0} باينت</unitPattern>
+				<unitPattern count="other">{0} باينت</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>كوب</displayName>
+				<unitPattern count="zero">{0} كوب</unitPattern>
+				<unitPattern count="one">كوب</unitPattern>
+				<unitPattern count="two">{0} كوب</unitPattern>
+				<unitPattern count="few">{0} كوب</unitPattern>
+				<unitPattern count="many">{0} كوب</unitPattern>
+				<unitPattern count="other">{0} كوب</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>أونصة س</displayName>
 				<unitPattern count="zero">{0} أونصة س</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="one">أونصة س</unitPattern>
+				<unitPattern count="two">{0} أونصة س</unitPattern>
 				<unitPattern count="few">{0} أونصة س</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="many">{0} أونصة س</unitPattern>
 				<unitPattern count="other">{0} أونصة س</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
@@ -14087,85 +14091,85 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ملعقة ك</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ملعقة ص</displayName>
+				<unitPattern count="zero">{0} ملعقة ص</unitPattern>
+				<unitPattern count="one">ملعقة ص</unitPattern>
+				<unitPattern count="two">{0} ملعقة ص</unitPattern>
+				<unitPattern count="few">{0} ملعقة ص</unitPattern>
+				<unitPattern count="many">{0} ملعقة ص</unitPattern>
+				<unitPattern count="other">{0} ملعقة ص</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<displayName>برميل</displayName>
+				<unitPattern count="zero">{0} برميل</unitPattern>
+				<unitPattern count="one">برميل</unitPattern>
 				<unitPattern count="two">{0} برميل</unitPattern>
 				<unitPattern count="few">{0} برميل</unitPattern>
 				<unitPattern count="many">{0} برميل</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} برميل</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ملعقة ح.</displayName>
+				<unitPattern count="zero">{0} ملعقة ح.</unitPattern>
+				<unitPattern count="one">{0} ملعقة ح.</unitPattern>
+				<unitPattern count="two">{0} ملعقة ح.</unitPattern>
+				<unitPattern count="few">{0} ملعقة ح.</unitPattern>
+				<unitPattern count="many">{0} ملعقة ح.</unitPattern>
+				<unitPattern count="other">{0} ملعقة ح.</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ملعقة حلو إمبراطوري</displayName>
+				<unitPattern count="zero">{0} ملعقة ح. إمبراطوري</unitPattern>
+				<unitPattern count="one">{0} ملعقة ح. إمبراطوري</unitPattern>
+				<unitPattern count="two">{0} ملعقة ح. إمبراطوري</unitPattern>
+				<unitPattern count="few">{0} ملعقة ح. إمبراطوري</unitPattern>
+				<unitPattern count="many">{0} ملعقة ح. إمبراطوري</unitPattern>
+				<unitPattern count="other">{0} ملعقة ح. إمبراطوري</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>قطرة</displayName>
+				<unitPattern count="zero">{0} قطرة</unitPattern>
+				<unitPattern count="one">{0} قطرة</unitPattern>
+				<unitPattern count="two">{0} قطرة</unitPattern>
+				<unitPattern count="few">{0} قطرة</unitPattern>
+				<unitPattern count="many">{0} قطرة</unitPattern>
+				<unitPattern count="other">{0} قطرة</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>درهم سائل</displayName>
+				<unitPattern count="zero">{0} درهم سائل</unitPattern>
+				<unitPattern count="one">{0} درهم سائل</unitPattern>
+				<unitPattern count="two">{0} درهم سائل</unitPattern>
+				<unitPattern count="few">{0} درهم سائل</unitPattern>
+				<unitPattern count="many">{0} درهم سائل</unitPattern>
+				<unitPattern count="other">{0} درهم سائل</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
+				<displayName>قدح</displayName>
+				<unitPattern count="zero">{0} قدح</unitPattern>
 				<unitPattern count="one">قدح</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} قدح</unitPattern>
 				<unitPattern count="few">{0} قدح</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="many">{0} قدح</unitPattern>
+				<unitPattern count="other">{0} قدح</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>رشّة</displayName>
+				<unitPattern count="zero">{0} رشّة</unitPattern>
+				<unitPattern count="one">{0} رشّة</unitPattern>
+				<unitPattern count="two">{0} رشّة</unitPattern>
+				<unitPattern count="few">{0} رشّة</unitPattern>
+				<unitPattern count="many">{0} رشّة</unitPattern>
+				<unitPattern count="other">{0} رشّة</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="zero">↑↑↑</unitPattern>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ربع غالون إمبراطوري</displayName>
+				<unitPattern count="zero">{0} ربع غالون إمبراطوري</unitPattern>
+				<unitPattern count="one">{0} ربع غالون إمبراطوري</unitPattern>
+				<unitPattern count="two">{0} ربع غالون إمبراطوري</unitPattern>
+				<unitPattern count="few">{0} ربع غالون إمبراطوري</unitPattern>
+				<unitPattern count="many">{0} ربع غالون إمبراطوري</unitPattern>
+				<unitPattern count="other">{0} ربع غالون إمبراطوري</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>اتجاه</displayName>
@@ -14200,21 +14204,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</listPattern>
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">{0} أو {1}</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">{0} أو {1}</listPatternPart>
+			<listPatternPart type="end">{0} أو {1}</listPatternPart>
+			<listPatternPart type="2">{0} أو {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0} أو {1}</listPatternPart>
 			<listPatternPart type="middle">{0} أو {1}</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} أو {1}</listPatternPart>
+			<listPatternPart type="2">{0} أو {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">{0} و{1}</listPatternPart>
 			<listPatternPart type="middle">{0} و{1}</listPatternPart>
 			<listPatternPart type="end">{0} و{1}</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0} و{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0} و{1}</listPatternPart>
@@ -14232,7 +14236,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="start">{0} و{1}</listPatternPart>
 			<listPatternPart type="middle">{0} و{1}</listPatternPart>
 			<listPatternPart type="end">{0} و{1}</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0} و{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
 			<listPatternPart type="start">{0}، و{1}</listPatternPart>
@@ -14429,34 +14433,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<nameOrderLocales order="givenFirst">und ar</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
-		<initialPattern type="initial">{0}</initialPattern>
-		<initialPattern type="initialSequence">{0}. {1}.</initialPattern>
+		<initialPattern type="initial">{0}.</initialPattern>
+		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {generation}، {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
+			<!-- <namePattern alt="1">{given-monogram-allCaps}.{surname-monogram-allCaps}</namePattern> -->
 			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
 			<namePattern>{given-informal-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2-initial} {surname}</namePattern>
+			<namePattern>{title} {given} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -14468,19 +14473,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{prefix} {given-initial} {surname}</namePattern>
+			<namePattern>{title} {given-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
 			<namePattern>{given-informal-initial}. {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
 			<namePattern>{given-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
@@ -14492,7 +14497,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -14510,34 +14515,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}.</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram-allCaps}.</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{surname}، {given-initial}</namePattern>
+			<namePattern>{surname}، {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
 			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}.</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram-allCaps}.</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
 			<namePattern>{surname-prefix} {surname-core}، {given} {given2}</namePattern>
@@ -14557,27 +14562,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}، {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">منير</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">سميرة</nameField>
 			<nameField type="surname">النجار</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">كمال</nameField>
 			<nameField type="given2">مجدي</nameField>
 			<nameField type="surname">العامر</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">الدكتور</nameField>
-			<nameField type="given">علاء الدين</nameField>
-			<nameField type="given-informal">ربيع</nameField>
-			<nameField type="given2">رامي كامل</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">السيد</nameField>
+			<nameField type="given">أحمد رامي</nameField>
+			<nameField type="given-informal">وسام</nameField>
+			<nameField type="given2">نجيب محفوظ</nameField>
 			<nameField type="surname-prefix">أبو</nameField>
-			<nameField type="surname-core">شقرا</nameField>
+			<nameField type="surname-core">الأغا</nameField>
 			<nameField type="surname2">علم الدين</nameField>
-			<nameField type="suffix">ماجستير، دكتوراه</nameField>
+			<nameField type="generation">الابن</nameField>
+			<nameField type="credentials">النائب</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">سندباد</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">كاثرين</nameField>
+			<nameField type="surname">مولر</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">زيزينيا</nameField>
+			<nameField type="given2">هاميش</nameField>
+			<nameField type="surname">ستوبر</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">الدكتور</nameField>
+			<nameField type="given">عايدة كورنيليا</nameField>
+			<nameField type="given-informal">نيللي</nameField>
+			<nameField type="given2">سيزار مارتن</nameField>
+			<nameField type="surname-prefix">فون</nameField>
+			<nameField type="surname-core">برول</nameField>
+			<nameField type="surname2">غونزاليس دومينغو</nameField>
+			<nameField type="generation">الإبن</nameField>
+			<nameField type="credentials">طبيب وجراح</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

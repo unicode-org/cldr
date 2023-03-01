@@ -23,7 +23,16 @@ public class TempPrintWriter extends Writer {
     final String tempName;
     final String filename;
     boolean noReplace = false;
+    boolean skipCopyright = false;
 
+    public TempPrintWriter skipCopyright(boolean newSkipCopyright) {
+        skipCopyright = newSkipCopyright;
+        return this;
+    }
+
+    public PrintWriter asPrintWriter() {
+        return tempPrintWriter;
+    }
 
     public static TempPrintWriter openUTF8Writer(String filename) {
         return new TempPrintWriter(new File(filename));
@@ -65,7 +74,7 @@ public class TempPrintWriter extends Writer {
             if (noReplace) {
                 new File(tempName).delete();
             } else {
-                replaceDifferentOrDelete(filename, tempName, false);
+                replaceDifferentOrDelete(filename, tempName, skipCopyright);
             }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
@@ -173,7 +182,7 @@ public class TempPrintWriter extends Writer {
             if (line1.startsWith("# Date")) {
                 continue;
             }
-            if (skipCopyright && line1.startsWith("# Copyright")) {
+            if (skipCopyright && (line1.startsWith("# Copyright") || (line1.trim().startsWith("<!--") && line1.contains("Copyright")))) {
                 continue;
             }
             if (line1.startsWith("<p><b>Date:</b>")) {

@@ -407,9 +407,11 @@
 //supplementalData/windowsZones/mapTimezones/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; WZoneMapping ; $1 ; $2 ; HIDE
 
 //supplementalData/parentLocales/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ; $1 ; HIDE
+//supplementalData/parentLocales[@component="%A"]/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ($1) ; $2 ; HIDE
 //supplementalData/metadata/skipDefaultLocale/_services			; Supplemental ; Locale ; SkipDefault ; plain ; HIDE
 //supplementalData/metadata/defaultContent/_locales			; Supplemental ; Locale ; DefaultContent ; plain ; HIDE
 
+//supplementalData/likelySubtags/likelySubtag[@from="%A"][@origin="%A"]/_to			; Supplemental ; Likely ; Subtag ; $1-$2 ; HIDE
 //supplementalData/likelySubtags/likelySubtag[@from="%A"]/_to			; Supplemental ; Likely ; Subtag ; $1 ; HIDE
 
 //supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch[@desired="%A"][@supported="%A"]/_%E			; Supplemental ; LanguageMatch ; $1 ; $2-$3-$4 ; HIDE

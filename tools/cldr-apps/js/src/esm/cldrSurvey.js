@@ -3,6 +3,7 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
+import * as cldrCoverageReset from "./cldrCoverageReset.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrGui from "./cldrGui.js";
@@ -369,8 +370,8 @@ function updateStatusBox(json) {
 
     var ugtext = "~";
     ugtext = ugtext + json.status.users + " users, ";
-    if (json.status.guests > 0) {
-      ugtext = ugtext + json.status.guests + " guests, ";
+    if (json.status.observers > 0) {
+      ugtext = ugtext + json.status.observers + " observers, ";
     }
     ugtext = ugtext + json.status.pages + "pg/" + json.status.uptime;
     cldrDom.removeAllChildNodes(updateParts.ug);
@@ -400,10 +401,6 @@ function updateStatusBox(json) {
       updateParts.visitors.appendChild(fragment);
     }
 
-    function standOutMessage(txt) {
-      return "<b style='font-size: x-large; color: red;'>" + txt + "</b>";
-    }
-
     const surveyUser = cldrStatus.getSurveyUser();
     if (
       surveyUser !== null &&
@@ -411,33 +408,14 @@ function updateStatusBox(json) {
       json.millisTillKick >= 0 &&
       json.millisTillKick < 60 * 1 * 1000
     ) {
-      // show countdown when 1 minute to go
-      var kmsg =
-        "Your session will end if not active in about " +
-        (parseInt(json.millisTillKick) / 1000).toFixed(0) +
-        " seconds.";
-      console.log(kmsg);
-      updateSpecialHeader(standOutMessage(kmsg));
+      warnImpendingDisconnect(json); // show countdown when 1 minute to go
     } else if (
       surveyUser !== null &&
       (json.millisTillKick === 0 || json.session_err)
     ) {
-      var kmsg = cldrText.get("ari_sessiondisconnect_message");
-      console.log(kmsg);
-      updateSpecialHeader(standOutMessage(kmsg));
-      cldrStatus.setIsDisconnected(true);
-      cldrDom.addClass(
-        document.getElementsByTagName("body")[0],
-        "disconnected"
-      );
-      if (!json.session_err) {
-        json.session_err = "disconnected";
-      }
-      cldrRetry.handleDisconnect(
-        kmsg,
-        json,
-        "Your session has been disconnected."
-      );
+      handleDisconnect(json);
+    } else if (surveyUser && json.millisSinceAction) {
+      cldrCoverageReset.resetIfLongSinceAction(json.millisSinceAction);
     } else if (
       json.status.specialHeader &&
       json.status.specialHeader.length > 0
@@ -447,6 +425,31 @@ function updateStatusBox(json) {
       updateSpecialHeader(null);
     }
   }
+}
+
+function handleDisconnect(json) {
+  const kmsg = cldrText.get("ari_sessiondisconnect_message");
+  console.log(kmsg);
+  updateSpecialHeader(standOutMessage(kmsg));
+  cldrStatus.setIsDisconnected(true);
+  cldrDom.addClass(document.getElementsByTagName("body")[0], "disconnected");
+  if (!json.session_err) {
+    json.session_err = "disconnected";
+  }
+  cldrRetry.handleDisconnect(kmsg, json, "Your session has been disconnected.");
+}
+
+function warnImpendingDisconnect(json) {
+  const kmsg =
+    "Your session will end if not active in about " +
+    (parseInt(json.millisTillKick) / 1000).toFixed(0) +
+    " seconds.";
+  console.log(kmsg);
+  updateSpecialHeader(standOutMessage(kmsg));
+}
+
+function standOutMessage(txt) {
+  return "<b style='font-size: x-large; color: red;'>" + txt + "</b>";
 }
 
 /**
@@ -734,7 +737,7 @@ function testsToHtml(tests) {
       "' title='" +
       testItem.type +
       ": " +
-      (testItem.cause || { class: "Unknown" }).class +
+      (testItem.cause || "Unknown") +
       "." +
       testItem.subtype +
       "'>";

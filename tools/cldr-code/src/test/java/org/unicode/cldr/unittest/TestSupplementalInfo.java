@@ -28,31 +28,15 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralMinimalPairs;
 import org.unicode.cldr.tool.PluralRulesFactory;
-import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.IsoCurrencyParser;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PluralRanges;
-import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
@@ -66,7 +50,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -108,7 +91,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestPluralSampleOrder() {
         HashSet<PluralInfo> seen = new HashSet<>();
         for (String locale : SUPPLEMENTAL.getPluralLocales()) {
-            if (locale.equals("root")) {
+            if (locale.equals(LocaleNames.ROOT)) {
                 continue;
             }
             PluralInfo pi = SUPPLEMENTAL.getPlurals(locale);
@@ -322,7 +305,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestPluralSamples2() {
         PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         for (String locale : prf.getLocales()) {
-            if (locale.equals("und")) {
+            if (locale.equals(LocaleNames.UND)) {
                 continue;
             }
             if (locale.equals("pl")) {
@@ -700,7 +683,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         toTest.addAll(SUPPLEMENTAL.getDefaultContentLocales());
         LanguageTagParser ltp = new LanguageTagParser();
         main: for (String locale : toTest) {
-            if (locale.startsWith("und") || locale.equals("root")) {
+            if (locale.startsWith(LocaleNames.UND) || locale.equals(LocaleNames.ROOT)) {
                 continue;
             }
             Set<String> s = SUPPLEMENTAL.getEquivalentsForLocale(locale);
@@ -782,7 +765,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             new LinkedHashMap<String, Set<String>>(), TreeSet.class);
         main: for (String locale : testInfo.getCldrFactory()
             .getAvailableLanguages()) {
-            if (!locale.contains("_") && !"root".equals(locale)) {
+            if (!locale.contains("_") && !LocaleNames.ROOT.equals(locale)) {
                 String defaultScript = SUPPLEMENTAL.getDefaultScript(locale);
                 if (defaultScript != null) {
                     continue;
@@ -1073,6 +1056,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             bcp47RegionData.keySet());
         bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the
         // unknown region...
+        bcp47Regions.removeAll(Iso3166Data.getRegionCodesNotForTranslation()); // skip these also
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -1378,6 +1362,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Map<String, Date> currencyFirstValid = new TreeMap<>();
         Map<String, Date> currencyLastValid = new TreeMap<>();
         territoriesWithoutModernCurrencies.remove("ZZ");
+        territoriesWithoutModernCurrencies.removeAll(Iso3166Data.getRegionCodesNotForTranslation());
 
         for (String territory : STANDARD_CODES
             .getGoodAvailableCodes("territory")) {
@@ -1440,7 +1425,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
         if (missing.size() != 0) {
-            errln("Missing codes compared to ISO: " + missing.toString());
+            errln("Codes in ISO 4217 but not current tender in CLDR " +
+                "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
+                missing.toString());
         }
 
         for (String currency : modernCurrencyCodes.keySet()) {
@@ -1598,7 +1585,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
         }
         for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
-            if ("root".equals(locale)) {
+            if (LocaleNames.ROOT.equals(locale)) {
+                continue;
+            }
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
                 continue;
             }
             CLDRLocale loc = CLDRLocale.getInstance(locale);
@@ -1617,17 +1607,30 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Map<Type, BasicLanguageData> scriptInfo = supp
                 .getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                errln(loc + ": has no BasicLanguageData");
+                if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                    errln(loc + ": has no BasicLanguageData");
+                } else {
+                    logln(loc + ": has no BasicLanguageData (not a basic loc)");
+                }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
                 if (data == null) {
-                    errln(loc + ": has no scripts in BasicLanguageData");
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": has no scripts in BasicLanguageData");
+                    } else {
+                        logln(loc + ": has no scripts in BasicLanguageData (not a basic loc)");
+                    }
                 } else if (!data.getScripts().contains(defaultScript)) {
-                    errln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": " + defaultScript
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv  " + data.getScripts());
+                    } else {
+                        logln(loc + ": " + defaultScript
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script.tsv (not a basic loc) " + data.getScripts());
+                    }
                 }
             }
 
@@ -1672,7 +1675,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         for (String locale : allLocales) {
             // the only known case where plural rules depend on region or script
             // is pt_PT
-            if (locale.equals("root")) {
+            if (locale.equals(LocaleNames.ROOT)) {
                 continue;
             }
             ltp.set(locale);
@@ -1870,12 +1873,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> mainLanguages = new TreeSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
-            mainLanguages.add(ltp.set(locale).getLanguage());
+            if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                mainLanguages.add(ltp.set(locale).getLanguage());
+            }
         }
         // add special codes we want to see anyway
-        mainLanguages.add("und");
-        mainLanguages.add("mul");
-        mainLanguages.add("zxx");
+        mainLanguages.add(LocaleNames.UND);
+        mainLanguages.add(LocaleNames.MUL);
+        mainLanguages.add(LocaleNames.ZXX);
 
         if (!mainLanguages.containsAll(surveyToolLanguages)) {
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SUPPLEMENTAL, "ja"); // pick "neutral" locale

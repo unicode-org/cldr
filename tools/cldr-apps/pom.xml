@@ -26,7 +26,7 @@
 	<parent>
 		<groupId>org.unicode.cldr</groupId>
 		<artifactId>cldr-all</artifactId>
-		<version>42.0</version>
+		<version>43.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -296,8 +296,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<nodeVersion>v14.17.5</nodeVersion>
-					<npmVersion>6.14.14</npmVersion>
+					<nodeVersion>v16.17.1</nodeVersion>
+					<npmVersion>8.15.0</npmVersion>
 					<!-- run in project sourcedir -->
 					<workingDirectory>${project.basedir}/js</workingDirectory>
 				</configuration>

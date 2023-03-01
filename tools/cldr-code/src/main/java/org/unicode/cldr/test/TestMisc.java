@@ -167,7 +167,7 @@ public class TestMisc {
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile englishFile = cldrFactory.make("en", true);
-        ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile);
         System.out
             .println(eg
                 .getHelpHtml(

@@ -146,7 +146,7 @@ public class VotingParticipation {
 
     private void appendInterestLocales(UserRegistry reg, final Set<String> localesWithVetters, int theirId) {
         final UserRegistry.User theUser = reg.getInfo(theirId);
-        if ((theUser.userlevel > UserRegistry.STREET) ||
+        if ((theUser.userlevel > UserRegistry.GUEST) ||
             UserRegistry.userIsLocked(theUser) // skip these
         ) {
             return;

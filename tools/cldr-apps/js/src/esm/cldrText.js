@@ -15,7 +15,8 @@ const strings = {
 
   loadingMsg_desc: "Current loading status",
   loading_reloading: "Force Reloading Page",
-  loading_reload: "Reload",
+  loading_reload: "Reload This Page",
+  loading_home: "Start Over",
   loading_retrying: "Retrying",
   loading_nocontent: "This locale cannot be displayed.",
   loadingOneRow: "loading....",
@@ -52,8 +53,6 @@ const strings = {
   "i-override_desc":
     "You have voted on this item with a lower vote count (shown in parenthesis).",
 
-  itemInfoBlank: "This area shows further details about the selected item.",
-
   draftStatus: "Status: ${0}",
   confirmed: "Confirmed",
   approved: "Approved",
@@ -74,17 +73,15 @@ const strings = {
 
   userlevel_admin: "Admin",
   userlevel_tc: "TC",
-  userlevel_expert: "Expert",
   userlevel_vetter: "Vetter",
-  userlevel_street: "Guest",
+  userlevel_guest: "Guest",
   userlevel_locked: "Locked",
   userlevel_manager: "Manager",
 
   userlevel_admin_desc: "Administrator",
   userlevel_tc_desc: "CLDR-Technical Committee member",
-  userlevel_expert_desc: "Language Expert",
   userlevel_vetter_desc: "Regular Vetter",
-  userlevel_street_desc: "Guest User",
+  userlevel_guest_desc: "Guest User",
   userlevel_manager_desc: "Project Manager",
   userlevel_locked_desc: "Locked User, no login",
 
@@ -144,7 +141,7 @@ const strings = {
   admin_users_action_kick: "Kick",
   admin_users_action_kick_desc: "Logout this user",
 
-  // pClass ( see DataSection.java)
+  // pClass ( see DataPage.java)
   pClass_winner: "This item is currently winning.",
   pClass_alias: "This item is aliased from another location.",
   pClass_fallback_code: "This item is an untranslated code.",
@@ -173,13 +170,12 @@ const strings = {
   winningStatus_disputed: "Disputed",
   winningStatus_msg: "${1} ${0} Value ",
 
-  reportGuidance: " ",
   dataPageInitialGuidance:
     "Please consult the <a target='_blank' href='http://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
   generalPageInitialGuidance:
     "This area will show details of items as you work with the Survey Tool.",
-  localesInitialGuidance:
-    "Choose a locale to get started.  <ul><li><span class='locked'>locked</span> locales may not be modified by anyone,</li><li><span class='canmodify'>hand icon</span> indicates editing allowed by you</li><li><span class='name_var'>Locales with (Variants)</span> may have specific differences to note.</li></ul><p>Don't see your locale? See: <a href='http://cldr.unicode.org/index/bug-reports#New_Locales'>Adding New Locales</a></p>",
+  generalSpecialGuidance:
+    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 
   loginGuidance: "You may not make any changes, you are not logged in.",
   readonlyGuidance: "You may not make changes to this locale.",
@@ -216,8 +212,6 @@ const strings = {
   voteInfo_moreInfo:
     "Click here for a full explanation of the icons and their meanings.",
   voteInfo_votesForInheritance: "These are votes for inheritance.",
-  voteInfo_votesForSpecificValue:
-    "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
   // CheckCLDR.StatusAction
   StatusAction_msg: "Not submitted: ${0}",
   StatusAction_popupmsg:
@@ -277,8 +271,8 @@ const strings = {
     "${count} old winning votes were automatically imported",
   "v-title_desc":
     "This area shows the date before which votes are considered “old”.",
+
   section_forum: "Forum",
-  section_general: "General Info",
   section_subpages: "Subpages",
 
   searchNoResults: "No results found.",
@@ -378,6 +372,9 @@ const strings = {
   coverage_menu_desc:
     'Change the displayed coverage level. "Default" will use your organization\'s preferred value for this locale, if any.',
   coverage_unknown: "Unknown",
+  coverage_reset_msg: "Coverage Reset",
+  coverage_reset_desc:
+    "The coverage level was reset to its default after a period of inactivity",
 
   section_mail: "Messages",
 
@@ -404,7 +401,7 @@ const strings = {
     "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",
 
   jsonStatus_msg:
-    "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
+    "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${observers} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
   err_what_section: "load part of this locale",
   err_what_locmap: "load the list of locales",
   err_what_menus: "load the Survey Tool menus",
@@ -449,12 +446,12 @@ const strings = {
   special_bulk_close_posts: "Bulk Close Posts",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",
+  special_dashboard: "Dashboard",
   special_error_subtypes: "Error Subtypes",
   special_flagged: "Flagged Items",
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
-  special_general:
-    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
+  special_general: "General Info",
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
@@ -467,6 +464,7 @@ const strings = {
   special_r_compact: "Numbers",
   special_r_datetime: "Datetime",
   special_r_zones: "Zones",
+  special_r_personnames: "Person Names",
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
   special_retry_inplace: "Retry",
@@ -507,6 +505,8 @@ const strings = {
     "Check if any changes are needed in your language.",
   notification_category_error:
     "The Survey Tool detected an error in the winning value.",
+  notification_category_inherited_changed:
+    "The winning inherited value was altered from its baseline value. (Informational)",
   notification_category_losing:
     "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. " +
     "This might be due to a dispute between members of your organization.",
@@ -531,7 +531,7 @@ const strings = {
   summary_coverage_org_specific:
     "The coverage level for each locale is specific to your organization.",
   summary_coverage_neutral:
-    "The coverage level for each locale is organization-neutral.",
+    "This chart is an overall summary, and does not reflect organization-specific data. The overall progress is based on the Error+Missing+Provisional value to zero; once that is done the progress will read at 100%.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
   summary_snapshot_hover:
@@ -540,6 +540,12 @@ const strings = {
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",
   locale_rejection_outside_org_coverage: "Outside of org’s coverage",
+
+  transcript_flyover: "Explain vote counts",
+  transcript_note:
+    "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to https://unicode-org.atlassian.net/browse/CLDR-14943",
+
+  empty_comparison_cell_hint: "not available in English; see the Info Panel",
 };
 
 /**

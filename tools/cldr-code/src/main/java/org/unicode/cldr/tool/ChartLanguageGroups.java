@@ -9,11 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 
@@ -93,7 +89,7 @@ public class ChartLanguageGroups extends Chart {
             .addColumn("Contained", "class='source'", null, "class='target'", true)
             .setBreakSpans(true);
 
-        show(lg, "mul", tablePrinter);
+        show(lg, LocaleNames.MUL, tablePrinter);
         pw.write(tablePrinter.toTable());
     }
 
@@ -163,7 +159,7 @@ public class ChartLanguageGroups extends Chart {
     }
 
     private String getLangName(String langCode) {
-        return langCode.equals("mul") ? "All"
+        return langCode.equals(LocaleNames.MUL) ? "All"
             : langCode.equals("zh") ? "Mandarin Chinese"
                 : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, langCode).replace(" (Other)", "").replace(" languages", "");
     }

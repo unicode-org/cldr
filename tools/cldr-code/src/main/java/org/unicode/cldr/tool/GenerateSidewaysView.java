@@ -61,7 +61,6 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -81,6 +80,7 @@ import com.ibm.icu.util.ULocale;
  * http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class GenerateSidewaysView {
+    private static final boolean TOO_BIG_FOR_GITHUB = true;
     private static final String DIR_NAME = "by_type";
     // debug flags
     static final boolean DEBUG = false;
@@ -154,6 +154,23 @@ public class GenerateSidewaysView {
     // private static DataShower dataShower = new DataShower();
     private static Matcher pathMatcher;
 
+    static final class OptionalPrinter {
+        PrintWriter printWriter;
+        public void print(String s) {
+            if (printWriter != null) {
+                print(s);
+            }
+        }
+        public void println() {
+            print("\n");
+        }
+        public void close() {
+            if (printWriter != null) {
+                close();
+            }
+        }
+    }
+
     public static void main(String[] args) throws SAXException, IOException {
         startTime = System.currentTimeMillis();
         ToolUtilities.registerExtraTransliterators();
@@ -208,7 +225,7 @@ public class GenerateSidewaysView {
         // UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
 
         String oldHeader = "";
-        Output<PrintWriter> tsvFile = new Output<>();
+        OptionalPrinter tsvFile = new OptionalPrinter();
 
         for (PathHeader path : path_value_locales.keySet()) {
             String main = getFileName2(path, null);
@@ -256,7 +273,7 @@ public class GenerateSidewaysView {
                     valueClass = " class='rtl_value'";
                 }
                 out.println("<tr><th" + valueClass + ">" + DataShower.getPrettyValue(value) + "</th><td class='td'>");
-                tsvFile.value.print(
+                tsvFile.print(
                     path.getSection()
                         + "\t" + path.getPage()
                         + "\t" + path.getHeader()
@@ -275,10 +292,10 @@ public class GenerateSidewaysView {
                     if (locale.endsWith("*")) {
                         locale = locale.substring(0, locale.length() - 1);
                         out.print("<i>\u00B7" + locale + "\u00B7</i>");
-                        tsvFile.value.print("\u00B7" + locale + "\u00B7");
+                        tsvFile.print("\u00B7" + locale + "\u00B7");
                     } else if (!containsRoot) {
                         out.print("\u00B7" + locale + "\u00B7");
-                        tsvFile.value.print("\u00B7" + locale + "\u00B7");
+                        tsvFile.print("\u00B7" + locale + "\u00B7");
                     } else if (locale.contains("_")) {
                         // not same as root, but need to test for parent
                         // if the parent is not in the same list, then we include anyway.
@@ -286,23 +303,23 @@ public class GenerateSidewaysView {
                         String parent = LocaleIDParser.getParent(locale);
                         if (!locales.contains(parent)) {
                             out.print("<b>\u00B7" + locale + "\u00B7</b>");
-                            tsvFile.value.print("\u00B7" + locale + "\u00B7");
+                            tsvFile.print("\u00B7" + locale + "\u00B7");
                         }
                     }
                 }
                 if (containsRoot) {
                     out.print("<b>\u00B7all\u00B7others\u00B7</b>");
-                    tsvFile.value.print("\u00B7all-others\u00B7");
+                    tsvFile.print("\u00B7all-others\u00B7");
                 }
                 out.println("</td></tr>");
-                tsvFile.value.println();
+                tsvFile.println();
             }
         }
         for (String[] pair : EXEMPLARS) {
             showExemplars(out, headerString, pair[0], pair[1], pair[2], tsvFile);
         }
-        finish(out, tsvFile.value);
-        finishAll(out, tsvFile.value);
+        finish(out, tsvFile);
+        finishAll(out, tsvFile);
         System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
             .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
@@ -315,7 +332,7 @@ public class GenerateSidewaysView {
     };
 
     private static PrintWriter showExemplars(PrintWriter out, String headerString, String pathName, String variant, String title,
-        Output<PrintWriter> tsvFile)
+        OptionalPrinter tsvFile)
         throws IOException {
         PathHeader ph = fixPath(pathName, null);
         String filename = getFileName2(ph, variant);
@@ -762,9 +779,9 @@ public class GenerateSidewaysView {
      * @param path2
      *
      */
-    private static PrintWriter start(PrintWriter out, String main, String headerString, String title, Output<PrintWriter> tsvFile)
+    private static PrintWriter start(PrintWriter out, String main, String headerString, String title, OptionalPrinter tsvFile)
         throws IOException {
-        finish(out, tsvFile.value);
+        finish(out, tsvFile);
         out = writeHeader(main, title, tsvFile);
         out.println(headerString);
         return out;
@@ -803,13 +820,13 @@ public class GenerateSidewaysView {
         return out.append("</td></tr>" + System.lineSeparator() + "</table>").toString();
     }
 
-    private static PrintWriter writeHeader(String main, String title, Output<PrintWriter> tsvFile) throws IOException {
+    private static PrintWriter writeHeader(String main, String title, OptionalPrinter tsvFile) throws IOException {
         PrintWriter out;
         out = FileUtilities.openUTF8Writer(options[DESTDIR].value, main + ".html");
-        if (tsvFile.value == null) {
-            tsvFile.value = FileUtilities.openUTF8Writer(Chart.getTsvDir(options[DESTDIR].value, DIR_NAME), DIR_NAME + ".tsv");
-            tsvFile.value.println("# By-Type Data");
-            tsvFile.value.println("# Section\tPage\tHeader\tCode\tValue\tLocales");
+        if (!TOO_BIG_FOR_GITHUB && tsvFile.printWriter == null) {
+            tsvFile.printWriter = FileUtilities.openUTF8Writer(Chart.getTsvDir(options[DESTDIR].value, DIR_NAME), DIR_NAME + ".tsv");
+            tsvFile.print("# By-Type Data\n");
+            tsvFile.print("# Section\tPage\tHeader\tCode\tValue\tLocales\n");
         }
 
         ShowData.getChartTemplate("By-Type Chart: " + title,
@@ -824,14 +841,14 @@ public class GenerateSidewaysView {
      * @param tsvFile TODO
      *
      */
-    private static void finish(PrintWriter out, PrintWriter tsvFile) {
+    private static void finish(PrintWriter out, OptionalPrinter tsvFile) {
         if (out == null) return;
         out.println("</table>");
         out.println(headerAndFooter[1]);
         out.close();
     }
 
-    private static void finishAll(PrintWriter out, PrintWriter tsvFile) {
+    private static void finishAll(PrintWriter out, OptionalPrinter tsvFile) {
         // TODO Auto-generated method stub
         //tsvFile.println("# EOF");
         tsvFile.close();

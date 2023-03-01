@@ -15,7 +15,7 @@ import org.unicode.cldr.util.VoteResolver.VoterInfo;
  */
 public class CLDRInfo {
 
-    public interface PathValueInfo { // DataSection.DataRow will implement
+    public interface PathValueInfo { // DataPage.DataRow will implement
         Collection<? extends CandidateInfo> getValues();
 
         CandidateInfo getCurrentItem();
@@ -35,7 +35,7 @@ public class CLDRInfo {
         String getXpath();
     }
 
-    public interface CandidateInfo { // DataSection.DataRow.CandidateItem will implement
+    public interface CandidateInfo { // DataPage.DataRow.CandidateItem will implement
         String getValue();
 
         Collection<UserInfo> getUsersVotingOn();

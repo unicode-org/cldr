@@ -112,26 +112,22 @@ public class SimpleNameObject implements NameObject {
             final String value = entry.getValue();
             putChain(_patternData, field, modifiers, value);
         }
-
         // check data, and adjust as necessary
-
         Map<Field, Map<Set<Modifier>, String>> additions = null;
         for (Entry<Field, Map<Set<Modifier>, String>> entry : _patternData.entrySet()) {
             Map<Set<Modifier>, String> map = entry.getValue();
             if (map.get(Modifier.EMPTY) == null) {
-
-                // ok to have no empty map if there exists a core
+                // OK to have no value for the same fields with no modifiers IF there exists a core
                 // in that case, we manufacture a name
                 String coreValue = map.get(ImmutableSet.of(Modifier.core));
-                if (coreValue == null) {
-                    throw new IllegalArgumentException("Every field must have a completely modified value " + entry);
+                if (coreValue != null) {
+                    if (additions == null) {
+                        additions = new EnumMap<>(Field.class);
+                    }
+                    String prefixValue = map.get(ImmutableSet.of(Modifier.prefix));
+                    Field field = entry.getKey();
+                    putChain(additions, field, Modifier.EMPTY, prefixValue == null ? coreValue : prefixValue + " " + coreValue);
                 }
-                String prefixValue = map.get(ImmutableSet.of(Modifier.prefix));
-                if (additions == null) {
-                    additions = new EnumMap<>(Field.class);
-                }
-                Field field = entry.getKey();
-                putChain(additions, field, Modifier.EMPTY, prefixValue == null ? coreValue : prefixValue + " " + coreValue);
             }
         }
         if (additions != null) { // copy in additions

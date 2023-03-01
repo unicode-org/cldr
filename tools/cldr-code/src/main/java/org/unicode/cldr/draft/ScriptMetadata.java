@@ -101,25 +101,9 @@ public class ScriptMetadata {
     }
 
     static StandardCodes SC = StandardCodes.make();
-    // static HashMap<String,String> NAME_TO_REGION_CODE = new HashMap<String,String>();
-    // static HashMap<String,String> NAME_TO_LANGUAGE_CODE = new HashMap<String,String>();
     static EnumLookup<Shaping> shapingLookup = EnumLookup.of(Shaping.class, null, "n/a", Shaping.UNKNOWN);
     static EnumLookup<Trinary> trinaryLookup = EnumLookup.of(Trinary.class, null, "n/a", Trinary.UNKNOWN);
     static EnumLookup<IdUsage> idUsageLookup = EnumLookup.of(IdUsage.class, null, "n/a", IdUsage.UNKNOWN);
-    static {
-        // addNameToCode("language", NAME_TO_LANGUAGE_CODE);
-        // // NAME_TO_LANGUAGE_CODE.put("", "und");
-        // NAME_TO_LANGUAGE_CODE.put("N/A", "und");
-        // addSynonym(NAME_TO_LANGUAGE_CODE, "Ancient Greek", "Ancient Greek (to 1453)");
-        // //addSynonym(NAME_TO_LANGUAGE_CODE, "Khmer", "Cambodian");
-        // addSynonym(NAME_TO_LANGUAGE_CODE, "Old Irish", "Old Irish (to 900)");
-
-        // addNameToCode("region", NAME_TO_REGION_CODE);
-        // // NAME_TO_REGION_CODE.put("UNKNOWN", "ZZ");
-        // // NAME_TO_REGION_CODE.put("", "ZZ");
-        // NAME_TO_REGION_CODE.put("N/A", "ZZ");
-        // addSynonym(NAME_TO_REGION_CODE, "Laos", "Lao People's Democratic Republic");
-    }
 
     public static void addNameToCode(String type, Map<String, String> hashMap) {
         for (String language : SC.getAvailableCodes(type)) {
@@ -127,11 +111,6 @@ public class ScriptMetadata {
             String name = fullData.get("Description");
             hashMap.put(name.toUpperCase(Locale.ENGLISH), language);
         }
-    }
-
-    public static void addSynonym(Map<String, String> map, String newTerm, String oldTerm) {
-        String code = map.get(oldTerm.toUpperCase(Locale.ENGLISH));
-        map.put(newTerm.toUpperCase(Locale.ENGLISH), code);
     }
 
     public static final class SkipNewUnicodeException extends ICUException {
@@ -173,9 +152,9 @@ public class ScriptMetadata {
 
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
             String country = CountryCodeConverter.getCodeFromName(countryRaw, false);
-            // NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
             if (country == null) {
-                errors.add("Can't map " + countryRaw + " to country/region");
+                // Give context when throwing an error. Because this is run in a static init context, the stack trace is typically incorrect when something goes wrong.
+                errors.add("ScriptMetadata.java: Can't map " + countryRaw + " to country/region. Try updating external/alternate_country_names.txt");
             }
             originCountry = country == null ? "ZZ" : country;
 

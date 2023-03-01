@@ -1,10 +1,9 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
@@ -13,15 +12,18 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLSource;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 public class TestCoverage extends TestFmwkPlus {
 
@@ -84,47 +86,43 @@ public class TestCoverage extends TestFmwkPlus {
     public void TestLocales() {
         long start = System.currentTimeMillis();
         logln("Status\tLocale\tName\tLevel\tCount" + showColumn(all)
-            + "\tError Messages");
-        LanguageTagParser ltp = new LanguageTagParser();
+        + "\tError Messages");
         Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
-        Set<String> toTest = new HashSet(
-            Arrays.asList("ky mn ms uz az kk pa sr zh lo".split(" ")));
-        Set<String> defaultContents = sdi.getDefaultContentLocales();
 
         Factory fullCldrFactory = testInfo.getFullCldrFactory();
         for (String locale : fullCldrFactory.getAvailable()) {
-            if (!ltp.set(locale).getRegion().isEmpty() || locale.equals("root")
-                || defaultContents.contains(locale)) {
+            if (!XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(locale))) {
                 continue;
             }
             Level level = sc.getLocaleCoverageLevel(Organization.cldr, locale);
-            if (DEBUG && (!toTest.contains(locale) || level != Level.MODERN)) {
-                continue;
+            if (level == Level.UNDETERMINED || level == Level.CORE) {
+                level = Level.BASIC;
             }
-            if (locale.equals("am")) {
-                int debug = 0;
-            }
+            final ImmutableSet<CoreItems> targetCoreItems = ImmutableSet.copyOf(CoreItems.LEVEL_TO_ITEMS.get(level));
 
-            CLDRFile testFile = fullCldrFactory.make(locale, false);
-            Set<CoreItems> coreCoverage;
+            CLDRFile testFile = fullCldrFactory.make(locale, true);
             errors.clear();
             try {
-                coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(testFile,
+                CoreCoverageInfo.getCoreCoverageInfo(testFile,
                     errors);
             } catch (Exception e) {
                 errln("Failure for locale: " + getLocaleAndName(locale));
                 e.printStackTrace();
                 continue;
             }
-            Set missing = EnumSet.allOf(CoreItems.class);
-            missing.removeAll(coreCoverage);
-            if (missing.size() != 0) {
-                errln("\t" + getLocaleAndName(locale) + "\t" + level + "\t"
-                    + missing.size() + showColumn(missing) + "\t" + errors);
-            } else {
-                logln("OK\t" + getLocaleAndName(locale) + "\t" + level + "\t"
-                    + missing.size());
+            final Set<CoreItems> coreMissing = Sets.intersection(errors.keySet(), targetCoreItems);
+            final String message = "\t" + getLocaleAndName(locale) //
+            + "\t" + level //
+            + "\t" + coreMissing.size() //
+            + "\t" + coreMissing
+            + "\t" + errors.entries().stream().filter(x -> coreMissing.contains(x.getKey())).collect(Collectors.toUnmodifiableSet())
+            ;
+            if (!coreMissing.isEmpty()) {
+                warnln(message);
+            }  else {
+                logln("OK" + message);
             }
+
         }
         long end = System.currentTimeMillis();
         logln("Elapsed:\t" + (end - start));

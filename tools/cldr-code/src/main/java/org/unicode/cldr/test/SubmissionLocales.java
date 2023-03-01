@@ -1,38 +1,64 @@
 package org.unicode.cldr.test;
 
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoterReportStatus;
+import org.unicode.cldr.util.VoterReportStatus.ReportId;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 
+/**
+ * This class manages the Limited Submission process.
+ *
+ * TODO: see https://unicode-org.atlassian.net/browse/CLDR-15230 for TODOs here
+ */
 public final class SubmissionLocales {
+    // TODO:  On the use of Locales.txt here, see https://unicode-org.atlassian.net/browse/CLDR-14838
+    /**
+     * This is the 'raw' list from Locales.txt
+     */
+    public static final Set<String> CLDR_LOCALES = StandardCodes.make()
+        .getLocaleToLevel(Organization.cldr).keySet();
 
-    public static final Set<String> CLDR_LOCALES = StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet();
+    /**
+     * This is the 'special' list from Locales.txt
+     */
+    public static final Set<String> SPECIAL_ORG_LOCALES = StandardCodes.make()
+        .getLocaleToLevel(Organization.special).keySet();
 
     /**
      * Non-CLDR Locales, but consistently have high level of engagement from volunteers to keep at modern level.
      * Reevaluate for each release based on meeting 95+% of modern, moderate, and basic coverage
      */
     public static Set<String> HIGH_LEVEL_LOCALES = ImmutableSet.of(
-        "chr",  // Cherokee
-        "gd",   // Scottish Gaelic, Gaelic
-        "fo",   // Faroese
-        "kok",  // Konkani
-        "pcm",  // Nigerian Pidgin
-        "ha",   // Hausa
-        "hsb",  // Upper Sorbian
-        "dsb",  // Lower Sorbian
-        "yue_Hans",   // Cantonese (Simplified)
-        "to"    //  Tongan
-        );
+        // Note: ALL of these were found in Locales.txt under cldr.
+        "chr", // Cherokee
+        "gd", // Scottish Gaelic, Gaelic
+        "fo", // Faroese
+        "kok", // Konkani
+        "pcm", // Nigerian Pidgin
+        "ha", // Hausa
+        "hsb", // Upper Sorbian
+        "dsb", // Lower Sorbian
+        "yue_Hans", // Cantonese (Simplified)
+        "to" //  Tongan
+    );
 
     public static final Set<String> CLDR_OR_HIGH_LEVEL_LOCALES = ImmutableSet.<String>builder()
         .addAll(CLDR_LOCALES)
@@ -40,32 +66,68 @@ public final class SubmissionLocales {
         .build();
 
     /**
+     * Subset of reports open for this release
+     */
+    private static final Set<ReportId> LIMITED_SUBMISSION_REPORTS = Collections.unmodifiableSet(EnumSet.of(
+        VoterReportStatus.ReportId.personnames
+    ));
+
+
+    /**
+     * Subset of CLDR_LOCALES, minus special which are only those which
+     * are TC orgs
+     */
+    public static final Set<String> TC_ORG_LOCALES;
+
+    /**
+     * Set to true iff ONLY grammar locales should be limited submission
+     * {@link GrammarInfo#getGrammarLocales()}
+     */
+    public static final boolean ONLY_GRAMMAR_LOCALES = false;
+
+    /**
      * Update this in each limited release.
      */
     public static final Set<String> LOCALES_FOR_LIMITED;
     static {
         Set<String> temp = new HashSet<>(CLDR_OR_HIGH_LEVEL_LOCALES);
-        temp.retainAll(GrammarInfo.getGrammarLocales());
+        if (ONLY_GRAMMAR_LOCALES) {
+            temp.retainAll(GrammarInfo.getGrammarLocales());
+        }
         LOCALES_FOR_LIMITED = ImmutableSortedSet.copyOf(temp);
+
+        Set<String> temp2 = new HashSet<>(CLDR_LOCALES);
+        temp2.removeAll(SPECIAL_ORG_LOCALES);
+        TC_ORG_LOCALES = ImmutableSortedSet.copyOf(temp2);
     }
 
     /**
      * New locales in this release, where we want to allow any paths even if others are restricted
      */
-    public static Set<String> ALLOW_ALL_PATHS = ImmutableSet.of(
-        "brx",
-        "ks",
-        "ks_Deva",
-        "rhg"   // Rohingya
+    public static Set<String> ALLOW_ALL_PATHS_BASIC = ImmutableSet.of(
+        // locales open for v43:
+        "apc", // Levantine Arabic; NB actual submission was "ajp" South Levantine Arabic
+        "lmo", // Lombardi
+        "pap", // Papiamento
+        "rif"  // Riffian
         );
 
     public static Set<String> LOCALES_ALLOWED_IN_LIMITED = ImmutableSet.<String>builder()
         .addAll(LOCALES_FOR_LIMITED)
-        .addAll(ALLOW_ALL_PATHS)
+        .addAll(ALLOW_ALL_PATHS_BASIC)
         .build();
 
-    public static final Pattern PATHS_ALLOWED_IN_LIMITED =
-    Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");
+    public static final Pattern PATHS_ALLOWED_IN_LIMITED = Pattern.compile(
+        "//ldml/"
+            // v43: All person names
+            + "(personNames/.*"
+            // v43: Turkey and its alternate
+            + "|localeDisplayNames/territories/territory\\[@type=\"TR\"\\].*"
+            // v43: Exemplar city for America/Ciudad_Juarez
+            + "|dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity"
+        + ")");
+
+    // Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");
 
     /* Example of special paths
      * Pattern.compile(
@@ -91,6 +153,28 @@ public final class SubmissionLocales {
 //ldml/dates/timeZoneNames/metazone[@type="Macau"]/long/generic, old: Macau Time, new: Macao Time
 //ldml/localeDisplayNames/territories/territory[@type="SZ"], old: Swaziland, new: Eswatini
 
+    private static final class SubmissionLocalesCache {
+        public static SubmissionLocalesCache INSTANCE = new SubmissionLocalesCache();
+        private LoadingCache<String, CoverageLevel2> covs;
+
+        SubmissionLocalesCache() {
+            covs = CacheBuilder.newBuilder().build(new CacheLoader<String, CoverageLevel2>() {
+                @Override
+                public CoverageLevel2 load(String key) throws Exception {
+                    return CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(), key);
+                }
+            });
+        }
+
+        public static Enum<Level> getCoverageLevel(String localeString, String path) {
+            try {
+                return INSTANCE.covs.get(localeString).getLevel(path);
+            } catch (ExecutionException e) {
+                throw new RuntimeException(String.format("Could not fetch coverage for %s:%s", localeString, path), e);
+            }
+        }
+    }
+
 
     /**
      * Only call this if LIMITED_SUBMISSION
@@ -102,37 +186,37 @@ public final class SubmissionLocales {
      */
     public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean isMissing) {
 
-        // don't limit new locales or errors
-
-        if (SubmissionLocales.ALLOW_ALL_PATHS.contains(localeString) || isError) {
+        // Allow errors to be fixed
+        if (isError) {
             return true;
-        } else {
-            int debug = 0; // for debugging
+        }
+
+        // for new locales, allow basic paths
+        if (SubmissionLocales.ALLOW_ALL_PATHS_BASIC.contains(localeString) &&
+            // Only check coverage level for these locales
+            isPathBasicOrLess(localeString, path)) {
+            return true;
         }
 
         // all but specific locales are otherwise locked
-
         if (!SubmissionLocales.LOCALES_ALLOWED_IN_LIMITED.contains(localeString)) {
             return false;
-        } else {
-            int debug = 0; // for debugging
         }
 
-        // in those locales, lock all paths except missing and special
-
-        if (isMissing) {
+        // in TC Org locales, lock all paths except missing and special
+        if (isMissing && TC_ORG_LOCALES.contains(localeString)) {
             return true;
-        } else {
-            int debug = 0; // for debugging
         }
 
         if (pathAllowedInLimitedSubmission(path)) {
             return true;
-        } else {
-            int debug = 0; // for debugging
         }
 
         return false; // skip
+    }
+
+    private static boolean isPathBasicOrLess(String localeString, String path) {
+        return SubmissionLocalesCache.getCoverageLevel(localeString, path).compareTo(Level.BASIC) <= 0;
     }
 
     private static final boolean DEBUG_REGEX = false;
@@ -152,5 +236,9 @@ public final class SubmissionLocales {
             System.out.println(RegexUtilities.showMismatch(matcher, path));
         }
         return result;
+    }
+
+    public static Set<ReportId> getReportsAvailableInLimited() {
+        return LIMITED_SUBMISSION_REPORTS;
     }
 }

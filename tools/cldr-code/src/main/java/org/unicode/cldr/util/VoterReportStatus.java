@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.SubmissionLocales;
+
 
 /**
  * This interface is for objects which can expose information on which reports have been completed.
@@ -14,10 +17,32 @@ import java.util.Set;
  */
 public abstract class VoterReportStatus<T> {
     /**
-     * Enumeration for the reports. In order.
+     * Enumeration for the reports. In order shown in SurveyTool.
+     * Note: when adding an entry here, also update cldrText.js to add the
+     * display name, for example, 'special_r_personnames': 'Person Names'
+     * Also see {@link org.unicode.cldr.tool.Chart#forReport(ReportId, String)}
      */
     public enum ReportId {
-        datetime, zones, compact, // aka 'numbers'
+        datetime, // non-Chart
+        zones, // non-Chart
+        compact, // non-Chart, aka 'numbers'
+        personnames; // Chart
+
+        /**
+         * True if this report is available in this vetting period
+         * @return
+         */
+        public boolean isAvailable() {
+            return (!CheckCLDR.LIMITED_SUBMISSION) || (SubmissionLocales.getReportsAvailableInLimited().contains(this));
+        }
+
+        public static Set<ReportId> getReportsAvailable() {
+            if (!CheckCLDR.LIMITED_SUBMISSION) {
+                return EnumSet.allOf(ReportId.class);
+            } else {
+                return SubmissionLocales.getReportsAvailableInLimited();
+            }
+        }
     };
 
     public enum ReportAcceptability {
@@ -87,7 +112,6 @@ public abstract class VoterReportStatus<T> {
      * @param l locale
      * @param r which report
      * @param userList set of users
-     * @param status the source
      * @param res which
      * @return vote statistics for each acceptability level
      */

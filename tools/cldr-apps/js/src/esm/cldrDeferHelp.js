@@ -5,12 +5,29 @@ const defaultEndpoint = "https://dbpedia.org/sparql/";
 const format = "JSON";
 const abstractLang = "en";
 
-function addDeferredHelpTo(fragment, helpHtml, resource) {
+const USELESS_IN_INFO_PANEL = "see info panel";
+
+function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
   // Always have help (if available).
   const theHelp = $("<div/>", {
-    class: "alert alert-info fix-popover-help vote-help",
+    class: "alert alert-info fix-popover-help",
   });
-  // helpHtml is loaded immediately in the DataSection, no separate query needed
+  // helpHtml and translationHint are loaded immediately in the DataPage, no separate query needed
+  if (
+    translationHint &&
+    !translationHint.toLowerCase().includes(USELESS_IN_INFO_PANEL)
+  ) {
+    const hintHtml =
+      "<strong>Translation hint:</strong> " +
+      translationHint +
+      (helpHtml ? "<hr>" : "");
+    theHelp.append(
+      $("<span/>", {
+        html: hintHtml,
+        class: "helpHtml",
+      })
+    );
+  }
   if (helpHtml) {
     theHelp.append(
       $("<span/>", {
@@ -19,7 +36,6 @@ function addDeferredHelpTo(fragment, helpHtml, resource) {
       })
     );
   }
-
   // fetch the abstract- may be cached.
   if (resource) {
     const absDiv = subloadAbstract(resource);

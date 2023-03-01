@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,36 +18,48 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GlossonymConstructor;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
 import com.google.common.io.Files;
 import com.ibm.icu.util.Output;
 
 public class GenerateProductionData {
-    static boolean DEBUG = false;
-    static boolean VERBOSE = false;
-    static Matcher FILE_MATCH = null;
+    private static boolean DEBUG = false;
+    private static boolean VERBOSE = false;
+    private static Matcher FILE_MATCH = null;
 
-    static String SOURCE_COMMON_DIR = null;
-    static String DEST_COMMON_DIR = null;
+    private static String SOURCE_COMMON_DIR = null;
+    private static String DEST_COMMON_DIR = null;
 
-    static boolean ADD_LOGICAL_GROUPS = false;
-    static boolean ADD_DATETIME = false;
-    static boolean ADD_SIDEWAYS = false;
-    static boolean ADD_ROOT = false;
-    static boolean INCLUDE_COMPREHENSIVE = false;
-    static boolean CONSTRAINED_RESTORATION = false;
+    private static boolean ADD_LOGICAL_GROUPS = false;
+    private static boolean ADD_DATETIME = false;
+    private static boolean ADD_SIDEWAYS = false;
+    private static boolean ADD_ROOT = false;
+    private static boolean INCLUDE_COMPREHENSIVE = false;
+    private static boolean CONSTRAINED_RESTORATION = false;
 
-    static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
-    static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
-    static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
-
-    static final Multimap<String, Pair<String, String>> localeToSubdivisionsToMigrate = TreeMultimap.create();
+    private static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
+    private static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
+    private static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     enum MyOptions {
         sourceDirectory(new Params()
@@ -139,8 +150,8 @@ public class GenerateProductionData {
         // get directories
 
         Arrays.asList(DtdType.values())
-            .parallelStream()
-            .unordered()
+            //.parallelStream()
+            //.unordered()
             .forEach(type -> {
             boolean isLdmlDtdType = type == DtdType.ldml;
 
@@ -154,14 +165,6 @@ public class GenerateProductionData {
                 copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
             }
         });
-        // should be called from the main thread. Synchronizing to document.
-        if (!localeToSubdivisionsToMigrate.isEmpty()) {
-            System.err.println("WARNING: Subdivision files not written, " + localeToSubdivisionsToMigrate.size() + " entries\n" +
-                    "For locales: " + localeToSubdivisionsToMigrate.keySet());
-            for (Entry<String, Pair<String, String>> entry : localeToSubdivisionsToMigrate.entries()) {
-                System.err.println(entry.getKey() + " \t" + entry.getValue());
-            }
-        }
     }
 
     private static class Stats {
@@ -206,7 +209,7 @@ public class GenerateProductionData {
             System.out.println(sourceFile + " => " + destinationFile);
             if (!destinationFile.mkdirs()) {
                 // if created, remove old contents
-                Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
+                 Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
             }
 
             Set<String> sorted = new TreeSet<>();
@@ -230,7 +233,7 @@ public class GenerateProductionData {
             final Factory theFactory = factory;
             final boolean isLdmlDtdType2 = isLdmlDtdType;
             sorted
-                .parallelStream()
+                //.parallelStream()
                 .forEach(file -> {
                     File sourceFile2 = new File(sourceFile, file);
                     File destinationFile2 = new File(destinationFile, file);
@@ -276,7 +279,6 @@ public class GenerateProductionData {
             }
             boolean isRoot = localeId.equals("root");
             String directoryName = sourceFile.getParentFile().getName();
-            boolean isSubdivisionDirectory = "subdivisions".equals(directoryName);
 
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFileResolved = factory.make(localeId, true);
@@ -288,14 +290,17 @@ public class GenerateProductionData {
 
             boolean isArabicSpecial = localeId.equals("ar") || localeId.startsWith("ar_");
 
-            String debugPath = null; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
-            String debugLocale = "af";
+            String debugPath = "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"]"; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
+            boolean debugLocale = localeId.equals("pt");
 
-            for (String xpath : cldrFileUnresolved) {
+            ImmutableSet<String> sortedPaths = ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
+
+            for (String xpath : sortedPaths) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
                 }
-                if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                if (debugPath != null && debugLocale
+                    && xpath.startsWith(debugPath)) {
                     int debug = 0;
                 }
 
@@ -319,12 +324,15 @@ public class GenerateProductionData {
                     toRetain.add(xpath);
                 }
 
-                // remove items that are the same as their bailey values. This also catches Inheritance Marker
+                // Remove items that are the same as their bailey values.
+                // However, two optional parameters change what happens
+                // if ADD_SIDEWAYS is true, then we check for paths equal (condidtionally, see the method doc)
+                // if ADD_ROOT is true, then we check for the found locale being root
 
                 String bailey = cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (value.equals(bailey)
                     && (!ADD_SIDEWAYS
-                        || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))
+                        || pathEqualsOrIsOkAltVariantOf(cldrFileResolved, xpath, pathWhereFound.value, localeId, localeWhereFound.value))
                     && (!ADD_ROOT
                         || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
                             && !Objects.equals(XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
@@ -332,14 +340,6 @@ public class GenerateProductionData {
                     continue;
                 }
 
-                // Move subdivisions elsewhere
-                if (!isSubdivisionDirectory && xpath.startsWith("//ldml/localeDisplayNames/subdivisions/subdivision")) {
-                    synchronized(localeToSubdivisionsToMigrate) {
-                        localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, value));
-                    }
-                    toRemove.add(xpath);
-                    continue;
-                }
                 // remove level=comprehensive (under setting)
 
                 if (!INCLUDE_COMPREHENSIVE) {
@@ -379,17 +379,6 @@ public class GenerateProductionData {
             // we even add empty files, but can delete them back on the directory level.
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
-                if (isSubdivisionDirectory) {
-                    synchronized (localeToSubdivisionsToMigrate) {
-                        Collection<Pair<String, String>> path_values = localeToSubdivisionsToMigrate.get(localeId);
-                        if (path_values != null) {
-                            for (Pair<String, String>path_value : path_values) {
-                                outCldrFile.add(path_value.getFirst(), path_value.getSecond());
-                            }
-                            localeToSubdivisionsToMigrate.removeAll(localeId);
-                        }
-                    }
-                }
 
                 // Remove paths, but pull out the ones to retain
                 // example:
@@ -493,17 +482,63 @@ public class GenerateProductionData {
         }
     }
 
-    private static boolean pathEqualsOrIsAltVariantOf(String desiredPath, String foundPath) {
+    /**
+     * Exceptions for generating production data, because the results would not pass CompareResolved.
+     */
+    static final Multimap<String, String> LOCALE_TO_PATH_EXCEPTIONS = ImmutableListMultimap.<String, String>builder()
+        .put("oc_ES", "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
+        .put("zh_Hant_MO",   "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
+        .put("zh_Hant_MO",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+        .put("zh_Hant_HK",   "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
+        .put("zh_Hant_HK",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+        .put("ru_BY",    "//ldml/numbers/currencies/currency[@type=\"RUR\"]/symbol[@alt=\"narrow\"]")
+        .put("oc_ES",    "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
+        .put("el_POLYTON",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+        .put("be_TARASK",    "//ldml/localeDisplayNames/languages/language[@type=\"az\"][@alt=\"short\"]")
+        .build();
+
+    /**
+     * Check if a path is equal, or if it is a suitable alt variant
+     * If it returns true, the value will be removed; false will retain it.
+     */
+    private static boolean pathEqualsOrIsOkAltVariantOf(CLDRFile cldrFileResolved,
+        String desiredPath, String foundPath, String localeId, String foundLocaleId
+        ) {
+        if (LOCALE_TO_PATH_EXCEPTIONS.containsEntry(localeId, desiredPath)) {
+            return false;
+        }
+        /*
+         * Protect against bad case, such as:
+         *
+         * pt      //ldml/localeDisplayNames/languages/language[@type="en_US"]                  ↑↑↑ (= inglês americano)
+         * pt      //ldml/localeDisplayNames/languages/language[@type="en_US"][@alt="short"]    inglês (EUA)
+         *
+         * pt_AO   //ldml/localeDisplayNames/languages/language[@type="en_US"][@alt="short"]    inglês (EUA)
+         *
+         * When processing pt, its short value disappears, because its value = lateral inherited (constructed) value from pt
+         * When processing pt_AO, its short value is also removed, because it is the same as the pt
+         * But then when it is constructed, its value =
+         *
+         */
         if (desiredPath.equals(foundPath)) {
+            // TODO for a full fix, we need to check that the foundLocaleId/foundPath will not
+            // disappear when it is processed.
+            // For now, we are using the LOCALE_TO_PATH_EXCEPTIONS.
             return true;
+        }
+        if (!foundLocaleId.equals(localeId)) { // extra condition on alt values; has to be found in the same locale
+            return false;
         }
         if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
             int debug = 0;
         }
         if (foundPath == null || foundPath.equals(GlossonymConstructor.PSEUDO_PATH)) {
+            if (!LocaleIDParser.isL1(localeId)) {
+                return true;
+            }
             // We can do this, because the bailey value has already been checked.
             // Since it isn't null, a null or PSEUDO_PATH indicates a constructed alt value.
-            return true;
+            return false;
         }
         XPathParts desiredPathParts = XPathParts.getFrozenInstance(desiredPath);
         XPathParts foundPathParts = XPathParts.getFrozenInstance(foundPath);

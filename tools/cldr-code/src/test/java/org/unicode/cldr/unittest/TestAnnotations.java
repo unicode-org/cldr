@@ -353,7 +353,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 String name = eng.getShortName(emoji);
                 String lastName = eng.getShortName(lastEmoji);
                 int errorType = ERR;
-                if (logKnownIssue("CLDR-13660", "slightly out of order")) {
+                if (logKnownIssue("CLDR-16394", "slightly out of order")) {
                     errorType = WARN;
                 }
                 msg("Out of order: "

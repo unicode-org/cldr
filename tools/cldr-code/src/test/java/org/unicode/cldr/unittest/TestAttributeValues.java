@@ -40,7 +40,6 @@ import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -92,8 +91,8 @@ public class TestAttributeValues extends TestFmwk {
                     addXMLFiles(dtdType, mainDirs + stringDir, files);
                     if (isVerbose())
                         synchronized (pathChecker.testLog) {
-                        warnln(mainDirs + stringDir);
-                    }
+                            warnln(mainDirs + stringDir);
+                        }
                 }
                 Stream<String> stream = SERIAL ? files.stream() : files.parallelStream();
                 stream.forEach(file -> checkFile(pathChecker, file));
@@ -143,7 +142,10 @@ public class TestAttributeValues extends TestFmwk {
             files.add(path);
         } else {
             for (String file : dirFile.list()) {
-                addXMLFiles(dtdType, path + "/" + file, files);
+                String localeID = file.replace(".xml", "");
+                if (StandardCodes.isLocaleAtLeastBasic(localeID)) {
+                    addXMLFiles(dtdType, path + "/" + file, files);
+                }
             }
         }
     }
@@ -170,9 +172,9 @@ public class TestAttributeValues extends TestFmwk {
             try (InputStream fis = new FileInputStream(fullFile)) {
                 r = f.createXMLStreamReader(fullFile, fis);
                 String element = null;
-                while(r.hasNext()) {
-                    try {
-                        switch(r.next()){
+                try {
+                    while(r.hasNext()) {
+                        switch(r.next()) {
                         case XMLStreamConstants.START_ELEMENT:
                             element = r.getLocalName();
                             lastElement = element;
@@ -186,12 +188,12 @@ public class TestAttributeValues extends TestFmwk {
                             }
                             break;
                         }
-                    } catch (XMLStreamException e) {
-                        synchronized (pathChecker.testLog) {
-                            pathChecker.testLog.errln(fullFile + "error");
-                        }
-                        e.printStackTrace(pathChecker.testLog.getLogPrintWriter());
                     }
+                } catch (XMLStreamException e) {
+                    synchronized (pathChecker.testLog) {
+                        pathChecker.testLog.errln(fullFile + "error");
+                    }
+                    e.printStackTrace(pathChecker.testLog.getLogPrintWriter());
                 }
                 //XMLFileReader.read("noId", inputStreamReader, -1, true, myHandler);
             } catch (XMLStreamException e) {
@@ -202,7 +204,7 @@ public class TestAttributeValues extends TestFmwk {
                 }
             } catch (Throwable e) {
                 if(r == null) throw e;
-                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation(), e);
+                throw new IllegalArgumentException(" at " + r.getLocation(), e);
             }
         } catch (Exception e) {
             e.printStackTrace(this.getErrorLogPrintWriter());

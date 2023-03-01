@@ -60,7 +60,7 @@ public class TestUserLevel {
         "adlam, null, userIsVetter, false, wod_nko, vetter",
         "adlam, null, userIsAdmin, false, wod_nko, vetter",
         "adlam, null, userIsTC, false, wod_nko, vetter",
-        "adlam, null, userIsStreet, false, wod_nko, vetter",
+        "adlam, null, userIsGuest, false, wod_nko, vetter",
         "adlam, null, userIsLocked, false, wod_nko, vetter",
         "adlam, null, userIsExactlyAnonymous, false, wod_nko, vetter",
         "adlam, null, userCanUseVettingSummary, false, wod_nko, vetter",
@@ -68,7 +68,7 @@ public class TestUserLevel {
         "adlam, null, userCanCreateSummarySnapshot, false, wod_nko, vetter",
         "adlam, null, userCanMonitorForum, false, wod_nko, vetter",
         "adlam, null, userCanSetInterestLocales, false, wod_nko, vetter",
-        "adlam, null, userCanGetEmailList, false, wod_nko, vetter",
+        "adlam, null, userCanGetEmailList, false, wod_nko, vetter"
     })
     void TestNullUserCompatibility(String org, String levelStr, String operation, String expStr,
         String otherOrg, String otherLevel) throws SQLException {
@@ -141,8 +141,8 @@ public class TestUserLevel {
         case "userIsTC":
             assertEquals(expected, UserRegistry.userIsTC(u), onFail);
             break;
-        case "userIsStreet":
-            assertEquals(expected, UserRegistry.userIsStreet(u), onFail);
+        case "userIsGuest":
+            assertEquals(expected, UserRegistry.userIsGuest(u), onFail);
             break;
         case "userIsLocked":
             assertEquals(expected, UserRegistry.userIsLocked(u), onFail);
@@ -182,6 +182,9 @@ public class TestUserLevel {
             break;
         case "canNOTVoteWithCount":
             assertFalse(u.getLevel().canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
+            break;
+        case "canDeleteUsers":
+            assertEquals(expected, u.getLevel().canDeleteUsers(), onFail);
             break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
@@ -259,8 +262,8 @@ public class TestUserLevel {
         case "userIsTC":
             assertEquals(expected, l.isTC(), onFail);
             break;
-        case "userIsStreet":
-            assertEquals(expected, l.isStreet(), onFail);
+        case "userIsGuest":
+            assertEquals(expected, l.isGuest(), onFail);
             break;
         case "userIsLocked":
             assertEquals(expected, l.isLocked(), onFail);
@@ -301,6 +304,9 @@ public class TestUserLevel {
         case "canNOTVoteWithCount":
             assertFalse(l.canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
             break;
+        case "canDeleteUsers":
+            assertEquals(expected, l.canDeleteUsers(), onFail);
+            break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
         }
@@ -310,10 +316,10 @@ public class TestUserLevel {
     public void testVoteMenu() {
         assertAll("VoteResolver.Level tests",
             () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.apple)),
-            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.guest)),
+            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.unaffiliated)),
             () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 100, 1000), VoteResolver.Level.admin.getVoteCountMenu(Organization.surveytool)),
             () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.apple)),
-            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.guest)),
-            () -> assertNull(VoteResolver.Level.street.getVoteCountMenu(Organization.guest)));
+            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.unaffiliated)),
+            () -> assertNull(VoteResolver.Level.guest.getVoteCountMenu(Organization.unaffiliated)));
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -489,6 +489,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cher">↑↑↑</script>
 			<script type="Cyrl">↑↑↑</script>
 			<script type="Deva">↑↑↑</script>
+			<script type="Dsrt">↑↑↑</script>
 			<script type="Ethi">↑↑↑</script>
 			<script type="Geor">↑↑↑</script>
 			<script type="Grek">↑↑↑</script>
@@ -521,6 +522,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Orya">↑↑↑</script>
 			<script type="Rohg">↑↑↑</script>
 			<script type="Rohg" alt="stand-alone">↑↑↑</script>
+			<script type="Shaw">↑↑↑</script>
 			<script type="Sinh">↑↑↑</script>
 			<script type="Sund">↑↑↑</script>
 			<script type="Syrc">↑↑↑</script>
@@ -884,6 +886,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="lw">line breaks in words setting</key>
 			<key type="m0">transform rules</key>
 			<key type="ms">measurement system</key>
+			<key type="mu">measurement unit</key>
 			<key type="numbers">numbers</key>
 			<key type="rg">region for supplemental data</key>
 			<key type="s0">transform source</key>
@@ -1145,18 +1148,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">first month</month>
+							<month type="2">second month</month>
+							<month type="3">third month</month>
+							<month type="4">fourth month</month>
+							<month type="5">fifth month</month>
+							<month type="6">sixth month</month>
+							<month type="7">seventh month</month>
+							<month type="8">eighth month</month>
+							<month type="9">ninth month</month>
+							<month type="10">tenth month</month>
+							<month type="11">eleventh month</month>
+							<month type="12">twelfth month</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -3837,6 +3840,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Hermosillo">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -6364,6 +6370,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="SLE">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
 			<currency type="SLL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -8676,12 +8688,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-jigger">
 				<displayName>jiggers</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} jiggers</unitPattern>
 				<unitPattern count="other">{0} jiggers</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>pinches</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} pinches</unitPattern>
 				<unitPattern count="other">{0} pinches</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
@@ -8879,7 +8891,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/sq in</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
@@ -9020,7 +9032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/yr</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>↑↑↑</displayName>
@@ -9032,13 +9044,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/mo</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/wk</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>↑↑↑</displayName>
@@ -9050,7 +9062,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/hr</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>↑↑↑</displayName>
@@ -9062,7 +9074,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/sec</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>↑↑↑</displayName>
@@ -9534,7 +9546,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>↑↑↑</displayName>
+				<displayName>deg</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9985,7 +9997,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
@@ -10115,27 +10127,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="given2">↑↑↑</nameField>
 			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">↑↑↑</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">↑↑↑</nameField>
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="given-informal">↑↑↑</nameField>
 			<nameField type="given2">↑↑↑</nameField>
 			<nameField type="surname-prefix">↑↑↑</nameField>
 			<nameField type="surname-core">↑↑↑</nameField>
 			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+			<nameField type="generation">Jr.</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given-informal">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">↑↑↑</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="generation">Jr.</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

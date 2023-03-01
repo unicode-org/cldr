@@ -22,30 +22,13 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Containment;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -179,10 +162,8 @@ public class GenerateMaximalLocales {
 
         "hi_Latn_IN",
         "no_Latn_NO",
-        "und_Cpmn_CY",
 
-        "hnj_Hmnp_US",
-        "rhg_Arab_MM"
+        "tok_Latn_001",
     };
 
     /**
@@ -224,14 +205,14 @@ public class GenerateMaximalLocales {
         { "mro", "mro_Mroo_BD" },
         { "mro_BD", "mro_Mroo_BD" },
         { "ms_Arab", "ms_Arab_MY" },
-        { "pap", "pap_Latn_AW" },
-        { "pap_Latn", "pap_Latn_AW" },
+        { "pap", "pap_Latn_CW" },
+        { "pap_Latn", "pap_Latn_CW" },
         { "prg", "prg_Latn_001" },
         { "prg_Latn", "prg_Latn_001" },
-        { "rif", "rif_Tfng_MA" },
+        { "rif", "rif_Latn_MA" }, // https://unicode-org.atlassian.net/browse/CLDR-14962?focusedCommentId=165053
         { "rif_Latn", "rif_Latn_MA" },
         { "rif_Tfng", "rif_Tfng_MA" },
-        { "rif_MA", "rif_Tfng_MA" },
+        { "rif_MA", "rif_Latn_MA" }, // Ibid
         { "shi", "shi_Tfng_MA" },
         { "shi_Tfng", "shi_Tfng_MA" },
         { "shi_MA", "shi_Tfng_MA" },
@@ -241,7 +222,7 @@ public class GenerateMaximalLocales {
         { "swc", "swc_Latn_CD" },
         { "ti", "ti_Ethi_ET" },
         { "ti_Ethi", "ti_Ethi_ET" },
-        { "und", "en_Latn_US" },
+        { LocaleNames.UND, "en_Latn_US" },
         { "und_Adlm", "ff_Adlm_GN" },
         { "und_Adlm_GN", "ff_Adlm_GN" },
         { "und_Arab", "ar_Arab_EG" },
@@ -254,6 +235,8 @@ public class GenerateMaximalLocales {
         { "und_Kana", "ja_Kana_JP" },
         { "und_Kana_JP", "ja_Kana_JP" },
         { "und_Latn", "en_Latn_US" },
+        { "und_001", "en_Latn_US" }, // to not be overridden by tok_Latn_001
+        { "und_Latn_001", "en_Latn_US" }, // to not be overridden by tok_Latn_001
         { "und_Latn_ET", "en_Latn_ET" },
         { "und_Latn_NE", "ha_Latn_NE" },
         { "und_Latn_PH", "fil_Latn_PH" },
@@ -316,6 +299,20 @@ public class GenerateMaximalLocales {
 
         { "ku_Yezi", "ku_Yezi_GE" },
         { "und_EU", "en_Latn_IE" },
+
+        { "hnj", "hnj_Hmnp_US" }, // preferred lang/script in CLDR
+        { "hnj_Hmnp", "hnj_Hmnp_US" },
+        { "und_Hmnp", "hnj_Hmnp_US" },
+        { "rhg", "rhg_Rohg_MM" }, // preferred lang/script in CLDR
+        { "rhg_Arab", "rhg_Arab_MM" },
+        { "und_Arab_MM", "rhg_Arab_MM" },
+        { "sd_IN", "sd_Deva_IN" }, // preferred in CLDR
+        // { "sd_Deva", "sd_Deva_IN"},
+        { "und_Cpmn", "und_Cpmn_CY" },
+        { "oc_ES", "oc_Latn_ES" },
+        { "os", "os_Cyrl_GE" },
+        { "os_Cyrl", "os_Cyrl_GE" },
+
     });
 
     /**
@@ -335,7 +332,7 @@ public class GenerateMaximalLocales {
         { "tk", "Latn" }, // Turkmen (Turkmenistan)
         { "ty", "Latn" }, // Tahitian (French Polynesia)
         { "ja", "Jpan" }, // Special script for japan
-        { "und", "Latn" }, // Ultimate fallback
+        { LocaleNames.UND, "Latn" }, // Ultimate fallback
     };
 
     private static Map<String, String> localeToScriptCache = new TreeMap<>();
@@ -491,6 +488,7 @@ public class GenerateMaximalLocales {
             System.out.println("Copying " + newLikelySubtags + " to " + oldLikelySubtags);
             oldLikelySubtags.delete();
             Files.copy(newLikelySubtags.toPath(), oldLikelySubtags.toPath());
+            System.err.println("TODO: Please revert removal of 'sil1' entries, see CLDR-16380");
         }
 
         System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);
@@ -589,6 +587,10 @@ public class GenerateMaximalLocales {
         final Set<String> CLDRMainLanguages = new TreeSet<>(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr));
 
         for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
+            if (Iso3166Data.isRegionCodeNotForTranslation(territory)) {
+                System.out.println("Iso3166Data.isRegionCodeNotForTranslation(" + territory + ") true, skipping");
+                continue;
+            }
             PopulationData territoryPop = supplementalData.getPopulationDataForTerritory(territory);
             double territoryPopulation = territoryPop.getLiteratePopulation();
             for (String languageScript : supplementalData.getLanguagesForTerritoryWithPopulationData(territory)) {
@@ -622,8 +624,12 @@ public class GenerateMaximalLocales {
                 }
                 if (add) {
                     add(languageToReason, language, territory, status, literatePopulation);
+                    Set<String> containers = Containment.leafToContainer(territory);
+                    if (containers == null) {
+                        throw new NullPointerException("Containment.leafToContainer(" + territory + ") is null");
+                    }
                     // Add the containing regions
-                    for (String container : Containment.leafToContainer(territory)) {
+                    for (String container : containers) {
                         add(languageToReason, language, container, OfficialStatus.unknown, literatePopulation);
                     }
                 }
@@ -638,7 +644,7 @@ public class GenerateMaximalLocales {
         }
 
         // Specials
-        add(languageToReason, "und", "001", OfficialStatus.unknown, 0);
+        add(languageToReason, LocaleNames.UND, "001", OfficialStatus.unknown, 0);
 
         // for (String language : Iso639Data.getAvailable()) {
         // Scope scope = Iso639Data.getScope(language);
@@ -785,7 +791,7 @@ public class GenerateMaximalLocales {
 
         // first get a mapping to children
         for (String locale : available) {
-            if (locale.equals("root")) {
+            if (locale.equals(LocaleNames.ROOT)) {
                 continue;
             }
             if (ltp.set(locale).getVariants().size() != 0) {
@@ -799,7 +805,7 @@ public class GenerateMaximalLocales {
             if (ltp.getScript().length() != 0) {
                 hasSimpleChildWithScript.add(parent);
             }
-            if (parent.equals("root")) {
+            if (parent.equals(LocaleNames.ROOT)) {
                 continue;
             }
             toSimpleChildren.put(parent, locale);
@@ -922,7 +928,7 @@ public class GenerateMaximalLocales {
          * @param order
          */
         void add(String language, String script, String region, Double order) {
-            if (SHOW_ADD && language.equals("mis")) {
+            if (SHOW_ADD && language.equals(LocaleNames.MIS)) {
                 System.out.println(language + "\t" + script + "\t" + region + "\t" + -order);
             }
             languages.put(language, Row.of(order, script, region));
@@ -1222,7 +1228,7 @@ public class GenerateMaximalLocales {
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
             if (LANGUAGE_CODE_TO_STATUS.get(likelyLanguage) == Status.special) {
-                likelyLanguage = "und";
+                likelyLanguage = LocaleNames.UND;
             }
             String originCountry = i.originCountry;
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
@@ -1296,7 +1302,7 @@ public class GenerateMaximalLocales {
         String script = ltp.getScript();
         boolean changed = false;
         if (language.equals("")) {
-            ltp.setLanguage(language = "und");
+            ltp.setLanguage(language = LocaleNames.UND);
             changed = true;
         }
         if (region.equals(UNKNOWN_SCRIPT)) {
@@ -1337,7 +1343,7 @@ public class GenerateMaximalLocales {
                 }
             }
         }
-        if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
+        if (!language.equals(LocaleNames.UND) && script.length() != 0 && region.length() != 0) {
             return languageTag; // it was ok, and we couldn't do anything with it
         }
         return null; // couldn't maximize
@@ -1422,7 +1428,7 @@ public class GenerateMaximalLocales {
 
     private static void add(String key, String value, Map<String, String> toAdd, String kind, LocaleOverride override,
         boolean showAction) {
-        if (SHOW_ADD && key.startsWith("mis")) {
+        if (SHOW_ADD && key.startsWith(LocaleNames.MIS)) {
             int debug = 1;
         }
         if (key.equals(DEBUG_ADD_KEY)) {
@@ -1528,7 +1534,7 @@ public class GenerateMaximalLocales {
         String script = parser.getScript();
         String region = parser.getRegion();
         return "{" + spacing +
-            (lang.equals("und") ? "?" : english.getName(CLDRFile.LANGUAGE_NAME, lang)) + ";" + spacing +
+            (lang.equals(LocaleNames.UND) ? "?" : english.getName(CLDRFile.LANGUAGE_NAME, lang)) + ";" + spacing +
             (script == null || script.equals("") ? "?" : english.getName(CLDRFile.SCRIPT_NAME, script)) + ";" + spacing
             +
             (region == null || region.equals("") ? "?" : english.getName(CLDRFile.TERRITORY_NAME, region)) + spacing
@@ -1565,7 +1571,7 @@ public class GenerateMaximalLocales {
     // private static Map<String, String> getBackMapping(Map<String, String> fluffup) {
     // Relation<String,String> backMap = new Relation(new TreeMap(), TreeSet.class, BEST_LANGUAGE_COMPARATOR);
     // for (String source : fluffup.keySet()) {
-    // if (source.startsWith("und")) {
+    // if (source.startsWith(LocaleNames.UND)) {
     // continue;
     // }
     // String maximized = fluffup.get(source);
@@ -1581,7 +1587,7 @@ public class GenerateMaximalLocales {
     // }
 
     /**
-     * Language tags are presumed to share the first language, except possibly "und". Best is least
+     * Language tags are presumed to share the first language, except possibly LocaleNames.UND. Best is least
      */
     // private static Comparator BEST_LANGUAGE_COMPARATOR = new Comparator<String>() {
     // LanguageTagParser p1 = new LanguageTagParser();
@@ -1597,8 +1603,8 @@ public class GenerateMaximalLocales {
     // // put und at the end
     // int result = lang1.compareTo(lang2);
     // if (result != 0) {
-    // if (lang1.equals("und")) return 1;
-    // if (lang2.equals("und")) return -1;
+    // if (lang1.equals(LocaleNames.UND)) return 1;
+    // if (lang2.equals(LocaleNames.UND)) return -1;
     // return result;
     // }
     //
@@ -1958,7 +1964,7 @@ public class GenerateMaximalLocales {
     // { "si_Sinh", "si_Sinh_LK"},
     // { "ii", "ii_CN"}, // Sichuan Yi (Yi)
     // { "iu", "iu_CA"}, // Inuktitut (Unified Canadian Aboriginal Syllabics)
-    // { "und", "en"}, // English default
+    // { LocaleNames.UND, "en"}, // English default
     // };
 
     static void showDefaultContentDifferencesAndFix(Set<String> defaultLocaleContent) {
@@ -2058,8 +2064,8 @@ public class GenerateMaximalLocales {
             String s1 = ltp1.getLanguage();
             int result = s0.compareTo(s1);
             if (result != 0) {
-                return s0.equals("und") ? 1
-                    : s1.equals("und") ? -1
+                return s0.equals(LocaleNames.UND) ? 1
+                    : s1.equals(LocaleNames.UND) ? -1
                         : result;
             }
             s0 = ltp0.getScript();

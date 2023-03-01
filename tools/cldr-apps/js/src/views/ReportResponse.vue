@@ -4,7 +4,8 @@
       <a-tooltip class="boxy" v-if="reportStatus">
         Approval Status:
         <template #title>
-          {{ reportStatus.status }}: {{ reportStatus.acceptability }}
+          {{ reportName }} {{ reportStatus.status }}:
+          {{ reportStatus.acceptability }}
         </template>
         <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>
         {{ humanizeAcceptability }}
@@ -29,7 +30,8 @@
       >
       <a-radio :style="radioStyle" value="unacceptable">
         The items are not all acceptable, but I have entered in votes for the
-        right ones or filed a ticket.</a-radio
+        right ones and filed at least one forum post to explain the
+        problems.</a-radio
       >
       <a-radio :style="radioStyle" value="incomplete">
         I have not reviewed the items.</a-radio

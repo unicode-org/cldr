@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
@@ -104,6 +105,10 @@ public class FormattedFileWriter extends java.io.Writer {
 
     private StringWriter out = new StringWriter();
 
+    protected StringWriter getStringWriter() {
+        return out;
+    }
+
     public FormattedFileWriter(String baseFileName, String title, String explanation, Anchors anchors)
         throws IOException {
         // we set up a bunch of variables, but we won't actually use them unless there is generate content. See close()
@@ -163,6 +168,7 @@ public class FormattedFileWriter extends java.io.Writer {
     public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements)  {
         try {
             PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
+            System.err.println("Writing: " + Paths.get(targetdir, targetFileName));
             FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
         } catch (IOException e) {

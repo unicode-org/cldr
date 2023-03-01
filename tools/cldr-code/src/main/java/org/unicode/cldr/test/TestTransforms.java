@@ -4,29 +4,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
 
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
 
-import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms {
 
     public static void main(String[] args) throws IOException {
         // checkRegistry();
-        String source = CldrUtility.getProperty("files", null, CLDRPaths.BASE_DIRECTORY
-            + "dropbox/gen/icu-transforms/");
+//        String source = CldrUtility.getProperty("files", null, CLDRPaths.BASE_DIRECTORY
+//            + "dropbox/gen/icu-transforms/");
         boolean verbose = CldrUtility.getProperty("verbose", false);
         PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
 
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
 
-        if (source == null) {
+//        if (source == null) {
             CLDRTransforms.registerCldrTransforms(null, ".*", out, false);
-        } else {
-            CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
-        }
+//        } else {
+//            CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
+//        }
         if (out != null) {
             out.flush();
         }
@@ -62,31 +60,6 @@ public class TestTransforms {
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
         Transliterator.registerInstance(t);
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
-    }
-
-    public static void showTransliterator(String prefix, Transliterator t, int limit) {
-        System.out.println(prefix + "ID:\t" + t.getID());
-        System.out.println(prefix + "Class:\t" + t.getClass().getName());
-        if (t.getFilter() != null) System.out.println(prefix + "Filter:\t" + t.getFilter());
-        prefix += "\t";
-        if (t instanceof RuleBasedTransliterator) {
-            RuleBasedTransliterator rbt = (RuleBasedTransliterator) t;
-            String[] rules = rbt.toRules(true).split("\n");
-            int length = rules.length;
-            if (limit >= 0 && limit < length) length = limit;
-            for (int i = 0; i < length; ++i) {
-                System.out.println(prefix + rules[i]);
-            }
-        } else {
-            Transliterator[] elements = t.getElements();
-            if (elements[0] == t) {
-                System.out.println(prefix + "Other type.");
-                return;
-            }
-            for (int i = 0; i < elements.length; ++i) {
-                showTransliterator(prefix, elements[i], limit);
-            }
-        }
     }
 
     /*

@@ -29,7 +29,6 @@ public enum Organization {
     georgia_isi("Georgia ISI"),
     gnome("Gnome Foundation"),
     google("Google"),
-    guest("Guest (Unicode)"),
     ibm("IBM"),
     india("India MIT"),
     iran_hci("Iran HCI"),
@@ -37,8 +36,8 @@ public enum Organization {
     kotoistus("Kotoistus (Finnish IT Ctr)"),
     kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
     lakota_lc("Lakota LC"),
-    lao_dpt("Lao Posts/Telecom??"),
-    longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilka Foundation"),
+    lao_dpt("Lao Posts/Telecom"),
+    longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
     mozilla("Mozilla"),
@@ -56,6 +55,7 @@ public enum Organization {
     special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
+    unaffiliated("Unaffiliated", "Guest"),
     venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
@@ -63,11 +63,11 @@ public enum Organization {
     yahoo("Yahoo"),
     ;
 
-    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(google, apple, microsoft));
+    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(apple, google, meta, microsoft));
 
     /**
      * Get a list of the TC Organizations
-     * @return
+     * @return the set
      */
     public static Set<Organization> getTCOrgs() {
         return TC_ORGS;
@@ -75,13 +75,13 @@ public enum Organization {
 
     /**
      * Is this organization a TC Org?
-     * @return
+     * @return true if it is TC
      */
     public boolean isTCOrg() {
         return getTCOrgs().contains(this);
     }
 
-    public final String displayName;
+    private final String displayName;
     private final String[] names;
 
     public static Organization fromString(String name) {
@@ -102,15 +102,14 @@ public enum Organization {
             return Organization.longnow;
         }
         name = name.toLowerCase().replace('-', '_').replace('.', '_');
-        Organization org = OrganizationNameMap.get(name);
-        return org;
+        return OrganizationNameMap.get(name);
     }
 
     public String getDisplayName() {
         return displayName;
     }
 
-    static Map<String, Organization> OrganizationNameMap;
+    static final Map<String, Organization> OrganizationNameMap;
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {
@@ -126,7 +125,7 @@ public enum Organization {
      * @param displayName Preferred display name for the organization
      * @param names Alternate aliases for this organization
      */
-    private Organization(String displayName, String... names) {
+    Organization(String displayName, String... names) {
         this.displayName = displayName;
         this.names = names;
     }
@@ -143,5 +142,9 @@ public enum Organization {
             }
         }
         return localeSet;
+    }
+
+    public boolean visibleOnFrontEnd() {
+        return this != Organization.special;
     }
 }

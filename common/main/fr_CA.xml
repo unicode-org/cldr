@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -124,7 +124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chy">↑↑↑</language>
 			<language type="ckb">kurde central</language>
 			<language type="ckb" alt="menu">sorani</language>
-			<language type="ckb" alt="variant">↑↑↑</language>
+			<language type="ckb" alt="variant">kurde central</language>
 			<language type="clc">↑↑↑</language>
 			<language type="co">corse</language>
 			<language type="cop">↑↑↑</language>
@@ -1020,7 +1020,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TM">Turkménistan</territory>
 			<territory type="TN">Tunisie</territory>
 			<territory type="TO">Tonga</territory>
-			<territory type="TR">Turquie</territory>
+			<territory type="TR">↑↑↑</territory>
 			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinité-et-Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
@@ -1242,6 +1242,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0">↑↑↑</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="GyMd">y-MM-dd GGGGG</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1354,6 +1359,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1">↑↑↑</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="ethiopic">
 				<months>
@@ -1466,6 +1481,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1">↑↑↑</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -2374,9 +2399,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0">AM</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">↑↑↑</era>
+						<era type="0">AM</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -2480,6 +2515,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0" draft="contributed">↑↑↑</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -2638,6 +2683,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="japanese">
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
@@ -2739,9 +2804,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0">AP</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">↑↑↑</era>
+						<era type="0">AP</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
 				<eras>
@@ -2758,6 +2833,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1">↑↑↑</era>
 					</eraNarrow>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h 'h' B – h 'h' B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h 'h' mm B – h 'h' mm B</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -4226,6 +4311,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
@@ -9313,8 +9401,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} G</unitPattern>
+				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>↑↑↑</displayName>
@@ -9462,7 +9550,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName>mi/gal Imp</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9720,17 +9808,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppcm</displayName>
 				<unitPattern count="one">{0}ppcm</unitPattern>
 				<unitPattern count="other">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppp</displayName>
 				<unitPattern count="one">{0}ppp</unitPattern>
 				<unitPattern count="other">{0}ppp</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
+				<displayName>p</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10249,7 +10337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}pincées</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName>pte imp</displayName>
 				<unitPattern count="one">{0}pte imp</unitPattern>
 				<unitPattern count="other">{0}pte imp</unitPattern>
 			</unit>
@@ -10507,7 +10595,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
@@ -10623,41 +10711,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-core}, {given-informal} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-core}, {given-informal} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern>{surname-core}, {given-informal} {surname-prefix}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="given2">↑↑↑</nameField>
 			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">↑↑↑</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given-informal">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">Larochellière</nameField>
+			<nameField type="surname2">Drainville</nameField>
+			<nameField type="generation">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">Mme</nameField>
 			<nameField type="given">↑↑↑</nameField>
 			<nameField type="given-informal">↑↑↑</nameField>
 			<nameField type="given2">↑↑↑</nameField>
 			<nameField type="surname-prefix">↑↑↑</nameField>
 			<nameField type="surname-core">↑↑↑</nameField>
 			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+			<nameField type="generation">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

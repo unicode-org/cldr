@@ -31,12 +31,12 @@ public class TestUnContainment extends TestFmwkPlus {
 
     private static final Set<String> NOT_CLDR_TERRITORY_CODES = ImmutableSet.of("830"); // Channel Islands
     private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS = ImmutableSet.of("AQ","680"); // Antarctica, Sark
-    
+
     final Multimap<String, String> UnChildToParent;
     {
         Multimap<String, String> _UnChildToParent = TreeMultimap.create();
         Splitter tab = Splitter.on('\t').trimResults();
-        try (BufferedReader unCodes = CldrUtility.getUTF8Data("external/UnCodes.txt");) {
+        try (BufferedReader unCodes = CldrUtility.getUTF8Data("external/UnCodes.tsv");) {
             for (String line : FileUtilities.in(unCodes)) {
                 List<String> items = tab.splitToList(line);
                 if (line.isEmpty() || line.startsWith("Global Code")) {
@@ -86,11 +86,11 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     private String unToCldrCode(String code) {
-        
+
         if (NOT_CLDR_TERRITORY_CODES.contains(code)) {
             return null;
         }
-        
+
         R2<List<String>, String> codeInfo = regionToInfo.get(code);
         if (codeInfo != null) {
             if (codeInfo.get0() != null && !codeInfo.get0().isEmpty()) {
@@ -101,7 +101,7 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     public void TestContainment() {
-        
+
         /*
         CLDR
         <group type="001" contains="019 002 150 142 009"/> <!--World -->

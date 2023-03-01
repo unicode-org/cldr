@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 8: Person Names
 
-|Version|42                      |
+|Version|43 (draft)              |
 |-------|------------------------|
 |Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -16,9 +16,12 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-[_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._]: #
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -515,11 +518,11 @@ A PersonName object’s fields are used to derive an order, as follows:
 
 For example, here is a parent locale lookup chain:
 
-    de_Latn_de ⇒ de_Latn ⇒ de_de ⇒ de ⇒ und
+    de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
 
 In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:
 
-    de_Latin_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
+    de_Latn_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
 
 This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements.
 

@@ -14,8 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XPathParts;
@@ -58,8 +60,8 @@ public class CheckPlaceHolders extends CheckCLDR {
     static {
         Set<String> valid = new HashSet<>();
         valid.addAll(CLDRConfig.getInstance().getCldrFactory().getAvailable());
-        valid.add("zxx");
-        valid.add("und");
+        valid.add(LocaleNames.ZXX);
+        valid.add(LocaleNames.UND);
         CLDR_LOCALES_FOR_NAME_ORDER = ImmutableSet.copyOf(valid);
     }
 
@@ -156,7 +158,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                                 + " either in givenFirst or in surnameFirst."));
                     }
 
-                    if (!items.contains("und")) {
+                    if (!items.contains(LocaleNames.UND)) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.missingLanguage)
@@ -180,9 +182,10 @@ public class CheckPlaceHolders extends CheckCLDR {
         Set<Modifier> modifiers = fieldType.getModifiers();
         Output<String> errorMessage = new Output<>();
         Modifier.getCleanSet(modifiers, errorMessage);
+        final Type mainType = checkAccessor.getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType;
         if (errorMessage.value != null) {
             result.add(new CheckStatus().setCause(checkAccessor)
-                .setMainType(CheckStatus.warningType)
+                .setMainType(mainType)
                 .setSubtype(Subtype.invalidPlaceHolder)
                 .setMessage(errorMessage.value));
             return;
@@ -196,16 +199,21 @@ public class CheckPlaceHolders extends CheckCLDR {
                 // we must have a given
                 if (fieldType.getModifiers().isEmpty()) {
                     result.add(new CheckStatus().setCause(checkAccessor)
-                        .setMainType(CheckStatus.warningType)
+                        .setMainType(mainType)
                         .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Names must have a value for the ‘given‘ field. Mononyms (like ‘Lady Gaga’) use given, not surname"));
+                        .setMessage("Names must have a value for the ‘given‘ field. Mononyms (like ‘Zendaya’) use given, not surname"));
                 }
                 break;
             case surname:
                 // can't have surname2 unless we have surname
-                String modPath = pathParts.cloneAsThawed().setAttribute(-1, "type", Field.surname2.toString()).toString();
+                final XPathParts thawedPathParts = pathParts.cloneAsThawed();
+                String modPath = thawedPathParts.setAttribute(-1, "type", Field.surname2.toString()).toString();
                 String surname2Value = checkAccessor.getStringValue(modPath);
-                if (surname2Value != null && !surname2Value.equals("∅∅∅")) {
+                String modPathcore = thawedPathParts.setAttribute(-1, "type", "surname-core").toString();
+                String surnameCoreValue = checkAccessor.getStringValue(modPathcore);
+                if (surname2Value != null
+                    && !surname2Value.equals("∅∅∅")
+                    && (surnameCoreValue == null || surnameCoreValue.equals("∅∅∅"))) {
                     result.add(new CheckStatus().setCause(checkAccessor)
                         .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.invalidPlaceHolder)
@@ -215,7 +223,7 @@ public class CheckPlaceHolders extends CheckCLDR {
             default:
                 break;
             }
-        } else if (value.equals("zxx")) { // mistaken "we don't use this"
+        } else if (value.equals(LocaleNames.ZXX)) { // mistaken "we don't use this"
             result.add(new CheckStatus().setCause(checkAccessor)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.invalidPlaceHolder)
@@ -303,7 +311,9 @@ public class CheckPlaceHolders extends CheckCLDR {
                 Set<Modifier> modifiers = modifiedField.getModifiers();
                 Field field = modifiedField.getField();
                 switch (field) {
-                case prefix: case suffix:
+                case title:
+                case credentials:
+                case generation:
                     if (usageIsMonogram) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
@@ -597,7 +607,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         Set<String> orderErrors = null;
         for (String item : SPLIT_SPACE.split(value)) {
             boolean mv = (item.equals(locale))
-               || CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
+                || CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
             if (!mv) {
                 if (orderErrors == null) {
                     orderErrors = new LinkedHashSet<>();

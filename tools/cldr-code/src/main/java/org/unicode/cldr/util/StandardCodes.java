@@ -44,6 +44,15 @@ import com.ibm.icu.util.Output;
  */
 public class StandardCodes {
 
+    /**
+     * Convenient for testing whether a locale is at least at Basic level
+     * @param locale
+     * @return
+     */
+    public static boolean isLocaleAtLeastBasic(String locale) {
+        return CalculatedCoverageLevels.getInstance().isLocaleAtLeastBasic(locale);
+    }
+
     public enum CodeType {
         language, script, territory, extlang, legacy, redundant, variant, currency, tzid;
         public static CodeType from(String name) {
@@ -293,7 +302,7 @@ public class StandardCodes {
                 default:
                     for (Iterator<String> it = result.iterator(); it.hasNext();) {
                         String code = it.next();
-                        if (code.equals("root") || code.equals("QO"))
+                        if (code.equals(LocaleNames.ROOT) || code.equals("QO"))
                             continue;
                         List<String> data = getFullData(type, code);
                         if (data.size() < 3) {
@@ -516,7 +525,7 @@ public class StandardCodes {
         // Next, Find maximum coverage level
         for (final Organization o : Organization.values()) {
             if (o == Organization.cldr ||  // Already handled, above
-                o == Organization.guest ||
+                o == Organization.unaffiliated ||
                 o == Organization.surveytool) {
                 continue; // Skip some 'special' orgs
             }
@@ -794,7 +803,7 @@ public class StandardCodes {
     }
 
     /**
-     * @param string
+     * @param type
      * @param string2
      * @param string3
      */
@@ -845,15 +854,6 @@ public class StandardCodes {
             name_codes.put(name, codes);
         }
         codes.add(code);
-    }
-
-    private List<String> DELETED3166 = Collections.unmodifiableList(Arrays
-        .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
-            "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
-            "VD", "WK", "YD", "YU", "ZR" }));
-
-    public List<String> getOld3166() {
-        return DELETED3166;
     }
 
     private Map<String, List<String>> WorldBankInfo;
@@ -974,7 +974,7 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"),
+        language(LocaleNames.UND, LocaleNames.ZXX, LocaleNames.MUL, LocaleNames.MIS, LocaleNames.ROOT),
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
         variant(),

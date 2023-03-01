@@ -3,17 +3,8 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -386,16 +377,17 @@ public class VerifyZones {
     private static void addZones(ZoneFormats englishZoneFormats, CLDRFile cldrFile, Matcher timezoneFilter,
         TablePrinter output) throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
-        //ZoneFormats nativeZoneFormats = new ZoneFormats().set(cldrFile);
         TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFile);
-
+        final long timeInMillis = Calendar.getInstance().getTimeInMillis();
         for (MetazoneRow row : rows) {
-            String grouping = row.getContainer();
             String metazone = row.getMetazone();
             String tzid = row.getZone();
+            if (sdi.metazoneIsOutdated(metazone, tzid, timeInMillis)) {
+                continue;
+            }
+            String grouping = row.getContainer();
             TimeZone currentZone = TimeZone.getTimeZone(tzid);
             TimeZone tz = currentZone;
-
             String englishGrouping = englishCldrFile.getName(CLDRFile.TERRITORY_NAME, grouping);
 
             String metazoneInfo = englishGrouping
@@ -427,11 +419,12 @@ public class VerifyZones {
                     date2 = date2 == date ? date6 : date; // reverse for final 2 items
                 }
             }
-            String view = PathHeader.getLinkedView(surveyUrl, cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX);
+            String path = METAZONE_PREFIX + metazone + METAZONE_SUFFIX;
+            String view = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
             if (view == null) {
-                view = PathHeader.getLinkedView(surveyUrl, cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX2);
+                path = METAZONE_PREFIX + metazone + METAZONE_SUFFIX2;
+                view = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
             }
-
             output.addCell(view == null
                 ? ""
                 : view);

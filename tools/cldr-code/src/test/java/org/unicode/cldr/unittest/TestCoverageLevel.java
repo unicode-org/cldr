@@ -385,7 +385,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern calendar100 = PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
 
         final Pattern language100 = PatternCache.get("("
-            + "ach|aeb?|afh|ak[kz]|aln|ang|ar[coqswyz]|ase|avk|"
+            + "ach|aeb?|afh|ak[kz]|aln|ang|apc|ar[coqswyz]|ase|avk|"
             + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgc|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
             + "ca[dry]|cch|ch[bgnp]|cic|cop|cps|crh?|csb|"
             + "de[ln]|din|doi|dtp|dum|dyu|"
@@ -400,7 +400,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "ma[fn]|md[er]|mga|mnc|mrj|mus|mw[rv]|mye|"
             + "nan|nds(_NL)?|njo|no[nv]?|nwc|ny[mo]|nzi|"
             + "oj|osa|ota|"
-            + "pal|pcd|pd[ct]|peo|pfl|phn|pi|pms|pnt|pon|pro|"
+            + "pal|pap|pcd|pd[ct]|peo|pfl|phn|pi|pms|pnt|pon|pro|"
             + "qug|"
             + "raj|rgn|rif|rom|rtm|ru[eg]|"
             + "sa[msz]|sbp|sd[ch]|se[eil]|sg[as]|shu?|sid|sl[iy]|sog|srr|stq|su[sx]|syc|szl|"
@@ -542,10 +542,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     if (fieldType.matches(".*-(short|narrow)|quarter")) {
                         continue;
                     }
-                    // "now" - [JCE] not sure on this so I opened ticket #8833
-                    if (fieldType.equals("second") && xpp.findAttributeValue("relative", "type").equals("0")) {
-                        continue;
-                    }
                 }
             } else if (xpp.containsElement("language")) {
                 // Comprehensive coverage is OK for some languages.
@@ -567,11 +563,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
             } else if (xpp.containsElement("territory")) {
-                // All territories are usually modern, unless the territory code is deprecated.  The only
-                // such one right now is "AN" (Netherlands Antilles), which should go outside the 5-year
-                // deprecation window in 2016.
                 String territoryType = xpp.findAttributeValue("territory", "type");
-                if (territoryType.equals("AN")) {
+                if (territoryType.equals("CQ")) { // Exceptionally reserved by ISO-3166
                     continue;
                 }
             } else if (xpp.containsElement("key")) {
@@ -909,7 +902,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
             seenPt.remove(expectedPathType);
         }
         assertEquals("PathTypes tested", Collections.emptySet(), seenPt);
-        logKnownIssue("CLDR-13951", "Add more LogicalGrouping tests, fix DECIMAL_FORMAT_LENGTH, etc.");
     }
 
     private Multimap<String,String> delta(Set<String> expected, Set<String> grouping) {

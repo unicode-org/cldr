@@ -73,7 +73,7 @@ public class SurveySnapshotDb implements SurveySnapshot {
     private boolean ensureTableExists() {
         try (Connection conn = DBUtils.getInstance().getAConnection()) {
             String tableName = DBUtils.Table.SUMMARY_SNAPSHOTS.toString();
-            if (DBUtils.hasTable(conn, tableName)) {
+            if (DBUtils.hasTable(tableName)) {
                 return true;
             }
             Statement s = conn.createStatement();

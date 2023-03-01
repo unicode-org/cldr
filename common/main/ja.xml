@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2429,7 +2429,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -2437,7 +2437,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2445,7 +2445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -2453,7 +2453,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3029,7 +3029,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -3037,7 +3037,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -3045,7 +3045,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -3053,7 +3053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -4161,7 +4161,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -4169,7 +4169,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -4177,7 +4177,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -4185,7 +4185,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -5760,6 +5760,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>エルモシヨ</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>シウダー・フアレス</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>マサトラン</exemplarCity>
@@ -8690,8 +8693,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName>新トルコリラ</displayName>
-				<displayName count="other">新トルコリラ</displayName>
+				<displayName>トルコリラ</displayName>
+				<displayName count="other">トルコリラ</displayName>
 				<symbol>TRY</symbol>
 				<symbol alt="narrow">₺</symbol>
 				<symbol alt="variant">TL</symbol>
@@ -9414,7 +9417,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>フォントサイズ em</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>ピクセル</displayName>
@@ -9442,7 +9445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>ドット</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ドット</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半径</displayName>
@@ -10738,64 +10741,64 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="10p-1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>d{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>c{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>m{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>μ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>n{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-12">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>p{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-15">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>f{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-18">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>a{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-21">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>z{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-24">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>y{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>da{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p2">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>h{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p3">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>k{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p6">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>M{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p9">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>G{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p12">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>T{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p15">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>P{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p18">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>E{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p21">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Z{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
-				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>Y{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
 				<unitPrefixPattern>Ki{0}</unitPrefixPattern>
@@ -10825,12 +10828,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
@@ -10852,43 +10855,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>↑↑↑</displayName>
+				<displayName>度</displayName>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>↑↑↑</displayName>
+				<displayName>分</displayName>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>↑↑↑</displayName>
+				<displayName>秒</displayName>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>km²</displayName>
 				<unitPattern count="other">{0}km²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>↑↑↑</displayName>
+				<displayName>ヘクタール</displayName>
 				<unitPattern count="other">{0}ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName>m²</displayName>
 				<unitPattern count="other">{0}m²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/m²</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>cm²</displayName>
 				<unitPattern count="other">{0}cm²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/cm²</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>mi²</displayName>
 				<unitPattern count="other">{0}mi²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>↑↑↑</displayName>
+				<displayName>エーカー</displayName>
 				<unitPattern count="other">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
@@ -10902,14 +10905,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-inch">
 				<displayName>in²</displayName>
 				<unitPattern count="other">{0}in²</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ドゥナム</displayName>
+				<unitPattern count="other">{0}ドゥナム</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>↑↑↑</displayName>
+				<displayName>金</displayName>
 				<unitPattern count="other">{0}K</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
@@ -10921,11 +10924,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mmol/L</unitPattern>
 			</unit>
 			<unit type="concentr-item">
-				<displayName>↑↑↑</displayName>
+				<displayName>項目</displayName>
 				<unitPattern count="other">{0}項目</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppm</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
@@ -10934,18 +10937,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>‰</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>‱</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>mol</displayName>
 				<unitPattern count="other">{0}mol</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>L/km</displayName>
 				<unitPattern count="other">{0}L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
@@ -10973,7 +10976,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}Tb</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
+				<displayName>GB</displayName>
 				<unitPattern count="other">{0}GB</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
@@ -10981,7 +10984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}Gb</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
+				<displayName>MB</displayName>
 				<unitPattern count="other">{0}MB</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
@@ -10989,7 +10992,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}Mb</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>↑↑↑</displayName>
+				<displayName>KB</displayName>
 				<unitPattern count="other">{0}KB</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
@@ -11001,7 +11004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}B</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName>↑↑↑</displayName>
+				<displayName>ビット</displayName>
 				<unitPattern count="other">{0}b</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -11009,7 +11012,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}世紀</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
+				<displayName>十年</displayName>
 				<unitPattern count="other">{0}十年</unitPattern>
 			</unit>
 			<unit type="duration-year">
@@ -11065,39 +11068,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>↑↑↑</displayName>
+				<displayName>アンペア</displayName>
 				<unitPattern count="other">{0}A</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>↑↑↑</displayName>
+				<displayName>ミリアンペア</displayName>
 				<unitPattern count="other">{0}mA</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName>↑↑↑</displayName>
+				<displayName>オーム</displayName>
 				<unitPattern count="other">{0}Ω</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>↑↑↑</displayName>
+				<displayName>ボルト</displayName>
 				<unitPattern count="other">{0}V</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>↑↑↑</displayName>
+				<displayName>kcal</displayName>
 				<unitPattern count="other">{0}kcal</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>↑↑↑</displayName>
+				<displayName>cal</displayName>
 				<unitPattern count="other">{0}calth</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
+				<displayName>cal</displayName>
 				<unitPattern count="other">{0}cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>↑↑↑</displayName>
+				<displayName>キロジュール</displayName>
 				<unitPattern count="other">{0}kJ</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>↑↑↑</displayName>
+				<displayName>ジュール</displayName>
 				<unitPattern count="other">{0}J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
@@ -11106,14 +11109,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>eV</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} eV</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
-				<displayName>↑↑↑</displayName>
+				<displayName>英熱量</displayName>
 				<unitPattern count="other">{0}BTU</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>↑↑↑</displayName>
+				<displayName>米サーム</displayName>
 				<unitPattern count="other">{0}米サーム</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
@@ -11129,23 +11132,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kWh/100km</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>↑↑↑</displayName>
+				<displayName>GHz</displayName>
 				<unitPattern count="other">{0}GHz</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>↑↑↑</displayName>
+				<displayName>MHz</displayName>
 				<unitPattern count="other">{0}MHz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>↑↑↑</displayName>
+				<displayName>kHz</displayName>
 				<unitPattern count="other">{0}kHz</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>↑↑↑</displayName>
+				<displayName>Hz</displayName>
 				<unitPattern count="other">{0}Hz</unitPattern>
 			</unit>
 			<unit type="graphics-em">
-				<displayName>↑↑↑</displayName>
+				<displayName>em</displayName>
 				<unitPattern count="other">{0}em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
@@ -11157,27 +11160,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppcm</displayName>
 				<unitPattern count="other">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ppi</displayName>
 				<unitPattern count="other">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpcm</displayName>
 				<unitPattern count="other">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpi</displayName>
 				<unitPattern count="other">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
+				<displayName>ドット</displayName>
 				<unitPattern count="other">{0}ドット</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
-				<displayName>↑↑↑</displayName>
+				<displayName>R⊕</displayName>
 				<unitPattern count="other">{0}R⊕</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
@@ -11246,11 +11249,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}au</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>↑↑↑</displayName>
+				<displayName>ハロン</displayName>
 				<unitPattern count="other">{0}fur</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>↑↑↑</displayName>
+				<displayName>ファゾム</displayName>
 				<unitPattern count="other">{0}fth</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
@@ -11300,7 +11303,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0}/g</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>↑↑↑</displayName>
+				<displayName>mg</displayName>
 				<unitPattern count="other">{0}mg</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
@@ -11308,11 +11311,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>↑↑↑</displayName>
+				<displayName>米トン</displayName>
 				<unitPattern count="other">{0}s/t</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName>↑↑↑</displayName>
+				<displayName>ストーン</displayName>
 				<unitPattern count="other">{0}st</unitPattern>
 			</unit>
 			<unit type="mass-pound">
@@ -11330,7 +11333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}oz t</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName>↑↑↑</displayName>
+				<displayName>カラット</displayName>
 				<unitPattern count="other">{0}ct</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
@@ -11346,15 +11349,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}M☉</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
+				<displayName>グレーン</displayName>
 				<unitPattern count="other">{0}グレーン</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>↑↑↑</displayName>
+				<displayName>ギガワット</displayName>
 				<unitPattern count="other">{0}GW</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>↑↑↑</displayName>
+				<displayName>メガワット</displayName>
 				<unitPattern count="other">{0}MW</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
@@ -11362,7 +11365,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
+				<displayName>ワット</displayName>
 				<unitPattern count="other">{0}W</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
@@ -11370,7 +11373,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mW</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName>↑↑↑</displayName>
+				<displayName>馬力</displayName>
 				<unitPattern count="other">{0}hp</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
@@ -11386,7 +11389,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
+				<displayName>バール</displayName>
 				<unitPattern count="other">{0}bar</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -11394,7 +11397,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
-				<displayName>↑↑↑</displayName>
+				<displayName>気圧</displayName>
 				<unitPattern count="other">{0}atm</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
@@ -11406,11 +11409,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>kPa</displayName>
 				<unitPattern count="other">{0}kPa</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>MPa</displayName>
 				<unitPattern count="other">{0}MPa</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -11454,18 +11457,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}N⋅m</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName>↑↑↑</displayName>
+				<displayName>km³</displayName>
 				<unitPattern count="other">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
-				<displayName>↑↑↑</displayName>
+				<displayName>m³</displayName>
 				<unitPattern count="other">{0}m³</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>cm³</displayName>
 				<unitPattern count="other">{0}cm³</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/cm³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
@@ -11494,7 +11497,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-liter">
 				<displayName>L</displayName>
 				<unitPattern count="other">{0}L</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>
@@ -11509,11 +11512,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ml</unitPattern>
 			</unit>
 			<unit type="volume-pint-metric">
-				<displayName>↑↑↑</displayName>
+				<displayName>メトリックパイント</displayName>
 				<unitPattern count="other">{0}mpt</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>↑↑↑</displayName>
+				<displayName>メトリックカップ</displayName>
 				<unitPattern count="other">{0}mc</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
@@ -11521,18 +11524,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ac ft</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
-				<displayName>↑↑↑</displayName>
+				<displayName>ブッシェル</displayName>
 				<unitPattern count="other">{0}bu</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>gal</displayName>
 				<unitPattern count="other">{0}gal</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>Imp gal</displayName>
 				<unitPattern count="other">{0}gal Imp.</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
@@ -11543,7 +11546,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>↑↑↑</displayName>
+				<displayName>カップ</displayName>
 				<unitPattern count="other">{0}カップ</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -11555,11 +11558,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}Imp fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>↑↑↑</displayName>
+				<displayName>大さじ</displayName>
 				<unitPattern count="other">大さじ{0}</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>↑↑↑</displayName>
+				<displayName>小さじ</displayName>
 				<unitPattern count="other">小さじ{0}</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
@@ -11567,27 +11570,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}bbl</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>↑↑↑</displayName>
+				<displayName>中さじ</displayName>
 				<unitPattern count="other">中さじ{0}</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName>英デザートスプーン</displayName>
 				<unitPattern count="other">{0}英デザートスプーン</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>↑↑↑</displayName>
+				<displayName>滴</displayName>
 				<unitPattern count="other">{0}滴</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<displayName>↑↑↑</displayName>
+				<displayName>液量ドラム</displayName>
 				<unitPattern count="other">{0}fl dr</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
+				<displayName>ジガー</displayName>
 				<unitPattern count="other">{0}ジガー</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
+				<displayName>つまみ</displayName>
 				<unitPattern count="other">{0}つまみ</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
@@ -11626,22 +11629,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0}または{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}、または{1}</listPatternPart>
+			<listPatternPart type="2">{0}または{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}、または{1}</listPatternPart>
+			<listPatternPart type="2">{0}または{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}、{1}</listPatternPart>
+			<listPatternPart type="2">{0}、{1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
 			<listPatternPart type="start">{0}、{1}</listPatternPart>
@@ -11847,21 +11850,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">hu ja ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">hu ja km ko mn vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">・</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname}{suffix}</namePattern>
+			<namePattern>{given} {given2} {surname} {generation}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{prefix} {given-informal} {surname}{suffix}</namePattern>
+			<namePattern>{given-informal} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{given} {given2} {surname}{suffix}</namePattern>
+			<namePattern>{given} {given2} {surname} {generation}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{given-informal} {surname}{suffix}</namePattern>
+			<namePattern>{given-informal} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11870,16 +11873,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{given} {given2} {surname}{suffix}</namePattern>
+			<namePattern>{given} {given2} {surname} {generation}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{given-informal} {surname}{suffix}</namePattern>
+			<namePattern>{given-informal} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{given} {surname}{suffix}</namePattern>
+			<namePattern>{given} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{given-informal} {surname}{suffix}</namePattern>
+			<namePattern>{given-informal} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11888,16 +11891,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{given} {surname}{suffix}</namePattern>
+			<namePattern>{given} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{given-informal} {surname}{suffix}</namePattern>
+			<namePattern>{given-informal} {surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{given}{suffix}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{given-informal}{suffix}</namePattern>
+			<namePattern>{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11906,16 +11909,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix}{surname}{given2}{given}{suffix}</namePattern>
+			<namePattern>{surname}{given2}{given}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{prefix}{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname}{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{surname}{given2}{given}{suffix}</namePattern>
+			<namePattern>{surname}{given}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname}{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11924,16 +11927,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname}{given2}{given}{suffix}</namePattern>
+			<namePattern>{surname}{given}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname}{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{surname}{given}{suffix}</namePattern>
+			<namePattern>{surname}{given}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname}{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11942,16 +11945,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{surname}{given}{suffix}</namePattern>
+			<namePattern>{surname}{given}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname}{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{surname}{suffix}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{given-informal}{suffix}</namePattern>
+			<namePattern>{given-informal}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
 			<namePattern>{given-monogram-allCaps}</namePattern>
@@ -11960,44 +11963,68 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname}{given2}{given}{suffix}</namePattern>
+			<namePattern>{surname} {given2} {given}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname}{given}{suffix}</namePattern>
+			<namePattern>{surname} {given2} {given}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern>{surname}{given-informal}{suffix}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern>{surname}{given}</namePattern>
+			<namePattern>{surname} {given}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern>{surname}{given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">慎太郎</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">一郎</nameField>
 			<nameField type="surname">安藤</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">太郎</nameField>
 			<nameField type="given2">トーマス</nameField>
 			<nameField type="surname">山田</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">ドクター</nameField>
-			<nameField type="given">英子</nameField>
-			<nameField type="given-informal">えいこ</nameField>
-			<nameField type="given2">ソフィア</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="title">さん</nameField>
+			<nameField type="given">恵子</nameField>
+			<nameField type="given-informal">けいこ</nameField>
+			<nameField type="given2">グレース</nameField>
 			<nameField type="surname-prefix">∅∅∅</nameField>
-			<nameField type="surname-core">内田</nameField>
+			<nameField type="surname-core">佐藤</nameField>
 			<nameField type="surname2">∅∅∅</nameField>
-			<nameField type="suffix">さん</nameField>
+			<nameField type="generation">ジュニア</nameField>
+			<nameField type="credentials">国会議員</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">マイケル</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">アルベルト</nameField>
+			<nameField type="surname">アインシュタイン</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">セシリア</nameField>
+			<nameField type="given2">ローズ</nameField>
+			<nameField type="surname">ブラウン</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">博士</nameField>
+			<nameField type="given">ジェニファー</nameField>
+			<nameField type="given-informal">ジェニー</nameField>
+			<nameField type="given2">ソフィア</nameField>
+			<nameField type="surname-prefix">フォン</nameField>
+			<nameField type="surname-core">スミス</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">ジュニア</nameField>
+			<nameField type="credentials">医学博士</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

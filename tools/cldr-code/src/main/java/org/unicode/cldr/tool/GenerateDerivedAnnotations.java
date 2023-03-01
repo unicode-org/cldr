@@ -17,18 +17,8 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
-import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Emoji;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 import com.google.common.base.Joiner;
@@ -118,7 +108,7 @@ public class GenerateDerivedAnnotations {
         int processCount = 0;
 
         for (String locale : locales) {
-            if ("root".equals(locale)) {
+            if (LocaleNames.ROOT.equals(locale)) {
                 continue;
             }
             if (!localeMatcher.reset(locale).matches()) {
@@ -206,7 +196,7 @@ public class GenerateDerivedAnnotations {
         }
         Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", ".*");
         for (String locale : locales) {
-            if ("root".equals(locale)) {
+            if (LocaleNames.ROOT.equals(locale)) {
                 continue;
             }
             if (!localeMatcher.reset(locale).matches()) {

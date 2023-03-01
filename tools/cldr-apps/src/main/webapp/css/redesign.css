@@ -341,6 +341,9 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .data .d-example {
 	display:none;
 }
+.data .d-trans-hint {
+	display:none;
+}
 /* direct override of bootstrap
    TODO: explain and/or reevaluate this "override". Potentially problematic for performance
    (especially z-index) and compatibility with newer versions of bootstrap if we update. */
@@ -448,7 +451,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 }
 
 
-.sidebar-chooser, #review-link  {
+.sidebar-chooser  {
 	cursor:pointer;
 }
 

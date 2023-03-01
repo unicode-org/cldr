@@ -23,9 +23,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
 <!ELEMENT import EMPTY >
 <!ATTLIST import path CDATA #REQUIRED >
     <!--@MATCH:any-->
-    <!--@VALUE-->
 <!ATTLIST import base (cldr) #IMPLIED >
-    <!--@VALUE-->
 
 <!ELEMENT locales ( locale* ) >
 

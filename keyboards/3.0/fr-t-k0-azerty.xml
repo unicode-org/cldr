@@ -52,19 +52,32 @@
 	</displays>
 
 	<keys>
-		<key id="super-2" to="²" longPress="₂" />
-		<key id="amp" to="&amp;" /> <!-- 1 -->
+		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+
+		<!-- switch keys -->
+		<key id="shift" switch="shift" />
+		<key id="numeric" switch="numeric" />
+		<key id="symbol" switch="symbol" />
+		<key id="base" switch="base" />
+
+
+		<key id="bksp" gap="true" /> <!-- TODO -->
+		<key id="extra" gap="true" /> <!-- TODO -->
+		<key id="enter" to="\u{000A}" /> <!-- TODO - implied key? -->
+		<key id="bullet" to="•" />
+
+		<!-- extra keys -->
+		<key id="u-grave" to="ü" />
 		<key id="e-grave" to="é" /> <!-- 2 -->
-		<key id="quote" to="\u{22}" /> <!-- 3 to= " -->
-		<key id="apos" to="&apos;" /> <!-- 4 -->
-		<key id="open-paren" to="(" /> <!-- 5 -->
-		<key id="hyphen" to="-" /> <!-- 6 -->
 		<key id="e-acute" to="è" /> <!-- 7 -->
-		<key id="underscore" to="_" /> <!-- 8 -->
 		<key id="c-cedilla" to="ç" /> <!-- 9 -->
 		<key id="a-acute" to="à" /> <!-- 0 -->
-		<key id="close-paren" to=")" /> <!-- - -->
-		<key id="equal" to="=" />
+
+		<key id="umlaut" to="¨" />
+		<key id="super-2" to="²" longPress="₂" />
+		<key id="hyphen" to="-" /> <!-- 6 -->
+		<key id="underscore" to="_" /> <!-- 8 -->
 		<key id="umlaut" to="¨" />
 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
 		<flicks id="a">
@@ -88,10 +101,10 @@
 	<layers form="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
 		<layer modifier="none">
-			<row keys="super-2 amp e-grave quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
 			<row keys="q s d f g h j k l m u-grave asterisk" />
-			<row keys="less-than w x c v b n comma semi-colon colon exclamation" />
+			<row keys="open-angle w x c v b n comma semi-colon colon bang" />
 			<row keys="space" />
 		</layer>
 
@@ -99,7 +112,7 @@
 			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
 			<row keys="A Z E R T Y U I O P umlaut pound" />
 			<row keys="Q S D F G H J K L M percent micro" />
-			<row keys="greater-than W X C V B N question-mark period slash section" />
+			<row keys="close-angle W X C V B N question period slash section" />
 			<row keys="space" />
 		</layer>
 	</layers>
@@ -109,28 +122,28 @@
 		<layer id="base">
 			<row keys="a z e r t y u i o p" />
 			<row keys="q s d f g h j k l m" />
-			<row keys="shift gap w x c v b n gap bksp" />
-			<row keys="numeric extra space enter" /> <!-- The default "space" definition includes `stretch="true"` -->
+			<row keys="shift gap w x c v b n gap" /> <!--TODO:  + bksp -->
+			<row keys="numeric extra space enter" />
 		</layer>
 
 		<layer id="shift">
 			<row keys="A Z E R T Y U I O P" />
 			<row keys="Q S D F G H J K L M" />
-			<row keys="base W X C V B N bksp" />
+			<row keys="base W X C V B N" />  <!--TODO:  + bksp -->
 			<row keys="numeric extra space enter" />
 		</layer>
 
 		<layer id="numeric">
 			<row keys="1 2 3 4 5 6 7 8 9 0" />
-			<row keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at quote" />
-			<row keys="symbol period comma question exclamation quote bksp" />
+			<row keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
+			<row keys="symbol period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
 		</layer>
 
 		<layer id="symbol">
-			<row keys="open-bracket close-bracket open-brace close-brace hash percent caret star plus equal" />
-			<row keys="underscore backslash pipe tilde less-than greater-than euro pound yen bullet" />
-			<row keys="numeric period comma question exclamation quote bksp" />
+			<row keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
+			<row keys="underscore backslash pipe tilde open-angle close-angle euro pound yen bullet" />
+			<row keys="numeric period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
 		</layer>
 	</layers>

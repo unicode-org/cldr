@@ -50,8 +50,8 @@ class LdmlConvertRulesTest {
                 for(final Entry<Attribute, Integer> q : element.getAttributes().entrySet()) {
                     Attribute attr = q.getKey();
                     if(attr.matchValue != null && attr.matchValue instanceof MatchValue.SetMatchValue) {
-                        boolean isSpacesepArray = LdmlConvertRules.CHILD_VALUE_IS_SPACESEP_ARRAY.contains(element.name);
-                        boolean childIsSpacesepArray = LdmlConvertRules.VALUE_IS_SPACESEP_ARRAY.matcher(element.name).matches();
+                        boolean childIsSpacesepArray = LdmlConvertRules.CHILD_VALUE_IS_SPACESEP_ARRAY.contains(element.name); // TODO this needs to be the *parent* name.
+                        boolean isSpacesepArray = LdmlConvertRules.VALUE_IS_SPACESEP_ARRAY.matcher(element.name).matches();
                         boolean attrValueIsArraySet = LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(attr.name);
 
                         if(isSpacesepArray ||
@@ -65,14 +65,11 @@ class LdmlConvertRulesTest {
             }
         }
 
-
         // ** Add some exceptions
 
-        // Handled manually
+        // Handled in exceptional code
         jsonSplittableAttrs.add(Pair.of("defaultContent", "locales"));
         jsonSplittableAttrs.add(Pair.of("era", "aliases"));
-
-        // handled as calendarPreferenceData
         jsonSplittableAttrs.add(Pair.of("calendarPreference", "ordering"));
 
         // These aren't a set, in practice.
@@ -89,29 +86,11 @@ class LdmlConvertRulesTest {
         //Keep these as not-a-set for compatibility
         jsonSplittableAttrs.add(Pair.of("paradigmLocales", "locales"));
 
-        // TODO Temporary skip while in development CLDR-15384
-        dtdSplittableAttrs.remove(Pair.of("nameOrderLocales", "order"));
-        dtdSplittableAttrs.remove(Pair.of("initialPattern", "type"));
-        dtdSplittableAttrs.remove(Pair.of("personName", "formality"));
-        dtdSplittableAttrs.remove(Pair.of("personName", "length"));
-        dtdSplittableAttrs.remove(Pair.of("personName", "order"));
-        dtdSplittableAttrs.remove(Pair.of("personName", "usage"));
-        dtdSplittableAttrs.remove(Pair.of("sampleName", "item"));
-
-        // TODO Temporary skip while in development CLDR-14421
-        dtdSplittableAttrs.remove(Pair.of("unitIdComponent", "values"));
-
-
+        // Calculate the differences
         SetView<Pair<String, String>> onlyInDtd = Sets.difference(dtdSplittableAttrs, jsonSplittableAttrs);
 
-
-//        SetView<Pair<String, String>> onlyInJson = Sets.difference(jsonSplittableAttrs, dtdSplittableAttrs);
-//        if(!onlyInJson.isEmpty()) {
-//            System.err.println("Only in JSON, missing from DTD (!): " + onlyInJson); // just noise
-//        }
-
-        assertEquals(Collections.emptySet(), onlyInDtd, "set items missing from JSON configuration");
-
+        assertEquals(Collections.emptySet(), onlyInDtd, "set items missing from JSON configuration. To fix:" +
+            " Add to CHILD_VALUE_IS_SPACESEP_ARRAY, VALUE_IS_SPACESEP_ARRAY, or ATTRVALUE_AS_ARRAY_SET?");
     }
 
 }

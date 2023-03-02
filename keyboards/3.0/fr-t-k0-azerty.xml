@@ -5,6 +5,8 @@
     This is a sample data file.
     This file is subject to change.
     Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
+
+	Also NOTE: this is really a test keyboard.  CLDR-12026 will be for the real new azerty keyboard
 -->
 <keyboard locale="fr-t-k0-azerty" conformsTo="techpreview">
 	<locales>
@@ -16,9 +18,10 @@
 	<version number="1.0.0" />
 	<info author="Team Keyboard" normalization="NFC" layout="AZERTY" indicator="FR" />
 	<names>
-		<name value="French" />
-		<name value="French AZERTY" />
+		<name value="French Test" />
+		<name value="French Test AZERTY" />
 	</names>
+
 	<settings fallback="omit" transformPartial="hide" /> <!-- "hide" makes this act like a dead keyTBD -->
 
 	<vkeys>
@@ -61,11 +64,12 @@
 		<key id="symbol" switch="symbol" />
 		<key id="base" switch="base" />
 
-
-		<key id="bksp" gap="true" /> <!-- TODO -->
-		<key id="extra" gap="true" /> <!-- TODO -->
-		<key id="enter" to="\u{000A}" /> <!-- TODO - implied key? -->
-		<key id="bullet" to="•" />
+		<!--
+			TODO: need discussion
+		<key id="bksp" gap="true" />
+		<key id="extra" gap="true" />
+		<key id="enter" to="\u{000A}" />
+		-->
 
 		<!-- extra keys -->
 		<key id="u-grave" to="ü" />
@@ -74,26 +78,29 @@
 		<key id="c-cedilla" to="ç" /> <!-- 9 -->
 		<key id="a-acute" to="à" /> <!-- 0 -->
 
+		<!-- extra symbols -->
+		<key id="bullet" to="•" />
 		<key id="umlaut" to="¨" />
 		<key id="super-2" to="²" longPress="₂" />
-		<key id="hyphen" to="-" /> <!-- 6 -->
-		<key id="underscore" to="_" /> <!-- 8 -->
-		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
+
+		<!-- test key -->
+ 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
 		<flicks id="a">
 			<flick directions="nw" to="\u1234" />
 			<flick directions="nw se" to="\uFFFF" />
 			<flick directions="e" to="\uFFF0" />
 		</flicks>
 
+		<!-- test key -->
 		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā" />
 
+		<!-- test flick -->
 		<flicks id="b">
 			<flick directions="nw" to="\u4567" />
 			<flick directions="nw se" to="\uFFFF" />
 			<flick directions="e" to="\uFFF0" />
 		</flicks>
 
-		<key id="gap" gap="true" width="1.0" />
 		<!-- TODO: all additional maps, hardware and touch -->
 	</keys>
 

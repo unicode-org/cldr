@@ -44,8 +44,11 @@
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
+  <!-- @MATCH:any -->
   <!-- @VALUE -->
+  <!-- @MATCH:any -->
   <!-- @METADATA -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <xs:element name="repertoire">
     <xs:complexType>
       <xs:attribute name="chars" use="required"/>
@@ -69,6 +72,7 @@
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @VALUE -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <xs:element name="tests">
     <xs:complexType>
       <xs:sequence>
@@ -79,6 +83,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <xs:element name="test">
     <xs:complexType>
       <xs:sequence>
@@ -95,6 +100,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <xs:element name="startContext">
     <xs:complexType>
       <xs:attribute name="to" use="required"/>

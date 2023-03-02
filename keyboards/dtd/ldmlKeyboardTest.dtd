@@ -22,10 +22,13 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT info EMPTY >
     <!--@TECHPREVIEW-->
 <!ATTLIST info keyboard CDATA #REQUIRED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST info author CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@METADATA-->
 <!ATTLIST info name NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT repertoire EMPTY >
     <!--@TECHPREVIEW-->
@@ -35,14 +38,17 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST repertoire type (default | simple | gesture | flick | longPress | multiTap | hardware) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST repertoire name NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT tests ( test+, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST tests name NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT test ( startContext?, ( keystroke | emit | backspace | check )*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST test name NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT startContext EMPTY >
     <!--@TECHPREVIEW-->

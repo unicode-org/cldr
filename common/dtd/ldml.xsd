@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright © 1991-2022 Unicode, Inc.
+  Copyright © 1991-2023 Unicode, Inc.
   For terms of use, see http://www.unicode.org/copyright.html
   SPDX-License-Identifier: Unicode-DFS-2016
   CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -124,10 +124,10 @@
   <xs:element name="version">
     <xs:complexType>
       <xs:attribute name="number" use="required"/>
-      <xs:attribute name="cldrVersion" default="42">
+      <xs:attribute name="cldrVersion" default="43">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="42"/>
+            <xs:enumeration value="43"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -197,6 +197,7 @@
   <!-- @MATCH:literal/long, secondary, short, variant, menu -->
   <!-- @METADATA -->
   <!-- @DEPRECATED:true, false -->
+  <!-- @MATCH:any -->
   <!-- @METADATA -->
   <xs:element name="script">
     <xs:complexType mixed="true">
@@ -1223,6 +1224,7 @@
   <!-- @METADATA -->
   <!-- @METADATA -->
   <!-- @DEPRECATED -->
+  <!-- @MATCH:any -->
   <!-- @METADATA -->
   <!-- @VALUE -->
   <!-- @DEPRECATED -->
@@ -3707,7 +3709,7 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:literal/1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, approximately, atLeast, atMost, range, standard -->
+  <!-- @MATCH:literal/1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000, 10000000000000000, 100000000000000000, 1000000000000000000, 10000000000000000000, approximately, atLeast, atMost, range, standard -->
   <!-- TODO: generalize this to be any (M=|d=)?<numberSystem> -->
   <!-- @MATCH:literal/M=romanlow, d=hanidays, hanidec, hebr, y=jpanyear -->
   <!-- @VALUE -->
@@ -4210,7 +4212,7 @@
     </xs:complexType>
   </xs:element>
   <!-- TODO: check to see if this should be minimized -->
-  <!-- @MATCH:literal/Bh, Bhm, Gy, GyM, GyMEd, GyMMM, GyMMMEd, GyMMMd, GyMd, H, Hm, Hmv, Hv, M, MEd, MMM, MMMEEEEd, MMMEd, MMMM, MMMMEd, MMMMd, MMMd, Md, d, h, hm, hmv, hv, y, yM, yMEd, yMMM, yMMMEEEEd, yMMMEd, yMMMM, yMMMMEEEEd, yMMMMEd, yMMMMd, yMMMd, yMd, GGGGGyM, GGGGGyMEd, GGGGGyMd, GyMMMM, GyMMMMEd, GyMMMMd -->
+  <!-- @MATCH:literal/Bh, Bhm, Gy, GyM, GyMEd, GyMMM, GyMMMEd, GyMMMd, GyMd, H, Hm, Hmv, Hmvvvv, Hv, Hvvvv, M, MEd, MMM, MMMEEEEd, MMMEd, MMMM, MMMMEd, MMMMd, MMMd, Md, d, h, hm, hmv, hmvvvv, hv, hvvvv, y, yM, yMEd, yMMM, yMMMEEEEd, yMMMEd, yMMMM, yMMMMEEEEd, yMMMMEd, yMMMMd, yMMMd, yMd, GGGGGyM, GGGGGyMEd, GGGGGyMd, GyMMMM, GyMMMMEd, GyMMMMd -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @DEPRECATED -->
@@ -7346,8 +7348,9 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:literal/variant -->
+  <!-- @MATCH:literal/variant, proposed, short -->
   <!-- @METADATA -->
+  <!-- @MATCH:any -->
   <!-- @METADATA -->
   <!-- # Use the cr element instead, with ICU syntax. -->
   <xs:element name="rules">
@@ -8134,7 +8137,7 @@
   <!-- @ORDERED -->
   <!-- @MATCH:or/range/-1.0E20~1.0E20||literal/-x, 0, 0.x, NaN, -Inf, Inf, x,x, x.x -->
   <!-- @VALUE -->
-  <!-- @MATCH:literal/1,000, 100, 1000, 100000, 20 -->
+  <!-- @MATCH:literal/1,000, 100, 1000, 100000, 5, 20, 400, 8000, 160,000, 3,200,000, 64,000,000 -->
   <!-- @VALUE -->
   <!-- @VALUE -->
   <!-- @MATCH:literal/variant -->
@@ -8260,6 +8263,7 @@
       </xs:choice>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="nameOrderLocales">
     <xs:complexType mixed="true">
       <xs:attribute name="order" use="required">
@@ -8284,6 +8288,7 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->
@@ -8304,7 +8309,8 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @VALUE -->
+  <!-- @TECHPREVIEW -->
+  <!-- @METADATA -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->
@@ -8332,6 +8338,7 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->
@@ -8350,10 +8357,11 @@
       <xs:attribute name="formality" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:set/literal/givenFirst, surnameFirst, sorting -->
-  <!-- @MATCH:set/literal/long, medium, short -->
-  <!-- @MATCH:set/literal/referring, addressing, monogram -->
-  <!-- @MATCH:set/literal/formal, informal -->
+  <!-- @TECHPREVIEW -->
+  <!-- @MATCH:literal/givenFirst, surnameFirst, sorting -->
+  <!-- @MATCH:literal/long, medium, short -->
+  <!-- @MATCH:literal/referring, addressing, monogram -->
+  <!-- @MATCH:literal/formal, informal -->
   <xs:element name="namePattern">
     <xs:complexType mixed="true">
       <xs:attribute name="alt">
@@ -8377,6 +8385,7 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @METADATA -->
   <!-- @METADATA -->
   <xs:element name="sampleName">
@@ -8391,7 +8400,8 @@
       <xs:attribute name="item" use="required" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:literal/givenOnly, givenSurnameOnly, given12Surname, full -->
+  <!-- @TECHPREVIEW -->
+  <!-- @MATCH:literal/nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull -->
   <xs:element name="nameField">
     <xs:complexType mixed="true">
       <xs:attribute name="type" use="required"/>
@@ -8409,7 +8419,8 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:literal/prefix, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, suffix -->
+  <!-- @TECHPREVIEW -->
+  <!-- @MATCH:literal/title, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, generation, credentials -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->

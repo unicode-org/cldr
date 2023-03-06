@@ -21,8 +21,7 @@
 		<name value="French Test" />
 		<name value="French Test AZERTY" />
 	</names>
-
-	<settings fallback="omit" transformPartial="hide" /> <!-- "hide" makes this act like a dead keyTBD -->
+	<settings fallback="omit" />
 
 	<vkeys>
 		<vkey from="Q" to="A" />
@@ -155,46 +154,61 @@
 	</layers>
 
 	<transforms type="simple">
-		<transform from="` " to="`" />
-		<transform from="`a" to="à" />
-		<transform from="`A" to="À" />
-		<transform from="`e" to="è" />
-		<transform from="`E" to="È" />
-		<transform from="`i" to="ì" />
-		<transform from="`I" to="Ì" />
-		<transform from="`o" to="ò" />
-		<transform from="`O" to="Ò" />
-		<transform from="`u" to="ù" />
-		<transform from="`U" to="Ù" />
-		<transform from="^ " to="^" />
-		<transform from="^a" to="â" />
-		<transform from="^A" to=" " />
-		<transform from="^e" to="ê" />
-		<transform from="^E" to="Ê" />
-		<transform from="^i" to="î" />
-		<transform from="^I" to="Î" />
-		<transform from="^o" to="ô" />
-		<transform from="^O" to="Ô" />
-		<transform from="^u" to="û" />
-		<transform from="^U" to="Û" />
-		<transform from="¨ " to="¨" />
-		<transform from="¨a" to="ä" />
-		<transform from="¨A" to="Ä" />
-		<transform from="¨e" to="ë" />
-		<transform from="¨E" to="Ë" />
-		<transform from="¨i" to="ï" />
-		<transform from="¨I" to="Ï" />
-		<transform from="¨o" to="ö" />
-		<transform from="¨O" to="Ö" />
-		<transform from="¨u" to="ü" />
-		<transform from="¨U" to="Ü" />
-		<transform from="¨y" to="ÿ" />
-		<transform from="~ " to="~" />
-		<transform from="~a" to="ã" />
-		<transform from="~A" to="Ã" />
-		<transform from="~n" to="ñ" />
-		<transform from="~N" to="Ñ" />
-		<transform from="~o" to="õ" />
-		<transform from="~O" to="Õ" />
+		<transformGroup>
+			<!-- transformGroup that has one or more import statements -->
+			<import path="./path/to/some/transforms.xml" />
+		</transformGroup>
+		<transformGroup>
+			<!-- transformGroup that has transform items -->
+			<transform from="` " to="`" />
+			<transform from="`a" to="à" />
+			<transform from="`A" to="À" />
+			<transform from="`e" to="è" />
+			<transform from="`E" to="È" />
+			<transform from="`i" to="ì" />
+			<transform from="`I" to="Ì" />
+			<transform from="`o" to="ò" />
+			<transform from="`O" to="Ò" />
+			<transform from="`u" to="ù" />
+			<transform from="`U" to="Ù" />
+			<transform from="^ " to="^" />
+			<transform from="^a" to="â" />
+			<transform from="^A" to=" " />
+			<transform from="^e" to="ê" />
+			<transform from="^E" to="Ê" />
+			<transform from="^i" to="î" />
+			<transform from="^I" to="Î" />
+			<transform from="^o" to="ô" />
+			<transform from="^O" to="Ô" />
+			<transform from="^u" to="û" />
+			<transform from="^U" to="Û" />
+			<transform from="¨ " to="¨" />
+			<transform from="¨a" to="ä" />
+			<transform from="¨A" to="Ä" />
+			<transform from="¨e" to="ë" />
+			<transform from="¨E" to="Ë" />
+			<transform from="¨i" to="ï" />
+			<transform from="¨I" to="Ï" />
+			<transform from="¨o" to="ö" />
+			<transform from="¨O" to="Ö" />
+			<transform from="¨u" to="ü" />
+			<transform from="¨U" to="Ü" />
+			<transform from="¨y" to="ÿ" />
+			<transform from="~ " to="~" />
+			<transform from="~a" to="ã" />
+			<transform from="~A" to="Ã" />
+			<transform from="~n" to="ñ" />
+			<transform from="~N" to="Ñ" />
+			<transform from="~o" to="õ" />
+			<transform from="~O" to="Õ" />
+		</transformGroup>
+		<transformGroup>
+			<!-- this is a reorder group -->
+			<!-- nod-Lana partial example -->
+			<reorder from="\u1A60" order="127" />
+			<reorder from="\u1A6B" order="42" />
+			<reorder from="[\u1A75-\u1A79]" order="55" />
+			<!-- ... partial example ... -->
+		</transformGroup>
 	</transforms>
 </keyboard>

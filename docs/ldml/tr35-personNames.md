@@ -475,7 +475,7 @@ Examples:
 
 ## 6 <a name="formatting-process" href="#formatting-process">Formatting Process</a>
 
-The patterns are in personName elements, which are themselves in a personNames container element. The following describes how these patterns are chosen. If the name locale is different than the formatting locale, then additional processing needs to take place: see [Handling foreign names](#handling-foreign-names).
+The patterns are in personName elements, which are themselves in a personNames container element. The following describes how the the formatter's locale interacts with the personName's locale, how the name patterns are chosen, and how they are processed.
 
 The details of the XML structure behind the data referenced here are in [XML Structure](#xml-structure).
 
@@ -492,16 +492,14 @@ Create a **full name locale** as follows.
     2. The predominant script is the script with the highest counter value.
         1. In the rare case that there are multiple counters with the highest counter value, take the one with the lowest first position.
         2. In the even rarer case that there is still more than one, use the script whose script code is alphabetically lowest. (These two steps are simply to guarantee a determinant result.)
-    3. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be the full formatting locale.
+    3. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be identical to the full formatting locale.
     4. Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.
-
-In all steps below, the "name locale" is the full name locale.
 
 ### 6.2 <a name="derive-the-formatting-locale" href="#derive-the-formatting-locale">Derive the formatting locale</a>
 
-If the full name locale is different from the full formatting locale, and the predominant script of the name is different from the script of the formatting locale, then let the full formatting locale be the full name locale.
+If the full name locale has a different script than that of the full formatting locale, then the name formatted with a different formatter than originally requested. For example, when a Hindi formatter is called upon to format a name with the Ukrainian (Cyrillic) locale, under the covers a Ukrainian (Cyrillic) formatter should be instantiated to format that name.
 
-In all steps below, the "formatting locale" is the full formatting locale.
+So in all of the processing below the "name locale" is the full name locale, and the "formatting locale" is the full formatting locale, one that is fully-fleshed out using likely subtags. Moreover the name locale has the same script as the formatting locale.
 
 ### 6.3 <a name="derive-the-name-order" href="#derive-the-name-order">Derive the name order</a>
 
@@ -607,7 +605,7 @@ For example:
 3. Pattern C is discarded, because it has the least number of populated name fields.
 4. Out of the remaining patterns A and B, pattern B wins, because it has only 3 unpopulated fields compared to pattern A.
 
-#### 6.5.1 <a name="process-the-namepattern" href="#process-the-namepattern">Choose a namePattern</a>
+#### 6.5.2 <a name="process-the-namepattern" href="#process-the-namepattern">Process a namePattern</a>
 
 If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we process the pattern algorithmically with the following steps:
 
@@ -745,6 +743,7 @@ The output is:
 > F. Baz
 
 ### 6.7 <a name="deriving-initials" href="#deriving-initials">Deriving initials</a>
+<!-- TBD, this should be reordered ahead of the examples. -->
 
 The following process is used to produce initials when they are not supplied by the PersonName object. Assuming the input example is “Mary Beth”:
 
@@ -763,29 +762,33 @@ There are two main challenges in dealing with foreign name formatting that needs
 
 Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
 
-Those locales are determined using the Script Metadata as follows.
-1. Get the likely script of the formatting locale, using LikelySubtags
-2. If the likely script is Thai, it needs spaces.
-3. Otherwise, if the likely script is Jpan, Hant, or Hans, it doesn't need spaces
-4. Otherwise, if the likely script has the script metadata property lbLetters = YES, it doesn't need spaces
-5. Otherwise, it needs spaces
-
-Then:
-
-1. If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
+If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
 
 * “​​[Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao](https://en.wikipedia.org/wiki/Hayao_Miyazaki)…” or 
 * “[미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao](https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4)…”. 
 
-2. If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein.
+If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein. When the locale is foreign, the **foreignSpaceReplacement** is substituted for each space in the formatted name. When the name locale is native, a **nativeSpaceReplacement** is substituted for each space in the formatted name. The precise algorithm is given below.
 
-    1. **The name is native** In that case, the patterns are used as is.
-    2. **The name is foreign** In that case, the **foreignSpaceReplacement** is substituted for each space formatted name. Here are examples for Albert Einstein in Japanese and Chinese:
+Here are examples for Albert Einstein in Japanese and Chinese:
         * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3) 
         * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6) 
 
+#### 6.8.1 Setting the spaceReplacement
 
-In both cases, the ordering may be changed according to the **Name Order for Locales** settings that each locale provides. If the PersonName object does not supply a locale for a name, then a default locale will be derived based on other information (such as the script of the characters in the name fields).
+1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is " ".
+
+2. The nativeSpaceReplacement is determined by the following algorithm, chosing between " " and "".
+
+1. Get the script of the formatting locale
+2. If the likely script is Thai, let nativeSpaceReplacement = " "
+3. Otherwise let nativeSpaceReplacement = "" if either of the following applies:
+    1. The script is Jpan, Hant, or Hans
+    2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
+5. Otherwise, let nativeSpaceReplacement = ""
+
+3. If the language subtag of the formatter's locale equals the language subtag of the name's locale, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
+4. Replace all sequences of space in the resolved pattern string by the spaceReplacement. 
+
 
 Remember that **a name in a different script** will use a different locale for formatting. 
 For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein) 
@@ -801,6 +804,8 @@ To illustrate how foreign space replacement works, consider the following name d
 | `ja_Jpan_JP`  | 駿       | 宮崎           |
 
 Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:
+
+**TBD Review out these examples to see if they need updating**
 
 **`ja_JP` formatting patterns**
 

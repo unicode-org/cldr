@@ -60,7 +60,7 @@ public class CheckLdmlDtdReferences {
         try (Stream<Path> stream = Files.list(Paths.get(CLDRPaths.BASE_DIRECTORY+"docs","ldml"))) {
             stream.forEach(x -> {
                 try {
-                    if (!Files.isDirectory(x)) {
+                    if (Files.isReadable(x) && x.endsWith(".md") && x.startsWith("tr35") ) {
                         process(x);
                     }
                 } catch (IOException e) {

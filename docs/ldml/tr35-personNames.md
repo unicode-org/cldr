@@ -49,18 +49,18 @@ The LDML specification is divided into the following parts:
   * 1.3 [Person Name Formatting Overview](#PersonNameFormattingOverview)
   * 1.4 [Example Usage](#ExampleUsage)
 * 2 [XML Structure](#2-xml-structure)
-  * 2.1 [personNames Element](#2-1-personnames-element)
-  * 2.2 [personName Element](#2-2-personname-element)
-  * 2.3 [nameOrderLocales Element](#2-3-nameorderlocales-element)
-  * 2.4 [foreignSpaceReplacement Element](#2-4-foreignspacereplacement-element)
-  * 2.5 [initialPattern Element](#2-5-initialpattern-element)
+  * 2.1 [personNames Element](#personnames-element)
+  * 2.2 [personName Element](#personname-element)
+  * 2.3 [nameOrderLocales Element](#nameorderlocales-element)
+  * 2.4 [foreignSpaceReplacement Element](#foreignspacereplacement-element)
+  * 2.5 [initialPattern Element](#initialpattern-element)
     * 2.5.1 [Syntax](#syntax)
-* 3 [Person Name Object](#3-person-name-object)
+* 3 [Person Name Object](#person-name-object)
 * 4 [Person Name Attributes](#4-person-name-attributes)
   * 4.1 [order](#4-1-order)
   * 4.2 [length](#4-2-length)
   * 4.3 [usage](#4-3-usage)
-  * 4.4 [formality](#4-4-formality)
+  * 4.4 [formality](#formality)
 * 5 [namePattern Syntax](#5-namepattern-syntax)
   * 5.1 [Fields](#5-1-fields)
   * 5.2 [Modifiers](#5-2-modifiers)
@@ -78,7 +78,7 @@ The LDML specification is divided into the following parts:
 * 7 [Sample Name](#7-sample-name)
   * 7.1 [Syntax](#7-1-syntax)
   * 7.2 [Expected values](#7-2-expected-values)
-* 8 [PersonName Data Interface Examples](#8-personname-data-interface-examples)
+* 8 [PersonName Data Interface Examples](#personname-data-interface-examples)
 
 ## 1 <a name="CLDRPersonNames" href="#CLDRPersonNames">CLDR Person Names</a>
 
@@ -136,7 +136,7 @@ Logically, the model used for applying the CLDR data is the following:
 
 Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.
 
-The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [[Person Name Object](#3-person-name-object)]. 
+The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [[Person Name Object](#person-name-object)]. 
 
 The following summarizes the name data supplied via the PersonName Data Interface:
 
@@ -189,7 +189,7 @@ Sections below specify the precise manner in which a pattern is selected, and ho
 
 Person name formatting data is stored as LDML with schema defined as follows.
 
-### 2.1 <a name="2-1-personnames-element" href="#2-1-personnames-element">personNames Element</a>
+### 2.1 <a name="personnames-element" href="#personnames-element">personNames Element</a>
 
 ```xml
 <!ELEMENT personNames ( nameOrderLocales*, foreignSpaceReplacement?, initialPattern*, personName+, sampleName* ) >
@@ -197,7 +197,7 @@ Person name formatting data is stored as LDML with schema defined as follows.
 
 The LDML top-level `<personNames>` element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.
 
-### 2.2 <a name="2-2-personname-element" href="#2-2-personname-element">personName Element</a>
+### 2.2 <a name="personname-element" href="#personname-element">personName Element</a>
 
 The `<personName>` element contains the format patterns, or `<namePattern>` elements, for a specific context and is described in [[namePattern Syntax](#5-namepattern-syntax)]
 
@@ -247,7 +247,7 @@ A `namePattern` contains a list of PersonName fields enclosed in curly braces, s
 
 which produces output like _“Smith, Robert James”_. See [[namePattern Syntax](#5-namepattern-syntax)] for more details.
 
-### 2.3 <a name="2-3-nameorderlocales-element" href="#2-3-nameorderlocales-element">nameOrderLocales Element</a>
+### 2.3 <a name="nameorderlocales-element" href="#nameorderlocales-element">nameOrderLocales Element</a>
 
 The `<nameOrderLocales>` element is optional, and contains information about selecting patterns based on the locale of a passed in PersonName object to determine the order of elements in a formatted name. For more information see [[NameOrder](#6-3-derive-the-name-order)]. It has a structure as follows:
 
@@ -265,7 +265,7 @@ An example from English may look like the following
 
 This would tell the formatting code, when handling person name data from an English locale, to use patterns with the `givenFirst` order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the `surnameFirst` patterns should be used.
 
-### 2.4 <a name="2-4-foreignspacereplacement-element" href="#2-4-foreignspacereplacement-element">foreignSpaceReplacement Element</a>
+### 2.4 <a name="foreignspacereplacement-element" href="#foreignspacereplacement-element">foreignSpaceReplacement Element</a>
 
 The `<foreignSpaceReplacement>` element is used to specify how delimiters should appear between name parts when the name data (name locale) is different from the requested locale (formatting locale)., but they both use the same script.
 
@@ -277,7 +277,7 @@ The `<foreignSpaceReplacement>` element is used to specify how delimiters should
 * `xml:space` must be set to `'preserve'` so that actual spaces in the pattern are preserved. See [W3C XML White Space Handling](https://www.w3.org/TR/xml/#sec-white-space).
 * The `#PCDATA `is the character sequence used to replace spaces between fields for name data from a name locale that is different from the formatting locale, but are in the same script.
 
-### 2.5 <a name="2-5-initialpattern-element" href="#2-5-initialpattern-element">initialPattern Element</a>
+### 2.5 <a name="initialpattern-element" href="#initialpattern-element">initialPattern Element</a>
 
 The `<initialPattern>` element is used to specify how to format initials of name parts.
 
@@ -298,7 +298,7 @@ The `type="initial"` is used to specify the pattern for how single initials are 
 
 > `<initialPattern type="initialSequence">{0} {1}</initialPattern>`
 
-## 3 <a name="3-person-name-object" href="#3-person-name-object">Person Name Object</a>
+## 3 <a name="person-name-object" href="#person-name-object">Person Name Object</a>
 
 The information that is to be formatted logically consists of a data object containing a number of fields. This data object is a construct for the purpose of formatting, and doesn’t represent the source of the name data. That is, the original source may contain more information. The PersonName object is merely a logical ‘transport’ of information to formatting; it may in actuality consist of, for example, an API that fetches fields from a database.
 
@@ -389,7 +389,7 @@ The `monogram` usage is for very short abbreviated names, such as might be found
 
 When used with `length`, for many alphabetic locales a `monogram` would resolve to one, two, or three characters for short, medium, and long respectively. But that may vary depending on the usage in a locale.
 
-### 4.4 <a name="4-4-formality" href="#4-4-formality">formality</a>
+### 4.4 <a name="formality" href="#formality">formality</a>
 
 The `formality` indicates the formality of usage. A name on a badge for an informal gathering may be much different from an award announcement at the Nobel Prize Ceremonies.
 
@@ -589,7 +589,9 @@ To match a personName, all four attributes in the personName must match (a missi
 
 To find the matching personName element, traverse all the personNames in order until the first one is found. This will always terminate since the data is well-formed in CLDR.
 
-### 6.5 <a name="6-5-choose-a-namepattern" href="#6-5-choose-a-namepattern">Choose a namePattern</a>
+### 6.5 <a name="choose-and-process-namepattern" href="#choose-and-process-namepattern">Choose and process a namePattern</a>
+
+#### 6.5.1 <a name="6-5-choose-a-namepattern" href="#6-5-choose-a-namepattern">Choose a namePattern</a>
 
 To format a name, the fields in a namePattern are replaced with fields fetched from the PersonName Data Interface. The personName element can contain multiple namePattern elements. Choose one based on the fields in the input PersonName object that are populated: 
 1. Find the set of patterns with the most populated fields.
@@ -605,11 +607,19 @@ For example:
 3. Pattern C is discarded, because it has the least number of populated name fields.
 4. Out of the remaining patterns A and B, pattern B wins, because it has only 3 unpopulated fields compared to pattern A.
 
-If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we alter the pattern algorithmically as follows:
+#### 6.5.1 <a name="process-the-namepattern" href="#process-the-namepattern">Choose a namePattern</a>
 
-1. If one or more fields at the start of the pattern are empty, all fields, whitespace, and literal text before the **first** populated field are deleted.
-2. If one or more fields at the end of the pattern are empty, all fields, whitespace, and literal text after the **last** populated field are deleted.
-3. For each empty field in the middle of the pattern (going from left to right), that field and all literal text between it and the nearest whitespace or field on both sides is deleted. If this results in two whitespace characters next to each other, they are coalesced into one.
+If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we process the pattern algorithmically with the following steps:
+
+1. If one or more fields at the start of the pattern are empty, all fields and literal text before the **first** populated field are omitted.
+2. If one or more fields at the end of the pattern are empty, all fields and literal text after the **last** populated field are omitted.
+3. Processing from the start of the remaining pattern:
+  1. If there are two or more empty fields separated only by literals, the fields and the literals between them are removed.
+  2. If there is a single empty field, it is removed.
+4. If the processing from step 3 results in two adjacent literals (call them A and B), they are coalesced into one literal as follows:
+  1. If either is empty the result is the other one.
+  3. If B matches the end of A, then the result is A. So xyz + yz ⇒ xyz, and xyz + xyz ⇒ xyz.
+  4. Otherwise the result is A + B, but with any sequence of two or more white space characters replaced by the first whitespace character. 
 
 ### 6.6 <a name="6-6-examples-of-choosing-a-namepattern" href="#6-6-examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a>
 
@@ -749,11 +759,9 @@ See the “initial” modifier in the [Modifiers](#5-2-modifiers) section for mo
 
 ### 6.8 <a name="6-8-handling-foreign-names" href="#6-8-handling-foreign-names">Handling foreign names</a>
 
-There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section [[2.3 nameOrderLocales Element](#2-3-nameorderlocales-element)]. The other is spacing.
+There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section [[2.3 nameOrderLocales Element](#nameorderlocales-element)]. The other is spacing.
 
-Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: 
-
-> [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
+Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
 
 1. If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
 
@@ -765,15 +773,12 @@ Some writing systems require spaces (or some other non-letters) to separate word
     1. **The foreign name is written in the formatting locale’s script.** In that case, the **foreignSpaceReplacement** is substituted for each space in the patterns from the _locale of the name_. Here are examples for Albert Einstein in Japanese and Chinese:
         * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3) 
         * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6) 
-    2. **The foreign name is written in a different script.** In that case, the patterns from the **locale of the name** are used as is.
+    2. **The foreign name is written in a different script.** In that case, the patterns from the **locale of the name** are used as is. More precisely, a different locale's data is used to format the name.
         * [Albert Einstein](https://de.wikipedia.org/wiki/Albert_Einstein) 
 
 In both cases, the ordering may be changed according to the **Name Order for Locales** settings that each locale provides. If the PersonName object does not supply a locale for a name, then a default locale will be derived based on other information (such as the script of the characters in the name fields).
 
-> **Note** In the tech preview, the structure isn't yet powerful enough to handle cases with `foreignSpaceReplacement` where the formatting locale doesn’t need spaces between words, but the name locale has the same ordering as the formatting locale. 
-> For example, consider where the formatting locale is Thai, and the name is in English, but transliterated into Thai.
-
-To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see Likely Subtags [TBD add link].
+To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 
 | name locale   | given    | surname       |
 | ------------- | -------- | ------------- |
@@ -952,9 +957,9 @@ For the expected sample name items, assume a name such as Mr. Richard “Rich”
 * `given12Surname` is for an example using all given names and a surname: “Richard Edward Smith” and “Rich E. Smith” (informal)
 * `full` is used to present a name using all fields: “Mr. Richard Edward Smith Iglesias, Ph.D.”
 
-The `nameField` values and their modifiers are described in the [Person Name Object](#3-person-name-object) and [namePattern Syntax](#5-namepattern-syntax) sections.
+The `nameField` values and their modifiers are described in the [Person Name Object](#person-name-object) and [namePattern Syntax](#5-namepattern-syntax) sections.
 
-## 8 <a name="8-personname-data-interface-examples" href="#8-personname-data-interface-examples">PersonName Data Interface Examples</a>
+## 8 <a name="personname-data-interface-examples" href="#personname-data-interface-examples">PersonName Data Interface Examples</a>
 
 ### 8.1 <a name="8-1-example-1" href="#8-1-example-1">Example 1</a>
 

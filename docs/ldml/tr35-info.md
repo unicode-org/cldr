@@ -516,21 +516,20 @@ That is, this data provides recommended fallbacks for use when a charset or supp
 ## 8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a>
 
 The following describes the structure used to set coverage levels used for CLDR.
-That structure is primarily intended for internal use in CLDR tooling — it is not anticipated that users of CLDR data would need it.
+That structure is used in CLDR tooling, and can also be used by consumers of CLDR data, such as described in [Data Size Reduction](tr35.md#Data_Size).
 
-Each level adds to what is in the lower level. This list will change between releases of CLDR, and more detailed information for each level is on [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels).
+The following lists the coverage levels. The qualifications for each level may change between releases of CLDR, and more detailed information for each level is on [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels). Each level adds to what is in the lower level, so Basic includes all of Core, Moderate all of Basic, and so on.
 
-
-| Level | Description   |     |
-| ----: | ------------- | --- |
+| Code  | Level         | Description    |
+| ----: | ------------- | -------------- |
 | 0     | undetermined  | Does not meet any of the following levels. |
 | 10    | core          | Core Locale — Has minimal data about the language and writing system that is required before other information can be added using the CLDR survey tool. |
 | 40    | basic         | Selectable Locale — Minimal locale data necessary for a "selectable" locale in a platform UI. Very basic number and datetime formatting, etc. |
 | 60    | moderate      | Document Content Locale — Minimal locale data for applications such as spreadsheets and word processors to support general document content internationalization: formatting number, datetime, currencies, sorting, plural handling, and so on. |
 | 80    | modern        | UI Locale — Contains all fields in normal modern use, including all CLDR locale names, country names, timezone names, currencies in use, and so on. |
-| 100   | comprehensive | Above modern level; typically far more data than is needed in practice. |
+| 100   | comprehensive | Above modern level; typically more data than is needed in most implementations. |
 
-Levels 40 through 80 are based on the definitions and specifications listed below.
+The Basic through Modern levels are based on the definitions and specifications listed below.
 
 ```xml
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >

@@ -484,7 +484,7 @@ The details of the XML structure behind the data referenced here are in [XML Str
 Create a **full name locale** as follows.
 
 1. First, let the **full formatting locale** be the fully-fleshed-out formatting locale using likely subtags.
-2. If there is a name locale available via the PersonName data interface, obtain the full name locale from the name locale using likely subtags. Thus de ⇒ de_Latn_de.
+2. If there is a name locale available via the PersonName data interface, obtain the full name locale from the name locale using likely subtags. Thus de ⇒ de_Latn_DE.
 3. Otherwise the full name locale is created based on the characters in the name and the full formatting locale, as follows:
     1. Find the predominant script for the name in the following way.
         1. For each character in the given and surname, find the script(s) of the character using the Script_Extensions property.
@@ -517,7 +517,7 @@ A PersonName object’s fields are used to derive an order, as follows:
 
 For example, here is a parent locale lookup chain: 
 
-    de_Latn_de ⇒ de_Latn ⇒ de_de ⇒ de ⇒ und
+    de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
 
 In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:
 
@@ -763,20 +763,33 @@ There are two main challenges in dealing with foreign name formatting that needs
 
 Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
 
+Those locales are determined using the Script Metadata as follows.
+1. Get the likely script of the formatting locale, using LikelySubtags
+2. If the likely script is Thai, it needs spaces.
+3. Otherwise, if the likely script is Jpan, Hant, or Hans, it doesn't need spaces
+4. Otherwise, if the likely script has the script metadata property lbLetters = YES, it doesn't need spaces
+5. Otherwise, it needs spaces
+
+Then:
+
 1. If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
 
 * “​​[Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao](https://en.wikipedia.org/wiki/Hayao_Miyazaki)…” or 
 * “[미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao](https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4)…”. 
 
-2. If a locale **doesn’t** require spaces between words, there are two cases, based on whether the foreign name is written in the locale’s script, or the foreign name is left in its native script. In both cases, patterns from the **locale of the name** are used. For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein.
+2. If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein.
 
-    1. **The foreign name is written in the formatting locale’s script.** In that case, the **foreignSpaceReplacement** is substituted for each space in the patterns from the _locale of the name_. Here are examples for Albert Einstein in Japanese and Chinese:
+    1. **The name is native** In that case, the patterns are used as is.
+    2. **The name is foreign** In that case, the **foreignSpaceReplacement** is substituted for each space formatted name. Here are examples for Albert Einstein in Japanese and Chinese:
         * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3) 
         * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6) 
-    2. **The foreign name is written in a different script.** In that case, the patterns from the **locale of the name** are used as is. More precisely, a different locale's data is used to format the name.
-        * [Albert Einstein](https://de.wikipedia.org/wiki/Albert_Einstein) 
+
 
 In both cases, the ordering may be changed according to the **Name Order for Locales** settings that each locale provides. If the PersonName object does not supply a locale for a name, then a default locale will be derived based on other information (such as the script of the characters in the name fields).
+
+Remember that **a name in a different script** will use a different locale for formatting. 
+For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein) 
+
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 

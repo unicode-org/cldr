@@ -479,25 +479,31 @@ The patterns are in personName elements, which are themselves in a personNames c
 
 The details of the XML structure behind the data referenced here are in [XML Structure](#xml-structure).
 
-### 6.1 <a name="derive-the-name-locale" href="#derive-the-name-locale">Derive the name locale</a>
+### 6.1 <a name="derive-the-name-locale" href="#derive-the-name-locale">Derive the name locale information</a>
 
-Create a **full name locale** as follows.
+Let the **full formatting locale** be the fully-fleshed-out formatting locale, using likely subtags.
 
-1. First, let the **full formatting locale** be the fully-fleshed-out formatting locale using likely subtags.
-2. If there is a name locale available via the PersonName data interface, obtain the full name locale from the name locale using likely subtags. Thus de ⇒ de_Latn_DE.
-3. Otherwise the full name locale is created based on the characters in the name and the full formatting locale, as follows:
-    1. Find the predominant script for the name in the following way.
-        1. For each character in the given and surname, find the script(s) of the character using the Script_Extensions property.
-        2. For each of those scripts, increment a counter for that script, and record the position of the first character encountered in that script.
-    2. The predominant script is the script with the highest counter value.
-        1. In the rare case that there are multiple counters with the highest counter value, take the one with the lowest first position.
-        2. In the even rarer case that there is still more than one, use the script whose script code is alphabetically lowest. (These two steps are simply to guarantee a determinant result.)
-    3. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be identical to the full formatting locale.
-    4. Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.
+Note that a few script values from likely subtags indicate a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to _match_ when they are either identical, or their corresponding sets match. For example, Hani and Jpan match.
+
+Let the **full name locale** be the fully-fleshed out name locale obtained via the PersonName data interface, then applying likely subtags
+
+Find the **name script** in the following way.
+1. Create a counter (a map from scripts to integers)
+2. Iterate through the characters of the surname, then through the given name.
+    1. Find the script set of that character using the Script_Extensions property.
+    2. If the script set has one element, and it is not Common, Inherited, nor Unknown, return that element as the name script
+3. If nothing is found during the iteration:
+    1. The name script is set to the full name locale's script, if there is one.
+    2. Otherwise, name script is set to the full formatting locale's script. 
+
+<!-- not sure we will need this, after consulting with Rich -->
+Find the **name language** in the following way.
+1. If there is a full name locale, return its language.
+2. Otherwise, find the likely locale for name script, and return its language.
 
 ### 6.2 <a name="derive-the-formatting-locale" href="#derive-the-formatting-locale">Derive the formatting locale</a>
 
-If the full name locale has a different script than that of the full formatting locale, then the name formatted with a different formatter than originally requested. For example, when a Hindi formatter is called upon to format a name with the Ukrainian (Cyrillic) locale, under the covers a Ukrainian (Cyrillic) formatter should be instantiated to format that name.
+If the name script doesn't match the script of the full formatting locale, then the name formatted with a different formatter than originally requested. For example, when a Hindi formatter is called upon to format a name with the Ukrainian (Cyrillic) locale, under the covers a Ukrainian (Cyrillic) formatter should be instantiated to format that name.
 
 So in all of the processing below the "name locale" is the full name locale, and the "formatting locale" is the full formatting locale, one that is fully-fleshed out using likely subtags. Moreover the name locale has the same script as the formatting locale.
 

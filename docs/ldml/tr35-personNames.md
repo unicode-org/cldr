@@ -488,11 +488,10 @@ Note that a few script values from likely subtags indicate a set of scripts, suc
 Let the **full name locale** be the fully-fleshed out name locale obtained via the PersonName data interface, then applying likely subtags
 
 Find the **name script** in the following way.
-1. Create a counter (a map from scripts to integers)
-2. Iterate through the characters of the surname, then through the given name.
+1. Iterate through the characters of the surname, then through the given name.
     1. Find the script set of that character using the Script_Extensions property.
     2. If the script set has one element, and it is not Common, Inherited, nor Unknown, return that element as the name script
-3. If nothing is found during the iteration:
+2. If nothing is found during the iteration:
     1. The name script is set to the full name locale's script, if there is one.
     2. Otherwise, name script is set to the full formatting locale's script. 
 

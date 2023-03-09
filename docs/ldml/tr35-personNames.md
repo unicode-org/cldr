@@ -612,7 +612,16 @@ For example:
 3. Pattern C is discarded, because it has the least number of populated name fields.
 4. Out of the remaining patterns A and B, pattern B wins, because it has only 3 unpopulated fields compared to pattern A.
 
-#### 6.5.2 <a name="process-the-namepattern" href="#process-the-namepattern">Process a namePattern</a>
+#### 6.5.2 <a name="missing-surname" href="#missing-surname">Handle missing surname</a>
+
+All PersonName objects will have a given name (for mononyms the given name is used). However, there may not be a surname. In that case, the following process is followed so that formatted patterns produce reasonable results.
+
+1. If there is no surname from a PersonName P1 _and_ there is no non-initialized given name in the pattern, then
+2. Construct and use a derived PersonName P2, whereby P2 behaves exactly as P1 except that:
+    1. any request for a surname field (with any modifiers) returns P1's given name (with the same modifers)
+    2. any request for a given name field (with any modifiers) returns "" (empty string)
+
+#### 6.5.3 <a name="process-the-namepattern" href="#process-the-namepattern">Process a namePattern</a>
 
 If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we process the pattern algorithmically with the following steps:
 
@@ -624,11 +633,11 @@ If the “winning” namePattern still has fields that are unpopulated in the Pe
 4. If the processing from step 3 results in two adjacent literals (call them A and B), they are coalesced into one literal as follows:
     1. If either is empty the result is the other one.
     2. If B matches the end of A, then the result is A. So xyz + yz ⇒ xyz, and xyz + xyz ⇒ xyz.
-    3. Otherwise the result is A + B, further modified by replacing with any sequence of two or more white space characters by the first whitespace character. 
+    3. Otherwise the result is A + B, further modified by replacing any sequence of two or more white space characters by the first whitespace character. 
 
 ### 6.6 <a name="examples-of-choosing-a-namepattern" href="#examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a>
 
-** TBD Review examples below **
+*TBD Review out these examples to see if they need updating*
 
 The personName element contains:
 
@@ -783,11 +792,11 @@ Here are examples for Albert Einstein in Japanese and Chinese:
 1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is " ".
 2. The nativeSpaceReplacement is determined by the following algorithm, chosing between " " and "".
     1. Get the script of the formatting locale
-    2. If the likely script is Thai, let nativeSpaceReplacement = " "
-    3. Otherwise let nativeSpaceReplacement = "" if either of the following applies:
+    2. If the likely script is Thai, let nativeSpaceReplacement = " " (space)
+    3. Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:
         1. The script is Jpan, Hant, or Hans
         2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
-    4. Otherwise, let nativeSpaceReplacement = ""
+    4. Otherwise, let nativeSpaceReplacement = " " (space)
 3. If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
 4. Replace all sequences of space in the resolved pattern string by the spaceReplacement. 
 
@@ -799,6 +808,8 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 
+*TBD Review out these examples to see if they need updating*
+
 | name locale   | given    | surname       |
 | ------------- | -------- | ------------- |
 | `de_Latn_CH`  | Albert   | Einstein      |
@@ -808,8 +819,6 @@ To illustrate how foreign space replacement works, consider the following name d
 | `ja_Jpan_JP`  | 駿       | 宮崎           |
 
 Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:
-
-**TBD Review out these examples to see if they need updating**
 
 **`ja_JP` formatting patterns**
 

@@ -620,10 +620,10 @@ For example:
 
 All PersonName objects will have a given name (for mononyms the given name is used). However, there may not be a surname. In that case, the following process is followed so that formatted patterns produce reasonable results.
 
-1. If there is no surname from a PersonName P1 _and_ there is no non-initialized given name in the pattern, then
-2. Construct and use a derived PersonName P2, whereby P2 behaves exactly as P1 except that:
-    1. any request for a surname field (with any modifiers) returns P1's given name (with the same modifers)
-    2. any request for a given name field (with any modifiers) returns "" (empty string)
+1. If there is no surname from a PersonName P1 _and_ the pattern either doesn't include the given name or only shows an initial for the given name, then:
+    2. Construct and use a derived PersonName P2, whereby P2 behaves exactly as P1 except that:
+        1. any request for a surname field (with any modifiers) returns P1's given name (with the same modifers)
+        2. any request for a given name field (with any modifiers) returns "" (empty string)
 
 As always, this is a logical description and may be optimized in implementations. For example, an implemenation may use an interface for P2 that just delegates calls to P1, with some redirection for accesses to surname and given name.
 

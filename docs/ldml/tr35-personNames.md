@@ -78,8 +78,8 @@ The LDML specification is divided into the following parts:
   * 6.7 [Process a namePattern](#process-the-namepattern)
       * 6.7.1 [Handling foreign names](#handling-foreign-names)
       * 6.7.2 [Setting the spaceReplacement](#spaceReplacement)
-      * 6.7.2 [Examples of space replacement](#spaceReplacement-examples)
-  * 6.8 [Examples of choosing and processing a namePattern](#examples-of-choosing-a-namepattern)
+      * 6.7.3 [Examples of space replacement](#spaceReplacement-examples)
+  * 6.8 [Formatting examples](#formatting-examples)
 * 7 [Sample Name](#sample-name)
   * 7.1 [Syntax](#syntax)
   * 7.2 [Expected values](#expected-values)
@@ -642,7 +642,7 @@ A given field may have a core value, a prefix value, and/or a ‘plain’ value 
 | ✖️      | ✖️ → plain | ✓        |
 | ✖️      | ✖️         | ✖️        |
 
-For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the surname is prefix + " " + core. (The cases where existing values are changed for prefix and core (✓ → …) should not be necessary with well-formed PersonName data.)
+For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the surname is "von und zu Stettbach". (The cases where existing values are changed for prefix and core (ie, ✓ → …) should not be necessary with well-formed PersonName data.)
 
 ### 6.6.3 <a name="derive-initials" href="#derive-initials">Derive initials</a>
 
@@ -711,7 +711,7 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 
-*TBD Review out these examples to see if they need updating*
+*TBD Review all these examples to see if they need updating*
 
 | name locale   | given    | surname       |
 | ------------- | -------- | ------------- |
@@ -870,9 +870,9 @@ The name data would resolve as follows:
 </table>
 <br/>
 
-### 6.8 <a name="examples-of-choosing-a-namepattern" href="#examples-of-choosing-a-namepattern">Examples of choosing and processing a namePattern</a>
+### 6.8 <a name="formatting-examples" href="#formatting-examples">Formatting examples</a>
 
-*TBD Review out these examples to see if they need updating*
+*TBD Review all these examples to see if they need updating*
 
 The personName element contains:
 

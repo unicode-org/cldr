@@ -67,14 +67,19 @@ The LDML specification is divided into the following parts:
 * 6 [Formatting Process](#formatting-process)
   * 6.1 [Derive the name locale](#derive-the-name-locale)
   * 6.2 [Derive the formatting locale](#derive-the-formatting-locale)
+      * 6.2.1 [Switch the formatting locale if necessary]("switch-formatting-locales)
   * 6.3 [Derive the name order](#derive-the-name-order)
   * 6.4 [Choose a personName](#choose-a-personname)
-  * 6.5 [Choose a namePattern](#choose-a-namepattern)
-  * 6.6 [Examples of choosing a namePattern](#examples-of-choosing-a-namepattern)
-    * 6.6.1 [Examples for rules 1 and 2](#examples-for-rules-1-and-2)
-    * 6.6.2 [Examples for rule 3 and the interaction between the rules](#examples-for-rule-3-and-the-interaction-between-the-rules)
-  * 6.7 [Deriving initials](#deriving-initials)
-  * 6.8 [Handling foreign names](#handling-foreign-names)
+  * 6.5 [Choose a namePattern](#choose-a-namepattern")
+  * 6.6 [Access PersonName object](#access-personname")
+      * 6.6.1 [Handle missing surname](#missing-surname")
+      * 6.6.2 [Handle core and prefix](#core-and-prefix)
+      * 6.6.3 [Derive initials](#derive-initials)
+  * 6.7 [Process a namePattern](#process-the-namepattern)
+      * 6.7.1 [Handling foreign names](#handling-foreign-names)
+      * 6.7.2 [Setting the spaceReplacement](#spaceReplacement)
+      * 6.7.2 [Examples of space replacement](#spaceReplacement-examples)
+  * 6.8 [Examples of choosing and processing a namePattern](#examples-of-choosing-a-namepattern)
 * 7 [Sample Name](#sample-name)
   * 7.1 [Syntax](#syntax)
   * 7.2 [Expected values](#expected-values)
@@ -594,9 +599,7 @@ To match a personName, all four attributes in the personName must match (a missi
 
 To find the matching personName element, traverse all the personNames in order until the first one is found. This will always terminate since the data is well-formed in CLDR.
 
-### 6.5 <a name="choose-and-process-namepattern" href="#choose-and-process-namepattern">Choose and process a namePattern</a>
-
-#### 6.5.1 <a name="choose-a-namepattern" href="#choose-a-namepattern">Choose a namePattern</a>
+### 6.5 <a name="choose-a-namepattern" href="#choose-a-namepattern">Choose a namePattern</a>
 
 To format a name, the fields in a namePattern are replaced with fields fetched from the PersonName Data Interface. The personName element can contain multiple namePattern elements. Choose one based on the fields in the input PersonName object that are populated: 
 1. Find the set of patterns with the most populated fields.
@@ -612,7 +615,8 @@ For example:
 3. Pattern C is discarded, because it has the least number of populated name fields.
 4. Out of the remaining patterns A and B, pattern B wins, because it has only 3 unpopulated fields compared to pattern A.
 
-#### 6.5.2 <a name="missing-surname" href="#missing-surname">Handle missing surname</a>
+### 6.6 <a name="access-personname-object" href="#access-personname-object">Access PersonName object</a>
+### 6.6.1 <a name="missing-surname" href="#missing-surname">Handle missing surname</a>
 
 All PersonName objects will have a given name (for mononyms the given name is used). However, there may not be a surname. In that case, the following process is followed so that formatted patterns produce reasonable results.
 
@@ -621,9 +625,41 @@ All PersonName objects will have a given name (for mononyms the given name is us
     1. any request for a surname field (with any modifiers) returns P1's given name (with the same modifers)
     2. any request for a given name field (with any modifiers) returns "" (empty string)
 
-#### 6.5.3 <a name="process-the-namepattern" href="#process-the-namepattern">Process a namePattern</a>
+As always, this is a logical description and may be optimized in implementations. For example, an implemenation may use an interface for P2 that just delegates calls to P1, with some redirection for accesses to surname and given name.
 
-If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we process the pattern algorithmically with the following steps:
+### 6.6.2 <a name="core-and-prefix" href="#core-and-prefix">Handle core and prefix</a>
+
+A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In each cell, a ✓ indicates that a value is available, an ✖️ if there is none, and a → indicates when a value is substituted.
+
+| prefix | core      | plain    |
+| ------ | ----      | -----    |
+| ✓      | ✓         | ✓        |
+| ✓      | ✓         | ✖️ → prefix + " " + core |
+| ✓ → ✖️  | ✖️ → plain | ✓        |
+| ✓ → ✖️  | ✖️         | ✖️        |
+| ✖️      | ✓ → plain | ✓        |
+| ✖️      | ✓         | ✖️ → core |
+| ✖️      | ✖️ → plain | ✓        |
+| ✖️      | ✖️         | ✖️        |
+
+For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the surname is prefix + " " + core. (The cases where existing values are changed for prefix and core (✓ → …) should not be necessary with well-formed PersonName data.)
+
+### 6.6.3 <a name="derive-initials" href="#derive-initials">Derive initials</a>
+
+The following process is used to produce initials when they are not supplied by the PersonName object. Assuming the input example is “Mary Beth”:
+
+| Action              | Result |
+| ------------------- | ------ |
+| 1. Split into words | “Mary” and “Beth” |
+| 2. Fetch the first grapheme cluster of each word | “M” and “B” |
+| 3. The ***initial*** pattern is applied to each<br/>`  <initialPattern type="initial">{0}.</initialPattern>` | “M.” and “B.” |
+| 4. Finally recombined with ***initialSequence***<br/>`  <initialPattern type="initialSequence">{0} {1}</initialPattern>` | “M. B.” |
+
+See the “initial” modifier in the [Modifiers](#modifiers) section for more details.
+
+#### 6.7 <a name="process-the-namepattern" href="#process-the-namepattern">Process a namePattern</a>
+
+The “winning” namePattern may still have fields that are unpopulated (empty) in the PersonName object. That namePattern is populated with field values with the following steps:
 
 1. If one or more fields at the start of the pattern are empty, all fields and literal text before the **first** populated field are omitted.
 2. If one or more fields at the end of the pattern are empty, all fields and literal text after the **last** populated field are omitted.
@@ -633,9 +669,208 @@ If the “winning” namePattern still has fields that are unpopulated in the Pe
 4. If the processing from step 3 results in two adjacent literals (call them A and B), they are coalesced into one literal as follows:
     1. If either is empty the result is the other one.
     2. If B matches the end of A, then the result is A. So xyz + yz ⇒ xyz, and xyz + xyz ⇒ xyz.
-    3. Otherwise the result is A + B, further modified by replacing any sequence of two or more white space characters by the first whitespace character. 
+    3. Otherwise the result is A + B, further modified by replacing any sequence of two or more white space characters by the first whitespace character.
+5. All of the fields are replaced by the corresponding values from the PersonName object. 
 
-### 6.6 <a name="examples-of-choosing-a-namepattern" href="#examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a>
+### 6.7.1 <a name="handling-foreign-names" href="#handling-foreign-names">Handling foreign names</a>
+
+There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section [[2.3 nameOrderLocales Element](#nameorderlocales-element)]. The other is spacing.
+
+Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
+
+If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
+
+* “​​[Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao](https://en.wikipedia.org/wiki/Hayao_Miyazaki)…” or 
+* “[미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao](https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4)…”. 
+
+If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein. When the locale is foreign, the **foreignSpaceReplacement** is substituted for each space in the formatted name. When the name locale is native, a **nativeSpaceReplacement** is substituted for each space in the formatted name. The precise algorithm is given below.
+
+Here are examples for Albert Einstein in Japanese and Chinese:
+        * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3) 
+        * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6) 
+
+#### 6.7.2 <a name="spaceReplacement" href="#spaceReplacement">Setting the spaceReplacement</a>
+
+1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is " ".
+2. The nativeSpaceReplacement is determined by the following algorithm, chosing between " " and "".
+    1. Get the script of the formatting locale
+    2. If the likely script is Thai, let nativeSpaceReplacement = " " (space)
+    3. Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:
+        1. The script is Jpan, Hant, or Hans
+        2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
+    4. Otherwise, let nativeSpaceReplacement = " " (space)
+3. If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
+4. Replace all sequences of space in the resolved pattern string by the spaceReplacement. 
+
+For the purposes of this algorithm, two base languages are said to __match__ when they identical, or if both are in {ja, zh, yue}.
+
+Remember that **a name in a different script** will use a different locale for formatting, as per <a href="#switch-formatting-locales">Switch the formatting locale if necessary</a>.
+For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein) 
+
+#### 6.7.3 <a name="examples-examples" href="#spaceReplacement-examples">Examples of space replacement</a>
+
+To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
+
+*TBD Review out these examples to see if they need updating*
+
+| name locale   | given    | surname       |
+| ------------- | -------- | ------------- |
+| `de_Latn_CH`  | Albert   | Einstein      |
+| `de_Kata_CH`  | アルベルト | アインシュタイン |
+| `ja_Kata_CH`  | アルベルト | アインシュタイン |
+| `ja_Latn_JP`  | Hayao    | Miyazaki      |
+| `ja_Jpan_JP`  | 駿       | 宮崎           |
+
+Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:
+
+**`ja_JP` formatting patterns**
+
+<pre>
+&lt;personNames&gt;
+   &lt;nameOrderLocales order="givenFirst"&gt;und&lt;/nameOrderLocales&gt;
+   &lt;<strong>nameOrderLocales</strong> order="<strong>surnameFirst</strong>"&gt;hu <strong>ja</strong> ko vi yue zh <strong>und_JP</strong>&lt;/nameOrderLocales&gt;
+   &lt;<strong>foreignSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua">・</span>&lt;/foreignSpaceReplacement&gt;
+   . . .
+   &lt;personName order="<strong>givenFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
+      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2}<span style="background-color:aqua"> </span>{surname}{generation}&lt;/namePattern&gt;
+   &lt;/personName&gt;
+   . . .
+   &lt;personName order="<strong>surnameFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
+      &lt;namePattern&gt;{surname}{given2}{given}{generation}&lt;/namePattern&gt;
+   &lt;/personName&gt;
+   . . .
+&lt;/personNames&gt;
+</pre>
+
+Note in the `de_CH` locale, _ja_ is not listed in nameOrderLocales, and would therefore fall under _und_, and be formatted using the givenFirst order patterns if the name data is in the same script as the formatting locale.
+
+**`de_CH` formatting patterns**
+
+<pre>
+&lt;personNames&gt;
+   &lt;nameOrderLocales order="<strong>givenFirst</strong>"&gt;und <strong>de</strong>&lt;/nameOrderLocales&gt;
+   &lt;nameOrderLocales order="surnameFirst"&gt;ko vi yue zh&lt;/nameOrderLocales&gt;
+   &lt;foreignSpaceReplacemen xml:space="preserve"&gt;<span style="background-color:aqua"> </span>&lt;/foreignSpaceReplacement&gt;
+   . . . 
+   &lt;personName order="givenFirst" length="medium" usage="referring" formality="formal"&gt;
+      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua"> </span>{surname}, {generation}&lt;/namePattern&gt;
+   &lt;/personName&gt;
+   . . . 
+   &lt;personName order="surnameFirst" length="medium" usage="referring" formality="formal"&gt;
+      &lt;namePattern&gt;{surname}<span style="background-color:aqua">, </span>{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua">,</span> {generation}&lt;/namePattern&gt;
+   &lt;/personName&gt;
+   . . . 
+&lt;/personNames&gt;`
+</pre>
+
+The name data would resolve as follows:
+<!-- TODO Replace the following with a markdown table -->
+
+<table>
+  <tr>
+   <td colspan="7" ><strong>formatting locale: ja_JP, </strong>script is Jpan which includes Hani, Hira and Kana</td>
+  </tr>
+  <tr>
+   <td><strong>name locale</strong></td>
+   <td><strong>given</strong></td>
+   <td><strong>surname</strong></td>
+   <td><strong>same<br/>script</strong></td>
+   <td><strong>formatting<br/>locale</strong</td>
+   <td><strong>order</strong></td>
+   <td><strong>foreign<br/>space</strong></td>
+  </tr>
+  <tr>
+   <td>de_Latn_CH</td>
+   <td>Albert</td>
+   <td><span style="text-decoration:underline;">Einstein</span></td>
+   <td>NO</td>
+   <td>de</td>
+   <td>given First</td>
+   <td></td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center">“Albert <span style="text-decoration:underline;">Einstein</span>”</td>
+  </tr>
+  <tr>
+   <td>de_Jpan_CH</td>
+   <td>アルベルト</td>
+   <td><span style="text-decoration:underline;">アインシュタイン</span></td>
+   <td>YES</td>
+   <td>und</td>
+   <td>given First</td>
+   <td>“<span style="background-color:aqua">・</span>”</td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center">“アルベルト<span style="background-color:aqua">・</span><span style="text-decoration:underline;">アインシュタイン</span>”</td>
+  </tr>
+  <tr>
+   <td>ja_Jpan_JP</td>
+   <td>駿</td>
+   <td><span style="text-decoration:underline;">宮崎</span></td>
+   <td>YES</td>
+   <td>ja</td>
+   <td>surname First</td>
+   <td></td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center"><span style="text-decoration:underline;">宮崎</span>駿</td>
+  </tr>
+</table>
+<br/>
+
+<table>
+  <tr>
+   <td colspan="7" ><strong>formatting locale: de_CH</strong>, formatting locale script is Latn</td>
+  </tr>
+  <tr>
+   <td><strong>name locale</strong></td>
+   <td><strong>given</strong></td>
+   <td><strong>surname</strong></td>
+   <td><strong>same<br/>script</strong></td>
+   <td><strong>formatting<br/>locale</strong></td>
+   <td><strong>order</strong></td>
+   <td><strong>foreign<br/>space</strong></td>
+  </tr>
+  <tr>
+   <td>de_Latn_CH</td>
+   <td>Albert</td>
+   <td>Einstein</td>
+   <td>YES</td>
+   <td>de</td>
+   <td>given First</td>
+   <td></td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center">“Albert Einstein”</td>
+  </tr>
+  <tr>
+   <td>de_Jpan_CH</td>
+   <td>アルベルト</td>
+   <td>アインシュタイン</td>
+   <td>NO</td>
+   <td>ja<br/>from script</td>
+   <td>given First</td>
+   <td>“<span style="background-color:aqua">・</span>”</td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center">“アルベルト<span style="background-color:aqua">・</span>アインシュタイン”</td>
+  </tr>
+  <tr>
+   <td>und_Latn_JP</td>
+   <td>Hayao</td>
+   <td>Miyazaki</td>
+   <td>YES</td>
+   <td>und</td>
+   <td>given First</td>
+   <td>“<span style="background-color:aqua"> </span>”</td>
+  </tr>
+  <tr>
+   <td colspan="7" style="text-align:center">“Hayao<span style="background-color:aqua"> </span>Miyazaki”</td>
+  </tr>
+</table>
+<br/>
+
+### 6.8 <a name="examples-of-choosing-a-namepattern" href="#examples-of-choosing-a-namepattern">Examples of choosing and processing a namePattern</a>
 
 *TBD Review out these examples to see if they need updating*
 
@@ -755,216 +990,6 @@ If, instead, the input PersonName object contains:
 The output is:
 
 > F. Baz
-
-### 6.7 <a name="deriving-initials" href="#deriving-initials">Deriving initials</a>
-<!-- TBD, this should be reordered ahead of the examples. -->
-
-The following process is used to produce initials when they are not supplied by the PersonName object. Assuming the input example is “Mary Beth”:
-
-| Action              | Result |
-| ------------------- | ------ |
-| 1. Split into words | “Mary” and “Beth” |
-| 2. Fetch the first grapheme cluster of each word | “M” and “B” |
-| 3. The ***initial*** pattern is applied to each<br/>`  <initialPattern type="initial">{0}.</initialPattern>` | “M.” and “B.” |
-| 4. Finally recombined with ***initialSequence***<br/>`  <initialPattern type="initialSequence">{0} {1}</initialPattern>` | “M. B.” |
-
-See the “initial” modifier in the [Modifiers](#modifiers) section for more details.
-
-### 6.8 <a name="handling-foreign-names" href="#handling-foreign-names">Handling foreign names</a>
-
-There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section [[2.3 nameOrderLocales Element](#nameorderlocales-element)]. The other is spacing.
-
-Some writing systems require spaces (or some other non-letters) to separate words. For example, [Hayao Miyazaki](https://en.wikipedia.org/wiki/Hayao_Miyazaki) is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: [宮崎駿](https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF)
-
-If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).
-
-* “​​[Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao](https://en.wikipedia.org/wiki/Hayao_Miyazaki)…” or 
-* “[미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao](https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4)…”. 
-
-If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein. When the locale is foreign, the **foreignSpaceReplacement** is substituted for each space in the formatted name. When the name locale is native, a **nativeSpaceReplacement** is substituted for each space in the formatted name. The precise algorithm is given below.
-
-Here are examples for Albert Einstein in Japanese and Chinese:
-        * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3) 
-        * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6) 
-
-#### 6.8.1 Setting the spaceReplacement
-
-1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is " ".
-2. The nativeSpaceReplacement is determined by the following algorithm, chosing between " " and "".
-    1. Get the script of the formatting locale
-    2. If the likely script is Thai, let nativeSpaceReplacement = " " (space)
-    3. Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:
-        1. The script is Jpan, Hant, or Hans
-        2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
-    4. Otherwise, let nativeSpaceReplacement = " " (space)
-3. If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
-4. Replace all sequences of space in the resolved pattern string by the spaceReplacement. 
-
-For the purposes of this algorithm, two base languages are said to __match__ when they identical, or if both are in {ja, zh, yue}.
-
-Remember that **a name in a different script** will use a different locale for formatting, as per <a href="#switch-formatting-locales">Switch the formatting locale if necessary</a>.
-For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein) 
-
-
-To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
-
-*TBD Review out these examples to see if they need updating*
-
-| name locale   | given    | surname       |
-| ------------- | -------- | ------------- |
-| `de_Latn_CH`  | Albert   | Einstein      |
-| `de_Kata_CH`  | アルベルト | アインシュタイン |
-| `ja_Kata_CH`  | アルベルト | アインシュタイン |
-| `ja_Latn_JP`  | Hayao    | Miyazaki      |
-| `ja_Jpan_JP`  | 駿       | 宮崎           |
-
-Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:
-
-**`ja_JP` formatting patterns**
-
-<pre>
-&lt;personNames&gt;
-   &lt;nameOrderLocales order="givenFirst"&gt;und&lt;/nameOrderLocales&gt;
-   &lt;<strong>nameOrderLocales</strong> order="<strong>surnameFirst</strong>"&gt;hu <strong>ja</strong> ko vi yue zh <strong>und_JP</strong>&lt;/nameOrderLocales&gt;
-   &lt;<strong>foreignSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua">・</span>&lt;/foreignSpaceReplacement&gt;
-   . . .
-   &lt;personName order="<strong>givenFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2}<span style="background-color:aqua"> </span>{surname}{generation}&lt;/namePattern&gt;
-   &lt;/personName&gt;
-   . . .
-   &lt;personName order="<strong>surnameFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{surname}{given2}{given}{generation}&lt;/namePattern&gt;
-   &lt;/personName&gt;
-   . . .
-&lt;/personNames&gt;
-</pre>
-
-Note in the `de_CH` locale, _ja_ is not listed in nameOrderLocales, and would therefore fall under _und_, and be formatted using the givenFirst order patterns if the name data is in the same script as the formatting locale.
-
-**`de_CH` formatting patterns**
-
-<pre>
-&lt;personNames&gt;
-   &lt;nameOrderLocales order="<strong>givenFirst</strong>"&gt;und <strong>de</strong>&lt;/nameOrderLocales&gt;
-   &lt;nameOrderLocales order="surnameFirst"&gt;ko vi yue zh&lt;/nameOrderLocales&gt;
-   &lt;foreignSpaceReplacemen xml:space="preserve"&gt;<span style="background-color:aqua"> </span>&lt;/foreignSpaceReplacement&gt;
-   . . . 
-   &lt;personName order="givenFirst" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua"> </span>{surname}, {generation}&lt;/namePattern&gt;
-   &lt;/personName&gt;
-   . . . 
-   &lt;personName order="surnameFirst" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{surname}<span style="background-color:aqua">, </span>{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua">,</span> {generation}&lt;/namePattern&gt;
-   &lt;/personName&gt;
-   . . . 
-&lt;/personNames&gt;`
-</pre>
-
-The name data would resolve as follows:
-
-<table>
-  <tr>
-   <td colspan="7" ><strong>formatting locale: ja_JP, </strong>script is Jpan which includes Hani, Hira and Kana</td>
-  </tr>
-  <tr>
-   <td><strong>name locale</strong></td>
-   <td><strong>given</strong></td>
-   <td><strong>surname</strong></td>
-   <td><strong>same<br/>script</strong></td>
-   <td><strong>formatting<br/>locale</strong</td>
-   <td><strong>order</strong></td>
-   <td><strong>foreign<br/>space</strong></td>
-  </tr>
-  <tr>
-   <td>de_Latn_CH</td>
-   <td>Albert</td>
-   <td><span style="text-decoration:underline;">Einstein</span></td>
-   <td>NO</td>
-   <td>de</td>
-   <td>given First</td>
-   <td></td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center">“Albert <span style="text-decoration:underline;">Einstein</span>”</td>
-  </tr>
-  <tr>
-   <td>de_Jpan_CH</td>
-   <td>アルベルト</td>
-   <td><span style="text-decoration:underline;">アインシュタイン</span></td>
-   <td>YES</td>
-   <td>und</td>
-   <td>given First</td>
-   <td>“<span style="background-color:aqua">・</span>”</td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center">“アルベルト<span style="background-color:aqua">・</span><span style="text-decoration:underline;">アインシュタイン</span>”</td>
-  </tr>
-  <tr>
-   <td>ja_Jpan_JP</td>
-   <td>駿</td>
-   <td><span style="text-decoration:underline;">宮崎</span></td>
-   <td>YES</td>
-   <td>ja</td>
-   <td>surname First</td>
-   <td></td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center"><span style="text-decoration:underline;">宮崎</span>駿</td>
-  </tr>
-</table>
-<br/>
-
-<table>
-  <tr>
-   <td colspan="7" ><strong>formatting locale: de_CH</strong>, formatting locale script is Latn</td>
-  </tr>
-  <tr>
-   <td><strong>name locale</strong></td>
-   <td><strong>given</strong></td>
-   <td><strong>surname</strong></td>
-   <td><strong>same<br/>script</strong></td>
-   <td><strong>formatting<br/>locale</strong></td>
-   <td><strong>order</strong></td>
-   <td><strong>foreign<br/>space</strong></td>
-  </tr>
-  <tr>
-   <td>de_Latn_CH</td>
-   <td>Albert</td>
-   <td>Einstein</td>
-   <td>YES</td>
-   <td>de</td>
-   <td>given First</td>
-   <td></td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center">“Albert Einstein”</td>
-  </tr>
-  <tr>
-   <td>de_Jpan_CH</td>
-   <td>アルベルト</td>
-   <td>アインシュタイン</td>
-   <td>NO</td>
-   <td>ja<br/>from script</td>
-   <td>given First</td>
-   <td>“<span style="background-color:aqua">・</span>”</td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center">“アルベルト<span style="background-color:aqua">・</span>アインシュタイン”</td>
-  </tr>
-  <tr>
-   <td>und_Latn_JP</td>
-   <td>Hayao</td>
-   <td>Miyazaki</td>
-   <td>YES</td>
-   <td>und</td>
-   <td>given First</td>
-   <td>“<span style="background-color:aqua"> </span>”</td>
-  </tr>
-  <tr>
-   <td colspan="7" style="text-align:center">“Hayao<span style="background-color:aqua"> </span>Miyazaki”</td>
-  </tr>
-</table>
-<br/>
 
 ## 7 <a name="sample-name" href="#sample-name">Sample Name</a>
 

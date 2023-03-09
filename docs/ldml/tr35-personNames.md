@@ -256,7 +256,7 @@ The `<nameOrderLocales>` element is optional, and contains information about sel
 <!ATTLIST nameOrderLocales order ( givenFirst | surnameFirst ) #REQUIRED >
 ```
 
-* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](https://unicode.org/reports/tr35/#unicode_locale_id)s. Normally they are limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
+* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](https://unicode.org/reports/tr35/#unicode_locale_id)s. Normally each locale are limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
 
 An example from English may look like the following
 
@@ -267,7 +267,7 @@ This would tell the formatting code, when handling person name data from an Engl
 
 ### 2.4 <a name="foreignspacereplacement-element" href="#foreignspacereplacement-element">foreignSpaceReplacement Element</a>
 
-The `<foreignSpaceReplacement>` element is used to specify how delimiters should appear between name parts when the name data (name locale) is different from the requested locale (formatting locale)., but they both use the same script.
+The `<foreignSpaceReplacement>` element is used to specify how spaces should be handled when the name language is different from the formatting language.
 
 ```xml
 <!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
@@ -275,7 +275,7 @@ The `<foreignSpaceReplacement>` element is used to specify how delimiters should
 ```
 
 * `xml:space` must be set to `'preserve'` so that actual spaces in the pattern are preserved. See [W3C XML White Space Handling](https://www.w3.org/TR/xml/#sec-white-space).
-* The `#PCDATA `is the character sequence used to replace spaces between fields for name data from a name locale that is different from the formatting locale, but are in the same script.
+* The `#PCDATA `is the character sequence used to replace spaces when postprocessing a pattern.
 
 ### 2.5 <a name="initialpattern-element" href="#initialpattern-element">initialPattern Element</a>
 
@@ -479,40 +479,39 @@ The patterns are in personName elements, which are themselves in a personNames c
 
 The details of the XML structure behind the data referenced here are in [XML Structure](#xml-structure).
 
-### 6.1 <a name="derive-the-name-locale" href="#derive-the-name-locale">Derive the name locale information</a>
+### 6.1 <a name="derive-the-name-locale" href="#derive-the-name-locale">Derive the name locale</a>
 
-Let the **full formatting locale** be the fully-fleshed-out formatting locale, using likely subtags.
-
-Note that a few script values from likely subtags indicate a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to _match_ when they are either identical, or their corresponding sets match. For example, Hani and Jpan match.
-
-Let the **full name locale** be the fully-fleshed out name locale obtained via the PersonName data interface, then applying likely subtags
-
-Find the **name script** in the following way.
+Construct the **name script** in the following way.
 1. Iterate through the characters of the surname, then through the given name.
-    1. Find the script set of that character using the Script_Extensions property.
-    2. If the script set has one element, and it is not Common, Inherited, nor Unknown, return that element as the name script
-2. If nothing is found during the iteration:
-    1. The name script is set to the full name locale's script, if there is one.
-    2. Otherwise, name script is set to the full formatting locale's script. 
+    1. Find the script of that character using the Script property.
+    2. If the script is not Common, Inherited, nor Unknown, return that script as the **name script**
+2. If nothing is found during the iteration, return Zzzz
 
-<!-- not sure we will need this, after consulting with Rich -->
-Find the **name language** in the following way.
-1. If there is a full name locale, return its language.
-2. Otherwise, find the likely locale for name script, and return its language.
+Construct the **name base language** in the following way.
+1. If the PersonName object can provide a name locale, return its language.
+2. Otherwise, find the maximal likely locale for the name script, using Likely Subtags, and return its base language (first subtag).
+
+Let the **name locale** in the following way:
+1. If the PersonName object can provide a name locale, return a locale formed from it by replacing its script by the name script.
+2. Otherwise, return the locale formed from the name base langauge + name script.
 
 ### 6.2 <a name="derive-the-formatting-locale" href="#derive-the-formatting-locale">Derive the formatting locale</a>
 
-If the name script doesn't match the script of the full formatting locale, then the name formatted with a different formatter than originally requested. For example, when a Hindi formatter is called upon to format a name with the Ukrainian (Cyrillic) locale, under the covers a Ukrainian (Cyrillic) formatter should be instantiated to format that name.
+Let the **full formatting locale** be the maximal likely locale for the formatter's locale, using Likely Subtags. The **formatting base language** is the base language (first subtag) of the full formatting locale, and the **formatting script** is the script code of the full formatting locale.
 
-So in all of the processing below the "name locale" is the full name locale, and the "formatting locale" is the full formatting locale, one that is fully-fleshed out using likely subtags. Moreover the name locale has the same script as the formatting locale.
+A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to _match_ when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.
+
+#### 6.2.1 <a name="switch-formatting-locales" href="#switch-formatting-locales">Switch the formatting locale if necessary</a>
+
+If the name script doesn't match the formatting script, then the name is formatted with the name locale, not the originally requested formatting locale. For example, when a Hindi formatter (hi-Deva) is called upon to format a name with the Ukrainian (Cyrillic) locale (uk-Cyrl), under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name. 
 
 ### 6.3 <a name="derive-the-name-order" href="#derive-the-name-order">Derive the name order</a>
 
 A PersonName object’s fields are used to derive an order, as follows:
 
 1. If the PersonName object to be formatted has a `preferredOrder` field, then return that field’s value
-2. Otherwise use the nameOrderLocales elements to find the most best match for the full name locale, as follows.
-    1. For each locale L1 in the parent locale lookup chain* for the full name locale, do the following
+2. Otherwise use the nameOrderLocales elements to find the most best match for the name locale, as follows.
+    1. For each locale L1 in the parent locale lookup chain* for the name locale, do the following
         1. Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')
         2. For each locale L in {L1, L2}, do the following
              1. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.
@@ -791,11 +790,10 @@ Here are examples for Albert Einstein in Japanese and Chinese:
     2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
 5. Otherwise, let nativeSpaceReplacement = ""
 
-3. If the language subtag of the formatter's locale equals the language subtag of the name's locale, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
+3. If the formatter base language equals the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
 4. Replace all sequences of space in the resolved pattern string by the spaceReplacement. 
 
-
-Remember that **a name in a different script** will use a different locale for formatting. 
+Remember that **a name in a different script** will use a different locale for formatting, as per <a href="#switch-formatting-locales">Switch the formatting locale if necessary</a>.
 For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein) 
 
 
@@ -804,8 +802,9 @@ To illustrate how foreign space replacement works, consider the following name d
 | name locale   | given    | surname       |
 | ------------- | -------- | ------------- |
 | `de_Latn_CH`  | Albert   | Einstein      |
-| `de_Jpan_CH`  | アルベルト | アインシュタイン |
-| `ja_Jpan_JP`  | Hayao    | Miyazaki      |
+| `de_Kata_CH`  | アルベルト | アインシュタイン |
+| `ja_Kata_CH`  | アルベルト | アインシュタイン |
+| `ja_Latn_JP`  | Hayao    | Miyazaki      |
 | `ja_Jpan_JP`  | 駿       | 宮崎           |
 
 Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:

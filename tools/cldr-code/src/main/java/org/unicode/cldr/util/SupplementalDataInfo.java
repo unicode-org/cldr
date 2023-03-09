@@ -4,8 +4,30 @@ import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
 import java.io.File;
 import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Deque;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -1739,7 +1761,10 @@ public class SupplementalDataInfo {
             String locales = parts.getAttributeValue(-1, "locales");
             String[] pl = locales.split(" ");
             for (int i = 0; i < pl.length; i++) {
-                parentLocales.put(pl[i], parent);
+                String old = parentLocales.put(pl[i], parent);
+                if (old != null) {
+                    throw new IllegalArgumentException("Locale " + pl[i] + " cannot have two parents: " + old + " and " + parent);
+                }
             }
         }
 

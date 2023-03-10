@@ -40,7 +40,7 @@ This is a stable document and may be used as reference material or cited as a no
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -58,12 +58,12 @@ The LDML specification is divided into the following parts:
   * [_Important Note_](#important-note)
   * [_Summary_](#summary)
   * [_Status_](#status)
-* [Parts](#Parts)
+* [Parts](#parts)
 * [Contents of Part 7, Keyboards](#Contents)
 * [Keyboards](#Introduction)
 * [Goals and Non-goals](#Goals_and_Nongoals)
-* [Definitions](#Definitions)
-  * [Escaping](#Escaping)
+* [Definitions](#definitions)
+  * [Escaping](#escaping)
 * [File and Directory Structure](#File_and_Dir_Structure)
 * [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
   * [Element: keyboard](#Element_Keyboard)
@@ -95,7 +95,7 @@ The LDML specification is divided into the following parts:
   * [Element: platform](#Element_platform)
   * [Element: hardwareMap](#Element_hardwareMap)
   * [Element: map](#Element_hardwareMap_map)
-* [Invariants](#Invariants)
+* [Invariants](#invariants)
 * [Data Sources](#Data_Sources)
   * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
 * [Keyboard IDs](#Keyboard_IDs)
@@ -194,7 +194,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 * * *
 
-## <a name="Definitions" href="#Definitions">Definitions</a>
+## Definitions
 
 **Arrangement** is the term used to describe the relative position of the rectangles that represent keys, either physically or virtually. A physical keyboard has a static arrangement while a virtual keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.
 
@@ -240,7 +240,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Virtual keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a physical keyboard. This term has many synonyms: touch keyboard, software keyboard, SIP (Software Input Panel). This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
-### <a name="Escaping" href="#Escaping">Escaping</a>
+### Escaping
 
 When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
@@ -1857,7 +1857,7 @@ _Attribute:_ `iso` (required)
 
 * * *
 
-## <a name="Invariants" href="#Invariants">Invariants</a>
+## Invariants
 
 Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
 

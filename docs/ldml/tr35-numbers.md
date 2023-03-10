@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -58,25 +58,25 @@ The LDML specification is divided into the following parts:
     * Table: [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
     * Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
     * [Explicit Plus Signs](#Explicit_Plus)
-  * [Formatting](#Formatting)
+  * [Formatting](#formatting)
   * [Scientific Notation](#sci)
   * [Significant Digits](#sigdig)
     * Table: [Significant Digits Examples](#Significant_Digits_Examples)
-  * [Padding](#Padding)
-  * [Rounding](#Rounding)
+  * [Padding](#padding)
+  * [Rounding](#rounding)
   * [Quoting Rules](#Quoting_Rules)
-* [Currencies](#Currencies)
+* [Currencies](#currencies)
   * [Supplemental Currency Data](#Supplemental_Currency_Data)
 * [Language Plural Rules](#Language_Plural_Rules)
   * [Explicit 0 and 1 rules](#Explicit_0_1_rules)
   * [Plural rules syntax](#Plural_rules_syntax)
-    * [Operands](#Operands)
+    * [Operands](#operands)
       * Table: [Plural Operand Meanings](#Plural_Operand_Meanings)
       * Table: [Plural Operand Examples](#Plural_Operand_Examples)
-    * [Relations](#Relations)
+    * [Relations](#relations)
       * Table: [Relations Examples](#Relations_Examples)
       * Table: [Plural Rules Examples](#Plural_Rules_Examples)
-    * [Samples](#Samples)
+    * [Samples](#samples)
       * Table: [Plural Samples Examples](#Plural_Samples_Examples)
     * [Using Cardinals](#Using_cardinals)
   * [Plural Ranges](#Plural_Ranges)
@@ -678,7 +678,7 @@ An explicit "plus" format can be formed, so as to show a visible + sign when for
 
 For an example, see [Sample Patterns and Results](#Sample_Patterns_and_Results).
 
-### <a name="Formatting" href="#Formatting">Formatting</a>
+### Formatting
 
 Formatting is guided by several parameters, all of which can be specified either using a pattern or using an external API designed for number formatting. The following description applies to formats that do not use [scientific notation](#sci) or [significant digits](#sigdig).
 
@@ -744,7 +744,7 @@ There are two ways of controlling how many digits are shown: (a) significant dig
 * The number of significant digits has no effect on parsing.
 * Significant digits may be used together with exponential notation. Such patterns are equivalent to a normal exponential pattern with a minimum and maximum integer digit count of one, a minimum fraction digit count of `Minimum Significant Digits - 1`, and a maximum fraction digit count of `Maximum Significant Digits - 1`. For example, the pattern `"@@###E0"` is equivalent to `"0.0###E0"`.
 
-### <a name="Padding" href="#Padding">Padding</a>
+### Padding
 
 Patterns support padding the result to a specific width. In a pattern the pad escape character, followed by a single pad character, causes padding to be parsed and formatted. The pad escape character is '*'. For example, `"$*x#,##0.00"` formats 123 to `"$xx123.00"` , and 1234 to `"$1,234.00"` .
 
@@ -753,7 +753,7 @@ Patterns support padding the result to a specific width. In a pattern the pad es
 * Padding may be inserted at one of four locations: before the prefix, after the prefix, before the suffix, or after the suffix. No padding can be specified in any other location. If there is no prefix, before the prefix and after the prefix are equivalent, likewise for the suffix.
 * When specified in a pattern, the code point immediately following the pad escape is the pad character. This may be any character, including a special pattern character. That is, the pad escape _escapes_ the following character. If there is no character after the pad escape, then the pattern is illegal.
 
-### <a name="Rounding" href="#Rounding">Rounding</a>
+### Rounding
 
 Patterns support rounding to a specific increment. For example, 1230 rounded to the nearest 50 is 1250. Mathematically, rounding to specific increments is performed by dividing by the increment, rounding to an integer, then multiplying by the increment. To take a more bizarre example, 1.234 rounded to the nearest 0.65 is 1.3, as follows:
 
@@ -775,7 +775,7 @@ To specify a rounding increment in a pattern, include the increment in the patte
 
 Single quotes (**'**) enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes ('') are replaced with a single one ('). For example: `'X '`#`' Q '` -> **X 1939 Q** (Literal strings `shaded`.)
 
-## <a name="Currencies" href="#Currencies">Currencies</a>
+## Currencies
 
 ```xml
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
@@ -1160,7 +1160,7 @@ digitPos        = [1-9]
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
 
-#### <a name="Operands" href="#Operands">Operands</a>
+#### Operands
 
 The operands are numeric values corresponding to features of the *source number N*, and have the following meanings given in the table below.
 Note that, contrary to source numbers, operands are treated numerically.
@@ -1202,7 +1202,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 | 1.20050c3 | 1200.5 | 1200 | 2 | 1 | 50 | 5 | 3 |
 
 
-#### <a name="Relations" href="#Relations">Relations</a>
+#### Relations
 
 The positive relations are of the format **x = y** and **x = y mod z**. The **y** value can be a comma-separated list, such as **n = 3, 5, 7..15**, and is treated as if each relation were expanded into an OR statement. The range value **a..b** is equivalent to listing all the ***integers*** between **a** and **b**, inclusive. When **!=** is used, it means the entire relation is negated.
 
@@ -1243,7 +1243,7 @@ The values of relations are defined according to the operand as follows. Importa
 | zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
 | one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214, … |
 
-#### <a name="Samples" href="#Samples">Samples</a>
+#### Samples
 
 Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)
 

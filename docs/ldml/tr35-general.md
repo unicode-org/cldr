@@ -32,7 +32,7 @@ This is a stable document and may be used as reference material or cited as a no
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -52,12 +52,12 @@ The LDML specification is divided into the following parts:
   * [Locale Display Name Fields](#locale_display_name_fields)
 * [Layout Elements](#Layout_Elements)
 * [Character Elements](#Character_Elements)
-  * [Exemplars](#Exemplars)
+  * [Exemplars](#exemplars)
     * [Exemplar Syntax](#ExemplarSyntax)
-    * [Restrictions](#Restrictions)
+    * [Restrictions](#restrictions)
   * ~~[Mapping](#Character_Mapping)~~
   * ~~[Index Labels](#IndexLabels)~~
-  * [Ellipsis](#Ellipsis)
+  * [Ellipsis](#ellipsis)
   * [More Information](#Character_More_Info)
   * [Parse Lenient](#Character_Parse_Lenient)
 * [Delimiter Elements](#Delimiter_Elements)
@@ -73,24 +73,24 @@ The LDML specification is divided into the following parts:
   * [Compound Units](#compound-units)
     * [Precomposed Compound Units](#precomposed-compound-units)
   * [Unit Sequences (Mixed Units)](#Unit_Sequences)
-  * [durationUnit](#durationUnit)
-  * [coordinateUnit](#coordinateUnit)
+  * [durationUnit](#durationunit)
+  * [coordinateUnit](#coordinateunit)
   * [Territory-Based Unit Preferences](#Territory_Based_Unit_Preferences)
   * [Private-Use Units](#Private_Use_Units)
 * [POSIX Elements](#POSIX_Elements)
 * [Reference Element](#Reference_Elements)
-* [Segmentations](#Segmentations)
+* [Segmentations](#segmentations)
   * [Segmentation Inheritance](#Segmentation_Inheritance)
   * [Segmentation Suppressions](#Segmentation_Exceptions)
-* [Transforms](#Transforms)
-  * [Inheritance](#Inheritance)
-    * [Pivots](#Pivots)
-  * [Variants](#Variants)
+* [Transforms](#transforms)
+  * [Inheritance](#inheritance)
+    * [Pivots](#pivots)
+  * [Variants](#variants)
   * [Transform Rules Syntax](#Transform_Rules_Syntax)
     * [Dual Rules](#Dual_Rules)
-    * [Context](#Context)
-    * [Revisiting](#Revisiting)
-    * [Example](#Example)
+    * [Context](#context)
+    * [Revisiting](#revisiting)
+    * [Example](#example)
     * [Rule Syntax](#Rule_Syntax)
     * [Transform Rules](#Transform_Rules)
     * [Variable Definition Rules](#Variable_Definition_Rules)
@@ -112,10 +112,10 @@ The LDML specification is divided into the following parts:
   * [Typographic Names](#Typographic_Names)
 * [Grammatical Features](#Grammatical_Features)
 * [Features](#features)
-  * [Gender](#Gender)
+  * [Gender](#gender)
     * [Example](#example)
     * [Table: Values](#table-values)
-  * [Case](#Case)
+  * [Case](#case)
     * [Table: Case](#table-case)
       * [Example](#example)
         * [Table: Values](#table-values)
@@ -502,7 +502,7 @@ indicates that language names embedded in text are normally written in lower cas
 
 The `<characters>` element provides optional information about characters that are in common use in the locale, and information that can be helpful in picking resources or data appropriate for the locale, such as when choosing among character encodings that are typically used to transmit data in the language of the locale. It may also be used to help reduce confusability issues: see [[UTR39](https://www.unicode.org/reports/tr41/#UTR36)]. It typically only occurs in a language locale, not in a language/territory locale. The stopwords are an experimental feature, and should not be used.
 
-### <a name="Exemplars" href="#Exemplars">Exemplars</a>
+### Exemplars
 
 Exemplars are characters used by a language, separated into different categories. The following table provides a summary, with more details below.
 
@@ -578,7 +578,7 @@ The exemplar character set for Han characters is composed somewhat differently. 
 
 The ordering of the characters in the set is irrelevant, but for readability in the XML file the characters should be in sorted order according to the locale's conventions. The main and auxiliary sets should only contain lower case characters (except for the special case of Turkish and similar languages, where the dotted capital I should be included); the upper case letters are to be mechanically added when the set is used. For more information on casing, see the discussion of Special Casing in the Unicode Character Database.
 
-#### <a name="Restrictions" href="#Restrictions">Restrictions</a>
+#### Restrictions
 
 1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://www.unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](https://www.unicode.org/reports/tr29/#Katakana), [ALetter](https://www.unicode.org/reports/tr29/#ALetter), or [MidLetter](https://www.unicode.org/reports/tr29/#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
@@ -597,7 +597,7 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
 ```
 
-### <a name="Ellipsis" href="#Ellipsis">Ellipsis</a>
+### Ellipsis
 
 ```xml
 <!ELEMENT ellipsis ( #PCDATA ) >
@@ -1347,7 +1347,7 @@ Units may be used in composed sequences (aka _mixed units_), such as **5° 30′
 
 In such a sequence, decimal fractions are typically only displayed for the last element of the sequence, if at all.
 
-### <a name="durationUnit" href="#durationUnit">durationUnit</a>
+### durationUnit
 
 The durationUnit is a special type of unit used for composed time unit durations.
 
@@ -1359,7 +1359,7 @@ The durationUnit is a special type of unit used for composed time unit durations
 
 The type contains a skeleton, where 'h' stands for hours, 'm' for minutes, and 's' for seconds. These are the same symbols used in availableFormats, except that there is no need to distinguish different forms of the hour.
 
-### <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a>
+### coordinateUnit
 
 The **coordinateUnitPattern** is a special type of pattern used for composing degrees of latitude and longitude, with an indicator of the quadrant. There are exactly 4 type values, plus a displayName for the items in this category. An angle is composed using the appropriate combination of the **angle-degrees**, **angle-arc-minute** and **angle-arc-second** values. It is then substituted for the placeholder field {0} in the appropriate **coordinateUnit** pattern.
 
@@ -1452,7 +1452,7 @@ The references section supplies a central location for specifying references and
 <reference type="R3" uri="URN:ISBN:91-47-04974-X">Svenska skrivregler</reference>
 ```
 
-## <a name="Segmentations" href="#Segmentations">Segmentations</a>
+## Segmentations
 
 ```xml
 <!ELEMENT segmentations ( alias | segmentation*) >
@@ -1581,7 +1581,7 @@ Example:
 
 **Note:** These elements were called `<exceptions>` and `<exception>` prior to CLDR 26, but those names are now deprecated.
 
-## <a name="Transforms" href="#Transforms">Transforms</a>
+## Transforms
 
 Transforms provide a set of rules for transforming text via a specialized set of context-sensitive matching rules. They are commonly used for transliterations or transcriptions, but also other transformations such as full-width to half-width (for _katakana_ characters). The rules can be simple one-to-one relationships between characters, or involve more complicated mappings. Here is an example:
 
@@ -1674,7 +1674,7 @@ In version 29.0, BCP47 identifiers were added as aliases (while retaining the ol
 
 Note that the script and region codes are cased iff they are in the main subtag, but are lowercase in extensions.
 
-### <a name="Inheritance" href="#Inheritance">Inheritance</a>
+### Inheritance
 
 The CLDR transforms are built using the following locale inheritance. While this inheritance is not required of LDML implementations, the transforms supplied with CLDR may not otherwise behave as expected without some changes.
 
@@ -1724,7 +1724,7 @@ For example, here is the fallback chain for **ru_RU-el_GR/BGN**.
 
 Japanese and Korean are special, since they can be represented by combined script codes, such as ja_Jpan, ja_Hrkt, ja_Hira, or ja_Kana. These need to be considered in the above fallback chain as well.
 
-#### <a name="Pivots" href="#Pivots">Pivots</a>
+#### Pivots
 
 Transforms can also use _pivots_. These are used when there is no direct transform between a source and target, but there are transforms X-Y and Y-Z. In such a case, the transforms can be internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with the Indic script transforms: to get Devanagari-Latin, internally it is done by transforming first from Devanagari to Interindic (an internal superset encoding for Indic scripts), then from Interindic to Latin. This allows there to be only N sets of transform rules for the Indic scripts: each one to and from Interindic. These pivots are explicitly represented in the CLDR transforms.
 
@@ -1736,7 +1736,7 @@ CLDR often has special forms of IPA: not just "und-FONIPA" but "cs-FONIPA": spec
 
 The interaction of implicit pivots and inheritance may result in a longer inheritance chain lookup than desired, so implementers may consider having some sort of caching mechanism to increase performance.
 
-### <a name="Variants" href="#Variants">Variants</a>
+### Variants
 
 Variants used in CLDR include UNGEGN and BGN, both indicating sources for transliterations. There is an additional attribute `private="true"` which is used to indicate that the transform is meant for internal use, and should not be displayed as a separate choice in a UI.
 
@@ -1865,7 +1865,7 @@ With the inverse transform, "p" will convert to the Greek p. These two direction
 $pi ↔ p ;
 ```
 
-#### <a name="Context" href="#Context">Context</a>
+#### Context
 
 Context can be used to have the results of a transformation be different depending on the characters before or after. The following rule removes hyphens, but only when they follow lowercase characters:
 
@@ -1902,7 +1902,7 @@ Thus the negation of a UnicodeSet will normally also match before or after the e
 
 It will thus convert “-B A-B a-b” to “B AB a-b”.
 
-#### <a name="Revisiting" href="#Revisiting">Revisiting</a>
+#### Revisiting
 
 If the resulting text contains a vertical bar "|", then that means that processing will proceed from that point and that the transform will revisit part of the resulting text. Thus the | marks a "cursor" position. For example, if we have the following, then the string "xa" will convert to "w".
 
@@ -1917,7 +1917,7 @@ First, "xa" is converted to "yza". Then the processing will continue from after 
 x → |@@y;
 ```
 
-#### <a name="Example" href="#Example">Example</a>
+#### Example
 
 The following shows how these features are combined together in the Transliterator "Any-Publishing". This transform converts the ASCII typewriter conventions into text more suitable for desktop publishing (in English). It turns straight quotation marks or UNIX style quotation marks into curly quotation marks, fixes multiple spaces, and converts double-hyphens into a dash.
 
@@ -2712,7 +2712,7 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 * a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.
 * the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.
 
-### <a name="Gender" href="#Gender">Gender</a>
+### Gender
 
 Feature that classifies nouns in classes.
 This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others.
@@ -2761,7 +2761,7 @@ That is:
 * unspecified and animate are dropped.
 * if there is only a single gender with inanimate, then the gender is dropped.
 
-### <a name="Case" href="#Case">Case</a>
+### Case
 
 #### Table: Case
 

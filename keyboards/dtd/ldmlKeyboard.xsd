@@ -43,6 +43,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:validity/bcp47 -->
   <!-- @MATCH:any -->
   <!-- @METADATA -->
@@ -58,9 +59,8 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
-  <!-- @VALUE -->
-  <!-- @VALUE -->
   <xs:element name="locales">
     <xs:complexType>
       <xs:sequence>
@@ -68,11 +68,13 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="locale">
     <xs:complexType>
       <xs:attribute name="id" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:validity/bcp47 -->
   <!-- @VALUE -->
   <xs:element name="version">
@@ -87,6 +89,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
   <!-- @MATCH:semver -->
   <!-- @VALUE -->
@@ -100,6 +103,7 @@
       <xs:attribute name="indicator"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @MATCH:literal/NFC, NFD, other -->
@@ -117,15 +121,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="name">
     <xs:complexType>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <xs:element name="special" type="any"/>
+  <!-- @TECHPREVIEW -->
   <xs:element name="settings">
     <xs:complexType>
       <xs:attribute name="fallback">
@@ -152,6 +159,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @VALUE -->
   <!-- @VALUE -->
   <!-- @VALUE -->
@@ -164,12 +172,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="vkey">
     <xs:complexType>
       <xs:attribute name="from" use="required"/>
       <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
@@ -183,12 +193,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="display">
     <xs:complexType>
       <xs:attribute name="to" use="required"/>
       <xs:attribute name="display" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @ALLOWS_UESC -->
   <!-- @MATCH:any -->
@@ -199,6 +211,7 @@
       <xs:attribute name="baseCharacter"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
@@ -214,6 +227,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="key">
     <xs:complexType>
       <xs:attribute name="id" use="required"/>
@@ -247,6 +261,7 @@
       <xs:attribute name="width"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <!-- @VALUE -->
@@ -276,6 +291,7 @@
       <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <xs:element name="flick">
     <xs:complexType>
@@ -283,6 +299,7 @@
       <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))* -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
@@ -308,6 +325,7 @@
       <xs:attribute name="minDeviceWidth"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:range/1~999 -->
   <xs:element name="layer">
     <xs:complexType>
@@ -319,6 +337,7 @@
       <xs:attribute name="modifier" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @MATCH:any -->
   <xs:element name="row">
@@ -327,6 +346,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <xs:element name="transforms">
@@ -347,6 +367,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/simple, final, backspace -->
   <xs:element name="transform">
     <xs:complexType>
@@ -362,6 +383,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <!-- @MATCH:any -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
@@ -376,6 +398,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- @TECHPREVIEW -->
   <xs:element name="reorder">
     <xs:complexType>
       <xs:attribute name="before"/>
@@ -392,6 +415,7 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
+<!-- @TECHPREVIEW -->
 <!-- @VALUE -->
 <!-- @VALUE -->
 <!-- @VALUE -->

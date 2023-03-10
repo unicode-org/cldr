@@ -14,6 +14,7 @@ This DTD is a work in progress.
 Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information. -->
 
 <!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, transforms*, reorders?, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
 <!ATTLIST keyboard conformsTo (techpreview) #REQUIRED >
@@ -21,20 +22,22 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@METADATA-->
 
 <!ELEMENT import EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST import path CDATA #REQUIRED >
     <!--@MATCH:any-->
-    <!--@VALUE-->
 <!ATTLIST import base (cldr) #IMPLIED >
-    <!--@VALUE-->
 
 <!ELEMENT locales ( locale* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT locale EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST locale id CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
     <!--@VALUE-->
 
 <!ELEMENT version EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST version number CDATA #IMPLIED >
     <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
     <!--@MATCH:semver-->
@@ -44,6 +47,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@METADATA-->
 
 <!ELEMENT info EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST info author CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -58,17 +62,21 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@VALUE-->
 
 <!ELEMENT names ( import*, name+, special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT name EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST name value CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT special ANY >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT settings EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST settings fallback (omit) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST settings transformFailure (omit) #IMPLIED >
@@ -77,8 +85,10 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@VALUE-->
 
 <!ELEMENT vkeys ( import*, vkey*, special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT vkey EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST vkey from CDATA #REQUIRED >
     <!--@MATCH:any-->
 <!ATTLIST vkey to CDATA #REQUIRED >
@@ -86,8 +96,10 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@VALUE-->
 
 <!ELEMENT displays ( import*, display*, displayOptions*, special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT display EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST display to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@ALLOWS_UESC-->
@@ -97,14 +109,17 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT displayOptions EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST displayOptions baseCharacter CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT keys ( import*, ( key | flicks )*, special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT key EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST key id CDATA #REQUIRED >
     <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 <!ATTLIST key flicks NMTOKEN #IMPLIED >
@@ -138,10 +153,12 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@VALUE-->
 
 <!ELEMENT flicks ( flick+, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST flicks id NMTOKEN #REQUIRED >
     <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT flick EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST flick directions NMTOKENS #REQUIRED >
     <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
 <!ATTLIST flick to CDATA #REQUIRED >
@@ -150,11 +167,13 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT layers ( import*, layer*, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST layers form (touch | us | iso | jis | abnt2) #REQUIRED >
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 
 <!ELEMENT layer ( row+, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST layer id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST layer modifier NMTOKENS #IMPLIED >
@@ -162,15 +181,18 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
 
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->
+    <!--@TECHPREVIEW-->
 <!ATTLIST row keys NMTOKENS #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT transforms ( import*, transform*, special* ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST transforms type (simple | final | backspace) #REQUIRED >
     <!--@MATCH:literal/simple, final, backspace-->
 
 <!ELEMENT transform EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST transform before CDATA #IMPLIED >
 <!ATTLIST transform from CDATA #REQUIRED >
     <!--@MATCH:any-->
@@ -182,8 +204,10 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@VALUE-->
 
 <!ELEMENT reorders ( import*, reorder*, special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT reorder EMPTY >
+    <!--@TECHPREVIEW-->
 <!ATTLIST reorder before CDATA #IMPLIED >
 <!ATTLIST reorder from CDATA #REQUIRED >
 <!ATTLIST reorder order CDATA #IMPLIED >

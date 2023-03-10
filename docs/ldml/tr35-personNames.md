@@ -78,7 +78,7 @@ The LDML specification is divided into the following parts:
   * 6.7 [Process a namePattern](#process-the-namepattern)
     * 6.7.1 [Handling foreign names](#handling-foreign-names)
     * 6.7.2 [Setting the spaceReplacement](#spaceReplacement)
-    * 6.7.3 [Examples of space replacement](#examples-examples)
+    * 6.7.3 [Examples of space replacement](#spaceReplacement-examples)
   * 6.8 [Formatting examples](#formatting-examples)
 * 7 [Sample Name](#sample-name)
   * 7.1 [Syntax](#syntax)
@@ -710,7 +710,7 @@ For the purposes of this algorithm, two base languages are said to __match__ whe
 Remember that **a name in a different script** will use a different locale for formatting, as per <a href="#switch-formatting-locales">Switch the formatting locale if necessary</a>.
 For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters on [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein)
 
-#### 6.7.3 <a name="examples-examples" href="#spaceReplacement-examples">Examples of space replacement</a>
+#### 6.7.3 <a name="spaceReplacement-examples" href="#spaceReplacement-examples">Examples of space replacement</a>
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 

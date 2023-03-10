@@ -198,7 +198,7 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
 <!ATTLIST transforms type (simple | backspace) #REQUIRED >
     <!--@MATCH:literal/simple, backspace-->
 
-<!ELEMENT transformGroup ( ( import+ | transform+ | ( import*, reorder+ ) )?, special* ) >
+<!ELEMENT transformGroup ( import*, ( transform* | reorder* ), special* ) >
     <!--@TECHPREVIEW-->
 
 <!ELEMENT transform EMPTY >

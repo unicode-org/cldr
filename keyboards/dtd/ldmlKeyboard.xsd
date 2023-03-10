@@ -375,13 +375,10 @@
   <xs:element name="transformGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:choice minOccurs="0">
-          <xs:element maxOccurs="unbounded" ref="import"/>
-          <xs:element maxOccurs="unbounded" ref="transform"/>
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
-            <xs:element maxOccurs="unbounded" ref="reorder"/>
-          </xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:choice>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="transform"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="reorder"/>
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright © 1991-2022 Unicode, Inc.
+  Copyright © 1991-2023 Unicode, Inc.
   For terms of use, see http://www.unicode.org/copyright.html
   SPDX-License-Identifier: Unicode-DFS-2016
   CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -20,10 +20,10 @@
   <xs:element name="version">
     <xs:complexType>
       <xs:attribute name="number" use="required"/>
-      <xs:attribute name="cldrVersion" default="42">
+      <xs:attribute name="cldrVersion" default="43">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="42"/>
+            <xs:enumeration value="43"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>

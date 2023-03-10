@@ -8263,7 +8263,6 @@
       </xs:choice>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <xs:element name="nameOrderLocales">
     <xs:complexType mixed="true">
       <xs:attribute name="order" use="required">
@@ -8288,7 +8287,6 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->
@@ -8309,7 +8307,6 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @METADATA -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
@@ -8338,7 +8335,6 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->
   <!-- @METADATA -->
@@ -8357,7 +8353,6 @@
       <xs:attribute name="formality" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/givenFirst, surnameFirst, sorting -->
   <!-- @MATCH:literal/long, medium, short -->
   <!-- @MATCH:literal/referring, addressing, monogram -->
@@ -8385,7 +8380,6 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @METADATA -->
   <!-- @METADATA -->
   <xs:element name="sampleName">
@@ -8400,7 +8394,6 @@
       <xs:attribute name="item" use="required" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull -->
   <xs:element name="nameField">
     <xs:complexType mixed="true">
@@ -8419,7 +8412,6 @@
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  <!-- @TECHPREVIEW -->
   <!-- @MATCH:literal/title, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, generation, credentials -->
   <!-- @MATCH:literal/variant -->
   <!-- @METADATA -->

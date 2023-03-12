@@ -75,6 +75,6 @@ public class Iso3166Data {
      * @return
      */
     public static boolean isRegionCodeNotForTranslation(String territory) {
-        return (territory.equals("CQ"));
+        return (REGION_CODES_NOT_FOR_TRANSLATION.contains(territory));
     }
 }

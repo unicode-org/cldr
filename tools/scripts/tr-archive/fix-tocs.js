@@ -12,11 +12,11 @@ const contentsEnd = /^## .*$/; // end of contents: the next ##
 
 // ToC entries we don't want, for deletion
 const tocDelete = [
-    /^\* \[.*Unicode Technical Standard.*$/,
-    /^  \* \[_Summary_\].*$/,
-    /^  \* \[_Status_\].*$/,
-    /^\* \[Parts\].*$/,
-    /^\* \[Contents of.*$/
+    /^[ ]*\* \[.*Unicode Technical Standard.*$/,
+    /^[ ]*\* \[_Summary_\].*$/,
+    /^[ ]*\* \[_Status_\].*$/,
+    /^[ ]*\* \[Parts\].*$/,
+    /^[ ]*\* \[Contents of.*$/
 ];
 
 const gfmOpts = {

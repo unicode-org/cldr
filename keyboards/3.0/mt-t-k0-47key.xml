@@ -14,7 +14,8 @@
 
     <keys>
         <!-- imports -->
-        <import base="cldr" path="techpreview/key-Zyyy-punctuation.xml" />
+        <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+        <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
 
         <!-- accent grave -->
         <key id="a-grave" to="à" />
@@ -71,7 +72,7 @@
             <row keys="space" />
         </layer>
 
-        <layer modifier="altR-shift">
+        <layer modifier="altR shift">
             <row keys="tilde gap gap gap gap gap gap gap gap gap gap gap gap" />
             <row keys="gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly pipe" />
             <row keys="A-grave gap gap gap gap gap gap gap gap gap gap" />

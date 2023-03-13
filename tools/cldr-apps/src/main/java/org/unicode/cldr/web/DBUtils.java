@@ -64,6 +64,14 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  */
 public class DBUtils {
     /**
+     * Throw an error if Derby is attempted to be used. Eventually this code will be removed entirely.
+     * @deprecated
+     */
+    @Deprecated
+    public static final void derbyNotSupported() {
+        throw new RuntimeException("Derby DB is not supported, see CLDR-14213");
+    }
+    /**
      * Set property org.unicode.cldr.web.DBUtils.level=FINEST to trace SQL,
      * org.unicode.cldr.web.DBUtils.level=FINE to trace connection opens
      */
@@ -73,22 +81,18 @@ public class DBUtils {
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
-    public static boolean db_Derby = false;
-    public static boolean db_Mysql = false;
+    public static final boolean db_Derby = false;
+    public static final boolean db_Mysql = true;
 
     /**
      * Return a string as to which SQL flavor is in use.
      *
-     * @return
+     * @return "MySql"
+     * @deprecated Derby is going away
      */
+    @Deprecated
     public static String getDBKind() {
-        if (db_Derby) {
-            return "Derby";
-        } else if (db_Mysql) {
-            return "MySql";
-        } else {
-            return "Unknown";
-        }
+        return "MySql";
     }
 
     public String getDBInfo() {
@@ -630,12 +634,13 @@ public class DBUtils {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
         logger.info("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
-            db_Derby = true;
-            logger.info("Note: Derby (embedded) mode. ** some features may not work as expected **");
-            db_UnicodeType = java.sql.Types.VARCHAR;
+            derbyNotSupported();
+            // db_Derby = true;
+            // logger.info("Note: Derby (embedded) mode. ** some features may not work as expected **");
+            // db_UnicodeType = java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
             logger.info("Note: MySQL mode");
-            db_Mysql = true;
+            // db_Mysql = true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
             DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
             DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";

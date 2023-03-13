@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
-import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -85,9 +84,6 @@ public class TestAll extends TestGroup {
     private static void pleaseSet(String var, String err, String sugg) {
         throw new IllegalArgumentException("Error: variable " + var + " " + err + ", please set -D" + var + sugg);
     }
-
-    private static final String DERBY_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-    public static final String DERBY_PREFIX = "jdbc:derby:";
 
     public static void main(String[] args) {
         main(args, null);
@@ -299,29 +295,13 @@ public class TestAll extends TestGroup {
         return dir;
     }
 
-    static void initDerby() {
-        long start = System.currentTimeMillis();
-        try {
-            Class.forName(DERBY_DRIVER);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (DEBUG)
-                System.err.println("Load " + DERBY_DRIVER + " - " + ElapsedTimer.elapsedTime(start));
-        }
-    }
-
     static void makeDataSource() {
         final String jdbcUrl = CldrUtility.getProperty(CLDR_TEST_JDBC, "");
         System.err.println(CLDR_TEST_JDBC +"="+jdbcUrl);
         if (!jdbcUrl.isEmpty()) {
             DBUtils.makeInstanceFrom(null, jdbcUrl);
-        } else if (CldrUtility.getProperty(CLDR_TEST_DISK_DB, false)) {
-            initDerby();
-            DBUtils.makeInstanceFrom(setupDerbyDataSource(getDir(DB_SUBDIR)), null);
         } else {
-            initDerby();
-            DBUtils.makeInstanceFrom(setupDerbyDataSource(null), null);
+            throw new RuntimeException("Error: set the -DCLDR_TEST_JDBC property to a valid MySQL URL.");
         }
     }
 
@@ -329,32 +309,6 @@ public class TestAll extends TestGroup {
     // http://svn.apache.org/viewvc/commons/proper/dbcp/trunk/doc/ManualPoolingDataSourceExample.java?view=co
 
     private static boolean isSetup = false;
-
-    /**
-     * null = inmemory.
-     *
-     * @param theDir
-     * @return
-     */
-    public static DataSource setupDerbyDataSource(File theDir) {
-        org.apache.derby.jdbc.EmbeddedDataSource ds = new EmbeddedDataSource();
-        if (theDir != null) {
-            ds.setDatabaseName(theDir.getAbsolutePath());
-        } else {
-            ds.setDatabaseName("memory:sttest");
-        }
-        if (isSetup == false || (theDir != null && !theDir.exists())) {
-            isSetup = true;
-            if (theDir != null) {
-                if (DEBUG)
-                    logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = "
-                        + getBaseDir().getAbsolutePath());
-            }
-
-            ds.setCreateDatabase("create");
-        }
-        return ds;
-    }
 
     public static CLDRProgressIndicator getProgressIndicator(TestLog t) {
         final TestLog test = t;
@@ -414,13 +368,10 @@ public class TestAll extends TestGroup {
      * Print a warning and skip if the test is derby-sensitive.
      * Usage:   if(skipIfDerby(this)) return;
      * @return true if skip
+     * @deprecated derby is not supported
      */
-    public static boolean skipIfDerby(TestFmwk t) {
-        if (DBUtils.getDBKind().equals("Derby")
-            && t.logKnownIssue("CLDR-14213", "May not work with Derby")) {
-            return true;
-        } else {
-            return false;
-        }
+    @Deprecated
+    public static final boolean skipIfDerby(TestFmwk t) {
+        return false;
     }
 }

@@ -11,8 +11,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-import javax.sql.DataSource;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -27,10 +25,8 @@ import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
@@ -40,12 +36,14 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class TestAll extends TestGroup {
     private static final Logger logger = SurveyLog.forClass(TestAll.class);
 
-    private static final String DB_SUBDIR = "db";
     private static final String CLDR_TEST_JDBC = TestAll.class.getPackage().getName() + ".jdbcurl";
-    private static final String CLDR_TEST_KEEP_DB = TestAll.class.getPackage().getName() + ".KeepDb";
-    private static final String CLDR_TEST_DISK_DB = TestAll.class.getPackage().getName() + ".DiskDb";
     private static boolean sane = false;
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
+
+    /**
+     * True if the Test DB is setup properly.
+     */
+    public static final boolean HAVE_TEST_DB = !(CldrUtility.getProperty(CLDR_TEST_JDBC, "").isEmpty());
 
     /**
      * Verify some setup things
@@ -107,18 +105,6 @@ public class TestAll extends TestGroup {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
                 "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
-        }
-        if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
-            if (DEBUG)
-                logger.warning("Keeping database..");
-        } else {
-            if (DEBUG)
-                logger.warning("Removing old test database..  set -D" + CLDR_TEST_KEEP_DB
-                    + "=true if you want to keep it..");
-            File f = getEmptyDir(DB_SUBDIR);
-            f.delete();
-            if (DEBUG)
-                logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
         }
         return args;
     }
@@ -305,11 +291,6 @@ public class TestAll extends TestGroup {
         }
     }
 
-    // from
-    // http://svn.apache.org/viewvc/commons/proper/dbcp/trunk/doc/ManualPoolingDataSourceExample.java?view=co
-
-    private static boolean isSetup = false;
-
     public static CLDRProgressIndicator getProgressIndicator(TestLog t) {
         final TestLog test = t;
         return new CLDRProgressIndicator() {
@@ -364,14 +345,11 @@ public class TestAll extends TestGroup {
         return FileReaders.openFile(TestAll.class, "data/" + name);
     }
 
-    /**
-     * Print a warning and skip if the test is derby-sensitive.
-     * Usage:   if(skipIfDerby(this)) return;
-     * @return true if skip
-     * @deprecated derby is not supported
-     */
-    @Deprecated
-    public static final boolean skipIfDerby(TestFmwk t) {
+    public static final boolean skipIfNoDb() {
+        if (!HAVE_TEST_DB) {
+            System.err.println("DB tests skipped because -D"+CLDR_TEST_JDBC+" was not set to a MySQL URL.");
+            return true;
+        }
         return false;
     }
 }

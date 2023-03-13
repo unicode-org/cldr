@@ -11,6 +11,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
 public class TestUserSettingsData extends TestFmwk {
 
     private void setupDB() {
+        if (TestAll.skipIfNoDb()) return;
         long start = System.currentTimeMillis();
         TestAll.setupTestDb();
         logln("Set up test DB: " + ElapsedTimer.elapsedTime(start));
@@ -38,7 +39,7 @@ public class TestUserSettingsData extends TestFmwk {
 
     public void TestSeparate() throws SQLException {
         {
-            if (TestAll.skipIfDerby(this)) return;
+            if (TestAll.skipIfNoDb()) return;
             setupDB();
             UserSettingsData d = getData();
 

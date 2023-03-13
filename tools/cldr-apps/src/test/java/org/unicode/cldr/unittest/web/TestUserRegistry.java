@@ -14,6 +14,7 @@ public class TestUserRegistry extends TestFmwk {
     }
 
     public TestUserRegistry() {
+        if (TestAll.skipIfNoDb()) return;
         TestAll.setupTestDb();
     }
 
@@ -24,7 +25,7 @@ public class TestUserRegistry extends TestFmwk {
      * org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
      */
     public void TestCanSetUserLevel() {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         UserRegistry reg = CookieSession.sm.reg;
         int id = 2468;
 
@@ -81,7 +82,7 @@ public class TestUserRegistry extends TestFmwk {
      * Test the ability of a user to vote in a locale
      */
     public void TestUserLocaleAuthorization() {
-        if (TestAll.skipIfDerby(this)) {
+        if (TestAll.skipIfNoDb()) {
             return;
         }
         UserRegistry reg = CookieSession.sm.reg;

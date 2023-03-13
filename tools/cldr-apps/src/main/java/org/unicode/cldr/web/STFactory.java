@@ -1200,7 +1200,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             SurveyLog.debug(et);
 
-            if (sm.fora != null && voteType == VoteType.AUTO_IMPORT) {
+            if (sm.fora != null && voteType == VoteType.DIRECT) {
                 sm.fora.doForumAfterVote(locale, user, distinguishingXpath, xpathId, value, didClearFlag);
             }
         }

@@ -54,7 +54,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestBasicFactory() throws SQLException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         CLDRLocale locale = CLDRLocale.getInstance("aa");
         STFactory fac = getFactory();
         CLDRFile mt = fac.make(locale, false);
@@ -65,7 +65,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestReadonlyLocales() throws SQLException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
         verifyReadOnly(fac.make("root", false));
@@ -108,7 +108,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestBasicVote() throws SQLException, IOException, InvalidXPathException, VoteNotAcceptedException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
         final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -247,7 +247,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestDenyVote() throws SQLException, IOException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]";
         //String originalValue2 = null;
@@ -293,7 +293,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestSparseVote() throws SQLException, IOException, InvalidXPathException, SurveyException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -374,10 +374,12 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestVettingDataDriven() throws SQLException, IOException {
+        if (TestAll.skipIfNoDb()) return;
         runDataDrivenTest(TestSTFactory.class.getSimpleName()); // TestSTFactory.xml
     }
 
     public void TestUserRegistry() throws SQLException, IOException {
+        if (TestAll.skipIfNoDb()) return;
         runDataDrivenTest("TestUserRegistry");
     }
 
@@ -385,7 +387,7 @@ public class TestSTFactory extends TestFmwk {
      * TODO: shorten this function, over 300 lines; use subroutines
      */
     private void runDataDrivenTest(final String fileBasename) throws SQLException, IOException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         final STFactory fac = getFactory();
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
 
@@ -713,7 +715,7 @@ public class TestSTFactory extends TestFmwk {
     }
 
     public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException, SurveyException {
-        if (TestAll.skipIfDerby(this)) return;
+        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
@@ -893,5 +895,12 @@ public class TestSTFactory extends TestFmwk {
     static final Map<String, Object> noDtdPlease = new TreeMap<>();
     static {
         noDtdPlease.put("DTD_DIR", CLDRPaths.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
+    }
+
+    // This is just here to note a log known issue if you ran without setting the DB URL
+    public void TestLogDbIssue() {
+        if (TestAll.skipIfNoDb()) {
+            logKnownIssue("CLDR-14213", "Skipping DB tests because no MySQL URL has been set.");
+        }
     }
 }

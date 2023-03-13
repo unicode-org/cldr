@@ -29,7 +29,6 @@
 		<httpcomponents-version>5.0.3</httpcomponents-version>
 		<!--  web-specific properties are under cldr-apps -->
 		<mysql.version>8.0.30</mysql.version>
-		<derby.version>10.15.2.0</derby.version>
 	</properties>
 
 	<modules>
@@ -139,17 +138,6 @@
 			</dependency>
 
 			<!-- db connectors -->
-			<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derby</artifactId>
-				<version>${derby.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derbytools</artifactId>
-				<version>${derby.version}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>

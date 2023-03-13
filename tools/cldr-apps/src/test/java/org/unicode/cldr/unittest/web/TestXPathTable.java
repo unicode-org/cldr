@@ -25,12 +25,14 @@ public class TestXPathTable extends TestFmwk {
     }
 
     public TestXPathTable() {
+        if (TestAll.skipIfNoDb()) return;
         TestAll.setupTestDb();
     }
 
     public static final int TEST_COUNT = 200;
 
     public void TestPutGet() throws SQLException {
+        if (TestAll.skipIfNoDb()) return;
         logln("Testing " + TEST_COUNT + " xpaths");
         Connection conn = DBUtils.getInstance().getDBConnection();
         XPathTable xpt = XPathTable.createTable(conn);
@@ -116,6 +118,7 @@ public class TestXPathTable extends TestFmwk {
     }
 
     public void TestNonDistinguishing() throws SQLException {
+        if (TestAll.skipIfNoDb()) return;
         Connection conn = DBUtils.getInstance().getDBConnection();
         XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);

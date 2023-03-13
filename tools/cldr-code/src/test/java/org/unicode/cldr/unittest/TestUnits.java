@@ -37,6 +37,7 @@ import org.unicode.cldr.test.CheckUnits;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -67,6 +68,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.Continuation.UnitIterator;
@@ -543,22 +545,25 @@ public class TestUnits extends TestFmwk {
             checkUnitConvertability(converter, compoundBaseUnit, badUnits, noQuantity, type, unit, testPrintout);
         }
         if (GENERATE_TESTS) { // test data
-            System.out.println(
-                "# Test data for unit conversions\n"
-                    + CldrUtility.getCopyrightString("#  ") + "\n"
-                    + "#\n"
-                    + "# Format:\n"
-                    + "#\tQuantity\t;\tx\t;\ty\t;\tconversion to y (rational)\t;\ttest: 1000 x ⟹ y\n"
-                    + "#\n"
-                    + "# Use: convert 1000 x units to the y unit; the result should match the final column,\n"
-                    + "#   at the given precision. For example, when the last column is 159.1549,\n"
-                    + "#   round to 4 decimal digits before comparing.\n"
-                    + "# Note that certain conversions are approximate, such as degrees to radians\n"
-                    + "#\n"
-                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n"
-                );
-            for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
-                System.out.println(entry.getValue());
+            try (TempPrintWriter pw = TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + "units", "unitsTest.txt")) {
+
+                pw.println(
+                    "# Test data for unit conversions\n"
+                        + CldrUtility.getCopyrightString("#  ") + "\n"
+                        + "#\n"
+                        + "# Format:\n"
+                        + "#\tQuantity\t;\tx\t;\ty\t;\tconversion to y (rational)\t;\ttest: 1000 x ⟹ y\n"
+                        + "#\n"
+                        + "# Use: convert 1000 x units to the y unit; the result should match the final column,\n"
+                        + "#   at the given precision. For example, when the last column is 159.1549,\n"
+                        + "#   round to 4 decimal digits before comparing.\n"
+                        + "# Note that certain conversions are approximate, such as degrees to radians\n"
+                        + "#\n"
+                        + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n"
+                    );
+                for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
+                    pw.println(entry.getValue());
+                }
             }
         }
         assertEquals("Unconvertable units", Collections.emptySet(), badUnits);
@@ -1470,85 +1475,88 @@ public class TestUnits extends TestFmwk {
         prefs.getFastMap(converter); // call just to make sure we don't get an exception
 
         if (GENERATE_TESTS) {
-            System.out.println(
-                "\n# Test data for unit preferences\n"
-                    + CldrUtility.getCopyrightString("#  ") + "\n"
-                    + "#\n"
-                    + "# Format:\n"
-                    + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
-                    + "#\n"
-                    + "# Use: Convert the Input amount & unit according to the Usage and Region.\n"
-                    + "#\t The result should match the Output amount and unit.\n"
-                    + "#\t Both rational (r) and double64 (d) forms of the input and output amounts are supplied so that implementations\n"
-                    + "#\t have two options for testing based on the precision in their implementations. For example:\n"
-                    + "#\t   3429 / 12500; 0.27432; meter;\n"
-                    + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
-                    + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
-                    + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
-                    + "#\t The input and output units are unit identifers; in particular, the output does not have further processing:\n"
-                    + "#\t\t • no localization\n"
-                    + "#\t\t • no adjustment for pluralization\n"
-                    + "#\t\t • no formatted with the skeleton\n"
-                    + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
-                    + "#\n"
-                    + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n"
-                );
-            Rational ONE_TENTH = Rational.of(1,10);
+            try (TempPrintWriter pw = TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + "units", "unitPreferencesTest.txt")) {
 
-            // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
+                pw.println(
+                    "\n# Test data for unit preferences\n"
+                        + CldrUtility.getCopyrightString("#  ") + "\n"
+                        + "#\n"
+                        + "# Format:\n"
+                        + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
+                        + "#\n"
+                        + "# Use: Convert the Input amount & unit according to the Usage and Region.\n"
+                        + "#\t The result should match the Output amount and unit.\n"
+                        + "#\t Both rational (r) and double64 (d) forms of the input and output amounts are supplied so that implementations\n"
+                        + "#\t have two options for testing based on the precision in their implementations. For example:\n"
+                        + "#\t   3429 / 12500; 0.27432; meter;\n"
+                        + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
+                        + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
+                        + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
+                        + "#\t The input and output units are unit identifers; in particular, the output does not have further processing:\n"
+                        + "#\t\t • no localization\n"
+                        + "#\t\t • no adjustment for pluralization\n"
+                        + "#\t\t • no formatted with the skeleton\n"
+                        + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
+                        + "#\n"
+                        + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n"
+                    );
+                Rational ONE_TENTH = Rational.of(1,10);
 
-            for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : prefs.getData().entrySet()) {
-                String quantity = entry.getKey();
-                String baseUnit = converter.getBaseUnitFromQuantity(quantity);
-                for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry.getValue().entrySet()) {
-                    String usage = entry2.getKey();
+                // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
 
-                    // collect samples of base units
-                    for (Entry<Set<String>, Collection<UnitPreference>> entry3 : entry2.getValue().asMap().entrySet()) {
-                        boolean first = true;
-                        Set<Rational> samples = new TreeSet<>(Comparator.reverseOrder());
-                        for (UnitPreference pref : entry3.getValue()) {
-                            final String topUnit = UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
-                            if (first) {
-                                samples.add(converter.convert(pref.geq.add(ONE_TENTH), topUnit, baseUnit, false));
-                                first = false;
+                for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : prefs.getData().entrySet()) {
+                    String quantity = entry.getKey();
+                    String baseUnit = converter.getBaseUnitFromQuantity(quantity);
+                    for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry.getValue().entrySet()) {
+                        String usage = entry2.getKey();
+
+                        // collect samples of base units
+                        for (Entry<Set<String>, Collection<UnitPreference>> entry3 : entry2.getValue().asMap().entrySet()) {
+                            boolean first = true;
+                            Set<Rational> samples = new TreeSet<>(Comparator.reverseOrder());
+                            for (UnitPreference pref : entry3.getValue()) {
+                                final String topUnit = UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
+                                if (first) {
+                                    samples.add(converter.convert(pref.geq.add(ONE_TENTH), topUnit, baseUnit, false));
+                                    first = false;
+                                }
+                                samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
+                                samples.add(converter.convert(pref.geq.subtract(ONE_TENTH), topUnit, baseUnit, false));
                             }
-                            samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
-                            samples.add(converter.convert(pref.geq.subtract(ONE_TENTH), topUnit, baseUnit, false));
+                            // show samples
+                            Set<String> regions = entry3.getKey();
+                            String sampleRegion = regions.iterator().next();
+                            Collection<UnitPreference> uprefs = entry3.getValue();
+                            for (Rational sample : samples) {
+                                showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs, pw);
+                            }
+                            pw.println();
                         }
-                        // show samples
-                        Set<String> regions = entry3.getKey();
-                        String sampleRegion = regions.iterator().next();
-                        Collection<UnitPreference> uprefs = entry3.getValue();
-                        for (Rational sample : samples) {
-                            showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs);
-                        }
-                        System.out.println();
                     }
                 }
             }
         }
     }
 
-    private void showSample(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, Collection<UnitPreference> prefs) {
+    private void showSample(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, Collection<UnitPreference> prefs, TempPrintWriter pw) {
         String lastUnit = null;
         boolean gotOne = false;
         for (UnitPreference pref : prefs) {
             final String topUnit = UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
             Rational baseGeq = converter.convert(pref.geq, topUnit, baseUnit, false);
             if (sampleBaseValue.compareTo(baseGeq) >= 0) {
-                showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, pref.unit);
+                showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, pref.unit, pw);
                 gotOne = true;
                 break;
             }
             lastUnit = pref.unit;
         }
         if (!gotOne) {
-            showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, lastUnit);
+            showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, lastUnit, pw);
         }
     }
 
-    private void showSample2(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, String lastUnit) {
+    private void showSample2(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, String lastUnit, TempPrintWriter pw) {
         Rational originalSampleBaseValue = sampleBaseValue;
         // Known slow algorithm for mixed values, but for generating tests we don't care.
         final List<String> units = UnitPreferences.SPLIT_AND.splitToList(lastUnit);
@@ -1569,7 +1577,7 @@ public class TestUnits extends TestFmwk {
                 formattedUnit.append(sample + TEST_SEP + sample.doubleValue() + TEST_SEP + unit);
             }
         }
-        System.out.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion
+        pw.println(quantity + TEST_SEP + usage + TEST_SEP + sampleRegion
             + TEST_SEP + originalSampleBaseValue + TEST_SEP + originalSampleBaseValue.doubleValue() + TEST_SEP + baseUnit
             + TEST_SEP + formattedUnit);
     }
@@ -2826,7 +2834,7 @@ public class TestUnits extends TestFmwk {
     private List<Pair<String, UnitIdComponentType>> checkParse(UnitParser up, String shortUnit) {
         up.set(shortUnit);
         List<Pair<String, UnitIdComponentType>> results = new ArrayList<>();
-       Output<UnitIdComponentType> type = new Output<>();
+        Output<UnitIdComponentType> type = new Output<>();
         while (true) {
             String result = up.nextParse(type);
             if (result == null) {

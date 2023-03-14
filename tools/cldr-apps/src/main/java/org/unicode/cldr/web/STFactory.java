@@ -137,7 +137,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * Names of some columns in DBUtils.Table.VOTE_VALUE
      */
     private static final String VOTE_OVERRIDE = "vote_override";
-    private static final String VOTE_TYPE = "type";
+    private static final String VOTE_TYPE = "vote_type";
 
     private class DataBackedSource extends DelegateXMLSource {
         PerLocaleData ballotBox;

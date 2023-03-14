@@ -1200,7 +1200,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             SurveyLog.debug(et);
 
-            if (sm.fora != null && voteType == VoteType.DIRECT) {
+            // Voting can trigger adding a forum post (agree/decline) and/or closing a forum thread.
+            // AUTO_IMPORT votes are excluded; DIRECT, BULK_UPLOAD, and MANUAL_IMPORT are not excluded.
+            if (sm.fora != null && voteType != VoteType.AUTO_IMPORT) {
                 sm.fora.doForumAfterVote(locale, user, distinguishingXpath, xpathId, value, didClearFlag);
             }
         }

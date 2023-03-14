@@ -11,6 +11,16 @@
           # for monitoring
           - prometheus-mysqld-exporter
           # - prometheus-nginx-exporter # (not there yet)
+          # for security
+          - fail2ban
+    - name: Setup fail2ban/jail.local
+      copy:
+        src: templates/fail2ban-jail.local
+        dest: /etc/fail2ban/jail.local
+        owner: root
+        group: root
+        mode: '0644'
+      notify: 'Restart Fail2ban'
     - name: Setup surveytool user for deploy
       user:
         name: "{{ cldr_surveytool_user }}"
@@ -61,3 +71,8 @@
         group: root
         mode: '440'
         src: templates/55-cldradmin.conf
+  handlers:
+    - name: Restart Fail2ban
+      service:
+        name: fail2ban
+        state: restarted

@@ -1,0 +1,8 @@
+# jail.local
+#
+# Ansible managed file. See: https://github.com/unicode-org/cldr/blob/main/tools/scripts/ansible/templates/fail2ban-jail.local
+
+[DEFAULT]
+ignoreip = 127.0.0.0/8 64.182.22.0/24 64.182.27.0/24
+findtime = 1h
+bantime = 2h

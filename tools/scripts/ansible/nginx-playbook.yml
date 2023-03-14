@@ -6,6 +6,14 @@
   roles:
     - { role: geerlingguy.nginx }
   tasks:
+    - name: Setup stapler.conf
+      copy:
+        src: templates/nginx-stapler.conf
+        dest: /etc/nginx/conf.d/stapler.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: 'Restart Nginx'
     - name: Setup reverse proxy
       blockinfile:
         path: /etc/nginx/sites-enabled/default

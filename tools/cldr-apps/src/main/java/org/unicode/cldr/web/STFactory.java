@@ -133,7 +133,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     }
 
+    /**
+     * Names of some columns in DBUtils.Table.VOTE_VALUE
+     */
     private static final String VOTE_OVERRIDE = "vote_override";
+    private static final String VOTE_TYPE = "vote_type";
 
     private class DataBackedSource extends DelegateXMLSource {
         PerLocaleData ballotBox;
@@ -992,12 +996,22 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public void voteForValue(User user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException {
-            voteForValue(user, distinguishingXpath, value, null);
+        public void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException {
+            voteForValueWithType(user, distinguishingXpath, value, withVote, VoteType.DIRECT);
         }
 
         @Override
-        public synchronized void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws BallotBox.InvalidXPathException,
+        public void voteForValue(User user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException {
+            voteForValueWithType(user, distinguishingXpath, value, null, VoteType.DIRECT);
+        }
+
+        @Override
+        public void voteForValueWithType(User user, String distinguishingXpath, String value, VoteType voteType) throws VoteNotAcceptedException, InvalidXPathException {
+            voteForValueWithType(user, distinguishingXpath, value, null, voteType);
+        }
+
+        @Override
+        public synchronized void voteForValueWithType(User user, String distinguishingXpath, String value, Integer withVote, VoteType voteType) throws BallotBox.InvalidXPathException,
             BallotBox.VoteNotAcceptedException {
             makeSureInPathsForFile(distinguishingXpath, user, value);
             value = processValue(distinguishingXpath, value);
@@ -1011,11 +1025,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             int xpathId = sm.xpt.getByXpath(distinguishingXpath);
-            boolean voteIsAutoImported = false;
-            if (VOTE_IS_AUTO_IMPORTED.equals(withVote)) {
-                withVote = null;
-                voteIsAutoImported = true;
-            } else if (withVote != null) {
+            if (withVote != null) {
                 Level level = user.getLevel();
                 if (withVote == level.getVotes(user.getOrganization())) {
                     withVote = null; // not an override
@@ -1042,7 +1052,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
 
             if (!readonly) {
-                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId, voteIsAutoImported);
+                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId, voteType);
             } else {
                 readonly();
             }
@@ -1132,16 +1142,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @param xpathId
          */
         private void saveVoteToDb(final User user, final String distinguishingXpath, final String value,
-                final Integer withVote, final int xpathId, boolean voteIsAutoImported) {
+                final Integer withVote, final int xpathId, VoteType voteType) {
             boolean didClearFlag = false;
             makeSource(false);
             ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
                 + distinguishingXpath + " : " + user + " voting for '" + value);
             Connection conn = null;
             PreparedStatement saveOld = null; // save off old value
-            PreparedStatement ps = null; // all for mysql, or 1st step for
-            // derby
-            PreparedStatement ps2 = null; // 2nd step for derby
+            PreparedStatement ps = null;
             final boolean wasFlagged = getFlag(locale, xpathId); // do this outside of the txn..
             int submitter = user.id;
             try {
@@ -1152,13 +1160,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 // #1 - save the "VOTE_VALUE_ALT"  ( possible proposal) value.
                 if (DBUtils.db_Mysql) {
                     add0 = "IGNORE";
-                    // add1="ON DUPLICATE KEY IGNORE";
                 } else {
-                    add2 = "and not exists (select * from " + DBUtils.Table.VOTE_VALUE_ALT
-                        + " where " + DBUtils.Table.VOTE_VALUE_ALT + ".locale="
-                        + DBUtils.Table.VOTE_VALUE + ".locale and "
-                        + DBUtils.Table.VOTE_VALUE_ALT + ".xpath=" + DBUtils.Table.VOTE_VALUE + ".xpath and "
-                        + DBUtils.Table.VOTE_VALUE_ALT + ".value=" + DBUtils.Table.VOTE_VALUE + ".value )";
+                    throw new RuntimeException("Unexpected db type, expected " + DBUtils.db_Mysql);
                 }
                 String sql = "insert " + add0 + " into " + DBUtils.Table.VOTE_VALUE_ALT + " " + add1
                     + " select " + DBUtils.Table.VOTE_VALUE + ".locale,"
@@ -1169,36 +1172,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 saveOld.executeUpdate();
 
                 // #2 - save the actual vote.
-                if (DBUtils.db_Mysql) { // use 'on duplicate key' syntax
-                    ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
-                        + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") values (?,?,?,?,CURRENT_TIMESTAMP,?) "
-                        + "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?,last_mod=CURRENT_TIMESTAMP," + VOTE_OVERRIDE + "=?");
-                    int colNum = 6;
+                ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
+                    + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + "," + VOTE_TYPE + ") values (?,?,?,?,CURRENT_TIMESTAMP,?,?) "
+                    + "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?,last_mod=CURRENT_TIMESTAMP," + VOTE_OVERRIDE + "=?," + VOTE_TYPE + "=?");
+                int colNum = 1;
+                for (int repeat = 1; repeat <= 2; repeat++) {
                     ps.setString(colNum++, locale.getBaseName());
                     ps.setInt(colNum++, xpathId);
                     ps.setInt(colNum++, submitter);
                     DBUtils.setStringUTF8(ps, colNum++, value);
                     DBUtils.setInteger(ps, colNum++, withVote);
-                } else { // derby
-                    ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE
-                        + " where locale=? and xpath=? and submitter=? ");
-                    ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
-                        + " (locale,xpath,submitter,value,last_mod," + VOTE_OVERRIDE + ") VALUES (?,?,?,?,CURRENT_TIMESTAMP,?) ");
-                    int colNum = 1;
-                    ps2.setString(colNum++, locale.getBaseName());
-                    ps2.setInt(colNum++, xpathId);
-                    ps2.setInt(colNum++, submitter);
-                    // NB:  no "VOTE_OVERRIDE" column on delete.
-                }
-
-                int colNum = 1;
-                ps.setString(colNum++, locale.getBaseName());
-                ps.setInt(colNum++, xpathId);
-                ps.setInt(colNum++, submitter);
-                DBUtils.setStringUTF8(ps, colNum++, value);
-                DBUtils.setInteger(ps, colNum++, withVote);
-                if (ps2 != null) {
-                    ps2.executeUpdate();
+                    DBUtils.setInteger(ps, colNum++, voteType.id());
                 }
                 ps.executeUpdate();
 
@@ -1209,14 +1193,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
             } catch (SQLException e) {
                 SurveyLog.logException(logger, e, "Exception in saveVoteToDb");
-                SurveyMain.busted("Could not vote for value in locale locale " + locale, e);
+                SurveyMain.busted("Could not vote for value in locale " + locale, e);
                 throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
             } finally {
-                DBUtils.close(saveOld, ps, ps2, conn);
+                DBUtils.close(saveOld, ps, conn);
             }
             SurveyLog.debug(et);
 
-            if (sm.fora != null && !voteIsAutoImported) {
+            // Voting can trigger adding a forum post (agree/decline) and/or closing a forum thread.
+            // AUTO_IMPORT and MANUAL_IMPORT votes are excluded; DIRECT and BULK_UPLOAD are not excluded.
+            if (sm.fora != null && (voteType != VoteType.AUTO_IMPORT && voteType != VoteType.MANUAL_IMPORT)) {
                 sm.fora.doForumAfterVote(locale, user, distinguishingXpath, xpathId, value, didClearFlag);
             }
         }
@@ -1748,24 +1734,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         Statement s = null;
         try (Connection conn = DBUtils.getInstance().getDBConnection()) {
             if (!DBUtils.hasTable(DBUtils.Table.VOTE_VALUE.toString())) {
-                /*
-                 * CREATE TABLE cldr_votevalue ( locale VARCHAR(20), xpath INT
-                 * NOT NULL, submitter INT NOT NULL, value BLOB );
-                 *
-                 * CREATE UNIQUE INDEX cldr_votevalue_unique ON cldr_votevalue
-                 * (locale,xpath,submitter);
-                 */
                 s = conn.createStatement();
-
-                sql = "create table " + DBUtils.Table.VOTE_VALUE + "( "
+                sql = "CREATE TABLE " + DBUtils.Table.VOTE_VALUE + "( "
                     + "locale VARCHAR(20), "
                     + "xpath  INT NOT NULL, "
                     + "submitter INT NOT NULL, " + "value " + DBUtils.DB_SQL_UNICODE + ", "
                     + DBUtils.DB_SQL_LAST_MOD + ", "
                     + VOTE_OVERRIDE + " INT DEFAULT NULL, "
-                    + " PRIMARY KEY (locale,submitter,xpath) " +
-
-                    " )";
+                    + VOTE_TYPE + " TINYINT NOT NULL, "
+                    + "PRIMARY KEY (locale,submitter,xpath) " +
+                    ")";
                 // logger.info(sql);
                 s.execute(sql);
 

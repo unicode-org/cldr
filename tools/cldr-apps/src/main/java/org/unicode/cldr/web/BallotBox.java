@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.json.JSONObject;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteType;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
@@ -18,6 +19,7 @@ import org.unicode.cldr.web.UserRegistry.User;
  *         concrete type.
  */
 public interface BallotBox<T> {
+
     /**
      * This is thrown when an XPath isn't valid within this locale.
      * @author srl
@@ -60,14 +62,6 @@ public interface BallotBox<T> {
     }
 
     /**
-     * As a special signal, when the "withVote" parameter of voteForValue is VOTE_IS_AUTO_IMPORTED,
-     * the ordinary vote count applies (as though the parameter were null), and some behavior is
-     * inhibited, such as auto-creation of forum posts in response to voting.
-     * It is negative to prevent confusion with valid positive numbers.
-     */
-    public static final Integer VOTE_IS_AUTO_IMPORTED = -1;
-
-    /**
      * Record a vote for an item. Will (eventually) throw a number of
      * exceptions.
      *
@@ -77,13 +71,17 @@ public interface BallotBox<T> {
      *            dpath of item
      * @param value
      *            new string value to vote for, or null for "unvote"
-     * @return the full xpath of the user's vote, or null if not applicable.
      * @throws InvalidXPathException
      * @throws VoteNotAcceptedException
      */
     public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException;
 
     public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException;
+
+    public void voteForValueWithType(T user, String distinguishingXpath, String value, VoteType voteType) throws VoteNotAcceptedException, InvalidXPathException;
+
+    public void voteForValueWithType(T user, String distinguishingXpath, String value, Integer withVote, VoteType voteType) throws InvalidXPathException,
+        VoteNotAcceptedException;
 
     /**
      * Return a vote for a value, as a string

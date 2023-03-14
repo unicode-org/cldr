@@ -37,25 +37,11 @@ import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfigImpl;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XMLUploader;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -1616,7 +1602,7 @@ public class SurveyAjax extends HttpServlet {
         /*
          * Submit the anonymous vote.
          */
-        box.voteForValue(anonUser, xpathString, processedValue);
+        box.voteForValueWithType(anonUser, xpathString, processedValue, VoteType.MANUAL_IMPORT);
         /*
          * Add a row to the IMPORT table, to avoid importing the same value repeatedly.
          * For this we need unprocessedValue, to match what occurs for the original votes in the
@@ -1907,7 +1893,7 @@ public class SurveyAjax extends HttpServlet {
                      * "for a later version".
                      */
                     if (box.getVoteValue(user, xpathString) == null) {
-                        box.voteForValue(user, xpathString, value, BallotBox.VOTE_IS_AUTO_IMPORTED);
+                        box.voteForValueWithType(user, xpathString, value, VoteType.AUTO_IMPORT);
                         confirmations++;
                     }
                 }

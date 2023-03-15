@@ -374,6 +374,9 @@ public class Ldml2JsonConverter {
         return result;
     }
 
+    /**
+     * Read all paths in the file, and assign each to a JSONSection. Return the map.
+     */
     private Map<JSONSection, List<CldrItem>> mapPathsToSections(AtomicInteger readCount, int totalCount,
         CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
         throws IOException, ParseException {
@@ -393,19 +396,23 @@ public class Ldml2JsonConverter {
         }
         final DtdType fileDtdType = file.getDtdType();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
+        // read paths in DTD order. The order is critical for JSON processing.
+        final CLDRFile.Status status = new CLDRFile.Status();
         for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             final String path = it.next();
+
+            // Check for code-fallback and constructed first, even before fullpath and value
+            final String localeWhereFound = file.getSourceLocaleID(path, status);
+            if (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID) || // language[@type="apc"] = apc : missing
+                status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) { // language[@type="fa_AF"] = fa (AF) or Farsi (Afghanistan) : missing
+                // Don't include these paths.
+                continue;
+            }
+
+            // now get the fullpath and value
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
-            /*
-             * TODO: check whether this next block is superfluous, and remove it if so
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13263
-             */
-            if (path.startsWith("//ldml/localeDisplayNames/languages") &&
-                file.getSourceLocaleID(path, null).equals("code-fallback")) {
-                value = file.getBaileyValue(path, null, null);
-            }
 
             if (fullPath == null) {
                 fullPath = path;
@@ -458,7 +465,7 @@ public class Ldml2JsonConverter {
                 continue; // skip this path
             }
 
-            for (JSONSection js : sections) {
+            for (JSONSection js : sections) { // TODO: move to subfunction, error if >1 section matches
                 if (js.pattern.matcher(transformedPath).matches()) {
                     CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, value);
 
@@ -473,7 +480,8 @@ public class Ldml2JsonConverter {
             }
         }
 
-        Matcher versionInfoMatcher = PatternCache.get(".*/(identity|version).*").matcher("");
+        // TODO: move matcher out of inner loop
+        final Matcher versionInfoMatcher = VERSION_INFO_PATTERN.matcher("");
         // Automatically copy the version info to any sections that had real data in them.
         JSONSection otherSection = sections.get(sections.size() - 1);
         List<CldrItem> others = sectionItems.get(otherSection);
@@ -494,7 +502,7 @@ public class Ldml2JsonConverter {
                         hit.add(addedItemCount, item);
                         sectionItems.put(js, hit);
                     }
-                    if (js.section.equals("other")) {
+                    if (js.section.equals("other")) { // did not match one of the regular sections
                         List<CldrItem> hit = sectionItems.get(js);
                         hit.remove(item);
                         sectionItems.put(js, hit);
@@ -506,6 +514,7 @@ public class Ldml2JsonConverter {
         return sectionItems;
     }
 
+    final static Pattern VERSION_INFO_PATTERN = PatternCache.get(".*/(identity|version).*");
     final static Pattern HAS_SUBTAG = PatternCache.get(".*-[a-z]-.*");
 
     /**

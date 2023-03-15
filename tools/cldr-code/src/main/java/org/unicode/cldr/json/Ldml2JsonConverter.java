@@ -30,7 +30,6 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,6 +41,7 @@ import com.ibm.icu.number.IntegerWidth;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.NoUnit;
 import com.ibm.icu.util.ULocale;
 
@@ -56,9 +56,11 @@ public class Ldml2JsonConverter {
     // Icons
     private static final String DONE_ICON = "✅";
     private static final String GEAR_ICON = "⚙️";
+    private static final String NONE_ICON = "∅";
     private static final String PACKAGE_ICON = "📦";
     private static final String SECTION_ICON = "📍";
     private static final String TYPE_ICON = "📂";
+    private static final String WARN_ICON = "⚠️";
 
     // File prefix
     private static final String CLDR_PKG_PREFIX = "cldr-";
@@ -67,7 +69,7 @@ public class Ldml2JsonConverter {
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
     enum RunType {
-        all,
+        all, // number zero
         main,
         supplemental(false, false), // aka 'cldr-core'
         segments, rbnf(false, true), annotations, annotationsDerived, bcp47(false, false);
@@ -139,6 +141,8 @@ public class Ldml2JsonConverter {
                     "Type of CLDR data being generated, such as main, supplemental, or segments. All gets all.")
                 .add("resolved", 'r', "(true|false)", "false",
                     "Whether the output JSON for the main directory should be based on resolved or unresolved data")
+                .add("Redundant", 'R', "(true|false)", "false",
+                    "Include redundant data from code-fallback and constructed")
                 .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
                     "The minimum draft status of the output data")
                 .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive|optional)", "optional",
@@ -198,7 +202,8 @@ public class Ldml2JsonConverter {
             options.get("pkgversion").getValue(),
             Boolean.parseBoolean(options.get("bcp47").getValue()),
             Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue()),
-            Boolean.parseBoolean(options.get("Modern").getValue())
+            Boolean.parseBoolean(options.get("Modern").getValue()),
+            Boolean.parseBoolean(options.get("Redundant").getValue())
         );
 
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
@@ -221,6 +226,9 @@ public class Ldml2JsonConverter {
     private boolean writePackages;
     // Type of run for this converter: main, supplemental, or segments
     final private RunType type;
+    // include Redundant data such as apc="apc", en_US="en (US)"
+    private boolean includeRedundant;
+
 
     static class JSONSection implements Comparable<JSONSection> {
         public String section;
@@ -244,7 +252,7 @@ public class Ldml2JsonConverter {
 
     public Ldml2JsonConverter(String cldrDir, String outputDir, String runType, boolean fullNumbers, boolean resolve, String coverage, String match,
         boolean writePackages, String configFile, String pkgVersion,
-        boolean strictBcp47, boolean skipBcp47LocalesWithSubtags, boolean writeModernPackage) {
+        boolean strictBcp47, boolean skipBcp47LocalesWithSubtags, boolean writeModernPackage, boolean includeRedundant) {
         this.writeModernPackage = writeModernPackage;
         this.strictBcp47 = strictBcp47;
         this.skipBcp47LocalesWithSubtags = strictBcp47 && skipBcp47LocalesWithSubtags;
@@ -270,6 +278,7 @@ public class Ldml2JsonConverter {
         this.dependencies = configFileReader.getDependencies();
         this.sections = configFileReader.getSections();
         this.packages = new TreeSet<>();
+        this.includeRedundant = includeRedundant;
     }
 
     /**
@@ -404,8 +413,8 @@ public class Ldml2JsonConverter {
 
             // Check for code-fallback and constructed first, even before fullpath and value
             final String localeWhereFound = file.getSourceLocaleID(path, status);
-            if (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID) || // language[@type="apc"] = apc : missing
-                status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) { // language[@type="fa_AF"] = fa (AF) or Farsi (Afghanistan) : missing
+            if (!includeRedundant && (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID) || // language[@type="apc"] = apc : missing
+                status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH))) { // language[@type="fa_AF"] = fa (AF) or Farsi (Afghanistan) : missing
                 // Don't include these paths.
                 continue;
             }
@@ -741,7 +750,7 @@ public class Ldml2JsonConverter {
                     }
 
                     String outPath = new File(outputDir.substring(this.outputDir.length()), outFilename).getPath();
-                    outputProgress.add(Pair.of(js.section+' '+outPath, valueCount));
+                    outputProgress.add(Pair.of(String.format("%20s %s", js.section, outPath), valueCount));
                     logger.fine(">" + progressPrefix(readCount, totalCount, filename, js.section) + String.format("…%s (%d values)",
                         outPath, valueCount));
 
@@ -754,18 +763,22 @@ public class Ldml2JsonConverter {
         if(!outputProgress.isEmpty()) {
             // Put these first, so the percent is at the end.
             for(final Pair<String, Integer> outputItem : outputProgress) {
-                outStr.append(String.format("\t- %s (%d)\n", outputItem.getFirst(), outputItem.getSecond()));
+                outStr.append(String.format("\t%6d %s\n", outputItem.getSecond(), outputItem.getFirst()));
             }
-            outStr.append(String.format("%s%s (%d values in %d sections)\n",
+            outStr.append(String.format("%s%-12s\t  %s\n",
                 progressPrefix(readCount, totalCount), filename,
-                totalItemsInFile, outputProgress.size()));
+                valueSectionsFormat(totalItemsInFile, outputProgress.size())));
         } else {
-            outStr.append(String.format("%s%s (no items output)\n", progressPrefix(readCount, totalCount), filename));
+            outStr.append(String.format("%s%-12s\t" + NONE_ICON +" (no output)\n", progressPrefix(readCount, totalCount), filename));
         }
         synchronized(readCount) { // to prevent interleaved output
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    private static String valueSectionsFormat(int values, int sections) {
+        return MessageFormat.format("({0, plural,  one {# value} other {# values}} in {1, plural, one {# section} other {# sections}})", values, sections);
     }
 
     private boolean localeIsModernTier(String filename) {
@@ -1679,7 +1692,7 @@ public class Ldml2JsonConverter {
         return progressPrefix(readCount.get(), totalCount);
     }
 
-    LocalizedNumberFormatter percentFormatter = NumberFormatter
+    final LocalizedNumberFormatter percentFormatter = NumberFormatter
             .withLocale(Locale.ENGLISH)
             .unit(NoUnit.PERCENT)
             .integerWidth(IntegerWidth.zeroFillTo(3))
@@ -1687,7 +1700,9 @@ public class Ldml2JsonConverter {
 
     private final String progressPrefix(int readCount, int totalCount) {
         double asPercent = ((double)readCount/(double)totalCount) * 100.0;
-        return String.format(SECTION_ICON+" %s\t[%s]:\t", type, percentFormatter.format(asPercent));
+        return String.format(SECTION_ICON+" %s (step %d/%d)\t[%s]:\t",
+            type, type.ordinal(), RunType.values().length - 1, // which 'type' are we on? (all=0, minus one to get the count right)
+            percentFormatter.format(asPercent));
     }
 
     /**
@@ -1718,7 +1733,8 @@ public class Ldml2JsonConverter {
         // This takes a long time (minutes, in 2020), so run it in parallel forkJoinPool threads.
         // The result of this pipeline is an array of toString()-able filenames of XML files which
         // produced no JSON output, just as a warning.
-        System.out.println(progressPrefix(0, total) + " Beginning parallel process of " + total + " file(s)");
+        System.out.println(progressPrefix(0, total) + " " +
+            MessageFormat.format(GEAR_ICON + " Beginning parallel process of {0, plural, one {# file} other {# files}}", total));
         Object noOutputFiles[] = files
             .parallelStream()
             .unordered()
@@ -1752,9 +1768,10 @@ public class Ldml2JsonConverter {
             .filter(p -> p.getSecond() == 0) // filter out only files which produced no output
             .map(p -> p.getFirst())
             .toArray();
-        System.out.println(progressPrefix(total, total) + " " + DONE_ICON + " Completed parallel process of " + total + " file(s)");
+        System.out.println(progressPrefix(total, total) + " " + DONE_ICON + MessageFormat.format("Completed parallel process of {0, plural, one {# file} other {# files}}", total));
         if (noOutputFiles.length > 0) {
-            System.err.println("WARNING: These " + noOutputFiles.length + " file(s) did not produce any output (check JSON config):");
+            System.err.println(WARN_ICON + MessageFormat
+                .format(" Warning: {0, plural, one {# file} other {# files}} did not produce any output (check JSON config):", noOutputFiles.length));
             for (final Object f : noOutputFiles) {
                 final String loc = f.toString();
                 final String uloc = unicodeLocaleToString(f.toString());

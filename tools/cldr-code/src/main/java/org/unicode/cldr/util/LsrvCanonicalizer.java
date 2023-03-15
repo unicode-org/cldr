@@ -454,8 +454,8 @@ public class LsrvCanonicalizer {
                 {"en_US_heploc", "en_US_alalc97"},
                 {"en_US_aaland", "en_US"},
                 {"en_aaland", "en_AX"},
-                {"no_nynorsk_bokmal", "no"},
-                {"no_bokmal_nynorsk", "no"},
+                {"no_nynorsk_bokmal", "nb"},
+                {"no_bokmal_nynorsk", "nb"},
                 {"zh_guoyu_hakka_xiang", "hak"},
                 {"zh_hakka_xiang", "hak"},
             };

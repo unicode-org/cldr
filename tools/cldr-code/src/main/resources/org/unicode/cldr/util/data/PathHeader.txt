@@ -466,6 +466,7 @@
 //supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞..∞; HIDE
 
 //supplementalData/calendarData/calendar[@type="%A"]/eras/era[@type="%A"]/_%E			; Supplemental ; Calendar ; $1 ; $2-$3 ; HIDE
+//supplementalData/calendarData/calendar[@type="%A"]/inheritEras/_calendar			; Supplemental ; Calendar ; $1 ; calendar_inheritEras ; HIDE
 //supplementalData/calendarData/calendar[@type="%A"]/calendarSystem/_type			; Supplemental ; Calendar ; $1 ; calendar_type ; HIDE
 
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="%A"]/_ordering			; Supplemental ; Calendar ; Preference ; $1 ; HIDE

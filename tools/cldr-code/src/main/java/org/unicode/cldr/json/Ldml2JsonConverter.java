@@ -53,6 +53,14 @@ import com.ibm.icu.util.ULocale;
  */
 @CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
+    // Icons
+    private static final String DONE_ICON = "✅";
+    private static final String GEAR_ICON = "⚙️";
+    private static final String PACKAGE_ICON = "📦";
+    private static final String SECTION_ICON = "📍";
+    private static final String TYPE_ICON = "📂";
+
+    // File prefix
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
@@ -150,6 +158,7 @@ public class Ldml2JsonConverter {
                 .add("Modern", 'M', "(true|false)", "true", "Whether to include the -modern tier");
 
     public static void main(String[] args) throws Exception {
+        System.out.println(GEAR_ICON + " " + Ldml2JsonConverter.class.getName() + " options:");
         options.parse(args, true);
 
         Timer overallTimer = new Timer();
@@ -157,21 +166,22 @@ public class Ldml2JsonConverter {
         final String rawType = options.get("type").getValue();
 
         if (RunType.all.name().equals(rawType)) {
+            // Running all types
             for(final RunType t : RunType.values()) {
                 if (t == RunType.all) continue;
                 System.out.println();
-                System.out.println("#######################  " + t + " #######################");
+                System.out.println(TYPE_ICON + "#######################  " + t + " #######################");
                 Timer subTimer = new Timer();
                 subTimer.start();
                 processType(t.name());
-                System.out.println(t + "\tFinished in " + subTimer.toMeasureString());
+                System.out.println(TYPE_ICON + " " + t + "\tFinished in " + subTimer.toMeasureString());
                 System.out.println();
             }
         } else {
             processType(rawType);
         }
 
-        System.out.println("\n\n###\n\nFinished everything in " + overallTimer.toMeasureString());
+        System.out.println("\n\n###\n\n" + DONE_ICON + " Finished everything in " + overallTimer.toMeasureString());
     }
 
     static void processType(final String runType) throws Exception {
@@ -1042,7 +1052,7 @@ public class Ldml2JsonConverter {
 
     public void writePackageJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "package.json");
-        logger.fine("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
+        logger.fine(PACKAGE_ICON+" Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, true);
 
@@ -1088,7 +1098,7 @@ public class Ldml2JsonConverter {
 
     public void writeBowerJson(String outputDir, String packageName) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "bower.json");
-        logger.fine("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
+        logger.fine(PACKAGE_ICON+" Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, false);
         if (type == RunType.supplemental) {
@@ -1116,7 +1126,7 @@ public class Ldml2JsonConverter {
 
     public void writeDefaultContent(String outputDir) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "defaultContent.json");
-        System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "defaultContent.json");
+        System.out.println(PACKAGE_ICON+" Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "defaultContent.json");
         JsonObject obj = new JsonObject();
         obj.add("defaultContent", gson.toJsonTree(skippedDefaultContentLocales));
         outf.println(gson.toJson(obj));
@@ -1124,10 +1134,9 @@ public class Ldml2JsonConverter {
     }
 
     public void writeCoverageLevels(String outputDir) throws IOException {
-        final Splitter SEMICOLON = Splitter.on(';').trimResults();
         try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json");) {
             final Map<String, String> covlocs = new TreeMap<>();
-            System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
+            System.out.println(PACKAGE_ICON+" Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
             CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
             for (final Map.Entry<String, org.unicode.cldr.util.Level> e : ccl.getLevels().entrySet()) {
                 final String uloc = e.getKey();
@@ -1157,7 +1166,7 @@ public class Ldml2JsonConverter {
 
     public void writeAvailableLocales(String outputDir) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "availableLocales.json");
-        System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "availableLocales.json");
+        System.out.println(PACKAGE_ICON+" Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "availableLocales.json");
         JsonObject obj = new JsonObject();
         obj.add("availableLocales", gson.toJsonTree(avl));
         outf.println(gson.toJson(obj));
@@ -1185,7 +1194,7 @@ public class Ldml2JsonConverter {
 
     public void writePackageList(String outputDir) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "cldr-packages.json");
-        System.out.println("Creating packaging metadata file => " + outputDir + File.separator + "cldr-core" + File.separator + "cldr-packages.json and PACKAGES.md");
+        System.out.println(PACKAGE_ICON+" Creating packaging metadata file => " + outputDir + File.separator + "cldr-core" + File.separator + "cldr-packages.json and PACKAGES.md");
         PrintWriter pkgs = FileUtilities.openUTF8Writer(outputDir + "/..", "PACKAGES.md");
 
         pkgs.println("# CLDR JSON Packages");
@@ -1669,7 +1678,7 @@ public class Ldml2JsonConverter {
 
     private final String progressPrefix(int readCount, int totalCount) {
         double asPercent = ((double)readCount/(double)totalCount) * 100.0;
-        return String.format("%s\t[%s]:\t", type, percentFormatter.format(asPercent));
+        return String.format(SECTION_ICON+" %s\t[%s]:\t", type, percentFormatter.format(asPercent));
     }
 
     /**
@@ -1734,14 +1743,14 @@ public class Ldml2JsonConverter {
             .filter(p -> p.getSecond() == 0) // filter out only files which produced no output
             .map(p -> p.getFirst())
             .toArray();
-        System.out.println(progressPrefix(total, total) + " Completed parallel process of " + total + " file(s)");
+        System.out.println(progressPrefix(total, total) + " " + DONE_ICON + " Completed parallel process of " + total + " file(s)");
         if (noOutputFiles.length > 0) {
             System.err.println("WARNING: These " + noOutputFiles.length + " file(s) did not produce any output (check JSON config):");
             for (final Object f : noOutputFiles) {
                 final String loc = f.toString();
                 final String uloc = unicodeLocaleToString(f.toString());
                 if (skipBcp47LocalesWithSubtags && type.locales() && HAS_SUBTAG.matcher(uloc).matches()) {
-                    System.err.println("\t- " + loc + " (Skipped due to '-T true': " + uloc + ")");
+                    System.err.println("\t- " + loc + " ❎ (Skipped due to '-T true': " + uloc + ")");
                 } else {
                     System.err.println("\t- " + loc);
                 }

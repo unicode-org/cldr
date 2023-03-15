@@ -1009,12 +1009,15 @@ As in other cases, **narrow** may be ambiguous out of context.
 
 ```xml
 <!ELEMENT calendarData ( calendar* )>
-<!ELEMENT calendar ( calendarSystem?, eras? )>
+<!ELEMENT calendar ( calendarSystem?, inheritEras?, eras? )>
 <!ATTLIST calendar type NMTOKENS #REQUIRED>
 <!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- deprecated, replaced by calendarPreferenceData -->
 
 <!ELEMENT calendarSystem EMPTY>
 <!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED>
+
+<!ELEMENT inheritEras EMPTY >
+<!ATTLIST inheritEras calendar NMTOKEN #REQUIRED >
 
 <!ELEMENT eras ( era* )>
 
@@ -1046,9 +1049,24 @@ For a sequence of eras with specified start dates, the end of each era need not 
 
 Some eras have additional `code` and `aliases` attributes that define invariant strings for identifying the eras. The `code` is a single globally unique identifier, and `aliases` are space-separated identifiers unique within the calendar. The code and aliases follow the following rules:
 
-1. Every calendar has an era with a `code` that is the same as the BCP-47 name of that calendar. This era should be used for anchoring the "extended year" in the calendar (`u` in the date format pattern).
+1. Every calendar has either an era with a `code` that is the same as the BCP-47 name of that calendar or an `inheritEras` element pointing to another calendar with such an era. This era should be used for anchoring the "extended year" in the calendar (`u` in the date format pattern).
 2. Eras that count backwards (larger numbers for older years) are suffixed with `-inverse`.
 3. If the same era code is used in multiple calendars, then the calculations for year, month, and day in that era must be the same in all calendars in which it is used. For example, the `ethioaa` era is used in two calendar systems.
+
+If a `<calendar>` contains an `<inheritEras/>` element, all eras from the specified calendar should be inserted in order into the sequence of eras for the current calendar and follow the same start and end date rules. For example:
+
+```xml
+<calendar type="japanese">
+    <inheritEras calendar="gregorian" />
+    <eras>
+        <era type="0" start="645-6-19"/>
+        <era type="1" start="650-2-15"/>
+        <!-- ... -->
+    </eras>
+</calendar>
+```
+
+This means that the two eras from calendar "gregorian" should be inserted into the era list for "japanese" when formatting.
 
 **Note:** The `territories` attribute in the `calendar` element is deprecated. It was formerly used to indicate calendar preference by territory, but this is now given by the _[Calendar Preference Data](#Calendar_Preference_Data)_ below.
 

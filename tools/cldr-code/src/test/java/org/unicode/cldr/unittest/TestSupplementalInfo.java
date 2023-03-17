@@ -1766,13 +1766,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestNumberingSystemDigits() {
-
-        // Don't worry about digits from supplemental planes yet ( ICU can't
-        // handle them anyways )
-        // hanidec is the only known non codepoint order numbering system
-        // TODO: Fix so that it works properly on non-BMP digit strings.
-        String[] knownExceptions = { "brah", "cakm", "hanidec", "osma", "shrd",
-            "sora", "takr" };
+        String[] knownExceptions = {
+            "hanidec", // hanidec is not in codepoint order.
+        };
         List<String> knownExceptionList = Arrays.asList(knownExceptions);
         for (String ns : SUPPLEMENTAL.getNumericNumberingSystems()) {
             if (knownExceptionList.contains(ns)) {

@@ -707,6 +707,7 @@ public class ShowData {
             .add("%index%", "index.html")
             .add("%header%", header)
             .add("%version%", version)
+            .add("%analytics%", Chart.AnalyticsID.CLDR.getScript())
             .add("%date%", showDate ? CldrUtility.isoFormatDateOnly(new Date()) : "");
         if (indexTitle != null) {
             langTag

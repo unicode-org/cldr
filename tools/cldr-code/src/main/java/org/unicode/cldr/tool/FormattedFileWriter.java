@@ -161,7 +161,8 @@ public class FormattedFileWriter extends java.io.Writer {
             "%title%", title,
             "%index%", indexLink,
             "%index-title%", indexTitle,
-            "%body%", contents };
+            "%body%", contents,
+            "%analytics%", Chart.AnalyticsID.CLDR.getScript() };
         writeTargetWithReplacements(dir, targetFileName, templateFileName, replacements);
     }
 

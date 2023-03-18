@@ -133,34 +133,27 @@ public abstract class Chart {
        throw new IllegalArgumentException("Not implemented yet");
     }
 
-    public void writeFooter(FormattedFileWriter pw) throws IOException {
-        standardFooter(pw, AnalyticsID.CLDR);
+    private static final class AnalyticsHelper {
+        private static final AnalyticsHelper INSTANCE = new AnalyticsHelper();
+
+        public final String str;
+
+        AnalyticsHelper() {
+            str = ToolUtilities.getUTF8Data("analytics.html").lines().collect(Collectors.joining("\n"));
+        }
     }
 
-    private enum AnalyticsID {
-        CLDR("UA-7672775-1"), ICU("UA-7670213-1"), ICU_GUIDE("UA-7670256-1"), UNICODE("UA-7670213-1"), UNICODE_UTILITY("UA-8314904-1");
+    public enum AnalyticsID {
+        CLDR("G-BPN1D3SEJM"), ICU("G-06PL1DM20S"), ICU_GUIDE("UA-7670256-1"), UNICODE("G-GC4HXC4GVQ"), UNICODE_UTILITY("G-0M7Q5QLZPV");
         public final String id;
 
         private AnalyticsID(String id) {
             this.id = id;
         }
-    }
 
-    private static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
-        pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
-            + "<a href='https://www.unicode.org/copyright.html'>\n"
-            + "<img src='https://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height:50px;' alt='Access to Copyright and terms of use'>"
-            + "</a>\n"
-            + "</div><script>\n\n"
-            + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
-            + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
-            + "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
-            + "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"
-            + "  ga('create', '"
-            + analytics
-            + "', 'auto');"
-            + "  ga('send', 'pageview');"
-            + "</script>\n");
+        public String getScript() {
+            return AnalyticsHelper.INSTANCE.str.replaceAll("TAG_ID", id);
+        }
     }
 
     public final void writeChart(Anchors anchors) {
@@ -169,7 +162,6 @@ public abstract class Chart {
             x.setDirectory(getDirectory());
             x.setShowDate(getShowDate());
             writeContents(x);
-            writeFooter(x);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -190,7 +182,7 @@ public abstract class Chart {
 
     /**
      * Attempt to allocate the Chart that goes along with this report
-     * Also see {@link org.unicode.cldr.util.VoterReportStatus.ReportId} 
+     * Also see {@link org.unicode.cldr.util.VoterReportStatus.ReportId}
      * and keep up to date
      */
     public static Chart forReport(final ReportId report, final String locale) {

@@ -48,6 +48,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.Chart;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
@@ -176,15 +177,7 @@ public class CldrUtility {
         return getPath(path, null);
     }
 
-    public static final String ANALYTICS = "<script>\n"
-        + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
-        + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
-        + "</script>\n"
-        + "<script>\n"
-        + "try {\n"
-        + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
-        + "pageTracker._trackPageview();\n"
-        + "} catch(err) {}</script>";
+    public static final String ANALYTICS = Chart.AnalyticsID.CLDR.getScript();
 
     public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] { "ar", "en", "de", "fr", "hi",
         "it", "es", "pt", "ru", "zh", "ja" }); // plus language itself

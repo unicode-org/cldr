@@ -191,7 +191,7 @@ The available number symbols are as follows:
 
 **list**
 
-> symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _ [List Patterns](tr35-general.md#ListPatterns)_.
+> symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](tr35-general.md#ListPatterns)_.
 
 **percentSign**
 
@@ -586,7 +586,7 @@ _When parsing using a pattern, a lenient parse should be used; see [Lenient Pars
 
 Many characters in a pattern are taken literally; they are matched during parsing and output unchanged during formatting. Special characters, on the other hand, stand for other characters, strings, or classes of characters. For example, the '#' character is replaced by a localized digit for the chosen numberSystem. Often the replacement character is the same as the pattern character; in the U.S. locale, the ',' grouping character is replaced by ','. However, the replacement is still happening, and if the symbols are modified, the grouping character changes. Some special characters affect the behavior of the formatter by their presence; for example, if the percent character is seen, then the value is multiplied by 100 before being displayed.
 
-To insert a special character in a pattern as a literal, that is, without any special meaning, the character must be quoted. There are some exceptions to this which are noted below. The Localized Replacement column shows the replacement from _ [Number Symbols](#Number_Symbols)_ or the numberSystem's digits: _italic_ indicates a special function.
+To insert a special character in a pattern as a literal, that is, without any special meaning, the character must be quoted. There are some exceptions to this which are noted below. The Localized Replacement column shows the replacement from _[Number Symbols](#Number_Symbols)_ or the numberSystem's digits: _italic_ indicates a special function.
 
 Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 
@@ -670,7 +670,7 @@ For consistency in the CLDR data, the following conventions are observed:
 
 #### <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus Signs</a>
 
-An explicit "plus" format can be formed, so as to show a visible + sign when formatting a non-negative number. The displayed plus sign can be an ASCII plus or another character, such as ＋ U+FF0B FULLWIDTH PLUS SIGN or ➕ U+2795 HEAVY PLUS SIGN; it is taken from whatever is set for plusSign in _ [Number Symbols](#Number_Symbols)_.
+An explicit "plus" format can be formed, so as to show a visible + sign when formatting a non-negative number. The displayed plus sign can be an ASCII plus or another character, such as ＋ U+FF0B FULLWIDTH PLUS SIGN or ➕ U+2795 HEAVY PLUS SIGN; it is taken from whatever is set for plusSign in _[Number Symbols](#Number_Symbols)_.
 
 1. Get the negative subpattern (explicit or implicit).
 2. Replace any unquoted ASCII minus sign by an ASCII plus sign.
@@ -824,7 +824,7 @@ The `count` attribute distinguishes the different plural forms, such as in the f
 ```
 
 Note on displayNames:
-* In general the region portion of the displayName should match the territory name, see **Part 2** _ [Locale Display Name Fields](tr35-general.md#locale_display_name_fields)_.
+* In general the region portion of the displayName should match the territory name, see **Part 2** _[Locale Display Name Fields](tr35-general.md#locale_display_name_fields)_.
 * As a result, the English currency displayName in CLDR may not match the name in ISO 4217.
 
 To format a particular currency value "ZWD" for a particular numeric value _n_ using the (long) display name:
@@ -875,7 +875,7 @@ For more information on the matching used in the `currencyMatch` and `surroundin
 
 ---
 
-Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _ [Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
+Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _[Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
 
 > **Note:** _Currency values should **never** be interchanged without a known currency code. You never want the number 3.5 interpreted as $3.50 by one user and €3.50 by another._ Locale data contains localization information for currencies, not a currency value for a country. A currency amount logically consists of a numeric value, plus an accompanying currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD is implicit. But if the raw numeric value is transmitted without any context, then it has no definitive interpretation.
 
@@ -969,8 +969,8 @@ And can have any number of `currency` elements, with the `ordered` subelements.
 ```
 
 * **iso4217:** the ISO 4217 code for the currency in question. Note that some additional codes that were in widespread usage are included, others such as GHP are not included because they were never used.
-* **from:** the currency was valid from to the datetime indicated by the value. See the main document _ [Dates and Date Ranges](tr35.md#Date_Ranges)_.
-* **to:** the currency was valid up to the datetime indicated by the value of _before_. See the main document _ [Dates and Date Ranges](tr35.md#Date_Ranges)_.
+* **from:** the currency was valid from to the datetime indicated by the value. See the main document _[Dates and Date Ranges](tr35.md#Date_Ranges)_.
+* **to:** the currency was valid up to the datetime indicated by the value of _before_. See the main document _[Dates and Date Ranges](tr35.md#Date_Ranges)_.
 * **tender:** indicates whether or not the ISO currency code represents a currency that was or is legal tender in some country. The default is "true". Certain ISO codes represent things like financial instruments or precious metals, and do not represent normally interchanged currencies.
 
 
@@ -1326,7 +1326,7 @@ With regards to the number range supported for all these number types, the large
 
 Any rules marked as **private** should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.
 
-The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_ [[RBNF](tr35.md#RBNF)].
+The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_[[RBNF](tr35.md#RBNF)].
 
 ```xml
 <ruleSetGrouping>

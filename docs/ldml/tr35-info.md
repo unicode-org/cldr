@@ -258,7 +258,7 @@ The default preference for several locale items is based solely on a [unicode_re
 * Default measurement system and paper size (see [Measurement System Data](tr35-general.md#Measurement_System_Data))
 * Default units for specific usage (see [Preferred Units for Specific Usages](#Preferred_Units_For_Usage), below)
 
-The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see _ [Unit Preferences](#Unit_Preferences)._
+The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see _[Unit Preferences](#Unit_Preferences)._
 
 #### <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 
@@ -309,7 +309,7 @@ The exact format of the path is provisional in CLDR 29, but as currently shown:
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 ```
 
-The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in _ [Supplemental Territory Information](#Supplemental_Territory_Information)_ .
+The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
 
 ```xml
 <languageData>
@@ -749,7 +749,7 @@ The choice of content is typically based on the largest literate population of t
 
 If an implementation is to use a different default locale, then the data needs to be _pivoted_; all of the data from the CLDR for the current default locale pushed out to the locales that inherit from it, then the new default content locale's data moved into the base. There are tools in CLDR to perform this operation.
 
-For the relationship between Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see **_ [Inheritance vs Related Information](tr35.md#Inheritance_vs_Related)_**.
+For the relationship between Inheritance, DefaultContent, LikelySubtags, and LocaleMatching, see **_[Inheritance vs Related Information](tr35.md#Inheritance_vs_Related)_**.
 
 ## <a name="Metadata_Elements" href="#Metadata_Elements">Locale Metadata Elements</a>
 

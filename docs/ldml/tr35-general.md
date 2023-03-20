@@ -132,7 +132,7 @@ The LDML specification is divided into the following parts:
 <!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) )>
 ```
 
-Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element. They supply localized names for these items for use in user-interfaces for various purposes such as displaying menu lists, displaying a language name in a dialog, and so on. Capitalization should follow the conventions used in the middle of running text; the `<contextTransforms>` element may be used to specify the appropriate capitalization for other contexts (see _ [ContextTransform Elements](#Context_Transform_Elements)_). Examples are given below.
+Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element. They supply localized names for these items for use in user-interfaces for various purposes such as displaying menu lists, displaying a language name in a dialog, and so on. Capitalization should follow the conventions used in the middle of running text; the `<contextTransforms>` element may be used to specify the appropriate capitalization for other contexts (see _[ContextTransform Elements](#Context_Transform_Elements)_). Examples are given below.
 
 > **Note:** The "en" locale may contain translated names for deprecated codes for debugging purposes. Translation of deprecated codes into other languages is discouraged.
 
@@ -277,7 +277,7 @@ Alternate short forms may be provided for some languages (and for territories an
 <scripts>
 ```
 
-This element can contain a number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_ [[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
+This element can contain a number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_[[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
 
 ```xml
 <script type="Latn">Romana</script>
@@ -322,7 +322,7 @@ Notes:
 * Territory names may not match the official name of the territory, and the English or French names may not match those in ISO 3166. Reasons for this include:
     * CLDR favors customary names in common parlance, not necessarily the official names.
     * CLDR endeavors to provide names that are not too long, in order to avoid problems with truncation or overflow in user interfaces.
-* In general the territory names should also match those used in currency names, see **Part 3** _ [Currencies](tr35-numbers.md#Currencies)_.
+* In general the territory names should also match those used in currency names, see **Part 3** _[Currencies](tr35-numbers.md#Currencies)_.
 
 * * *
 
@@ -424,7 +424,7 @@ Note that the subdivision names are in separate files, in the subdivisions/ dire
 <subdivision type="AL-MK">Mallakastër</subdivision> <!-- in AL-04 : Fier County -->
 ```
 
-See also **Part 6** _ [Subdivision Containment](tr35-info.md#Subdivision_Containment)_.
+See also **Part 6** _[Subdivision Containment](tr35-info.md#Subdivision_Containment)_.
 
 ## <a name="Layout_Elements" href="#Layout_Elements">Layout Elements</a>
 
@@ -451,7 +451,7 @@ The `lineOrder` and `characterOrder` elements specify the default general orderi
 <tr>                               <td>right-to-left</td></tr>
 </tbody></table>
 
-If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see _UAX #9: The Bidirectional Algorithm_ [[UAX9](https://www.unicode.org/reports/tr41/#UAX9)]).
+If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see _UAX #9: The Bidirectional Algorithm_[[UAX9](https://www.unicode.org/reports/tr41/#UAX9)]).
 
 For dates, times, and other data to appear in the right order, the display for them should be set to the orientation of the locale.
 
@@ -461,7 +461,7 @@ For dates, times, and other data to appear in the right order, the display for t
 <inList> (deprecated)
 ```
 
-The `<inList>` element is deprecated and has been superseded by the `<contextTransforms>` element; see _ [ContextTransform Elements](#Context_Transform_Elements)_.
+The `<inList>` element is deprecated and has been superseded by the `<contextTransforms>` element; see _[ContextTransform Elements](#Context_Transform_Elements)_.
 
 This element controls whether display names (language, territory, etc) are title cased in GUI menu lists and the like. It is only used in languages where the normal display is lower case, but title case is used in lists. There are two options:
 
@@ -479,7 +479,7 @@ In both cases, the title case operation is the default title case function defin
 <inText> (deprecated)
 ```
 
-The `<inList>` element is deprecated and has been superseded by the `<contextTransforms>` element; see _ [ContextTransform Elements](#Context_Transform_Elements)_.
+The `<inList>` element is deprecated and has been superseded by the `<contextTransforms>` element; see _[ContextTransform Elements](#Context_Transform_Elements)_.
 
 This element indicates the casing of the data in the category identified by the `inText` `type` attribute, when that data is written in text or how it would appear in a dictionary. For example:
 
@@ -723,7 +723,7 @@ The values are "metric", "US", or "UK"; others may be added over time.
 
 * The "metric" value indicates the use of SI [[ISO1000](tr35.md#ISO1000)] base or derived units, or non-SI units accepted for use with SI: for example, meters, kilograms, liters, and degrees Celsius.
 * The "US" value indicates the customary system of measurement as used in the United States: feet, inches, pints, quarts, degrees Fahrenheit, and so on.
-* The "UK" value indicates the mix of metric units and Imperial units (feet, inches, pints, quarts, and so on) used in the United Kingdom, in which Imperial volume units such as pint, quart, and gallon are different sizes than in the "US" customary system. For more detail about specific units for various usages, see **Part 6: Supplemental:** _ [Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage)_.
+* The "UK" value indicates the mix of metric units and Imperial units (feet, inches, pints, quarts, and so on) used in the United Kingdom, in which Imperial volume units such as pint, quart, and gallon are different sizes than in the "US" customary system. For more detail about specific units for various usages, see **Part 6: Supplemental:** _[Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage)_.
 
 In some cases, it may be common to use different measurement systems for different categories of measurements. For example, the following indicates that for the category of temperature, in the regions LR and MM, it is more common to use metric units than US units.
 
@@ -737,7 +737,7 @@ For both `measurementSystem` entries and `paperSize` entries, later entries for 
 
 The measurement information was formerly in the main LDML file, and had a somewhat different format.
 
-Again, for finer-grained detail about specific units for various usages, see **Part 6: Supplemental:** _ [Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage)_.
+Again, for finer-grained detail about specific units for various usages, see **Part 6: Supplemental:** _[Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage)_.
 
 ### <a name="Measurement_Elements" href="#Measurement_Elements">Measurement Elements (deprecated)</a>
 
@@ -820,7 +820,7 @@ The `<unitPattern>` elements may be used to format quantities with decimal value
 
 Note that for certain plural cases, the unit pattern may not provide for inclusion of a numeric value—that is, it may not include “{0}”. This is especially true for the explicit cases “0” and “1” (which may have patterns like “zero seconds”). In certain languages such as Arabic and Hebrew, this may also be true with certain units for the plural cases “zero”, “one”, or “two” (in these languages, such plural cases are only used for the corresponding exact numeric values, so there is no concern about loss of precision without the numeric value).
 
-Units, like other values with a `count` attribute, use a special inheritance. See **Part 1: Core:** _ [Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
+Units, like other values with a `count` attribute, use a special inheritance. See **Part 1: Core:** _[Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
 
 The displayName is used for labels, such as in a UI. It is typically lowercased and as neutral a plural form as possible, and then uses the casing context for the proper display. For example, for English in a UI it would appear as titlecase:
 
@@ -871,7 +871,7 @@ The long unit identifers are used as a key in the translated unit names for loca
 The list of valid CLDR simple unit identifiers is found in _Section Validity Data](tr35.md#Validity_Data)_.
 These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
 All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
-There is one exception: implementations that need to define their own unit identifiers can do so via _ [Private-Use Units](#Private_Use_Units)_.
+There is one exception: implementations that need to define their own unit identifiers can do so via _[Private-Use Units](#Private_Use_Units)_.
 
 A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_).
 A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi).
@@ -881,7 +881,7 @@ The identifiers and unit conversion data are built to handle core unit IDs and m
 Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
 
 Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers.
-See _ [Compound Units](#compound-units)_.
+See _[Compound Units](#compound-units)_.
 That can be used for less common units, such as _petasecond_.
 However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words.
 For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent).

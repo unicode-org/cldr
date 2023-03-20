@@ -169,7 +169,7 @@ However, if the mapping p|c → CE(u) is missing, then text "pch" maps to CE(p)C
 
 #### <a name="Algorithm_Case" href="#Algorithm_Case">Case Handling</a>
 
-CLDR specifies how to sort lowercase or uppercase first, as a stronger distinction than other tertiary variants (**caseFirst**) or while completely ignoring all other tertiary distinctions (**caseLevel**). See _ [Setting Options](#Setting_Options)_ and _ [Case Parameters](#Case_Parameters)_.
+CLDR specifies how to sort lowercase or uppercase first, as a stronger distinction than other tertiary variants (**caseFirst**) or while completely ignoring all other tertiary distinctions (**caseLevel**). See _[Setting Options](#Setting_Options)_ and _[Case Parameters](#Case_Parameters)_.
 
 #### <a name="Algorithm_Reordering_Groups" href="#Algorithm_Reordering_Groups">Reordering Groups</a>
 
@@ -222,7 +222,7 @@ The following table shows the differences. When emoji ordering is supported, the
 
 ## <a name="Root_Collation" href="#Root_Collation">Root Collation</a>
 
-The CLDR root collation order is based on the [Default Unicode Collation Element Table (DUCET)](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) defined in _UTS #10: Unicode Collation Algorithm_ [[UCA](https://www.unicode.org/reports/tr41/#UTS10)]. It is used by all other locales by default, or as the base for their tailorings. (For a chart view of the UCA, see Collation Chart [[UCAChart](tr35.md#UCAChart)].)
+The CLDR root collation order is based on the [Default Unicode Collation Element Table (DUCET)](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) defined in _UTS #10: Unicode Collation Algorithm_[[UCA](https://www.unicode.org/reports/tr41/#UTS10)]. It is used by all other locales by default, or as the base for their tailorings. (For a chart view of the UCA, see Collation Chart [[UCAChart](tr35.md#UCAChart)].)
 
 Starting with CLDR 1.9, CLDR uses modified tables for the root collation order. The root locale ordering is tailored in the following ways:
 
@@ -259,7 +259,7 @@ There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Va
 
 See also:
 
-* _, [Setting Options](#Setting_Options)_
+* _[Setting Options](#Setting_Options)_
 * [https://www.unicode.org/charts/collation/](https://www.unicode.org/charts/collation/)
 
 ### <a name="tibetan_contractions" href="#tibetan_contractions">Additional contractions for Tibetan</a>
@@ -316,7 +316,7 @@ The file formats may change between versions of CLDR. The formats for CLDR 23 an
 
 #### <a name="File_Format_allkeys_CLDR_txt" href="#File_Format_allkeys_CLDR_txt">allkeys_CLDR.txt</a>
 
-This file defines CLDR’s tailoring of the DUCET, as described in _, [Root Collation](#Root_Collation)_ .
+This file defines CLDR’s tailoring of the DUCET, as described in _[Root Collation](#Root_Collation)_ .
 
 The format is similar to that of [allkeys.txt](https://www.unicode.org/reports/tr10/#File_Format), although there may be some differences in whitespace.
 
@@ -522,7 +522,7 @@ The final table gives certain hard-coded byte values. The "trail" area is provid
 
 #### <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 
-The format for this file uses the CLDR collation syntax, see _, [Collation Tailorings](#Collation_Tailorings)_.
+The format for this file uses the CLDR collation syntax, see _[Collation Tailorings](#Collation_Tailorings)_.
 
 ## <a name="Collation_Tailorings" href="#Collation_Tailorings">Collation Tailorings</a>
 
@@ -779,7 +779,7 @@ The relation operator `=` maps its relation string to the current collation elem
 * Weights must be allocated in accordance with the [UCA well-formedness conditions](https://www.unicode.org/reports/tr10/#Well-Formed).
 * When incrementing any weight, lower-level weights should be reset to the “common” values, to help with sort key compression.
 
-In all cases, even for `=` , the case bits are recomputed according to _, [Case Parameters](#Case_Parameters)_. (This can be skipped if an implementation does not support the caseLevel or caseFirst settings.)
+In all cases, even for `=` , the case bits are recomputed according to _[Case Parameters](#Case_Parameters)_. (This can be skipped if an implementation does not support the caseLevel or caseFirst settings.)
 
 For example, `&ae<x` maps ‘x’ to two collation elements. The first one is the same as for ‘a’, and the second one has a primary weight between those for ‘e’ and ‘f’. As a result, ‘x’ sorts between “ae” and “af”. (If the primary of the first collation element was incremented instead, then ‘x’ would sort after “az”. While also sorting primary-after “ae” this would be surprising and sub-optimal.)
 
@@ -987,7 +987,7 @@ _Examples:_
 | `en-u-kr-arab-cyrl-others-symbol` | Reorder Arabic characters first, then Cyrillic, and put symbols at the end—after all other characters. |
 | `en-u-kr-others`                  | Remove any locale-specific reordering, and use DUCET order for reordering blocks. |
 
-The default reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The file contains special mappings for the start of each group, script, and reorder-reserved range, see _, [FractionalUCA.txt](#File_Format_FractionalUCA_txt)_.
+The default reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The file contains special mappings for the start of each group, script, and reorder-reserved range, see _[FractionalUCA.txt](#File_Format_FractionalUCA_txt)_.
 
 There are some special cases:
 
@@ -1012,7 +1012,7 @@ For allkeys_CLDR.txt, the start of each reordering group can be determined from 
 
 The DUCET ordering of some characters is slightly different from the CLDR root collation order. The reordering groups for the DUCET are not specified. The following describes how reordering groups for the DUCET can be derived.
 
-For allkeys_DUCET.txt, the start of each reordering group is normally the primary weight corresponding to the same character sequence as for allkeys_CLDR.txt. In a few cases this requires adjustment, especially for the special reordering groups, due to CLDR’s ordering the common characters more strictly by category than the DUCET (as described in _, [Root Collation](#Root_Collation)_). The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group to the primary weight of the first mapping for the relevant General_Category for a special reordering group (for characters that sort before ‘a’), or the primary weight of the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group (for characters that sort at or after ‘a’).
+For allkeys_DUCET.txt, the start of each reordering group is normally the primary weight corresponding to the same character sequence as for allkeys_CLDR.txt. In a few cases this requires adjustment, especially for the special reordering groups, due to CLDR’s ordering the common characters more strictly by category than the DUCET (as described in _[Root Collation](#Root_Collation)_). The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group to the primary weight of the first mapping for the relevant General_Category for a special reordering group (for characters that sort before ‘a’), or the primary weight of the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group (for characters that sort at or after ‘a’).
 
 Note that the following only applies to primary weights greater than the one for U+FFFE and less than "trailing" weights.
 
@@ -1099,7 +1099,7 @@ Characters and strings that are tailored have case values computed from their ro
 
 ### Visibility
 
-Collations have external visibility by default, meaning that they can be displayed in a list of collation options for users to choose from. A collation whose type name starts with "private-" is internal and should not be shown in such a list. Collations are typically internal when they are partial sequences included in other collations. See _, [Collation Types](#Collation_Types)_ .
+Collations have external visibility by default, meaning that they can be displayed in a list of collation options for users to choose from. A collation whose type name starts with "private-" is internal and should not be shown in such a list. Collations are typically internal when they are partial sequences included in other collations. See _[Collation Types](#Collation_Types)_ .
 
 ### <a name="Collation_Indexes" href="#Collation_Indexes">Collation Indexes</a>
 

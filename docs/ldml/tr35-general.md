@@ -277,7 +277,7 @@ Alternate short forms may be provided for some languages (and for territories an
 <scripts>
 ```
 
-This element can contain a number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_[[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
+This element can contain a number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_ [[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
 
 ```xml
 <script type="Latn">Romana</script>
@@ -451,7 +451,7 @@ The `lineOrder` and `characterOrder` elements specify the default general orderi
 <tr>                               <td>right-to-left</td></tr>
 </tbody></table>
 
-If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see _UAX #9: The Bidirectional Algorithm_[[UAX9](https://www.unicode.org/reports/tr41/#UAX9)]).
+If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see _UAX #9: The Bidirectional Algorithm_ [[UAX9](https://www.unicode.org/reports/tr41/#UAX9)]).
 
 For dates, times, and other data to appear in the right order, the display for them should be set to the orientation of the locale.
 

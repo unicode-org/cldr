@@ -1326,7 +1326,7 @@ For examples, see [Day Periods Chart](https://unicode-org.github.io/cldr-staging
 <!ELEMENT exemplarCity ( #PCDATA ) >
 ```
 
-The time zone IDs (TZID) are language-independent, and follow the _TZ time zone database_[[Olson](tr35.md#Olson)] and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called _wall-time_; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.
+The time zone IDs (TZID) are language-independent, and follow the _TZ time zone database_ [[Olson](tr35.md#Olson)] and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called _wall-time_; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.
 
 Unfortunately, the canonical TZIDs (those in zone.tab) are not stable: they may change in each release of the _TZ_ Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable as described in [Canonical Form](tr35.md#Canonical_Form).
 
@@ -1395,7 +1395,7 @@ They may designate countries or territories; their actual capital city may be a 
 
 > **Note:** Transmitting "14:30" with no other context is incomplete unless it contains information about the time zone. Ideally one would transmit neutral-format date/time information, commonly in UTC (GMT), and localize as close to the user as possible. (For more about UTC, see [[UTCInfo](tr35.md#UTCInfo)].)
 
-The conversion from local time into UTC depends on the particular time zone rules, which will vary by location. The standard data used for converting local time (sometimes called _wall time_) to UTC and back is the _TZ Data_[[Olson](tr35.md#Olson)], used by Linux, UNIX, Java, ICU, and others. The data includes rules for matching the laws for time changes in different countries. For example, for the US it is:
+The conversion from local time into UTC depends on the particular time zone rules, which will vary by location. The standard data used for converting local time (sometimes called _wall time_) to UTC and back is the _TZ Data_ [[Olson](tr35.md#Olson)], used by Linux, UNIX, Java, ICU, and others. The data includes rules for matching the laws for time changes in different countries. For example, for the US it is:
 
 > "During the period commencing at 2 o'clock antemeridian on the second Sunday of March of each year and ending at 2 o'clock antemeridian on the first Sunday of November of each year, the standard time of each zone established by sections 261 to 264 of this title, as modified by of this title, shall be advanced one hour..." (United States Law - 15 U.S.C. §6(IX)(260-7), as amended by Energy Policy Act of 2005).
 

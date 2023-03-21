@@ -1326,7 +1326,7 @@ With regards to the number range supported for all these number types, the large
 
 Any rules marked as **private** should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.
 
-The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_[[RBNF](tr35.md#RBNF)].
+The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_ [[RBNF](tr35.md#RBNF)].
 
 ```xml
 <ruleSetGrouping>

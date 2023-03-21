@@ -145,7 +145,7 @@ public class GenerateValidityXml {
             String type = entry.getKey();
             final Info info = entry.getValue();
             Multimap<Status, String> subtypeMap = info.getStatusMap();
-            try (TempPrintWriter output = TempPrintWriter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY, "validity/" + type + ".xml")) {
+            try (TempPrintWriter output = TempPrintWriter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY, "validity/" + type + ".xml").skipCopyright(true)) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
                     + "\t<version number=\"$Revision" + "$\"/>\n"

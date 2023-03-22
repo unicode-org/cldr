@@ -94,9 +94,12 @@ async function processFile(f) {
     if (i == lines.length) {
         throw Error(`in ${f}: ran out of lines looking for end of ToC`);
     }
+
+    const oldcopyright = /(Copyright\s*[©]?)\s*([0-9]{4,4})[–-—](?:[0-9]{4,4})\s*Unicode/;
+    const newyear = new Date().getFullYear(); // 2023, etc
     // Write out all remaining lines in the file.
     for (; i < lines.length; i++) {
-        out.push(lines[i]);
+        out.push(lines[i].replace(oldcopyright, `$1 $2–${newyear} Unicode`));
     }
 
     // Write the whole file to disk.

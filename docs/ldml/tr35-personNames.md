@@ -630,7 +630,7 @@ As always, this is a logical description and may be optimized in implementations
 
 #### Handle core and prefix
 
-A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In the three cells on the left, a ✓ indicates that a value is available, an ✖️ if there is none. In three cells on the right, the value of = means the returned value is unchanged, ✖️ means the returned value is “empty”, and anything is a description of what to change it to.
+A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In the three cells on the left, a ✓ indicates that a value is available, an ✖️ if there is none. In three cells on the right, the value of = means the returned value is unchanged, ✖️ means the returned value is “empty”, and anything else is a description of what to change it to.
 
 | prefix | core | plain | | prefix | core  | plain |
 | ------ | ---- | ----- |-| ------ | ----  | -----    |

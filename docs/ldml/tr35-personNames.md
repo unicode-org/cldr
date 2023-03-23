@@ -216,29 +216,28 @@ The `<namePattern>` syntax is described in [[Person Name Format Patterns](#forma
 <!ATTLIST personName order NMTOKEN #IMPLIED >
 ```
 
-* `NMTOKENS` is one of `( surnameFirst | givenFirst | sorting )`
+* `NMTOKEN` is one of `( surnameFirst | givenFirst | sorting )`
 
 ```xml
 <!ATTLIST personName length NMTOKEN #IMPLIED >
 ```
 
-* `NMTOKENS` is one of `( long | medium | short )`
+* `NMTOKEN` is one of `( long | medium | short )`
 
 ```xml
 <!ATTLIST personName usage NMTOKEN #IMPLIED >
 ```
 
-* `NMTOKENS` is one of `( addressing | referring | monogram )`
+* `NMTOKEN` is one of `( addressing | referring | monogram )`
 
 ```xml
 <!ATTLIST personName formality NMTOKEN #IMPLIED >
 ```
 
-* `NMTOKENS` is one of `( formal | informal )`
+* `NMTOKEN` is one of `( formal | informal )`
 
 The `<personName>` element has attributes of `order`, `length`, `usage`, and `formality`, and contains one or more `<namePattern>` elements.
 
-A missing attribute is equivalent to a list of all valid values for that attribute. For example, if `formality=...` is missing, it is equivalent to `formality="formal informal"`.
 A missing attribute matches all valid values for that attribute. For example, if `formality=...` is missing, it is equivalent to multiple lines, one for each possible `formality` attribute.
 
 ```xml
@@ -631,7 +630,7 @@ As always, this is a logical description and may be optimized in implementations
 
 #### Handle core and prefix
 
-A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In each cell, a ✓ indicates that a value is available, an ✖️ if there is none, and a → indicates when a value is substituted.
+A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In the three cells on the left, a ✓ indicates that a value is available, an ✖️ if there is none. In three cells on the right, the value of = means the returned value is unchanged, ✖️ means the returned value is “empty”, and anything is a description of what to change it to.
 
 | prefix | core | plain | | prefix | core  | plain |
 | ------ | ---- | ----- |-| ------ | ----  | -----    |
@@ -644,7 +643,7 @@ A given field may have a core value, a prefix value, and/or a ‘plain’ value 
 | ✓      | ✖️   | ✖️    | | ✖️    | =         | =        |
 | ✖️     | ✖️   | ✖️    | | =     | =         | =        |
 
-For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the surname is "von und zu Stettbach". (The cases where existing values are changed for prefix and core (ie, ✓ → …) should not be necessary with well-formed PersonName data.)
+For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the (plain) surname is "von und zu Stettbach". (The cases where existing prefix values are changed should not be necessary with well-formed PersonName data.)
 
 #### Derive initials
 
@@ -1005,10 +1004,10 @@ The sampleName element is used for test names in the personNames LDML data for e
 
 ```xml
 <!ELEMENT sampleName ( nameField+ )  >
-<!ATTLIST sampleName item NMTOKENS #REQUIRED >
+<!ATTLIST sampleName item NMTOKEN #REQUIRED >
 ```
 
-* `NMTOKENS` must be one of `( nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull )`. However, these may change arbitrarily in the future.
+* `NMTOKEN` must be one of `( nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull )`. However, these may change arbitrarily in the future.
 
 ### Expected values
 

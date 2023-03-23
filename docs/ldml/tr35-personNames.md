@@ -712,7 +712,7 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 
 #### Examples of space replacement
 
-To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
+To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.md#Likely_Subtags).
 
 *TBD Review all these examples to see if they need updating*
 

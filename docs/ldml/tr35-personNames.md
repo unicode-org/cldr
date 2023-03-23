@@ -317,7 +317,7 @@ For illustration, the following is a sample PersonName object.
 | `given2`         | “Torval”     |                                 |
 | `surname`        | “Brown”      |                                 |
 | `nameLocale`     | “und-US”     | this is just for illustration   |
-| `preferredOrder` | “givenFirst” | this too                        |
+| `preferredOrder` | “givenFirst” | values are givenFirst and surnameFirst                        |
 
 A PersonName object is logically composed of the fields above plus other possible variations. See [[Fields](#fields)]. There must be at least one field present: either a `given` or `surname` field. Other fields are optional, and some of them can be constructed from other fields if necessary.
 
@@ -434,7 +434,7 @@ In most cultures, there is a concept of nickname or preferred name, which is use
 | `given2`   | Additional given name or names or middle name, usually names(s) written between the given and surname. Can be multiple words. In some references, also known as a “second” or “additional” given name or patronymic. This field is separate from the “given” field because it is often optional in various presentation forms.<br/>Examples:  “Horatio Wallace” as in<br/>`{ given: "Janus", `**`given2: "Horatio Wallace"`**`, surname: "Young" }`<br/><br/>“S.” as in “Harry S. Truman”. Yes, his full middle name was legally just “S.”.|
 | `surname`  | The “family name”. Can be more than one word.<br/><br/>Example: “van Gogh” as in<br/>`{ given: "Vincent", given2: "Willem", `**`surname: "van Gogh"`**` }`<br/><br/>Other examples: “Heathcote-Drummond-Willoughby” as in “William Emanuel Heathcote-Drummond-Willoughby III”|
 | `surname2` | Secondary surname (used in some cultures), such as second or maternal surname in Mexico and Spain. This field is separate from the “surname” field because it is often optional in various presentation forms, and is considered a separate distinct name in some cultures.<br/><br/>Example: “Barrientos” in “Diego Rivera Barrientos”;<br/>`{ given: "Diego", surname: "Rivera", `**`surname2: "Barrientos"`**` }`<br/><br/>Example: if "Mary Jane Smith" moves to Spain the new name may be<br/>`{ given: "Mary", given2: "Jane", surname: "Smith", `**`surname2: "Jones"`**` }`|
-| `credentials`   | A credential or accreditation qualifier.<br/>Example: “PhD”, “MBA”<br/><br/>Example: “Sonny Jarvis MD”<br/>`{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", `**`credentials: "MBA"`**` }`<br/><br/>An alternate PersonName object may be presented for formatting using the “stage” name from the application’s data:<br/>`{ given: "Salvatore", given-informal: "Sonny", given2: "", surname: "Jarvis", `**`credentials: "MBA"`**` }` |
+| `credentials`   | A credential or accreditation qualifier.<br/>Example: “PhD”, “MBA”<br/><br/>Example: “Salvatore Jarvis MBA”<br/>`{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", `**`credentials: "MBA"`**` }`<br/><br/>An alternate PersonName object may be presented for formatting using the “stage” name from the application’s data:<br/>`{ given: "Salvatore", given-informal: "Salvatore", given2: "", surname: "Jarvis", `**`credentials: "MBA"`**` }` |
 | `generation`   | A generation qualifier.<br/>Example: “III”, “Jr.”<br/><br/>Example: “Sonny Jarvis Jr.”<br/>`{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", `**`generation: "Jr."`**` }` |
 
 Some other examples:
@@ -519,7 +519,7 @@ A PersonName object’s fields are used to derive an order, as follows:
 1. If the calling API requests sorting order, that is used.
 2. Otherwise, if the PersonName object to be formatted has a `preferredOrder` field, then return that field’s value
 3. Otherwise, use the nameOrderLocales elements to find the best match for the name locale, as follows.
-    1. For each locale L1 in the parent locale lookup chain* for the name locale, do the following
+    1. For each locale L1 in the parent locale lookup chain* for the name object’s locale, do the following
         1. Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')
         2. For each locale L in {L1, L2}, do the following
              1. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.
@@ -533,7 +533,7 @@ In other words, with the name locale of `de_Latin_DE` you'll check the givenFirs
 
     de_Latin_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
 
-This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements. Remember that the inheritance chain requires use of the parentLocales elements: it is not just truncation.
+This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements. Remember that the lookup chain requires use of the parentLocales elements: it is not just truncation.
 
 For example, the data for a particular locale might look like the following:
 
@@ -689,8 +689,8 @@ If a locale requires spaces between words, the normal patterns for the formattin
 If a locale **doesn’t** require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein. When the locale is foreign, the **foreignSpaceReplacement** is substituted for each space in the formatted name. When the name locale is native, a **nativeSpaceReplacement** is substituted for each space in the formatted name. The precise algorithm is given below.
 
 Here are examples for Albert Einstein in Japanese and Chinese:
-        * [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3)
-        * [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6)
+* [アルベルト<span style="background-color:aqua">・</span>アインシュタイン](https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3)
+* [阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦](https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6)
 
 #### Setting the spaceReplacement
 

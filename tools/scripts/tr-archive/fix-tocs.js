@@ -98,11 +98,14 @@ async function processFile(f) {
     const oldcopyright = /(Copyright\s*[©]?)\s*([0-9]{4,4})[–-—](?:[0-9]{4,4})\s*Unicode/;
     const newyear = new Date().getFullYear(); // 2023, etc
     const badlink = /([\(])(http[s]?:\/\/[w\.]*unicode.org\/reports\/tr35\/)?tr35([^\./]*)\.html/;
+    const badlink2 = /([\(])(http[s]?:\/\/[w\.]*unicode.org\/reports\/tr35\/)#/;
+
     // Write out all remaining lines in the file.
     for (; i < lines.length; i++) {
         out.push(lines[i]
             .replace(oldcopyright, `$1 $2–${newyear} Unicode`)
-            .replace(badlink, '$1tr35$3.md'));
+            .replace(badlink, '$1tr35$3.md')
+            .replace(badlink2, '$1tr35.md#'));
     }
 
     // Write the whole file to disk.

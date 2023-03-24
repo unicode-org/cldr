@@ -1266,7 +1266,7 @@ This element must have the `transforms` element as its parent. This element repr
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
+> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35](tr35.md#Unicode_Sets)).
 
 For example, suppose there are the following transforms:
 

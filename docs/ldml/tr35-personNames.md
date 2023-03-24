@@ -263,7 +263,7 @@ The `<nameOrderLocales>` element is optional, and contains information about sel
 <!ATTLIST nameOrderLocales order ( givenFirst | surnameFirst ) #REQUIRED >
 ```
 
-* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](https://unicode.org/reports/tr35/#unicode_locale_id)s. Normally each locale is limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
+* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](tr35.md#unicode_locale_id)s. Normally each locale is limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
 
 An example from English may look like the following
 
@@ -542,7 +542,7 @@ For example, the data for a particular locale might look like the following:
 ```xml
 <nameOrderLocales order="surnameFirst">zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP</nameOrderLocales>
 ```
-These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](https://unicode.org/reports/tr35/#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](https://unicode.org/reports/tr35/#unicode_region_subtag).
+These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](tr35.md#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](https://unicode.org/reports/tr35/#unicode_region_subtag).
 
 Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.
 

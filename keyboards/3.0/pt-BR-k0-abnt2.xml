@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!--
+	TODO: keyman: HINT 100008: Locale 'pt-BR-t-k0-abnt2' is not minimal or correctly formatted and should be 'pt-t-k0-abnt2'
+-->
 <keyboard locale="pt-BR-t-k0-abnt2" conformsTo="techpreview">
 	<locales>
 		<locale id="pt" />
@@ -42,14 +45,14 @@
 		<layer modifier="none">
 			<row keys="apos 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
 			<row keys="q w e r t y u i o p d-acute" />
-			<row keys="a s d f g h j k l c-cedilla d-tilde close-square" />
+			<row keys="a s d f g h j k l c-cedilla d-tilde open-square" />
 			<row keys="backslash z x c v b n m comma period semi-colon slash" />
 			<row keys="space"/>
 		</layer>
 		<layer modifier="shift">
 			<row keys="double-quote bang at hash dollar percent d-umlaut amp asterisk open-paren close-paren underscore plus" />
 			<row keys="Q W E R T Y U I O P d-grave open-curly" />
-			<row keys="A S D F G H J K L c-cedilla d-tilde close-square" />
+			<row keys="A S D F G H J K L C-cedilla d-tilde close-square" />
 			<row keys="pipe Z X C V B N M open-angle close-angle colon question" />
 			<row keys="space"/>
 		</layer>

@@ -101,7 +101,7 @@ There is a wide variety in the way that people’s names appear in different lan
 * The ordering of name fields can be different across languages, as well as the spacing (or lack thereof) and punctuation.
 * Name formatting needs to be adapted to different circumstances, such as a need to be presented shorter or longer; formal or informal context; or when talking about someone, or talking to someone, or as a monogram (JFK).
 
-This document provides the [LDML](http://www.unicode.org/reports/tr35/) specification for formatting of personal names, using data, structure, and examples.
+This document provides the [LDML](tr35.md) specification for formatting of personal names, using data, structure, and examples.
 
 The CLDR functionality is targeted at formatting names for typical usage on computers (e.g. contact names, automated greetings, etc.), rather than being designed for special circumstances or protocol, such addressing royalty. However, the structure may be enhanced in the future when it becomes clear that additional features are needed for some languages.
 
@@ -542,7 +542,7 @@ For example, the data for a particular locale might look like the following:
 ```xml
 <nameOrderLocales order="surnameFirst">zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP</nameOrderLocales>
 ```
-These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](tr35.md#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](https://unicode.org/reports/tr35/#unicode_region_subtag).
+These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](tr35.md#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](tr35.md#unicode_region_subtag).
 
 Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.
 

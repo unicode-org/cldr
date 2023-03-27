@@ -185,7 +185,7 @@ public class TempPrintWriter extends Writer {
             if (line1.startsWith("# Date")) {
                 continue;
             }
-            if (skipCopyright && (line1.startsWith("# Copyright") || (line1.trim().startsWith("<!--") && line1.contains("Copyright")))) {
+            if (skipCopyright && (line1.startsWith("# Copyright") || line1.contains("Copyright ©"))) {
                 continue;
             }
             if (line1.startsWith("<p><b>Date:</b>")) {

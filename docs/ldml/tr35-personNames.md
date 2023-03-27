@@ -716,8 +716,6 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
 
-*TBD Review all these examples to see if they need updating*
-
 | name locale   | given    | surname       |
 | ------------- | -------- | ------------- |
 | `de_Latn_CH`  | Albert   | Einstein      |
@@ -876,8 +874,6 @@ The name data would resolve as follows:
 <br/>
 
 ### Formatting examples
-
-*TBD Review all these examples to see if they need updating*
 
 The personName element contains:
 

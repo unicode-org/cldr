@@ -101,7 +101,7 @@ There is a wide variety in the way that people’s names appear in different lan
 * The ordering of name fields can be different across languages, as well as the spacing (or lack thereof) and punctuation.
 * Name formatting needs to be adapted to different circumstances, such as a need to be presented shorter or longer; formal or informal context; or when talking about someone, or talking to someone, or as a monogram (JFK).
 
-This document provides the [LDML](http://www.unicode.org/reports/tr35/) specification for formatting of personal names, using data, structure, and examples.
+This document provides the [LDML](tr35.md) specification for formatting of personal names, using data, structure, and examples.
 
 The CLDR functionality is targeted at formatting names for typical usage on computers (e.g. contact names, automated greetings, etc.), rather than being designed for special circumstances or protocol, such addressing royalty. However, the structure may be enhanced in the future when it becomes clear that additional features are needed for some languages.
 
@@ -259,7 +259,7 @@ The `<nameOrderLocales>` element is optional, and contains information about sel
 <!ATTLIST nameOrderLocales order ( givenFirst | surnameFirst ) #REQUIRED >
 ```
 
-* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](https://unicode.org/reports/tr35/#unicode_locale_id)s. Normally each locale is limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
+* `#PCDATA `is a space delimited list of one or more [unicode_locale_id](tr35.md#unicode_locale_id)s. Normally each locale is limited to language, script, and region. The _und_ locale ID may only occur once, either in _surnameFirst_ or _givenFirst_, but not both, and matches all base locales not explicitly listed.
 
 An example from English may look like the following
 
@@ -540,7 +540,7 @@ For example, the data for a particular locale might look like the following:
 ```xml
 <nameOrderLocales order="surnameFirst">zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP</nameOrderLocales>
 ```
-These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](https://unicode.org/reports/tr35/#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](https://unicode.org/reports/tr35/#unicode_region_subtag).
+These nameOrderLocales will match any locale with a zh or ja [unicode_language_subtag](tr35.md#unicode_language_subtag) and any locale with a CN, TW, SG, HK MO, HU, or JP [unicode_region_subtag](tr35.md#unicode_region_subtag).
 
 Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.
 
@@ -714,7 +714,7 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 
 #### Examples of space replacement
 
-To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.html#Likely_Subtags).
+To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see [Likely Subtags](tr35.md#Likely_Subtags).
 
 *TBD Review all these examples to see if they need updating*
 

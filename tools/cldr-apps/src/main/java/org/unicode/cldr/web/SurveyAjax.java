@@ -2367,7 +2367,7 @@ public class SurveyAjax extends HttpServlet {
                             resultIcon = "stop";
                         } else {
                             if (doFinal) {
-                                ballotBox.voteForValue(u, base, val0);
+                                ballotBox.voteForValueWithType(u, base, val0, VoteType.BULK_UPLOAD);
                                 result = "Vote accepted";
                                 resultIcon = "vote";
                             } else {

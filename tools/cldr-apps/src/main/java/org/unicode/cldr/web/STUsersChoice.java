@@ -1,12 +1,8 @@
 package org.unicode.cldr.web;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.LruMap;
-import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class STUsersChoice implements UsersChoice<Organization> {
@@ -40,6 +36,12 @@ public class STUsersChoice implements UsersChoice<Organization> {
     public boolean userDidVote(int userId, CLDRLocale loc, String path) {
         BallotBox<User> ballotBox = getBox(sm, loc);
         return ballotBox.userDidVote(sm.reg.getInfo(userId), path);
+    }
+
+    @Override
+    public VoteType getUserVoteType(int userId, CLDRLocale loc, String path) {
+        BallotBox<User> ballotBox = getBox(sm, loc);
+        return ballotBox.getUserVoteType(sm.reg.getInfo(userId), path);
     }
 
     private LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<>(8);

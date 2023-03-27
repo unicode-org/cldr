@@ -124,6 +124,7 @@ async function downloadVettingParticipation(opts) {
       "Email",
       "Name",
       "LastSeen",
+      "Votes by Type",
     ],
   ];
 
@@ -150,6 +151,7 @@ async function downloadVettingParticipation(opts) {
       user.email,
       user.name,
       user.time,
+      "", // typeCount
     ];
     if (user.allLocales) {
       row[1] = "ALL";
@@ -175,10 +177,11 @@ async function downloadVettingParticipation(opts) {
           const level = "org";
           setStatus(`Fetch ${id}/${locale}/${level}`);
           const data = await cldrAjax.doFetch(
-            `./api/summary/dashboard/for/${id}/${locale}/${level}`
+            `./api/summary/participation/for/${id}/${locale}/${level}`
           );
           const json = await data.json();
-          const { votablePathCount, votedPathCount } = json.voterProgress;
+          const { votablePathCount, votedPathCount, typeCount } =
+            json.voterProgress;
           const { coverageLevel } = json;
           row[6] = votedPathCount;
           row[7] = votablePathCount;
@@ -188,6 +191,7 @@ async function downloadVettingParticipation(opts) {
           );
           row[8] = `${perCent}%`;
           row[9] = (coverageLevel || "").toLowerCase();
+          row[14] = typeCountToString(typeCount);
         } else {
           // only guest and vetter users
           row[6] = "-";
@@ -237,6 +241,7 @@ async function downloadVettingParticipation(opts) {
   cldrXlsx.pushComment(ws, "L1", "Users' email");
   cldrXlsx.pushComment(ws, "M1", "Users' name");
   cldrXlsx.pushComment(ws, "N1", "When the user last logged in");
+  cldrXlsx.pushComment(ws, "O1", "Vote counts by type");
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(
@@ -515,6 +520,19 @@ function mySort(a, b) {
     return 0;
   }
   return a.user.name.localeCompare(b.user.name);
+}
+
+function typeCountToString(typeCount) {
+  let str = "";
+  if (typeCount) {
+    for (let key of Object.keys(typeCount).sort()) {
+      if (str) {
+        str += ";";
+      }
+      str += key + ":" + typeCount[key];
+    }
+  }
+  return str;
 }
 
 export { load };

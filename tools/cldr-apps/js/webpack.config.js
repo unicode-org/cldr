@@ -10,6 +10,7 @@ module.exports = {
     library: "cldrBundle",
     libraryTarget: "var",
     libraryExport: "default",
+    hashFunction: "sha256"
   },
   mode: "development",
   devtool: "source-map",

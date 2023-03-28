@@ -405,7 +405,8 @@ The currencyCodes are mappings from three letter currency codes to numeric value
 
 ## ~~<a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a>~~ (Deprecated)
 
-Deprecated in CLDR v34, and data removed.
+Deprecated in CLDR v34, and data removed. 
+The data and structure for phone numbers changes quite often, so the recommended alternative is the open-source library [libphonenumber](https://github.com/google/libphonenumber#what-is-it).
 
 ```xml
 <!ELEMENT telephoneCodeData ( codesByTerritory* ) >

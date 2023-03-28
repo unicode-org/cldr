@@ -69,7 +69,7 @@ The LDML specification is divided into the following parts:
   * [Derive the formatting locale](#derive-the-formatting-locale)
     * [Switch the formatting locale if necessary](#switch-the-formatting-locale-if-necessary)
   * [Derive the name order](#derive-the-name-order)
-  * [Choose a personName](#choose-a-personname)
+  * [Choose a personName element](#choose-a-personname-element)
   * [Choose a namePattern](#choose-a-namepattern)
   * [Access PersonName object](#access-personname-object)
     * [Handle missing surname](#handle-missing-surname)

@@ -61,21 +61,6 @@ public interface BallotBox<T> {
         }
     }
 
-    /**
-     * Record a vote for an item. Will (eventually) throw a number of
-     * exceptions.
-     *
-     * @param user
-     *            voter's object
-     * @param distinguishingXpath
-     *            dpath of item
-     * @param value
-     *            new string value to vote for, or null for "unvote"
-     * @throws InvalidXPathException
-     * @throws VoteNotAcceptedException
-     */
-    public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException;
-
     public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException;
 
     public void voteForValueWithType(T user, String distinguishingXpath, String value, VoteType voteType) throws VoteNotAcceptedException, InvalidXPathException;
@@ -134,6 +119,8 @@ public interface BallotBox<T> {
      * @return
      */
     public boolean userDidVote(User myUser, String somePath);
+
+    public VoteType getUserVoteType(User myUser, String somePath);
 
     /**
      * Were there any votes some-time this release?

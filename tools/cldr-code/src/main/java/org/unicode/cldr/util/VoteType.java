@@ -1,12 +1,51 @@
 package org.unicode.cldr.util;
 
 public enum VoteType {
-    UNKNOWN(0), DIRECT(1), AUTO_IMPORT (2) , MANUAL_IMPORT(3), BULK_UPLOAD(4);
+    /**
+     * The user did not vote
+     */
+    NONE(-1),
+
+    /**
+     * The user voted but we don't know exactly how
+     */
+    UNKNOWN(0),
+
+    /**
+     * The user voted directly in the Survey Tool interface, the usual way
+     */
+    DIRECT(1),
+
+    /**
+     * The user's (winning) vote from an earlier version was automatically imported
+     */
+    AUTO_IMPORT (2),
+
+    /**
+     * The user manually imported their vote from an earlier version
+     * -- Currently such votes are losing (otherwise they would be auto-imported), and
+     * they are imported "anonymously" (not in the name of the actual user) with weight zero.
+     */
+    MANUAL_IMPORT(3),
+
+    /**
+     * The user submitted their vote using the bulk xml upload method
+     */
+    BULK_UPLOAD(4);
 
     private final int integerId;
 
     VoteType(int id) {
         this.integerId = id;
+    }
+
+    public static VoteType fromId(int id) {
+        for (VoteType voteType : values()) {
+            if (voteType.integerId == id) {
+                return voteType;
+            }
+        }
+        return NONE;
     }
 
     /**

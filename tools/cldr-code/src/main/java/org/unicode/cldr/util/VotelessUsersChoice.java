@@ -37,4 +37,9 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
     public boolean userDidVote(int userId, CLDRLocale loc, String path) {
         return false;
     }
+
+    @Override
+    public VoteType getUserVoteType(int userId, CLDRLocale loc, String path) {
+        return VoteType.NONE;
+    }
 }

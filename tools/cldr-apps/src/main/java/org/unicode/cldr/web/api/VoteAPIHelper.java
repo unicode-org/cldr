@@ -374,7 +374,7 @@ public class VoteAPIHelper {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(locale);
                             Integer withVote = (voteLevelChanged == 0) ? null : voteLevelChanged;
-                            ballotBox.voteForValue(mySession.user, xp, val, withVote);
+                            ballotBox.voteForValueWithType(mySession.user, xp, val, withVote, VoteType.DIRECT);
                             r.didVote = true;
                         } catch (VoteNotAcceptedException e) {
                             if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {

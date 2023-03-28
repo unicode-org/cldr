@@ -153,6 +153,8 @@ public class VettingViewer<T> {
         boolean userDidVote(int userId, CLDRLocale loc, String path);
 
         VoteResolver<String> getVoteResolver(CLDRFile baselineFile, CLDRLocale loc, String path);
+
+        VoteType getUserVoteType(int userId, CLDRLocale loc, String path);
     }
 
     public interface ErrorChecker {
@@ -569,7 +571,8 @@ public class VettingViewer<T> {
             }
             voterProgress.incrementVotablePathCount();
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
-                voterProgress.incrementVotedPathCount();
+                VoteType voteType = userVoteStatus.getUserVoteType(voterId, cldrLocale, path);
+                voterProgress.incrementVotedPathCount(voteType);
             } else if (choices.contains(NotificationCategory.abstained)) {
                 problems.add(NotificationCategory.abstained);
                 vc.problemCounter.increment(NotificationCategory.abstained);

@@ -11,19 +11,11 @@ import java.util.TreeSet;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.NotificationCategory;
-import org.unicode.cldr.util.VettingParameters;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.util.VoterReportStatus.ReportStatus;
-import org.unicode.cldr.util.VoterProgress;
-import org.unicode.cldr.util.VoterReportStatus;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -105,7 +97,7 @@ public class Dashboard {
             }
             // update counts. Completed are both voted and votable.
             reportStatus.completed.forEach(r -> {
-                voterProgress.incrementVotedPathCount();
+                voterProgress.incrementVotedPathCount(VoteType.DIRECT);
                 voterProgress.incrementVotablePathCount();
             });
             // Incomplete are votable but not voted.

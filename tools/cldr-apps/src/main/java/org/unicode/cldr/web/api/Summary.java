@@ -29,12 +29,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.json.JSONException;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VettingViewer;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
@@ -440,22 +435,22 @@ public class Summary {
     }
 
     @GET
-    @Path("/dashboard/for/{user}/{locale}/{level}")
+    @Path("/participation/for/{user}/{locale}/{level}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Fetch another user's Dashboard for a locale. Manager only.",
-        description = "Given a locale, get the summary information, aka Dashboard, for another user")
-    @Counted(name = "getDashboardCount", absolute = true, description = "Number of dashboards computed")
-    @Timed(absolute = true, name = "getDashboardTime", description = "Time to fetch the Dashboard")
+        summary = "Fetch another user's participation for a locale. Manager only.",
+        description = "Given a locale, get the participation information, for another user")
+    @Counted(name = "getUserCount", absolute = true, description = "Number of users computed")
+    @Timed(absolute = true, name = "getParticipationTime", description = "Time to fetch the information")
     @APIResponses(
         value = {
             @APIResponse(
                 responseCode = "200",
-                description = "Dashboard results",
+                description = "Participation results",
                 content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = ReviewOutput.class))) // TODO: SummaryResults.class
+                    schema = @Schema(implementation = ParticipationResults.class)))
         })
-    public Response getDashboardFor(
+    public Response getParticipationFor(
         @PathParam("user") @Schema(required = true, description = "User ID") Integer user,
         @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
         @PathParam("level") @Schema(required = true, description = "Coverage Level or 'org'") String level,
@@ -487,11 +482,20 @@ public class Summary {
         } else {
             coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         }
-        ReviewOutput ret = new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
+        ReviewOutput reviewOutput = new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
+        reviewOutput.coverageLevel = coverageLevel.name();
 
-        ret.coverageLevel = coverageLevel.name();
+        ParticipationResults participationResults = new ParticipationResults(reviewOutput.voterProgress, reviewOutput.coverageLevel);
+        return Response.ok().entity(participationResults).build();
+    }
 
-        return Response.ok().entity(ret).build();
+    public class ParticipationResults {
+        public VoterProgress voterProgress;
+        public String coverageLevel;
+        public ParticipationResults(VoterProgress voterProgress, String coverageLevel) {
+            this.voterProgress = voterProgress;
+            this.coverageLevel = coverageLevel;
+        }
     }
 
     private static void log(String message) {

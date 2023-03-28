@@ -407,10 +407,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 Integer override;
                 Date when;
 
-                public PerUserData(String value, Integer voteOverride, Date when) {
+                VoteType voteType;
+
+                public PerUserData(String value, Integer voteOverride, Date when, VoteType voteType) {
                     this.vote = value;
                     this.override = voteOverride;
                     this.when = when;
+                    this.voteType = voteType;
+                    if (voteType == null || voteType == VoteType.NONE) {
+                        logger.warning("PerUserData got vote type " + voteType + "; changed to UNKNOWN");
+                        voteType = VoteType.UNKNOWN;
+                    }
                     if (lastModDate == null || lastModDate.before(when)) {
                         lastModDate = when;
                     }
@@ -430,6 +437,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
                 public Date getWhen() {
                     return when;
+                }
+
+                public VoteType getVoteType() {
+                    return voteType;
                 }
             }
 
@@ -491,9 +502,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 return userToData.get(user);
             }
 
-            private void setVoteForValue(User user, String value, Integer voteOverride, Date when) {
+            private void setVoteForValue(User user, String value, Integer voteOverride, Date when, VoteType voteType) {
                 if (value != null) {
-                    setPerUserData(user, new PerUserData(value, voteOverride, when));
+                    setPerUserData(user, new PerUserData(value, voteOverride, when, voteType));
                 } else {
                     removePerUserData(user);
                 }
@@ -552,6 +563,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 PerUserData pud = peekUserToData(myUser);
                 return (pud != null && pud.getValue() != null);
+            }
+
+            public VoteType getUserVoteType(User myUser) {
+                if (userToData == null) {
+                    return VoteType.NONE;
+                }
+                PerUserData pud = peekUserToData(myUser);
+                if (pud == null) {
+                    return VoteType.NONE;
+                }
+                return pud.getVoteType();
             }
 
             public Map<User, Integer> getOverridesPerUser() {
@@ -651,7 +673,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             try {
                 /*
-                 * Select several columns (xp, submitter, value, override, last_mod),
+                 * Select several columns (xp, submitter, value, override, last_mod, vote_type),
                  * from all rows with the given locale in the votes table.
                  */
                 conn = DBUtils.getInstance().getAConnection();
@@ -673,6 +695,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         voteOverride = null;
                     }
                     Timestamp last_mod = rs.getTimestamp(6); // last mod
+                    VoteType voteType = VoteType.fromId(rs.getInt(7)); // vote_type
                     User theSubmitter = sm.reg.getInfo(submitter);
                     if (theSubmitter == null) {
                         SurveyLog.warnOnce(logger, "Ignoring votes for deleted user #" + submitter);
@@ -685,7 +708,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     try {
                         value = processValue(xpath, value);
-                        internalSetVoteForValue(theSubmitter, xpath, value, voteOverride, last_mod);
+                        if (voteType == null || voteType == VoteType.NONE) {
+                            logger.warning("loadVoteValues got vote type " + voteType + "; changed to UNKNOWN");
+                            voteType = VoteType.UNKNOWN;
+                        }
+                        internalSetVoteForValue(theSubmitter, xpath, value, voteOverride, last_mod, voteType);
                         n++;
                     } catch (VoteNotAcceptedException e) {
                         logger.severe("VoteNotAcceptedException: " + theSubmitter + ":" + locale + ":" + xpath);
@@ -708,7 +735,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     String value = DBUtils.getStringUTF8(rs, 2);
                     Timestamp last_mod = rs.getTimestamp(3);
                     try {
-                        internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.Level.LOCKING_VOTES, last_mod);
+                        internalSetVoteForValue(sm.reg.getInfo(UserRegistry.ADMIN_ID), xpath, value, VoteResolver.Level.LOCKING_VOTES, last_mod, VoteType.DIRECT);
                         n++;
                     } catch (BallotBox.InvalidXPathException e) {
                         System.err.println("InvalidXPathException: Ignoring permanent vote for:" + locale + ":" + xpath);
@@ -996,11 +1023,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException {
-            voteForValueWithType(user, distinguishingXpath, value, withVote, VoteType.DIRECT);
-        }
-
-        @Override
         public void voteForValue(User user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException {
             voteForValueWithType(user, distinguishingXpath, value, null, VoteType.DIRECT);
         }
@@ -1057,7 +1079,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 readonly();
             }
 
-            internalSetVoteForValue(user, distinguishingXpath, value, withVote, new Date());
+            internalSetVoteForValue(user, distinguishingXpath, value, withVote, new Date(), voteType);
 
             if (withVote != null && withVote == VoteResolver.Level.PERMANENT_VOTES) {
                 doPermanentVote(distinguishingXpath, xpathId, value);
@@ -1219,7 +1241,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (pv.didLock()) {
                 User admin = sm.reg.getInfo(UserRegistry.ADMIN_ID);
                 peekXpathData(distinguishingXpath).setVoteForValue(admin,
-                    value, VoteResolver.Level.LOCKING_VOTES, new Date());
+                    value, VoteResolver.Level.LOCKING_VOTES, new Date(), VoteType.DIRECT);
             } else if (pv.didUnlock()) {
                 peekXpathData(distinguishingXpath).removeOverrideVotes(VoteResolver.Level.LOCKING_VOTES);
             }
@@ -1237,9 +1259,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * Called by loadVoteValues and voteForValue.
          */
         private void internalSetVoteForValue(User user, String distinguishingXpath, String value,
-            Integer voteOverride, Date when) throws InvalidXPathException {
+            Integer voteOverride, Date when, VoteType voteType) throws InvalidXPathException {
+            if (voteType == null || voteType == VoteType.NONE) {
+                logger.warning("internalSetVoteForValue got vote type " + voteType + "; changed to UNKNOWN");
+                voteType = VoteType.UNKNOWN;
+            }
             makeSureInPathsForFile(distinguishingXpath, user, value);
-            getXPathData(distinguishingXpath).setVoteForValue(user, value, voteOverride, when);
+            getXPathData(distinguishingXpath).setVoteForValue(user, value, voteOverride, when, voteType);
             stamp.next();
         }
 
@@ -1249,6 +1275,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return (xpd != null && xpd.userDidVote(myUser));
         }
 
+        @Override
+        public VoteType getUserVoteType(User myUser, String somePath) {
+            PerXPathData xpd = peekXpathData(somePath);
+            if (xpd == null) {
+                logger.warning("getUserVoteType got xpd null, returning NONE");
+                return VoteType.NONE;
+            }
+            VoteType voteType = xpd.getUserVoteType(myUser);
+            if (voteType == null || voteType == VoteType.NONE) {
+                logger.warning("getUserVoteType got vote type " + voteType + "; changed to UNKNOWN");
+                voteType = VoteType.UNKNOWN;
+            }
+            return voteType;
+        }
         public TestResultBundle getTestResultData(CheckCLDR.Options options) {
             synchronized (gTestCache) {
                 return gTestCache.getBundle(options);
@@ -1715,7 +1755,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * "must select all primary keys from that table".
          */
         return DBUtils
-            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale," + VOTE_OVERRIDE + ",last_mod FROM " + DBUtils.Table.VOTE_VALUE
+            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale," + VOTE_OVERRIDE + ",last_mod, "
+                + VOTE_TYPE + " FROM " + DBUtils.Table.VOTE_VALUE
                 + " WHERE locale = ?");
     }
 

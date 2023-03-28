@@ -45,6 +45,11 @@ class TestVettingViewer {
             }
 
             @Override
+            public VoteType getUserVoteType(int userId, CLDRLocale loc, String path) {
+                return VoteType.NONE;
+            }
+
+            @Override
             public VoteResolver<String> getVoteResolver(CLDRFile cldrFile, final CLDRLocale loc, final String path) {
                 VoteResolver<String> r = new VoteResolver<>(vil);
                 r.setLocale(locale, getPathHeader(path));

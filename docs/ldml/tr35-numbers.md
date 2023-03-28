@@ -430,7 +430,7 @@ The following additional elements were intended to allow proper placement of the
 <!ELEMENT insertBetween ( #PCDATA ) >
 ```
 
-In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”.
+In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”. The locale keyword "cf" can be used to select the standard or accounting form, see [Unicode Currency Format Identifier](tr35.md#UnicodeCurrencyFormatIdentifier).
 
 ```xml
 <currencyFormats>
@@ -1091,6 +1091,8 @@ Plural categories may also differ according to the visible decimals. For example
 | Digits | The visible fraction determines the category. | 1.13 gets the same class as 13. |
 
 There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.
+
+Currently there are no locale keywords that affect plural rule selection; they are selected using the base locale ID, ignoring any -u- extension keywords.
 
 #### <a name="Explicit_0_1_rules" href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a>
 

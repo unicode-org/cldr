@@ -1481,7 +1481,14 @@ The references section supplies a central location for specifying references and
 
 The `segmentations` element provides for segmentation of text into words, lines, or other segments. The structure is based on [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)] notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an `id` attribute.
 
-The rules in _root_ implement the segmentations found in [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)] and [[UAX14](https://www.unicode.org/reports/tr41/#UAX14)], for grapheme clusters, words, sentences, and lines. They can be overridden by rules in child locales.
+The rules in _root_ implement the segmentations found in [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)] and
+[[UAX14](https://www.unicode.org/reports/tr41/#UAX14)], for grapheme clusters, words, sentences, and lines. They can be
+overridden by rules in child locales. In addition, there are several locale keywords that affect segmentation:
+
+* "dx", [Unicode Dictionary Break Exclusion Identifier](tr35.md#UnicodeDictionaryBreakExclusionIdentifier)
+* "lb", [Unicode Line Break Style Identifier](tr35.md#UnicodeLineBreakStyleIdentifier)
+* "lw", [Unicode Line Break Word Identifier ](tr35.md#UnicodeLineBreakWordIdentifier)
+* "ss", [Unicode Sentence Break Suppressions Identifier ](tr35.md#UnicodeSentenceBreakSuppressionsIdentifier)
 
 Here is an example:
 
@@ -2312,6 +2319,8 @@ The following `type` attributes are in use:
 | `unit-narrow`             | A list suitable for narrow units, where space on the screen is very limited. | _3′ 7″_          |
 
 In many languages there may not be a difference among many of these lists. In others, the spacing, the length or presence or a conjunction, and the separators may change.
+
+Currently there are no locale keywords that affect list patterns; they are selected using the base locale ID, ignoring anu -u- extension keywords.
 
 ### <a name="List_Gender" href="#List_Gender">Gender of Lists</a>
 

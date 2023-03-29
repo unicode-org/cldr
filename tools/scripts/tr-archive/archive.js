@@ -172,6 +172,22 @@ async function renderit(infile) {
     h6.remove();
   }
 
+  // Drop generated anchors where there is an explicit anchor
+  const anchors = dom.window.document.getElementsByTagName("a");
+  for (const a of anchors) {
+    // a needs to have a name
+    const aname = a.getAttribute('name');
+    if (!aname) continue;
+    // parent needs to have a single child node and its own 'id'.
+    const parent = a.parentElement;
+    if (parent.childElementCount !== 1) continue;
+    const parid = parent.getAttribute('id');
+    if(!parid) continue;
+    // Criteria met. swap the name and id
+    parent.setAttribute('id', aname);
+    a.setAttribute('name', parid);
+  }
+
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 

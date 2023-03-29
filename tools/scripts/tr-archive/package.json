@@ -14,7 +14,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix-tocs": "node fix-tocs.js",
     "build": "bash copy-local-assets.sh && bash make-tr-archive.sh",
-    "serve": "npm run build && npx serve ."
+    "serve": "npm run build && npx serve .",
+    "extract-link-targets": "node extract-link-targets.js"
   },
   "keywords": [],
   "author": "Steven R. Loomis <srl295@gmail.com>",

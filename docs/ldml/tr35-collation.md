@@ -32,7 +32,7 @@ This is a stable document and may be used as reference material or cited as a no
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
 
-## Parts
+## <a name="Parts" href="#Parts">Parts</a>
 
 The LDML specification is divided into the following parts:
 
@@ -76,12 +76,12 @@ The LDML specification is divided into the following parts:
     * [Notes on the normalization setting](#Normalization_Setting)
     * [Notes on variable top settings](#Variable_Top_Settings)
   * [Collation Rule Syntax](#Rules)
-  * [Orderings](#orderings)
+  * [Orderings](#Orderings)
     * Table: [Specifying Collation Ordering](#Specifying_Collation_Ordering)
     * Table: [Abbreviating Ordering Specifications](#Abbreviating_Ordering_Specifications)
-  * [Contractions](#contractions)
+  * [Contractions](#Contractions)
     * Table: [Specifying Contractions](#Specifying_Contractions)
-  * [Expansions](#expansions)
+  * [Expansions](#Expansions)
   * [Context Before](#Context_Before)
     * Table: [Specifying Previous Context](#Specifying_Previous_Context)
   * [Placing Characters Before Others](#Placing_Characters_Before_Others)
@@ -96,7 +96,7 @@ The LDML specification is divided into the following parts:
     * [Untailored Characters](#Case_Untailored)
     * [Compute Modified Collation Elements](#Case_Weights)
     * [Tailored Strings](#Case_Tailored)
-  * [Visibility](#visibility)
+  * [Visibility](#Visibility)
   * [Collation Indexes](#Collation_Indexes)
     * [Index Characters](#Index_Characters)
     * [CJK Index Markers](#CJK_Index_Markers)
@@ -734,7 +734,7 @@ Comments are allowed at the beginning, and after any complete reset, relation, s
 
 The collation syntax is case-sensitive.
 
-### Orderings
+### <a name="Orderings" href="#Orderings">Orderings</a>
 
 The root collation mappings form the initial state. Mappings are added and removed via a sequence of rule chains. Each tailoring rule builds on the current state after all of the preceding rules (and is not affected by any following rules). Rule chains may alternate with comments, settings, and special commands.
 
@@ -797,7 +797,7 @@ A starred relation operator is followed by a sequence of characters with the sam
 | `<<<<*`           | `& k`<br/>`<<<<* qQ`    | `& k`<br/>`<<<< q <<<< Q` |
 | `=*`              | `& v`<br/>`=* VwW`      | `& v`<br/>`= V = w = W` |
 
-### Contractions
+### <a name="Contractions" href="#Contractions">Contractions</a>
 
 A multi-character relation string defines a contraction.
 
@@ -807,7 +807,7 @@ A multi-character relation string defines a contraction.
 | ---------------- | ----------- |
 | `& k`<br/>`< ch` | Make the sequence 'ch' sort after 'k', as a primary (base-character) difference |
 
-### Expansions
+### <a name="Expansions" href="#Expansions">Expansions</a>
 
 A mapping to multiple collation elements defines an expansion. This is normally the result of a reset position (and/or preceding relation) that yields multiple collation elements, for example `&ae<x` or `&æ<y` .
 
@@ -1097,7 +1097,7 @@ Characters and strings that are tailored have case values computed from their ro
 
 > 👉 **Note**: Almost all Cased characters have primary (non-ignorable) root collation CEs, except for U+0345 Combining Ypogegrammeni which is Lowercase. All Uppercase characters have primary root collation CEs.
 
-### Visibility
+### <a name="Visibility" href="#Visibility">Visibility</a>
 
 Collations have external visibility by default, meaning that they can be displayed in a list of collation options for users to choose from. A collation whose type name starts with "private-" is internal and should not be shown in such a list. Collations are typically internal when they are partial sequences included in other collations. See _[Collation Types](#Collation_Types)_ .
 

@@ -12,7 +12,7 @@ module.exports = {
     libraryExport: "default",
     hashFunction: "xxhash64"
   },
-  mode: "development",
+  mode: "production", // TODO: support dev mode
   devtool: "source-map",
   module: {
     rules: [
@@ -26,12 +26,17 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      vue: "vue/dist/vue.runtime.esm-browser.prod.js" // TODO: support dev mode
+    }
+  },
   plugins: [
     new VueLoaderPlugin(),
     new DefinePlugin({
       // esm bundler flags,
       // see <https://github.com/vuejs/vue-next/tree/master/packages/vue#bundler-build-feature-flags>
-      __VUE_PROD_DEVTOOLS__: JSON.stringify(true),
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(false), // TODO: support dev mode
       __VUE_OPTIONS_API__:   JSON.stringify(true),
     })],
 };

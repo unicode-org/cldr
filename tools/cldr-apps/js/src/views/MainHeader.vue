@@ -112,23 +112,19 @@ export default {
      * This function is called both locally, to initialize, and from other module(s), to update.
      */
     updateData() {
-      let needUpdate = false;
       const orgCoverage = cldrCoverage.getSurveyOrgCov(
         cldrStatus.getCurrentLocale()
       );
       if (orgCoverage != this.orgCoverage) {
-        needUpdate = true;
         this.orgCoverage = orgCoverage;
       }
       const coverageMenu = cldrMenu.getCoverageMenu();
       if (coverageMenu != this.coverageMenu) {
-        needUpdate = true;
         this.coverageMenu = coverageMenu;
       }
       this.coverageTitle = cldrText.get("coverage_menu_desc");
       const coverageLevel = cldrCoverage.getSurveyUserCov() || "auto";
       if (coverageLevel != this.coverageLevel) {
-        needUpdate = true;
         this.coverageLevel = coverageLevel;
       }
       const user = cldrStatus.getSurveyUser();
@@ -155,9 +151,6 @@ export default {
         cldrStatus.getNewVersion() +
         " " +
         cldrStatus.getPhase();
-      if (needUpdate) {
-        this.$forceUpdate();
-      }
     },
 
     setCoverageLevel() {

@@ -9,8 +9,10 @@
     "nonbrowser-test": "mocha --require esm --reporter spec test/nonbrowser/test-*.js",
     "browser-test": "npm run build-test && mocha-headless-chrome -f test/Test.html",
     "lint": "exit 0",
-    "build": "webpack",
-    "watch": "webpack watch"
+    "build": "webpack --mode=production",
+    "build-dev": "webpack --mode=development",
+    "watch": "webpack --mode=development --watch",
+    "watch-production": "webpack --mode=production--watch"
   },
   "repository": {
     "type": "git",

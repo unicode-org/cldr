@@ -28,9 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nodetr-
             nodetr-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - uses: nodenv/actions/node-version@v3 # setup using .node-version
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'

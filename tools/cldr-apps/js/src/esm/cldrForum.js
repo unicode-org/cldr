@@ -15,6 +15,11 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 
+/**
+ * Encapsulate this class name -- caution: it's used literally in surveytool.css
+ */
+const FORUM_DIV_CLASS = "forumDiv";
+
 const SUMMARY_CLASS = "getForumSummary";
 
 const FORUM_DEBUG = false;
@@ -66,7 +71,7 @@ let userCanPost = false;
  */
 let displayUtc = false;
 
-// called as special.load
+// called as special.load; this is for the full-page Forum, not for posts shown in the Info Panel
 function load() {
   const curLocale = cldrStatus.getCurrentLocale();
   if (!curLocale) {
@@ -287,7 +292,7 @@ function makePostHtml(
   html += "</form>\n";
 
   html += '<div class="post"></div>\n';
-  html += '<div class="forumDiv"></div>\n';
+  html += '<div class="' + FORUM_DIV_CLASS + '"></div>\n';
   return html;
 }
 
@@ -345,9 +350,11 @@ function openPostWindow(html, text, parentPost) {
   postModal.find(".modal-body").html(html);
   $("#post-form textarea[name=text]").val(text);
   if (parentPost) {
-    const forumDiv = parseContent([parentPost], "parent");
-    const postHolder = postModal.find(".modal-body").find(".forumDiv");
-    postHolder[0].appendChild(forumDiv);
+    const div = parseContent([parentPost], "parent");
+    const postHolder = postModal
+      .find(".modal-body")
+      .find("." + FORUM_DIV_CLASS);
+    postHolder[0].appendChild(div);
   }
   postModal.modal();
   autosize(postModal.find("textarea"));
@@ -378,6 +385,7 @@ function submitPost(event) {
  */
 function reallySubmitPost(text) {
   $("#post-form button").fadeOut();
+  cldrForumPanel.clearCache();
   const form = getFormValues(text);
   sendPostRequest(form);
 }
@@ -871,10 +879,6 @@ function makeOneNewPostButton(
   code,
   value
 ) {
-  const buttonTitle = couldFlag
-    ? "forumNewPostFlagButton"
-    : "forumNewPostButton";
-
   const buttonClass = couldFlag
     ? "addPostButton forumNewPostFlagButton btn btn-default btn-sm"
     : "addPostButton forumNewButton btn btn-default btn-sm";
@@ -1201,11 +1205,11 @@ function filterAndAssembleForumThreads(
     threadHash,
     applyFilter
   );
-  const forumDiv = document.createDocumentFragment();
+  const div = document.createDocumentFragment();
   let countEl = null;
   if (showThreadCount) {
     countEl = document.createElement("h4");
-    forumDiv.append(countEl);
+    div.append(countEl);
   }
   let threadCount = 0;
   posts.forEach(function (post) {
@@ -1216,7 +1220,7 @@ function filterAndAssembleForumThreads(
        * from filteredArray to prevent appending the same div again
        * (which would move the div to the bottom, not duplicate it).
        */
-      forumDiv.append(topicDivs[post.threadId]);
+      div.append(topicDivs[post.threadId]);
       filteredArray = filteredArray.filter((id) => id !== post.threadId);
     }
   });
@@ -1224,7 +1228,7 @@ function filterAndAssembleForumThreads(
     countEl.innerHTML =
       threadCount + (threadCount === 1 ? " topic" : " topics");
   }
-  return forumDiv;
+  return div;
 }
 
 /**
@@ -1462,6 +1466,7 @@ function parseHash(pieces) {
 }
 
 export {
+  FORUM_DIV_CLASS,
   SUMMARY_CLASS,
   addNewPostButtons,
   handleIdChanged,

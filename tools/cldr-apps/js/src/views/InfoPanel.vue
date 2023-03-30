@@ -9,6 +9,9 @@
         ✕
       </button>
       <span class="i-am-info-panel">Info Panel</span>
+      <button class="cldr-nav-btn" title="Reload" @click="reloadInfoPanel">
+        ↻
+      </button>
     </header>
   </section>
 </template>
@@ -20,6 +23,10 @@ export default {
   methods: {
     closeInfoPanel() {
       cldrInfo.closePanel();
+    },
+
+    reloadInfoPanel() {
+      cldrInfo.clearCachesAndReload();
     },
   },
 };

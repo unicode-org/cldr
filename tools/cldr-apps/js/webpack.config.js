@@ -7,6 +7,10 @@ module.exports = (env, argv) => {
   const DEV = (mode === 'development');
   return {
     entry: "./src/index.js",
+    cache: {
+      type: 'filesystem',
+      cacheDirectory: path.resolve(__dirname, '../target/webpack_cache'),
+    },
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "..", "src", "main", "webapp", "dist"),

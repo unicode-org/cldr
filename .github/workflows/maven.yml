@@ -46,6 +46,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             node-
+      - name: Cache webpack
+        uses: actions/cache@v3
+        with:
+          path: tools/cldr-apps/target/webpack_cache
+          key: ${{ runner.os }}-webpack-${{ hashFiles('tools/cldr-apps/package*') }}-${{ hashFiles('tools/cldr-apps/src/**') }}
+          restore-keys: |
+            ${{ runner.os }}-webpack-
+            webpack-
       - name: Lint GitHub Actions
         run: npx yaml-lint .github/workflows/*.yml
       - name: Build with Maven

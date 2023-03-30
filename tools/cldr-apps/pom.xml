@@ -153,6 +153,44 @@
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<concat append="no" destfile="${project.basedir}/target/node-version.properties">node.version=</concat>
+								<concat append="yes" destfile="${project.basedir}/target/node-version.properties">
+									<fileset dir="${project.basedir}/../..">
+										<include name=".node-version" />
+									</fileset>
+								</concat>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/target/node-version.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 			</plugin>
 			<plugin>
@@ -166,7 +204,6 @@
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<groupId>org.apache.maven.plugins</groupId>
-				<version>3.2.3</version>
 				<configuration>
 					<archive>
 						<manifestEntries>
@@ -181,7 +218,6 @@
 			<plugin>
 				<groupId>io.openliberty.tools</groupId>
 				<artifactId>liberty-maven-plugin</artifactId>
-				<version>3.5.1</version>
 				<configuration>
 					<serverName>cldr</serverName>
 					<copyDependencies>
@@ -196,7 +232,6 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
 				<executions>
 				<execution>
 					<id>copy-resources</id>
@@ -219,7 +254,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.22.2</version>
 				<configuration>
 					<systemPropertyVariables>
 						<http.port>${default.http.port}</http.port>
@@ -248,7 +282,6 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.12.1</version>
 				<executions>
 					<execution>
 						<id>install node and npm</id>
@@ -284,8 +317,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<nodeVersion>v16.17.1</nodeVersion>
-					<npmVersion>8.15.0</npmVersion>
+					<nodeVersion>${node.version}</nodeVersion>
 					<!-- run in project sourcedir -->
 					<workingDirectory>${project.basedir}/js</workingDirectory>
 				</configuration>

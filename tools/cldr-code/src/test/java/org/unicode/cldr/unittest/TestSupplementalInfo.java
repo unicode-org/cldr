@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -1334,6 +1335,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     private static final Date LIMIT_FOR_NEW_CURRENCY = new Date(
         new Date().getYear() - 5, 1, 1);
     private static final Date NOW = new Date();
+    private static final int MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
+    /**
+     * A year ago
+     */
+    private static final Date RECENT_HISTORY = new Date(NOW.getTime() - (MILLIS_PER_DAY*366));
 
     private Matcher oldMatcher = Pattern.compile(
         "\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)", Pattern.CASE_INSENSITIVE)
@@ -1355,6 +1361,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             .of(new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
                 TreeSet.class);
         Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = Relation
+            .of(new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
+                TreeSet.class);
+        Relation<String, Pair<String, CurrencyDateInfo>> recentModernCurrencyCodes = Relation
             .of(new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
                 TreeSet.class);
         Set<String> territoriesWithoutModernCurrencies = new TreeSet<>(
@@ -1404,6 +1413,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     nonModernCurrencyCodes.put(currency,
                         new Pair<>(territory,
                             dateInfo));
+                    if (start.compareTo(NOW) < 0 && end.compareTo(RECENT_HISTORY) >= 0) {
+                        // It was CLDR tender recently.
+                        recentModernCurrencyCodes.put(currency,
+                        new Pair<>(territory,
+                            dateInfo));
+                    }
                 }
                 logln(territory
                     + "\t"
@@ -1424,10 +1439,22 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> missing = new TreeSet<>(
             isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
+        Set<String> recentMissing = new TreeSet<>(missing);
+        recentMissing.retainAll(recentModernCurrencyCodes.keySet());
+        if (recentMissing.size() != 0) {
+            warnln("WARNING: Codes in ISO 4217 and until-recently legal tender in CLDR. " +
+                "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
+                recentModernCurrencyCodes.entrySet().stream().filter(p -> recentMissing.contains(p.getKey()))
+                .map(p -> (p.getKey() + " ended=" + p.getValue().getSecond().getEnd()))
+                .collect(Collectors.joining(", ")));
+            missing.removeAll(recentMissing); // not errors
+        }
         if (missing.size() != 0) {
             errln("Codes in ISO 4217 but not current tender in CLDR " +
                 "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
-                missing.toString());
+                nonModernCurrencyCodes.entrySet().stream().filter(p -> missing.contains(p.getKey()))
+                .map(p -> (p.getKey() + " ended=" + p.getValue().getSecond().getEnd()))
+                .collect(Collectors.joining(", ")));
         }
 
         for (String currency : modernCurrencyCodes.keySet()) {

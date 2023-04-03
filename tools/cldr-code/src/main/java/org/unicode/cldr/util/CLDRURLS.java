@@ -137,6 +137,8 @@ public abstract class CLDRURLS {
 
     public static final String PRIORITY_SUMMARY_HELP_URL = "https://cldr.unicode.org/translation/getting-started/vetting-view#TOC-Priority-Items";
 
+    public static final String UPDATING_CURRENCY_CODES = "https://cldr.unicode.org/development/updating-codes/update-currency-codes";
+
     /**
      * Get the relative base URL for the SurveyTool.
      * This may be "/cldr-apps", for example.

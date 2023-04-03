@@ -1434,13 +1434,13 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         recentMissing.retainAll(recentModernCurrencyCodes.keySet());
         if (recentMissing.size() != 0) {
             warnln("WARNING: Codes in ISO 4217 and until-recently legal tender in CLDR. " +
-                "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
+                "(may need to update " + CLDRURLS.UPDATING_CURRENCY_CODES + " ): " +
                 currencyDateRelationToString(recentModernCurrencyCodes, recentMissing));
             missing.removeAll(recentMissing); // not errors
         }
         if (missing.size() != 0) {
             errln("Codes in ISO 4217 but not current tender in CLDR " +
-                "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
+                "(may need to update " + CLDRURLS.UPDATING_CURRENCY_CODES + " ): " +
                 currencyDateRelationToString(nonModernCurrencyCodes, missing));
         }
 

@@ -11,6 +11,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Span;
@@ -20,10 +21,10 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
+import static org.unicode.cldr.util.DateConstants.MILLIS_PER_DAY;
 
 public class GenerateDayPeriods {
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    private static final int MILLIS_PER_DAY = 24 * 60 * 60 * 1000;
 
     public static void main(String[] args) throws IOException {
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {

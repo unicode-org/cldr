@@ -212,6 +212,8 @@ const strings = {
   voteInfo_moreInfo:
     "Click here for a full explanation of the icons and their meanings.",
   voteInfo_votesForInheritance: "These are votes for inheritance.",
+  voteInfo_votesForSpecificValue:
+    "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
   // CheckCLDR.StatusAction
   StatusAction_msg: "Not submitted: ${0}",
   StatusAction_popupmsg:

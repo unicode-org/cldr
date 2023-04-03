@@ -1,6 +1,6 @@
 import * as cldrCache from "../src/esm/cldrCache.mjs";
 
-export const TestCldrc = "ok";
+export const TestCldrCache = "ok";
 
 const assert = chai.assert;
 

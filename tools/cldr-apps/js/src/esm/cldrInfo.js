@@ -525,6 +525,11 @@ function updateRowVoteInfo(tr, theRow) {
         value === theRow.winningValue ? "winner" : "value"
       );
     }
+    if (value === theRow.inheritedValue) {
+      valdiv.appendChild(
+        cldrDom.createChunk(cldrText.get("voteInfo_votesForSpecificValue"), "p")
+      );
+    }
     if (isectionIsUsed) {
       valdiv.appendChild(isection);
     }

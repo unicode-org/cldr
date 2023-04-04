@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
@@ -625,7 +626,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
 
         // For each territory, get all of its legal tender currencies.
-        Date now = new Date(System.currentTimeMillis());
+        Date now = DateConstants.NOW;
         scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
         for (Object curScript : scriptToTerritories.keySet()) {
             Set<String> territories = scriptToTerritories.get(curScript);

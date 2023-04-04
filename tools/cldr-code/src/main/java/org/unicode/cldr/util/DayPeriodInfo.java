@@ -351,9 +351,9 @@ public class DayPeriodInfo {
         return result.toString();
     }
 
-    public static String formatTime(int time) {
-        int minutes = time / (60 * 1000);
-        int hours = minutes / 60;
+    public static String formatTime(long time) {
+        long minutes = time / (60 * 1000);
+        long hours = minutes / 60;
         minutes -= hours * 60;
         return String.format("%02d:%02d", hours, minutes);
     }

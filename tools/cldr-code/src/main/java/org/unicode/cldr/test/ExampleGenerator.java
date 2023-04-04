@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.EmojiConstants;
@@ -1844,12 +1845,10 @@ public class ExampleGenerator {
                     if (parts.contains("daylight")) {
                         tzOffset += currentZone.getDSTSavings();
                     }
-                    int MILLIS_PER_MINUTE = 1000 * 60;
-                    int MILLIS_PER_HOUR = MILLIS_PER_MINUTE * 60;
-                    int tm_hrs = tzOffset / MILLIS_PER_HOUR;
-                    int tm_mins = (tzOffset % MILLIS_PER_HOUR) / 60000; // millis per minute
+                    long tm_hrs = tzOffset / DateConstants.MILLIS_PER_HOUR;
+                    long tm_mins = (tzOffset % DateConstants.MILLIS_PER_HOUR) / DateConstants.MILLIS_PER_MINUTE;
                     result = setBackground(getMZTimeFormat() + " "
-                        + getGMTFormat(hourFormat, gmtFormat, tm_hrs, tm_mins));
+                        + getGMTFormat(hourFormat, gmtFormat, (int)tm_hrs, (int)tm_mins));
                 }
             }
         }

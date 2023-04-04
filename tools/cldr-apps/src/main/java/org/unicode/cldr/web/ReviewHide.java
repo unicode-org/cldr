@@ -15,6 +15,14 @@ public class ReviewHide {
     private final int userId;
     private final String localeId;
 
+    /**
+     * The first Survey Tool version with a (versionless) table named "cldr_dash_hide" is 42.
+     * Earlier versions had versioned table names like "cldr_dash_hide_41" or "cldr_review_hide_38", not
+     * supported by the current code. Silently ignore exceptions for earlier versions, to enable testing
+     * other features than hidden notifications.
+     */
+    private final int FIRST_DB_VERSION = 42;
+
     public ReviewHide(int userId, String localeId) {
         this.userId = userId;
         this.localeId = localeId;
@@ -103,8 +111,7 @@ public class ReviewHide {
                 this.hiddenNotifications.put(subtype, xpstrid, val);
             }
         } catch (SQLException sqe) {
-            // first version with cldr_dash_hide table is 42; silently ignore exceptions for earlier versions
-            if (Integer.parseInt(SurveyMain.getNewVersion()) >= 42) {
+            if (Integer.parseInt(SurveyMain.getNewVersion()) >= FIRST_DB_VERSION) {
                 SurveyLog.logException(sqe, "Getting hidden notifications for uid#" + userId + " in " + localeId, null);
                 throw new InternalError("Error getting hidden notifications: " + sqe.getMessage());
             }

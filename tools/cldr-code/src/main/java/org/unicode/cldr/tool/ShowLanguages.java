@@ -933,16 +933,16 @@ public class ShowLanguages {
             PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, "Likely Subtags", null, SUPPLEMENTAL_INDEX_ANCHORS));
 
             TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(1)
+                .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(3)
                 .setSpanRows(false)
-                .addColumn("Source Script", "class='source'", null, "class='source'", true).setSortPriority(0)
+                .addColumn("Source Script", "class='source'", null, "class='source'", true).setSortPriority(4)
                 .setSpanRows(false).setBreakSpans(true)
-                .addColumn("Source Region", "class='source'", null, "class='source'", true).setSortPriority(2)
+                .addColumn("Source Region", "class='source'", null, "class='source'", true).setSortPriority(5)
                 .setSpanRows(false)
-                .addColumn("Target Lang", "class='target'", null, "class='target'", true).setSortPriority(3)
+                .addColumn("Target Lang", "class='target'", null, "class='target'", true).setSortPriority(0)
                 .setBreakSpans(true)
-                .addColumn("Target Script", "class='target'", null, "class='target'", true).setSortPriority(4)
-                .addColumn("Target Region", "class='target'", null, "class='target'", true).setSortPriority(5)
+                .addColumn("Target Script", "class='target'", null, "class='target'", true).setSortPriority(1)
+                .addColumn("Target Region", "class='target'", null, "class='target'", true).setSortPriority(2)
                 .addColumn("Source ID", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
                 .addColumn("Target ID", "class='target'", null, "class='target'", true);
             Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();

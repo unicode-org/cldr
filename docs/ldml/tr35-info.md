@@ -405,7 +405,7 @@ The currencyCodes are mappings from three letter currency codes to numeric value
 
 ## ~~<a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a>~~ (Deprecated)
 
-Deprecated in CLDR v34, and data removed. 
+Deprecated in CLDR v34, and data removed.
 The data and structure for phone numbers changes quite often, so the recommended alternative is the open-source library [libphonenumber](https://github.com/google/libphonenumber#what-is-it).
 
 ```xml
@@ -445,11 +445,7 @@ A subset of the telephone code data might look like the following (showing a pas
 
 ## ~~<a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a>~~
 
-Deprecated in v27. Please see other services that are kept up to date, such as:
-
-* [https://i18napis.appspot.com/address/data/US](https://i18napis.appspot.com/address/data/US)
-* [https://i18napis.appspot.com/address/data/CH](https://i18napis.appspot.com/address/data/CH)
-* ...
+Deprecated in v27. Please see other services that are kept up to date, such as <https://github.com/google/libaddressinput>
 
 ```xml
 <!ELEMENT postalCodeData (postCodeRegex*) >

@@ -473,7 +473,8 @@ public class ShowLocaleCoverage {
             for (String locale : availableLanguages) {
                 try {
                     if (locale.contains("supplemental") // for old versionsl
-                        || locale.startsWith("sr_Latn")) {
+//                        || locale.startsWith("sr_Latn")
+                        ) {
                         continue;
                     }
                     if (locales != null && !locales.contains(locale)) {

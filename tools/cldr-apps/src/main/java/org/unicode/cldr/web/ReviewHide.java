@@ -103,8 +103,11 @@ public class ReviewHide {
                 this.hiddenNotifications.put(subtype, xpstrid, val);
             }
         } catch (SQLException sqe) {
-            SurveyLog.logException(sqe, "Getting hidden notifications for uid#" + userId + " in " + localeId, null);
-            throw new InternalError("Error getting hidden notifications: " + sqe.getMessage());
+            // first version with cldr_dash_hide table is 42; silently ignore exceptions for earlier versions
+            if (Integer.parseInt(SurveyMain.getNewVersion()) >= 42) {
+                SurveyLog.logException(sqe, "Getting hidden notifications for uid#" + userId + " in " + localeId, null);
+                throw new InternalError("Error getting hidden notifications: " + sqe.getMessage());
+            }
         } finally {
             DBUtils.close(rs, s, conn);
         }

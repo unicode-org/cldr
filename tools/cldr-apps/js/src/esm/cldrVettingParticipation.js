@@ -14,6 +14,90 @@ import * as cldrText from "./cldrText.js";
 import * as cldrXlsx from "./cldrXlsx.js";
 import * as XLSX from "xlsx";
 
+const COLUMN_TITLE_ORG = "Org";
+const COLUMN_TITLE_LOCALE_NAME = "Locale";
+const COLUMN_TITLE_LOCALE_ID = "Code";
+const COLUMN_TITLE_LEVEL = "Level";
+const COLUMN_TITLE_VOTES = "Votes";
+const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
+const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
+const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
+const COLUMN_TITLE_USER_ID = "Vetter#";
+const COLUMN_TITLE_USER_EMAIL = "Email";
+const COLUMN_TITLE_USER_NAME = "Name";
+const COLUMN_TITLE_LAST_SEEN = "LastSeen";
+const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
+const COLUMN_TITLE_VOTES_BY_TYPE = "Votes by Type";
+
+const COLUMNS = [
+  { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
+  { title: COLUMN_TITLE_LOCALE_NAME, comment: "User locale", default: null },
+  { title: COLUMN_TITLE_LOCALE_ID, comment: "User locale code", default: null },
+  { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
+  {
+    title: COLUMN_TITLE_VOTES,
+    comment:
+      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_COVERAGE_COUNT,
+    comment:
+      "Total number of paths that are in CLDR's coverage target for this locale",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_VOTED_PATH_COUNT,
+    comment:
+      "User's voting progress, this is exactly the number from the second meter of the dashboard",
+    // TODO: change to
+    // "User's voting progress (number of items already voted on), exactly the numerator from the second progress meter",
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_VOTABLE_PATH_COUNT,
+    comment:
+      "User's voting total, this is exactly the total from the second meter of the dashboard",
+    // TODO: change to
+    // "User's voting goal (total number of votable items), exactly the denominator from the second progress meter",
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_PROGRESS_PERCENT,
+    comment:
+      "User's voting perent, this is exactly the percent from the second meter of the dashboard",
+    // TODO: change to
+    // "User's voting percent, exactly the percent from the second progress meter",
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+    default: "-",
+  },
+  {
+    title: COLUMN_TITLE_COVERAGE_LEVEL,
+    comment: "Coverage level for this user's organization",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_USER_ID,
+    comment: "User's account number",
+    default: null,
+  },
+  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
+  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
+  {
+    title: COLUMN_TITLE_LAST_SEEN,
+    comment: "When the user last logged in",
+    default: null,
+  },
+  {
+    title: COLUMN_TITLE_VOTES_BY_TYPE,
+    comment: "Vote counts by type",
+    default: "",
+  },
+];
+
 let nf = null; // Intl.NumberFormat initialized later
 
 /**
@@ -106,27 +190,12 @@ async function downloadVettingParticipation(opts) {
 
   const wb = XLSX.utils.book_new();
 
-  var ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
+  const ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
 
-  var ws_data = [
-    [
-      "Org",
-      "Locale",
-      "Code",
-      "Level",
-      "Votes",
-      "Cldr Coverage Count",
-      "Progress Vote",
-      "Progress Count",
-      "Progress Percent",
-      "Coverage",
-      "Vetter#",
-      "Email",
-      "Name",
-      "LastSeen",
-      "Votes by Type",
-    ],
-  ];
+  const ws_data = [];
+  ws_data.push(getHeaderRow());
+
+  const columnIndex = getIndexOfColumnsByTitle();
 
   const userCount = Object.entries(uidToUser).length;
 
@@ -136,42 +205,29 @@ async function downloadVettingParticipation(opts) {
   for (const [id, user] of Object.entries(uidToUser)) {
     userNo++;
     setProgress(userNo, userCount);
-    const row = [
-      user.org,
-      null, // localeName
-      null, // locale
-      user.userlevelName,
-      0, // votes
-      0, // CldrCovCount
-      0, // ProgressVote
-      0, // ProgressCount
-      "-", // ProgressPercent
-      "", // coverage
-      id,
-      user.email,
-      user.name,
-      user.time,
-      "", // typeCount
-    ];
+    const row = getDefaultRow(id, user, columnIndex);
     if (user.allLocales) {
-      row[1] = "ALL";
-      row[2] = "*";
-      row[6] = "-";
-      row[7] = "-";
+      row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "ALL";
+      row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "*";
+      row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else if (!user.locales) {
       // no locales?!
-      row[1] = "NONE";
-      row[2] = "-";
-      row[6] = "-";
-      row[7] = "-";
+      row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "NONE";
+      row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else {
       for (const locale of user.locales) {
-        row[1] = cldrLoad.getLocaleName(locale);
-        row[2] = locale;
-        row[4] = localeToData[locale].participation[id] || 0;
-        row[5] = localeToData[locale].cov_count || 0;
+        row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] =
+          cldrLoad.getLocaleName(locale);
+        row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
+        row[columnIndex[COLUMN_TITLE_VOTES]] =
+          localeToData[locale].participation[id] || 0;
+        row[columnIndex[COLUMN_TITLE_COVERAGE_COUNT]] =
+          localeToData[locale].cov_count || 0;
 
         if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
           const level = "org";
@@ -183,65 +239,31 @@ async function downloadVettingParticipation(opts) {
           const { votablePathCount, votedPathCount, typeCount } =
             json.voterProgress;
           const { coverageLevel } = json;
-          row[6] = votedPathCount;
-          row[7] = votablePathCount;
+          row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = votedPathCount;
+          row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = votablePathCount;
           const perCent = cldrProgress.friendlyPercent(
             votedPathCount,
             votablePathCount
           );
-          row[8] = `${perCent}%`;
-          row[9] = (coverageLevel || "").toLowerCase();
+          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = `${perCent}%`;
+          row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
+            coverageLevel || ""
+          ).toLowerCase();
           row[14] = typeCountToString(typeCount);
         } else {
           // only guest and vetter users
-          row[6] = "-";
-          row[7] = "-";
+          row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+          row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
         }
         ws_data.push([...row]); // clone the array because ws_data will retain a reference
       }
     }
   }
 
-  // TODO: fill in all ws_data[…][6/7]
   setStatus("Write XLSX...");
-  var ws = XLSX.utils.aoa_to_sheet(ws_data);
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
 
-  // we have some explaining to do. Push some comments
-  cldrXlsx.pushComment(ws, "A1", "User organization");
-  cldrXlsx.pushComment(ws, "B1", "User locale");
-  cldrXlsx.pushComment(ws, "C1", "User locale code");
-  cldrXlsx.pushComment(ws, "D1", "User level");
-  cldrXlsx.pushComment(
-    ws,
-    "E1",
-    "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "F1",
-    "total number of paths that are in CLDR's coverage target for this locale"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "G1",
-    "User's voting progress, this is exactly the number from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "H1",
-    "User's voting total, this is exactly the total from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "I1",
-    "User's voting perent, this is exactly the percent from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(ws, "J1", "Coverage level for this user's organization");
-  cldrXlsx.pushComment(ws, "K1", "User's account number");
-  cldrXlsx.pushComment(ws, "L1", "Users' email");
-  cldrXlsx.pushComment(ws, "M1", "Users' name");
-  cldrXlsx.pushComment(ws, "N1", "When the user last logged in");
-  cldrXlsx.pushComment(ws, "O1", "Vote counts by type");
+  addColumnComments(ws);
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(
@@ -389,6 +411,46 @@ function loadVettingParticipation(json, ourDiv) {
         verb(u, theUserBox);
       });
     }
+  }
+}
+
+function getHeaderRow() {
+  const row = [];
+  for (let col of COLUMNS) {
+    row.push(col.title);
+  }
+  return row;
+}
+
+function getIndexOfColumnsByTitle() {
+  const columnIndex = {};
+  let i = 0;
+  for (let col of COLUMNS) {
+    columnIndex[col.title] = i++;
+  }
+  return columnIndex;
+}
+
+function getDefaultRow(id, user, columnIndex) {
+  const row = [];
+  for (let col of COLUMNS) {
+    row.push(col.default);
+  }
+  row[columnIndex[COLUMN_TITLE_ORG]] = user.org;
+  row[columnIndex[COLUMN_TITLE_LEVEL]] = user.userlevelName;
+  row[columnIndex[COLUMN_TITLE_USER_ID]] = id;
+  row[columnIndex[COLUMN_TITLE_USER_EMAIL]] = user.email;
+  row[columnIndex[COLUMN_TITLE_USER_NAME]] = user.name;
+  row[columnIndex[COLUMN_TITLE_LAST_SEEN]] = user.time;
+  return row;
+}
+
+function addColumnComments(ws) {
+  let unicode = "A".charCodeAt(0);
+  for (let col of COLUMNS) {
+    const letter = String.fromCharCode(unicode++); // A, B, C, ... assume max 26 columns!
+    const cell = letter + "1"; // A1, B1, C1, ...
+    cldrXlsx.pushComment(ws, cell, col.comment);
   }
 }
 

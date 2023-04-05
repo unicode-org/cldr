@@ -4,7 +4,7 @@
 
 |Version|43 (draft)                      |
 |-------|------------------------|
-|Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
+|Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and [other CLDR committee members](tr35.md#Acknowledgments)|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -170,7 +170,7 @@ To format a name correctly, the correct context needs to be known. The context i
     * **_length_** - used to select patterns for common short, medium, and long formatted names.
     * **_usage_** - this is used to select the correct pattern to format a name when a program is _addressing_ or talking to a person or it is _referring_ to or talking about another person.
     * **_formality_** - This is used to select the formal or informal formatting of a name.
-    * _See [[Person Name Attributes](#4-person-name-attributes)] for more details._
+    * _See [[Person Name Attributes](#person-name-attributes)] for more details._
 
 ### Example Usage
 
@@ -207,7 +207,7 @@ The LDML top-level `<personNames>` element contains information regarding the fo
 
 ### personName Element
 
-The `<personName>` element contains the format patterns, or `<namePattern>` elements, for a specific context and is described in [[namePattern Syntax](#5-namepattern-syntax)]
+The `<personName>` element contains the format patterns, or `<namePattern>` elements, for a specific context and is described in [[namePattern Syntax](#namepattern-syntax)]
 
 The `<namePattern>` syntax is described in [[Person Name Format Patterns](#formatting-process)].
 
@@ -248,7 +248,7 @@ A `namePattern` contains a list of PersonName fields enclosed in curly braces, s
 
 > `<namePattern>{surname}, {given} {given2}</namePattern>`
 
-which produces output like _“Smith, Robert James”_. See [[namePattern Syntax](#5-namepattern-syntax)] for more details.
+which produces output like _“Smith, Robert James”_. See [[namePattern Syntax](#namepattern-syntax)] for more details.
 
 ### nameOrderLocales Element
 
@@ -321,7 +321,7 @@ For illustration, the following is a sample PersonName object.
 
 A PersonName object is logically composed of the fields above plus other possible variations. See [[Fields](#fields)]. There must be at least one field present: either a `given` or `surname` field. Other fields are optional, and some of them can be constructed from other fields if necessary.
 
-A modifier is supplied, _-informal_, which can be used to indicate which data element to choose when formatting informal cases which might include nicknames or preferred names. For more details, see section on [_[Modifiers](#modifiers)_] in [namePattern Syntax](#5-namepattern-syntax) below.
+A modifier is supplied, _-informal_, which can be used to indicate which data element to choose when formatting informal cases which might include nicknames or preferred names. For more details, see section on [_[Modifiers](#modifiers)_] in [namePattern Syntax](#namepattern-syntax) below.
 
 ## Person Name Attributes
 
@@ -709,7 +709,7 @@ For the purposes of this algorithm, two base languages are said to __match__ whe
 
 **Note:** in the future the plan is to make the specific languages and scripts used in this algorithm be data-driven.
 
-Remember that **a name in a different script** will use a different locale for formatting, as per <a href="#switch-formatting-locales">Switch the formatting locale if necessary</a>.
+Remember that **a name in a different script** will use a different locale for formatting, as per [Switch the formatting locale if necessary](#switch-the-formatting-locale-if-necessary).
 For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters as in the Wikipedia page [Albert Einstein](https://ja.wikipedia.org/wiki/Albert_Einstein).
 
 #### Examples of space replacement
@@ -1019,7 +1019,7 @@ For the expected sample name items, assume a name such as Mr. Richard “Rich”
 * `GSS` is for an example using both given and given2 names and a surname: “Richard Edward Smith” and “Rich E. Smith” (informal)
 * `Full` is used to present a name using all possible fields: “Mr. Richard Edward Smith Iglesias, Ph.D.”
 
-The `nameField` values and their modifiers are described in the [Person Name Object](#person-name-object) and [namePattern Syntax](#5-namepattern-syntax) sections.
+The `nameField` values and their modifiers are described in the [Person Name Object](#person-name-object) and [namePattern Syntax](#namepattern-syntax) sections.
 
 ## PersonName Data Interface Examples
 

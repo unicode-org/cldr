@@ -288,7 +288,7 @@ This is the top level element. All other elements defined below are under this e
 > <small>
 >
 > Parents: _none_
-> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
+> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_keyMap), [displayMap](#Element_displayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
 > Occurence: required, single
 >
 > </small>
@@ -324,7 +324,7 @@ Element used to keep track of the source data version.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: required, single
 >
@@ -375,7 +375,7 @@ Element containing informative properties about the layout, for displaying in us
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, single
 >
@@ -415,7 +415,7 @@ Element used to store any names given to the layout by the platform.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [name](#Element_name)
 > Occurence: required, single
 >
@@ -468,7 +468,7 @@ An element used to keep track of layout specific settings. This element may or m
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, single
 >
@@ -540,7 +540,7 @@ This element defines the group of mappings for all the keys that use the same se
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [map](#Element_map), [flicks](#Element_flicks)
 > Occurence: required, multiple
 >
@@ -800,7 +800,7 @@ The `import` element references another file of the same type and includes all t
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, multiple
 >
@@ -858,7 +858,7 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [display](#Element_display)
 > Occurence: optional, single
 >
@@ -924,7 +924,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [row](#Element_row), [switch](#Element_switch), [vkeys](#Element_vkeys)
 > Occurence: optional, multiple
 >
@@ -1076,7 +1076,7 @@ On some architectures, applications may directly interact with keys before they 
 
 > <small>
 >
-> Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)
+> Parents: [layer](#Element_layer), [keyboard](#Element_Keyboard)
 > Children: [vkey](#Element_vkey)
 > Occurence: optional, multiple
 >
@@ -1222,7 +1222,7 @@ Syntax
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [transform](#Element_transform)
 > Occurence: optional, multiple
 >
@@ -1661,7 +1661,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [backspace](#Element_backspace)
 > Occurence: optional, single
 >

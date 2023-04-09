@@ -1325,7 +1325,8 @@ public class VoteResolver<T> {
      * For example, an annotation "happy | joyful" has two components "happy" and "joyful".
      * References:
      *   http://unicode.org/cldr/charts/32/annotations/index.html
-     *   http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations
+     *   https://www.unicode.org/reports/tr35/tr35-general.html#Annotations
+
      *   http://unicode.org/repos/cldr/tags/latest/common/annotations/
      *
      * This function is where the essential algorithm needs to be implemented

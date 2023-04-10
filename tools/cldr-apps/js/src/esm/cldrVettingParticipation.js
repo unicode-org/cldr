@@ -474,18 +474,12 @@ function getDefaultRow(id, user, columnIndex) {
 }
 
 function addColumnComments(ws) {
-  let unicode = "A".charCodeAt(0);
+  let columnNumber = 0;
   for (let col of COLUMNS) {
-    const letter = String.fromCharCode(unicode++); // A, B, C, ...
-    const cell = letter + "1"; // A1, B1, C1, ...
+    const cell = XLSX.utils.encode_cell({ r: 0, c: columnNumber }); // A1, B1, C1, ...
     // include title with comment, for convenience if column is narrower than title
     cldrXlsx.pushComment(ws, cell, col.title + ": " + col.comment);
-    if (letter === "Z") {
-      if (COLUMNS.length > 26) {
-        console.warn("Comments are not supported for more than 26 columns A-Z");
-      }
-      return;
-    }
+    ++columnNumber;
   }
 }
 

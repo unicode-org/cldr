@@ -23,12 +23,16 @@ const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
 const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
 const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
+const COLUMN_TITLE_VOTES_DIRECT = "Direct Votes";
+const COLUMN_TITLE_VOTES_AUTO_IMPORT = "Auto-imported Votes";
+const COLUMN_TITLE_VOTES_MANUAL_IMPORT = "Manually-imported Votes";
+const COLUMN_TITLE_VOTES_BULK_UPLOAD = "Bulk-uploaded Votes";
+const COLUMN_TITLE_VOTES_UNKNOWN = "Unknown-type Votes";
 const COLUMN_TITLE_USER_ID = "Vetter#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
 const COLUMN_TITLE_LAST_SEEN = "LastSeen";
 const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
-const COLUMN_TITLE_VOTES_BY_TYPE = "Votes by Type";
 
 const COLUMNS = [
   { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
@@ -50,29 +54,50 @@ const COLUMNS = [
   {
     title: COLUMN_TITLE_VOTED_PATH_COUNT,
     comment:
-      "User's voting progress, this is exactly the number from the second meter of the dashboard",
-    // TODO: change to
-    // "User's voting progress (number of items already voted on), exactly the numerator from the second progress meter",
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+      "User's voting progress (number of items already voted on), exactly the numerator from the second progress meter",
     default: 0,
   },
   {
     title: COLUMN_TITLE_VOTABLE_PATH_COUNT,
     comment:
-      "User's voting total, this is exactly the total from the second meter of the dashboard",
-    // TODO: change to
-    // "User's voting goal (total number of votable items), exactly the denominator from the second progress meter",
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+      "User's voting goal (total number of votable items), exactly the denominator from the second progress meter",
     default: 0,
   },
   {
     title: COLUMN_TITLE_PROGRESS_PERCENT,
     comment:
-      "User's voting perent, this is exactly the percent from the second meter of the dashboard",
-    // TODO: change to
-    // "User's voting percent, exactly the percent from the second progress meter",
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-15850
+      "User's voting percent, exactly the percent from the second progress meter",
     default: "-",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_DIRECT,
+    comment:
+      "Number of direct votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_AUTO_IMPORT,
+    comment:
+      "Number of automatically-imported votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+    comment:
+      "Number of manually-imported votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_BULK_UPLOAD,
+    comment:
+      "Number of bulk-uploaded votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_UNKNOWN,
+    comment:
+      "Number of votes of unknown type by this user within the organization coverage level",
+    default: "",
   },
   {
     title: COLUMN_TITLE_COVERAGE_LEVEL,
@@ -91,12 +116,15 @@ const COLUMNS = [
     comment: "When the user last logged in",
     default: null,
   },
-  {
-    title: COLUMN_TITLE_VOTES_BY_TYPE,
-    comment: "Vote counts by type",
-    default: "",
-  },
 ];
+
+const VOTE_TYPES = {
+  DIRECT: COLUMN_TITLE_VOTES_DIRECT,
+  AUTO_IMPORT: COLUMN_TITLE_VOTES_AUTO_IMPORT,
+  MANUAL_IMPORT: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+  BULK_UPLOAD: COLUMN_TITLE_VOTES_BULK_UPLOAD,
+  UNKNOWN: COLUMN_TITLE_VOTES_UNKNOWN,
+};
 
 let nf = null; // Intl.NumberFormat initialized later
 
@@ -246,10 +274,10 @@ async function downloadVettingParticipation(opts) {
             votablePathCount
           );
           row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = `${perCent}%`;
+          getVoteTypes(row, columnIndex, typeCount);
           row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
             coverageLevel || ""
           ).toLowerCase();
-          row[14] = typeCountToString(typeCount);
         } else {
           // only guest and vetter users
           row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
@@ -448,16 +476,37 @@ function getDefaultRow(id, user, columnIndex) {
 function addColumnComments(ws) {
   let unicode = "A".charCodeAt(0);
   for (let col of COLUMNS) {
-    const letter = String.fromCharCode(unicode++); // A, B, C, ... assume max 26 columns!
+    const letter = String.fromCharCode(unicode++); // A, B, C, ...
     const cell = letter + "1"; // A1, B1, C1, ...
-    cldrXlsx.pushComment(ws, cell, col.comment);
+    // include title with comment, for convenience if column is narrower than title
+    cldrXlsx.pushComment(ws, cell, col.title + ": " + col.comment);
+    if (letter === "Z") {
+      if (COLUMNS.length > 26) {
+        console.warn("Comments are not supported for more than 26 columns A-Z");
+      }
+      return;
+    }
+  }
+}
+
+function getVoteTypes(row, columnIndex, typeCount) {
+  if (typeCount) {
+    for (let key of Object.keys(VOTE_TYPES)) {
+      const title = VOTE_TYPES[key];
+      row[columnIndex[title]] = typeCount[key] || 0;
+    }
+    for (let key of Object.keys(typeCount)) {
+      if (!VOTE_TYPES[key]) {
+        console.warn("Unrecognized vote type in server response: " + key);
+      }
+    }
   }
 }
 
 function verb(u, theUserBox) {
   const user = u.user;
   if (!user) {
-    console.log("Empty user in verb");
+    console.warn("Empty user in verb");
     return;
   }
   const isVetter = u.isVetter;
@@ -546,7 +595,7 @@ function getUsersFor(e, uidToUser) {
       myUids.add(Number(id));
     } else {
       // this does happen for me when logged in as admin on localhost
-      console.log("getUsersFor bad id: " + id);
+      console.warn("getUsersFor bad id: " + id);
     }
   }
   let myUsers = Array.from(myUids.values());
@@ -562,7 +611,7 @@ function getUsersFor(e, uidToUser) {
 function myMap(id, uidToUser, vetterSet, e) {
   if (!uidToUser[id]) {
     // this no longer happens for me, since adding filter [if (id in uidToUser)] in getUsersFor
-    console.log("myMap bad id: " + id);
+    console.warn("myMap bad id: " + id);
   }
   return {
     user: uidToUser[id],
@@ -574,27 +623,14 @@ function myMap(id, uidToUser, vetterSet, e) {
 function mySort(a, b) {
   if (!a.user || !a.user.name) {
     // this no longer happens for me, since adding filter [if (id in uidToUser)] in getUsersFor
-    console.log("mySort bad user a: " + a);
+    console.warn("mySort bad user a: " + a);
     return 0;
   }
   if (!b.user || !b.user.name) {
-    console.log("mySort bad user b: " + b);
+    console.warn("mySort bad user b: " + b);
     return 0;
   }
   return a.user.name.localeCompare(b.user.name);
-}
-
-function typeCountToString(typeCount) {
-  let str = "";
-  if (typeCount) {
-    for (let key of Object.keys(typeCount).sort()) {
-      if (str) {
-        str += ";";
-      }
-      str += key + ":" + typeCount[key];
-    }
-  }
-  return str;
 }
 
 export { load };

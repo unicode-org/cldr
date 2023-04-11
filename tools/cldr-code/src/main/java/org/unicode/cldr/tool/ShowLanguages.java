@@ -85,6 +85,7 @@ import com.ibm.icu.util.ULocale;
 @CLDRTool(alias = "showlanguages", description = "Generate Language info charts")
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
+    private static final boolean DO_FIRST_ONLY = true;
 
     static Comparator col = new org.unicode.cldr.util.MultiComparator(
         Collator.getInstance(new ULocale("en")),
@@ -101,27 +102,15 @@ public class ShowLanguages {
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
         FormattedFileWriter.copyIncludeHtmls(FormattedFileWriter.CHART_TARGET_DIR);
 
-        StringWriter sw = printLanguageData(cldrFactory, "index.html");
-        writeSupplementalIndex("index.html", sw);
-
-        // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
-        // printLanguageData(cldrFactory, "language_info2.txt");
-        System.out.println("Done - wrote into " + FormattedFileWriter.CHART_TARGET_DIR);
-    }
-
-    /**
-     *
-     */
-    public static FormattedFileWriter.Anchors SUPPLEMENTAL_INDEX_ANCHORS = new FormattedFileWriter.Anchors();
-
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-
-    private static StringWriter printLanguageData(Factory cldrFactory, String filename) throws IOException {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
         LanguageInfo linfo = new LanguageInfo(cldrFactory);
+
+        linfo.printLikelySubtags(pw);
+        if (DO_FIRST_ONLY) {
+            return;
+        }
         linfo.showCoverageGoals(pw);
 
 
@@ -140,14 +129,12 @@ public class ShowLanguages {
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
-        linfo.printLikelySubtags(pw);
-
         linfo.showCountryLanguageInfo(pw);
 
         linfo.showLanguageCountryInfo(pw);
 
-//      linfo.showTerritoryInfo();
-//      linfo.printCountryData(pw);
+        //      linfo.showTerritoryInfo();
+        //      linfo.printCountryData(pw);
 
         // linfo.printDeprecatedItems(pw);
 
@@ -188,8 +175,20 @@ public class ShowLanguages {
 
         pw.close();
 
-        return sw;
+        writeSupplementalIndex("index.html", sw);
+
+        // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
+        // printLanguageData(cldrFactory, "language_info2.txt");
+        System.out.println("Done - wrote into " + FormattedFileWriter.CHART_TARGET_DIR);
     }
+
+    /**
+     *
+     */
+    public static FormattedFileWriter.Anchors SUPPLEMENTAL_INDEX_ANCHORS = new FormattedFileWriter.Anchors();
+
+    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
+        .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static void writeSupplementalIndex(String filename, StringWriter sw) throws IOException {
         String[] replacements = {
@@ -933,18 +932,22 @@ public class ShowLanguages {
             PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, "Likely Subtags", null, SUPPLEMENTAL_INDEX_ANCHORS));
 
             TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(1)
-                .setSpanRows(false)
-                .addColumn("Source Script", "class='source'", null, "class='source'", true).setSortPriority(0)
-                .setSpanRows(false).setBreakSpans(true)
-                .addColumn("Source Region", "class='source'", null, "class='source'", true).setSortPriority(2)
-                .setSpanRows(false)
-                .addColumn("Target Lang", "class='target'", null, "class='target'", true).setSortPriority(3)
+                .addColumn("Target Lang", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
+                .setSortPriority(0)
                 .setBreakSpans(true)
-                .addColumn("Target Script", "class='target'", null, "class='target'", true).setSortPriority(4)
-                .addColumn("Target Region", "class='target'", null, "class='target'", true).setSortPriority(5)
-                .addColumn("Source ID", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .addColumn("Target ID", "class='target'", null, "class='target'", true);
+                .addColumn("Target Script", "class='target'", null, "class='target'", true)
+                .setSortPriority(1)
+                .addColumn("Target Region", "class='target'", null, "class='target'", true)
+                .setSortPriority(2)
+                .addColumn("Target ID", "class='target'", null, "class='target'", true)
+                .addColumn("Source ID", "class='source'", null, "class='source'", true)
+                .addColumn("Source Lang", "class='source'", null, "class='source'", true)
+                .setSortPriority(3)
+                .addColumn("Source Script", "class='source'", null, "class='source'", true)
+                .setSortPriority(4)
+                .addColumn("Source Region", "class='source'", null, "class='source'", true)
+                .setSortPriority(5)
+                ;
             Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();
             LanguageTagParser sourceParsed = new LanguageTagParser();
             LanguageTagParser targetParsed = new LanguageTagParser();
@@ -952,15 +955,19 @@ public class ShowLanguages {
                 String target = subtags.get(source);
                 sourceParsed.set(source);
                 targetParsed.set(target);
+                String targetLanguageName = getName(CLDRFile.LANGUAGE_NAME, targetParsed.getLanguage());
+                if (targetLanguageName.equals("\u00A0")) { // undo the handling in getName for this field
+                    targetLanguageName = "Undetermined";
+                }
                 tablePrinter.addRow()
+                .addCell(targetLanguageName)
+                .addCell(getName(CLDRFile.SCRIPT_NAME, targetParsed.getScript()))
+                .addCell(getName(CLDRFile.TERRITORY_NAME, targetParsed.getRegion()))
+                .addCell(target)
+                .addCell(source)
                 .addCell(getName(CLDRFile.LANGUAGE_NAME, sourceParsed.getLanguage()))
                 .addCell(getName(CLDRFile.SCRIPT_NAME, sourceParsed.getScript()))
                 .addCell(getName(CLDRFile.TERRITORY_NAME, sourceParsed.getRegion()))
-                .addCell(getName(CLDRFile.LANGUAGE_NAME, targetParsed.getLanguage()))
-                .addCell(getName(CLDRFile.SCRIPT_NAME, targetParsed.getScript()))
-                .addCell(getName(CLDRFile.TERRITORY_NAME, targetParsed.getRegion()))
-                .addCell(source)
-                .addCell(target)
                 .finishRow();
             }
             pw.println(tablePrinter.toTable());

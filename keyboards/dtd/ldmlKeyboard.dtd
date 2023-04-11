@@ -6,11 +6,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 -->
 <!-- Important Note:
 
-The CLDR Keyboard Workgroup is currently developing major changes to the
-CLDR keyboard specification.
-These changes are targeted for CLDR version 41.
+The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR keyboard specification.
+Please view the subcommittee page for the most recent information.
+<https://cldr.unicode.org/index/keyboard-workgroup>
 
-Please see CLDR-15034 for the latest information. -->
+-->
 
 <!ELEMENT keyboard ( version, generation?, info?, names, settings?, import*, keyMap+, displayMap?, layer*, vkeys*, transforms*, reorders?, backspaces? ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >

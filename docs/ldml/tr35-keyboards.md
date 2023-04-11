@@ -2,19 +2,16 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-|Version|43 (draft)   |
+|Version|43           |
 |-------|-------------|
-|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
+|Editors|Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 #### _Important Note_
 
-> The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
-> developing major changes to the CLDR keyboard specification. These changes are targeted for
-> CLDR version 43. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
-> the latest information.
-
+> The CLDR [Keyboard Subcommittee](https://cldr.unicode.org/index/keyboard-workgroup) is currently
+> developing major changes to the CLDR keyboard specification. Please view the subcommittee page for the most recent information.
 
 ### _Summary_
 
@@ -29,12 +26,8 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
-Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
-
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 

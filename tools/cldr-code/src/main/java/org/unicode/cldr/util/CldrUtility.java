@@ -1021,6 +1021,11 @@ public class CldrUtility {
     }
 
     /**
+     * License file
+     */
+    public static final String LICENSE = "LICENSE";
+
+    /**
      * Fetch data from jar
      *
      * @param name
@@ -1399,7 +1404,7 @@ public class CldrUtility {
 
     private static final class CopyrightHelper {
         public static final CopyrightHelper INSTANCE = new CopyrightHelper();
-        public final String COPYRIGHT_SHORT = 
+        public final String COPYRIGHT_SHORT =
             "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc.";
     }
 
@@ -1415,7 +1420,7 @@ public class CldrUtility {
      * Returns the '## License' section in markdown.
      */
     public static String getCopyrightMarkdown() {
-        return "## License\n" + 
+        return "## License\n" +
         "\n" +
         getCopyrightShort() + "\n" +
         "[Terms of Use](http://www.unicode.org/copyright.html)\n\n" +

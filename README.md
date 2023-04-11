@@ -31,7 +31,7 @@ For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBU
 ### Licenses
 
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [unicode-license.txt](./unicode-license.txt).
+a copy of which is included as [LICENSE](./LICENSE).
 
 - Some CLDR tools depend on library dependencies managed via Maven,
   use of these libraries is governed by separate license agreements.

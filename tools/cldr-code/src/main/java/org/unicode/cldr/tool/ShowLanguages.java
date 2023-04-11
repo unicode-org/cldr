@@ -85,7 +85,7 @@ import com.ibm.icu.util.ULocale;
 @CLDRTool(alias = "showlanguages", description = "Generate Language info charts")
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
-    private static final boolean DO_FIRST_ONLY = true;
+    private static final boolean DO_FIRST_ONLY = false;
 
     static Comparator col = new org.unicode.cldr.util.MultiComparator(
         Collator.getInstance(new ULocale("en")),

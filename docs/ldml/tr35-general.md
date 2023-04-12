@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|43 (draft)           |
+|Version|44 (draft)           |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -900,7 +900,7 @@ As with other identifiers in CLDR, the American English spelling is used for uni
 
 #### Syntax
 
-The formal syntax for identifiers is provided below. 
+The formal syntax for identifiers is provided below.
 Some of the constraints reference data from the unitIdComponents in [Unit_Conversion](tr35-info.md#Unit_Conversion).
 
 <!-- HTML: no header -->
@@ -963,10 +963,10 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 		| “em” | “g” | “us” | “hg” | "of"
         <ul>
 		<li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
-		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”). 
+		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”).
 			We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
         </ul></td></tr>
-		
+
 <tr><td>prefixed_unit</td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
@@ -988,7 +988,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>base_component</td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
-			&lt;unitIdComponent type=”prefix_component”&gt;<br> 
+			&lt;unitIdComponent type=”prefix_component”&gt;<br>
 			or &lt;unitIdComponent type=”suffix_component”&gt; <br>
 			or &lt;unitIdComponent type=”power”&gt;<br>
 			or &lt;unitIdComponent type=”and”&gt;<br>
@@ -1025,12 +1025,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
 
-The simple_unit structure does not allow for any two simple_units to overlap. 
-That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z. 
-This was not true in previous versions of LDML: cup-metric overlapped with metric-ton. 
-That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous. 
+The simple_unit structure does not allow for any two simple_units to overlap.
+That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
+This was not true in previous versions of LDML: cup-metric overlapped with metric-ton.
+That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous.
 
-The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler. 
+The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler.
 For example:
 * When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.
 * Similarly, when a base_component is encountered, one can collect any suffix components, and stop.
@@ -2714,12 +2714,12 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 
-Feature that classifies nouns in classes. 
-This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. 
-Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. 
+Feature that classifies nouns in classes.
+This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others.
+Also used to tag elements in CLDR that should agree with a particular gender of an associated noun.
 (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
 
-The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class". 
+The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class".
 Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".
 
 #### Example
@@ -2741,7 +2741,7 @@ Thus it bundles noun class categories such as gender and animacy into a single i
 | masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/MasculineGender](http://linguistics-ontology.org/gold/2010/MasculineGender) |
 | neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
 
-There are further simplifications in the identifiers. 
+There are further simplifications in the identifiers.
 For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
 The set of combinations would be:
 
@@ -2757,7 +2757,7 @@ In such a case as this, CLDR abbreviates these as the following identifiers:
 * feminine
 * neuter
 
-That is: 
+That is:
 * unspecified and animate are dropped.
 * if there is only a single gender with inanimate, then the gender is dropped.
 

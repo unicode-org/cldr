@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 4: Dates
 
-|Version|43 (draft)        |
+|Version|44 (draft)        |
 |-------|------------------|
 |Editors|Peter Edberg and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -778,7 +778,7 @@ For an example of not converting a pattern fields between numeric and alphabetic
 <dateFormatItem id="yMMM">y年M月</dateFormatItem>
 ```
 
-If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM. 
+If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM.
 
 ---
 

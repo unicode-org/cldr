@@ -686,7 +686,7 @@
 <thead>
 <tr>
 <th>Version</th>
-<th>43 (draft)</th>
+<th>44 (draft)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1299,7 +1299,7 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
 </li>
 </ul><h4 id="nomenclature">Nomenclature</h4><p>As with other identifiers in CLDR, the American English spelling is used for unit identifiers. For the US spelling, see the <a href="https://www.nist.gov/pml/special-publication-811">Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811</a>, which is explicit about the discrepancy with the English-language BIPM spellings:</p><blockquote>
 <p>In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”</p>
-</blockquote><h4 id="syntax">Syntax</h4><p>The formal syntax for identifiers is provided below. 
+</blockquote><h4 id="syntax">Syntax</h4><p>The formal syntax for identifiers is provided below.
 Some of the constraints reference data from the unitIdComponents in <a href="tr35-info.html#Unit_Conversion">Unit_Conversion</a>.</p><!-- HTML: no header --><table><tbody>
 <tr><td>unit_identifier</td><td>:=</td>
     <td>core_unit_identifier<br>
@@ -1358,10 +1358,10 @@ Some of the constraints reference data from the unitIdComponents in <a href="tr3
         | “em” | “g” | “us” | “hg” | "of"
         <ul>
         <li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
-        <li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”). 
+        <li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”).
             We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
         </ul></td></tr>
-        
+
 <tr><td>prefixed_unit</td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
@@ -1383,7 +1383,7 @@ Some of the constraints reference data from the unitIdComponents in <a href="tr3
 <tr><td>base_component</td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
-            &lt;unitIdComponent type=”prefix_component”&gt;<br> 
+            &lt;unitIdComponent type=”prefix_component”&gt;<br>
             or &lt;unitIdComponent type=”suffix_component”&gt; <br>
             or &lt;unitIdComponent type=”power”&gt;<br>
             or &lt;unitIdComponent type=”and”&gt;<br>
@@ -1416,10 +1416,10 @@ Some of the constraints reference data from the unitIdComponents in <a href="tr3
             <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>
 
-</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><p>The simple_unit structure does not allow for any two simple_units to overlap. 
-That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z. 
-This was not true in previous versions of LDML: cup-metric overlapped with metric-ton. 
-That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous. </p><p>The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler. 
+</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><p>The simple_unit structure does not allow for any two simple_units to overlap.
+That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
+This was not true in previous versions of LDML: cup-metric overlapped with metric-ton.
+That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous.</p><p>The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler.
 For example:</p><ul>
 <li>When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.</li>
 <li>Similarly, when a base_component is encountered, one can collect any suffix components, and stop.</li>
@@ -3593,10 +3593,10 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 </code></pre><p>The @targets attribute contains the specific grammatical entities to which the features apply, such as <code>nominal</code> when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as <code>de fr</code> for German and French.</p><p>The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".</p><p>The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).</p><p><strong>Constraints:</strong></p><ul>
 <li>a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.</li>
 <li>the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.</li>
-</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. 
-This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. 
-Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. 
-(adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><p>The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class". 
+</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes.
+This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others.
+Also used to tag elements in CLDR that should agree with a particular gender of an associated noun.
+(adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><p>The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class".
 Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".</p><h4 id="example">Example</h4><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalGender</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"masculine feminine"</span>/&gt;</span>
 </code></pre><h4 id="table-values">Table: Values</h4><table>
@@ -3642,7 +3642,7 @@ Thus it bundles noun class categories such as gender and animacy into a single i
 <td>In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object.</td>
 <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a></td>
 </tr>
-</tbody></table><p>There are further simplifications in the identifiers. 
+</tbody></table><p>There are further simplifications in the identifiers.
 For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
 The set of combinations would be:</p><ul>
 <li>masculine-animate</li>
@@ -3654,7 +3654,7 @@ The set of combinations would be:</p><ul>
 <li>inanimate</li>
 <li>feminine</li>
 <li>neuter</li>
-</ul><p>That is: </p><ul>
+</ul><p>That is:</p><ul>
 <li>unspecified and animate are dropped.</li>
 <li>if there is only a single gender with inanimate, then the gender is dropped.</li>
 </ul><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="table-case">Table: Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h5 id="example-1">Example</h5><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>

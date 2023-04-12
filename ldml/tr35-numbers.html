@@ -399,7 +399,7 @@
             <td class="gray">&nbsp;</td>
         </tr>
     </tbody>
-</table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-3-numbers">Unicode Locale Data Markup Language (LDML)<br>Part 3: Numbers</h1><p>|Version|43 (draft)|
+</table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-3-numbers">Unicode Locale Data Markup Language (LDML)<br>Part 3: Numbers</h1><p>|Version|44 (draft)|
 |Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members|</a></p><p><a href="tr35.html#Acknowledgments">For the full header, summary, and status, see </a><a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for number and currency formatting. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
 This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
@@ -1696,8 +1696,8 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><table><cap
 </ul><p>Two tokens are <em>semantically equivalent</em> if they have the same <em>semantic annotations</em>, even if they are not the exact same string. For example:</p><ol>
 <li>"centimeter" is semantically equivalent to "centimeters".</li>
 <li>"K" (the thousands symbol in compact decimals) is NOT semantically equivalent to "K" (the measurement unit Kelvin).</li>
-</ol><p>The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".</p><p>Two semantically equivalent tokens can be <em>collapsed</em> if they appear at the start of both values or the end of both values. 
-However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. 
+</ol><p>The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".</p><p>Two semantically equivalent tokens can be <em>collapsed</em> if they appear at the start of both values or the end of both values.
+However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens.
 An API for displaying ranges should permit control over whether the tokens are collapsed or not, and the levels of aggressiveness.
 The currently recommended heuristic is:</p><ol>
 <li>Never collapse scientific or compact notation. This is to avoid producing ambiguous strings such as "3–5M" (could represent 3–5,000,000 or 3,000,000–5,000,000).</li>
@@ -1711,9 +1711,9 @@ That is, for a prefix element, remove from the end value of the range, and for a
 </ul>
 </li>
 <li>When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form. That is, use <a href="#Plural_Ranges">Plural Ranges</a> to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.</li>
-</ol><p>In bidi contexts, the data is built so that rule #3 works <strong>visually</strong>. 
-For example, if a range from 2 km to 5 km would be presented visually as "<em>mk 5 – mk 2</em>", the collapsed form would be "<em>mk 5 – 2</em>". 
-(The <em>mk</em> is a stand-in for the native representation.) 
+</ol><p>In bidi contexts, the data is built so that rule #3 works <strong>visually</strong>.
+For example, if a range from 2 km to 5 km would be presented visually as "<em>mk 5 – mk 2</em>", the collapsed form would be "<em>mk 5 – 2</em>".
+(The <em>mk</em> is a stand-in for the native representation.)
 This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
 Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.</p><h3 id="83-range-pattern-processing">8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a></h3><p>To obtain a number range pattern, the following steps are taken:</p><ol>
 <li>Load the range pattern found in <a href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>.</li>

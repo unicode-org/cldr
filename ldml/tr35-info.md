@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|43 (draft) |
+|Version|44 (draft) |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -802,8 +802,8 @@ The unit conversion data ([units.xml](https://github.com/unicode-org/cldr/blob/m
 <!ATTLIST unitIdComponent type NMTOKEN #REQUIRED >
 <!ATTLIST unitIdComponent values NMTOKENS #REQUIRED >
 
-These elements provide support for parsing unit identifiers, as described in [Unit Elements](tr35-general.md#Unit_Elements). 
-Each of the values has tokens with specific functions, identified by the type. 
+These elements provide support for parsing unit identifiers, as described in [Unit Elements](tr35-general.md#Unit_Elements).
+Each of the values has tokens with specific functions, identified by the type.
 For example the following values can be suffixes in a simple_unit identifier such as `quart-imperial`.
 
 ```
@@ -1112,7 +1112,7 @@ Thus _for the purposes of unit preferences_ the following behave identically:
 | en-ms-uksystem    | en-GB      |
 
 APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
-That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them. 
+That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them.
 For example, in showing the weather, an application may want to show:
 
 High today: 68°F (20°C)

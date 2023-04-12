@@ -230,9 +230,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             delegate.removeValueAtDPath(path);
             if (value != null) {
+                value = reviseInheritanceAsNeeded(path, value);
                 delegate.putValueAtPath(fullPath, value);
             }
             return resolver;
+        }
+
+        public String reviseInheritanceAsNeeded(String path, String value) {
+            if (value != null) {
+                CLDRFile cldrFile = getDiskFile(ballotBox.locale);
+                if (cldrFile != null) {
+                    value = cldrFile.reviseInheritanceAsNeeded(path, value);
+                }
+             }
+            return value;
         }
 
         private String getFullPathWithResolver(String path, VoteResolver<String> resolver) {

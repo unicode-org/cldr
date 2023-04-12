@@ -109,7 +109,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     private static final boolean USE_LOADING_BUFFER = true;
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public static final Pattern ALT_PROPOSED_PATTERN = PatternCache.get(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
     public static final Pattern DRAFT_PATTERN = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
@@ -431,13 +431,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     @Override
     public String getStringValue(String xpath) {
+        boolean debug = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]".equals(xpath);
+        if (debug) {
+            System.out.println("getStringValue 0 debug = " + debug);
+        }
         try {
             String result = dataSource.getValueAtPath(xpath);
+            if (debug) {
+                System.out.println("getStringValue 1 result = " + result); // null
+            }
             if (result == null && dataSource.isResolving()) {
                 final String fallbackPath = getFallbackPath(xpath, false, true);
                 // often fallbackPath equals xpath -- in such cases, isn't it a waste of time to call getValueAtPath again?
+                if (debug) {
+                    System.out.println("getStringValue 2 fallbackPath = " + fallbackPath);
+                }
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
+                    if (debug) {
+                        System.out.println("getStringValue 3 result = " + result);
+                    }
                 }
             }
             if (isResolved() && GlossonymConstructor.valueIsBogus(result) && GlossonymConstructor.pathIsEligible(xpath)) {
@@ -445,6 +458,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 if (constructedValue != null) {
                     result = constructedValue;
                 }
+            }
+            if (debug) {
+                System.out.println("getStringValue 4 returning " + result);
             }
             return result;
         } catch (Exception e) {
@@ -620,9 +636,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public CLDRFile add(String currentFullXPath, String value) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-        // StringValue v = new StringValue(value, currentFullXPath);
         Log.logln(LOG_PROGRESS, "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
-        // xpath = xpath.intern();
+        value = reviseInheritanceAsNeeded(currentFullXPath, value);
         try {
             dataSource.putValueAtPath(currentFullXPath, value);
         } catch (RuntimeException e) {
@@ -630,6 +645,51 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 + value).initCause(e);
         }
         return this;
+    }
+
+    /**
+     * Get the possibly modified value. If this file is resolving, and value matches the bailey value
+     * or inheritance marker, possibly change it from bailey value to inheritance marker, or vice-versa,
+     * as needed to meet these requirements:
+     * 1. If the path changes when getting bailey, then we are inheriting sideways. We need to use a hard value.
+     * 2. If the value is different from the bailey value, can't use inheritance; we need a hard value.
+     * 3. Otherwise we use inheritance marker.
+     *
+     * @param path the path
+     * @param value the input value
+     * @return the possibly modified value
+     */
+    public String reviseInheritanceAsNeeded(String path, String value) {
+        if (isResolved()) {
+            Output<String> pathWhereFound = new Output<>();
+            Output<String> localeWhereFound = new Output<>();
+
+            // boolean debug = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]".equals(path);
+            boolean debug = true;
+            if (debug) {
+                System.out.println("reviseInheritanceAsNeeded 0 debug = " + debug + " path = " + path + " locale = " + getLocaleID());
+            }
+            String baileyValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
+            if (debug && baileyValue == null) {
+                System.out.println("reviseInheritanceAsNeeded bailey is null! pathWhereFound = " + pathWhereFound + " localeWhereFound = " + localeWhereFound);
+            }
+            if (baileyValue != null && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
+                String returnValue = pathWhereFound.value.equals(path) ? CldrUtility.INHERITANCE_MARKER : baileyValue;
+                if (debug) {
+                    System.out.println("reviseInheritanceAsNeeded pathWhereFound = " + pathWhereFound + " localeWhereFound = " + localeWhereFound);
+                }
+
+                if (DEBUG) {
+                    if (returnValue.equals(value)) {
+                        System.out.println("reviseInheritanceAsNeeded unchanged got " + value + " returned " + returnValue);
+                    } else {
+                        System.out.println("reviseInheritanceAsNeeded CHANGED got " + value + " returned " + returnValue);
+                    }
+                }
+                return returnValue;
+            }
+        }
+        return value;
     }
 
     /**
@@ -3323,7 +3383,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * versions of getName and their subroutines and data -- to a new class in a separate file,
      * and enable tracking similar to existing "pathWhereFound/localeWhereFound" but more general.
      *
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13263
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
      *******************************************************************************************
      */
 

@@ -985,10 +985,9 @@ public class Ldml2JsonConverter {
             writeReadmeSection(outf);
         }
         try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "LICENSE");) {
-            FileCopier.copy(CldrUtility.getUTF8Data("unicode-license.txt"), outf);
+            FileCopier.copy(CldrUtility.getUTF8Data(CldrUtility.LICENSE), outf);
         }
     }
-
 
     String getBasePackageName(final String packageName) {
         String basePackageName = packageName;

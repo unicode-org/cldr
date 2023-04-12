@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
 
-|Version|43 (draft)|
+|Version|44 (draft)|
 |Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -471,7 +471,7 @@ The `alt="noCurrency"` pattern can be used when a currency-style format is desir
 The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:
 * The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
 * The currency symbol does not have the same value as the ISO 4217 3-letter code.
-Most locales will not need to override the pattern provided in root, shown in the xml sample above. 
+Most locales will not need to override the pattern provided in root, shown in the xml sample above.
 
 ### 2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
@@ -1423,8 +1423,8 @@ Two tokens are *semantically equivalent* if they have the same *semantic annotat
 
 The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".
 
-Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. 
-However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. 
+Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values.
+However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens.
 An API for displaying ranges should permit control over whether the tokens are collapsed or not, and the levels of aggressiveness.
 The currently recommended heuristic is:
 
@@ -1438,9 +1438,9 @@ That is, for a prefix element, remove from the end value of the range, and for a
     * 2M ft – 5M ft ⇒ 2M – 5M ft
 4. When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form. That is, use [Plural Ranges](#Plural_Ranges) to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.
 
-In bidi contexts, the data is built so that rule #3 works **visually**. 
-For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". 
-(The _mk_ is a stand-in for the native representation.) 
+In bidi contexts, the data is built so that rule #3 works **visually**.
+For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_".
+(The _mk_ is a stand-in for the native representation.)
 This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
 Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.
 

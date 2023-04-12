@@ -67,7 +67,8 @@ public class ToolConstants {
         "39.0",
         "40.0",
         "41.0",
-        "42.0"
+        "42.0",
+        "43.0"
         // add to this once the release is final!
         );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI = ImmutableSet.copyOf(CLDR_VERSIONS.stream()

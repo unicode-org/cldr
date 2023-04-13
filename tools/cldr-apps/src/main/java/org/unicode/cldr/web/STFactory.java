@@ -238,7 +238,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         public String reviseInheritanceAsNeeded(String path, String value) {
             if (value != null) {
-                CLDRFile cldrFile = getDiskFile(ballotBox.locale);
+                CLDRFile cldrFile = make(ballotBox.locale.getBaseName());
                 if (cldrFile != null) {
                     value = cldrFile.reviseInheritanceAsNeeded(path, value);
                 }

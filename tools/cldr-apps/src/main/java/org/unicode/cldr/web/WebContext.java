@@ -1334,6 +1334,22 @@ public class WebContext implements Cloneable, Appendable {
         return c;
     }
 
+    /**
+     * Clear a cookie
+     * @param request
+     * @param response
+     * @param c
+     */
+    public static void clearCookie(HttpServletRequest request, HttpServletResponse response, String c) {
+        Cookie c0 = WebContext.getCookie(request, c);
+        if (c0 != null) {
+            c0.setValue("");
+            c0.setPath("/");
+            // c0.setMaxAge(0);
+            response.addCookie(c0);
+        }
+    }
+
     @Override
     public Appendable append(CharSequence csq) throws IOException {
         pw.append(csq);
@@ -1449,28 +1465,30 @@ public class WebContext implements Cloneable, Appendable {
         }
         String email = field(SurveyMain.QUERY_EMAIL);
 
+        User user = null;
+
         // if there was an email/password in the cookie, use that.
         {
-            String myEmail = getCookieValue(SurveyMain.QUERY_EMAIL);
-            String myPassword = getCookieValue(SurveyMain.QUERY_PASSWORD);
-            if (myEmail != null && (email == null || email.isEmpty())) {
-                email = myEmail;
-                if (myPassword != null && (password == null || password.isEmpty())) {
-                    password = myPassword;
-                }
-            } else {
-                if (myEmail != null && !myEmail.equals(email)) {
-                    removeLoginCookies(request, response);
+            final String jwt = getCookieValue(SurveyMain.COOKIE_SAVELOGIN);
+            if (jwt != null && !jwt.isBlank()) {
+                final String jwtId = CookieSession.sm.klm.getSubject(jwt);
+                if (jwtId != null && !jwtId.isBlank()) {
+                    User jwtInfo = CookieSession.sm.reg.getInfo(Integer.parseInt(jwtId));
+                    if (jwtInfo != null) {
+                        user = jwtInfo;
+                        logger.fine("Logged in " + jwtInfo.toString() + " #" + jwtId + " using JWT");
+                    }
                 }
             }
         }
 
-        User user = null;
         // if an email/password given, try to fetch a user
-        try {
-            user = CookieSession.sm.reg.get(password, email, userIP());
-        } catch (LogoutException e) {
-            logout(); // failed login, so logout this session.
+        if (user == null) { // if not already logged in via jwt
+            try {
+                user = CookieSession.sm.reg.get(password, email, userIP());
+            } catch (LogoutException e) {
+                logout(); // failed login, so logout this session.
+            }
         }
         if (user != null) {
             logger.fine("Logged in " + user);
@@ -1611,28 +1629,10 @@ public class WebContext implements Cloneable, Appendable {
      * @param response
      */
     public static void removeLoginCookies(HttpServletRequest request, HttpServletResponse response) {
-        Cookie c0 = WebContext.getCookie(request, SurveyMain.QUERY_EMAIL);
-        if (c0 != null) { // only zap extant cookies
-            c0.setValue("");
-            c0.setPath("/");
-            // c0.setMaxAge(0);
-            response.addCookie(c0);
-        }
-        Cookie c1 = WebContext.getCookie(request, SurveyMain.QUERY_PASSWORD);
-        if (c1 != null) {
-            c1.setValue("");
-            c1.setPath("/");
-            // c1.setMaxAge(0);
-            response.addCookie(c1);
-        }
-        // clear non-JSESSIONID session header cookie
-        Cookie c3 = WebContext.getCookie(request, Auth.SESSION_HEADER);
-        if (c3 != null) {
-            c3.setValue("");
-            c3.setPath("/");
-            // c1.setMaxAge(0);
-            response.addCookie(c3);
-        }
+        WebContext.clearCookie(request, response, SurveyMain.QUERY_EMAIL);
+        WebContext.clearCookie(request, response, SurveyMain.QUERY_PASSWORD);
+        WebContext.clearCookie(request, response, SurveyMain.COOKIE_SAVELOGIN);
+        WebContext.clearCookie(request, response, Auth.SESSION_HEADER);
         try {
             HttpSession s = request.getSession(false);
             if (s != null) {
@@ -1665,8 +1665,11 @@ public class WebContext implements Cloneable, Appendable {
      * Remember this login (adds cookie to response )
      */
     public static void loginRemember(HttpServletResponse response, User user) {
-        addCookie(response, SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
-        addCookie(response, SurveyMain.QUERY_PASSWORD, user.getPassword(), SurveyMain.TWELVE_WEEKS);
+        loginRemember(response, user.id);
+    }
+
+    public static void loginRemember(HttpServletResponse response, int id) {
+        addCookie(response, SurveyMain.COOKIE_SAVELOGIN, CookieSession.sm.klm.createJwtForSubject(Integer.toString(id)), SurveyMain.TWELVE_WEEKS);
     }
 
     /**

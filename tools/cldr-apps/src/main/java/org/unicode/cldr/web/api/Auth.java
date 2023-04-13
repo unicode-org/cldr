@@ -23,6 +23,7 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
+import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext;
 
 @Path("/auth")
@@ -63,12 +64,18 @@ public class Auth {
         if (request.isEmpty()) {
             // No option to ignore the cookies.
             // If you want to logout, use the /logout endpoint first.
-            final String myEmail = WebContext.getCookieValue(hreq, SurveyMain.QUERY_EMAIL);
-            final String myPassword = WebContext.getCookieValue(hreq, SurveyMain.QUERY_PASSWORD);
-            if (myEmail != null && !myEmail.isEmpty() && myPassword != null && !myPassword.isEmpty()) {
-                // use values from cookie
-                request.password = myPassword;
-                request.email = myEmail;
+            // Also compare WebContext.setSession()
+            final String jwt = WebContext.getCookieValue(hreq, SurveyMain.COOKIE_SAVELOGIN);
+            if (jwt != null && !jwt.isBlank()) {
+                final String jwtId = CookieSession.sm.klm.getSubject(jwt);
+                if (jwtId != null && !jwtId.isBlank()) {
+                    User jwtInfo = CookieSession.sm.reg.getInfo(Integer.parseInt(jwtId));
+                    if (jwtInfo != null) {
+                        request.password = jwtInfo.internalGetPassword();
+                        request.email = jwtInfo.email;
+                        System.err.println("Logged in " + request.email + " #" + jwtId + " using JWT");
+                    }
+                }
             }
         }
         try {

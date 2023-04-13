@@ -29,6 +29,8 @@
 		<httpcomponents-version>5.0.3</httpcomponents-version>
 		<!--  web-specific properties are under cldr-apps -->
 		<mysql.version>8.0.30</mysql.version>
+		<!-- jsonwebtoken.io -->
+		<jjwt.version>0.11.5</jjwt.version>
 	</properties>
 
 	<modules>
@@ -155,6 +157,23 @@
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
 				<version>3.5.6</version>
+			</dependency>
+
+			<!-- jwt -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-gson</artifactId>
+				<version>${jjwt.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

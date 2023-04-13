@@ -431,26 +431,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     @Override
     public String getStringValue(String xpath) {
-        boolean debug = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]".equals(xpath);
-        if (debug) {
-            System.out.println("getStringValue 0 debug = " + debug);
-        }
         try {
             String result = dataSource.getValueAtPath(xpath);
-            if (debug) {
-                System.out.println("getStringValue 1 result = " + result); // null
-            }
             if (result == null && dataSource.isResolving()) {
                 final String fallbackPath = getFallbackPath(xpath, false, true);
                 // often fallbackPath equals xpath -- in such cases, isn't it a waste of time to call getValueAtPath again?
-                if (debug) {
-                    System.out.println("getStringValue 2 fallbackPath = " + fallbackPath);
-                }
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
-                    if (debug) {
-                        System.out.println("getStringValue 3 result = " + result);
-                    }
                 }
             }
             if (isResolved() && GlossonymConstructor.valueIsBogus(result) && GlossonymConstructor.pathIsEligible(xpath)) {
@@ -458,9 +445,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 if (constructedValue != null) {
                     result = constructedValue;
                 }
-            }
-            if (debug) {
-                System.out.println("getStringValue 4 returning " + result);
             }
             return result;
         } catch (Exception e) {
@@ -637,7 +621,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public CLDRFile add(String currentFullXPath, String value) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         Log.logln(LOG_PROGRESS, "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
-        value = reviseInheritanceAsNeeded(currentFullXPath, value);
+        if (isResolved()) {
+            value = reviseInheritanceAsNeeded(currentFullXPath, value);
+        }
         try {
             dataSource.putValueAtPath(currentFullXPath, value);
         } catch (RuntimeException e) {
@@ -660,34 +646,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return the possibly modified value
      */
     public String reviseInheritanceAsNeeded(String path, String value) {
-        if (isResolved()) {
-            Output<String> pathWhereFound = new Output<>();
-            Output<String> localeWhereFound = new Output<>();
+        if (!isResolved()) {
+            throw new IllegalArgumentException("must be resolved");
+        }
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
 
-            // boolean debug = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]".equals(path);
-            boolean debug = true;
-            if (debug) {
-                System.out.println("reviseInheritanceAsNeeded 0 debug = " + debug + " path = " + path + " locale = " + getLocaleID());
-            }
-            String baileyValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
-            if (debug && baileyValue == null) {
-                System.out.println("reviseInheritanceAsNeeded bailey is null! pathWhereFound = " + pathWhereFound + " localeWhereFound = " + localeWhereFound);
-            }
-            if (baileyValue != null && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
-                String returnValue = pathWhereFound.value.equals(path) ? CldrUtility.INHERITANCE_MARKER : baileyValue;
-                if (debug) {
-                    System.out.println("reviseInheritanceAsNeeded pathWhereFound = " + pathWhereFound + " localeWhereFound = " + localeWhereFound);
+        String baileyValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
+        if (baileyValue != null && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
+            String returnValue = pathWhereFound.value.equals(path) ? CldrUtility.INHERITANCE_MARKER : baileyValue;
+            if (DEBUG) {
+                if (returnValue.equals(value)) {
+                    System.out.println("reviseInheritanceAsNeeded unchanged got " + value + " returned " + returnValue);
+                } else {
+                    System.out.println("reviseInheritanceAsNeeded CHANGED got " + value + " returned " + returnValue);
                 }
-
-                if (DEBUG) {
-                    if (returnValue.equals(value)) {
-                        System.out.println("reviseInheritanceAsNeeded unchanged got " + value + " returned " + returnValue);
-                    } else {
-                        System.out.println("reviseInheritanceAsNeeded CHANGED got " + value + " returned " + returnValue);
-                    }
-                }
-                return returnValue;
             }
+            return returnValue;
         }
         return value;
     }

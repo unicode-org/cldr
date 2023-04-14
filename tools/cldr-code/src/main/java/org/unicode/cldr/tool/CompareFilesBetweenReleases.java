@@ -15,7 +15,7 @@ import org.unicode.cldr.util.PathUtilities;
 import com.google.common.collect.ImmutableSet;
 
 @CLDRTool(alias = "CompareFilesBetweenReleases", description = "Print a report of which files changed since the last release")
-public class CompareFilesBetweenReleases2 {
+public class CompareFilesBetweenReleases {
 
     //private static final String STAGING_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "../cldr-staging/production");
     private static final String RELEASE_DIRECTORY = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + "/";

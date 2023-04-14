@@ -12,6 +12,7 @@ import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 
 public class AllTests extends TestGroup {
     private static final ImmutableList<Class<?>> TEST_CLASSES = ImmutableList.of(
+        CldrDataProcessorTest.class,
         CldrFileDataSourceTest.class,
         CldrPathTest.class,
         CldrValueTest.class,

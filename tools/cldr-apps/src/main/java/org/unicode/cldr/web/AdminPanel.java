@@ -177,18 +177,10 @@ public class AdminPanel {
             return;
         }
         // zap any current login
-        Cookie c0 = WebContext.getCookie(request, SurveyMain.QUERY_EMAIL);
-        if (c0 != null) {
-            c0.setValue("");
-            c0.setMaxAge(0);
-            response.addCookie(c0);
-        }
-        Cookie c1 = WebContext.getCookie(request, SurveyMain.QUERY_PASSWORD);
-        if (c1 != null) {
-            c1.setValue("");
-            c1.setMaxAge(0);
-            response.addCookie(c1);
-        }
+        WebContext.clearCookie(request, response, SurveyMain.QUERY_EMAIL);
+        WebContext.clearCookie(request, response, SurveyMain.QUERY_PASSWORD);
+        WebContext.clearCookie(request, response, SurveyMain.COOKIE_SAVELOGIN);
+
         String orgs[] = UserRegistry.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
         JSONObject levels = new JSONObject();

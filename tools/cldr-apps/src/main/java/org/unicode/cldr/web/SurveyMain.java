@@ -334,6 +334,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     // ======= query fields
     public static final String QUERY_PASSWORD = "pw";
     public static final String QUERY_EMAIL = "email";
+    public static final String COOKIE_SAVELOGIN = "stayloggedin";
     public static final String QUERY_PASSWORD_ALT = "uid";
     public static final String QUERY_SESSION = "s";
     public static final String QUERY_LOCALE = "_";
@@ -437,11 +438,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ensureCldrToolsIsFunctioning();
             getDbInstance();
             SurveyThreadManager.getExecutorService().submit(this::doStartup);
+            klm = new KeepLoggedInManager(null);
         } catch (Throwable t) {
             SurveyLog.logException(logger, t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
         }
     }
+
+    public KeepLoggedInManager klm = null;
 
     private void verifyConfigSanity() {
         CLDRConfig cconfig = CLDRConfigImpl.getInstance();
@@ -676,8 +680,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             registeredUser.printPasswordLink(ctx);
             ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
             if (stayLoggedIn) {
-                ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
-                ctx.addCookie(QUERY_PASSWORD, u.getPassword(), TWELVE_WEEKS);
+                WebContext.loginRemember(response, u);
             } else {
                 WebContext.removeLoginCookies(request, response);
             }

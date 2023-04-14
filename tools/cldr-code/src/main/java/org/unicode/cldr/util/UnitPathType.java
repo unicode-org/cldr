@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 
 import com.google.common.collect.ImmutableMultimap;
@@ -146,8 +147,19 @@ public enum UnitPathType {
         UnitPathType pathType = this;
         String path = pathType.getTranslationPath(resolvedFile, width, shortUnitId, pluralCategory, caseVariant, genderVariant);
         String result = resolvedFile.getStringValue(path);
-        if (result == null) {
-            int debug = 0;
+
+        // TODO fix inheritance of count item is sideways inherited. Eg, if count='many' and there isn't an explicit value, then the first try should be count='other'.
+
+        XPathParts pathParts = XPathParts.getFrozenInstance(path);
+        String countValue = pathParts.getAttributeValue(-1, "count");
+        if (countValue != null && !countValue.equals("other")) {
+            Status status = new Status();
+            resolvedFile.getSourceLocaleID(path, status);
+            if (!path.equals(status.pathWhereFound)) {
+                pathParts = pathParts.cloneAsThawed();
+                pathParts.setAttribute(-1, "count", "other");
+                result = resolvedFile.getStringValue(pathParts.toString());
+            }
         }
 
         if (partsUsed != null) {

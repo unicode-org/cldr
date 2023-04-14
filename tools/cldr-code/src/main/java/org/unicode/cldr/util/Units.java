@@ -33,7 +33,8 @@ public class Units {
         String modUnit = (String) SPACE_SPANNER.trim(unitFormat.replace("{0}", ""));
         Object[] parameters = { modUnit };
 
-        String modFormat = unitFormat.replace(modUnit, MessageFormat.format(compoundPattern, parameters));
+        final String combined = MessageFormat.format(compoundPattern, parameters);
+        String modFormat = unitFormat.replace(modUnit, combined);
         if (modFormat.equals(unitFormat)) {
             // didn't work, so fall back
             Object[] parameters1 = { unitFormat };

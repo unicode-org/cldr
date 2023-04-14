@@ -124,12 +124,15 @@ public class TestUnits extends TestFmwk {
     private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
     private static final CLDRConfig info = CLDR_CONFIG;
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
+    private static final UnitPreferences UNIT_PREFERENCES = SDI.getUnitPreferences();
 
     static final UnitConverter converter = SDI.getUnitConverter();
     static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
     static final Splitter SPLIT_DASH = Splitter.on('-').trimResults().omitEmptyStrings();
+    static final Joiner JOIN_DASH = Joiner.on('-');
+    static final Joiner JOIN_LB = Joiner.on('\n');
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -1394,7 +1397,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestBcp47() {
         checkBcp47("Quantity", converter.getQuantities(), lowercaseAZ, false);
-        checkBcp47("Usage", SDI.getUnitPreferences().getUsages(), lowercaseAZ09, true);
+        checkBcp47("Usage", UNIT_PREFERENCES.getUsages(), lowercaseAZ09, true);
         checkBcp47("Unit", converter.getSimpleUnits(), lowercaseAZ09, true);
     }
 
@@ -1452,8 +1455,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestUnitPreferences() {
         warnln("If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
-        UnitPreferences prefs = SDI.getUnitPreferences();
-        checkUnitPreferences(prefs);
+        checkUnitPreferences(UNIT_PREFERENCES);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
 //        for (Entry<String, Map<String, Map<String, UnitPreference>>> entry : fastMap.entrySet()) {
 //            String quantity = entry.getKey();
@@ -1467,7 +1469,7 @@ public class TestUnits extends TestFmwk {
 //                }
 //            }
 //        }
-        prefs.getFastMap(converter); // call just to make sure we don't get an exception
+        UNIT_PREFERENCES.getFastMap(converter); // call just to make sure we don't get an exception
 
         if (GENERATE_TESTS) {
             System.out.println(
@@ -1497,7 +1499,7 @@ public class TestUnits extends TestFmwk {
 
             // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
 
-            for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : prefs.getData().entrySet()) {
+            for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : UNIT_PREFERENCES.getData().entrySet()) {
                 String quantity = entry.getKey();
                 String baseUnit = converter.getBaseUnitFromQuantity(quantity);
                 for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry.getValue().entrySet()) {
@@ -2210,7 +2212,6 @@ public class TestUnits extends TestFmwk {
                 logln("No grammar info for: " + localeID);
                 continue;
             }
-            UnitConverter converter = SDI.getUnitConverter();
             Collection<String> genderInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
             if (genderInfo.isEmpty()) {
                 continue;
@@ -2739,14 +2740,14 @@ public class TestUnits extends TestFmwk {
 
     public void TestValidUnitIdComponents() {
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkShortUnit(shortUnit);
         }
     }
 
     public void TestDeprecatedUnitIdComponents() {
         for (String longUnit : DEPRECATED_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkShortUnit(shortUnit);
         }
     }
@@ -2810,15 +2811,15 @@ public class TestUnits extends TestFmwk {
 
     public void TestMetricTon() {
         assertTrue("metric-ton is deprecated", DEPRECATED_REGULAR_UNITS.contains("mass-metric-ton"));
-        assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
-        assertEquals("to short", "metric-ton", SDI.getUnitConverter().getShortId("mass-metric-ton"));
-        //assertEquals("to long", "mass-metric-ton", SDI.getUnitConverter().getLongId("metric-ton"));
+        assertEquals("metric-ton is deprecated", "tonne", converter.fixDenormalized("metric-ton"));
+        assertEquals("to short", "metric-ton", converter.getShortId("mass-metric-ton"));
+        //assertEquals("to long", "mass-metric-ton", converter.getLongId("metric-ton"));
     }
 
     public void TestUnitParser() {
         UnitParser up = new UnitParser();
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkParse(up, shortUnit);
         }
     }
@@ -2826,7 +2827,7 @@ public class TestUnits extends TestFmwk {
     private List<Pair<String, UnitIdComponentType>> checkParse(UnitParser up, String shortUnit) {
         up.set(shortUnit);
         List<Pair<String, UnitIdComponentType>> results = new ArrayList<>();
-       Output<UnitIdComponentType> type = new Output<>();
+        Output<UnitIdComponentType> type = new Output<>();
         while (true) {
             String result = up.nextParse(type);
             if (result == null) {
@@ -2867,11 +2868,10 @@ public class TestUnits extends TestFmwk {
 
     public void TestUnitParserAgainstContinuations() {
         UnitParser up = new UnitParser();
-        UnitConverter uc = SDI.getUnitConverter();
-        Multimap<String, Continuation> continuations = uc.getContinuations();
+        Multimap<String, Continuation> continuations = converter.getContinuations();
         Output<UnitIdComponentType> type = new Output<>();
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             if (shortUnit.contains("100")) {
                 logKnownIssue("CLDR-15929", "Code doesn't handle 100");
                 continue;
@@ -2895,6 +2895,175 @@ public class TestUnits extends TestFmwk {
                     break; // stop at first difference
                 }
             }
+        }
+    }
+
+    static final Set<String> BCP_TRUNCATION_EXCEPTIONS = ImmutableSet.of(
+        "kilocalorieit", // From NIST. we would turn into a suffix -it anyway
+        "yottapercent", "yottapermille", "yottapermillion", "yottapermyriad"); // these don't take SI prefixes anyway
+
+    public void TestBcp47Readiness() {
+//        assertEquals("bcp47ize prefix", "milli-meter", bcp47izeUnit("millimeter"));
+
+        Set<String> components = new TreeSet<>(SDI.getStringsWithUnitIdComponentType());
+        Set<String> testUnits = new TreeSet<>();
+        VALID_REGULAR_UNITS.forEach(x -> testUnits.add(converter.getShortId(x)));
+        components.addAll(testUnits);
+
+        Multimap<String, String> unitMap = checkBcp47Identifiers(testUnits);
+
+        Multimap<String,String> unique = TreeMultimap.create();
+        ImmutableSet<UnitSystem> siOrMetric = ImmutableSet.of(UnitSystem.si, UnitSystem.metric);
+        Output<Rational> deprefix = new Output<>();
+        Set<String> takesMetricPrefix = new TreeSet<>();
+
+        for (String shortUnit : components) {
+            for (String subtag : SPLIT_DASH.split(shortUnit)) {
+                unique.put(bcp47ize(subtag), subtag);
+                Set<UnitSystem> systems = converter.getSystemsEnum(subtag);
+                if (!Collections.disjoint(systems, siOrMetric)) { // if it takes a prefix,
+                    String sansPrefix = UnitConverter.stripPrefix(subtag, deprefix); // we check for one
+                    if (sansPrefix.equals(subtag)) {
+                        takesMetricPrefix.add(subtag);
+                    }
+                }
+            }
+        }
+
+        for (String shortUnit : takesMetricPrefix) {
+            String expanded = "yotta" + shortUnit;
+            unique.put(bcp47ize(expanded), expanded);
+            if (SHOW_DATA) {
+                System.out.println(shortUnit + " " + converter.getSystemsEnum(shortUnit));
+            }
+        }
+        logln("NIST unitToQuantity");
+        for (Entry<String, Collection<String>> entry : NistUnits.unitToQuantity.asMap().entrySet()) {
+            //System.out.println(entry.getKey() + "\t" + entry.getValue());
+            final String shortUnit = entry.getKey();
+            if (hasNoPrefix(shortUnit)) {
+                testUnits.add(shortUnit);
+            }
+            for (String subtag : SPLIT_DASH.split(shortUnit)) {
+                unique.put(bcp47ize(subtag), subtag);
+            }
+        }
+        logln("NIST externalConversionData");
+        for (ExternalUnitConversionData entry : NistUnits.externalConversionData) {
+            String shortUnit = entry.source;
+            //System.out.println(entry.source + "\t" + entry.quantity);
+            if (hasNoPrefix(shortUnit)) {
+                testUnits.add(shortUnit);
+            }
+            for (String subtag : SPLIT_DASH.split(entry.source)) {
+                unique.put(bcp47ize(subtag), subtag);
+            }
+        }
+
+        for (Entry<String, Collection<String>> entry : unique.asMap().entrySet()) {
+            if (entry.getValue().size() > 1) {
+                if (Sets.difference((Set<String>)entry.getValue(), BCP_TRUNCATION_EXCEPTIONS).size() > 1) {
+                    errln("Non unique: " + entry);
+                }
+            }
+        }
+        if (SHOW_DATA) {
+            for (String shortUnit : testUnits) {
+                final String bcp47ized = bcp47izeUnit(shortUnit);
+                if (!shortUnit.equals(bcp47ized)) {
+                    System.out.println(shortUnit + " => " + bcp47ized);
+                }
+            }
+        }
+        Multimap<String, String> quantityMap = checkBcp47Identifiers(converter.getQuantities());
+        if (SHOW_DATA) {
+            System.out.println("\nQuantities:\n" + JOIN_LB.join(quantityMap.keys()));
+        }
+        Multimap<String, String> usageMap = checkBcp47Identifiers(UNIT_PREFERENCES.getUsages());
+        if (SHOW_DATA) {
+            System.out.println("\nUsages:\n" + JOIN_LB.join(usageMap.keys()));
+        }
+
+        // check that no quantity overlaps with any usage
+        for (String quantity : quantityMap.keySet()) {
+            for (String usage : usageMap.keySet()) {
+                verifyNoOverlap("Quantity & usage overlap: ", quantity, usage);
+            }
+        }
+
+        // check that no usage overlaps with any unit
+        for (String usage : usageMap.keySet()) {
+            for (String unit : unitMap.keySet()) {
+                verifyNoOverlap("Usage & unit overlap: ", usage, unit);
+            }
+        }
+    }
+
+    /**
+     * check that two hyphen-separated strings don't overlap. That is, there is no hyphen point in the first string where the remainder starts the second.
+     */
+    private void verifyNoOverlap(String message, String a, String b) {
+        String trailing = a;
+        for (int subtagStart = 0; ;) {
+            boolean isBad = b.startsWith(trailing) // b starts with trailing
+                && (b.length() == trailing.length() // and either that is all
+                || b.charAt(trailing.length()) == '-'); // or there is a - right after trailing in b.
+            if (!assertFalse(message + " " + a + " " + b, isBad)) {
+                break;
+            }
+            subtagStart = a.indexOf('-', subtagStart) + 1;
+            if (subtagStart <= 0) {
+                break;
+            }
+            trailing = a.substring(subtagStart);
+        }
+    }
+
+    private Multimap<String, String> checkBcp47Identifiers(Set<String> identifiers) {
+        Multimap<String, String> bcp47ToOriginal = TreeMultimap.create();
+        for (String identifier : identifiers) {
+            bcp47ToOriginal.put(bcp47izeUnit(identifier), identifier);
+        }
+        bcp47ToOriginal = ImmutableMultimap.copyOf(bcp47ToOriginal);
+        for (Entry<String, Collection<String>> entry : bcp47ToOriginal.asMap().entrySet()) {
+            if (entry.getValue().size() > 1) {
+                errln("Quantity not unique: " + entry);
+            }
+        }
+        return bcp47ToOriginal;
+    }
+
+    public String bcp47izeUnit(String shortUnit) {
+        return JOIN_DASH.join(SPLIT_DASH
+            .splitToList(shortUnit)
+            .stream()
+            .map(x -> bcp47ize(x))
+            .collect(Collectors.toList()));
+    }
+
+    private String bcp47ize(String subtag) {
+        if (true) return fixBcp47Length( subtag);
+        Output<Rational> deprefix = new Output<>();
+        String sansPrefix = UnitConverter.stripPrefix(subtag, deprefix);
+        if (sansPrefix.equals(subtag)) {
+            return fixBcp47Length(subtag);
+        } else {
+            return subtag.substring(0, subtag.length() - sansPrefix.length()) + "-" + fixBcp47Length(sansPrefix);
+        }
+    }
+
+    public boolean hasNoPrefix(String subtag) {
+        Output<Rational> deprefix = new Output<>();
+        UnitConverter.stripPrefix(subtag, deprefix);
+        return deprefix.value != Rational.ONE;
+    }
+
+    public String fixBcp47Length(String subtag) {
+        switch (subtag.length()) {
+        case 1: return subtag + "00";
+        case 2: return subtag + "0";
+        case 3: case 4: case 5: case 6: case 7: case 8: return subtag;
+        default: return subtag.substring(0,8);
         }
     }
 }

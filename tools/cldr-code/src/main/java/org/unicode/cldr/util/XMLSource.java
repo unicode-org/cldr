@@ -1890,6 +1890,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     /**
+     * Enable SourceLocation in this Source. Call this once before populating the XMLSource.
+     * @return
+     */
+    public XMLSource enableSourceLocation() {
+        return this;
+    }
+
+    public boolean sourceLocationEnabled() {
+        return false;
+    }
+
+    /**
      * Add a SourceLocation to this full XPath.
      * Base implementation does nothing.
      * @param currentFullXPath

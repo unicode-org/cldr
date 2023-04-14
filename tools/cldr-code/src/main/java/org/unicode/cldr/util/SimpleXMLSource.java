@@ -37,7 +37,11 @@ public class SimpleXMLSource extends XMLSource {
         this.xpath_fullXPath = copyAsLockedFrom.xpath_fullXPath;
         this.xpath_comments = copyAsLockedFrom.xpath_comments;
         this.setLocaleID(copyAsLockedFrom.getLocaleID());
-        this.locationHash = Collections.unmodifiableMap(copyAsLockedFrom.locationHash);
+        if (copyAsLockedFrom.locationHash == null) {
+            this.locationHash = null;
+        } else {
+            this.locationHash = Collections.unmodifiableMap(copyAsLockedFrom.locationHash);
+        }
         locked = true;
     }
 
@@ -104,7 +108,9 @@ public class SimpleXMLSource extends XMLSource {
         result.xpath_comments = (Comments) result.xpath_comments.clone();
         result.xpath_fullXPath = CldrUtility.newConcurrentHashMap(result.xpath_fullXPath);
         result.xpath_value = CldrUtility.newConcurrentHashMap(result.xpath_value);
-        result.locationHash.putAll(result.locationHash);
+        if (result.locationHash != null) {
+            result.locationHash = CldrUtility.newConcurrentHashMap(result.locationHash);
+        }
         return result;
     }
 
@@ -229,12 +235,30 @@ public class SimpleXMLSource extends XMLSource {
         return dtdVersionInfo;
     }
 
-    private Map<String, SourceLocation> locationHash = new HashMap<>();
+    private Map<String, SourceLocation> locationHash = null;
+
+    @Override
+    public
+    XMLSource enableSourceLocation() {
+        if (sourceLocationEnabled()) {
+            locationHash = CldrUtility.newConcurrentHashMap();
+        }
+        return this;
+    }
+
+    @Override
+    public
+    boolean sourceLocationEnabled() {
+        return (locationHash != null);
+    }
 
     @Override
     public XMLSource addSourceLocation(String currentFullXPath, SourceLocation location) {
         if (!isFrozen()) {
-            locationHash.put(currentFullXPath.intern(), location);
+            if (sourceLocationEnabled()) {
+                // may be null if sourceLocation was not requested
+                locationHash.put(currentFullXPath.intern(), location);
+            }
         } else {
             System.err.println("SimpleXMLSource::addSourceLocationAttempt to modify frozen source location");
         }
@@ -243,6 +267,9 @@ public class SimpleXMLSource extends XMLSource {
 
     @Override
     public SourceLocation getSourceLocation(String fullXPath) {
+        if (!sourceLocationEnabled()) {
+            return null;
+        }
         return locationHash.get(fullXPath);
     }
 }

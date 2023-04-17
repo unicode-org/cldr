@@ -1,16 +1,8 @@
 package org.unicode.cldr.util;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.Output;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import com.ibm.icu.util.Output;
 
 /**
  * Automatically construct language names (glossonyms)
@@ -126,6 +118,20 @@ public class GlossonymConstructor {
             final String value = cldrFile.getName(type, true, altPicker);
             if (!valueIsBogus(value)) {
                 return value;
+            }
+        }
+        return null;
+    }
+
+    public Set<String> getPathsWhereFound(String xpath, Set<String> paths) {
+        final XPathParts parts = XPathParts.getFrozenInstance(xpath);
+        final String type = parts.getAttributeValue(-1, "type");
+        if (type.contains(CODE_SEPARATOR)) {
+            final String alt = parts.getAttributeValue(-1, "alt");
+            final CLDRFile.SimpleAltPicker altPicker = (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
+            final String value = cldrFile.getName(type, true, altPicker, paths);
+            if (!valueIsBogus(value)) {
+                return paths;
             }
         }
         return null;

@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -175,6 +176,17 @@ public class TestCLDRFile {
             assertEquals(rootfile.toPath().toString(), location.getSystem(), "system for " + xpath);
             assertEquals(22, location.getLine(), "line for " + xpath);
             assertEquals(43, location.getColumn(), "col for " + xpath);
+        }
+    }
+
+    @Test
+    @Disabled
+    public void testGetPaths() {
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile("en", true);
+        String p = "//ldml/localeDisplayNames/languages/language[@type=\"de_CH\"]";
+        System.out.println(f.getStringValue(p));
+        for (final LocaleInheritanceInfo e : f.getPathsWhereFound(p)) {
+            System.out.println(e);
         }
     }
 }

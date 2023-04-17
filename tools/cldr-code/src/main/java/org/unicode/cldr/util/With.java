@@ -26,6 +26,8 @@ import com.ibm.icu.text.UTF16;
  * for (int integer : With.array(1, 99, 3, 42)) {
  *     doSomethingWith(integer);
  * }
+ *
+ * With.in(someIterator).forEach(s -> doSomethingWith(s));
  * </pre>
  *
  * @author markdavis

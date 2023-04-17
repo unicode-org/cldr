@@ -18,7 +18,7 @@ import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
 public class PathInfo {
     final static Options options = new Options(PathInfo.class)
     .add("locale", ".*", "und", "Locale ID for the path info")
-    .add("infile", ".*", null, "File to read paths from or '-'' for stdin");
+    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin");
 
     public static void main(String args[]) throws IOException {
         final Set<String> paths = options.parse(args, true);

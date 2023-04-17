@@ -502,9 +502,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public List<LocaleInheritanceInfo> getPathsWhereFound(String xpath) {
         List<LocaleInheritanceInfo> list = new LinkedList<>();
-        // first, call getBaileyValue
+        // first, call getSourceLocaleIdExtended to populate the list
         Status status = new Status();
-        final String locale1 = getSourceLocaleIdExtended(xpath, status, true, list);
+        getSourceLocaleIdExtended(xpath, status, true, list);
         final String path1 = status.pathWhereFound;
         // For now, the only special case is Glossonym
         if (path1.equals(GlossonymConstructor.PSEUDO_PATH)) {

@@ -1141,7 +1141,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // Fallback location.
             if (list != null) {
-                list.add(new LocaleInheritanceInfo(CODE_FALLBACK_ID, xpath, Reason.codefallback));
+                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codefallback)); // Not using CODE_FALLBACK_ID
             }
             return new AliasLocation(xpath, CODE_FALLBACK_ID);
         }

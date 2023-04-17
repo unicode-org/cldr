@@ -12,6 +12,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.XMLSource.SourceLocation;
+import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
 
 @CLDRTool(alias = "pathinfo", description = "Get information about paths such as inheritance")
 public class PathInfo {
@@ -119,7 +120,7 @@ public class PathInfo {
         System.out.println("• Inheritance chain:");
         for (final LocaleInheritanceInfo e : file.getPathsWhereFound(dPath)) {
             System.out.println("\n  • " + e); // reason : locale + xpath
-            if (e.getLocale() != null && e.getPath() != null && !e.getLocale().equals("code-fallback")) {
+            if (e.getLocale() != null && e.getPath() != null && !e.getLocale().equals(CODE_FALLBACK_ID)) {
                 final CLDRFile subFile = CLDRConfig.getInstance().getCLDRFile(e.getLocale(), false);
                 SourceLocation subsource = subFile.getSourceLocation(e.getPath());
                 if (subsource != null) {

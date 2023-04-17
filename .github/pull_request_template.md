@@ -1,6 +1,6 @@
 CLDR-_____
 
-- [ ] This PR completes the ticket.
+https://t.snapchat.com/8pX6dBd3- [ ] This PR completes the ticket.
 
 <!--
 Thank you for your pull request.

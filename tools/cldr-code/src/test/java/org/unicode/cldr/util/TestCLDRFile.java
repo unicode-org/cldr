@@ -11,6 +11,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -19,7 +20,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.test.CheckMetazones;
+import org.unicode.cldr.tool.PathInfo;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 
 /**
  * This contains additional tests in JUnit.
@@ -31,8 +34,9 @@ public class TestCLDRFile {
 
     static Factory factory = null;
 
+
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws Exception {
         factory = CLDRConfig.getInstance().getFullCldrFactory();
     }
 
@@ -134,14 +138,22 @@ public class TestCLDRFile {
         }
     }
 
+    final File unittest_dir = new File(CLDRPaths.UNITTEST_DATA_DIR);
+    final File testcommonmain = new File(unittest_dir, "common/main");
+    final File testfile = new File(testcommonmain, "hy.xml");
+    final File rootfile = new File(testcommonmain, "root.xml");
+    final File[] dirs = { testcommonmain };
+
+    Factory getTestDataFactory() {
+        // Note: Uses the special test data in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/main/hy.xml
+        Factory myFactory = SimpleFactory.make(dirs, ".*");
+        return myFactory;
+    }
+
     @Test
     public void testSourceLocale() {
-        final File unittest_dir = new File(CLDRPaths.UNITTEST_DATA_DIR);
-        final File testcommonmain = new File(unittest_dir, "common/main");
-        final File testfile = new File(testcommonmain, "hy.xml");
-        final File rootfile = new File(testcommonmain, "root.xml");
-        final File[] dirs = { testcommonmain };
-        Factory myFactory = SimpleFactory.make(dirs, ".*");
+        // Note: Uses the special test data in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/main/hy.xml
+        final Factory myFactory = getTestDataFactory();
         final CLDRFile hyFile = myFactory.make("hy", true);
 
         {
@@ -173,8 +185,63 @@ public class TestCLDRFile {
             XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
             assertNotNull(location, "location for " + xpath);
             assertEquals(rootfile.toPath().toString(), location.getSystem(), "system for " + xpath);
-            assertEquals(22, location.getLine(), "line for " + xpath);
+            assertEquals(25, location.getLine(), "line for " + xpath);
             assertEquals(43, location.getColumn(), "col for " + xpath);
+        }
+    }
+
+    /**
+     * @see PathInfo
+     */
+    @Test
+    public void testGetPaths() {
+        final String GERMAN_IN_SWITZERLAND = "//ldml/localeDisplayNames/languages/language[@type=\"de_CH\"]";
+        final String GERMAN = "//ldml/localeDisplayNames/languages/language[@type=\"de\"]";
+        final Factory myFactory = getTestDataFactory();
+        {
+            String locale = "en";
+            String p = GERMAN_IN_SWITZERLAND;
+                final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            assertEquals(List.of(
+                new LocaleInheritanceInfo(locale, p, Reason.value)
+            ), f.getPathsWhereFound(p), "For " + locale + ":" + p);
+        }
+        {
+            String locale = "en_CA";
+            String parent = "en";
+            String p = GERMAN_IN_SWITZERLAND;
+                final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            assertEquals(List.of(
+                new LocaleInheritanceInfo(locale, p, Reason.inheritancemarker),
+                new LocaleInheritanceInfo(parent, p, Reason.value)
+            ), f.getPathsWhereFound(p), "For " + locale + ":" + p);
+        }
+        {
+            String locale = "root";
+            String p = GERMAN_IN_SWITZERLAND;
+            final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            assertEquals(List.of(
+                new LocaleInheritanceInfo(XMLSource.CODE_FALLBACK_ID,
+                    GERMAN,
+                    Reason.constructed),
+                new LocaleInheritanceInfo(XMLSource.ROOT_ID, "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", Reason.constructed),
+                new LocaleInheritanceInfo(XMLSource.CODE_FALLBACK_ID, "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]", Reason.constructed)),
+                f.getPathsWhereFound(p), "For " + locale + ":" + p);
+        }
+        {
+            // Note: Uses the special test data in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/main/hy.xml
+            // so we are not dependent on exact data that could change
+            String locale = "hy";
+            final String p = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"angle-revolution\"]/unitPattern[@count=\"one\"]";
+            final String pother = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"angle-revolution\"]/unitPattern[@count=\"other\"]";
+            final CLDRFile f = myFactory.make(locale, true);
+            assertEquals(List.of(
+                new LocaleInheritanceInfo(locale, p, Reason.novalue),
+                new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.novalue),
+                new LocaleInheritanceInfo(null, pother, Reason.count),
+                new LocaleInheritanceInfo(locale, pother, Reason.novalue),
+                new LocaleInheritanceInfo(XMLSource.ROOT_ID, pother, Reason.value)
+            ), f.getPathsWhereFound(p), "For (TESTDATA) " + locale + ":" + p);
         }
     }
 }

@@ -381,7 +381,7 @@ public class Option {
             return results;
         }
 
-        private String getHelp() {
+        public String getHelp() {
             StringBuilder buffer = new StringBuilder(mainMessage);
             boolean first = true;
             for (Option option : stringToValues.values()) {

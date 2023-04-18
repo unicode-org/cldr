@@ -23,6 +23,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SimpleXMLSource;
+import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -38,10 +39,6 @@ import com.google.common.cache.CacheBuilder;
  *
  */
 public class CldrResolver {
-    /**
-     * The name of the code-fallback locale
-     */
-    public static final String CODE_FALLBACK = "code-fallback";
 
     /**
      * The name of the root locale
@@ -260,7 +257,7 @@ public class CldrResolver {
              * aren't equal, add it to the resolved file.
              */
             if (resolutionType == ResolutionType.NO_CODE_FALLBACK && file.getSourceLocaleID(
-                distinguishedPath, null).equals(CODE_FALLBACK)) {
+                distinguishedPath, null).equals(CODE_FALLBACK_ID)) {
                 continue;
             }
 

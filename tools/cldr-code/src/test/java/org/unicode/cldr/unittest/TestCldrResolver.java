@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
 
 /**
  * Runs all the CLDR Resolver Tool tests
@@ -49,7 +50,7 @@ public class TestCldrResolver extends TestFmwkPlus {
                 CLDRFile file) {
                 return super.shouldIgnorePath(distinguishedPath, file)
                     || file.getSourceLocaleID(distinguishedPath, null)
-                        .equals(CldrResolver.CODE_FALLBACK);
+                        .equals(CODE_FALLBACK_ID);
             }
         }.testResolution();
     }

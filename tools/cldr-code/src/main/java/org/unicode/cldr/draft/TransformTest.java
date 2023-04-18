@@ -1,11 +1,10 @@
 package org.unicode.cldr.draft;
 
-import org.unicode.cldr.util.Timer;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
+import org.unicode.cldr.util.Timer;
 
 public class TransformTest extends TestFmwk {
 
@@ -18,18 +17,19 @@ public class TransformTest extends TestFmwk {
 
     public void TestFix() {
         String[][] tests = {
-            { "!=", "([:m:])*" },
-            { "==", "(\\[:m:])*" },
-            { "==", "\\Q([:m:])*\\E" },
-            { "a(?:gh|[b])", "a[b{gh}]" },
+            {"!=", "([:m:])*"},
+            {"==", "(\\[:m:])*"},
+            {"==", "\\Q([:m:])*\\E"},
+            {"a(?:gh|[b])", "a[b{gh}]"},
         };
         for (String[] test : tests) {
             if (test[0].equals("!=")) {
-                assertNotEquals("Should be different", test[1],
-                    PatternFixer.fixJava(test[1]));
+                assertNotEquals("Should be different", test[1], PatternFixer.fixJava(test[1]));
             } else {
-                assertEquals("Should be equal", test[0].equals("==") ? test[1] : test[0],
-                    PatternFixer.fixJava(test[1]));
+                assertEquals(
+                        "Should be equal",
+                        test[0].equals("==") ? test[1] : test[0],
+                        PatternFixer.fixJava(test[1]));
             }
         }
     }
@@ -43,21 +43,19 @@ public class TransformTest extends TestFmwk {
             "ab > AB; BA > CD;",
             "ABAB",
             "RULES",
-            "D { a > A;" +
-                "c {(d)} e > X$1;" +
-                "d > D",
+            "D { a > A;" + "c {(d)} e > X$1;" + "d > D",
             "dabcdefgd",
             "ad",
             "Da",
             "RULES",
-            "::[a-z];" +
-                "[:L:] { b } > B;" +
-                "B > M;" +
-                "z > Z;" +
-                "w > W;" +
-                "x > X;" +
-                "q > Q;" +
-                "C > Y;",
+            "::[a-z];"
+                    + "[:L:] { b } > B;"
+                    + "B > M;"
+                    + "z > Z;"
+                    + "w > W;"
+                    + "x > X;"
+                    + "q > Q;"
+                    + "C > Y;",
             "zB",
             "abXbCabXbCabXbCabXbCabXbCabXbCabXbCabXbCabXbCabXbCabX"
         };
@@ -102,7 +100,11 @@ public class TransformTest extends TestFmwk {
         }
     }
 
-    private void check(int iterations, String test, StringTransform newTransform, StringTransform oldTransform) {
+    private void check(
+            int iterations,
+            String test,
+            StringTransform newTransform,
+            StringTransform oldTransform) {
 
         Timer t = new Timer();
         String result = null;
@@ -126,14 +128,23 @@ public class TransformTest extends TestFmwk {
         } else {
             logln("OK:\t" + test + "\t=>\t" + result);
         }
-        final String percent = oldDuration == 0 ? "INF" : String.valueOf(newDuration * 100 / oldDuration - 100);
-        logln("new time: " + newDuration / 1.0 / iterations + "\told time: " + oldDuration / 1.0 / iterations
-            + "\tnew%: " + percent + "%");
+        final String percent =
+                oldDuration == 0 ? "INF" : String.valueOf(newDuration * 100 / oldDuration - 100);
+        logln(
+                "new time: "
+                        + newDuration / 1.0 / iterations
+                        + "\told time: "
+                        + oldDuration / 1.0 / iterations
+                        + "\tnew%: "
+                        + percent
+                        + "%");
     }
 
     private void show(Transliterator oldTransform) {
         UnicodeFilter filter = oldTransform.getFilter();
-        logln("Old:\n" + (filter == null ? "" : filter.toString() + ";\n") + oldTransform.toRules(true));
+        logln(
+                "Old:\n"
+                        + (filter == null ? "" : filter.toString() + ";\n")
+                        + oldTransform.toRules(true));
     }
-
 }

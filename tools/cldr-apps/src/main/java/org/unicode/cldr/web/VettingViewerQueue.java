@@ -1,18 +1,16 @@
 package org.unicode.cldr.web;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
-
-import com.ibm.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.web.api.LocaleCompletion;
 
 /**
@@ -47,8 +45,7 @@ public class VettingViewerQueue {
      */
     private static int pathCount(CLDRFile f) {
         int jj = 0;
-        for (@SuppressWarnings("unused")
-        String s : f) {
+        for (@SuppressWarnings("unused") String s : f) {
             jj++;
         }
         return jj;
@@ -67,9 +64,7 @@ public class VettingViewerQueue {
         return gMax;
     }
 
-    /**
-     * A unique key for storing QueueEntry objects in QueueMemberId objects
-     */
+    /** A unique key for storing QueueEntry objects in QueueMemberId objects */
     private static final String KEY = VettingViewerQueue.class.getName();
 
     /**
@@ -91,7 +86,7 @@ public class VettingViewerQueue {
     /**
      * What policy should be used when querying the queue?
      *
-     * Public for access by SummaryRequest
+     * <p>Public for access by SummaryRequest
      *
      * @author srl
      */
@@ -117,15 +112,14 @@ public class VettingViewerQueue {
         private final Map<Organization, VVOutput> output = new TreeMap<>();
     }
 
-    /**
-     * Semaphore to ensure that only one vetter accesses VV at a time.
-     */
+    /** Semaphore to ensure that only one vetter accesses VV at a time. */
     private static final Semaphore OnlyOneVetter = new Semaphore(1);
 
     private class Task implements Runnable {
 
         /**
          * A VettingViewer.ProgressCallback that updates a CLDRProgressTask
+         *
          * @author srl295
          */
         private final class CLDRProgressCallback extends VettingViewer.ProgressCallback {
@@ -164,7 +158,8 @@ public class VettingViewerQueue {
                 }
                 if ((now - last) > 1200) {
                     if (DEBUG) {
-                        System.out.println("Task.nudge() for Priority Items Summary, " + taskDescription());
+                        System.out.println(
+                                "Task.nudge() for Priority Items Summary, " + taskDescription());
                     }
                     last = now;
                     if (n > 500) {
@@ -229,10 +224,12 @@ public class VettingViewerQueue {
              * TODO: explain this magic number! Why add 100?
              * Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
              */
-            final CLDRProgressTask progress = CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
+            final CLDRProgressTask progress =
+                    CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
 
             if (DEBUG) {
-                System.out.println("Starting up vv task: Priority Items Summary, " + taskDescription());
+                System.out.println(
+                        "Starting up vv task: Priority Items Summary, " + taskDescription());
             }
 
             try {
@@ -249,7 +246,9 @@ public class VettingViewerQueue {
                     if (stop) {
                         // this NEVER happens?
                         if (DEBUG) {
-                            System.out.println("VettingViewerQueue.Task.run -- stopping, " + taskDescription());
+                            System.out.println(
+                                    "VettingViewerQueue.Task.run -- stopping, "
+                                            + taskDescription());
                         }
                         status = "Stopped on request.";
                         statusCode = Status.STOPPED;
@@ -266,7 +265,11 @@ public class VettingViewerQueue {
                 status = "Finished.";
                 statusCode = Status.READY;
             } catch (RuntimeException | InterruptedException | ExecutionException re) {
-                SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary, " + taskDescription());
+                SurveyLog.logException(
+                        logger,
+                        re,
+                        "While VettingViewer processing Priority Items Summary, "
+                                + taskDescription());
                 status = "Exception! " + re + ", " + taskDescription();
                 // We're done.
                 statusCode = Status.STOPPED;
@@ -282,11 +285,13 @@ public class VettingViewerQueue {
             return "thread " + myThread.getId() + ", " + LocalTime.now();
         }
 
-        private void processCriticalWork(final CLDRProgressTask progress) throws ExecutionException {
+        private void processCriticalWork(final CLDRProgressTask progress)
+                throws ExecutionException {
             status = "Beginning Process, Calculating";
             VettingViewer<Organization> vv;
-            vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-                new STUsersChoice(sm));
+            vv =
+                    new VettingViewer<>(
+                            sm.getSupplementalDataInfo(), sm.getSTFactory(), new STUsersChoice(sm));
             vv.setSummarizeAllLocales(summarizeAllLocales);
             int localeCount = vv.getLocaleCount(usersOrg);
             int pathCount = getMax(sm.getEnglishFile());
@@ -298,21 +303,26 @@ public class VettingViewerQueue {
             n = 0;
             vv.setProgressCallback(new CLDRProgressCallback(progress, Thread.currentThread()));
 
-            EnumSet<NotificationCategory> choiceSet = VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
+            EnumSet<NotificationCategory> choiceSet =
+                    VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
             if (DEBUG) {
-                System.out.println("Starting generation of Priority Items Summary, " + taskDescription());
+                System.out.println(
+                        "Starting generation of Priority Items Summary, " + taskDescription());
             }
             vv.setLocaleBaselineCount(new VVQueueLocaleBaselineCount());
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 if (DEBUG) {
-                   System.out.println("Finished generation of Priority Items Summary, " + taskDescription());
+                    System.out.println(
+                            "Finished generation of Priority Items Summary, " + taskDescription());
                 }
                 aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
                 entry.output.put(usersOrg, new VVOutput(aBuffer));
             } else {
                 if (DEBUG) {
-                    System.out.println("Stopped generation of Priority Items Summary (thread is dead), " + taskDescription());
+                    System.out.println(
+                            "Stopped generation of Priority Items Summary (thread is dead), "
+                                    + taskDescription());
                 }
             }
         }
@@ -322,20 +332,18 @@ public class VettingViewerQueue {
                 return 0;
             } else if (n >= maxn) {
                 return 100;
-             } else {
+            } else {
                 int p = (n * 100) / maxn;
                 return (p > 0) ? p : 1;
             }
         }
     }
 
-    /**
-     * Arguments for getPriorityItemsSummaryOutput
-     */
+    /** Arguments for getPriorityItemsSummaryOutput */
     public class Args {
-        final private QueueMemberId qmi;
-        final private Organization usersOrg;
-        final private LoadingPolicy loadingPolicy;
+        private final QueueMemberId qmi;
+        private final Organization usersOrg;
+        private final LoadingPolicy loadingPolicy;
 
         public Args(QueueMemberId qmi, Organization usersOrg, LoadingPolicy loadingPolicy) {
             this.qmi = qmi;
@@ -347,7 +355,7 @@ public class VettingViewerQueue {
     /**
      * Results for getPriorityItemsSummaryOutput
      *
-     * These fields get filled in by getPriorityItemsSummaryOutput, and referenced by the caller
+     * <p>These fields get filled in by getPriorityItemsSummaryOutput, and referenced by the caller
      * after getPriorityItemsSummaryOutput returns
      */
     public class Results {
@@ -358,12 +366,12 @@ public class VettingViewerQueue {
     /*
      * Messages returned by getPriorityItemsSummaryOutput
      */
-    private final static String SUM_MESSAGE_COMPLETE = "Completed successfully";
-    private final static String SUM_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
-    private final static String SUM_MESSAGE_PROGRESS = "In Progress";
-    private final static String SUM_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
-    private final static String SUM_MESSAGE_NOT_LOADING = "Not loading. Click the button to load.";
-    private final static String SUM_MESSAGE_STARTED = "Started new task";
+    private static final String SUM_MESSAGE_COMPLETE = "Completed successfully";
+    private static final String SUM_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
+    private static final String SUM_MESSAGE_PROGRESS = "In Progress";
+    private static final String SUM_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
+    private static final String SUM_MESSAGE_NOT_LOADING = "Not loading. Click the button to load.";
+    private static final String SUM_MESSAGE_STARTED = "Started new task";
 
     /**
      * Return the status of the vetting viewer output request
@@ -374,7 +382,8 @@ public class VettingViewerQueue {
      * @throws IOException
      * @throws JSONException
      */
-    public synchronized String getPriorityItemsSummaryOutput(VettingViewerQueue.Args args, VettingViewerQueue.Results results)
+    public synchronized String getPriorityItemsSummaryOutput(
+            VettingViewerQueue.Args args, VettingViewerQueue.Results results)
             throws IOException, JSONException {
         JSONObject debugStatus = DEBUG ? new JSONObject() : null;
         QueueEntry entry = getEntry(args.qmi);
@@ -387,13 +396,15 @@ public class VettingViewerQueue {
                 results.output.append(res.output);
                 if (DEBUG) {
                     final String desc = (t == null) ? "[null task]" : t.taskDescription();
-                    System.out.println("Got result, calling stop for Priority Items Summary, " + desc);
+                    System.out.println(
+                            "Got result, calling stop for Priority Items Summary, " + desc);
                 }
                 stop(entry);
                 entry.output.remove(args.usersOrg);
                 return SUM_MESSAGE_COMPLETE;
             }
-        } else { /* force stop */
+        } else {
+            /* force stop */
             if (DEBUG) {
                 final String desc = (t == null) ? "[null task]" : t.taskDescription();
                 System.out.println("Forced stop of Priority Items Summary, " + desc);
@@ -433,12 +444,14 @@ public class VettingViewerQueue {
             return SUM_MESSAGE_NOT_LOADING;
         }
 
-        // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
+        // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than
+        // a raw thread) but would require
         // some restructuring
         t = entry.currentTask = new Task(entry, args.usersOrg);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         if (DEBUG) {
-            System.out.println("Starting new thread for Priority Items Summary, " + t.taskDescription());
+            System.out.println(
+                    "Starting new thread for Priority Items Summary, " + t.taskDescription());
         }
         t.myThread.start();
 
@@ -482,15 +495,21 @@ public class VettingViewerQueue {
         if (t != null) {
             if (t.myThread.isAlive() && !t.stop) {
                 if (DEBUG) {
-                    System.out.println("Alive; stop() setting stop = true for Priority Items Summary, " + t.taskDescription());
+                    System.out.println(
+                            "Alive; stop() setting stop = true for Priority Items Summary, "
+                                    + t.taskDescription());
                 }
                 t.stop = true;
                 t.myThread.interrupt();
                 if (DEBUG) {
-                    System.out.println("Alive; called interrupt() for Priority Items Summary, " + t.taskDescription());
+                    System.out.println(
+                            "Alive; called interrupt() for Priority Items Summary, "
+                                    + t.taskDescription());
                 }
             } else if (DEBUG) {
-                System.out.println("Not alive or already stopped for Priority Items Summary, " + t.taskDescription());
+                System.out.println(
+                        "Not alive or already stopped for Priority Items Summary, "
+                                + t.taskDescription());
             }
             entry.currentTask = null;
         } else if (DEBUG) {

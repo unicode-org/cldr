@@ -6,21 +6,16 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 public class VoterInfoList {
-    /**
-     * Create a VoterInfoList with no users
-     */
+    /** Create a VoterInfoList with no users */
     public VoterInfoList() {
         clearVoterToInfo();
     }
 
-    /**
-     * Static info read from file
-     */
+    /** Static info read from file */
     private Map<Integer, VoterInfo> voterToInfo;
 
     private Map<String, Map<Organization, Level>> localeToOrganizationToMaxVote;
@@ -29,9 +24,7 @@ public class VoterInfoList {
         return voterToInfo;
     }
 
-    /**
-     * Clear out all users.
-     */
+    /** Clear out all users. */
     VoterInfoList clearVoterToInfo() {
         setVoterToInfo(Collections.emptyMap());
         return this;
@@ -43,18 +36,16 @@ public class VoterInfoList {
 
     /**
      * Set the voter info.
-     * <p>
-     * Synchronized, however, once this is called, you must NOT change the contents of your copy of newVoterToInfo. You
-     * can create a whole new one and set it.
+     *
+     * <p>Synchronized, however, once this is called, you must NOT change the contents of your copy
+     * of newVoterToInfo. You can create a whole new one and set it.
      */
     public VoterInfoList setVoterToInfo(Map<Integer, VoterInfo> newVoterToInfo) {
         computeMaxVotesAndSet(newVoterToInfo);
         return this;
     }
 
-    /**
-     * Set the voter info from a users.xml file.
-     */
+    /** Set the voter info from a users.xml file. */
     public VoterInfoList setVoterToInfo(String fileName) {
         MyHandler myHandler = new MyHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
@@ -73,15 +64,17 @@ public class VoterInfoList {
 
             for (CLDRLocale loc : info.getLocales()) {
                 String locale = loc.getBaseName();
-                Map<Organization, Level> organizationToMaxVote = newLocaleToOrganizationToMaxVote.get(locale);
+                Map<Organization, Level> organizationToMaxVote =
+                        newLocaleToOrganizationToMaxVote.get(locale);
                 if (organizationToMaxVote == null) {
-                    newLocaleToOrganizationToMaxVote.put(locale,
-                        organizationToMaxVote = new TreeMap<>());
+                    newLocaleToOrganizationToMaxVote.put(
+                            locale, organizationToMaxVote = new TreeMap<>());
                 }
                 Level maxVote = organizationToMaxVote.get(info.getOrganization());
                 if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
                     organizationToMaxVote.put(info.getOrganization(), info.getLevel());
-                    // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " +
+                    // System.out.println("Example best voter for " + locale + " for " +
+                    // info.organization + " is " +
                     // info);
                 }
             }
@@ -103,28 +96,32 @@ public class VoterInfoList {
      * Adobe
      * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/locales[@type="edit"]
      *
-     * Steven's new format:
-     * //users[@generated="Wed May 07 15:57:15 PDT 2008"][@host="tintin"][@obscured="true"]
-     * /user[@id="286"][@email="?@??.??"]
+     * <p>Steven's new format: //users[@generated="Wed May 07 15:57:15 PDT
+     * 2008"][@host="tintin"][@obscured="true"] /user[@id="286"][@email="?@??.??"]
      * /level[@n="1"][@type="TC"]
      */
-
     static class MyHandler extends XMLFileReader.SimpleHandler {
-        private static final Pattern userPathMatcher = Pattern
-            .compile(
-                "//users(?:[^/]*)"
-                    + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
-                    + "/("
-                    + "org" +
-                    "|name" +
-                    "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" +
-                    "|locales\\[@type=\"([^\"]*)\"]" +
-                    "(?:/locale\\[@id=\"([^\"]*)\"])?"
-                    + ")",
-                Pattern.COMMENTS);
+        private static final Pattern userPathMatcher =
+                Pattern.compile(
+                        "//users(?:[^/]*)"
+                                + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
+                                + "/("
+                                + "org"
+                                + "|name"
+                                + "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]"
+                                + "|locales\\[@type=\"([^\"]*)\"]"
+                                + "(?:/locale\\[@id=\"([^\"]*)\"])?"
+                                + ")",
+                        Pattern.COMMENTS);
 
         enum Group {
-            all, userId, mainType, n, levelType, localeType, localeId;
+            all,
+            userId,
+            mainType,
+            n,
+            levelType,
+            localeType,
+            localeId;
 
             String get(Matcher matcher) {
                 return matcher.group(this.ordinal());
@@ -137,8 +134,7 @@ public class VoterInfoList {
 
         @Override
         public void handlePathValue(String path, String value) {
-            if (DEBUG_HANDLER)
-                System.out.println(path + "\t" + value);
+            if (DEBUG_HANDLER) System.out.println(path + "\t" + value);
             if (matcher.reset(path).matches()) {
                 if (DEBUG_HANDLER) {
                     for (int i = 1; i <= matcher.groupCount(); ++i) {

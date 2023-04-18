@@ -44,14 +44,16 @@ public class TestSearchManager {
             for (final SearchResult result : results) {
                 if (result.xpstrid.equals("1c7bd76a22b7472f")) {
                     foundFormat++;
-                    assertEquals(result.xpath,
-                        "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]");
+                    assertEquals(
+                            result.xpath,
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]");
                     assertEquals(result.xpstrid, "1c7bd76a22b7472f");
                     assertEquals(result.locale, "mt");
                     assertEquals(result.context, request.value);
                 } else {
-                    assertNotEquals(result.xpath,
-                        "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]");
+                    assertNotEquals(
+                            result.xpath,
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]");
                 }
             }
             assertEquals(1, foundFormat, "Expect to find exactly 1 xpath 1c7bd76a22b7472f");
@@ -63,7 +65,8 @@ public class TestSearchManager {
             assertNull(mgr.getSearch(r1.token)); // nope, it's really gone!
             return;
         }
-        throw new RuntimeException("Patience exceeded for query " + r0.token + " - did not complete in time.");
+        throw new RuntimeException(
+                "Patience exceeded for query " + r0.token + " - did not complete in time.");
     }
 
     @Test

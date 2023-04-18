@@ -13,14 +13,16 @@ public class STUsersChoice implements UsersChoice<Organization> {
     }
 
     @Override
-    public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
+    public String getWinningValueForUsersOrganization(
+            CLDRFile cldrFile, String path, Organization user) {
         CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
         BallotBox<User> ballotBox = getBox(sm, loc);
         return ballotBox.getResolver(path).getOrgVote(user);
     }
 
     @Override
-    public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization orgOfUser) {
+    public VoteStatus getStatusForUsersOrganization(
+            CLDRFile cldrFile, String path, Organization orgOfUser) {
         CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
         BallotBox<User> ballotBox = getBox(sm, loc);
         return ballotBox.getResolver(path).getStatusForOrganization(orgOfUser);

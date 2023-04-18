@@ -1,5 +1,10 @@
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedNumberFormat;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UResourceBundle;
+import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,14 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Formatter;
 import java.util.Locale;
-
 import org.unicode.cldr.util.InputStreamFactory;
-
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RuleBasedNumberFormat;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.UResourceBundle;
-import com.ibm.icu.util.VersionInfo;
 
 /**
  * @author George Rhoten
@@ -54,20 +52,21 @@ public class ListNumbers {
      * };
      */
     // For standard simple testing
-    private static final double[][] RANGES = new double[][] {
-        new double[] { -1, 0 },
-        new double[] { 0.23, 0.23 },
-        new double[] { 1, 31 },
-        new double[] { 98, 102 },
-        new double[] { 998, 1002 },
-        new double[] { 1998, 2002 },
-        new double[] { 9998, 10002 },
-        new double[] { 100000, 100001 },
-        new double[] { 1000000, 1000001 },
-        new double[] { 10000000, 10000001 },
-        new double[] { 100000000, 100000001 },
-        new double[] { 1000000000, 1000000001 },
-    };
+    private static final double[][] RANGES =
+            new double[][] {
+                new double[] {-1, 0},
+                new double[] {0.23, 0.23},
+                new double[] {1, 31},
+                new double[] {98, 102},
+                new double[] {998, 1002},
+                new double[] {1998, 2002},
+                new double[] {9998, 10002},
+                new double[] {100000, 100001},
+                new double[] {1000000, 1000001},
+                new double[] {10000000, 10000001},
+                new double[] {100000000, 100000001},
+                new double[] {1000000000, 1000000001},
+            };
 
     /*
      * private static final long[][] RANGES = new long[][] {
@@ -115,7 +114,8 @@ public class ListNumbers {
             String prefix = currRuleName.substring(1, currRuleName.indexOf('-'));
             if (prefix.equals("spellout") || prefix.equals("digits") || prefix.equals("duration")) {
                 String suffix = currRuleName.substring(currRuleName.indexOf('-') + 1);
-                // return suffix + (spellout.getDefaultRuleSetName().equals(currRuleName) ? "<br/><em>Default</em>" :
+                // return suffix + (spellout.getDefaultRuleSetName().equals(currRuleName) ?
+                // "<br/><em>Default</em>" :
                 // "");
                 return suffix;
             }
@@ -127,12 +127,12 @@ public class ListNumbers {
     private static String fileToString(String file) {
         String str = "";
         try (InputStream is = InputStreamFactory.createInputStream(new File(file));
-            Reader reader = new InputStreamReader(is, "UTF-8");) {
-//            InputStream is = new FileInputStream(file);
+                Reader reader = new InputStreamReader(is, "UTF-8"); ) {
+            //            InputStream is = new FileInputStream(file);
 
             char[] buffer = new char[is.available() + 1];
             int i = reader.read(buffer);
-//            reader.close();
+            //            reader.close();
             if (i >= buffer.length) {
                 // This should never happen. Summary of UTF-8 to UTF-16 conversion per codepoint:
                 // 1 byte -> 1 char, 2 bytes -> 1 char, 3 bytes -> 1 char, 4 bytes -> 2 chars.
@@ -151,7 +151,8 @@ public class ListNumbers {
         if (isRTL) {
             bidiStyle = " rtl";
         }
-        if ((val < 1 || val != (long) val) && (ruleName.contains("ordinal") || ruleName.contains("year"))) {
+        if ((val < 1 || val != (long) val)
+                && (ruleName.contains("ordinal") || ruleName.contains("year"))) {
             return " class=\"nonsense" + bidiStyle + "\"";
         }
         if (ruleName.contains("@noparse")) {
@@ -179,7 +180,12 @@ public class ListNumbers {
         System.out.print("<tr><td>" + numStr + "</td>");
         for (RuleBasedNumberFormat rbnf : rbnfs) {
             for (String name : rbnf.getRuleSetNames()) {
-                System.out.print("<td" + getNumberStyle(name, num, isRTL) + ">" + rbnf.format(num, name) + "</td>");
+                System.out.print(
+                        "<td"
+                                + getNumberStyle(name, num, isRTL)
+                                + ">"
+                                + rbnf.format(num, name)
+                                + "</td>");
             }
         }
         System.out.println("</tr>");
@@ -190,35 +196,49 @@ public class ListNumbers {
         System.out.print("<tr><td>...</td>");
         for (RuleBasedNumberFormat rbnf : rbnfs) {
             for (String name : rbnf.getRuleSetNames()) {
-                System.out.print("<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
+                System.out.print(
+                        "<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
             }
         }
         System.out.println("</tr>");
     }
 
     private static void printTable(ULocale loc, RuleBasedNumberFormat[] rbnfs) {
-        System.out.println("<h2 style=\"margin-top: 3em\"><a name=\"" + loc + "\"></a>" + loc + " - "
-            + loc.getDisplayName() + "</h2>");
+        System.out.println(
+                "<h2 style=\"margin-top: 3em\"><a name=\""
+                        + loc
+                        + "\"></a>"
+                        + loc
+                        + " - "
+                        + loc.getDisplayName()
+                        + "</h2>");
         System.out.println("<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">");
         System.out.println("<tr><th rowspan=\"2\" class=\"thead\"><b>Number</b></th>");
         for (RuleBasedNumberFormat rbnf : rbnfs) {
             int numColumns = rbnf.getRuleSetNames().length;
-            System.out.print("<th colspan=\"" + numColumns + "\" style=\"text-align:center;\">"
-                + getRulePrefix(rbnf.getDefaultRuleSetName()));
-            System.out.print("<br/><span style=\"color: gray\">Default = "
-                + getDisplayName(rbnf, rbnf.getDefaultRuleSetName()));
+            System.out.print(
+                    "<th colspan=\""
+                            + numColumns
+                            + "\" style=\"text-align:center;\">"
+                            + getRulePrefix(rbnf.getDefaultRuleSetName()));
+            System.out.print(
+                    "<br/><span style=\"color: gray\">Default = "
+                            + getDisplayName(rbnf, rbnf.getDefaultRuleSetName()));
             System.out.println("</span></th>");
         }
         System.out.println("</tr>");
         System.out.print("<tr>");
         for (RuleBasedNumberFormat rbnf : rbnfs) {
             for (String name : rbnf.getRuleSetNames()) {
-                System.out.print("<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
+                System.out.print(
+                        "<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
             }
         }
         System.out.println("</tr>");
         byte direction = Character.getDirectionality(rbnfs[0].format(1).charAt(0));
-        boolean isRTL = (direction == Character.DIRECTIONALITY_RIGHT_TO_LEFT || direction == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC);
+        boolean isRTL =
+                (direction == Character.DIRECTIONALITY_RIGHT_TO_LEFT
+                        || direction == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC);
         for (int rangeIdx = 0; rangeIdx < RANGES.length; rangeIdx++) {
             double end = RANGES[rangeIdx][1];
             if (end == (long) end && rangeIdx != 0) {
@@ -234,7 +254,8 @@ public class ListNumbers {
     public static void main(String[] args) {
         System.out.println("<html>");
         System.out.println("<head>");
-        System.out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
+        System.out.println(
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
         System.out.println("<title>RBNF output</title>");
         System.out.println("</head>");
         System.out.println("<body>");
@@ -247,30 +268,43 @@ public class ListNumbers {
         System.out.println(".thead {text-align:center; font-weight:bold;}");
         System.out.println("</style>");
         if (args.length > 1) {
-            RuleBasedNumberFormat[] rbnfs = new RuleBasedNumberFormat[] {
-                new RuleBasedNumberFormat(fileToString(args[1]), new ULocale(args[0]))
-            };
+            RuleBasedNumberFormat[] rbnfs =
+                    new RuleBasedNumberFormat[] {
+                        new RuleBasedNumberFormat(fileToString(args[1]), new ULocale(args[0]))
+                    };
             printTable(new ULocale(args[0]), rbnfs);
         } else {
             for (ULocale loc : NumberFormat.getAvailableULocales()) {
-                RuleBasedNumberFormat[] rbnfs = new RuleBasedNumberFormat[] {
-                    new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.SPELLOUT),
-                    new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.ORDINAL),
-                    // new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.DURATION)
-                };
+                RuleBasedNumberFormat[] rbnfs =
+                        new RuleBasedNumberFormat[] {
+                            new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.SPELLOUT),
+                            new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.ORDINAL),
+                            // new RuleBasedNumberFormat(loc, RuleBasedNumberFormat.DURATION)
+                        };
                 if (!rbnfs[0].getLocale(ULocale.ACTUAL_LOCALE).equals(loc)) {
                     // Uninteresting duplicate data. Show only the minimal set of information.
                     continue;
                 }
                 try {
-                    // Hack to minimize data displayed because ULocale.ACTUAL_LOCALE does not work as desired.
+                    // Hack to minimize data displayed because ULocale.ACTUAL_LOCALE does not work
+                    // as desired.
                     @SuppressWarnings("deprecation")
-                    UResourceBundle bundle = UResourceBundle.getBundleInstance("com/ibm/icu/impl/data/icudt"
-                        + VersionInfo.ICU_DATA_VERSION_PATH + "/rbnf", loc);
+                    UResourceBundle bundle =
+                            UResourceBundle.getBundleInstance(
+                                    "com/ibm/icu/impl/data/icudt"
+                                            + VersionInfo.ICU_DATA_VERSION_PATH
+                                            + "/rbnf",
+                                    loc);
                     if (bundle.getSize() == 2) {
                         UResourceBundle parent = bundle.get("%%Parent");
-                        System.out.println("<p>" + loc + " is an alias to " + parent.getString() + " - "
-                            + new ULocale(parent.getString()).getDisplayName() + "</p>");
+                        System.out.println(
+                                "<p>"
+                                        + loc
+                                        + " is an alias to "
+                                        + parent.getString()
+                                        + " - "
+                                        + new ULocale(parent.getString()).getDisplayName()
+                                        + "</p>");
                         continue;
                     }
                 } catch (Exception e) {
@@ -278,11 +312,13 @@ public class ListNumbers {
                 }
                 printTable(loc, rbnfs);
             }
-            RuleBasedNumberFormat[] rbnfNumbering = new RuleBasedNumberFormat[] {
-                new RuleBasedNumberFormat(new ULocale(""), RuleBasedNumberFormat.NUMBERING_SYSTEM),
-                new RuleBasedNumberFormat(new ULocale(""), RuleBasedNumberFormat.SPELLOUT),
-                new RuleBasedNumberFormat(new ULocale(""), RuleBasedNumberFormat.ORDINAL)
-            };
+            RuleBasedNumberFormat[] rbnfNumbering =
+                    new RuleBasedNumberFormat[] {
+                        new RuleBasedNumberFormat(
+                                new ULocale(""), RuleBasedNumberFormat.NUMBERING_SYSTEM),
+                        new RuleBasedNumberFormat(new ULocale(""), RuleBasedNumberFormat.SPELLOUT),
+                        new RuleBasedNumberFormat(new ULocale(""), RuleBasedNumberFormat.ORDINAL)
+                    };
             printTable(new ULocale(""), rbnfNumbering);
         }
         System.out.println("</body>");

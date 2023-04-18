@@ -1,5 +1,10 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UTF16;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,7 +12,6 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -20,12 +24,6 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.Timer;
-
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UTF16;
 
 public class GenerateComparison {
 
@@ -51,7 +49,8 @@ public class GenerateComparison {
 
     static EnglishRowComparator ENG = new EnglishRowComparator();
 
-    static final String warningMessage = "<p><b>Warning: this chart is still under development. For how to use it, see <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\">Help: How to Vet</a>.</b></p>";
+    static final String warningMessage =
+            "<p><b>Warning: this chart is still under development. For how to use it, see <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\">Help: How to Vet</a>.</b></p>";
 
     public static void main(String[] args) throws IOException {
 
@@ -66,19 +65,30 @@ public class GenerateComparison {
 
         // Get the args
 
-        String oldDirectory = CldrUtility.getProperty("oldDirectory", PathUtilities.getNormalizedPathString(new File(
-                CLDRPaths.BASE_DIRECTORY,
-            "common/main")) + "/");
-        String newDirectory = CldrUtility.getProperty("newDirectory", PathUtilities.getNormalizedPathString(new File(
-                CLDRPaths.BASE_DIRECTORY,
-            "../cldr-release-1-7/common/main")) + "/");
-        String changesDirectory = CldrUtility.getProperty("changesDirectory", PathUtilities
-                .getNormalizedPathString(CLDRPaths.CHART_DIRECTORY
-            + "/changes/")
-            + "/");
+        String oldDirectory =
+                CldrUtility.getProperty(
+                        "oldDirectory",
+                        PathUtilities.getNormalizedPathString(
+                                        new File(CLDRPaths.BASE_DIRECTORY, "common/main"))
+                                + "/");
+        String newDirectory =
+                CldrUtility.getProperty(
+                        "newDirectory",
+                        PathUtilities.getNormalizedPathString(
+                                        new File(
+                                                CLDRPaths.BASE_DIRECTORY,
+                                                "../cldr-release-1-7/common/main"))
+                                + "/");
+        String changesDirectory =
+                CldrUtility.getProperty(
+                        "changesDirectory",
+                        PathUtilities.getNormalizedPathString(
+                                        CLDRPaths.CHART_DIRECTORY + "/changes/")
+                                + "/");
 
         String filter = CldrUtility.getProperty("localeFilter", ".*");
-        boolean SHOW_ALIASED = CldrUtility.getProperty("showAliased", "false").toLowerCase().startsWith("t");
+        boolean SHOW_ALIASED =
+                CldrUtility.getProperty("showAliased", "false").toLowerCase().startsWith("t");
 
         // Create the factories
 
@@ -190,26 +200,50 @@ public class GenerateComparison {
             // }
 
             // Initialize sets
-            // .addColumn("Code", "class='source'", "<a name=\"{0}\" href='likely_subtags.html#und_{0}'>{0}</a>",
+            // .addColumn("Code", "class='source'", "<a name=\"{0}\"
+            // href='likely_subtags.html#und_{0}'>{0}</a>",
             // "class='source'", true)
 
             final String localeDisplayName = english.getName(locale);
-            TablePrinter table = new TablePrinter()
-                .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")
-                .addColumn("PRETTY_SORT1").setSortPriority(1).setHidden(true).setRepeatHeader(true)
-                .addColumn("PRETTY_SORT2").setSortPriority(2).setHidden(true)
-                .addColumn("PRETTY_SORT3").setSortPriority(3).setHidden(true)
-                .addColumn("ESCAPED_PATH").setHidden(true)
-                .addColumn("Inh.").setCellAttributes("class=\"{0}\"").setSortPriority(0).setSpanRows(true)
-                .setRepeatHeader(true)
-                .addColumn("Section").setSpanRows(true).setCellAttributes("class='section'")
-                .addColumn("Subsection").setSpanRows(true).setCellAttributes("class='subsection'")
-                .addColumn("Item").setSpanRows(true).setCellPattern("<a href=\"{4}\">{0}</a>")
-                .setCellAttributes("class='item'")
-                .addColumn("English").setCellAttributes("class='english'")
-                .addColumn("Status").setSortPriority(4).setCellAttributes("class=\"{0}\"")
-                .addColumn("Old" + localeDisplayName).setCellAttributes("class='old'")
-                .addColumn("New" + localeDisplayName).setCellAttributes("class='new'");
+            TablePrinter table =
+                    new TablePrinter()
+                            .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")
+                            .addColumn("PRETTY_SORT1")
+                            .setSortPriority(1)
+                            .setHidden(true)
+                            .setRepeatHeader(true)
+                            .addColumn("PRETTY_SORT2")
+                            .setSortPriority(2)
+                            .setHidden(true)
+                            .addColumn("PRETTY_SORT3")
+                            .setSortPriority(3)
+                            .setHidden(true)
+                            .addColumn("ESCAPED_PATH")
+                            .setHidden(true)
+                            .addColumn("Inh.")
+                            .setCellAttributes("class=\"{0}\"")
+                            .setSortPriority(0)
+                            .setSpanRows(true)
+                            .setRepeatHeader(true)
+                            .addColumn("Section")
+                            .setSpanRows(true)
+                            .setCellAttributes("class='section'")
+                            .addColumn("Subsection")
+                            .setSpanRows(true)
+                            .setCellAttributes("class='subsection'")
+                            .addColumn("Item")
+                            .setSpanRows(true)
+                            .setCellPattern("<a href=\"{4}\">{0}</a>")
+                            .setCellAttributes("class='item'")
+                            .addColumn("English")
+                            .setCellAttributes("class='english'")
+                            .addColumn("Status")
+                            .setSortPriority(4)
+                            .setCellAttributes("class=\"{0}\"")
+                            .addColumn("Old" + localeDisplayName)
+                            .setCellAttributes("class='old'")
+                            .addColumn("New" + localeDisplayName)
+                            .setCellAttributes("class='new'");
             Counter<String> fileCounter = new Counter<>();
 
             for (String path : paths) {
@@ -294,8 +328,10 @@ public class GenerateComparison {
                 // We definitely have a difference worth recording, so do so
 
                 String newFullPath = newFile.getFullXPath(path);
-                final boolean reject = newFullPath != null && newFullPath.contains("@draft")
-                    && !newFullPath.contains("@draft=\"contributed\"");
+                final boolean reject =
+                        newFullPath != null
+                                && newFullPath.contains("@draft")
+                                && !newFullPath.contains("@draft=\"contributed\"");
                 String status;
                 if (reject) {
                     status = "NOT-ACC";
@@ -316,15 +352,19 @@ public class GenerateComparison {
                 String pretty_sort = prettyPathMaker.getPrettyPath(cleanedPath);
                 String[] prettyPartsSort = pretty_sort.split("[|]");
                 if (prettyPartsSort.length != 3) {
-                    System.out.println("Bad pretty path: " + pretty_sort + ", original: " + cleanedPath);
+                    System.out.println(
+                            "Bad pretty path: " + pretty_sort + ", original: " + cleanedPath);
                 }
                 String prettySort1 = prettyPartsSort[0];
                 String prettySort2 = prettyPartsSort[1];
                 String prettySort3 = prettyPartsSort[2];
 
                 String pretty = prettyPathMaker.getOutputForm(pretty_sort);
-                String escapedPath = "http://unicode.org/cldr/apps/survey?_=" + locale + "&xpath="
-                    + EscapingUtilities.urlEscape(cleanedPath);
+                String escapedPath =
+                        "http://unicode.org/cldr/apps/survey?_="
+                                + locale
+                                + "&xpath="
+                                + EscapingUtilities.urlEscape(cleanedPath);
                 String[] prettyParts = pretty.split("[|]");
                 if (prettyParts.length != 3) {
                     System.out.println("Bad pretty path: " + pretty + ", original: " + cleanedPath);
@@ -336,19 +376,19 @@ public class GenerateComparison {
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=kw_GB&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22mt%22%5D
 
                 table.addRow()
-                    .addCell(prettySort1)
-                    .addCell(prettySort2)
-                    .addCell(prettySort3)
-                    .addCell(escapedPath)
-                    .addCell(isAliased ? "I" : "")
-                    .addCell(pretty1)
-                    .addCell(pretty2)
-                    .addCell(pretty3)
-                    .addCell(englishValue == null ? "-" : englishValue)
-                    .addCell(coreStatus)
-                    .addCell(oldValue == null ? "-" : oldValue)
-                    .addCell(newValue == null ? "-" : newValue)
-                    .finishRow();
+                        .addCell(prettySort1)
+                        .addCell(prettySort2)
+                        .addCell(prettySort3)
+                        .addCell(escapedPath)
+                        .addCell(isAliased ? "I" : "")
+                        .addCell(pretty1)
+                        .addCell(pretty2)
+                        .addCell(pretty3)
+                        .addCell(englishValue == null ? "-" : englishValue)
+                        .addCell(coreStatus)
+                        .addCell(oldValue == null ? "-" : oldValue)
+                        .addCell(newValue == null ? "-" : newValue)
+                        .finishRow();
 
                 totalDifferences++;
                 differences++;
@@ -357,45 +397,43 @@ public class GenerateComparison {
             addToIndex(indexInfo, "", locale, localeName, fileCounter);
             PrintWriter out = FileUtilities.openUTF8Writer(changesDirectory, locale + ".html");
             String title = "Changes in " + localeDisplayName;
-            out.println("<html>"
-                +
-                "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<title>"
-                + title
-                + "</title>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<link rel='stylesheet' href='index.css' type='text/css'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<base target='_blank'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "</head><body>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<h1>"
-                + title
-                + "</h1>"
-                + CldrUtility.LINE_SEPARATOR
-                + "<a href='index.html'>Index</a> | <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
-                + warningMessage);
+            out.println(
+                    "<html>"
+                            + "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "<title>"
+                            + title
+                            + "</title>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "<link rel='stylesheet' href='index.css' type='text/css'>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "<base target='_blank'>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "</head><body>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "<h1>"
+                            + title
+                            + "</h1>"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "<a href='index.html'>Index</a> | <a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
+                            + warningMessage);
 
-            TablePrinter table2 = new TablePrinter()
-                .setCaption("Totals")
-                .addColumn("Inh.").setSortPriority(0)
-                .addColumn("Status").setSortPriority(1)
-                .addColumn("Total");
+            TablePrinter table2 =
+                    new TablePrinter()
+                            .setCaption("Totals")
+                            .addColumn("Inh.")
+                            .setSortPriority(0)
+                            .addColumn("Status")
+                            .setSortPriority(1)
+                            .addColumn("Total");
 
             for (String key : fileCounter.getKeysetSortedByKey()) {
                 boolean inherited = key.startsWith("I+");
                 table2.addRow()
-                    .addCell(inherited ? "I" : "")
-                    .addCell(inherited ? key.substring(2) : key)
-                    .addCell(format.format(fileCounter.getCount(key)))
-                    .finishRow();
+                        .addCell(inherited ? "I" : "")
+                        .addCell(inherited ? key.substring(2) : key)
+                        .addCell(format.format(fileCounter.getCount(key)))
+                        .finishRow();
             }
             out.println(table2);
             out.println("<br>");
@@ -403,9 +441,14 @@ public class GenerateComparison {
 
             // show status on console
 
-            System.out.println(locale + "\tDifferences:\t" + format.format(differences)
-                + "\tPaths:\t" + format.format(paths.size())
-                + "\tTime:\t" + timer);
+            System.out.println(
+                    locale
+                            + "\tDifferences:\t"
+                            + format.format(differences)
+                            + "\tPaths:\t"
+                            + format.format(paths.size())
+                            + "\tTime:\t"
+                            + timer);
 
             totalPaths += paths.size();
             out.println(ShowData.dateFooter());
@@ -414,41 +457,41 @@ public class GenerateComparison {
             out.close();
         }
         PrintWriter indexFile = FileUtilities.openUTF8Writer(changesDirectory, "index.html");
-        indexFile
-            .println("<html>"
-                +
-                "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<title>"
-                + "Change Summary"
-                + "</title>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<link rel='stylesheet' href='index.css' type='text/css'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<base target='_blank'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "</head><body>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<h1>"
-                + "Change Summary"
-                + "</h1>"
-                + CldrUtility.LINE_SEPARATOR
-                + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
-                + warningMessage
-                + "<table><tr>");
+        indexFile.println(
+                "<html>"
+                        + "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "<title>"
+                        + "Change Summary"
+                        + "</title>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "<link rel='stylesheet' href='index.css' type='text/css'>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "<base target='_blank'>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "</head><body>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "<h1>"
+                        + "Change Summary"
+                        + "</h1>"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "<a href=\"http://unicode.org/cldr/data/docs/survey/vetting.html\"><b style=\"background-color: yellow;\"><i>Help: How to Vet</i></b></a>"
+                        + warningMessage
+                        + "<table><tr>");
 
         String separator = "";
         int last = 0;
         for (R2<String, String> indexPair : indexInfo) {
             int firstChar = indexPair.get0().codePointAt(0);
-            indexFile.append(firstChar == last ? separator
-                : (last == 0 ? "" : "</td></tr>\n<tr>") + "<th>" + String.valueOf((char) firstChar) + "</th><td>")
-                .append(indexPair.get1());
+            indexFile
+                    .append(
+                            firstChar == last
+                                    ? separator
+                                    : (last == 0 ? "" : "</td></tr>\n<tr>")
+                                            + "<th>"
+                                            + String.valueOf((char) firstChar)
+                                            + "</th><td>")
+                    .append(indexPair.get1());
             separator = " | ";
             last = indexPair.get0().codePointAt(0);
         }
@@ -464,29 +507,40 @@ public class GenerateComparison {
             System.out.println(key + "\t" + totalCounter.getCount(key));
         }
 
-        System.out.println("Total Differences:\t" + format.format(totalDifferences)
-            + "\tPaths:\t" + format.format(totalPaths)
-            + "\tTotal Time:\t" + format.format(totalTimer.getDuration()) + "ms");
+        System.out.println(
+                "Total Differences:\t"
+                        + format.format(totalDifferences)
+                        + "\tPaths:\t"
+                        + format.format(totalPaths)
+                        + "\tTotal Time:\t"
+                        + format.format(totalTimer.getDuration())
+                        + "ms");
     }
 
     // static Transliterator urlHex = Transliterator.createFromRules("foo",
     // "([^!(-*,-\\:A-Z_a-z~]) > &hex($1) ;" +
     // ":: null;" +
     // "'\\u00' > '%' ;"
-// , Transliterator.FORWARD);
+    // , Transliterator.FORWARD);
 
     private static NumberFormat format;
 
-    private static void addToIndex(Set<R2<String, String>> indexInfo, String title, final String locale,
-        final String localeName) {
+    private static void addToIndex(
+            Set<R2<String, String>> indexInfo,
+            String title,
+            final String locale,
+            final String localeName) {
         addToIndex(indexInfo, title, locale, localeName, null);
     }
 
-    private static void addToIndex(Set<R2<String, String>> indexInfo, String title, final String locale,
-        final String localeName, Counter<String> fileCounter) {
+    private static void addToIndex(
+            Set<R2<String, String>> indexInfo,
+            String title,
+            final String locale,
+            final String localeName,
+            Counter<String> fileCounter) {
         if (title.startsWith("ERROR")) {
-            indexInfo.add(R2.of(localeName,
-                title + " " + localeName + " (" + locale + ")"));
+            indexInfo.add(R2.of(localeName, title + " " + localeName + " (" + locale + ")"));
             return;
         }
         String counterString = "";
@@ -498,15 +552,25 @@ public class GenerateComparison {
                 counterString += s.charAt(0) + ":" + format.format(fileCounter.getCount(s));
             }
         }
-        indexInfo.add(R2.of(localeName,
-            "<a href='" + locale + ".html'>" + title + localeName + " (" + locale + ")</a>"
-                + (counterString.length() == 0 ? "" : " [" + counterString + "]")));
+        indexInfo.add(
+                R2.of(
+                        localeName,
+                        "<a href='"
+                                + locale
+                                + ".html'>"
+                                + title
+                                + localeName
+                                + " ("
+                                + locale
+                                + ")</a>"
+                                + (counterString.length() == 0 ? "" : " [" + counterString + "]")));
     }
 
     // private static int accumulate(Set<R2<String,String>> rejected, int totalRejected,
     // final String locale, String indicator, String oldValue, String newValue, String path) {
     // String pretty = prettyPathMaker.getPrettyPath(path, false);
-    // String line = locale + "\t" + indicator +"\t\u200E[" + oldValue + "]\u200E\t\u200E[" + newValue + "]\u200E\t" +
+    // String line = locale + "\t" + indicator +"\t\u200E[" + oldValue + "]\u200E\t\u200E[" +
+    // newValue + "]\u200E\t" +
     // pretty;
     // String pretty2 = prettyPathMaker.getOutputForm(pretty);
     // rejected.add(Row.make(pretty2, line));
@@ -514,8 +578,8 @@ public class GenerateComparison {
     // return totalRejected;
     // }
 
-    private static String getStatus(CLDRFile oldFile, CLDRFile oldRoot, String path,
-        String oldString, Status oldStatus) {
+    private static String getStatus(
+            CLDRFile oldFile, CLDRFile oldRoot, String path, String oldString, Status oldStatus) {
         String oldLocale = oldFile.getSourceLocaleID(path, oldStatus);
         if (!oldLocale.equals("root")) {
             String oldRootValue = oldRoot.getStringValue(oldStatus.pathWhereFound);
@@ -526,7 +590,8 @@ public class GenerateComparison {
         return oldLocale;
     }
 
-    private static void showSet(PrintWriter out, Set<R2<String, String>> rejected, final String locale, String title) {
+    private static void showSet(
+            PrintWriter out, Set<R2<String, String>> rejected, final String locale, String title) {
         if (rejected.size() != 0) {
             out.println();
             out.println(locale + "\t" + title + "\t" + rejected.size());
@@ -542,5 +607,4 @@ public class GenerateComparison {
         }
         return newString.equals(oldString);
     }
-
 }

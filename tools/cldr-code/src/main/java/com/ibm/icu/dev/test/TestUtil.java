@@ -1,9 +1,8 @@
 // Copied from ICU4J 57.1
 /**
- *******************************************************************************
- * Copyright (C) 2001-2015, International Business Machines Corporation and
- * others. All Rights Reserved.
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 2001-2015, International Business Machines Corporation and others. All Rights Reserved.
+ * ******************************************************************************
  */
 package com.ibm.icu.dev.test;
 
@@ -16,99 +15,54 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 
 public final class TestUtil {
-    /**
-     * Path to test data in icu4jtest.jar
-     */
+    /** Path to test data in icu4jtest.jar */
     public static final String DATA_PATH = "/com/ibm/icu/dev/data/";
 
-    /**
-     * Return an input stream on the data file at path 'name' rooted at the data path
-     */
+    /** Return an input stream on the data file at path 'name' rooted at the data path */
     public static final InputStream getDataStream(String name) throws IOException {
         InputStream is = null;
         try {
             is = TestUtil.class.getResourceAsStream(DATA_PATH + name);
         } catch (Throwable t) {
-            IOException ex =
-                new IOException("data resource '" + name + "' not found");
+            IOException ex = new IOException("data resource '" + name + "' not found");
             ex.initCause(t);
             throw ex;
         }
         return is;
     }
 
-    /**
-     * Return a buffered reader on the data file at path 'name' rooted at the data path.
-     */
-    public static final BufferedReader getDataReader(String name, String charset) throws IOException {
+    /** Return a buffered reader on the data file at path 'name' rooted at the data path. */
+    public static final BufferedReader getDataReader(String name, String charset)
+            throws IOException {
         InputStream is = getDataStream(name);
         InputStreamReader isr =
-            charset == null
-                ? new InputStreamReader(is)
-                : new InputStreamReader(is, charset);
+                charset == null ? new InputStreamReader(is) : new InputStreamReader(is, charset);
         return new BufferedReader(isr);
     }
 
     /**
-     * Return a buffered reader on the data file at path 'name' rooted at the data path,
-     * using the provided encoding.
+     * Return a buffered reader on the data file at path 'name' rooted at the data path, using the
+     * provided encoding.
      */
-    public static final BufferedReader getDataReader(String name)
-        throws IOException {
+    public static final BufferedReader getDataReader(String name) throws IOException {
         return getDataReader(name, null);
     }
 
-    static final char DIGITS[] =
-        {
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H',
-            'I',
-            'J',
-            'K',
-            'L',
-            'M',
-            'N',
-            'O',
-            'P',
-            'Q',
-            'R',
-            'S',
-            'T',
-            'U',
-            'V',
-            'W',
-            'X',
-            'Y',
-            'Z' };
+    static final char DIGITS[] = {
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    };
     /**
-     * Return true if the character is NOT printable ASCII.  The tab,
-     * newline and linefeed characters are considered unprintable.
+     * Return true if the character is NOT printable ASCII. The tab, newline and linefeed characters
+     * are considered unprintable.
      */
     public static boolean isUnprintable(int c) {
         return !(c >= 0x20 && c <= 0x7E);
     }
     /**
-     * Escape unprintable characters using <backslash>uxxxx notation
-     * for U+0000 to U+FFFF and <backslash>Uxxxxxxxx for U+10000 and
-     * above.  If the character is printable ASCII, then do nothing
-     * and return FALSE.  Otherwise, append the escaped notation and
-     * return TRUE.
+     * Escape unprintable characters using <backslash>uxxxx notation for U+0000 to U+FFFF and
+     * <backslash>Uxxxxxxxx for U+10000 and above. If the character is printable ASCII, then do
+     * nothing and return FALSE. Otherwise, append the escaped notation and return TRUE.
      */
     public static boolean escapeUnprintable(StringBuffer result, int c) {
         if (isUnprintable(c)) {
@@ -199,16 +153,16 @@ public final class TestUtil {
 
         lock.go();
     }
+
     public static BufferedReader openUTF8Reader(String dir, String filename) throws IOException {
-        return openReader(dir,filename,"UTF-8");
+        return openReader(dir, filename, "UTF-8");
     }
-    public static BufferedReader openReader(String dir, String filename, String encoding) throws IOException {
+
+    public static BufferedReader openReader(String dir, String filename, String encoding)
+            throws IOException {
         File file = new File(dir + filename);
         return new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                encoding),
-            4*1024);
+                new InputStreamReader(new FileInputStream(file), encoding), 4 * 1024);
     }
 
     public enum JavaVendor {

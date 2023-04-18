@@ -1,11 +1,19 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSet.EntryRange;
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -19,31 +27,21 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSets;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSet.EntryRange;
-import com.ibm.icu.util.ULocale;
-
 public class ListRedundantUnicodeSets {
 
     public static void main(String[] args) {
-        System.out.println("LocaleID"
-            +"\tTarget Level"
-            +"\tExemplarType"
-            +"\tNo. Original"
-            +"\tNo. Remaining"
-            +"\tNot Redundant (KEEP)"
-            +"\tRedundant Exceptions (KEEP)"
-            +"\tIndexEx & Redundant"
-            +"\tCollation & Redundant"
-            +"\tOther Redundant"
-            +"\tNo. Collation clusters not in exemplars"
-            );
+        System.out.println(
+                "LocaleID"
+                        + "\tTarget Level"
+                        + "\tExemplarType"
+                        + "\tNo. Original"
+                        + "\tNo. Remaining"
+                        + "\tNot Redundant (KEEP)"
+                        + "\tRedundant Exceptions (KEEP)"
+                        + "\tIndexEx & Redundant"
+                        + "\tCollation & Redundant"
+                        + "\tOther Redundant"
+                        + "\tNo. Collation clusters not in exemplars");
 
         Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -57,7 +55,8 @@ public class ListRedundantUnicodeSets {
             CLDRFile cldrFile = cldrFactory.make(localeID, false);
             for (ExemplarType exemplarType : Arrays.asList(ExemplarType.main)) {
 
-                UnicodeSet exemplarSet = cldrFile.getExemplarSet(exemplarType, WinningChoice.WINNING);
+                UnicodeSet exemplarSet =
+                        cldrFile.getExemplarSet(exemplarType, WinningChoice.WINNING);
                 if (exemplarSet.isEmpty()) {
                     continue;
                 }
@@ -77,7 +76,8 @@ public class ListRedundantUnicodeSets {
                 redundants.removeAll(forTranslit);
 
                 Set<String> indexSet = new TreeSet<>();
-                UnicodeSet indexSetRaw = cldrFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
+                UnicodeSet indexSetRaw =
+                        cldrFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
                 if (!indexSetRaw.isEmpty()) {
                     ULocale ulocale = new ULocale(localeID);
                     for (String s : indexSetRaw) {
@@ -93,7 +93,8 @@ public class ListRedundantUnicodeSets {
                 }
 
                 // now get collation exemplar strings
-                Set<String> colExemplars = getCollationExemplars(localeID).addAllTo(new TreeSet<String>());
+                Set<String> colExemplars =
+                        getCollationExemplars(localeID).addAllTo(new TreeSet<String>());
                 Set<String> colAndEx = Collections.emptySet();
                 if (!colExemplars.isEmpty()) {
                     colAndEx = new TreeSet<>(colExemplars);
@@ -104,18 +105,28 @@ public class ListRedundantUnicodeSets {
                     colExemplars.removeAll(forTranslit);
                 }
 
-                System.out.println(localeID
-                    + "\t" + localeCoverageLevel
-                    + "\t" + exemplarType
-                    + "\t" + exemplarSet.strings().size()
-                    + "\t" + (remaining.size() + forTranslit.size())
-                    + "\t" + remaining
-                    + "\t" + forTranslit
-                    + "\t" + indexSet
-                    + "\t" + colAndEx
-                    + "\t" + redundants
-                    + "\t" + colExemplars.size()
-                    );
+                System.out.println(
+                        localeID
+                                + "\t"
+                                + localeCoverageLevel
+                                + "\t"
+                                + exemplarType
+                                + "\t"
+                                + exemplarSet.strings().size()
+                                + "\t"
+                                + (remaining.size() + forTranslit.size())
+                                + "\t"
+                                + remaining
+                                + "\t"
+                                + forTranslit
+                                + "\t"
+                                + indexSet
+                                + "\t"
+                                + colAndEx
+                                + "\t"
+                                + redundants
+                                + "\t"
+                                + colExemplars.size());
             }
         }
     }
@@ -133,7 +144,8 @@ public class ListRedundantUnicodeSets {
     private static UnicodeSet getCollationExemplars2(String localeID) {
         try {
             Locale locale = new Locale(localeID);
-            ICUServiceBuilder builder = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeID));
+            ICUServiceBuilder builder =
+                    ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeID));
             RuleBasedCollator col = builder.getRuleBasedCollator();
             UnicodeSet contractions = new UnicodeSet();
             UnicodeSet expansions = new UnicodeSet();
@@ -153,7 +165,9 @@ public class ListRedundantUnicodeSets {
 
     static {
         Set<String> _toComposed = new TreeSet<>();
-        UnicodeSet options = new UnicodeSet("[[:nfkcqc=n:]-[:dt=final:]-[:dt=medial:]-[:dt=initial:]-[:dt=isolated:]]");
+        UnicodeSet options =
+                new UnicodeSet(
+                        "[[:nfkcqc=n:]-[:dt=final:]-[:dt=medial:]-[:dt=initial:]-[:dt=isolated:]]");
         StringBuffer b = new StringBuffer();
         for (EntryRange range : options.ranges()) {
             for (int cp = range.codepoint; cp <= range.codepointEnd; ++cp) {
@@ -168,15 +182,16 @@ public class ListRedundantUnicodeSets {
     }
 
     static final UnicodeSet NUKTA = new UnicodeSet("[:Indic_Syllabic_Category=nukta:]").freeze();
-    static final Multimap<String,String> TRANSLIT_CLUSTERS = ImmutableMultimap.<String,String>builder()
-        .putAll("bs", "dž", "lj", "nj")
-        .putAll("hr", "dž", "lj", "nj")
-        .putAll("sr_Latn", "dž", "lj", "nj")
-        .build();
+    static final Multimap<String, String> TRANSLIT_CLUSTERS =
+            ImmutableMultimap.<String, String>builder()
+                    .putAll("bs", "dž", "lj", "nj")
+                    .putAll("hr", "dž", "lj", "nj")
+                    .putAll("sr_Latn", "dž", "lj", "nj")
+                    .build();
+
     private static boolean isForTranslit(String locale, String s) {
         boolean result = CAN_BE_COMPOSED.contains(nfkd.normalize(s));
-        if (result && (NUKTA.containsSome(s)
-            || TRANSLIT_CLUSTERS.containsEntry(locale, s))) {
+        if (result && (NUKTA.containsSome(s) || TRANSLIT_CLUSTERS.containsEntry(locale, s))) {
             return true;
         }
         return false;

@@ -3,7 +3,6 @@ package org.unicode.cldr.web.api;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -22,30 +21,35 @@ import org.unicode.cldr.web.UserRegistry.User;
 @Tag(name = "adduser", description = "Add a new Survey Tool user")
 public class AddUser {
     private enum AddUserError {
-        BAD_NAME, BAD_EMAIL, BAD_ORG, BAD_LEVEL, DUP_EMAIL, UNKNOWN
+        BAD_NAME,
+        BAD_EMAIL,
+        BAD_ORG,
+        BAD_LEVEL,
+        DUP_EMAIL,
+        UNKNOWN
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Operation(
-        summary = "Add User",
-        description = "This handles a request to add a new user")
+    @Operation(summary = "Add User", description = "This handles a request to add a new user")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Results of AddUser request",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = AddUserResponse.class,
-                        example = "{\"email\":\"test@example.com\",\"userId\":2526}"))),
-            @APIResponse(
-                responseCode = "403",
-                description = "Forbidden"),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Results of AddUser request",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation = AddUserResponse.class,
+                                                        example =
+                                                                "{\"email\":\"test@example.com\",\"userId\":2526}"))),
+                @APIResponse(responseCode = "403", description = "Forbidden"),
+            })
     public Response addUser(
-        AddUserRequest request,
-        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+            AddUserRequest request, @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         try {
             CookieSession session = Auth.getSession(sessionString);
             if (session == null) {

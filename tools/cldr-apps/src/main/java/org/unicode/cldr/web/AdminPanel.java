@@ -6,11 +6,8 @@ import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
 import java.util.Map;
 import java.util.Random;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +16,12 @@ import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.VoteResolver;
 
 public class AdminPanel {
-    public void getJson(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException, IOException {
+    public void getJson(
+            SurveyJSONWrapper r,
+            HttpServletRequest request,
+            HttpServletResponse response,
+            SurveyMain sm)
+            throws JSONException, IOException {
         /*
          * Assume caller has already confirmed UserRegistry.userIsAdmin
          */
@@ -56,8 +58,12 @@ public class AdminPanel {
             }
             sess.put("id", cs.id);
             sess.put("ip", cs.ip);
-            sess.put("lastBrowserCallMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
-            sess.put("lastActionMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
+            sess.put(
+                    "lastBrowserCallMillisSinceEpoch",
+                    SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
+            sess.put(
+                    "lastActionMillisSinceEpoch",
+                    SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
             sess.put("millisTillKick", cs.millisTillKick());
             users.put(cs.id, sess);
         }
@@ -74,8 +80,12 @@ public class AdminPanel {
             }
             sess.put("id", cs.id);
             sess.put("ip", cs.ip);
-            sess.put("lastBrowserCallMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
-            sess.put("lastActionMillisSinceEpoch", SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
+            sess.put(
+                    "lastBrowserCallMillisSinceEpoch",
+                    SurveyMain.timeDiff(cs.getLastBrowserCallMillisSinceEpoch()));
+            sess.put(
+                    "lastActionMillisSinceEpoch",
+                    SurveyMain.timeDiff(cs.getLastActionMillisSinceEpoch()));
             sess.put("millisTillKick", cs.millisTillKick());
             r.put("kick", s);
             r.put("removing", sess);
@@ -92,13 +102,13 @@ public class AdminPanel {
         long deadlockedThreads[] = threadBean.findDeadlockedThreads();
         if (deadlockedThreads != null) {
             JSONArray dead = new JSONArray();
-            ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(
-                deadlockedThreads, true, true);
+            ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(deadlockedThreads, true, true);
             for (ThreadInfo deadThread : deadThreadInfo) {
-                dead.put(new JSONObject()
-                    .put("name", deadThread.getThreadName())
-                    .put("id", deadThread.getThreadId())
-                    .put("text", deadThread.toString()));
+                dead.put(
+                        new JSONObject()
+                                .put("name", deadThread.getThreadName())
+                                .put("id", deadThread.getThreadId())
+                                .put("text", deadThread.toString()));
             }
             threads.put("dead", dead);
         }
@@ -106,17 +116,19 @@ public class AdminPanel {
         JSONObject threadList = new JSONObject();
         for (Map.Entry<Thread, StackTraceElement[]> e : s.entrySet()) {
             Thread t = e.getKey();
-            JSONObject thread = new JSONObject()
-                .put("state", t.getState())
-                .put("name", t.getName())
-                .put("stack", new JSONArray(e.getValue()));
+            JSONObject thread =
+                    new JSONObject()
+                            .put("state", t.getState())
+                            .put("name", t.getName())
+                            .put("stack", new JSONArray(e.getValue()));
             threadList.put(Long.toString(t.getId()), thread);
         }
         threads.put("all", threadList);
         r.put("threads", threads);
     }
 
-    private void showExceptions(SurveyJSONWrapper r, HttpServletRequest request) throws JSONException, IOException {
+    private void showExceptions(SurveyJSONWrapper r, HttpServletRequest request)
+            throws JSONException, IOException {
         JSONObject exceptions = new JSONObject();
         ChunkyReader cr = SurveyLog.getChunkyReader();
         exceptions.put("lastTime", cr.getLastTime());
@@ -167,11 +179,15 @@ public class AdminPanel {
      * @param request
      * @param response
      * @param sm
-     *
-     * Earlier version was in createAndLogin.jsp
+     *     <p>Earlier version was in createAndLogin.jsp
      * @throws JSONException
      */
-    private void createAndLogin(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException {
+    private void createAndLogin(
+            SurveyJSONWrapper r,
+            HttpServletRequest request,
+            HttpServletResponse response,
+            SurveyMain sm)
+            throws JSONException {
         if (SurveyMain.isSetup == false) {
             r.put("isSetup", false);
             return;
@@ -202,8 +218,10 @@ public class AdminPanel {
 
     static final String allNames[] = {
         // http://en.wikipedia.org/wiki/List_of_most_popular_given_names (Greenland)
-        "Ivaana", "Pipaluk", "Nivi", "Paninnguaq", "Ivalu", "Naasunnguaq", "Julie", "Ane", "Isabella", "Kimmernaq",
-        "Malik", "Aputsiaq", "Minik", "Hans", "Inunnguaq", "Kristian", "Nuka", "Salik", "Peter", "Inuk",
+        "Ivaana", "Pipaluk", "Nivi", "Paninnguaq", "Ivalu", "Naasunnguaq", "Julie", "Ane",
+                "Isabella", "Kimmernaq",
+        "Malik", "Aputsiaq", "Minik", "Hans", "Inunnguaq", "Kristian", "Nuka", "Salik", "Peter",
+                "Inuk",
     };
 
     private String randomName() {
@@ -215,8 +233,18 @@ public class AdminPanel {
         genname.append((char) ('A' + new Random().nextInt(26)));
         genname.append('.');
         genname.append(' ');
-        genname.append(choose("Vetter", "Linguist", "User", "Typer", "Tester", "Specialist",
-            "Person", "Account", "Login", "CLDR"));
+        genname.append(
+                choose(
+                        "Vetter",
+                        "Linguist",
+                        "User",
+                        "Typer",
+                        "Tester",
+                        "Specialist",
+                        "Person",
+                        "Account",
+                        "Login",
+                        "CLDR"));
         return genname.toString();
     }
 

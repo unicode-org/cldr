@@ -1,18 +1,16 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestXMLSource extends TestFmwk {
     public static class DummyXMLSource extends XMLSource {
@@ -24,9 +22,7 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void putFullPathAtDPath(String distinguishingXPath,
-            String fullxpath) {
-        }
+        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {}
 
         @Override
         public void putValueAtDPath(String distinguishingXPath, String value) {
@@ -34,8 +30,7 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void removeValueAtDPath(String distinguishingXPath) {
-        }
+        public void removeValueAtDPath(String distinguishingXPath) {}
 
         @Override
         public String getValueAtDPath(String path) {
@@ -53,8 +48,7 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void setXpathComments(Comments comments) {
-        }
+        public void setXpathComments(Comments comments) {}
 
         @Override
         public Iterator<String> iterator() {
@@ -62,9 +56,7 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void getPathsWithValue(String valueToMatch, String pathPrefix,
-            Set<String> result) {
-        }
+        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {}
     }
 
     public static void main(String[] args) {
@@ -77,8 +69,7 @@ public class TestXMLSource extends TestFmwk {
         source.putValueAtDPath("//ldml/foo[@alt=\"proposed5\"]", "x");
         source.putValueAtDPath("//ldml/foo[@alt=\"short\"]", "x");
         source.putValueAtDPath("//ldml/foo[@alt=\"short-proposed-x\"]", "x");
-        source.putValueAtDPath(
-            "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]", "x");
+        source.putValueAtDPath("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]", "x");
         source.putValueAtDPath("//ldml/foo[@alt=\"short-x\"]", "x");
 
         Set<String> result = new HashSet<String>();
@@ -88,36 +79,37 @@ public class TestXMLSource extends TestFmwk {
 
         String xpath = "//ldml/foo";
         source.getPathsWithValue("x", xpath, result);
-        assertEquals("Set matched but incorrect: " + result.toString(), 2,
-            result.size());
+        assertEquals("Set matched but incorrect: " + result.toString(), 2, result.size());
         assertTrue(xpath + " not found", result.contains(xpath));
-        assertTrue("//ldml/foo[@alt=\"proposed5\"] not found",
-            result.contains("//ldml/foo[@alt=\"proposed5\"]"));
+        assertTrue(
+                "//ldml/foo[@alt=\"proposed5\"] not found",
+                result.contains("//ldml/foo[@alt=\"proposed5\"]"));
         result.clear();
 
         xpath = "//ldml/foo[@alt=\"short\"]";
         source.getPathsWithValue("x", xpath, result);
-        assertEquals("Set matched but incorrect: " + result.toString(), 3,
-            result.size());
+        assertEquals("Set matched but incorrect: " + result.toString(), 3, result.size());
         assertTrue(xpath + " not found", result.contains(xpath));
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found",
-            result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
         assertTrue(
-            "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
-            result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
+                "//ldml/foo[@alt=\"short-proposed-x\"] not found",
+                result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
+        assertTrue(
+                "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
+                result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
 
         xpath = "//ldml/foo[@alt=\"short-proposed\"]";
         source.getPathsWithValue("x", xpath, result);
-        assertEquals("Set matched but incorrect: " + result.toString(), 3,
-            result.size());
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found",
-            result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
-        assertTrue("//ldml/foo[@alt=\"short\"] not found",
-            result.contains("//ldml/foo[@alt=\"short\"]"));
+        assertEquals("Set matched but incorrect: " + result.toString(), 3, result.size());
         assertTrue(
-            "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
-            result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
+                "//ldml/foo[@alt=\"short-proposed-x\"] not found",
+                result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
+        assertTrue(
+                "//ldml/foo[@alt=\"short\"] not found",
+                result.contains("//ldml/foo[@alt=\"short\"]"));
+        assertTrue(
+                "//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
+                result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
     }
 
@@ -132,6 +124,5 @@ public class TestXMLSource extends TestFmwk {
                 errln("bad paths:\t" + value + "\t" + path);
             }
         }
-
     }
 }

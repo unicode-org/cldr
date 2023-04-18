@@ -1,18 +1,19 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.Transform;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.Transform;
-
 public class RegexTransform implements Transform<String, String> {
 
     public enum Processing {
-        FIRST_MATCH, ONE_PASS, RECURSIVE
+        FIRST_MATCH,
+        ONE_PASS,
+        RECURSIVE
     }
 
     private final Processing processing;
@@ -20,18 +21,19 @@ public class RegexTransform implements Transform<String, String> {
 
     @Override
     public String transform(String source) {
-        main: while (true) {
+        main:
+        while (true) {
             for (R2<Matcher, String> entry : entries) {
                 Matcher matcher = entry.get0();
                 if (matcher.reset(source).find()) {
                     String replacement = entry.get1();
                     source = matcher.replaceAll(replacement);
                     switch (processing) {
-                    case RECURSIVE:
-                        continue main;
-                    case FIRST_MATCH:
-                        break main;
-                    case ONE_PASS: // fall through and continue;
+                        case RECURSIVE:
+                            continue main;
+                        case FIRST_MATCH:
+                            break main;
+                        case ONE_PASS: // fall through and continue;
                     }
                 }
             }
@@ -45,9 +47,7 @@ public class RegexTransform implements Transform<String, String> {
     }
 
     public RegexTransform add(String pattern, String replacement) {
-        entries.add(Row.of(
-            Pattern.compile(pattern, Pattern.COMMENTS).matcher(""),
-            replacement));
+        entries.add(Row.of(Pattern.compile(pattern, Pattern.COMMENTS).matcher(""), replacement));
         return this;
     }
 }

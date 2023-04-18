@@ -1,20 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeSet;
-
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathDescription;
-import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PathHeader.SectionId;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multimap;
@@ -24,6 +9,19 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeSet;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 
 public class ShowPathHeaderDescriptions {
     public static void main(String[] args) {
@@ -41,9 +39,8 @@ public class ShowPathHeaderDescriptions {
         UnicodeSet emoji = new UnicodeSet("[:emoji:]");
 
         for (String path : localeFile.fullIterable()) {
-            if (emoji.containsSome(path)) {
+            if (emoji.containsSome(path)) {}
 
-            }
             PathHeader pathHeader = phf.fromPath(path);
             if (pathHeader.getSectionId() == SectionId.Characters) {
                 System.out.println(pathHeader);
@@ -69,12 +66,18 @@ public class ShowPathHeaderDescriptions {
             System.out.println(++i + "\t" + entry.getElement() + "\t" + entry.getCount());
         }
     }
+
     public static void showDescriptions(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
         CLDRFile english = config.getEnglish();
         PathHeader.Factory phf = PathHeader.getFactory(english);
-        PathDescription pathDescriptionFactory = new PathDescription(config.getSupplementalDataInfo(), english, null, null,
-            PathDescription.ErrorHandling.CONTINUE);
+        PathDescription pathDescriptionFactory =
+                new PathDescription(
+                        config.getSupplementalDataInfo(),
+                        english,
+                        null,
+                        null,
+                        PathDescription.ErrorHandling.CONTINUE);
 
         // where X, *, * => single value, write it as such
 
@@ -142,14 +145,21 @@ public class ShowPathHeaderDescriptions {
         System.out.println(Joiner.on("\n").join(urls));
     }
 
-    private static void showProgress(Set<String> done, Multimap<String, R3<SectionId, PageId, String>> valueToKey) {
+    private static void showProgress(
+            Set<String> done, Multimap<String, R3<SectionId, PageId, String>> valueToKey) {
         TreeSet<String> temp = new TreeSet<>(valueToKey.keys());
         temp.removeAll(done);
         System.out.println(temp);
     }
 
     enum SphType {
-        s, p, h, sp, sh, ph, sph
+        s,
+        p,
+        h,
+        sp,
+        sh,
+        ph,
+        sph
     }
 
     private static <K> void process(SphType type, Multimap<K, String> sv, Set<String> done) {
@@ -173,22 +183,22 @@ public class ShowPathHeaderDescriptions {
 
     private static <K> String getThree(SphType type, K k) {
         switch (type) {
-        case s:
-            return k + "\t" + "*" + "\t" + "*";
-        case p:
-            return "*\t" + k + "\t*";
-        case h:
-            return "*\t*\t" + k;
-        case sp:
-            return ((R2) k).get0() + "\t" + ((R2) k).get1() + "\t" + "*";
-        case sh:
-            return ((R2) k).get0() + "\t" + "*" + "\t" + ((R2) k).get2();
-        case ph:
-            return "*" + "\t" + ((R2) k).get1() + "\t" + ((R2) k).get2();
-        case sph:
-            return ((R3) k).get0() + "\t" + ((R3) k).get1() + "\t" + ((R3) k).get2();
-        default:
-            throw new IllegalArgumentException();
+            case s:
+                return k + "\t" + "*" + "\t" + "*";
+            case p:
+                return "*\t" + k + "\t*";
+            case h:
+                return "*\t*\t" + k;
+            case sp:
+                return ((R2) k).get0() + "\t" + ((R2) k).get1() + "\t" + "*";
+            case sh:
+                return ((R2) k).get0() + "\t" + "*" + "\t" + ((R2) k).get2();
+            case ph:
+                return "*" + "\t" + ((R2) k).get1() + "\t" + ((R2) k).get2();
+            case sph:
+                return ((R3) k).get0() + "\t" + ((R3) k).get1() + "\t" + ((R3) k).get2();
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -202,5 +212,4 @@ public class ShowPathHeaderDescriptions {
         }
         return value;
     }
-
 }

@@ -3,15 +3,20 @@ package org.unicode.cldr.draft.keyboard.osx;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Charsets;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Maps;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.regex.Pattern;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.unicode.cldr.draft.keyboard.CharacterMap;
 import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
 import org.unicode.cldr.draft.keyboard.Keyboard;
@@ -29,20 +34,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Charsets;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableCollection;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Maps;
-
 public final class KeylayoutParser {
     private static final Pattern INVALID_UNICODE_XML = Pattern.compile("&#x00([01][0-9a-fA-F]);");
-    private static final KeycodeMap KEYCODE_MAP = KeycodeMap.fromResource(KeylayoutParser.class,
-        "osx-keycodes.csv");
-    public static final KeyboardIdMap KEYBOARD_ID_MAP = KeyboardIdMap.fromResource(KeylayoutParser.class,
-        "osx-locales.csv", Platform.OSX);
+    private static final KeycodeMap KEYCODE_MAP =
+            KeycodeMap.fromResource(KeylayoutParser.class, "osx-keycodes.csv");
+    public static final KeyboardIdMap KEYBOARD_ID_MAP =
+            KeyboardIdMap.fromResource(KeylayoutParser.class, "osx-locales.csv", Platform.OSX);
 
     private final KeyboardBuilder builder;
     private final Element keyboardElement;
@@ -54,23 +51,29 @@ public final class KeylayoutParser {
     }
 
     public static ImmutableList<Keyboard> parseLayout(String keylayoutContents) {
-        String cleansedString = keylayoutContents
-            .replace("\u007f", "")
-            .replace("&#x007f;", "")
-            .replace("&#x007F;", "")
-            .replace("\"<\"", "\"&lt;\"")
-            .replace("\">\"", "\"&gt;\"")
-            .replace("\"\"\"", "\"&quot;\"")
-            .replace("\"&\"", "\"&amp;\"")
-            .replace("\"'\"", "\"&apos;\"");
+        String cleansedString =
+                keylayoutContents
+                        .replace("\u007f", "")
+                        .replace("&#x007f;", "")
+                        .replace("&#x007F;", "")
+                        .replace("\"<\"", "\"&lt;\"")
+                        .replace("\">\"", "\"&gt;\"")
+                        .replace("\"\"\"", "\"&quot;\"")
+                        .replace("\"&\"", "\"&amp;\"")
+                        .replace("\"'\"", "\"&apos;\"");
         cleansedString = INVALID_UNICODE_XML.matcher(cleansedString).replaceAll("");
         Document document;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
             DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(new InputSource(new ByteArrayInputStream(
-                cleansedString.toString().getBytes(Charsets.US_ASCII))));
+            document =
+                    builder.parse(
+                            new InputSource(
+                                    new ByteArrayInputStream(
+                                            cleansedString
+                                                    .toString()
+                                                    .getBytes(Charsets.US_ASCII))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ParserConfigurationException e) {
@@ -105,7 +108,8 @@ public final class KeylayoutParser {
         NodeList layouts = keyboardElement.getElementsByTagName("layout");
         for (int i = 0; i < layouts.getLength(); i++) {
             Element layout = (Element) layouts.item(i);
-            if (layout.getAttribute("first").equals("0") || layout.getAttribute("first").equals("1")) {
+            if (layout.getAttribute("first").equals("0")
+                    || layout.getAttribute("first").equals("1")) {
                 return layout;
             }
         }
@@ -139,8 +143,8 @@ public final class KeylayoutParser {
         }
     }
 
-    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.whitespace())
-        .omitEmptyStrings();
+    private static final Splitter WHITESPACE_SPLITTER =
+            Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
 
     private static ModifierKeyCombination parseKeys(String keys) {
         ImmutableSet.Builder<ModifierKey> onKeys = ImmutableSet.builder();

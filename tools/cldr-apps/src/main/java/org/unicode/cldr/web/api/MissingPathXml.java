@@ -27,23 +27,24 @@ public class MissingPathXml {
     @Path("/{locale}/{level}")
     @Produces(MediaType.APPLICATION_XML)
     @Operation(
-        summary = "Generate missing XML",
-        description = "Generate XML for error/missing/provisional paths, as basis for bulk submission"
-    )
+            summary = "Generate missing XML",
+            description =
+                    "Generate XML for error/missing/provisional paths, as basis for bulk submission")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Missing XML results",
-                content = @Content(mediaType = "application/xml", schema = @Schema(implementation = String.class))
-            ),
-        }
-    )
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Missing XML results",
+                        content =
+                                @Content(
+                                        mediaType = "application/xml",
+                                        schema = @Schema(implementation = String.class))),
+            })
     public Response getMissingXml(
-        @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
-        @PathParam("level") @Schema(required = true, description = "Coverage Level") String level,
-        @HeaderParam(Auth.SESSION_HEADER) String sessionString
-    ) {
+            @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
+            @PathParam("level") @Schema(required = true, description = "Coverage Level")
+                    String level,
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
         final CookieSession cs = Auth.getSession(sessionString);
         if (cs == null) {
@@ -59,7 +60,8 @@ public class MissingPathXml {
         try {
             final Factory factory = CookieSession.sm.getSTFactory();
             final Factory baselineFactory = CookieSession.sm.getDiskFactory();
-            final VettingViewer.UsersChoice<Organization> usersChoice = new STUsersChoice(CookieSession.sm);
+            final VettingViewer.UsersChoice<Organization> usersChoice =
+                    new STUsersChoice(CookieSession.sm);
             final Organization usersOrg = cs.user.vrOrg();
             final MissingXmlGetter xmlGetter = new MissingXmlGetter(factory, baselineFactory);
             xmlGetter.setUserInfo(cs.user.id, usersOrg, usersChoice);

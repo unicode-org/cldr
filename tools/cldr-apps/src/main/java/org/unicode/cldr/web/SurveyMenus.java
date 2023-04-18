@@ -1,5 +1,6 @@
 package org.unicode.cldr.web;
 
+import com.ibm.icu.impl.Relation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -7,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,8 +22,6 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.web.SurveyMenus.Section.Page;
-
-import com.ibm.icu.impl.Relation;
 
 public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;
@@ -114,12 +112,13 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                 Iterable<String> iter = getPagePaths();
                 if (iter != null)
                     for (String xp : iter) {
-                    ph = phf.fromPath(xp);
-                    SurveyToolStatus xStatus = ph.getSurveyToolStatus();
-                    if (xStatus == SurveyToolStatus.HIDE || xStatus == SurveyToolStatus.DEPRECATED) {
-                    pageStatus = SurveyToolStatus.HIDE;
-                    }
-                    break;
+                        ph = phf.fromPath(xp);
+                        SurveyToolStatus xStatus = ph.getSurveyToolStatus();
+                        if (xStatus == SurveyToolStatus.HIDE
+                                || xStatus == SurveyToolStatus.DEPRECATED) {
+                            pageStatus = SurveyToolStatus.HIDE;
+                        }
+                        break;
                     }
             }
 
@@ -157,7 +156,6 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             }
 
             Map<CLDRLocale, Integer> levs = new HashMap<>();
-
         }
 
         @Override
@@ -170,20 +168,26 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         JSONArray sectionsJ = new JSONArray();
 
         for (Section s : sections) {
-            JSONObject sectionJ = new JSONObject()
-                .put("id", s.getSection().name())
-                .put("name", s.getSection().toString())
-                .put("status", s.getStatus());
+            JSONObject sectionJ =
+                    new JSONObject()
+                            .put("id", s.getSection().name())
+                            .put("name", s.getSection().toString())
+                            .put("status", s.getStatus());
 
             JSONArray pagesJ = new JSONArray();
 
             for (Page p : s) {
-                JSONObject pageJ = new JSONObject()
-                    .put("id", p.getKey().name())
-                    .put("name", p.getKey().toString());
+                JSONObject pageJ =
+                        new JSONObject()
+                                .put("id", p.getKey().name())
+                                .put("name", p.getKey().toString());
                 if (forLoc != null) {
-                    pageJ.put("levs", new JSONObject().put(forLoc.getBaseName(),
-                        Integer.toString(p.getCoverageLevel(forLoc))));
+                    pageJ.put(
+                            "levs",
+                            new JSONObject()
+                                    .put(
+                                            forLoc.getBaseName(),
+                                            Integer.toString(p.getCoverageLevel(forLoc))));
                 }
                 pagesJ.put(pageJ);
             }
@@ -193,9 +197,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             sectionsJ.put(sectionJ);
         }
 
-        JSONObject ret = new JSONObject()
-            .put("sections", sectionsJ)
-            .put("levels", levelsJSON());
+        JSONObject ret = new JSONObject().put("sections", sectionsJ).put("levels", levelsJSON());
         if (forLoc != null) {
             ret.put("loc", forLoc.getBaseName());
         }
@@ -204,15 +206,19 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
 
     /**
      * TODO: move this into Level, once JSON libs are integrated into core
+     *
      * @return
      * @throws JSONException
      */
     private static JSONObject levelsJSON() throws JSONException {
         JSONObject levels = new JSONObject();
         for (Level l : Level.values()) {
-            levels.put(l.name(), new JSONObject().put("name", l.toString()).put("level", Integer.toString(l.getLevel())));
+            levels.put(
+                    l.name(),
+                    new JSONObject()
+                            .put("name", l.toString())
+                            .put("level", Integer.toString(l.getLevel())));
         }
         return levels;
     }
-
 }

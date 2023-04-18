@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
@@ -15,6 +14,7 @@ import org.unicode.cldr.util.XMLSource;
 public class TestFactory extends Factory {
     private Map<String, CLDRFile> resolved = new TreeMap<>();
     private Map<String, CLDRFile> unresolved = new TreeMap<>();
+
     {
         XMLSource mySource = new SimpleXMLSource("root");
         CLDRFile testFile = new CLDRFile(mySource);
@@ -24,7 +24,8 @@ public class TestFactory extends Factory {
     public void addFile(CLDRFile testFile) {
         final String localeID = testFile.getLocaleID();
         unresolved.put(localeID, testFile);
-        org.unicode.cldr.util.XMLSource.ResolvingSource rs = makeResolvingSource(localeID, DraftStatus.unconfirmed);
+        org.unicode.cldr.util.XMLSource.ResolvingSource rs =
+                makeResolvingSource(localeID, DraftStatus.unconfirmed);
         CLDRFile resolvedFile = new CLDRFile(rs);
         resolved.put(localeID, resolvedFile);
     }
@@ -40,7 +41,8 @@ public class TestFactory extends Factory {
     }
 
     @Override
-    protected CLDRFile handleMake(String localeID, boolean isResolved, DraftStatus madeWithMinimalDraftStatus) {
+    protected CLDRFile handleMake(
+            String localeID, boolean isResolved, DraftStatus madeWithMinimalDraftStatus) {
         return isResolved ? resolved.get(localeID) : unresolved.get(localeID);
     }
 

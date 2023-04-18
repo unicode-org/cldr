@@ -2,24 +2,21 @@ package org.unicode.cldr.draft.keyboard;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * This class wraps a set of modifier key combinations. This class also includes the necessary
  * functions to simplify and output these combinations according to the LDML Keyboard Standard.
  *
- * <p>
- * A modifier key combination set is active if any single contained modifier key combination is
+ * <p>A modifier key combination set is active if any single contained modifier key combination is
  * active. That is, there is a disjunctive relationship between the combinations.
  *
- * <p>
- * Combination1 OR Combination2 OR Combination3 ...
+ * <p>Combination1 OR Combination2 OR Combination3 ...
  */
 public final class ModifierKeyCombinationSet implements Comparable<ModifierKeyCombinationSet> {
     private final ImmutableSortedSet<ModifierKeyCombination> combinations;
@@ -33,8 +30,8 @@ public final class ModifierKeyCombinationSet implements Comparable<ModifierKeyCo
      * simplest form.
      */
     public static ModifierKeyCombinationSet of(Set<ModifierKeyCombination> combinations) {
-        ImmutableSet<ModifierKeyCombination> simplifiedSet = ModifierKeySimplifier
-            .simplifySet(combinations);
+        ImmutableSet<ModifierKeyCombination> simplifiedSet =
+                ModifierKeySimplifier.simplifySet(combinations);
         return new ModifierKeyCombinationSet(ImmutableSortedSet.copyOf(simplifiedSet));
     }
 

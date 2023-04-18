@@ -7,13 +7,13 @@ import com.google.common.base.Objects;
 
 /**
  * Object representing the result of one transform from the tree. A transform has two components:
+ *
  * <ul>
- * <li>the sequence of characters that must be input in order to activate this transform
- * <li>the output of the transformation
+ *   <li>the sequence of characters that must be input in order to activate this transform
+ *   <li>the output of the transformation
  * </ul>
  *
- * <p>
- * For example, the character sequence for a particular transform could be '^e' and its resulting
+ * <p>For example, the character sequence for a particular transform could be '^e' and its resulting
  * output 'ê'.
  */
 public final class Transform implements Comparable<Transform> {
@@ -30,7 +30,9 @@ public final class Transform implements Comparable<Transform> {
         return new Transform(sequence, output);
     }
 
-    /** Returns the sequence of characters that must be typed in order to activate this transform. */
+    /**
+     * Returns the sequence of characters that must be typed in order to activate this transform.
+     */
     public String sequence() {
         return sequence;
     }
@@ -43,9 +45,9 @@ public final class Transform implements Comparable<Transform> {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("sequence", sequence)
-            .add("output", output)
-            .toString();
+                .add("sequence", sequence)
+                .add("output", output)
+                .toString();
     }
 
     @Override

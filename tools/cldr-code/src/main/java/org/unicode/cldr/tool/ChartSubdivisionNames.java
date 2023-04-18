@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.util.EnumMap;
@@ -9,7 +13,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,15 +27,11 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.ULocale;
-
 public class ChartSubdivisionNames extends Chart {
 
-    private static final String MAIN_HEADER = "<p>This chart shows the subdivision names. "
-        + "Most of them (except in English and for a few others) are derived from wikidata, with some filtering.</p>";
+    private static final String MAIN_HEADER =
+            "<p>This chart shows the subdivision names. "
+                    + "Most of them (except in English and for a few others) are derived from wikidata, with some filtering.</p>";
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "subdivisionNames/";
 
@@ -57,7 +56,8 @@ public class ChartSubdivisionNames extends Chart {
 
     @Override
     public String getExplanation() {
-        return MAIN_HEADER + "<p>The charts are presented in groups of related languages, for easier comparison.<p>";
+        return MAIN_HEADER
+                + "<p>The charts are presented in groups of related languages, for easier comparison.<p>";
     }
 
     @Override
@@ -74,19 +74,21 @@ public class ChartSubdivisionNames extends Chart {
 
     public void writeSubcharts(Anchors anchors) throws IOException {
         CLDRConfig cldrConfig = CLDRConfig.getInstance();
-        File[] paths = {
-            new File(CLDRPaths.SUBDIVISIONS_DIRECTORY) };
+        File[] paths = {new File(CLDRPaths.SUBDIVISIONS_DIRECTORY)};
 
         Factory factory = SimpleFactory.make(paths, ".*");
         CLDRFile english = factory.make("en", true);
 
-        Set<String> subdivisions = Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
+        Set<String> subdivisions =
+                Validity.getInstance().getStatusToCodes(LstrType.subdivision).get(Status.regular);
         // set up right order for columns
 
         Map<String, String> nameToCode = new LinkedHashMap<>();
-        Relation<LanguageGroup, R3<Integer, String, String>> groupToNameAndCodeSorted = Relation.of(
-            new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(LanguageGroup.class),
-            TreeSet.class);
+        Relation<LanguageGroup, R3<Integer, String, String>> groupToNameAndCodeSorted =
+                Relation.of(
+                        new EnumMap<LanguageGroup, Set<R3<Integer, String, String>>>(
+                                LanguageGroup.class),
+                        TreeSet.class);
 
         Set<String> locales = factory.getAvailable();
         for (String locale : locales) {
@@ -107,7 +109,8 @@ public class ChartSubdivisionNames extends Chart {
             groupToNameAndCodeSorted.put(group, Row.of(rank, name, locale));
         }
 
-        for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
+        for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs :
+                groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
             nameToCode.clear();
@@ -132,14 +135,26 @@ public class ChartSubdivisionNames extends Chart {
 
             // now build table with right order for columns
             double width = ((int) ((99.0 / (locales.size() + 1)) * 1000)) / 1000.0;
-            //String widthString = "class='source' width='"+ width + "%'";
+            // String widthString = "class='source' width='"+ width + "%'";
             String widthStringTarget = "class='target' width='" + width + "%'";
 
-            TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Name", "class='source' width='1%'", null, "class='source'", true)
-                .addColumn("Code", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
-            ;
+            TablePrinter tablePrinter =
+                    new TablePrinter()
+                            .addColumn(
+                                    "Name",
+                                    "class='source' width='1%'",
+                                    null,
+                                    "class='source'",
+                                    true)
+                            .addColumn(
+                                    "Code",
+                                    "class='source' width='1%'",
+                                    CldrUtility.getDoubleLinkMsg(),
+                                    "class='source'",
+                                    true)
+                    // .addColumn("Formal Name", "class='source' width='" + width + "%'", null,
+                    // "class='source'", true)
+                    ;
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -148,21 +163,28 @@ public class ChartSubdivisionNames extends Chart {
             // sort the characters
             for (String code : subdivisions) {
                 tablePrinter
-                    .addRow()
-                    .addCell(english.getName(CLDRFile.TERRITORY_NAME, code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
-                    .addCell(code);
+                        .addRow()
+                        .addCell(
+                                english.getName(
+                                        CLDRFile.TERRITORY_NAME,
+                                        code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
+                        .addCell(code);
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
                     CLDRFile cldrFile = factory.make(locale, false);
-                    String name2 = cldrFile.getStringValue("//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"" + code
-                        + "\"]");
+                    String name2 =
+                            cldrFile.getStringValue(
+                                    "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\""
+                                            + code
+                                            + "\"]");
                     tablePrinter.addCell(name2 == null ? "" : name2);
                 }
                 tablePrinter.finishRow();
             }
             final String name = group.toString();
-            new Subchart(name + " Subdivision Names", FileUtilities.anchorize(name), tablePrinter).writeChart(anchors);
+            new Subchart(name + " Subdivision Names", FileUtilities.anchorize(name), tablePrinter)
+                    .writeChart(anchors);
         }
     }
 
@@ -201,7 +223,7 @@ public class ChartSubdivisionNames extends Chart {
         @Override
         public String getExplanation() {
             return "<p>This table shows the subdivision names for a group of related languages (plus English) for easier comparison. "
-                + "The coverage depends on the availability of data in wikidata for these names.</p>\n";
+                    + "The coverage depends on the availability of data in wikidata for these names.</p>\n";
         }
 
         @Override

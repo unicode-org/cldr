@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Utility;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -8,15 +11,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Utility;
-
 public class IsoCurrencyParser {
 
-    /**
-     * Note: path is relative to CldrUtility, {@link CldrUtility#getInputStream(String)}
-     */
+    /** Note: path is relative to CldrUtility, {@link CldrUtility#getInputStream(String)} */
     private static final String ISO_CURRENT_CODES_XML = "dl_iso_table_a1.xml";
 
     /*
@@ -36,67 +33,69 @@ public class IsoCurrencyParser {
      * These corrections are country descriptions that are in the ISO4217 tables but carry a different spelling
      * in the language subtag registry.
      */
-    private static final ImmutableMap<String, String> COUNTRY_CORRECTIONS = new ImmutableMap.Builder<String, String>()
-        .put("UNITED ARAB EMIRATES (THE)", "AE")
-        .put(Utility.unescape("\u00C5LAND ISLANDS"), "AX")
-        .put("SAINT BARTH\u00C9LEMY", "BL")
-        .put("BOLIVIA (PLURINATIONAL STATE OF)", "BO")
-        .put("BAHAMAS (THE)", "BS")
-        .put("COCOS (KEELING) ISLANDS (THE)", "CC")
-        .put("CONGO (THE DEMOCRATIC REPUBLIC OF THE)", "CD")
-        .put("CENTRAL AFRICAN REPUBLIC (THE)", "CF")
-        .put("CONGO (THE)", "CG")
-        .put(Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI")
-        .put("COOK ISLANDS (THE)", "CK")
-        .put("CABO VERDE", "CV")
-        .put(Utility.unescape("CURA\u00C7AO"), "CW")
-        .put("CZECHIA", "CZ")
-        .put("DOMINICAN REPUBLIC (THE)", "DO")
-        .put("FALKLAND ISLANDS (THE) [MALVINAS]", "FK")
-        .put("MICRONESIA (FEDERATED STATES OF)", "FM")
-        .put("FAROE ISLANDS (THE)", "FO")
-        .put("UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE)", "GB")
-        .put("GAMBIA (THE)", "GM")
-        .put("HEARD ISLAND AND McDONALD ISLANDS", "HM")
-        .put("BRITISH INDIAN OCEAN TERRITORY (THE)", "IO")
-        .put("IRAN (ISLAMIC REPUBLIC OF)", "IR")
-        .put("COMOROS (THE)", "KM")
-        .put(Utility.unescape("KOREA (THE DEMOCRATIC PEOPLE\u2019S REPUBLIC OF)"), "KP")
-        .put("KOREA (THE REPUBLIC OF)", "KR")
-        .put("CAYMAN ISLANDS (THE)", "KY")
-        .put(Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC (THE)"), "LA")
-        .put("MOLDOVA (THE REPUBLIC OF)", "MD")
-        .put("SAINT MARTIN", "MF")
-        .put("MARSHALL ISLANDS (THE)", "MH")
-        .put("MACEDONIA (THE FORMER YUGOSLAV REPUBLIC OF)", "MK")
-        .put("NORTHERN MARIANA ISLANDS (THE)", "MP")
-        .put("NETHERLANDS (THE)", "NL")
-        .put("NIGER (THE)", "NE")
-        .put("PHILIPPINES (THE)", "PH")
-        .put("PALESTINE, STATE OF", "PS")
-        .put(Utility.unescape("R\u00C9UNION"), "RE")
-        .put("RUSSIAN FEDERATION (THE)", "RU")
-        .put("SUDAN (THE)", "SD")
-        .put("ESWATINI", "SZ")
-        .put("TURKS AND CAICOS ISLANDS (THE)", "TC")
-        .put("FRENCH SOUTHERN TERRITORIES (THE)", "TF")
-        .put("TAIWAN (PROVINCE OF CHINA)", "TW")
-        .put("TANZANIA, UNITED REPUBLIC OF", "TZ")
-        .put("UNITED STATES MINOR OUTLYING ISLANDS (THE)", "UM")
-        .put("UNITED STATES OF AMERICA (THE)", "US")
-        .put("HOLY SEE (THE)", "VA")
-        .put("VENEZUELA (BOLIVARIAN REPUBLIC OF)", "VE")
-        .put("VIRGIN ISLANDS (BRITISH)", "VG")
-        .put("VIRGIN ISLANDS (U.S.)", "VI")
-        .put(Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ")
-        .put("MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ")
-        .put("SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ")
-        .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
-        .put("TÜRKİYE", "TR")
-        .build();
+    private static final ImmutableMap<String, String> COUNTRY_CORRECTIONS =
+            new ImmutableMap.Builder<String, String>()
+                    .put("UNITED ARAB EMIRATES (THE)", "AE")
+                    .put(Utility.unescape("\u00C5LAND ISLANDS"), "AX")
+                    .put("SAINT BARTH\u00C9LEMY", "BL")
+                    .put("BOLIVIA (PLURINATIONAL STATE OF)", "BO")
+                    .put("BAHAMAS (THE)", "BS")
+                    .put("COCOS (KEELING) ISLANDS (THE)", "CC")
+                    .put("CONGO (THE DEMOCRATIC REPUBLIC OF THE)", "CD")
+                    .put("CENTRAL AFRICAN REPUBLIC (THE)", "CF")
+                    .put("CONGO (THE)", "CG")
+                    .put(Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI")
+                    .put("COOK ISLANDS (THE)", "CK")
+                    .put("CABO VERDE", "CV")
+                    .put(Utility.unescape("CURA\u00C7AO"), "CW")
+                    .put("CZECHIA", "CZ")
+                    .put("DOMINICAN REPUBLIC (THE)", "DO")
+                    .put("FALKLAND ISLANDS (THE) [MALVINAS]", "FK")
+                    .put("MICRONESIA (FEDERATED STATES OF)", "FM")
+                    .put("FAROE ISLANDS (THE)", "FO")
+                    .put("UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND (THE)", "GB")
+                    .put("GAMBIA (THE)", "GM")
+                    .put("HEARD ISLAND AND McDONALD ISLANDS", "HM")
+                    .put("BRITISH INDIAN OCEAN TERRITORY (THE)", "IO")
+                    .put("IRAN (ISLAMIC REPUBLIC OF)", "IR")
+                    .put("COMOROS (THE)", "KM")
+                    .put(Utility.unescape("KOREA (THE DEMOCRATIC PEOPLE\u2019S REPUBLIC OF)"), "KP")
+                    .put("KOREA (THE REPUBLIC OF)", "KR")
+                    .put("CAYMAN ISLANDS (THE)", "KY")
+                    .put(Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC (THE)"), "LA")
+                    .put("MOLDOVA (THE REPUBLIC OF)", "MD")
+                    .put("SAINT MARTIN", "MF")
+                    .put("MARSHALL ISLANDS (THE)", "MH")
+                    .put("MACEDONIA (THE FORMER YUGOSLAV REPUBLIC OF)", "MK")
+                    .put("NORTHERN MARIANA ISLANDS (THE)", "MP")
+                    .put("NETHERLANDS (THE)", "NL")
+                    .put("NIGER (THE)", "NE")
+                    .put("PHILIPPINES (THE)", "PH")
+                    .put("PALESTINE, STATE OF", "PS")
+                    .put(Utility.unescape("R\u00C9UNION"), "RE")
+                    .put("RUSSIAN FEDERATION (THE)", "RU")
+                    .put("SUDAN (THE)", "SD")
+                    .put("ESWATINI", "SZ")
+                    .put("TURKS AND CAICOS ISLANDS (THE)", "TC")
+                    .put("FRENCH SOUTHERN TERRITORIES (THE)", "TF")
+                    .put("TAIWAN (PROVINCE OF CHINA)", "TW")
+                    .put("TANZANIA, UNITED REPUBLIC OF", "TZ")
+                    .put("UNITED STATES MINOR OUTLYING ISLANDS (THE)", "UM")
+                    .put("UNITED STATES OF AMERICA (THE)", "US")
+                    .put("HOLY SEE (THE)", "VA")
+                    .put("VENEZUELA (BOLIVARIAN REPUBLIC OF)", "VE")
+                    .put("VIRGIN ISLANDS (BRITISH)", "VG")
+                    .put("VIRGIN ISLANDS (U.S.)", "VI")
+                    .put(Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ")
+                    .put("MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ")
+                    .put("SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ")
+                    .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
+                    .put("TÜRKİYE", "TR")
+                    .build();
 
     static Map<String, String> iso4217CountryToCountryCode = new TreeMap<>();
     static Set<String> exceptionList = new LinkedHashSet<>();
+
     static {
         StandardCodes sc = StandardCodes.make();
         Set<String> countries = sc.getAvailableCodes("territory");
@@ -107,8 +106,10 @@ public class IsoCurrencyParser {
         iso4217CountryToCountryCode.putAll(COUNTRY_CORRECTIONS);
     }
 
-    private Relation<String, Data> codeList = Relation.of(new TreeMap<String, Set<Data>>(), TreeSet.class, null);
-    private Relation<String, String> countryToCodes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+    private Relation<String, Data> codeList =
+            Relation.of(new TreeMap<String, Set<Data>>(), TreeSet.class, null);
+    private Relation<String, String> countryToCodes =
+            Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
 
     public static class Data implements Comparable<Object> {
         private String name;
@@ -141,8 +142,12 @@ public class IsoCurrencyParser {
 
         @Override
         public String toString() {
-            return String.format("[%s,\t%s [%s],\t%d]", name, countryCode,
-                StandardCodes.make().getData("territory", countryCode), numericCode);
+            return String.format(
+                    "[%s,\t%s [%s],\t%d]",
+                    name,
+                    countryCode,
+                    StandardCodes.make().getData("territory", countryCode),
+                    numericCode);
         }
 
         @Override
@@ -204,8 +209,12 @@ public class IsoCurrencyParser {
         if (iso4217Country.startsWith("ZZ")) {
             return "ZZ";
         }
-        exceptionList.add(String.format(CldrUtility.LINE_SEPARATOR + "\t\t.put(\"%s\", \"XXX\") // fix XXX and add to COUNTRY_CORRECTIONS in "
-            + StackTracker.currentElement(0).getFileName(), iso4217Country));
+        exceptionList.add(
+                String.format(
+                        CldrUtility.LINE_SEPARATOR
+                                + "\t\t.put(\"%s\", \"XXX\") // fix XXX and add to COUNTRY_CORRECTIONS in "
+                                + StackTracker.currentElement(0).getFileName(),
+                        iso4217Country));
         return "ZZ";
     }
 
@@ -223,11 +232,8 @@ public class IsoCurrencyParser {
         int numeric_code;
         int minor_unit;
 
-        /**
-         * Finish processing anything left hanging in the file.
-         */
-        public void cleanup() {
-        }
+        /** Finish processing anything left hanging in the file. */
+        public void cleanup() {}
 
         @Override
         public void handlePathValue(String path, String value) {
@@ -261,16 +267,18 @@ public class IsoCurrencyParser {
                     }
                 }
 
-                if (type.equals("CcyMnrUnts") && alphabetic_code.length() > 0
-                    && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
+                if (type.equals("CcyMnrUnts")
+                        && alphabetic_code.length() > 0
+                        && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
                     Data data = new Data(country_code, currency_name, numeric_code, minor_unit);
                     codeList.put(alphabetic_code, data);
                     countryToCodes.put(data.getCountryCode(), alphabetic_code);
                 }
 
             } catch (Exception e) {
-                throw (IllegalArgumentException) new IllegalArgumentException("path: "
-                    + path + ",\tvalue: " + value).initCause(e);
+                throw (IllegalArgumentException)
+                        new IllegalArgumentException("path: " + path + ",\tvalue: " + value)
+                                .initCause(e);
             }
         }
     }

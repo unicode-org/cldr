@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -41,16 +40,15 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 /**
- * A command-line tool for converting XTB files to the CLDR format and checking
- * them against current CLDR data.
+ * A command-line tool for converting XTB files to the CLDR format and checking them against current
+ * CLDR data.
  *
  * @author jchye@google.com (Jennifer Chye)
  */
 public class ConvertXTB {
-    private static final Pattern ID_PATTERN = PatternCache.get(
-        "\\[@id=\"(\\d++)\"]");
-    private static final Pattern PLURAL_MESSAGE_FORMAT = PatternCache.get(
-        "\\{[A-Z_]++,plural, (.*)}");
+    private static final Pattern ID_PATTERN = PatternCache.get("\\[@id=\"(\\d++)\"]");
+    private static final Pattern PLURAL_MESSAGE_FORMAT =
+            PatternCache.get("\\{[A-Z_]++,plural, (.*)}");
 
     private static PatternPlaceholders patternPlaceholders;
     private static Map<String, Map<String, String>> loadedReverseTagMaps;
@@ -99,8 +97,7 @@ public class ConvertXTB {
     }
 
     /**
-     * Sets the PrintStream that any errors will be sent to. System.out is used
-     * by default.
+     * Sets the PrintStream that any errors will be sent to. System.out is used by default.
      *
      * @param out
      */
@@ -108,9 +105,7 @@ public class ConvertXTB {
         this.out = out;
     }
 
-    /**
-     * Wrapper class for the contents of an XTB file.
-     */
+    /** Wrapper class for the contents of an XTB file. */
     private class XtbInfo implements Iterable<XtbEntry> {
         public String locale;
         public List<XtbEntry> entries;
@@ -130,10 +125,7 @@ public class ConvertXTB {
         }
     }
 
-    /**
-     * Wrapper class for information related to a &lt;translation&gt; node in
-     * an XTB file.
-     */
+    /** Wrapper class for information related to a &lt;translation&gt; node in an XTB file. */
     private class XtbEntry {
         public String messageId;
         public String xpath;
@@ -146,9 +138,7 @@ public class ConvertXTB {
         }
     }
 
-    /**
-     * An XML handler for XTB files.
-     */
+    /** An XML handler for XTB files. */
     private class XtbHandler implements ContentHandler {
         private DisplayAndInputProcessor daip;
         private StringBuffer currentText;
@@ -173,8 +163,8 @@ public class ConvertXTB {
         }
 
         @Override
-        public void startElement(String uri, String localName, String qName,
-            Attributes attr) throws SAXException {
+        public void startElement(String uri, String localName, String qName, Attributes attr)
+                throws SAXException {
             if (qName.equals("translation")) {
                 lastId = attr.getValue("id");
                 lastXpath = IdToPath.getPath(lastId);
@@ -187,8 +177,7 @@ public class ConvertXTB {
         }
 
         @Override
-        public void endElement(String uri, String localName, String qName)
-            throws SAXException {
+        public void endElement(String uri, String localName, String qName) throws SAXException {
             if (qName.equals("translation")) {
                 if (lastXpath == null) {
                     orphanedMessages.add(lastId);
@@ -235,61 +224,62 @@ public class ConvertXTB {
             for (int i = 0; i < value.length(); i++) {
                 char c = value.charAt(i);
                 switch (c) {
-                case '{':
-                    if (numOpen == 0) {
-                        int startIndex = buffer.charAt(0) == '=' ? 1 : 0;
-                        countType = buffer.substring(startIndex);
-                        buffer.setLength(0);
-                    } else {
-                        // Start of placeholder.
-                        nameStart = i + 1;
-                    }
-                    numOpen++;
-                    break;
-                case '}':
-                    numOpen--;
-                    if (numOpen == 0) {
-                        // Special handling for decimal format lengths.
-                        if (lastXpath.contains("decimalFormatLength")) {
-                            if (countType.length() == 1) {
-                                countType = countType.charAt(0) == '1' ? "one" : "zero";
-                            } else if (countType.equals("one")) {
-                                // skip, contains rubbish
-                                buffer.setLength(0);
-                                countType = null;
-                                break;
-                            }
+                    case '{':
+                        if (numOpen == 0) {
+                            int startIndex = buffer.charAt(0) == '=' ? 1 : 0;
+                            countType = buffer.substring(startIndex);
+                            buffer.setLength(0);
+                        } else {
+                            // Start of placeholder.
+                            nameStart = i + 1;
                         }
-                        // Add the count attribute back to the xpath.
-                        String pluralXPath = xpath + "[@count=\"" + countType + "\"]";
-                        // Add any remaining missing placeholders.
-                        String pluralValue = buffer.toString();
-                        if (pluralValue.contains("{1}") && !pluralValue.contains("{0}")) {
-                            // Fix placeholder numbering. Assumes there is only one
-                            // placeholder in the pattern.
-                            if (countType.matches("[01]")) {
-                                pluralValue = pluralValue.replaceAll(countType + "(?!})", "{0}");
-                            } else {
-                                pluralValue = pluralValue.replace("{1}", "{0}");
+                        numOpen++;
+                        break;
+                    case '}':
+                        numOpen--;
+                        if (numOpen == 0) {
+                            // Special handling for decimal format lengths.
+                            if (lastXpath.contains("decimalFormatLength")) {
+                                if (countType.length() == 1) {
+                                    countType = countType.charAt(0) == '1' ? "one" : "zero";
+                                } else if (countType.equals("one")) {
+                                    // skip, contains rubbish
+                                    buffer.setLength(0);
+                                    countType = null;
+                                    break;
+                                }
                             }
+                            // Add the count attribute back to the xpath.
+                            String pluralXPath = xpath + "[@count=\"" + countType + "\"]";
+                            // Add any remaining missing placeholders.
+                            String pluralValue = buffer.toString();
+                            if (pluralValue.contains("{1}") && !pluralValue.contains("{0}")) {
+                                // Fix placeholder numbering. Assumes there is only one
+                                // placeholder in the pattern.
+                                if (countType.matches("[01]")) {
+                                    pluralValue =
+                                            pluralValue.replaceAll(countType + "(?!})", "{0}");
+                                } else {
+                                    pluralValue = pluralValue.replace("{1}", "{0}");
+                                }
+                            }
+                            addValueToOutput(pluralXPath, pluralValue);
+                            buffer.setLength(0);
+                            countType = null;
+                        } else {
+                            // End of placeholder.
+                            String name = value.substring(nameStart, i);
+                            buffer.append(getPlaceholderForName(xpath, name));
                         }
-                        addValueToOutput(pluralXPath, pluralValue);
-                        buffer.setLength(0);
-                        countType = null;
-                    } else {
-                        // End of placeholder.
-                        String name = value.substring(nameStart, i);
-                        buffer.append(getPlaceholderForName(xpath, name));
-                    }
-                    break;
-                case '#':
-                    buffer.append(lastXpath.contains("decimalFormatLength") ? '#' : "{0}");
-                    break;
-                default:
-                    // Don't append placeholder names.
-                    if (numOpen < 2) {
-                        buffer.append(c);
-                    }
+                        break;
+                    case '#':
+                        buffer.append(lastXpath.contains("decimalFormatLength") ? '#' : "{0}");
+                        break;
+                    default:
+                        // Don't append placeholder names.
+                        if (numOpen < 2) {
+                            buffer.append(c);
+                        }
                 }
             }
         }
@@ -300,26 +290,22 @@ public class ConvertXTB {
         }
 
         @Override
-        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {
-        }
+        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {}
 
         @Override
-        public void processingInstruction(String arg0, String arg1) throws SAXException {
-        }
+        public void processingInstruction(String arg0, String arg1) throws SAXException {}
 
         @Override
-        public void skippedEntity(String arg0) throws SAXException {
-        }
+        public void skippedEntity(String arg0) throws SAXException {}
 
         @Override
-        public void startDocument() throws SAXException {
-        }
+        public void startDocument() throws SAXException {}
 
         @Override
         public void endDocument() throws SAXException {
             if (orphanedMessages.size() > 0) {
-                System.err.println(orphanedMessages.size() +
-                    " message IDs with no matching xpaths: ");
+                System.err.println(
+                        orphanedMessages.size() + " message IDs with no matching xpaths: ");
                 for (String messageID : orphanedMessages) {
                     System.err.println(messageID);
                 }
@@ -327,21 +313,16 @@ public class ConvertXTB {
         }
 
         @Override
-        public void setDocumentLocator(Locator arg0) {
-        }
+        public void setDocumentLocator(Locator arg0) {}
 
         @Override
-        public void startPrefixMapping(String arg0, String arg1) throws SAXException {
-        }
+        public void startPrefixMapping(String arg0, String arg1) throws SAXException {}
 
         @Override
-        public void endPrefixMapping(String arg0) throws SAXException {
-        }
+        public void endPrefixMapping(String arg0) throws SAXException {}
     }
 
-    /**
-     * An XML handler for WSB files.
-     */
+    /** An XML handler for WSB files. */
     private class WsbHandler extends XMLFileReader.SimpleHandler {
         private Set<String> messageIds;
 
@@ -363,11 +344,8 @@ public class ConvertXTB {
     }
 
     /**
-     *
-     * @param xpath
-     *            the xpath that the placeholder belongs to
-     * @param name
-     *            the name to get the placeholder for
+     * @param xpath the xpath that the placeholder belongs to
+     * @param name the name to get the placeholder for
      * @return the placeholder, e.g. "{0}" or "{1}"
      */
     private String getPlaceholderForName(String xpath, String name) {
@@ -387,10 +365,8 @@ public class ConvertXTB {
     }
 
     /**
-     * @param xpath
-     *            the xpath to get placeholder information for
-     * @return a mapping of placeholders to placeholder information for the
-     *         specified xpath
+     * @param xpath the xpath to get placeholder information for
+     * @return a mapping of placeholders to placeholder information for the specified xpath
      */
     private Map<String, PlaceholderInfo> getTagMap(String xpath) {
         if (patternPlaceholders == null) {
@@ -402,15 +378,14 @@ public class ConvertXTB {
     /**
      * Loads the contents of an XTB file into memory.
      *
-     * @param locale
-     *            the locale of the XTB file to be loaded
+     * @param locale the locale of the XTB file to be loaded
      * @return
      */
     private XtbInfo load(String locale) {
         // HACKETY HACK: The wsb files use old langauge codes with hyphens
         // instead of CLDR's underscores.
         // The xtb files use hyphens but differ yet again from the CLDR and xtb
-        // language codes, e.g. 
+        // language codes, e.g.
         // wsb uses "iw" but xtb and CLDR use "he". This means that we can't
         // convert the locale to the CLDR standard until after reading in the
         // xtb/wsb files. Sigh.
@@ -438,21 +413,19 @@ public class ConvertXTB {
             System.err.println("Error loading " + inputFile.getAbsolutePath());
             e.printStackTrace();
         }
-//            catch (SAXException e) {
-//            System.err.println("Error loading " + inputFile.getAbsolutePath());
-//            e.printStackTrace();
-//        }
+        //            catch (SAXException e) {
+        //            System.err.println("Error loading " + inputFile.getAbsolutePath());
+        //            e.printStackTrace();
+        //        }
         return info;
     }
 
     /**
      * Loads the set of messages that were previously translated.
      *
-     * @param locale
-     *            the locale of the messages to be retrieved
+     * @param locale the locale of the messages to be retrieved
      * @return
-     * @throws IllegalArgumentException
-     *             if there was an error parsing the wsb
+     * @throws IllegalArgumentException if there was an error parsing the wsb
      */
     private Set<String> loadOldMessages(String locale) throws IllegalArgumentException {
         locale = LanguageCodeConverter.toGoogleLocaleId(locale);
@@ -464,14 +437,14 @@ public class ConvertXTB {
     }
 
     /**
-     * Processes all XTB files in the input directory that match the specified
-     * regex.
+     * Processes all XTB files in the input directory that match the specified regex.
      *
      * @param regexFilter
      */
     private void processAll(String regexFilter) {
-        out.println("Locale\tMessage ID\tDescription\tEnglish Value\t" +
-            "Translated Value\tType\tError Message");
+        out.println(
+                "Locale\tMessage ID\tDescription\tEnglish Value\t"
+                        + "Translated Value\tType\tError Message");
         for (String filename : xtbDir.list()) {
             if (filename.matches(regexFilter + "\\.xtb")) {
                 String locale = filename.substring(0, filename.length() - 4);
@@ -486,8 +459,7 @@ public class ConvertXTB {
     /**
      * Checks the contents of the XTB file against the existing CLDR data.
      *
-     * @param xtbInfo
-     *            the contents of the XTB to be checked
+     * @param xtbInfo the contents of the XTB to be checked
      */
     private void check(XtbInfo xtbInfo) {
         String locale = xtbInfo.locale;
@@ -516,28 +488,37 @@ public class ConvertXTB {
     /**
      * Displays any errors that occurred when checking the specified xpath
      *
-     * @param locale
-     *            the locale of the xpath being checked
-     * @param id
-     *            the message ID corresponding to the xpath
-     * @param xpath
-     *            the xpath that was checked
-     * @param value
-     *            the value of the xpath
-     * @param possibleErrors
-     *            a list of errors generated by checking the xpath
+     * @param locale the locale of the xpath being checked
+     * @param id the message ID corresponding to the xpath
+     * @param xpath the xpath that was checked
+     * @param value the value of the xpath
+     * @param possibleErrors a list of errors generated by checking the xpath
      */
-    private int displayErrors(String locale, String id, String xpath,
-        String value, List<CheckStatus> possibleErrors) {
+    private int displayErrors(
+            String locale,
+            String id,
+            String xpath,
+            String value,
+            List<CheckStatus> possibleErrors) {
         String description = getDescription(xpath, value);
         // Ignore these interval formats since they'll be removed.
         if (id.equals("8190100716823312848") || id.equals("8190100716823312848")) return 0;
         int numErrors = 0;
         for (CheckStatus status : possibleErrors) {
-            out.println(locale + "\t" + id +
-                "\t" + description +
-                "\t" + englishFile.getStringValue(xpath) +
-                "\t" + value + "\t" + status.getType() + "\t" + status.getMessage().replace('\t', ' '));
+            out.println(
+                    locale
+                            + "\t"
+                            + id
+                            + "\t"
+                            + description
+                            + "\t"
+                            + englishFile.getStringValue(xpath)
+                            + "\t"
+                            + value
+                            + "\t"
+                            + status.getType()
+                            + "\t"
+                            + status.getMessage().replace('\t', ' '));
             if (status.getType().equals("Error")) {
                 numErrors++;
             }
@@ -571,19 +552,39 @@ public class ConvertXTB {
     private String getDescription(String path, String value) {
         if (pathDescription == null) {
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-            pathDescription = new PathDescription(supplementalDataInfo, englishFile, null, null,
-                PathDescription.ErrorHandling.CONTINUE);
+            pathDescription =
+                    new PathDescription(
+                            supplementalDataInfo,
+                            englishFile,
+                            null,
+                            null,
+                            PathDescription.ErrorHandling.CONTINUE);
         }
         final String description = pathDescription.getDescription(path, value, null);
         return description;
     }
 
-    private static final Options options = new Options()
-        .add("source_dir", ".*", "The source directory containing the xtb and wsb files to be read")
-        .add("destination_dir", ".*", "The destination directory to write the XML files to")
-        .add("locale_filter", ".*", ".*", "A regex filter for (Google) locales to be processed")
-        .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
-        .add("error_file", ".*", "./errors.tsv", "The file that checking results should be written to");
+    private static final Options options =
+            new Options()
+                    .add(
+                            "source_dir",
+                            ".*",
+                            "The source directory containing the xtb and wsb files to be read")
+                    .add(
+                            "destination_dir",
+                            ".*",
+                            "The destination directory to write the XML files to")
+                    .add(
+                            "locale_filter",
+                            ".*",
+                            ".*",
+                            "A regex filter for (Google) locales to be processed")
+                    .add("test_filter", ".*", ".*", "A regex filter for CheckCLDR tests")
+                    .add(
+                            "error_file",
+                            ".*",
+                            "./errors.tsv",
+                            "The file that checking results should be written to");
 
     /**
      * @param args

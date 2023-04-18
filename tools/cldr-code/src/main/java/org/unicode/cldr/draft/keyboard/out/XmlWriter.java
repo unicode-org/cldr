@@ -3,19 +3,17 @@ package org.unicode.cldr.draft.keyboard.out;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
+import com.google.common.collect.ImmutableMap;
 import java.io.Writer;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import com.google.common.collect.ImmutableMap;
-
 /**
- * Object which wraps around an XML stream writer. Automatically adds proper formatting
- * (indentation and line breaks) to the written XML elements.
+ * Object which wraps around an XML stream writer. Automatically adds proper formatting (indentation
+ * and line breaks) to the written XML elements.
  */
 final class XmlWriter {
     private final XMLStreamWriter writer;
@@ -60,7 +58,7 @@ final class XmlWriter {
     }
 
     XmlWriter startElement(String name) {
-        return startElement(name, ImmutableMap.<String, Object> of());
+        return startElement(name, ImmutableMap.<String, Object>of());
     }
 
     XmlWriter startElement(String name, Map<String, ?> attributeToValue) {

@@ -1,12 +1,11 @@
 package org.unicode.cldr.draft;
 
-import java.text.ParsePosition;
-import java.util.Arrays;
-import java.util.List;
-
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import java.text.ParsePosition;
+import java.util.Arrays;
+import java.util.List;
 
 public class StateMachine<T> {
     static boolean SHOW_STATE_TRANSITIONS = false; // Utility.getProperty("transitions", false);
@@ -22,17 +21,18 @@ public class StateMachine<T> {
     private String[] stateNames;
     private String[] actionNames;
 
-    StateMachine(List<UnicodeMap> stateToData, StateObjectBuilderFactory<T> factory,
-        List<String> stateNames, List<String> actionNames) {
+    StateMachine(
+            List<UnicodeMap> stateToData,
+            StateObjectBuilderFactory<T> factory,
+            List<String> stateNames,
+            List<String> actionNames) {
         this.stateToData = stateToData.toArray(new UnicodeMap[stateToData.size()]);
         this.stateNames = stateNames.toArray(new String[stateNames.size()]);
         this.actionNames = actionNames.toArray(new String[actionNames.size()]);
         this.factory = factory;
     }
 
-    /**
-     * Immutable internal object that contains the row of a state machine
-     */
+    /** Immutable internal object that contains the row of a state machine */
     public static class StateAction {
         boolean advanceToNextCodePoint = false;
         short nextState = StateMachine.UNDEFINED;
@@ -43,9 +43,9 @@ public class StateMachine<T> {
         public boolean equals(Object other) {
             StateAction that = (StateAction) other;
             return advanceToNextCodePoint == that.advanceToNextCodePoint
-                && nextState == that.nextState
-                && pushState == that.pushState
-                && action == that.action;
+                    && nextState == that.nextState
+                    && pushState == that.pushState
+                    && action == that.action;
         }
     }
 
@@ -80,9 +80,7 @@ public class StateMachine<T> {
             return stateMachine.getActionName(action);
         }
 
-        protected void handle(int position, StateAction action) {
-
-        }
+        protected void handle(int position, StateAction action) {}
 
         @Override
         public String toString() {
@@ -99,23 +97,25 @@ public class StateMachine<T> {
 
     public String toString(StateAction action) {
         return "{"
-            + (action.advanceToNextCodePoint ? "+" : "")
-            + getStateName(action.nextState)
-            + (action.pushState == StateMachine.UNDEFINED ? "" : " ^" + getStateName(action.pushState))
-            + (action.action < 0 ? "" : " " + getActionName(action.action))
-            + "}";
+                + (action.advanceToNextCodePoint ? "+" : "")
+                + getStateName(action.nextState)
+                + (action.pushState == StateMachine.UNDEFINED
+                        ? ""
+                        : " ^" + getStateName(action.pushState))
+                + (action.action < 0 ? "" : " " + getActionName(action.action))
+                + "}";
     }
 
     private String getStateName(short nextState) {
         switch (nextState) {
-        case POP:
-            return "pop";
-        case EXIT:
-            return "exit";
-        case ERROR:
-            return "errorDeath";
-        default:
-            return (stateNames == null ? String.valueOf(nextState) : stateNames[nextState]);
+            case POP:
+                return "pop";
+            case EXIT:
+                return "exit";
+            case ERROR:
+                return "errorDeath";
+            default:
+                return (stateNames == null ? String.valueOf(nextState) : stateNames[nextState]);
         }
     }
 
@@ -139,7 +139,12 @@ public class StateMachine<T> {
             } else {
                 for (Object action : unicodeMap.getAvailableValues()) {
                     UnicodeSet sources = unicodeMap.keySet(action);
-                    output.append("\t" + sources.toPattern(false) + "\t" + toString((StateAction) action) + "\n");
+                    output.append(
+                            "\t"
+                                    + sources.toPattern(false)
+                                    + "\t"
+                                    + toString((StateAction) action)
+                                    + "\n");
                 }
             }
             i++;
@@ -172,23 +177,23 @@ public class StateMachine<T> {
                 stateObject.handle(i, action);
             }
             switch (state = action.nextState) {
-            default:
-                if (SHOW_STATE_TRANSITIONS) {
-                    System.out.println("\t@NextState " + getStateName(state));
-                }
-                break;
-            case POP:
-                if (SHOW_STATE_TRANSITIONS) {
-                    System.out.println("\t@Popping " + stateObject);
-                }
-                state = stateObject.pop();
-                break;
-            case EXIT:
-                parsePosition.setIndex(i);
-                return stateObject.getResult();
-            case ERROR:
-                parsePosition.setErrorIndex(i);
-                throw new IllegalArgumentException(getActionName(action.action));
+                default:
+                    if (SHOW_STATE_TRANSITIONS) {
+                        System.out.println("\t@NextState " + getStateName(state));
+                    }
+                    break;
+                case POP:
+                    if (SHOW_STATE_TRANSITIONS) {
+                        System.out.println("\t@Popping " + stateObject);
+                    }
+                    state = stateObject.pop();
+                    break;
+                case EXIT:
+                    parsePosition.setIndex(i);
+                    return stateObject.getResult();
+                case ERROR:
+                    parsePosition.setErrorIndex(i);
+                    throw new IllegalArgumentException(getActionName(action.action));
             }
             if (action.advanceToNextCodePoint) {
                 i += UTF16.getCharCount(cp);

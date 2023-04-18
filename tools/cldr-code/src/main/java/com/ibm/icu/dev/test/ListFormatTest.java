@@ -9,26 +9,17 @@ public class ListFormatTest extends TestFmwk {
     }
 
     String[] HardcodedTestData = {
-        "",
-        "A",
-        "A and B",
-        "A; B, and C",
-        "A; B, C, and D",
-        "A; B, C, D, and E"
+        "", "A", "A and B", "A; B, and C", "A; B, C, and D", "A; B, C, D, and E"
     };
 
     public void TestBasic() {
-        ListFormat formatter = new ListFormat("{0} and {1}", "{0}; {1}", "{0}, {1}", "{0}, and {1}");
+        ListFormat formatter =
+                new ListFormat("{0} and {1}", "{0}; {1}", "{0}, {1}", "{0}, and {1}");
         checkData(formatter, HardcodedTestData);
     }
 
     String[] EnglishTestData = {
-        "",
-        "A",
-        "A and B",
-        "A, B, and C",
-        "A, B, C, and D",
-        "A, B, C, D, and E"
+        "", "A", "A and B", "A, B, and C", "A, B, C, and D", "A, B, C, D, and E"
     };
 
     public void TestEnglish() {
@@ -36,27 +27,13 @@ public class ListFormatTest extends TestFmwk {
         checkData(ListFormat.getInstance(ULocale.US), EnglishTestData);
     }
 
-    String[] JapaneseTestData = {
-        "",
-        "A",
-        "A、B",
-        "A、B、C",
-        "A、B、C、D",
-        "A、B、C、D、E"
-    };
+    String[] JapaneseTestData = {"", "A", "A、B", "A、B、C", "A、B、C、D", "A、B、C、D、E"};
 
     public void TestJapanese() {
         checkData(ListFormat.getInstance(ULocale.JAPANESE), JapaneseTestData);
     }
 
-    String[] RootTestData = {
-        "",
-        "A",
-        "A, B",
-        "A, B, C",
-        "A, B, C, D",
-        "A, B, C, D, E"
-    };
+    String[] RootTestData = {"", "A", "A, B", "A, B, C", "A, B, C, D", "A, B, C, D, E"};
 
     public void TestSpecial() {
         checkData(ListFormat.getInstance(ULocale.ROOT), RootTestData);

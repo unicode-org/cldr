@@ -1,9 +1,9 @@
 package org.unicode.cldr.util;
 
 public class LocaleCompletionData {
-    final private int error;
-    final private int missing;
-    final private int provisional;
+    private final int error;
+    private final int missing;
+    private final int provisional;
 
     public LocaleCompletionData(Counter<NotificationCategory> problemCounter) {
         error = (int) problemCounter.get(NotificationCategory.error);

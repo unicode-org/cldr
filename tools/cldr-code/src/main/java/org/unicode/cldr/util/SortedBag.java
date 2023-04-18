@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2002-2012, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: Mark Davis
-**********************************************************************
-*/package org.unicode.cldr.util;
+ **********************************************************************
+ * Copyright (c) 2002-2012, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */ package org.unicode.cldr.util;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -16,17 +16,16 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * A collection that is like a sorted set, except that it allows
- * multiple elements that compare as equal
+ * A collection that is like a sorted set, except that it allows multiple elements that compare as
+ * equal
+ *
  * @author medavis
  */
 // TODO replace use of Set with a collection that takes an Equator
 public class SortedBag implements Collection {
-    /**
-     * A map of sets, where each corresponds to one sorted element.
-     * The sets are never empty
-     */
+    /** A map of sets, where each corresponds to one sorted element. The sets are never empty */
     private Map m;
+
     private int size;
 
     public SortedBag(Comparator c) {
@@ -85,9 +84,7 @@ public class SortedBag implements Collection {
         }
     }
 
-    /**
-     *
-     */
+    /** */
     @Override
     public void clear() {
         m.clear();
@@ -118,7 +115,7 @@ public class SortedBag implements Collection {
     @Override
     public Object[] toArray(Object[] a) {
         int count = 0;
-        for (Iterator it = iterator(); it.hasNext();) {
+        for (Iterator it = iterator(); it.hasNext(); ) {
             a[count++] = it.next();
         }
         return a;
@@ -139,7 +136,7 @@ public class SortedBag implements Collection {
 
     @Override
     public boolean containsAll(Collection c) {
-        for (Iterator it = c.iterator(); it.hasNext();) {
+        for (Iterator it = c.iterator(); it.hasNext(); ) {
             if (!contains(it.next())) return false;
         }
         return true;
@@ -148,7 +145,7 @@ public class SortedBag implements Collection {
     @Override
     public boolean addAll(Collection c) {
         boolean result = false;
-        for (Iterator it = c.iterator(); it.hasNext();) {
+        for (Iterator it = c.iterator(); it.hasNext(); ) {
             if (add(it.next())) result = true;
         }
         return result;
@@ -157,7 +154,7 @@ public class SortedBag implements Collection {
     @Override
     public boolean removeAll(Collection c) {
         boolean result = false;
-        for (Iterator it = c.iterator(); it.hasNext();) {
+        for (Iterator it = c.iterator(); it.hasNext(); ) {
             if (remove(it.next())) result = true;
         }
         return result;
@@ -168,7 +165,7 @@ public class SortedBag implements Collection {
         // WARNING: this may not work if the comparator does not distinguish
         // all items that are equals().
         Set stuffToRemove = new HashSet(); // have to do this since iterator may not allow removal!
-        for (Iterator it = iterator(); it.hasNext();) {
+        for (Iterator it = iterator(); it.hasNext(); ) {
             Object item = it.next();
             if (!c.contains(item)) stuffToRemove.add(item);
         }

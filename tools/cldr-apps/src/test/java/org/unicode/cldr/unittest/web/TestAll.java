@@ -1,16 +1,17 @@
-/**
- * Copyright (C) 2011-2013 IBM Corporation and Others. All Rights Reserved.
- */
-//##header J2SE15
+/** Copyright (C) 2011-2013 IBM Corporation and Others. All Rights Reserved. */
+// ##header J2SE15
 
 package org.unicode.cldr.unittest.web;
 
+import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.dev.test.TestLog;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -25,14 +26,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.test.TestLog;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-
-/**
- * Top level test used to run all other tests as a batch.
- */
+/** Top level test used to run all other tests as a batch. */
 public class TestAll extends TestGroup {
     private static final Logger logger = SurveyLog.forClass(TestAll.class);
 
@@ -40,18 +34,19 @@ public class TestAll extends TestGroup {
     private static boolean sane = false;
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
-    /**
-     * True if the Test DB is setup properly.
-     */
-    public static final boolean HAVE_TEST_DB = !(CldrUtility.getProperty(CLDR_TEST_JDBC, "").isEmpty());
+    /** True if the Test DB is setup properly. */
+    public static final boolean HAVE_TEST_DB =
+            !(CldrUtility.getProperty(CLDR_TEST_JDBC, "").isEmpty());
 
-    /**
-     * Verify some setup things
-     */
-    public static synchronized final void sanity() {
+    /** Verify some setup things */
+    public static final synchronized void sanity() {
         if (!sane) {
-            verifyIsDir(CLDRPaths.BASE_DIRECTORY, CldrUtility.DIR_KEY, "=${workspace_loc:common/..}");
-            verifyIsDir(CLDRPaths.MAIN_DIRECTORY, CldrUtility.MAIN_KEY, "=${workspace_loc:common/main}");
+            verifyIsDir(
+                    CLDRPaths.BASE_DIRECTORY, CldrUtility.DIR_KEY, "=${workspace_loc:common/..}");
+            verifyIsDir(
+                    CLDRPaths.MAIN_DIRECTORY,
+                    CldrUtility.MAIN_KEY,
+                    "=${workspace_loc:common/main}");
             verifyIsFile(new File(CLDRPaths.MAIN_DIRECTORY, "root.xml"));
             sane = true;
         }
@@ -80,7 +75,8 @@ public class TestAll extends TestGroup {
     }
 
     private static void pleaseSet(String var, String err, String sugg) {
-        throw new IllegalArgumentException("Error: variable " + var + " " + err + ", please set -D" + var + sugg);
+        throw new IllegalArgumentException(
+                "Error: variable " + var + " " + err + ", please set -D" + var + sugg);
     }
 
     public static void main(String[] args) {
@@ -92,7 +88,7 @@ public class TestAll extends TestGroup {
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
         TestAll test = new TestAll();
-        if(logs != null) {
+        if (logs != null) {
             return test.run(args, logs);
         } else {
             test.run(args);
@@ -104,30 +100,30 @@ public class TestAll extends TestGroup {
     public static String[] doResetDb(String[] args) {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
-                "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
+                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
         }
         return args;
     }
 
     public TestAll() {
-        super(new String[] {
-            // use class.getName so we are in sync with name changes and
-            // removals (if not additions)
-            TestIntHash.class.getName(),
-            TestXPathTable.class.getName(),
-            TestMisc.class.getName(),
-            TestSTFactory.class.getName(),
-            TestUserSettingsData.class.getName(),
-            TestAnnotationVotes.class.getName(),
-            TestUserRegistry.class.getName(),
-        },
-            "All tests in CLDR Web");
+        super(
+                new String[] {
+                    // use class.getName so we are in sync with name changes and
+                    // removals (if not additions)
+                    TestIntHash.class.getName(),
+                    TestXPathTable.class.getName(),
+                    TestMisc.class.getName(),
+                    TestSTFactory.class.getName(),
+                    TestUserSettingsData.class.getName(),
+                    TestAnnotationVotes.class.getName(),
+                    TestUserRegistry.class.getName(),
+                },
+                "All tests in CLDR Web");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR.Web";
 
     /**
-     *
      * @author srl
      */
     public static class WebTestInfo {
@@ -149,13 +145,13 @@ public class TestAll extends TestGroup {
             return INSTANCE;
         }
 
-        private WebTestInfo() {
-        }
+        private WebTestInfo() {}
 
         public SupplementalDataInfo getSupplementalDataInfo() {
             synchronized (this) {
                 if (supplementalDataInfo == null) {
-                    supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+                    supplementalDataInfo =
+                            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
                 }
             }
             return supplementalDataInfo;
@@ -210,10 +206,8 @@ public class TestAll extends TestGroup {
 
     static boolean dbSetup = false;
 
-    /**
-     * Set up the CLDR db
-     */
-    public synchronized static void setupTestDb() {
+    /** Set up the CLDR db */
+    public static synchronized void setupTestDb() {
         if (dbSetup == false) {
             sanity();
             makeDataSource();
@@ -228,21 +222,28 @@ public class TestAll extends TestGroup {
 
     public static final String CORE_TEST_PATH = "cldr_db_test";
     public static final String CLDR_WEBTEST_DIR = TestAll.class.getPackage().getName() + ".dir";
-    public static final String CLDR_WEBTEST_DIR_STRING = CldrUtility.getProperty(CLDR_WEBTEST_DIR,
-        System.getProperty("user.home") + File.separator + CORE_TEST_PATH);
+    public static final String CLDR_WEBTEST_DIR_STRING =
+            CldrUtility.getProperty(
+                    CLDR_WEBTEST_DIR,
+                    System.getProperty("user.home") + File.separator + CORE_TEST_PATH);
     public static final File CLDR_WEBTEST_FILE = new File(CLDR_WEBTEST_DIR_STRING);
     static File baseDir = null;
 
-    public synchronized static File getBaseDir() {
+    public static synchronized File getBaseDir() {
         if (baseDir == null) {
             File newBaseDir = CLDR_WEBTEST_FILE;
             if (!newBaseDir.exists()) {
                 newBaseDir.mkdir();
             }
             if (!newBaseDir.isDirectory()) {
-                throw new IllegalArgumentException("Bad dir [" + CLDR_WEBTEST_DIR + "]: " + newBaseDir.getAbsolutePath());
+                throw new IllegalArgumentException(
+                        "Bad dir [" + CLDR_WEBTEST_DIR + "]: " + newBaseDir.getAbsolutePath());
             }
-            SurveyLog.debug("Note: using test dir [" + CLDR_WEBTEST_DIR + "]: " + newBaseDir.getAbsolutePath());
+            SurveyLog.debug(
+                    "Note: using test dir ["
+                            + CLDR_WEBTEST_DIR
+                            + "]: "
+                            + newBaseDir.getAbsolutePath());
             baseDir = newBaseDir;
         }
         return baseDir;
@@ -257,8 +258,7 @@ public class TestAll extends TestGroup {
     }
 
     public static File emptyDir(File dir) {
-        if (DEBUG)
-            System.err.println("Erasing: " + dir.getAbsolutePath());
+        if (DEBUG) System.err.println("Erasing: " + dir.getAbsolutePath());
         if (dir.isDirectory()) {
             File cachedBFiles[] = dir.listFiles();
             if (cachedBFiles != null) {
@@ -283,11 +283,12 @@ public class TestAll extends TestGroup {
 
     static void makeDataSource() {
         final String jdbcUrl = CldrUtility.getProperty(CLDR_TEST_JDBC, "");
-        System.err.println(CLDR_TEST_JDBC +"="+jdbcUrl);
+        System.err.println(CLDR_TEST_JDBC + "=" + jdbcUrl);
         if (!jdbcUrl.isEmpty()) {
             DBUtils.makeInstanceFrom(null, jdbcUrl);
         } else {
-            throw new RuntimeException("Error: set the -DCLDR_TEST_JDBC property to a valid MySQL URL.");
+            throw new RuntimeException(
+                    "Error: set the -DCLDR_TEST_JDBC property to a valid MySQL URL.");
         }
     }
 
@@ -306,9 +307,7 @@ public class TestAll extends TestGroup {
                 return new CLDRProgressTask() {
 
                     @Override
-                    public void close() {
-
-                    }
+                    public void close() {}
 
                     @Override
                     public void update(int count) {
@@ -337,17 +336,18 @@ public class TestAll extends TestGroup {
     /**
      * Fetch data from jar
      *
-     * @param name
-     *            name of thing to load
-     *            (org.unicode.cldr.unittest.web.data.name)
+     * @param name name of thing to load (org.unicode.cldr.unittest.web.data.name)
      */
-    static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
+    public static BufferedReader getUTF8Data(String name) throws java.io.IOException {
         return FileReaders.openFile(TestAll.class, "data/" + name);
     }
 
     public static final boolean skipIfNoDb() {
         if (!HAVE_TEST_DB) {
-            System.err.println("DB tests skipped because -D"+CLDR_TEST_JDBC+" was not set to a MySQL URL.");
+            System.err.println(
+                    "DB tests skipped because -D"
+                            + CLDR_TEST_JDBC
+                            + " was not set to a MySQL URL.");
             return true;
         }
         return false;

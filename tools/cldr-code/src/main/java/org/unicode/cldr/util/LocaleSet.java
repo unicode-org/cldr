@@ -8,8 +8,7 @@ public class LocaleSet {
     private Set<CLDRLocale> set = new TreeSet<>();
     private boolean isAllLocales = false;
 
-    public LocaleSet() {
-    }
+    public LocaleSet() {}
 
     public LocaleSet(boolean isAllLocales) {
         this.isAllLocales = isAllLocales;
@@ -74,5 +73,4 @@ public class LocaleSet {
         }
         return set;
     }
-
 }

@@ -11,9 +11,7 @@ public class ApproximateWidth {
         return result == null ? defaultWidth : result;
     }
 
-    /**
-     * Return # of ems * 10
-     */
+    /** Return # of ems * 10 */
     public static int getWidth(CharSequence s) {
         int result = 0;
         int cp;
@@ -25,22 +23,23 @@ public class ApproximateWidth {
     }
 
     static {
-        SemiFileReader MyFileHander = new SemiFileReader() {
-            @Override
-            public void handleComment(String line, int commentCharPosition) {
-                if (line.contains("@missing")) {
-                    String[] items = SPLIT.split(line);
-                    defaultWidth = Integer.parseInt(items[1]);
-                }
-            }
+        SemiFileReader MyFileHander =
+                new SemiFileReader() {
+                    @Override
+                    public void handleComment(String line, int commentCharPosition) {
+                        if (line.contains("@missing")) {
+                            String[] items = SPLIT.split(line);
+                            defaultWidth = Integer.parseInt(items[1]);
+                        }
+                    }
 
-            @Override
-            protected boolean handleLine(int lineCount, int start, int end, String[] items) {
-                data.putAll(start, end, Integer.parseInt(items[1]));
-                return true;
-            }
-
-        };
+                    @Override
+                    protected boolean handleLine(
+                            int lineCount, int start, int end, String[] items) {
+                        data.putAll(start, end, Integer.parseInt(items[1]));
+                        return true;
+                    }
+                };
 
         MyFileHander.process(ApproximateWidth.class, "data/ApproximateWidth.txt");
     }

@@ -1,22 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.draft.ScriptMetadata.Trinary;
-import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
-import org.unicode.cldr.util.Iso639Data.Type;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -25,6 +8,21 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
+import java.io.File;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.draft.ScriptMetadata.Trinary;
+import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class CoreCoverageInfo {
 
@@ -34,15 +32,11 @@ public class CoreCoverageInfo {
     private static final LikelySubtags ls = new LikelySubtags();
 
     public enum Sublevel {
-        /**
-         * Needs to be present at the start of that level's vetting
-         */
+        /** Needs to be present at the start of that level's vetting */
         start,
-        /**
-         * (default) Only to be present by the end start of that level's vetting
-         */
+        /** (default) Only to be present by the end start of that level's vetting */
         end
-        }
+    }
 
     public enum CoreItems {
         default_content(Level.CORE),
@@ -65,15 +59,17 @@ public class CoreCoverageInfo {
 
         public static final Set<CoreItems> ALL = ImmutableSet.copyOf(CoreItems.values());
         public static final Multimap<Level, CoreItems> LEVEL_TO_ITEMS;
+
         static {
             final Multimap<Level, CoreItems> _levelToItems = TreeMultimap.create();
-            ALL.forEach(x -> {
-                for (Level level : Level.values()) {
-                    if (level.compareTo(x.desiredLevel) <= 0) {
-                        _levelToItems.put(x.desiredLevel,x);
-                    }
-                }
-            });
+            ALL.forEach(
+                    x -> {
+                        for (Level level : Level.values()) {
+                            if (level.compareTo(x.desiredLevel) <= 0) {
+                                _levelToItems.put(x.desiredLevel, x);
+                            }
+                        }
+                    });
             LEVEL_TO_ITEMS = ImmutableMultimap.copyOf(_levelToItems);
         }
 
@@ -83,21 +79,26 @@ public class CoreCoverageInfo {
         CoreItems() {
             this(Level.CORE);
         }
+
         CoreItems(Level desiredLevel) {
             this(desiredLevel, Sublevel.end);
         }
+
         CoreItems(Level desiredLevel, Sublevel sublevel) {
             this.desiredLevel = desiredLevel;
             this.sublevel = sublevel;
         }
+
         @Override
         public String toString() {
             return desiredLevel.getAbbreviation() + " " + name();
         }
     }
+
     static UnicodeSet RTL = new UnicodeSet("[[:bc=R:][:bc=AL:]]").freeze();
 
-    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile resolvedFile, Multimap<CoreItems,String> detailedErrors) {
+    public static Set<CoreItems> getCoreCoverageInfo(
+            CLDRFile resolvedFile, Multimap<CoreItems, String> detailedErrors) {
         detailedErrors.clear();
         if (!resolvedFile.isResolved()) {
             throw new IllegalArgumentException();
@@ -110,7 +111,7 @@ public class CoreCoverageInfo {
         final String script = ltp.getScript();
         final String region = ltp.getRegion();
 
-        //Set<CoreItems> result = EnumSet.noneOf(CoreItems.class);
+        // Set<CoreItems> result = EnumSet.noneOf(CoreItems.class);
 
         //      (02) Orientation (bidi writing systems only) [main/xxx.xml]
         UnicodeSet main = file.getExemplarSet(ExemplarType.main, null);
@@ -125,19 +126,29 @@ public class CoreCoverageInfo {
         //      (01) Plural rules [supplemental/plurals.xml and ordinals.xml]
         //      For more information, see cldr-spec/plural-rules.
         if (!sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
-            detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"" + locale
-                + "\"]/pluralRule[@count=\"other\"]");
+            detailedErrors.put(
+                    CoreItems.plurals,
+                    "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\""
+                            + locale
+                            + "\"]/pluralRule[@count=\"other\"]");
         }
         if (!sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
-            detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"" + locale
-                + "\"]/pluralRule[@count=\"other\"]");
+            detailedErrors.put(
+                    CoreItems.ordinals,
+                    "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\""
+                            + locale
+                            + "\"]/pluralRule[@count=\"other\"]");
         }
 
-        //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
+        //      (01) Default content script and region (normally: normally country with largest
+        // population using that language, and normal script for that).
+        // [supplemental/supplementalMetadata.xml]
 
         String defaultContent = sdi.getDefaultContentLocale(locale);
         if (defaultContent == null) { //  || locale.equals("no")
-            detailedErrors.put(CoreItems.default_content, "//supplementalData/supplementalMetadata/defaultContent");
+            detailedErrors.put(
+                    CoreItems.default_content,
+                    "//supplementalData/supplementalMetadata/defaultContent");
         }
         // likely subtags
         final String max = ls.maximize(locale);
@@ -150,7 +161,8 @@ public class CoreCoverageInfo {
             maxScript = ltp.getScript();
             maxRegion = ltp.getRegion();
             if (maxRegion.equals("ZZ")
-                || maxRegion.equals("001") && Iso639Data.getType(baseLanguage) != Type.Constructed) {
+                    || maxRegion.equals("001")
+                            && Iso639Data.getType(baseLanguage) != Type.Constructed) {
                 maxRegion = "";
             }
         }
@@ -167,13 +179,12 @@ public class CoreCoverageInfo {
             detailedErrors.put(CoreItems.own_language, languagePath);
         } else {
             String localeWhereFound = resolvedFile.getSourceLocaleID(languagePath, null);
-            if ("root".equals(localeWhereFound)
-                || "code-fallback".equals(localeWhereFound)) {
+            if ("root".equals(localeWhereFound) || "code-fallback".equals(localeWhereFound)) {
                 detailedErrors.put(CoreItems.own_language, languagePath);
             }
         }
 
-        if (bestRegion.isEmpty()){
+        if (bestRegion.isEmpty()) {
             detailedErrors.put(CoreItems.own_regions, "//supplementalData/likelySubtags");
         } else {
             String regionPath = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, bestRegion);
@@ -183,14 +194,15 @@ public class CoreCoverageInfo {
             } else {
                 String localeWhereFound = resolvedFile.getSourceLocaleID(regionPath, null);
                 if (XMLSource.ROOT_ID.equals(localeWhereFound)
-                    || XMLSource.CODE_FALLBACK_ID.equals(localeWhereFound)) {
+                        || XMLSource.CODE_FALLBACK_ID.equals(localeWhereFound)) {
                     detailedErrors.put(CoreItems.own_regions, regionPath);
                 }
             }
         }
         // NOTE: other regions will be captured in the coverageLevels
 
-        // (N) Verify the country data ( i.e. which territories in which the language is spoken enough to create a locale ) [supplemental/supplementalData.xml]
+        // (N) Verify the country data ( i.e. which territories in which the language is spoken
+        // enough to create a locale ) [supplemental/supplementalData.xml]
         // we verify that there is at least one region
         // we try 3 cases: language, locale, maxLangScript
         Set<String> territories = sdi.getTerritoriesForPopulationData(locale);
@@ -204,9 +216,12 @@ public class CoreCoverageInfo {
             detailedErrors.put(CoreItems.country_data, "//supplementalData/territoryInfo");
             sdi.getTerritoriesForPopulationData(locale); // for debugging
         }
-        //      *(N) Romanization table (non-Latin writing systems only) [spreadsheet, we'll translate into transforms/xxx-en.xml]
-        //      If a spreadsheet, for each letter (or sequence) in the exemplars, what is the corresponding Latin letter (or sequence).
-        //      More sophisticated users can do a better job, supplying a file of rules like transforms/Arabic-Latin-BGN.xml.
+        //      *(N) Romanization table (non-Latin writing systems only) [spreadsheet, we'll
+        // translate into transforms/xxx-en.xml]
+        //      If a spreadsheet, for each letter (or sequence) in the exemplars, what is the
+        // corresponding Latin letter (or sequence).
+        //      More sophisticated users can do a better job, supplying a file of rules like
+        // transforms/Arabic-Latin-BGN.xml.
 
         if (!bestScript.equals("Latn")) {
             boolean found = false;
@@ -226,19 +241,26 @@ public class CoreCoverageInfo {
                 }
             }
             if (!found) {
-                detailedErrors.put(CoreItems.romanization, "//supplementalData/transforms/transform"
-                    + "[@source=\"und-" + script + "\"]"
-                    + "[@target=\"und-Latn\"]"
-                    //+ "[@direction=\"forward\"]"
-                    );
+                detailedErrors.put(
+                        CoreItems.romanization,
+                        "//supplementalData/transforms/transform"
+                                + "[@source=\"und-"
+                                + script
+                                + "\"]"
+                                + "[@target=\"und-Latn\"]"
+                        // + "[@direction=\"forward\"]"
+                        );
             }
         }
 
         //      (N) Casing information (cased scripts only, according to ScriptMetadata.txt)
         //      This will be in common/casing
         Info scriptData = ScriptMetadata.getInfo(bestScript);
-        if (scriptData != null && scriptData.hasCase == Trinary.YES && !hasFile(SpecialDir.casing, baseLanguage)) {
-            detailedErrors.put(CoreItems.casing, "//ldml/metadata/casingData/casingItem[@type=\"*\"]");
+        if (scriptData != null
+                && scriptData.hasCase == Trinary.YES
+                && !hasFile(SpecialDir.casing, baseLanguage)) {
+            detailedErrors.put(
+                    CoreItems.casing, "//ldml/metadata/casingData/casingItem[@type=\"*\"]");
         }
         //      (N) Collation rules [non-Survey Tool]
         //      For details, see cldr-spec/collation-guidelines.
@@ -247,7 +269,8 @@ public class CoreCoverageInfo {
 
         // check for file cldr/collation/<language>.xml
         if (!hasFile(SpecialDir.collation, baseLanguage)) {
-            detailedErrors.put(CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
+            detailedErrors.put(
+                    CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
         }
 
         Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
@@ -257,7 +280,8 @@ public class CoreCoverageInfo {
 
         GrammarInfo grammarInfo = sdi.getGrammarInfo(locale);
         if (grammarInfo == null) {
-            detailedErrors.put(CoreItems.grammar, "//supplementalData/grammaticalData/grammaticalFeatures");
+            detailedErrors.put(
+                    CoreItems.grammar, "//supplementalData/grammaticalData/grammaticalFeatures");
         }
 
         // finalize
@@ -265,12 +289,13 @@ public class CoreCoverageInfo {
     }
 
     private static final String[][] ROMANIZATION_PATHS = {
-        { "", "-Latin" },
-        { "", "-Latin-BGN" },
-        { "Latin-", "" },
+        {"", "-Latin"},
+        {"", "-Latin-BGN"},
+        {"Latin-", ""},
     };
 
     private static final Relation SCRIPT_NAMES = Relation.of(new HashMap(), HashSet.class);
+
     static {
         SCRIPT_NAMES.putAll("Arab", Arrays.asList("Arabic", "Arab"));
         SCRIPT_NAMES.putAll("Jpan", Arrays.asList("Jpan", "Han"));
@@ -296,10 +321,14 @@ public class CoreCoverageInfo {
     }
 
     private enum SpecialDir {
-        transforms, collation, casing
+        transforms,
+        collation,
+        casing
     }
 
-    private static final Relation<SpecialDir, String> SPECIAL_FILES = Relation.of(new EnumMap(SpecialDir.class), HashSet.class);
+    private static final Relation<SpecialDir, String> SPECIAL_FILES =
+            Relation.of(new EnumMap(SpecialDir.class), HashSet.class);
+
     static {
         for (SpecialDir dir : SpecialDir.values()) {
             File realDir = new File(CLDR_BASE_DIRECTORY + "/common/" + dir);

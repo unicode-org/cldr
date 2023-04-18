@@ -24,16 +24,19 @@ public class MissingXmlGetter {
         this.englishFile = factory.make("en", true);
     }
 
-    public void setUserInfo(int userId, Organization usersOrg, VettingViewer.UsersChoice<Organization> usersChoice) {
+    public void setUserInfo(
+            int userId,
+            Organization usersOrg,
+            VettingViewer.UsersChoice<Organization> usersChoice) {
         this.userId = userId;
         this.usersOrg = usersOrg;
         this.usersChoice = usersChoice;
     }
 
     /**
-     * Construct XML for the paths that are error/missing/provisional in a locale, with value placeholders,
-     * so that somebody can download and edit the .xml file to fill in the values and then do a bulk
-     * submission of that file
+     * Construct XML for the paths that are error/missing/provisional in a locale, with value
+     * placeholders, so that somebody can download and edit the .xml file to fill in the values and
+     * then do a bulk submission of that file
      *
      * @param locale the locale
      * @param coverageLevel the coverage level for paths to be included
@@ -47,7 +50,8 @@ public class MissingXmlGetter {
         final CLDRConfig config = CLDRConfig.getInstance();
         final SupplementalDataInfo SDI = config.getSupplementalDataInfo();
         final VettingViewer<Organization> vv = new VettingViewer<>(SDI, factory, usersChoice);
-        final EnumSet<NotificationCategory> choiceSet = VettingViewer.getDashboardNotificationCategories(usersOrg);
+        final EnumSet<NotificationCategory> choiceSet =
+                VettingViewer.getDashboardNotificationCategories(usersOrg);
         final VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
         args.setUserAndOrganization(userId, usersOrg);
         args.setFiles(locale, factory, baselineFactory);
@@ -55,12 +59,14 @@ public class MissingXmlGetter {
         return reallyGetXml(locale, dd, args.getSourceFile());
     }
 
-    private String reallyGetXml(CLDRLocale locale, VettingViewer<Organization>.DashboardData dd, CLDRFile sourceFile)
-        throws IOException {
+    private String reallyGetXml(
+            CLDRLocale locale, VettingViewer<Organization>.DashboardData dd, CLDRFile sourceFile)
+            throws IOException {
         final XMLSource xmlSource = new SimpleXMLSource(locale.getBaseName());
         final CLDRFile cldrFile = new CLDRFile(xmlSource);
         populateMissingCldrFile(cldrFile, sourceFile, dd);
-        try (StringWriter sw = new StringWriter(); PrintWriter pw = new PrintWriter(sw)) {
+        try (StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw)) {
             Map<String, Object> options = new TreeMap<>();
             cldrFile.write(pw, options);
             return sw.toString();
@@ -68,19 +74,17 @@ public class MissingXmlGetter {
     }
 
     private void populateMissingCldrFile(
-        CLDRFile cldrFile,
-        CLDRFile sourceFile,
-        VettingViewer<Organization>.DashboardData dd
-    ) {
-        for (Map.Entry<Row.R2<PathHeader.SectionId, PathHeader.PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
+            CLDRFile cldrFile, CLDRFile sourceFile, VettingViewer<Organization>.DashboardData dd) {
+        for (Map.Entry<
+                        Row.R2<PathHeader.SectionId, PathHeader.PageId>,
+                        VettingViewer<Organization>.WritingInfo>
+                e : dd.sorted.entrySet()) {
             final VettingViewer<Organization>.WritingInfo wi = e.getValue();
             final String path = wi.codeOutput.getOriginalPath();
             if (wi.problems.contains(NotificationCategory.missingCoverage)) {
                 addMissingPath(cldrFile, path);
-            } else if (
-                wi.problems.contains(NotificationCategory.error) ||
-                wi.problems.contains(NotificationCategory.notApproved)
-            ) {
+            } else if (wi.problems.contains(NotificationCategory.error)
+                    || wi.problems.contains(NotificationCategory.notApproved)) {
                 addPresentPath(cldrFile, sourceFile, path, wi);
             }
         }
@@ -92,11 +96,10 @@ public class MissingXmlGetter {
     }
 
     private void addPresentPath(
-        CLDRFile cldrFile,
-        CLDRFile sourceFile,
-        String path,
-        VettingViewer<Organization>.WritingInfo wi
-    ) {
+            CLDRFile cldrFile,
+            CLDRFile sourceFile,
+            String path,
+            VettingViewer<Organization>.WritingInfo wi) {
         String value = sourceFile.getStringValue(path);
         if (value == null) {
             value = VALUE_PLACEHOLDER;

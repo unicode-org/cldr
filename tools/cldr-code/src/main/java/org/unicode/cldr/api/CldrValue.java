@@ -3,26 +3,24 @@ package org.unicode.cldr.api;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
-
 import org.unicode.cldr.api.AttributeKey.AttributeSupplier;
 import org.unicode.cldr.util.CldrUtility;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 
 /**
  * A CLDR element value and associated "value" attributes, along with its distinguishing {@link
  * CldrPath}.
  *
- * <p>In CLDR, a path contains attributes that are one of three types; "distinguishing", "value"
- * and "metadata", and a path can be parsed to extract value attributes.
+ * <p>In CLDR, a path contains attributes that are one of three types; "distinguishing", "value" and
+ * "metadata", and a path can be parsed to extract value attributes.
  *
  * <p>CldrValue instance hold only the "value" attributes, with "distinguishing" attributes being
- * held by the associated {@link CldrPath}, and "metadata" attributes being ignored completely
- * since they are synthetic and internal to the core CLDR classes.
+ * held by the associated {@link CldrPath}, and "metadata" attributes being ignored completely since
+ * they are synthetic and internal to the core CLDR classes.
  *
  * <p>Note that while the ordering of "value" attributes is stable, it should not be relied upon.
  * Unlike "distinguishing" attributes in CldrPath, "value" attributes don't conceptually form a
@@ -31,18 +29,19 @@ import com.google.common.collect.ImmutableMap;
  *
  * <p>CldrValue is an immutable value type with efficient equality semantics.
  *
- * <p>See <a href="https://www.unicode.org/reports/tr35/#Definitions">the LDML specification</a>
- * for more details.
+ * <p>See <a href="https://www.unicode.org/reports/tr35/#Definitions">the LDML specification</a> for
+ * more details.
  */
 public final class CldrValue implements AttributeSupplier {
     /**
      * Parses a full CLDR path string, possibly containing "distinguishing", "value" and even
      * private "metadata" attributes into a normalized CldrValue instance. Attributes will be parsed
      * and handled according to their type:
+     *
      * <ul>
-     * <li>Value attributes will be added to the returned CldrValue instance.
-     * <li>Distinguishing attributes will be added to the associated CldrPath instance.
-     * <li>Other non-public attributes will be ignored.
+     *   <li>Value attributes will be added to the returned CldrValue instance.
+     *   <li>Distinguishing attributes will be added to the associated CldrPath instance.
+     *   <li>Other non-public attributes will be ignored.
      * </ul>
      *
      * <p>The path string must be structured correctly (e.g. "//ldml/foo[@bar="baz]") and must
@@ -76,8 +75,11 @@ public final class CldrValue implements AttributeSupplier {
         if (this.path.equals(path)) {
             return this;
         }
-        checkArgument(hasSameElements(this.path, path),
-            "invalid replacement path '%s' for value: %s", path, this);
+        checkArgument(
+                hasSameElements(this.path, path),
+                "invalid replacement path '%s' for value: %s",
+                path,
+                this);
         return new CldrValue(getValue(), attributes, path);
     }
 
@@ -97,7 +99,8 @@ public final class CldrValue implements AttributeSupplier {
 
     // Note: If this is ever made public, it should be modified to enforce attribute order
     // according to the DTD. It works now because the code calling it handles ordering correctly.
-    static CldrValue create(String value, Map<AttributeKey, String> valueAttributes, CldrPath path) {
+    static CldrValue create(
+            String value, Map<AttributeKey, String> valueAttributes, CldrPath path) {
         return new CldrValue(value, valueAttributes, path);
     }
 
@@ -113,8 +116,11 @@ public final class CldrValue implements AttributeSupplier {
         // locale and would be inherited. However everything that creates a CldrValue instance
         // is expected to deal with this and we should never see inheritance markers here.
         // Note: This also serves as a null check for values.
-        checkArgument(!value.equals(CldrUtility.INHERITANCE_MARKER),
-            "unexpected inheritance marker '%s' for path: %s", value, path);
+        checkArgument(
+                !value.equals(CldrUtility.INHERITANCE_MARKER),
+                "unexpected inheritance marker '%s' for path: %s",
+                value,
+                path);
         this.value = checkNotNull(value);
         this.attributes = checkAttributeMap(attributes);
         this.path = checkNotNull(path);
@@ -122,7 +128,7 @@ public final class CldrValue implements AttributeSupplier {
     }
 
     private static ImmutableMap<AttributeKey, String> checkAttributeMap(
-        Map<AttributeKey, String> attributes) {
+            Map<AttributeKey, String> attributes) {
         // Keys are checked on creation, but values need to be checked.
         for (String v : attributes.values()) {
             checkArgument(!v.contains("\""), "unsupported '\"' in attribute value: %s", v);
@@ -141,10 +147,10 @@ public final class CldrValue implements AttributeSupplier {
     }
 
     /**
-     * Returns the raw value of an attribute associated with this CLDR value or distinguishing
-     * path, or null if not present. For almost all use cases it is preferable to use the accessor
-     * methods on the {@link AttributeKey} class, which provide additional useful semantic checking
-     * and common type conversion. You should only use this method directly if there's a strong
+     * Returns the raw value of an attribute associated with this CLDR value or distinguishing path,
+     * or null if not present. For almost all use cases it is preferable to use the accessor methods
+     * on the {@link AttributeKey} class, which provide additional useful semantic checking and
+     * common type conversion. You should only use this method directly if there's a strong
      * performance requirement.
      *
      * @param key the key identifying an attribute.
@@ -170,9 +176,9 @@ public final class CldrValue implements AttributeSupplier {
     }
 
     /**
-     * Returns the "value" attributes associated with this value. Attribute ordering is stable,
-     * with attributes from earlier path elements preceding attributes for later ones. However it
-     * is recommended that callers avoid relying on specific ordering semantics and always look up
+     * Returns the "value" attributes associated with this value. Attribute ordering is stable, with
+     * attributes from earlier path elements preceding attributes for later ones. However it is
+     * recommended that callers avoid relying on specific ordering semantics and always look up
      * attribute values by key if possible.
      *
      * @return a map of the value attributes for this CLDR value instance.
@@ -182,16 +188,16 @@ public final class CldrValue implements AttributeSupplier {
     }
 
     /**
-     * Returns the CldrPath associated with this value. All value instances are associated with
-     * a distinguishing path.
+     * Returns the CldrPath associated with this value. All value instances are associated with a
+     * distinguishing path.
      */
     public CldrPath getPath() {
         return path;
     }
 
     /**
-     * Returns a combined full path string in the XPath style {@code //foo/bar[@x="y"]/baz},
-     * with value attributes inserted in correct DTD order for each path element.
+     * Returns a combined full path string in the XPath style {@code //foo/bar[@x="y"]/baz}, with
+     * value attributes inserted in correct DTD order for each path element.
      *
      * <p>Note that while in most cases the values attributes simply follow the path attributes on
      * each element, this is not necessarily always true, and DTD ordering can place value
@@ -214,8 +220,8 @@ public final class CldrValue implements AttributeSupplier {
         }
         CldrValue other = (CldrValue) obj;
         return this.path.equals(other.path)
-            && this.value.equals(other.value)
-            && this.attributes.equals(other.attributes);
+                && this.value.equals(other.value)
+                && this.attributes.equals(other.attributes);
     }
 
     /** {@inheritDoc} */
@@ -224,7 +230,9 @@ public final class CldrValue implements AttributeSupplier {
         return hashCode;
     }
 
-    /** @return a debug-only representation of this CLDR value. */
+    /**
+     * @return a debug-only representation of this CLDR value.
+     */
     @Override
     public String toString() {
         if (value.isEmpty()) {

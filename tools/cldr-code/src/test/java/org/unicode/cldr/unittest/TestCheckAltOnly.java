@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,7 +11,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.test.CheckAltOnly;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
@@ -20,12 +21,7 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
-
-/**
- * Unit tests for CheckAltOnly.java
- */
+/** Unit tests for CheckAltOnly.java */
 public class TestCheckAltOnly extends TestFmwk {
     public static void main(String[] args) {
         new TestCheckAltOnly().run(args);
@@ -34,14 +30,14 @@ public class TestCheckAltOnly extends TestFmwk {
     /**
      * Test with a data item for which CheckAltOnly was originally created:
      *
-     * wo.xml:
-     *   <territory type="HK" alt="short">Ooŋ Koŋ</territory>
+     * <p>wo.xml: <territory type="HK" alt="short">Ooŋ Koŋ</territory>
      *
-     * That should trigger an error if the corresponding path without alt isn't present.
+     * <p>That should trigger an error if the corresponding path without alt isn't present.
      */
     public void testAltWithoutNonAlt() {
         final String testLocale = "wo";
-        final String altPath = "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]";
+        final String altPath =
+                "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]";
         final String value = "Ooŋ Koŋ";
 
         final XMLSource source = new SimpleXMLSource(testLocale);
@@ -59,52 +55,78 @@ public class TestCheckAltOnly extends TestFmwk {
     }
 
     private enum TestSubLocaleMode {
-        PARENT_PRESENT, PARENT_ABSENT,
+        PARENT_PRESENT,
+        PARENT_ABSENT,
     }
 
     private enum TestPathType {
-        CONSTRUCTED, NOT_CONSTRUCTED,
+        CONSTRUCTED,
+        NOT_CONSTRUCTED,
     }
 
     /**
      * Test CheckAltOnly for situations involving sub-locales
      *
-     * yo_BJ.xml:
-     *   <language type="en_US" alt="short">Èdè Gɛ̀ɛ́sì (US)</language>
+     * <p>yo_BJ.xml: <language type="en_US" alt="short">Èdè Gɛ̀ɛ́sì (US)</language>
      *
-     * yo.xml:
-     *   <language type="en_US">↑↑↑</language>
-     *   <language type="en_US" alt="short">Èdè Gẹ̀ẹ́sì (US)</language>
+     * <p>yo.xml: <language type="en_US">↑↑↑</language> <language type="en_US" alt="short">Èdè
+     * Gẹ̀ẹ́sì (US)</language>
      *
-     * There are two important factors:
-     * (1) whether there is a constructed value for the non-alt path, in which case, no error
-     * (2) whether the non-alt path is present in the parent locale, in which case, no error
+     * <p>There are two important factors: (1) whether there is a constructed value for the non-alt
+     * path, in which case, no error (2) whether the non-alt path is present in the parent locale,
+     * in which case, no error
      *
-     * In the actual data this is based on, there was a constructed value for the languages/language
-     * path. We also test for a different path (...territories/territory...), without a constructed value.
+     * <p>In the actual data this is based on, there was a constructed value for the
+     * languages/language path. We also test for a different path (...territories/territory...),
+     * without a constructed value.
      *
-     * As in the actual data, the values (Gɛ̀ɛ́sì vs Gẹ̀ẹ́sì) are slightly different, but that fact is probably
-     * not important for this test.
+     * <p>As in the actual data, the values (Gɛ̀ɛ́sì vs Gẹ̀ẹ́sì) are slightly different, but that
+     * fact is probably not important for this test.
      *
-     * In the actual data, the non-alt value in the parent was "↑↑↑" (CldrUtility.INHERITANCE_MARKER), and if the
-     * path had not been the type that gets a constructed value, inheritance marker would have resulted in the
-     * inheritance from code-fallback. We also test with a value other than inheritance marker. If a value is present
-     * for the non-alt path in "yo" there should be no error regardless of whether the value is inheritance marker.
+     * <p>In the actual data, the non-alt value in the parent was "↑↑↑"
+     * (CldrUtility.INHERITANCE_MARKER), and if the path had not been the type that gets a
+     * constructed value, inheritance marker would have resulted in the inheritance from
+     * code-fallback. We also test with a value other than inheritance marker. If a value is present
+     * for the non-alt path in "yo" there should be no error regardless of whether the value is
+     * inheritance marker.
      */
     public void testSubLocale() {
-        final String altPathConstructed = "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"][@alt=\"short\"]";
-        final String altPathNotConstructed = "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]";
+        final String altPathConstructed =
+                "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"][@alt=\"short\"]";
+        final String altPathNotConstructed =
+                "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]";
 
-        reallyTestSubLocale(TestSubLocaleMode.PARENT_ABSENT, altPathConstructed, TestPathType.CONSTRUCTED, null);
-        reallyTestSubLocale(TestSubLocaleMode.PARENT_ABSENT, altPathNotConstructed, TestPathType.NOT_CONSTRUCTED, null);
+        reallyTestSubLocale(
+                TestSubLocaleMode.PARENT_ABSENT,
+                altPathConstructed,
+                TestPathType.CONSTRUCTED,
+                null);
+        reallyTestSubLocale(
+                TestSubLocaleMode.PARENT_ABSENT,
+                altPathNotConstructed,
+                TestPathType.NOT_CONSTRUCTED,
+                null);
 
-        reallyTestSubLocale(TestSubLocaleMode.PARENT_PRESENT, altPathConstructed, TestPathType.CONSTRUCTED, CldrUtility.INHERITANCE_MARKER);
-        reallyTestSubLocale(TestSubLocaleMode.PARENT_PRESENT, altPathNotConstructed, TestPathType.NOT_CONSTRUCTED, CldrUtility.INHERITANCE_MARKER);
+        reallyTestSubLocale(
+                TestSubLocaleMode.PARENT_PRESENT,
+                altPathConstructed,
+                TestPathType.CONSTRUCTED,
+                CldrUtility.INHERITANCE_MARKER);
+        reallyTestSubLocale(
+                TestSubLocaleMode.PARENT_PRESENT,
+                altPathNotConstructed,
+                TestPathType.NOT_CONSTRUCTED,
+                CldrUtility.INHERITANCE_MARKER);
 
-        reallyTestSubLocale(TestSubLocaleMode.PARENT_PRESENT, altPathNotConstructed, TestPathType.NOT_CONSTRUCTED, "notInheritanceMarker");
+        reallyTestSubLocale(
+                TestSubLocaleMode.PARENT_PRESENT,
+                altPathNotConstructed,
+                TestPathType.NOT_CONSTRUCTED,
+                "notInheritanceMarker");
     }
 
-    private void reallyTestSubLocale(TestSubLocaleMode mode, String altPath, TestPathType pathType, String valueParNonAlt) {
+    private void reallyTestSubLocale(
+            TestSubLocaleMode mode, String altPath, TestPathType pathType, String valueParNonAlt) {
         final String subLocale = "yo_BJ";
         final String parLocale = "yo";
         final String nonAltPath = XPathParts.getPathWithoutAlt(altPath);
@@ -127,7 +149,8 @@ public class TestCheckAltOnly extends TestFmwk {
         factory.addFile(parCldrFile);
         factory.addFile(subCldrFile);
 
-        if (TestSubLocaleMode.PARENT_PRESENT.equals(mode) || TestPathType.CONSTRUCTED.equals(pathType)) {
+        if (TestSubLocaleMode.PARENT_PRESENT.equals(mode)
+                || TestPathType.CONSTRUCTED.equals(pathType)) {
             /*
              * Expect no errors
              */

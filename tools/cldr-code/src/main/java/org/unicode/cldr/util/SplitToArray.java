@@ -1,8 +1,7 @@
 package org.unicode.cldr.util;
 
-import java.util.List;
-
 import com.google.common.base.Splitter;
+import java.util.List;
 
 public class SplitToArray {
     private Splitter splitter;

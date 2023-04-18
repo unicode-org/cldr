@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,11 +23,11 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class SurveyVettingParticipation {
-    static final private int GUEST_STLEVEL = VoteResolver.Level.guest.getSTLevel();
+    private static final int GUEST_STLEVEL = VoteResolver.Level.guest.getSTLevel();
 
-    final private String org;
-    final private String missingLocalesForOrg;
-    final private SurveyMain sm;
+    private final String org;
+    private final String missingLocalesForOrg;
+    private final SurveyMain sm;
 
     public SurveyVettingParticipation(String org, SurveyMain sm) {
         this.sm = sm;
@@ -36,7 +35,8 @@ public class SurveyVettingParticipation {
         this.missingLocalesForOrg = org;
     }
 
-    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException, ExecutionException {
+    public void getJson(SurveyJSONWrapper r)
+            throws SQLException, JSONException, ExecutionException {
         final StandardCodes sc = StandardCodes.make();
         Set<CLDRLocale> allVettedLocales = new HashSet<>();
         Connection conn = null;
@@ -52,22 +52,32 @@ public class SurveyVettingParticipation {
             psUsers = sm.reg.list(org, conn);
             if (org == null) {
                 r.put("org", "*");
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
-                    + "     max(v.last_mod) as last_mod "
-                    + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v\n"
-                    + " group by v.locale, v.submitter;",
-                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+                psParticipation =
+                        conn.prepareStatement(
+                                "SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                                        + "     max(v.last_mod) as last_mod "
+                                        + "    FROM "
+                                        + DBUtils.Table.VOTE_VALUE
+                                        + " as v\n"
+                                        + " group by v.locale, v.submitter;",
+                                ResultSet.TYPE_FORWARD_ONLY,
+                                ResultSet.CONCUR_READ_ONLY);
 
             } else {
                 r.put("org", org);
                 // same, but restrict by org
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
-                + "     max(v.last_mod) as last_mod "
-                + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v, cldr_users as u\n"
-                    + "    WHERE v.submitter = u.id\n"
-                    + "     AND org = ?\n"
-                    + " group by v.locale, v.submitter;",
-                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+                psParticipation =
+                        conn.prepareStatement(
+                                "SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                                        + "     max(v.last_mod) as last_mod "
+                                        + "    FROM "
+                                        + DBUtils.Table.VOTE_VALUE
+                                        + " as v, cldr_users as u\n"
+                                        + "    WHERE v.submitter = u.id\n"
+                                        + "     AND org = ?\n"
+                                        + " group by v.locale, v.submitter;",
+                                ResultSet.TYPE_FORWARD_ONLY,
+                                ResultSet.CONCUR_READ_ONLY);
                 psParticipation.setString(1, org);
             }
 
@@ -77,8 +87,8 @@ public class SurveyVettingParticipation {
                 int theirId = rsu.getInt("id");
                 final User theUser = sm.reg.getInfo(theirId);
 
-                if ((theUser.userlevel > GUEST_STLEVEL) ||
-                    UserRegistry.userIsLocked(theUser) // skip these
+                if ((theUser.userlevel > GUEST_STLEVEL)
+                        || UserRegistry.userIsLocked(theUser) // skip these
                 ) {
                     continue;
                 }
@@ -106,13 +116,16 @@ public class SurveyVettingParticipation {
                 int count = rs.getInt("count");
                 String locale = rs.getString("v.locale");
                 String last_mod = DBUtils.toISOString(rs.getTimestamp("last_mod"));
-                final int cov_count = covcounter.countPathsInCoverage(Organization.cldr, CLDRLocale.getInstance(locale));
-                participationObj.put(new JSONObject()
-                    .put("user", theirId)
-                    .put("count", count)
-                    .put("locale", locale)
-                    .put("last_mod", last_mod)
-                    .put("cov_count", cov_count));
+                final int cov_count =
+                        covcounter.countPathsInCoverage(
+                                Organization.cldr, CLDRLocale.getInstance(locale));
+                participationObj.put(
+                        new JSONObject()
+                                .put("user", theirId)
+                                .put("count", count)
+                                .put("locale", locale)
+                                .put("last_mod", last_mod)
+                                .put("cov_count", cov_count));
             }
             rs.close();
         } finally {
@@ -137,15 +150,18 @@ public class SurveyVettingParticipation {
             Set<CLDRLocale> languagesNotInCLDR = new TreeSet<>();
             Set<CLDRLocale> languagesMissing = new HashSet<>();
             r.put("missingLocalesForOrg", missingLocalesForOrg);
-            for (Iterator<CLDRLocale> li = allLanguages.iterator(); li.hasNext();) {
+            for (Iterator<CLDRLocale> li = allLanguages.iterator(); li.hasNext(); ) {
                 CLDRLocale lang = (li.next());
                 if (!localeCoverageLocales.contains(lang.getBaseName())) {
                     // outside of explicit coverage locales, skip
                     continue;
                 }
                 String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
-                if ((group != null) &&
-                    (null == sm.getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance(group)))) {
+                if ((group != null)
+                        && (null
+                                == sm.getSupplementalDataInfo()
+                                        .getBaseFromDefaultContent(
+                                                CLDRLocale.getInstance(group)))) {
                     if (!sm.isValidLocale(lang)) {
                         languagesNotInCLDR.add(lang);
                     } else if (!allVettedLocales.contains(lang)) {

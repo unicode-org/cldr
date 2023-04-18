@@ -6,12 +6,12 @@ import java.text.StringCharacterIterator;
 public class MemoryHelper {
 
     /**
-     * Get the amount of memory still available for us to allocate,
-     * including not only freeMemory but also maxMemory - totalMemory
+     * Get the amount of memory still available for us to allocate, including not only freeMemory
+     * but also maxMemory - totalMemory
      *
-     * https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runtime.html#freeMemory()
+     * <p>https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runtime.html#freeMemory()
      *
-     * Generally: freeMemory <= totalMemory <= maxMemory
+     * <p>Generally: freeMemory <= totalMemory <= maxMemory
      *
      * @param callerId a string identifying the caller, used in log if verbose
      * @param verbose if true, log the stats
@@ -28,10 +28,16 @@ public class MemoryHelper {
         }
         long availMem = freeMem + maxMem - totalMem;
         if (verbose) {
-            log(callerId, "Available memory: " + humanReadableByteCountSI(availMem) +
-                "; free: " +  humanReadableByteCountSI(freeMem) +
-                "; max: " +  humanReadableByteCountSI(maxMem) +
-                "; total: " +  humanReadableByteCountSI(totalMem));
+            log(
+                    callerId,
+                    "Available memory: "
+                            + humanReadableByteCountSI(availMem)
+                            + "; free: "
+                            + humanReadableByteCountSI(freeMem)
+                            + "; max: "
+                            + humanReadableByteCountSI(maxMem)
+                            + "; total: "
+                            + humanReadableByteCountSI(totalMem));
         }
         return availMem;
     }
@@ -41,14 +47,14 @@ public class MemoryHelper {
     }
 
     /**
-     * Convert a byte count to a human readable string
-     * Use SI (1 k = 1,000), not Binary (1 K = 1,024)
+     * Convert a byte count to a human readable string Use SI (1 k = 1,000), not Binary (1 K =
+     * 1,024)
      *
      * @param bytes the number such as 1234567890
      * @return the formatted string such as "1.2 GB"
-     *
-     * Source: https://programming.guide/java/formatting-byte-size-to-human-readable-format.html
-    */
+     *     <p>Source:
+     *     https://programming.guide/java/formatting-byte-size-to-human-readable-format.html
+     */
     public static String humanReadableByteCountSI(long bytes) {
         if (-1000 < bytes && bytes < 1000) {
             return bytes + " B";

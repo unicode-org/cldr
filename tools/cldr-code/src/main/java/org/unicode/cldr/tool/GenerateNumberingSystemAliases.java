@@ -1,15 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.text.MessageFormat;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-
-import com.ibm.icu.text.MessageFormat;
-
 import org.unicode.cldr.util.*;
-
-import com.google.common.collect.ImmutableSet;
-
 
 public class GenerateNumberingSystemAliases {
 
@@ -25,21 +21,25 @@ public class GenerateNumberingSystemAliases {
         CLDRConfig config = CLDRConfig.getInstance();
         CLDRFile root = config.getCLDRFile(LocaleNames.ROOT, false).cloneAsThawed(); // unresolved
 
-        XPathParts xpp = XPathParts
-            .getFrozenInstance("//ldml/numbers/_____/alias")
-            .cloneAsThawed()
-            .setAttribute(-1, "source", "locale");
+        XPathParts xpp =
+                XPathParts.getFrozenInstance("//ldml/numbers/_____/alias")
+                        .cloneAsThawed()
+                        .setAttribute(-1, "source", "locale");
 
         // Modify it
-        System.out.println(MessageFormat.format("Updating {0, plural, one {# alias} other {# aliases}} under //ldml/numbers in {1}", missing.size(), fileName));
+        System.out.println(
+                MessageFormat.format(
+                        "Updating {0, plural, one {# alias} other {# aliases}} under //ldml/numbers in {1}",
+                        missing.size(), fileName));
         for (final Map.Entry<Pair<String, String>, String> e : missing.entrySet()) {
             final String ns = e.getKey().getFirst();
             final String element = e.getKey().getSecond();
             final String path = e.getValue();
 
             xpp.setElement(-2, element)
-                .setAttribute(-2, "numberSystem", ns)
-                .setAttribute(-1, "path", "../"+element+"[@numberSystem='latn']"); // CLDR-16488
+                    .setAttribute(-2, "numberSystem", ns)
+                    .setAttribute(
+                            -1, "path", "../" + element + "[@numberSystem='latn']"); // CLDR-16488
 
             root.add(xpp.toString(), "");
         }
@@ -50,28 +50,29 @@ public class GenerateNumberingSystemAliases {
         System.out.println("Done. Don't forget to commit " + dir + fileName);
     }
 
-
     /**
      * Get all items missing from root
+     *
      * @return Map: numberSystem,element -> xpath
      */
-    public static Map<Pair<String,String>, String> getMissingRootNumberingSystems() {
+    public static Map<Pair<String, String>, String> getMissingRootNumberingSystems() {
         final CLDRConfig config = CLDRConfig.getInstance();
         final CLDRFile root = config.getRoot();
 
-        final Set<String> expectedElement = ImmutableSet.of(
-            "symbols",
-            "currencyFormats",
-            "decimalFormats",
-            "miscPatterns",
-            "percentFormats",
-            "scientificFormats");
+        final Set<String> expectedElement =
+                ImmutableSet.of(
+                        "symbols",
+                        "currencyFormats",
+                        "decimalFormats",
+                        "miscPatterns",
+                        "percentFormats",
+                        "scientificFormats");
 
-        XPathParts xpp = XPathParts
-            .getFrozenInstance("//ldml/numbers/______") // will be filled in below
-            .cloneAsThawed();
+        XPathParts xpp =
+                XPathParts.getFrozenInstance("//ldml/numbers/______") // will be filled in below
+                        .cloneAsThawed();
 
-        final Map<Pair<String,String>, String> missing = new TreeMap<>();
+        final Map<Pair<String, String>, String> missing = new TreeMap<>();
 
         for (final String ns : config.getSupplementalDataInfo().getNumericNumberingSystems()) {
             for (final String element : expectedElement) {

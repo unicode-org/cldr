@@ -1,5 +1,8 @@
 package org.unicode.cldr.draft.keyboard;
 
+import com.google.common.base.Charsets;
+import com.google.common.collect.ImmutableList;
+import com.google.common.io.Files;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
@@ -7,16 +10,11 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.time.Instant;
 import java.util.Arrays;
-
 import org.unicode.cldr.draft.keyboard.KeyboardId.Platform;
 import org.unicode.cldr.draft.keyboard.out.KeyboardToXml;
 import org.unicode.cldr.draft.keyboard.out.KeycodeMapToXml;
 // import org.unicode.cldr.draft.keyboard.windows.KlcParser;
 import org.unicode.cldr.draft.keyboard.windows.KlcParser;
-
-import com.google.common.base.Charsets;
-import com.google.common.collect.ImmutableList;
-import com.google.common.io.Files;
 
 public final class KeyboardTool {
 
@@ -62,11 +60,12 @@ public final class KeyboardTool {
     */
 
     private static void parseWindowsKeyboards(String inputFolder, File outputFolder)
-        throws IOException {
+            throws IOException {
         File windowsKeyboardsDirectory = new File(inputFolder);
         File windowsOutputFolder = new File(outputFolder + "/windows");
         windowsOutputFolder.mkdirs();
-        for (File keyboardLayout : windowsKeyboardsDirectory.listFiles(KlcFilenameFilter.INSTANCE)) {
+        for (File keyboardLayout :
+                windowsKeyboardsDirectory.listFiles(KlcFilenameFilter.INSTANCE)) {
             System.out.println("Parsing " + keyboardLayout);
             String contents = Files.toString(keyboardLayout, Charsets.UTF_16);
             ImmutableList<Keyboard> keyboards = KlcParser.parseLayout(contents);
@@ -85,13 +84,15 @@ public final class KeyboardTool {
         FileWriter platformFileWriter = new FileWriter(windowsOutputFolder + "/_platform.xml");
         KeycodeMapToXml.writeToXml(KlcParser.KEYCODE_MAP, Platform.WINDOWS, platformFileWriter);
         if (KlcParser.KEYBOARD_ID_MAP.unmatchedIds().size() != 0) {
-            System.out.println("Found the following keyboards with no id (add them to windows-locales.csv file):");
+            System.out.println(
+                    "Found the following keyboards with no id (add them to windows-locales.csv file):");
             System.out.println(KlcParser.KEYBOARD_ID_MAP.unmatchedIds());
         }
     }
 
     private enum KlcFilenameFilter implements FilenameFilter {
         INSTANCE;
+
         @Override
         public boolean accept(File dir, String name) {
             return name.endsWith(".klc");
@@ -99,9 +100,10 @@ public final class KeyboardTool {
     }
 
     private static String doLastMinuteFixesToXml(String ouputString) {
-        String cleansedString = ouputString
-            // The regular XML output does not escape the apostrophes.
-            .replace("\"'\"", "\"&apos;\"");
+        String cleansedString =
+                ouputString
+                        // The regular XML output does not escape the apostrophes.
+                        .replace("\"'\"", "\"&apos;\"");
         return cleansedString;
     }
 }

@@ -8,14 +8,13 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 
 /*
  * ZoneInflections is an ordered list of inflection points between two dates,
@@ -26,27 +25,27 @@ import com.ibm.icu.util.ULocale;
  * internals of TimeZones -- public API is queried to get the information.
  */
 public class ZoneInflections implements Comparable<ZoneInflections> {
-    static private final long SECOND = 1000;
+    private static final long SECOND = 1000;
 
-    static private final long MINUTE = 60 * SECOND;
+    private static final long MINUTE = 60 * SECOND;
 
-    static private final long HOUR = 60 * MINUTE;
+    private static final long HOUR = 60 * MINUTE;
 
-    static private final double DHOUR = HOUR;
+    private static final double DHOUR = HOUR;
 
-    static private final long DAY = 24 * HOUR;
+    private static final long DAY = 24 * HOUR;
 
-    static private final long GROSS_PERIOD = 15 * DAY; // assumption is that no
+    private static final long GROSS_PERIOD = 15 * DAY; // assumption is that no
     // zones shift is less
     // than this period
 
-    static private final long EPSILON = 15 * MINUTE; // smallest interval we test
+    private static final long EPSILON = 15 * MINUTE; // smallest interval we test
     // to
-    static private final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+    private static final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
-    static private final long endDate = getDateLong(currentYear + 5, 1, 1);
+    private static final long endDate = getDateLong(currentYear + 5, 1, 1);
 
-    static private final long startDate = getDateLong(1970, 1, 1);
+    private static final long startDate = getDateLong(1970, 1, 1);
 
     // computed below
     private int minOffset;
@@ -68,10 +67,8 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
         long minSoFar = Integer.MAX_VALUE;
         for (int i = 0; i < inflectionPoints.size(); ++i) {
             InflectionPoint ip = inflectionPoints.get(i);
-            if (ip.utcDateTime < afterDateTime)
-                break;
-            if (ip.offset < minSoFar)
-                minSoFar = ip.offset;
+            if (ip.utcDateTime < afterDateTime) break;
+            if (ip.offset < minSoFar) minSoFar = ip.offset;
         }
         return (int) minSoFar;
     }
@@ -80,10 +77,8 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
         long maxSoFar = Integer.MIN_VALUE;
         for (int i = 0; i < inflectionPoints.size(); ++i) {
             InflectionPoint ip = inflectionPoints.get(i);
-            if (ip.utcDateTime < afterDateTime)
-                break;
-            if (ip.offset > maxSoFar)
-                maxSoFar = ip.offset;
+            if (ip.utcDateTime < afterDateTime) break;
+            if (ip.offset > maxSoFar) maxSoFar = ip.offset;
         }
         return (int) maxSoFar;
     }
@@ -110,10 +105,8 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
         for (long currentDate = endDate; currentDate >= startDate; currentDate -= GROSS_PERIOD) {
             int currentOffset = zone.getOffset(currentDate);
             if (currentOffset != lastOffset) { // Binary Search
-                if (currentOffset < minOffset)
-                    minOffset = currentOffset;
-                if (currentOffset > maxOffset)
-                    maxOffset = currentOffset;
+                if (currentOffset < minOffset) minOffset = currentOffset;
+                if (currentOffset > maxOffset) maxOffset = currentOffset;
                 long low = currentDate;
                 int lowOffset = currentOffset;
                 long high = lastDate;
@@ -121,8 +114,7 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
                 while (high - low > EPSILON) {
                     long mid = (high + low) / 2;
                     mid = (mid / EPSILON) * EPSILON; // round to nearest possible point
-                    if (mid <= low)
-                        mid += EPSILON;
+                    if (mid <= low) mid += EPSILON;
                     int midOffset = zone.getOffset(mid);
                     if (midOffset == lowOffset) {
                         low = mid;
@@ -138,8 +130,7 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
             lastDate = currentDate;
         }
         // System.out.println("\tAdding: " + dtf.format(new Date(startDate)));
-        inflectionPoints.add(new InflectionPoint(startDate, zone
-            .getOffset(startDate)));
+        inflectionPoints.add(new InflectionPoint(startDate, zone.getOffset(startDate)));
     }
 
     public int compareTo(ZoneInflections other, OutputLong mostRecentDateTime) {
@@ -150,17 +141,14 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
         }
         ZoneInflections that = other;
         int minLength = inflectionPoints.size();
-        if (minLength < that.inflectionPoints.size())
-            minLength = that.inflectionPoints.size();
+        if (minLength < that.inflectionPoints.size()) minLength = that.inflectionPoints.size();
         for (int i = 0; i < minLength; ++i) {
             InflectionPoint ip1 = get(i);
             InflectionPoint ip2 = that.get(i);
-            if (ip1.offset == ip2.offset && ip1.utcDateTime == ip2.utcDateTime)
-                continue;
+            if (ip1.offset == ip2.offset && ip1.utcDateTime == ip2.utcDateTime) continue;
             if (ip1.offset != ip2.offset) {
                 // back up a bit
-                mostRecentDateTime.value = Math.max(ip1.utcDateTime, ip2.utcDateTime)
-                    - EPSILON;
+                mostRecentDateTime.value = Math.max(ip1.utcDateTime, ip2.utcDateTime) - EPSILON;
             } else if (ip1.utcDateTime > ip2.utcDateTime) {
                 // offsets are the same, but start times are different
                 // in that case, find the next inflection point for the shorter one.
@@ -201,8 +189,9 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
 
         @Override
         public String toString() {
-            return ICUServiceBuilder.isoDateFormat(new Date(utcDateTime)) + ";"
-                + formatHours(offset);
+            return ICUServiceBuilder.isoDateFormat(new Date(utcDateTime))
+                    + ";"
+                    + formatHours(offset);
         }
 
         public InflectionPoint(long utcDateTime, int offset) {
@@ -218,14 +207,10 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
          */
         @Override
         public int compareTo(InflectionPoint that) {
-            if (utcDateTime < that.utcDateTime)
-                return -1;
-            if (utcDateTime > that.utcDateTime)
-                return 1;
-            if (offset < that.offset)
-                return -1;
-            if (offset > that.offset)
-                return 1;
+            if (utcDateTime < that.utcDateTime) return -1;
+            if (utcDateTime > that.utcDateTime) return 1;
+            if (offset < that.offset) return -1;
+            if (offset > that.offset) return 1;
             return 0;
         }
     }
@@ -236,9 +221,9 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
         return cal.getTimeInMillis();
     }
 
-    static private final NumberFormat nf = NumberFormat.getInstance(ULocale.US);
+    private static final NumberFormat nf = NumberFormat.getInstance(ULocale.US);
 
-    static public String formatHours(int hours) {
+    public static String formatHours(int hours) {
         return nf.format(hours / ZoneInflections.DHOUR);
     }
 
@@ -257,8 +242,8 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
     }
 
     /**
-     * Return the inflection points during a given period. The points are copies
-     * of what is in the data, so it is safe to modify them
+     * Return the inflection points during a given period. The points are copies of what is in the
+     * data, so it is safe to modify them
      *
      * @param inflections2
      * @param time
@@ -272,8 +257,8 @@ public class ZoneInflections implements Comparable<ZoneInflections> {
                 results.add(new InflectionPoint(start, inflectionPoint.offset));
                 break;
             } else if (inflectionPoint.utcDateTime < end) {
-                results.add(new InflectionPoint(inflectionPoint.utcDateTime,
-                    inflectionPoint.offset));
+                results.add(
+                        new InflectionPoint(inflectionPoint.utcDateTime, inflectionPoint.offset));
             }
         }
         return results;

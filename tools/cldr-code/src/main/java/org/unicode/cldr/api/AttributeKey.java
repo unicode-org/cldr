@@ -8,18 +8,16 @@ import static java.util.function.Function.identity;
 import static org.unicode.cldr.util.DtdData.AttributeStatus.distinguished;
 import static org.unicode.cldr.util.DtdData.AttributeStatus.value;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
-import org.unicode.cldr.util.DtdData.Attribute;
-
 import com.google.common.base.Ascii;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableTable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import org.unicode.cldr.util.DtdData.Attribute;
 
 /**
  * Immutable identifier which holds both an attribute's name and the path element it is associated
@@ -32,38 +30,45 @@ import com.google.common.collect.ImmutableTable;
  * use the methods from this class rather than accessing the raw attribute value.
  *
  * <p>For example, prefer:
+ *
  * <pre>{@code
- *   // The attribute value cannot be null.
- *   String attribute = REQUIRED_ATTRIBUTE_KEY.valueFrom(path);
- * }</pre>
- * to:
- * <pre>{@code
- *   // This could be null.
- *   String attribute = path.get(REQUIRED_ATTRIBUTE_KEY);
+ * // The attribute value cannot be null.
+ * String attribute = REQUIRED_ATTRIBUTE_KEY.valueFrom(path);
  * }</pre>
  *
+ * to:
+ *
+ * <pre>{@code
+ * // This could be null.
+ * String attribute = path.get(REQUIRED_ATTRIBUTE_KEY);
+ * }</pre>
  */
 // Note: Using Guava's @AutoValue library would remove all this boiler-plate.
 public final class AttributeKey {
     // Unsorted cache of all possible known attribute keys (not including keys for elements in
     // external namespaces (e.g. "icu:").
     private static final ImmutableTable<String, String, AttributeKey> KNOWN_KEYS =
-        Arrays.stream(CldrDataType.values())
-            .flatMap(CldrDataType::getElements)
-            .flatMap(e -> e.getAttributes().keySet().stream()
-                .filter(AttributeKey::isKnownAttribute)
-                .map(a -> new AttributeKey(e.getName(), a.getName())))
-            .distinct()
-            .collect(toImmutableTable(
-                AttributeKey::getElementName, AttributeKey::getAttributeName, identity()));
+            Arrays.stream(CldrDataType.values())
+                    .flatMap(CldrDataType::getElements)
+                    .flatMap(
+                            e ->
+                                    e.getAttributes().keySet().stream()
+                                            .filter(AttributeKey::isKnownAttribute)
+                                            .map(a -> new AttributeKey(e.getName(), a.getName())))
+                    .distinct()
+                    .collect(
+                            toImmutableTable(
+                                    AttributeKey::getElementName,
+                                    AttributeKey::getAttributeName,
+                                    identity()));
 
     private static boolean isKnownAttribute(Attribute attr) {
-        return !attr.isDeprecated() &&
-            (attr.attributeStatus == distinguished || attr.attributeStatus == value);
+        return !attr.isDeprecated()
+                && (attr.attributeStatus == distinguished || attr.attributeStatus == value);
     }
 
     private static final Splitter LIST_SPLITTER =
-        Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
+            Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
 
     /**
      * Common interface to permit both {@link CldrPath} and {@link CldrValue} to have attributes
@@ -92,13 +97,17 @@ public final class AttributeKey {
         // 1) we don't expect the attribute name to have a namespace either,
         // 2) the attribute key should be in our cache of known instances.
         if (elementName.indexOf(':') == -1) {
-            checkArgument((attributeName.startsWith("xml:") || attributeName.indexOf(':') == -1),
-                "attributes in an external namespace other than xml: cannot be present in"
-                    + " elements in the default namespace: %s:%s",
-                elementName, attributeName);
-            return checkNotNull(KNOWN_KEYS.get(elementName, attributeName),
-                "unknown attribute (was it deprecated?): %s:%s",
-                elementName, attributeName);
+            checkArgument(
+                    (attributeName.startsWith("xml:") || attributeName.indexOf(':') == -1),
+                    "attributes in an external namespace other than xml: cannot be present in"
+                            + " elements in the default namespace: %s:%s",
+                    elementName,
+                    attributeName);
+            return checkNotNull(
+                    KNOWN_KEYS.get(elementName, attributeName),
+                    "unknown attribute (was it deprecated?): %s:%s",
+                    elementName,
+                    attributeName);
         }
         // An element in an external namespace _can_ have an attribute in the default namespace!
         // (e.g. <icu:dictionary type="Thai" icu:dependency="thaidict.dict"/>)
@@ -113,12 +122,16 @@ public final class AttributeKey {
         this.attributeName = checkValidLabel(attributeName, "attribute name");
     }
 
-    /** @return the non-empty element name of this key. */
+    /**
+     * @return the non-empty element name of this key.
+     */
     public String getElementName() {
         return elementName;
     }
 
-    /** @return the non-empty attribute name of this key. */
+    /**
+     * @return the non-empty attribute name of this key.
+     */
     public String getAttributeName() {
         return attributeName;
     }
@@ -133,9 +146,11 @@ public final class AttributeKey {
      * @throws IllegalStateException if this attribute is optional for the given supplier.
      */
     public String valueFrom(AttributeSupplier src) {
-        checkState(!src.getDataType().isOptionalAttribute(this),
-            "attribute %s is optional in %s, it should be accessed by an optional accessor",
-            this, src.getDataType());
+        checkState(
+                !src.getDataType().isOptionalAttribute(this),
+                "attribute %s is optional in %s, it should be accessed by an optional accessor",
+                this,
+                src.getDataType());
         // If this fails, it's a sign of an issue in the DTD and/or parser.
         return checkNotNull(src.get(this), "missing required attribute: %s", this);
     }
@@ -149,15 +164,17 @@ public final class AttributeKey {
      * @throws IllegalStateException if this attribute is not optional for the given supplier.
      */
     public Optional<String> optionalValueFrom(AttributeSupplier src) {
-        checkState(src.getDataType().isOptionalAttribute(this),
-            "attribute %s is not optional in %s, it should not be accessed by an optional accessor",
-            this, src.getDataType());
+        checkState(
+                src.getDataType().isOptionalAttribute(this),
+                "attribute %s is not optional in %s, it should not be accessed by an optional accessor",
+                this,
+                src.getDataType());
         return Optional.ofNullable(src.get(this));
     }
 
     /**
-     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method
-     * in preference to the instance's own {@code get()} method in cases where a non-null value is
+     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method in
+     * preference to the instance's own {@code get()} method in cases where a non-null value is
      * required.
      *
      * @param src the {@link CldrPath} or {@link CldrValue} from which the value is to be obtained.
@@ -166,18 +183,20 @@ public final class AttributeKey {
      * @throws IllegalStateException if this attribute is not optional for the given supplier.
      */
     public String valueFrom(AttributeSupplier src, String defaultValue) {
-        checkState(src.getDataType().isOptionalAttribute(this),
-            "attribute %s is not optional in %s, it should not be accessed by an optional accessor",
-            this, src.getDataType());
+        checkState(
+                src.getDataType().isOptionalAttribute(this),
+                "attribute %s is not optional in %s, it should not be accessed by an optional accessor",
+                this,
+                src.getDataType());
         checkNotNull(defaultValue, "default value must not be null");
         String v = src.get(this);
         return v != null ? v : defaultValue;
     }
 
     /**
-     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method
-     * in preference to the instance's own {@code get()} method when an attribute is expected to
-     * only contain a legitimate boolean value.
+     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method in
+     * preference to the instance's own {@code get()} method when an attribute is expected to only
+     * contain a legitimate boolean value.
      *
      * @param src the {@link CldrPath} or {@link CldrValue} from which the value is to be obtained.
      * @param defaultValue a default returned if the value is not present.
@@ -197,8 +216,8 @@ public final class AttributeKey {
     }
 
     /**
-     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method
-     * in preference to the instance's own {@code get()} method when an attribute is expected to
+     * Accessor for attribute values on a {@link CldrPath} or {@link CldrValue}. Use this method in
+     * preference to the instance's own {@code get()} method when an attribute is expected to
      * contain a whitespace separated list of values.
      *
      * @param src the {@link CldrPath} or {@link CldrValue} from which values are to be obtained.
@@ -234,7 +253,7 @@ public final class AttributeKey {
         }
         AttributeKey other = (AttributeKey) obj;
         return this.elementName.equals(other.elementName)
-            && this.attributeName.equals(other.attributeName);
+                && this.attributeName.equals(other.attributeName);
     }
 
     /** {@inheritDoc} */
@@ -253,8 +272,11 @@ public final class AttributeKey {
     // meta-characters in element or attribute names (see CldrPath for the full list).
     private static String checkValidLabel(String value, String description) {
         checkArgument(!value.isEmpty(), "%s cannot be empty", description);
-        checkArgument(CharMatcher.ascii().matchesAllOf(value),
-            "non-ascii character in %s: %s", description, value);
+        checkArgument(
+                CharMatcher.ascii().matchesAllOf(value),
+                "non-ascii character in %s: %s",
+                description,
+                value);
         return value;
     }
 }

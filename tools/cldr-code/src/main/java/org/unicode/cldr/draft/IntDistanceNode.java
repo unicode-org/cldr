@@ -1,20 +1,18 @@
 package org.unicode.cldr.draft;
 
+import com.google.common.base.Objects;
+import com.ibm.icu.util.Output;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
 import org.unicode.cldr.draft.XLocaleDistance.IdMakerFull;
 import org.unicode.cldr.draft.XLocaleDistance.StringDistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.StringDistanceTable;
-
-import com.google.common.base.Objects;
-import com.ibm.icu.util.Output;
 
 final class IntDistanceNode extends DistanceNode {
     final IntDistanceNode.IntDistanceTable distanceTable;
@@ -46,13 +44,19 @@ final class IntDistanceNode extends DistanceNode {
     }
 
     public static DistanceNode from(int distance, IntDistanceNode.IntDistanceTable otherTable) {
-        return otherTable == null ? new DistanceNode(distance) : new IntDistanceNode(distance, otherTable);
+        return otherTable == null
+                ? new DistanceNode(distance)
+                : new IntDistanceNode(distance, otherTable);
     }
 
     static class IntDistanceTable extends DistanceTable {
-        private static final IdMakerFull[] ids = { new IdMakerFull<>("lang", XLocaleDistance.ANY), new IdMakerFull<>("script", XLocaleDistance.ANY),
-            new IdMakerFull<>("region", XLocaleDistance.ANY) };
-        private static final IdMakerFull<IntDistanceNode.IntDistanceTable> cache = new IdMakerFull<>("table");
+        private static final IdMakerFull[] ids = {
+            new IdMakerFull<>("lang", XLocaleDistance.ANY),
+            new IdMakerFull<>("script", XLocaleDistance.ANY),
+            new IdMakerFull<>("region", XLocaleDistance.ANY)
+        };
+        private static final IdMakerFull<IntDistanceNode.IntDistanceTable> cache =
+                new IdMakerFull<>("table");
 
         private final IdMakerFull<String> id;
         private final DistanceNode[][] distanceNodes; // map from desired, supported => node
@@ -76,7 +80,8 @@ final class IntDistanceNode extends DistanceNode {
             return 0;
         }
 
-        private IntDistanceTable(StringDistanceTable source, int idNumber) { // move construction out later
+        private IntDistanceTable(
+                StringDistanceTable source, int idNumber) { // move construction out later
             id = ids[idNumber]; // use different Id for language, script, region
             int size = id.size();
             distanceNodes = new DistanceNode[size][size];
@@ -87,9 +92,13 @@ final class IntDistanceNode extends DistanceNode {
                 for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
                     int supported = id.add(e2.getKey());
                     DistanceNode oldNode = e2.getValue();
-                    final StringDistanceTable oldDistanceTable = (StringDistanceTable) oldNode.getDistanceTable();
-                    IntDistanceNode.IntDistanceTable otherTable = oldDistanceTable == null ? null
-                        : cache.intern(new IntDistanceTable(oldDistanceTable, idNumber + 1));
+                    final StringDistanceTable oldDistanceTable =
+                            (StringDistanceTable) oldNode.getDistanceTable();
+                    IntDistanceNode.IntDistanceTable otherTable =
+                            oldDistanceTable == null
+                                    ? null
+                                    : cache.intern(
+                                            new IntDistanceTable(oldDistanceTable, idNumber + 1));
                     DistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
                     distanceNodes[desired][supported] = node;
                 }
@@ -115,15 +124,22 @@ final class IntDistanceNode extends DistanceNode {
         }
 
         @Override
-        public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable, boolean starEquals) {
+        public int getDistance(
+                String desired,
+                String supported,
+                Output<DistanceTable> distanceTable,
+                boolean starEquals) {
             final int desiredId = id.toId(desired);
             final int supportedId = id.toId(supported); // can optimize later
             DistanceNode value = distanceNodes[desiredId][supportedId];
             if (distanceTable != null) {
                 distanceTable.value = value.getDistanceTable();
             }
-            return starEquals && desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0
-                : value.distance;
+            return starEquals
+                            && desiredId == supportedId
+                            && (desiredId != 0 || desired.equals(supported))
+                    ? 0
+                    : value.distance;
         }
 
         @Override
@@ -142,10 +158,15 @@ final class IntDistanceNode extends DistanceNode {
 
         @Override
         public String toString() {
-            return abbreviate("\t", new HashMap<DistanceNode, Integer>(), new StringBuilder(id.name + ": ")).toString();
+            return abbreviate(
+                            "\t",
+                            new HashMap<DistanceNode, Integer>(),
+                            new StringBuilder(id.name + ": "))
+                    .toString();
         }
 
-        private StringBuilder abbreviate(String indent, Map<DistanceNode, Integer> cache, StringBuilder result) {
+        private StringBuilder abbreviate(
+                String indent, Map<DistanceNode, Integer> cache, StringBuilder result) {
             for (int i = 0; i < distanceNodes.length; ++i) {
                 DistanceNode[] row = distanceNodes[i];
                 for (int j = 0; j < row.length; ++j) {
@@ -154,7 +175,8 @@ final class IntDistanceNode extends DistanceNode {
                         continue;
                     }
                     result.append(value.distance);
-                    IntDistanceNode.IntDistanceTable dt = (IntDistanceNode.IntDistanceTable) value.getDistanceTable();
+                    IntDistanceNode.IntDistanceTable dt =
+                            (IntDistanceNode.IntDistanceTable) value.getDistanceTable();
                     if (dt == null) {
                         result.append(";");
                         continue;

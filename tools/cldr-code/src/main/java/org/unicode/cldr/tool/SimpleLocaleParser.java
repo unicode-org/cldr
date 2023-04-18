@@ -9,61 +9,64 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PatternCache;
 
 /**
- * Parse Locales, extended to BCP 47 and CLDR. Also normalizes the case of the results.
- * Only does syntactic parse: does not replace deprecated elements; does not check for validity.
- * Will throw IllegalArgumentException for duplicate variants and extensions.
+ * Parse Locales, extended to BCP 47 and CLDR. Also normalizes the case of the results. Only does
+ * syntactic parse: does not replace deprecated elements; does not check for validity. Will throw
+ * IllegalArgumentException for duplicate variants and extensions.
  *
  * @author markdavis
  */
 class SimpleLocaleParser {
     // mechanically generated regex -- don't worry about trying to read it!
     // if we want to allow multiple --, change [-_] into [-_]+
-    private static final Pattern rootPattern = Pattern.compile(
-        "(?:"
-            +
-            " (?: ( [a-z]{2,8} )"
-            + // language
-            "   (?: [-_] ( [a-z]{4} ) )?"
-            + // script
-            "   (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?"
-            + // region
-            "   (?: [-_] ( (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) (?: [-_] (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) )* ) )?"
-            + // variant(s)
-            "   (?: [-_] ( [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ (?: [-_] [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ )* ) )?"
-            + // extensions
-            "   (?: [-_] ( x (?: [-_] [a-z 0-9]{1,8} )+ ) )? )"
-            + // private use
-            " | ( x (?: [-_] [a-z 0-9]{1,8} )+ )"
-            + // private use
-            " | ( en [-_] GB [-_] oed"
-            + // legacy gorp
-            "   | i [-_] (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )"
-            +
-            "   | no [-_] (?: bok | nyn )" +
-            "   | sgn [-_] (?: BE [-_] (?: fr | nl) | CH [-_] de )" +
-            "   | zh [-_] (?: cmn (?: [-_] Hans | [-_] Hant )? | gan | min (?: [-_] nan)? | wuu | yue ) ) )" +
-            " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?" + // CLDR/ICU
-            // keywords
-            "",
-        Pattern.COMMENTS | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since source is
+    private static final Pattern rootPattern =
+            Pattern.compile(
+                    "(?:"
+                            + " (?: ( [a-z]{2,8} )"
+                            + // language
+                            "   (?: [-_] ( [a-z]{4} ) )?"
+                            + // script
+                            "   (?: [-_] ( [a-z]{2} | [0-9]{3} ) )?"
+                            + // region
+                            "   (?: [-_] ( (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) (?: [-_] (?: [a-z 0-9]{5,8} | [0-9] [a-z 0-9]{3} ) )* ) )?"
+                            + // variant(s)
+                            "   (?: [-_] ( [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ (?: [-_] [a-w y-z] (?: [-_] [a-z 0-9]{2,8} )+ )* ) )?"
+                            + // extensions
+                            "   (?: [-_] ( x (?: [-_] [a-z 0-9]{1,8} )+ ) )? )"
+                            + // private use
+                            " | ( x (?: [-_] [a-z 0-9]{1,8} )+ )"
+                            + // private use
+                            " | ( en [-_] GB [-_] oed"
+                            + // legacy gorp
+                            "   | i [-_] (?: ami | bnn | default | enochian | hak | klingon | lux | mingo | navajo | pwn | tao | tay | tsu )"
+                            + "   | no [-_] (?: bok | nyn )"
+                            + "   | sgn [-_] (?: BE [-_] (?: fr | nl) | CH [-_] de )"
+                            + "   | zh [-_] (?: cmn (?: [-_] Hans | [-_] Hant )? | gan | min (?: [-_] nan)? | wuu | yue ) ) )"
+                            + " (?: \\@ ((?: [a-z 0-9]+ \\= [a-z 0-9]+) (?: \\; (?: [a-z 0-9]+ \\= [a-z 0-9]+))*))?"
+                            + // CLDR/ICU
+                            // keywords
+                            "",
+                    Pattern.COMMENTS
+                            | Pattern.CASE_INSENSITIVE); // TODO change above to be lowercase, since
+    // source is
     // already when we compare
     // Other regex patterns for splitting apart lists of items detected above.
     private static final Pattern variantSeparatorPattern = PatternCache.get("[-_]");
-    private static final Pattern extensionPattern = Pattern.compile(
-        "([a-z]) [-_] ( [a-z 0-9]{2,8} (?:[-_] [a-z 0-9]{2,8})* )", Pattern.COMMENTS);
-    private static final Pattern privateUsePattern = Pattern.compile(
-        "(x) [-_] ( [a-z 0-9]{1,8} (?:[-_] [a-z 0-9]{1,8})* )", Pattern.COMMENTS);
-    private static final Pattern keywordPattern = Pattern.compile("([a-z 0-9]+) \\= ([a-z 0-9]+)", Pattern.COMMENTS);
+    private static final Pattern extensionPattern =
+            Pattern.compile(
+                    "([a-z]) [-_] ( [a-z 0-9]{2,8} (?:[-_] [a-z 0-9]{2,8})* )", Pattern.COMMENTS);
+    private static final Pattern privateUsePattern =
+            Pattern.compile(
+                    "(x) [-_] ( [a-z 0-9]{1,8} (?:[-_] [a-z 0-9]{1,8})* )", Pattern.COMMENTS);
+    private static final Pattern keywordPattern =
+            Pattern.compile("([a-z 0-9]+) \\= ([a-z 0-9]+)", Pattern.COMMENTS);
 
-    /**
-     * The fields set by set().
-     */
+    /** The fields set by set(). */
     private String language;
+
     private String script;
     private String region;
     private List<String> variants;
@@ -71,8 +74,8 @@ class SimpleLocaleParser {
 
     /**
      * Set the object to the source.
-     * <p>
-     * Example (artificially complicated):
+     *
+     * <p>Example (artificially complicated):
      *
      * <pre>
      * myParser.set(&quot;zh-Hans-HK-SCOUSE-a-foobar-x-a-en@collation=phonebook;calendar=islamic&quot;);
@@ -112,7 +115,9 @@ class SimpleLocaleParser {
             variants = Collections.emptyList();
         } else {
             // make uppercase for compatibility with CLDR.
-            variants = Arrays.asList(variantSeparatorPattern.split(variantList.toUpperCase(Locale.ENGLISH)));
+            variants =
+                    Arrays.asList(
+                            variantSeparatorPattern.split(variantList.toUpperCase(Locale.ENGLISH)));
             // check for duplicate variants
             if (new HashSet<>(variants).size() != variants.size()) {
                 throw new IllegalArgumentException("Duplicate variants");
@@ -143,10 +148,10 @@ class SimpleLocaleParser {
     }
 
     /**
-     * Return BCP 47 language subtag (may be ISO registered code).
-     * If the language tag is irregular, then the entire tag is in the language field.
-     * If the entire code is private use, then the language code is "und".
-     * Examples:
+     * Return BCP 47 language subtag (may be ISO registered code). If the language tag is irregular,
+     * then the entire tag is in the language field. If the entire code is private use, then the
+     * language code is "und". Examples:
+     *
      * <table style="border-width:1; border-style:collapse">
      * <tr>
      * <th>Input String</th>
@@ -209,11 +214,12 @@ class SimpleLocaleParser {
     }
 
     /**
-     * Return immutable map of key/value extensions. Includes BCP 47 extensions and private use, also locale keyword
-     * extensions. If the entire code is private use,
-     * then the language is set to "und" for consistency.
-     * <p>
-     * Example:
+     * Return immutable map of key/value extensions. Includes BCP 47 extensions and private use,
+     * also locale keyword extensions. If the entire code is private use, then the language is set
+     * to "und" for consistency.
+     *
+     * <p>Example:
+     *
      * <table style="border-width:1; border-style:collapse">
      * <tr>
      * <th>Input String</th>
@@ -234,11 +240,16 @@ class SimpleLocaleParser {
 
     @Override
     public String toString() {
-        return "{language=" + language
-            + ", script=" + script
-            + ", country=" + region
-            + ", variants=" + variants
-            + ", keywords=" + extensions
-            + "}";
+        return "{language="
+                + language
+                + ", script="
+                + script
+                + ", country="
+                + region
+                + ", variants="
+                + variants
+                + ", keywords="
+                + extensions
+                + "}";
     }
 }

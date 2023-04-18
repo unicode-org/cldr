@@ -1,11 +1,10 @@
 package com.ibm.icu.dev.test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.ibm.icu.text.GenderInfo;
 import com.ibm.icu.text.GenderInfo.Gender;
 import com.ibm.icu.util.ULocale;
+import java.util.Arrays;
+import java.util.List;
 
 public class GenderInfoTest extends TestFmwk {
     public static void main(String[] args) {

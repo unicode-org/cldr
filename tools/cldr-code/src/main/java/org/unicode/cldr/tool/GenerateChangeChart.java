@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Objects;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R5;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -8,7 +12,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,11 +32,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 
-import com.google.common.base.Objects;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R5;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class GenerateChangeChart {
     private static final boolean QUICK_TEST = false;
 
@@ -52,14 +50,17 @@ public class GenerateChangeChart {
 
         CLDRFile currentRoot = current.make("root", true);
         CLDRFile oldRoot = old.make("root", true);
-        Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
+        Set<String> locales =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
         String dir = CLDRPaths.CHART_DIRECTORY + "changes/";
         CoverageInfo coverage = CONFIG.getCoverageInfo();
         EnumSet<SectionId> sections = EnumSet.noneOf(SectionId.class);
         FileCopier.ensureDirectoryExists(dir);
         FileCopier.copy(ShowLanguages.class, "index.css", dir);
 
-        try (PrintWriter out = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, "summary.txt");) {
+        try (PrintWriter out =
+                org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, "summary.txt"); ) {
             Counter<SectionId> counter = new Counter<>();
             for (String locale : locales) {
                 if (QUICK_TEST && locale.compareTo("b") >= 0) {
@@ -83,8 +84,8 @@ public class GenerateChangeChart {
                     String oldValue = oldFile.getStringValue(path);
                     String source = oldFile.getSourceLocaleID(path, status);
                     if (source.equals(XMLSource.CODE_FALLBACK_ID)
-                        || source.equals(XMLSource.ROOT_ID)
-                        || oldValue.equals(oldRoot.getStringValue(path))) {
+                            || source.equals(XMLSource.ROOT_ID)
+                            || oldValue.equals(oldRoot.getStringValue(path))) {
                         continue;
                     }
                     String newValue = currentFile.getStringValue(path);
@@ -94,9 +95,12 @@ public class GenerateChangeChart {
                     String engValue = ENGLISH.getStringValue(path);
                     PathHeader ph = phf.fromPath(path);
                     sections.add(ph.getSectionId());
-//                    final R4<SectionId, PageId, String, String> key = Row.of(ph.getSectionId(), ph.getPageId(), ph.getHeader(), locale);
-//                    final R3<String, String, String> value = Row.of(ph.getCode(), oldValue, newValue);
-                    final R5<PathHeader, CLDRLocale, String, String, String> key = Row.of(ph, cloc, oldValue, newValue, engValue);
+                    //                    final R4<SectionId, PageId, String, String> key =
+                    // Row.of(ph.getSectionId(), ph.getPageId(), ph.getHeader(), locale);
+                    //                    final R3<String, String, String> value =
+                    // Row.of(ph.getCode(), oldValue, newValue);
+                    final R5<PathHeader, CLDRLocale, String, String, String> key =
+                            Row.of(ph, cloc, oldValue, newValue, engValue);
                     data.add(key);
                     counter.add(ph.getSectionId(), 1);
                 }
@@ -124,8 +128,12 @@ public class GenerateChangeChart {
                         out.println(lastSectionId + "\t" + count);
                         count = 0;
                     }
-                    localeFirstOut = new LocaleFirstChartWriter(summary, dir, sectionId.toString(), topLinks);
-                    pathFirstOut = new PathFirstChartWriter(summary, dir, sectionId.toString() + " " + BY_PATH, topLinks);
+                    localeFirstOut =
+                            new LocaleFirstChartWriter(
+                                    summary, dir, sectionId.toString(), topLinks);
+                    pathFirstOut =
+                            new PathFirstChartWriter(
+                                    summary, dir, sectionId.toString() + " " + BY_PATH, topLinks);
                     lastSectionId = sectionId;
                 }
                 ++count;
@@ -155,8 +163,14 @@ public class GenerateChangeChart {
                 topLinksBuilder.append(SEP);
             }
             String xString = x.toString();
-            topLinksBuilder.append("<a href='" + FileUtilities.anchorize(xString) + ".html'>" + xString + "</a>");
-            topLinksBuilder.append(" (<a href='" + FileUtilities.anchorize(xString + " " + BY_PATH) + ".html'>" + BY_PATH + "</a>)");
+            topLinksBuilder.append(
+                    "<a href='" + FileUtilities.anchorize(xString) + ".html'>" + xString + "</a>");
+            topLinksBuilder.append(
+                    " (<a href='"
+                            + FileUtilities.anchorize(xString + " " + BY_PATH)
+                            + ".html'>"
+                            + BY_PATH
+                            + "</a>)");
             first = false;
         }
         String topLinks = topLinksBuilder.append("</p>").toString();
@@ -164,116 +178,140 @@ public class GenerateChangeChart {
     }
 
     static class LocaleFirstChartWriter extends ChartWriter {
-        public LocaleFirstChartWriter(PrintWriter summary, String dir, String title, String explanation) {
+        public LocaleFirstChartWriter(
+                PrintWriter summary, String dir, String title, String explanation) {
             super(summary, dir, title, explanation);
         }
 
         {
-            this
-                .addColumn("Min Votes", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setSortPriority(0)
-                .setSortAscending(false)
-                .setBreakSpans(true)
-                .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-                //            .setSpanRows(true)
-                .setSortPriority(1)
-                .setBreakSpans(true)
-                .addColumn("Locale ID", "class='source'", null, "class='source'", true)
-                //            .setSpanRows(true)
-                //.setBreakSpans(true)
-                .addColumn("PageHeader", "class='source'", null, "class='source'", true)
-                .setSortPriority(3)
-                .setHidden(true)
-                .addColumn("Page", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Header", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Code", "class='source'", null, "class='source'", true)
-                .addColumn("Eng Value", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .addColumn("Old Value", "class='target'", null, "class='target'", true)
-                .addColumn("", "class='target'", null, "class='target'", true)
-                .addColumn("New Value", "class='target'", null, "class='target'", true);
+            this.addColumn(
+                            "Min Votes",
+                            "class='source'",
+                            CldrUtility.getDoubleLinkMsg(),
+                            "class='source'",
+                            true)
+                    .setSpanRows(true)
+                    .setSortPriority(0)
+                    .setSortAscending(false)
+                    .setBreakSpans(true)
+                    .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+                    //            .setSpanRows(true)
+                    .setSortPriority(1)
+                    .setBreakSpans(true)
+                    .addColumn("Locale ID", "class='source'", null, "class='source'", true)
+                    //            .setSpanRows(true)
+                    // .setBreakSpans(true)
+                    .addColumn("PageHeader", "class='source'", null, "class='source'", true)
+                    .setSortPriority(3)
+                    .setHidden(true)
+                    .addColumn("Page", "class='source'", null, "class='source'", true)
+                    .setSpanRows(true)
+                    .setBreakSpans(true)
+                    .addColumn("Header", "class='source'", null, "class='source'", true)
+                    .setSpanRows(true)
+                    .setBreakSpans(true)
+                    .addColumn("Code", "class='source'", null, "class='source'", true)
+                    .addColumn("Eng Value", "class='source'", null, "class='source'", true)
+                    .setSpanRows(true)
+                    .addColumn("Old Value", "class='target'", null, "class='target'", true)
+                    .addColumn("", "class='target'", null, "class='target'", true)
+                    .addColumn("New Value", "class='target'", null, "class='target'", true);
         }
 
-        void add(final PathHeader pathHeader, CLDRLocale locale,
-            String oldValue, String newValue, String engValue, int votes) {
+        void add(
+                final PathHeader pathHeader,
+                CLDRLocale locale,
+                String oldValue,
+                String newValue,
+                String engValue,
+                int votes) {
             final String name = ENGLISH.getName(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
-            addRow()
-                .addCell(votes)
-                .addCell(name)
-                .addCell(locale)
-                .addCell(pathHeader) // hidden field
-                .addCell(pageId)
-                .addCell(header == null ? "" : header)
-                .addCell(code)
-                .addCell(engValue == null ? "∅" : engValue)
-                .addCell(oldValue)
-                .addCell("→")
-                .addCell(newValue == null ? "∅" : newValue)
-                .finishRow();
+            addRow().addCell(votes)
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell(pathHeader) // hidden field
+                    .addCell(pageId)
+                    .addCell(header == null ? "" : header)
+                    .addCell(code)
+                    .addCell(engValue == null ? "∅" : engValue)
+                    .addCell(oldValue)
+                    .addCell("→")
+                    .addCell(newValue == null ? "∅" : newValue)
+                    .finishRow();
         }
     }
 
     static class PathFirstChartWriter extends ChartWriter {
-        public PathFirstChartWriter(PrintWriter summary, String dir, String title, String explanation) {
+        public PathFirstChartWriter(
+                PrintWriter summary, String dir, String title, String explanation) {
             super(summary, dir, title, explanation);
         }
 
         {
             this
-                //.setBreakSpans(true)
-                .addColumn("PageHeader", "class='source'", null, "class='source'", true)
-                .setSortPriority(0)
-                .setHidden(true)
-                .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-                .setSpanRows(true)
-                .setBreakSpans(true)
-                .addColumn("Code", "class='source'", null, "class='source'", true)
-                .addColumn("Eng Value", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .addColumn("Min Votes", "class='source'", null, "class='source'", true)
-                .setSpanRows(true)
-                .setSortPriority(1)
-                .setSortAscending(false)
-                .setBreakSpans(true)
-                .addColumn("Locale Name", "class='source'", null, "class='source'", true)
-                .setSortPriority(2)
-                .setBreakSpans(true)
-                .addColumn("Locale ID", "class='source'", null, "class='source'", true)
-                .addColumn("Old Value", "class='target'", null, "class='target'", true)
-                .addColumn("", "class='target'", null, "class='target'", true)
-                .addColumn("New Value", "class='target'", null, "class='target'", true);
+                    // .setBreakSpans(true)
+                    .addColumn("PageHeader", "class='source'", null, "class='source'", true)
+                    .setSortPriority(0)
+                    .setHidden(true)
+                    .addColumn(
+                            "Page",
+                            "class='source'",
+                            CldrUtility.getDoubleLinkMsg(),
+                            "class='source'",
+                            true)
+                    .setSpanRows(true)
+                    .setBreakSpans(true)
+                    .addColumn(
+                            "Header",
+                            "class='source'",
+                            CldrUtility.getDoubleLinkMsg(),
+                            "class='source'",
+                            true)
+                    .setSpanRows(true)
+                    .setBreakSpans(true)
+                    .addColumn("Code", "class='source'", null, "class='source'", true)
+                    .addColumn("Eng Value", "class='source'", null, "class='source'", true)
+                    .setSpanRows(true)
+                    .addColumn("Min Votes", "class='source'", null, "class='source'", true)
+                    .setSpanRows(true)
+                    .setSortPriority(1)
+                    .setSortAscending(false)
+                    .setBreakSpans(true)
+                    .addColumn("Locale Name", "class='source'", null, "class='source'", true)
+                    .setSortPriority(2)
+                    .setBreakSpans(true)
+                    .addColumn("Locale ID", "class='source'", null, "class='source'", true)
+                    .addColumn("Old Value", "class='target'", null, "class='target'", true)
+                    .addColumn("", "class='target'", null, "class='target'", true)
+                    .addColumn("New Value", "class='target'", null, "class='target'", true);
         }
 
-        void add(final PathHeader pathHeader, CLDRLocale locale,
-            String oldValue, String newValue, String engValue, int votes) {
+        void add(
+                final PathHeader pathHeader,
+                CLDRLocale locale,
+                String oldValue,
+                String newValue,
+                String engValue,
+                int votes) {
             final String name = ENGLISH.getName(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
-            addRow()
-                .addCell(pathHeader) // hidden field
-                .addCell(pageId)
-                .addCell(header == null ? "" : header)
-                .addCell(code)
-                .addCell(engValue == null ? "∅" : engValue)
-                .addCell(votes)
-                .addCell(name)
-                .addCell(locale)
-                .addCell(oldValue)
-                .addCell("→")
-                .addCell(newValue == null ? "∅" : newValue)
-                .finishRow();
+            addRow().addCell(pathHeader) // hidden field
+                    .addCell(pageId)
+                    .addCell(header == null ? "" : header)
+                    .addCell(code)
+                    .addCell(engValue == null ? "∅" : engValue)
+                    .addCell(votes)
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell(oldValue)
+                    .addCell("→")
+                    .addCell(newValue == null ? "∅" : newValue)
+                    .finishRow();
         }
     }
 
@@ -312,15 +350,26 @@ public class GenerateChangeChart {
 
         private String dir;
 
-        public FormattedFileWriter(PrintWriter indexFile, String dir, String title, String explanation, List<String> anchors)
-            throws IOException {
+        public FormattedFileWriter(
+                PrintWriter indexFile,
+                String dir,
+                String title,
+                String explanation,
+                List<String> anchors)
+                throws IOException {
             this.dir = dir;
             String anchor = FileUtilities.anchorize(title);
             filename = anchor + ".html";
             this.title = title;
             if (anchors != null) {
-                anchors.add("<a name='" + anchor + "' href='" + getFilename() + "'>"
-                    + getTitle() + "</a></caption>");
+                anchors.add(
+                        "<a name='"
+                                + anchor
+                                + "' href='"
+                                + getFilename()
+                                + "'>"
+                                + getTitle()
+                                + "</a></caption>");
             }
             if (explanation != null) {
                 out.write(explanation);
@@ -340,10 +389,23 @@ public class GenerateChangeChart {
         public void close() throws IOException {
             out.write("</div>");
             PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, filename);
-            String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
-                "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%body%", out.toString(), "%analytics%", Chart.AnalyticsID.CLDR.getScript() };
+            String[] replacements = {
+                "%header%",
+                "",
+                "%title%",
+                title,
+                "%version%",
+                ToolConstants.CHART_DISPLAY_VERSION,
+                "%date%",
+                CldrUtility.isoFormatDateOnly(new Date()),
+                "%body%",
+                out.toString(),
+                "%analytics%",
+                Chart.AnalyticsID.CLDR.getScript()
+            };
             final String templateFileName = "chart-template.html";
-            FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
+            FileUtilities.appendBufferedReader(
+                    ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
         }
 
@@ -357,5 +419,4 @@ public class GenerateChangeChart {
             out.flush();
         }
     }
-
 }

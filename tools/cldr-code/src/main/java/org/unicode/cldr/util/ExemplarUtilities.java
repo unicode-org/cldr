@@ -1,15 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Set;
-
 import org.unicode.cldr.tool.LikelySubtags;
 
-import com.ibm.icu.text.UnicodeSet;
-
-/**
- * Utilities for use in handling exemplars, both in checks and in tests.
- *
- */
+/** Utilities for use in handling exemplars, both in checks and in tests. */
 public class ExemplarUtilities {
     static LikelySubtags ls = new LikelySubtags();
     static LanguageTagParser ltp = new LanguageTagParser();
@@ -36,6 +31,7 @@ public class ExemplarUtilities {
     }
 
     static UnicodeRelation<String> pathSegmentsOk = new UnicodeRelation<>();
+
     static {
         // need to add exceptions to CheckForExemplars
         pathSegmentsOk.add('\u03A9', "/unit[@type=\"electric-ohm\"]");
@@ -49,15 +45,22 @@ public class ExemplarUtilities {
         pathSegmentsOk.add('\u0440', "/currency[@type=\"BYN\"]");
         pathSegmentsOk.add('\u0440', "/currency[@type=\"RUR\"]");
         pathSegmentsOk.add('\u10DA', "/currency[@type=\"GEL\"]");
-        pathSegmentsOk.addAll(new UnicodeSet("[؉ ٪ ٫ ۰ ۱ ؉ا س ا س ٬ ٬ ؜ ؛  ]"), "//ldml/numbers/symbols[@numberSystem=\"arab");
+        pathSegmentsOk.addAll(
+                new UnicodeSet("[؉ ٪ ٫ ۰ ۱ ؉ا س ا س ٬ ٬ ؜ ؛  ]"),
+                "//ldml/numbers/symbols[@numberSystem=\"arab");
 
         // need to fix data in locale files
-        pathSegmentsOk.addAll(new UnicodeSet("[コサ割可合営得指月有満無申祝禁秘空割祝秘]"), "//ldml/annotations/annotation");
-        pathSegmentsOk.addAll(new UnicodeSet("[ا ر ل ی]"), "//ldml/annotations/annotation[@cp=\"﷼\"]");
-        pathSegmentsOk.addAll(new UnicodeSet("[Р а в д е з л о п р т у ы ь]"), "//ldml/annotations/annotation[@cp=\"🪬\"]");
-        //ω Grek    lo; Laoo;   //ldml/units/unitLength[@type="short"]/unit[@type="electric-ohm"]/unitPattern[@count="other"];
+        pathSegmentsOk.addAll(
+                new UnicodeSet("[コサ割可合営得指月有満無申祝禁秘空割祝秘]"), "//ldml/annotations/annotation");
+        pathSegmentsOk.addAll(
+                new UnicodeSet("[ا ر ل ی]"), "//ldml/annotations/annotation[@cp=\"﷼\"]");
+        pathSegmentsOk.addAll(
+                new UnicodeSet("[Р а в д е з л о п р т у ы ь]"),
+                "//ldml/annotations/annotation[@cp=\"🪬\"]");
+        // ω Grek    lo; Laoo;
+        // //ldml/units/unitLength[@type="short"]/unit[@type="electric-ohm"]/unitPattern[@count="other"];
         pathSegmentsOk.freeze();
     }
 
-    final static UnicodeSet CHARS_OK = new UnicodeSet("[\u061C \u202F \\p{Sc}]").freeze();
+    static final UnicodeSet CHARS_OK = new UnicodeSet("[\u061C \u202F \\p{Sc}]").freeze();
 }

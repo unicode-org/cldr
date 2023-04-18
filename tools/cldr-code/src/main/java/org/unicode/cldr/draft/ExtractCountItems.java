@@ -1,5 +1,6 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.impl.Relation;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -11,7 +12,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -25,15 +25,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Relation;
-
 public class ExtractCountItems {
     CLDRConfig testInfo = ToolConfig.getToolInstance();
     Factory factory = testInfo.getCldrFactory();
 
     static class SampleData {
         EnumMap<Count, String> countToString = new EnumMap<>(Count.class);
-        Relation<String, Count> stringToCount = Relation.of(new HashMap<String, Set<Count>>(), HashSet.class);
+        Relation<String, Count> stringToCount =
+                Relation.of(new HashMap<String, Set<Count>>(), HashSet.class);
         String basePath;
 
         public SampleData(String basePath) {
@@ -68,7 +67,8 @@ public class ExtractCountItems {
         Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap<>();
 
         for (String locale : factory.getAvailableLanguages()) {
-            Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(Organization.google);
+            Map<String, Level> locale_status =
+                    StandardCodes.make().getLocaleToLevel(Organization.google);
 
             if (locale_status == null) continue;
             Level level = locale_status.get(locale);
@@ -92,7 +92,8 @@ public class ExtractCountItems {
             SampleData sampleData = getSamples(cldr, keywordCount, "//ldml/units/unit", data);
             if (sampleData == null) {
                 // try currencies
-                sampleData = getSamples(cldr, keywordCount, "//ldml/numbers/currencies/currency", data);
+                sampleData =
+                        getSamples(cldr, keywordCount, "//ldml/numbers/currencies/currency", data);
             }
             if (sampleData == null) {
                 defectiveLocales.put(locale, data);
@@ -129,10 +130,11 @@ public class ExtractCountItems {
         }
     }
 
-    private void showMinimalPairs(Set<Pair<Count, Count>> missingPairs, Map<String, SampleData> pathToSamples) {
+    private void showMinimalPairs(
+            Set<Pair<Count, Count>> missingPairs, Map<String, SampleData> pathToSamples) {
         for (Entry<String, SampleData> entry : pathToSamples.entrySet()) {
             SampleData samples = entry.getValue();
-            for (Iterator<Pair<Count, Count>> it = missingPairs.iterator(); it.hasNext();) {
+            for (Iterator<Pair<Count, Count>> it = missingPairs.iterator(); it.hasNext(); ) {
                 Pair<Count, Count> missing = it.next();
                 Count first = missing.getFirst();
                 Count second = missing.getSecond();
@@ -140,7 +142,8 @@ public class ExtractCountItems {
                 String s2 = samples.countToString.get(second);
                 if (s1 != null && s2 != null && !s1.equals(s2)) {
                     // have match, display and remove.
-                    System.out.println(missing + "\t" + samples.basePath + "\t<" + s1 + ">\t<" + s2 + ">");
+                    System.out.println(
+                            missing + "\t" + samples.basePath + "\t<" + s1 + ">\t<" + s2 + ">");
                     it.remove();
                 }
             }
@@ -148,18 +151,21 @@ public class ExtractCountItems {
         System.out.println("Missing minimal pairs: " + missingPairs);
     }
 
-    SampleData getSamples(CLDRFile cldr, int keywordCount, String prefix, Map<String, SampleData> data) {
+    SampleData getSamples(
+            CLDRFile cldr, int keywordCount, String prefix, Map<String, SampleData> data) {
         for (String path : With.in(cldr.iterator(prefix, cldr.getComparator()))) {
             if (!path.contains("@count")) {
                 continue;
             }
-            if (path.contains("//ldml/numbers/decimalFormats") || path.contains("//ldml/numbers/currencyFormats")
-                || path.contains("@alt=\"short\"")) {
+            if (path.contains("//ldml/numbers/decimalFormats")
+                    || path.contains("//ldml/numbers/currencyFormats")
+                    || path.contains("@alt=\"short\"")) {
                 continue;
             }
             String value = cldr.getStringValue(path).toLowerCase(Locale.ENGLISH);
             // get the path without the count = basepath
-            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, setAttribute
+            XPathParts parts =
+                    XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, setAttribute
             Count count = PluralInfo.Count.valueOf(parts.getAttributeValue(-1, "count"));
             parts.setAttribute(-1, "count", null);
             String basePath = parts.toString();

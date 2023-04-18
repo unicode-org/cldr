@@ -3,7 +3,6 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Set;
-
 import org.json.JSONException;
 import org.unicode.cldr.util.StandardCodes;
 
@@ -19,7 +18,7 @@ public class SurveyForumParticipation {
 
             try {
                 DBUtils.execSql(sqlName);
-            } catch(IOException | SQLException e) {
+            } catch (IOException | SQLException e) {
                 err = e;
             }
         }
@@ -35,18 +34,19 @@ public class SurveyForumParticipation {
 
     public void getJson(SurveyJSONWrapper r) throws JSONException, SQLException, IOException {
         Throwable t = SurveyForumParticipationHelper.INSTANCE.err;
-        if(t != null) {
-            if(t instanceof SQLException) {
+        if (t != null) {
+            if (t instanceof SQLException) {
                 throw (SQLException) t;
-            } else if(t instanceof IOException) {
+            } else if (t instanceof IOException) {
                 throw (IOException) t;
             }
         }
         r.put("org", org);
         r.put("orgLocales", orgLocales);
 
-        r.put("rows", DBUtils.queryToJSON("CALL cldr_forum_participation(?, ?)",
-                                            org,
-                                            SurveyMain.getNewVersion()));
+        r.put(
+                "rows",
+                DBUtils.queryToJSON(
+                        "CALL cldr_forum_participation(?, ?)", org, SurveyMain.getNewVersion()));
     }
 }

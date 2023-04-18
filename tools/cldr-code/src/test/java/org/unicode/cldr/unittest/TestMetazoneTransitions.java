@@ -1,19 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.SupplementalDataInfo;
-
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DecimalFormat;
@@ -23,6 +9,18 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.TimeZoneRule;
 import com.ibm.icu.util.TimeZoneTransition;
 import com.ibm.icu.util.ULocale;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestMetazoneTransitions {
 
@@ -36,8 +34,8 @@ public class TestMetazoneTransitions {
 
     static final long endDate;
 
-    static final SimpleDateFormat neutralFormat = new SimpleDateFormat(
-        "yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
+    static final SimpleDateFormat neutralFormat =
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
     static final DecimalFormat threeDigits = new DecimalFormat("000");
     static final DecimalFormat twoDigits = new DecimalFormat("00");
 
@@ -66,10 +64,9 @@ public class TestMetazoneTransitions {
         zone2 = java.util.TimeZone.getTimeZone("Etc/GMT-8");
         System.out.println(zone2.getID());
 
-        java.util.TimeZone.setDefault(java.util.TimeZone
-            .getTimeZone("America/Los_Angeles"));
-        DateFormat javaFormat = DateFormat.getDateTimeInstance(DateFormat.FULL,
-            DateFormat.MEDIUM, Locale.US);
+        java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/Los_Angeles"));
+        DateFormat javaFormat =
+                DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM, Locale.US);
         long start = new Date(107, 0, 1, 0, 30, 0).getTime();
         start -= start % 1000; // clean up millis
         long end = new Date(108, 0, 1, 0, 30, 0).getTime();
@@ -77,9 +74,13 @@ public class TestMetazoneTransitions {
             String formatted = javaFormat.format(date);
             Date roundTrip = javaFormat.parse(formatted);
             if (roundTrip.getTime() != date) {
-                System.out.println("Java roundtrip failed for: " + formatted
-                    + "\tSource: " + new Date(date) + "\tTarget: "
-                    + roundTrip);
+                System.out.println(
+                        "Java roundtrip failed for: "
+                                + formatted
+                                + "\tSource: "
+                                + new Date(date)
+                                + "\tTarget: "
+                                + roundTrip);
             }
         }
         new TestMetazoneTransitions().run();
@@ -107,8 +108,7 @@ public class TestMetazoneTransitions {
         }
 
         /**
-         * Return the one with the smaller offset, or if equal then the smallest
-         * time
+         * Return the one with the smaller offset, or if equal then the smallest time
          *
          * @param o
          * @return
@@ -116,21 +116,20 @@ public class TestMetazoneTransitions {
         @Override
         public int compareTo(ZoneTransition o) {
             int delta = offset - o.offset;
-            if (delta != 0)
-                return delta;
+            if (delta != 0) return delta;
             long delta2 = date - o.date;
             return delta2 == 0 ? 0 : delta2 < 0 ? -1 : 1;
         }
 
         @Override
         public String toString() {
-            return neutralFormat.format(date) + ": " + ((double) offset) / HOUR
-                + "hrs";
+            return neutralFormat.format(date) + ": " + ((double) offset) / HOUR + "hrs";
         }
     }
 
     enum DaylightChoice {
-        NO_DAYLIGHT, ONLY_DAYLIGHT
+        NO_DAYLIGHT,
+        ONLY_DAYLIGHT
     };
 
     private static class ZoneTransitions implements Comparable<ZoneTransitions> {
@@ -149,24 +148,22 @@ public class TestMetazoneTransitions {
 
         public ZoneTransitions(String tzid, DaylightChoice allowDaylight) {
             TimeZone zone = TimeZone.getTimeZone(tzid);
-            for (long date = startDate; date < endDate; date = getTransitionAfter(
-                zone, date)) {
+            for (long date = startDate; date < endDate; date = getTransitionAfter(zone, date)) {
                 addIfDifferent(zone, date, allowDaylight);
             }
         }
 
-        private void addIfDifferent(TimeZone zone, long date,
-            DaylightChoice allowDaylight) {
+        private void addIfDifferent(TimeZone zone, long date, DaylightChoice allowDaylight) {
             int offset = zone.getOffset(date);
             allOffsets.add(offset);
             int delta = getDSTSavings(zone, date);
             switch (allowDaylight) {
-            case ONLY_DAYLIGHT:
-                offset = delta;
-                break;
-            case NO_DAYLIGHT:
-                offset -= delta;
-                break;
+                case ONLY_DAYLIGHT:
+                    offset = delta;
+                    break;
+                case NO_DAYLIGHT:
+                    offset -= delta;
+                    break;
             }
             int size = chronologicalList.size();
             if (size > 0) {
@@ -180,32 +177,29 @@ public class TestMetazoneTransitions {
 
         @Override
         public int compareTo(ZoneTransitions other) {
-            int minSize = Math.min(chronologicalList.size(),
-                other.chronologicalList.size());
+            int minSize = Math.min(chronologicalList.size(), other.chronologicalList.size());
             for (int i = 0; i < minSize; ++i) {
                 ZoneTransition a = chronologicalList.get(i);
                 ZoneTransition b = other.chronologicalList.get(i);
                 int order = a.compareTo(b);
-                if (order != 0)
-                    return order;
+                if (order != 0) return order;
             }
             return chronologicalList.size() - other.chronologicalList.size();
         }
 
         public String toString(String separator, int abbreviateToSize) {
-            if (abbreviateToSize > 0
-                && chronologicalList.size() > abbreviateToSize) {
+            if (abbreviateToSize > 0 && chronologicalList.size() > abbreviateToSize) {
                 int limit = abbreviateToSize / 2;
-                return CldrUtility.join(slice(chronologicalList, 0, limit),
-                    separator)
-                    + separator
-                    + "..."
-                    + separator
-                    + CldrUtility.join(
-                        slice(chronologicalList,
-                            chronologicalList.size() - limit,
-                            chronologicalList.size()),
-                        separator);
+                return CldrUtility.join(slice(chronologicalList, 0, limit), separator)
+                        + separator
+                        + "..."
+                        + separator
+                        + CldrUtility.join(
+                                slice(
+                                        chronologicalList,
+                                        chronologicalList.size() - limit,
+                                        chronologicalList.size()),
+                                separator);
             }
             return CldrUtility.join(chronologicalList, separator);
         }
@@ -220,21 +214,17 @@ public class TestMetazoneTransitions {
             return chronologicalList.size();
         }
 
-        public Pair<ZoneTransitions, ZoneTransitions> getDifferenceFrom(
-            ZoneTransitions other) {
-            int minSize = Math.min(chronologicalList.size(),
-                other.chronologicalList.size());
+        public Pair<ZoneTransitions, ZoneTransitions> getDifferenceFrom(ZoneTransitions other) {
+            int minSize = Math.min(chronologicalList.size(), other.chronologicalList.size());
             for (int i = 0; i < minSize; ++i) {
                 ZoneTransition a = chronologicalList.get(i);
                 ZoneTransition b = other.chronologicalList.get(i);
                 int order = a.compareTo(b);
-                if (order != 0)
-                    return new Pair(a, b);
+                if (order != 0) return new Pair(a, b);
             }
             if (chronologicalList.size() > other.chronologicalList.size()) {
                 return new Pair(chronologicalList.get(minSize), null);
-            } else if (chronologicalList.size() < other.chronologicalList
-                .size()) {
+            } else if (chronologicalList.size() < other.chronologicalList.size()) {
                 return new Pair(null, other.chronologicalList.get(minSize));
             } else {
                 return new Pair(null, null);
@@ -246,25 +236,23 @@ public class TestMetazoneTransitions {
         }
     }
 
-    final static SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
+    static final SupplementalDataInfo supplementalData =
+            SupplementalDataInfo.getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
 
     private void run() {
         // String[] zones = TimeZone.getAvailableIDs();
-        Relation<ZoneTransitions, String> partition = Relation.of(
-            new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
-        Relation<ZoneTransitions, String> daylightPartition = Relation.of(
-            new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
+        Relation<ZoneTransitions, String> partition =
+                Relation.of(new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
+        Relation<ZoneTransitions, String> daylightPartition =
+                Relation.of(new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
         Map<String, String> toDaylight = new TreeMap<String, String>();
         Map<ZoneTransitions, String> daylightNames = new TreeMap<ZoneTransitions, String>();
 
         // get the main data
         for (String zone : supplementalData.getCanonicalZones()) {
-            ZoneTransitions transitions = new ZoneTransitions(zone,
-                DaylightChoice.NO_DAYLIGHT);
+            ZoneTransitions transitions = new ZoneTransitions(zone, DaylightChoice.NO_DAYLIGHT);
             partition.put(transitions, zone);
-            transitions = new ZoneTransitions(zone,
-                DaylightChoice.ONLY_DAYLIGHT);
+            transitions = new ZoneTransitions(zone, DaylightChoice.ONLY_DAYLIGHT);
             if (transitions.size() > 1) {
                 daylightPartition.put(transitions, zone);
             }
@@ -280,8 +268,8 @@ public class TestMetazoneTransitions {
         }
         // get the "primary" zone for each metazone
         Map<String, String> zoneToMeta = new TreeMap<String, String>();
-        Map<String, Map<String, String>> metazoneToRegionToZone = supplementalData
-            .getMetazoneToRegionToZone();
+        Map<String, Map<String, String>> metazoneToRegionToZone =
+                supplementalData.getMetazoneToRegionToZone();
         for (String meta : metazoneToRegionToZone.keySet()) {
             Map<String, String> regionToZone = metazoneToRegionToZone.get(meta);
             String keyZone = regionToZone.get("001");
@@ -289,11 +277,9 @@ public class TestMetazoneTransitions {
         }
 
         System.out.println();
-        System.out
-            .println("=====================================================");
+        System.out.println("=====================================================");
         System.out.println("*** Non-Daylight Partition");
-        System.out
-            .println("=====================================================");
+        System.out.println("=====================================================");
         System.out.println();
 
         count = 0;
@@ -303,10 +289,8 @@ public class TestMetazoneTransitions {
         for (ZoneTransitions transitions : partition.keySet()) {
 
             System.out.println();
-            final String nonDaylightPartitionName = "M"
-                + threeDigits.format(++count);
-            System.out.println("Non-Daylight Partition "
-                + nonDaylightPartitionName);
+            final String nonDaylightPartitionName = "M" + threeDigits.format(++count);
+            System.out.println("Non-Daylight Partition " + nonDaylightPartitionName);
             int metaCount = 0;
             Set<String> metas = new TreeSet<String>();
             for (String zone : partition.getAll(transitions)) {
@@ -316,46 +300,45 @@ public class TestMetazoneTransitions {
                     ++metaCount;
                     metas.add(meta);
                 }
-                System.out.println("\t" + zone
-                    + (daylightName == null ? "" : "\t" + daylightName)
-                    + (meta == null ? "" : "\t\tMETA:" + meta));
+                System.out.println(
+                        "\t"
+                                + zone
+                                + (daylightName == null ? "" : "\t" + daylightName)
+                                + (meta == null ? "" : "\t\tMETA:" + meta));
             }
             if (metaCount == 0) {
-                noMeta.add(nonDaylightPartitionName + "{"
-                    + CldrUtility.join(partition.getAll(transitions), ", ")
-                    + "}");
+                noMeta.add(
+                        nonDaylightPartitionName
+                                + "{"
+                                + CldrUtility.join(partition.getAll(transitions), ", ")
+                                + "}");
             } else if (metaCount > 1) {
-                multiMeta.add(nonDaylightPartitionName + "{"
-                    + CldrUtility.join(metas, ", ") + "}");
+                multiMeta.add(nonDaylightPartitionName + "{" + CldrUtility.join(metas, ", ") + "}");
             }
             if (transitions.size() == 1) {
                 final int offset = transitions.get(0).offset;
                 allOffsets.remove(offset);
-                stableZones.add(nonDaylightPartitionName + ", " + offset
-                    / (double) HOUR + "hrs " + "{"
-                    + CldrUtility.join(partition.getAll(transitions), ", ")
-                    + "}");
+                stableZones.add(
+                        nonDaylightPartitionName
+                                + ", "
+                                + offset / (double) HOUR
+                                + "hrs "
+                                + "{"
+                                + CldrUtility.join(partition.getAll(transitions), ", ")
+                                + "}");
             }
-            System.out.println("\t\t"
-                + transitions.toString(CldrUtility.LINE_SEPARATOR + "\t\t",
-                    -1));
+            System.out.println(
+                    "\t\t" + transitions.toString(CldrUtility.LINE_SEPARATOR + "\t\t", -1));
         }
         System.out.println();
-        System.out
-            .println("*** Non-Daylight Partitions with no canonical meta");
-        System.out.println("\t"
-            + CldrUtility.join(noMeta, CldrUtility.LINE_SEPARATOR + "\t"));
+        System.out.println("*** Non-Daylight Partitions with no canonical meta");
+        System.out.println("\t" + CldrUtility.join(noMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
-        System.out
-            .println("*** Non-Daylight Partitions with more than one canonical meta");
-        System.out.println("\t"
-            + CldrUtility
-                .join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
+        System.out.println("*** Non-Daylight Partitions with more than one canonical meta");
+        System.out.println("\t" + CldrUtility.join(multiMeta, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out.println("*** Stable Non-Daylight Partitions");
-        System.out.println("\t"
-            + CldrUtility.join(stableZones, CldrUtility.LINE_SEPARATOR
-                + "\t"));
+        System.out.println("\t" + CldrUtility.join(stableZones, CldrUtility.LINE_SEPARATOR + "\t"));
         System.out.println();
         System.out.println("*** Offsets with no stable partition");
         for (int offset : allOffsets) {
@@ -364,11 +347,9 @@ public class TestMetazoneTransitions {
         System.out.println();
 
         System.out.println();
-        System.out
-            .println("=====================================================");
+        System.out.println("=====================================================");
         System.out.println("*** Daylight Partition");
-        System.out
-            .println("=====================================================");
+        System.out.println("=====================================================");
         System.out.println();
 
         ZoneTransitions lastTransitions = null;
@@ -380,19 +361,18 @@ public class TestMetazoneTransitions {
             for (String zone : daylightPartition.getAll(transitions)) {
                 System.out.println("\t" + zone);
             }
-            System.out.println("\t\t"
-                + transitions.toString(CldrUtility.LINE_SEPARATOR + "\t\t",
-                    printDaylightTransitions));
+            System.out.println(
+                    "\t\t"
+                            + transitions.toString(
+                                    CldrUtility.LINE_SEPARATOR + "\t\t", printDaylightTransitions));
             if (lastTransitions != null) {
-                Pair<ZoneTransitions, ZoneTransitions> diff = transitions
-                    .getDifferenceFrom(lastTransitions);
-                System.out.println("\t\tTransition Difference from " + lastName
-                    + ":\t" + diff);
+                Pair<ZoneTransitions, ZoneTransitions> diff =
+                        transitions.getDifferenceFrom(lastTransitions);
+                System.out.println("\t\tTransition Difference from " + lastName + ":\t" + diff);
             }
             lastTransitions = transitions;
             lastName = daylightName;
         }
-
     }
 
     public static <T> List<T> slice(List<T> list, int start, int limit) {
@@ -405,18 +385,14 @@ public class TestMetazoneTransitions {
 
     /* Methods that ought to be on TimeZone */
     /**
-     * Return the next point in time after date when the zone has a different
-     * offset than what it has on date. If there are no later transitions,
-     * returns Long.MAX_VALUE.
+     * Return the next point in time after date when the zone has a different offset than what it
+     * has on date. If there are no later transitions, returns Long.MAX_VALUE.
      *
-     * @param zone
-     *            input zone -- should be method of TimeZone
-     * @param date
-     *            input date, in standard millis since 1970-01-01 00:00:00 GMT
+     * @param zone input zone -- should be method of TimeZone
+     * @param date input date, in standard millis since 1970-01-01 00:00:00 GMT
      */
     public static long getTransitionAfter(TimeZone zone, long date) {
-        TimeZoneTransition transition = ((OlsonTimeZone) zone)
-            .getNextTransition(date, false);
+        TimeZoneTransition transition = ((OlsonTimeZone) zone).getNextTransition(date, false);
         if (transition == null) {
             return Long.MAX_VALUE;
         }
@@ -427,10 +403,8 @@ public class TestMetazoneTransitions {
     /**
      * Return true if the zone is in daylight savings on the date.
      *
-     * @param zone
-     *            input zone -- should be method of TimeZone
-     * @param date
-     *            input date, in standard millis since 1970-01-01 00:00:00 GMT
+     * @param zone input zone -- should be method of TimeZone
+     * @param date input date, in standard millis since 1970-01-01 00:00:00 GMT
      */
     public static boolean inDaylightTime(TimeZone zone, long date) {
         return ((OlsonTimeZone) zone).inDaylightTime(new Date(date));
@@ -439,17 +413,15 @@ public class TestMetazoneTransitions {
     /**
      * Return the daylight savings offset on the given date.
      *
-     * @param zone
-     *            input zone -- should be method of TimeZone
-     * @param date
-     *            input date, in standard millis since 1970-01-01 00:00:00 GMT
+     * @param zone input zone -- should be method of TimeZone
+     * @param date input date, in standard millis since 1970-01-01 00:00:00 GMT
      */
     public static int getDSTSavings(TimeZone zone, long date) {
         if (!inDaylightTime(zone, date)) {
             return 0;
         }
-        TimeZoneTransition transition = ((OlsonTimeZone) zone)
-            .getPreviousTransition(date + 1, true);
+        TimeZoneTransition transition =
+                ((OlsonTimeZone) zone).getPreviousTransition(date + 1, true);
         TimeZoneRule to = transition.getTo();
         int delta = to.getDSTSavings();
         // if (delta != HOUR) {

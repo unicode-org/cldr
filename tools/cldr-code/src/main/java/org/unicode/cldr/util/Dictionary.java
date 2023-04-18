@@ -7,25 +7,22 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 /**
- * Provides for detecting all words starting at a given offset, and returning a
- * value associated with each of the words. Logically, it is backed by a
- * Map&lt;String,Object&gt; You set the offset you are concerned about, then
- * call next() until it doesn't return MATCH. Along the way, you will get
- * results. For example, here is some sample code and results.
+ * Provides for detecting all words starting at a given offset, and returning a value associated
+ * with each of the words. Logically, it is backed by a Map&lt;String,Object&gt; You set the offset
+ * you are concerned about, then call next() until it doesn't return MATCH. Along the way, you will
+ * get results. For example, here is some sample code and results.
  *
  * <pre>
  * System.out.println(&quot;Using dictionary: &quot; + dictionary.getMapping());
@@ -68,37 +65,36 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  *   {many manners [[[ma]]]} PARTIAL   {Woman}   Not Unique
  * </pre>
  *
- * When you get a PARTIAL status, the match value is undefined. Often people
- * will just treat PARTIAL matches as if they were NONE. However, sometimes
- * people may be interested in finding out whether the text in question is the
- * truncation or abbreviation of a possible table value. In that case, you can
- * test further at that point, as is done above. For example, suppose that the
- * dictionary contains a mapping from English month names to their numeric
- * values.
+ * When you get a PARTIAL status, the match value is undefined. Often people will just treat PARTIAL
+ * matches as if they were NONE. However, sometimes people may be interested in finding out whether
+ * the text in question is the truncation or abbreviation of a possible table value. In that case,
+ * you can test further at that point, as is done above. For example, suppose that the dictionary
+ * contains a mapping from English month names to their numeric values.
+ *
  * <ol>
- * <li>When we are parsing "Jul 1 1990", we will find a unique partial match at "Jul", with the value 7, for July, and
- * use it.</li>
- * <li>When we are parsing "Ju 1 1990", on the other hand, we will find a non-unique partial match at "Ju". While a
- * value is returned, it is only for one of the possible words ("June" and "July") so (for this application) we can
- * decide that the parse fails since the month isn't sufficiently distinguished.</li>
+ *   <li>When we are parsing "Jul 1 1990", we will find a unique partial match at "Jul", with the
+ *       value 7, for July, and use it.
+ *   <li>When we are parsing "Ju 1 1990", on the other hand, we will find a non-unique partial match
+ *       at "Ju". While a value is returned, it is only for one of the possible words ("June" and
+ *       "July") so (for this application) we can decide that the parse fails since the month isn't
+ *       sufficiently distinguished.
  * </ol>
  *
  * @author markdavis
- *
  */
 public abstract class Dictionary<T> {
 
     /**
-     * Get the strings from the dictionary. The Map is either read-only or a copy;
-     * that is, modifications do not affect the builder.
+     * Get the strings from the dictionary. The Map is either read-only or a copy; that is,
+     * modifications do not affect the builder.
      *
      * @return
      */
     public abstract Iterator<Entry<CharSequence, T>> getMapping();
 
     /**
-     * Interface for building a new simple StateDictionary. The Map must be sorted
-     * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+     * Interface for building a new simple StateDictionary. The Map must be sorted according to
+     * Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
      *
      * @param old
      * @return
@@ -180,8 +176,8 @@ public abstract class Dictionary<T> {
         }
 
         /**
-         * Set the position in the target text to match from. Matches only go forwards
-         * in the string.
+         * Set the position in the target text to match from. Matches only go forwards in the
+         * string.
          *
          * @param offset
          * @return
@@ -228,37 +224,31 @@ public abstract class Dictionary<T> {
             return text.sublist(offset, matchEnd);
         }
 
-        /**
-         * The status of a match; see next() for more information.
-         */
+        /** The status of a match; see next() for more information. */
         public enum Status {
-            /**
-             * There are no further matches at all.
-             */
+            /** There are no further matches at all. */
             NONE,
             /**
-             * There is a partial match for a single item. Example: dictionary contains
-             * "man", text has "max". There will be a partial match after "ma".
+             * There is a partial match for a single item. Example: dictionary contains "man", text
+             * has "max". There will be a partial match after "ma".
              */
             PARTIAL,
-            /**
-             * There is a full match
-             */
+            /** There is a full match */
             MATCH,
         }
 
         /**
-         * Finds the next match, and sets the matchValue and matchEnd. Normally you
-         * call in a loop until you get NONE.<br>
-         * <b>Warning: the results of calling next() after getting NONE are
-         * undefined!</b><br>
+         * Finds the next match, and sets the matchValue and matchEnd. Normally you call in a loop
+         * until you get NONE.<br>
+         * <b>Warning: the results of calling next() after getting NONE are undefined!</b><br>
          * Here is what happens with the different return values:
+         *
          * <ul>
-         * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
-         * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
-         * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
-         * nextPartial().</li>
-         * <li>NONE: the matchValue and matchEnd are undefined.</li>
+         *   <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.
+         *   <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that
+         *       could be reached successfully. To get the matchValue, and whether or not there were
+         *       multiple partial matches, call nextPartial().
+         *   <li>NONE: the matchValue and matchEnd are undefined.
          * </ul>
          *
          * @return MATCH if there is a match.
@@ -266,47 +256,39 @@ public abstract class Dictionary<T> {
         public abstract Status next();
 
         public enum Filter {
-            /**
-             * Returns all values: 0 or more MATCH or PARTIAL values (with NONE at end)
-             */
+            /** Returns all values: 0 or more MATCH or PARTIAL values (with NONE at end) */
             ALL,
-            /**
-             * Only 0 or more MATCH values (with NONE at end)
-             */
+            /** Only 0 or more MATCH values (with NONE at end) */
             MATCHES,
-            /**
-             * Only one value: the longest MATCH value
-             */
+            /** Only one value: the longest MATCH value */
             LONGEST_MATCH,
-            /**
-             * Only one value: the longest MATCH or PARTIAL
-             */
+            /** Only one value: the longest MATCH or PARTIAL */
             LONGEST,
-            /**
-             * Only one value: the longest MATCH or unique PARTIAL
-             */
+            /** Only one value: the longest MATCH or unique PARTIAL */
             LONGEST_UNIQUE,
             /**
-             * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
+             * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the
+             * end).
              */
             LONGEST_WITH_FINAL_PARTIAL
         }
 
         /**
-         * Finds the next match, and sets the matchValue and matchEnd. Normally you
-         * call in a loop until you get NONE.<br>
-         * <b>Warning: the results of calling next() after getting NONE are
-         * undefined!</b><br>
+         * Finds the next match, and sets the matchValue and matchEnd. Normally you call in a loop
+         * until you get NONE.<br>
+         * <b>Warning: the results of calling next() after getting NONE are undefined!</b><br>
          * Here is what happens with the different return values:
+         *
          * <ul>
-         * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
-         * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
-         * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
-         * nextPartial().</li>
-         * <li>NONE: the matchValue and matchEnd are undefined.</li>
+         *   <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.
+         *   <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that
+         *       could be reached successfully. To get the matchValue, and whether or not there were
+         *       multiple partial matches, call nextPartial().
+         *   <li>NONE: the matchValue and matchEnd are undefined.
          * </ul>
-         * Question: should we make the name more explicit, like nextAtOffset? Because
-         * this iterates through the matches <i>at</i> an offset, not through offsets.
+         *
+         * Question: should we make the name more explicit, like nextAtOffset? Because this iterates
+         * through the matches <i>at</i> an offset, not through offsets.
          *
          * @return MATCH if there is a match.
          */
@@ -327,10 +309,11 @@ public abstract class Dictionary<T> {
                     matchValue = lastValue;
                     return lastStatus;
                 } else if (status == Status.MATCH
-                    || (status == Status.PARTIAL
-                        && (filter == Filter.LONGEST
-                            || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
-                            || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
+                        || (status == Status.PARTIAL
+                                && (filter == Filter.LONGEST
+                                        || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
+                                        || filter == Filter.LONGEST_WITH_FINAL_PARTIAL
+                                                && !text.hasCharAt(matchEnd)))) {
                     if (filter == Filter.MATCHES) {
                         return status;
                     }
@@ -342,25 +325,26 @@ public abstract class Dictionary<T> {
         }
 
         /**
-         * Determine whether a partial match is singular (there is only one possible
-         * continuation) or multiple (there are different continuations).
+         * Determine whether a partial match is singular (there is only one possible continuation)
+         * or multiple (there are different continuations).
+         *
          * <ul>
-         * <li>If so, sets the value of matchValue to that of the string that could have been returned if appropriate
-         * additional characters were inserted at matchEnd.</li>
-         * <li>If not, then the matchValue is indeterminate.</li>
+         *   <li>If so, sets the value of matchValue to that of the string that could have been
+         *       returned if appropriate additional characters were inserted at matchEnd.
+         *   <li>If not, then the matchValue is indeterminate.
          * </ul>
-         * <p>
-         * This must only be called immediatedly following a PARTIAL result from next().
-         * <p>
-         * QUESTION: would it be useful to be able to get all the partial matches??
+         *
+         * <p>This must only be called immediatedly following a PARTIAL result from next().
+         *
+         * <p>QUESTION: would it be useful to be able to get all the partial matches??
          *
          * @return true if the partial match is singular, false if it is plural.
          */
         public abstract boolean nextUniquePartial();
 
         /**
-         * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for
-         * efficiency.
+         * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be
+         * overridden for efficiency.
          */
         public T get(CharSource text) {
             setText(text); // set the text to operate on
@@ -374,9 +358,7 @@ public abstract class Dictionary<T> {
             }
         }
 
-        /**
-         * Advances the offset until next() doesn't return NONE.
-         */
+        /** Advances the offset until next() doesn't return NONE. */
         public Status find(Filter filter) {
             while (true) {
                 Status status = next(filter);
@@ -390,17 +372,15 @@ public abstract class Dictionary<T> {
             }
         }
 
-        /**
-         * Increment the offset in the text.
-         */
+        /** Increment the offset in the text. */
         public Matcher nextOffset() {
             return setOffset(++offset);
         }
 
         /**
-         * Convert the remaining text (after offset) to the target. Any substring with a MATCH is replaced by the
-         * value.toString(); other characters are copied. Converts to first (shortest) match..
-         * TODO add parameter to pick between shortest and longest.
+         * Convert the remaining text (after offset) to the target. Any substring with a MATCH is
+         * replaced by the value.toString(); other characters are copied. Converts to first
+         * (shortest) match.. TODO add parameter to pick between shortest and longest.
          *
          * @param target
          */
@@ -422,19 +402,22 @@ public abstract class Dictionary<T> {
             }
         }
 
-        /**
-         * For debugging
-         */
+        /** For debugging */
         @Override
         public String toString() {
-            return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \""
-                + text.subSequence(0, text.getKnownLength())
-                + (text.hasCharAt(text.getKnownLength()) ? "..." : "") + "\"}";
+            return "{offset: "
+                    + offset
+                    + ", end: "
+                    + matchEnd
+                    + ", value: "
+                    + matchValue
+                    + ", text: \""
+                    + text.subSequence(0, text.getKnownLength())
+                    + (text.hasCharAt(text.getKnownLength()) ? "..." : "")
+                    + "\"}";
         }
 
-        /**
-         * Get the dictionary associated with this matcher.
-         */
+        /** Get the dictionary associated with this matcher. */
         public abstract Dictionary<T> getDictionary();
 
         /**
@@ -448,15 +431,16 @@ public abstract class Dictionary<T> {
     }
 
     /**
-     * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
-     * If the text has isolated surrogates, they will not sort correctly.
+     * Return the code point order of two CharSequences. Really ought to be a method on
+     * CharSequence. If the text has isolated surrogates, they will not sort correctly.
      */
-    public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
-        @Override
-        public int compare(CharSequence o1, CharSequence o2) {
-            return CharUtilities.compare(o1, o2);
-        }
-    };
+    public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR =
+            new Comparator<CharSequence>() {
+                @Override
+                public int compare(CharSequence o1, CharSequence o2) {
+                    return CharUtilities.compare(o1, o2);
+                }
+            };
 
     public static class DictionaryCharList<T extends CharSequence> extends CharSourceWrapper<T> {
         protected boolean failOnLength = false;

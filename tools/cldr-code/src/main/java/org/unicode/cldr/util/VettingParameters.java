@@ -13,12 +13,13 @@ public class VettingParameters {
     CLDRFile baselineFile = null;
 
     /**
-     * A path like "//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight",
-     * or null. If it is null, check all paths, otherwise only check this path.
+     * A path like "//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight", or
+     * null. If it is null, check all paths, otherwise only check this path.
      */
     String specificSinglePath = null;
 
-    public VettingParameters(EnumSet<NotificationCategory> choices, CLDRLocale locale, Level coverageLevel) {
+    public VettingParameters(
+            EnumSet<NotificationCategory> choices, CLDRLocale locale, Level coverageLevel) {
         this.choices = choices;
         this.locale = locale;
         this.coverageLevel = coverageLevel;
@@ -33,7 +34,7 @@ public class VettingParameters {
          * technical committee by committing directly to version control rather than voting.
          */
         final String localeId = locale.getBaseName();
-        final CLDRFile sourceFile = sourceFactory.make(localeId, true/* resolved */);
+        final CLDRFile sourceFile = sourceFactory.make(localeId, true /* resolved */);
         final CLDRFile baselineFile = baselineFactory.make(localeId, true);
         setFiles(sourceFile, baselineFile);
     }
@@ -54,7 +55,7 @@ public class VettingParameters {
          * and MissingStatus.PRESENT. Any such inconsistencies interfere with comparing
          * the current and baseline stats.
          */
-        final CLDRFile sourceFile = baselineFactory.make(localeId, true/* resolved */);
+        final CLDRFile sourceFile = baselineFactory.make(localeId, true /* resolved */);
         setFiles(sourceFile, baselineFile);
     }
 

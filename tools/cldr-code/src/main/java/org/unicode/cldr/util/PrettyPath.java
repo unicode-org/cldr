@@ -8,34 +8,36 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transliterator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.test.CheckCLDR;
 
-import com.ibm.icu.text.Transliterator;
-
 /**
- * @deprecated
- * TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it no longer deprecated?
+ * @deprecated TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it
+ *     no longer deprecated?
  */
 @Deprecated
 public class PrettyPath {
     private Transliterator prettyPathZoneTransform;
+
     {
-        prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
+        prettyPathZoneTransform =
+                CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
         Transliterator.registerInstance(prettyPathZoneTransform);
     }
-    private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
+
+    private Transliterator prettyPathTransform =
+            CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
 
     private Map<String, String> prettyPath_path = new HashMap<>();
     private Map<String, String> path_prettyPath_sortable = new HashMap<>();
     private boolean showErrors;
 
     /**
-     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping; see the two argument
-     * form.
+     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping; see
+     * the two argument form.
      *
      * @param path
      * @return pretty path
@@ -45,12 +47,11 @@ public class PrettyPath {
     }
 
     /**
-     * Gets the pretty path, and caches the mapping for faster later mapping. If you use the sortable form, then later
-     * you will want to call getOutputForm.
+     * Gets the pretty path, and caches the mapping for faster later mapping. If you use the
+     * sortable form, then later you will want to call getOutputForm.
      *
      * @param path
-     * @param sortable
-     *            true if you want the sortable form
+     * @param sortable true if you want the sortable form
      * @return pretty path
      */
     public String getPrettyPath(String path, boolean sortable) {
@@ -60,7 +61,9 @@ public class PrettyPath {
             // some internal errors, shown here for debugging for now.
             // later make exceptions.
             if (prettyString.indexOf("%%") >= 0) {
-                if (showErrors) System.out.println("Warning:\tIncomplete translit:\t" + prettyString + "\t " + path);
+                if (showErrors)
+                    System.out.println(
+                            "Warning:\tIncomplete translit:\t" + prettyString + "\t " + path);
 
             } else if (CldrUtility.countInstances(prettyString, "|") != 2) {
                 if (showErrors) System.out.println("Warning:\tpath length != 3: " + prettyString);
@@ -80,7 +83,8 @@ public class PrettyPath {
         return prettyString;
     }
 
-    private void addBackmap(String prettyString, String path, Map<String, String> prettyPath_path_map) {
+    private void addBackmap(
+            String prettyString, String path, Map<String, String> prettyPath_path_map) {
         String old = prettyPath_path_map.get(prettyString);
         if (old != null) {
             if (showErrors) System.out.println("Warning:\tFailed bijection, " + prettyString);
@@ -102,7 +106,8 @@ public class PrettyPath {
     }
 
     /**
-     * Return the pretty path with the sorting gorp removed. This is the form that should be displayed to the user.
+     * Return the pretty path with the sorting gorp removed. This is the form that should be
+     * displayed to the user.
      *
      * @param prettyPath
      * @return cleaned pretty path
@@ -115,7 +120,8 @@ public class PrettyPath {
         }
     }
 
-    private static Matcher sortingGorpRemoval = PatternCache.get("(?<=(^|[|]))([0-9]+-)?").matcher("");
+    private static Matcher sortingGorpRemoval =
+            PatternCache.get("(?<=(^|[|]))([0-9]+-)?").matcher("");
 
     public boolean isShowErrors() {
         return showErrors;

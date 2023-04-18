@@ -18,7 +18,8 @@ public class TestVoteResolver {
         // Example from https://st.unicode.org/cldr-apps/v#/fr/Languages_A_D/54dc38b9b6c86cac
         final VoteResolver<String> vr = getStringResolver();
 
-        vr.setLocale(CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+        vr.setLocale(
+                CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("bafut", Status.unconfirmed);
         vr.setBaileyValue("bfd");
         vr.add("bambara", TestUtilities.TestUser.appleV.voterId);
@@ -27,13 +28,16 @@ public class TestVoteResolver {
         vr.add("bafut", TestUtilities.TestUser.unaffiliatedS.voterId);
 
         vr.enableTranscript(); // Should be recalculated from here.
-        assertAll("Verify the outcome",
-            () -> assertEquals("bambara", vr.getWinningValue()),
-            () -> assertEquals(Status.provisional, vr.getWinningStatus()));
+        assertAll(
+                "Verify the outcome",
+                () -> assertEquals("bambara", vr.getWinningValue()),
+                () -> assertEquals(Status.provisional, vr.getWinningStatus()));
         final String transcriptText = vr.getTranscript();
         System.out.println(transcriptText);
         System.out.println(vr.toString()); // NB:  toString() modifies the transcript!
-        assertTrue(transcriptText.contains("earlier than 'bassa'"), () -> "Transcript did not match expectations:\n" + transcriptText);
+        assertTrue(
+                transcriptText.contains("earlier than 'bassa'"),
+                () -> "Transcript did not match expectations:\n" + transcriptText);
     }
 
     private VoteResolver<String> getStringResolver() {

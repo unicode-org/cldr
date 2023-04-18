@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.web.DataPage.DataRow;
 
@@ -29,15 +28,19 @@ public class PathHeaderSort extends SortMode {
 
     @Override
     public DataPage.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
-        DataRow[] rows = createSortedList(new Comparator<>() {
+        DataRow[] rows =
+                createSortedList(
+                        new Comparator<>() {
 
-            @Override
-            public int compare(DataRow ll, DataRow rr) {
-                PathHeader l = ll.getPathHeader();
-                PathHeader r = rr.getPathHeader();
-                return l.compareTo(r);
-            }
-        }, matcher, values);
+                            @Override
+                            public int compare(DataRow ll, DataRow rr) {
+                                PathHeader l = ll.getPathHeader();
+                                PathHeader r = rr.getPathHeader();
+                                return l.compareTo(r);
+                            }
+                        },
+                        matcher,
+                        values);
 
         List<Partition> thePartitions = new LinkedList<>();
         Partition last = null;
@@ -57,5 +60,4 @@ public class PathHeaderSort extends SortMode {
 
         return new DataPage.DisplaySet(rows, this, thePartitions.toArray(new Partition[0]));
     }
-
 }

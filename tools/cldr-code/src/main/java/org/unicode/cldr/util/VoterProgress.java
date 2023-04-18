@@ -7,21 +7,21 @@ import java.util.TreeMap;
 public class VoterProgress {
 
     /**
-     * The number of paths for which this user is expected to vote
-     * (in this locale, limited by the coverage level)
+     * The number of paths for which this user is expected to vote (in this locale, limited by the
+     * coverage level)
      */
     private int votablePathCount = 0;
 
     /**
-     * The number of paths for which this user already has voted
-     * (in this locale, limited by the coverage level)
+     * The number of paths for which this user already has voted (in this locale, limited by the
+     * coverage level)
      */
     private int votedPathCount = 0;
 
     /**
      * The number of paths for which this user already has voted, broken down by specific VoteType
      */
-    private Map<VoteType,Integer> votedTypeCount = null;
+    private Map<VoteType, Integer> votedTypeCount = null;
 
     /*
      * These "get" methods are called automatically by the API to produce json
@@ -34,13 +34,13 @@ public class VoterProgress {
         return votedPathCount;
     }
 
-    public Map<String,Integer> getTypeCount() {
+    public Map<String, Integer> getTypeCount() {
         if (votedTypeCount == null) {
             return null;
         }
         // JSON serialization requires String (not VoteType) for key
-        Map<String,Integer> map = new TreeMap();
-        for (VoteType voteType: votedTypeCount.keySet()) {
+        Map<String, Integer> map = new TreeMap();
+        for (VoteType voteType : votedTypeCount.keySet()) {
             map.put(voteType.name(), votedTypeCount.get(voteType));
         }
         return map;

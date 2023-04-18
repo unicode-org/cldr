@@ -8,9 +8,11 @@
  */
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -18,86 +20,100 @@ import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.SimpleFactory;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.ULocale;
-
 /**
  * @author srl
- *
  */
 public class TestCLDRUtils extends TestFmwk {
 
-    static Transform<String, String> SHORT_ALT_PICKER = new Transform<String, String>() {
-        @Override
-        public String transform(@SuppressWarnings("unused") String source) {
-            return "short";
-        }
-    };
+    static Transform<String, String> SHORT_ALT_PICKER =
+            new Transform<String, String>() {
+                @Override
+                public String transform(@SuppressWarnings("unused") String source) {
+                    return "short";
+                }
+            };
 
     public void TestVariantName() {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
-        checkNames(english, "en_US_POSIX", 
-            "American English (Computer)",
-            "US English (Computer)", 
-            "English (United States, Computer)",
-            "English (US, Computer)");
+        checkNames(
+                english,
+                "en_US_POSIX",
+                "American English (Computer)",
+                "US English (Computer)",
+                "English (United States, Computer)",
+                "English (US, Computer)");
 
-        checkNames(english, new ULocale("en_US_POSIX").toLanguageTag(),
-            "American English (POSIX Compliant Locale)",
-            "US English (POSIX Compliant Locale)", 
-            "English (United States, POSIX Compliant Locale)",
-            "English (US, POSIX Compliant Locale)");
+        checkNames(
+                english,
+                new ULocale("en_US_POSIX").toLanguageTag(),
+                "American English (POSIX Compliant Locale)",
+                "US English (POSIX Compliant Locale)",
+                "English (United States, POSIX Compliant Locale)",
+                "English (US, POSIX Compliant Locale)");
 
-        checkNames(english, "en_HK", "English (Hong Kong SAR China)",
-            "English (Hong Kong)", "English (Hong Kong SAR China)",
-            "English (Hong Kong)");
+        checkNames(
+                english,
+                "en_HK",
+                "English (Hong Kong SAR China)",
+                "English (Hong Kong)",
+                "English (Hong Kong SAR China)",
+                "English (Hong Kong)");
 
-        checkNames(english, "en_GB", "British English", "UK English",
-            "English (United Kingdom)", "English (UK)");
+        checkNames(
+                english,
+                "en_GB",
+                "British English",
+                "UK English",
+                "English (United Kingdom)",
+                "English (UK)");
 
         checkNames(english, "eo_001", "Esperanto (world)");
 
         checkNames(english, "el_POLYTON", "Greek (Polytonic)");
 
-        checkNames(english, new ULocale("el__POLYTON").toLanguageTag(),
-            "Greek (Polytonic)");
+        checkNames(english, new ULocale("el__POLYTON").toLanguageTag(), "Greek (Polytonic)");
 
-        CLDRFile french = CLDRConfig.getInstance().getCldrFactory()
-            .make("fr", true);
+        CLDRFile french = CLDRConfig.getInstance().getCldrFactory().make("fr", true);
 
-        checkNames(french, "en_US_POSIX", "anglais américain (informatique)",
-            "anglais américain (informatique)", // or "anglais (É.-U., informatique)" if short has priority over dialect
-            "anglais (États-Unis, informatique)",
-            "anglais (É.-U., informatique)");
+        checkNames(
+                french,
+                "en_US_POSIX",
+                "anglais américain (informatique)",
+                "anglais américain (informatique)", // or "anglais (É.-U., informatique)" if short
+                // has priority over dialect
+                "anglais (États-Unis, informatique)",
+                "anglais (É.-U., informatique)");
     }
 
     /**
-     *
      * @param french
      * @param locale
      * @param combinedLong
-     * @param otherNames
-     *            : combinedShort, uncombinedLong, uncombinedShort
+     * @param otherNames : combinedShort, uncombinedLong, uncombinedShort
      */
-    private void checkNames(CLDRFile french, String locale,
-        String combinedLong, String... otherNames) {
-        assertEquals("Test variant formatting combinedLong " + locale,
-            combinedLong, french.getName(locale));
-        String combinedShort = otherNames.length > 0 ? otherNames[0]
-            : combinedLong;
-        String uncombinedLong = otherNames.length > 1 ? otherNames[1]
-            : combinedLong;
-        String uncombinedShort = otherNames.length > 2 ? otherNames[2]
-            : uncombinedLong;
+    private void checkNames(
+            CLDRFile french, String locale, String combinedLong, String... otherNames) {
+        assertEquals(
+                "Test variant formatting combinedLong " + locale,
+                combinedLong,
+                french.getName(locale));
+        String combinedShort = otherNames.length > 0 ? otherNames[0] : combinedLong;
+        String uncombinedLong = otherNames.length > 1 ? otherNames[1] : combinedLong;
+        String uncombinedShort = otherNames.length > 2 ? otherNames[2] : uncombinedLong;
 
-        assertEquals("Test variant formatting combinedShort " + locale,
-            combinedShort, french.getName(locale, false, SHORT_ALT_PICKER));
-        assertEquals("Test variant formatting uncombinedLong " + locale,
-            uncombinedLong, french.getName(locale, true));
-        assertEquals("Test variant formatting uncombinedShort " + locale,
-            uncombinedShort, french.getName(locale, true, SHORT_ALT_PICKER));
+        assertEquals(
+                "Test variant formatting combinedShort " + locale,
+                combinedShort,
+                french.getName(locale, false, SHORT_ALT_PICKER));
+        assertEquals(
+                "Test variant formatting uncombinedLong " + locale,
+                uncombinedLong,
+                french.getName(locale, true));
+        assertEquals(
+                "Test variant formatting uncombinedShort " + locale,
+                uncombinedShort,
+                french.getName(locale, true, SHORT_ALT_PICKER));
     }
 
     public void TestEmptyCLDRFile() {
@@ -108,24 +124,36 @@ public class TestCLDRUtils extends TestFmwk {
         try {
             emptyFile.write(new PrintWriter(outStream));
         } finally {
-            logln(aloc.getBaseName()
-                + ".xml: "
-                + outStream.toString().replaceAll("\n", "\\\\n")
-                    .replaceAll("\t", "\\\\t"));
+            logln(
+                    aloc.getBaseName()
+                            + ".xml: "
+                            + outStream
+                                    .toString()
+                                    .replaceAll("\n", "\\\\n")
+                                    .replaceAll("\t", "\\\\t"));
         }
         if (outStream.toString().length() == 0) {
-            errln("Error: empty CLDRFile of " + aloc
-                + " turned into a 0-length string.");
+            errln("Error: empty CLDRFile of " + aloc + " turned into a 0-length string.");
         }
     }
 
     public void TestCLDRLocaleFormatNoFile() {
         logln("Tests for CLDRLocale:");
-        CLDRLocale
-            .setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
-        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON",
-            "__UND", "en", "en_GB", "en_Shav", "en_Shav_GB",
-            "en_Latn_GB_POLYTON", "nnh", "sq_XK" };
+        CLDRLocale.setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
+        String tests_str[] = {
+            "",
+            "root",
+            "el__POLYTON",
+            "el_POLYTON",
+            "__UND",
+            "en",
+            "en_GB",
+            "en_Shav",
+            "en_Shav_GB",
+            "en_Latn_GB_POLYTON",
+            "nnh",
+            "sq_XK"
+        };
         for (String s : tests_str) {
             CLDRLocale loc = CLDRLocale.getInstance(s);
             String str = loc.toString();
@@ -133,12 +161,21 @@ public class TestCLDRUtils extends TestFmwk {
             String fromloc = new ULocale(s).toString();
             String format = loc.getDisplayName();
             CLDRLocale parent = loc.getParent();
-            logln(s + ":  tostring:" + str + ", uloc:" + uloc + ", fromloc:"
-                + fromloc + ", format: " + format + ", parent:" + parent);
+            logln(
+                    s
+                            + ":  tostring:"
+                            + str
+                            + ", uloc:"
+                            + uloc
+                            + ", fromloc:"
+                            + fromloc
+                            + ", format: "
+                            + format
+                            + ", parent:"
+                            + parent);
         }
 
-        CLDRLocale.setDefaultFormatter(CLDRLocale.getSimpleFormatterFor(ULocale
-            .getDefault()));
+        CLDRLocale.setDefaultFormatter(CLDRLocale.getSimpleFormatterFor(ULocale.getDefault()));
     }
 
     public void TestCLDRLocaleInheritance() {
@@ -149,7 +186,8 @@ public class TestCLDRUtils extends TestFmwk {
 
         logln("Testing descendants of " + ml + " " + ml.getDisplayName());
         CLDRLocale areSub[][] = { // isChild returns true for i!=0
-            { ml, ml_IN, ml_Mlym, ml_Mlym_IN }, { ml_Mlym, ml_Mlym_IN }, };
+            {ml, ml_IN, ml_Mlym, ml_Mlym_IN}, {ml_Mlym, ml_Mlym_IN},
+        };
         for (CLDRLocale[] row : areSub) {
             CLDRLocale parent = row[0];
             for (CLDRLocale child : row) {
@@ -162,15 +200,16 @@ public class TestCLDRUtils extends TestFmwk {
             }
         }
         CLDRLocale notSub[] = { // isChild returns false
-            CLDRLocale.getInstance("mli"), CLDRLocale.getInstance("root"),
-            CLDRLocale.ROOT };
+            CLDRLocale.getInstance("mli"), CLDRLocale.getInstance("root"), CLDRLocale.ROOT
+        };
         for (CLDRLocale child : notSub) {
             checkChild(ml, child, false);
         }
     }
 
     public void TestCLDRLocaleEquivalence() {
-        assertSame("root is caseless", CLDRLocale.getInstance("root"), CLDRLocale.getInstance("RoOt"));
+        assertSame(
+                "root is caseless", CLDRLocale.getInstance("root"), CLDRLocale.getInstance("RoOt"));
         assertSame("root = empty", CLDRLocale.getInstance("root"), CLDRLocale.getInstance(""));
         assertEquals("ROOT.basename = root", "root", CLDRLocale.ROOT.getBaseName());
         assertSame("instance of root = ROOT", CLDRLocale.getInstance("root"), CLDRLocale.ROOT);
@@ -178,12 +217,20 @@ public class TestCLDRUtils extends TestFmwk {
         assertEquals(test, test, CLDRLocale.getInstance(test).toLanguageTag());
     }
 
-    private boolean checkChild(CLDRLocale parent, CLDRLocale child,
-        boolean expected) {
+    private boolean checkChild(CLDRLocale parent, CLDRLocale child, boolean expected) {
         boolean got = child.childOf(parent);
-        String message = child + ".childOf(" + parent + ") " + "["
-            + child.getDisplayName() + ", " + parent.getDisplayName()
-            + "] " + "= " + got;
+        String message =
+                child
+                        + ".childOf("
+                        + parent
+                        + ") "
+                        + "["
+                        + child.getDisplayName()
+                        + ", "
+                        + parent.getDisplayName()
+                        + "] "
+                        + "= "
+                        + got;
         if (got == expected) {
             logln(message);
         } else {
@@ -201,5 +248,4 @@ public class TestCLDRUtils extends TestFmwk {
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Seconds: " + deltaTime / 1000);
     }
-
 }

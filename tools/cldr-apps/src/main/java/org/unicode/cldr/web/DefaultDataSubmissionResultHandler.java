@@ -1,6 +1,4 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.web;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -9,7 +7,6 @@ import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 
 /**
  * @author srl
- *
  */
 public class DefaultDataSubmissionResultHandler implements DataSubmissionResultHandler {
     WebContext ctx;
@@ -18,16 +15,16 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         this.ctx = ctx;
     }
 
-    protected void handleHadError(DataRow p) {
-
-    }
+    protected void handleHadError(DataRow p) {}
 
     // These are the default behaviors when a DataPage is processed.
 
     @Override
     public void handleResultCount(int j) {
-        ctx.println("<br> You submitted data or vote changes, and " + j
-            + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+        ctx.println(
+                "<br> You submitted data or vote changes, and "
+                        + j
+                        + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
     }
 
     @Override
@@ -36,8 +33,14 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
          * TODO: CandidateItem.altProposed was a constant string "n/a". Replaced by dummyAltProposed here. Simplify!
          */
         String dummyAltProposed = "n/a";
-        ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>:  Removing alternate \"" + item.getValue() + "\" ("
-            + dummyAltProposed + ")<br>");
+        ctx.print(
+                "<tt class='codebox'>"
+                        + p.getDisplayName()
+                        + "</tt>:  Removing alternate \""
+                        + item.getValue()
+                        + "\" ("
+                        + dummyAltProposed
+                        + ")<br>");
         if (removingVote) {
             ctx.println(" <i>Also, removing your vote for it</i><br>");
         }
@@ -46,8 +49,14 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     @Override
     public void handleNoPermission(DataRow p, CandidateItem item, String what) {
         handleHadError(p);
-        ctx.println(" <p class='ferrbox'>Warning: You don't have permission to " + what + " this item: " + "<tt class='codebox'>"
-            + p.getDisplayName() + "</tt>" + ".</p>");
+        ctx.println(
+                " <p class='ferrbox'>Warning: You don't have permission to "
+                        + what
+                        + " this item: "
+                        + "<tt class='codebox'>"
+                        + p.getDisplayName()
+                        + "</tt>"
+                        + ".</p>");
     }
 
     @Override
@@ -56,16 +65,30 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
          * TODO: CandidateItem.altProposed was a constant string "n/a". Replaced by dummyAltProposed here. Simplify!
          */
         String dummyAltProposed = "n/a";
-        ctx.print("<tt title='#" + p.getXpathId() + "' class='codebox'>" + p.getDisplayName()
-            + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.getValue() + "\" ("
-            + dummyAltProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
+        ctx.print(
+                "<tt title='#"
+                        + p.getXpathId()
+                        + "' class='codebox'>"
+                        + p.getDisplayName()
+                        + "</tt>:  Removing vote for <span title='#"
+                        + p.getXpathId()
+                        + "'>"
+                        + "\""
+                        + item.getValue()
+                        + "\" ("
+                        + dummyAltProposed
+                        + ")</span> by "
+                        + voter.toHtml(ctx.session.user)
+                        + "<br>");
     }
 
     @Override
     public void handleEmptyChangeto(DataRow p) {
         handleHadError(p);
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
-        ctx.println(ctx.iconHtml("stop", "empty value") + " value was left empty. <!-- Use 'remove' to request removal. --><br>");
+        ctx.println(
+                ctx.iconHtml("stop", "empty value")
+                        + " value was left empty. <!-- Use 'remove' to request removal. --><br>");
     }
 
     @Override
@@ -75,10 +98,12 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
          * TODO: CandidateItem.altProposed was a constant string "n/a". Replaced by dummyAltProposed here. Simplify!
          */
         String dummyAltProposed = "n/a";
-        ctx.println(ctx.iconHtml("warn", "duplicate")
-            + " This value was already entered, accepting your vote for "
-            + ((dummyAltProposed == null) ? " the current item. <br>"
-                : (" the proposal <tt>" + dummyAltProposed + "</tt>.<br>")));
+        ctx.println(
+                ctx.iconHtml("warn", "duplicate")
+                        + " This value was already entered, accepting your vote for "
+                        + ((dummyAltProposed == null)
+                                ? " the current item. <br>"
+                                : (" the proposal <tt>" + dummyAltProposed + "</tt>.<br>")));
     }
 
     @Override
@@ -88,9 +113,13 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
          */
         String dummyAltProposed = "n/a";
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
-        ctx.println(ctx.iconHtml("warn", "duplicate") + " Your current vote is already for "
-            + ((dummyAltProposed == null) ? " the current item " : (" the proposal <tt>" + dummyAltProposed + "</tt> "))
-            + " which has the same value.<br>");
+        ctx.println(
+                ctx.iconHtml("warn", "duplicate")
+                        + " Your current vote is already for "
+                        + ((dummyAltProposed == null)
+                                ? " the current item "
+                                : (" the proposal <tt>" + dummyAltProposed + "</tt> "))
+                        + " which has the same value.<br>");
     }
 
     @Override
@@ -129,12 +158,30 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     public void handleVote(DataRow p, String oldVote, String newVote) {
         if (newVote == null) {
             ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
-            ctx.println("<!-- Registering vote for " + p.getXpath() + " - " + p.getLocale() + ":-1 replacing " + oldVote + " -->"
-                + ctx.iconHtml("okay", "voted") + " Removing vote. <br>");
+            ctx.println(
+                    "<!-- Registering vote for "
+                            + p.getXpath()
+                            + " - "
+                            + p.getLocale()
+                            + ":-1 replacing "
+                            + oldVote
+                            + " -->"
+                            + ctx.iconHtml("okay", "voted")
+                            + " Removing vote. <br>");
         } else {
             ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
-            ctx.println("<!-- Registering vote for " + p.getXpath() + " - " + p.getLocale() + ":" + newVote + " replacing "
-                + oldVote + " --> " + ctx.iconHtml("okay", "voted") + " Vote accepted. <br>");
+            ctx.println(
+                    "<!-- Registering vote for "
+                            + p.getXpath()
+                            + " - "
+                            + p.getLocale()
+                            + ":"
+                            + newVote
+                            + " replacing "
+                            + oldVote
+                            + " --> "
+                            + ctx.iconHtml("okay", "voted")
+                            + " Vote accepted. <br>");
         }
     }
 
@@ -142,8 +189,17 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     public void handleUnknownChoice(DataRow p, String choice) {
         handleHadError(p);
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
-        ctx.println(ctx.iconHtml("stop", "unknown") + "<tt title='" + p.getLocale() + ":" + p.getXpath() + "' class='codebox'>"
-            + p.getDisplayName() + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
+        ctx.println(
+                ctx.iconHtml("stop", "unknown")
+                        + "<tt title='"
+                        + p.getLocale()
+                        + ":"
+                        + p.getXpath()
+                        + "' class='codebox'>"
+                        + p.getDisplayName()
+                        + "</tt> Note: <i>"
+                        + choice
+                        + "</i> not supported yet or item not found. <br>");
     }
 
     @Override

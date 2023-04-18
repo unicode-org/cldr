@@ -4,7 +4,6 @@ package org.unicode.cldr.web;
 
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 
 public class CompareCLDRFile {
@@ -60,8 +59,7 @@ public class CompareCLDRFile {
         }
     }
 
-    public CompareCLDRFile() {
-    }
+    public CompareCLDRFile() {}
 
     public Entry add(CLDRFile f, String t) {
         Entry e = new Entry(f, t);

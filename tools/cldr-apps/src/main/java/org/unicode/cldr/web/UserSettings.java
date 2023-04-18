@@ -6,10 +6,8 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Get a string, or the default
      *
-     * @param name
-     *            name of setting to get
-     * @param defaultValue
-     *            default value to return (may be null)
+     * @param name name of setting to get
+     * @param defaultValue default value to return (may be null)
      * @return the result, or default
      */
     public abstract String get(String name, String defaultValue);
@@ -17,10 +15,8 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Set a string
      *
-     * @param name
-     *            should be ASCII
-     * @param value
-     *            may be any Unicode string
+     * @param name should be ASCII
+     * @param value may be any Unicode string
      */
     public abstract void set(String name, String value);
 
@@ -28,8 +24,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
      * Get an integer.
      *
      * @param name
-     * @param defaultValue
-     *            default value to return
+     * @param defaultValue default value to return
      * @return the value, or the default
      */
     public int get(String name, int defaultValue) {
@@ -45,8 +40,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
      * Get a long.
      *
      * @param name
-     * @param defaultValue
-     *            default value to return
+     * @param defaultValue default value to return
      * @return the value, or the default
      */
     public long get(String name, long defaultValue) {
@@ -61,8 +55,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Set an integer
      *
-     * @param name
-     *            should be ASCII
+     * @param name should be ASCII
      * @param value
      */
     public void set(String name, int value) {
@@ -72,8 +65,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Set an long
      *
-     * @param name
-     *            should be ASCII
+     * @param name should be ASCII
      * @param value
      */
     public void set(String name, long value) {

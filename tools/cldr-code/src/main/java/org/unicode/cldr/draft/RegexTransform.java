@@ -39,7 +39,8 @@ public class RegexTransform implements com.ibm.icu.text.StringTransform {
     }
 
     /**
-     * right now, this doesn't do anything; later we can optimize by picking just those rules that could match
+     * right now, this doesn't do anything; later we can optimize by picking just those rules that
+     * could match
      *
      * @param toProcess
      * @return

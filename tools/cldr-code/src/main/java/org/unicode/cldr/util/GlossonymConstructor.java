@@ -1,43 +1,42 @@
 package org.unicode.cldr.util;
 
-import java.util.Set;
-
 import com.ibm.icu.util.Output;
+import java.util.Set;
 
 /**
  * Automatically construct language names (glossonyms)
  *
- * Example: in German (de), for the path
+ * <p>Example: in German (de), for the path
  *
- *       //ldml/localeDisplayNames/languages/language[@type="ro_MD"]
+ * <p>//ldml/localeDisplayNames/languages/language[@type="ro_MD"]
  *
- * the value "Rumänisch (Republik Moldau)" is automatically constructed based on the code "ro_MD".
+ * <p>the value "Rumänisch (Republik Moldau)" is automatically constructed based on the code
+ * "ro_MD".
  *
- * The constructed value is a default if no preferable value is submitted or inherited.
- * A different (non-constructed) value, such as "Moldauisch", may become the winning
- * value instead of the constructed value.
+ * <p>The constructed value is a default if no preferable value is submitted or inherited. A
+ * different (non-constructed) value, such as "Moldauisch", may become the winning value instead of
+ * the constructed value.
  */
 public class GlossonymConstructor {
 
-    /**
-     * Some paths with this prefix can get automatically constructed values
-     */
-    public static final String PATH_PREFIX = "//ldml/localeDisplayNames/languages/language[@type=\"";
+    /** Some paths with this prefix can get automatically constructed values */
+    public static final String PATH_PREFIX =
+            "//ldml/localeDisplayNames/languages/language[@type=\"";
 
     /**
      * The code such as "ro_MD" must contain an underscore, otherwise there is no constructed value.
-     * Underscore also serves as a clue for recognizing a value that is from code-fallback; for example,
-     * when the value "ro_MD" is inherited, the underscore implies it's a raw code ("bogus value") and should
-     * be replaced by a constructed value like "Rumänisch (Republik Moldau)"; but when the value "Moldauisch"
-     * (without underscore) is inherited, it should not be replaced by a constructed value
+     * Underscore also serves as a clue for recognizing a value that is from code-fallback; for
+     * example, when the value "ro_MD" is inherited, the underscore implies it's a raw code ("bogus
+     * value") and should be replaced by a constructed value like "Rumänisch (Republik Moldau)"; but
+     * when the value "Moldauisch" (without underscore) is inherited, it should not be replaced by a
+     * constructed value
      */
     private static final String CODE_SEPARATOR = "_";
 
     /**
-     * For "pathWhereFound" when the value is constructed.
-     * It is non-null to satisfy TestPathHeadersAndValues.
-     * It should not be treated as an actual path; for example, the
-     * Survey Tool Info Panel should not show a broken "Jump to original" link.
+     * For "pathWhereFound" when the value is constructed. It is non-null to satisfy
+     * TestPathHeadersAndValues. It should not be treated as an actual path; for example, the Survey
+     * Tool Info Panel should not show a broken "Jump to original" link.
      */
     public static final String PSEUDO_PATH = "constructed";
 
@@ -58,11 +57,9 @@ public class GlossonymConstructor {
      * @return true if bogus
      */
     public static boolean valueIsBogus(String value) {
-        return (
-            value == null ||
-            value.contains(CODE_SEPARATOR) ||
-            RegexUtilities.PATTERN_3_OR_4_DIGITS.matcher(value).find()
-        );
+        return (value == null
+                || value.contains(CODE_SEPARATOR)
+                || RegexUtilities.PATTERN_3_OR_4_DIGITS.matcher(value).find());
     }
 
     private final CLDRFile cldrFile;
@@ -70,7 +67,8 @@ public class GlossonymConstructor {
     public GlossonymConstructor(CLDRFile cldrFile) {
         this.cldrFile = cldrFile;
         if (!cldrFile.isResolved()) {
-            throw new IllegalArgumentException("Unresolved CLDRFile in GlossonymConstructor constructor");
+            throw new IllegalArgumentException(
+                    "Unresolved CLDRFile in GlossonymConstructor constructor");
         }
     }
 
@@ -82,7 +80,8 @@ public class GlossonymConstructor {
      * @param localeWhereFound if not null, to be filled in
      * @return the constructed value, or null
      */
-    public String getValueAndTrack(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
+    public String getValueAndTrack(
+            String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         final String constructedValue = getValue(xpath);
         if (constructedValue != null) {
             if (localeWhereFound != null) {
@@ -114,7 +113,8 @@ public class GlossonymConstructor {
         final String type = parts.getAttributeValue(-1, "type");
         if (type.contains(CODE_SEPARATOR)) {
             final String alt = parts.getAttributeValue(-1, "alt");
-            final CLDRFile.SimpleAltPicker altPicker = (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
+            final CLDRFile.SimpleAltPicker altPicker =
+                    (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
             final String value = cldrFile.getName(type, true, altPicker);
             if (!valueIsBogus(value)) {
                 return value;
@@ -128,7 +128,8 @@ public class GlossonymConstructor {
         final String type = parts.getAttributeValue(-1, "type");
         if (type.contains(CODE_SEPARATOR)) {
             final String alt = parts.getAttributeValue(-1, "alt");
-            final CLDRFile.SimpleAltPicker altPicker = (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
+            final CLDRFile.SimpleAltPicker altPicker =
+                    (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
             final String value = cldrFile.getName(type, true, altPicker, paths);
             if (!valueIsBogus(value)) {
                 return paths;

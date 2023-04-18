@@ -336,7 +336,9 @@ class LdmlConvertRules {
      * as a single string.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET = Builder.with(new HashSet<String>())
-        .add("territories").add("scripts").add("contains").add("systems").add("origin").freeze();
+        .add("territories").add("scripts").add("contains").add("systems").add("origin")
+        .add("values") // for unitIdComponents - may need to be more specific here
+        .freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.

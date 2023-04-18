@@ -37,7 +37,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.TreeMultiset;
 
 public class ListCoverageLevels {
     public static void main(String[] args) {
@@ -49,7 +51,7 @@ public class ListCoverageLevels {
         PathStarrer starrer = new PathStarrer().setSubstitutionPattern("*");
         Factory mainAndAnnotationsFactory = config.getMainAndAnnotationsFactory();
 
-        Set<String> toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.allOf(Level.class));
+        Set<String> toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
         // ImmutableSortedSet.of("it", "root", "ja");
         // mainAndAnnotationsFactory.getAvailable();
         final Set<CLDRLocale> ALL;
@@ -58,6 +60,29 @@ public class ListCoverageLevels {
             toTest.forEach(locale -> _ALL.add(CLDRLocale.getInstance(locale)));
             ALL = ImmutableSet.copyOf(_ALL);
         }
+
+        Map<Level, Multiset<String>> levelToCounter = new TreeMap<>();
+        for (Level level : Level.values()) {
+            levelToCounter.put(level, TreeMultiset.create());
+        }
+        for (String locale : toTest) {
+            CLDRFile file = mainAndAnnotationsFactory.make(locale, false);
+            CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);
+            System.out.println(locale);
+            for (String path : file) {
+                Level level = coverageLeveler.getLevel(path);
+                String skeleton = starrer.set(path);
+                levelToCounter.get(level).add(skeleton);
+            }
+        }
+        for (Entry<Level, Multiset<String>> entry : levelToCounter.entrySet()) {
+            Level level = entry.getKey();
+            Multiset<String> counter = entry.getValue();
+            for (Multiset.Entry<String> skeleton : counter.entrySet()) {
+                System.out.println(level + "\t" + skeleton.getCount() + "\t" + skeleton.getElement());
+            }
+        }
+        if (true) return;
 
         M4<Level, String, Attributes, Boolean> data = ChainedMap.of(
             new TreeMap<Level,Object>(),

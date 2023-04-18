@@ -1,18 +1,34 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LsrvCanonicalizer;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
+
 public class GenerateLocaleIDTestData {
-    static final LsrvCanonicalizer rrs = LsrvCanonicalizer.getInstance();
+    private static final LsrvCanonicalizer rrs = LsrvCanonicalizer.getInstance();
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
 
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw = TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + "localeIdentifiers", "localeCanonicalization.txt")) {
@@ -41,6 +57,87 @@ public class GenerateLocaleIDTestData {
                     String expected = entry.getValue();
                     pw.println(toTest + "\t;\t" + expected);
                 }
+            }
+        }
+
+        try (TempPrintWriter pw = TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + "localeIdentifiers", "localeDisplayName.txt")) {
+            pw.println("# Test data for locale display name generation\n"
+                + CldrUtility.getCopyrightString("#  ")
+                + "\n# Format:\n"
+                + "# @locale=<locale to display in>\n"
+                + "# @compound=<whether to form compounds like \"Flemish\" for nl_BE>\n"
+                + "# <locale to display> ; <expected display name>\n"
+                + "\n"
+                + "@locale=en\n"
+                + "@compound=false\n");
+            pw.println("\n# Simple cases: Language, script, region, variants\n");
+            showDisplayNames(pw, "es", "es-419", "es-Cyrl-MX", "hi-Latn");
+            pw.println("\n#Note that the order of the variants is alphabetized before generating names\n");
+            showDisplayNames(pw, "en-Latn-GB-scouse-fonipa");
+            pw.println("\n# Add extensions, and verify their order\n");
+            showDisplayNames(pw, "en-u-nu-thai-ca-islamic-civil", "hi-u-nu-latn-t-en-h0-hybrid", "en-u-nu-deva-t-de");
+            pw.println("\n# Test ordering of extensions (include well-formed but invalid cases)\n");
+            showDisplayNames(pw, "fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x");
+
+            pw.println("\n# Comprehensive list (mostly comprehensive: currencies, subdivisions, timezones have abbreviated lists)\n");
+            SupplementalDataInfo SDI = CLDR_CONFIG.getSupplementalDataInfo();
+            Relation<String, String> extensionToKeys = SDI.getBcp47Extension2Keys();
+            Multimap<String, String> keyToExtensions = TreeMultimap.create();
+            for (Entry<String, String> entry : extensionToKeys.entrySet()) {
+                keyToExtensions.put(entry.getValue(), entry.getKey());
+            }
+            final Relation<String, String> keyToValues = SDI.getBcp47Keys();
+            Map<R2<String, String>, String> deprecated = SDI.getBcp47Deprecated();
+
+            ImmutableMultimap<String, String> overrides = ImmutableMultimap.<String, String>builder()
+                .putAll("cu", "eur", "jpy", "usd", "chf")
+                .putAll("rg", "gbsct", "gbeng")
+                .putAll("sd", "gbsct", "gbwls")
+                .putAll("tz", "uslax", "gblon", "chzrh")
+                .putAll("dx", "thai")
+                .putAll("vt", "abcd")
+                .putAll("x0", "foobar2")
+                .putAll("kr", "arab", "digit-deva-latn", "currency", "digit", "punct", "space", "symbol")
+                .build();
+
+            final UnicodeSet upper = new UnicodeSet("[A-Z]").freeze();
+
+            for (String key : keyToValues.keySet()) {
+                if ("true".equals(deprecated.get(Row.of(key, "")))) {
+                    continue;
+                }
+                for (String extension : keyToExtensions.get(key)) {
+                    Collection<String> values = overrides.containsKey(key)
+                        ? overrides.get(key) :
+                            ImmutableSortedSet.copyOf(keyToValues.get(key));
+                    for (String value : values) {
+                        if ("true".equals(deprecated.get(Row.of(key, value)))) {
+                            continue;
+                        }
+                        final String sampleLocale = "en-" + extension + "-" + key + "-" + value;
+                        if (upper.containsSome(value)) {
+                            System.err.println("** FIX NAME: " + sampleLocale);
+                        } else {
+                            showDisplayNames(pw, sampleLocale);
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    private static void showDisplayNames(TempPrintWriter pw, String... locales) {
+        showDisplayNames(pw, Arrays.asList(locales));
+    }
+    private static void showDisplayNames(TempPrintWriter pw, Collection<String> locales) {
+        for (String locale : locales) {
+            String name = ENGLISH.getName(locale, true);
+            if (name.contains("null")) {
+                System.err.println("** REPLACE: " + locale + "; " + name);
+            } else {
+                pw.println(locale + "; " + name);
             }
         }
     }

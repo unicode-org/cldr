@@ -1270,7 +1270,8 @@ public class DisplayAndInputProcessor {
      *   - strip initial and final ZWS in all locales?
      *   - reduce two or more adjacent ZWS to one ZWS?
      *   - allow or prohibit ZWS by itself as currency symbol, as currently in locales kea, pt_CV, pt_PT
-     *   - allow or prohibit ZWS preceding URL as in "as per [U+200B]http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations"
+     *   - allow or prohibit ZWS preceding URL as in "as per [U+200B]https://www.unicode.org/reports/tr35/tr35-general.html#Annotations
+"
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-15976
      */
     private String normalizeZeroWidthSpace(String value) {

@@ -1083,13 +1083,15 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     }
                     return new AliasLocation(xpath, localeID);
                 }
-                // Otherwise: note this as a parent locale
                 if (list != null) {
-                    list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.parent));
+                    // Note that the path wasn't found in this locale
+                    // This also gives a trace of the locale inheritance
+                    list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.novalue));
                 }
             }
             // Path not found, check if an alias exists
-            TreeMap<String, String> aliases = sources.get("root").getAliases();
+            final String rootAliasLocale = XMLSource.ROOT_ID; // Locale ID for aliases
+            TreeMap<String, String> aliases = sources.get(rootAliasLocale).getAliases();
             String aliasedPath = aliases.get(xpath);
 
             if (aliasedPath == null) {
@@ -1105,16 +1107,28 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
                         aliasedPath = aliases.get(possibleSubpath) +
                             xpath.substring(possibleSubpath.length());
+                        if (list != null) {
+                            // It's an explicit alias, just at a parent element (subset xpath)
+                            list.add(new LocaleInheritanceInfo(rootAliasLocale, aliasedPath, Reason.itemalias));
+                        }
 //                        xpath = aliasedPath;
 //                    } else {
 //                        break;
 //                    }
+                }
+            } else {
+                if (list != null) {
+                    // explicit, exact alias at this location
+                    list.add(new LocaleInheritanceInfo(rootAliasLocale, aliasedPath, Reason.itemalias));
                 }
             }
 
             // alts are special; they act like there is a root alias to the path without the alt.
             if (aliasedPath == null && xpath.contains("[@alt=")) {
                 aliasedPath = XPathParts.getPathWithoutAlt(xpath);
+                if (list != null) {
+                    list.add(new LocaleInheritanceInfo(null, aliasedPath, Reason.alt));
+                }
             }
 
             // counts are special; they act like there is a root alias to 'other'
@@ -1129,8 +1143,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                             throw new RuntimeException("Internal error");
                         }
                     } else {
+                        // the replacement failed, do not alias
                         aliasedPath = null;
                     }
+                }
+                if (list != null && aliasedPath != null) {
+                    // two different paths above reach here
+                    list.add(new LocaleInheritanceInfo(null, aliasedPath, Reason.count));
                 }
             }
 
@@ -1141,7 +1160,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // Fallback location.
             if (list != null) {
-                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codefallback)); // Not using CODE_FALLBACK_ID
+                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codefallback)); // Not using CODE_FALLBACK_ID as it is implicit in the reason
             }
             return new AliasLocation(xpath, CODE_FALLBACK_ID);
         }

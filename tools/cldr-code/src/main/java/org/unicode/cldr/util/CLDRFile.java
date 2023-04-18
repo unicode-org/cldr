@@ -3713,10 +3713,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     Map<String, String> info = map.get(code);
                     if (info != null) {
                         result = info.get("Description");
-                        // TODO: this code is not called anywhere where 'paths' is used at present.
-                        // if (paths != null) {
-                        //     paths.add("//lstreg/language[@type=\"" + code + "\"]"); // pseudo-xpath
-                        // }
                     }
                 } else if (type == TERRITORY_NAME) {
                     result = getLstrFallback("region", code, paths);
@@ -3742,12 +3738,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 if (matcher.lookingAt()) {
                     temp = matcher.group(1).trim();
                 }
-                // TODO: this code is not called anywhere where 'paths' is used at present.
-                // if (temp != null) {
-                //     if (paths != null) {
-                //         paths.add("//lstreg/"+codeType+"[@type=\"" + code + "\"]"); // pseudo-xpath
-                //     }
-                // }
                 return temp;
             }
         }

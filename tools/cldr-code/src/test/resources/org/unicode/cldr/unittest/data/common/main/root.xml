@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+	Note: This file is for TestCLDRFile.testSourceLocale()
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$" />
@@ -29,5 +32,12 @@
 			</calendar>
 		</calendars>
 	</dates>
+	<units>
+		<unitLength type="short">
+			<unit type="angle-revolution">
+				<displayName>rev</displayName>
+				<unitPattern count="other">{0} rev</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>
-

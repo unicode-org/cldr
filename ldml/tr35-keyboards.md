@@ -60,49 +60,49 @@ The LDML specification is divided into the following parts:
   * [_Status_](#status)
 * [Parts](#Parts)
 * [Contents of Part 7, Keyboards](#Contents)
-* 1 [Keyboards](#Introduction)
-* 2 [Goals and Non-goals](#Goals_and_Nongoals)
-* 3 [Definitions](#Definitions)
-  * 3.1 [Escaping](#Escaping)
-* 4 [File and Directory Structure](#File_and_Dir_Structure)
-* 5 [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
-  * 5.1 [Element: keyboard](#Element_Keyboard)
-  * 5.2 [Element: version](#Element_version)
-  * 5.3 ~~[Element: generation](#Element_generation)~~
-  * 5.4 [Element: info](#Element_info)
-  * 5.5 [Element: names](#Element_names)
-  * 5.6 [Element: name](#Element_name)
-  * 5.7 [Element: settings](#Element_settings)
-  * 5.8 [Element: keyMap](#Element_keyMap)
+* [Keyboards](#Introduction)
+* [Goals and Non-goals](#Goals_and_Nongoals)
+* [Definitions](#Definitions)
+  * [Escaping](#Escaping)
+* [File and Directory Structure](#File_and_Dir_Structure)
+* [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
+  * [Element: keyboard](#Element_Keyboard)
+  * [Element: version](#Element_version)
+  * ~~[Element: generation](#Element_generation)~~
+  * [Element: info](#Element_info)
+  * [Element: names](#Element_names)
+  * [Element: name](#Element_name)
+  * [Element: settings](#Element_settings)
+  * [Element: keyMap](#Element_keyMap)
     * Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
-  * 5.9 [Element: map](#Element_map)
-    * 5.9.1 [Elements: flicks, flick](#Element_flicks)
-  * 5.10 [Element: import](#Element_import)
-  * 5.11 [Element: displayMap](#Element_displayMap)
-  * 5.12 [Element: display](#Element_display)
-  * 5.13 [Element: layer](#Element_layer)
-  * 5.14 [Element: row](#Element_row)
-  * 5.15 [Element: switch](#Element_switch)
-  * 5.16 [Element: vkeys](#Element_vkeys)
-  * 5.17 [Element: vkey](#Element_vkey)
-  * 5.18 [Element: transforms](#Element_transforms)
-  * 5.19 [Element: transform](#Element_transform)
-  * 5.20 [Element: reorders, reorder](#Element_reorder)
-  * 5.21 [Element: transform final](#Element_final)
-  * 5.22 [Element: backspaces](#Element_backspaces)
-  * 5.23 [Element: backspace](#Element_backspace)
-* 6 [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
-  * 6.1 [Element: platform](#Element_platform)
-  * 6.2 [Element: hardwareMap](#Element_hardwareMap)
-  * 6.3 [Element: map](#Element_hardwareMap_map)
-* 7 [Invariants](#Invariants)
-* 8 [Data Sources](#Data_Sources)
+  * [Element: map](#Element_map)
+    * [Elements: flicks, flick](#Element_flicks)
+  * [Element: import](#Element_import)
+  * [Element: displayMap](#Element_displayMap)
+  * [Element: display](#Element_display)
+  * [Element: layer](#Element_layer)
+  * [Element: row](#Element_row)
+  * [Element: switch](#Element_switch)
+  * [Element: vkeys](#Element_vkeys)
+  * [Element: vkey](#Element_vkey)
+  * [Element: transforms](#Element_transforms)
+  * [Element: transform](#Element_transform)
+  * [Element: reorders, reorder](#Element_reorder)
+  * [Element: transform final](#Element_final)
+  * [Element: backspaces](#Element_backspaces)
+  * [Element: backspace](#Element_backspace)
+* [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
+  * [Element: platform](#Element_platform)
+  * [Element: hardwareMap](#Element_hardwareMap)
+  * [Element: map](#Element_hardwareMap_map)
+* [Invariants](#Invariants)
+* [Data Sources](#Data_Sources)
   * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
-* 9 [Keyboard IDs](#Keyboard_IDs)
-  * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
-* 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
+* [Keyboard IDs](#Keyboard_IDs)
+  * [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
+* [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
 
-## 1 <a name="Introduction" href="#Introduction">Keyboards</a>
+## <a name="Introduction" href="#Introduction">Keyboards</a>
 
 The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.
 
@@ -174,7 +174,7 @@ And its associated platform file (which includes the hardware mapping):
 
 * * *
 
-## 2 <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
+## <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
 
 Some goals of this format are:
 
@@ -194,7 +194,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 * * *
 
-## 3 <a name="Definitions" href="#Definitions">Definitions</a>
+## <a name="Definitions" href="#Definitions">Definitions</a>
 
 **Arrangement** is the term used to describe the relative position of the rectangles that represent keys, either physically or virtually. A physical keyboard has a static arrangement while a virtual keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.
 
@@ -240,7 +240,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Virtual keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a physical keyboard. This term has many synonyms: touch keyboard, software keyboard, SIP (Software Input Panel). This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
-### 3.1 <a name="Escaping" href="#Escaping">Escaping</a>
+### <a name="Escaping" href="#Escaping">Escaping</a>
 
 When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
@@ -260,7 +260,7 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 
 * * *
 
-## 4 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
+## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
 Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or ChromeOS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
 
@@ -271,9 +271,9 @@ Keyboard data that is not supported on a given platform, but intended for use wi
 
 * * *
 
-## 5 <a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a>
+## <a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a>
 
-### 5.1 <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
+### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
 
 This is the top level element. All other elements defined below are under this element.
 
@@ -288,7 +288,7 @@ This is the top level element. All other elements defined below are under this e
 > <small>
 >
 > Parents: _none_
-> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
+> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_keyMap), [displayMap](#Element_displayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
 > Occurence: required, single
 >
 > </small>
@@ -312,7 +312,7 @@ This mandatory attribute represents the locale of the keyboard using Unicode loc
 
 * * *
 
-### 5.2 <a name="Element_version" href="#Element_version">Element: version</a>
+### <a name="Element_version" href="#Element_version">Element: version</a>
 
 Element used to keep track of the source data version.
 
@@ -324,7 +324,7 @@ Element used to keep track of the source data version.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: required, single
 >
@@ -354,13 +354,13 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 
 * * *
 
-### 5.3 ~~<a name="Element_generation" href="#Element_generation">Element: generation</a>~~
+### ~~<a name="Element_generation" href="#Element_generation">Element: generation</a>~~
 
 The `generation` element is now deprecated. It was used to keep track of the generation date of the data.
 
 * * *
 
-### 5.4 <a name="Element_info" href="#Element_info">Element: info</a>
+### <a name="Element_info" href="#Element_info">Element: info</a>
 
 Element containing informative properties about the layout, for displaying in user interfaces etc.
 
@@ -375,7 +375,7 @@ Element containing informative properties about the layout, for displaying in us
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, single
 >
@@ -401,7 +401,7 @@ _Attribute:_ `indicator` (optional)
 
 * * *
 
-### 5.5 <a name="Element_names" href="#Element_names">Element: names</a>
+### <a name="Element_names" href="#Element_names">Element: names</a>
 
 Element used to store any names given to the layout by the platform.
 
@@ -415,13 +415,13 @@ Element used to store any names given to the layout by the platform.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [name](#Element_name)
 > Occurence: required, single
 >
 > </small>
 
-### 5.6 <a name="Element_name" href="#Element_name">Element: name</a>
+### <a name="Element_name" href="#Element_name">Element: name</a>
 
 A single name given to the layout by the platform.
 
@@ -456,7 +456,7 @@ _Attribute:_ `value` (required)
 
 * * *
 
-### 5.7 <a name="Element_settings" href="#Element_settings">Element: settings</a>
+### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
 An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).
 
@@ -468,7 +468,7 @@ An element used to keep track of layout specific settings. This element may or m
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, single
 >
@@ -526,7 +526,7 @@ Indicates that:
 
 * * *
 
-### 5.8 <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
+### <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
 
 This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.
 
@@ -540,7 +540,7 @@ This element defines the group of mappings for all the keys that use the same se
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [map](#Element_map), [flicks](#Element_flicks)
 > Occurence: required, multiple
 >
@@ -605,7 +605,7 @@ If the `modifiers` attribute is not present on a `keyMap` then that particular k
 
 * * *
 
-### 5.9 <a name="Element_map" href="#Element_map">Element: map</a>
+### <a name="Element_map" href="#Element_map">Element: map</a>
 
 This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the `keyMap` element as its parent.
 
@@ -731,7 +731,7 @@ In the generated files, a comment is included to help the readability of the doc
 
 * * *
 
-#### 5.9.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
+#### <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
 
 The `flicks` element is used to generate results from a "flick" of the finger on a mobile device.
 
@@ -788,7 +788,7 @@ where a flick to the Northeast then South produces two code points.
 
 * * *
 
-### 5.10 <a name="Element_import" href="#Element_import">Element: import</a>
+### <a name="Element_import" href="#Element_import">Element: import</a>
 
 The `import` element references another file of the same type and includes all the subelements of the top level element as though the `import` element were being replaced by those elements, in the appropriate section of the XML file. For example:
 
@@ -800,7 +800,7 @@ The `import` element references another file of the same type and includes all t
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: _none_
 > Occurence: optional, multiple
 >
@@ -842,7 +842,7 @@ The following elements are not imported from the source file:
 
 * * *
 
-### 5.11 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
+### <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
 
 The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display subelements.
 
@@ -858,7 +858,7 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [display](#Element_display)
 > Occurence: optional, single
 >
@@ -866,7 +866,7 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 
 * * *
 
-### 5.12 <a name="Element_display" href="#Element_display">Element: display</a>
+### <a name="Element_display" href="#Element_display">Element: display</a>
 
 The `display` element describes how a character, that has come from a `keyMap/map` element, should be displayed on a keyboard layout where such display is possible.
 
@@ -910,7 +910,7 @@ To allow `displayMap`s to be shared across descriptions, there is no requirement
 
 * * *
 
-### 5.13 <a name="Element_layer" href="#Element_layer">Element: layer</a>
+### <a name="Element_layer" href="#Element_layer">Element: layer</a>
 
 A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains one or more `row` elements to describe which keys exist in each `row` and optionally one or more `switch` elements that describe how keys in the layer switch the layer to another. In addition, for platforms that require a mapping from a key to a virtual key (for example Windows or Mac) there is also an optional `vkeys` element to describe the mapping.
 
@@ -924,7 +924,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [row](#Element_row), [switch](#Element_switch), [vkeys](#Element_vkeys)
 > Occurence: optional, multiple
 >
@@ -954,7 +954,7 @@ The use of `@modifier` as an identifier for a layer, is sufficient since it is a
 
 * * *
 
-### 5.14 <a name="Element_row" href="#Element_row">Element: row</a>
+### <a name="Element_row" href="#Element_row">Element: row</a>
 
 A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first.
 
@@ -1007,7 +1007,7 @@ Here is an example of a `row` element:
 
 * * *
 
-### 5.15 <a name="Element_switch" href="#Element_switch">Element: switch</a>
+### <a name="Element_switch" href="#Element_switch">Element: switch</a>
 
 The `switch` element describes a function key that has been included in the layout. It specifies which layer pressing the key switches you to and also what the key looks like.
 
@@ -1062,7 +1062,7 @@ Here is an example of a `switch` element for a shift key:
 
 * * *
 
-### 5.16 <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
+### <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
 
 On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the D01 key as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key is identified by its vkey and the modifiers active at the time the key was pressed.
 
@@ -1076,7 +1076,7 @@ On some architectures, applications may directly interact with keys before they 
 
 > <small>
 >
-> Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)
+> Parents: [layer](#Element_layer), [keyboard](#Element_Keyboard)
 > Children: [vkey](#Element_vkey)
 > Occurence: optional, multiple
 >
@@ -1096,7 +1096,7 @@ A `vkeys` element consists of a list of `vkey` elements.
 
 * * *
 
-### 5.17 <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
+### <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
 
 A `vkey` element describes a mapping between a key and a vkey for a particular platform.
 
@@ -1206,7 +1206,7 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
 
 * * *
 
-### 5.18 <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
+### <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
 
 This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
@@ -1222,7 +1222,7 @@ Syntax
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [transform](#Element_transform)
 > Occurence: optional, multiple
 >
@@ -1243,7 +1243,7 @@ We consider each transform type in turn and consider attributes to the `<transfo
 
 * * *
 
-### 5.19 <a name="Element_transform" href="#Element_transform">Element: transform</a>
+### <a name="Element_transform" href="#Element_transform">Element: transform</a>
 
 This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points.. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
@@ -1266,7 +1266,7 @@ This element must have the `transforms` element as its parent. This element repr
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
+> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35](tr35.md#Unicode_Sets)).
 
 For example, suppose there are the following transforms:
 
@@ -1388,7 +1388,7 @@ And a subsequent transform could transform the Z string, looking back (using @be
 
 * * *
 
-### 5.20 <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
+### <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
 
 The reorder transform is applied after all transform except for those with `type="final"`.
 
@@ -1610,7 +1610,7 @@ The effect of this that the _e-vowel_ will be identified as a prebase and will h
 
 * * *
 
-### 5.21 <a name="Element_final" href="#Element_final">Element: transform final</a>
+### <a name="Element_final" href="#Element_final">Element: transform final</a>
 
 The final transform is applied after the reorder transform. It executes in a similar way to the simple transform with the settings ignored, as if there were no settings in the `<settings>` element.
 
@@ -1633,7 +1633,7 @@ Another example allows a keyboard implementation to alert or stop people typing 
 
 * * *
 
-### 5.22 <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
+### <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
 
 The backspace transform is an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
 
@@ -1661,7 +1661,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard](#Element_Keyboard)
 > Children: [backspace](#Element_backspace)
 > Occurence: optional, single
 >
@@ -1669,7 +1669,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 * * *
 
-### 5.23 <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
+### <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
 
 **Syntax**
 
@@ -1767,11 +1767,11 @@ Whereas a simple or final transform would then run other transforms in the trans
 
 * * *
 
-## 6 <a name="Element_Heirarchy_Platform_File" href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a>
+## <a name="Element_Heirarchy_Platform_File" href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a>
 
 There is a separate XML structure for platform-specific configuration elements. The most notable component is a mapping between the hardware key codes to the ISO layout positions for that platform.
 
-### 6.1 <a name="Element_platform" href="#Element_platform">Element: platform</a>
+### <a name="Element_platform" href="#Element_platform">Element: platform</a>
 
 This is the top level element. This element contains a set of elements defined below. A document shall only contain a single instance of this element.
 
@@ -1792,7 +1792,7 @@ This is the top level element. This element contains a set of elements defined b
 > </small>
 
 
-### 6.2 <a name="Element_hardwareMap" href="#Element_hardwareMap">Element: hardwareMap</a>
+### <a name="Element_hardwareMap" href="#Element_hardwareMap">Element: hardwareMap</a>
 
 This element must have a `platform` element as its parent. This element contains a set of map elements defined below. A document shall only contain a single instance of this element.
 
@@ -1814,7 +1814,7 @@ This element must have a `platform` element as its parent. This element contains
 >
 > </small>
 
-### 6.3 <a name="Element_hardwareMap_map" href="#Element_hardwareMap_map">Element: map</a>
+### <a name="Element_hardwareMap_map" href="#Element_hardwareMap_map">Element: map</a>
 
 This element must have a `hardwareMap` element as its parent. This element maps between a hardware keycode and the corresponding ISO layout position of the key.
 
@@ -1857,7 +1857,7 @@ _Attribute:_ `iso` (required)
 
 * * *
 
-## 7 <a name="Invariants" href="#Invariants">Invariants</a>
+## <a name="Invariants" href="#Invariants">Invariants</a>
 
 Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
 
@@ -1897,7 +1897,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 * * *
 
-## 8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
+## <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
 
 Here is a list of the data sources used to generate the initial key map layouts:
 
@@ -1912,11 +1912,11 @@ Here is a list of the data sources used to generate the initial key map layouts:
 
 * * *
 
-## 9 <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
+## <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
 
 There is a set of subtags that help identify the keyboards. Each of these are used after the `"t-k0"` subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.
 
-### 9.1 <a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a>
+### <a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a>
 
 The following are the design principles for the ids.
 
@@ -1935,7 +1935,7 @@ The following are the design principles for the ids.
 
 * * *
 
-## 10 <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
+## <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
 
 | Platform | No modifier combination match is available | No map match is available for key position | Transform fails (ie. if \^d is pressed when that transform does not exist) |
 |----------|--------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------|
@@ -1945,6 +1945,6 @@ The following are the design principles for the ids.
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+Copyright © 2001–2023 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

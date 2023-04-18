@@ -300,6 +300,29 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -326,7 +349,7 @@ Publication does not imply endorsement by the Unicode Consortium.
 This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
 This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ --><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
-</blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
+</blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts">Parts</h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
 <li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
 <li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
@@ -335,79 +358,85 @@ This is a stable document and may be used as reference material or cited as a no
 <li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 <li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
-</ul><h2 id="contents-of-part-8-person-names"><a name="Contents" href="#Contents">Contents of Part 8, Person Names</a></h2><ul>
-<li>1 <a href="#CLDRPersonNames">CLDR Person Names</a><ul>
-<li>1.1 <a href="#Introduction">Introduction</a><ul>
-<li>1.1.1 <a href="#not-in-scope">Not in scope</a></li>
+</ul><h2 id="Contents"><a name="contents-of-part-8-person-names">Contents of Part 8, Person Names</a></h2><ul>
+<li><a href="#cldr-person-names">CLDR Person Names</a><ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#not-in-scope">Not in scope</a></li>
 </ul>
 </li>
-<li>1.2 <a href="#APIImplementation">API Implementation</a></li>
-<li>1.3 <a href="#PersonNameFormattingOverview">Person Name Formatting Overview</a></li>
-<li>1.4 <a href="#ExampleUsage">Example Usage</a></li>
+<li><a href="#api-implementation">API Implementation</a></li>
+<li><a href="#person-name-formatting-overview">Person Name Formatting Overview</a></li>
+<li><a href="#example-usage">Example Usage</a></li>
 </ul>
 </li>
-<li>2 <a href="#2-xml-structure">XML Structure</a><ul>
-<li>2.1 <a href="#2-1-personnames-element">personNames Element</a></li>
-<li>2.2 <a href="#2-2-personname-element">personName Element</a></li>
-<li>2.3 <a href="#2-3-nameorderlocales-element">nameOrderLocales Element</a></li>
-<li>2.4 <a href="#2-4-foreignspacereplacement-element">foreignSpaceReplacement Element</a></li>
-<li>2.5 <a href="#2-5-initialpattern-element">initialPattern Element</a><ul>
-<li>2.5.1 <a href="#syntax">Syntax</a></li>
+<li><a href="#xml-structure">XML Structure</a><ul>
+<li><a href="#personnames-element">personNames Element</a></li>
+<li><a href="#personname-element">personName Element</a></li>
+<li><a href="#nameorderlocales-element">nameOrderLocales Element</a></li>
+<li><a href="#foreignspacereplacement-element">foreignSpaceReplacement Element</a></li>
+<li><a href="#initialpattern-element">initialPattern Element</a><ul>
+<li><a href="#syntax">Syntax</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>3 <a href="#3-person-name-object">Person Name Object</a></li>
-<li>4 <a href="#4-person-name-attributes">Person Name Attributes</a><ul>
-<li>4.1 <a href="#4-1-order">order</a></li>
-<li>4.2 <a href="#4-2-length">length</a></li>
-<li>4.3 <a href="#4-3-usage">usage</a></li>
-<li>4.4 <a href="#4-4-formality">formality</a></li>
+<li><a href="#person-name-object">Person Name Object</a></li>
+<li><a href="#person-name-attributes">Person Name Attributes</a><ul>
+<li><a href="#order">order</a></li>
+<li><a href="#length">length</a></li>
+<li><a href="#usage">usage</a></li>
+<li><a href="#formality">formality</a></li>
 </ul>
 </li>
-<li>5 <a href="#5-namepattern-syntax">namePattern Syntax</a><ul>
-<li>5.1 <a href="#5-1-fields">Fields</a></li>
-<li>5.2 <a href="#5-2-modifiers">Modifiers</a></li>
+<li><a href="#namepattern-syntax">namePattern Syntax</a><ul>
+<li><a href="#fields">Fields</a></li>
+<li><a href="#modifiers">Modifiers</a></li>
 </ul>
 </li>
-<li>6 <a href="#6-formatting-process">Formatting Process</a><ul>
-<li>6.1 <a href="#6-1-derive-the-name-locale">Derive the name locale</a></li>
-<li>6.2 <a href="#6-2-derive-the-formatting-locale">Derive the formatting locale</a></li>
-<li>6.3 <a href="#6-3-derive-the-name-order">Derive the name order</a></li>
-<li>6.4 <a href="#6-4-choose-a-personname">Choose a personName</a></li>
-<li>6.5 <a href="#6-5-choose-a-namepattern">Choose a namePattern</a></li>
-<li>6.6 <a href="#6-6-examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a><ul>
-<li>6.6.1 <a href="#examples-for-rules-1-and-2">Examples for rules 1 and 2</a></li>
-<li>6.6.2 <a href="#examples-for-rule-3-and-the-interaction-between-the-rules">Examples for rule 3 and the interaction between the rules</a></li>
+<li><a href="#formatting-process">Formatting Process</a><ul>
+<li><a href="#derive-the-name-locale">Derive the name locale</a></li>
+<li><a href="#derive-the-formatting-locale">Derive the formatting locale</a><ul>
+<li><a href="#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a></li>
 </ul>
 </li>
-<li>6.7 <a href="#6-7-deriving-initials">Deriving initials</a></li>
-<li>6.8 <a href="#6-8-handling-foreign-names">Handling foreign names</a></li>
+<li><a href="#derive-the-name-order">Derive the name order</a></li>
+<li><a href="#choose-a-personname-element">Choose a personName element</a></li>
+<li><a href="#choose-a-namepattern">Choose a namePattern</a></li>
+<li><a href="#access-personname-object">Access PersonName object</a><ul>
+<li><a href="#handle-missing-surname">Handle missing surname</a></li>
+<li><a href="#handle-core-and-prefix">Handle core and prefix</a></li>
+<li><a href="#derive-initials">Derive initials</a></li>
 </ul>
 </li>
-<li>7 <a href="#7-sample-name">Sample Name</a><ul>
-<li>7.1 <a href="#7-1-syntax">Syntax</a></li>
-<li>7.2 <a href="#7-2-expected-values">Expected values</a></li>
+<li><a href="#process-a-namepattern">Process a namePattern</a><ul>
+<li><a href="#handling-foreign-names">Handling foreign names</a></li>
+<li><a href="#setting-the-spacereplacement">Setting the spaceReplacement</a></li>
+<li><a href="#examples-of-space-replacement">Examples of space replacement</a></li>
 </ul>
 </li>
-<li>8 <a href="#8-personname-data-interface-examples">PersonName Data Interface Examples</a><ul>
-<li>8.1 <a href="#8-1-example-1">Example 1</a></li>
-<li>8.2 <a href="#8-2-example-2">Example 2</a></li>
+<li><a href="#formatting-examples">Formatting examples</a></li>
 </ul>
 </li>
-</ul><h2 id="1-cldr-person-names">1 <a name="CLDRPersonNames" href="#CLDRPersonNames">CLDR Person Names</a></h2><h3 id="11-introduction">1.1 <a name="Introduction" href="#Introduction">Introduction</a></h3><p>CLDR provides formatting for person names, such as John Smith or 宮崎駿. These use patterns to show how a name object (for example, from a database) should be formatted for a particular locale. Name data has fields for the parts of people’s names, such as a <strong>given</strong> field with a value of “Maria”, and a <strong>surname</strong> field value of “Schmidt”.</p><p>There is a wide variety in the way that people’s names appear in different languages.</p><ul>
+<li><a href="#sample-name">Sample Name</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#expected-values">Expected values</a></li>
+</ul>
+</li>
+<li><a href="#personname-data-interface-examples">PersonName Data Interface Examples</a><ul>
+<li><a href="#example-1">Example 1</a></li>
+<li><a href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul><h2 id="cldr-person-names">CLDR Person Names</h2><h3 id="introduction">Introduction</h3><p>CLDR provides formatting for person names, such as John Smith or 宮崎駿. These use patterns to show how a name object (for example, from a database) should be formatted for a particular locale. Name data has fields for the parts of people’s names, such as a <strong>given</strong> field with a value of “Maria”, and a <strong>surname</strong> field value of “Schmidt”.</p><p>There is a wide variety in the way that people’s names appear in different languages.</p><ul>
 <li>People may have a different number of names, depending on their culture—they might have only one name (“Zendaya”), two (“Albert Einstein”), or three or more.</li>
 <li>People may have multiple words in a particular name field, eg “Mary Beth” as a given name, or “van Berg” as a surname.</li>
 <li>Some languages, such as Spanish, have two surnames (where each can be composed of multiple words).</li>
 <li>The ordering of name fields can be different across languages, as well as the spacing (or lack thereof) and punctuation.</li>
 <li>Name formatting needs to be adapted to different circumstances, such as a need to be presented shorter or longer; formal or informal context; or when talking about someone, or talking to someone, or as a monogram (JFK).</li>
-</ul><p>This document provides the <a href="http://www.unicode.org/reports/tr35/">LDML</a> specification for formatting of personal names, using data, structure, and examples.</p><blockquote>
-<p><strong>This is a technology preview; thus not intended for production software (except where itself marked as a technology preview). We have gathered a first round of data, and intend to refine the way in which we gather data. We are looking for additional feedback on the tech preview so that we can make improvements. For example, there are a few areas where we intend enhancements: handling native vs foreign names (in the native script); handling prefix and suffix fields; and so on.</strong></p>
-</blockquote><p>The CLDR functionality is targeted at formatting names for typical usage on computers (e.g. contact names, automated greetings, etc.), rather than being designed for special circumstances or protocol, such addressing royalty. However, the structure may be enhanced in the future when it becomes clear that additional features are needed for some languages.</p><p>This addition to CLDR is based on review of current standards and practices that exist in LDAP, hcard, HTML and various other international standards and commercial implementations.</p><p>Additions to those structures were made to accomodate known issues in large population groups, such as mononyms in Indonesia, patronymic and matronymic naming structure in Iceland and India, the need for a second surname in Spanish-speaking regions and the common case of chains of patronymic names in Arabic-speaking locales. The formatting patterns allow for specifying different “input parameters” to account for different contexts.</p><h4 id="111-not-in-scope">1.1.1 <a name="not-in-scope" href="#not-in-scope">Not in scope</a></h4><p>The following features are currently out of scope for Person Names formating:</p><ul>
+</ul><p>This document provides the <a href="tr35.html">LDML</a> specification for formatting of personal names, using data, structure, and examples.</p><p>The CLDR functionality is targeted at formatting names for typical usage on computers (e.g. contact names, automated greetings, etc.), rather than being designed for special circumstances or protocol, such addressing royalty. However, the structure may be enhanced in the future when it becomes clear that additional features are needed for some languages.</p><p>This addition to CLDR is based on review of current standards and practices that exist in LDAP, OECD, S42, hCard, HTML and various other international standards and commercial implementations.</p><p>Additions to those structures were made to accommodate known issues in large population groups, such as mononyms in Indonesia, patronymic and matronymic naming structure in Iceland and India, the need for a second surname in Spanish-speaking regions and the common case of chains of patronymic names in Arabic-speaking locales. The formatting patterns allow for specifying different “input parameters” to account for different contexts.</p><h4 id="not-in-scope">Not in scope</h4><p>The following features are currently out of scope for Person Names formating:</p><ul>
 <li>Grammatical inflection of formatted names.</li>
 <li>Context-specific cultural aspects, such as when to use “-san” vs “-sama” when addressing a Japanese person.</li>
-<li>Providing lists of prefixes and suffixes (Mr, Ms., Mx., Dr., etc.).</li>
-<li>Distinctions among prefixes and suffixes, such as title (Dr., Prof., Sir), gender-honorifics, generation (Jr., IV), accreditations (MBA, Esq.).</li>
+<li>Providing locale-specific lists of titles, generation terms, and credentials for use in pull-down menus or validation (Mr, Ms., Mx., Dr., Jr., M.D., etc.).</li>
 <li>Validation of input, such as  which fields are required, and what characters are allowed.</li>
 <li>Combining alternative names, such as multicultural names in Hong Kong "<a href="https://en.wikipedia.org/wiki/Jackie_Chan">Jackie Chan Kong-Sang</a>”, or ‘Dwayne “The Rock” Johnson’.</li>
 <li>More than two levels of formality for names.</li>
@@ -452,21 +481,22 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ul>
 </li>
-</ul><h3 id="12-api-implementation">1.2 <a name="APIImplementation" href="#APIImplementation">API Implementation</a></h3><p>A Tech Preview API for formatting personal names is included in ICU. The implementation can be found at  <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a>.</p><h3 id="13-person-name-formatting-overview">1.3 <a name="PersonNameFormattingOverview" href="#PersonNameFormattingOverview">Person Name Formatting Overview</a></h3><p>Logically, the model used for applying the CLDR data is the following:</p><p><img src="images/personNamesFormatModel.png" alt="diagram showing relationship of components involved in person name formatting"></p><p>Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.</p><p>The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [<a href="#3-person-name-object">Person Name Object</a>].</p><p>The following summarizes the name data supplied via the PersonName Data Interface:</p><ul>
+</ul><h3 id="api-implementation">API Implementation</h3><p>A draft API for formatting personal names is included in ICU4J 73. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a> and <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/SimplePersonName.java">SimplePersonName.java</a>.</p><h3 id="person-name-formatting-overview">Person Name Formatting Overview</h3><p>Logically, the model used for applying the CLDR data is the following:</p><p><img src="images/personNamesFormatModel.png" alt="diagram showing relationship of components involved in person name formatting"></p><p>Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.</p><p>The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [<a href="#person-name-object">Person Name Object</a>].</p><p>The following summarizes the name data supplied via the PersonName Data Interface:</p><ul>
 <li>Name data is composed of one or more name parts, which are categorized in this standard as<ul>
-<li><em>prefix</em> - a string that may precede a name and may indicate an honorific, title, etc.</li>
+<li><em>title</em> - a string that represents one or more honorifics or titles, such as “Mr.”, or “Herr Doctor”.</li>
 <li><em>given</em> - usually a name given to someone that is not passed to a person by way of parentage</li>
 <li><em>given2</em> - name or names that may appear between the first given name string and the surname. In the West, this may be a middle name, in Slavic regions it may be a patronymic name, and in parts of the Middle East, it may be the <em>nasab (نسب)</em> or series of patronymics.</li>
 <li><em>surname</em> - usually the family name passed to a person that indicates their family, tribe, or community. In most Western languages, this is known as the last name.</li>
 <li><em>surname2</em> - in some cultures, both the parent’s surnames are used and need to be handled separately for formatting in different contexts.</li>
-<li><em>suffix</em> - a string that may succeed a person’s name to indicate status, generation, or title.</li>
-<li><em>See the section on [<a href="#5-1-fields">Fields</a>] for more details.</em></li>
+<li><em>generation</em> - a string that represents a generation marker, such as “Jr.” or “III”.</li>
+<li><em>credentials</em> - a string that represents one or more credentials or accreditations, such as “M.D.”, or “MBA”.</li>
+<li><em>See the section on [<a href="#fields">Fields</a>] for more details.</em></li>
 </ul>
 </li>
 <li>Name data may have additional attributes that this specification accommodates.<ul>
 <li><em>-informal</em> - A name may have a formal and an informal presentation form, for example “Bob” vs “Robert” or “Са́ша” vs “Алекса́ндра”. This is accomplished by using the simple construct <em>given-informal</em>.</li>
-<li><em>-prefix</em> and <em>-core</em> - In some languages the surname may have a prefix that needs to be treated differently, for example “van de Berg”. The data can refer to “van de” as <em>surname-prefix</em> and “Berg” with <em>surname-core</em> and the PersonNames formatters will format them correctly in Dutch and many other languages.</li>
-<li><em>See the section on [<a href="#5-2-modifiers">Modifiers</a>] for more details.</em></li>
+<li><em>-prefix</em> and <em>-core</em> - In some languages the surname may have a prefix that needs to be treated differently, for example “van den Berg”. The data can refer to “van den” as <em>surname-prefix</em> and “Berg” with <em>surname-core</em> and the PersonNames formatters will format them correctly in Dutch and many other languages.</li>
+<li><em>See the section on [<a href="#modifiers">Modifiers</a>] for more details.</em></li>
 </ul>
 </li>
 </ul><p>To format a name correctly, the correct context needs to be known. The context is composed of:</p><ul>
@@ -477,17 +507,17 @@ This is a stable document and may be used as reference material or cited as a no
 <li><strong><em>length</em></strong> - used to select patterns for common short, medium, and long formatted names.</li>
 <li><strong><em>usage</em></strong> - this is used to select the correct pattern to format a name when a program is <em>addressing</em> or talking to a person or it is <em>referring</em> to or talking about another person.</li>
 <li><strong><em>formality</em></strong> - This is used to select the formal or informal formatting of a name.</li>
-<li><em>See [<a href="#4-person-name-attributes">Person Name Attributes</a>] for more details.</em></li>
+<li><em>See [<a href="#person-name-attributes">Person Name Attributes</a>] for more details.</em></li>
 </ul>
 </li>
-</ul><h3 id="14-example-usage">1.4 <a name="ExampleUsage" href="#ExampleUsage">Example Usage</a></h3><p>As an example, consider a person’s name that may contain:</p><table>
+</ul><h3 id="example-usage">Example Usage</h3><p>As an example, consider a person’s name that may contain:</p><table>
 <thead>
 <tr>
-<th><code>prefix</code></th>
+<th><code>title</code></th>
 <th><code>given</code></th>
 <th><code>given2</code></th>
 <th><code>surname</code></th>
-<th><code>suffix</code></th>
+<th><code>credentials</code></th>
 </tr>
 </thead>
 <tbody><tr>
@@ -498,54 +528,45 @@ This is a stable document and may be used as reference material or cited as a no
 <td>Ph.D.</td>
 </tr>
 </tbody></table><p>If the selected personName data has the following formatting pattern:</p><blockquote>
-<p><code>{prefix} {given} {given2-initial} {surname}, {suffix}</code></p>
+<p><code>{title} {given} {given2-initial} {surname}, {credentials}</code></p>
 </blockquote><p>Then the output is:</p><blockquote>
 <p>Robin F. Wang, Ph.D.</p>
-</blockquote><p>The <em>prefix</em> field is empty, so both it and the space that follows it in the formatting pattern are omitted from the output, the <em>given2</em> field is formatted as an initial, and a preceding comma is placed before the <em>suffix</em>.</p><p>Sections below specify the precise manner in which a pattern is selected, and how the pattern is modified for missing fields.</p><h2 id="2-xml-structure">2 <a name="2-xml-structure" href="#2-xml-structure">XML Structure</a></h2><p>Person name formatting data is stored as LDML with schema defined as follows.</p><h3 id="21-personnames-element">2.1 <a name="2-1-personnames-element" href="#2-1-personnames-element">personNames Element</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personNames</span> ( <span class="hljs-keyword">nameOrderLocales</span>*, <span class="hljs-keyword">foreignSpaceReplacement</span>?, <span class="hljs-keyword">initialPattern</span>*, <span class="hljs-keyword">personName</span>+, <span class="hljs-keyword">sampleName</span>* ) &gt;</span>
-</code></pre><p>The LDML top-level <code>&lt;personNames&gt;</code> element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.</p><h3 id="22-personname-element">2.2 <a name="2-2-personname-element" href="#2-2-personname-element">personName Element</a></h3><p>The <code>&lt;personName&gt;</code> element contains the format patterns, or <code>&lt;namePattern&gt;</code> elements, for a specific context and is described in [<a href="#5-namepattern-syntax">namePattern Syntax</a>]</p><p>The <code>&lt;namePattern&gt;</code> syntax is described in [<a href="#6-formatting-process">Person Name Format Patterns</a>].</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personName</span> ( <span class="hljs-keyword">namePattern</span>+ ) &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+</blockquote><p>The <em>title</em> field is empty, so both it and the space that follows it in the formatting pattern are omitted from the output, the <em>given2</em> field is formatted as an initial, and a preceding comma is placed before the <em>credentials</em>.</p><p>Sections below specify the precise manner in which a pattern is selected, and how the pattern is modified for missing fields.</p><h2 id="xml-structure">XML Structure</h2><p>Person name formatting data is stored as LDML with schema defined as follows. Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in <a href="#formatting-process">Formatting Process</a>.</p><h3 id="personnames-element">personNames Element</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personNames</span> ( <span class="hljs-keyword">nameOrderLocales</span>*, <span class="hljs-keyword">foreignSpaceReplacement</span>?, <span class="hljs-keyword">initialPattern</span>*, <span class="hljs-keyword">personName</span>+, <span class="hljs-keyword">sampleName</span>* ) &gt;</span>
+</code></pre><p>The LDML top-level <code>&lt;personNames&gt;</code> element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.</p><h3 id="personname-element">personName Element</h3><p>The <code>&lt;personName&gt;</code> element contains the format patterns, or <code>&lt;namePattern&gt;</code> elements, for a specific context and is described in [<a href="#namepattern-syntax">namePattern Syntax</a>]</p><p>The <code>&lt;namePattern&gt;</code> syntax is described in [<a href="#formatting-process">Person Name Format Patterns</a>].</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personName</span> ( <span class="hljs-keyword">namePattern</span>+ ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><ul>
-<li><code>NMTOKENS</code> is a space delimited list of <code>( surnameFirst | givenFirst | sorting )</code></li>
-</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">length</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+<li><code>NMTOKEN</code> is one of <code>( surnameFirst | givenFirst | sorting )</code></li>
+</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">length</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><ul>
-<li><code>NMTOKENS</code> is a space delimited list of <code>( long | medium | short )</code></li>
-</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">usage</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+<li><code>NMTOKEN</code> is one of <code>( long | medium | short )</code></li>
+</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">usage</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><ul>
-<li><code>NMTOKENS</code> is a space delimited list of <code>( addressing | referring | monogram )</code></li>
-</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">formality</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+<li><code>NMTOKEN</code> is one of <code>( addressing | referring | monogram )</code></li>
+</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">formality</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><ul>
-<li><code>NMTOKENS</code> is a space delimited list of <code>( formal | informal )</code></li>
-</ul><p>The <code>&lt;personName&gt;</code> element has attributes of <code>order</code>, <code>length</code>, <code>usage</code>, and <code>formality</code>, and contains one or more <code>&lt;namePattern&gt;</code> elements.</p><ul>
-<li>For each attribute, there must be at least one attribute value, no value can occur twice, and order is not important (but the canonical order of elements is <code>order, length, usage, formality</code>). Thus<ul>
-<li><code>formality="informal informal"</code> is invalid,</li>
-<li>as is <code>formality=""</code>.</li>
-<li><code>formality="formal informal"</code> is valid and canonical</li>
-<li><code>formality="informal formal"</code> is valid, but not canonical</li>
-</ul>
-</li>
-<li>A missing attribute is equivalent to a list of all valid values for that attribute. For example, if <code>formality=...</code> is missing, it is equivalent to <code>formality="formal informal"</code>.</li>
-</ul><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">namePattern</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+<li><code>NMTOKEN</code> is one of <code>( formal | informal )</code></li>
+</ul><p>The <code>&lt;personName&gt;</code> element has attributes of <code>order</code>, <code>length</code>, <code>usage</code>, and <code>formality</code>, and contains one or more <code>&lt;namePattern&gt;</code> elements.</p><p>A missing attribute matches all valid values for that attribute. For example, if <code>formality=...</code> is missing, it is equivalent to multiple lines, one for each possible <code>formality</code> attribute.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">namePattern</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 </code></pre><p>A <code>namePattern</code> contains a list of PersonName fields enclosed in curly braces, separated by literals, such as:</p><blockquote>
 <p><code>&lt;namePattern&gt;{surname}, {given} {given2}&lt;/namePattern&gt;</code></p>
-</blockquote><p>which produces output like <em>“Smith, Robert James”</em>. See [<a href="#5-namepattern-syntax">namePattern Syntax</a>] for more details.</p><h3 id="23-nameorderlocales-element">2.3 <a name="2-3-nameorderlocales-element" href="#2-3-nameorderlocales-element">nameOrderLocales Element</a></h3><p>The <code>&lt;nameOrderLocales&gt;</code> element is optional, and contains information about selecting patterns based on the locale of a passed in PersonName object to determine the order of elements in a formatted name. For more information see [<a href="#6-3-derive-the-name-order">NameOrder</a>]. It has a structure as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">nameOrderLocales</span> `( <span class="hljs-keyword">#PCDATA</span> )`&gt;</span>
+</blockquote><p>which produces output like <em>“Smith, Robert James”</em>. See [<a href="#namepattern-syntax">namePattern Syntax</a>] for more details.</p><h3 id="nameorderlocales-element">nameOrderLocales Element</h3><p>The <code>&lt;nameOrderLocales&gt;</code> element is optional, and contains information about selecting patterns based on the locale of a passed in PersonName object to determine the order of elements in a formatted name. For more information see [<a href="#derive-the-name-order">NameOrder</a>]. It has a structure as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">nameOrderLocales</span> `( <span class="hljs-keyword">#PCDATA</span> )`&gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">nameOrderLocales</span> <span class="hljs-keyword">order</span> ( <span class="hljs-keyword">givenFirst</span> | <span class="hljs-keyword">surnameFirst</span> ) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><ul>
-<li><code>#PCDATA </code>is a space delimited list of one or more <a href="https://unicode.org/reports/tr35/#unicode_locale_id">unicode_locale_id</a>s. Normally they are limited to language, script, and region. The <em>und</em> locale ID may only occur once, either in <em>surnameFirst</em> or <em>givenFirst</em>, but not both, and matches all base locales not explicitly listed.</li>
+<li><code>#PCDATA </code>is a space delimited list of one or more <a href="tr35.html#unicode_locale_id">unicode_locale_id</a>s. Normally each locale is limited to language, script, and region. The <em>und</em> locale ID may only occur once, either in <em>surnameFirst</em> or <em>givenFirst</em>, but not both, and matches all base locales not explicitly listed.</li>
 </ul><p>An example from English may look like the following</p><blockquote>
 <p><code>&lt;nameOrderLocales order="givenFirst"&gt;und en&lt;/nameOrderLocales&gt;</code><br>
 <code>&lt;nameOrderLocales order="surnameFirst"&gt;ko vi yue zh&lt;/nameOrderLocales&gt;</code></p>
-</blockquote><p>This would tell the formatting code, when handling person name data from an English locale, to use patterns with the <code>givenFirst</code> order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the <code>surnameFirst</code> patterns should be used.</p><h3 id="24-foreignspacereplacement-element">2.4 <a name="2-4-foreignspacereplacement-element" href="#2-4-foreignspacereplacement-element">foreignSpaceReplacement Element</a></h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how delimiters should appear between name parts when the name data (name locale) is different from the requested locale (formatting locale)., but they both use the same script.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+</blockquote><p>This would tell the formatting code, when handling person name data from an English locale, to use patterns with the <code>givenFirst</code> order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the <code>surnameFirst</code> patterns should be used.</p><h3 id="foreignspacereplacement-element">foreignSpaceReplacement Element</h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is different from the formatting language.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">foreignSpaceReplacement</span> <span class="hljs-keyword">xml</span>:space <span class="hljs-keyword">preserve</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><ul>
 <li><code>xml:space</code> must be set to <code>'preserve'</code> so that actual spaces in the pattern are preserved. See <a href="https://www.w3.org/TR/xml/#sec-white-space">W3C XML White Space Handling</a>.</li>
-<li>The <code>#PCDATA </code>is the character sequence used to replace spaces between fields for name data from a name locale that is different from the formatting locale, but are in the same script.</li>
-</ul><h3 id="25-initialpattern-element">2.5 <a name="2-5-initialpattern-element" href="#2-5-initialpattern-element">initialPattern Element</a></h3><p>The <code>&lt;initialPattern&gt;</code> element is used to specify how to format initials of name parts.</p><p><strong><em>initial</em></strong> is a pattern used to display a single initial in the locale, while <strong><em>initialSequence</em></strong> is a pattern used to “glue” together multiple initials for multiword fields, for example with the given name “Mary Beth” in English.</p><h4 id="251-syntax">2.5.1 <a name="syntax" href="#syntax">Syntax</a></h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">initialPattern</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+<li>The <code>#PCDATA </code>is the character sequence used to replace spaces when postprocessing a pattern.</li>
+</ul><h3 id="initialpattern-element">initialPattern Element</h3><p>The <code>&lt;initialPattern&gt;</code> element is used to specify how to format initials of name parts.</p><p><strong><em>initial</em></strong> is a pattern used to display a single initial in the locale, while <strong><em>initialSequence</em></strong> is a pattern used to “glue” together multiple initials for multiword fields, for example with the given name “Mary Beth” in English.</p><h4 id="syntax">Syntax</h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">initialPattern</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">initialPattern</span> <span class="hljs-keyword">type</span> ( <span class="hljs-keyword">initial</span> | <span class="hljs-keyword">initialSequence</span>) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><p>The <code>type="initial"</code> is used to specify the pattern for how single initials are created, for example “Wolcott” =&gt; “W.” would have an entry of</p><blockquote>
 <p><code>&lt;initialPattern type="initial"&gt;{0}.&lt;/initialPattern&gt;</code></p>
 </blockquote><p><code>type="initialSequence</code>” is used to specify how a series of initials should appear, for example “Wolcott Janus” =&gt; “W. J.”, with spaces between each initial, would have a specifier of</p><blockquote>
 <p><code>&lt;initialPattern type="initialSequence"&gt;{0} {1}&lt;/initialPattern&gt;</code></p>
-</blockquote><h2 id="3-person-name-object">3 <a name="3-person-name-object" href="#3-person-name-object">Person Name Object</a></h2><p>The information that is to be formatted logically consists of a data object containing a number of fields. This data object is a construct for the purpose of formatting, and doesn’t represent the source of the name data. That is, the original source may contain more information. The PersonName object is merely a logical ‘transport’ of information to formatting; it may in actuality consist of, for example, an API that fetches fields from a database.</p><p>Note that an application might have more than one set of name data for a given person, such as data for both a legal name and a nickname or preferred name. Or the source data may contain two whole sets of name data for a person from an Eastern Slavic region, one in Cyrillic characters and one in Latin characters. Or it might contain phonetic data for a name (commonly used in Japan). The additional application-specific information in person’s names is out of scope for the CLDR Person Name formatting data. Thus a calling application may produce more than one PersonName object to format depending on the purpose.</p><p>For illustration, the following is a sample PersonName object.</p><table>
+</blockquote><h2 id="person-name-object">Person Name Object</h2><p>The information that is to be formatted logically consists of a data object containing a number of fields. This data object is a construct for the purpose of formatting, and doesn’t represent the source of the name data. That is, the original source may contain more information. The PersonName object is merely a logical ‘transport’ of information to formatting; it may in actuality consist of, for example, an API that fetches fields from a database.</p><p>Note that an application might have more than one set of name data for a given person, such as data for both a legal name and a nickname or preferred name. Or the source data may contain two whole sets of name data for a person from an Eastern Slavic region, one in Cyrillic characters and one in Latin characters. Or it might contain phonetic data for a name (commonly used in Japan). The additional application-specific information in person’s names is out of scope for the CLDR Person Name formatting data. Thus a calling application may produce more than one PersonName object to format depending on the purpose.</p><p>For illustration, the following is a sample PersonName object.</p><table>
 <thead>
 <tr>
 <th>Field</th>
@@ -554,7 +575,7 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 </thead>
 <tbody><tr>
-<td><code>prefix</code></td>
+<td><code>title</code></td>
 <td>“Dr.”</td>
 <td></td>
 </tr>
@@ -586,13 +607,13 @@ This is a stable document and may be used as reference material or cited as a no
 <tr>
 <td><code>preferredOrder</code></td>
 <td>“givenFirst”</td>
-<td>this too</td>
+<td>values are givenFirst and surnameFirst</td>
 </tr>
-</tbody></table><p>A PersonName object is logically composed of the fields above plus other possible variations. See [<a href="#5-1-fields">Fields</a>]. There must be at least one field present: either a <code>given</code> or <code>surname</code> field. Other fields are optional, and some of them can be constructed from other fields if necessary.</p><p>A modifier is supplied, <em>-informal</em>, which can be used to indicate which data element to choose when formatting informal cases which might include nicknames or preferred names. For more details, see section on [<em><a href="#5-2-modifiers">Modifiers</a></em>] in <a href="#5-namepattern-syntax">namePattern Syntax</a> below.</p><h2 id="4-person-name-attributes">4 <a name="4-person-name-attributes" href="#4-person-name-attributes">Person Name Attributes</a></h2><p>A person name pattern may have any of four attributes: order, length, usage, and formality. LDML specifies that all the values for these attributes are unique. For example, because length=long is valid, usage=long cannot also be valid. That allows the pattern labels to be simple, because the attribute names can be skipped. That is,</p><blockquote>
+</tbody></table><p>A PersonName object is logically composed of the fields above plus other possible variations. See [<a href="#fields">Fields</a>]. There must be at least one field present: either a <code>given</code> or <code>surname</code> field. Other fields are optional, and some of them can be constructed from other fields if necessary.</p><p>A modifier is supplied, <em>-informal</em>, which can be used to indicate which data element to choose when formatting informal cases which might include nicknames or preferred names. For more details, see section on [<em><a href="#modifiers">Modifiers</a></em>] in <a href="#namepattern-syntax">namePattern Syntax</a> below.</p><h2 id="person-name-attributes">Person Name Attributes</h2><p>A person name pattern may have any of four attributes: order, length, usage, and formality. LDML specifies that all the values for these attributes are unique. For example, because length=long is valid, usage=long cannot also be valid. That allows the pattern labels to be simple, because the attribute names can be skipped. That is,</p><blockquote>
 <p><code>{order=givenFirst, length=long, usage=referring, formality=formal}</code></p>
 </blockquote><p>can be abbreviated without loss of information as:</p><blockquote>
 <p><em>givenFirst-long-referring-formal.</em></p>
-</blockquote><p>Each of these attributes are described below using sample PersonName objects as examples.</p><h3 id="41-order">4.1 <a name="4-1-order" href="#4-1-order">order</a></h3><p>The order attribute is used for patterns with different orders of fields. The order=sorting patterns are chosen based on input parameters, while the choice between givenFirst and surnameFirst is based on features of the PersonName object to be formatted and the nameOrder element values.</p><table>
+</blockquote><p>Each of these attributes are described below using sample PersonName objects as examples.</p><h3 id="order">order</h3><p>The order attribute is used for patterns with different orders of fields. The order=sorting patterns are chosen based on input parameters, while the choice between givenFirst and surnameFirst is based on features of the PersonName object to be formatted and the nameOrder element values.</p><table>
 <thead>
 <tr>
 <th>Parameter</th>
@@ -609,9 +630,9 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 <tr>
 <td><code>sorting</code></td>
-<td>Used to format names for a for a sorted list.<br>example: “Brown, William”  [medium, informal]</td>
+<td>Used to format names for a sorted list.<br>example: “Brown, William”  [medium, informal]</td>
 </tr>
-</tbody></table><p>For example, when the display language is Japanese, it is customary to use <em>surnameFirst</em> for names of people from Japan and Hungary, but use <em>givenFirst</em> for names of people from the United States and France. Although the English pattern for sorting is distinct from the other patterns (except for unusual names), that is not necessarily the case in other languages.</p><h3 id="42-length">4.2 <a name="4-2-length" href="#4-2-length">length</a></h3><p>The <code>length</code> attribute specifies the relative length of a formatted name depending on context. For example, a <code>long</code> formal name in English would include prefix, given, given2, surname plus suffix; whereas a <code>short</code> informal name may only be the given name.</p><p>Note that the formats may be the same for different lengths depending on the formality, usage, and cultural conventions for the locale. For example, medium and short may be the same for a particular context.</p><table>
+</tbody></table><p>For example, when the display language is Japanese, it is customary to use <em>surnameFirst</em> for names of people from Japan and Hungary, but use <em>givenFirst</em> for names of people from the United States and France. Although the English pattern for sorting is distinct from the other patterns (except for unusual names), that is not necessarily the case in other languages.</p><h3 id="length">length</h3><p>The <code>length</code> attribute specifies the relative length of a formatted name depending on context. For example, a <code>long</code> formal name in English might include title, given, given2, surname plus generation and credentials; whereas a <code>short</code> informal name may only be the given name.</p><p>Note that the formats may be the same for different lengths depending on the formality, usage, and cultural conventions for the locale. For example, medium and short may be the same for a particular context.</p><table>
 <thead>
 <tr>
 <th>Parameter</th>
@@ -630,7 +651,7 @@ This is a stable document and may be used as reference material or cited as a no
 <td><code>short</code></td>
 <td>A <code>short</code> length uses a minimum set of names.<br>Example: <code>usage="referring", formality="formal"</code><br><em>“Mr. Smith”</em></td>
 </tr>
-</tbody></table><h3 id="43-usage">4.3 <a name="4-3-usage" href="#4-3-usage">usage</a></h3><p>The usage indicates if the formatted name is being used to address someone, refer to someone, or present their name in an abbreviated form.</p><p>The pattern for <code>usage="referring"</code> may be the same as the pattern for <code>usage="addressing"</code>.</p><table>
+</tbody></table><h3 id="usage">usage</h3><p>The usage indicates if the formatted name is being used to address someone, refer to someone, or present their name in an abbreviated form.</p><p>The pattern for <code>usage="referring"</code> may be the same as the pattern for <code>usage="addressing"</code>.</p><table>
 <thead>
 <tr>
 <th>Parameter</th>
@@ -639,15 +660,15 @@ This is a stable document and may be used as reference material or cited as a no
 </thead>
 <tbody><tr>
 <td><code>addressing</code></td>
-<td>Used when speaking “to” a person, or “vocative” case. This may also have an effect on the formality.<br>example: “Robert” [medium, informal]</td>
+<td>Used when speaking “to” a person, or “vocative” case. This may also have an effect on the formality.<br>example: “Welcome, <strong>Robert</strong>”</td>
 </tr>
 <tr>
 <td><code>referring</code></td>
-<td>Used when speaking “about” a person, or “nominative” case.<br>example: “Robert Smith”  [medium, informal]</td>
+<td>Used when speaking “about” a person, or “nominative” case.<br>example: “<strong>Robert Smith</strong> joined your group”</td>
 </tr>
 <tr>
 <td><code>monogram</code></td>
-<td>The <code>monogram</code> usage is for a specific abbreviated form.<br>Example: monogram for Robert James Smith may be “RS” or “RJS”.<br><code>usage=”referring”, formality=”formal”</code><br><em>“RJS”</em></td>
+<td>The <code>monogram</code> usage is for a specific abbreviated form for computer UI.<br>Example: a monogram for Robert James Smith may be <strong>RS</strong> or <strong>RJS</strong>.</td>
 </tr>
 </tbody></table><p>Slavic languages provide a good  example of <code>addressing</code> vs <code>referring</code>. An example <em>uk-Cyrl</em> PersonName object:</p><table>
 <thead>
@@ -658,7 +679,7 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 </thead>
 <tbody><tr>
-<td><code>prefix</code></td>
+<td><code>title</code></td>
 <td>“г-н”</td>
 <td>“Mr.”</td>
 </tr>
@@ -681,7 +702,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li>г-н Иван Петрович Васильев <code>// "Mr Ivan Petrovich Vasiliev"</code></li>
 </ul><p>And when <em><code>referring</code></em> to a person, it might place the surname first.:</p><ul>
 <li>Васильев Иван Петрович <code>// "Vasiliev Ivan Petrovich"</code></li>
-</ul><p>The <code>monogram</code> usage is for very short abbreviated names, such as might be found in online messaging text avatars or other annotations. Ideally, a <code>monogram</code> format should result in something that could fit in an em square. Some emoji provide examples of this: 🅰️ 🆎 🆘</p><p>When used with <code>length</code>, for many alphabetic locales a <code>monogram</code> would resolve to one, two, or three characters for short, medium, and long respectively. But that may vary depending on the usage in a locale.</p><h3 id="44-formality">4.4 <a name="4-4-formality" href="#4-4-formality">formality</a></h3><p>The <code>formality</code> indicates the formality of usage. A name on a badge for an informal gathering may be much different from an award announcement at the Nobel Prize Ceremonies.</p><p>Note that the formats may be the same for different formality scenarios depending on the length, usage, and cultural conventions for the locale. For example short formal and short informal may both be just the given name.</p><table>
+</ul><p>The <code>monogram</code> usage is for very short abbreviated names, such as might be found in online messaging text avatars or other annotations. Ideally, a <code>monogram</code> format should result in something that could fit in an em square. Some emoji provide examples of this: 🅰️ 🆎 🆘</p><p>When used with <code>length</code>, for many alphabetic locales a <code>monogram</code> would resolve to one, two, or three characters for short, medium, and long respectively. But that may vary depending on the usage in a locale.</p><h3 id="formality">formality</h3><p>The <code>formality</code> indicates the formality of usage. A name on a badge for an informal gathering may be much different from an award announcement at the Nobel Prize Ceremonies.</p><p>Note that the formats may be the same for different formality scenarios depending on the length, usage, and cultural conventions for the locale. For example short formal and short informal may both be just the given name.</p><table>
 <thead>
 <tr>
 <th>Parameter</th>
@@ -690,13 +711,13 @@ This is a stable document and may be used as reference material or cited as a no
 </thead>
 <tbody><tr>
 <td><code>formal</code></td>
-<td>A more formal name for the individual. The composition depends upon the language. For example, a particular locale might include the prefix and suffix and a full middle name (given2) in the long form.<br><br><code>length="medium", formality="formal"</code><br>“Robert J. Smith”</td>
+<td>A more formal name for the individual. The composition depends upon the language. For example, a particular locale might include the title, generation, credentials and a full middle name (given2) in the long form.<br><br><code>length="medium", formality="formal"</code><br>“Robert J. Smith”</td>
 </tr>
 <tr>
 <td><code>informal</code></td>
-<td>A less formal name for the individual. The composition depends upon the language. For example, a language might exclude the prefix, suffix and given2 (middle) name. Depending on the length, it may also exclude the surname. The formatting algorithm should choose any passed in name data that has an <em>informal</em> attribute, if available.<br><br><code>length="medium", formality="informal"</code><br>“Bob Smith”</td>
+<td>A less formal name for the individual. The composition depends upon the language. For example, a language might exclude the title, credentials and given2 (middle) name. Depending on the length, it may also exclude the surname. The formatting algorithm should choose any passed in name data that has an <em>informal</em> attribute, if available.<br><br><code>length="medium", formality="informal"</code><br>“Bob Smith”</td>
 </tr>
-</tbody></table><h2 id="5-namepattern-syntax">5 <a name="5-namepattern-syntax" href="#5-namepattern-syntax">namePattern Syntax</a></h2><p>A <em>namePattern</em>  is composed of a sequence of field IDs, each enclosed in curly braces, and separated by zero or more literal characters (eg, space or comma + space). An Extended Backus Normal Form (EBNF) is used to describe the namePattern format for a specific set of attributes. It has the following structure. This is the <code>( #PCDATA )</code> reference in the element specification above.</p><table>
+</tbody></table><h2 id="namepattern-syntax">namePattern Syntax</h2><p>A <em>namePattern</em>  is composed of a sequence of field IDs, each enclosed in curly braces, and separated by zero or more literal characters (eg, space or comma + space). An Extended Backus Normal Form (EBNF) is used to describe the namePattern format for a specific set of attributes. It has the following structure. This is the <code>( #PCDATA )</code> reference in the element specification above.</p><table>
 <thead>
 <tr>
 <th></th>
@@ -716,20 +737,20 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 <tr>
 <td>field</td>
-<td>= 'prefix'<br>| 'given'<br>| 'given2'<br>| 'surname'<br>| 'surname2'<br>| 'suffix' ;</td>
-<td>See <a href="#5-1-fields">Fields</a></td>
+<td>= 'title'<br>| 'given'<br>| 'given2'<br>| 'surname'<br>| 'surname2'<br>|  'generation'<br>| 'credentials' ;</td>
+<td>See <a href="#fields">Fields</a></td>
 </tr>
 <tr>
 <td>modifierList</td>
 <td>= '-informal'?<br><span style="white-space:nowrap">( '-allCaps' | ‘-initialCap' )?;</span><br><span style="white-space:nowrap">( '-initial'  | '-monogram' )?</span><br><span style="white-space:nowrap">( '-prefix' | '-core' )?</span></td>
-<td>Optional modifiers that can be applied to name parts, see <a href="#5-2-modifiers">Modifiers</a>. Note that some modifiers are exclusive: only <code>prefix</code> or <code>core</code>, only <code>initial</code> or <code>monogram</code>, only <code>allCaps</code> or <code>initialCap</code>.</td>
+<td>Optional modifiers that can be applied to name parts, see <a href="#modifiers">Modifiers</a>. Note that some modifiers are exclusive: only <code>prefix</code> or <code>core</code>, only <code>initial</code> or <code>monogram</code>, only <code>allCaps</code> or <code>initialCap</code>.</td>
 </tr>
 <tr>
 <td>literal</td>
 <td>= codepoint+ ;</td>
 <td>One or more Unicode codepoints.</td>
 </tr>
-</tbody></table><h3 id="51-fields">5.1 <a name="5-1-fields" href="#5-1-fields">Fields</a></h3><p>The Person Name formatting data assumes that the name data to be formatted consists of the fields in the table below. All of the fields may contain multiple words. Field IDs are lowercase ASCII alphanumeric, and start with an alphabetic character.</p><p>When determining how a full name is to be placed into name fields, the data to be formatted should be organized functionally. That is, if a name part is on the dividing line between <code>given2</code> and <code>given</code>, the key feature is whether it would always occur with the rest of the given name. For example, in <em>“Mary Jean Smith”</em>, if <em>“Mary”</em> never occurs without the <em>“Jean”</em>, then the given name should be <em>“Mary Jean”</em>. If <em>“Smith”</em> never occurs without the <em>“Jean”</em>, the <code>surname</code> should be <em>“Jean Smith”</em>. Otherwise, <em>“Jean”</em> would be the <code>given2</code> field.</p><p>For example, a patronymic would be treated as a <code>given2</code> name in most slavic languages.</p><p>In some cultures, two surnames are used to indicate the paternal and maternal family names or generational names indicating father, grandfather. The <code>surname2</code> field is used to indicate this. The CLDR PersonName formatting data assumes that if a PersonName object to be formatted does not have two surnames, then the <code>surname2</code> field is not populated. (That is, no pattern should have a <code>surname2</code> field without a surname field.) Order of fields in a pattern can vary arbitrarily by locale.</p><p>In most cultures, there is a concept of nickname or preferred name, which is used in informal settings or sometimes to represent a “public” or “stage name”. The nickname or preferred name may be submitted as a separate PersonName object to be formatted, or included with a modifier such as <code>given-informal</code>.</p><table>
+</tbody></table><h3 id="fields">Fields</h3><p>The Person Name formatting data assumes that the name data to be formatted consists of the fields in the table below. All of the fields may contain multiple words. Field IDs are lowercase ASCII alphanumeric, and start with an alphabetic character.</p><p>When determining how a full name is to be placed into name fields, the data to be formatted should be organized functionally. That is, if a name part is on the dividing line between <code>given2</code> and <code>given</code>, the key feature is whether it would always occur with the rest of the given name. For example, in <em>“Mary Jean Smith”</em>, if <em>“Mary”</em> never occurs without the <em>“Jean”</em>, then the given name should be <em>“Mary Jean”</em>. If <em>“Smith”</em> never occurs without the <em>“Jean”</em>, the <code>surname</code> should be <em>“Jean Smith”</em>. Otherwise, <em>“Jean”</em> would be the <code>given2</code> field.</p><p>For example, a patronymic would be treated as a <code>given2</code> name in most slavic languages.</p><p>In some cultures, two surnames are used to indicate the paternal and maternal family names or generational names indicating father, grandfather. The <code>surname2</code> field is used to indicate this. The CLDR PersonName formatting data assumes that if a PersonName object to be formatted does not have two surnames, then the <code>surname2</code> field is not populated. (That is, no pattern should have a <code>surname2</code> field without a surname field.) Order of fields in a pattern can vary arbitrarily by locale.</p><p>In most cultures, there is a concept of nickname or preferred name, which is used in informal settings or sometimes to represent a “public” or “stage name”. The nickname or preferred name may be submitted as a separate PersonName object to be formatted, or included with a modifier such as <code>given-informal</code>.</p><table>
 <thead>
 <tr>
 <th>Field</th>
@@ -737,8 +758,8 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 </thead>
 <tbody><tr>
-<td><code>prefix</code></td>
-<td>Typically a title, honorific, or generational qualifier.<br>Example: ‘Ms.’, ‘Mr.’, ’Dr’, ‘President’<br><br>Note that CLDR PersonName formats data does not define regional or locale-specific lists of prefixes, honorifics, or titles such as “Mr”, “Ms”, “Mx”, “Prof”, “Jr”, etc.</td>
+<td><code>title</code></td>
+<td>A title or honorific qualifier.<br>Example: ‘Ms.’, ‘Mr.’, ’Dr’, ‘President’<br><br>Note that CLDR PersonName formats data does not define regional or locale-specific lists of titles or honorifics such as “Mr”, “Ms”, “Mx”, “Prof”, etc.</td>
 </tr>
 <tr>
 <td><code>given</code></td>
@@ -757,8 +778,12 @@ This is a stable document and may be used as reference material or cited as a no
 <td>Secondary surname (used in some cultures), such as second or maternal surname in Mexico and Spain. This field is separate from the “surname” field because it is often optional in various presentation forms, and is considered a separate distinct name in some cultures.<br><br>Example: “Barrientos” in “Diego Rivera Barrientos”;<br><code>{ given: "Diego", surname: "Rivera", </code><strong><code>surname2: "Barrientos"</code></strong><code> }</code><br><br>Example: if "Mary Jane Smith" moves to Spain the new name may be<br><code>{ given: "Mary", given2: "Jane", surname: "Smith", </code><strong><code>surname2: "Jones"</code></strong><code> }</code></td>
 </tr>
 <tr>
-<td><code>suffix</code></td>
-<td>Typically a title, honorific, or generational qualifier.<br>Example: “PhD”, “Jr.”<br><br>Example: “Sonny Jarvis Jr.”<br><code>{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", </code><strong><code>suffix: "Jr."</code></strong><code> }</code><br><br>An alternate PersonName object may be presented for formatting using the “stage” name from the application’s data:<br><code>{ given: "Salvatore", given-informal: "Sonny", given2: "", surname: "Jarvis", </code><strong><code>suffix: "Jr."</code></strong><code> }</code></td>
+<td><code>credentials</code></td>
+<td>A credential or accreditation qualifier.<br>Example: “PhD”, “MBA”<br><br>Example: “Salvatore Jarvis MBA”<br><code>{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", </code><strong><code>credentials: "MBA"</code></strong><code> }</code><br><br>An alternate PersonName object may be presented for formatting using the “stage” name from the application’s data:<br><code>{ given: "Salvatore", given-informal: "Salvatore", given2: "", surname: "Jarvis", </code><strong><code>credentials: "MBA"</code></strong><code> }</code></td>
+</tr>
+<tr>
+<td><code>generation</code></td>
+<td>A generation qualifier.<br>Example: “III”, “Jr.”<br><br>Example: “Sonny Jarvis Jr.”<br><code>{ given: "Salvatore", given2: "Blinken", surname: "Jarvis", </code><strong><code>generation: "Jr."</code></strong><code> }</code></td>
 </tr>
 </tbody></table><p>Some other examples:</p><ul>
 <li>British name: <em>John Ronald Reuel Tolkien</em>: <code>given</code> name is "John", <code>given2</code> name would be  "Ronald Reuel", and the <code>surame</code> is "Tolkien".</li>
@@ -770,7 +795,7 @@ This is a stable document and may be used as reference material or cited as a no
 </ul><p>Note: If the legal name, stage name, etc. are substantially different, then that information can be logically in a separate PersonName object. That is, it is up to the implementation to maintain any distinctions that are important to it: CLDR PersonName formats is focusing on formatting a PersonName object that is given to it.</p><p><code>surname2</code> would only be asked for in certain locales, and where it is considered a separate, divisible name, such as in Mexico or Spain. For instance, in Mexico, the first and second surname are used for the legal name and in formal settings, and sometimes only the first surname is used in familiar or informal contexts.</p><ul>
 <li>Heathcote-Drummond is a single surname and would not be <code>{surname}-{surname2}</code> because we would never discard part of the name when formatting.</li>
 <li>Spanish name: "Jose Luis Garcia Barrientos":   The <code>given</code> name is “Jose”, the <code>given2</code> name is “Luis”, the <code>surname</code> is "Garcia”, and the <code>surname2</code> is “Barrientos"</li>
-</ul><p>How names get placed into fields to be formatted is beyond the scope of CLDR PersonName formats; this document just lays out the assumptions the formatting code makes when formatting the names.</p><h3 id="52-modifiers">5.2 <a name="5-2-modifiers" href="#5-2-modifiers">Modifiers</a></h3><p>Each field in a pattern can have one or more modifiers. The modifiers can be appended to any field name, such as <code>{given-initial}</code> for the first grapheme of the given name. If more than one modifier is applied, they must be structured as in the EBNF.</p><p>The modifiers transform the input data as described in the following table:</p><table>
+</ul><p>How names get placed into fields to be formatted is beyond the scope of CLDR PersonName formats; this document just lays out the assumptions the formatting code makes when formatting the names.</p><h3 id="modifiers">Modifiers</h3><p>Each field in a pattern can have one or more modifiers. The modifiers can be appended to any field name, such as <code>{given-initial}</code> for the first grapheme of the given name. If more than one modifier is applied, they must be structured as in the EBNF.</p><p>The modifiers transform the input data as described in the following table:</p><table>
 <thead>
 <tr>
 <th>Modifier</th>
@@ -795,7 +820,7 @@ This is a stable document and may be used as reference material or cited as a no
 </tr>
 <tr>
 <td>initialCap</td>
-<td>Request the element with the first grapheme capitalized, and remaining characters unchanged. This is used in cases where an element is usually in lower case but may need to be modified. For example in Dutch, the name<br>{ prefix: “dhr.”, given: ”Johannes”, surname: “van den Berg” },<br>when addressed formally, would need to be “dhr. Van den Berg”. This would be represented as<br>“{prefix} {surname-initialCap}”<br><br>Only the <em>“-allCaps”</em> or the <em>“-initalCap”</em> modifier may be used, but not both. They are mutually exclusive.</td>
+<td>Request the element with the first grapheme capitalized, and remaining characters unchanged. This is used in cases where an element is usually in lower case but may need to be modified. For example in Dutch, the name<br>{ title: “dhr.”, given: ”Johannes”, surname: “van den Berg” },<br>when addressed formally, would need to be “dhr. Van den Berg”. This would be represented as<br>“{title} {surname-initialCap}”<br><br>Only the <em>“-allCaps”</em> or the <em>“-initalCap”</em> modifier may be used, but not both. They are mutually exclusive.</td>
 </tr>
 <tr>
 <td>initial</td>
@@ -808,28 +833,24 @@ This is a stable document and may be used as reference material or cited as a no
 </tbody></table><p>There may be more modifiers in the future.</p><p>Examples:</p><ol>
 <li>For the initial of the surname <strong><em>“de Souza”</em></strong>, in a language that treats the “de” as a tussenvoegsel, the PersonName object can automatically recast <code>{surname-initial}</code> to:<br><code>{surname-prefix-initial}{surname-core-initial-allCaps} </code>to get “dS” instead of “d”.</li>
 <li>If the locale expects a surname prefix to to be sorted after a surname, then both <code>{surname-core} </code>then <code>{surname-prefix}</code> would be used as in<br><code>{surname-core}, {given} {given2} {surname-prefix}</code></li>
-</ol><h2 id="6-formatting-process">6 <a name="6-formatting-process" href="#6-formatting-process">Formatting Process</a></h2><p>The patterns are in personName elements, which are themselves in a personNames container element. The following describes how these patterns are chosen. If the name locale is different than the formatting locale, then additional processing needs to take place: see <a href="#6-8-handling-foreign-names">Handling foreign names</a>.</p><p>The details of the XML structure behind the data referenced here are in <a href="#2-xml-structure">XML Structure</a>.</p><h3 id="61-derive-the-name-locale">6.1 <a name="6-1-derive-the-name-locale" href="#6-1-derive-the-name-locale">Derive the name locale</a></h3><p>Create a <strong>full name locale</strong> as follows.</p><ol>
-<li>First, let the <strong>full formatting locale</strong> be the fully-fleshed-out formatting locale using likely subtags.</li>
-<li>If there is a name locale available via the PersonName data interface, obtain the full name locale from the name locale using likely subtags. Thus de ⇒ de_Latn_de.</li>
-<li>Otherwise the full name locale is created based on the characters in the name and the full formatting locale, as follows:<ol>
-<li>Find the predominant script for the name in the following way.<ol>
-<li>For each character in the given and surname, find the script(s) of the character using the Script_Extensions property.</li>
-<li>For each of those scripts, increment a counter for that script, and record the position of the first character encountered in that script.</li>
+</ol><h2 id="formatting-process">Formatting Process</h2><p>The patterns are in <strong>personName</strong> elements, which are themselves in a <strong>personNames</strong> container element. The following describes how the formatter's locale interacts with the personName's locale, how the name patterns are chosen, and how they are processed.</p><p>The details of the XML structure behind the data referenced here are in <a href="#xml-structure">XML Structure</a>.</p><p>The formatting process may be refined in the future. In particular, additional data may be added to allow further customization.</p><p>The term <strong>maximal likely locale</strong> used below is the result of using the <a href="tr35.html#Likely_Subtags">Likely Subtags</a> data to map from a locale to a full representation that includes the base language, script, and region.</p><h3 id="derive-the-name-locale">Derive the name locale</h3><p>Construct the <strong>name script</strong> in the following way.</p><ol>
+<li>Iterate through the characters of the surname, then through the given name.<ol>
+<li>Find the script of that character using the Script property.</li>
+<li>If the script is not Common, Inherited, nor Unknown, return that script as the <strong>name script</strong></li>
 </ol>
 </li>
-<li>The predominant script is the script with the highest counter value.<ol>
-<li>In the rare case that there are multiple counters with the highest counter value, take the one with the lowest first position.</li>
-<li>In the even rarer case that there is still more than one, use the script whose script code is alphabetically lowest. (These two steps are simply to guarantee a determinant result.)</li>
-</ol>
-</li>
-<li>If the predominant script is the same as the script of the full formatting locale, then let the full name locale be the full formatting locale.</li>
-<li>Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.</li>
-</ol>
-</li>
-</ol><p>In all steps below, the "name locale" is the full name locale.</p><h3 id="62-derive-the-formatting-locale">6.2 <a name="6-2-derive-the-formatting-locale" href="#6-2-derive-the-formatting-locale">Derive the formatting locale</a></h3><p>If the full name locale is different from the full formatting locale, and the predominant script of the name is different from the script of the formatting locale, then let the full formatting locale be the full name locale.</p><p>In all steps below, the "formatting locale" is the full formatting locale.</p><h3 id="63-derive-the-name-order">6.3 <a name="6-3-derive-the-name-order" href="#6-3-derive-the-name-order">Derive the name order</a></h3><p>A PersonName object’s fields are used to derive an order, as follows:</p><ol>
-<li>If the PersonName object to be formatted has a <code>preferredOrder</code> field, then return that field’s value</li>
-<li>Otherwise use the nameOrderLocales elements to find the most best match for the full name locale, as follows.<ol>
-<li>For each locale L1 in the parent locale lookup chain* for the full name locale, do the following<ol>
+<li>If nothing is found during the iteration, return Zzzz (Unknown Script)</li>
+</ol><p>Construct the <strong>name base language</strong> in the following way.</p><ol>
+<li>If the PersonName object can provide a name locale, return its language.</li>
+<li>Otherwise, find the maximal likely locale for the name script and return its base language (first subtag).</li>
+</ol><p>Construct the <strong>name locale</strong> in the following way:</p><ol>
+<li>If the PersonName object can provide a name locale, return a locale formed from it by replacing its script by the name script.</li>
+<li>Otherwise, return the locale formed from the name base language plus name script.</li>
+</ol><h3 id="derive-the-formatting-locale">Derive the formatting locale</h3><p>Let the <strong>full formatting locale</strong> be the maximal likely locale for the formatter's locale. The <strong>formatting base language</strong> is the base language (first subtag) of the full formatting locale, and the <strong>formatting script</strong> is the script code of the full formatting locale.</p><h4 id="switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</h4><p>A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to <em>match</em> when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.</p><p>If the <strong>name script</strong> doesn't match the <strong>formatting script</strong>, then the name is formatted with the name locale, <em><strong>not</strong></em> the originally requested formatting locale. For example, when a Hindi formatter (hi-Deva) is called upon to format a name with the Ukrainian (Cyrillic) locale (uk-Cyrl), under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name.</p><h3 id="derive-the-name-order">Derive the name order</h3><p>A PersonName object’s fields are used to derive an order, as follows:</p><ol>
+<li>If the calling API requests sorting order, that is used.</li>
+<li>Otherwise, if the PersonName object to be formatted has a <code>preferredOrder</code> field, then return that field’s value</li>
+<li>Otherwise, use the nameOrderLocales elements to find the best match for the name locale, as follows.<ol>
+<li>For each locale L1 in the parent locale lookup chain* for the name object’s locale, do the following<ol>
 <li>Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')</li>
 <li>For each locale L in {L1, L2}, do the following<ol>
 <li>If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.</li>
@@ -840,10 +861,10 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ol>
 </li>
-</ol><p>For example, here is a parent locale lookup chain:</p><pre><code>de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
-</code></pre><p>In other words, you'll check the givenFirst and surnameFirst resources for the following locales, in this order:</p><pre><code>de_Latn_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
-</code></pre><p>This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements.</p><p>For example, the data for a particular locale might look like the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">nameOrderLocales</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"surnameFirst"</span>&gt;</span>zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP<span class="hljs-tag">&lt;/<span class="hljs-name">nameOrderLocales</span>&gt;</span>
-</code></pre><p>The nameOrderLocales will match any locale with a zh or ja <a href="https://unicode.org/reports/tr35/#unicode_language_subtag">unicode_language_subtag</a> and any locale with a CN, TW, SG, HK MO, HU, or JP <a href="https://unicode.org/reports/tr35/#unicode_region_subtag">unicode_region_subtag</a>.</p><p>Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.</p><table>
+</ol><p>* For example, here is a parent locale lookup chain:</p><pre><code>de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und
+</code></pre><p>In other words, with the name locale of <code>de_Latin_DE</code> you'll check the givenFirst and surnameFirst resources for the following locales, in this order:</p><pre><code>de_Latin_DE, und_Latn_DE, de_Latn, und_Latn, de_DE, und_DE, de, und
+</code></pre><p>This process will always terminate, because there is always a und value in one of the two nameOrderLocales elements. Remember that the lookup chain requires use of the parentLocales elements: it is not just truncation.</p><p>For example, the data for a particular locale might look like the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">nameOrderLocales</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"surnameFirst"</span>&gt;</span>zh ja und-CN und-TW und-SG und-HK und-MO und-HU und-JP<span class="hljs-tag">&lt;/<span class="hljs-name">nameOrderLocales</span>&gt;</span>
+</code></pre><p>These nameOrderLocales will match any locale with a zh or ja <a href="tr35.html#unicode_language_subtag">unicode_language_subtag</a> and any locale with a CN, TW, SG, HK MO, HU, or JP <a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>.</p><p>Here are some more examples. Note that if there is no order field or locale field in the PersonName object to be formatted, and the script of the PersonName data is different from that of the formatting locale, then the default result is givenFirst.</p><table>
 <thead>
 <tr>
 <th>PersonName Object preferredOrder</th>
@@ -876,9 +897,9 @@ This is a stable document and may be used as reference material or cited as a no
 <td></td>
 <td>givenFirst</td>
 </tr>
-</tbody></table><h3 id="64-choose-a-personname">6.4 <a name="6-4-choose-a-personname" href="#6-4-choose-a-personname">Choose a personName</a></h3><p>The personName data in CLDR provides representations for how names are to be formatted across the different axes of <em>order</em>, <em>length</em>, <em>usage</em>, and <em>formality</em>. More than one <code>namePattern</code> can be associated with a single <code>personName</code> entry. An algorithm is then used to choose the best <code>namePattern</code> to use.</p><p>As an example for English, this may look like:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">personNames</span>&gt;</span>
+</tbody></table><h3 id="choose-a-personname-element">Choose a personName element</h3><p>The personName data in CLDR provides representations for how names are to be formatted across the different axes of <em>order</em>, <em>length</em>, <em>usage</em>, and <em>formality</em>. More than one <code>namePattern</code> can be associated with a single <code>personName</code> entry. An algorithm is then used to choose the best <code>namePattern</code> to use.</p><p>As an example for English, this may look like:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">personNames</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">personName</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"givenFirst"</span> <span class="hljs-attr">length</span>=<span class="hljs-string">"long"</span> <span class="hljs-attr">usage</span>=<span class="hljs-string">"referring"</span> <span class="hljs-attr">formality</span>=<span class="hljs-string">"formal"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">namePattern</span>&gt;</span>{prefix} {given} {given2} {surname}, {suffix}<span class="hljs-tag">&lt;/<span class="hljs-name">namePattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">namePattern</span>&gt;</span>{title} {given} {given2} {surname}, {credentials}<span class="hljs-tag">&lt;/<span class="hljs-name">namePattern</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">personName</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">personName</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"givenFirst"</span> <span class="hljs-attr">length</span>=<span class="hljs-string">"long"</span> <span class="hljs-attr">usage</span>=<span class="hljs-string">"referring"</span> <span class="hljs-attr">formality</span>=<span class="hljs-string">"informal"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">namePattern</span>&gt;</span>{given} «{given2}» {surname}<span class="hljs-tag">&lt;/<span class="hljs-name">namePattern</span>&gt;</span>
@@ -919,7 +940,7 @@ This is a stable document and may be used as reference material or cited as a no
 <td align="center">Y</td>
 <td align="left">missing usage = all!</td>
 </tr>
-</tbody></table><p>To find the matching personName element, traverse all the personNames in order until the first one is found. This will always terminate since the data is well-formed in CLDR.</p><h3 id="65-choose-a-namepattern">6.5 <a name="6-5-choose-a-namepattern" href="#6-5-choose-a-namepattern">Choose a namePattern</a></h3><p>To format a name, the fields in a namePattern are replaced with fields fetched from the PersonName Data Interface. The personName element can contain multiple namePattern elements. Choose one based on the fields in the input PersonName object that are populated:</p><ol>
+</tbody></table><p>To find the matching personName element, traverse all the personNames in order until the first one is found. This will always terminate since the data is well-formed in CLDR.</p><h3 id="choose-a-namepattern">Choose a namePattern</h3><p>To format a name, the fields in a namePattern are replaced with fields fetched from the PersonName Data Interface. The personName element can contain multiple namePattern elements. Choose one based on the fields in the input PersonName object that are populated:</p><ol>
 <li>Find the set of patterns with the most populated fields.</li>
 <li>If there is just one element in that set, use it.</li>
 <li>Otherwise, among that set, find the set of patterns with the fewest unpopulated fields.</li>
@@ -930,140 +951,100 @@ This is a stable document and may be used as reference material or cited as a no
 <li>Both patterns A and B can be populated with 7 fields from the input PersonName object, pattern C can be populated with only 3 fields from the input PersonName object.</li>
 <li>Pattern C is discarded, because it has the least number of populated name fields.</li>
 <li>Out of the remaining patterns A and B, pattern B wins, because it has only 3 unpopulated fields compared to pattern A.</li>
-</ol><p>If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we alter the pattern algorithmically as follows:</p><ol>
-<li>If one or more fields at the start of the pattern are empty, all fields, whitespace, and literal text before the <strong>first</strong> populated field are deleted.</li>
-<li>If one or more fields at the end of the pattern are empty, all fields, whitespace, and literal text after the <strong>last</strong> populated field are deleted.</li>
-<li>For each empty field in the middle of the pattern (going from left to right), that field and all literal text between it and the nearest whitespace or field on both sides is deleted. If this results in two whitespace characters next to each other, they are coalesced into one.</li>
-</ol><h3 id="66-examples-of-choosing-a-namepattern">6.6 <a name="6-6-examples-of-choosing-a-namepattern" href="#6-6-examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a></h3><h4 id="661-examples-for-rules-1-and-2">6.6.1 <a name="examples-for-rules-1-and-2" href="#examples-for-rules-1-and-2">Examples for rules 1 and 2</a></h4><p>The personName element contains:</p><blockquote>
-<p><code>&lt;namePattern&gt;{prefix} {given} {given2} {surname}, {suffix}&lt;/namePattern&gt;</code></p>
-</blockquote><p>The input PersonName object contains:</p><table>
+</ol><h3 id="access-personname-object">Access PersonName object</h3><h4 id="handle-missing-surname">Handle missing surname</h4><p>All PersonName objects will have a given name (for mononyms the given name is used). However, there may not be a surname. In that case, the following process is followed so that formatted patterns produce reasonable results.</p><ol>
+<li>If there is no surname from a PersonName P1 <em>and</em> the pattern either doesn't include the given name or only shows an initial for the given name, then:<ol>
+<li>Construct and use a derived PersonName P2, whereby P2 behaves exactly as P1 except that:<ol>
+<li>Any request for a surname field (with any modifiers) returns P1's given name (with the same modifiers)</li>
+<li>Any request for a given name field (with any modifiers) returns "" (empty string)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol><p>As always, this is a logical description and may be optimized in implementations. For example, an implemenation may use an interface for P2 that just delegates calls to P1, with some redirection for accesses to surname and given name.</p><h4 id="handle-core-and-prefix">Handle core and prefix</h4><p>A given field may have a core value, a prefix value, and/or a ‘plain’ value (neither core nor prefix). If one or more of them are missing, then the returned values should be adjusted according to the table below. In the three cells on the left, a ✓ indicates that a value is available, an ✖️ if there is none. In three cells on the right, the value of = means the returned value is unchanged, ✖️ means the returned value is “empty”, and anything else is a description of what to change it to.</p><table>
 <thead>
 <tr>
-<th><code>prefix</code></th>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-<th><code>suffix</code></th>
+<th>prefix</th>
+<th>core</th>
+<th>plain</th>
+<th></th>
+<th>prefix</th>
+<th>core</th>
+<th>plain</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
 <td></td>
-<td>Raymond</td>
-<td>J.</td>
-<td>Johnson</td>
-<td>Jr.</td>
+<td>=</td>
+<td>=</td>
+<td>=</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>Raymond J. Johnson, Jr.</p>
-</blockquote><p>The “prefix” field is empty, and so both it and the space that follows it are omitted from the output, according to rule 1 above.</p><p>If, instead, the input PersonName object contains:</p><table>
-<thead>
 <tr>
-<th><code>prefix</code></th>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-<th><code>suffix</code></th>
-</tr>
-</thead>
-<tbody><tr>
+<td>✓</td>
+<td>✖️</td>
+<td>✓</td>
 <td></td>
-<td>Raymond</td>
-<td>J.</td>
-<td>Johnson</td>
-<td></td>
+<td>✖️</td>
+<td>plain</td>
+<td>=</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>Raymond J. Johnson</p>
-</blockquote><p>The “prefix” field is empty, and so both it and the space that follows it are omitted from the output, according to rule 1 above.</p><p>The “suffix” field is also empty, so it and both the comma and the space that precede it are omitted from the output, according to rule 2 above.</p><h4 id="662-examples-for-rule-3-and-the-interaction-between-the-rules">6.6.2 <a name="examples-for-rule-3-and-the-interaction-between-the-rules" href="#examples-for-rule-3-and-the-interaction-between-the-rules">Examples for rule 3 and the interaction between the rules</a></h4><p>To see how rule 3 interacts with the other rules, consider an imaginary language in which people generally have given and given2 (or middle)  names, and the given2 name is always written with parentheses around it, and the given name is usually written as an initial with a following period.</p><p>The personName element contains:</p><blockquote>
-<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code></p>
-</blockquote><p>The input PersonName object contains:</p><table>
-<thead>
 <tr>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Foo</td>
-<td>Bar</td>
-<td>Baz</td>
-</tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>F. (Bar) Baz</p>
-</blockquote><p>If, instead, the input PersonName object contains:</p><table>
-<thead>
-<tr>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Foo</td>
+<td>✖️</td>
+<td>✓</td>
+<td>✓</td>
 <td></td>
-<td>Baz</td>
+<td>=</td>
+<td>plain</td>
+<td>=</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>F. Baz</p>
-</blockquote><p>The “given2” field is empty, so it and the surrounding parentheses are omitted from the output, as is one of the surrounding spaces, according to rule 3. The period after “{given-initial}” remains, because it is separated from the “{given2}” element by  space-- punctuation around a missing field is only deleted up until the closest space in each direction.</p><p>If there were no space between the period and the parentheses, as might happen if our hypothetical language didn’t use spaces:</p><blockquote>
-<p><code>&lt;namePattern&gt;{given-initial}.({given2}) {surname}&lt;/namePattern&gt;</code></p>
-</blockquote><p>The input PersonName object still contains:</p><table>
-<thead>
 <tr>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Foo</td>
+<td>✖️</td>
+<td>✖️</td>
+<td>✓</td>
 <td></td>
-<td>Baz</td>
+<td>=</td>
+<td>plain</td>
+<td>=</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>F Baz</p>
-</blockquote><p>Both the period after “{given-initial}” <em>and</em> the parentheses around “{given2}” are omitted from the output, because there was no space between them — instead, we delete punctuation all the way up to the neighboring field. To solve this (making sure the “{given-initial}” field always has a period after it), you would add another namePattern:</p><blockquote>
-<p><code>&lt;namePattern&gt;{given-initial}.({given2}) {surname}&lt;/namePattern&gt;</code><br>
-<code>&lt;namePattern alt=”2”&gt;{given-initial}. {surname}&lt;/namePattern&gt;</code></p>
-</blockquote><p>The first pattern would be used when the “given2” field is populated, and the second pattern would be used when the “given2” field is empty.</p><p>Rules 1 and 3 can conflict in similar ways. If the personName element contains (there’s a space between the period and the opening parenthesis again):</p><blockquote>
-<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code></p>
-</blockquote><p>And the input PersonName object contains:</p><table>
-<thead>
 <tr>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-</tr>
-</thead>
-<tbody><tr>
+<td>✓</td>
+<td>✓</td>
+<td>✖️</td>
 <td></td>
-<td>Bar</td>
-<td>Baz</td>
+<td>=</td>
+<td>=</td>
+<td>prefix + " " + core</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>Bar) Baz</p>
-</blockquote><p>Because the “given” field is empty, rule 1 not only has us delete it, but also all punctuation up to “{given2}”. This includes <em>both</em> the period <em>and</em> the opening parenthesis. Again, to solve this, you’d supply two namePatterns:</p><blockquote>
-<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code><br>
-<code>&lt;namePattern alt=”2”&gt; ({given2}) {surname}&lt;/namePattern&gt;</code></p>
-</blockquote><p>The output would then be:</p><blockquote>
-<p>(Bar) Baz</p>
-</blockquote><p>The first namePattern would be used if the “given” field was populated, and the second would be used if it was empty.</p><p>If, instead, the input PersonName object contains:</p><table>
-<thead>
 <tr>
-<th><code>given</code></th>
-<th><code>given2</code></th>
-<th><code>surname</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Foo</td>
+<td>✖️</td>
+<td>✓</td>
+<td>✖️</td>
 <td></td>
-<td>Baz</td>
+<td>=</td>
+<td>=</td>
+<td>core</td>
 </tr>
-</tbody></table><p>The output is:</p><blockquote>
-<p>F. Baz</p>
-</blockquote><h3 id="67-deriving-initials">6.7 <a name="6-7-deriving-initials" href="#6-7-deriving-initials">Deriving initials</a></h3><p>The following process is used to produce initials when they are not supplied by the PersonName object. Assuming the input example is “Mary Beth”:</p><table>
+<tr>
+<td>✓</td>
+<td>✖️</td>
+<td>✖️</td>
+<td></td>
+<td>✖️</td>
+<td>=</td>
+<td>=</td>
+</tr>
+<tr>
+<td>✖️</td>
+<td>✖️</td>
+<td>✖️</td>
+<td></td>
+<td>=</td>
+<td>=</td>
+<td>=</td>
+</tr>
+</tbody></table><p>For example, if the surname-prefix is "von und zu" and the surname-core is "Stettbach" and there is no surname (plain), then the derived value for the (plain) surname is "von und zu Stettbach". (The cases where existing prefix values are changed should not be necessary with well-formed PersonName data.)</p><h4 id="derive-initials">Derive initials</h4><p>The following process is used to produce initials when they are not supplied by the PersonName object. Assuming the input example is “Mary Beth”:</p><table>
 <thead>
 <tr>
 <th>Action</th>
@@ -1086,31 +1067,44 @@ This is a stable document and may be used as reference material or cited as a no
 <td>4. Finally recombined with <em><strong>initialSequence</strong></em><br><code>  &lt;initialPattern type="initialSequence"&gt;{0} {1}&lt;/initialPattern&gt;</code></td>
 <td>“M. B.”</td>
 </tr>
-</tbody></table><p>See the “initial” modifier in the <a href="#5-2-modifiers">Modifiers</a> section for more details.</p><h3 id="68-handling-foreign-names">6.8 <a name="6-8-handling-foreign-names" href="#6-8-handling-foreign-names">Handling foreign names</a></h3><p>There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section [<a href="#2-3-nameorderlocales-element">2.3 nameOrderLocales Element</a>]. The other is spacing.</p><p>Some writing systems require spaces (or some other non-letters) to separate words. For example, <a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Hayao Miyazaki</a> is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first:</p><blockquote>
-<p><a href="https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF">宮崎駿</a></p>
-</blockquote><ol>
-<li>If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).</li>
-</ol><ul>
-<li>“​​<a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao</a>…” or</li>
-<li>“<a href="https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4">미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao</a>…”.</li>
-</ul><ol start="2">
-<li><p>If a locale <strong>doesn’t</strong> require spaces between words, there are two cases, based on whether the foreign name is written in the locale’s script, or the foreign name is left in its native script. In both cases, patterns from the <strong>locale of the name</strong> are used. For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein.</p>
-<ol>
-<li><strong>The foreign name is written in the formatting locale’s script.</strong> In that case, the <strong>foreignSpaceReplacement</strong> is substituted for each space in the patterns from the <em>locale of the name</em>. Here are examples for Albert Einstein in Japanese and Chinese:<ul>
-<li><a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3">アルベルト<span style="background-color:aqua">・</span>アインシュタイン</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6">阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦</a></li>
-</ul>
-</li>
-<li><strong>The foreign name is written in a different script.</strong> In that case, the patterns from the <strong>locale of the name</strong> are used as is.<ul>
-<li><a href="https://de.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a></li>
-</ul>
-</li>
+</tbody></table><p>See the “initial” modifier in the <a href="#modifiers">Modifiers</a> section for more details.</p><h3 id="process-a-namepattern">Process a namePattern</h3><p>The “winning” namePattern may still have fields that are unpopulated (empty) in the PersonName object. That namePattern is populated with field values with the following steps:</p><ol>
+<li>If one or more fields at the start of the pattern are empty, all fields and literal text before the <strong>first</strong> populated field are omitted.</li>
+<li>If one or more fields at the end of the pattern are empty, all fields and literal text after the <strong>last</strong> populated field are omitted.</li>
+<li>Processing from the start of the remaining pattern:<ol>
+<li>If there are two or more empty fields separated only by literals, the fields and the literals between them are removed.</li>
+<li>If there is a single empty field, it is removed.</li>
 </ol>
 </li>
-</ol><p>In both cases, the ordering may be changed according to the <strong>Name Order for Locales</strong> settings that each locale provides. If the PersonName object does not supply a locale for a name, then a default locale will be derived based on other information (such as the script of the characters in the name fields).</p><blockquote>
-<p><strong>Note</strong> In the tech preview, the structure isn't yet powerful enough to handle cases with <code>foreignSpaceReplacement</code> where the formatting locale doesn’t need spaces between words, but the name locale has the same ordering as the formatting locale.
-For example, consider where the formatting locale is Thai, and the name is in English, but transliterated into Thai.</p>
-</blockquote><p>To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, <code>ja</code> would be used instead of <code>ja_Jpan_JP</code>, and so on.: For more information, see Likely Subtags [TBD add link].</p><table>
+<li>If the processing from step 3 results in two adjacent literals (call them A and B), they are coalesced into one literal as follows:<ol>
+<li>If either is empty the result is the other one.</li>
+<li>If B matches the end of A, then the result is A. So xyz + yz ⇒ xyz, and xyz + xyz ⇒ xyz.</li>
+<li>Otherwise the result is A + B, further modified by replacing any sequence of two or more white space characters by the first whitespace character.</li>
+</ol>
+</li>
+<li>All of the fields are replaced by the corresponding values from the PersonName object.</li>
+</ol><p>The result is the <strong>formatted value</strong>. However, there is one further step that might further modify that value.</p><h4 id="handling-foreign-names">Handling foreign names</h4><p>There are two main challenges in dealing with foreign name formatting that needs to be considered. One is the ordering, which is dealt with under the section <a href="#nameorderlocales-element">nameOrderLocales Element</a>]. The other is spacing.</p><p>Some writing systems require spaces (or some other non-letters) to separate words. For example, <a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Hayao Miyazaki</a> is written in English with given name first and with a space between the two name fields, while in Japanese there is no space with surname first: <a href="https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B4%8E%E9%A7%BF">宮崎駿</a></p><p>If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).</p><ul>
+<li>“​​<a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Hayao Miyazaki (宮崎<span style="background-color:aqua">　</span>駿, Miyazaki Hayao</a>…” or</li>
+<li>“<a href="https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4">미야자키<span style="background-color:aqua">　</span>하야오(일본어: 宮﨑<span style="background-color:aqua">　</span>駿 Miyazaki Hayao</a>…”.</li>
+</ul><p>If a locale <strong>doesn’t</strong> require spaces between words, there are two cases, based on whether the name is foreign or not (based on the PersonName objects explicit or calculated locale's language subtag). For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein. When the locale is foreign, the <strong>foreignSpaceReplacement</strong> is substituted for each space in the formatted name. When the name locale is native, a <strong>nativeSpaceReplacement</strong> is substituted for each space in the formatted name. The precise algorithm is given below.</p><p>Here are examples for Albert Einstein in Japanese and Chinese:</p><ul>
+<li><a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3">アルベルト<span style="background-color:aqua">・</span>アインシュタイン</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6">阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦</a></li>
+</ul><h4 id="setting-the-spacereplacement">Setting the spaceReplacement</h4><ol>
+<li>The foreignSpaceReplacement is provided by the value for the <code>foreignSpaceReplacement</code> element; the default value is " ".</li>
+<li>The nativeSpaceReplacement is determined by the following algorithm, choosing between " " and "".<ol>
+<li>Get the script of the formatting locale</li>
+<li>If the likely script is Thai, let nativeSpaceReplacement = " " (space)</li>
+<li>Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:<ol>
+<li>The script is Jpan, Hant, or Hans</li>
+<li>The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).</li>
+</ol>
+</li>
+<li>Otherwise, let nativeSpaceReplacement = " " (space)</li>
+</ol>
+</li>
+<li>If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.</li>
+<li>Replace all sequences of space in the formatted value string by the spaceReplacement.</li>
+</ol><p>For the purposes of this algorithm, two base languages are said to <strong>match</strong> when they are identical, or if both are in {ja, zh, yue}.</p><p><strong>Note:</strong> in the future the plan is to make the specific languages and scripts used in this algorithm be data-driven.</p><p>Remember that <strong>a name in a different script</strong> will use a different locale for formatting, as per <a href="#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>.
+For example, when formatting a name for Japanese, if the name is in the Latin script, a Latin based locale will be used to format it, such as when “Albert Einstein” appears in Latin characters as in the Wikipedia page <a href="https://ja.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a>.</p><h4 id="examples-of-space-replacement">Examples of space replacement</h4><p>To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, <code>ja</code> would be used instead of <code>ja_Jpan_JP</code>, and so on.: For more information, see <a href="tr35.html#Likely_Subtags">Likely Subtags</a>.</p><table>
 <thead>
 <tr>
 <th>name locale</th>
@@ -1124,12 +1118,17 @@ For example, consider where the formatting locale is Thai, and the name is in En
 <td>Einstein</td>
 </tr>
 <tr>
-<td><code>de_Jpan_CH</code></td>
+<td><code>de_Kata_CH</code></td>
 <td>アルベルト</td>
 <td>アインシュタイン</td>
 </tr>
 <tr>
-<td><code>ja_Jpan_JP</code></td>
+<td><code>ja_Kata_CH</code></td>
+<td>アルベルト</td>
+<td>アインシュタイン</td>
+</tr>
+<tr>
+<td><code>ja_Latn_JP</code></td>
 <td>Hayao</td>
 <td>Miyazaki</td>
 </tr>
@@ -1144,11 +1143,11 @@ For example, consider where the formatting locale is Thai, and the name is in En
    &lt;<strong>foreignSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua">・</span>&lt;/foreignSpaceReplacement&gt;
    . . .
    &lt;personName order="<strong>givenFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2}<span style="background-color:aqua"> </span>{surname}{suffix}&lt;/namePattern&gt;
+      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2}<span style="background-color:aqua"> </span>{surname}{generation}&lt;/namePattern&gt;
    &lt;/personName&gt;
    . . .
    &lt;personName order="<strong>surnameFirst</strong>" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{surname}{given2}{given}{suffix}&lt;/namePattern&gt;
+      &lt;namePattern&gt;{surname}{given2}{given}{generation}&lt;/namePattern&gt;
    &lt;/personName&gt;
    . . .
 &lt;/personNames&gt;
@@ -1158,15 +1157,15 @@ For example, consider where the formatting locale is Thai, and the name is in En
    &lt;foreignSpaceReplacemen xml:space="preserve"&gt;<span style="background-color:aqua"> </span>&lt;/foreignSpaceReplacement&gt;
    . . .
    &lt;personName order="givenFirst" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua"> </span>{surname}, {suffix}&lt;/namePattern&gt;
+      &lt;namePattern&gt;{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua"> </span>{surname}, {generation}&lt;/namePattern&gt;
    &lt;/personName&gt;
    . . .
    &lt;personName order="surnameFirst" length="medium" usage="referring" formality="formal"&gt;
-      &lt;namePattern&gt;{surname}<span style="background-color:aqua">, </span>{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua">,</span> {suffix}&lt;/namePattern&gt;
+      &lt;namePattern&gt;{surname}<span style="background-color:aqua">, </span>{given}<span style="background-color:aqua"> </span>{given2-initial}<span style="background-color:aqua">,</span> {generation}&lt;/namePattern&gt;
    &lt;/personName&gt;
    . . .
 &lt;/personNames&gt;`
-</pre><p>The name data would resolve as follows:</p><table>
+</pre><p>The name data would resolve as follows:</p><!-- TODO Replace the following with a markdown table --><table>
   <tbody><tr>
    <td colspan="7"><strong>formatting locale: ja_JP, </strong>script is Jpan which includes Hani, Hira and Kana</td>
   </tr>
@@ -1264,25 +1263,154 @@ For example, consider where the formatting locale is Thai, and the name is in En
   <tr>
    <td colspan="7" style="text-align:center">“Hayao<span style="background-color:aqua"> </span>Miyazaki”</td>
   </tr>
-</tbody></table><br><h2 id="7-sample-name">7 <a name="7-sample-name" href="#7-sample-name">Sample Name</a></h2><p>The sampleName element is used for test names in the personNames LDML data for each locale to aid in testing and display in the CLDR Survey Tool. They are not intended to be used in production software as prompts or placeholders in a user interface and should not be displayed in a user interface.</p><h3 id="71-syntax">7.1 <a name="7-1-syntax" href="#7-1-syntax">Syntax</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">sampleName</span> ( <span class="hljs-keyword">nameField</span>+ )  &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">sampleName</span> <span class="hljs-keyword">item</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+</tbody></table><br><h3 id="formatting-examples">Formatting examples</h3><p>The personName element contains:</p><blockquote>
+<p><code>&lt;namePattern&gt;{title} {given} {given2} {surname}, {credentials}&lt;/namePattern&gt;</code></p>
+</blockquote><p>The input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>title</code></th>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+<th><code>generation</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Raymond</td>
+<td>J.</td>
+<td>Johnson</td>
+<td>Jr.</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>Raymond J. Johnson, Jr.</p>
+</blockquote><p>The “title” field is empty, and so both it and the space that follows it are omitted from the output, according to rule 1 above.</p><p>If, instead, the input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>title</code></th>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+<th><code>generation</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Raymond</td>
+<td>J.</td>
+<td>Johnson</td>
+<td></td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>Raymond J. Johnson</p>
+</blockquote><p>The “title” field is empty, and so both it and the space that follows it are omitted from the output, according to rule 1 above.</p><p>The “generation” field is also empty, so it and both the comma and the space that precede it are omitted from the output, according to rule 2 above.</p><p>To see how rule 3 interacts with the other rules, consider an imaginary language in which people generally have given and given2 (or middle)  names, and the given2 name is always written with parentheses around it, and the given name is usually written as an initial with a following period.</p><p>The personName element contains:</p><blockquote>
+<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code></p>
+</blockquote><p>The input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foo</td>
+<td>Bar</td>
+<td>Baz</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>F. (Bar) Baz</p>
+</blockquote><p>If, instead, the input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foo</td>
+<td></td>
+<td>Baz</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>F. Baz</p>
+</blockquote><p>The “given2” field is empty, so it and the surrounding parentheses are omitted from the output, as is one of the surrounding spaces, according to rule 3. The period after “{given-initial}” remains, because it is separated from the “{given2}” element by  space-- punctuation around a missing field is only deleted up until the closest space in each direction.</p><p>If there were no space between the period and the parentheses, as might happen if our hypothetical language didn’t use spaces:</p><blockquote>
+<p><code>&lt;namePattern&gt;{given-initial}.({given2}) {surname}&lt;/namePattern&gt;</code></p>
+</blockquote><p>The input PersonName object still contains:</p><table>
+<thead>
+<tr>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foo</td>
+<td></td>
+<td>Baz</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>F Baz</p>
+</blockquote><p>Both the period after “{given-initial}” <em>and</em> the parentheses around “{given2}” are omitted from the output, because there was no space between them — instead, we delete punctuation all the way up to the neighboring field. To solve this (making sure the “{given-initial}” field always has a period after it), you would add another namePattern:</p><blockquote>
+<p><code>&lt;namePattern&gt;{given-initial}.({given2}) {surname}&lt;/namePattern&gt;</code><br>
+<code>&lt;namePattern alt=”2”&gt;{given-initial}. {surname}&lt;/namePattern&gt;</code></p>
+</blockquote><p>The first pattern would be used when the “given2” field is populated, and the second pattern would be used when the “given2” field is empty.</p><p>Rules 1 and 3 can conflict in similar ways. If the personName element contains (there’s a space between the period and the opening parenthesis again):</p><blockquote>
+<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code></p>
+</blockquote><p>And the input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Bar</td>
+<td>Baz</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>Bar) Baz</p>
+</blockquote><p>Because the “given” field is empty, rule 1 not only has us delete it, but also all punctuation up to “{given2}”. This includes <em>both</em> the period <em>and</em> the opening parenthesis. Again, to solve this, you’d supply two namePatterns:</p><blockquote>
+<p><code>&lt;namePattern&gt;{given-initial}. ({given2}) {surname}&lt;/namePattern&gt;</code><br>
+<code>&lt;namePattern alt=”2”&gt; ({given2}) {surname}&lt;/namePattern&gt;</code></p>
+</blockquote><p>The output would then be:</p><blockquote>
+<p>(Bar) Baz</p>
+</blockquote><p>The first namePattern would be used if the “given” field was populated, and the second would be used if it was empty.</p><p>If, instead, the input PersonName object contains:</p><table>
+<thead>
+<tr>
+<th><code>given</code></th>
+<th><code>given2</code></th>
+<th><code>surname</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foo</td>
+<td></td>
+<td>Baz</td>
+</tr>
+</tbody></table><p>The output is:</p><blockquote>
+<p>F. Baz</p>
+</blockquote><h2 id="sample-name">Sample Name</h2><p>The sampleName element is used for test names in the personNames LDML data for each locale to aid in testing and display in the CLDR Survey Tool. They are not intended to be used in production software as prompts or placeholders in a user interface and should not be displayed in a user interface.</p><h3 id="syntax-1">Syntax</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">sampleName</span> ( <span class="hljs-keyword">nameField</span>+ )  &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">sampleName</span> <span class="hljs-keyword">item</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><ul>
-<li><code>NMTOKENS</code> must be one of <code>( givenOnly | givenSurnameOnly | given12Surname | full )</code>. However, these may change arbitrarily in the future.</li>
-</ul><h3 id="72-expected-values">7.2 <a name="7-2-expected-values" href="#7-2-expected-values">Expected values</a></h3><p>For the expected sample name items, assume a name such as Mr. Richard “Rich” Edward Smith Iglesias Ph.D.</p><ul>
-<li><code>givenOnly</code> is for an example name with only the given is presented: “Richard” or “Rich” (informal)</li>
-<li><code>givenSurnameOnly</code> is for an example name with only the given name and surname: “Richard Smith” or “Rich Smith” (informal)</li>
-<li><code>given12Surname</code> is for an example using all given names and a surname: “Richard Edward Smith” and “Rich E. Smith” (informal)</li>
-<li><code>full</code> is used to present a name using all fields: “Mr. Richard Edward Smith Iglesias, Ph.D.”</li>
-</ul><p>The <code>nameField</code> values and their modifiers are described in the <a href="#3-person-name-object">Person Name Object</a> and <a href="#5-namepattern-syntax">namePattern Syntax</a> sections.</p><h2 id="8-personname-data-interface-examples">8 <a name="8-personname-data-interface-examples" href="#8-personname-data-interface-examples">PersonName Data Interface Examples</a></h2><h3 id="81-example-1">8.1 <a name="8-1-example-1" href="#8-1-example-1">Example 1</a></h3><p>Greek initials can be produced via the following process in the PersonName object, and returned to the formatter.</p><ul>
+<li><code>NMTOKEN</code> must be one of <code>( nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull )</code>. However, these may change arbitrarily in the future.</li>
+</ul><h3 id="expected-values">Expected values</h3><p>The item values starting with "native" are expected to be native names, in native script.
+The item values starting with "foreign" are expected to be foreign names, in native script.
+There are no foreign names or native names in a foreign script, because those should be handled by a different locale's data.</p><p>The rest of the item value indicates how many fields are present.
+For the expected sample name items, assume a name such as Mr. Richard “Rich” Edward Smith Iglesias Ph.D.</p><ul>
+<li><code>G</code> is for an example name with only the given is presented: “Richard” or “Rich” (informal)</li>
+<li><code>GS</code> is for an example name with only the given name and surname: “Richard Smith” or “Rich Smith” (informal)</li>
+<li><code>GSS</code> is for an example using both given and given2 names and a surname: “Richard Edward Smith” and “Rich E. Smith” (informal)</li>
+<li><code>Full</code> is used to present a name using all possible fields: “Mr. Richard Edward Smith Iglesias, Ph.D.”</li>
+</ul><p>The <code>nameField</code> values and their modifiers are described in the <a href="#person-name-object">Person Name Object</a> and <a href="#namepattern-syntax">namePattern Syntax</a> sections.</p><h2 id="personname-data-interface-examples">PersonName Data Interface Examples</h2><h3 id="example-1">Example 1</h3><p>Greek initials can be produced via the following process in the PersonName object, and returned to the formatter.</p><ul>
 <li>Include all letters up through the first consonant or digraph (including the consonant or digraph).<br>
 (This is a simplified version of the actual process.)</li>
 </ul><p>Examples:</p><ul>
 <li>Χριστίνα Λόπεζ (Christina Lopez) ⟶ Χ. Λόπεζ (C. Lopez)</li>
 <li>Ντέιβιντ Λόπεζ (David Lopez) ⟶ Ντ. Λόπεζ (D. Lopez)<br>Note that Ντ is a digraph representing the sound D.</li>
-</ul><h3 id="82-example-2">8.2 <a name="8-2-example-2" href="#8-2-example-2">Example 2</a></h3><p>To make an initial when there are multiple words, an implementation might produce the following:</p><ul>
-<li>Janus H. W. Young ⇒ {given2-initial} producing “H.W.”.</li>
-<li>Erik Martin van der Poel: {given2-initial} producing “V” by default, but might produce “vdP” or P in other languages.</li>
-<li>A field containing multiple words might not actually initialize all of them, such as in “Mohammed bin Ali bin Osman” (“MAO”).</li>
-<li>John Ronald Reuel Tolkien as “J.R.R. Tolkien” from { given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }</li>
+</ul><h3 id="example-2">Example 2</h3><p>To make an initial when there are multiple words, an implementation might produce the following:</p><ul>
+<li>A field containing multiple words might skip some of them, such as in “Mohammed bin Ali bin Osman” (“MAO”).</li>
 <li>The short version of "Son Heung-min" is "H. Son" and not "H. M. Son" or the like. Korean given-names have hyphens and the part after the hyphen is lower-case.</li>
-</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>
+</ul><hr><p>Copyright © 2001–2023 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

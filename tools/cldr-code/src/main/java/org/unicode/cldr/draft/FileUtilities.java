@@ -83,7 +83,7 @@ public final class FileUtilities {
 
     public static PrintWriter openWriter(File dir, String filename, Charset encoding) throws IOException {
         File file;
-        if (dir == null) {
+        if (dir == null || dir.getPath().isEmpty()) {
             file = new File(filename);
         } else {
             file = new File(dir, filename);

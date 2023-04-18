@@ -53,11 +53,11 @@ public class ChartLocaleGrowth {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
 
     private static org.unicode.cldr.util.Factory factory = testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
-    private static final CLDRFile ENGLISH = factory.make("en", true);
+    private static final CLDRFile ENGLISH = testInfo.getEnglish();
 
     // added info using pattern in VettingViewer.
 
-    private static final RegexLookup<Boolean> HACK = RegexLookup.<Boolean> of(LookupType.STANDARD, RegexLookup.RegexFinderTransformPath)
+    private static final RegexLookup<Boolean> COUNT_AS_MISSING_WHEN_ABSENT = RegexLookup.<Boolean> of(LookupType.STANDARD, RegexLookup.RegexFinderTransformPath)
         .add("//ldml/localeDisplayNames/keys/key[@type=\"(d0|em|fw|i0|k0|lw|m0|rg|s0|ss|t0|x0)\"]", true)
         .add("//ldml/localeDisplayNames/types/type[@key=\"(em|fw|kr|lw|ss)\"].*", true)
         .add("//ldml/localeDisplayNames/languages/language[@type=\".*_.*\"]", true)
@@ -279,19 +279,7 @@ public class ChartLocaleGrowth {
                 System.out.println("Can't make CLDRFile for: " + locale + "\tpast: " + mainDir);
                 continue;
             }
-            // HACK check bogus
-//            Collection<String> extra = file.getExtraPaths();
-//
-//            final Iterable<String> fullIterable = file.fullIterable();
-//            for (String path : fullIterable) {
-//                if (path.contains("\"one[@")) {
-//                    boolean inside = extra.contains(path);
-//                    Status status = new Status();
-//                    String loc = file.getSourceLocaleID(path, status );
-//                    int debug = 0;
-//                }
-//            }
-            // END HACK
+
             Counter<Level> foundCounter = new Counter<>();
             Counter<Level> unconfirmedCounter = new Counter<>();
             Counter<Level> missingCounter = new Counter<>();
@@ -308,7 +296,7 @@ public class ChartLocaleGrowth {
             for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
                 if (e.getKey() == MissingStatus.ABSENT) {
                     final String path = e.getValue();
-                    if (HACK.get(path) != null) {
+                    if (COUNT_AS_MISSING_WHEN_ABSENT.get(path) != null) {
                         missingRemovals.add(e);
                         missingCounter.add(Level.MODERN, -1);
                         foundCounter.add(Level.MODERN, 1);
@@ -327,7 +315,7 @@ public class ChartLocaleGrowth {
             if (showMissing) {
                 int count = 0;
                 for (String s : unconfirmedPaths) {
-                    System.out.println(++count + "\t" + locale + "\tunconfirmed\t" + s);
+                    System.out.println(++count + "\t" + locale + "\t" + CLDRFile.DraftStatus.unconfirmed.name() +"\t" + s);
                 }
                 for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
                     String path = e.getValue();

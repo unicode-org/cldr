@@ -15,6 +15,8 @@ import com.ibm.icu.util.ULocale;
 
 public class TablePrinter {
 
+    public static final String LS = System.lineSeparator();
+
     public static void main(String[] args) {
         // quick test;
         TablePrinter tablePrinter = new TablePrinter()
@@ -350,7 +352,7 @@ public class TablePrinter {
         if (value instanceof Number) {
             int debug = 0;
         }
-        String s = value.toString().replace("\n", " • ");
+        String s = value.toString().replace(LS, " • ");
         return BIDI.containsNone(s) ? s : RLE + s + PDF;
     }
 
@@ -372,7 +374,7 @@ public class TablePrinter {
         if (tableAttributes != null) {
             result.append(' ').append(tableAttributes);
         }
-        result.append(">" + System.lineSeparator());
+        result.append(">" + LS);
 
         if (caption != null) {
             result.append("<caption>").append(caption).append("</caption>");
@@ -401,10 +403,10 @@ public class TablePrinter {
                     }
                 }
                 if (divider) {
-                    result.append("\t<tr><td class='divider' colspan='" + visibleWidth + "'></td></tr>");
+                    result.append("  <tr><td class='divider' colspan='" + visibleWidth + "'></td></tr>" + LS);
                 }
             }
-            result.append("\t<tr>");
+            result.append("  <tr>");
             for (int j = 0; j < sortedFlat[i].length; ++j) {
                 int identical = findIdentical(sortedFlat, i, j);
                 if (identical == 0) continue;
@@ -412,7 +414,7 @@ public class TablePrinter {
                     continue;
                 }
                 patternArgs[0] = sortedFlat[i][j];
-                result.append(columnsFlat[j].isHeader ? "<th" : "<td");
+                result.append(LS + "\t").append(columnsFlat[j].isHeader ? "<th" : "<td");
                 if (columnsFlat[j].cellAttributes != null) {
                     try {
                         result.append(' ').append(columnsFlat[j].cellAttributes.format(patternArgs));
@@ -440,7 +442,7 @@ public class TablePrinter {
                 }
                 result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
             }
-            result.append("</tr>" + System.lineSeparator());
+            result.append("</tr>" + LS);
         }
         result.append("</table>");
         return result.toString();
@@ -455,24 +457,24 @@ public class TablePrinter {
         if (comparable == null) {
             return null;
         }
-        String s = comparable.toString().replace("\n", "<br>");
+        String s = comparable.toString().replace(LS, "<br>");
         return BIDI.containsNone(s) ? s : RLE + s + PDF;
     }
 
     private void showHeader(StringBuilder result) {
-        result.append("\t<tr>");
+        result.append("  <tr>");
         for (int j = 0; j < columnsFlat.length; ++j) {
             if (columnsFlat[j].hidden) {
                 continue;
             }
-            result.append("<th");
+            result.append(LS + "\t<th");
             if (columnsFlat[j].headerAttributes != null) {
                 result.append(' ').append(columnsFlat[j].headerAttributes);
             }
             result.append('>').append(columnsFlat[j].header).append("</th>");
 
         }
-        result.append("</tr>" + System.lineSeparator());
+        result.append("</tr>" + LS);
     }
 
     /**

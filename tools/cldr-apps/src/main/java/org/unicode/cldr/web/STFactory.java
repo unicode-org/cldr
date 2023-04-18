@@ -18,6 +18,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache;
@@ -1037,6 +1038,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             BallotBox.VoteNotAcceptedException {
             makeSureInPathsForFile(distinguishingXpath, user, value);
             value = processValue(distinguishingXpath, value);
+            value = reviseInheritanceAsNeeded(distinguishingXpath, value);
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " voting for '" + value + "'");
             /*
              * this has to do with changing a vote - not counting it.
@@ -1091,6 +1093,52 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (newVal != null && !newVal.equals(oldVal)) {
                 xmlsource.notifyListeners(distinguishingXpath);
             }
+        }
+
+        /**
+         * Get the possibly modified value. If value matches the bailey value or inheritance marker, possibly
+         * change it from bailey value to inheritance marker, or vice-versa, as needed to meet these requirements:
+         * 1. If the path changes when getting bailey, then we are inheriting sideways. We need to use a hard value.
+         * 2. If the value is different from the bailey value, can't use inheritance; we need a hard value.
+         * 3. Otherwise we use inheritance marker.
+         *
+         * @param path the path
+         * @param value the input value
+         * @return the possibly modified value
+         *
+         * TODO: clean up debugging code, experimental work in progress; possibly move part of this method to CLDRFile...
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-16560
+         */
+        private String reviseInheritanceAsNeeded(String path, String value) {
+            if (value != null) {
+                CLDRFile cldrFile = getFile(true);
+                if (cldrFile == null) {
+                    throw new InternalCldrException("getFile failure in reviseInheritanceAsNeeded");
+                } else {
+                    if (!cldrFile.isResolved()) {
+                        throw new InternalCldrException("must be resolved");
+                    }
+                    Output<String> pathWhereFound = new Output<>();
+                    Output<String> localeWhereFound = new Output<>();
+                    String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+                    if (baileyValue != null && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
+                        boolean DEBUG_INHER = true;
+                        if (DEBUG_INHER) {
+                            boolean pathSame = pathWhereFound.value.equals(path);
+                            String retValue = pathSame ? CldrUtility.INHERITANCE_MARKER : baileyValue;
+                            boolean valueSame = retValue.equals(value);
+                            System.out.println("reviseInheritanceAsNeeded: start loc = " + locale + "; start path = " + path +
+                                "; found loc: " + localeWhereFound.value + "; found path: " + pathWhereFound.value +
+                                "; pathSame = " + pathSame + "; value = " + value + "; bailey = " + baileyValue + "; retValue = " + retValue +
+                                "; valueSame = " + valueSame);
+                            value = retValue;
+                        } else {
+                            value = pathWhereFound.value.equals(path) ? CldrUtility.INHERITANCE_MARKER : baileyValue;
+                        }
+                    }
+                }
+            }
+            return value;
         }
 
         /**

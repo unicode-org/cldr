@@ -1,16 +1,15 @@
 package org.unicode.cldr.util;
 
-import java.util.Locale;
-
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
+import java.util.Locale;
 
 public class XChoiceFormat {
     /**
-     * Enumeration representing different types of plurals used in various
-     * languages. More may be added over time. The names are chosen to be short.
+     * Enumeration representing different types of plurals used in various languages. More may be
+     * added over time. The names are chosen to be short.
      */
     public enum Condition {
         /** nullar: used for zero items */
@@ -34,36 +33,39 @@ public class XChoiceFormat {
 
         public boolean matches(long num) {
             switch (this) {
-            case N0:
-                return num == 0;
-            case N1:
-                return num == 1;
-            case N2:
-                return num == 2;
-            case N3:
-                return num == 3;
-            case N234:
-                return num >= 3 && num <= 4;
-            case S1:
-            case S2:
-            case S234:
-                long digit = num % 10;
-                if (((num / 10) % 10) == 1) {
-                    return false;
-                }
-                switch (this) {
-                case S1: {
-                    return digit == 1;
-                }
-                case S2: {
-                    return digit == 2;
-                }
-                default: {
-                    return digit >= 2 && digit <= 4;
-                }
-                }
-            default:
-                return true; // CN
+                case N0:
+                    return num == 0;
+                case N1:
+                    return num == 1;
+                case N2:
+                    return num == 2;
+                case N3:
+                    return num == 3;
+                case N234:
+                    return num >= 3 && num <= 4;
+                case S1:
+                case S2:
+                case S234:
+                    long digit = num % 10;
+                    if (((num / 10) % 10) == 1) {
+                        return false;
+                    }
+                    switch (this) {
+                        case S1:
+                            {
+                                return digit == 1;
+                            }
+                        case S2:
+                            {
+                                return digit == 2;
+                            }
+                        default:
+                            {
+                                return digit >= 2 && digit <= 4;
+                            }
+                    }
+                default:
+                    return true; // CN
             }
         }
     }
@@ -75,8 +77,7 @@ public class XChoiceFormat {
     ULocale locale = ULocale.getDefault();
 
     /**
-     * "There {countOfBooks,C0:are no files|C1:is one file|Cn:are #0 files} in
-     * {directory}."
+     * "There {countOfBooks,C0:are no files|C1:is one file|Cn:are #0 files} in {directory}."
      *
      * @param pattern
      */
@@ -94,9 +95,10 @@ public class XChoiceFormat {
             String tag = item.substring(0, semiPosition);
             conditions[i] = Condition.valueOf(tag.toUpperCase(Locale.ENGLISH));
             String numberPattern = item.substring(semiPosition + 1);
-            results[i] = numberPattern.contains("#")
-                ? new DecimalFormat(numberPattern, new DecimalFormatSymbols(locale))
-                : numberPattern;
+            results[i] =
+                    numberPattern.contains("#")
+                            ? new DecimalFormat(numberPattern, new DecimalFormatSymbols(locale))
+                            : numberPattern;
             ++i;
         }
         if (conditions[i - 1] != Condition.N) {
@@ -126,9 +128,12 @@ public class XChoiceFormat {
             new ULocale("sl"),
             "There {N0:are no mest|S1:is #,### mesto|S2:are #,### mesti|S234:are #,### mesta|N:are #,### mest} in the directory.",
             new ULocale("ru"),
-            "There {N0:are no zavody|S1:is #,### zavod|S234:are #,### zavoda|N:are #,### zavodov} in the directory.", };
+            "There {N0:are no zavody|S1:is #,### zavod|S234:are #,### zavoda|N:are #,### zavodov} in the directory.",
+        };
 
-        int[] testNumbers = { 0, 1, 2, 3, 5, 10, 11, 12, 15, 20, 21, 22, 25, 123450, 123451, 123452, 123456 };
+        int[] testNumbers = {
+            0, 1, 2, 3, 5, 10, 11, 12, 15, 20, 21, 22, 25, 123450, 123451, 123452, 123456
+        };
         XChoiceFormat foo = new XChoiceFormat();
         for (Object test : tests) {
             if (test instanceof ULocale) {

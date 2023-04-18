@@ -1,5 +1,7 @@
 package org.unicode.cldr.web;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,20 +11,14 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-
 public class SearchManager {
     static final Logger logger = SurveyLog.forClass(SearchManager.class);
 
-    /**
-     * The request of a search
-     */
+    /** The request of a search */
     public static final class SearchRequest {
         public SearchRequest(String v) {
             value = v;
@@ -36,9 +32,7 @@ public class SearchManager {
         public String value;
     }
 
-    /**
-     * Struct for one single result
-     */
+    /** Struct for one single result */
     public static final class SearchResult {
         @Schema(description = "xpath to the resource")
         public String xpath;
@@ -60,9 +54,7 @@ public class SearchManager {
         }
     }
 
-    /**
-     * Struct for the user visible, serialized response
-     */
+    /** Struct for the user visible, serialized response */
     public static final class SearchResponse {
         @Schema(description = "true if the search is now complete (all results in)")
         public boolean isComplete = false;
@@ -88,6 +80,7 @@ public class SearchManager {
 
         /**
          * Internal function for updating search status
+         *
          * @param r
          */
         synchronized void addResult(SearchResult r) {
@@ -96,12 +89,9 @@ public class SearchManager {
             logger.finer(() -> token + ": +1 result");
         }
 
-        /**
-         * Mark the search as complete.
-         */
+        /** Mark the search as complete. */
         synchronized void complete() {
-            if (isComplete || !isOngoing)
-                return;
+            if (isComplete || !isOngoing) return;
             isComplete = true;
             isOngoing = false;
             lastUpdated = new Date();
@@ -112,17 +102,16 @@ public class SearchManager {
 
         @Override
         public String toString() {
-            return String.format("[SearchResponse#%s: %s, %s, #=%d]",
-                token,
-                isComplete ? "complete" : "incomplete",
-                isOngoing ? "ongoing" : "stopped",
-                results.size());
+            return String.format(
+                    "[SearchResponse#%s: %s, %s, #=%d]",
+                    token,
+                    isComplete ? "complete" : "incomplete",
+                    isOngoing ? "ongoing" : "stopped",
+                    results.size());
         }
     }
 
-    /**
-     * A search in progress
-     */
+    /** A search in progress */
     private class Search implements Callable<Search> {
 
         private final SearchRequest request;
@@ -137,18 +126,17 @@ public class SearchManager {
             this.response.isOngoing = true;
             this.response.isComplete = false;
             this.response.token = CookieSession.newId();
-            logger.fine(() -> String.format("%s: l=%s, q='%s'",
-                this.response,
-                this.locale,
-                this.request.value));
+            logger.fine(
+                    () ->
+                            String.format(
+                                    "%s: l=%s, q='%s'",
+                                    this.response, this.locale, this.request.value));
         }
 
         public void begin() {
             // TODO: could look up cached results here.
 
-            this.future = SurveyThreadManager
-                .getExecutorService()
-                .submit(this);
+            this.future = SurveyThreadManager.getExecutorService().submit(this);
         }
 
         @Override
@@ -162,9 +150,9 @@ public class SearchManager {
                 if (!file.isHere(xpath)) {
                     continue;
                 }
-                // Add incrementally. A user may get a partial result if they request before we are done.
-                response.addResult(new SearchResult(
-                    xpath, request.value, locale));
+                // Add incrementally. A user may get a partial result if they request before we are
+                // done.
+                response.addResult(new SearchResult(xpath, request.value, locale));
             }
 
             // All done (for now!)
@@ -181,9 +169,8 @@ public class SearchManager {
 
     private Factory factory;
 
-    final Cache<Object, Object> searches = CacheBuilder.newBuilder()
-        .expireAfterWrite(10, TimeUnit.MINUTES)
-        .build();
+    final Cache<Object, Object> searches =
+            CacheBuilder.newBuilder().expireAfterWrite(10, TimeUnit.MINUTES).build();
 
     private SearchManager(Factory f) {
         this.factory = f;
@@ -191,6 +178,7 @@ public class SearchManager {
 
     /**
      * Factory for the SearchManager
+     *
      * @param f
      * @return
      */
@@ -200,6 +188,7 @@ public class SearchManager {
 
     /**
      * Start up a new search
+     *
      * @param request
      * @return
      */
@@ -214,6 +203,7 @@ public class SearchManager {
 
     /**
      * Get any updated search result using a prior token
+     *
      * @param token
      * @return
      */
@@ -224,8 +214,9 @@ public class SearchManager {
     }
 
     /**
-     * Remove the specified search, stopping any operation in progress.
-     * This token is no longer valid.
+     * Remove the specified search, stopping any operation in progress. This token is no longer
+     * valid.
+     *
      * @param token
      * @return true if the search was found before it was deleted
      */

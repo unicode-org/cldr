@@ -1,15 +1,14 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-
 /**
- * This list needs updating as a new organizations are added; that's by design
- * so that we know when new ones show up.
+ * This list needs updating as a new organizations are added; that's by design so that we know when
+ * new ones show up.
  */
 public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
@@ -34,7 +33,11 @@ public enum Organization {
     iran_hci("Iran HCI"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
-    kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
+    kunsill_malti(
+            "Il-Kunsill Nazzjonali tal-Ilsien Malti",
+            "National Council for the Maltese Language",
+            "malta",
+            "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
@@ -63,10 +66,12 @@ public enum Organization {
     yahoo("Yahoo"),
     ;
 
-    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(apple, google, meta, microsoft));
+    private static final Set<Organization> TC_ORGS =
+            ImmutableSet.copyOf(EnumSet.of(apple, google, meta, microsoft));
 
     /**
      * Get a list of the TC Organizations
+     *
      * @return the set
      */
     public static Set<Organization> getTCOrgs() {
@@ -75,6 +80,7 @@ public enum Organization {
 
     /**
      * Is this organization a TC Org?
+     *
      * @return true if it is TC
      */
     public boolean isTCOrg() {
@@ -110,10 +116,12 @@ public enum Organization {
     }
 
     static final Map<String, Organization> OrganizationNameMap;
+
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {
-            OrganizationNameMap.put(x.displayName.toLowerCase().replace('-', '_').replace('.', '_'), x);
+            OrganizationNameMap.put(
+                    x.displayName.toLowerCase().replace('-', '_').replace('.', '_'), x);
             for (String name : x.names) {
                 OrganizationNameMap.put(name.toLowerCase().replace('-', '_').replace('.', '_'), x);
             }

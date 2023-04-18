@@ -6,7 +6,9 @@ import java.util.regex.Matcher;
 public class RegexTransformState {
 
     public enum Status {
-        NOMATCH, BLOCKED, MATCH
+        NOMATCH,
+        BLOCKED,
+        MATCH
     }
 
     private static final boolean DEBUG = false;
@@ -20,34 +22,35 @@ public class RegexTransformState {
         this.regexTransform = regexTransform;
         toBeProcessed = new StringBuilder(text);
 
-        main: while (true) {
+        main:
+        while (true) {
             if (DEBUG) {
                 System.out.println("T:\t" + processedAlready + "|" + toBeProcessed);
             }
             Status s = match();
             switch (s) {
-            case MATCH:
-                // the actions have been done inside the match
-                break;
-            case BLOCKED:
-                // we can't convert any more, so stop
-                // processedAlready.append(toBeProcessed);
-                // break main;
-            case NOMATCH:
-                if (toBeProcessed.length() == 0) {
-                    break main;
-                }
-                // transfer one code point
-                // TODO fix -- right now it is char
-                processedAlready.append(toBeProcessed.subSequence(0, 1));
-                toBeProcessed.delete(0, 1);
-                break;
+                case MATCH:
+                    // the actions have been done inside the match
+                    break;
+                case BLOCKED:
+                    // we can't convert any more, so stop
+                    // processedAlready.append(toBeProcessed);
+                    // break main;
+                case NOMATCH:
+                    if (toBeProcessed.length() == 0) {
+                        break main;
+                    }
+                    // transfer one code point
+                    // TODO fix -- right now it is char
+                    processedAlready.append(toBeProcessed.subSequence(0, 1));
+                    toBeProcessed.delete(0, 1);
+                    break;
             }
         }
     }
 
     public Status match() {
-        for (Iterator<Rule> it = regexTransform.iterator(toBeProcessed); it.hasNext();) {
+        for (Iterator<Rule> it = regexTransform.iterator(toBeProcessed); it.hasNext(); ) {
             Status status = match(it.next());
             if (status != Status.NOMATCH) { // keep going as long as we get NOMATCH
                 return status;
@@ -57,7 +60,8 @@ public class RegexTransformState {
     }
 
     /**
-     * return true if the rule matches at offset in text, without touching text before start or after finish
+     * return true if the rule matches at offset in text, without touching text before start or
+     * after finish
      *
      * @param text
      * @param offset
@@ -103,7 +107,8 @@ public class RegexTransformState {
             // do nothing, all ok
         } else if (delta < 0) {
             // move stuff to future
-            toBeProcessed.insert(0, processedAlready.subSequence(newCursor, processedAlready.length()));
+            toBeProcessed.insert(
+                    0, processedAlready.subSequence(newCursor, processedAlready.length()));
             processedAlready.setLength(newCursor);
         } else { // greater
             processedAlready.append(toBeProcessed.subSequence(0, delta));

@@ -1,19 +1,17 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 
 public class GenerateBcp47Text {
     static final boolean SHOW_ONLY_WITHOUT_DESCRIPTION = false;
@@ -36,7 +34,9 @@ public class GenerateBcp47Text {
         for (Entry<String, Set<String>> extensionAndKeys : extension2Keys.keyValuesSet()) {
 
             String extension = extensionAndKeys.getKey();
-            PrintWriter out = FileUtilities.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
+            PrintWriter out =
+                    FileUtilities.openUTF8Writer(
+                            FormattedFileWriter.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
             showField(out, "Version", ToolConstants.CHART_DISPLAY_VERSION);
             showField(out, "Extension", extension);
 
@@ -59,12 +59,7 @@ public class GenerateBcp47Text {
     }
 
     /**
-     * %%
-     * Type: language
-     * Subtag: ab
-     * Description: Abkhazian
-     * Added: 2005-10-16
-     * Suppress-Script: Cyrl
+     * %% Type: language Subtag: ab Description: Abkhazian Added: 2005-10-16 Suppress-Script: Cyrl
      * %%
      *
      * @param key
@@ -94,6 +89,7 @@ public class GenerateBcp47Text {
     }
 
     private void showField(PrintWriter out, String title, String item) {
-        out.write(item == null || item.isEmpty() ? "" : title + ": " + item + System.lineSeparator());
+        out.write(
+                item == null || item.isEmpty() ? "" : title + ": " + item + System.lineSeparator());
     }
 }

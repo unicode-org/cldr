@@ -24,8 +24,8 @@ public abstract class UnicodeLabel implements com.ibm.icu.text.Transform<Integer
         }
         StringBuffer sb = new StringBuffer();
         int cp;
-        for (int i = 0; i < s.length(); i+=UTF16.getCharCount(cp)) {
-            cp = UTF16.charAt(s,i);
+        for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
+            cp = UTF16.charAt(s, i);
             if (i != 0) sb.append(separator);
             sb.append(getValue(cp, withCodePoint));
         }
@@ -39,26 +39,30 @@ public abstract class UnicodeLabel implements com.ibm.icu.text.Transform<Integer
     private static class Hex extends UnicodeLabel {
         @Override
         public String getValue(int codepoint, boolean isShort) {
-            if (isShort) return Utility.hex(codepoint,4);
-            return "U+" + Utility.hex(codepoint,4);
+            if (isShort) return Utility.hex(codepoint, 4);
+            return "U+" + Utility.hex(codepoint, 4);
         }
     }
 
     public static class Constant extends UnicodeLabel {
         private String value;
+
         public Constant(String value) {
             if (value == null) value = "";
             this.value = value;
         }
+
         @Override
         public String getValue(int codepoint, boolean isShort) {
             return value;
         }
+
         @Override
         public int getMaxWidth(boolean isShort) {
             return value.length();
         }
     }
+
     public static final UnicodeLabel NULL = new Constant("");
     public static final UnicodeLabel HEX = new Hex();
 }

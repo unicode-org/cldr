@@ -1,11 +1,9 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import org.unicode.cldr.tool.FallbackIterator;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestFallbackIterator extends TestFmwk {
     public static void main(String[] args) {
@@ -33,13 +31,18 @@ public class TestFallbackIterator extends TestFmwk {
             "no-YU, no-CS, no",
             "sh-CS, sh-YU, sr-Latn-CS, sr-Latn-YU, sr-Latn, sr",
             "sh-Cyrl-CS, sh-Cyrl-YU, sr-Cyrl-CS, sr-Cyrl-YU, sr-Cyrl, sr",
-            "cmn, zh", "zh-cmn, zh",
+            "cmn, zh",
+            "zh-cmn, zh",
             "zh-YU, zh-CS, zh-Hans-CS, zh-Hans-YU, zh-Hans, zh",
             "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh",
-            "zh-CN, zh-Hans-CN, zh-Hans, zh", "zh-Hans, zh",
-            "zh-Hans-CN, zh-Hans, zh", "zh-TW, zh-Hant-TW, zh-Hant, zh",
-            "zh-Hant, zh", "zh-Hant-TW, zh-Hant, zh",
-            "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh", };
+            "zh-CN, zh-Hans-CN, zh-Hans, zh",
+            "zh-Hans, zh",
+            "zh-Hans-CN, zh-Hans, zh",
+            "zh-TW, zh-Hant-TW, zh-Hant, zh",
+            "zh-Hant, zh",
+            "zh-Hant-TW, zh-Hant, zh",
+            "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh",
+        };
         for (String testString : tests) {
             String[] test = testString.split(",\\s*");
             FallbackIterator it = new FallbackIterator(test[0]);
@@ -50,8 +53,10 @@ public class TestFallbackIterator extends TestFmwk {
             }
             // expected is the whole list, since the first item is always the
             // same
-            assertEquals("Fallback chain for " + test[0], Arrays.asList(test)
-                .toString(), items.toString());
+            assertEquals(
+                    "Fallback chain for " + test[0],
+                    Arrays.asList(test).toString(),
+                    items.toString());
         }
     }
 }

@@ -1,35 +1,30 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.web;
 
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-
 import org.json.JSONObject;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteType;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
- * @author srl This is an abstract interface for allowing SurveyTool-like input
- *         to a CLDRFile. It could be considered as a getter on
- *         XMLSource/CLDRFile. TODO: T could eventually be nailed down to a
- *         concrete type.
+ * @author srl This is an abstract interface for allowing SurveyTool-like input to a CLDRFile. It
+ *     could be considered as a getter on XMLSource/CLDRFile. TODO: T could eventually be nailed
+ *     down to a concrete type.
  */
 public interface BallotBox<T> {
 
     /**
      * This is thrown when an XPath isn't valid within this locale.
-     * @author srl
      *
+     * @author srl
      */
     public class InvalidXPathException extends SurveyException {
-        /**
-         *
-         */
+        /** */
         private static final long serialVersionUID = 1310604068301637651L;
+
         public String xpath;
 
         public InvalidXPathException(String xpath) {
@@ -40,12 +35,9 @@ public interface BallotBox<T> {
 
     /**
      * @author srl
-     *
      */
     public class VoteNotAcceptedException extends SurveyException {
-        /**
-         *
-         */
+        /** */
         private static final long serialVersionUID = 1462132656348262950L;
 
         public VoteNotAcceptedException(ErrorCode r, String message) {
@@ -61,18 +53,21 @@ public interface BallotBox<T> {
         }
     }
 
-    public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException;
+    public void voteForValue(T user, String distinguishingXpath, String value)
+            throws InvalidXPathException, VoteNotAcceptedException;
 
-    public void voteForValueWithType(T user, String distinguishingXpath, String value, VoteType voteType) throws VoteNotAcceptedException, InvalidXPathException;
+    public void voteForValueWithType(
+            T user, String distinguishingXpath, String value, VoteType voteType)
+            throws VoteNotAcceptedException, InvalidXPathException;
 
-    public void voteForValueWithType(T user, String distinguishingXpath, String value, Integer withVote, VoteType voteType) throws InvalidXPathException,
-        VoteNotAcceptedException;
+    public void voteForValueWithType(
+            T user, String distinguishingXpath, String value, Integer withVote, VoteType voteType)
+            throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
      * Return a vote for a value, as a string
      *
-     * @param user
-     *            user id who
+     * @param user user id who
      * @param distinguishingXpath
      * @return
      */
@@ -89,6 +84,7 @@ public interface BallotBox<T> {
 
     /**
      * Get the overrides (if any) from user to votevalue
+     *
      * @param xpath
      * @return
      */
@@ -111,8 +107,7 @@ public interface BallotBox<T> {
     VoteResolver<String> getResolver(String path);
 
     /**
-     * Whether the user voted at all. Returns false if user voted for null (no
-     * opinion).
+     * Whether the user voted at all. Returns false if user voted for null (no opinion).
      *
      * @param myUser
      * @param somePath
@@ -132,21 +127,26 @@ public interface BallotBox<T> {
 
     /**
      * remove vote. same as voting for null
+     *
      * @param user
      * @param xpath
      * @throws VoteNotAcceptedException
      */
-    public void unvoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
+    public void unvoteFor(User user, String xpath)
+            throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
      * re-vote for the current vote. Error if no current vote.
+     *
      * @param user
      * @param xpath
      */
-    public void revoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
+    public void revoteFor(User user, String xpath)
+            throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
      * Get the last mod date (if known) of the most recent vote.
+     *
      * @param xpath
      * @return date or null
      */

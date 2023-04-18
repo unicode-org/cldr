@@ -13,19 +13,19 @@ import java.util.TreeMap;
 
 public class VariableReplacer {
     // simple implementation for now
-    Comparator<String> LONGEST_FIRST = new Comparator<String>() {
-        @Override
-        public int compare(String o1, String o2) {
-            int result = (o2.length() - o1.length());
-            if (result != 0) {
-                return result;
-            }
-            return o1.compareTo(o2);
-        }
+    Comparator<String> LONGEST_FIRST =
+            new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    int result = (o2.length() - o1.length());
+                    if (result != 0) {
+                        return result;
+                    }
+                    return o1.compareTo(o2);
+                }
+            };
 
-    };
-
-    private Map<String,String> m = new TreeMap<>(LONGEST_FIRST);
+    private Map<String, String> m = new TreeMap<>(LONGEST_FIRST);
 
     // TODO - fix to do streams also, clean up implementation
 

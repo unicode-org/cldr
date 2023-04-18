@@ -11,8 +11,8 @@ public class Rule {
     private final Pattern postmatch;
     private final List<Item> results = new ArrayList<>();
     /**
-     * if negative, is position before start position; otherwise is position relative to end of replacement.
-     * To put *at* the start position, put a CURSOR at the start of the results.
+     * if negative, is position before start position; otherwise is position relative to end of
+     * replacement. To put *at* the start position, put a CURSOR at the start of the results.
      * Default is zero, meaning at the end of the replacement unless there is a CURSOR item.
      */
     private int outOfBoundsCursor = 0;
@@ -87,7 +87,8 @@ public class Rule {
             tempPrematch = null;
         } else {
             try {
-                tempPrematch = Pattern.compile("(?<=" + pre + ")", Pattern.COMMENTS + Pattern.DOTALL);
+                tempPrematch =
+                        Pattern.compile("(?<=" + pre + ")", Pattern.COMMENTS + Pattern.DOTALL);
                 tempPrematchFindAtEnd = true;
             } catch (Exception e) {
                 tempPrematch = Pattern.compile(pre + "$", Pattern.COMMENTS + Pattern.DOTALL);
@@ -124,21 +125,21 @@ public class Rule {
                 result.append(insertion);
             }
         }
-        return cursor >= 0 ? cursor
-            : outOfBoundsCursor < 0 ? startPosition + outOfBoundsCursor
-                : result.length() + outOfBoundsCursor;
+        return cursor >= 0
+                ? cursor
+                : outOfBoundsCursor < 0
+                        ? startPosition + outOfBoundsCursor
+                        : result.length() + outOfBoundsCursor;
     }
 
     @Override
     public String toString() {
         String main = postmatch.toString();
-        return (prematch == null ? "" : prematch.toString())
-            + main + " > " + results + " ; ";
+        return (prematch == null ? "" : prematch.toString()) + main + " > " + results + " ; ";
     }
 
     public Matcher getPrematcher(CharSequence processedAlready) {
-        return prematch == null ? null
-            : prematch.matcher(processedAlready);
+        return prematch == null ? null : prematch.matcher(processedAlready);
     }
 
     public Matcher getPostmatcher(CharSequence toBeProcessed) {
@@ -146,8 +147,6 @@ public class Rule {
     }
 
     public boolean prematch(Matcher prematcher, CharSequence processedAlready) {
-        return prematchFindAtEnd
-            ? prematcher.find(processedAlready.length())
-            : prematcher.find();
+        return prematchFindAtEnd ? prematcher.find(processedAlready.length()) : prematcher.find();
     }
 }

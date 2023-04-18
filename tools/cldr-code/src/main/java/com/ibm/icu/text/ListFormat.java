@@ -1,5 +1,6 @@
 package com.ibm.icu.text;
 
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,37 +8,29 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
-import com.ibm.icu.util.ULocale;
-
 /**
- * Immutable class for formatting a list, using data from CLDR (or supplied
- * separately). The class is not subclassable.
+ * Immutable class for formatting a list, using data from CLDR (or supplied separately). The class
+ * is not subclassable.
  *
  * @author markdavis
  * @internal
  */
-final public class ListFormat {
+public final class ListFormat {
     private final String two;
     private final String start;
     private final String middle;
     private final String end;
 
     /**
-     * Create a ListFormatter from component strings, with definitions as in
-     * LDML.
+     * Create a ListFormatter from component strings, with definitions as in LDML.
      *
-     * @param two
-     *            string for two items, containing {0} for the first, and {1}
-     *            for the second.
-     * @param start
-     *            string for the start of a list items, containing {0} for the
-     *            first, and {1} for the rest.
-     * @param middle
-     *            string for the start of a list items, containing {0} for the
-     *            first part of the list, and {1} for the rest of the list.
-     * @param end
-     *            string for the end of a list items, containing {0} for the
-     *            first part of the list, and {1} for the last item.
+     * @param two string for two items, containing {0} for the first, and {1} for the second.
+     * @param start string for the start of a list items, containing {0} for the first, and {1} for
+     *     the rest.
+     * @param middle string for the start of a list items, containing {0} for the first part of the
+     *     list, and {1} for the rest of the list.
+     * @param end string for the end of a list items, containing {0} for the first part of the list,
+     *     and {1} for the last item.
      * @internal
      */
     public ListFormat(String two, String start, String middle, String end) {
@@ -50,8 +43,7 @@ final public class ListFormat {
     /**
      * Create a list formatter that is appropriate for a locale.
      *
-     * @param locale
-     *            the locale in question.
+     * @param locale the locale in question.
      * @return ListFormatter
      * @internal
      */
@@ -73,8 +65,7 @@ final public class ListFormat {
     /**
      * Create a list formatter that is appropriate for a locale.
      *
-     * @param locale
-     *            the locale in question.
+     * @param locale the locale in question.
      * @return ListFormatter
      * @internal
      */
@@ -85,8 +76,7 @@ final public class ListFormat {
     /**
      * Format a list of objects.
      *
-     * @param items
-     *            items to format. The toString() method is called on each.
+     * @param items items to format. The toString() method is called on each.
      * @return items formatted into a string
      * @internal
      */
@@ -97,8 +87,7 @@ final public class ListFormat {
     /**
      * Format a collation of objects. The toString() method is called on each.
      *
-     * @param items
-     *            items to format. The toString() method is called on each.
+     * @param items items to format. The toString() method is called on each.
      * @return items formatted into a string
      * @internal
      */
@@ -109,12 +98,12 @@ final public class ListFormat {
         Iterator<Object> it = items.iterator();
         int count = items.size();
         switch (count) {
-        case 0:
-            return "";
-        case 1:
-            return it.next().toString();
-        case 2:
-            return format2(two, it.next(), it.next());
+            case 0:
+                return "";
+            case 1:
+                return it.next().toString();
+            case 2:
+                return format2(two, it.next(), it.next());
         }
         String result = it.next().toString();
         result = format2(start, result, it.next());

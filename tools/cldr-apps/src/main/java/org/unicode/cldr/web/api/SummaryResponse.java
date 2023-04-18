@@ -6,9 +6,7 @@ import org.unicode.cldr.web.VettingViewerQueue;
 
 @Schema(description = "Summary Response")
 public final class SummaryResponse {
-    public SummaryResponse() {
-
-    }
+    public SummaryResponse() {}
 
     @Schema(description = "vetting viewer status enum")
     public VettingViewerQueue.Status status;

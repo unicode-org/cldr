@@ -8,6 +8,19 @@
  */
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,10 +38,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
@@ -40,20 +51,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 
 /**
  * This is a file that runs the CLDR tests for ICU4J, to verify that ICU4J implements them
@@ -73,10 +70,8 @@ public class TestCldr extends TestFmwk {
 
     public static void main(String[] args) throws Exception {
         MATCH = System.getProperty("XML_MATCH");
-        if (MATCH == null)
-            MATCH = ".*";
-        else
-            System.out.println("Resetting MATCH:" + MATCH);
+        if (MATCH == null) MATCH = ".*";
+        else System.out.println("Resetting MATCH:" + MATCH);
 
         new TestCldr().run(args);
     }
@@ -86,8 +81,8 @@ public class TestCldr extends TestFmwk {
     Set<String> allLocales = new TreeSet<>();
 
     public void TestScripts() {
-        Factory cldrFactory = Factory.make(
-            CLDRPaths.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
+        Factory cldrFactory =
+                Factory.make(CLDRPaths.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
         ULocale locales[] = ULocale.getAvailableLocales();
         for (int i = 0; i < locales.length; ++i) {
             ULocale locale = locales[i];
@@ -99,12 +94,16 @@ public class TestCldr extends TestFmwk {
             }
 
             CLDRFile cfile = cldrFactory.make(locale.toString(), true, true);
-            UnicodeSet exemplars = getExemplarSet(cfile, "").addAll(
-                getExemplarSet(cfile, "auxiliary"));
+            UnicodeSet exemplars =
+                    getExemplarSet(cfile, "").addAll(getExemplarSet(cfile, "auxiliary"));
             Set<String> CLDRScripts = getScriptsFromUnicodeSet(exemplars);
             if (!CLDRScripts.equals(ICUScripts)) {
-                errln(locale + "\tscripts not equals.\tCLDR: " + CLDRScripts
-                    + ",\tICU: " + ICUScripts);
+                errln(
+                        locale
+                                + "\tscripts not equals.\tCLDR: "
+                                + CLDRScripts
+                                + ",\tICU: "
+                                + ICUScripts);
             } else {
                 logln("\tCLDR:\t" + CLDRScripts + ",\tICU: " + ICUScripts);
             }
@@ -115,9 +114,8 @@ public class TestCldr extends TestFmwk {
         // use bits first, since that's faster
         BitSet scriptBits = new BitSet();
         boolean show = false;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(exemplars); it.next();) {
-            if (show)
-                System.out.println(Integer.toHexString(it.codepoint));
+        for (UnicodeSetIterator it = new UnicodeSetIterator(exemplars); it.next(); ) {
+            if (show) System.out.println(Integer.toHexString(it.codepoint));
             if (it.codepoint != UnicodeSetIterator.IS_STRING) {
                 scriptBits.set(UScript.getScript(it.codepoint));
             } else {
@@ -139,12 +137,9 @@ public class TestCldr extends TestFmwk {
     }
 
     public UnicodeSet getExemplarSet(CLDRFile cldrfile, String type) {
-        if (type.length() != 0)
-            type = "[@type=\"" + type + "\"]";
-        String v = cldrfile.getStringValue("//ldml/characters/exemplarCharacters"
-            + type);
-        if (v == null)
-            return new UnicodeSet();
+        if (type.length() != 0) type = "[@type=\"" + type + "\"]";
+        String v = cldrfile.getStringValue("//ldml/characters/exemplarCharacters" + type);
+        if (v == null) return new UnicodeSet();
         return new UnicodeSet(v);
     }
 
@@ -164,8 +159,7 @@ public class TestCldr extends TestFmwk {
 
         Matcher m = PatternCache.get(MATCH).matcher("");
         for (String locale : s) {
-            if (!m.reset(locale).matches())
-                continue;
+            if (!m.reset(locale).matches()) continue;
             _test(locale);
         }
     }
@@ -190,16 +184,24 @@ public class TestCldr extends TestFmwk {
 
     static Transliterator toUnicode = Transliterator.getInstance("any-hex");
 
-    static public String showString(String in) {
+    public static String showString(String in) {
         return "\u00AB" + in + "\u00BB (" + toUnicode.transliterate(in) + ")";
     }
 
     // ============ SAX Handler Infrastructure ============
     enum AttributeName {
-        numberType, dateType, timeType, date, field, zone, parse, input, draft
+        numberType,
+        dateType,
+        timeType,
+        date,
+        field,
+        zone,
+        parse,
+        input,
+        draft
     }
 
-    abstract public class Handler {
+    public abstract class Handler {
 
         Map<AttributeName, String> settings = new TreeMap<>();
 
@@ -225,11 +227,18 @@ public class TestCldr extends TestFmwk {
             try {
                 for (int i = 0; i < currentLocales.size(); ++i) {
                     ul = currentLocales.get(i);
-                    // loglnSAX("  Checking " + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")" + " for " + name);
+                    // loglnSAX("  Checking " + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")"
+                    // + " for " + name);
                     handleResult(ul, value);
                     if (failures != 0) {
-                        errln("\tTotal Failures: " + failures + "\t" + ul + "("
-                            + ul.getDisplayName(ULocale.ENGLISH) + ")");
+                        errln(
+                                "\tTotal Failures: "
+                                        + failures
+                                        + "\t"
+                                        + ul
+                                        + "("
+                                        + ul.getDisplayName(ULocale.ENGLISH)
+                                        + ")");
                         failures = 0;
                     }
                 }
@@ -238,15 +247,20 @@ public class TestCldr extends TestFmwk {
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 pw.flush();
-                errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">" + CldrUtility.LINE_SEPARATOR
-                    + sw.toString());
+                errln(
+                        "Exception: Locale: "
+                                + ul
+                                + ",\tValue: <"
+                                + value
+                                + ">"
+                                + CldrUtility.LINE_SEPARATOR
+                                + sw.toString());
             }
         }
 
         public void loglnSAX(String message) {
             String temp = message + "\t[" + name;
-            for (Iterator<AttributeName> it = settings.keySet().iterator(); it
-                .hasNext();) {
+            for (Iterator<AttributeName> it = settings.keySet().iterator(); it.hasNext(); ) {
                 AttributeName attributeName = it.next();
                 String attributeValue = settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
@@ -256,15 +270,13 @@ public class TestCldr extends TestFmwk {
 
         int lookupValue(Object x, Object[] list) {
             for (int i = 0; i < list.length; ++i) {
-                if (x.equals(list[i]))
-                    return i;
+                if (x.equals(list[i])) return i;
             }
             loglnSAX("Unknown String: " + x);
             return -1;
         }
 
-        abstract void handleResult(ULocale currentLocale, String value)
-            throws Exception;
+        abstract void handleResult(ULocale currentLocale, String value) throws Exception;
 
         /**
          * @param attributes
@@ -275,25 +287,21 @@ public class TestCldr extends TestFmwk {
             com.ibm.icu.impl.Utility.split(localeList, ' ', currentLocaleString);
             currentLocales.clear();
             for (int i = 0; i < currentLocaleString.length; ++i) {
-                if (currentLocaleString[i].length() == 0)
-                    continue;
+                if (currentLocaleString[i].length() == 0) continue;
                 if (allLocales.contains("")) {
                     logln("Skipping locale, not in ICU4J: " + currentLocaleString[i]);
                     continue;
                 }
                 currentLocales.add(new ULocale(currentLocaleString[i]));
             }
-            if (DEBUG)
-                logln("Setting locales: " + currentLocales);
+            if (DEBUG) logln("Setting locales: " + currentLocales);
         }
     }
 
     public Handler getHandler(String name, Attributes attributes) {
-        if (DEBUG)
-            logln("Creating Handler: " + name);
+        if (DEBUG) logln("Creating Handler: " + name);
         Handler result = RegisteredHandlers.get(name);
-        if (result == null)
-            logln("Unexpected test type: " + name);
+        if (result == null) logln("Unexpected test type: " + name);
         else {
             result.setAttributes(attributes);
         }
@@ -312,17 +320,20 @@ public class TestCldr extends TestFmwk {
     static TimeZone utc = TimeZone.getTimeZone("GMT");
 
     static DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
     {
         iso.setTimeZone(utc);
     }
 
-    static int[] DateFormatValues = { -1, DateFormat.SHORT, DateFormat.MEDIUM,
-        DateFormat.LONG, DateFormat.FULL };
+    static int[] DateFormatValues = {
+        -1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL
+    };
 
-    static String[] DateFormatNames = { "none", "short", "medium", "long", "full" };
+    static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
 
-    static String[] NumberNames = { "standard", "integer", "decimal", "percent",
-        "scientific", "GBP" };
+    static String[] NumberNames = {
+        "standard", "integer", "decimal", "percent", "scientific", "GBP"
+    };
 
     // ============ Handler for Collation ============
     static UnicodeSet controlsAndSpace = new UnicodeSet("[:cc:]");
@@ -332,233 +343,269 @@ public class TestCldr extends TestFmwk {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < in.length(); i += UTF16.getCharCount(cp)) {
             cp = UTF16.charAt(in, i);
-            if (!toRemove.contains(cp))
-                UTF16.append(result, cp);
+            if (!toRemove.contains(cp)) UTF16.append(result, cp);
         }
         return result.toString();
     }
 
     {
-        addHandler("collation", new Handler() {
-            @Override
-            public void handleResult(ULocale currentLocale, String value) {
-                Collator col = Collator.getInstance(currentLocale);
-                String lastLine = "";
-                int count = 0;
-                for (int pos = 0; pos < value.length();) {
-                    int nextPos = value.indexOf('\n', pos);
-                    if (nextPos < 0)
-                        nextPos = value.length();
-                    String line = value.substring(pos, nextPos);
-                    line = remove(line, controlsAndSpace); // HACK for SAX
-                    if (line.trim().length() != 0) { // HACK for SAX
-                        int comp = col.compare(lastLine, line);
-                        if (comp > 0) {
-                            failures++;
-                            errln("\tLine " + (count + 1) + "\tFailure: "
-                                + showString(lastLine) + " should be leq " + showString(line));
-                        } else if (DEBUG) {
-                            logln("OK: " + line);
+        addHandler(
+                "collation",
+                new Handler() {
+                    @Override
+                    public void handleResult(ULocale currentLocale, String value) {
+                        Collator col = Collator.getInstance(currentLocale);
+                        String lastLine = "";
+                        int count = 0;
+                        for (int pos = 0; pos < value.length(); ) {
+                            int nextPos = value.indexOf('\n', pos);
+                            if (nextPos < 0) nextPos = value.length();
+                            String line = value.substring(pos, nextPos);
+                            line = remove(line, controlsAndSpace); // HACK for SAX
+                            if (line.trim().length() != 0) { // HACK for SAX
+                                int comp = col.compare(lastLine, line);
+                                if (comp > 0) {
+                                    failures++;
+                                    errln(
+                                            "\tLine "
+                                                    + (count + 1)
+                                                    + "\tFailure: "
+                                                    + showString(lastLine)
+                                                    + " should be leq "
+                                                    + showString(line));
+                                } else if (DEBUG) {
+                                    logln("OK: " + line);
+                                }
+                                lastLine = line;
+                            }
+                            pos = nextPos + 1;
+                            count++;
                         }
-                        lastLine = line;
                     }
-                    pos = nextPos + 1;
-                    count++;
-                }
-            }
-        });
+                });
 
         // ============ Handler for Numbers ============
-        addHandler("number", new Handler() {
-            String numberType = null;
+        addHandler(
+                "number",
+                new Handler() {
+                    String numberType = null;
 
-            @Override
-            public void handleResult(ULocale locale, String result) {
-                NumberFormat nf = null;
-                double v = Double.NaN;
-                for (Iterator<AttributeName> it = settings.keySet().iterator(); it
-                    .hasNext();) {
-                    AttributeName attributeName = it.next();
-                    String attributeValue = settings.get(attributeName);
-                    switch (attributeName) {
-                    case input:
-                        v = Double.parseDouble(attributeValue);
-                        continue;
-                    case draft:
-                        approved = attributeValue.contains("approved");
-                        break;
-                    case numberType:
-                        numberType = attributeValue;
-                        int index = lookupValue(attributeValue, NumberNames);
-                        if (DEBUG)
-                            logln("Getting number format for " + locale);
-                        switch (index) {
-                        case 0:
-                            nf = NumberFormat.getInstance(locale);
-                            break;
-                        case 1:
-                            nf = NumberFormat.getIntegerInstance(locale);
-                            break;
-                        case 2:
-                            nf = NumberFormat.getNumberInstance(locale);
-                            break;
-                        case 3:
-                            nf = NumberFormat.getPercentInstance(locale);
-                            break;
-                        case 4:
-                            nf = NumberFormat.getScientificInstance(locale);
-                            break;
-                        default:
-                            nf = NumberFormat.getCurrencyInstance(locale);
-                            nf.setCurrency(Currency.getInstance(attributeValue));
-                            break;
+                    @Override
+                    public void handleResult(ULocale locale, String result) {
+                        NumberFormat nf = null;
+                        double v = Double.NaN;
+                        for (Iterator<AttributeName> it = settings.keySet().iterator();
+                                it.hasNext(); ) {
+                            AttributeName attributeName = it.next();
+                            String attributeValue = settings.get(attributeName);
+                            switch (attributeName) {
+                                case input:
+                                    v = Double.parseDouble(attributeValue);
+                                    continue;
+                                case draft:
+                                    approved = attributeValue.contains("approved");
+                                    break;
+                                case numberType:
+                                    numberType = attributeValue;
+                                    int index = lookupValue(attributeValue, NumberNames);
+                                    if (DEBUG) logln("Getting number format for " + locale);
+                                    switch (index) {
+                                        case 0:
+                                            nf = NumberFormat.getInstance(locale);
+                                            break;
+                                        case 1:
+                                            nf = NumberFormat.getIntegerInstance(locale);
+                                            break;
+                                        case 2:
+                                            nf = NumberFormat.getNumberInstance(locale);
+                                            break;
+                                        case 3:
+                                            nf = NumberFormat.getPercentInstance(locale);
+                                            break;
+                                        case 4:
+                                            nf = NumberFormat.getScientificInstance(locale);
+                                            break;
+                                        default:
+                                            nf = NumberFormat.getCurrencyInstance(locale);
+                                            nf.setCurrency(Currency.getInstance(attributeValue));
+                                            break;
+                                    }
+                                    break;
+                                default:
+                                    throw new IllegalArgumentException(
+                                            "Unexpected Attribute Name: " + attributeName);
+                            }
                         }
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unexpected Attribute Name: "
-                            + attributeName);
+                        if (!approved) {
+                            return;
+                        }
+                        String temp = nf.format(v).trim();
+                        result = result.trim(); // HACK because of SAX
+                        if (!temp.equals(result)) {
+                            errln(
+                                    "Number: Locale: "
+                                            + locale
+                                            + ",\tType: "
+                                            + numberType
+                                            + ",\tCLDR: <"
+                                            + result
+                                            + ">, ICU: <"
+                                            + temp
+                                            + ">");
+                        }
                     }
-
-                }
-                if (!approved) {
-                    return;
-                }
-                String temp = nf.format(v).trim();
-                result = result.trim(); // HACK because of SAX
-                if (!temp.equals(result)) {
-                    errln("Number: Locale: " + locale + ",\tType: " + numberType
-                        + ",\tCLDR: <" + result + ">, ICU: <" + temp + ">");
-                }
-            }
-        });
+                });
 
         // ============ Handler for Dates ============
-        addHandler("date", new Handler() {
-            int dateFormat = 0;
+        addHandler(
+                "date",
+                new Handler() {
+                    int dateFormat = 0;
 
-            int timeFormat = 0;
+                    int timeFormat = 0;
 
-            @Override
-            public void handleResult(ULocale locale, String result)
-                throws ParseException {
-                Date date = new Date();
-                for (Iterator<AttributeName> it = settings.keySet().iterator(); it
-                    .hasNext();) {
-                    AttributeName attributeName = it.next();
-                    String attributeValue = settings.get(attributeName);
-                    switch (attributeName) {
-                    case input:
-                        date = iso.parse(attributeValue);
-                        continue;
-                    case dateType:
-                        dateFormat = lookupValue(attributeValue, DateFormatNames);
-                        break;
-                    case timeType:
-                        timeFormat = lookupValue(attributeValue, DateFormatNames);
-                        break;
-                    case draft:
-                        approved = attributeValue.contains("approved");
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unexpected Attribute Name: "
-                            + attributeName);
+                    @Override
+                    public void handleResult(ULocale locale, String result) throws ParseException {
+                        Date date = new Date();
+                        for (Iterator<AttributeName> it = settings.keySet().iterator();
+                                it.hasNext(); ) {
+                            AttributeName attributeName = it.next();
+                            String attributeValue = settings.get(attributeName);
+                            switch (attributeName) {
+                                case input:
+                                    date = iso.parse(attributeValue);
+                                    continue;
+                                case dateType:
+                                    dateFormat = lookupValue(attributeValue, DateFormatNames);
+                                    break;
+                                case timeType:
+                                    timeFormat = lookupValue(attributeValue, DateFormatNames);
+                                    break;
+                                case draft:
+                                    approved = attributeValue.contains("approved");
+                                    break;
+                                default:
+                                    throw new IllegalArgumentException(
+                                            "Unexpected Attribute Name: " + attributeName);
+                            }
+                        }
+                        if (!approved) {
+                            return;
+                        }
+                        SimpleDateFormat dt = getDateFormat(locale, dateFormat, timeFormat);
+                        dt.setTimeZone(utc);
+                        String temp = dt.format(date).trim();
+                        result = result.trim(); // HACK because of SAX
+                        if (!temp.equals(result)) {
+                            errln(
+                                    "DateTime: Locale: "
+                                            + locale
+                                            + ",\tDate: "
+                                            + DateFormatNames[dateFormat]
+                                            + ",\tTime: "
+                                            + DateFormatNames[timeFormat]
+                                            + ",\tCLDR: <"
+                                            + result
+                                            + ">, ICU: <"
+                                            + temp
+                                            + ">");
+                        }
                     }
-                }
-                if (!approved) {
-                    return;
-                }
-                SimpleDateFormat dt = getDateFormat(locale, dateFormat, timeFormat);
-                dt.setTimeZone(utc);
-                String temp = dt.format(date).trim();
-                result = result.trim(); // HACK because of SAX
-                if (!temp.equals(result)) {
-                    errln("DateTime: Locale: " + locale + ",\tDate: "
-                        + DateFormatNames[dateFormat] + ",\tTime: "
-                        + DateFormatNames[timeFormat] + ",\tCLDR: <" + result
-                        + ">, ICU: <" + temp + ">");
-                }
-            }
 
-            /**
-             *
-             */
-            private SimpleDateFormat getDateFormat(ULocale locale, int dateFormat,
-                int timeFormat) {
-                if (DEBUG)
-                    logln("Getting date/time format for " + locale);
-                if (DEBUG && "ar_EG".equals(locale.toString())) {
-                    System.out.println("debug here");
-                }
-                DateFormat dt;
-                if (dateFormat == 0) {
-                    dt = DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale);
-                    if (DEBUG)
-                        System.out.print("getTimeInstance");
-                } else if (timeFormat == 0) {
-                    dt = DateFormat.getDateInstance(DateFormatValues[dateFormat], locale);
-                    if (DEBUG)
-                        System.out.print("getDateInstance");
-                } else {
-                    dt = DateFormat.getDateTimeInstance(DateFormatValues[dateFormat],
-                        DateFormatValues[timeFormat], locale);
-                    if (DEBUG)
-                        System.out.print("getDateTimeInstance");
-                }
-                if (DEBUG)
-                    System.out.println("\tinput:\t" + dateFormat + ", " + timeFormat
-                        + " => " + ((SimpleDateFormat) dt).toPattern());
-                return (SimpleDateFormat) dt;
-            }
-        });
+                    /** */
+                    private SimpleDateFormat getDateFormat(
+                            ULocale locale, int dateFormat, int timeFormat) {
+                        if (DEBUG) logln("Getting date/time format for " + locale);
+                        if (DEBUG && "ar_EG".equals(locale.toString())) {
+                            System.out.println("debug here");
+                        }
+                        DateFormat dt;
+                        if (dateFormat == 0) {
+                            dt = DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale);
+                            if (DEBUG) System.out.print("getTimeInstance");
+                        } else if (timeFormat == 0) {
+                            dt = DateFormat.getDateInstance(DateFormatValues[dateFormat], locale);
+                            if (DEBUG) System.out.print("getDateInstance");
+                        } else {
+                            dt =
+                                    DateFormat.getDateTimeInstance(
+                                            DateFormatValues[dateFormat],
+                                            DateFormatValues[timeFormat],
+                                            locale);
+                            if (DEBUG) System.out.print("getDateTimeInstance");
+                        }
+                        if (DEBUG)
+                            System.out.println(
+                                    "\tinput:\t"
+                                            + dateFormat
+                                            + ", "
+                                            + timeFormat
+                                            + " => "
+                                            + ((SimpleDateFormat) dt).toPattern());
+                        return (SimpleDateFormat) dt;
+                    }
+                });
 
         // ============ Handler for Zones ============
-        addHandler("zoneFields", new Handler() {
-            String date = "";
+        addHandler(
+                "zoneFields",
+                new Handler() {
+                    String date = "";
 
-            String zone = "";
+                    String zone = "";
 
-            String pattern = "";
+                    String pattern = "";
 
-            @Override
-            public void handleResult(ULocale locale, String result)
-                throws ParseException {
-                for (Iterator<AttributeName> it = settings.keySet().iterator(); it
-                    .hasNext();) {
-                    AttributeName attributeName = it.next();
-                    String attributeValue = settings.get(attributeName);
-                    switch (attributeName) {
-                    case date:
-                        date = attributeValue;
-                        break;
-                    case field:
-                        pattern = attributeValue;
-                        break;
-                    case zone:
-                        zone = attributeValue;
-                        break;
-                    case parse:
-                        break;
-                    case draft:
-                        approved = attributeValue.contains("approved");
-                        break;
+                    @Override
+                    public void handleResult(ULocale locale, String result) throws ParseException {
+                        for (Iterator<AttributeName> it = settings.keySet().iterator();
+                                it.hasNext(); ) {
+                            AttributeName attributeName = it.next();
+                            String attributeValue = settings.get(attributeName);
+                            switch (attributeName) {
+                                case date:
+                                    date = attributeValue;
+                                    break;
+                                case field:
+                                    pattern = attributeValue;
+                                    break;
+                                case zone:
+                                    zone = attributeValue;
+                                    break;
+                                case parse:
+                                    break;
+                                case draft:
+                                    approved = attributeValue.contains("approved");
+                                    break;
+                            }
+                        }
+                        if (!approved) {
+                            return;
+                        }
+                        Date dateValue = iso.parse(date);
+                        SimpleDateFormat field = new SimpleDateFormat(pattern, locale);
+                        field.setTimeZone(TimeZone.getTimeZone(zone));
+                        String temp = field.format(dateValue).trim();
+                        // SKIP PARSE FOR NOW
+                        result = result.trim(); // HACK because of SAX
+                        if (!temp.equals(result)) {
+                            errln(
+                                    "Zone Format: Locale: "
+                                            + locale
+                                            + ", \tZone: "
+                                            + zone
+                                            + ", \tDate: "
+                                            + date
+                                            + ", \tField: "
+                                            + pattern
+                                            + ", \tCLDR: <"
+                                            + result
+                                            + ">, \tICU: <"
+                                            + temp
+                                            + ">");
+                        }
                     }
-                }
-                if (!approved) {
-                    return;
-                }
-                Date dateValue = iso.parse(date);
-                SimpleDateFormat field = new SimpleDateFormat(pattern, locale);
-                field.setTimeZone(TimeZone.getTimeZone(zone));
-                String temp = field.format(dateValue).trim();
-                // SKIP PARSE FOR NOW
-                result = result.trim(); // HACK because of SAX
-                if (!temp.equals(result)) {
-                    errln("Zone Format: Locale: " + locale + ", \tZone: " + zone
-                        + ", \tDate: " + date + ", \tField: " + pattern + ", \tCLDR: <"
-                        + result + ">, \tICU: <" + temp + ">");
-                }
-            }
-        });
+                });
     }
 
     // ============ Gorp for SAX ============
@@ -573,94 +620,100 @@ public class TestCldr extends TestFmwk {
         }
     }
 
-    DefaultHandler DEFAULT_HANDLER = new DefaultHandler() {
-        static final boolean DEBUG = false;
+    DefaultHandler DEFAULT_HANDLER =
+            new DefaultHandler() {
+                static final boolean DEBUG = false;
 
-        StringBuffer lastChars = new StringBuffer();
+                StringBuffer lastChars = new StringBuffer();
 
-        Handler handler;
+                Handler handler;
 
-        @Override
-        public void startElement(String uri, String localName, String qName,
-            Attributes attributes) throws SAXException {
-            // data.put(new ContextStack(contextStack), lastChars);
-            // lastChars = "";
-            try {
-                if (qName.equals("cldrTest")) {
-                    // skip
-                } else if (qName.equals("result")) {
-                    for (int i = 0; i < attributes.getLength(); ++i) {
-                        handler.set(AttributeName.valueOf(attributes.getQName(i)),
-                            attributes.getValue(i));
+                @Override
+                public void startElement(
+                        String uri, String localName, String qName, Attributes attributes)
+                        throws SAXException {
+                    // data.put(new ContextStack(contextStack), lastChars);
+                    // lastChars = "";
+                    try {
+                        if (qName.equals("cldrTest")) {
+                            // skip
+                        } else if (qName.equals("result")) {
+                            for (int i = 0; i < attributes.getLength(); ++i) {
+                                handler.set(
+                                        AttributeName.valueOf(attributes.getQName(i)),
+                                        attributes.getValue(i));
+                            }
+                        } else {
+                            handler = getHandler(qName, attributes);
+                            // handler.set("locale", uLocale.toString());
+                        }
+                        // if (DEBUG) logln("startElement:\t" + contextStack);
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
+                        throw e;
                     }
-                } else {
-                    handler = getHandler(qName, attributes);
-                    // handler.set("locale", uLocale.toString());
                 }
-                // if (DEBUG) logln("startElement:\t" + contextStack);
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-                throw e;
-            }
-        }
 
-        @Override
-        public void endElement(String uri, String localName, String qName)
-            throws SAXException {
-            try {
-                // if (DEBUG) logln("endElement:\t" + contextStack);
-                if (qName.equals("result"))
-                    handler.checkResult(lastChars.toString());
-                else if (qName.length() != 0) {
-                    // logln("Unexpected contents of: " + qName + ", <" + lastChars + ">");
+                @Override
+                public void endElement(String uri, String localName, String qName)
+                        throws SAXException {
+                    try {
+                        // if (DEBUG) logln("endElement:\t" + contextStack);
+                        if (qName.equals("result")) handler.checkResult(lastChars.toString());
+                        else if (qName.length() != 0) {
+                            // logln("Unexpected contents of: " + qName + ", <" + lastChars + ">");
+                        }
+                        lastChars.setLength(0);
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
+                        throw e;
+                    }
                 }
-                lastChars.setLength(0);
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-                throw e;
-            }
-        }
 
-        // Have to hack around the fact that the character data might be in pieces
-        @Override
-        public void characters(char[] ch, int start, int length)
-            throws SAXException {
-            try {
-                String value = new String(ch, start, length);
-                if (DEBUG)
-                    logln("characters:\t" + value);
-                lastChars.append(value);
-            } catch (RuntimeException e) {
-                e.printStackTrace();
-                throw e;
-            }
-        }
+                // Have to hack around the fact that the character data might be in pieces
+                @Override
+                public void characters(char[] ch, int start, int length) throws SAXException {
+                    try {
+                        String value = new String(ch, start, length);
+                        if (DEBUG) logln("characters:\t" + value);
+                        lastChars.append(value);
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
+                        throw e;
+                    }
+                }
 
-        // just for debugging
+                // just for debugging
 
-        @Override
-        public void notationDecl(String name, String publicId, String systemId)
-            throws SAXException {
-            logln("notationDecl: " + name + ", " + publicId + ", " + systemId);
-        }
+                @Override
+                public void notationDecl(String name, String publicId, String systemId)
+                        throws SAXException {
+                    logln("notationDecl: " + name + ", " + publicId + ", " + systemId);
+                }
 
-        @Override
-        public void processingInstruction(String target, String data)
-            throws SAXException {
-            logln("processingInstruction: " + target + ", " + data);
-        }
+                @Override
+                public void processingInstruction(String target, String data) throws SAXException {
+                    logln("processingInstruction: " + target + ", " + data);
+                }
 
-        @Override
-        public void skippedEntity(String name) throws SAXException {
-            logln("skippedEntity: " + name);
-        }
+                @Override
+                public void skippedEntity(String name) throws SAXException {
+                    logln("skippedEntity: " + name);
+                }
 
-        @Override
-        public void unparsedEntityDecl(String name, String publicId,
-            String systemId, String notationName) throws SAXException {
-            logln("unparsedEntityDecl: " + name + ", " + publicId + ", " + systemId
-                + ", " + notationName);
-        }
-
-    };
+                @Override
+                public void unparsedEntityDecl(
+                        String name, String publicId, String systemId, String notationName)
+                        throws SAXException {
+                    logln(
+                            "unparsedEntityDecl: "
+                                    + name
+                                    + ", "
+                                    + publicId
+                                    + ", "
+                                    + systemId
+                                    + ", "
+                                    + notationName);
+                }
+            };
 }

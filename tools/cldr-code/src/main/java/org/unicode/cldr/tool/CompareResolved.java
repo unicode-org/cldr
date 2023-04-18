@@ -1,11 +1,13 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Sets;
+import com.ibm.icu.util.Output;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
@@ -15,25 +17,25 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.Sets;
-import com.ibm.icu.util.Output;
-
 public class CompareResolved {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDR_CONFIG.getSupplementalDataInfo();
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
+            CLDR_CONFIG.getSupplementalDataInfo();
 
     private enum MyOptions {
-        source(new Params().setHelp("Set the source directory name. Only these files will be compared")
-            .setDefault(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-42.0/common/main").setMatch(".*")),
-        compare(new Params().setHelp("Set the comparison directory name.")
-            .setMatch(".*").setDefault(CLDRPaths.MAIN_DIRECTORY)),
-        fileFilter(new Params().setHelp("Filter files in source dir.")
-            .setMatch(".*")),
-        pathFilter(new Params().setHelp("Filter paths in each source file.")
-            .setMatch(".*")),
-        verbose(new Params()
-            .setMatch(null)),
+        source(
+                new Params()
+                        .setHelp("Set the source directory name. Only these files will be compared")
+                        .setDefault(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-42.0/common/main")
+                        .setMatch(".*")),
+        compare(
+                new Params()
+                        .setHelp("Set the comparison directory name.")
+                        .setMatch(".*")
+                        .setDefault(CLDRPaths.MAIN_DIRECTORY)),
+        fileFilter(new Params().setHelp("Filter files in source dir.").setMatch(".*")),
+        pathFilter(new Params().setHelp("Filter paths in each source file.").setMatch(".*")),
+        verbose(new Params().setMatch(null)),
         ;
 
         // BOILERPLATE TO COPY
@@ -44,6 +46,7 @@ public class CompareResolved {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -100,7 +103,8 @@ public class CompareResolved {
         int diffCountAllLocales = 0;
 
         // cycle over locales
-        System.out.println("## Locale\tRequested Path\tResolved Value (S)\tResolved Value (C)\tFound Locale (S)\tFound Locale (C)\tFound Path (S)\tFound Path (C)");
+        System.out.println(
+                "## Locale\tRequested Path\tResolved Value (S)\tResolved Value (C)\tFound Locale (S)\tFound Locale (C)\tFound Path (S)\tFound Path (C)");
         for (String localeID : sourceFactory.getAvailable()) {
             if (fileMatcher != null && !fileMatcher.reset(localeID).find()) {
                 continue;
@@ -132,49 +136,74 @@ public class CompareResolved {
                     continue;
                 }
                 ++filterCount;
-                String sourceValue = sourceFile.getStringValueWithBailey(path, sourcePathFound, sourceLocaleFound);
-                String compareValue = compareFile.getStringValueWithBailey(path, comparePathFound, compareLocaleFound);
+                String sourceValue =
+                        sourceFile.getStringValueWithBailey(
+                                path, sourcePathFound, sourceLocaleFound);
+                String compareValue =
+                        compareFile.getStringValueWithBailey(
+                                path, comparePathFound, compareLocaleFound);
 
                 if (Objects.equal(sourceValue, compareValue)) {
                     continue;
                 }
 
-                final boolean verticalDiff = !Objects.equal(sourceLocaleFound.value, compareLocaleFound.value);
-                final boolean horizontalDiff = !Objects.equal(sourcePathFound.value, comparePathFound.value);
+                final boolean verticalDiff =
+                        !Objects.equal(sourceLocaleFound.value, compareLocaleFound.value);
+                final boolean horizontalDiff =
+                        !Objects.equal(sourcePathFound.value, comparePathFound.value);
 
-//                // inheritance filters, if not null, follow it.
-//                if (onlyVertical != null) {
-//                    if (verticalDiff != (onlyVertical == true)) {
-//                        continue;
-//                    }
-//                }
-//                if (onlyHorizontal != null) {
-//                    if (horizontalDiff != (onlyHorizontal == true)) {
-//                        continue;
-//                    }
-//                }
+                //                // inheritance filters, if not null, follow it.
+                //                if (onlyVertical != null) {
+                //                    if (verticalDiff != (onlyVertical == true)) {
+                //                        continue;
+                //                    }
+                //                }
+                //                if (onlyHorizontal != null) {
+                //                    if (horizontalDiff != (onlyHorizontal == true)) {
+                //                        continue;
+                //                    }
+                //                }
 
                 // fell through, so record diff
 
                 ++diffCount;
-                System.out.println(localeID
-                    + "\t" + path //
-                    + "\t" + sourceValue
-                    + "\t" + compareValue //
-                    + "\t" + sourceLocaleFound.value
-                    + "\t" + compareLocaleFound.value
-                    + "\t" + abbreviate(sourcePathFound.value, path)
-                    + "\t" + abbreviate(comparePathFound.value, path)
-                    );
+                System.out.println(
+                        localeID
+                                + "\t"
+                                + path //
+                                + "\t"
+                                + sourceValue
+                                + "\t"
+                                + compareValue //
+                                + "\t"
+                                + sourceLocaleFound.value
+                                + "\t"
+                                + compareLocaleFound.value
+                                + "\t"
+                                + abbreviate(sourcePathFound.value, path)
+                                + "\t"
+                                + abbreviate(comparePathFound.value, path));
             }
             if (verbose || diffCount != 0) {
-                System.out.println("# " + localeID + "\tfilteredCount:\t" + filterCount + "\tdiffCount:\t" + diffCount);
+                System.out.println(
+                        "# "
+                                + localeID
+                                + "\tfilteredCount:\t"
+                                + filterCount
+                                + "\tdiffCount:\t"
+                                + diffCount);
             }
             filterCountAllLocales += filterCount;
             diffCountAllLocales += diffCount;
         }
         if (verbose || diffCountAllLocales != 0) {
-            System.out.println("# " + "ALL LOCALES" + "\t#filteredCount:\t" + filterCountAllLocales + ", diffCountAllLocales: " + diffCountAllLocales);
+            System.out.println(
+                    "# "
+                            + "ALL LOCALES"
+                            + "\t#filteredCount:\t"
+                            + filterCountAllLocales
+                            + ", diffCountAllLocales: "
+                            + diffCountAllLocales);
         }
         System.out.println("DONE");
     }
@@ -206,7 +235,7 @@ public class CompareResolved {
 
         int trailingSame = cSize;
         int cDelta = -1;
-        int sDelta = sSize-cSize - 1;
+        int sDelta = sSize - cSize - 1;
         for (; trailingSame > initialSame; --trailingSame) {
             String cElement = compare.getElement(trailingSame + cDelta);
             String sElement = source.getElement(trailingSame + sDelta);
@@ -217,6 +246,8 @@ public class CompareResolved {
             }
         }
         // at this point elements at or after trailingSame are identical
-        return "…" + compare.toString(initialSame, trailingSame) + (trailingSame == cSize ? "" : "…");
+        return "…"
+                + compare.toString(initialSame, trailingSame)
+                + (trailingSame == cSize ? "" : "…");
     }
 }

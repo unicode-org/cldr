@@ -2,7 +2,6 @@ package org.unicode.cldr.web.api;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRLocale;
 
@@ -10,6 +9,7 @@ import org.unicode.cldr.util.CLDRLocale;
 public final class WhatisResponse {
     @Schema(description = "query string")
     public String q;
+
     public String q2 = null;
     public String err = null;
     public int pathsSearched = 0;

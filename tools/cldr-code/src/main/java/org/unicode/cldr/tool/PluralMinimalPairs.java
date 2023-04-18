@@ -1,11 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.PluralRules.PluralType;
 import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -14,13 +14,11 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.text.PluralRules.PluralType;
-
 public class PluralMinimalPairs {
-    private Map<PluralType, Map<PluralInfo.Count, String>> typeToCountToSample = new EnumMap<>(PluralType.class);
+    private Map<PluralType, Map<PluralInfo.Count, String>> typeToCountToSample =
+            new EnumMap<>(PluralType.class);
 
-    private PluralMinimalPairs() {
-    }
+    private PluralMinimalPairs() {}
 
     private static Map<String, PluralMinimalPairs> cache = new ConcurrentHashMap<>();
     public static PluralMinimalPairs EMPTY = new PluralMinimalPairs().freeze();
@@ -36,7 +34,8 @@ public class PluralMinimalPairs {
         try {
             samplePatterns = new PluralMinimalPairs();
             CLDRFile cldrFile = factory.make(ulocale, true);
-            for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/minimalPairs/"); it.hasNext();) {
+            for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/minimalPairs/");
+                    it.hasNext(); ) {
                 String path = it.next();
                 String foundLocale = cldrFile.getSourceLocaleID(path, null);
                 if (foundLocale.equals("root")) {
@@ -46,13 +45,20 @@ public class PluralMinimalPairs {
                 String sample = cldrFile.getStringValue(path);
                 String element = parts.getElement(-1);
                 PluralType type;
-                switch(element) {
-                case "pluralMinimalPairs": type = PluralType.CARDINAL; break;
-                case "ordinalMinimalPairs": type = PluralType.ORDINAL; break;
-                default: continue; // skip grammar, case
+                switch (element) {
+                    case "pluralMinimalPairs":
+                        type = PluralType.CARDINAL;
+                        break;
+                    case "ordinalMinimalPairs":
+                        type = PluralType.ORDINAL;
+                        break;
+                    default:
+                        continue; // skip grammar, case
                 }
-                PluralInfo.Count category = PluralInfo.Count.valueOf(
-                    parts.getAttributeValue(-1, type == PluralType.CARDINAL ? "count" : "ordinal"));
+                PluralInfo.Count category =
+                        PluralInfo.Count.valueOf(
+                                parts.getAttributeValue(
+                                        -1, type == PluralType.CARDINAL ? "count" : "ordinal"));
                 if (category == null || type == null) {
                     throw new IllegalArgumentException("Bad plural info");
                 }

@@ -1,5 +1,11 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UProperty.NameChoice;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,20 +17,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SemiFileReader;
 
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UProperty.NameChoice;
-import com.ibm.icu.text.UnicodeSet;
-
 public class Typology {
-    private static final Set<String> NOLABELS = Collections.unmodifiableSet(new HashSet<>(Arrays
-        .asList("NOLABEL")));
+    private static final Set<String> NOLABELS =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList("NOLABEL")));
     public static final UnicodeSet SKIP = new UnicodeSet("[[:C:]-[:Cf:]-[:Cc:]]").freeze();
     // static UnicodeMap<String> reasons = new UnicodeMap<String>();
     public static Map<String, UnicodeSet> label_to_uset = new TreeMap<>();
@@ -38,21 +36,35 @@ public class Typology {
     // label_to_uset.put("Z", new UnicodeSet("[:Z:]").freeze());
     // label_to_uset.put("P", new UnicodeSet("[:P:]").freeze());
     // }
-    static Set<String> skiplabels = new HashSet<>(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
-        "N", "C", "Z", "P"));
+    static Set<String> skiplabels =
+            new HashSet<>(
+                    Arrays.asList(
+                            "",
+                            "Symbol",
+                            "Punctuation",
+                            "Letter",
+                            "S",
+                            "L",
+                            "M",
+                            "N",
+                            "C",
+                            "Z",
+                            "P"));
 
     public static Map<String, UnicodeSet> full_path_to_uset = new TreeMap<>();
     public static Map<String, UnicodeSet> path_to_uset = new TreeMap<>();
     // static Map<List<String>,UnicodeSet> path_to_uset = new TreeMap<List<String>,UnicodeSet>();
-    public static Relation<String, String> labelToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+    public static Relation<String, String> labelToPaths =
+            Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
     public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap<>();
 
-    // public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
+    // public static Relation<String, String> pathToList = new Relation(new TreeMap(),
+    // TreeSet.class);
 
     static class MyReader extends SemiFileReader {
         // 0000 Cc [Control] [X] [X] [X] <control>
-        public final static Pattern SPLIT = PatternCache.get("\\s*\t\\s*");
-        public final static Pattern NON_ALPHANUM = PatternCache.get("[^0-9A-Za-z]+");
+        public static final Pattern SPLIT = PatternCache.get("\\s*\t\\s*");
+        public static final Pattern NON_ALPHANUM = PatternCache.get("[^0-9A-Za-z]+");
 
         @Override
         protected String[] splitLine(String line) {
@@ -126,7 +138,6 @@ public class Typology {
             cache.put(list, list);
             return list;
         }
-
     }
 
     static {
@@ -135,9 +146,10 @@ public class Typology {
         // fix the paths
         Map<String, UnicodeSet> temp = new TreeMap<>();
         for (int i = 0; i < UCharacter.CHAR_CATEGORY_COUNT; ++i) {
-            UnicodeSet same = new UnicodeSet()
-                .applyIntPropertyValue(UProperty.GENERAL_CATEGORY, i);
-            String gcName = UCharacter.getPropertyValueName(UProperty.GENERAL_CATEGORY, i, NameChoice.SHORT);
+            UnicodeSet same = new UnicodeSet().applyIntPropertyValue(UProperty.GENERAL_CATEGORY, i);
+            String gcName =
+                    UCharacter.getPropertyValueName(
+                            UProperty.GENERAL_CATEGORY, i, NameChoice.SHORT);
             // System.out.println("\n" + gcName);
             String prefix = gcName.substring(0, 1);
 

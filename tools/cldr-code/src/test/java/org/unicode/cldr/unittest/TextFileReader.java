@@ -9,18 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that reads in a file, and that provides an Iterable over its contents.
- * Encoding is assumed to be UTF8
+ * Class that reads in a file, and that provides an Iterable over its contents. Encoding is assumed
+ * to be UTF8
  *
  * @author ribnitz
- *
  */
 class TextFileReader<E> {
     /**
      * General purpose interface, used by TestFileReader;
      *
      * @author ribnitz
-     *
      * @param <E>
      */
     static interface ProcessableLine<E> {
@@ -33,8 +31,8 @@ class TextFileReader<E> {
         boolean lineNeedsProcessing(String line);
 
         /**
-         * Process the line, returning a result; Implementing classes should
-         * also handle updating the old values
+         * Process the line, returning a result; Implementing classes should also handle updating
+         * the old values
          *
          * @param line
          * @param oldValues
@@ -53,8 +51,7 @@ class TextFileReader<E> {
     private final String source;
 
     /**
-     * Initialize using the filename given, file encoding is assumed to be in
-     * UTF8.
+     * Initialize using the filename given, file encoding is assumed to be in UTF8.
      *
      * @param file
      * @throws IOException
@@ -81,7 +78,6 @@ class TextFileReader<E> {
             }
             source = sb.toString();
         }
-
     }
 
     private BufferedReader bufferedReader() {
@@ -89,8 +85,7 @@ class TextFileReader<E> {
     }
 
     /**
-     * Provide an Iterable; calling proc.lineNeedsProcessing, and
-     * proc.processLine for all lines.
+     * Provide an Iterable; calling proc.lineNeedsProcessing, and proc.processLine for all lines.
      *
      * @param proc
      * @return
@@ -98,8 +93,7 @@ class TextFileReader<E> {
      */
     public Iterable<E> getLines(ProcessableLine<E> proc) throws IOException {
         if (proc == null) {
-            throw new IllegalArgumentException(
-                "Please call with non-null processor");
+            throw new IllegalArgumentException("Please call with non-null processor");
         }
         final List<E> result = new ArrayList<>();
         try (BufferedReader rdr = bufferedReader()) {

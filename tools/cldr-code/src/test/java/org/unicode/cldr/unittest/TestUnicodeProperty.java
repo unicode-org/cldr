@@ -6,19 +6,16 @@
  */
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.List;
-
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 import org.unicode.cldr.util.props.UnicodeProperty;
 import org.unicode.cldr.util.props.UnicodeProperty.Factory;
 import org.unicode.cldr.util.props.UnicodePropertySymbolTable;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
  * @author markdavis
- *
  */
 public class TestUnicodeProperty extends TestFmwk {
     public static void main(String[] args) {
@@ -75,11 +72,10 @@ public class TestUnicodeProperty extends TestFmwk {
         }
     }
 
-    /**
-     * For testing, override to set A-M to Cn.
-     */
+    /** For testing, override to set A-M to Cn. */
     static class MyUnicodeGCProperty extends UnicodeProperty.SimpleProperty {
         UnicodeProperty icuProperty = ICUPropertyFactory.make().getProperty("Gc");
+
         {
             setName(icuProperty.getName());
             setType(icuProperty.getType());
@@ -105,9 +101,7 @@ public class TestUnicodeProperty extends TestFmwk {
         }
     }
 
-    /**
-     * For testing, override to set A-Z to Cn.
-     */
+    /** For testing, override to set A-Z to Cn. */
     static class MyUnicodePropertyFactory extends ICUPropertyFactory {
         private MyUnicodePropertyFactory() {
             add(new MyUnicodeGCProperty());

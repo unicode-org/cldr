@@ -8,32 +8,29 @@
  */
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.dev.tool.UOption;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import com.ibm.icu.dev.tool.UOption;
-
 public class FixEras {
-    /**
-     * These must be kept in sync with getOptions().
-     */
+    /** These must be kept in sync with getOptions(). */
     private static final int HELP1 = 0;
+
     private static final int HELP2 = 1;
     private static final int DESTDIR = 2;
     private static final int SOURCEDIR = 3;
-    private static final UOption[] options = new UOption[] {
-        UOption.HELP_H(),
-        UOption.HELP_QUESTION_MARK(),
-        UOption.DESTDIR(),
-        UOption.SOURCEDIR(),
-
-    };
+    private static final UOption[] options =
+            new UOption[] {
+                UOption.HELP_H(),
+                UOption.HELP_QUESTION_MARK(),
+                UOption.DESTDIR(),
+                UOption.SOURCEDIR(),
+            };
     private String destdir = null;
     private String sourcedir = null;
 
@@ -43,15 +40,16 @@ public class FixEras {
     }
 
     private void usage() {
-        System.out.println("\nUsage: FixEras [OPTIONS] [XPATH1] [XPATH2]\n\n" +
-            "This program is used to extract nodes from extract LDML file and merge \n" +
-            "the extracted nodes with the main LDML file\n" +
-            "Please refer to the following options. Options are not case sensitive.\n" +
-            "Options:\n" +
-            "-s or --sourcedir          source directory followed by the path.\n" +
-            "-d or --destination        destination directory, followed by the path, default is current directory.\n" +
-            "-h or -? or --help         this usage text.\n" +
-            "example: com.ibm.icu.dev.tool.cldr.FixErs ar.xml\n");
+        System.out.println(
+                "\nUsage: FixEras [OPTIONS] [XPATH1] [XPATH2]\n\n"
+                        + "This program is used to extract nodes from extract LDML file and merge \n"
+                        + "the extracted nodes with the main LDML file\n"
+                        + "Please refer to the following options. Options are not case sensitive.\n"
+                        + "Options:\n"
+                        + "-s or --sourcedir          source directory followed by the path.\n"
+                        + "-d or --destination        destination directory, followed by the path, default is current directory.\n"
+                        + "-h or -? or --help         this usage text.\n"
+                        + "example: com.ibm.icu.dev.tool.cldr.FixErs ar.xml\n");
         System.exit(-1);
     }
 
@@ -95,9 +93,11 @@ public class FixEras {
                 fixEras(maindoc);
                 maindoc.normalize();
                 String destfile = destdir + "/" + file;
-                OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(destfile), "UTF-8");
+                OutputStreamWriter writer =
+                        new OutputStreamWriter(new FileOutputStream(destfile), "UTF-8");
                 PrintWriter pw = new PrintWriter(writer);
-                LDMLUtilities.printDOMTree(maindoc, pw, "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                LDMLUtilities.printDOMTree(
+                        maindoc, pw, "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
                 writer.close();
             } catch (Exception e) {

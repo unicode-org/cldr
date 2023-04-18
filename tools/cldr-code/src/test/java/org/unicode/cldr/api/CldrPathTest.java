@@ -2,46 +2,48 @@ package org.unicode.cldr.api;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
-import java.util.Comparator;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.test.TestFmwk;
+import java.util.Comparator;
 
 /**
  * Tests for the core CLDR path representation. Since this is an immutable value type, the tests
- * largely focus on things like parsing and validity checking. 
+ * largely focus on things like parsing and validity checking.
  */
 // TODO(dbeaumont): Add more tests for the details of DTD ordering.
 public final class CldrPathTest extends TestFmwk {
     // An arbitrary set of full path strings (must have value elements) and their corresponding
     // distinguishing paths.
     private static final ImmutableMap<String, String> FULL_PATHS =
-        ImmutableMap.<String, String>builder()
-            .put(
-                "//ldmlBCP47/keyword"
-                    + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"]"
-                    + "/type[@name=\"adalv\"][@description=\"Andorra\"][@alias=\"Europe/Andorra\"]",
-                "//ldmlBCP47/keyword/key[@name=\"tz\"]/type[@name=\"adalv\"]")
-            .put("//supplementalData/info[@iso4217=\"AMD\"][@digits=\"2\"]"
-                    + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
-                "//supplementalData/info[@iso4217=\"AMD\"]")
-            .build();
+            ImmutableMap.<String, String>builder()
+                    .put(
+                            "//ldmlBCP47/keyword"
+                                    + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"]"
+                                    + "/type[@name=\"adalv\"][@description=\"Andorra\"][@alias=\"Europe/Andorra\"]",
+                            "//ldmlBCP47/keyword/key[@name=\"tz\"]/type[@name=\"adalv\"]")
+                    .put(
+                            "//supplementalData/info[@iso4217=\"AMD\"][@digits=\"2\"]"
+                                    + "[@rounding=\"0\"][@cashDigits=\"0\"][@cashRounding=\"0\"]",
+                            "//supplementalData/info[@iso4217=\"AMD\"]")
+                    .build();
 
     // An arbitrary set of distinguishing path strings (no value elements).
     private static final ImmutableList<String> DISTINGUISHING_PATHS =
-        ImmutableList.<String>builder()
-            .addAll(FULL_PATHS.values())
-            .add("//ldml/localeDisplayNames/territories/territory[@type=\"US\"]")
-            .add("//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]")
-            .add("//ldml/dates/fields/field[@type=\"era\"]/displayName")
-            .add("//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
-                + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10")
-            .build();
+            ImmutableList.<String>builder()
+                    .addAll(FULL_PATHS.values())
+                    .add("//ldml/localeDisplayNames/territories/territory[@type=\"US\"]")
+                    .add("//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]")
+                    .add("//ldml/dates/fields/field[@type=\"era\"]/displayName")
+                    .add(
+                            "//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
+                                    + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10")
+                    .build();
 
     public void TestSimple() {
-        CldrPath p = CldrPath.parseDistinguishingPath(
-            "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]");
+        CldrPath p =
+                CldrPath.parseDistinguishingPath(
+                        "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]");
         assertEquals("path length", 4, p.getLength());
         assertEquals("element name", "territory", p.getName());
         assertEquals("sort index", -1, p.getSortIndex());
@@ -51,9 +53,10 @@ public final class CldrPathTest extends TestFmwk {
     }
 
     public void TestSortIndex() {
-        CldrPath p = CldrPath.parseDistinguishingPath(
-            "//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
-                + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10");
+        CldrPath p =
+                CldrPath.parseDistinguishingPath(
+                        "//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
+                                + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10");
         assertEquals("path length", 5, p.getLength());
 
         assertEquals("element name", "rbnfrule", p.getName());
@@ -104,12 +107,13 @@ public final class CldrPathTest extends TestFmwk {
     public void TestInvalidAtributeName() {
         try {
             CldrPath.parseDistinguishingPath(
-                "//ldml/localeDisplayNames/territories/territory[@foo=\"CH\"]");
+                    "//ldml/localeDisplayNames/territories/territory[@foo=\"CH\"]");
             fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals("error message",
-                "invalid path: //ldml/localeDisplayNames/territories/territory[@foo=\"CH\"]",
-                e.getMessage());
+            assertEquals(
+                    "error message",
+                    "invalid path: //ldml/localeDisplayNames/territories/territory[@foo=\"CH\"]",
+                    e.getMessage());
         }
     }
 
@@ -117,15 +121,17 @@ public final class CldrPathTest extends TestFmwk {
         for (String s : DISTINGUISHING_PATHS) {
             CldrPath.parseDistinguishingPath(s);
         }
-        // Paths with value attributes should not parse. 
+        // Paths with value attributes should not parse.
         for (String s : FULL_PATHS.keySet()) {
             try {
                 CldrPath.parseDistinguishingPath(s);
                 fail("expected IllegalArgumentException");
             } catch (IllegalArgumentException e) {
-                assertTrue("error message matches",
-                    e.getMessage().matches(
-                        "unexpected value attribute '.*' in distinguishing path: .*"));
+                assertTrue(
+                        "error message matches",
+                        e.getMessage()
+                                .matches(
+                                        "unexpected value attribute '.*' in distinguishing path: .*"));
             }
         }
     }
@@ -150,29 +156,33 @@ public final class CldrPathTest extends TestFmwk {
 
     public void TestDtdOrder() {
         ImmutableList<String> sorted =
-            DISTINGUISHING_PATHS.stream()
-                .map(CldrPath::parseDistinguishingPath)
-                .sorted(Comparator.naturalOrder())
-                .map(Object::toString)
-                .collect(toImmutableList());
-        assertEquals("sorted paths", ImmutableList.of(
-            "//ldmlBCP47/keyword/key[@name=\"tz\"]/type[@name=\"adalv\"]",
-            "//supplementalData/info[@iso4217=\"AMD\"]",
-            "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
-            "//ldml/localeDisplayNames/territories/territory[@type=\"US\"]",
-            "//ldml/dates/fields/field[@type=\"era\"]/displayName",
-            "//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
-                + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10"),
-            sorted);
+                DISTINGUISHING_PATHS.stream()
+                        .map(CldrPath::parseDistinguishingPath)
+                        .sorted(Comparator.naturalOrder())
+                        .map(Object::toString)
+                        .collect(toImmutableList());
+        assertEquals(
+                "sorted paths",
+                ImmutableList.of(
+                        "//ldmlBCP47/keyword/key[@name=\"tz\"]/type[@name=\"adalv\"]",
+                        "//supplementalData/info[@iso4217=\"AMD\"]",
+                        "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
+                        "//ldml/localeDisplayNames/territories/territory[@type=\"US\"]",
+                        "//ldml/dates/fields/field[@type=\"era\"]/displayName",
+                        "//ldml/rbnf/rulesetGrouping[@type=\"NumberingSystemRules\"]"
+                                + "/ruleset#0[@type=\"armenian-lower\"]/rbnfrule#10"),
+                sorted);
     }
 
     public void TestDraftStatus() {
-        CldrPath p = CldrPath.parseDistinguishingPath(
-            "//ldml/numbers/currencies/currency[@type=\"MGA\"]"
-                + "/displayName[@count=\"one\"][@draft=\"contributed\"]");
-        assertEquals("path string",
-            "//ldml/numbers/currencies/currency[@type=\"MGA\"]/displayName[@count=\"one\"]",
-            p.toString());
+        CldrPath p =
+                CldrPath.parseDistinguishingPath(
+                        "//ldml/numbers/currencies/currency[@type=\"MGA\"]"
+                                + "/displayName[@count=\"one\"][@draft=\"contributed\"]");
+        assertEquals(
+                "path string",
+                "//ldml/numbers/currencies/currency[@type=\"MGA\"]/displayName[@count=\"one\"]",
+                p.toString());
         assertEquals("draft status", CldrDraftStatus.CONTRIBUTED, p.getDraftStatus().get());
     }
 }

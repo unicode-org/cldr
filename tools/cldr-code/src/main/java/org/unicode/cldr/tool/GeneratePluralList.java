@@ -1,5 +1,8 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,20 +26,18 @@ import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.util.ULocale;
-
 public class GeneratePluralList {
-    static final String stock = "km|lo|ne|br|dz|nl|si|en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|no|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
-    private static final Map<String, Integer> keywordIndex = Builder.with(new HashMap<String, Integer>())
-        .put("zero", 0)
-        .put("one", 1)
-        .put("two", 2)
-        .put("few", 3)
-        .put("many", 4)
-        .put("other", 5)
-        .get();
+    static final String stock =
+            "km|lo|ne|br|dz|nl|si|en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|no|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
+    private static final Map<String, Integer> keywordIndex =
+            Builder.with(new HashMap<String, Integer>())
+                    .put("zero", 0)
+                    .put("one", 1)
+                    .put("two", 2)
+                    .put("few", 3)
+                    .put("many", 4)
+                    .put("other", 5)
+                    .get();
 
     private DecimalFormat format = new DecimalFormat();
     private PrintWriter out;
@@ -127,7 +127,11 @@ public class GeneratePluralList {
         missingTypes.remove(Count.other);
 
         if (missingTypes.size() > 0) {
-            System.out.println("WARNING: the following plural types may not be represented fully for " + locale + ": " + missingTypes);
+            System.out.println(
+                    "WARNING: the following plural types may not be represented fully for "
+                            + locale
+                            + ": "
+                            + missingTypes);
             for (Count type : missingTypes) {
                 Collection<Double> values = rules.getSamples(type.toString());
                 if (values != null) {
@@ -159,7 +163,8 @@ public class GeneratePluralList {
         format.setMinimumIntegerDigits(numDigits);
         for (String x : allKeywords) {
             values = integerMap.get(x);
-            int integer = values.get(values.size() > 1 ? 1 : 0); // get new set of examples if possible
+            int integer =
+                    values.get(values.size() > 1 ? 1 : 0); // get new set of examples if possible
             for (String y : integerMap.keySet()) {
                 if (!y.contains("|")) continue;
                 values = integerMap.get(y);
@@ -184,18 +189,22 @@ public class GeneratePluralList {
         }
 
         // Output examples to file.
-        Set<String> finalExamples = new TreeSet<>(new Comparator<String>() {
-            @Override
-            public int compare(String arg0, String arg1) {
-                String[] forms1 = arg1.split("\\|");
-                String[] forms0 = arg0.split("\\|");
-                for (int i = 0; i < forms0.length; i++) {
-                    int compare = keywordIndex.get(forms0[i]) - keywordIndex.get(forms1[i]);
-                    if (compare != 0) return compare;
-                }
-                return 0;
-            }
-        });
+        Set<String> finalExamples =
+                new TreeSet<>(
+                        new Comparator<String>() {
+                            @Override
+                            public int compare(String arg0, String arg1) {
+                                String[] forms1 = arg1.split("\\|");
+                                String[] forms0 = arg0.split("\\|");
+                                for (int i = 0; i < forms0.length; i++) {
+                                    int compare =
+                                            keywordIndex.get(forms0[i])
+                                                    - keywordIndex.get(forms1[i]);
+                                    if (compare != 0) return compare;
+                                }
+                                return 0;
+                            }
+                        });
 
         for (ExampleManager manager : positionedExamples.values()) {
             finalExamples.addAll(manager.getAll());
@@ -203,11 +212,15 @@ public class GeneratePluralList {
         String realZeroType = rules.select(0);
         for (String category : finalExamples) {
             String exampleValue = exampleMap.get(category);
-            //String overallCategory = rules.select(Double.valueOf(exampleValue));
-            //String exampleFormat = nouns.get(overallCategory);
+            // String overallCategory = rules.select(Double.valueOf(exampleValue));
+            // String exampleFormat = nouns.get(overallCategory);
 
-            out.println(locale + "\t" + exampleValue + "\t" +
-                category.replace("zero", realZeroType).replace('|', '\t'));
+            out.println(
+                    locale
+                            + "\t"
+                            + exampleValue
+                            + "\t"
+                            + category.replace("zero", realZeroType).replace('|', '\t'));
         }
         out.flush();
     }
@@ -220,15 +233,21 @@ public class GeneratePluralList {
         list.add(value);
     }
 
-    static String[] units = { "second", "minute", "hour", "day", "month", "year" };
+    static String[] units = {"second", "minute", "hour", "day", "month", "year"};
 
     private void getForms(CLDRFile file) {
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
-        rules = sdi.getPluralRules(new ULocale(file.getLocaleID()), PluralRules.PluralType.CARDINAL);
+        rules =
+                sdi.getPluralRules(
+                        new ULocale(file.getLocaleID()), PluralRules.PluralType.CARDINAL);
         System.out.println(file.getLocaleID());
         for (String plural : rules.getKeywords()) {
-            out.print(file.getLocaleID() + '\t' + plural + '\t' +
-                rules.getSamples(plural).iterator().next());
+            out.print(
+                    file.getLocaleID()
+                            + '\t'
+                            + plural
+                            + '\t'
+                            + rules.getSamples(plural).iterator().next());
             for (String unit : units) {
                 printUnit(file, unit, plural);
                 printUnit(file, unit + "-past", plural);
@@ -240,7 +259,8 @@ public class GeneratePluralList {
     }
 
     private void printUnit(CLDRFile file, String unit, String plural) {
-        String path = "//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + plural + "\"]";
+        String path =
+                "//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + plural + "\"]";
         String value = file.getStringValue(path);
         out.print('\t');
         if (value == null) {
@@ -261,7 +281,7 @@ public class GeneratePluralList {
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, stock);
         for (String locale : factory.getAvailable()) {
             generator.getExamples(locale);
-            //generator.getForms(factory.make(locale, true));
+            // generator.getForms(factory.make(locale, true));
         }
         out.close();
     }

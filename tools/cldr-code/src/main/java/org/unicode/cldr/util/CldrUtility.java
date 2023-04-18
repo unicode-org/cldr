@@ -8,6 +8,20 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.TimeZone;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -46,34 +60,19 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Chart;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
     /**
      * These need to be consistent with "CLDR-Code-Git-Commit" in tools/cldr-code/pom.xml
      *
-     * If and when "CLDR-Apps-Git-Commit" in tools/cldr-apps/pom.xml becomes usable for the
-     * cldr-apps war file, we may add APPS_SLUG = "CLDR-Apps" here, and in some contexts
-     * use APPS_SLUG in addition to, or instead of, CODE_SLUG
+     * <p>If and when "CLDR-Apps-Git-Commit" in tools/cldr-apps/pom.xml becomes usable for the
+     * cldr-apps war file, we may add APPS_SLUG = "CLDR-Apps" here, and in some contexts use
+     * APPS_SLUG in addition to, or instead of, CODE_SLUG
      */
     public static final String CODE_SLUG = "CLDR-Code";
+
     public static final String GIT_COMMIT_SUFFIX = "-Git-Commit";
 
     public static final String HOME_KEY = "CLDRHOME";
@@ -85,25 +84,28 @@ public class CldrUtility {
     public static final boolean BETA = false;
 
     public static final String LINE_SEPARATOR = "\n";
-    public final static Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
+    public static final Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false;
     /**
-     * Constant for "∅∅∅". Indicates that a child locale has no value for a
-     * path even though a parent does.
+     * Constant for "∅∅∅". Indicates that a child locale has no value for a path even though a
+     * parent does.
      */
-    public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
+    public static final String NO_INHERITANCE_MARKER =
+            new String(new char[] {0x2205, 0x2205, 0x2205});
 
     /**
-     * Define the constant INHERITANCE_MARKER for "↑↑↑", used by Survey Tool to indicate a "passthru" vote to the parent locale.
-     * If CLDRFile ever finds this value in a data field, writing of the field should be suppressed.
+     * Define the constant INHERITANCE_MARKER for "↑↑↑", used by Survey Tool to indicate a
+     * "passthru" vote to the parent locale. If CLDRFile ever finds this value in a data field,
+     * writing of the field should be suppressed.
      */
-    public static final String INHERITANCE_MARKER = new String(new char[] { 0x2191, 0x2191, 0x2191 });
+    public static final String INHERITANCE_MARKER = new String(new char[] {0x2191, 0x2191, 0x2191});
 
     public static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
     /**
      * Very simple class, used to replace variables in a string. For example
+     *
      * <p>
      *
      * <pre>
@@ -129,7 +131,7 @@ public class CldrUtility {
             String oldSource;
             do {
                 oldSource = source;
-                for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+                for (Iterator<String> it = m.keySet().iterator(); it.hasNext(); ) {
                     String variable = it.next();
                     String value = m.get(variable);
                     source = replaceAll(source, variable, value);
@@ -179,16 +181,21 @@ public class CldrUtility {
 
     public static final String ANALYTICS = Chart.AnalyticsID.CLDR.getScript();
 
-    public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] { "ar", "en", "de", "fr", "hi",
-        "it", "es", "pt", "ru", "zh", "ja" }); // plus language itself
-    public static final List<String> MINIMUM_TERRITORIES = Arrays.asList(new String[] { "US", "GB", "DE", "FR", "IT",
-        "JP", "CN", "IN", "RU", "BR" });
+    public static final List<String> MINIMUM_LANGUAGES =
+            Arrays.asList(
+                    new String[] {
+                        "ar", "en", "de", "fr", "hi", "it", "es", "pt", "ru", "zh", "ja"
+                    }); // plus language itself
+    public static final List<String> MINIMUM_TERRITORIES =
+            Arrays.asList(
+                    new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});
 
     public interface LineComparer {
         static final int LINES_DIFFERENT = -1, LINES_SAME = 0, SKIP_FIRST = 1, SKIP_SECOND = 2;
 
         /**
-         * Returns LINES_DIFFERENT, LINES_SAME, or if one of the lines is ignorable, SKIP_FIRST or SKIP_SECOND
+         * Returns LINES_DIFFERENT, LINES_SAME, or if one of the lines is ignorable, SKIP_FIRST or
+         * SKIP_SECOND
          *
          * @param line1
          * @param line2
@@ -247,18 +254,20 @@ public class CldrUtility {
                     line2 = stripTags(line2);
                     if (line1.equals(line2)) return LINES_SAME;
                 } else if (line1.startsWith("<!DOCTYPE ldml SYSTEM \"../../common/dtd/")
-                    && line2.startsWith("<!DOCTYPE ldml SYSTEM \"../../common/dtd/")) {
+                        && line2.startsWith("<!DOCTYPE ldml SYSTEM \"../../common/dtd/")) {
                     return LINES_SAME;
                 }
             }
-            if ((flags & SKIP_SPACES) != 0 && si1.set(line1).matches(si2.set(line2))) return LINES_SAME;
+            if ((flags & SKIP_SPACES) != 0 && si1.set(line1).matches(si2.set(line2)))
+                return LINES_SAME;
             return LINES_DIFFERENT;
         }
 
         // private Matcher dtdMatcher = PatternCache.get(
-        // "\\Q<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
+        // "\\Q<!DOCTYPE ldml SYSTEM
+        // \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
 
-        private String[] CVS_TAGS = { "Revision", "Date" };
+        private String[] CVS_TAGS = {"Revision", "Date"};
 
         private String stripTags(String line) {
             // $
@@ -276,23 +285,21 @@ public class CldrUtility {
             }
             return line;
         }
-
     }
 
     /**
-     *
      * @param file1
      * @param file2
-     * @param failureLines
-     *            on input, String[2], on output, failing lines
+     * @param failureLines on input, String[2], on output, failing lines
      * @param lineComparer
      * @return
      * @throws IOException
      */
-    public static boolean areFileIdentical(String file1, String file2, String[] failureLines,
-        LineComparer lineComparer) throws IOException {
+    public static boolean areFileIdentical(
+            String file1, String file2, String[] failureLines, LineComparer lineComparer)
+            throws IOException {
         try (BufferedReader br1 = new BufferedReader(new FileReader(file1), 32 * 1024);
-            BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024);) {
+                BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024); ) {
             String line1 = "";
             String line2 = "";
             int skip = 0;
@@ -327,7 +334,7 @@ public class CldrUtility {
      * }
      */
 
-    public final static class StringIterator {
+    public static final class StringIterator {
         String string;
         int position = 0;
 
@@ -389,26 +396,27 @@ public class CldrUtility {
         for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries
             switch (ch) {
-            case '"':
-                inQuote = !inQuote;
-                // at start or end, that's enough
-                // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
-                if (inQuote && item.length() != 0) {
-                    item.append('"');
-                    inQuote = true;
-                }
-                break;
-            case ',':
-                if (!inQuote) {
-                    result.add(item.toString());
-                    item.setLength(0);
-                } else {
+                case '"':
+                    inQuote = !inQuote;
+                    // at start or end, that's enough
+                    // if get a quote when we are not in a quote, and not at start, then add it and
+                    // return to inQuote
+                    if (inQuote && item.length() != 0) {
+                        item.append('"');
+                        inQuote = true;
+                    }
+                    break;
+                case ',':
+                    if (!inQuote) {
+                        result.add(item.toString());
+                        item.setLength(0);
+                    } else {
+                        item.append(ch);
+                    }
+                    break;
+                default:
                     item.append(ch);
-                }
-                break;
-            default:
-                item.append(ch);
-                break;
+                    break;
             }
         }
         result.add(item.toString());
@@ -423,7 +431,8 @@ public class CldrUtility {
         return splitList(source, separator, trim, null);
     }
 
-    public static List<String> splitList(String source, char separator, boolean trim, List<String> output) {
+    public static List<String> splitList(
+            String source, char separator, boolean trim, List<String> output) {
         return splitList(source, Character.toString(separator), trim, output);
     }
 
@@ -435,7 +444,8 @@ public class CldrUtility {
         return splitList(source, separator, trim, null);
     }
 
-    public static List<String> splitList(String source, String separator, boolean trim, List<String> output) {
+    public static List<String> splitList(
+            String source, String separator, boolean trim, List<String> output) {
         if (output == null) output = new ArrayList<>();
         if (source.length() == 0) return output;
         int pos = 0;
@@ -451,25 +461,25 @@ public class CldrUtility {
     }
 
     /**
-     * Protect a collection (as much as Java lets us!) from modification.
-     * Really, really ugly code, since Java doesn't let us do better.
+     * Protect a collection (as much as Java lets us!) from modification. Really, really ugly code,
+     * since Java doesn't let us do better.
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static <T> T protectCollection(T source) {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (source instanceof Map) {
-            Map<Object,Object> sourceMap = (Map) source;
-            ImmutableMap.Builder<Object,Object> builder = ImmutableMap.builder();
-            for (Entry<Object,Object> entry : sourceMap.entrySet()) {
+            Map<Object, Object> sourceMap = (Map) source;
+            ImmutableMap.Builder<Object, Object> builder = ImmutableMap.builder();
+            for (Entry<Object, Object> entry : sourceMap.entrySet()) {
                 final Object key = entry.getKey();
                 final Object value = entry.getValue();
                 builder.put(protectCollection(key), protectCollection(value));
             }
             return (T) builder.build();
         } else if (source instanceof Multimap) {
-            Multimap<Object,Object> sourceMap = (Multimap) source;
-            ImmutableMultimap.Builder<Object,Object> builder = ImmutableMultimap.builder();
-            for (Entry<Object,Object> entry : sourceMap.entries()) {
+            Multimap<Object, Object> sourceMap = (Multimap) source;
+            ImmutableMultimap.Builder<Object, Object> builder = ImmutableMultimap.builder();
+            for (Entry<Object, Object> entry : sourceMap.entries()) {
                 builder.put(protectCollection(entry.getKey()), protectCollection(entry.getValue()));
             }
             return (T) builder.build();
@@ -484,16 +494,18 @@ public class CldrUtility {
                 resultCollection.add(protectCollection(item));
             }
 
-            return sourceCollection instanceof List ? (T) Collections.unmodifiableList((List) sourceCollection)
-                : sourceCollection instanceof SortedSet ? (T) Collections
-                    .unmodifiableSortedSet((SortedSet) sourceCollection)
-                    : sourceCollection instanceof Set ? (T) Collections.unmodifiableSet((Set) sourceCollection)
-                        : (T) Collections.unmodifiableCollection(sourceCollection);
+            return sourceCollection instanceof List
+                    ? (T) Collections.unmodifiableList((List) sourceCollection)
+                    : sourceCollection instanceof SortedSet
+                            ? (T) Collections.unmodifiableSortedSet((SortedSet) sourceCollection)
+                            : sourceCollection instanceof Set
+                                    ? (T) Collections.unmodifiableSet((Set) sourceCollection)
+                                    : (T) Collections.unmodifiableCollection(sourceCollection);
         } else if (source instanceof Freezable) {
             Freezable freezableSource = (Freezable) source;
             return (T) freezableSource.freeze();
-//            if (freezableSource.isFrozen()) return source;
-//            return (T) ((Freezable) (freezableSource.cloneAsThawed())).freeze();
+            //            if (freezableSource.isFrozen()) return source;
+            //            return (T) ((Freezable) (freezableSource.cloneAsThawed())).freeze();
         } else {
             return source; // can't protect
         }
@@ -501,10 +513,11 @@ public class CldrUtility {
 
     /**
      * Protect a collections where we don't need to clone.
+     *
      * @param source
      * @return
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static <T> T protectCollectionX(T source) {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (isImmutable(source)) {
@@ -518,8 +531,9 @@ public class CldrUtility {
             for (Object key : tempMap.keySet()) {
                 sourceMap.put(protectCollection(key), protectCollectionX(tempMap.get(key)));
             }
-            return sourceMap instanceof SortedMap ? (T) Collections.unmodifiableSortedMap((SortedMap) sourceMap)
-                : (T) Collections.unmodifiableMap(sourceMap);
+            return sourceMap instanceof SortedMap
+                    ? (T) Collections.unmodifiableSortedMap((SortedMap) sourceMap)
+                    : (T) Collections.unmodifiableMap(sourceMap);
         } else if (source instanceof Collection) {
             Collection sourceCollection = (Collection) source;
             LinkedHashSet tempSet = new LinkedHashSet<>(sourceCollection); // copy contents
@@ -529,11 +543,13 @@ public class CldrUtility {
                 sourceCollection.add(protectCollectionX(item));
             }
 
-            return sourceCollection instanceof List ? (T) Collections.unmodifiableList((List) sourceCollection)
-                : sourceCollection instanceof SortedSet ? (T) Collections
-                    .unmodifiableSortedSet((SortedSet) sourceCollection)
-                    : sourceCollection instanceof Set ? (T) Collections.unmodifiableSet((Set) sourceCollection)
-                        : (T) Collections.unmodifiableCollection(sourceCollection);
+            return sourceCollection instanceof List
+                    ? (T) Collections.unmodifiableList((List) sourceCollection)
+                    : sourceCollection instanceof SortedSet
+                            ? (T) Collections.unmodifiableSortedSet((SortedSet) sourceCollection)
+                            : sourceCollection instanceof Set
+                                    ? (T) Collections.unmodifiableSet((Set) sourceCollection)
+                                    : (T) Collections.unmodifiableCollection(sourceCollection);
         } else if (source instanceof Freezable) {
             Freezable freezableSource = (Freezable) source;
             return (T) freezableSource.freeze();
@@ -542,14 +558,13 @@ public class CldrUtility {
         }
     }
 
-    private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<>(Arrays.asList(
-        String.class));
+    private static final Set<Object> KNOWN_IMMUTABLES = new HashSet<>(Arrays.asList(String.class));
 
     public static boolean isImmutable(Object source) {
         return source == null
-            || source instanceof Enum
-            || source instanceof Number
-            || KNOWN_IMMUTABLES.contains(source.getClass());
+                || source instanceof Enum
+                || source instanceof Number
+                || KNOWN_IMMUTABLES.contains(source.getClass());
     }
 
     /**
@@ -568,27 +583,25 @@ public class CldrUtility {
         } catch (Exception e) {
         }
         try {
-            final Constructor<? extends Object> declaredMethod = class1.getConstructor((Class<?>) null);
+            final Constructor<? extends Object> declaredMethod =
+                    class1.getConstructor((Class<?>) null);
             return (T) declaredMethod.newInstance((Object) null);
         } catch (Exception e) {
         }
         return null; // uncloneable
     }
 
-    /**
-     * Appends two strings, inserting separator if either is empty
-     */
+    /** Appends two strings, inserting separator if either is empty */
     public static String joinWithSeparation(String a, String separator, String b) {
         if (a.length() == 0) return b;
         if (b.length() == 0) return a;
         return a + separator + b;
     }
 
-    /**
-     * Appends two strings, inserting separator if either is empty. Modifies first map
-     */
-    public static Map<String, String> joinWithSeparation(Map<String, String> a, String separator, Map<String, String> b) {
-        for (Iterator<String> it = b.keySet().iterator(); it.hasNext();) {
+    /** Appends two strings, inserting separator if either is empty. Modifies first map */
+    public static Map<String, String> joinWithSeparation(
+            Map<String, String> a, String separator, Map<String, String> b) {
+        for (Iterator<String> it = b.keySet().iterator(); it.hasNext(); ) {
             String key = it.next();
             String bvalue = b.get(key);
             String avalue = a.get(key);
@@ -609,7 +622,8 @@ public class CldrUtility {
         return join(c, separator, null);
     }
 
-    public static <T> String join(Collection<T> c, String separator, Transform<T, String> transform) {
+    public static <T> String join(
+            Collection<T> c, String separator, Transform<T, String> transform) {
         StringBuffer output = new StringBuffer();
         boolean isFirst = true;
         for (T item : c) {
@@ -627,9 +641,7 @@ public class CldrUtility {
         return join(Arrays.asList(c), separator, transform);
     }
 
-    /**
-     * Utility like Arrays.asList()
-     */
+    /** Utility like Arrays.asList() */
     @SuppressWarnings("unchecked")
     public static <K, V> Map<K, V> asMap(Object[][] source, Map<K, V> target, boolean reverse) {
         int from = 0, to = 1;
@@ -639,8 +651,8 @@ public class CldrUtility {
         }
         for (int i = 0; i < source.length; ++i) {
             if (source[i].length != 2) {
-                throw new IllegalArgumentException("Source must be array of pairs of strings: "
-                    + Arrays.asList(source[i]));
+                throw new IllegalArgumentException(
+                        "Source must be array of pairs of strings: " + Arrays.asList(source[i]));
             }
             target.put((K) source[i][from], (V) source[i][to]);
         }
@@ -651,9 +663,7 @@ public class CldrUtility {
         return asMap(source, new HashMap<K, V>(), false);
     }
 
-    /**
-     * Returns the canonical name for a file.
-     */
+    /** Returns the canonical name for a file. */
     public static String getCanonicalName(String file) {
         try {
             return PathUtilities.getNormalizedPathString(file);
@@ -663,71 +673,58 @@ public class CldrUtility {
     }
 
     /**
-     * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that are in the UnicodeSet,
-     * Supplementary ranges, and escaping
+     * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that
+     * are in the UnicodeSet, Supplementary ranges, and escaping
      *
-     * @param source
-     *            The source set
+     * @param source The source set
      * @return
      */
     public static String toRegex(UnicodeSet source) {
         return toRegex(source, null, false);
     }
 
-    private static final Transliterator DEFAULT_REGEX_ESCAPER = Transliterator.createFromRules(
-        "foo",
-        "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
-            // + " ([:c:]) > &hex($1);"
-            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
-        Transliterator.FORWARD);
+    private static final Transliterator DEFAULT_REGEX_ESCAPER =
+            Transliterator.createFromRules(
+                    "foo",
+                    "([ \\- \\\\ \\[ \\] ]) > '\\' $1 ;"
+                            // + " ([:c:]) > &hex($1);"
+                            + " ([[:control:][[:z:]&[:ascii:]]]) > &hex($1);",
+                    Transliterator.FORWARD);
 
     /**
-     * Convert a UnicodeSet into a string that can be embedded into a Regex.
-     * Handles strings that are in the UnicodeSet, Supplementary ranges, and
-     * escaping
+     * Convert a UnicodeSet into a string that can be embedded into a Regex. Handles strings that
+     * are in the UnicodeSet, Supplementary ranges, and escaping
      *
-     * @param source
-     *            The source set
-     * @param escaper
-     *            A transliterator that is used to escape the characters according
-     *            to the requirements of the regex. The default puts a \\ before [, -,
-     *            \, and ], and converts controls and Ascii whitespace to hex.
-     *            Alternatives can be supplied. Note that some Regex engines,
-     *            including Java 1.5, don't really deal with escaped supplementaries
-     *            well.
-     * @param onlyBmp
-     *            Set to true if the Regex only accepts BMP characters. In that
-     *            case, ranges of supplementary characters are converted to lists of
-     *            ranges. For example, [\uFFF0-\U0010000F \U0010100F-\U0010300F]
-     *            converts into:
-     *
-     *            <pre>
+     * @param source The source set
+     * @param escaper A transliterator that is used to escape the characters according to the
+     *     requirements of the regex. The default puts a \\ before [, -, \, and ], and converts
+     *     controls and Ascii whitespace to hex. Alternatives can be supplied. Note that some Regex
+     *     engines, including Java 1.5, don't really deal with escaped supplementaries well.
+     * @param onlyBmp Set to true if the Regex only accepts BMP characters. In that case, ranges of
+     *     supplementary characters are converted to lists of ranges. For example,
+     *     [\uFFF0-\U0010000F \U0010100F-\U0010300F] converts into:
+     *     <pre>
      *          [\uD800][\uDC00-\uDFFF]
      *          [\uD801-\uDBBF][\uDC00-\uDFFF]
      *          [\uDBC0][\uDC00-\uDC0F]
      * </pre>
-     *
-     *            and
-     *
-     *            <pre>
+     *     and
+     *     <pre>
      *          [\uDBC4][\uDC0F-\uDFFF]
      *          [\uDBC5-\uDBCB][\uDC00-\uDFFF]
      *          [\uDBCC][\uDC00-\uDC0F]
      * </pre>
-     *
-     *            These are then coalesced into a list of alternatives by sharing
-     *            parts where feasible. For example, the above turns into 3 pairs of ranges:
-     *
-     *            <pre>
+     *     These are then coalesced into a list of alternatives by sharing parts where feasible. For
+     *     example, the above turns into 3 pairs of ranges:
+     *     <pre>
      *          [\uDBC0\uDBCC][\uDC00-\uDC0F]|\uDBC4[\uDC0F-\uDFFF]|[\uD800-\uDBBF\uDBC5-\uDBCB][\uDC00-\uDFFF]
      * </pre>
      *
-     * @return escaped string. Something like [a-z] or (?:[a-m]|{zh}) if there is
-     *         a string zh in the set, or a more complicated case for
-     *         supplementaries. <br>
-     *         Special cases: [] returns "", single item returns a string
-     *         (escaped), like [a] => "a", or [{abc}] => "abc"<br>
-     *         Supplementaries are handled specially, as described under onlyBmp.
+     * @return escaped string. Something like [a-z] or (?:[a-m]|{zh}) if there is a string zh in the
+     *     set, or a more complicated case for supplementaries. <br>
+     *     Special cases: [] returns "", single item returns a string (escaped), like [a] => "a", or
+     *     [{abc}] => "abc"<br>
+     *     Supplementaries are handled specially, as described under onlyBmp.
      */
     public static String toRegex(UnicodeSet source, Transliterator escaper, boolean onlyBmp) {
         if (escaper == null) {
@@ -758,7 +755,8 @@ public class CldrUtility {
                     addBmpRange(it.codepoint, 0xFFFF, escaper, base);
                     it.codepoint = 0x10000; // reset the range
                 }
-                // this gets a bit ugly; we are trying to minimize the extra ranges for supplementaries
+                // this gets a bit ugly; we are trying to minimize the extra ranges for
+                // supplementaries
                 // we do this by breaking up X-Y based on the Lead and Trail values for X and Y
                 // Lx [Tx - Ty]) (if Lx == Ly)
                 // Lx [Tx - DFFF] | Ly [DC00-Ty] (if Lx == Ly - 1)
@@ -772,7 +770,8 @@ public class CldrUtility {
                 } else {
                     addSupplementalRange(leadX, leadX, trailX, 0xDFFF, escaper, lastToFirst);
                     if (leadX != leadY - 1) {
-                        addSupplementalRange(leadX + 1, leadY - 1, 0xDC00, 0xDFFF, escaper, lastToFirst);
+                        addSupplementalRange(
+                                leadX + 1, leadY - 1, 0xDC00, 0xDFFF, escaper, lastToFirst);
                     }
                     addSupplementalRange(leadY, leadY, 0xDC00, trailY, escaper, lastToFirst);
                 }
@@ -782,8 +781,10 @@ public class CldrUtility {
         if (lastToFirst.size() != 0) {
             for (UnicodeSet last : lastToFirst.keySet()) {
                 ++alternateCount;
-                alternates.append('|').append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
-                    .append(toRegex(last, escaper, onlyBmp));
+                alternates
+                        .append('|')
+                        .append(toRegex(lastToFirst.get(last), escaper, onlyBmp))
+                        .append(toRegex(last, escaper, onlyBmp));
             }
         }
         // Return the output. We separate cases in order to get the minimal extra apparatus
@@ -799,9 +800,18 @@ public class CldrUtility {
         }
     }
 
-    private static void addSupplementalRange(int leadX, int leadY, int trailX, int trailY, Transliterator escaper,
-        Map<UnicodeSet, UnicodeSet> lastToFirst) {
-        System.out.println("\tadding: " + new UnicodeSet(leadX, leadY) + "\t" + new UnicodeSet(trailX, trailY));
+    private static void addSupplementalRange(
+            int leadX,
+            int leadY,
+            int trailX,
+            int trailY,
+            Transliterator escaper,
+            Map<UnicodeSet, UnicodeSet> lastToFirst) {
+        System.out.println(
+                "\tadding: "
+                        + new UnicodeSet(leadX, leadY)
+                        + "\t"
+                        + new UnicodeSet(trailX, trailY));
         UnicodeSet last = new UnicodeSet(trailX, trailY);
         UnicodeSet first = lastToFirst.get(last);
         if (first == null) {
@@ -810,7 +820,8 @@ public class CldrUtility {
         first.add(leadX, leadY);
     }
 
-    private static void addBmpRange(int start, int limit, Transliterator escaper, StringBuilder base) {
+    private static void addBmpRange(
+            int start, int limit, Transliterator escaper, StringBuilder base) {
         base.append(escaper.transliterate(UTF16.valueOf(start)));
         if (start != limit) {
             base.append("-").append(escaper.transliterate(UTF16.valueOf(limit)));
@@ -824,7 +835,8 @@ public class CldrUtility {
         }
     }
 
-    public static class CollectionComparator<T extends Comparable<T>> implements Comparator<Collection<T>> {
+    public static class CollectionComparator<T extends Comparable<T>>
+            implements Comparator<Collection<T>> {
         @Override
         public int compare(Collection<T> o1, Collection<T> o2) {
             return UnicodeSet.compare(o1, o2, UnicodeSet.ComparisonStyle.SHORTER_FIRST);
@@ -838,7 +850,7 @@ public class CldrUtility {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void addTreeMapChain(Map coverageData, Object... objects) {
         Map<Object, Object> base = coverageData;
         for (int i = 0; i < objects.length - 2; ++i) {
@@ -849,7 +861,7 @@ public class CldrUtility {
         base.put(objects[objects.length - 2], objects[objects.length - 1]);
     }
 
-    public static abstract class CollectionTransform<S, T> implements Transform<S, T> {
+    public abstract static class CollectionTransform<S, T> implements Transform<S, T> {
         @Override
         public abstract T transform(S source);
 
@@ -862,7 +874,8 @@ public class CldrUtility {
         }
     }
 
-    public static <S, T, SC extends Collection<S>, TC extends Collection<T>> TC transform(SC source, Transform<S, T> transform, TC target) {
+    public static <S, T, SC extends Collection<S>, TC extends Collection<T>> TC transform(
+            SC source, Transform<S, T> transform, TC target) {
         for (S sourceItem : source) {
             T targetItem = transform.transform(sourceItem);
             if (targetItem != null) {
@@ -873,7 +886,10 @@ public class CldrUtility {
     }
 
     public static <SK, SV, TK, TV, SM extends Map<SK, SV>, TM extends Map<TK, TV>> TM transform(
-        SM source, Transform<SK, TK> transformKey, Transform<SV, TV> transformValue, TM target) {
+            SM source,
+            Transform<SK, TK> transformKey,
+            Transform<SV, TV> transformValue,
+            TM target) {
         for (Entry<SK, SV> sourceEntry : source.entrySet()) {
             TK targetKey = transformKey.transform(sourceEntry.getKey());
             TV targetValue = transformValue.transform(sourceEntry.getValue());
@@ -884,7 +900,7 @@ public class CldrUtility {
         return target;
     }
 
-    public static abstract class Apply<T> {
+    public abstract static class Apply<T> {
         public abstract void apply(T item);
 
         public <U extends Collection<T>> void applyTo(U collection) {
@@ -894,19 +910,19 @@ public class CldrUtility {
         }
     }
 
-    public static abstract class Filter<T> {
+    public abstract static class Filter<T> {
 
         public abstract boolean contains(T item);
 
         public <U extends Collection<T>> U retainAll(U c) {
-            for (Iterator<T> it = c.iterator(); it.hasNext();) {
+            for (Iterator<T> it = c.iterator(); it.hasNext(); ) {
                 if (!contains(it.next())) it.remove();
             }
             return c;
         }
 
         public <U extends Collection<T>> U extractMatches(U c, U target) {
-            for (Iterator<T> it = c.iterator(); it.hasNext();) {
+            for (Iterator<T> it = c.iterator(); it.hasNext(); ) {
                 T item = it.next();
                 if (contains(item)) {
                     target.add(item);
@@ -916,14 +932,14 @@ public class CldrUtility {
         }
 
         public <U extends Collection<T>> U removeAll(U c) {
-            for (Iterator<T> it = c.iterator(); it.hasNext();) {
+            for (Iterator<T> it = c.iterator(); it.hasNext(); ) {
                 if (contains(it.next())) it.remove();
             }
             return c;
         }
 
         public <U extends Collection<T>> U extractNonMatches(U c, U target) {
-            for (Iterator<T> it = c.iterator(); it.hasNext();) {
+            for (Iterator<T> it = c.iterator(); it.hasNext(); ) {
                 T item = it.next();
                 if (!contains(item)) {
                     target.add(item);
@@ -967,7 +983,8 @@ public class CldrUtility {
     // }
     // }
 
-    public static final class PairComparator<K extends Comparable<K>, V extends Comparable<V>> implements java.util.Comparator<Pair<K, V>> {
+    public static final class PairComparator<K extends Comparable<K>, V extends Comparable<V>>
+            implements java.util.Comparator<Pair<K, V>> {
 
         private Comparator<K> comp1;
         private Comparator<V> comp2;
@@ -982,55 +999,61 @@ public class CldrUtility {
             {
                 K o1First = o1.getFirst();
                 K o2First = o2.getFirst();
-                int diff = o1First == null ? (o2First == null ? 0 : -1)
-                    : o2First == null ? 1
-                        : comp1 == null ? o1First.compareTo(o2First)
-                            : comp1.compare(o1First, o2First);
+                int diff =
+                        o1First == null
+                                ? (o2First == null ? 0 : -1)
+                                : o2First == null
+                                        ? 1
+                                        : comp1 == null
+                                                ? o1First.compareTo(o2First)
+                                                : comp1.compare(o1First, o2First);
                 if (diff != 0) {
                     return diff;
                 }
             }
             V o1Second = o1.getSecond();
             V o2Second = o2.getSecond();
-            return o1Second == null ? (o2Second == null ? 0 : -1)
-                : o2Second == null ? 1
-                    : comp2 == null ? o1Second.compareTo(o2Second)
-                        : comp2.compare(o1Second, o2Second);
+            return o1Second == null
+                    ? (o2Second == null ? 0 : -1)
+                    : o2Second == null
+                            ? 1
+                            : comp2 == null
+                                    ? o1Second.compareTo(o2Second)
+                                    : comp2.compare(o1Second, o2Second);
         }
-
     }
 
     /**
      * Fetch data from jar
      *
-     * @param name
-     *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
+     * @param name a name residing in the org/unicode/cldr/util/data/ directory, or loading from a
+     *     jar will break.
      */
     public static BufferedReader getUTF8Data(String name) {
         if (new File(name).isAbsolute()) {
             throw new IllegalArgumentException(
-                "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-                    + name + "'.");
+                    "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                            + name
+                            + "'.");
         }
         return FileReaders.openFile(CldrUtility.class, "data/" + name);
     }
 
-    /**
-     * License file
-     */
+    /** License file */
     public static final String LICENSE = "LICENSE";
 
     /**
      * Fetch data from jar
      *
-     * @param name
-     *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
+     * @param name a name residing in the org/unicode/cldr/util/data/ directory, or loading from a
+     *     jar will break.
      */
     public static InputStream getInputStream(String name) {
         if (new File(name).isAbsolute()) {
             throw new IllegalArgumentException(
-                "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-                    + name + "'.");
+                    "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                            + name
+                            + "'.");
         }
         return getInputStream(CldrUtility.class, "data/" + name);
     }
@@ -1047,11 +1070,12 @@ public class CldrUtility {
      * @param source_key_valueSet
      * @param output_value_key
      */
-    public static void putAllTransposed(Map<Object, Set<Object>> source_key_valueSet, Map<Object, Object> output_value_key) {
-        for (Iterator<Object> it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
+    public static void putAllTransposed(
+            Map<Object, Set<Object>> source_key_valueSet, Map<Object, Object> output_value_key) {
+        for (Iterator<Object> it = source_key_valueSet.keySet().iterator(); it.hasNext(); ) {
             Object key = it.next();
             Set<Object> values = source_key_valueSet.get(key);
-            for (Iterator<Object> it2 = values.iterator(); it2.hasNext();) {
+            for (Iterator<Object> it2 = values.iterator(); it2.hasNext(); ) {
                 Object value = it2.next();
                 output_value_key.put(value, key);
             }
@@ -1074,8 +1098,8 @@ public class CldrUtility {
         registerTransliteratorFromFile(id, dir, filename, Transliterator.REVERSE, true);
     }
 
-    public static void registerTransliteratorFromFile(String id, String dir, String filename, int direction,
-        boolean reverseID) {
+    public static void registerTransliteratorFromFile(
+            String id, String dir, String filename, int direction, boolean reverseID) {
         if (filename == null) {
             filename = id.replace('-', '_');
             filename = filename.replace('/', '_');
@@ -1130,8 +1154,9 @@ public class CldrUtility {
             String rules = buffer.toString();
             return rules;
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + filename)
-                .initCause(e);
+            throw (IllegalArgumentException)
+                    new IllegalArgumentException("Can't open " + dir + ", " + filename)
+                            .initCause(e);
         }
     }
 
@@ -1162,26 +1187,28 @@ public class CldrUtility {
         Set<String> names = new TreeSet<>();
         for (int i = 0; i < methods.length; ++i) {
             if (methods[i].getGenericParameterTypes().length != 0) continue;
-            //int mods = methods[i].getModifiers();
+            // int mods = methods[i].getModifiers();
             // if (!Modifier.isStatic(mods)) continue;
             String name = methods[i].getName();
             names.add(name);
         }
-        for (Iterator<String> it = names.iterator(); it.hasNext();) {
+        for (Iterator<String> it = names.iterator(); it.hasNext(); ) {
             System.out.println("\t" + it.next());
         }
     }
 
     /**
-     * Breaks lines if they are too long, or if matcher.group(1) != last. Only breaks just before matcher.
+     * Breaks lines if they are too long, or if matcher.group(1) != last. Only breaks just before
+     * matcher.
      *
      * @param input
      * @param separator
-     * @param matcher
-     *            must match each possible item. The first group is significant; if different, will cause break
+     * @param matcher must match each possible item. The first group is significant; if different,
+     *     will cause break
      * @return
      */
-    static public String breakLines(CharSequence input, String separator, Matcher matcher, int width) {
+    public static String breakLines(
+            CharSequence input, String separator, Matcher matcher, int width) {
         StringBuffer output = new StringBuffer();
         String lastPrefix = "";
         int lastEnd = 0;
@@ -1194,7 +1221,8 @@ public class CldrUtility {
                 break;
             }
             String prefix = matcher.group(1);
-            if (!prefix.equalsIgnoreCase(lastPrefix) || matcher.end() - lastBreakPos > width) { // break before?
+            if (!prefix.equalsIgnoreCase(lastPrefix)
+                    || matcher.end() - lastBreakPos > width) { // break before?
                 output.append(separator);
                 lastBreakPos = lastEnd;
             } else if (lastEnd != 0) {
@@ -1209,7 +1237,8 @@ public class CldrUtility {
 
     public static void showOptions(String[] args) {
         // Properties props = System.getProperties();
-        System.out.println("Arguments: " + join(args, " ")); // + (props == null ? "" : " " + props));
+        System.out.println(
+                "Arguments: " + join(args, " ")); // + (props == null ? "" : " " + props));
     }
 
     public static double roundToDecimals(double input, int places) {
@@ -1222,8 +1251,8 @@ public class CldrUtility {
     }
 
     /**
-     * Get a property value, returning the value if there is one (eg -Dkey=value),
-     * otherwise the default value (for either empty or null).
+     * Get a property value, returning the value if there is one (eg -Dkey=value), otherwise the
+     * default value (for either empty or null).
      *
      * @param key
      * @param defaultValue
@@ -1233,17 +1262,14 @@ public class CldrUtility {
         return getProperty(key, defaultValue, defaultValue);
     }
 
-    /**
-     * Get a property value, returning the value if there is one, otherwise null.
-     */
+    /** Get a property value, returning the value if there is one, otherwise null. */
     public static String getProperty(String key) {
         return getProperty(key, null, null);
     }
 
     /**
-     * Get a property value, returning the value if there is one (eg -Dkey=value),
-     * the valueIfEmpty if there is one with no value (eg -Dkey) and the valueIfNull
-     * if there is no property.
+     * Get a property value, returning the value if there is one (eg -Dkey=value), the valueIfEmpty
+     * if there is one with no value (eg -Dkey) and the valueIfNull if there is no property.
      *
      * @param key
      * @param valueIfNull
@@ -1283,7 +1309,8 @@ public class CldrUtility {
         return checkValidFile(sourceDirectory, true, correction);
     }
 
-    public static String checkValidFile(String sourceDirectory, boolean checkForDirectory, String correction) {
+    public static String checkValidFile(
+            String sourceDirectory, boolean checkForDirectory, String correction) {
         File file = null;
         String normalizedPath = null;
         try {
@@ -1292,9 +1319,11 @@ public class CldrUtility {
         } catch (Exception e) {
         }
         if (file == null || normalizedPath == null || checkForDirectory && !file.isDirectory()) {
-            throw new RuntimeException("Directory not found: " + sourceDirectory
-                + (normalizedPath == null ? "" : " => " + normalizedPath)
-                + (correction == null ? "" : CldrUtility.LINE_SEPARATOR + correction));
+            throw new RuntimeException(
+                    "Directory not found: "
+                            + sourceDirectory
+                            + (normalizedPath == null ? "" : " => " + normalizedPath)
+                            + (correction == null ? "" : CldrUtility.LINE_SEPARATOR + correction));
         }
         return normalizedPath;
     }
@@ -1302,18 +1331,18 @@ public class CldrUtility {
     /**
      * Copy up to matching line (not included). If output is null, then just skip until.
      *
-     * @param oldFile
-     *            file to copy
-     * @param readUntilPattern
-     *            pattern to search for. If null, goes to end of file.
-     * @param output
-     *            into to copy into. If null, just skips in the input.
-     * @param includeMatchingLine
-     *            inclde the matching line when copying.
+     * @param oldFile file to copy
+     * @param readUntilPattern pattern to search for. If null, goes to end of file.
+     * @param output into to copy into. If null, just skips in the input.
+     * @param includeMatchingLine inclde the matching line when copying.
      * @throws IOException
      */
-    public static void copyUpTo(BufferedReader oldFile, final Pattern readUntilPattern,
-        final PrintWriter output, boolean includeMatchingLine) throws IOException {
+    public static void copyUpTo(
+            BufferedReader oldFile,
+            final Pattern readUntilPattern,
+            final PrintWriter output,
+            boolean includeMatchingLine)
+            throws IOException {
         Matcher readUntil = readUntilPattern == null ? null : readUntilPattern.matcher("");
         while (true) {
             String line = oldFile.readLine();
@@ -1337,6 +1366,7 @@ public class CldrUtility {
 
     private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss 'GMT'");
     private static DateFormat DATE_ONLY = new SimpleDateFormat("yyyy-MM-dd");
+
     static {
         df.setTimeZone(TimeZone.getTimeZone("GMT"));
         DATE_ONLY.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -1366,19 +1396,19 @@ public class CldrUtility {
     }
 
     public static boolean equals(Object a, Object b) {
-        return a == b ? true
-            : a == null || b == null ? false
-                : a.equals(b);
+        return a == b ? true : a == null || b == null ? false : a.equals(b);
     }
 
     public static String getDoubleLink(String code) {
-        final String anchorSafe = TransliteratorUtilities.toHTML.transliterate(code).replace(" ", "_");
+        final String anchorSafe =
+                TransliteratorUtilities.toHTML.transliterate(code).replace(" ", "_");
         return "<a name='" + anchorSafe + "' href='#" + anchorSafe + "'>";
     }
 
     public static String getDoubleLinkedText(String anchor, String anchorText) {
-        return getDoubleLink(anchor) + TransliteratorUtilities.toHTML.transliterate(anchorText).replace("_", " ")
-            + "</a>";
+        return getDoubleLink(anchor)
+                + TransliteratorUtilities.toHTML.transliterate(anchorText).replace("_", " ")
+                + "</a>";
     }
 
     public static String getDoubleLinkedText(String anchor) {
@@ -1400,31 +1430,39 @@ public class CldrUtility {
     private static final class CopyrightHelper {
         public static final CopyrightHelper INSTANCE = new CopyrightHelper();
         public final String COPYRIGHT_SHORT =
-            "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc.";
+                "Copyright \u00A9 1991-"
+                        + Calendar.getInstance().get(Calendar.YEAR)
+                        + " Unicode, Inc.";
     }
 
     public static String getCopyrightString(String linePrefix) {
         // now do the rest
-        return linePrefix + getCopyrightShort() + CldrUtility.LINE_SEPARATOR
-            + linePrefix + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
-            + linePrefix + CLDRURLS.UNICODE_SPDX_HEADER + CldrUtility.LINE_SEPARATOR
-            + linePrefix + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
+        return linePrefix
+                + getCopyrightShort()
+                + CldrUtility.LINE_SEPARATOR
+                + linePrefix
+                + "For terms of use, see http://www.unicode.org/copyright.html"
+                + CldrUtility.LINE_SEPARATOR
+                + linePrefix
+                + CLDRURLS.UNICODE_SPDX_HEADER
+                + CldrUtility.LINE_SEPARATOR
+                + linePrefix
+                + "CLDR data files are interpreted according to the LDML specification "
+                + "(http://unicode.org/reports/tr35/)";
     }
 
-    /**
-     * Returns the '## License' section in markdown.
-     */
+    /** Returns the '## License' section in markdown. */
     public static String getCopyrightMarkdown() {
-        return "## License\n" +
-        "\n" +
-        getCopyrightShort() + "\n" +
-        "[Terms of Use](http://www.unicode.org/copyright.html)\n\n" +
-        CLDRURLS.UNICODE_SPDX_HEADER + "\n";
+        return "## License\n"
+                + "\n"
+                + getCopyrightShort()
+                + "\n"
+                + "[Terms of Use](http://www.unicode.org/copyright.html)\n\n"
+                + CLDRURLS.UNICODE_SPDX_HEADER
+                + "\n";
     }
 
-    /**
-     * Get the short copyright string, "Copyright © YYYY-YYYY Unicode, Inc."
-     */
+    /** Get the short copyright string, "Copyright © YYYY-YYYY Unicode, Inc." */
     public static String getCopyrightShort() {
         return CopyrightHelper.INSTANCE.COPYRIGHT_SHORT;
     }
@@ -1432,6 +1470,7 @@ public class CldrUtility {
     // TODO Move to collection utilities
     /**
      * Type-safe get
+     *
      * @param map
      * @param key
      * @return value
@@ -1442,6 +1481,7 @@ public class CldrUtility {
 
     /**
      * Type-safe contains
+     *
      * @param collection
      * @param key
      * @return value
@@ -1450,7 +1490,8 @@ public class CldrUtility {
         return collection.contains(key);
     }
 
-    public static <E extends Enum<E>> EnumSet<E> toEnumSet(Class<E> classValue, Collection<String> stringValues) {
+    public static <E extends Enum<E>> EnumSet<E> toEnumSet(
+            Class<E> classValue, Collection<String> stringValues) {
         EnumSet<E> result = EnumSet.noneOf(classValue);
         for (String s : stringValues) {
             result.add(Enum.valueOf(classValue, s));
@@ -1482,7 +1523,7 @@ public class CldrUtility {
     }
 
     public static void handleFile(String filename, LineHandler handler) throws IOException {
-        try (BufferedReader in = getUTF8Data(filename);) {
+        try (BufferedReader in = getUTF8Data(filename); ) {
             String line = null;
             while ((line = in.readLine()) != null) {
                 //                String line = in.readLine();
@@ -1496,8 +1537,8 @@ public class CldrUtility {
                         }
                     }
                 } catch (Exception e) {
-                    throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                        .initCause(e);
+                    throw (RuntimeException)
+                            new IllegalArgumentException("Problem with line: " + line).initCause(e);
                 }
             }
         }
@@ -1505,9 +1546,7 @@ public class CldrUtility {
     }
 
     public static <T> T ifNull(T x, T y) {
-        return x == null
-            ? y
-            : x;
+        return x == null ? y : x;
     }
 
     public static <T> T ifSame(T source, T replaceIfSame, T replacement) {
@@ -1531,7 +1570,7 @@ public class CldrUtility {
     }
 
     public static boolean deepEquals(Object... pairs) {
-        for (int item = 0; item < pairs.length;) {
+        for (int item = 0; item < pairs.length; ) {
             if (!Objects.deepEquals(pairs[item++], pairs[item++])) {
                 return false;
             }
@@ -1571,6 +1610,7 @@ public class CldrUtility {
 
     /**
      * get string format for debugging, since Java has a useless display for many items
+     *
      * @param item
      * @return
      */
@@ -1607,7 +1647,7 @@ public class CldrUtility {
      * @param dir the directory name
      * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
      */
-    public final static String getGitHashForDir(String dir) {
+    public static final String getGitHashForDir(String dir) {
         // Try #1
         String hash = getGitHashDirectlyForDir(dir);
         if (hash == null) {
@@ -1623,6 +1663,7 @@ public class CldrUtility {
 
     /**
      * Attempt to retrieve git hash by digging through .git/HEAD and related files
+     *
      * @param dir
      * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
      */
@@ -1654,18 +1695,18 @@ public class CldrUtility {
                 System.err.println(e + ": readString failed for " + headfile);
                 e.printStackTrace();
             }
-
         }
         return null; // not found;
     }
 
     /**
      * Attempt to retrieve git hash by calling 'git rev-parse HEAD'
+     *
      * @param dir
      * @return the hash, like "9786e05e95a2e4f02687fa3b84126782f9f698a3"
      */
     private static String getGitHashByRevParseForDir(String dir) {
-        final String GIT_HASH_COMMANDS[] = { "git", "rev-parse", "HEAD" };
+        final String GIT_HASH_COMMANDS[] = {"git", "rev-parse", "HEAD"};
         try {
             if (dir == null) {
                 return null; // no dir
@@ -1676,13 +1717,19 @@ public class CldrUtility {
             }
             Process p = Runtime.getRuntime().exec(GIT_HASH_COMMANDS, null, f);
             if (!p.waitFor(15, TimeUnit.SECONDS)) {
-                System.err.println("Git query " + String.join(" ", GIT_HASH_COMMANDS) + " timed out");
+                System.err.println(
+                        "Git query " + String.join(" ", GIT_HASH_COMMANDS) + " timed out");
                 p.destroyForcibly();
                 return null;
             }
             if (p.exitValue() != 0) {
-                System.err.println("Error return : " + p.exitValue() + " from " + String.join(" ", GIT_HASH_COMMANDS));
-                try (BufferedReader is = new BufferedReader(new InputStreamReader(p.getErrorStream()))) {
+                System.err.println(
+                        "Error return : "
+                                + p.exitValue()
+                                + " from "
+                                + String.join(" ", GIT_HASH_COMMANDS));
+                try (BufferedReader is =
+                        new BufferedReader(new InputStreamReader(p.getErrorStream()))) {
                     String str = is.readLine();
                     if (str.length() == 0) {
                         throw new Exception("git returned empty");
@@ -1691,7 +1738,8 @@ public class CldrUtility {
                 }
                 return null;
             }
-            try (BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+            try (BufferedReader is =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()))) {
                 String str = is.readLine();
                 if (str == null || str.length() == 0) {
                     throw new Exception("git returned empty");
@@ -1700,7 +1748,8 @@ public class CldrUtility {
             }
         } catch (Throwable t) {
             // We do not expect this to be called frequently.
-            System.err.println("While trying to get 'git' hash for " + dir + " : " + t.getMessage());
+            System.err.println(
+                    "While trying to get 'git' hash for " + dir + " : " + t.getMessage());
             t.printStackTrace();
             return null;
         }

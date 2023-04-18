@@ -25,9 +25,9 @@ public class TestLocaleIDParser {
             assertNotEquals(loc, newLoc, "Error: getParent() returned the same value");
             loc = newLoc;
         }
-        assertNull(loc, locid+": Test error: Expected chain to fall back to 'root' and then null");
+        assertNull(
+                loc, locid + ": Test error: Expected chain to fall back to 'root' and then null");
     }
-
 
     @ParameterizedTest(name = "{index}: {0}")
     @CsvSource({
@@ -46,6 +46,7 @@ public class TestLocaleIDParser {
             assertNotEquals(loc, newLoc, "Error: getParent() returned the same value");
             loc = newLoc;
         }
-        assertNull(loc, locid+": Test error: Expected chain to fall back to 'root' and then null");
+        assertNull(
+                loc, locid + ": Test error: Expected chain to fall back to 'root' and then null");
     }
 }

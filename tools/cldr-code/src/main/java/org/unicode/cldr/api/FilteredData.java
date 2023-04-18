@@ -32,8 +32,8 @@ public abstract class FilteredData implements CldrData {
 
     /**
      * Returns a filtered CLDR value, replacing or removing the original value during visitation.
-     * The filtered value can only differ in its base value or value attributes, and must have
-     * the same {@link CldrPath} associated with it.
+     * The filtered value can only differ in its base value or value attributes, and must have the
+     * same {@link CldrPath} associated with it.
      *
      * @return the filtered value to be replaced, or {@code null} to remove the value.
      */
@@ -59,9 +59,11 @@ public abstract class FilteredData implements CldrData {
 
     private CldrValue checkFiltered(CldrValue value) {
         CldrValue filteredValue = filter(value);
-        checkArgument(filteredValue == null || filteredValue.getPath().equals(value.getPath()),
-            "filtering is not permitted to modify distinguishing paths: source=%s, filtered=%s",
-            value, filteredValue);
+        checkArgument(
+                filteredValue == null || filteredValue.getPath().equals(value.getPath()),
+                "filtering is not permitted to modify distinguishing paths: source=%s, filtered=%s",
+                value,
+                filteredValue);
         return filteredValue;
     }
 }

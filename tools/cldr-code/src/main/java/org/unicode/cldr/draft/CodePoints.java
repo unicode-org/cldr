@@ -6,8 +6,10 @@ package org.unicode.cldr.draft;
  * @author markdavis
  */
 public final class CodePoints {
-    private static final int SUPPLEMENTAL_OFFSET = (Character.MIN_HIGH_SURROGATE << 10) + Character.MIN_LOW_SURROGATE
-        - Character.MIN_SUPPLEMENTARY_CODE_POINT;
+    private static final int SUPPLEMENTAL_OFFSET =
+            (Character.MIN_HIGH_SURROGATE << 10)
+                    + Character.MIN_LOW_SURROGATE
+                    - Character.MIN_SUPPLEMENTARY_CODE_POINT;
 
     private CharSequence buffer;
     private int length;
@@ -30,15 +32,14 @@ public final class CodePoints {
         position = 0;
     }
 
-    /**
-     * Reset to the start.
-     */
+    /** Reset to the start. */
     public void reset() {
         position = 0;
     }
 
     /**
-     * Get the next code point. False if at end of string. After successful next(), the codePoint field has the value.
+     * Get the next code point. False if at end of string. After successful next(), the codePoint
+     * field has the value.
      *
      * @return
      */
@@ -48,7 +49,9 @@ public final class CodePoints {
             return false;
         }
         int cp = buffer.charAt(position++);
-        if (cp >= Character.MIN_HIGH_SURROGATE && cp <= Character.MAX_HIGH_SURROGATE && position < length) {
+        if (cp >= Character.MIN_HIGH_SURROGATE
+                && cp <= Character.MAX_HIGH_SURROGATE
+                && position < length) {
             int trail = buffer.charAt(position);
             if (trail >= Character.MIN_LOW_SURROGATE && trail <= Character.MAX_LOW_SURROGATE) {
                 cp = (cp << 10) + trail - SUPPLEMENTAL_OFFSET;
@@ -60,7 +63,8 @@ public final class CodePoints {
     }
 
     /**
-     * After calling next(), if it comes back true, this contains the code point; if not, it has U+FFFF.
+     * After calling next(), if it comes back true, this contains the code point; if not, it has
+     * U+FFFF.
      *
      * @return
      */
@@ -70,11 +74,14 @@ public final class CodePoints {
 
     @Override
     public String toString() {
-        return buffer.subSequence(0, position) + "|||" + buffer.subSequence(position, buffer.length());
+        return buffer.subSequence(0, position)
+                + "|||"
+                + buffer.subSequence(position, buffer.length());
     }
 
     /**
-     * When iterating over full strings, this method is the fastest (as long as the string is not huge).
+     * When iterating over full strings, this method is the fastest (as long as the string is not
+     * huge).
      *
      * @param s
      * @return
@@ -83,7 +90,7 @@ public final class CodePoints {
         int len = s.length();
         int[] result = new int[len];
         int pos = 0;
-        for (int i = 0; i < len;) {
+        for (int i = 0; i < len; ) {
             int cp = s.charAt(i++);
             // The key to performance is that surrogate pairs are very rare.
             // Test for a trail (low) surrogate.
@@ -106,5 +113,4 @@ public final class CodePoints {
         }
         return result;
     }
-
 }

@@ -8,7 +8,6 @@
 package org.unicode.cldr.web;
 
 import java.util.Hashtable;
-
 import org.unicode.cldr.util.CLDRLocale;
 
 /**
@@ -18,9 +17,7 @@ import org.unicode.cldr.util.CLDRLocale;
  */
 public class LocaleChangeRegistry {
 
-    /**
-     * Last key ID .. unique across all LCRs
-     */
+    /** Last key ID .. unique across all LCRs */
     private static int keyn = 0;
 
     /**
@@ -28,20 +25,17 @@ public class LocaleChangeRegistry {
      *
      * @return key string
      */
-    public synchronized static final String newKey() {
+    public static final synchronized String newKey() {
         return CookieSession.cheapEncode(++keyn) + ":LCR";
     }
 
-    /**
-     * hash of all lcrs
-     */
+    /** hash of all lcrs */
     Hashtable<CLDRLocale, Hashtable<String, String>> tables = new Hashtable<>();
 
     /**
      * fetch the appropriate hash table. Private, assumes lock.
      *
-     * @param locale
-     *            locale to hash for
+     * @param locale locale to hash for
      * @return the hash table, new if needed
      */
     private Hashtable<String, String> internalGetHash(CLDRLocale locale) {
@@ -56,15 +50,15 @@ public class LocaleChangeRegistry {
     /**
      * register an object
      *
-     * @param locale
-     *            - the locale to register. Note, parent locales will
-     *            automatically be registered.
-     * @param key
-     *            key to register under.
-     * @param what
-     *            what is being registered (ignored)
+     * @param locale - the locale to register. Note, parent locales will automatically be
+     *     registered.
+     * @param key key to register under.
+     * @param what what is being registered (ignored)
      */
-    public void register(/* other params: tree, etc.., */CLDRLocale locale, String key, Object /* notused */ what) {
+    public void register(
+            /* other params: tree, etc.., */ CLDRLocale locale,
+            String key,
+            Object /* notused */ what) {
         synchronized (this) {
             while (locale != null) {
                 internalGetHash(locale).put(key, "what"); // Register as string
@@ -76,12 +70,11 @@ public class LocaleChangeRegistry {
     /**
      * Is the object still valid under this key?
      *
-     * @param locale
-     *            - locale and all parents will be checked
+     * @param locale - locale and all parents will be checked
      * @param key
      * @return true if valid, false if stale.
      */
-    public boolean isKeyValid(/* other params: tree, etc.. */CLDRLocale locale, String key) {
+    public boolean isKeyValid(/* other params: tree, etc.. */ CLDRLocale locale, String key) {
         synchronized (this) {
             while (locale != null) {
                 Object what = internalGetHash(locale).get(key);
@@ -97,10 +90,9 @@ public class LocaleChangeRegistry {
     /**
      * invalidate a locale - does NOT invalidate parents or children.
      *
-     * @param locale
-     *            locale to invalidate
+     * @param locale locale to invalidate
      */
-    public void invalidateLocale(/* other params: tree, etc.. */CLDRLocale locale) {
+    public void invalidateLocale(/* other params: tree, etc.. */ CLDRLocale locale) {
         System.err.println("#*#LCR invalidate " + locale);
         synchronized (this) {
             internalGetHash(locale).clear();

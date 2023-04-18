@@ -10,7 +10,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
@@ -35,7 +34,8 @@ public class GetDescriptions {
 
     public static void main(String[] args) throws IOException {
         StandardCodes sc = StandardCodes.make();
-        PrintWriter commas = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-commas.txt");
+        PrintWriter commas =
+                FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-commas.txt");
         commas.write('\uFEFF');
         PrintWriter all = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-all.txt");
         all.write('\uFEFF');
@@ -57,7 +57,15 @@ public class GetDescriptions {
 
                 for (String description : descriptions) {
                     if (!matcher.reset(description).matches()) {
-                        commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + description + "\t@NO_MATCH");
+                        commas.println(
+                                commaCount++
+                                        + "\t"
+                                        + type
+                                        + "\t"
+                                        + code
+                                        + "\t"
+                                        + description
+                                        + "\t@NO_MATCH");
                         continue;
                     }
                     String preComma = matcher.group(1).trim();
@@ -86,7 +94,8 @@ public class GetDescriptions {
 
                     if (!isDeprecated) {
                         if (descriptionWithoutComment.length() != 0)
-                            descriptionWithoutComments.put(descriptionWithoutComment, newDescriptionWithoutComment);
+                            descriptionWithoutComments.put(
+                                    descriptionWithoutComment, newDescriptionWithoutComment);
                         addTypeNameCode(name_type_codes, type, code, newDescriptionWithoutComment);
                     }
 
@@ -96,22 +105,39 @@ public class GetDescriptions {
 
                     checkDuplicates(commas, type, code, descriptionWithoutComment, description);
                     if (!newDescriptionWithoutComment.equals(descriptionWithoutComment)) {
-                        checkDuplicates(commas, type, code, newDescriptionWithoutComment, description);
+                        checkDuplicates(
+                                commas, type, code, newDescriptionWithoutComment, description);
                     }
 
                     if (postComma.contains(",")) {
-                        commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + description
-                            + "\t@DOUBLE_COMMA");
+                        commas.println(
+                                commaCount++
+                                        + "\t"
+                                        + type
+                                        + "\t"
+                                        + code
+                                        + "\t"
+                                        + description
+                                        + "\t@DOUBLE_COMMA");
                         continue;
                     }
 
                     if (postComma.length() == 0) {
-                        commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + description);
+                        commas.println(
+                                commaCount++ + "\t" + type + "\t" + code + "\t" + description);
                         continue;
                     }
 
-                    commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + description + "\t=>\t"
-                        + newDescription);
+                    commas.println(
+                            commaCount++
+                                    + "\t"
+                                    + type
+                                    + "\t"
+                                    + code
+                                    + "\t"
+                                    + description
+                                    + "\t=>\t"
+                                    + newDescription);
                 }
                 checkInversion(commas, type, code, descriptions);
             }
@@ -123,7 +149,8 @@ public class GetDescriptions {
     }
 
     private static void showReverse() throws IOException {
-        PrintWriter reverse = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-reverse.txt");
+        PrintWriter reverse =
+                FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-reverse.txt");
         reverse.write('\uFEFF');
         int reverseCount = 1;
         for (String name : name_type_codes.keySet()) {
@@ -138,15 +165,25 @@ public class GetDescriptions {
                         reverse.println(reverseCount++ + "\t" + name + "\t" + type + "\t" + code);
                         continue;
                     }
-                    reverse.println(reverseCount++ + "\t" + name + "\t" + type + "\t" + code + "\t@DUPLICATE_IN\t"
-                        + "\t" + baseCode);
+                    reverse.println(
+                            reverseCount++
+                                    + "\t"
+                                    + name
+                                    + "\t"
+                                    + type
+                                    + "\t"
+                                    + code
+                                    + "\t@DUPLICATE_IN\t"
+                                    + "\t"
+                                    + baseCode);
                 }
             }
             reverseIfPossible(name, types);
         }
         reverse.close();
         reverseCount = 1;
-        PrintWriter inversions = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-inversions.txt");
+        PrintWriter inversions =
+                FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-inversions.txt");
         for (String invertedName : descriptionWithoutComments.keySet()) {
             String name = descriptionWithoutComments.get(invertedName);
             if (name.equals(invertedName)) continue;
@@ -189,15 +226,19 @@ public class GetDescriptions {
     private static void addEnd(String name, String preComma, Set<String> types) {
         if (name.equals(preComma)) return;
         if (!name.endsWith(" " + preComma)) return;
-        String trial = preComma + ", " + name.substring(0, name.length() - preComma.length()).trim();
+        String trial =
+                preComma + ", " + name.substring(0, name.length() - preComma.length()).trim();
         if (descriptionWithoutComments.keySet().contains(trial)) {
             return;
         }
         descriptionWithoutComments.put(trial, name + "\t@MISSING\t" + types);
     }
 
-    private static void addTypeNameCode(Map<String, Map<String, Set<String>>> name_type_codes, String type,
-        String code, String newDescriptionWithoutComment) {
+    private static void addTypeNameCode(
+            Map<String, Map<String, Set<String>>> name_type_codes,
+            String type,
+            String code,
+            String newDescriptionWithoutComment) {
         Map<String, Set<String>> type_codes = name_type_codes.get(newDescriptionWithoutComment);
         if (type_codes == null)
             name_type_codes.put(newDescriptionWithoutComment, type_codes = new TreeMap<>());
@@ -206,34 +247,45 @@ public class GetDescriptions {
         codes.add(code);
     }
 
-    static Matcher directional = Pattern
-        .compile(
-            "(West Central|Northern|Southern|Western|Eastern|North|South|East|West|Central|Ancient|Classical|Coastal"
-                +
-                "|Highland|Isthmus|Low|Lower|Lowland|Middle|Northeastern|Northwestern|Old|Plains|Southeastern|Southwestern|Straits|Upper|Valley"
-                +
-                "|Written)\\s+(.+)")
-        .matcher("");
+    static Matcher directional =
+            Pattern.compile(
+                            "(West Central|Northern|Southern|Western|Eastern|North|South|East|West|Central|Ancient|Classical|Coastal"
+                                    + "|Highland|Isthmus|Low|Lower|Lowland|Middle|Northeastern|Northwestern|Old|Plains|Southeastern|Southwestern|Straits|Upper|Valley"
+                                    + "|Written)\\s+(.+)")
+                    .matcher("");
 
-    private static void checkInversion(PrintWriter commas, String type, String code, String[] parts) {
+    private static void checkInversion(
+            PrintWriter commas, String type, String code, String[] parts) {
         Set<String> items = new TreeSet<>(Arrays.asList(parts));
         for (String item : items) {
             if (!directional.reset(item).matches()) {
                 continue;
             }
-            String trial = directional.group(2) + (directional.group(2).contains(",") ? " " : ", ")
-                + directional.group(1);
+            String trial =
+                    directional.group(2)
+                            + (directional.group(2).contains(",") ? " " : ", ")
+                            + directional.group(1);
             if (!items.contains(trial)) {
-                commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + "\t@MISSING\t" + trial);
+                commas.println(
+                        commaCount++ + "\t" + type + "\t" + code + "\t" + "\t@MISSING\t" + trial);
             }
         }
     }
 
-    private static void checkDuplicates(PrintWriter commas, String type, String code, String newPartNoComment,
-        String part) {
+    private static void checkDuplicates(
+            PrintWriter commas, String type, String code, String newPartNoComment, String part) {
         String old = items.get(newPartNoComment);
         if (old != null) {
-            commas.println(commaCount++ + "\t" + type + "\t" + code + "\t" + part + "\t@DUPLICATES\t" + old);
+            commas.println(
+                    commaCount++
+                            + "\t"
+                            + type
+                            + "\t"
+                            + code
+                            + "\t"
+                            + part
+                            + "\t@DUPLICATES\t"
+                            + old);
         } else {
             items.put(newPartNoComment, part);
         }

@@ -11,12 +11,12 @@ import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-
 import org.unicode.cldr.util.With.SimpleIterator;
 
 public class FileReaders {
     //
-    // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
+    // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName,
+    // SemiFileReader handler) {
     // return handler.process(classLocation, fileName);
     // }
     public static BufferedReader openFile(Class<?> class1, String file) {
@@ -51,17 +51,24 @@ public class FileReaders {
                 String relativeFileName = FileReaders.getRelativeFileName(class1, "../util/");
                 normalizedPath = PathUtilities.getNormalizedPathString(relativeFileName);
             } catch (Exception e1) {
-                throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
-                    + className, e);
+                throw new IllegalArgumentException(
+                        "Couldn't open file: " + file + "; relative to class: " + className, e);
             }
-            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: "
-                + className, e);
+            throw new IllegalArgumentException(
+                    "Couldn't open file "
+                            + file
+                            + "; in path "
+                            + normalizedPath
+                            + "; relative to class: "
+                            + className,
+                    e);
         }
     }
 
     public static BufferedReader openFile(String directory, String file, Charset charset) {
         try {
-            return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
+            return new BufferedReader(
+                    new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
         } catch (FileNotFoundException e) {
             throw new IllegalArgumentException(e); // handle dang'd checked exception
         }
@@ -84,7 +91,6 @@ public class FileReaders {
             throw new IllegalArgumentException("File not found: " + resourceString);
         }
     }
-
 
     public static class ReadLineSimpleIterator implements SimpleIterator<String> {
         final BufferedReader bufferedReader;

@@ -1,11 +1,8 @@
-/**
- * Copyright (c) 2008 IBM Corporation and Others. All Rights Reserved.
- */
+/** Copyright (c) 2008 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -24,9 +21,7 @@ public class STPoolingListener implements ServletContextListener {
     public static final String ST_ATTRIBUTE = "STPool";
     private static final String ST_DATABASE = "jdbc/SurveyTool";
 
-    /**
-     *
-     */
+    /** */
     public STPoolingListener() {
         // TODO Auto-generated constructor stub
     }
@@ -41,7 +36,6 @@ public class STPoolingListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent arg0) {
         // TODO Auto-generated method stub
         System.err.println("Destroyed Ctx for " + ST_DATABASE);
-
     }
 
     /*
@@ -69,5 +63,4 @@ public class STPoolingListener implements ServletContextListener {
             e.printStackTrace();
         }
     }
-
 }

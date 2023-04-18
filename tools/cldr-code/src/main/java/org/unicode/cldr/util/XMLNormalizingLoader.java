@@ -1,5 +1,13 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +23,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XMLFileReader.AllHandler;
 import org.xml.sax.Attributes;
@@ -23,36 +30,30 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.VersionInfo;
-
-/**
- * Loading Normalized XMLSource
- */
-public class XMLNormalizingLoader{
+/** Loading Normalized XMLSource */
+public class XMLNormalizingLoader {
 
     private static final int CACHE_LIMIT = 700;
-    private static LoadingCache<XMLSourceCacheKey, XMLSource> cache = CacheBuilder.newBuilder()
-        .maximumSize(CACHE_LIMIT)
-        .softValues()   // will garbage-collected in LRU manner in response to memory demand
-        .build(
-            new CacheLoader<XMLSourceCacheKey, XMLSource>() {
-                @Override
-                public XMLSource load(XMLSourceCacheKey key) {
-                    return makeXMLSource(key);
-                }
-            });
+    private static LoadingCache<XMLSourceCacheKey, XMLSource> cache =
+            CacheBuilder.newBuilder()
+                    .maximumSize(CACHE_LIMIT)
+                    .softValues() // will garbage-collected in LRU manner in response to memory
+                    // demand
+                    .build(
+                            new CacheLoader<XMLSourceCacheKey, XMLSource>() {
+                                @Override
+                                public XMLSource load(XMLSourceCacheKey key) {
+                                    return makeXMLSource(key);
+                                }
+                            });
 
     private static final boolean LOG_PROGRESS = false;
     private static final boolean DEBUG = false;
+
     enum SupplementalStatus {
-        NEVER_SET, IS_SUMPPLEMENTAL, NOT_SUPPLEMENTAL
+        NEVER_SET,
+        IS_SUMPPLEMENTAL,
+        NOT_SUPPLEMENTAL
     }
 
     private static class XMLSourceCacheKey {
@@ -60,16 +61,19 @@ public class XMLNormalizingLoader{
         private final Set<File> dirs;
         private final DraftStatus minimalDraftStatus;
         private final int hashCode;
+
         public XMLSourceCacheKey(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
             this.localeId = localeId;
             // Parameter check: the directory/file supplied must be non-null and readable.
             if (dirs == null || dirs.isEmpty()) {
-                throw new ICUUncheckedIOException("Attempt to create a XMLSourceCacheKey with a null directory, please supply a non-null one.");
+                throw new ICUUncheckedIOException(
+                        "Attempt to create a XMLSourceCacheKey with a null directory, please supply a non-null one.");
             }
             ImmutableSet.Builder<File> _dirs = ImmutableSet.builder();
             for (File dir : dirs) {
                 if (!dir.canRead()) {
-                    throw new ICUUncheckedIOException("The directory specified, " + dir.getPath() + ", cannot be read");
+                    throw new ICUUncheckedIOException(
+                            "The directory specified, " + dir.getPath() + ", cannot be read");
                 }
                 _dirs.add(dir);
             }
@@ -95,7 +99,7 @@ public class XMLNormalizingLoader{
                 return false;
             }
             XMLSourceCacheKey other = (XMLSourceCacheKey) obj;
-            if(hashCode != other.hashCode) {
+            if (hashCode != other.hashCode) {
                 return false;
             }
             if (!Objects.equals(dirs, other.dirs)) {
@@ -111,7 +115,8 @@ public class XMLNormalizingLoader{
         }
     }
 
-    public static XMLSource getFrozenInstance(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
+    public static XMLSource getFrozenInstance(
+            String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
         XMLSourceCacheKey key = new XMLSourceCacheKey(localeId, dirs, minimalDraftStatus);
         return cache.getUnchecked(key);
     }
@@ -125,14 +130,16 @@ public class XMLNormalizingLoader{
             return source;
         }
 
-        // if contains more than one file, make XMLSource from each file and then combine them to a combined XMLSource,
+        // if contains more than one file, make XMLSource from each file and then combine them to a
+        // combined XMLSource,
         // so that can cache single file XMLSource as well as combined XMLSource
         List<XMLSource> list = new ArrayList<>();
         List<File> dirList = new ArrayList<>();
-        for (File dir: key.dirs) {
+        for (File dir : key.dirs) {
             dirList.clear();
             dirList.add(dir);
-            XMLSourceCacheKey singleKey = new XMLSourceCacheKey(key.localeId, dirList, key.minimalDraftStatus);
+            XMLSourceCacheKey singleKey =
+                    new XMLSourceCacheKey(key.localeId, dirList, key.minimalDraftStatus);
             XMLSource singleSource = cache.getUnchecked(singleKey);
             list.add(singleSource);
         }
@@ -149,22 +156,24 @@ public class XMLNormalizingLoader{
 
     public static XMLSource loadXMLFile(File f, String localeId, DraftStatus minimalDraftStatus) {
         // use try-with-resources statement
-        try (
-            InputStream fis = new FileInputStream(f);
-        ) {
+        try (InputStream fis = new FileInputStream(f); ) {
             String fullFileName = PathUtilities.getNormalizedPathString(f);
             XMLSource source = new SimpleXMLSource(localeId);
-            XMLNormalizingHandler XML_HANDLER = new XMLNormalizingHandler(source, minimalDraftStatus);
+            XMLNormalizingHandler XML_HANDLER =
+                    new XMLNormalizingHandler(source, minimalDraftStatus);
             XMLFileReader.read(fullFileName, fis, -1, true, XML_HANDLER);
             if (XML_HANDLER.supplementalStatus == SupplementalStatus.NEVER_SET) {
-                throw new IllegalArgumentException("root of file must be either ldml or supplementalData");
+                throw new IllegalArgumentException(
+                        "root of file must be either ldml or supplementalData");
             }
-            source.setNonInheriting(XML_HANDLER.supplementalStatus == SupplementalStatus.NOT_SUPPLEMENTAL);
+            source.setNonInheriting(
+                    XML_HANDLER.supplementalStatus == SupplementalStatus.NOT_SUPPLEMENTAL);
             if (XML_HANDLER.overrideCount > 0) {
-                throw new IllegalArgumentException("Internal problems: either data file has duplicate path, or" +
-                    " CLDRFile.isDistinguishing() or CLDRFile.isOrdered() need updating: "
-                    + XML_HANDLER.overrideCount
-                    + "; The exact problems are printed on the console above.");
+                throw new IllegalArgumentException(
+                        "Internal problems: either data file has duplicate path, or"
+                                + " CLDRFile.isDistinguishing() or CLDRFile.isOrdered() need updating: "
+                                + XML_HANDLER.overrideCount
+                                + "; The exact problems are printed on the console above.");
             }
             return source;
         } catch (IOException e) {
@@ -186,16 +195,24 @@ public class XMLNormalizingLoader{
         private String lastActiveLeafNode;
         private String lastLeafNode;
         private SupplementalStatus supplementalStatus = SupplementalStatus.NEVER_SET;
-        private final static int MAX_DEPTH = 30; // just make deep enough to handle any CLDR file.
-        // orderedCounter, orderedString, and level logically form a single class that allows adding elements, but never removed.
+        private static final int MAX_DEPTH = 30; // just make deep enough to handle any CLDR file.
+        // orderedCounter, orderedString, and level logically form a single class that allows adding
+        // elements, but never removed.
         private int[] orderedCounter = new int[MAX_DEPTH];
         private String[] orderedString = new String[MAX_DEPTH];
         private int level = 0;
         private int overrideCount = 0;
         // Types which changed from 'type' to 'choice', but not in supplemental data.
-        private static final Set<String> CHANGED_TYPES = new HashSet<>(Arrays.asList(new String[] {
-            "abbreviationFallback",
-            "default", "mapping", "measurementSystem", "preferenceOrdering" }));
+        private static final Set<String> CHANGED_TYPES =
+                new HashSet<>(
+                        Arrays.asList(
+                                new String[] {
+                                    "abbreviationFallback",
+                                    "default",
+                                    "mapping",
+                                    "measurementSystem",
+                                    "preferenceOrdering"
+                                }));
         private static final Pattern DRAFT_PATTERN = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
         private static final Pattern WHITESPACE_WITH_LF = PatternCache.get("\\s*\\u000a\\s*");
         private Matcher draftMatcher = DRAFT_PATTERN.matcher("");
@@ -215,7 +232,7 @@ public class XMLNormalizingLoader{
             for (int i = 0; i < attributes.getLength(); ++i) {
                 String attribute = attributes.getQName(i);
                 String value = attributes.getValue(i);
-                result.append( "[@" + attribute + "=\"" + value + "\"]"); // TODO quote the value??
+                result.append("[@" + attribute + "=\"" + value + "\"]"); // TODO quote the value??
             }
             return result.toString();
         }
@@ -227,11 +244,15 @@ public class XMLNormalizingLoader{
                 orderedString[level] = qName;
             }
             if (lastChars.length() != 0) {
-                if (WHITESPACE.containsAll(lastChars))
-                    lastChars = "";
+                if (WHITESPACE.containsAll(lastChars)) lastChars = "";
                 else
-                    throw new IllegalArgumentException("Must not have mixed content: " + qName + ", "
-                        + show(attributes) + ", Content: " + lastChars);
+                    throw new IllegalArgumentException(
+                            "Must not have mixed content: "
+                                    + qName
+                                    + ", "
+                                    + show(attributes)
+                                    + ", Content: "
+                                    + lastChars);
             }
 
             currentFullXPathSb.append("/" + qName);
@@ -244,9 +265,9 @@ public class XMLNormalizingLoader{
                     String attribute = attributes.getQName(i);
                     String value = attributes.getValue(i);
 
-                    if (attribute.equals("cldrVersion")
-                        && (qName.equals("version"))) {
-                        ((SimpleXMLSource) source).setDtdVersionInfo(VersionInfo.getInstance(value));
+                    if (attribute.equals("cldrVersion") && (qName.equals("version"))) {
+                        ((SimpleXMLSource) source)
+                                .setDtdVersionInfo(VersionInfo.getInstance(value));
                     } else {
                         putAndFixDeprecatedAttribute(qName, attribute, value);
                     }
@@ -254,16 +275,19 @@ public class XMLNormalizingLoader{
                 for (Entry<String, String> entry : attributeOrder.entrySet()) {
                     String attribute = entry.getKey();
                     String value = entry.getValue();
-                    String both = "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
+                    String both =
+                            "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
                     currentFullXPathSb.append(both);
                 }
             }
             if (comment != null) {
                 String currentFullXPath = currentFullXPathSb.toString();
-                if (currentFullXPath.equals("//ldml") || currentFullXPath.equals("//supplementalData")) {
+                if (currentFullXPath.equals("//ldml")
+                        || currentFullXPath.equals("//supplementalData")) {
                     source.setInitialComment(comment);
                 } else {
-                    source.addComment(currentFullXPath, comment, XPathParts.Comments.CommentType.PREBLOCK);
+                    source.addComment(
+                            currentFullXPath, comment, XPathParts.Comments.CommentType.PREBLOCK);
                 }
                 comment = null;
             }
@@ -271,7 +295,6 @@ public class XMLNormalizingLoader{
             lastActiveLeafNode = null;
             Log.logln(LOG_PROGRESS, "currentFullXPath\t" + currentFullXPathSb.toString());
         }
-
 
         private String orderingAttribute() {
             return "[@_q=\"" + (orderedCounter[level]++) + "\"]";
@@ -281,12 +304,15 @@ public class XMLNormalizingLoader{
             if (attribute.equals("draft")) {
                 if (value.equals("true")) {
                     value = "approved";
-                }
-                else if (value.equals("false")) {
+                } else if (value.equals("false")) {
                     value = "unconfirmed";
                 }
             } else if (attribute.equals("type")) {
-                if (CHANGED_TYPES.contains(element) &&  supplementalStatus!= SupplementalStatus.NOT_SUPPLEMENTAL) { // measurementSystem for example did not
+                if (CHANGED_TYPES.contains(element)
+                        && supplementalStatus
+                                != SupplementalStatus
+                                        .NOT_SUPPLEMENTAL) { // measurementSystem for example did
+                    // not
                     // change from 'type' to 'choice'.
                     attribute = "choice";
                 }
@@ -306,14 +332,15 @@ public class XMLNormalizingLoader{
             if (former != null) {
                 String formerPath = source.getFullXPath(fullXPath);
                 if (!former.equals(value) || !fullXPath.equals(formerPath)) {
-                    if (!fullXPath.startsWith("//ldml/identity/version") && !fullXPath.startsWith("//ldml/identity/generation")) {
+                    if (!fullXPath.startsWith("//ldml/identity/version")
+                            && !fullXPath.startsWith("//ldml/identity/generation")) {
                         warnOnOverride(former, formerPath);
                     }
                 }
             }
             value = trimWhitespaceSpecial(value);
             source.add(fullXPath, value)
-            .addSourceLocation(fullXPath, new XMLSource.SourceLocation(documentLocator));
+                    .addSourceLocation(fullXPath, new XMLSource.SourceLocation(documentLocator));
         }
 
         private void pop(String qName) {
@@ -330,7 +357,9 @@ public class XMLNormalizingLoader{
                             acceptItem = true;
                         }
                     } else {
-                        acceptItem = true; // if not found, then the draft status is approved, so it is always ok
+                        acceptItem =
+                                true; // if not found, then the draft status is approved, so it is
+                        // always ok
                     }
                 }
                 if (acceptItem) {
@@ -357,11 +386,13 @@ public class XMLNormalizingLoader{
                 }
                 lastChars = "";
             } else {
-                Log.logln(LOG_PROGRESS && lastActiveLeafNode != null, "pop: zeroing last leafNode: "
-                    + lastActiveLeafNode);
+                Log.logln(
+                        LOG_PROGRESS && lastActiveLeafNode != null,
+                        "pop: zeroing last leafNode: " + lastActiveLeafNode);
                 lastActiveLeafNode = null;
                 if (comment != null) {
-                    source.addComment(lastLeafNode, comment, XPathParts.Comments.CommentType.POSTBLOCK);
+                    source.addComment(
+                            lastLeafNode, comment, XPathParts.Comments.CommentType.POSTBLOCK);
                     comment = null;
                 }
             }
@@ -389,13 +420,23 @@ public class XMLNormalizingLoader{
 
         private void warnOnOverride(String former, String formerPath) {
             String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null);
-            System.out.println("\tERROR in " + source.getLocaleID()
-                + ";\toverriding old value <" + former + "> at path " + distinguishing +
-                "\twith\t<" + lastChars + ">" +
-                CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
-                CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPathSb.toString());
-            System.err.println(new XMLSource.SourceLocation(documentLocator) +
-                "Location of error");
+            System.out.println(
+                    "\tERROR in "
+                            + source.getLocaleID()
+                            + ";\toverriding old value <"
+                            + former
+                            + "> at path "
+                            + distinguishing
+                            + "\twith\t<"
+                            + lastChars
+                            + ">"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "\told fullpath: "
+                            + formerPath
+                            + CldrUtility.LINE_SEPARATOR
+                            + "\tnew fullpath: "
+                            + currentFullXPathSb.toString());
+            System.err.println(new XMLSource.SourceLocation(documentLocator) + "Location of error");
             overrideCount += 1;
         }
 
@@ -416,29 +457,29 @@ public class XMLNormalizingLoader{
             for (int i = input.length() - 1; i >= 0; --i) {
                 char ch = input.charAt(i);
                 switch (ch) {
-                case '\'':  // treat single and double quotes in same way
-                case '"':
-                    if (inQuote == 0) {
-                        inQuote = ch;
-                    } else if (inQuote == ch) {
-                        inQuote = 0; // come out of quote
-                    }
-                    break;
-                case '/':
-                    if (inQuote == 0 && braceStack == 0) {
-                        return i;
-                    }
-                    break;
-                case '[':
-                    if (inQuote == 0) {
-                        --braceStack;
-                    }
-                    break;
-                case ']':
-                    if (inQuote == 0) {
-                        ++braceStack;
-                    }
-                    break;
+                    case '\'': // treat single and double quotes in same way
+                    case '"':
+                        if (inQuote == 0) {
+                            inQuote = ch;
+                        } else if (inQuote == ch) {
+                            inQuote = 0; // come out of quote
+                        }
+                        break;
+                    case '/':
+                        if (inQuote == 0 && braceStack == 0) {
+                            return i;
+                        }
+                        break;
+                    case '[':
+                        if (inQuote == 0) {
+                            --braceStack;
+                        }
+                        break;
+                    case ']':
+                        if (inQuote == 0) {
+                            ++braceStack;
+                        }
+                        break;
                 }
             }
             return -1;
@@ -447,25 +488,30 @@ public class XMLNormalizingLoader{
         // SAX items we need to catch
 
         @Override
-        public void startElement(
-            String uri,
-            String localName,
-            String qName,
-            Attributes attributes)
-            throws SAXException {
-            Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
-                + "\tlocalName " + localName
-                + "\tqName " + qName
-                + "\tattributes " + show(attributes));
+        public void startElement(String uri, String localName, String qName, Attributes attributes)
+                throws SAXException {
+            Log.logln(
+                    LOG_PROGRESS || SHOW_START_END,
+                    "startElement uri\t"
+                            + uri
+                            + "\tlocalName "
+                            + localName
+                            + "\tqName "
+                            + qName
+                            + "\tattributes "
+                            + show(attributes));
             try {
                 if (supplementalStatus == SupplementalStatus.NEVER_SET) { // set by first element
-                    attributeOrder = new TreeMap<>(
-                        // HACK for ldmlIcu
-                        dtdData.dtdType == DtdType.ldml
-                            ? CLDRFile.getAttributeOrdering()
-                            : dtdData.getAttributeComparator());
-                    supplementalStatus = source.getXMLNormalizingDtdType() == DtdType.ldml ?
-                        SupplementalStatus.IS_SUMPPLEMENTAL : SupplementalStatus.NOT_SUPPLEMENTAL;
+                    attributeOrder =
+                            new TreeMap<>(
+                                    // HACK for ldmlIcu
+                                    dtdData.dtdType == DtdType.ldml
+                                            ? CLDRFile.getAttributeOrdering()
+                                            : dtdData.getAttributeComparator());
+                    supplementalStatus =
+                            source.getXMLNormalizingDtdType() == DtdType.ldml
+                                    ? SupplementalStatus.IS_SUMPPLEMENTAL
+                                    : SupplementalStatus.NOT_SUPPLEMENTAL;
                 }
                 push(qName, attributes);
             } catch (RuntimeException e) {
@@ -475,10 +521,10 @@ public class XMLNormalizingLoader{
         }
 
         @Override
-        public void endElement(String uri, String localName, String qName)
-            throws SAXException {
-            Log.logln(LOG_PROGRESS || SHOW_START_END, "endElement uri\t" + uri + "\tlocalName " + localName
-                + "\tqName " + qName);
+        public void endElement(String uri, String localName, String qName) throws SAXException {
+            Log.logln(
+                    LOG_PROGRESS || SHOW_START_END,
+                    "endElement uri\t" + uri + "\tlocalName " + localName + "\tqName " + qName);
             try {
                 pop(qName);
             } catch (RuntimeException e) {
@@ -487,8 +533,7 @@ public class XMLNormalizingLoader{
         }
 
         @Override
-        public void characters(char[] ch, int start, int length)
-            throws SAXException {
+        public void characters(char[] ch, int start, int length) throws SAXException {
             try {
                 String value = new String(ch, start, length);
                 Log.logln(LOG_PROGRESS, "characters:\t" + value);
@@ -506,9 +551,14 @@ public class XMLNormalizingLoader{
 
         @Override
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
-            Log.logln(LOG_PROGRESS, "startDTD name: " + name
-                + ", publicId: " + publicId
-                + ", systemId: " + systemId);
+            Log.logln(
+                    LOG_PROGRESS,
+                    "startDTD name: "
+                            + name
+                            + ", publicId: "
+                            + publicId
+                            + ", systemId: "
+                            + systemId);
             commentStackIndex++;
             source.setXMLNormalizingDtdType(DtdType.valueOf(name));
             dtdData = DtdData.getInstance(source.getXMLNormalizingDtdType());
@@ -528,9 +578,11 @@ public class XMLNormalizingLoader{
                 if (commentStackIndex != 0) return;
                 String comment0 = trimWhitespaceSpecial(string).trim();
                 if (lastActiveLeafNode != null) {
-                    source.addComment(lastActiveLeafNode, comment0, XPathParts.Comments.CommentType.LINE);
+                    source.addComment(
+                            lastActiveLeafNode, comment0, XPathParts.Comments.CommentType.LINE);
                 } else {
-                    comment = (comment == null ? comment0 : comment + XPathParts.NEWLINE + comment0);
+                    comment =
+                            (comment == null ? comment0 : comment + XPathParts.NEWLINE + comment0);
                 }
             } catch (RuntimeException e) {
                 e.printStackTrace();
@@ -541,12 +593,17 @@ public class XMLNormalizingLoader{
         @Override
         public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
             if (LOG_PROGRESS)
-                Log.logln(LOG_PROGRESS,
-                    "ignorableWhitespace length: " + length + ": " + Utility.hex(new String(ch, start, length)));
+                Log.logln(
+                        LOG_PROGRESS,
+                        "ignorableWhitespace length: "
+                                + length
+                                + ": "
+                                + Utility.hex(new String(ch, start, length)));
             for (int i = start; i < start + length; ++i) {
                 if (ch[i] == '\n') {
-                    Log.logln(LOG_PROGRESS && lastActiveLeafNode != null, "\\n: zeroing last leafNode: "
-                        + lastActiveLeafNode);
+                    Log.logln(
+                            LOG_PROGRESS && lastActiveLeafNode != null,
+                            "\\n: zeroing last leafNode: " + lastActiveLeafNode);
                     lastActiveLeafNode = null;
                     break;
                 }
@@ -580,9 +637,21 @@ public class XMLNormalizingLoader{
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
-            Log.logln(LOG_PROGRESS, "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+        public void attributeDecl(
+                String eName, String aName, String type, String mode, String value)
+                throws SAXException {
+            Log.logln(
+                    LOG_PROGRESS,
+                    "Attribute\t"
+                            + eName
+                            + "\t"
+                            + aName
+                            + "\t"
+                            + type
+                            + "\t"
+                            + mode
+                            + "\t"
+                            + value);
         }
 
         @Override
@@ -591,19 +660,18 @@ public class XMLNormalizingLoader{
         }
 
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(String name, String publicId, String systemId)
+                throws SAXException {
             Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
 
         @Override
-        public void processingInstruction(String target, String data)
-            throws SAXException {
+        public void processingInstruction(String target, String data) throws SAXException {
             Log.logln(LOG_PROGRESS, "processingInstruction: " + target + ", " + data);
         }
 
         @Override
-        public void skippedEntity(String name)
-            throws SAXException {
+        public void skippedEntity(String name) throws SAXException {
             Log.logln(LOG_PROGRESS, "skippedEntity: " + name);
         }
 
@@ -615,8 +683,7 @@ public class XMLNormalizingLoader{
 
         @Override
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
-            Log.logln(LOG_PROGRESS, "startPrefixMapping prefix: " + prefix +
-                ", uri: " + uri);
+            Log.logln(LOG_PROGRESS, "startPrefixMapping prefix: " + prefix + ", uri: " + uri);
         }
 
         @Override

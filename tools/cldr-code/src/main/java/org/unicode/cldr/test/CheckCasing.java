@@ -1,32 +1,36 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.util.ULocale;
 import java.util.List;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.util.ULocale;
-
 public class CheckCasing extends CheckCLDR {
     public enum Case {
-        mixed, lowercase_words, titlecase_words, titlecase_firstword, verbatim;
+        mixed,
+        lowercase_words,
+        titlecase_words,
+        titlecase_firstword,
+        verbatim;
+
         public static Case forString(String input) {
             return valueOf(input.replace('-', '_'));
         }
     }
 
     // remember to add this class to the list in CheckCLDR.getCheckAll
-    // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
+    // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.*
+    // -t.*Currencies.*
 
     ULocale uLocale = null;
     BreakIterator breaker = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-        List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         uLocale = new ULocale(cldrFileToCheck.getLocaleID());
@@ -36,8 +40,8 @@ public class CheckCasing extends CheckCLDR {
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
-        List<CheckStatus> result) {
+    public CheckCLDR handleCheck(
+            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
         if (fullPath.indexOf("casing") < 0) return this;
@@ -59,27 +63,31 @@ public class CheckCasing extends CheckCLDR {
 
         String newValue = value;
         switch (caseTest) {
-        case lowercase_words:
-            newValue = UCharacter.toLowerCase(uLocale, value);
-            break;
-        case titlecase_words:
-            newValue = UCharacter.toTitleCase(uLocale, value, null);
-            break;
-        case titlecase_firstword:
-            newValue = TitleCaseFirst(uLocale, value);
-            break;
-        default:
-            break;
-
+            case lowercase_words:
+                newValue = UCharacter.toLowerCase(uLocale, value);
+                break;
+            case titlecase_words:
+                newValue = UCharacter.toTitleCase(uLocale, value, null);
+                break;
+            case titlecase_firstword:
+                newValue = TitleCaseFirst(uLocale, value);
+                break;
+            default:
+                break;
         }
         if (!newValue.equals(value)) {
             // the following is how you signal an error or warning (or add a demo....)
-            result.add(new CheckStatus().setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.incorrectCasing)
-                // typically warningType or errorType
-                .setMessage("Casing incorrect: either should have casing=\"verbatim\" or be <{0}>",
-                    new Object[] { newValue })); // the message; can be MessageFormat with arguments
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.incorrectCasing)
+                            // typically warningType or errorType
+                            .setMessage(
+                                    "Casing incorrect: either should have casing=\"verbatim\" or be <{0}>",
+                                    new Object[] {
+                                        newValue
+                                    })); // the message; can be MessageFormat with arguments
         }
         return this;
     }
@@ -94,7 +102,6 @@ public class CheckCasing extends CheckCLDR {
         breaker.first();
         int endOfFirstWord = breaker.next();
         return UCharacter.toTitleCase(uLocale, value.substring(0, endOfFirstWord), breaker)
-            + value.substring(endOfFirstWord);
+                + value.substring(endOfFirstWord);
     }
-
 }

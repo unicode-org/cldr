@@ -17,10 +17,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Provide way to associate each of a set of T objects with an integer, where
- * the integer can be used to get the object. All objects are immutable, and
- * created with a corresponding factory object. The integers have no relation to
- * the order in the original set. The integers may not be compact (eg 0..n).
+ * Provide way to associate each of a set of T objects with an integer, where the integer can be
+ * used to get the object. All objects are immutable, and created with a corresponding factory
+ * object. The integers have no relation to the order in the original set. The integers may not be
+ * compact (eg 0..n).
  *
  * @param <T>
  */
@@ -87,9 +87,8 @@ public abstract class IntMap<T> {
     }
 
     /**
-     * Stores short strings (255 or less) in compacted fashion. The number of
-     * strings is also limited: in the worst case to 2^24 / total number of UTF-8
-     * bytes
+     * Stores short strings (255 or less) in compacted fashion. The number of strings is also
+     * limited: in the worst case to 2^24 / total number of UTF-8 bytes
      *
      * @author markdavis
      */
@@ -104,7 +103,8 @@ public abstract class IntMap<T> {
 
         @Override
         public String get(int index) {
-            // the packedIndex stores the string as an index in the top 24 bits, and length in the bottom 8.
+            // the packedIndex stores the string as an index in the top 24 bits, and length in the
+            // bottom 8.
             int packedIndex = intToValue[index];
             int len = packedIndex & 0xFF;
             int dataIndex = packedIndex >>> 8;
@@ -128,14 +128,15 @@ public abstract class IntMap<T> {
         }
     }
 
-    public static final Comparator<String> LONGEST_FIRST_COMPARATOR = new Comparator<String>() {
-        @Override
-        public int compare(String a, String b) {
-            return a.length() > b.length() ? -1
-                : a.length() < b.length() ? 1
-                    : a.compareTo(b);
-        }
-    };
+    public static final Comparator<String> LONGEST_FIRST_COMPARATOR =
+            new Comparator<String>() {
+                @Override
+                public int compare(String a, String b) {
+                    return a.length() > b.length()
+                            ? -1
+                            : a.length() < b.length() ? 1 : a.compareTo(b);
+                }
+            };
 
     public static class CompactStringIntMapFactory implements IntMapFactory<String> {
         @Override
@@ -149,11 +150,12 @@ public abstract class IntMap<T> {
             int count = 0;
 
             // compact the values
-            // the packedIndex stores the string as an index in the top 24 bits, and length in the bottom 8.
+            // the packedIndex stores the string as an index in the top 24 bits, and length in the
+            // bottom 8.
             for (String string : sorted) {
                 if (string.length() > 255) {
                     throw new IllegalArgumentException(
-                        "String too large: CompactStringIntMapFactory only handles strings up to 255 in length");
+                            "String too large: CompactStringIntMapFactory only handles strings up to 255 in length");
                 }
                 int position = data.indexOf(string);
                 if (position < 0) { // add if not there
@@ -170,5 +172,4 @@ public abstract class IntMap<T> {
     private static final int OBJECT_OVERHEAD = 16;
     private static final int POINTER_OVERHEAD = 16;
     private static final int STRING_OVERHEAD = 16 + OBJECT_OVERHEAD;
-
 }

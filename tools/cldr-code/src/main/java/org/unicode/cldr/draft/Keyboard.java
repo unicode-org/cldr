@@ -1,5 +1,7 @@
 package org.unicode.cldr.draft;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -14,7 +16,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Status;
@@ -22,12 +23,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
- * A first, very rough cut at reading the keyboard data.
- * Every public structure is immutable, eg all returned maps, sets.
+ * A first, very rough cut at reading the keyboard data. Every public structure is immutable, eg all
+ * returned maps, sets.
  *
  * @author markdavis
  */
@@ -38,11 +36,84 @@ public class Keyboard {
     private static final String BASE = CLDRPaths.BASE_DIRECTORY + "keyboards/";
 
     public enum IsoRow {
-        E, D, C, B, A;
+        E,
+        D,
+        C,
+        B,
+        A;
     }
 
     public enum Iso {
-        E00, E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12, E13, D00, D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, C00, C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13, B00, B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13, A00, A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, A11, A12, A13;
+        E00,
+        E01,
+        E02,
+        E03,
+        E04,
+        E05,
+        E06,
+        E07,
+        E08,
+        E09,
+        E10,
+        E11,
+        E12,
+        E13,
+        D00,
+        D01,
+        D02,
+        D03,
+        D04,
+        D05,
+        D06,
+        D07,
+        D08,
+        D09,
+        D10,
+        D11,
+        D12,
+        D13,
+        C00,
+        C01,
+        C02,
+        C03,
+        C04,
+        C05,
+        C06,
+        C07,
+        C08,
+        C09,
+        C10,
+        C11,
+        C12,
+        C13,
+        B00,
+        B01,
+        B02,
+        B03,
+        B04,
+        B05,
+        B06,
+        B07,
+        B08,
+        B09,
+        B10,
+        B11,
+        B12,
+        B13,
+        A00,
+        A01,
+        A02,
+        A03,
+        A04,
+        A05,
+        A06,
+        A07,
+        A08,
+        A09,
+        A10,
+        A11,
+        A12,
+        A13;
         public final IsoRow isoRow;
 
         Iso() {
@@ -53,7 +124,16 @@ public class Keyboard {
     // add whatever is needed
 
     public enum Modifier {
-        cmd, ctrlL, ctrlR, caps, altL, altR, optL, optR, shiftL, shiftR;
+        cmd,
+        ctrlL,
+        ctrlR,
+        caps,
+        altL,
+        altR,
+        optL,
+        optR,
+        shiftL,
+        shiftR;
     }
 
     // public static class ModifierSet {
@@ -77,7 +157,8 @@ public class Keyboard {
     // * {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
     // */
     // public static Set<ModifierSet> parseSet(String input) {
-    // //ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? ...
+    // //ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL?
+    // ...
     // Set<ModifierSet> results = new HashSet<ModifierSet>(); // later, Treeset
     // if (input != null) {
     // for (String ms : input.trim().split(" ")) {
@@ -104,7 +185,8 @@ public class Keyboard {
     // // }
     // }
     // /**
-    // * Format a set of modifier sets like {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
+    // * Format a set of modifier sets like {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command},
+    // {RShift, LCtrl, RCtrl}}
     // * and return a string like "AltCapsCommand? RShiftCtrl". The exact compaction may vary.
     // */
     // public static String formatSet(Set<ModifierSet> input) {
@@ -116,7 +198,10 @@ public class Keyboard {
         Set<String> results = new LinkedHashSet<>();
         File file = new File(BASE);
         for (String f : file.list()) {
-            if (!f.equals("dtd") && !f.startsWith(".") && !f.startsWith("_") && !f.equals("README.md")) {
+            if (!f.equals("dtd")
+                    && !f.startsWith(".")
+                    && !f.startsWith("_")
+                    && !f.equals("README.md")) {
                 results.add(f);
             }
         }
@@ -127,7 +212,10 @@ public class Keyboard {
         Set<String> results = new LinkedHashSet<>();
         File base = new File(BASE + platformId + "/");
         for (String f : base.list()) {
-            if (f.endsWith(".xml") && !f.startsWith(".") && !f.startsWith("_") && !f.equals("README.md")) {
+            if (f.endsWith(".xml")
+                    && !f.startsWith(".")
+                    && !f.startsWith("_")
+                    && !f.equals("README.md")) {
                 results.add(f.substring(0, f.length() - 4));
             }
         }
@@ -138,17 +226,21 @@ public class Keyboard {
         final String fileName = BASE + platformId + "/_platform.xml";
         try {
             final PlatformHandler platformHandler = new PlatformHandler();
-            new XMLFileReader()
-                .setHandler(platformHandler)
-                .read(fileName, -1, true);
+            new XMLFileReader().setHandler(platformHandler).read(fileName, -1, true);
             return platformHandler.getPlatform();
         } catch (Exception e) {
             throw new KeyboardException(fileName, e);
         }
     }
 
-    public Keyboard(String locale, String version, String platformVersion, Set<String> names,
-        Fallback fallback, Set<KeyMap> keyMaps, Map<TransformType, Transforms> transforms) {
+    public Keyboard(
+            String locale,
+            String version,
+            String platformVersion,
+            Set<String> names,
+            Fallback fallback,
+            Set<KeyMap> keyMaps,
+            Map<TransformType, Transforms> transforms) {
         this.locale = locale;
         this.version = version;
         this.platformVersion = platformVersion;
@@ -158,14 +250,14 @@ public class Keyboard {
         this.transforms = Collections.unmodifiableMap(transforms);
     }
 
-//    public static Keyboard getKeyboard(String keyboardId, Set<Exception> errors) {
-//        int pos = keyboardId.indexOf("-t-k0-") + 6;
-//        int pos2 = keyboardId.indexOf('-', pos);
-//        if (pos2 < 0) {
-//            pos2 = keyboardId.length();
-//        }
-//        return getKeyboard(keyboardId.substring(pos, pos2), keyboardId, errors);
-//    }
+    //    public static Keyboard getKeyboard(String keyboardId, Set<Exception> errors) {
+    //        int pos = keyboardId.indexOf("-t-k0-") + 6;
+    //        int pos2 = keyboardId.indexOf('-', pos);
+    //        if (pos2 < 0) {
+    //            pos2 = keyboardId.length();
+    //        }
+    //        return getKeyboard(keyboardId.substring(pos, pos2), keyboardId, errors);
+    //    }
 
     public static String getPlatformId(String keyboardId) {
         int pos = keyboardId.indexOf("-t-k0-") + 6;
@@ -176,13 +268,12 @@ public class Keyboard {
         return keyboardId.substring(pos, pos2);
     }
 
-    public static Keyboard getKeyboard(String platformId, String keyboardId, Set<Exception> errors) {
+    public static Keyboard getKeyboard(
+            String platformId, String keyboardId, Set<Exception> errors) {
         final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
             final KeyboardHandler keyboardHandler = new KeyboardHandler(errors);
-            new XMLFileReader()
-                .setHandler(keyboardHandler)
-                .read(fileName, -1, true);
+            new XMLFileReader().setHandler(keyboardHandler).read(fileName, -1, true);
             return keyboardHandler.getKeyboard();
         } catch (Exception e) {
             throw new KeyboardException(fileName + "\n" + Joiner.on(", ").join(errors), e);
@@ -190,12 +281,10 @@ public class Keyboard {
     }
 
     public static Keyboard getKeyboard(String id, Reader r, Set<Exception> errors) {
-        //final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
+        // final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
             final KeyboardHandler keyboardHandler = new KeyboardHandler(errors);
-            new XMLFileReader()
-                .setHandler(keyboardHandler)
-                .read(id, r, -1, true);
+            new XMLFileReader().setHandler(keyboardHandler).read(id, r, -1, true);
             return keyboardHandler.getKeyboard();
         } catch (Exception e) {
             errors.add(e);
@@ -224,23 +313,30 @@ public class Keyboard {
 
     public enum Gesture {
         LONGPRESS;
+
         public static Gesture fromString(String string) {
             return Gesture.valueOf(string.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public enum TransformStatus {
-        DEFAULT, NO;
+        DEFAULT,
+        NO;
+
         public static TransformStatus fromString(String string) {
-            return string == null ? TransformStatus.DEFAULT : TransformStatus.valueOf(string
-                .toUpperCase(Locale.ENGLISH));
+            return string == null
+                    ? TransformStatus.DEFAULT
+                    : TransformStatus.valueOf(string.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public enum TransformType {
         SIMPLE;
+
         public static TransformType forString(String string) {
-            return string == null ? TransformType.SIMPLE : TransformType.valueOf(string.toUpperCase(Locale.ENGLISH));
+            return string == null
+                    ? TransformType.SIMPLE
+                    : TransformType.valueOf(string.toUpperCase(Locale.ENGLISH));
         }
     }
 
@@ -249,7 +345,10 @@ public class Keyboard {
         final TransformStatus transformStatus;
         final Map<Gesture, List<String>> gestures;
 
-        public Output(String output, Map<Gesture, List<String>> gestures, TransformStatus transformStatus) {
+        public Output(
+                String output,
+                Map<Gesture, List<String>> gestures,
+                TransformStatus transformStatus) {
             this.output = output;
             this.transformStatus = transformStatus;
             this.gestures = Collections.unmodifiableMap(gestures); // TODO make lists unmodifiable
@@ -352,8 +451,8 @@ public class Keyboard {
     }
 
     /**
-     * Return all possible results. Could be external utility. WARNING: doesn't account for transform='no' or
-     * failure='omit'.
+     * Return all possible results. Could be external utility. WARNING: doesn't account for
+     * transform='no' or failure='omit'.
      */
     public UnicodeSet getPossibleResults() {
         UnicodeSet results = new UnicodeSet();
@@ -395,8 +494,9 @@ public class Keyboard {
                 String element1 = parts.getElement(1);
                 // <platform> <hardwareMap> <map keycode='0' iso='C01'/>
                 if (element1.equals("hardwareMap")) {
-                    hardwareMap.put(parts.getAttributeValue(2, "keycode"),
-                        Iso.valueOf(parts.getAttributeValue(2, "iso")));
+                    hardwareMap.put(
+                            parts.getAttributeValue(2, "keycode"),
+                            Iso.valueOf(parts.getAttributeValue(2, "iso")));
                 }
             }
         }
@@ -407,9 +507,13 @@ public class Keyboard {
     }
 
     public enum Fallback {
-        BASE, OMIT;
+        BASE,
+        OMIT;
+
         public static Fallback forString(String string) {
-            return string == null ? Fallback.BASE : Fallback.valueOf(string.toUpperCase(Locale.ENGLISH));
+            return string == null
+                    ? Fallback.BASE
+                    : Fallback.valueOf(string.toUpperCase(Locale.ENGLISH));
         }
     }
 
@@ -445,7 +549,8 @@ public class Keyboard {
             if (currentType != null) {
                 transformMap.put(currentType, new Transforms(currentTransforms));
             }
-            return new Keyboard(locale, version, platformVersion, names, fallback, keyMaps, transformMap);
+            return new Keyboard(
+                    locale, version, platformVersion, names, fallback, keyMaps, transformMap);
         }
 
         @Override
@@ -459,9 +564,12 @@ public class Keyboard {
                     Map<String, String> extensions = ltp.getExtensions();
                     LanguageTagParser.Status status = ltp.getStatus(errors2);
                     if (errors2.size() != 0 || !ltp.hasT()) {
-                        errors.add(new KeyboardException("Bad locale tag: " + locale + ", " + errors2.toString()));
+                        errors.add(
+                                new KeyboardException(
+                                        "Bad locale tag: " + locale + ", " + errors2.toString()));
                     } else if (status != Status.MINIMAL) {
-                        errors.add(new KeyboardWarningException("Non-minimal locale tag: " + locale));
+                        errors.add(
+                                new KeyboardWarningException("Non-minimal locale tag: " + locale));
                     }
                 }
                 String element1 = parts.getElement(1);
@@ -478,7 +586,8 @@ public class Keyboard {
                 } else if (element1.equals("keyMap")) {
                     // <keyMap modifiers='shift+caps?'><map base="١" chars="!"/> <!-- 1 -->
                     final String modifiers = parts.getAttributeValue(1, "modifiers");
-                    KeyboardModifierSet newMods = KeyboardModifierSet.parseSet(modifiers == null ? "" : modifiers);
+                    KeyboardModifierSet newMods =
+                            KeyboardModifierSet.parseSet(modifiers == null ? "" : modifiers);
                     if (!newMods.equals(keyMapModifiers)) {
                         if (keyMapModifiers != null) {
                             addToKeyMaps();
@@ -496,7 +605,8 @@ public class Keyboard {
                     }
                 } else if (element1.equals("transforms")) {
                     // <transforms type='simple'> <transform from="` " to="`"/>
-                    TransformType type = TransformType.forString(parts.getAttributeValue(1, "type"));
+                    TransformType type =
+                            TransformType.forString(parts.getAttributeValue(1, "type"));
                     if (type != currentType) {
                         if (currentType != null) {
                             transformMap.put(currentType, new Transforms(currentTransforms));
@@ -507,7 +617,9 @@ public class Keyboard {
                     final String from = fixValue(parts.getAttributeValue(2, "from"));
                     final String to = fixValue(parts.getAttributeValue(2, "to"));
                     if (from.equals(to)) {
-                        errors.add(new KeyboardException("Illegal transform from:" + from + " to:" + to));
+                        errors.add(
+                                new KeyboardException(
+                                        "Illegal transform from:" + from + " to:" + to));
                     }
                     if (DEBUG) {
                         System.out.println("transform: from=" + from + ";\tto=" + to + ";");
@@ -537,10 +649,20 @@ public class Keyboard {
         public void addToKeyMaps() {
             for (KeyMap item : keyMaps) {
                 if (item.modifiers.containsSome(keyMapModifiers)) {
-                    errors.add(new KeyboardException("Modifier overlap: " + item.modifiers + " already contains " + keyMapModifiers));
+                    errors.add(
+                            new KeyboardException(
+                                    "Modifier overlap: "
+                                            + item.modifiers
+                                            + " already contains "
+                                            + keyMapModifiers));
                 }
                 if (item.iso2output.equals(iso2output)) {
-                    errors.add(new KeyboardException("duplicate keyboard: " + item.modifiers + " has same layout as " + keyMapModifiers));
+                    errors.add(
+                            new KeyboardException(
+                                    "duplicate keyboard: "
+                                            + item.modifiers
+                                            + " has same layout as "
+                                            + keyMapModifiers));
                 }
             }
             keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
@@ -558,8 +680,8 @@ public class Keyboard {
                 if (posEnd < 0) {
                     break;
                 }
-                b.append(value.substring(last, pos)).appendCodePoint(
-                    Integer.parseInt(value.substring(pos + 3, posEnd), 16));
+                b.append(value.substring(last, pos))
+                        .appendCodePoint(Integer.parseInt(value.substring(pos + 3, posEnd), 16));
                 last = posEnd + 1;
             }
             b.append(value.substring(last));
@@ -596,8 +718,9 @@ public class Keyboard {
                         }
                         list.add(fixedValue);
                     }
-                    gestures.put(Gesture.fromString(attribute),
-                        Collections.unmodifiableList(new ArrayList<>(list)));
+                    gestures.put(
+                            Gesture.fromString(attribute),
+                            Collections.unmodifiableList(new ArrayList<>(list)));
                     if (DEBUG) {
                         System.out.println("\tgesture=" + attribute + ";\tto=" + list + ";");
                     }
@@ -630,5 +753,4 @@ public class Keyboard {
             super(string, e);
         }
     }
-
 }

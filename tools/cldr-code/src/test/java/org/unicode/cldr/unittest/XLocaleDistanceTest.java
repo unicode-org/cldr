@@ -1,30 +1,29 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.util.LocaleMatcher;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.util.LocaleMatcher;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
-
 /**
  * Test the XLocaleDistance.
- * 
+ *
  * @author markdavis
  */
 public class XLocaleDistanceTest extends TestFmwk {
-    private static final boolean REFORMAT = false; // set to true to get a reformatted data file listed
+    private static final boolean REFORMAT =
+            false; // set to true to get a reformatted data file listed
 
     public static void main(String[] args) {
         new XLocaleDistanceTest().run(args);
@@ -33,9 +32,10 @@ public class XLocaleDistanceTest extends TestFmwk {
     public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
 
     private XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
-    DataDrivenTestHelper tfh = new MyTestFileHandler()
-        .setFramework(this)
-        .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
+    DataDrivenTestHelper tfh =
+            new MyTestFileHandler()
+                    .setFramework(this)
+                    .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
 
     static class Arguments {
         final ULocale desired;
@@ -44,10 +44,14 @@ public class XLocaleDistanceTest extends TestFmwk {
         final int supportedToDesired;
 
         public Arguments(List<String> args) {
-            this.desired = new ULocale.Builder().setLanguageTag(args.get(0)).build(); // use more complicated expression to check syntax
+            this.desired =
+                    new ULocale.Builder()
+                            .setLanguageTag(args.get(0))
+                            .build(); // use more complicated expression to check syntax
             this.supported = new ULocale.Builder().setLanguageTag(args.get(1)).build();
             this.desiredToSupported = Integer.parseInt(args.get(2));
-            this.supportedToDesired = args.size() > 3 ? Integer.parseInt(args.get(3)) : this.desiredToSupported;
+            this.supportedToDesired =
+                    args.size() > 3 ? Integer.parseInt(args.get(3)) : this.desiredToSupported;
         }
     }
 
@@ -83,8 +87,10 @@ public class XLocaleDistanceTest extends TestFmwk {
                 likelyTime += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
-                double distOld1 = oldLocaleMatcher.match(desired, desiredMax, supported, supportedMax);
-                double distOld2 = oldLocaleMatcher.match(supported, supportedMax, desired, desiredMax);
+                double distOld1 =
+                        oldLocaleMatcher.match(desired, desiredMax, supported, supportedMax);
+                double distOld2 =
+                        oldLocaleMatcher.match(supported, supportedMax, desired, desiredMax);
                 oldTimeMinusLikely += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
@@ -93,8 +99,12 @@ public class XLocaleDistanceTest extends TestFmwk {
                 newLikelyTime += System.nanoTime() - temp;
 
                 temp = System.nanoTime();
-                int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000, DistanceOption.NORMAL);
-                int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000, DistanceOption.NORMAL);
+                int dist1 =
+                        localeMatcher.distanceRaw(
+                                desiredLSR, supportedLSR, 1000, DistanceOption.NORMAL);
+                int dist2 =
+                        localeMatcher.distanceRaw(
+                                supportedLSR, desiredLSR, 1000, DistanceOption.NORMAL);
                 newTimeMinusLikely += System.nanoTime() - temp;
             }
         }
@@ -107,8 +117,8 @@ public class XLocaleDistanceTest extends TestFmwk {
         logln("\tnewLikelyTime:\t" + newLikelyTime / maxIterations);
         logln("totalNew:\t" + newTime / maxIterations);
         assertTrue("newTime < 20% of oldTime", newTime * 5 < oldTime);
-        //logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
-        //logln("totalInt:\t" + (intTime)/maxIterations);
+        // logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
+        // logln("totalInt:\t" + (intTime)/maxIterations);
     }
 
     @SuppressWarnings("deprecation")
@@ -118,7 +128,8 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     @SuppressWarnings("deprecation")
     private void checkTables(DistanceTable internalGetDistanceTable, String title, int depth) {
-        // Check that ANY, ANY is always present, and that the table has a depth of exactly 3 everyplace.
+        // Check that ANY, ANY is always present, and that the table has a depth of exactly 3
+        // everyplace.
         Map<String, Set<String>> matches = internalGetDistanceTable.getInternalMatches();
 
         // must have ANY,ANY
@@ -172,31 +183,38 @@ public class XLocaleDistanceTest extends TestFmwk {
                 breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
             Arguments args = new Arguments(arguments);
-            int supportedToDesiredActual = distance.distance(args.supported, args.desired, threshold, distanceOption);
-            int desiredToSupportedActual = distance.distance(args.desired, args.supported, threshold, distanceOption);
+            int supportedToDesiredActual =
+                    distance.distance(args.supported, args.desired, threshold, distanceOption);
+            int desiredToSupportedActual =
+                    distance.distance(args.desired, args.supported, threshold, distanceOption);
             String desiredTag = args.desired.toLanguageTag();
             String supportedTag = args.supported.toLanguageTag();
             final String comment = commentBase.isEmpty() ? "" : "\t# " + commentBase;
-            if (assertEquals(desiredTag + " to " + supportedTag + comment, args.desiredToSupported, desiredToSupportedActual)) {
-                assertEquals(supportedTag + " to " + desiredTag + comment, args.supportedToDesired, supportedToDesiredActual);
+            if (assertEquals(
+                    desiredTag + " to " + supportedTag + comment,
+                    args.desiredToSupported,
+                    desiredToSupportedActual)) {
+                assertEquals(
+                        supportedTag + " to " + desiredTag + comment,
+                        args.supportedToDesired,
+                        supportedToDesiredActual);
             }
         }
 
         @Override
         public void handleParams(String comment, List<String> arguments) {
             switch (arguments.get(0)) {
-            case "@DistanceOption":
-                distanceOption = DistanceOption.valueOf(arguments.get(1));
-                break;
-            case "@Threshold":
-                threshold = Integer.valueOf(arguments.get(1));
-                break;
-            default:
-                super.handleParams(comment, arguments);
-                break;
+                case "@DistanceOption":
+                    distanceOption = DistanceOption.valueOf(arguments.get(1));
+                    break;
+                case "@Threshold":
+                    threshold = Integer.valueOf(arguments.get(1));
+                    break;
+                default:
+                    super.handleParams(comment, arguments);
+                    break;
             }
             return;
         }
     }
-
 }

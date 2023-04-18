@@ -8,6 +8,9 @@
  */
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ByteArrayWrapper;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
@@ -16,24 +19,17 @@ import java.nio.charset.CharsetEncoder;
 import java.nio.charset.CoderResult;
 import java.nio.charset.CodingErrorAction;
 
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ByteArrayWrapper;
-
-/**
- * WARNING, DON'T USE.
- * This is very draft. Don't use outside of GenerateSidewaysView, for now.
- */
+/** WARNING, DON'T USE. This is very draft. Don't use outside of GenerateSidewaysView, for now. */
 public class SimpleConverter {
     public SimpleConverter(Charset cs) {
-        ce = cs
-            .newEncoder()
-            .onMalformedInput(CodingErrorAction.REPORT)
-            .onUnmappableCharacter(CodingErrorAction.REPORT);
-        cd = cs
-            .newDecoder()
-            .onMalformedInput(CodingErrorAction.REPORT)
-            .onUnmappableCharacter(CodingErrorAction.REPORT);
+        ce =
+                cs.newEncoder()
+                        .onMalformedInput(CodingErrorAction.REPORT)
+                        .onUnmappableCharacter(CodingErrorAction.REPORT);
+        cd =
+                cs.newDecoder()
+                        .onMalformedInput(CodingErrorAction.REPORT)
+                        .onUnmappableCharacter(CodingErrorAction.REPORT);
     }
 
     public char[] cb = new char[100];

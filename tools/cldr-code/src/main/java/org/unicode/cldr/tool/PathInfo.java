@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,18 +9,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.XMLSource.SourceLocation;
-import static org.unicode.cldr.util.XMLSource.CODE_FALLBACK_ID;
 
 @CLDRTool(alias = "pathinfo", description = "Get information about paths such as inheritance")
 public class PathInfo {
-    final static Options options = new Options(PathInfo.class)
-    .add("locale", ".*", "und", "Locale ID for the path info")
-    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin");
+    static final Options options =
+            new Options(PathInfo.class)
+                    .add("locale", ".*", "und", "Locale ID for the path info")
+                    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin");
 
     public static void main(String args[]) throws IOException {
         final Set<String> paths = options.parse(args, true);
@@ -57,7 +58,7 @@ public class PathInfo {
         boolean prePopulated = false;
         boolean hadStringMisses = false;
 
-        for (final String path : paths ) {
+        for (final String path : paths) {
             if (path.startsWith("//")) {
                 showPath(path, file);
             } else {
@@ -70,7 +71,10 @@ public class PathInfo {
                 }
                 final String xpath = StringId.getStringFromHexId(path);
                 if (xpath == null) {
-                    System.err.println("• ERROR: could not find hex id " + path + " - may not have been seen yet.");
+                    System.err.println(
+                            "• ERROR: could not find hex id "
+                                    + path
+                                    + " - may not have been seen yet.");
                     hadStringMisses = true;
                 }
                 showPath(xpath, file);
@@ -78,7 +82,7 @@ public class PathInfo {
         }
         if (hadStringMisses) {
             System.err.println("ERROR: One or more XPaths could not be converted from hex form.");
-            if(file == null) {
+            if (file == null) {
                 System.err.println("Tip: Set a locale ID with -l when using hex ids");
             }
             System.exit(1);
@@ -115,16 +119,18 @@ public class PathInfo {
         if (false) {
             // For debugging: compare the below to calling getSourceLocaleIdExtended directly.
             final String xlocale = file.getSourceLocaleIdExtended(dPath, status, true, null);
-            System.out.println("• SLIE = " + xlocale+":"+status.pathWhereFound);
+            System.out.println("• SLIE = " + xlocale + ":" + status.pathWhereFound);
         }
         System.out.println("• Inheritance chain:");
         for (final LocaleInheritanceInfo e : file.getPathsWhereFound(dPath)) {
             System.out.println("\n  • " + e); // reason : locale + xpath
-            if (e.getLocale() != null && e.getPath() != null && !e.getLocale().equals(CODE_FALLBACK_ID)) {
+            if (e.getLocale() != null
+                    && e.getPath() != null
+                    && !e.getLocale().equals(CODE_FALLBACK_ID)) {
                 final CLDRFile subFile = CLDRConfig.getInstance().getCLDRFile(e.getLocale(), false);
                 SourceLocation subsource = subFile.getSourceLocation(e.getPath());
                 if (subsource != null) {
-                    System.out.println("    " +subsource + " XML Source");
+                    System.out.println("    " + subsource + " XML Source");
                 }
             }
         }
@@ -132,13 +138,15 @@ public class PathInfo {
 
     @SuppressWarnings("unchecked")
     private static void addLines(final InputStream in, Set<String> set) throws IOException {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+        try (BufferedReader br =
+                new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
             With.in(new FileReaders.ReadLineSimpleIterator(br))
-            .forEach(str -> {
-                if (!str.isBlank()) {
-                    set.add(str.trim());
-                }
-            });
+                    .forEach(
+                            str -> {
+                                if (!str.isBlank()) {
+                                    set.add(str.trim());
+                                }
+                            });
         }
     }
 

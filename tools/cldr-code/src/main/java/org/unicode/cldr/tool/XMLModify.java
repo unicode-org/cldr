@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRPaths;
@@ -21,22 +20,24 @@ import org.unicode.cldr.util.XPathParts;
 
 public class XMLModify {
     enum MyOptions {
-        sourceDirectory(new Params()
-            .setHelp("sourceDirectory")
-            .setDefault(CLDRPaths.COMMON_DIRECTORY)
-            .setMatch(".+")), targetDirectory(new Params()
-                .setHelp("targetDirectory")
-                .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-                .setMatch(".+")), fileRegex(new Params().setHelp("filename regex")
-                    .setMatch(".*")
-                    .setDefault(".*")), pathRegex(new Params().setHelp("path regex")
-                        .setMatch(".*")),
-//        PathReplacement(new Params().setHelp("path replacement")
-//            .setMatch(".*")),
-//        valueRegex(new Params().setHelp("path regex")
-//            .setMatch(".*")),
-//        ValueReplacement(new Params().setHelp("path replacement")
-//            .setMatch(".*")),
+        sourceDirectory(
+                new Params()
+                        .setHelp("sourceDirectory")
+                        .setDefault(CLDRPaths.COMMON_DIRECTORY)
+                        .setMatch(".+")),
+        targetDirectory(
+                new Params()
+                        .setHelp("targetDirectory")
+                        .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+                        .setMatch(".+")),
+        fileRegex(new Params().setHelp("filename regex").setMatch(".*").setDefault(".*")),
+        pathRegex(new Params().setHelp("path regex").setMatch(".*")),
+        //        PathReplacement(new Params().setHelp("path replacement")
+        //            .setMatch(".*")),
+        //        valueRegex(new Params().setHelp("path regex")
+        //            .setMatch(".*")),
+        //        ValueReplacement(new Params().setHelp("path replacement")
+        //            .setMatch(".*")),
         verbose(new Params().setHelp("verbose debugging messages")),
         ;
 
@@ -48,6 +49,7 @@ public class XMLModify {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -77,18 +79,22 @@ public class XMLModify {
                 data.clear();
                 out.println(file);
                 XPathParts lastParts = null;
-                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
-                    sourceDirectory.toString() + "/" + file, data, true, true)) {
+                for (Pair<String, String> pathValue :
+                        XMLFileReader.loadPathValues(
+                                sourceDirectory.toString() + "/" + file, data, true, true)) {
                     String value = pathValue.getSecond();
                     String path = pathValue.getFirst();
                     if (path.equals("!")) {
                         out.println("<!--" + value + " -->");
                         continue;
                     }
-                    XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for setAttribute
+                    XPathParts parts =
+                            XPathParts.getFrozenInstance(path)
+                                    .cloneAsThawed(); // not frozen, for setAttribute
                     if (pathMatcher.reset(path).matches()) {
                         String type = parts.getAttributeValue(-1, "type");
-                        parts.setAttribute(-1, "type", type.toLowerCase(Locale.ROOT).replaceAll("-", ""));
+                        parts.setAttribute(
+                                -1, "type", type.toLowerCase(Locale.ROOT).replaceAll("-", ""));
                     }
                     parts.writeDifference(out, parts, lastParts, value, null);
                     out.flush();

@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -9,9 +8,7 @@ import org.unicode.cldr.util.SimpleFactory;
 
 public class RemoveEmptyCldrFiles {
     public static void main(String[] args) {
-        File[] paths = {
-            new File(CLDRPaths.ANNOTATIONS_DIRECTORY)
-        };
+        File[] paths = {new File(CLDRPaths.ANNOTATIONS_DIRECTORY)};
         Factory factory = SimpleFactory.make(paths, ".*");
         for (String localeId : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(localeId, false);

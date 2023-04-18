@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.web;
 
+import com.ibm.icu.text.CompactDecimalFormat;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,20 +29,16 @@ import org.json.JSONString;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
-import com.ibm.icu.text.CompactDecimalFormat;
-
 /**
  * This is only used by exception log readers
  *
- * Reads 'chunked' format as follows:
+ * <p>Reads 'chunked' format as follows:
  *
- * <RECORDSEP>record header\n <fieldsep><fieldname1>field1 ...\n ... \n
- * <fieldsep><fieldname2>field2 ...\n ... \n <fieldsep><fieldname3>field3\n
- * <RECORDSEP>record header\n ...
- *
+ * <p><RECORDSEP>record header\n <fieldsep><fieldname1>field1 ...\n ... \n
+ * <fieldsep><fieldname2>field2 ...\n ... \n <fieldsep><fieldname3>field3\n <RECORDSEP>record
+ * header\n ...
  *
  * @author srl
- *
  */
 public class ChunkyReader implements Runnable {
     private String recordSep;
@@ -62,16 +58,14 @@ public class ChunkyReader implements Runnable {
         }
 
         /**
-         * @param header
-         *            the header to set
+         * @param header the header to set
          */
         private void addHeader(String header) {
             this.header.append(header);
         }
 
         /**
-         * @param time
-         *            the time to set
+         * @param time the time to set
          */
         private void setTime(long time) {
             this.time = time;
@@ -112,7 +106,10 @@ public class ChunkyReader implements Runnable {
             JSONArray a = new JSONArray();
             for (Pair<String, String> e : fields) {
                 String f = e.getFirst();
-                if (f.equals("DATE") || f.equals("LOGSITE") || f.equals("CTX") || f.equals("UPTIME")) {
+                if (f.equals("DATE")
+                        || f.equals("LOGSITE")
+                        || f.equals("CTX")
+                        || f.equals("UPTIME")) {
                     o.put(f, e.getSecond());
                 } else {
                     a.put(new JSONObject().put(f, e.getSecond()));
@@ -157,7 +154,8 @@ public class ChunkyReader implements Runnable {
             eachTime = 3;
         }
 
-        SurveyThreadManager.getScheduledExecutorService().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.MINUTES);
+        SurveyThreadManager.getScheduledExecutorService()
+                .scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.MINUTES);
     }
 
     @Override
@@ -165,9 +163,7 @@ public class ChunkyReader implements Runnable {
         nudge();
     }
 
-    /**
-     * Check everything again.
-     */
+    /** Check everything again. */
     public synchronized void nudge() {
         if (!fileName.canRead()) {
             stale = true; // it's been deleted
@@ -186,13 +182,15 @@ public class ChunkyReader implements Runnable {
         lastSize = nextSize;
     }
 
-    private Map<Long, Entry> cache = new TreeMap<>(new Comparator<Long>() {
+    private Map<Long, Entry> cache =
+            new TreeMap<>(
+                    new Comparator<Long>() {
 
-        @Override
-        public int compare(Long arg0, Long arg1) {
-            return arg1.compareTo(arg0);
-        }
-    });
+                        @Override
+                        public int compare(Long arg0, Long arg1) {
+                            return arg1.compareTo(arg0);
+                        }
+                    });
 
     public long getLastTime() throws IOException {
         Entry lastItem = getLastEntry();
@@ -234,14 +232,15 @@ public class ChunkyReader implements Runnable {
             cache.clear();
             file = new FileInputStream(fileName);
             InputStreamReader reader = new InputStreamReader(file, "UTF-8");
-            //Map<String, String> entry = new TreeMap<String, String>();
+            // Map<String, String> entry = new TreeMap<String, String>();
             if (fileName.length() > tooBig) {
                 long skipThis = fileName.length() - tooBig;
                 file.skip(skipThis);
 
                 Entry fakeEntry = new Entry();
                 fakeEntry.setTime(System.currentTimeMillis() + 1000);
-                fakeEntry.addHeader("Logfile too big - skipping the first " + bigNum(skipThis) + " bytes");
+                fakeEntry.addHeader(
+                        "Logfile too big - skipping the first " + bigNum(skipThis) + " bytes");
                 cache.put(fakeEntry.getTime(), fakeEntry);
             }
             br = new BufferedReader(reader, 65536);
@@ -271,8 +270,13 @@ public class ChunkyReader implements Runnable {
                     if (splits != null && splits.length > 0) {
                         lastField = splits[0];
                     } else {
-                        throw new IllegalArgumentException("Can't read " + fileName.getAbsolutePath() + ":" + lineno
-                            + " - bad field string " + line);
+                        throw new IllegalArgumentException(
+                                "Can't read "
+                                        + fileName.getAbsolutePath()
+                                        + ":"
+                                        + lineno
+                                        + " - bad field string "
+                                        + line);
                     }
                     line = line.substring(lastField.length());
                     if (line.startsWith(" ")) {
@@ -292,7 +296,8 @@ public class ChunkyReader implements Runnable {
                             // System.err.println("splits[1]="+splits[1]);
                             // System.err.println("theTime="+theTime);
                             if (theTime == null) {
-                                System.err.println("Skipping bad time " + splits[1] + " of " + line);
+                                System.err.println(
+                                        "Skipping bad time " + splits[1] + " of " + line);
                                 continue;
                             }
                             e.setTime(theTime); // time

@@ -6,13 +6,15 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
     static final VoterInfoList noUsers = new VoterInfoList();
 
     @Override
-    public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization org) {
+    public String getWinningValueForUsersOrganization(
+            CLDRFile cldrFile, String path, Organization org) {
         final CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
         return getVoteResolver(cldrFile, loc, path).getOrgVote(org);
     }
 
     @Override
-    public VettingViewer.VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization org) {
+    public VettingViewer.VoteStatus getStatusForUsersOrganization(
+            CLDRFile cldrFile, String path, Organization org) {
         final CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
         return getVoteResolver(cldrFile, loc, path).getStatusForOrganization(org);
     }
@@ -26,7 +28,8 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
         r.setBaileyValue(baileyValue);
 
         final XMLSource xmlSource = cldrFile.dataSource;
-        final String baselineValue = xmlSource.isHere(path) ? xmlSource.getValueAtDPath(path) : null;
+        final String baselineValue =
+                xmlSource.isHere(path) ? xmlSource.getValueAtDPath(path) : null;
         final VoteResolver.Status status = VoteResolver.calculateStatus(cldrFile, path);
         r.setBaseline(baselineValue, status);
 

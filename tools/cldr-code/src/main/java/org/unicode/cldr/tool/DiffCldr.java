@@ -1,5 +1,10 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.Output;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -7,7 +12,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -25,19 +29,13 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.util.Output;
-
 public class DiffCldr {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
     // ADD OPTIONS LATER
 
     enum MyOptions {
-        //organization(".*", "CLDR", "organization"),
+        // organization(".*", "CLDR", "organization"),
         filter(".*", "en_001", "locale ancestor"),
         ;
 
@@ -49,6 +47,7 @@ public class DiffCldr {
         }
 
         static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -69,14 +68,18 @@ public class DiffCldr {
 
         // load data
 
-        M3<PathHeader, String, String> data = ChainedMap.of(new TreeMap<PathHeader, Object>(), new TreeMap<String, Object>(), String.class);
+        M3<PathHeader, String, String> data =
+                ChainedMap.of(
+                        new TreeMap<PathHeader, Object>(),
+                        new TreeMap<String, Object>(),
+                        String.class);
         Counter<String> localeCounter = new Counter<>();
         Counter<PathHeader> pathHeaderCounter = new Counter<>();
         int total = 0;
         Output<String> pathWhereFound = new Output<>();
         Output<String> localeWhereFound = new Output<>();
-//        Output<String> reformattedValue = new Output<String>();
-//        Output<Boolean> hasReformattedValue = new Output<Boolean>();
+        //        Output<String> reformattedValue = new Output<String>();
+        //        Output<Boolean> hasReformattedValue = new Output<Boolean>();
         Multimap<String, String> extras = TreeMultimap.create();
 
         for (String dir : DtdType.ldml.directories) {
@@ -111,7 +114,9 @@ public class DiffCldr {
                         continue;
                     }
                     String value = cldrFile.getStringValue(distinguishedPath);
-                    String bailey = cldrFileResolved.getBaileyValue(distinguishedPath, pathWhereFound, localeWhereFound);
+                    String bailey =
+                            cldrFileResolved.getBaileyValue(
+                                    distinguishedPath, pathWhereFound, localeWhereFound);
 
                     // one of the attributes might be a value (ugg)
                     // so check for that, and extract the value
@@ -121,8 +126,17 @@ public class DiffCldr {
                         for (String pathForValue : pathForValues) {
                             PathHeader ph = phf.fromPath(pathForValue);
                             Splitter splitter = DtdData.getValueSplitter(pathPlain);
-                            String cleanedValue = joinValues(pathPlain, splitter.splitToList(value));
-                            total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                            String cleanedValue =
+                                    joinValues(pathPlain, splitter.splitToList(value));
+                            total =
+                                    addValue(
+                                            data,
+                                            locale,
+                                            ph,
+                                            cleanedValue,
+                                            total,
+                                            localeCounter,
+                                            pathHeaderCounter);
                         }
                     }
 
@@ -133,7 +147,15 @@ public class DiffCldr {
                         final PathHeader ph = phf.fromPath(extraPath);
                         final Collection<String> extraValues = entry.getValue();
                         String cleanedValue = joinValues(pathPlain, extraValues);
-                        total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                        total =
+                                addValue(
+                                        data,
+                                        locale,
+                                        ph,
+                                        cleanedValue,
+                                        total,
+                                        localeCounter,
+                                        pathHeaderCounter);
                     }
                     if (pathForValues == null && !value.isEmpty()) {
                         System.err.println("Shouldn't happen");
@@ -187,11 +209,15 @@ public class DiffCldr {
         }
     }
 
-    /**
-     * Add <ph,value) line, recording extra info.
-     */
-    private static int addValue(M3<PathHeader, String, String> data, String locale, PathHeader ph, String value,
-        int total, Counter<String> localeCounter, Counter<PathHeader> pathHeaderCounter) {
+    /** Add <ph,value) line, recording extra info. */
+    private static int addValue(
+            M3<PathHeader, String, String> data,
+            String locale,
+            PathHeader ph,
+            String value,
+            int total,
+            Counter<String> localeCounter,
+            Counter<PathHeader> pathHeaderCounter) {
         if (value.isEmpty()) {
             return 0;
         }
@@ -207,9 +233,7 @@ public class DiffCldr {
         return total;
     }
 
-    /**
-     * Fix values that are multiple lines or multiple items
-     */
+    /** Fix values that are multiple lines or multiple items */
     private static String joinValues(XPathParts pathPlain, Collection<String> values) {
         Set<String> cleanedValues = new LinkedHashSet<>();
         for (String item : values) {

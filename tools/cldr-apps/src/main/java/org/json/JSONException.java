@@ -7,17 +7,15 @@ package org.json;
  * @version 2008-09-18
  */
 public class JSONException extends Exception {
-    /**
-     *
-     */
+    /** */
     private static final long serialVersionUID = 0;
+
     private Throwable cause;
 
     /**
      * Constructs a JSONException with an explanatory message.
      *
-     * @param message
-     *            Detail about the reason for the exception.
+     * @param message Detail about the reason for the exception.
      */
     public JSONException(String message) {
         super(message);

@@ -1,12 +1,8 @@
 package org.unicode.cldr.util;
 
-/**
- * A triple with information about why an inheritance worked the way it did
- */
+/** A triple with information about why an inheritance worked the way it did */
 public final class LocaleInheritanceInfo {
-    /**
-     * Reason this entry is there
-     */
+    /** Reason this entry is there */
     enum Reason {
         value("A value was present at this location"),
         codefallback("This value represents an implicit value per spec"),
@@ -32,11 +28,13 @@ public final class LocaleInheritanceInfo {
     }
 
     private String locale;
+
     public String getLocale() {
         return locale;
     }
 
     private String path;
+
     public String getPath() {
         return path;
     }
@@ -59,8 +57,7 @@ public final class LocaleInheritanceInfo {
     }
 
     @Override
-    public
-    String toString() {
+    public String toString() {
         if (locale == null && path == null) {
             return reason.name();
         } else if (path == null) {
@@ -73,10 +70,9 @@ public final class LocaleInheritanceInfo {
     }
 
     @Override
-    public
-    boolean equals(Object other) {
+    public boolean equals(Object other) {
         if (!(other instanceof LocaleInheritanceInfo)) return false;
-        final LocaleInheritanceInfo o = (LocaleInheritanceInfo)other;
+        final LocaleInheritanceInfo o = (LocaleInheritanceInfo) other;
         if (o.reason != reason) return false;
         if (!equals(locale, o.locale)) return false;
         if (!equals(path, o.path)) return false;

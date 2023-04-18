@@ -1,5 +1,9 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -7,7 +11,6 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Builder;
 import org.unicode.cldr.util.DiscreteComparator.CycleException;
@@ -16,28 +19,19 @@ import org.unicode.cldr.util.DiscreteComparator.Ordering;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-
-/**
- * Tests the ordering of DTD elements and attributes within the dtd files.
- */
+/** Tests the ordering of DTD elements and attributes within the dtd files. */
 public class TestComparisonBuilder extends TestFmwk {
     public static void main(String[] args) {
         new TestComparisonBuilder().run(args);
     }
 
-    private void verifyOrdering(DiscreteComparator<String> comp,
-        Set<String> children) {
+    private void verifyOrdering(DiscreteComparator<String> comp, Set<String> children) {
         String last = null;
         for (String child : children) {
             if (last != null) {
                 int compare = comp.compare(last, child);
                 if (compare != -1) {
-                    errln("Elements not ordered:\t" + last + ", " + child
-                        + "; in " + children);
+                    errln("Elements not ordered:\t" + last + ", " + child + "; in " + children);
                     break;
                 }
             }
@@ -55,16 +49,14 @@ public class TestComparisonBuilder extends TestFmwk {
         // unless FindDtdOrder also checks attributes.
         Builder<String> builder = new Builder<String>(Ordering.NATURAL);
         for (DtdType dtd : DtdType.values()) {
-            Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
-                dtd).getElement2Attributes();
+            Relation<String, String> eaInfo =
+                    ElementAttributeInfo.getInstance(dtd).getElement2Attributes();
             for (String element : eaInfo.keySet()) {
                 Set<String> attributes = eaInfo.getAll(element);
-                if (attributes.size() == 0)
-                    continue;
+                if (attributes.size() == 0) continue;
                 // logln(dtd + ": " + element + ": " + attributes);
                 builder.add(attributes);
             }
-
         }
         DiscreteComparator<String> comp;
         try {
@@ -77,8 +69,8 @@ public class TestComparisonBuilder extends TestFmwk {
         logln("Attribute Ordering:\t" + comp.getOrdering().toString());
         for (DtdType dtd : DtdType.values()) {
             // check that the ordering is right
-            Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
-                dtd).getElement2Attributes();
+            Relation<String, String> eaInfo =
+                    ElementAttributeInfo.getInstance(dtd).getElement2Attributes();
             for (String element : eaInfo.keySet()) {
                 Set<String> children = eaInfo.getAll(element);
                 verifyOrdering(comp, children);
@@ -87,22 +79,20 @@ public class TestComparisonBuilder extends TestFmwk {
     }
 
     public void TestDtdElements() {
-        Set<String> specials = new HashSet<String>(Arrays.asList(new String[] {
-            "EMPTY", "PCDATA", "ANY" }));
+        Set<String> specials =
+                new HashSet<String>(Arrays.asList(new String[] {"EMPTY", "PCDATA", "ANY"}));
         for (DtdType dtd : DtdType.values()) {
             if (dtd.rootType != dtd) {
                 continue;
             }
             Builder<String> builder = new Builder<String>(Ordering.NATURAL);
             builder.add(dtd.toString());
-            Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(
-                dtd).getElement2Children();
+            Relation<String, String> eaInfo =
+                    ElementAttributeInfo.getInstance(dtd).getElement2Children();
             for (String element : eaInfo.keySet()) {
-                Set<String> children = new LinkedHashSet<String>(
-                    eaInfo.getAll(element));
+                Set<String> children = new LinkedHashSet<String>(eaInfo.getAll(element));
                 children.removeAll(specials);
-                if (children.size() == 0)
-                    continue;
+                if (children.size() == 0) continue;
                 logln(dtd + ": " + element + ": " + children);
                 builder.add(children);
             }
@@ -110,8 +100,8 @@ public class TestComparisonBuilder extends TestFmwk {
             DiscreteComparator<String> comp = builder.get();
             logln("Element Ordering: " + comp.getOrdering().toString());
 
-            Relation<String, String> eaInfo2 = ElementAttributeInfo.getInstance(
-                dtd).getElement2Children();
+            Relation<String, String> eaInfo2 =
+                    ElementAttributeInfo.getInstance(dtd).getElement2Children();
             // check that the ordering is right
             for (String element : eaInfo2.keySet()) {
                 Set<String> elements = eaInfo2.getAll(element);
@@ -127,8 +117,14 @@ public class TestComparisonBuilder extends TestFmwk {
             } catch (Exception e) {
                 Set<String> missing = new LinkedHashSet<String>(eaInfo2.keySet());
                 missing.removeAll(comp.getOrdering());
-                errln(dtd + "\t" + e.getClass().getName() + "\t"
-                    + e.getMessage() + ";\tMissing: " + missing);
+                errln(
+                        dtd
+                                + "\t"
+                                + e.getClass().getName()
+                                + "\t"
+                                + e.getMessage()
+                                + ";\tMissing: "
+                                + missing);
             }
         }
     }
@@ -139,8 +135,7 @@ public class TestComparisonBuilder extends TestFmwk {
         for (int j = 0; j < 100; ++j) {
             int itemCount = 50;
             int linkCount = 1000;
-            buildNodes(random, soFar, random.nextInt(itemCount - 1) + 1,
-                random.nextInt(linkCount));
+            buildNodes(random, soFar, random.nextInt(itemCount - 1) + 1, random.nextInt(linkCount));
 
             for (Ordering order : Ordering.values()) {
                 Builder<Integer> builder = new Builder<Integer>(order);
@@ -161,14 +156,12 @@ public class TestComparisonBuilder extends TestFmwk {
         }
     }
 
-    private void buildNodes(Random random, Set<R2<Integer, Integer>> soFar,
-        int items, int links) {
+    private void buildNodes(Random random, Set<R2<Integer, Integer>> soFar, int items, int links) {
         soFar.clear();
         for (int i = 0; i < links; ++i) {
             Integer start = random.nextInt(items);
             Integer end = random.nextInt(10);
-            if (start.intValue() <= end.intValue())
-                continue;
+            if (start.intValue() <= end.intValue()) continue;
             soFar.add(Row.of(start, end));
         }
     }
@@ -207,19 +200,21 @@ public class TestComparisonBuilder extends TestFmwk {
                 builder.add("b", "b");
                 DiscreteComparator<String> comp = builder.get();
             } catch (CycleException e) {
-                logln("Expected cycle and got one at:\t" + e.getMessage()
-                    + ", " + builder.getCycle());
+                logln(
+                        "Expected cycle and got one at:\t"
+                                + e.getMessage()
+                                + ", "
+                                + builder.getCycle());
                 return;
             }
-            throw new IllegalArgumentException(
-                "Failed to generate CycleException");
+            throw new IllegalArgumentException("Failed to generate CycleException");
         }
     }
 
     public void TestFallback() {
         for (Ordering order : Ordering.values()) {
-            DiscreteComparator<String> comp = new Builder<String>(order)
-                .add("a", "b", "c", "d").add("a", "m", "n").get();
+            DiscreteComparator<String> comp =
+                    new Builder<String>(order).add("a", "b", "c", "d").add("a", "m", "n").get();
             logln("Ordering " + comp.getOrdering());
             expectException(comp, "a", "a1");
             expectException(comp, "a1", "b");
@@ -227,8 +222,7 @@ public class TestComparisonBuilder extends TestFmwk {
         }
     }
 
-    private void expectException(DiscreteComparator<String> comp, String a,
-        String b) {
+    private void expectException(DiscreteComparator<String> comp, String a, String b) {
         try {
             comp.compare(a, b);
         } catch (MissingItemException e) {
@@ -241,25 +235,23 @@ public class TestComparisonBuilder extends TestFmwk {
     public void TestFallback2() {
         for (Ordering order : Ordering.values()) {
             Builder<String> builder = new Builder<String>(order);
-            builder.setFallbackComparator(new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    return o1.compareTo(o2);
-                }
-            });
+            builder.setFallbackComparator(
+                    new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            return o1.compareTo(o2);
+                        }
+                    });
             builder.add("a", "b");
             builder.add("b", "c");
             builder.add("b", "d");
             DiscreteComparator<String> comp = builder.get();
             int result = comp.compare("a", "a1");
-            if (result != -1)
-                errln("a >= a1");
+            if (result != -1) errln("a >= a1");
             result = comp.compare("b", "a1");
-            if (result != -1)
-                errln("a1 >= b");
+            if (result != -1) errln("a1 >= b");
             result = comp.compare("a1", "a2");
-            if (result != -1)
-                errln("a1 >= a2");
+            if (result != -1) errln("a1 >= a2");
         }
     }
 
@@ -268,8 +260,7 @@ public class TestComparisonBuilder extends TestFmwk {
             logln(builder.toString());
             DiscreteComparator<T> comp = builder.get();
         } catch (CycleException e) {
-            logln("Expected cycle and got one at:\t" + e.getMessage() + ",\t"
-                + builder.getCycle());
+            logln("Expected cycle and got one at:\t" + e.getMessage() + ",\t" + builder.getCycle());
             return;
         }
         throw new IllegalArgumentException("Failed to generate CycleException");

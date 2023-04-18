@@ -28,6 +28,10 @@ Click [HERE](https://www.unicode.org/cldr/survey_tool.html) for information on h
 
 For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
+#### Spotless
+
+A source formatter is now used, please see [spotless](./tools/README.md#spotless) for details.
+
 ### Licenses
 
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)

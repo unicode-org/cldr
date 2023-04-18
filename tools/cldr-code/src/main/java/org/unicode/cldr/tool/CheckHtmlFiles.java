@@ -1,5 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,7 +32,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
@@ -45,49 +51,62 @@ import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
-
-@CLDRTool(alias = "checkhtmlfiles", description = "Look for errors in CLDR documentation tools", hidden = "Used for CLDR process")
+@CLDRTool(
+        alias = "checkhtmlfiles",
+        description = "Look for errors in CLDR documentation tools",
+        hidden = "Used for CLDR process")
 public class CheckHtmlFiles {
 
-    static final Set<String> NOPOP = new HashSet<>(Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
+    static final Set<String> NOPOP =
+            new HashSet<>(
+                    Arrays.asList("br", "img", "link", "meta", "!doctype", "hr", "col", "input"));
 
-    static final EnumSet<Type> SUPPRESS = EnumSet.of(
-        Type.ELEMENT, Type.ELEMENT_START, Type.ELEMENT_END, Type.ELEMENT_POP,
-        Type.ATTRIBUTE, Type.ATTRIBUTE_CONTENT);
+    static final EnumSet<Type> SUPPRESS =
+            EnumSet.of(
+                    Type.ELEMENT,
+                    Type.ELEMENT_START,
+                    Type.ELEMENT_END,
+                    Type.ELEMENT_POP,
+                    Type.ATTRIBUTE,
+                    Type.ATTRIBUTE_CONTENT);
 
-    final static Options myOptions = new Options();
-    final static Writer LOG = new OutputStreamWriter(System.out);
+    static final Options myOptions = new Options();
+    static final Writer LOG = new OutputStreamWriter(System.out);
     static Pattern WELLFORMED_HEADER = PatternCache.get("\\s*(\\d+(\\.\\d+)*\\s*).*");
-    static Pattern SUPPRESS_SECTION_NUMBER = PatternCache.get(
-        "(Annex [A-Z]: .*)" +
-            "|(Appendix [A-Z].*)" +
-            "|(.*Migrati(on|ng).*)" +
-            "|Step \\d+.*" +
-            "|Example \\d+.*" +
-            "|D\\d+\\.\\s.*" +
-            "|References" +
-            "|Acknowledge?ments" +
-            "|Rights to .*Images" +
-            "|Modifications" +
-            "|(Revision \\d+\\.?)");
+    static Pattern SUPPRESS_SECTION_NUMBER =
+            PatternCache.get(
+                    "(Annex [A-Z]: .*)"
+                            + "|(Appendix [A-Z].*)"
+                            + "|(.*Migrati(on|ng).*)"
+                            + "|Step \\d+.*"
+                            + "|Example \\d+.*"
+                            + "|D\\d+\\.\\s.*"
+                            + "|References"
+                            + "|Acknowledge?ments"
+                            + "|Rights to .*Images"
+                            + "|Modifications"
+                            + "|(Revision \\d+\\.?)");
     static Pattern SUPPRESS_REVISION = PatternCache.get("Revision \\d+\\.?");
     static Pattern SPACES = PatternCache.get("\\s+");
 
     enum MyOptions {
-//        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
-        target(".*", CLDRPaths.BASE_DIRECTORY + "specs" + File.separator + "ldml" + File.separator +
-            "tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
-                + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"), verbose(".*", "none", "verbose debugging messages"),
-//        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-        // /cldr-archive
-        ;
+        //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY +
+        // "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
+        target(
+                ".*",
+                CLDRPaths.BASE_DIRECTORY
+                        + "specs"
+                        + File.separator
+                        + "ldml"
+                        + File.separator
+                        + "tr35(-.*)?\\.html",
+                "target data (regex); ucd for Unicode docs; "
+                        + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
+        verbose(".*", "none", "verbose debugging messages"),
+    //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate
+    // contents"),
+    // /cldr-archive
+    ;
 
         // boilerplate
         final Option option;
@@ -98,9 +117,14 @@ public class CheckHtmlFiles {
     }
 
     enum Verbosity {
-        none, element, all;
+        none,
+        element,
+        all;
+
         static Verbosity of(String input) {
-            return input == null ? Verbosity.none : Verbosity.valueOf(input.toLowerCase(Locale.ROOT));
+            return input == null
+                    ? Verbosity.none
+                    : Verbosity.valueOf(input.toLowerCase(Locale.ROOT));
         }
     }
 
@@ -109,9 +133,11 @@ public class CheckHtmlFiles {
     static boolean isLdml;
 
     public static void main(String[] args) throws IOException {
-        System.out.println("First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
+        System.out.println(
+                "First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
         System.out.println("Then check for all links with no anchors: <a([^>]*)></a>");
-        System.out.println("Then check for all links that don't start with name or href <a (?!href|name)");
+        System.out.println(
+                "Then check for all links that don't start with name or href <a (?!href|name)");
 
         myOptions.parse(MyOptions.target, args, true);
         verbose = Verbosity.of(MyOptions.verbose.option.getValue());
@@ -121,9 +147,11 @@ public class CheckHtmlFiles {
             isLdml = true;
         }
         if (targetString.equalsIgnoreCase("ucd")) {
-            targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(\\d+)/tr(\\d+).html";
+            targetString =
+                    CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(\\d+)/tr(\\d+).html";
         } else if (targetString.equalsIgnoreCase("security")) {
-            targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(3[69])/tr(3[69]).html";
+            targetString =
+                    CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(3[69])/tr(3[69]).html";
         }
         Data target = new Data().getSentences(targetString);
         if (target.count == 0) {
@@ -134,56 +162,65 @@ public class CheckHtmlFiles {
             checkForDtd(target);
         }
 
-        System.out.println("*TOTAL COUNTS*  files:" + target.count + ", fatal errors:" + target.totalFatalCount + ", nonfatal errors:"
-            + target.totalErrorCount);
+        System.out.println(
+                "*TOTAL COUNTS*  files:"
+                        + target.count
+                        + ", fatal errors:"
+                        + target.totalFatalCount
+                        + ", nonfatal errors:"
+                        + target.totalErrorCount);
         if (target.totalFatalCount > 0 || target.totalErrorCount > 0) {
             System.exit(1); // give an error status
         }
 
         System.exit(0);
 
-//        Data source = new Data().getSentences(MyOptions.old.option.getValue());
-//        String file = MyOptions.target.option.getValue();
-//
-//        Data target = new Data().getSentences(file);
-//
-//        int missingCount = 0, extraCount = 0;
-//        int line = 0;
-//        for (String sentence : source) {
-//            ++line;
-//            long sourceCount = source.getCount(sentence);
-//            long targetCount = target.getCount(sentence);
-//            if (targetCount == 0) {
-//                System.out.println(line + "\tMISSING:\t" + sourceCount + "≠" + targetCount + "\t" + sentence);
-//                ++missingCount;
-//            }
-//        }
-//        line = 0;
-//        for (String sentence : target) {
-//            ++line;
-//            long sourceCount = source.getCount(sentence);
-//            long targetCount = target.getCount(sentence);
-//            if (sourceCount == 0) {
-//                System.out.println(line + "\tEXTRA:\t" + targetCount + "≠" + sourceCount + "\t" + sentence);
-//                ++extraCount;
-//            }
-//        }
-//        System.out.println("Missing:\t" + missingCount);
-//        System.out.println("Extra:\t" + extraCount);
+        //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
+        //        String file = MyOptions.target.option.getValue();
+        //
+        //        Data target = new Data().getSentences(file);
+        //
+        //        int missingCount = 0, extraCount = 0;
+        //        int line = 0;
+        //        for (String sentence : source) {
+        //            ++line;
+        //            long sourceCount = source.getCount(sentence);
+        //            long targetCount = target.getCount(sentence);
+        //            if (targetCount == 0) {
+        //                System.out.println(line + "\tMISSING:\t" + sourceCount + "≠" + targetCount
+        // + "\t" + sentence);
+        //                ++missingCount;
+        //            }
+        //        }
+        //        line = 0;
+        //        for (String sentence : target) {
+        //            ++line;
+        //            long sourceCount = source.getCount(sentence);
+        //            long targetCount = target.getCount(sentence);
+        //            if (sourceCount == 0) {
+        //                System.out.println(line + "\tEXTRA:\t" + targetCount + "≠" + sourceCount +
+        // "\t" + sentence);
+        //                ++extraCount;
+        //            }
+        //        }
+        //        System.out.println("Missing:\t" + missingCount);
+        //        System.out.println("Extra:\t" + extraCount);
     }
 
-    private static final Set<String> SKIP_ATTR = ImmutableSet.of("draft", "alt", "references", "cldrVersion", "unicodeVersion");
+    private static final Set<String> SKIP_ATTR =
+            ImmutableSet.of("draft", "alt", "references", "cldrVersion", "unicodeVersion");
 
     private static void checkForDtd(Data target) {
-        M4<String, String, DtdType, Boolean> typeToElements = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
+        M4<String, String, DtdType, Boolean> typeToElements =
+                ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) continue;
             DtdData dtdData = DtdData.getInstance(type);
             Set<Element> elements = dtdData.getElements();
             for (Element element : elements) {
                 if (element.isDeprecated()
-                    || element.equals(dtdData.PCDATA)
-                    || element.equals(dtdData.ANY)) continue;
+                        || element.equals(dtdData.PCDATA)
+                        || element.equals(dtdData.ANY)) continue;
                 typeToElements.put(element.name, element.toDtdString(), type, Boolean.TRUE);
             }
             Set<Attribute> attributes = dtdData.getAttributes();
@@ -192,7 +229,11 @@ public class CheckHtmlFiles {
                 if (SKIP_ATTR.contains(attribute.name)) {
                     continue;
                 }
-                typeToElements.put(attribute.element.name, attribute.appendDtdString(new StringBuilder()).toString(), type, Boolean.TRUE);
+                typeToElements.put(
+                        attribute.element.name,
+                        attribute.appendDtdString(new StringBuilder()).toString(),
+                        type,
+                        Boolean.TRUE);
             }
         }
         final Map<String, String> skeletonToInFile = new HashMap<>();
@@ -204,7 +245,8 @@ public class CheckHtmlFiles {
             extra.put(element, item);
             skeletonToInFile.put(item.replace(" ", ""), item);
         }
-        ChainedMap.M4<String, String, DtdType, Comparison> status = ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Comparison.class);
+        ChainedMap.M4<String, String, DtdType, Comparison> status =
+                ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Comparison.class);
         for (R4<String, String, DtdType, Boolean> entry : typeToElements.rows()) {
             final String element = entry.get0();
             final String key = entry.get1();
@@ -227,35 +269,55 @@ public class CheckHtmlFiles {
         for (Entry<String, Map<String, Map<DtdType, Comparison>>> entry1 : status) {
             String element = entry1.getKey();
             reverse.clear();
-            final Map<String, Map<DtdType, Comparison>> itemToDtdTypeToComparison = entry1.getValue();
+            final Map<String, Map<DtdType, Comparison>> itemToDtdTypeToComparison =
+                    entry1.getValue();
             reverse.addAll(itemToDtdTypeToComparison.keySet());
             for (String item : reverse) {
                 Map<DtdType, Comparison> typeToComparison = itemToDtdTypeToComparison.get(item);
                 for (Entry<DtdType, Comparison> entry2 : typeToComparison.entrySet()) {
-                    System.out.println(element
-                        + "\t" + entry2.getValue()
-                        + "\t" + CldrUtility.ifSame(entry2.getKey(), DtdType.ldmlICU, "")
-                        + "\t" + item);
+                    System.out.println(
+                            element
+                                    + "\t"
+                                    + entry2.getValue()
+                                    + "\t"
+                                    + CldrUtility.ifSame(entry2.getKey(), DtdType.ldmlICU, "")
+                                    + "\t"
+                                    + item);
                 }
             }
         }
     }
 
     enum Comparison {
-        missing, extra, no_rem
+        missing,
+        extra,
+        no_rem
     }
 
     static Pattern WHITESPACE = PatternCache.get("[\\s]+");
     static Pattern BADSECTION = PatternCache.get("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
 
-    static final Set<String> FORCEBREAK = new HashSet<>(Arrays.asList(
-        "table", "div", "blockquote",
-        "p", "br", "td", "th", "h1", "h2", "h3", "h4", "h5", "li"));
+    static final Set<String> FORCEBREAK =
+            new HashSet<>(
+                    Arrays.asList(
+                            "table",
+                            "div",
+                            "blockquote",
+                            "p",
+                            "br",
+                            "td",
+                            "th",
+                            "h1",
+                            "h2",
+                            "h3",
+                            "h4",
+                            "h5",
+                            "li"));
 
-//    enum ContentsElements {h1, h2, h3, h4, h5, caption}
+    //    enum ContentsElements {h1, h2, h3, h4, h5, caption}
 
-    static final Set<String> DO_CONTENTS = new HashSet<>(Arrays.asList(
-        "h1", "h2", "h3", "h4", "h5", "caption"));
+    static final Set<String> DO_CONTENTS =
+            new HashSet<>(Arrays.asList("h1", "h2", "h3", "h4", "h5", "caption"));
 
     static class Levels implements Comparable<Levels> {
         final int[] levels = new int[10];
@@ -272,6 +334,7 @@ public class CheckHtmlFiles {
 
         /**
          * h2 = level 0, h3 is level 1, etc.
+         *
          * @param level
          * @return
          */
@@ -294,7 +357,7 @@ public class CheckHtmlFiles {
         }
 
         public int getDepth() {
-            for (int i = 0;; ++i) {
+            for (int i = 0; ; ++i) {
                 int level = levels[i];
                 if (level == 0) {
                     return i - 1;
@@ -305,7 +368,7 @@ public class CheckHtmlFiles {
         @Override
         public String toString() {
             StringBuilder b = new StringBuilder();
-            for (int i = 0;; ++i) {
+            for (int i = 0; ; ++i) {
                 int level = levels[i];
                 if (level == 0) {
                     return b.toString();
@@ -369,13 +432,20 @@ public class CheckHtmlFiles {
 
         @Override
         public String toString() {
-            //   <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
+            //   <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity
+            // Elements</a></h3>
             String id = ids.isEmpty() ? "NOID" : ids.iterator().next();
-            String result = "<" + getLabel()
-                + "<a name=\"" + id + "\" href=\"#" + id + "\">"
-                + (!isHeader ? "" : suppressSection ? "" : levels + " ")
-                + TransliteratorUtilities.toHTML.transform(text)
-                + "</a>";
+            String result =
+                    "<"
+                            + getLabel()
+                            + "<a name=\""
+                            + id
+                            + "\" href=\"#"
+                            + id
+                            + "\">"
+                            + (!isHeader ? "" : suppressSection ? "" : levels + " ")
+                            + TransliteratorUtilities.toHTML.transform(text)
+                            + "</a>";
             if (ids.size() > 1) {
                 boolean first = true;
                 for (String id2 : ids) {
@@ -396,10 +466,14 @@ public class CheckHtmlFiles {
         public String toHeader() {
             String id = ids.iterator().next();
             return ("<li>"
-                + (!isHeader ? (text.contains("Table") || text.contains("Figure") ? "" : "Table: ") : suppressSection ? "" : levels + " ")
-                + "<a href=\"#" + id + "\">"
-                + TransliteratorUtilities.toHTML.transform(text)
-                + "</a>");
+                    + (!isHeader
+                            ? (text.contains("Table") || text.contains("Figure") ? "" : "Table: ")
+                            : suppressSection ? "" : levels + " ")
+                    + "<a href=\"#"
+                    + id
+                    + "\">"
+                    + TransliteratorUtilities.toHTML.transform(text)
+                    + "</a>");
         }
 
         public void addText(String toAppend) {
@@ -413,8 +487,11 @@ public class CheckHtmlFiles {
             } else {
                 text += temp;
             }
-            text = SPACES.matcher(text).replaceAll(" "); // clean up all spaces; make more efficient later
-            // used to trim, but we need to retain space between elements. So only trim the start, and later, the end
+            text =
+                    SPACES.matcher(text)
+                            .replaceAll(" "); // clean up all spaces; make more efficient later
+            // used to trim, but we need to retain space between elements. So only trim the start,
+            // and later, the end
         }
 
         public boolean isContents() {
@@ -578,7 +655,11 @@ public class CheckHtmlFiles {
             System.out.println(pad + "<!-- END Generated TOC: CheckHtmlFiles -->");
             --ulCount;
             if (liCount != 0 || ulCount != 0) {
-                throw new IllegalArgumentException("Mismatched counts in generated contents, li:" + liCount + ", ul:" + ulCount);
+                throw new IllegalArgumentException(
+                        "Mismatched counts in generated contents, li:"
+                                + liCount
+                                + ", ul:"
+                                + ulCount);
             }
             for (String id : idCounter) {
                 long count = idCounter.get(id);
@@ -590,6 +671,7 @@ public class CheckHtmlFiles {
 
         /**
          * Prints out errs
+         *
          * @return fatal err count
          */
         public int showErrors() {
@@ -640,12 +722,15 @@ public class CheckHtmlFiles {
     }
 
     static class Data implements Iterable<String> {
-        private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
+        private static final Pattern ELEMENT_ATTLIST =
+                Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<>();
-        M4<String, String, String, Boolean> dtdItems = ChainedMap.of(
-            new LinkedHashMap<String, Object>(),
-            new TreeMap<String, Object>(),
-            new TreeMap<String, Object>(), Boolean.class);
+        M4<String, String, String, Boolean> dtdItems =
+                ChainedMap.of(
+                        new LinkedHashMap<String, Object>(),
+                        new TreeMap<String, Object>(),
+                        new TreeMap<String, Object>(),
+                        Boolean.class);
         Counter<String> hashedSentences = new Counter<>();
         int count = 0;
         int totalErrorCount = 0;
@@ -663,11 +748,12 @@ public class CheckHtmlFiles {
                 base = fileRegex.substring(0, lastSlash);
                 regex = fileRegex.substring(lastSlash + 1);
             } catch (Exception e) {
-                throw new IllegalArgumentException("Target file must be in special format. " +
-                    "Up to the first path part /.../ containing a paragraph is constant, and the rest is a regex.");
+                throw new IllegalArgumentException(
+                        "Target file must be in special format. "
+                                + "Up to the first path part /.../ containing a paragraph is constant, and the rest is a regex.");
             }
 
-            //File sourceFile = new File(fileRegex);
+            // File sourceFile = new File(fileRegex);
             File sourceDirectory = new File(base);
             if (!sourceDirectory.exists()) {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
@@ -683,7 +769,7 @@ public class CheckHtmlFiles {
         }
 
         public Data getSentences(File sourceDirectory, Matcher m) throws IOException {
-            //System.out.println("Processing:\t" + sourceDirectory);
+            // System.out.println("Processing:\t" + sourceDirectory);
             for (File file : sourceDirectory.listFiles()) {
                 if (file.isDirectory()) {
                     getSentences(file, m);
@@ -693,13 +779,17 @@ public class CheckHtmlFiles {
                 File fileCanonical = new File(fileString);
                 if (!m.reset(fileString).matches()) {
                     if (verbose == Verbosity.all) {
-                        System.out.println("Skipping: " + RegexUtilities.showMismatch(m, fileString)
-                            + "\t" + sourceDirectory);
+                        System.out.println(
+                                "Skipping: "
+                                        + RegexUtilities.showMismatch(m, fileString)
+                                        + "\t"
+                                        + sourceDirectory);
                     }
                     continue;
                 }
 
-                System.out.println("\nProcessing:\t" + sourceDirectory + File.separator + fileString);
+                System.out.println(
+                        "\nProcessing:\t" + sourceDirectory + File.separator + fileString);
 
                 int H2_START = fileString.contains("tr18") ? -1 : 0;
                 try (Reader in = new FileReader(fileCanonical)) {
@@ -734,124 +824,146 @@ public class CheckHtmlFiles {
             boolean checkCaption = false;
             List<Integer> captionWarnings = new ArrayList<>();
 
-            main: while (true) {
+            main:
+            while (true) {
                 int lineCount = parser.getLineCount();
                 Type x = parser.next(content);
                 if (verbose == Verbosity.all && !SUPPRESS.contains(x)) {
                     LOG.write(parser.getLineCount() + "\t" + x + ":\t«" + content + "»");
-                    //SimpleHtmlParser.writeResult(x, content, LOG);
+                    // SimpleHtmlParser.writeResult(x, content, LOG);
                     LOG.write("\n");
                     LOG.flush();
                 }
                 switch (x) {
-                case QUOTE:
-                    contentString = content.toString().toLowerCase(Locale.ENGLISH).trim();
-                    if (contentString.equalsIgnoreCase("nocaption")) {
-                        pushedTable = false;
-                    }
-                    break;
-                case ATTRIBUTE:
-                    contentString = content.toString().toLowerCase(Locale.ENGLISH);
-                    if (inHeading && (contentString.equals("name") || contentString.equals("id"))) {
-                        inAnchor = true;
-                    } else {
-                        inAnchor = false;
-                    }
-                    attributeStack.add(new Pair<String, String>(contentString, null));
-                    break;
-                case ATTRIBUTE_CONTENT:
-                    contentString = content.toString().toLowerCase(Locale.ENGLISH);
-                    if (inAnchor) {
-                        heading.addId(content.toString());
-                    }
-                    Pair<String, String> lastAttribute = attributeStack.peek();
-                    if (lastAttribute.getSecond() != null) {
-                        System.out.println(lineCount + "\tDouble Attribute: " + contentString + ", peek=" + lastAttribute);
-                    } else {
-                        lastAttribute.setSecond(contentString);
-                    }
-                    break;
-                case ELEMENT:
-                    contentString = content.toString().toLowerCase(Locale.ENGLISH);
-                    if (inPop) {
-                        ElementLine peek;
-                        while (true) {
-                            peek = elementStack.peek();
-                            if (!NOPOP.contains(peek.element)) {
-                                break;
-                            }
-                            elementStack.pop();
+                    case QUOTE:
+                        contentString = content.toString().toLowerCase(Locale.ENGLISH).trim();
+                        if (contentString.equalsIgnoreCase("nocaption")) {
+                            pushedTable = false;
                         }
-                        if (!peek.element.equals(contentString)) {
-                            System.out.println(lineCount
-                                + "\tCouldn't pop: " + contentString
-                                + ", " + showElementStack(elementStack));
+                        break;
+                    case ATTRIBUTE:
+                        contentString = content.toString().toLowerCase(Locale.ENGLISH);
+                        if (inHeading
+                                && (contentString.equals("name") || contentString.equals("id"))) {
+                            inAnchor = true;
                         } else {
-                            elementStack.pop();
+                            inAnchor = false;
                         }
-                    } else {
-                        // check that the first element following a table is a caption
-                        if (pushedTable && !"caption".equals(contentString)) {
-                            captionWarnings.add(lineCount);
+                        attributeStack.add(new Pair<String, String>(contentString, null));
+                        break;
+                    case ATTRIBUTE_CONTENT:
+                        contentString = content.toString().toLowerCase(Locale.ENGLISH);
+                        if (inAnchor) {
+                            heading.addId(content.toString());
                         }
-                        elementStack.push(new ElementLine(contentString, lineCount));
-                        pushedTable = checkCaption && "table".equals(contentString);
-                        if (!checkCaption && "h3".equals(contentString)) { // h3 around Summary in standard format
-                            checkCaption = true;
+                        Pair<String, String> lastAttribute = attributeStack.peek();
+                        if (lastAttribute.getSecond() != null) {
+                            System.out.println(
+                                    lineCount
+                                            + "\tDouble Attribute: "
+                                            + contentString
+                                            + ", peek="
+                                            + lastAttribute);
+                        } else {
+                            lastAttribute.setSecond(contentString);
                         }
-                    }
-                    if (verbose != Verbosity.none) {
-                        LOG.write(parser.getLineCount() + "\telem:\t" + showElementStack(elementStack) + "\n");
-                        LOG.flush();
-                    }
-                    if (FORCEBREAK.contains(contentString)) {
-                        buffer.append("\n");
-                    }
-                    if (DO_CONTENTS.contains(contentString)) {
+                        break;
+                    case ELEMENT:
+                        contentString = content.toString().toLowerCase(Locale.ENGLISH);
                         if (inPop) {
-                            if (inHeading) {
-                                inHeading = false;
-                                if (heading.isContents()) {
-                                    haveContents = true;
-                                } else if (haveContents) {
-                                    headingInfoList.add(parser.getLineCount(), heading);
-                                    lastHeading = heading;
+                            ElementLine peek;
+                            while (true) {
+                                peek = elementStack.peek();
+                                if (!NOPOP.contains(peek.element)) {
+                                    break;
                                 }
-                                heading = new HeadingInfo();
+                                elementStack.pop();
+                            }
+                            if (!peek.element.equals(contentString)) {
+                                System.out.println(
+                                        lineCount
+                                                + "\tCouldn't pop: "
+                                                + contentString
+                                                + ", "
+                                                + showElementStack(elementStack));
+                            } else {
+                                elementStack.pop();
                             }
                         } else {
-                            heading.setLevel(contentString, lastHeading);
-                            inHeading = true;
+                            // check that the first element following a table is a caption
+                            if (pushedTable && !"caption".equals(contentString)) {
+                                captionWarnings.add(lineCount);
+                            }
+                            elementStack.push(new ElementLine(contentString, lineCount));
+                            pushedTable = checkCaption && "table".equals(contentString);
+                            if (!checkCaption
+                                    && "h3".equals(contentString)) { // h3 around Summary in
+                                // standard format
+                                checkCaption = true;
+                            }
                         }
-                    }
-                    break;
-                case ELEMENT_START:
-                    inPop = false;
-                    break;
-                case ELEMENT_END:
-                    if (verbose == Verbosity.all && !attributeStack.isEmpty()) {
-                        LOG.write(parser.getLineCount() + "\tattr:\t" + showAttributeStack(attributeStack) + System.lineSeparator());
-                        LOG.flush();
-                    }
-                    attributeStack.clear();
-                    inPop = false;
-                    break;
-                case ELEMENT_POP:
-                    inPop = true;
-                    break;
-                case ELEMENT_CONTENT:
-                    contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
-                    buffer.append(contentString.indexOf('&') >= 0
-                        ? TransliteratorUtilities.fromHTML.transform(contentString)
-                        : contentString);
-                    if (inHeading) {
-                        heading.addText(contentString);
-                    }
-                    break;
-                case DONE:
-                    break main;
-                default:
-                    break; // skip everything else.
+                        if (verbose != Verbosity.none) {
+                            LOG.write(
+                                    parser.getLineCount()
+                                            + "\telem:\t"
+                                            + showElementStack(elementStack)
+                                            + "\n");
+                            LOG.flush();
+                        }
+                        if (FORCEBREAK.contains(contentString)) {
+                            buffer.append("\n");
+                        }
+                        if (DO_CONTENTS.contains(contentString)) {
+                            if (inPop) {
+                                if (inHeading) {
+                                    inHeading = false;
+                                    if (heading.isContents()) {
+                                        haveContents = true;
+                                    } else if (haveContents) {
+                                        headingInfoList.add(parser.getLineCount(), heading);
+                                        lastHeading = heading;
+                                    }
+                                    heading = new HeadingInfo();
+                                }
+                            } else {
+                                heading.setLevel(contentString, lastHeading);
+                                inHeading = true;
+                            }
+                        }
+                        break;
+                    case ELEMENT_START:
+                        inPop = false;
+                        break;
+                    case ELEMENT_END:
+                        if (verbose == Verbosity.all && !attributeStack.isEmpty()) {
+                            LOG.write(
+                                    parser.getLineCount()
+                                            + "\tattr:\t"
+                                            + showAttributeStack(attributeStack)
+                                            + System.lineSeparator());
+                            LOG.flush();
+                        }
+                        attributeStack.clear();
+                        inPop = false;
+                        break;
+                    case ELEMENT_POP:
+                        inPop = true;
+                        break;
+                    case ELEMENT_CONTENT:
+                        contentString =
+                                wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
+                        buffer.append(
+                                contentString.indexOf('&') >= 0
+                                        ? TransliteratorUtilities.fromHTML.transform(contentString)
+                                        : contentString);
+                        if (inHeading) {
+                            heading.addText(contentString);
+                        }
+                        break;
+                    case DONE:
+                        break main;
+                    default:
+                        break; // skip everything else.
                 }
             }
 
@@ -859,7 +971,7 @@ public class CheckHtmlFiles {
             Matcher m = ELEMENT_ATTLIST.matcher(buffer);
             while (m.find()) {
                 dtdItems.put(fileName, m.group(2), m.group(), true);
-                //System.out.println(fileName + "\t" + m.group());
+                // System.out.println(fileName + "\t" + m.group());
             }
             BreakIterator sentenceBreak = BreakIterator.getSentenceInstance(ULocale.ENGLISH);
             String bufferString = normalizeWhitespace(buffer);
@@ -879,14 +991,16 @@ public class CheckHtmlFiles {
                 sentences.add(sentence);
             }
             if (!captionWarnings.isEmpty()) {
-                System.out.println("WARNING: Missing <caption> on the following lines: "
-                    + "\n    " + Joiner.on(", ").join(captionWarnings)
-                    + "\n\tTo fix, add <caption> after the <table>, such as:"
-                    + "\n\t\t<table>"
-                    + "\n\t\t\t<caption>Private Use Codes in CLDR</a></caption>"
-                    + "\n\tOften the sentence just before the <table> can be made into the caption."
-                    + "\n\tThe next time you run this program, you’ll be prompted with double-links."
-                    + "\n\tIf it really shouldn't have a caption, add <!-- nocaption --> after the <table> instead.");
+                System.out.println(
+                        "WARNING: Missing <caption> on the following lines: "
+                                + "\n    "
+                                + Joiner.on(", ").join(captionWarnings)
+                                + "\n\tTo fix, add <caption> after the <table>, such as:"
+                                + "\n\t\t<table>"
+                                + "\n\t\t\t<caption>Private Use Codes in CLDR</a></caption>"
+                                + "\n\tOften the sentence just before the <table> can be made into the caption."
+                                + "\n\tThe next time you run this program, you’ll be prompted with double-links."
+                                + "\n\tIf it really shouldn't have a caption, add <!-- nocaption --> after the <table> instead.");
             }
             int fatalCount = headingInfoList.showErrors();
             totalFatalCount += fatalCount;
@@ -894,7 +1008,10 @@ public class CheckHtmlFiles {
             if (fatalCount == 0) {
                 headingInfoList.listContents();
             } else {
-                System.out.println("\nFix fatal errors in " + fileCanonical + " before contents can be generated");
+                System.out.println(
+                        "\nFix fatal errors in "
+                                + fileCanonical
+                                + " before contents can be generated");
             }
         }
 
@@ -923,8 +1040,9 @@ public class CheckHtmlFiles {
         }
 
         /**
-         * Return string after collapsing multiple whitespace containing '\\n' to '\\n',
-         * and otherwise 'space'.
+         * Return string after collapsing multiple whitespace containing '\\n' to '\\n', and
+         * otherwise 'space'.
+         *
          * @param input
          * @return
          */

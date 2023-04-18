@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Splitter;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,7 +12,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -20,9 +21,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Splitter;
-import com.ibm.icu.text.UnicodeSet;
-
 public class ListUnits {
     private static final UnicodeSet BIDI_CONTROL = new UnicodeSet("[:bidi_control:]").freeze();
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -30,11 +28,17 @@ public class ListUnits {
     private static final Task TASK = Task.listSimpleUnits;
 
     private enum Task {
-        listUnits, listSimpleUnits, showDecimals, getDigits,
+        listUnits,
+        listSimpleUnits,
+        showDecimals,
+        getDigits,
     }
 
     enum Type {
-        root, en, other;
+        root,
+        en,
+        other;
+
         static Type fromString(String type) {
             return type.equals("en") ? en : type.equals("root") ? root : other;
         }
@@ -63,91 +67,125 @@ public class ListUnits {
                 continue;
             }
             CLDRFile cldrFile = cldrFactory.make(locale, true);
-//            DecimalFormat format = new DecimalFormat(currencyPattern);
-//            String prefix = format.getPositivePrefix();
-//            String suffix = format.getPositiveSuffix();
+            //            DecimalFormat format = new DecimalFormat(currencyPattern);
+            //            String prefix = format.getPositivePrefix();
+            //            String suffix = format.getPositiveSuffix();
 
-//            ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
-//            DecimalFormat format = builder.getCurrencyFormat("XXX");
-//            String prefix = format.getPositivePrefix().replace("XXX", "\u00a4");
-//            String suffix = format.getPositiveSuffix().replace("XXX", "\u00a4");
+            //            ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+            //            DecimalFormat format = builder.getCurrencyFormat("XXX");
+            //            String prefix = format.getPositivePrefix().replace("XXX", "\u00a4");
+            //            String suffix = format.getPositiveSuffix().replace("XXX", "\u00a4");
             switch (TASK) {
-            case showDecimals: {
-                String compactPathPrefix = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]";
-                String currencyPattern = cldrFile
-                    .getStringValue(
-                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
-                String firstPart = SEMI.split(currencyPattern).iterator().next();
-                if (!currencyMatcher.reset(firstPart).matches()) {
-                    throw new IllegalArgumentException("bad matcher");
-                }
-                String prefix = currencyMatcher.group(1);
-                String suffix = currencyMatcher.group(2);
-                System.out.println("\n#" + locale + "\t«" + prefix + "»\t«" + suffix + "»\t«" + currencyPattern + "»");
-                TreeMap<String, String> data = new TreeMap<>();
-                for (String path : cldrFile.fullIterable()) {
-//                    if (s.contains("decimalFormats")) {
-//                        System.out.println(s);
-//                    }
-                    if (path.startsWith(compactPathPrefix)) {
-                        String value = cldrFile.getStringValue(path);
-                        String mod = path.replace("decimal", "currency") + "[@draft=\"provisional\"]";
-                        //                        // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
-                        data.put(mod, "locale=" + locale
-                            + " ; action=add"
-                            + " ; new_value=" + prefix + value + suffix
-                            + " ; new_path=" + mod);
-                    }
-                }
-                for (Entry<String, String> line : data.entrySet()) {
-                    System.out.println(line.getValue());
-                }
-                data.clear();
-                break;
-            }
-            case listUnits:
-            case listSimpleUnits: {
-                Set<String> units = getUnits(cldrFile, TASK, type == Type.root ? rootMap : type == Type.en ? enMap : null);
-                if (type == Type.en) {
-                    TreeSet<String> missing = new TreeSet<>(seen);
-                    missing.removeAll(units);
-                    for (String unit : missing) {
-                        // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
-                        Data data = rootMap.get(unit);
-                        if (data != null) {
-                            System.out.println(data);
+                case showDecimals:
+                    {
+                        String compactPathPrefix =
+                                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]";
+                        String currencyPattern =
+                                cldrFile.getStringValue(
+                                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+                        String firstPart = SEMI.split(currencyPattern).iterator().next();
+                        if (!currencyMatcher.reset(firstPart).matches()) {
+                            throw new IllegalArgumentException("bad matcher");
                         }
-                    }
-                }
-                Splitter HYPHEN = Splitter.on('-');
-                String oldBase = "";
-                for (String unit : units) {
-                    if (!seen.contains(unit)) {
-                        switch (TASK) {
-                        case listSimpleUnits:
-                            String base = HYPHEN.split(unit).iterator().next();
-                            if (!base.equals(oldBase)) {
-                                oldBase = base;
-                                System.out.println();
-                            } else {
-                                System.out.print(' ');
+                        String prefix = currencyMatcher.group(1);
+                        String suffix = currencyMatcher.group(2);
+                        System.out.println(
+                                "\n#"
+                                        + locale
+                                        + "\t«"
+                                        + prefix
+                                        + "»\t«"
+                                        + suffix
+                                        + "»\t«"
+                                        + currencyPattern
+                                        + "»");
+                        TreeMap<String, String> data = new TreeMap<>();
+                        for (String path : cldrFile.fullIterable()) {
+                            //                    if (s.contains("decimalFormats")) {
+                            //                        System.out.println(s);
+                            //                    }
+                            if (path.startsWith(compactPathPrefix)) {
+                                String value = cldrFile.getStringValue(path);
+                                String mod =
+                                        path.replace("decimal", "currency")
+                                                + "[@draft=\"provisional\"]";
+                                //                        // locale=en ; action=add ;
+                                // new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
+                                data.put(
+                                        mod,
+                                        "locale="
+                                                + locale
+                                                + " ; action=add"
+                                                + " ; new_value="
+                                                + prefix
+                                                + value
+                                                + suffix
+                                                + " ; new_path="
+                                                + mod);
                             }
-                            System.out.print(unit);
-                            break;
-                        case listUnits:
-                            System.out.println("\t" + unit.replace("/", "\t")
-                                .replaceFirst("-", "\t") + "\t" + locale);
-                            break;
                         }
-                        seen.add(unit);
+                        for (Entry<String, String> line : data.entrySet()) {
+                            System.out.println(line.getValue());
+                        }
+                        data.clear();
+                        break;
                     }
-                }
-                break;
-            }
-            case getDigits: {
-                getDigits(cldrFile);
-                break;
-            }
+                case listUnits:
+                case listSimpleUnits:
+                    {
+                        Set<String> units =
+                                getUnits(
+                                        cldrFile,
+                                        TASK,
+                                        type == Type.root
+                                                ? rootMap
+                                                : type == Type.en ? enMap : null);
+                        if (type == Type.en) {
+                            TreeSet<String> missing = new TreeSet<>(seen);
+                            missing.removeAll(units);
+                            for (String unit : missing) {
+                                // locale=en ; action=add ;
+                                // new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
+                                Data data = rootMap.get(unit);
+                                if (data != null) {
+                                    System.out.println(data);
+                                }
+                            }
+                        }
+                        Splitter HYPHEN = Splitter.on('-');
+                        String oldBase = "";
+                        for (String unit : units) {
+                            if (!seen.contains(unit)) {
+                                switch (TASK) {
+                                    case listSimpleUnits:
+                                        String base = HYPHEN.split(unit).iterator().next();
+                                        if (!base.equals(oldBase)) {
+                                            oldBase = base;
+                                            System.out.println();
+                                        } else {
+                                            System.out.print(' ');
+                                        }
+                                        System.out.print(unit);
+                                        break;
+                                    case listUnits:
+                                        System.out.println(
+                                                "\t"
+                                                        + unit.replace("/", "\t")
+                                                                .replaceFirst("-", "\t")
+                                                        + "\t"
+                                                        + locale);
+                                        break;
+                                }
+                                seen.add(unit);
+                            }
+                        }
+                        break;
+                    }
+                case getDigits:
+                    {
+                        getDigits(cldrFile);
+                        break;
+                    }
             }
         }
         System.out.println();
@@ -160,8 +198,15 @@ public class ListUnits {
         Set<String> seen = new HashSet<>();
         seen.add(numberSystem);
         Pair<UnicodeSet, UnicodeSet> main = getCharacters(cldrFile, numberSystem);
-        System.out.println("\tdefault: " + numberSystem + ", " + main.getFirst().toPattern(false) + ", " + main.getSecond().toPattern(false));
-        for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/otherNumberingSystems"); it.hasNext();) {
+        System.out.println(
+                "\tdefault: "
+                        + numberSystem
+                        + ", "
+                        + main.getFirst().toPattern(false)
+                        + ", "
+                        + main.getSecond().toPattern(false));
+        for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/otherNumberingSystems");
+                it.hasNext(); ) {
             String path = it.next();
             String otherNumberingSystem = cldrFile.getWinningValue(path);
             if (seen.contains(otherNumberingSystem)) {
@@ -169,23 +214,30 @@ public class ListUnits {
             }
             seen.add(otherNumberingSystem);
             main = getCharacters(cldrFile, otherNumberingSystem);
-            System.out.println("\tother: " + otherNumberingSystem
-                + ", " + main.getFirst().toPattern(false) + "\t" + main.getSecond().toPattern(false));
+            System.out.println(
+                    "\tother: "
+                            + otherNumberingSystem
+                            + ", "
+                            + main.getFirst().toPattern(false)
+                            + "\t"
+                            + main.getSecond().toPattern(false));
         }
     }
 
-    private static Pair<UnicodeSet, UnicodeSet> getCharacters(CLDRFile cldrFileToCheck, String numberSystem) {
+    private static Pair<UnicodeSet, UnicodeSet> getCharacters(
+            CLDRFile cldrFileToCheck, String numberSystem) {
         String digitString = SUPP.getDigits(numberSystem);
-        UnicodeSet digits = digitString == null ? UnicodeSet.EMPTY : new UnicodeSet().addAll(digitString);
+        UnicodeSet digits =
+                digitString == null ? UnicodeSet.EMPTY : new UnicodeSet().addAll(digitString);
 
         UnicodeSet punctuation = new UnicodeSet();
         Set<String> errors = new LinkedHashSet<>();
         add(cldrFileToCheck, "decimal", numberSystem, punctuation, errors);
-        //add(cldrFileToCheck, "exponential", numberSystem, punctuation, errors);
+        // add(cldrFileToCheck, "exponential", numberSystem, punctuation, errors);
         add(cldrFileToCheck, "group", numberSystem, punctuation, errors);
-        //add(cldrFileToCheck, "infinity", numberSystem, punctuation, errors);
+        // add(cldrFileToCheck, "infinity", numberSystem, punctuation, errors);
         add(cldrFileToCheck, "minusSign", numberSystem, punctuation, errors);
-        //add(cldrFileToCheck, "nan", numberSystem, punctuation, errors);
+        // add(cldrFileToCheck, "nan", numberSystem, punctuation, errors);
         add(cldrFileToCheck, "list", numberSystem, punctuation, errors);
         add(cldrFileToCheck, "percentSign", numberSystem, punctuation, errors);
         add(cldrFileToCheck, "perMille", numberSystem, punctuation, errors);
@@ -198,7 +250,12 @@ public class ListUnits {
         return Pair.of(digits, punctuation);
     }
 
-    private static void add(CLDRFile cldrFileToCheck, String subtype, String numberSystem, UnicodeSet punctuation, Set<String> errors) {
+    private static void add(
+            CLDRFile cldrFileToCheck,
+            String subtype,
+            String numberSystem,
+            UnicodeSet punctuation,
+            Set<String> errors) {
         final String result = getSymbolString(cldrFileToCheck, subtype, numberSystem);
         if (result == null) {
             errors.add(subtype);
@@ -208,7 +265,8 @@ public class ListUnits {
     }
 
     private static String getSymbolString(CLDRFile cldrFile, String key, String numsys) {
-        return cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
+        return cldrFile.getWinningValue(
+                "//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
     }
 
     static final class Data {
@@ -222,10 +280,7 @@ public class ListUnits {
 
         @Override
         public String toString() {
-            return "locale=en"
-                + " ; action=add"
-                + " ; new_path=" + path
-                + " ; new_value=" + value;
+            return "locale=en" + " ; action=add" + " ; new_path=" + path + " ; new_value=" + value;
         }
     }
 

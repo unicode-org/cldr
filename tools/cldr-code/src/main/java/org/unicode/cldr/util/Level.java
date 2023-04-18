@@ -1,15 +1,14 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSortedSet;
 import java.util.Locale;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSortedSet;
-
 /**
- * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
+ * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in
+ * the future.
  *
  * @author davis
- *
  */
 public enum Level {
     UNDETERMINED(0, "none", 0, "�"),
@@ -19,14 +18,12 @@ public enum Level {
     MODERN(80, "G1", 50, "🄼"),
     COMPREHENSIVE(100, "G0", 2, "🄲");
 
-    public static final Set<Level> CORE_TO_MODERN = ImmutableSortedSet.of(CORE, BASIC, MODERATE, MODERN);
+    public static final Set<Level> CORE_TO_MODERN =
+            ImmutableSortedSet.of(CORE, BASIC, MODERATE, MODERN);
 
-    @Deprecated
-    public static final Level POSIX = BASIC;
-    @Deprecated
-    public static final Level MINIMAL = BASIC;
-    @Deprecated
-    public static final Level OPTIONAL = COMPREHENSIVE;
+    @Deprecated public static final Level POSIX = BASIC;
+    @Deprecated public static final Level MINIMAL = BASIC;
+    @Deprecated public static final Level OPTIONAL = COMPREHENSIVE;
 
     private final byte level;
     private final String altName;
@@ -130,8 +127,8 @@ public enum Level {
     }
 
     /**
-     * Return the minimum level between two
-     * For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     * Return the minimum level between two For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     *
      * @param a
      * @param b
      * @return level with the minimal getLevel() value
@@ -141,8 +138,8 @@ public enum Level {
     }
 
     /**
-     * Return the maximum level between two
-     * For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     * Return the maximum level between two For example, Level.min(COMPREHENSIVE, MODERN) = MODERN
+     *
      * @param a
      * @param b
      * @return level with the minimal getLevel() value
@@ -162,8 +159,8 @@ public enum Level {
     }
 
     /**
-     * Returns true if this is at least the other level.
-     * Example:  lev.isAtLeast(Level.MODERN)
+     * Returns true if this is at least the other level. Example: lev.isAtLeast(Level.MODERN)
+     *
      * @param other
      * @return
      */

@@ -1,11 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.MessageFormat;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,26 +25,28 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.MessageFormat;
-
-@CLDRTool(alias = "langdata", description = "Generate a list of ISO639 language data. Use '--en' to build en.xml.")
+@CLDRTool(
+        alias = "langdata",
+        description = "Generate a list of ISO639 language data. Use '--en' to build en.xml.")
 public class GenerateLanguageData {
     // static StandardCodes sc = StandardCodes.make();
-    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalData =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static Iso639Data iso639Data = new Iso639Data();
 
     public static void main(String[] args) throws IOException {
-        MessageFormat nameFmt = new MessageFormat("{0,plural, one{# other name} other{# other names}}");
+        MessageFormat nameFmt =
+                new MessageFormat("{0,plural, one{# other name} other{# other names}}");
         Set<String> bcp47languages = StandardCodes.make().getAvailableCodes("language");
 
         if (args.length > 0 && args[0].equals("--en")) {
             CLDRConfig cldrConfig = CLDRConfig.getInstance();
-            XPathParts xpp = new XPathParts()
-                .addElement(LDMLConstants.LDML)
-                .addElement(LDMLConstants.LDN)
-                .addElement(LDMLConstants.LANGUAGES)
-                .addElement(LDMLConstants.LANGUAGE);
+            XPathParts xpp =
+                    new XPathParts()
+                            .addElement(LDMLConstants.LDML)
+                            .addElement(LDMLConstants.LDN)
+                            .addElement(LDMLConstants.LANGUAGES)
+                            .addElement(LDMLConstants.LANGUAGE);
             // could add draft status here, ex:
             xpp.setAttribute(-1, LDMLConstants.DRAFT, DraftStatus.unconfirmed.toString());
             System.out.println("generating en.xml.. to " + CLDRPaths.GEN_DIRECTORY);
@@ -51,11 +54,18 @@ public class GenerateLanguageData {
             CLDRFile newEn = new CLDRFile(xmlSource);
             CLDRFile oldEn = cldrConfig.getEnglish();
             Set<String> all = Iso639Data.getAvailable();
-            newEn.addComment("//ldml", "by " +
-                GenerateLanguageData.class.getSimpleName() +
-                " from Iso639Data v" + Iso639Data.getVersion() + " on " + new java.util.Date()
-                + " - " + all.size() + " codes.",
-                CommentType.PREBLOCK);
+            newEn.addComment(
+                    "//ldml",
+                    "by "
+                            + GenerateLanguageData.class.getSimpleName()
+                            + " from Iso639Data v"
+                            + Iso639Data.getVersion()
+                            + " on "
+                            + new java.util.Date()
+                            + " - "
+                            + all.size()
+                            + " codes.",
+                    CommentType.PREBLOCK);
             System.out.println(all.size() + " ISO 639 codes to process");
             for (String languageCode : all) {
                 xpp.setAttribute(-1, LDMLConstants.TYPE, languageCode);
@@ -65,11 +75,8 @@ public class GenerateLanguageData {
 
                 String oldValue = oldEn.getStringValue(xpath);
 
-                if (oldValue != null &&
-                    !oldValue.equals(languageCode)) {
-                    newEn.addComment(xpath,
-                        "was already in en.xml",
-                        CommentType.LINE);
+                if (oldValue != null && !oldValue.equals(languageCode)) {
+                    newEn.addComment(xpath, "was already in en.xml", CommentType.LINE);
                 }
             }
             final String filename = newEn.getLocaleID() + ".xml";
@@ -98,20 +105,29 @@ public class GenerateLanguageData {
             // );
             for (String suffix : new TreeSet<>(suffixes)) {
                 System.out.println(
-                    languageCode
-                        + "\t" + (bcp47languages.contains(languageCode) ? "4646" : "new")
-                        + "\t" + Iso639Data.getNames(languageCode).iterator().next() // Utility.join(iso639Data.getNames(languageCode),"; ")
-                        + "\t" + suffix
-                        // + "\t" + iso639Data.getSource(suffix)
-                        + "\t" + (bcp47languages.contains(suffix) ? "4646" : "new")
-                        // + "\t" + iso639Data.getScope(suffix)
-                        // + "\t" + iso639Data.getType(suffix)
-                        + "\t" + Iso639Data.getNames(suffix).iterator().next());
+                        languageCode
+                                + "\t"
+                                + (bcp47languages.contains(languageCode) ? "4646" : "new")
+                                + "\t"
+                                + Iso639Data.getNames(languageCode)
+                                        .iterator()
+                                        .next() // Utility.join(iso639Data.getNames(languageCode),";
+                                // ")
+                                + "\t"
+                                + suffix
+                                // + "\t" + iso639Data.getSource(suffix)
+                                + "\t"
+                                + (bcp47languages.contains(suffix) ? "4646" : "new")
+                                // + "\t" + iso639Data.getScope(suffix)
+                                // + "\t" + iso639Data.getType(suffix)
+                                + "\t"
+                                + Iso639Data.getNames(suffix).iterator().next());
             }
         }
         System.out.println("All");
         // languageCodes.addAll(languageRegistryCodes);
-        Relation<String, String> type_codes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> type_codes =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String languageCode : languageCodes) {
             Scope scope = Iso639Data.getScope(languageCode);
             Type type = Iso639Data.getType(languageCode);
@@ -119,19 +135,26 @@ public class GenerateLanguageData {
             Source source = Iso639Data.getSource(languageCode);
             String prefix = Iso639Data.getMacroForEncompassed(languageCode);
             Set<String> prefixNames = prefix == null ? null : Iso639Data.getNames(prefix);
-            String prefixName = prefixNames == null || prefixNames.size() == 0 ? "" : prefixNames.iterator().next()
-                + "::\t";
+            String prefixName =
+                    prefixNames == null || prefixNames.size() == 0
+                            ? ""
+                            : prefixNames.iterator().next() + "::\t";
             String fullCode = (prefix != null ? prefix + "-" : "") + languageCode;
             String scopeString = String.valueOf(scope);
             if (Iso639Data.getEncompassedForMacro(languageCode) != null) {
                 scopeString += "*";
             }
             System.out.println(
-                fullCode
-                    + "\t" + source
-                    + "\t" + scopeString
-                    + "\t" + type
-                    + "\t" + prefixName + CldrUtility.join(names, "\t"));
+                    fullCode
+                            + "\t"
+                            + source
+                            + "\t"
+                            + scopeString
+                            + "\t"
+                            + type
+                            + "\t"
+                            + prefixName
+                            + CldrUtility.join(names, "\t"));
             type_codes.put(source + "\t" + scopeString + "\t" + type, fullCode);
         }
         for (String type : type_codes.keySet()) {

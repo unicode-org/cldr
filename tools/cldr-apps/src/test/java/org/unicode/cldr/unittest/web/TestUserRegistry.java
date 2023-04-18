@@ -1,12 +1,11 @@
 package org.unicode.cldr.unittest.web;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestUserRegistry extends TestFmwk {
     public static void main(String[] args) {
@@ -19,10 +18,9 @@ public class TestUserRegistry extends TestFmwk {
     }
 
     /**
-     * Test the ability of a user to change another user's level,
-     * especially the aspects of canSetUserLevel that depend on
-     * org.unicode.cldr.web.UserRegistry for info that isn't available to
-     * org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
+     * Test the ability of a user to change another user's level, especially the aspects of
+     * canSetUserLevel that depend on org.unicode.cldr.web.UserRegistry for info that isn't
+     * available to org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
      */
     public void TestCanSetUserLevel() {
         if (TestAll.skipIfNoDb()) return;
@@ -49,7 +47,8 @@ public class TestUserRegistry extends TestFmwk {
             errln("Can't change your own level");
         }
         if (reg.canSetUserLevel(b, a, UserRegistry.TC)) {
-            errln("Can't change the level of anyone whose current level is more privileged than yours");
+            errln(
+                    "Can't change the level of anyone whose current level is more privileged than yours");
         }
         if (reg.canSetUserLevel(b, c, UserRegistry.TC)) {
             errln("Can't change the level of someone in a different org, unless you are admin");
@@ -63,11 +62,11 @@ public class TestUserRegistry extends TestFmwk {
     }
 
     /**
-     * Test whether all organizations in UserRegistry.getOrgList are recognized
-     * by Organization.fromString
+     * Test whether all organizations in UserRegistry.getOrgList are recognized by
+     * Organization.fromString
      */
     public void TestOrgList() {
-        for (String name: UserRegistry.getOrgList()) {
+        for (String name : UserRegistry.getOrgList()) {
             try {
                 if (Organization.fromString(name) == null) {
                     errln("Organization.fromString returned null for " + name);
@@ -78,9 +77,7 @@ public class TestUserRegistry extends TestFmwk {
         }
     }
 
-    /**
-     * Test the ability of a user to vote in a locale
-     */
+    /** Test the ability of a user to vote in a locale */
     public void TestUserLocaleAuthorization() {
         if (TestAll.skipIfNoDb()) {
             return;
@@ -102,7 +99,8 @@ public class TestUserRegistry extends TestFmwk {
         locked.userlevel = UserRegistry.LOCKED;
         locked.locales = "*";
         locked.org = "Apple";
-        if (UserRegistry.countUserVoteForLocaleWhy(locked, locZ) != UserRegistry.ModifyDenial.DENY_NO_RIGHTS) {
+        if (UserRegistry.countUserVoteForLocaleWhy(locked, locZ)
+                != UserRegistry.ModifyDenial.DENY_NO_RIGHTS) {
             errln("Locked cannot vote in any locale");
         }
 
@@ -113,7 +111,8 @@ public class TestUserRegistry extends TestFmwk {
         if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locA) != null) {
             errln("Vetter can vote in their locale if it is also their org locale");
         }
-        if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locZ) != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locZ)
+                != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
             errln("Vetter can only vote in their locale");
         }
 
@@ -121,7 +120,8 @@ public class TestUserRegistry extends TestFmwk {
         vetter2.userlevel = UserRegistry.VETTER;
         vetter2.locales = "aa zh";
         vetter2.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
-        if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locA) != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locA)
+                != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
             errln("Vetter cannot vote in their locale unless it is also their org locale");
         }
         if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locZ) != null) {
@@ -133,7 +133,8 @@ public class TestUserRegistry extends TestFmwk {
         guest.locales = "aa zh";
         guest.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
         if (UserRegistry.countUserVoteForLocaleWhy(guest, locA) != null) {
-            errln("Guest can vote in one of their locales regardless of whether it is their org locale");
+            errln(
+                    "Guest can vote in one of their locales regardless of whether it is their org locale");
         }
     }
 }

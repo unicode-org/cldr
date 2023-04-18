@@ -1,7 +1,4 @@
-/**
- * Copyright (C) 2012 IBM Corporation and Others. All Rights Reserved.
- */
-
+/** Copyright (C) 2012 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 public class Stamp implements Comparable<Stamp> {
@@ -51,5 +48,4 @@ public class Stamp implements Comparable<Stamp> {
     public long current() {
         return stamp;
     }
-
 }

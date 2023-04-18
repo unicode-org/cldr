@@ -3,6 +3,7 @@
 
 package org.unicode.cldr.web;
 
+import com.ibm.icu.text.MessageFormat;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,49 +31,49 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRTool;
 
-import com.ibm.icu.text.MessageFormat;
-
-@CLDRTool(alias="subtype-to-url-map", description = "parse each of the params as a path or URL to a subtype map and check.")
+@CLDRTool(
+        alias = "subtype-to-url-map",
+        description = "parse each of the params as a path or URL to a subtype map and check.")
 public class SubtypeToURLMap {
     static final Logger logger = SurveyLog.forClass(SubtypeToURLMap.class);
     /**
      * Little tool for validating input data.
+     *
      * @param args list of files to validate, if empty runs against default data.
      * @throws IOException
      * @throws FileNotFoundException
      */
-     public static void main(String args[]) throws FileNotFoundException, IOException {
-        if(args.length == 0) {
-            System.err.println("Usage: SubtypeToURLMap (url or file path). The default map is " + DEFAULT_URL);
+    public static void main(String args[]) throws FileNotFoundException, IOException {
+        if (args.length == 0) {
+            System.err.println(
+                    "Usage: SubtypeToURLMap (url or file path). The default map is " + DEFAULT_URL);
             return;
         } else {
             int problems = 0;
-            for(final String fn : args) {
+            for (final String fn : args) {
                 System.out.println("data: " + fn);
                 SubtypeToURLMap map = getInstance(new File(fn));
                 problems += map.dump();
             }
-            if(problems > 0) {
-                throw new IllegalArgumentException(MessageFormat.format("Total problem(s) found: {0} in {1} items(s)", problems, args.length));
+            if (problems > 0) {
+                throw new IllegalArgumentException(
+                        MessageFormat.format(
+                                "Total problem(s) found: {0} in {1} items(s)",
+                                problems, args.length));
             }
         }
     }
 
-    /**
-     * Map from Subtype to URL
-     */
+    /** Map from Subtype to URL */
     private Map<Subtype, String> map;
 
-    /**
-     * The set of URLs is kept as a List so the original order is retained.
-     */
+    /** The set of URLs is kept as a List so the original order is retained. */
     private List<String> urlList;
 
     public static class URLMapReader {
@@ -89,35 +90,35 @@ public class SubtypeToURLMap {
 
         void read(BufferedReader utf8Data) {
             try {
-                for(String ln; (ln=utf8Data.readLine())!=null;) {
-                    if(!handleLine(ln)) break;
+                for (String ln; (ln = utf8Data.readLine()) != null; ) {
+                    if (!handleLine(ln)) break;
                 }
                 handleComplete();
             } catch (IOException e) {
-                throw new IllegalArgumentException("Line " + lineCount + ": Could not read subtypeMapping file", e);
+                throw new IllegalArgumentException(
+                        "Line " + lineCount + ": Could not read subtypeMapping file", e);
             }
         }
 
         /**
-         *
          * @param ln
          * @return true if handled, false if done
          */
         private boolean handleLine(String ln) {
             ++lineCount;
             ln = ln.trim();
-            if(ln.isEmpty()) return true;
-            if(!started) {
-                if(ln.contains(BEGIN_MARKER)) {
+            if (ln.isEmpty()) return true;
+            if (!started) {
+                if (ln.contains(BEGIN_MARKER)) {
                     handleBegin();
                 }
                 return true;
             }
-            if(ln.contains(END_MARKER)) {
+            if (ln.contains(END_MARKER)) {
                 return handleEnd();
-            } else if(ln.isEmpty() || ln.startsWith(COMMENT)) {
+            } else if (ln.isEmpty() || ln.startsWith(COMMENT)) {
                 return true;
-            } else if(isUrl(ln)) {
+            } else if (isUrl(ln)) {
                 handleUrl(ln);
             } else {
                 handleSubtype(ln);
@@ -135,19 +136,25 @@ public class SubtypeToURLMap {
         }
 
         private void handleSubtype(String ln) {
-            for(String str : ln.split("[, ]")) {
+            for (String str : ln.split("[, ]")) {
                 str = str.trim();
-                if(str.isEmpty()) continue;
-                if(url == null) {
-                    throw new IllegalArgumentException("Line " + lineCount + ": No page URL has been found yet for " + str);
+                if (str.isEmpty()) continue;
+                if (url == null) {
+                    throw new IllegalArgumentException(
+                            "Line " + lineCount + ": No page URL has been found yet for " + str);
                 }
                 try {
                     Subtype subtype = Subtype.valueOf(str);
                     newMap.put(subtype, url);
                     subtypeLast = lineCount;
                     hadSubtype = true;
-                } catch(IllegalArgumentException iae) {
-                    throw new IllegalArgumentException("Line " + lineCount + ": No subtype named '"+str+"'. See CheckCLDR.Subtype.");
+                } catch (IllegalArgumentException iae) {
+                    throw new IllegalArgumentException(
+                            "Line "
+                                    + lineCount
+                                    + ": No subtype named '"
+                                    + str
+                                    + "'. See CheckCLDR.Subtype.");
                 }
             }
         }
@@ -163,24 +170,39 @@ public class SubtypeToURLMap {
             hadSubtype = false; // reset this
             try {
                 new java.net.URL(ln);
-            } catch(MalformedURLException mfe) {
+            } catch (MalformedURLException mfe) {
                 throw new IllegalArgumentException("Line " + lineCount + ": malformed URL: " + ln);
             }
             newList.add(ln);
         }
 
         private void handleComplete() {
-            if(started) {
-                throw new IllegalArgumentException("line " + lineCount + " - Error: No END line after line " + urlLast + ".");
+            if (started) {
+                throw new IllegalArgumentException(
+                        "line " + lineCount + " - Error: No END line after line " + urlLast + ".");
             } else if (!everStarted) {
-                throw new IllegalArgumentException("line " + lineCount + " - Error: No BEGIN line ");
+                throw new IllegalArgumentException(
+                        "line " + lineCount + " - Error: No BEGIN line ");
             }
-            if(urlCount>0 && !hadSubtype) { // had URLs, but did not end with a subtype
-                throw new IllegalArgumentException("Error: Dangling URL " + url.toString() + " from line " + urlLast + " with no subtypes. Comment out that line.");
-            } else if(subtypeLast == 0) {
-                logger.warning("SubtypeToURLMap: Warning: no subtypes specified or no BEGIN line detected.");
+            if (urlCount > 0 && !hadSubtype) { // had URLs, but did not end with a subtype
+                throw new IllegalArgumentException(
+                        "Error: Dangling URL "
+                                + url.toString()
+                                + " from line "
+                                + urlLast
+                                + " with no subtypes. Comment out that line.");
+            } else if (subtypeLast == 0) {
+                logger.warning(
+                        "SubtypeToURLMap: Warning: no subtypes specified or no BEGIN line detected.");
             } else {
-                logger.info("SubtypeToURLMap: read " + lineCount + " lines, " + urlCount + " urls and " + newMap.size() + " subtypes mapped.");
+                logger.info(
+                        "SubtypeToURLMap: read "
+                                + lineCount
+                                + " lines, "
+                                + urlCount
+                                + " urls and "
+                                + newMap.size()
+                                + " subtypes mapped.");
             }
         }
 
@@ -195,6 +217,7 @@ public class SubtypeToURLMap {
 
     /**
      * Internal constructor for
+     *
      * @param utf8Data for cleaned input data (i.e. not HTML)
      * @throws IllegalArgumentException
      */
@@ -217,24 +240,26 @@ public class SubtypeToURLMap {
 
     /**
      * Dump a subtype map to stderr.
+     *
      * @return unhandled type count, or zero
      */
     public int dump() {
         int count = 0;
-        for(final Subtype s : getHandledTypes()) {
+        for (final Subtype s : getHandledTypes()) {
             System.err.println(s + " => " + get(s));
         }
 
         System.err.println("Not Handled:");
-        for(final Subtype s : getUnhandledTypes()) {
+        for (final Subtype s : getUnhandledTypes()) {
             count++;
-            System.err.println("  " + s.name()+",");
+            System.err.println("  " + s.name() + ",");
         }
         return count;
     }
 
     /**
      * Write the URLMap to a file
+     *
      * @param pw
      * @throws IOException
      */
@@ -244,8 +269,8 @@ public class SubtypeToURLMap {
         if (getUrls() != null) {
             for (final String url : getUrls()) {
                 pw.println(url);
-                for(final Subtype type : getSubtypesForUrl(url)) {
-                    pw.println(type.name()+",");
+                for (final Subtype type : getSubtypesForUrl(url)) {
+                    pw.println(type.name() + ",");
                 }
                 pw.println();
             }
@@ -255,24 +280,25 @@ public class SubtypeToURLMap {
 
     /**
      * Get a list of the URLs, in original order
+     *
      * @return
      */
     public List<String> getUrls() {
         return urlList;
     }
-    /**
-     * get the subtypes that match a certain URL
-     */
+    /** get the subtypes that match a certain URL */
     public Set<Subtype> getSubtypesForUrl(final String url) {
         Set<Subtype> set = new TreeSet<>();
-        map.forEach((Subtype t, String s) -> {
-            if(s.equals(url)) set.add(t);
-        });
+        map.forEach(
+                (Subtype t, String s) -> {
+                    if (s.equals(url)) set.add(t);
+                });
         return set;
     }
 
     /**
      * Get the URL with more information about a subtype.
+     *
      * @param subtype the subtype to fetch
      * @return url or null
      */
@@ -282,6 +308,7 @@ public class SubtypeToURLMap {
 
     /**
      * Get the subtypes that ARE handled by this map.
+     *
      * @return
      */
     public Collection<Subtype> getHandledTypes() {
@@ -290,6 +317,7 @@ public class SubtypeToURLMap {
 
     /**
      * Get the subtypes that ARE NOT handled by this map.
+     *
      * @return
      */
     public Collection<Subtype> getUnhandledTypes() {
@@ -299,21 +327,25 @@ public class SubtypeToURLMap {
     }
 
     /**
-     * Create a set with the expected subtypes (minus 'none') in name order.
-     * The set is mutable, with the expectation that the caller may use the set
-     * for verification.
+     * Create a set with the expected subtypes (minus 'none') in name order. The set is mutable,
+     * with the expectation that the caller may use the set for verification.
+     *
      * @return
      */
     static Set<Subtype> createExpectedSubtypes() {
         return Arrays.stream(Subtype.values())
-        .filter(s -> !(s == Subtype.none)) // do not expect "none"
-        .collect(Collectors.toCollection(
-            () -> new TreeSet<>((Subtype s1, Subtype s2)->s1.name().compareTo(s2.name()))));
+                .filter(s -> !(s == Subtype.none)) // do not expect "none"
+                .collect(
+                        Collectors.toCollection(
+                                () ->
+                                        new TreeSet<>(
+                                                (Subtype s1, Subtype s2) ->
+                                                        s1.name().compareTo(s2.name()))));
     }
 
     /**
-     * Get the subtypes that are expected to be handled by this map.
-     * (i.e. minus Subtype.none)
+     * Get the subtypes that are expected to be handled by this map. (i.e. minus Subtype.none)
+     *
      * @return
      */
     public static Collection<Subtype> getExpectedSubtypes() {
@@ -324,11 +356,12 @@ public class SubtypeToURLMap {
         return new SubtypeToURLMap(bufferedReader);
     }
 
-    public static SubtypeToURLMap getInstance(final File fn) throws IOException, FileNotFoundException {
+    public static SubtypeToURLMap getInstance(final File fn)
+            throws IOException, FileNotFoundException {
         try (InputStream fis = new FileInputStream(fn);
-            InputStreamReader inputStreamReader = new InputStreamReader(fis, Charset.forName("UTF-8"));
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            ) {
+                InputStreamReader inputStreamReader =
+                        new InputStreamReader(fis, Charset.forName("UTF-8"));
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader); ) {
             return SubtypeToURLMap.getInstance(bufferedReader);
         }
     }
@@ -341,16 +374,16 @@ public class SubtypeToURLMap {
      * @throws IOException
      */
     public static SubtypeToURLMap getInstance(URL resource) throws IOException, URISyntaxException {
-        if(resource.toString().endsWith(".txt")) {
+        if (resource.toString().endsWith(".txt")) {
             // plain text
             Class<?> classes[] = {InputStream.class};
-            try (InputStream is  = (InputStream)resource.getContent(classes);
-                Reader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
-                BufferedReader br = new BufferedReader(isr);
-                ) {
+            try (InputStream is = (InputStream) resource.getContent(classes);
+                    Reader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+                    BufferedReader br = new BufferedReader(isr); ) {
                 return new SubtypeToURLMap(br);
             }
-        } else if(resource.getProtocol().equals("http") || resource.getProtocol().equals("https")) {
+        } else if (resource.getProtocol().equals("http")
+                || resource.getProtocol().equals("https")) {
 
             Document doc = Jsoup.connect(resource.toString()).get();
             SubtypeToURLMap newMap = getInstance(resource, doc);
@@ -358,8 +391,7 @@ public class SubtypeToURLMap {
         } else {
             // assume HTML to parse
             Class<?> classes[] = {InputStream.class};
-            try (InputStream is  = (InputStream)resource.getContent(classes);
-                ) {
+            try (InputStream is = (InputStream) resource.getContent(classes); ) {
                 Document doc = Jsoup.parse(is, "UTF-8", resource.toString());
                 return getInstance(resource, doc);
             }
@@ -368,30 +400,33 @@ public class SubtypeToURLMap {
 
     private static SubtypeToURLMap getInstance(URL resource, Document doc) throws IOException {
         StringBuffer sb = new StringBuffer();
-        doc.select("div p span").forEach(n ->
-            n.textNodes()
-                .forEach(tn -> sb.append(tn.text()).append('\n')));
+        doc.select("div p span")
+                .forEach(n -> n.textNodes().forEach(tn -> sb.append(tn.text()).append('\n')));
         logger.info("Read " + sb.length() + " chars from " + resource.toString());
         try (Reader sr = new StringReader(sb.toString());
-            BufferedReader br = new BufferedReader(sr);) {
+                BufferedReader br = new BufferedReader(sr); ) {
             return new SubtypeToURLMap(br);
         }
     }
+
     static final String DEFAULT_URL = "https://cldr.unicode.org/development/subtypes";
 
     private static String CACHE_SUBTYPE_FILE = "urlmap-cache.txt";
 
-    private final static class SubtypeToURLMapHelper {
+    private static final class SubtypeToURLMapHelper {
         private static final int EXPIRE_DAYS = 1;
         static CLDRCacheDir cacheDir = CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.urlmap);
         static File cacheFile = getCacheFile();
+
         private static File getCacheFile() {
             return new File(cacheDir.getEmptyDir(), CACHE_SUBTYPE_FILE);
         }
+
         static SubtypeToURLMap INSTANCE = make(); // not final, may be reloaded.
+
         static SubtypeToURLMap make() {
             SubtypeToURLMap map = null;
-            if(cacheFile.canRead()) {
+            if (cacheFile.canRead()) {
                 Instant fileDate = Instant.ofEpochMilli(cacheFile.lastModified());
                 Instant staleAfter = getExpirationDate();
                 // after 1 day, try to reload the file.
@@ -399,13 +434,15 @@ public class SubtypeToURLMap {
                 try {
                     map = getInstance(cacheFile);
                     logger.info(" Read " + cacheFile.getAbsolutePath() + " - date " + fileDate);
-                    if(fileDate.isAfter(staleAfter)) {
+                    if (fileDate.isAfter(staleAfter)) {
                         System.err.println("Cache file stale, will try to reload");
                     } else {
                         return map;
                     }
                 } catch (IOException ioe) {
-                    System.err.println("Could not initialize SubtypeToURLMap from file " + cacheFile.getAbsolutePath());
+                    System.err.println(
+                            "Could not initialize SubtypeToURLMap from file "
+                                    + cacheFile.getAbsolutePath());
                 }
             }
             try {
@@ -414,7 +451,11 @@ public class SubtypeToURLMap {
                 // now, write out the cache
                 writeToCache(map);
             } catch (IllegalArgumentException | IOException | URISyntaxException e) {
-                logger.warning("Could not initialize SubtypeToURLMap: " + e + " for URL " + getDefaultUrl());
+                logger.warning(
+                        "Could not initialize SubtypeToURLMap: "
+                                + e
+                                + " for URL "
+                                + getDefaultUrl());
                 e.printStackTrace();
                 // If we loaded the cache file, we will still use it.
                 if (map == null) {
@@ -426,16 +467,18 @@ public class SubtypeToURLMap {
         }
         /**
          * The date before which a cache's contents are invalid.
+         *
          * @return
          */
         private static Instant getExpirationDate() {
             return cacheDir.getType().getLatestGoodInstant(EXPIRE_DAYS);
         }
+
         private static void writeToCache(SubtypeToURLMap map) {
             try (PrintWriter pw = new PrintWriter(cacheFile, StandardCharsets.UTF_8.name())) {
                 map.write(pw);
                 System.out.println("Updated cachefile " + cacheFile.getAbsolutePath());
-            } catch ( IOException ioe ) {
+            } catch (IOException ioe) {
                 ioe.printStackTrace();
                 System.err.println("Error trying to update cachefile: " + ioe);
             }
@@ -444,6 +487,7 @@ public class SubtypeToURLMap {
 
     /**
      * Fetch the URL used for the default map
+     *
      * @return
      */
     public static String getDefaultUrl() {
@@ -451,6 +495,7 @@ public class SubtypeToURLMap {
     }
     /**
      * Get the default instance.
+     *
      * @return
      */
     public static final SubtypeToURLMap getInstance() {
@@ -458,7 +503,7 @@ public class SubtypeToURLMap {
     }
 
     public static String forSubtype(Subtype subtype) {
-        if(SubtypeToURLMapHelper.INSTANCE == null) return null;
+        if (SubtypeToURLMapHelper.INSTANCE == null) return null;
         return SubtypeToURLMapHelper.INSTANCE.get(subtype);
     }
 

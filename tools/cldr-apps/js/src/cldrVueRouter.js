@@ -1,9 +1,9 @@
 // Note: the order of imports is important here. Possibly a race condition in globals inside some of the .js files.
 import { createApp } from "vue";
-import {  notification } from "ant-design-vue";
+import { notification } from "ant-design-vue";
 import { specialToComponent } from "./specialToComponentMap";
 import { getCldrOpts } from "./getCldrOpts";
-import { setupComponents} from './setupComponents';
+import { setupComponents } from "./setupComponents";
 
 /**
  * The App created and mounted most recently. For .unmount …

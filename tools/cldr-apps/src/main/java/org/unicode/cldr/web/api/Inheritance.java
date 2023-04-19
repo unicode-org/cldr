@@ -117,6 +117,7 @@ public class Inheritance {
     public static final class LocaleInheritance {
         public String xpath;
         public String locale;
+        public String xpathFull;
         public LocaleInheritanceInfo.Reason reason;
 
         public LocaleInheritance(LocaleInheritanceInfo info) {
@@ -128,6 +129,7 @@ public class Inheritance {
             } else {
                 this.xpath = null;
             }
+            this.xpathFull = x;
         }
     }
 

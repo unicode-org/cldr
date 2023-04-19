@@ -7,7 +7,6 @@ public final class LocaleInheritanceInfo {
         value("A value was present at this location"),
         codefallback("This value represents an implicit value per spec"),
         itemalias("An alias was found at this location"),
-        none("No value was found"),
         constructed("This xpath contributes to a constructed (fallback) value"),
         novalue("The value was not found in this locale."),
         inheritancemarker("An inheritance marker ↑↑↑ was found here"),

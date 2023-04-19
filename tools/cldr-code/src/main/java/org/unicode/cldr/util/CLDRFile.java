@@ -561,7 +561,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Find out where the value was found (for resolving locales). Returns code-fallback as the location if nothing is
+     * Find out where the value was found (for resolving locales). Returns {@link XMLSource#CODE_FALLBACK_ID} as the location if nothing is
      * found
      *
      * @param distinguishedXPath
@@ -575,7 +575,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Find out where the value was found (for resolving locales). Returns code-fallback as the location if nothing is
+     * Find out where the value was found (for resolving locales). Returns {@link XMLSource#CODE_FALLBACK_ID} as the location if nothing is
      * found
      *
      * @param distinguishedXPath
@@ -2458,7 +2458,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
     }
 
+    /**
+     * Fillin value for {@link CLDRFile#getSourceLocaleID(String, Status)}
+     */
     public static class Status {
+        /**
+         * XPath where originally found. May be {@link GlossonymConstructor#PSEUDO_PATH} if the value was constructed.
+         * @see GlossonymnConstructor
+         */
         public String pathWhereFound;
 
         @Override
@@ -2582,7 +2589,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Shortcut for getting the string value for the winning path.
-     * If the winning value is an INHERITANCE_MARKER (used in survey
+     * If the winning value is an {@link CldrUtility#INHERITANCE_MARKER} (used in survey
      * tool), then the Bailey value is returned.
      *
      * @param path
@@ -2595,7 +2602,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Shortcut for getting the string value for a path.
-     * If the string value is an INHERITANCE_MARKER (used in survey
+     * If the string value is an {@link CldrUtility#INHERITANCE_MARKER} (used in survey
      * tool), then the Bailey value is returned.
      *
      * @param path
@@ -2607,12 +2614,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Shortcut for getting the string value for a path.
-     * If the string value is an INHERITANCE_MARKER (used in survey
+     * If the string value is an {@link CldrUtility#INHERITANCE_MARKER} (used in survey
      * tool), then the Bailey value is returned.
      *
      * @param path the given xpath
-     * @param pathWhereFound if not null, to be filled in with the path where the value is actually found
-     * @param localeWhereFound if not null, to be filled in with the locale where the value is actually found
+     * @param pathWhereFound if not null, to be filled in with the path where the value is actually found. May be {@link GlossonymConstructor#PSEUDO_PATH} if constructed.
+     * @param localeWhereFound if not null, to be filled in with the locale where the value is actually found. May be {@link XMLSource#CODE_FALLBACK_ID} if not in root.
      * @return the string value
      */
     public String getStringValueWithBailey(String path, Output<String> pathWhereFound, Output<String> localeWhereFound) {

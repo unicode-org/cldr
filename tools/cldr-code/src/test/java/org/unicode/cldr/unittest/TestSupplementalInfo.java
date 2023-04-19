@@ -1056,7 +1056,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             bcp47RegionData.keySet());
         bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the
         // unknown region...
-        bcp47Regions.removeAll(Iso3166Data.getRegionCodesNotForTranslation()); // skip these also
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -1767,13 +1766,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     public void TestNumberingSystemDigits() {
-
-        // Don't worry about digits from supplemental planes yet ( ICU can't
-        // handle them anyways )
-        // hanidec is the only known non codepoint order numbering system
-        // TODO: Fix so that it works properly on non-BMP digit strings.
-        String[] knownExceptions = { "brah", "cakm", "hanidec", "osma", "shrd",
-            "sora", "takr" };
+        String[] knownExceptions = {
+            "hanidec", // hanidec is not in codepoint order.
+        };
         List<String> knownExceptionList = Arrays.asList(knownExceptions);
         for (String ns : SUPPLEMENTAL.getNumericNumberingSystems()) {
             if (knownExceptionList.contains(ns)) {

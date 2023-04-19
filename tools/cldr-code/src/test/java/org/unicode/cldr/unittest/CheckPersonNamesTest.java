@@ -23,7 +23,7 @@ import com.ibm.icu.text.PersonName.NameField;
 import com.ibm.icu.text.PersonNameFormatter;
 import com.ibm.icu.text.PersonNameFormatter.Formality;
 import com.ibm.icu.text.PersonNameFormatter.Length;
-import com.ibm.icu.text.PersonNameFormatter.Options;
+import com.ibm.icu.text.PersonNameFormatter.DisplayOrder;
 import com.ibm.icu.text.PersonNameFormatter.Usage;
 import com.ibm.icu.text.SimplePersonName;
 import com.ibm.icu.text.SimplePersonName.Builder;
@@ -31,15 +31,10 @@ import com.ibm.icu.util.ULocale;
 
 public class CheckPersonNamesTest {
     /**
-     * Notes for API
-     * 1. Options should be Option (singular for enums)
+     * Old notes for API (in ICU 72), not sure which are still relevant in ICU 73
+     * 1. ....
      * 2. All classes should have toString(). Otherwise hard to debug.
-     * 3. The code has the following in  public PersonNameFormatterImpl(Locale locale, … Set<PersonNameFormatter.Options> options)
-     *        // asjust for combinations of parameters that don't make sense in practice
-     *        options.remove(PersonNameFormatter.Options.SORTING);
-     *    That breaks if the input options are immutable. It should instead not try to modify input parameters, instead use:
-     *        options = new HashSet<>(options); // or enum set
-     *        options.remove(PersonNameFormatter.Options.SORTING);
+     * 3. ...
      * 4. It would be useful for testing to have an @internal method to override the order with givenFirst or surnameFirst
      * 5. No enum constant com.ibm.icu.text.PersonName.FieldModifier.informal
      * 6. It appears that ICU isn't handling the SORTING option properly, so the test is skipping all but 1 of those per locale.
@@ -48,8 +43,6 @@ public class CheckPersonNamesTest {
     private static final Splitter DASH_SPLITTER = Splitter.on('-');
     private static final Splitter SEMI_SPLITTER = Splitter.on(';').trimResults();
     private static final Splitter COMMA_SPLITTER = Splitter.on(',').trimResults();
-
-    private static final Set<Options> SORTING_OPTION = ImmutableSet.of(Options.SORTING);
 
     public static void main(String[] args) throws IOException {
         AbstractTestLog logger = new AbstractTestLog() {
@@ -100,8 +93,7 @@ public class CheckPersonNamesTest {
             if (line.isBlank() || line.startsWith("#")) {
                 return;
             }
-            Set<Options> options = null;
-            options = new HashSet<>(Arrays.asList(Options.SORTING));
+            DisplayOrder orderOption = DisplayOrder.SORTING;
 
             Iterator<String> fields = SEMI_SPLITTER.split(line).iterator();
 
@@ -147,10 +139,10 @@ public class CheckPersonNamesTest {
                 String order = fields.next();
                 switch(order) {
                 case "sorting":
-                    options = SORTING_OPTION;
+                    orderOption = DisplayOrder.SORTING;
                     break;
                 case "n/a":
-                    options = ImmutableSet.of();
+                    orderOption = DisplayOrder.DEFAULT;
                 }
 
                 Length length = Length.valueOf(fields.next().toUpperCase(Locale.ROOT));
@@ -159,7 +151,7 @@ public class CheckPersonNamesTest {
 
                 PersonNameFormatter formatter = PersonNameFormatter.builder()
                     .setLocale(locale)
-                    .setOptions(options) // HACKed above because PNF requires mutability
+                    .setDisplayOrder(orderOption) // HACKed above because PNF requires mutability
                     .setLength(length)
                     .setUsage(usage)
                     .setFormality(formality)
@@ -168,12 +160,12 @@ public class CheckPersonNamesTest {
                 String actual = formatter.formatToString(personName);
 
                 if (!skipSameExpectedValue
-                    && !(skipAllSortingErrors && options.contains(Options.SORTING))
+                    && !(skipAllSortingErrors && orderOption==DisplayOrder.SORTING)
                     && !Objects.equals(expectedResult, actual)) {
                     testIcuPersonNames.errln(
                         locale
                         + ", " + personName.getNameLocale()
-                        + ", " + options
+                        + ", " + orderOption
                         + ", " + length
                         + ", " + usage
                         + ", " + formality
@@ -182,7 +174,7 @@ public class CheckPersonNamesTest {
                         + "\""
                         );
                     skipSameExpectedValue = true;
-                    if (options.contains(Options.SORTING)) {
+                    if (orderOption==DisplayOrder.SORTING) {
                         skipAllSortingErrors = true;
                     }
                 }

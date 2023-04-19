@@ -31,10 +31,13 @@ jobs:
             nodetr-
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
+      - name: 'Run TR link extractor (experimental)'
+        # Note: see CLDR-16526 for making this an error
+        run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)

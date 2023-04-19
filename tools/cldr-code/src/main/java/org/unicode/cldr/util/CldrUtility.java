@@ -48,6 +48,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.Chart;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
@@ -87,8 +88,10 @@ public class CldrUtility {
     public final static Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false;
-    // Constant for "∅∅∅". Indicates that a child locale has no value for a
-    // path even though a parent does.
+    /**
+     * Constant for "∅∅∅". Indicates that a child locale has no value for a
+     * path even though a parent does.
+     */
     public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
 
     /**
@@ -174,15 +177,7 @@ public class CldrUtility {
         return getPath(path, null);
     }
 
-    public static final String ANALYTICS = "<script>\n"
-        + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
-        + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
-        + "</script>\n"
-        + "<script>\n"
-        + "try {\n"
-        + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
-        + "pageTracker._trackPageview();\n"
-        + "} catch(err) {}</script>";
+    public static final String ANALYTICS = Chart.AnalyticsID.CLDR.getScript();
 
     public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] { "ar", "en", "de", "fr", "hi",
         "it", "es", "pt", "ru", "zh", "ja" }); // plus language itself
@@ -1399,7 +1394,7 @@ public class CldrUtility {
 
     private static final class CopyrightHelper {
         public static final CopyrightHelper INSTANCE = new CopyrightHelper();
-        public final String COPYRIGHT_SHORT = 
+        public final String COPYRIGHT_SHORT =
             "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc.";
     }
 
@@ -1415,7 +1410,7 @@ public class CldrUtility {
      * Returns the '## License' section in markdown.
      */
     public static String getCopyrightMarkdown() {
-        return "## License\n" + 
+        return "## License\n" +
         "\n" +
         getCopyrightShort() + "\n" +
         "[Terms of Use](http://www.unicode.org/copyright.html)\n\n" +

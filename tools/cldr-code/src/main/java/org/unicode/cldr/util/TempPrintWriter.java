@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Random;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -120,7 +123,7 @@ public class TempPrintWriter extends Writer {
             System.out.println(" File1: '" + lines[0].substring(0,diff) + "', '" + lines[0].substring(diff) + "'");
             System.out.println(" File2: '" + lines[1].substring(0,diff) + "', '" + lines[1].substring(diff) + "'");
         }
-        new File(newFile).renameTo(oldFile2);
+        Files.move(Path.of(newFile), oldFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);
         return true;
     }
 
@@ -182,7 +185,7 @@ public class TempPrintWriter extends Writer {
             if (line1.startsWith("# Date")) {
                 continue;
             }
-            if (skipCopyright && (line1.startsWith("# Copyright") || (line1.trim().startsWith("<!--") && line1.contains("Copyright")))) {
+            if (skipCopyright && (line1.startsWith("# Copyright") || line1.contains("Copyright ©"))) {
                 continue;
             }
             if (line1.startsWith("<p><b>Date:</b>")) {

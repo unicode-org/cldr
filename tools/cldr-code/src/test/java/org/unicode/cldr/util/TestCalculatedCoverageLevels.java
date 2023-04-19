@@ -40,7 +40,6 @@ public class TestCalculatedCoverageLevels {
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("allLocales")
-    @Test
     @Disabled
     /**
      * Test compares coverage level to the Locales.txt goals.

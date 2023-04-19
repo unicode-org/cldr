@@ -11,7 +11,7 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumSet;
@@ -31,6 +31,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -46,6 +49,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
@@ -249,7 +253,7 @@ public class GenerateSidewaysView {
             String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
                 out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header)
-                    + "</th></tr>");
+                + "</th></tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));
@@ -275,11 +279,11 @@ public class GenerateSidewaysView {
                 out.println("<tr><th" + valueClass + ">" + DataShower.getPrettyValue(value) + "</th><td class='td'>");
                 tsvFile.print(
                     path.getSection()
-                        + "\t" + path.getPage()
-                        + "\t" + path.getHeader()
-                        + "\t" + path.getCode()
-                        + "\t" + value
-                        + "\t");
+                    + "\t" + path.getPage()
+                    + "\t" + path.getHeader()
+                    + "\t" + path.getCode()
+                    + "\t" + value
+                    + "\t");
 
                 Set<String> locales = value_locales.get(value);
                 boolean first = true;
@@ -333,7 +337,7 @@ public class GenerateSidewaysView {
 
     private static PrintWriter showExemplars(PrintWriter out, String headerString, String pathName, String variant, String title,
         OptionalPrinter tsvFile)
-        throws IOException {
+            throws IOException {
         PathHeader ph = fixPath(pathName, null);
         String filename = getFileName2(ph, variant);
         out = start(out, filename, headerString, title, tsvFile);
@@ -493,8 +497,8 @@ public class GenerateSidewaysView {
         return ("title='U+" +
             toHTML.transform(
                 Utility.hex(item, 4, ", U+", true, new StringBuilder())
-                    + " " + UCharacter.getName(item, ", "))
-            + "'");
+                + " " + UCharacter.getName(item, ", "))
+        + "'");
     }
 
     private static void exemplarHeader(PrintWriter out, Set<String> allChars) {
@@ -711,26 +715,35 @@ public class GenerateSidewaysView {
         return pathHeaderFactory.fromPath(path);
     }
 
-    private static String removeAttributes(String xpath, Set<String> skipAttributes) {
-        XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed(); // not frozen, for removeAttributes
-        removeAttributes(parts, skipAttributes);
-        return parts.toString();
-    }
-
     /**
      *
      * @param parts
      * @param skipAttributes
      */
-    private static void removeAttributes(XPathParts parts, Set<String> skipAttributes) {
-        for (int i = 0; i < parts.size(); ++i) {
-            for (String attributeToRemove : skipAttributes) {
-                parts.removeAttribute(i, attributeToRemove);
+    private static String getValueAttributes(XPathParts parts) {
+        String element = parts.getElement(-1);
+        Collection<String> attributes = parts.getAttributeKeys(-1);
+        DtdData dtdData = parts.getDtdData();
+        StringBuilder sb = new StringBuilder();
+        for (String attributeName : attributes) {
+            if (skipSet.contains(attributeName)) {
+                continue;
+            }
+            Attribute attribute = dtdData.getAttribute(element, attributeName);
+            AttributeStatus status = attribute.getStatus();
+            switch(status) {
+            case distinguished:
+            case metadata: // skip
+                break;
+            case value: // keep
+                sb.append(attributeName + "=" + parts.getAttributeValue(-1, attributeName) + " ");
+                break;
             }
         }
+        return sb.toString();
     }
 
-    static Set<String> skipSet = new HashSet<>(Arrays.asList("draft", "alt"));
+    static final Set<String> skipSet = ImmutableSet.of("draft", "alt");
 
     static Status status = new Status();
 
@@ -750,11 +763,8 @@ public class GenerateSidewaysView {
             return value;
         }
         if (value.length() == 0) {
-            XPathParts parts = XPathParts.getFrozenInstance(fullPath).cloneAsThawed(); // not frozen, for removeAttributes
-            removeAttributes(parts, skipSet);
-            int limit = parts.size();
-            value = parts.toString(limit - 1, limit);
-            return value;
+            XPathParts parts = XPathParts.getFrozenInstance(fullPath);
+            value = getValueAttributes(parts);
         }
         return value;
     }

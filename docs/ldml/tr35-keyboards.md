@@ -1343,19 +1343,6 @@ This example shows some of the mappings for a French keyboard layout:
 
 * * *
 
-### Element: variables
-
-> <small>
->
-> Parents: [keyboard](#Element_keyboard)
->
-> Children: [import](#Element_import), [_special_](tr35.md#special), [variable](#Element_variable)
->
-> Occurrence: ?, ?
-> </small>
-
-* * *
-
 ### <a name="Element_variables" href="#Element_variables">Element: variables</a>
 
 > <small>
@@ -1699,7 +1686,7 @@ The following are additions to standard Regex syntax.
 
     `${zwnj}`
 
-    In this usage, the variable with `id="Matras"` will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If `zwnj` is a simple string, the pattern will match that string at this point.
+    In this usage, the variable with `id="zwnj"` will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If `zwnj` is a simple string, the pattern will match that string at this point.
 
 - **Set variables**
 

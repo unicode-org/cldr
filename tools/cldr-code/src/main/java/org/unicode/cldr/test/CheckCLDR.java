@@ -68,7 +68,7 @@ import org.unicode.cldr.util.VoteResolver.Status;
 public abstract class CheckCLDR implements CheckAccessor {
 
     public static final boolean LIMITED_SUBMISSION =
-            true; // TODO: CLDR-13337: represent differently
+            false; // TODO: CLDR-13337: represent differently
 
     private static CLDRFile displayInformation;
 

@@ -25,6 +25,8 @@ import org.unicode.cldr.util.VoterReportStatus.ReportId;
  * This class manages the Limited Submission process.
  *
  * <p>TODO: see https://unicode-org.atlassian.net/browse/CLDR-15230 for TODOs here
+ *
+ * @see CheckCLDR#LIMITED_SUBMISSION
  */
 public final class SubmissionLocales {
     // TODO:  On the use of Locales.txt here, see
@@ -176,13 +178,14 @@ public final class SubmissionLocales {
     }
 
     /**
-     * Only call this if LIMITED_SUBMISSION
+     * Only call this if {@link CheckCLDR#LIMITED_SUBMISSION}
      *
      * @param localeString
      * @param path
      * @param isError
      * @param isMissing
      * @return true if submission is allowed, else false
+     * @see CheckCLDR#LIMITED_SUBMISSION
      */
     public static boolean allowEvenIfLimited(
             String localeString, String path, boolean isError, boolean isMissing) {

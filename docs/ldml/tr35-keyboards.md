@@ -1512,13 +1512,14 @@ A `transformGroup` represents a set of transform elements or reorder elements.
 
 Each `transformGroup` is processed entirely before proceeding to the next one.
 
+
+Each `transformGroup` element, after imports are processed, must have either [reorder](#Element_reorder) elements or [transform](#Element_transform) elements, but not both. The `<transformGroup>` element may not be empty.
+
 **Examples**
 
-Each `transformGroup` element must have **one** of the following three forms. It is not allowed to have an empty `<transformGroup>` element.
+#### Example: `transformGroup` with only `import` elements
 
-#### Form 1: `transformGroup`: import-only
-
-This is a `transformGroup` that consists only of [`import`](#element-import) elements. No other elements are allowed, with the exception of [`special`](tr35.md#special). With this form, only `transform` OR `reorder` elements may be imported by all import statements, but not both.
+This is a `transformGroup` that consists only of [`import`](#element-import) elements.  With this form, only `transform` OR `reorder` elements may be imported by all import statements, but not both.
 
 ```xml
 <transformGroup>
@@ -1528,7 +1529,7 @@ This is a `transformGroup` that consists only of [`import`](#element-import) ele
 ```
 
 
-#### Form 2: `transformGroup`: transform
+#### Example: `transformGroup` with `transform` elements
 
 This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, prefaced by one or more `import` elements. See the discussion of those elements for details.
 
@@ -1541,7 +1542,7 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 ```
 
 
-#### Form 3: `transformGroup`: reorder
+#### Example: `transformGroup` with `reorder` elements
 
 This is a `transformGroup` that consists of one or more [`reorder`](#element-reorder) elements, prefaced by one or more `import` elements. See the discussion of those elements for details.
 
@@ -1549,7 +1550,7 @@ This is a `transformGroup` that consists of one or more [`reorder`](#element-reo
 <transformGroup>
     <import path="..."/> <!-- zero or more optional import elements-->
     <reorder ... />
-    <!-- any other <reorder> elements -->
+    <!-- other <reorder> elements -->
 </transformGroup>
 ```
 

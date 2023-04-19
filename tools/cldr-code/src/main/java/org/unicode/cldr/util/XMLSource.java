@@ -593,7 +593,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             } else {
                 list.add(
                         new LocaleInheritanceInfo(
-                                locale, path, LocaleInheritanceInfo.Reason.none)); // not found
+                                locale, path, LocaleInheritanceInfo.Reason.novalue)); // not found
             }
         }
         return locale;

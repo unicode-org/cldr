@@ -3,11 +3,10 @@ package org.unicode.cldr.web;
 import org.unicode.cldr.util.CLDRLocale;
 
 /**
- * TODO: this object exists just to capture the following code from the
- * being-removed Vetting object.
+ * TODO: this object exists just to capture the following code from the being-removed Vetting
+ * object.
  *
  * @author srl
- *
  */
 public class DisputePageManager {
     static void doDisputed(WebContext ctx) {

@@ -7,24 +7,24 @@
  */
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CompactStringByteConverter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StringByteConverter;
 import org.unicode.cldr.util.Utf8StringByteConverter;
 
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.UnicodeSet;
-
 public class TestStringByteConverter {
     static Random random = new Random(0);
 
     enum Type {
-        utf8, normal, compact
+        utf8,
+        normal,
+        compact
     };
 
     public static void main(String[] args) throws IOException {
@@ -60,15 +60,19 @@ public class TestStringByteConverter {
             checkUtf8(test);
         }
 
-        UnicodeSet repertoire = new UnicodeSet(
-            "[[\\u0000-\\u03FF]&[:script=Greek:]]");
+        UnicodeSet repertoire = new UnicodeSet("[[\\u0000-\\u03FF]&[:script=Greek:]]");
         for (int i = 0; i < 100; ++i) {
             String test = getRandomString(1, 6, repertoire);
             testString(test);
         }
         System.out.println("Bigger is better");
-        System.out.println("el rand utf8/comp: " + totalUtf8Bytes + "/"
-            + totalBytes + " = " + (totalUtf8Bytes / (double) totalBytes));
+        System.out.println(
+                "el rand utf8/comp: "
+                        + totalUtf8Bytes
+                        + "/"
+                        + totalBytes
+                        + " = "
+                        + (totalUtf8Bytes / (double) totalBytes));
         System.out.println();
 
         testWithLocale("en");
@@ -92,11 +96,9 @@ public class TestStringByteConverter {
         System.out.println();
     }
 
-    private static void testWithLocale(String locale, Type type)
-        throws IOException {
+    private static void testWithLocale(String locale, Type type) throws IOException {
         totalUtf8Bytes = totalBytes = 0;
-        Factory cldrFactory = Factory.make(
-            org.unicode.cldr.util.CLDRPaths.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(org.unicode.cldr.util.CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile file = cldrFactory.make(locale, false);
         for (String path : file) {
             if (path.contains("exemplarCh")) {
@@ -105,9 +107,16 @@ public class TestStringByteConverter {
             String value = file.getStringValue(path);
             testString(value, type);
         }
-        System.out.println(locale + "\t" + type + "\tutf8/comp: "
-            + totalUtf8Bytes + "/" + totalBytes + " = "
-            + (totalUtf8Bytes / (double) totalBytes));
+        System.out.println(
+                locale
+                        + "\t"
+                        + type
+                        + "\tutf8/comp: "
+                        + totalUtf8Bytes
+                        + "/"
+                        + totalBytes
+                        + " = "
+                        + (totalUtf8Bytes / (double) totalBytes));
     }
 
     static int counter = 1;
@@ -117,12 +126,14 @@ public class TestStringByteConverter {
         byte[] bytes = new byte[2000];
         byte[] bytes2 = new byte[4];
         if (CompactStringByteConverter.DEBUG) {
-            System.out.println(counter++ + ": " + Utility.hex(test) + ", \t"
-                + test);
+            System.out.println(counter++ + ": " + Utility.hex(test) + ", \t" + test);
         }
-        StringByteConverter byteString = type == Type.utf8 ? new Utf8StringByteConverter()
-            : type == Type.normal ? new CompactStringByteConverter(false)
-                : new CompactStringByteConverter(true);
+        StringByteConverter byteString =
+                type == Type.utf8
+                        ? new Utf8StringByteConverter()
+                        : type == Type.normal
+                                ? new CompactStringByteConverter(false)
+                                : new CompactStringByteConverter(true);
         int byteLen = byteString.toBytes(test, bytes, 0);
 
         // verify that incremental gets the same results
@@ -130,14 +141,19 @@ public class TestStringByteConverter {
         int lastPosition = 0;
         for (int i = 0; i < test.length(); ++i) {
             int byteCount = byteString.toBytes(test.charAt(i), bytes2, 0);
-            if (byteCount == 0)
-                break;
+            if (byteCount == 0) break;
             for (int j = 0; j < byteCount; ++j) {
                 if (bytes2[j] != bytes[lastPosition + j]) {
-                    throw new IllegalArgumentException("Fails incremental: <"
-                        + Utility.hex(test) + ">, <" + (lastPosition + j)
-                        + ">, <" + bytes[lastPosition + j] + ">, <"
-                        + bytes2[j] + ">");
+                    throw new IllegalArgumentException(
+                            "Fails incremental: <"
+                                    + Utility.hex(test)
+                                    + ">, <"
+                                    + (lastPosition + j)
+                                    + ">, <"
+                                    + bytes[lastPosition + j]
+                                    + ">, <"
+                                    + bytes2[j]
+                                    + ">");
                 }
             }
             lastPosition += byteCount;
@@ -155,8 +171,8 @@ public class TestStringByteConverter {
         StringBuilder chars = new StringBuilder();
         byteString.fromBytes(bytes, 0, byteLen, chars);
         if (!test.equals(chars.toString())) {
-            throw new IllegalArgumentException("Fails: <" + Utility.hex(test)
-                + ">, <" + chars + ">");
+            throw new IllegalArgumentException(
+                    "Fails: <" + Utility.hex(test) + ">, <" + chars + ">");
         }
     }
 
@@ -171,9 +187,14 @@ public class TestStringByteConverter {
         for (int i = 0; i < len; ++i) {
             if (output1[i] != output2[i]) {
                 conv.toBytes(test, output1, 0);
-                System.out.println(Utility.hex(test) + "\t" + i + "\t"
-                    + Utility.hex(output1[i] & 0xFF, 2) + "\t"
-                    + Utility.hex(output2[i] & 0xFF, 2));
+                System.out.println(
+                        Utility.hex(test)
+                                + "\t"
+                                + i
+                                + "\t"
+                                + Utility.hex(output1[i] & 0xFF, 2)
+                                + "\t"
+                                + Utility.hex(output2[i] & 0xFF, 2));
                 throw new IllegalArgumentException("Fails: byte");
             }
         }
@@ -196,31 +217,29 @@ public class TestStringByteConverter {
             String test2 = new String(Character.toChars(test));
             byte[] utf8bytes = test2.getBytes("utf-8");
             if (CompactStringByteConverter.DEBUG) {
-                System.out.println("\tutf: "
-                    + hex(utf8bytes, 0, utf8bytes.length, " "));
+                System.out.println("\tutf: " + hex(utf8bytes, 0, utf8bytes.length, " "));
             }
         }
     }
 
-    private static void testInt(int test, boolean unsigned)
-        throws UnsupportedEncodingException {
+    private static void testInt(int test, boolean unsigned) throws UnsupportedEncodingException {
         byte[] bytes = new byte[1000];
         int[] ioBytePosition = new int[1];
-        int len = unsigned ? CompactStringByteConverter.writeUnsignedInt(test,
-            bytes, 0) : CompactStringByteConverter.writeInt(test, bytes, 0);
+        int len =
+                unsigned
+                        ? CompactStringByteConverter.writeUnsignedInt(test, bytes, 0)
+                        : CompactStringByteConverter.writeInt(test, bytes, 0);
         if (CompactStringByteConverter.DEBUG) {
-            System.out.println("\tcm" + (unsigned ? "u" : "s") + ": "
-                + hex(bytes, 0, len, " "));
+            System.out.println("\tcm" + (unsigned ? "u" : "s") + ": " + hex(bytes, 0, len, " "));
         }
         ioBytePosition[0] = 0;
-        int retest = unsigned ? CompactStringByteConverter.readUnsignedInt(
-            bytes, ioBytePosition) : CompactStringByteConverter.readInt(
-                bytes, ioBytePosition);
+        int retest =
+                unsigned
+                        ? CompactStringByteConverter.readUnsignedInt(bytes, ioBytePosition)
+                        : CompactStringByteConverter.readInt(bytes, ioBytePosition);
         int lengthRead = ioBytePosition[0];
-        if (test != retest)
-            throw new IllegalArgumentException();
-        if (len != lengthRead)
-            throw new IllegalArgumentException();
+        if (test != retest) throw new IllegalArgumentException();
+        if (len != lengthRead) throw new IllegalArgumentException();
     }
 
     private static String hex(byte[] bytes, int start, int end, String separator) {
@@ -234,13 +253,11 @@ public class TestStringByteConverter {
         return result.toString();
     }
 
-    private static String getRandomString(int minLen, int maxLen,
-        UnicodeSet repertoire) {
+    private static String getRandomString(int minLen, int maxLen, UnicodeSet repertoire) {
         StringBuilder result = new StringBuilder();
         int len = random.nextInt(maxLen - minLen + 1) + minLen;
         for (int i = 0; i < len; ++i) {
-            result.appendCodePoint(repertoire.charAt(random.nextInt(repertoire
-                .size())));
+            result.appendCodePoint(repertoire.charAt(random.nextInt(repertoire.size())));
         }
         return result.toString();
     }

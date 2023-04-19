@@ -1,5 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.TimeZone;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -10,7 +17,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
@@ -20,33 +26,30 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.TimeZone;
-
 public class TestBCP47 extends TestFmwk {
-    private static final int WARNING = LOG; // change to WARN to enable checking for non-bcp47 attributes
+    private static final int WARNING =
+            LOG; // change to WARN to enable checking for non-bcp47 attributes
     private static final int ERROR = WARN; // change to ERR to enable test
 
     private static final CLDRConfig testInfo = CLDRConfig.getInstance();
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
+            testInfo.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
-    private static final Relation<String, String> bcp47key_types = SUPPLEMENTAL_DATA_INFO.getBcp47Keys();
-    private static final Relation<R2<String, String>, String> bcp47keyType_aliases = SUPPLEMENTAL_DATA_INFO.getBcp47Aliases();
-    private static final Map<R2<String, String>, String> deprecated = SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
+    private static final Relation<String, String> bcp47key_types =
+            SUPPLEMENTAL_DATA_INFO.getBcp47Keys();
+    private static final Relation<R2<String, String>, String> bcp47keyType_aliases =
+            SUPPLEMENTAL_DATA_INFO.getBcp47Aliases();
+    private static final Map<R2<String, String>, String> deprecated =
+            SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
 
     public static void main(String[] args) {
         new TestBCP47().run(args);
     }
 
-    private static final ChainedMap.M3<String, String, String> keyTypeTranslations = ChainedMap.of(
-        new TreeMap<String, Object>(),
-        new TreeMap<String, Object>(),
-        String.class);
+    private static final ChainedMap.M3<String, String, String> keyTypeTranslations =
+            ChainedMap.of(
+                    new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+
     static {
         for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/keys/key"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -61,7 +64,10 @@ public class TestBCP47 extends TestFmwk {
             String type = parts.getAttributeValue(-1, "type");
             keyTypeTranslations.put(key, type, value);
         }
-        for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/transformNames/transformName"))) {
+        for (String path :
+                With.in(
+                        ENGLISH.iterator(
+                                "//ldml/localeDisplayNames/transformNames/transformName"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String type = parts.getAttributeValue(-1, "type");
@@ -70,11 +76,12 @@ public class TestBCP47 extends TestFmwk {
     }
 
     public void TestEnglishKeyTranslations() {
-        logKnownIssue("cldr7631", "Using just warnings for now, until issues are resolved. Change WARNING/ERROR when removing this.");
-        ChainedMap.M3<String, String, String> foundEnglish = ChainedMap.of(
-            new TreeMap<String, Object>(),
-            new TreeMap<String, Object>(),
-            String.class);
+        logKnownIssue(
+                "cldr7631",
+                "Using just warnings for now, until issues are resolved. Change WARNING/ERROR when removing this.");
+        ChainedMap.M3<String, String, String> foundEnglish =
+                ChainedMap.of(
+                        new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
         for (String bcp47Key : bcp47key_types.keySet()) {
             final R2<String, String> keyRow = Row.of(bcp47Key, "");
             if ("true".equals(deprecated.get(keyRow))) {
@@ -82,7 +89,9 @@ public class TestBCP47 extends TestFmwk {
                 continue;
             }
             String keyTrans = keyTypeTranslations.get(bcp47Key, "");
-            Set<String> keyAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(keyRow), Collections.<String> emptySet());
+            Set<String> keyAliases =
+                    CldrUtility.ifNull(
+                            bcp47keyType_aliases.get(keyRow), Collections.<String>emptySet());
             String engKey = bcp47Key;
             if (keyTrans != null) {
                 foundEnglish.put(engKey, "", keyTrans);
@@ -92,16 +101,39 @@ public class TestBCP47 extends TestFmwk {
                     if (keyTrans != null) {
                         engKey = keyAlias;
                         foundEnglish.put(engKey, "", keyTrans);
-                        msg("Type for English 'key' translation is " + engKey + ", while bcp47 is " + bcp47Key, WARNING, true, true);
+                        msg(
+                                "Type for English 'key' translation is "
+                                        + engKey
+                                        + ", while bcp47 is "
+                                        + bcp47Key,
+                                WARNING,
+                                true,
+                                true);
                         break;
                     }
                 }
             }
             if (keyTrans != null) {
-                logln(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String> emptySet(), keyTrans));
+                logln(
+                        showData(
+                                bcp47Key,
+                                "",
+                                SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow),
+                                keyAliases,
+                                Collections.<String>emptySet(),
+                                keyTrans));
             } else {
-                msg(showData(bcp47Key, "", SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow), keyAliases, Collections.<String> emptySet(), "MISSING"),
-                    ERROR, true, true);
+                msg(
+                        showData(
+                                bcp47Key,
+                                "",
+                                SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow),
+                                keyAliases,
+                                Collections.<String>emptySet(),
+                                "MISSING"),
+                        ERROR,
+                        true,
+                        true);
             }
             if (bcp47Key.equals("tz")) {
                 continue;
@@ -110,7 +142,8 @@ public class TestBCP47 extends TestFmwk {
             for (String bcp47Type : bcp47key_types.get(bcp47Key)) {
                 checkKeyType(bcp47Key, keyAliases, engKey, bcp47Type, foundEnglish);
                 if (bcp47Type.equals("REORDER_CODE")) {
-                    for (String subtype : Arrays.asList("space", "punct", "symbol", "currency", "digit")) {
+                    for (String subtype :
+                            Arrays.asList("space", "punct", "symbol", "currency", "digit")) {
                         checkKeyType(bcp47Key, keyAliases, engKey, subtype, foundEnglish);
                     }
                 }
@@ -122,24 +155,51 @@ public class TestBCP47 extends TestFmwk {
             final String trans = extra.get2();
             if (foundEnglish.get(key, type) == null) {
                 if (key.equals("x")) {
-                    msg("OK Extra English: " + showData(key, type, "MISSING", Collections.<String> emptySet(), Collections.<String> emptySet(), trans), LOG,
-                        true, true);
+                    msg(
+                            "OK Extra English: "
+                                    + showData(
+                                            key,
+                                            type,
+                                            "MISSING",
+                                            Collections.<String>emptySet(),
+                                            Collections.<String>emptySet(),
+                                            trans),
+                            LOG,
+                            true,
+                            true);
                 } else {
-                    msg("*Extra English: " + showData(key, type, "MISSING", Collections.<String> emptySet(), Collections.<String> emptySet(), trans), ERROR,
-                        true, true);
+                    msg(
+                            "*Extra English: "
+                                    + showData(
+                                            key,
+                                            type,
+                                            "MISSING",
+                                            Collections.<String>emptySet(),
+                                            Collections.<String>emptySet(),
+                                            trans),
+                            ERROR,
+                            true,
+                            true);
                 }
             }
         }
     }
 
-    static final ImmutableSet<String> SKIP_TYPES = ImmutableSet.of("REORDER_CODE", "RG_KEY_VALUE", "SCRIPT_CODE", "SUBDIVISION_CODE", "CODEPOINTS", "PRIVATE_USE");
+    static final ImmutableSet<String> SKIP_TYPES =
+            ImmutableSet.of(
+                    "REORDER_CODE",
+                    "RG_KEY_VALUE",
+                    "SCRIPT_CODE",
+                    "SUBDIVISION_CODE",
+                    "CODEPOINTS",
+                    "PRIVATE_USE");
 
     private void checkKeyType(
-        String bcp47Key,
-        Set<String> keyAliases,
-        String engKey,
-        String bcp47Type,
-        ChainedMap.M3<String, String, String> foundEnglish) {
+            String bcp47Key,
+            Set<String> keyAliases,
+            String engKey,
+            String bcp47Type,
+            ChainedMap.M3<String, String, String> foundEnglish) {
         if (SKIP_TYPES.contains(bcp47Type)) {
             logln("Skipping generic key/type:\t" + bcp47Key + "/" + bcp47Type);
             return;
@@ -149,7 +209,8 @@ public class TestBCP47 extends TestFmwk {
             logln("Skipping deprecated key/type:\t" + bcp47Key + "/" + bcp47Type);
             return;
         }
-        Set<String> typeAliases = CldrUtility.ifNull(bcp47keyType_aliases.get(row), Collections.<String> emptySet());
+        Set<String> typeAliases =
+                CldrUtility.ifNull(bcp47keyType_aliases.get(row), Collections.<String>emptySet());
         String engType = bcp47Type;
         String trans = keyTypeTranslations.get(engKey, engType);
         if (trans != null) {
@@ -160,36 +221,120 @@ public class TestBCP47 extends TestFmwk {
                 if (trans != null) {
                     engType = typeAlias;
                     foundEnglish.put(engKey, engType, trans);
-                    msg("Type for English 'key+type' translation is " + engKey + "+" + engType + ", while bcp47 is " + bcp47Key + "+" + bcp47Type, WARNING,
-                        true, true);
+                    msg(
+                            "Type for English 'key+type' translation is "
+                                    + engKey
+                                    + "+"
+                                    + engType
+                                    + ", while bcp47 is "
+                                    + bcp47Key
+                                    + "+"
+                                    + bcp47Type,
+                            WARNING,
+                            true,
+                            true);
                     break;
                 }
             }
         }
         if (trans == null) {
             switch (bcp47Key) {
-            case "cu":
-                trans = ENGLISH.getStringValue("//ldml/numbers/currencies/currency[@type=\"" + bcp47Type.toUpperCase(Locale.ENGLISH) + "\"]/displayName");
-                break;
+                case "cu":
+                    trans =
+                            ENGLISH.getStringValue(
+                                    "//ldml/numbers/currencies/currency[@type=\""
+                                            + bcp47Type.toUpperCase(Locale.ENGLISH)
+                                            + "\"]/displayName");
+                    break;
             }
         }
         if (trans != null) {
-            logln(showData(bcp47Key, bcp47Type, SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(row), keyAliases, typeAliases, trans));
+            logln(
+                    showData(
+                            bcp47Key,
+                            bcp47Type,
+                            SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(row),
+                            keyAliases,
+                            typeAliases,
+                            trans));
         } else {
-            msg(showData(bcp47Key, bcp47Type, SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(row), keyAliases, typeAliases, "MISSING"), ERROR, true, true);
+            msg(
+                    showData(
+                            bcp47Key,
+                            bcp47Type,
+                            SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(row),
+                            keyAliases,
+                            typeAliases,
+                            "MISSING"),
+                    ERROR,
+                    true,
+                    true);
         }
     }
 
-    private String showData(String key, String type, String bcp47Description, Set<String> keyAliases, Set<String> typeAliases, String eng) {
-        return "key: " + key + "\taliases: " + keyAliases + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases) + "\tbcp: "
-            + bcp47Description + ",\teng: " + eng;
+    private String showData(
+            String key,
+            String type,
+            String bcp47Description,
+            Set<String> keyAliases,
+            Set<String> typeAliases,
+            String eng) {
+        return "key: "
+                + key
+                + "\taliases: "
+                + keyAliases
+                + (type.isEmpty() ? "" : "\ttype: " + type + "\taliases: " + typeAliases)
+                + "\tbcp: "
+                + bcp47Description
+                + ",\teng: "
+                + eng;
     }
 
-    static final Set<String> BOGUS_TZIDS = ImmutableSet.of(
-        "ACT", "AET", "AGT", "ART", "AST", "BET", "BST", "CAT", "CET", "CNT", "CST", "CTT", "EAT", "ECT", "EET", "Factory", "IET", "IST", "JST", "MET", "MIT",
-        "NET", "NST", "PLT", "PNT", "PRT", "PST", "SST", "SystemV/AST4", "SystemV/AST4ADT", "SystemV/CST6", "SystemV/CST6CDT", "SystemV/EST5",
-        "SystemV/EST5EDT", "SystemV/HST10", "SystemV/MST7", "SystemV/MST7MDT", "SystemV/PST8", "SystemV/PST8PDT", "SystemV/YST9", "SystemV/YST9YDT", "VST",
-        "WET");
+    static final Set<String> BOGUS_TZIDS =
+            ImmutableSet.of(
+                    "ACT",
+                    "AET",
+                    "AGT",
+                    "ART",
+                    "AST",
+                    "BET",
+                    "BST",
+                    "CAT",
+                    "CET",
+                    "CNT",
+                    "CST",
+                    "CTT",
+                    "EAT",
+                    "ECT",
+                    "EET",
+                    "Factory",
+                    "IET",
+                    "IST",
+                    "JST",
+                    "MET",
+                    "MIT",
+                    "NET",
+                    "NST",
+                    "PLT",
+                    "PNT",
+                    "PRT",
+                    "PST",
+                    "SST",
+                    "SystemV/AST4",
+                    "SystemV/AST4ADT",
+                    "SystemV/CST6",
+                    "SystemV/CST6CDT",
+                    "SystemV/EST5",
+                    "SystemV/EST5EDT",
+                    "SystemV/HST10",
+                    "SystemV/MST7",
+                    "SystemV/MST7MDT",
+                    "SystemV/PST8",
+                    "SystemV/PST8PDT",
+                    "SystemV/YST9",
+                    "SystemV/YST9YDT",
+                    "VST",
+                    "WET");
 
     public void testBcp47IdsForAllTimezoneIds() {
         Map<String, String> aliasToId = new TreeMap<>();
@@ -218,7 +363,6 @@ public class TestBCP47 extends TestFmwk {
 
         warnln("CLDR deprecated bcp47 ids: " + deprecatedBcp47s);
         warnln("CLDR deprecated tzids: " + deprecatedAliases);
-
 
         for (String tzid : TimeZone.getAvailableIDs()) {
             if (BOGUS_TZIDS.contains(tzid)) {
@@ -266,9 +410,10 @@ public class TestBCP47 extends TestFmwk {
     public void TestMu() {
         UnitConverter converter = SUPPLEMENTAL_DATA_INFO.getUnitConverter();
         Set<String> allowedUnits = converter.getSimpleUnits("temperature");
-        Set<String> allowedBcp47Units = allowedUnits.stream()
-            .map(x -> x.length() <= 8 ? x : x.substring(0,8))
-            .collect(Collectors.toUnmodifiableSet());
+        Set<String> allowedBcp47Units =
+                allowedUnits.stream()
+                        .map(x -> x.length() <= 8 ? x : x.substring(0, 8))
+                        .collect(Collectors.toUnmodifiableSet());
 
         Set<String> typesFound = new HashSet<>();
         for (String bcp47Type : bcp47key_types.get("mu")) {

@@ -1,15 +1,15 @@
 package org.unicode.cldr.draft;
 
 /**
- * Class that permits quick edits; does insertions/deletions much faster, in general, than StringBuilder. This is based
- * on the fact
- * that such changes are generally not random; instead they tend to happen more often in either nearby or successive
- * locations.
- * The structure of the class keeps 2 buffers; one for the front and one for the end.
+ * Class that permits quick edits; does insertions/deletions much faster, in general, than
+ * StringBuilder. This is based on the fact that such changes are generally not random; instead they
+ * tend to happen more often in either nearby or successive locations. The structure of the class
+ * keeps 2 buffers; one for the front and one for the end.
  *
  * @author markdavis
  */
-// TODO investigate whether keeping the future in reverse order is the right approach in terms of performance.
+// TODO investigate whether keeping the future in reverse order is the right approach in terms of
+// performance.
 public class GapString implements CharSequence {
     private static final int GROWTH_INCREMENT = 15;
     private static final int GROWTH_FACTOR = 3;
@@ -17,8 +17,7 @@ public class GapString implements CharSequence {
     private int pastLength = 0;
     private int gapLength = 10;
 
-    public GapString() {
-    }
+    public GapString() {}
 
     public GapString(CharSequence s) {
         insert(0, s);
@@ -192,7 +191,8 @@ public class GapString implements CharSequence {
         if (pastLength >= start && pastLength < end) {
             pastLength = start;
         } else {
-            // TODO There is a possible optimization, to only move enough to get to one end or the other.
+            // TODO There is a possible optimization, to only move enough to get to one end or the
+            // other.
             // However, I don't know whether it would be worth it or not: have to test.
             if (pastLength != start) {
                 shiftTo(start, 0);
@@ -261,8 +261,8 @@ public class GapString implements CharSequence {
     // ======== PRIVATES ===========
 
     /**
-     * This utility function just shifts the gap, so that it starts at newPastLength. The logical contents
-     * of the string are unchanged.
+     * This utility function just shifts the gap, so that it starts at newPastLength. The logical
+     * contents of the string are unchanged.
      */
     private void shiftTo(int newPastLength, int gapNeeded) {
         int growth = gapNeeded - gapLength;
@@ -275,17 +275,22 @@ public class GapString implements CharSequence {
             return;
         }
         if (newMinusOldPastLength > 0) {
-            System.arraycopy(buffer, pastLength + gapLength, buffer, pastLength, newMinusOldPastLength);
+            System.arraycopy(
+                    buffer, pastLength + gapLength, buffer, pastLength, newMinusOldPastLength);
         } else {
-            System.arraycopy(buffer, newPastLength, buffer, pastLength + gapLength + newMinusOldPastLength,
-                -newMinusOldPastLength);
+            System.arraycopy(
+                    buffer,
+                    newPastLength,
+                    buffer,
+                    pastLength + gapLength + newMinusOldPastLength,
+                    -newMinusOldPastLength);
         }
         pastLength = newPastLength;
     }
 
     /**
-     * This utility function just grows the gap (and thus the storage). The logical contents
-     * of the string are unchanged.
+     * This utility function just grows the gap (and thus the storage). The logical contents of the
+     * string are unchanged.
      */
     private void growToLength(int neededLength) {
         char[] temp = new char[neededLength];
@@ -296,5 +301,4 @@ public class GapString implements CharSequence {
         gapLength += neededLength - buffer.length;
         buffer = temp;
     }
-
 }

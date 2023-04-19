@@ -1,64 +1,50 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.text.PluralRules;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.text.PluralRules;
-
 public class PluralRulesUtil {
-    /**
-     * Status of the keyword for the rules, given a set of explicit values.
-     */
+    /** Status of the keyword for the rules, given a set of explicit values. */
     public enum KeywordStatus {
-        /**
-         * The keyword is not valid for the rules.
-         */
+        /** The keyword is not valid for the rules. */
         INVALID,
-        /**
-         * The keyword is valid, but unused (it is covered by the explicit values).
-         */
+        /** The keyword is valid, but unused (it is covered by the explicit values). */
         SUPPRESSED,
-        /**
-         * The keyword is valid and used, but completely covered by the explicit values.
-         */
+        /** The keyword is valid and used, but completely covered by the explicit values. */
         UNIQUE,
-        /**
-         * The keyword is valid, used, not suppressed, and has a finite set of values.
-         */
+        /** The keyword is valid, used, not suppressed, and has a finite set of values. */
         BOUNDED,
-        /**
-         * The keyword is valid but not bounded; there are indefinitely many matching values.
-         */
+        /** The keyword is valid but not bounded; there are indefinitely many matching values. */
         UNBOUNDED
     }
 
     /**
      * Find the status for the keyword, given a certain set of explicit values.
      *
-     * @param rules
-     *            the PluralRules
-     * @param keyword
-     *            the particular keyword (call rules.getKeywords() to get the valid ones)
-     * @param offset
-     *            the offset used, or 0.0d if not. Internally, the offset is subtracted from each explicit value before
-     *            checking against the keyword values.
-     * @param explicits
-     *            a set of Doubles that are used explicitly (eg [=0], "[=1]"). May be empty or null.
-     * @param integerOnly
-     *            In circumstances where the values are known to be integers, this parameter can be set to true.
-     *            Examples: "There are 3 people in..." (integerOnly=true) vs. "There are 1.2 people per household
-     *            (integerOnly=false).
-     *            This may produce different results in languages where fractions have the same format as integers for
-     *            some keywords.
+     * @param rules the PluralRules
+     * @param keyword the particular keyword (call rules.getKeywords() to get the valid ones)
+     * @param offset the offset used, or 0.0d if not. Internally, the offset is subtracted from each
+     *     explicit value before checking against the keyword values.
+     * @param explicits a set of Doubles that are used explicitly (eg [=0], "[=1]"). May be empty or
+     *     null.
+     * @param integerOnly In circumstances where the values are known to be integers, this parameter
+     *     can be set to true. Examples: "There are 3 people in..." (integerOnly=true) vs. "There
+     *     are 1.2 people per household (integerOnly=false). This may produce different results in
+     *     languages where fractions have the same format as integers for some keywords.
      * @return the KeywordStatus
-     *         <p>
-     *         NOTE: For testing, this is a static with the first parameter being the rules. Those will disappear.
+     *     <p>NOTE: For testing, this is a static with the first parameter being the rules. Those
+     *     will disappear.
      */
-    public static KeywordStatus getKeywordStatus(PluralRules rules, String keyword, int offset, Set<Double> explicits,
-        boolean integerOnly) {
+    public static KeywordStatus getKeywordStatus(
+            PluralRules rules,
+            String keyword,
+            int offset,
+            Set<Double> explicits,
+            boolean integerOnly) {
         if (!rules.getKeywords().contains(keyword)) {
             return KeywordStatus.INVALID;
         }
@@ -92,10 +78,11 @@ public class PluralRulesUtil {
     }
 
     /**
-     * Locales where 'many' is optional. TODO get ICU to add a method that determines if a plural keyword's rule
-     * is only true if the compact operand is set.
+     * Locales where 'many' is optional. TODO get ICU to add a method that determines if a plural
+     * keyword's rule is only true if the compact operand is set.
      */
-    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY = ImmutableSet.of("ca", "es", "fr", "it", "pt", "pt_PT");
+    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY =
+            ImmutableSet.of("ca", "es", "fr", "it", "pt", "pt_PT");
 
     // static final Map<String,Set<String>> locale2keywords = new HashMap<String,Set<String>>();
     // static final Map<String,PluralRules> locale2pluralRules = new HashMap<String,PluralRules>();
@@ -120,7 +107,8 @@ public class PluralRulesUtil {
     // return result;
     // }
     // }
-    // PluralInfo pluralInfo = SupplementalDataInfo.getInstance().getPlurals(SupplementalDataInfo.PluralType.cardinal,
+    // PluralInfo pluralInfo =
+    // SupplementalDataInfo.getInstance().getPlurals(SupplementalDataInfo.PluralType.cardinal,
     // lang);
     // PluralRules pluralRules = PluralRules.createRules(pluralInfo.getRules());
     // locale2pluralRules.put(lang, pluralRules);

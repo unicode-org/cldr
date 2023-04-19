@@ -5,6 +5,8 @@ import static com.google.common.base.Preconditions.checkState;
 import static java.lang.Integer.signum;
 import static org.unicode.cldr.api.CldrDataType.LDML;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSetMultimap;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -14,12 +16,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSetMultimap;
 
 /**
  * Utilities related to CLDR paths. It's possible that one day we might wish to expose the path
@@ -44,11 +42,12 @@ final class CldrPaths {
     private static final ImmutableSetMultimap<CldrDataType, String> LEAF_ELEMENTS_MAP;
     // A map of the ordered element names for each supported DTD.
     private static final ImmutableSetMultimap<CldrDataType, String> ORDERED_ELEMENTS_MAP;
+
     static {
         ImmutableSetMultimap.Builder<CldrDataType, String> leafElementsMap =
-            ImmutableSetMultimap.builder();
+                ImmutableSetMultimap.builder();
         ImmutableSetMultimap.Builder<CldrDataType, String> orderedElementsMap =
-            ImmutableSetMultimap.builder();
+                ImmutableSetMultimap.builder();
         for (CldrDataType type : CldrDataType.values()) {
             // While at happened to be true (at the time of writing) that the getElements() method
             // returns a new, mutable set, this is completely undocumented so we cannot rely on it
@@ -62,22 +61,26 @@ final class CldrPaths {
             // collection more than once, so it's safe to use the ::iterator trick to convert a
             // stream into a one-shot iterable (saves have to make temporary collections).
             leafElementsMap.putAll(
-                type,
-                type.getElements()
-                    .filter(IS_NOT_DEPRECATED)
-                    // NOTE: Some leaf elements still have deprecated children (from when mixed
-                    // data was permitted).
-                    .filter(e -> e.getChildren().keySet().stream().noneMatch(IS_NOT_DEPRECATED))
-                    .map(DtdData.Element::getName)
-                    .filter(e -> !e.equals("special"))
-                    ::iterator);
+                    type,
+                    type.getElements()
+                                    .filter(IS_NOT_DEPRECATED)
+                                    // NOTE: Some leaf elements still have deprecated children (from
+                                    // when mixed
+                                    // data was permitted).
+                                    .filter(
+                                            e ->
+                                                    e.getChildren().keySet().stream()
+                                                            .noneMatch(IS_NOT_DEPRECATED))
+                                    .map(DtdData.Element::getName)
+                                    .filter(e -> !e.equals("special"))
+                            ::iterator);
             orderedElementsMap.putAll(
-                type,
-                type.getElements()
-                    .filter(IS_NOT_DEPRECATED)
-                    .filter(DtdData.Element::isOrdered)
-                    .map(DtdData.Element::getName)
-                    ::iterator);
+                    type,
+                    type.getElements()
+                                    .filter(IS_NOT_DEPRECATED)
+                                    .filter(DtdData.Element::isOrdered)
+                                    .map(DtdData.Element::getName)
+                            ::iterator);
         }
         // Special case "alias" is an alternate leaf element for a lot of LDML elements.
         leafElementsMap.put(LDML, "alias");
@@ -123,8 +126,11 @@ final class CldrPaths {
                 if (length == 1) {
                     // Root nodes are special as they define the DTD type and must always be equal.
                     // Paths with different types can be compared, but not via this comparator.
-                    checkState(lhs.getName().equals(rhs.getName()),
-                        "cannot compare paths with different DTD type: %s / %s", lhs, rhs);
+                    checkState(
+                            lhs.getName().equals(rhs.getName()),
+                            "cannot compare paths with different DTD type: %s / %s",
+                            lhs,
+                            rhs);
                     return 0;
                 }
                 // Compare parent paths first and return if they give an ordering.
@@ -138,7 +144,7 @@ final class CldrPaths {
                 return signum != 0 ? signum : LHS_FIRST;
             } else {
                 // Flip the comparison if LHS was longer (we do this at most once per comparison).
-                return -compare(rhs,  lhs);
+                return -compare(rhs, lhs);
             }
         }
 
@@ -158,8 +164,7 @@ final class CldrPaths {
             // Element name is the same, so test attributes. Attributes are already known to be
             // ordered by the element's DTD order, so we only need to find and compare the first
             // difference.
-            int minAttributeCount =
-                Math.min(lhs.getAttributeCount(), rhs.getAttributeCount());
+            int minAttributeCount = Math.min(lhs.getAttributeCount(), rhs.getAttributeCount());
             for (int n = 0; n < minAttributeCount && signum == 0; n++) {
                 String attributeName = lhs.getLocalAttributeName(n);
                 // Important: We negate the comparison result here because we want elements with
@@ -171,13 +176,18 @@ final class CldrPaths {
                 // opposite of what we want. This is because while LHS has a lower ordered
                 // attribute, that indicates that RHS is missing that attribute in the same
                 // position, which should make RHS sort first.
-                signum = -signum(
-                    attributeNameComparator.compare(attributeName, rhs.getLocalAttributeName(n)));
+                signum =
+                        -signum(
+                                attributeNameComparator.compare(
+                                        attributeName, rhs.getLocalAttributeName(n)));
                 if (signum == 0) {
                     // Attribute names equal, so test attribute value.
-                    signum = signum(
-                        DtdData.getAttributeValueComparator(elementName, attributeName)
-                            .compare(lhs.getLocalAttributeValue(n), rhs.getLocalAttributeValue(n)));
+                    signum =
+                            signum(
+                                    DtdData.getAttributeValueComparator(elementName, attributeName)
+                                            .compare(
+                                                    lhs.getLocalAttributeValue(n),
+                                                    rhs.getLocalAttributeValue(n)));
                 }
             }
             if (signum == 0) {
@@ -197,7 +207,7 @@ final class CldrPaths {
     static boolean isLeafPath(CldrPath path) {
         String lastElementName = path.getName();
         return lastElementName.indexOf(':') != -1
-            || LEAF_ELEMENTS_MAP.get(path.getDataType()).contains(lastElementName);
+                || LEAF_ELEMENTS_MAP.get(path.getDataType()).contains(lastElementName);
     }
 
     /**
@@ -218,11 +228,11 @@ final class CldrPaths {
     // This can't go further up due to static initialization ordering issues.
     // TODO: Move all reading of DTDs and setup for paths into a lazy holder.
     private static final CldrPath LDML_VERSION =
-        CldrPath.parseDistinguishingPath("//ldml/identity/version");
+            CldrPath.parseDistinguishingPath("//ldml/identity/version");
 
     /**
-     * Returns whether this path should be emitted by a data supplier. New cases can be added
-     * as needed.
+     * Returns whether this path should be emitted by a data supplier. New cases can be added as
+     * needed.
      */
     static boolean shouldEmit(CldrPath path) {
         // CLDRFile seems to do some interesting things with the version based on the DTD in
@@ -264,19 +274,19 @@ final class CldrPaths {
      * to create paths in isolation if necessary.
      *
      * @param fullPath a parsed full path.
-     * @param previousElements an optional list of previous CldrPath elements which will be used
-     *     as the prefix to the new path wherever possible (e.g. if previousElements="(a,b,c,d)"
-     *     and "fullPath=a/b/x/y/z", then the new path will share the path prefix up to and
-     *     including 'b'). When processing sorted paths, this will greatly reduce allocations.
-     * @param valueAttributeCollector a collector into which value attributes will be added (in
-     *     DTD order).
+     * @param previousElements an optional list of previous CldrPath elements which will be used as
+     *     the prefix to the new path wherever possible (e.g. if previousElements="(a,b,c,d)" and
+     *     "fullPath=a/b/x/y/z", then the new path will share the path prefix up to and including
+     *     'b'). When processing sorted paths, this will greatly reduce allocations.
+     * @param valueAttributeCollector a collector into which value attributes will be added (in DTD
+     *     order).
      * @return a new CldrPath corresponding to the distinguishing path of {@code fullPath}.
      * @throws IllegalArgumentException if the path string is invalid.
      */
     static CldrPath processXPath(
-        String fullPath,
-        List<CldrPath> previousElements,
-        BiConsumer<AttributeKey, String> valueAttributeCollector) {
+            String fullPath,
+            List<CldrPath> previousElements,
+            BiConsumer<AttributeKey, String> valueAttributeCollector) {
         checkArgument(!fullPath.isEmpty(), "path must not be empty");
         // This fails if attribute names are invalid, but not if element names are invalid, and we
         // want to control/stabalize the error messages in this API.
@@ -296,10 +306,11 @@ final class CldrPaths {
         CldrPath path = null;
         // Reusable key/value attributes list.
         List<String> keyValuePairs = new ArrayList<>();
-        Consumer<Entry<String, String>> collectElementAttribute = e -> {
-            keyValuePairs.add(e.getKey());
-            keyValuePairs.add(e.getValue());
-        };
+        Consumer<Entry<String, String>> collectElementAttribute =
+                e -> {
+                    keyValuePairs.add(e.getKey());
+                    keyValuePairs.add(e.getValue());
+                };
         // True once we've started to create a new path rather than reusing previous elements.
         boolean diverged = false;
         for (int n = 0; n < length; n++) {
@@ -327,14 +338,20 @@ final class CldrPaths {
             // Similarly, we never filter out attributes in unknown namespaces. For now we assume
             // that any explicit namespace is unknown.
             boolean hasNamespace = elementName.indexOf(':') != -1;
-            checkArgument(hasNamespace || dtd.getElementFromName().containsKey(elementName),
-                "invalid path: %s", fullPath);
+            checkArgument(
+                    hasNamespace || dtd.getElementFromName().containsKey(elementName),
+                    "invalid path: %s",
+                    fullPath);
 
             // The keyValuePairs list is used by the collectElementAttribute callback but we don't
             // want/need to make a new callback each time, so just clear the underlying list.
             keyValuePairs.clear();
             processPathAttributes(
-                elementName, attributes, dtdType, collectElementAttribute, valueAttributeCollector);
+                    elementName,
+                    attributes,
+                    dtdType,
+                    collectElementAttribute,
+                    valueAttributeCollector);
 
             // WARNING: We cannot just get the draft attribute value from the attributes map (as
             // would be expected) because it throws an exception. This is because you can only
@@ -345,8 +362,10 @@ final class CldrPaths {
             // asking for its value.
             //
             // TODO(dbeaumont): Fix this properly, ideally by fixing the comparator to not throw.
-            CldrDraftStatus draftStatus = dtd.getAttribute(elementName, "draft") != null
-                ? CldrDraftStatus.forString(attributes.get("draft")) : null;
+            CldrDraftStatus draftStatus =
+                    dtd.getAttribute(elementName, "draft") != null
+                            ? CldrDraftStatus.forString(attributes.get("draft"))
+                            : null;
 
             if (!diverged && n < previousElements.size()) {
                 CldrPath p = previousElements.get(n);
@@ -375,11 +394,11 @@ final class CldrPaths {
 
     // Returns the element's sort index (or -1 if not present).
     static void processPathAttributes(
-        String elementName,
-        /* @Nullable */ Map<String, String> attributeMap,
-        CldrDataType dtdType,
-        Consumer<Entry<String, String>> collectElementAttribute,
-        BiConsumer<AttributeKey, String> collectValueAttribute) {
+            String elementName,
+            /* @Nullable */ Map<String, String> attributeMap,
+            CldrDataType dtdType,
+            Consumer<Entry<String, String>> collectElementAttribute,
+            BiConsumer<AttributeKey, String> collectValueAttribute) {
 
         // Why not just a Map? Maps don't efficiently handle "get the Nth element" which is
         // something that's used a lot in the ICU conversion code. Distinguishing attributes in
@@ -390,27 +409,32 @@ final class CldrPaths {
         // of also having a map here) but the average number of attributes is very small (<3).
         if (attributeMap != null && !attributeMap.isEmpty()) {
             processAttributes(
-                attributeMap.entrySet().stream(), elementName, collectValueAttribute, dtdType)
-                .forEach(collectElementAttribute);
+                            attributeMap.entrySet().stream(),
+                            elementName,
+                            collectValueAttribute,
+                            dtdType)
+                    .forEach(collectElementAttribute);
         }
     }
 
     static Stream<Entry<String, String>> processAttributes(
-        Stream<Entry<String, String>> in,
-        String elementName,
-        BiConsumer<AttributeKey, String> collectValueAttribute,
-        CldrDataType dtdType) {
-        Consumer<Entry<String, String>> collectValueAttributes = e -> {
-            if (dtdType.isValueAttribute(elementName, e.getKey())) {
-                collectValueAttribute.accept(AttributeKey.keyOf(elementName, e.getKey()), e.getValue());
-            }
-        };
+            Stream<Entry<String, String>> in,
+            String elementName,
+            BiConsumer<AttributeKey, String> collectValueAttribute,
+            CldrDataType dtdType) {
+        Consumer<Entry<String, String>> collectValueAttributes =
+                e -> {
+                    if (dtdType.isValueAttribute(elementName, e.getKey())) {
+                        collectValueAttribute.accept(
+                                AttributeKey.keyOf(elementName, e.getKey()), e.getValue());
+                    }
+                };
         return in
-            // Special case of a synthetic distinguishing attribute that's _not_ in the DTD, and
-            // should be ignored.
-            .filter(e -> !e.getKey().equals(HIDDEN_SORT_INDEX_ATTRIBUTE))
-            .peek(collectValueAttributes)
-            .filter(e -> dtdType.isDistinguishingAttribute(elementName, e.getKey()));
+                // Special case of a synthetic distinguishing attribute that's _not_ in the DTD, and
+                // should be ignored.
+                .filter(e -> !e.getKey().equals(HIDDEN_SORT_INDEX_ATTRIBUTE))
+                .peek(collectValueAttributes)
+                .filter(e -> dtdType.isDistinguishingAttribute(elementName, e.getKey()));
     }
 
     private CldrPaths() {}

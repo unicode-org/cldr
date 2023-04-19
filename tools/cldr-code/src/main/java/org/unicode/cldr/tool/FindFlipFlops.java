@@ -21,14 +21,18 @@ public class FindFlipFlops {
 
     private static final boolean USE_RESOLVED = false;
 
-    static final Options myOptions = new Options()
-        .add(
-            "file",
-            ".*",
-            ".*",
-            "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering"
-        )
-        .add("oldest", "\\d+(\\.\\d+)?(\\.\\d+)?", "21.0", "Oldest version to go back to, eg 36.1");
+    static final Options myOptions =
+            new Options()
+                    .add(
+                            "file",
+                            ".*",
+                            ".*",
+                            "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
+                    .add(
+                            "oldest",
+                            "\\d+(\\.\\d+)?(\\.\\d+)?",
+                            "21.0",
+                            "Oldest version to go back to, eg 36.1");
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
@@ -62,9 +66,8 @@ public class FindFlipFlops {
             CldrVersion.checkVersions();
         } catch (Exception e) {
             throw new ICUException(
-                "This tool can only be run if the archive of released versions matching CldrVersion is available.",
-                e
-            );
+                    "This tool can only be run if the archive of released versions matching CldrVersion is available.",
+                    e);
         }
     }
 
@@ -81,11 +84,10 @@ public class FindFlipFlops {
         }
         if (!foundStart) {
             throw new IllegalArgumentException(
-                "The last version is " +
-                myOptions.get("oldest").getValue() +
-                "; it must be in: " +
-                Joiner.on(", ").join(CldrVersion.CLDR_VERSIONS_DESCENDING)
-            );
+                    "The last version is "
+                            + myOptions.get("oldest").getValue()
+                            + "; it must be in: "
+                            + Joiner.on(", ").join(CldrVersion.CLDR_VERSIONS_DESCENDING));
         }
         return versions.toArray(new CldrVersion[0]);
     }
@@ -130,10 +132,7 @@ public class FindFlipFlops {
     }
 
     private static void setUpFilesAndProcessors(
-        String fileName,
-        CLDRFile[] files,
-        DisplayAndInputProcessor[] processors
-    ) {
+            String fileName, CLDRFile[] files, DisplayAndInputProcessor[] processors) {
         for (int i = 0; i < factories.length; ++i) {
             try {
                 files[i] = factories[i].make(fileName, USE_RESOLVED);
@@ -156,19 +155,20 @@ public class FindFlipFlops {
         }
     }
 
-    private static final TestData d0 = new TestData(new String[] { "a", "a" }, false);
-    private static final TestData d1 = new TestData(new String[] { "a", "b", "c" }, false);
-    private static final TestData d2 = new TestData(new String[] { "a", "b", "a" }, true);
-    private static final TestData d3 = new TestData(new String[] { "a", "b", "c", "d" }, false);
-    private static final TestData d4 = new TestData(new String[] { "a", "b", "c", "a" }, true);
-    private static final TestData d5 = new TestData(new String[] { "a", "b", "c", "b" }, true);
-    private static final TestData[] testData = { d0, d1, d2, d3, d4, d5 };
+    private static final TestData d0 = new TestData(new String[] {"a", "a"}, false);
+    private static final TestData d1 = new TestData(new String[] {"a", "b", "c"}, false);
+    private static final TestData d2 = new TestData(new String[] {"a", "b", "a"}, true);
+    private static final TestData d3 = new TestData(new String[] {"a", "b", "c", "d"}, false);
+    private static final TestData d4 = new TestData(new String[] {"a", "b", "c", "a"}, true);
+    private static final TestData d5 = new TestData(new String[] {"a", "b", "c", "b"}, true);
+    private static final TestData[] testData = {d0, d1, d2, d3, d4, d5};
 
     private static void testFindFlipFlop() {
         for (TestData data : testData) {
             ArrayList<String> history = new ArrayList<>(List.of(data.values));
             if (findFlipFlop(history) != data.expectFlipFlop) {
-                System.out.println("🏓🏓🏓 testFindFlipFlop FAILURE:" + String.join(",\t", history));
+                System.out.println(
+                        "🏓🏓🏓 testFindFlipFlop FAILURE:" + String.join(",\t", history));
             }
         }
     }
@@ -212,7 +212,7 @@ public class FindFlipFlops {
     /**
      * Convert the given list of values into a list of events
      *
-     * Exclude events where the value matches the previous value
+     * <p>Exclude events where the value matches the previous value
      *
      * @param history the values in reverse-chronological order
      * @return the list of events in chronological order
@@ -232,8 +232,8 @@ public class FindFlipFlops {
     /**
      * Filter the given list to include only "significant" events
      *
-     * An event is significant if its "from" value matches some other event's "to" value, or
-     * its "to" value matches some other event's "from" value.
+     * <p>An event is significant if its "from" value matches some other event's "to" value, or its
+     * "to" value matches some other event's "from" value.
      *
      * @param events the list
      * @return the filtered list
@@ -245,7 +245,8 @@ public class FindFlipFlops {
                 if (ee.version.equals(e.version)) {
                     continue;
                 }
-                if (equalsWithoutWhitespace(ee.from, e.to) || equalsWithoutWhitespace(ee.to, e.from)) {
+                if (equalsWithoutWhitespace(ee.from, e.to)
+                        || equalsWithoutWhitespace(ee.to, e.from)) {
                     significantEvents.add(e);
                     break;
                 }
@@ -257,18 +258,29 @@ public class FindFlipFlops {
     private static void printEvents(ArrayList<Event> events, String fileName, String xpath) {
         for (Event e : events) {
             System.out.println(
-                e.version + "\t" + e.from + "\t⇒\t" + e.to + "\t" + flipFlopCount + "\t" + fileName + "\t" + xpath
-            );
+                    e.version
+                            + "\t"
+                            + e.from
+                            + "\t⇒\t"
+                            + e.to
+                            + "\t"
+                            + flipFlopCount
+                            + "\t"
+                            + fileName
+                            + "\t"
+                            + xpath);
         }
         System.out.println(); // empty row to separate paths
     }
 
-    private static String getProcessedStringValue(String xpath, CLDRFile file, DisplayAndInputProcessor processor) {
+    private static String getProcessedStringValue(
+            String xpath, CLDRFile file, DisplayAndInputProcessor processor) {
         String value = file.getStringValue(xpath);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = file.getBaileyValue(xpath, null, null);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                System.out.println("Warning: INHERITANCE_MARKER not resolved in FindFlipFlops: " + xpath);
+                System.out.println(
+                        "Warning: INHERITANCE_MARKER not resolved in FindFlipFlops: " + xpath);
             }
         }
         if (value != null) {

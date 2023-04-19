@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.text.Transform;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -8,15 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Differ;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
-
-import com.ibm.icu.text.Transform;
 
 public class TestMetadata {
     public static void main(String[] args) {
@@ -26,81 +24,92 @@ public class TestMetadata {
         // System.out.println("Keys: " + allKeys);
         // attribute order
 
-//        Set<String> elements = new TreeSet<String>();
-//        Set<String> attributes = new TreeSet<String>();
-//        Set<LinkedHashSet<String>> elementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
-//
-//        getElementsAndAttributes(CldrUtility.MAIN_DIRECTORY + "root.xml", elements, attributes, elementOrderingLists);
-//        Set<String> suppElements = new TreeSet<String>();
-//        Set<String> suppAttributes = new TreeSet<String>();
-//        Set<LinkedHashSet<String>> suppElementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
-//        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements,
-//            suppAttributes, suppElementOrderingLists);
-//
-//        Set<String> allElements = new TreeSet<String>();
-//        allElements.addAll(elements);
-//        allElements.addAll(suppElements);
-//        Set<String> allAttributes = new TreeSet<String>();
-//        allAttributes.addAll(attributes);
-//        allAttributes.addAll(suppAttributes);
-//
-//        List<String> attributeOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder")
-//            .split("\\s+"));
-//        List<String> programAttributeOrder = CLDRFile.getAttributeOrder();
-//
-//        Set<String> allAttributeOrder = new TreeSet<String>();
-//        allAttributeOrder.addAll(attributeOrder);
-//        allAttributeOrder.addAll(programAttributeOrder);
-//        allAttributeOrder.remove("_q");
-//        if (showSetDifferences("dtd attributes", allAttributes, "attributeOrder+programAttributeOrder",
-//            allAttributeOrder)) {
-//            System.out.println("ERROR: differences in sets!");
-//        }
-//
-//        if (!attributeOrder.equals(programAttributeOrder)) {
-//            System.out.println("ElementOrderDifference: ");
-//            System.out.println(showDifference(programAttributeOrder, attributeOrder, ", "));
-//            System.out.println("metadata: " + attributeOrder);
-//            System.out.println("program: " + programAttributeOrder);
-//            System.out.println("ERROR: differences in sets!");
-//        }
-//
-//        List<String> elementOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split(
-//            "\\s+"));
-//        List<String> programElementOrder = (List<String>) CLDRFile.getElementOrder();
-//
-//        sublistCheck(elementOrderingLists, programElementOrder);
-//        sublistCheck(suppElementOrderingLists, programElementOrder);
-//
-//        Set<String> allElementOrder = new TreeSet<String>();
-//        allElementOrder.addAll(elementOrder);
-//        allElementOrder.addAll(programElementOrder);
-//        if (showSetDifferences("dtd elements", allElements, "elementOrder+programElementOrder", allElementOrder)) {
-//            System.out.println("ERROR: differences in sets!");
-//        }
-//
-//        if (!elementOrder.equals(programElementOrder)) {
-//            System.out.println("ElementOrderDifference: ");
-//            System.out.println(showDifference(programElementOrder, elementOrder, ", "));
-//            System.out.println("metadata: " + elementOrder);
-//            System.out.println("program: " + programElementOrder);
-//            System.out.println("ERROR: differences in sets!");
-//        }
+        //        Set<String> elements = new TreeSet<String>();
+        //        Set<String> attributes = new TreeSet<String>();
+        //        Set<LinkedHashSet<String>> elementOrderingLists = new
+        // LinkedHashSet<LinkedHashSet<String>>();
+        //
+        //        getElementsAndAttributes(CldrUtility.MAIN_DIRECTORY + "root.xml", elements,
+        // attributes, elementOrderingLists);
+        //        Set<String> suppElements = new TreeSet<String>();
+        //        Set<String> suppAttributes = new TreeSet<String>();
+        //        Set<LinkedHashSet<String>> suppElementOrderingLists = new
+        // LinkedHashSet<LinkedHashSet<String>>();
+        //        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY +
+        // "supplemental/characters.xml", suppElements,
+        //            suppAttributes, suppElementOrderingLists);
+        //
+        //        Set<String> allElements = new TreeSet<String>();
+        //        allElements.addAll(elements);
+        //        allElements.addAll(suppElements);
+        //        Set<String> allAttributes = new TreeSet<String>();
+        //        allAttributes.addAll(attributes);
+        //        allAttributes.addAll(suppAttributes);
+        //
+        //        List<String> attributeOrder =
+        // Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder")
+        //            .split("\\s+"));
+        //        List<String> programAttributeOrder = CLDRFile.getAttributeOrder();
+        //
+        //        Set<String> allAttributeOrder = new TreeSet<String>();
+        //        allAttributeOrder.addAll(attributeOrder);
+        //        allAttributeOrder.addAll(programAttributeOrder);
+        //        allAttributeOrder.remove("_q");
+        //        if (showSetDifferences("dtd attributes", allAttributes,
+        // "attributeOrder+programAttributeOrder",
+        //            allAttributeOrder)) {
+        //            System.out.println("ERROR: differences in sets!");
+        //        }
+        //
+        //        if (!attributeOrder.equals(programAttributeOrder)) {
+        //            System.out.println("ElementOrderDifference: ");
+        //            System.out.println(showDifference(programAttributeOrder, attributeOrder, ",
+        // "));
+        //            System.out.println("metadata: " + attributeOrder);
+        //            System.out.println("program: " + programAttributeOrder);
+        //            System.out.println("ERROR: differences in sets!");
+        //        }
+        //
+        //        List<String> elementOrder =
+        // Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split(
+        //            "\\s+"));
+        //        List<String> programElementOrder = (List<String>) CLDRFile.getElementOrder();
+        //
+        //        sublistCheck(elementOrderingLists, programElementOrder);
+        //        sublistCheck(suppElementOrderingLists, programElementOrder);
+        //
+        //        Set<String> allElementOrder = new TreeSet<String>();
+        //        allElementOrder.addAll(elementOrder);
+        //        allElementOrder.addAll(programElementOrder);
+        //        if (showSetDifferences("dtd elements", allElements,
+        // "elementOrder+programElementOrder", allElementOrder)) {
+        //            System.out.println("ERROR: differences in sets!");
+        //        }
+        //
+        //        if (!elementOrder.equals(programElementOrder)) {
+        //            System.out.println("ElementOrderDifference: ");
+        //            System.out.println(showDifference(programElementOrder, elementOrder, ", "));
+        //            System.out.println("metadata: " + elementOrder);
+        //            System.out.println("program: " + programElementOrder);
+        //            System.out.println("ERROR: differences in sets!");
+        //        }
 
         testZones(metadata);
         System.out.println("Done");
     }
 
-    private static void sublistCheck(Set<LinkedHashSet<String>> elementOrderingLists, List<String> elementOrder) {
-        for (Iterator<LinkedHashSet<String>> it = elementOrderingLists.iterator(); it.hasNext();) {
+    private static void sublistCheck(
+            Set<LinkedHashSet<String>> elementOrderingLists, List<String> elementOrder) {
+        for (Iterator<LinkedHashSet<String>> it = elementOrderingLists.iterator(); it.hasNext(); ) {
             LinkedHashSet<String> sublist = it.next();
             // verify that the elements are in the list in the right order.
             int lastPosition = -1;
-            for (Iterator<String> it2 = sublist.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = sublist.iterator(); it2.hasNext(); ) {
                 String item = it2.next();
                 int position = elementOrder.indexOf(item);
                 if (position <= lastPosition) {
-                    System.out.println("ERROR: elements out of order for: " + item + " in " + sublist);
+                    System.out.println(
+                            "ERROR: elements out of order for: " + item + " in " + sublist);
                     return;
                 }
             }
@@ -108,7 +117,8 @@ public class TestMetadata {
         }
     }
 
-    private static boolean showSetDifferences(String name1, Collection<String> set1, String name2, Collection<String> set2) {
+    private static boolean showSetDifferences(
+            String name1, Collection<String> set1, String name2, Collection<String> set2) {
         boolean hasDifference = false;
         TreeSet<String> temp = new TreeSet<>();
         temp.addAll(set1);
@@ -127,9 +137,14 @@ public class TestMetadata {
         return hasDifference;
     }
 
-    private static void getElementsAndAttributes(String fileWithDTD, Collection<String> elements, Collection<String> attributes,
-        Collection<LinkedHashSet<String>> elementOrderingLists) {
-        XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler(elements, attributes, elementOrderingLists));
+    private static void getElementsAndAttributes(
+            String fileWithDTD,
+            Collection<String> elements,
+            Collection<String> attributes,
+            Collection<LinkedHashSet<String>> elementOrderingLists) {
+        XMLFileReader xfr =
+                new XMLFileReader()
+                        .setHandler(new MyHandler(elements, attributes, elementOrderingLists));
         xfr.read(fileWithDTD, -1, true);
     }
 
@@ -144,9 +159,12 @@ public class TestMetadata {
         return showDifference(a, b, separator, new ToString<T>(), new ToString<T>());
     }
 
-    public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator,
-        Transform<T, String> aDisplay,
-        Transform<T, String> bDisplay) {
+    public static <T> String showDifference(
+            Iterable<T> a,
+            Iterable<T> b,
+            String separator,
+            Transform<T, String> aDisplay,
+            Transform<T, String> bDisplay) {
         Differ<T> differ = new Differ<>(300, 10);
         StringBuilder out = new StringBuilder();
         Iterator<T> ai = a.iterator();
@@ -165,10 +183,8 @@ public class TestMetadata {
             differ.checkMatch(done);
 
             if (differ.getACount() != 0 || differ.getBCount() != 0) {
-                if (first)
-                    first = false;
-                else
-                    out.append(separator);
+                if (first) first = false;
+                else out.append(separator);
                 out.append("...");
                 out.append(separator).append(aDisplay.transform(differ.getA(-1)));
 
@@ -193,7 +209,7 @@ public class TestMetadata {
 
     private static void testZones(CLDRFile metadata) {
         String zoneList = null;
-        for (Iterator<String> it = metadata.iterator(); it.hasNext();) {
+        for (Iterator<String> it = metadata.iterator(); it.hasNext(); ) {
             String key = it.next();
             if (key.indexOf("\"$tzid\"") >= 0) {
                 zoneList = metadata.getStringValue(key);
@@ -224,7 +240,6 @@ public class TestMetadata {
 
             System.out.println("Meta Zones: " + metaZoneSet);
             System.out.println("Std Zones: " + stdZoneSet);
-
         }
     }
 
@@ -233,14 +248,18 @@ public class TestMetadata {
         Collection<String> attributes;
         Collection<LinkedHashSet<String>> elementOrderingLists;
 
-        public MyHandler(Collection<String> elements, Collection<String> attributes, Collection<LinkedHashSet<String>> elementOrderingLists) {
+        public MyHandler(
+                Collection<String> elements,
+                Collection<String> attributes,
+                Collection<LinkedHashSet<String>> elementOrderingLists) {
             this.elements = elements;
             this.attributes = attributes;
             this.elementOrderingLists = elementOrderingLists;
         }
 
         @Override
-        public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
+        public void handleAttributeDecl(
+                String eName, String aName, String type, String mode, String value) {
             attributes.add(aName);
             // System.out.println(
             // "eName: " + eName
@@ -254,7 +273,8 @@ public class TestMetadata {
         @Override
         public void handleElementDecl(String name, String model) {
             elements.add(name);
-            LinkedHashSet<String> ordering = new LinkedHashSet<>(Arrays.asList(model.split("[^-_a-zA-Z0-9]+")));
+            LinkedHashSet<String> ordering =
+                    new LinkedHashSet<>(Arrays.asList(model.split("[^-_a-zA-Z0-9]+")));
             ordering.remove("");
             ordering.remove("PCDATA");
             ordering.remove("EMPTY");

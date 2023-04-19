@@ -17,5 +17,4 @@ public class VoteEntries {
     public String getValue() {
         return value;
     }
-
 }

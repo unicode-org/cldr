@@ -21,9 +21,10 @@ public class TestLevel {
         final Level bb = Level.fromString(b);
         final Level expect = Level.fromString(c);
         final Level actual = Level.min(aa, bb);
-        assertEquals(expect, actual,
-            () -> String.format("Expected Level.min(%s,%s) but was %s",
-                aa, bb, actual));
+        assertEquals(
+                expect,
+                actual,
+                () -> String.format("Expected Level.min(%s,%s) but was %s", aa, bb, actual));
     }
 
     @ParameterizedTest(name = "{index}: max {0},{1}")
@@ -41,8 +42,9 @@ public class TestLevel {
         final Level bb = Level.fromString(b);
         final Level expect = Level.fromString(c);
         final Level actual = Level.max(aa, bb);
-        assertEquals(expect, actual,
-            () -> String.format("Expected Level.max(%s,%s) but was %s",
-                aa, bb, actual));
+        assertEquals(
+                expect,
+                actual,
+                () -> String.format("Expected Level.max(%s,%s) but was %s", aa, bb, actual));
     }
 }

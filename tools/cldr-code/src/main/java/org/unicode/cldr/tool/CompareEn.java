@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
@@ -32,6 +31,7 @@ public class CompareEn {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -62,7 +62,9 @@ public class CompareEn {
         Values values = new Values();
 
         for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
-            String outDir = factory.getSourceDirectory(); // CLDRPaths.GEN_DIRECTORY + "uplevel/" + new File(factory.getSourceDirectory()).getName();
+            String outDir =
+                    factory.getSourceDirectory(); // CLDRPaths.GEN_DIRECTORY + "uplevel/" + new
+            // File(factory.getSourceDirectory()).getName();
             CLDRFile en_001 = factory.make("en_001", false);
             CLDRFile en_001R = factory.make("en_001", true);
             CLDRFile en_001Out = en_001.cloneAsThawed();
@@ -84,7 +86,13 @@ public class CompareEn {
                 // replace the en_001 value
                 String fullPath = en_GBR.getFullXPath(path);
                 if (VERBOSE) {
-                    System.out.println("Changing «" + values.value001R + "» to «" + values.valueGBR + "» in\t" + path);
+                    System.out.println(
+                            "Changing «"
+                                    + values.value001R
+                                    + "» to «"
+                                    + values.valueGBR
+                                    + "» in\t"
+                                    + path);
                 }
                 en_001Out.add(fullPath, values.valueGBR);
             }
@@ -110,20 +118,23 @@ public class CompareEn {
     }
 
     /**
-     * Check whether we should skip or not. If we accept the change, then values contains the values.
+     * Check whether we should skip or not. If we accept the change, then values contains the
+     * values.
+     *
      * @param path
      * @param en_GBR
      * @param en_001R
      * @param values
      * @return
      */
-    public static FilterStatus failsFilter(String path, CLDRFile en_GBR, CLDRFile en_001R, Values values) {
+    public static FilterStatus failsFilter(
+            String path, CLDRFile en_GBR, CLDRFile en_001R, Values values) {
         if (path.startsWith("//ldml/identity")) {
             return FilterStatus.skip;
         }
         if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")
-            || path.contains("/datetimeSkeleton")
-            || path.contains("/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")) {
+                || path.contains("/datetimeSkeleton")
+                || path.contains("/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")) {
             if (VERBOSE) {
                 System.out.println("Skipping\t" + path);
             }
@@ -150,9 +161,11 @@ public class CompareEn {
         PathHeader.Factory phf = PathHeader.getFactory();
         Values values = new Values();
 
-        try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "comparison", "en.txt")) {
+        try (PrintWriter out =
+                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "comparison", "en.txt")) {
             out.println("From CompareEn.java");
-            out.println("Proposed Disposition\tSection\tPage\tHeader\tCode\ten\ten_001\ten_GB\tPath");
+            out.println(
+                    "Proposed Disposition\tSection\tPage\tHeader\tCode\ten\ten_001\ten_GB\tPath");
             for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
                 CLDRFile en = factory.make("en", false);
                 CLDRFile en_001 = factory.make("en_001", false);
@@ -173,26 +186,32 @@ public class CompareEn {
                     String path = pathHeader.getOriginalPath();
                     String note = "";
                     // skip certain paths
-                    switch(failsFilter(path, en_GBR, en_001R, values)) {
-                    case skipButNote:
-                        note = "AUTOSKIP";
-                        break;
-                    case accept:
-                        break;
-                    case skip:
-                        continue main;
+                    switch (failsFilter(path, en_GBR, en_001R, values)) {
+                        case skipButNote:
+                            note = "AUTOSKIP";
+                            break;
+                        case accept:
+                            break;
+                        case skip:
+                            continue main;
                     }
 
                     String valueR = enR.getStringValue(path);
 
                     // drop the cases that will disappear with minimization
 
-                    out.println(note
-                        + "\t" + pathHeader
-                        + "\t" + valueR
-                        + "\t" + en_001.getStringValue(path)
-                        + "\t" + en_GB.getStringValue(path)
-                        + "\t" + path);
+                    out.println(
+                            note
+                                    + "\t"
+                                    + pathHeader
+                                    + "\t"
+                                    + valueR
+                                    + "\t"
+                                    + en_001.getStringValue(path)
+                                    + "\t"
+                                    + en_GB.getStringValue(path)
+                                    + "\t"
+                                    + path);
                 }
             }
         }

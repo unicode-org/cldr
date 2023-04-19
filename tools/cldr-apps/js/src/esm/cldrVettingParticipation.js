@@ -14,6 +14,118 @@ import * as cldrText from "./cldrText.js";
 import * as cldrXlsx from "./cldrXlsx.js";
 import * as XLSX from "xlsx";
 
+const COLUMN_TITLE_ORG = "Org";
+const COLUMN_TITLE_LOCALE_NAME = "Locale";
+const COLUMN_TITLE_LOCALE_ID = "Code";
+const COLUMN_TITLE_LEVEL = "Level";
+const COLUMN_TITLE_VOTES = "Votes";
+const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
+const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
+const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
+const COLUMN_TITLE_VOTES_DIRECT = "Direct Votes";
+const COLUMN_TITLE_VOTES_AUTO_IMPORT = "Auto-imported Votes";
+const COLUMN_TITLE_VOTES_MANUAL_IMPORT = "Manually-imported Votes";
+const COLUMN_TITLE_VOTES_BULK_UPLOAD = "Bulk-uploaded Votes";
+const COLUMN_TITLE_VOTES_UNKNOWN = "Unknown-type Votes";
+const COLUMN_TITLE_USER_ID = "Vetter#";
+const COLUMN_TITLE_USER_EMAIL = "Email";
+const COLUMN_TITLE_USER_NAME = "Name";
+const COLUMN_TITLE_LAST_SEEN = "LastSeen";
+const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
+
+const COLUMNS = [
+  { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
+  { title: COLUMN_TITLE_LOCALE_NAME, comment: "User locale", default: null },
+  { title: COLUMN_TITLE_LOCALE_ID, comment: "User locale code", default: null },
+  { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
+  {
+    title: COLUMN_TITLE_VOTES,
+    comment:
+      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_COVERAGE_COUNT,
+    comment:
+      "Total number of paths that are in CLDR's coverage target for this locale",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_VOTED_PATH_COUNT,
+    comment:
+      "User's voting progress (number of items already voted on), exactly the numerator from the second progress meter",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_VOTABLE_PATH_COUNT,
+    comment:
+      "User's voting goal (total number of votable items), exactly the denominator from the second progress meter",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_PROGRESS_PERCENT,
+    comment:
+      "User's voting percent, exactly the percent from the second progress meter",
+    default: "-",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_DIRECT,
+    comment:
+      "Number of direct votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_AUTO_IMPORT,
+    comment:
+      "Number of automatically-imported votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+    comment:
+      "Number of manually-imported votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_BULK_UPLOAD,
+    comment:
+      "Number of bulk-uploaded votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_UNKNOWN,
+    comment:
+      "Number of votes of unknown type by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_COVERAGE_LEVEL,
+    comment: "Coverage level for this user's organization",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_USER_ID,
+    comment: "User's account number",
+    default: null,
+  },
+  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
+  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
+  {
+    title: COLUMN_TITLE_LAST_SEEN,
+    comment: "When the user last logged in",
+    default: null,
+  },
+];
+
+const VOTE_TYPES = {
+  DIRECT: COLUMN_TITLE_VOTES_DIRECT,
+  AUTO_IMPORT: COLUMN_TITLE_VOTES_AUTO_IMPORT,
+  MANUAL_IMPORT: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+  BULK_UPLOAD: COLUMN_TITLE_VOTES_BULK_UPLOAD,
+  UNKNOWN: COLUMN_TITLE_VOTES_UNKNOWN,
+};
+
 let nf = null; // Intl.NumberFormat initialized later
 
 /**
@@ -106,26 +218,12 @@ async function downloadVettingParticipation(opts) {
 
   const wb = XLSX.utils.book_new();
 
-  var ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
+  const ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
 
-  var ws_data = [
-    [
-      "Org",
-      "Locale",
-      "Code",
-      "Level",
-      "Votes",
-      "Cldr Coverage Count",
-      "Progress Vote",
-      "Progress Count",
-      "Progress Percent",
-      "Coverage",
-      "Vetter#",
-      "Email",
-      "Name",
-      "LastSeen",
-    ],
-  ];
+  const ws_data = [];
+  ws_data.push(getHeaderRow());
+
+  const columnIndex = getIndexOfColumnsByTitle();
 
   const userCount = Object.entries(uidToUser).length;
 
@@ -135,108 +233,65 @@ async function downloadVettingParticipation(opts) {
   for (const [id, user] of Object.entries(uidToUser)) {
     userNo++;
     setProgress(userNo, userCount);
-    const row = [
-      user.org,
-      null, // localeName
-      null, // locale
-      user.userlevelName,
-      0, // votes
-      0, // CldrCovCount
-      0, // ProgressVote
-      0, // ProgressCount
-      "-", // ProgressPercent
-      "", // coverage
-      id,
-      user.email,
-      user.name,
-      user.time,
-    ];
+    const row = getDefaultRow(id, user, columnIndex);
     if (user.allLocales) {
-      row[1] = "ALL";
-      row[2] = "*";
-      row[6] = "-";
-      row[7] = "-";
+      row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "ALL";
+      row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "*";
+      row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else if (!user.locales) {
       // no locales?!
-      row[1] = "NONE";
-      row[2] = "-";
-      row[6] = "-";
-      row[7] = "-";
+      row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "NONE";
+      row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else {
       for (const locale of user.locales) {
-        row[1] = cldrLoad.getLocaleName(locale);
-        row[2] = locale;
-        row[4] = localeToData[locale].participation[id] || 0;
-        row[5] = localeToData[locale].cov_count || 0;
+        row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] =
+          cldrLoad.getLocaleName(locale);
+        row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
+        row[columnIndex[COLUMN_TITLE_VOTES]] =
+          localeToData[locale].participation[id] || 0;
+        row[columnIndex[COLUMN_TITLE_COVERAGE_COUNT]] =
+          localeToData[locale].cov_count || 0;
 
         if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
           const level = "org";
           setStatus(`Fetch ${id}/${locale}/${level}`);
           const data = await cldrAjax.doFetch(
-            `./api/summary/dashboard/for/${id}/${locale}/${level}`
+            `./api/summary/participation/for/${id}/${locale}/${level}`
           );
           const json = await data.json();
-          const { votablePathCount, votedPathCount } = json.voterProgress;
+          const { votablePathCount, votedPathCount, typeCount } =
+            json.voterProgress;
           const { coverageLevel } = json;
-          row[6] = votedPathCount;
-          row[7] = votablePathCount;
+          row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = votedPathCount;
+          row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = votablePathCount;
           const perCent = cldrProgress.friendlyPercent(
             votedPathCount,
             votablePathCount
           );
-          row[8] = `${perCent}%`;
-          row[9] = (coverageLevel || "").toLowerCase();
+          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = `${perCent}%`;
+          getVoteTypes(row, columnIndex, typeCount);
+          row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
+            coverageLevel || ""
+          ).toLowerCase();
         } else {
           // only guest and vetter users
-          row[6] = "-";
-          row[7] = "-";
+          row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
+          row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
         }
         ws_data.push([...row]); // clone the array because ws_data will retain a reference
       }
     }
   }
 
-  // TODO: fill in all ws_data[…][6/7]
   setStatus("Write XLSX...");
-  var ws = XLSX.utils.aoa_to_sheet(ws_data);
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
 
-  // we have some explaining to do. Push some comments
-  cldrXlsx.pushComment(ws, "A1", "User organization");
-  cldrXlsx.pushComment(ws, "B1", "User locale");
-  cldrXlsx.pushComment(ws, "C1", "User locale code");
-  cldrXlsx.pushComment(ws, "D1", "User level");
-  cldrXlsx.pushComment(
-    ws,
-    "E1",
-    "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "F1",
-    "total number of paths that are in CLDR's coverage target for this locale"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "G1",
-    "User's voting progress, this is exactly the number from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "H1",
-    "User's voting total, this is exactly the total from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(
-    ws,
-    "I1",
-    "User's voting perent, this is exactly the percent from the second meter of the dashboard"
-  );
-  cldrXlsx.pushComment(ws, "J1", "Coverage level for this user's organization");
-  cldrXlsx.pushComment(ws, "K1", "User's account number");
-  cldrXlsx.pushComment(ws, "L1", "Users' email");
-  cldrXlsx.pushComment(ws, "M1", "Users' name");
-  cldrXlsx.pushComment(ws, "N1", "When the user last logged in");
+  addColumnComments(ws);
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(
@@ -387,10 +442,65 @@ function loadVettingParticipation(json, ourDiv) {
   }
 }
 
+function getHeaderRow() {
+  const row = [];
+  for (let col of COLUMNS) {
+    row.push(col.title);
+  }
+  return row;
+}
+
+function getIndexOfColumnsByTitle() {
+  const columnIndex = {};
+  let i = 0;
+  for (let col of COLUMNS) {
+    columnIndex[col.title] = i++;
+  }
+  return columnIndex;
+}
+
+function getDefaultRow(id, user, columnIndex) {
+  const row = [];
+  for (let col of COLUMNS) {
+    row.push(col.default);
+  }
+  row[columnIndex[COLUMN_TITLE_ORG]] = user.org;
+  row[columnIndex[COLUMN_TITLE_LEVEL]] = user.userlevelName;
+  row[columnIndex[COLUMN_TITLE_USER_ID]] = id;
+  row[columnIndex[COLUMN_TITLE_USER_EMAIL]] = user.email;
+  row[columnIndex[COLUMN_TITLE_USER_NAME]] = user.name;
+  row[columnIndex[COLUMN_TITLE_LAST_SEEN]] = user.time;
+  return row;
+}
+
+function addColumnComments(ws) {
+  let columnNumber = 0;
+  for (let col of COLUMNS) {
+    const cell = XLSX.utils.encode_cell({ r: 0, c: columnNumber }); // A1, B1, C1, ...
+    // include title with comment, for convenience if column is narrower than title
+    cldrXlsx.pushComment(ws, cell, col.title + ": " + col.comment);
+    ++columnNumber;
+  }
+}
+
+function getVoteTypes(row, columnIndex, typeCount) {
+  if (typeCount) {
+    for (let key of Object.keys(VOTE_TYPES)) {
+      const title = VOTE_TYPES[key];
+      row[columnIndex[title]] = typeCount[key] || 0;
+    }
+    for (let key of Object.keys(typeCount)) {
+      if (!VOTE_TYPES[key]) {
+        console.warn("Unrecognized vote type in server response: " + key);
+      }
+    }
+  }
+}
+
 function verb(u, theUserBox) {
   const user = u.user;
   if (!user) {
-    console.log("Empty user in verb");
+    console.warn("Empty user in verb");
     return;
   }
   const isVetter = u.isVetter;
@@ -479,7 +589,7 @@ function getUsersFor(e, uidToUser) {
       myUids.add(Number(id));
     } else {
       // this does happen for me when logged in as admin on localhost
-      console.log("getUsersFor bad id: " + id);
+      console.warn("getUsersFor bad id: " + id);
     }
   }
   let myUsers = Array.from(myUids.values());
@@ -495,7 +605,7 @@ function getUsersFor(e, uidToUser) {
 function myMap(id, uidToUser, vetterSet, e) {
   if (!uidToUser[id]) {
     // this no longer happens for me, since adding filter [if (id in uidToUser)] in getUsersFor
-    console.log("myMap bad id: " + id);
+    console.warn("myMap bad id: " + id);
   }
   return {
     user: uidToUser[id],
@@ -507,11 +617,11 @@ function myMap(id, uidToUser, vetterSet, e) {
 function mySort(a, b) {
   if (!a.user || !a.user.name) {
     // this no longer happens for me, since adding filter [if (id in uidToUser)] in getUsersFor
-    console.log("mySort bad user a: " + a);
+    console.warn("mySort bad user a: " + a);
     return 0;
   }
   if (!b.user || !b.user.name) {
-    console.log("mySort bad user b: " + b);
+    console.warn("mySort bad user b: " + b);
     return 0;
   }
   return a.user.name.localeCompare(b.user.name);

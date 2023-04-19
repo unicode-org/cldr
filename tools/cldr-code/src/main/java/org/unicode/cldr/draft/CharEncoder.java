@@ -1,6 +1,4 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.draft;
 
 import java.nio.BufferUnderflowException;
@@ -30,12 +28,14 @@ public class CharEncoder {
     public CharEncoder(Charset charset, boolean verifyRoundtrip, boolean justCheck) {
         this.verifyRoundtrip = verifyRoundtrip;
         this.justCheck = justCheck;
-        encoder = charset.newEncoder()
-            .onMalformedInput(CodingErrorAction.REPORT)
-            .onUnmappableCharacter(CodingErrorAction.REPORT);
-        decoder = charset.newDecoder()
-            .onMalformedInput(CodingErrorAction.REPORT)
-            .onUnmappableCharacter(CodingErrorAction.REPORT);
+        encoder =
+                charset.newEncoder()
+                        .onMalformedInput(CodingErrorAction.REPORT)
+                        .onUnmappableCharacter(CodingErrorAction.REPORT);
+        decoder =
+                charset.newDecoder()
+                        .onMalformedInput(CodingErrorAction.REPORT)
+                        .onUnmappableCharacter(CodingErrorAction.REPORT);
     }
 
     public boolean isVerifyRoundtrip() {
@@ -43,17 +43,15 @@ public class CharEncoder {
     }
 
     /**
-     * Convert the code point. Return -1 if fails. If justCheck, then return 1 if success. Otherwise return length of
-     * the bytes
-     * converted, and fill in the destination. In either case, if isVerifyRoundtrip() then check that the roundtrip
-     * works.
+     * Convert the code point. Return -1 if fails. If justCheck, then return 1 if success. Otherwise
+     * return length of the bytes converted, and fill in the destination. In either case, if
+     * isVerifyRoundtrip() then check that the roundtrip works.
      *
      * @param codepoint
      * @param destination
      * @param offset
      * @return
-     * @throws BufferUnderflowException
-     *             if the supplied destination is too small.
+     * @throws BufferUnderflowException if the supplied destination is too small.
      */
     public int getValue(int codepoint, byte[] destination, int offset) {
         int byteLen;

@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -31,7 +30,11 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
 
     public synchronized PathHeader.Factory getPathHeaderFactory() {
         if (pathHeaderFactory == null) {
-            pathHeaderFactory = PathHeader.getFactory(getEnglishFile() != null ? getEnglishFile() : getFactory().make("en", true));
+            pathHeaderFactory =
+                    PathHeader.getFactory(
+                            getEnglishFile() != null
+                                    ? getEnglishFile()
+                                    : getFactory().make("en", true));
         }
         return pathHeaderFactory;
     }
@@ -49,8 +52,8 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-        List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         resolvedCldrFileToCheck = null;
         return this;
@@ -67,11 +70,14 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
         if (getPhase() == Phase.FINAL_TESTING) {
             referenceToOther = code; // later make this more readable.
         } else {
-            referenceToOther = "<a href=\""
-                + CLDRConfig.getInstance().urls().forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
-                + "\">" +
-                code
-                + "</a>";
+            referenceToOther =
+                    "<a href=\""
+                            + CLDRConfig.getInstance()
+                                    .urls()
+                                    .forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
+                            + "\">"
+                            + code
+                            + "</a>";
         }
         return referenceToOther;
     }

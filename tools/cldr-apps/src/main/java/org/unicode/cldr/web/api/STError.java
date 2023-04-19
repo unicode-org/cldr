@@ -1,12 +1,11 @@
 package org.unicode.cldr.web.api;
 
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.web.SurveyException;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 
-@Schema(name="STError", description="Error return object")
+@Schema(name = "STError", description = "Error return object")
 public class STError {
     public STError(String desc) {
         this.message = desc;
@@ -15,6 +14,7 @@ public class STError {
     public STError(Throwable t) {
         this(t, null);
     }
+
     public STError(Throwable t, String preMessage) {
         if (preMessage == null) {
             preMessage = "Exception:";
@@ -38,7 +38,6 @@ public class STError {
         this.message = "Error: " + code;
     }
 
-
     private void setCode(ErrorCode code) {
         this.code = code;
     }
@@ -46,26 +45,22 @@ public class STError {
     public String getMessage() {
         return message;
     }
+
     public void setMessage(String message) {
         this.message = message;
     }
-    /**
-     * Description of the error
-     */
+    /** Description of the error */
     @Schema(description = "Error message")
     public String message;
-    /**
-     * identifies this as an error
-     */
+    /** identifies this as an error */
     @Schema(description = "Always set to true, identifies this as an error.")
     public final boolean err = true;
-    /**
-     * Optional error code
-     */
+    /** Optional error code */
     @Schema(description = "Error code if present")
     public ErrorCode code;
     /**
-     * Convenience function:  return STError("something").build() => 500
+     * Convenience function: return STError("something").build() => 500
+     *
      * @return
      */
     public Response build() {
@@ -74,7 +69,8 @@ public class STError {
 
     public static Response surveyNotQuiteReady() {
         return Response.status(503, "Try again later")
-            .entity("{\"error\": \"SurveyTool is not ready to handle API requests, try again later\"}")
-            .build();
+                .entity(
+                        "{\"error\": \"SurveyTool is not ready to handle API requests, try again later\"}")
+                .build();
     }
 }

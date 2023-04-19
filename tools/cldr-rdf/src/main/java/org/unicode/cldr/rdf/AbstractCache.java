@@ -3,6 +3,7 @@
 
 package org.unicode.cldr.rdf;
 
+import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
@@ -13,11 +14,10 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.google.common.io.Files;
-
 /**
- * This is a cache for the XPATH to URI mapping
- * It caches using 1 property file in the specified directory.
+ * This is a cache for the XPATH to URI mapping It caches using 1 property file in the specified
+ * directory.
+ *
  * @author srl295
  */
 public class AbstractCache {
@@ -26,8 +26,8 @@ public class AbstractCache {
     private static final String XPATH_TO_RESOURCE_FILE = "xpath-to-resource.properties";
 
     /**
-     * Add an AbstractResource to the cache. Remember to call store() to
-     * persist the cache.
+     * Add an AbstractResource to the cache. Remember to call store() to persist the cache.
+     *
      * @param xpath
      * @param ar
      * @return true if some value was already there, false if this was a new value
@@ -38,21 +38,22 @@ public class AbstractCache {
 
     /**
      * Get the xpath mapping, or null
+     *
      * @param xpath
      * @return
      */
     public String get(String xpath) {
-        return (String)xpathToResource.get(xpath);
+        return (String) xpathToResource.get(xpath);
     }
 
     private final File root;
     private final File xpathToResourceFile;
 
-
     Properties xpathToResource = new Properties();
 
     /**
      * Initialize the abstract cache with a certain root location
+     *
      * @param root
      */
     public AbstractCache(File root) {
@@ -61,39 +62,38 @@ public class AbstractCache {
         load();
     }
 
-    /**
-     * Load (or reload) the abstract cache.
-     * On failure, will clear this cache.
-     */
+    /** Load (or reload) the abstract cache. On failure, will clear this cache. */
     public Instant load() {
         final String simpleName = this.getClass().getSimpleName();
-        synchronized(this) {
-            try(
-                Reader xp2res = Files.newReader(xpathToResourceFile, StandardCharsets.UTF_8);
-            ) {
+        synchronized (this) {
+            try (Reader xp2res = Files.newReader(xpathToResourceFile, StandardCharsets.UTF_8); ) {
                 xpathToResource.load(xp2res);
-                logger.fine("# " + simpleName + " read " + root.getAbsolutePath() + " count: " + size());
+                logger.fine(
+                        "# "
+                                + simpleName
+                                + " read "
+                                + root.getAbsolutePath()
+                                + " count: "
+                                + size());
                 return Instant.ofEpochMilli(xpathToResourceFile.lastModified());
             } catch (IOException ioe) {
                 logger.log(Level.WARNING, "Could not read files in " + root.getAbsolutePath());
                 // Full stacktrace at a higher trace level
-                logger.log(Level.FINE, "Could not read " + root.getAbsolutePath() + " - " + ioe.getMessage());
+                logger.log(
+                        Level.FINE,
+                        "Could not read " + root.getAbsolutePath() + " - " + ioe.getMessage());
                 xpathToResource.clear();
                 return null;
             }
         }
     }
 
-    /**
-     * Write out the cache
-     */
+    /** Write out the cache */
     public void store() {
         final String simpleName = this.getClass().getSimpleName();
-        synchronized(this) {
+        synchronized (this) {
             root.mkdirs();
-            try(
-                Writer xp2res = Files.newWriter(xpathToResourceFile, StandardCharsets.UTF_8);
-            ) {
+            try (Writer xp2res = Files.newWriter(xpathToResourceFile, StandardCharsets.UTF_8); ) {
                 xpathToResource.store(xp2res, "Written by " + simpleName);
                 logger.info("# " + simpleName + " wrote to " + root.getAbsolutePath());
             } catch (IOException ioe) {
@@ -103,7 +103,7 @@ public class AbstractCache {
         }
     }
 
-	public int size() {
-		return xpathToResource.size();
-	}
+    public int size() {
+        return xpathToResource.size();
+    }
 }

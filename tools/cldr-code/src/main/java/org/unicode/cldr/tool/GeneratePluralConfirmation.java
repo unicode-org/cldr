@@ -1,5 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -9,7 +15,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Organization;
@@ -19,15 +24,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.number.DecimalQuantity;
-import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
-
 public class GeneratePluralConfirmation {
-    private static final com.ibm.icu.text.PluralRules.PluralType ICU_ORDINAL = com.ibm.icu.text.PluralRules.PluralType.ORDINAL;
+    private static final com.ibm.icu.text.PluralRules.PluralType ICU_ORDINAL =
+            com.ibm.icu.text.PluralRules.PluralType.ORDINAL;
 
     private static final CLDRConfig testInfo = ToolConfig.getToolInstance();
 
@@ -45,16 +44,23 @@ public class GeneratePluralConfirmation {
                     if (pattern.contains("{no pattern available}")) {
                         continue;
                     }
-                    System.out.println("locale="
-                        + uLocale
-                        + "; action=add ; new_path="
-                        + "//ldml/numbers/minimalPairs/"
-                        + (type == PluralRules.PluralType.CARDINAL ? "plural" : "ordinal")
-                        + "MinimalPairs[@"
-                        + (type == PluralRules.PluralType.CARDINAL ? "count" : "ordinal")
-                        + "=\"" + count.toString().toLowerCase(Locale.ENGLISH) + "\"]"
-                        + "; new_value="
-                        + pattern);
+                    System.out.println(
+                            "locale="
+                                    + uLocale
+                                    + "; action=add ; new_path="
+                                    + "//ldml/numbers/minimalPairs/"
+                                    + (type == PluralRules.PluralType.CARDINAL
+                                            ? "plural"
+                                            : "ordinal")
+                                    + "MinimalPairs[@"
+                                    + (type == PluralRules.PluralType.CARDINAL
+                                            ? "count"
+                                            : "ordinal")
+                                    + "=\""
+                                    + count.toString().toLowerCase(Locale.ENGLISH)
+                                    + "\"]"
+                                    + "; new_value="
+                                    + pattern);
                 }
                 System.out.println();
             }
@@ -78,34 +84,41 @@ public class GeneratePluralConfirmation {
                 }
             }
             switch (counts.size()) {
-            case 0:
-                System.out.format("%s\t%s\t%s\t%s\n", loc, "missing", "n/a", "n/a");
-                break;
-            case 1: {
-                String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, Count.other);
-                System.out.format("%s\t%s\t%s\t%s\n", loc, "constant", Count.other, "n/a");
-            }
-                break;
-            default:
-                for (Count count : counts) {
-                    String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, count);
-                    System.out.format("%s\t%s\t%s\t%s\n", loc, "multiple", count, pat);
-                }
-                break;
+                case 0:
+                    System.out.format("%s\t%s\t%s\t%s\n", loc, "missing", "n/a", "n/a");
+                    break;
+                case 1:
+                    {
+                        String pat =
+                                PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, Count.other);
+                        System.out.format("%s\t%s\t%s\t%s\n", loc, "constant", Count.other, "n/a");
+                    }
+                    break;
+                default:
+                    for (Count count : counts) {
+                        String pat = PluralRulesFactory.getSamplePattern(loc, ICU_ORDINAL, count);
+                        System.out.format("%s\t%s\t%s\t%s\n", loc, "multiple", count, pat);
+                    }
+                    break;
             }
         }
     }
 
     public static void mainOld(String[] args) {
-        Set<String> testLocales = new TreeSet(Arrays.asList(
-            "az cy hy ka kk km ky lo mk mn my ne pa si sq uz eu my si sq vi zu"
-                .split(" ")));
+        Set<String> testLocales =
+                new TreeSet(
+                        Arrays.asList(
+                                "az cy hy ka kk km ky lo mk mn my ne pa si sq uz eu my si sq vi zu"
+                                        .split(" ")));
         // STANDARD_CODES.getLocaleCoverageLocales("google");
         System.out.println(testLocales);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testLocales) {
             // the only known case where plural rules depend on region or script is pt_PT
-            if (locale.equals("root") || locale.equals("en_GB") || locale.equals("es_419") || locale.equals("*")) {
+            if (locale.equals("root")
+                    || locale.equals("en_GB")
+                    || locale.equals("es_419")
+                    || locale.equals("*")) {
                 continue;
             }
             //            if (!locale.equals("en")) {
@@ -148,7 +161,8 @@ public class GeneratePluralConfirmation {
     static class Values {
         String locale;
         PluralType type;
-        Relation<Count, DecimalQuantity> soFar = Relation.of(new EnumMap(Count.class), LinkedHashMap.class);
+        Relation<Count, DecimalQuantity> soFar =
+                Relation.of(new EnumMap(Count.class), LinkedHashMap.class);
         Map<String, String> sorted = new LinkedHashMap<>();
 
         private void showValue(String keyword, DecimalQuantity dq) {
@@ -186,8 +200,19 @@ public class GeneratePluralConfirmation {
             for (Entry<Count, Set<DecimalQuantity>> entry : soFar.keyValuesSet()) {
                 Count count = entry.getKey();
                 for (DecimalQuantity dq : entry.getValue()) {
-                    String pattern = PluralRulesFactory.getSamplePattern(locale, type.standardType, count);
-                    buffer.append(locale + "\t" + type + "\t" + count + "\t" + dq + "\t«" + pattern.replace("{0}", String.valueOf(dq)) + "»\n");
+                    String pattern =
+                            PluralRulesFactory.getSamplePattern(locale, type.standardType, count);
+                    buffer.append(
+                            locale
+                                    + "\t"
+                                    + type
+                                    + "\t"
+                                    + count
+                                    + "\t"
+                                    + dq
+                                    + "\t«"
+                                    + pattern.replace("{0}", String.valueOf(dq))
+                                    + "»\n");
                 }
                 buffer.append("\n");
             }

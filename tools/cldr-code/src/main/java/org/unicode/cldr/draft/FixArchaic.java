@@ -1,12 +1,10 @@
 package org.unicode.cldr.draft;
 
-import java.util.regex.Matcher;
-
-import org.unicode.cldr.util.PatternCache;
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.regex.Matcher;
+import org.unicode.cldr.util.PatternCache;
 
 public class FixArchaic {
     static final int blockEnum = UCharacter.getPropertyEnum("block");
@@ -67,7 +65,8 @@ public class FixArchaic {
 
     // private static void checkLatinPP() {
     // UnicodeSet latin = new UnicodeSet("[:script=latin:]");
-    // UnicodeSet latinpp = new UnicodeSet("[[:script=latin:][:script=common:][:script=inherited:]]");
+    // UnicodeSet latinpp = new
+    // UnicodeSet("[[:script=latin:][:script=common:][:script=inherited:]]");
     // UnicodeSet set = new UnicodeSet();
     // UnicodeSet source = new UnicodeSet("[:nfkdqc=n:]");
     // for (UnicodeSetIterator it = new UnicodeSetIterator(source); it.next();) {
@@ -94,8 +93,12 @@ public class FixArchaic {
                 uset = new UnicodeSet(i, i).toPattern(escaped);
             } else {
                 if (escaped) {
-                    uset = "[\\u" + Integer.toHexString(stri.charAt(0)) + "\\u"
-                        + Integer.toHexString(stri.charAt(1)) + "]";
+                    uset =
+                            "[\\u"
+                                    + Integer.toHexString(stri.charAt(0))
+                                    + "\\u"
+                                    + Integer.toHexString(stri.charAt(1))
+                                    + "]";
                 } else {
                     uset = "[" + stri + "]";
                 }
@@ -121,13 +124,11 @@ public class FixArchaic {
 
     private static boolean otherRegexSucceeds(Matcher m, int skip) {
         for (int i = 1; i <= 0x10FFFF; i += i) {
-            if (i == skip)
-                continue;
+            if (i == skip) continue;
             if (m.reset(UTF16.valueOf(i)).matches()) {
                 return true;
             }
         }
         return false;
     }
-
 }

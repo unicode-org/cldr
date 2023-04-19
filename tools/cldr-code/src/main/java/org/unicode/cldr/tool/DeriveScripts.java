@@ -1,5 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.util.Collection;
 import java.util.HashSet;
@@ -7,7 +13,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -22,13 +27,6 @@ import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-
 public class DeriveScripts {
     private static final boolean SHOW = false;
 
@@ -39,9 +37,10 @@ public class DeriveScripts {
 
     static {
         File[] paths = {
-//            new File(CLDRPaths.MAIN_DIRECTORY),
-//            new File(CLDRPaths.SEED_DIRECTORY),
-            new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
+            //            new File(CLDRPaths.MAIN_DIRECTORY),
+            //            new File(CLDRPaths.SEED_DIRECTORY),
+            new File(CLDRPaths.EXEMPLARS_DIRECTORY)
+        };
         final Factory fullCldrFactory = SimpleFactory.make(paths, ".*");
         LikelySubtags ls = new LikelySubtags();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -50,18 +49,21 @@ public class DeriveScripts {
         Multimap<String, String> langToScript = TreeMultimap.create();
 
         Map<String, String> suppress = new TreeMap<>();
-        final Map<String, Map<LstrField, String>> langToInfo = StandardCodes.getLstregEnumRaw().get(LstrType.language);
+        final Map<String, Map<LstrField, String>> langToInfo =
+                StandardCodes.getLstregEnumRaw().get(LstrType.language);
         for (Entry<String, Map<LstrField, String>> entry : langToInfo.entrySet()) {
             final String suppressValue = entry.getValue().get(LstrField.Suppress_Script);
             if (suppressValue != null) {
                 final String langCode = entry.getKey();
                 String likelyScript = ls.getLikelyScript(langCode);
                 if (!likelyScript.equals("Zzzz")) {
-//                    if (!suppressValue.equals(likelyScript)) {
-//                        System.out.println("#" + langCode + "\tWarning: likely=" + likelyScript + ", suppress=" + suppressValue);
-//                    } else {
-//                        System.out.println("#" + langCode + "\tSuppress=Likely: " + suppressValue);
-//                    }
+                    //                    if (!suppressValue.equals(likelyScript)) {
+                    //                        System.out.println("#" + langCode + "\tWarning:
+                    // likely=" + likelyScript + ", suppress=" + suppressValue);
+                    //                    } else {
+                    //                        System.out.println("#" + langCode +
+                    // "\tSuppress=Likely: " + suppressValue);
+                    //                    }
                     continue;
                 }
                 suppress.put(langCode, suppressValue);
@@ -76,38 +78,47 @@ public class DeriveScripts {
             if (!file.equals(langScript)) { // skip other variants
                 continue;
             }
-//            System.out.println(file);
-//            if (!seen.add(lang)) { // add if not present
-//                continue;
-//            }
+            //            System.out.println(file);
+            //            if (!seen.add(lang)) { // add if not present
+            //                continue;
+            //            }
             String lang = canon.transform(ltp.getLanguage());
             if (lang.equals("root")) {
                 continue;
             }
 
-//            String likelyScript = ls.getLikelyScript(lang);
-//            if (!likelyScript.equals("Zzzz")) {
-//                continue;
-//            }
+            //            String likelyScript = ls.getLikelyScript(lang);
+            //            if (!likelyScript.equals("Zzzz")) {
+            //                continue;
+            //            }
 
             String script = "";
-//            script = ltp.getScript();
-//            if (!script.isEmpty()) {
-//                add(langToScript, lang, script);
-//                continue;
-//            }
+            //            script = ltp.getScript();
+            //            if (!script.isEmpty()) {
+            //                add(langToScript, lang, script);
+            //                continue;
+            //            }
 
             CLDRFile cldrFile;
             try {
                 cldrFile = fullCldrFactory.make(lang, false);
-            } catch(final SimpleFactory.NoSourceDirectoryException nsde) {
-                throw new RuntimeException("Cannot load locale "+ lang+" for " + file
-                    + " (canonicalized from " + ltp.getLanguage()+")", nsde);
+            } catch (final SimpleFactory.NoSourceDirectoryException nsde) {
+                throw new RuntimeException(
+                        "Cannot load locale "
+                                + lang
+                                + " for "
+                                + file
+                                + " (canonicalized from "
+                                + ltp.getLanguage()
+                                + ")",
+                        nsde);
             }
             UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
             for (String s : exemplars) {
                 int scriptNum = UScript.getScript(s.codePointAt(0));
-                if (scriptNum != UScript.COMMON && scriptNum != UScript.INHERITED && scriptNum != UScript.UNKNOWN) {
+                if (scriptNum != UScript.COMMON
+                        && scriptNum != UScript.INHERITED
+                        && scriptNum != UScript.UNKNOWN) {
                     script = UScript.getShortName(scriptNum);
                     break;
                 }
@@ -122,7 +133,8 @@ public class DeriveScripts {
     private static void add(Multimap<String, String> langToScript, String lang, String script) {
         if (script != null) {
             if (langToScript.put(lang, script)) {
-                if (SHOW) System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
+                if (SHOW)
+                    System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
             }
         }
     }
@@ -133,10 +145,18 @@ public class DeriveScripts {
 
     public static void showLine(String language, String scriptField, String status) {
         CLDRFile english = CONFIG.getEnglish();
-        System.out.println(language + ";\t" + scriptField + "\t# " + english.getName(CLDRFile.LANGUAGE_NAME, language)
-            + ";\t" + status
-            + ";\t" + Iso639Data.getScope(language)
-            + ";\t" + Iso639Data.getType(language));
+        System.out.println(
+                language
+                        + ";\t"
+                        + scriptField
+                        + "\t# "
+                        + english.getName(CLDRFile.LANGUAGE_NAME, language)
+                        + ";\t"
+                        + status
+                        + ";\t"
+                        + Iso639Data.getScope(language)
+                        + ";\t"
+                        + Iso639Data.getType(language));
     }
 
     public static void main(String[] args) {
@@ -160,7 +180,8 @@ public class DeriveScripts {
             if (scriptCount != 1) {
                 System.out.println("\n#NEEDS RESOLUTION:\t" + scriptCount + " scripts");
             }
-            for (Entry<String, Collection<String>> entry : getLanguageToScript().asMap().entrySet()) {
+            for (Entry<String, Collection<String>> entry :
+                    getLanguageToScript().asMap().entrySet()) {
                 Collection<String> scripts = entry.getValue();
                 final int scriptsSize = scripts.size();
                 if (scriptsSize != scriptCount) {
@@ -171,13 +192,27 @@ public class DeriveScripts {
                 }
 
                 String lang = entry.getKey();
-                showLine(lang, scripts.size() == 1 ? scripts.iterator().next() : scripts.toString(), "Exemplars" + (scripts.size() == 1 ? "" : "*"));
+                showLine(
+                        lang,
+                        scripts.size() == 1 ? scripts.iterator().next() : scripts.toString(),
+                        "Exemplars" + (scripts.size() == 1 ? "" : "*"));
                 ++i;
                 String likelyScript = scriptsSize == 1 ? "" : ls.getLikelyScript(lang);
-                System.out.println(++count + "\t" + scriptsSize + "\t" + lang + "\t" + english.getName(lang)
-                    + "\t" + scripts + "\t" + likelyScript
-//                + "\t" + script + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                );
+                System.out.println(
+                        ++count
+                                + "\t"
+                                + scriptsSize
+                                + "\t"
+                                + lang
+                                + "\t"
+                                + english.getName(lang)
+                                + "\t"
+                                + scripts
+                                + "\t"
+                                + likelyScript
+                        //                + "\t" + script + "\t" +
+                        // english.getName(CLDRFile.SCRIPT_NAME, script)
+                        );
             }
             System.out.println("#total:\t" + i);
             i = 0;

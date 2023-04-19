@@ -7,6 +7,9 @@
 
 package org.unicode.cldr.web;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.util.ULocale;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +17,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,18 +27,13 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.util.ULocale;
-
-/**
- * This class implements a discussion forum per language (ISO code)
- */
+/** This class implements a discussion forum per language (ISO code) */
 public class SurveyForum {
 
     private static final boolean ENABLE_AUTO_POSTING = true;
 
-    private static final String FLAGGED_FOR_REVIEW_HTML = " <p>[This item was flagged for CLDR TC review.]";
+    private static final String FLAGGED_FOR_REVIEW_HTML =
+            " <p>[This item was flagged for CLDR TC review.]";
 
     private static final java.util.logging.Logger logger = SurveyLog.forClass(SurveyForum.class);
 
@@ -58,7 +55,10 @@ public class SurveyForum {
         if (s == null) {
             return null;
         }
-        return s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\"", "&quot;");
+        return s.replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll("\"", "&quot;");
     }
 
     /**
@@ -69,10 +69,10 @@ public class SurveyForum {
      */
     private static String HTMLUnsafe(String s) {
         return s.replaceAll("<p>", "\n")
-            .replaceAll("&quot;", "\"")
-            .replaceAll("&gt;", ">")
-            .replaceAll("&lt;", "<")
-            .replaceAll("&amp;", "&");
+                .replaceAll("&quot;", "\"")
+                .replaceAll("&gt;", ">")
+                .replaceAll("&lt;", "<")
+                .replaceAll("&amp;", "&");
     }
 
     private final Hashtable<String, Integer> nameToNum = new Hashtable<>();
@@ -81,8 +81,8 @@ public class SurveyForum {
     private static final int NO_FORUM = -2;
 
     /**
-     * A post with this value for "parent" is the first post in its
-     * thread; that is, it has no real parent post.
+     * A post with this value for "parent" is the first post in its thread; that is, it has no real
+     * parent post.
      */
     public static final int NO_PARENT = -1;
 
@@ -124,19 +124,21 @@ public class SurveyForum {
                 DBUtils.close(fGetByLoc, conn);
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum:  Couldn't add forum " + forum + " - " + DBUtils.unchainSqlException(se)
-                + " - fGetByLoc";
+            String complaint =
+                    "SurveyForum:  Couldn't add forum "
+                            + forum
+                            + " - "
+                            + DBUtils.unchainSqlException(se)
+                            + " - fGetByLoc";
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
     }
 
     /**
-     *
      * @param forum
      * @return the forum number
-     *
-     * Called only by getForumNumber.
+     *     <p>Called only by getForumNumber.
      */
     private int createForum(String forum) {
         int num = getForumNumberFromDB(forum);
@@ -156,8 +158,12 @@ public class SurveyForum {
                     DBUtils.close(fAdd, conn);
                 }
             } catch (SQLException se) {
-                String complaint = "SurveyForum:  Couldn't add forum " + forum + " - " + DBUtils.unchainSqlException(se)
-                    + " - fAdd";
+                String complaint =
+                        "SurveyForum:  Couldn't add forum "
+                                + forum
+                                + " - "
+                                + DBUtils.unchainSqlException(se)
+                                + " - fAdd";
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -172,7 +178,8 @@ public class SurveyForum {
         return num;
     }
 
-    private void gatherUsersInterestedInLocale(String forum, Set<Integer> cc_emails, Set<Integer> bcc_emails) {
+    private void gatherUsersInterestedInLocale(
+            String forum, Set<Integer> cc_emails, Set<Integer> bcc_emails) {
         try {
             Connection conn = null;
             PreparedStatement pIntUsers = null;
@@ -187,8 +194,11 @@ public class SurveyForum {
                     int uid = rs.getInt(1);
 
                     UserRegistry.User u = sm.reg.getInfo(uid);
-                    if (u != null && u.email != null && u.email.length() > 0
-                            && !(UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u))) {
+                    if (u != null
+                            && u.email != null
+                            && u.email.length() > 0
+                            && !(UserRegistry.userIsLocked(u)
+                                    || UserRegistry.userIsExactlyAnonymous(u))) {
                         if (UserRegistry.userIsVetter(u)) {
                             cc_emails.add(u.id);
                         } else {
@@ -200,18 +210,21 @@ public class SurveyForum {
                 DBUtils.close(pIntUsers, conn);
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum:  Couldn't gather interested users for " + forum + " - "
-                + DBUtils.unchainSqlException(se) + " - pIntUsers";
+            String complaint =
+                    "SurveyForum:  Couldn't gather interested users for "
+                            + forum
+                            + " - "
+                            + DBUtils.unchainSqlException(se)
+                            + " - pIntUsers";
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
-
     }
 
     /**
      * Send email notification to a set of users
      *
-     * Called by doPostInternal
+     * <p>Called by doPostInternal
      */
     private void emailNotify(PostInfo postInfo, int postId) {
         User user = postInfo.getUser();
@@ -226,30 +239,61 @@ public class SurveyForum {
         gatherUsersInterestedInLocale(forum, cc_emails, bcc_emails);
         gatherUsersInterestedInThread(postInfo, user, cc_emails);
 
-        String subject = "CLDR forum post (" + locale.getDisplayName() + " - " + locale + "): " + postInfo.getSubj();
+        String subject =
+                "CLDR forum post ("
+                        + locale.getDisplayName()
+                        + " - "
+                        + locale
+                        + "): "
+                        + postInfo.getSubj();
 
-        String body = "Do not reply to this message, instead go to <"
-            + CLDRConfig.getInstance().absoluteUrls().forSpecial(CLDRURLS.Special.Forum, locale, (String) null, Integer.toString(postId))
+        String body =
+                "Do not reply to this message, instead go to <"
+                        + CLDRConfig.getInstance()
+                                .absoluteUrls()
+                                .forSpecial(
+                                        CLDRURLS.Special.Forum,
+                                        locale,
+                                        (String) null,
+                                        Integer.toString(postId))
+                        + ">\n====\n\n"
+                        + postInfo.getText();
 
-            + ">\n====\n\n"
-            + postInfo.getText();
+        logger.fine(
+                et
+                        + ": Forum notify: u#"
+                        + user.id
+                        + " x"
+                        + postInfo.getPath()
+                        + " queueing cc:"
+                        + cc_emails.size()
+                        + " and bcc:"
+                        + bcc_emails.size());
 
-        logger.fine(et + ": Forum notify: u#" + user.id + " x" + postInfo.getPath() + " queueing cc:" + cc_emails.size() + " and bcc:" + bcc_emails.size());
-
-        MailSender.getInstance().queue(user.id, cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), locale, postInfo.getPath(), postId);
+        MailSender.getInstance()
+                .queue(
+                        user.id,
+                        cc_emails,
+                        bcc_emails,
+                        HTMLUnsafe(subject),
+                        HTMLUnsafe(body),
+                        locale,
+                        postInfo.getPath(),
+                        postId);
     }
 
     /**
      * Add users interested in this particular thread
      *
-     * If this is a reply, add the user who started the thread, if they are not the current poster,
-     * and they are a TC member
+     * <p>If this is a reply, add the user who started the thread, if they are not the current
+     * poster, and they are a TC member
      *
      * @param postInfo the new post
      * @param currentUser the poster of the new post
      * @param cc_emails the set of emails to which we may add
      */
-    private void gatherUsersInterestedInThread(PostInfo postInfo, User currentUser, Set<Integer> cc_emails) {
+    private void gatherUsersInterestedInThread(
+            PostInfo postInfo, User currentUser, Set<Integer> cc_emails) {
         if (postInfo.getReplyTo() < 0) {
             return; // not a reply
         }
@@ -264,21 +308,22 @@ public class SurveyForum {
     }
 
     /**
-     * Is the current user allowed to post with the given PostType in this context?
-     * This was already checked on the client, but don't trust the client too much.
-     * Check on server as well, at least to prevent someone closing a post who shouldn't be allowed to.
+     * Is the current user allowed to post with the given PostType in this context? This was already
+     * checked on the client, but don't trust the client too much. Check on server as well, at least
+     * to prevent someone closing a post who shouldn't be allowed to.
      *
      * @param postInfo the PostInfo
      * @return true or false
      */
     private boolean userCanUsePostType(PostInfo postInfo) {
-        if (SurveyMain.isPhaseReadonly()) {
+        User user = postInfo.getUser();
+        boolean isTC = UserRegistry.userIsTC(user);
+        if (!isTC && SurveyMain.isPhaseReadonly()) {
             return false;
         }
         int replyTo = postInfo.getReplyTo();
         PostType postType = postInfo.getType();
-        User user = postInfo.getUser();
-        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !UserRegistry.userIsTC(user)) {
+        if (postType == PostType.DISCUSS && replyTo == NO_PARENT && !isTC) {
             return false; // only TC can initiate Discuss; others can reply
         }
         if (postType != PostType.CLOSE) {
@@ -290,7 +335,7 @@ public class SurveyForum {
         if (getUserId(postInfo.getRoot()) == user.id) {
             return true;
         }
-        return UserRegistry.userIsTC(user);
+        return isTC;
     }
 
     /**
@@ -306,8 +351,11 @@ public class SurveyForum {
         try {
             conn = sm.dbUtils.getAConnection();
             if (conn != null) {
-                pList = DBUtils.prepareStatement(conn, "pList", "SELECT poster FROM " + DBUtils.Table.FORUM_POSTS
-                    + " WHERE id=?");
+                pList =
+                        DBUtils.prepareStatement(
+                                conn,
+                                "pList",
+                                "SELECT poster FROM " + DBUtils.Table.FORUM_POSTS + " WHERE id=?");
                 pList.setInt(1, postId);
                 ResultSet rs = pList.executeQuery();
                 while (rs.next()) {
@@ -315,7 +363,9 @@ public class SurveyForum {
                 }
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum: Couldn't get poster for post - " + DBUtils.unchainSqlException(se);
+            String complaint =
+                    "SurveyForum: Couldn't get poster for post - "
+                            + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
         } finally {
             DBUtils.close(pList, conn);
@@ -324,10 +374,10 @@ public class SurveyForum {
     }
 
     /**
-     * If this user posts to the forum, will it cause this xpath+locale to be flagged
-     * (if not already flagged)?
+     * If this user posts to the forum, will it cause this xpath+locale to be flagged (if not
+     * already flagged)?
      *
-     * Return true if the user has made a losing vote, and the VoteResolver.canFlagOnLosing
+     * <p>Return true if the user has made a losing vote, and the VoteResolver.canFlagOnLosing
      * (i.e., path is locked and/or requires VoteResolver.HIGH_BAR votes).
      *
      * @param user
@@ -355,8 +405,7 @@ public class SurveyForum {
      * @param ourConn the conn to use
      * @return the SurveyForum
      */
-    public static SurveyForum createTable(Connection ourConn, SurveyMain sm)
-        throws SQLException {
+    public static SurveyForum createTable(Connection ourConn, SurveyMain sm) throws SQLException {
         SurveyForum reg = new SurveyForum(sm);
         try {
             reg.setupDB(ourConn); // always call - we can figure it out.
@@ -383,10 +432,20 @@ public class SurveyForum {
         synchronized (conn) {
             Statement s = conn.createStatement();
             if (!DBUtils.hasTable(DB_LOC2FORUM)) { // user attribute
-                sql = "CREATE TABLE " + DB_LOC2FORUM + " ( " + " locale VARCHAR(255) NOT NULL, "
-                    + " forum VARCHAR(255) NOT NULL" + " )";
+                sql =
+                        "CREATE TABLE "
+                                + DB_LOC2FORUM
+                                + " ( "
+                                + " locale VARCHAR(255) NOT NULL, "
+                                + " forum VARCHAR(255) NOT NULL"
+                                + " )";
                 s.execute(sql);
-                sql = "CREATE UNIQUE INDEX " + DB_LOC2FORUM + "_loc ON " + DB_LOC2FORUM + " (locale) ";
+                sql =
+                        "CREATE UNIQUE INDEX "
+                                + DB_LOC2FORUM
+                                + "_loc ON "
+                                + DB_LOC2FORUM
+                                + " (locale) ";
                 s.execute(sql);
                 sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
                 s.execute(sql);
@@ -395,8 +454,11 @@ public class SurveyForum {
             }
             s.close();
 
-            PreparedStatement initbl = DBUtils.prepareStatement(conn, "initbl", "INSERT INTO " + DB_LOC2FORUM
-                + " (locale,forum) VALUES (?,?)");
+            PreparedStatement initbl =
+                    DBUtils.prepareStatement(
+                            conn,
+                            "initbl",
+                            "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
             int errs = 0;
             for (CLDRLocale l : SurveyMain.getLocalesSet()) {
                 initbl.setString(1, l.toString());
@@ -406,8 +468,16 @@ public class SurveyForum {
                     initbl.executeUpdate();
                 } catch (SQLException se) {
                     if (errs == 0) {
-                        System.err.println("While updating " + DB_LOC2FORUM + " -  " + DBUtils.unchainSqlException(se)
-                            + " - " + l + ":" + forum + ",  [This and further errors, ignored]");
+                        System.err.println(
+                                "While updating "
+                                        + DB_LOC2FORUM
+                                        + " -  "
+                                        + DBUtils.unchainSqlException(se)
+                                        + " - "
+                                        + l
+                                        + ":"
+                                        + forum
+                                        + ",  [This and further errors, ignored]");
                     }
                     errs++;
                 }
@@ -417,23 +487,26 @@ public class SurveyForum {
         }
     }
 
-    /**
-     * internal - called to setup db
-     */
+    /** internal - called to setup db */
     private void setupDB(Connection conn) throws SQLException {
-        String onOrBefore = CLDRConfig.getInstance().getProperty("CLDR_OLD_POSTS_BEFORE", "12/31/69");
+        String onOrBefore =
+                CLDRConfig.getInstance().getProperty("CLDR_OLD_POSTS_BEFORE", "12/31/69");
         DateFormat sdf = DateFormat.getDateInstance(DateFormat.SHORT, ULocale.US);
         try {
             oldOnOrBefore = sdf.parse(onOrBefore);
         } catch (Throwable t) {
-            System.err.println("Error in parsing CLDR_OLD_POSTS_BEFORE : " + onOrBefore + " - err " + t);
+            System.err.println(
+                    "Error in parsing CLDR_OLD_POSTS_BEFORE : " + onOrBefore + " - err " + t);
             t.printStackTrace();
             oldOnOrBefore = null;
         }
         if (oldOnOrBefore == null) {
             oldOnOrBefore = new Date(0);
         }
-        logger.fine("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
+        logger.fine(
+                "CLDR_OLD_POSTS_BEFORE: date: "
+                        + sdf.format(oldOnOrBefore)
+                        + " (format: mm/dd/yy)");
         String sql;
         String locindex = "loc";
         if (DBUtils.db_Mysql) {
@@ -442,46 +515,106 @@ public class SurveyForum {
 
         if (!DBUtils.hasTable(DB_FORA)) { // user attribute
             Statement s = conn.createStatement();
-            sql = "CREATE TABLE " + DB_FORA + " ( " + " id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY
-                + ", "
-                + " loc VARCHAR(122) NOT NULL, "
-                + // interest locale
-                " first_time " + DBUtils.DB_SQL_TIMESTAMP0 + " NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT + " "
-                + DBUtils.DB_SQL_CURRENT_TIMESTAMP0 + ", " + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT
-                + " CURRENT_TIMESTAMP" + " )";
+            sql =
+                    "CREATE TABLE "
+                            + DB_FORA
+                            + " ( "
+                            + " id INT NOT NULL "
+                            + DBUtils.DB_SQL_IDENTITY
+                            + ", "
+                            + " loc VARCHAR(122) NOT NULL, "
+                            + // interest locale
+                            " first_time "
+                            + DBUtils.DB_SQL_TIMESTAMP0
+                            + " NOT NULL "
+                            + DBUtils.DB_SQL_WITHDEFAULT
+                            + " "
+                            + DBUtils.DB_SQL_CURRENT_TIMESTAMP0
+                            + ", "
+                            + " last_time TIMESTAMP NOT NULL "
+                            + DBUtils.DB_SQL_WITHDEFAULT
+                            + " CURRENT_TIMESTAMP"
+                            + " )";
             s.execute(sql);
             s.close();
             conn.commit();
         }
         if (!DBUtils.hasTable(DBUtils.Table.FORUM_POSTS.toString())) {
             Statement s = conn.createStatement();
-            sql = "CREATE TABLE " + DBUtils.Table.FORUM_POSTS + " ( " + " id INT NOT NULL "
-                + DBUtils.DB_SQL_IDENTITY + ", "
-                + " forum INT NOT NULL, " // which forum (DB_FORA), i.e. de
-                + " poster INT NOT NULL, " + " subj " + DBUtils.DB_SQL_UNICODE + ", " + " text " + DBUtils.DB_SQL_UNICODE
-                + " NOT NULL, " + " parent INT " + DBUtils.DB_SQL_WITHDEFAULT
-                + " -1, "
-                + " loc VARCHAR(122), " // specific locale, i.e. de_CH
-                + " xpath INT, " // base xpath
-                + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT + " CURRENT_TIMESTAMP, "
-                + " version VARCHAR(122), " // CLDR version
-                + " root INT NOT NULL,"
-                + " type INT NOT NULL,"
-                + " is_open BOOLEAN NOT NULL,"
-                + " value " + DBUtils.DB_SQL_UNICODE
-                + " )";
+            sql =
+                    "CREATE TABLE "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " ( "
+                            + " id INT NOT NULL "
+                            + DBUtils.DB_SQL_IDENTITY
+                            + ", "
+                            + " forum INT NOT NULL, " // which forum (DB_FORA), i.e. de
+                            + " poster INT NOT NULL, "
+                            + " subj "
+                            + DBUtils.DB_SQL_UNICODE
+                            + ", "
+                            + " text "
+                            + DBUtils.DB_SQL_UNICODE
+                            + " NOT NULL, "
+                            + " parent INT "
+                            + DBUtils.DB_SQL_WITHDEFAULT
+                            + " -1, "
+                            + " loc VARCHAR(122), " // specific locale, i.e. de_CH
+                            + " xpath INT, " // base xpath
+                            + " last_time TIMESTAMP NOT NULL "
+                            + DBUtils.DB_SQL_WITHDEFAULT
+                            + " CURRENT_TIMESTAMP, "
+                            + " version VARCHAR(122), " // CLDR version
+                            + " root INT NOT NULL,"
+                            + " type INT NOT NULL,"
+                            + " is_open BOOLEAN NOT NULL,"
+                            + " value "
+                            + DBUtils.DB_SQL_UNICODE
+                            + " )";
             s.execute(sql);
-            sql = "CREATE UNIQUE INDEX " + DBUtils.Table.FORUM_POSTS + "_id ON " + DBUtils.Table.FORUM_POSTS + " (id) ";
+            sql =
+                    "CREATE UNIQUE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_id ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " (id) ";
             s.execute(sql);
-            sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_ut ON " + DBUtils.Table.FORUM_POSTS + " (poster, last_time) ";
+            sql =
+                    "CREATE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_ut ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " (poster, last_time) ";
             s.execute(sql);
-            sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_utt ON " + DBUtils.Table.FORUM_POSTS + " (id, last_time) ";
+            sql =
+                    "CREATE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_utt ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " (id, last_time) ";
             s.execute(sql);
-            sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_chil ON " + DBUtils.Table.FORUM_POSTS + " (parent) ";
+            sql =
+                    "CREATE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_chil ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " (parent) ";
             s.execute(sql);
-            sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_loc ON " + DBUtils.Table.FORUM_POSTS + " (" + locindex + ") ";
+            sql =
+                    "CREATE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_loc ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " ("
+                            + locindex
+                            + ") ";
             s.execute(sql);
-            sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_x ON " + DBUtils.Table.FORUM_POSTS + " (xpath) ";
+            sql =
+                    "CREATE INDEX "
+                            + DBUtils.Table.FORUM_POSTS
+                            + "_x ON "
+                            + DBUtils.Table.FORUM_POSTS
+                            + " (xpath) ";
             s.execute(sql);
             s.close();
             conn.commit();
@@ -493,11 +626,13 @@ public class SurveyForum {
     private final SurveyMain sm;
 
     private static PreparedStatement prepare_fGetByLoc(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "fGetByLoc", "SELECT id FROM " + DB_FORA + " where loc=?");
+        return DBUtils.prepareStatement(
+                conn, "fGetByLoc", "SELECT id FROM " + DB_FORA + " where loc=?");
     }
 
     private static PreparedStatement prepare_fAdd(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "fAdd", "INSERT INTO " + DB_FORA + " (loc) values (?)");
+        return DBUtils.prepareStatement(
+                conn, "fAdd", "INSERT INTO " + DB_FORA + " (loc) values (?)");
     }
 
     /**
@@ -506,14 +641,16 @@ public class SurveyForum {
      * @param conn the Connection
      * @return the PreparedStatement
      * @throws SQLException
-     *
-     * Called only by savePostToDb
+     *     <p>Called only by savePostToDb
      */
     private static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO "
-            + DBUtils.Table.FORUM_POSTS
-            + " (poster,subj,text,forum,parent,loc,xpath,version,root,type,is_open,value)"
-            + " values (?,?,?,?,?,?,?,?,?,?,?,?)");
+        return DBUtils.prepareStatement(
+                conn,
+                "pAdd",
+                "INSERT INTO "
+                        + DBUtils.Table.FORUM_POSTS
+                        + " (poster,subj,text,forum,parent,loc,xpath,version,root,type,is_open,value)"
+                        + " values (?,?,?,?,?,?,?,?,?,?,?,?)");
     }
 
     /**
@@ -524,13 +661,17 @@ public class SurveyForum {
      * @throws SQLException
      */
     private static PreparedStatement prepare_pCloseThread(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pCloseThread", "UPDATE "
-            + DBUtils.Table.FORUM_POSTS
-            + " SET is_open=FALSE WHERE id=? OR root=?");
+        return DBUtils.prepareStatement(
+                conn,
+                "pCloseThread",
+                "UPDATE " + DBUtils.Table.FORUM_POSTS + " SET is_open=FALSE WHERE id=? OR root=?");
     }
 
     private static PreparedStatement prepare_pIntUsers(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pIntUsers", "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
+        return DBUtils.prepareStatement(
+                conn,
+                "pIntUsers",
+                "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
     }
 
     private static String localeToForum(ULocale locale) {
@@ -542,17 +683,19 @@ public class SurveyForum {
     }
 
     /**
-     *
      * @param ctx
      * @param forum
-     * @return
-     *
-     * Possibly called by tmpl/usermenu.jsp -- maybe dead code?
+     * @return Possibly called by tmpl/usermenu.jsp -- maybe dead code?
      */
     public static String forumLink(WebContext ctx, String forum) {
         String url = ctx.base() + "?" + F_FORUM + "=" + forum;
-        return "<a " + ctx.atarget(WebContext.TARGET_DOCS) + " class='forumlink' href='" + url + "' >" // title='"+title+"'
-            + "Forum" + "</a>";
+        return "<a "
+                + ctx.atarget(WebContext.TARGET_DOCS)
+                + " class='forumlink' href='"
+                + url
+                + "' >" // title='"+title+"'
+                + "Forum"
+                + "</a>";
     }
 
     /**
@@ -561,8 +704,8 @@ public class SurveyForum {
      * @param locale
      * @param xpathId
      * @return the number of posts
-     *
-     * Called by STFactory.PerLocaleData.voteForValue and SurveyAjax.processRequest (WHAT_FORUM_COUNT)
+     *     <p>Called by STFactory.PerLocaleData.voteForValue and SurveyAjax.processRequest
+     *     (WHAT_FORUM_COUNT)
      */
     public int postCountFor(CLDRLocale locale, int xpathId) {
         Connection conn = null;
@@ -573,12 +716,15 @@ public class SurveyForum {
             if (conn == null) {
                 return 0;
             }
-            ps = DBUtils.prepareForwardReadOnly(conn, "select count(*) from " + tableName + " where loc=? and xpath=?");
+            ps =
+                    DBUtils.prepareForwardReadOnly(
+                            conn, "select count(*) from " + tableName + " where loc=? and xpath=?");
             ps.setString(1, locale.getBaseName());
             ps.setInt(2, xpathId);
             return DBUtils.sqlCount(ps);
         } catch (SQLException e) {
-            SurveyLog.logException(logger, e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
+            SurveyLog.logException(
+                    logger, e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
             return 0;
         } finally {
             DBUtils.close(ps, conn);
@@ -586,8 +732,7 @@ public class SurveyForum {
     }
 
     /**
-     * Gather forum post information into a JSONArray, in preparation for
-     * displaying it to the user.
+     * Gather forum post information into a JSONArray, in preparation for displaying it to the user.
      *
      * @param session
      * @param locale
@@ -597,7 +742,8 @@ public class SurveyForum {
      * @throws JSONException
      * @throws SurveyException
      */
-    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident) throws JSONException, SurveyException {
+    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath, int ident)
+            throws JSONException, SurveyException {
         assertCanAccessForum(session, locale);
 
         JSONArray ret = new JSONArray();
@@ -613,33 +759,81 @@ public class SurveyForum {
                 if (ident == 0) {
                     if (base_xpath == 0) {
                         // all posts
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
-                            + " WHERE (" + forumPosts + ".forum =? ) ORDER BY "
-                            + forumPosts
-                            + ".last_time DESC", forumNumber);
+                        o =
+                                DBUtils.sqlQueryArrayArrayObj(
+                                        conn,
+                                        "select "
+                                                + getPallresultfora(forumPosts)
+                                                + "  FROM "
+                                                + forumPosts
+                                                + " WHERE ("
+                                                + forumPosts
+                                                + ".forum =? ) ORDER BY "
+                                                + forumPosts
+                                                + ".last_time DESC",
+                                        forumNumber);
                     } else {
                         // all posts for xpath
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
-                            + " WHERE (" + forumPosts + ".forum =? AND " + forumPosts + " .xpath =? and "
-                            + forumPosts + ".loc=? ) ORDER BY "
-                            + forumPosts
-                            + ".last_time DESC", forumNumber, base_xpath, locale);
+                        o =
+                                DBUtils.sqlQueryArrayArrayObj(
+                                        conn,
+                                        "select "
+                                                + getPallresultfora(forumPosts)
+                                                + "  FROM "
+                                                + forumPosts
+                                                + " WHERE ("
+                                                + forumPosts
+                                                + ".forum =? AND "
+                                                + forumPosts
+                                                + " .xpath =? and "
+                                                + forumPosts
+                                                + ".loc=? ) ORDER BY "
+                                                + forumPosts
+                                                + ".last_time DESC",
+                                        forumNumber,
+                                        base_xpath,
+                                        locale);
                     }
                 } else {
                     // specific POST
                     if (base_xpath <= 0) {
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
-                                + " WHERE (" + forumPosts + ".forum =? AND "
-                                + forumPosts + " .id =?) ORDER BY "
-                                + forumPosts
-                                + ".last_time DESC",
-                            forumNumber, /* base_xpath,*/ident);
+                        o =
+                                DBUtils.sqlQueryArrayArrayObj(
+                                        conn,
+                                        "select "
+                                                + getPallresultfora(forumPosts)
+                                                + "  FROM "
+                                                + forumPosts
+                                                + " WHERE ("
+                                                + forumPosts
+                                                + ".forum =? AND "
+                                                + forumPosts
+                                                + " .id =?) ORDER BY "
+                                                + forumPosts
+                                                + ".last_time DESC",
+                                        forumNumber, /* base_xpath,*/
+                                        ident);
                     } else {
                         // just a restriction - specific post, specific xpath
-                        o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora(forumPosts) + "  FROM " + forumPosts
-                            + " WHERE (" + forumPosts + ".forum =? AND " + forumPosts + " .xpath =? AND "
-                            + forumPosts + " .id =?) ORDER BY " + forumPosts
-                            + ".last_time DESC", forumNumber, base_xpath, ident);
+                        o =
+                                DBUtils.sqlQueryArrayArrayObj(
+                                        conn,
+                                        "select "
+                                                + getPallresultfora(forumPosts)
+                                                + "  FROM "
+                                                + forumPosts
+                                                + " WHERE ("
+                                                + forumPosts
+                                                + ".forum =? AND "
+                                                + forumPosts
+                                                + " .xpath =? AND "
+                                                + forumPosts
+                                                + " .id =?) ORDER BY "
+                                                + forumPosts
+                                                + ".last_time DESC",
+                                        forumNumber,
+                                        base_xpath,
+                                        ident);
                     }
                 }
                 for (Object[] objects : o) {
@@ -662,13 +856,13 @@ public class SurveyForum {
                     if (lastDate.after(oldOnOrBefore)) {
                         JSONObject post = new JSONObject();
                         post.put("poster", poster)
-                            .put("subject", subj2)
-                            .put("text", text2)
-                            .put("postType", type.toName())
-                            .put("date", lastDate)
-                            .put("date_long", lastDate.getTime())
-                            .put("id", id)
-                            .put("parent", parent);
+                                .put("subject", subj2)
+                                .put("text", text2)
+                                .put("postType", type.toName())
+                                .put("date", lastDate)
+                                .put("date_long", lastDate.getTime())
+                                .put("id", id)
+                                .put("parent", parent);
                         if (loc != null) {
                             post.put("locale", loc);
                         }
@@ -700,49 +894,68 @@ public class SurveyForum {
             }
         } catch (SQLException se) {
             // When query fails, set breakpoint here and look at se.detailMessage for clues
-            String complaint = "SurveyForum:  Couldn't show posts in forum "
-                + locale
-                + " - " + DBUtils.unchainSqlException(se)
-                + " - fGetByLoc";
+            String complaint =
+                    "SurveyForum:  Couldn't show posts in forum "
+                            + locale
+                            + " - "
+                            + DBUtils.unchainSqlException(se)
+                            + " - fGetByLoc";
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
     }
 
-    private void assertCanAccessForum(CookieSession session, CLDRLocale locale) throws SurveyException {
+    private void assertCanAccessForum(CookieSession session, CLDRLocale locale)
+            throws SurveyException {
         if (session == null || session.user == null) {
             throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
         }
         assertCanAccessForum(session.user, locale);
     }
 
-    private void assertCanAccessForum(UserRegistry.User user, CLDRLocale locale) throws SurveyException {
+    private void assertCanAccessForum(UserRegistry.User user, CLDRLocale locale)
+            throws SurveyException {
         boolean canModify = (UserRegistry.userCanAccessForum(user, locale));
         if (!canModify) {
-            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "You do not have permission to access that locale");
+            throw new SurveyException(
+                    ErrorCode.E_NO_PERMISSION, "You do not have permission to access that locale");
         }
     }
 
     /**
-     * Construct a portion of an sql query for getting all needed columns from the forum posts table.
+     * Construct a portion of an sql query for getting all needed columns from the forum posts
+     * table.
      *
      * @param forumPosts the table name
      * @return the string to be used as part of a query
      */
     private static String getPallresultfora(String forumPosts) {
-        return forumPosts + ".poster,"
-            + forumPosts + ".subj,"
-            + forumPosts + ".text,"
-            + forumPosts + ".last_time,"
-            + forumPosts + ".id,"
-            + forumPosts + ".parent,"
-            + forumPosts + ".xpath, "
-            + forumPosts + ".loc,"
-            + forumPosts + ".version,"
-            + forumPosts + ".root,"
-            + forumPosts + ".type,"
-            + forumPosts + ".is_open,"
-            + forumPosts + ".value";
+        return forumPosts
+                + ".poster,"
+                + forumPosts
+                + ".subj,"
+                + forumPosts
+                + ".text,"
+                + forumPosts
+                + ".last_time,"
+                + forumPosts
+                + ".id,"
+                + forumPosts
+                + ".parent,"
+                + forumPosts
+                + ".xpath, "
+                + forumPosts
+                + ".loc,"
+                + forumPosts
+                + ".version,"
+                + forumPosts
+                + ".root,"
+                + forumPosts
+                + ".type,"
+                + forumPosts
+                + ".is_open,"
+                + forumPosts
+                + ".value";
     }
 
     /**
@@ -751,7 +964,6 @@ public class SurveyForum {
      * @param mySession the CookieSession
      * @param postInfo the PostInfo
      * @return the post id
-     *
      * @throws SurveyException
      */
     public int doPost(CookieSession mySession, PostInfo postInfo) throws SurveyException {
@@ -762,11 +974,15 @@ public class SurveyForum {
         if (replyTo < 0) {
             base_xpath = sm.xpt.getXpathIdOrNoneFromStringID(postInfo.getPathStr());
         } else {
-            base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
+            base_xpath =
+                    DBUtils.sqlCount(
+                            "select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?",
+                            replyTo); // default to -1
         }
         postInfo.setPath(base_xpath);
-        final boolean couldFlag = couldFlagOnLosing(postInfo.getUser(), sm.xpt.getById(base_xpath), locale)
-                && !sm.getSTFactory().getFlag(locale, base_xpath);
+        final boolean couldFlag =
+                couldFlagOnLosing(postInfo.getUser(), sm.xpt.getById(base_xpath), locale)
+                        && !sm.getSTFactory().getFlag(locale, base_xpath);
         postInfo.setCouldFlagOnLosing(couldFlag);
         if (couldFlag) {
             postInfo.setText(postInfo.getText() + FLAGGED_FOR_REVIEW_HTML);
@@ -784,17 +1000,33 @@ public class SurveyForum {
      * @param value
      * @param didClearFlag
      */
-    public void doForumAfterVote(CLDRLocale locale, User user, String distinguishingXpath, int xpathId,
-            String value, boolean didClearFlag) {
+    public void doForumAfterVote(
+            CLDRLocale locale,
+            User user,
+            String distinguishingXpath,
+            int xpathId,
+            String value,
+            boolean didClearFlag) {
         if (didClearFlag) {
             try {
                 int newPostId = postFlagRemoved(xpathId, locale, user);
-                System.out.println("NOTE: flag was removed from "
-                    + locale + " " + distinguishingXpath + " - post ID=" + newPostId
-                    + " by " + user.toString());
+                System.out.println(
+                        "NOTE: flag was removed from "
+                                + locale
+                                + " "
+                                + distinguishingXpath
+                                + " - post ID="
+                                + newPostId
+                                + " by "
+                                + user.toString());
             } catch (SurveyException e) {
-                SurveyLog.logException(logger, e, "Error trying to post that a flag was removed from "
-                    + locale + " " + distinguishingXpath);
+                SurveyLog.logException(
+                        logger,
+                        e,
+                        "Error trying to post that a flag was removed from "
+                                + locale
+                                + " "
+                                + distinguishingXpath);
             }
         }
         if (ENABLE_AUTO_POSTING) {
@@ -813,11 +1045,11 @@ public class SurveyForum {
      * @param locale
      * @param user
      * @return the post id
-     *
      * @throws SurveyException
      */
     private int postFlagRemoved(int xpathId, CLDRLocale locale, User user) throws SurveyException {
-        PostInfo postInfo = new PostInfo(locale, PostType.CLOSE.toName(), "(The flag was removed.)");
+        PostInfo postInfo =
+                new PostInfo(locale, PostType.CLOSE.toName(), "(The flag was removed.)");
         postInfo.setSubj("Flag Removed");
         postInfo.setPath(xpathId);
         postInfo.setUser(user);
@@ -842,9 +1074,13 @@ public class SurveyForum {
             if (conn == null) {
                 return;
             }
-            pList = DBUtils.prepareStatement(conn, "pList",
-                "SELECT id,subj FROM " + tableName
-                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
+            pList =
+                    DBUtils.prepareStatement(
+                            conn,
+                            "pList",
+                            "SELECT id,subj FROM "
+                                    + tableName
+                                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -854,8 +1090,10 @@ public class SurveyForum {
             while (rs.next()) {
                 posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
             }
-            posts.forEach((root, subject) -> autoPostReplyAgree(root, subject, locale, user, xpathId, value));
-         } catch (SQLException se) {
+            posts.forEach(
+                    (root, subject) ->
+                            autoPostReplyAgree(root, subject, locale, user, xpathId, value));
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostAgree - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
         } finally {
@@ -863,8 +1101,8 @@ public class SurveyForum {
         }
     }
 
-    private void autoPostReplyAgree(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
+    private void autoPostReplyAgree(
+            int root, String subject, CLDRLocale locale, User user, int xpathId, String value) {
         String text = "(Auto-generated:) I voted for “" + value + "”";
         PostInfo postInfo = new PostInfo(locale, PostType.AGREE.toName(), text);
         postInfo.setSubj(subject);
@@ -882,8 +1120,8 @@ public class SurveyForum {
     }
 
     /**
-     * For each open AGREE post by this user, for this locale+path, where
-     * the given value is NOT the same as the requested value, generate a new DECLINE post.
+     * For each open AGREE post by this user, for this locale+path, where the given value is NOT the
+     * same as the requested value, generate a new DECLINE post.
      *
      * @param locale
      * @param user
@@ -899,9 +1137,13 @@ public class SurveyForum {
         try {
             conn = sm.dbUtils.getAConnection();
             if (conn != null) {
-                pList = DBUtils.prepareStatement(conn, "pList",
-                    "SELECT root,subj FROM " + tableName
-                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                pList =
+                        DBUtils.prepareStatement(
+                                conn,
+                                "pList",
+                                "SELECT root,subj FROM "
+                                        + tableName
+                                        + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
                 pList.setInt(1, PostType.AGREE.toInt());
                 pList.setString(2, locale.toString());
                 pList.setInt(3, xpathId);
@@ -911,9 +1153,11 @@ public class SurveyForum {
                 while (rs.next()) {
                     posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
                 }
-                posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
+                posts.forEach(
+                        (root, subject) ->
+                                autoPostReplyDecline(root, subject, locale, user, xpathId, value));
             }
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostDecline - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
         } finally {
@@ -921,18 +1165,22 @@ public class SurveyForum {
         }
     }
 
-    private void autoPostReplyDecline(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
-        String text = (value == null)
-                ? "(Auto-generated:) I changed my vote to Abstain, and will reconsider my vote."
-                : "(Auto-generated:) I changed my vote to “" + value + "”, which now disagrees with the request.";
+    private void autoPostReplyDecline(
+            int root, String subject, CLDRLocale locale, User user, int xpathId, String value) {
+        String text =
+                (value == null)
+                        ? "(Auto-generated:) I changed my vote to Abstain, and will reconsider my vote."
+                        : "(Auto-generated:) I changed my vote to “"
+                                + value
+                                + "”, which now disagrees with the request.";
         PostInfo postInfo = new PostInfo(locale, PostType.DECLINE.toName(), text);
         postInfo.setSubj(subject);
         postInfo.setPath(xpathId);
         postInfo.setUser(user);
         postInfo.setReplyTo(root /* replyTo */);
         postInfo.setRoot(root);
-        postInfo.setValue(value == null ? "Abstain" : value); /* NOT the same as the requested value */
+        postInfo.setValue(
+                value == null ? "Abstain" : value); /* NOT the same as the requested value */
         try {
             doPostInternal(postInfo);
         } catch (SurveyException e) {
@@ -941,8 +1189,8 @@ public class SurveyForum {
     }
 
     /**
-     * I request a vote for “X”, then I change to “Y” (or abstain)
-     * Auto-generated: I changed my vote to “Y”, disagreeing with my request. This topic is being closed. ⇒ Close
+     * I request a vote for “X”, then I change to “Y” (or abstain) Auto-generated: I changed my vote
+     * to “Y”, disagreeing with my request. This topic is being closed. ⇒ Close
      *
      * @param locale
      * @param user
@@ -958,9 +1206,13 @@ public class SurveyForum {
         try {
             conn = sm.dbUtils.getAConnection(); // readonly
             if (conn != null) {
-                pList = DBUtils.prepareStatement(conn, "pList",
-                    "SELECT id,subj FROM " + tableName
-                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                pList =
+                        DBUtils.prepareStatement(
+                                conn,
+                                "pList",
+                                "SELECT id,subj FROM "
+                                        + tableName
+                                        + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
                 pList.setInt(1, PostType.REQUEST.toInt());
                 pList.setString(2, locale.toString());
                 pList.setInt(3, xpathId);
@@ -970,9 +1222,11 @@ public class SurveyForum {
                 while (rs.next()) {
                     posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
                 }
-                posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
+                posts.forEach(
+                        (root, subject) ->
+                                autoPostReplyClose(root, subject, locale, user, xpathId, value));
             }
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostClose - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
         } finally {
@@ -980,18 +1234,21 @@ public class SurveyForum {
         }
     }
 
-    private void autoPostReplyClose(int root, String subject, CLDRLocale locale, User user,
-            int xpathId, String value) {
+    private void autoPostReplyClose(
+            int root, String subject, CLDRLocale locale, User user, int xpathId, String value) {
         String abstainOrQuotedValue = value == null ? "Abstain" : "“" + value + "”";
-        String text = "(Auto-generated:) I changed my vote to " + abstainOrQuotedValue
-                + ", disagreeing with my request. This topic is being closed.";
+        String text =
+                "(Auto-generated:) I changed my vote to "
+                        + abstainOrQuotedValue
+                        + ", disagreeing with my request. This topic is being closed.";
         PostInfo postInfo = new PostInfo(locale, PostType.CLOSE.toName(), text);
         postInfo.setSubj(subject);
         postInfo.setPath(xpathId);
         postInfo.setUser(user);
         postInfo.setReplyTo(root /* replyTo */);
         postInfo.setRoot(root);
-        postInfo.setValue(value == null ? "Abstain" : value); /* NOT the same as the requested value */
+        postInfo.setValue(
+                value == null ? "Abstain" : value); /* NOT the same as the requested value */
         postInfo.setSendEmail(false);
         try {
             doPostInternal(postInfo);
@@ -1001,11 +1258,10 @@ public class SurveyForum {
     }
 
     /**
-     * Respond to the user making a new forum post. Save the post in the database,
-     * and send an email if appropriate.
+     * Respond to the user making a new forum post. Save the post in the database, and send an email
+     * if appropriate.
      *
      * @param postInfo the post info
-     *
      * @return the new post id, or <= 0 for failure
      * @throws SurveyException
      */
@@ -1027,8 +1283,8 @@ public class SurveyForum {
     }
 
     /**
-     * Save a new post to the FORUM_POSTS table; if it's a CLOSE post,
-     * also set is_open=false for all posts in this thread
+     * Save a new post to the FORUM_POSTS table; if it's a CLOSE post, also set is_open=false for
+     * all posts in this thread
      *
      * @param postInfo the post info
      * @return the new post id, or <= 0 for failure
@@ -1078,14 +1334,19 @@ public class SurveyForum {
                 postId = DBUtils.getLastId(pAdd);
 
                 if (n != 1) {
-                    throw new RuntimeException("Couldn't post to " + localeStr + " - update failed.");
+                    throw new RuntimeException(
+                            "Couldn't post to " + localeStr + " - update failed.");
                 }
             } finally {
                 DBUtils.close(pAdd, conn);
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum:  Couldn't add post to " + localeStr + " - " + DBUtils.unchainSqlException(se)
-                + " - pAdd";
+            String complaint =
+                    "SurveyForum:  Couldn't add post to "
+                            + localeStr
+                            + " - "
+                            + DBUtils.unchainSqlException(se)
+                            + " - pAdd";
             SurveyLog.logException(logger, se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         }
@@ -1095,19 +1356,21 @@ public class SurveyForum {
     /**
      * Close all posts in the threads with the given root ids
      *
-     * This is a long-running process (several minutes) if the number of posts is large. There is no
-     * progress feedback on the front end, unfortunately. As a work-around, print progress to Java log.
-     * Only Admin can use this feature. Admin should be able to watch log even on production server.
+     * <p>This is a long-running process (several minutes) if the number of posts is large. There is
+     * no progress feedback on the front end, unfortunately. As a work-around, print progress to
+     * Java log. Only Admin can use this feature. Admin should be able to watch log even on
+     * production server.
      *
-     * This feature could probably be made a hundred times faster by using an sql stored procedure!
+     * <p>This feature could probably be made a hundred times faster by using an sql stored
+     * procedure!
      *
      * @param conn the db connection
      * @param rootIdList the list of post ids (typically about 4 thousand)
      * @return the number of posts closed
-     *
      * @throws SQLException
      */
-    public static synchronized int closeThreads(Connection conn, ArrayList<Integer> rootIdList) throws SQLException {
+    public static synchronized int closeThreads(Connection conn, ArrayList<Integer> rootIdList)
+            throws SQLException {
         PreparedStatement pCloseThread = null;
         int postCount = 0, rootCount = 0;
         System.out.println("closeThreads starting: rootIdList.size = " + rootIdList.size());
@@ -1124,7 +1387,8 @@ public class SurveyForum {
         } finally {
             DBUtils.close(pCloseThread);
         }
-        System.out.println("closeThreads finished: rootCount = " + rootCount + "; postCount = " + postCount);
+        System.out.println(
+                "closeThreads finished: rootCount = " + rootCount + "; postCount = " + postCount);
         return postCount;
     }
 
@@ -1150,17 +1414,16 @@ public class SurveyForum {
         }
 
         public boolean isValid() {
-            if (locale == null
-                || type == null
-                || text == null
-                || subj == null
-                || user == null) {
+            if (locale == null || type == null || text == null || subj == null || user == null) {
                 return false;
             }
             if ((replyTo == NO_PARENT) != (root == NO_PARENT)) {
                 return false;
             }
-            if (value == null && (type == PostType.REQUEST || type == PostType.AGREE || type == PostType.DECLINE)) {
+            if (value == null
+                    && (type == PostType.REQUEST
+                            || type == PostType.AGREE
+                            || type == PostType.DECLINE)) {
                 return false;
             }
             return true;
@@ -1271,9 +1534,7 @@ public class SurveyForum {
         }
     }
 
-    /**
-     * Status values associated with forum posts and threads
-     */
+    /** Status values associated with forum posts and threads */
     enum PostType {
         CLOSE(0, "Close"),
         DISCUSS(1, "Discuss"),
@@ -1308,8 +1569,8 @@ public class SurveyForum {
         }
 
         /**
-         * Get a PostType value from its name, or if the name is not associated with
-         * a PostType value, use the given default PostType
+         * Get a PostType value from its name, or if the name is not associated with a PostType
+         * value, use the given default PostType
          *
          * @param i
          * @param defaultStatus
@@ -1325,8 +1586,8 @@ public class SurveyForum {
         }
 
         /**
-         * Get a PostType value from its name, or if the name is not associated with
-         * a PostType value, use the given default PostType
+         * Get a PostType value from its name, or if the name is not associated with a PostType
+         * value, use the given default PostType
          *
          * @param name
          * @param defaultStatus

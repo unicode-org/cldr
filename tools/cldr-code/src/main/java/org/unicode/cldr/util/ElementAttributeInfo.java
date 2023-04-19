@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,25 +16,22 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class ElementAttributeInfo {
 
     private DtdType dtdType;
-    private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<>();
-    private Relation<String, String> element2children = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2parents = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data =
+            new TreeMap<>();
+    private Relation<String, String> element2children =
+            Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2parents =
+            Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2attributes =
+            Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
     // HashMap<DtdType,
@@ -83,7 +85,8 @@ public class ElementAttributeInfo {
     // static {
     // try {
     // addFromDTD(CldrUtility.COMMON_DIRECTORY + "main/en.xml", DtdType.ldml);
-    // addFromDTD(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", DtdType.supplementalData);
+    // addFromDTD(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml",
+    // DtdType.supplementalData);
     // addFromDTD(CldrUtility.COMMON_DIRECTORY + "bcp47/calendar.xml", DtdType.ldmlBCP47);
     // } catch (IOException e) {
     // throw new IllegalArgumentException(e);
@@ -104,7 +107,8 @@ public class ElementAttributeInfo {
             // xmlReader.setContentHandler(me);
             // xmlReader.setErrorHandler(me);
             xmlReader.parse(is);
-            this.elementAttribute2Data = Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
+            this.elementAttribute2Data =
+                    Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
             getElement2Children().freeze();
             getElement2Parents().freeze();
             getElement2Attributes().freeze();
@@ -146,18 +150,29 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
+        public void attributeDecl(
+                String eName, String aName, String type, String mode, String value)
+                throws SAXException {
             if (SHOW)
-                System.out.println(myData.getDtdType() + "\tAttributeDecl\t" + eName + "\t" + aName + "\t" + type
-                    + "\t" + mode + "\t" + value);
+                System.out.println(
+                        myData.getDtdType()
+                                + "\tAttributeDecl\t"
+                                + eName
+                                + "\t"
+                                + aName
+                                + "\t"
+                                + type
+                                + "\t"
+                                + mode
+                                + "\t"
+                                + value);
             R2<String, String> key = Row.of(eName, aName);
             Set<String> typeSet = getIdentifiers(type);
             R3<Set<String>, String, String> value2 = Row.of(typeSet, mode, value);
             R3<Set<String>, String, String> oldValue = myData.getElementAttribute2Data().get(key);
             if (oldValue != null && !oldValue.equals(value2)) {
-                throw new IllegalArgumentException("Conflict in data: " + key + "\told: " + oldValue + "\tnew: "
-                    + value2);
+                throw new IllegalArgumentException(
+                        "Conflict in data: " + key + "\told: " + oldValue + "\tnew: " + value2);
             }
             myData.getElementAttribute2Data().put(key, value2);
             myData.getElement2Attributes().put(eName, aName);
@@ -191,7 +206,8 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(String name, String publicId, String systemId)
+                throws SAXException {
             // TODO Auto-generated method stub
 
         }

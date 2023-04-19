@@ -1,18 +1,16 @@
 package org.unicode.cldr.test;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.CldrUtility;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import java.io.IOException;
+import java.io.PrintWriter;
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.CldrUtility;
 
 public class TestTransformsSimple extends TestFmwk {
 
@@ -41,7 +39,7 @@ public class TestTransformsSimple extends TestFmwk {
         // assertRoundTripTransform("Transform", "\uAC0D\uB530", lh, hl);
 
         final UnicodeSet representativeHangul = getRepresentativeHangul();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(representativeHangul); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(representativeHangul); it.next(); ) {
             assertRoundTripTransform("Transform", it.getString(), lh, hl);
         }
 
@@ -88,20 +86,27 @@ public class TestTransformsSimple extends TestFmwk {
 
     }
 
-    private void assertRoundTripTransform(String message, String source, Transliterator lh, Transliterator hl) {
+    private void assertRoundTripTransform(
+            String message, String source, Transliterator lh, Transliterator hl) {
         String to = hl.transform(source);
         String back = lh.transform(to);
         String to2 = hl.transform(source.replaceAll("(.)", "$1 ").trim());
         String to3 = hl.transform(back.replaceAll("(.)", "$1 ").trim());
-        assertEquals(message + " " + source + " [" + to + "/" + to2 + "/" + to3 + "]", source, back);
+        assertEquals(
+                message + " " + source + " [" + to + "/" + to2 + "/" + to3 + "]", source, back);
     }
 
-    private void assertTransform(String message, String expected, StringTransform t, String source) {
+    private void assertTransform(
+            String message, String expected, StringTransform t, String source) {
         assertEquals(message + " " + source, expected, t.transform(source));
     }
 
-    private void assertTransform(String message, String expected, StringTransform t, StringTransform back,
-        String... source) {
+    private void assertTransform(
+            String message,
+            String expected,
+            StringTransform t,
+            StringTransform back,
+            String... source) {
         for (String s : source) {
             assertEquals(message + " " + s, expected, t.transform(s));
         }
@@ -113,9 +118,17 @@ public class TestTransformsSimple extends TestFmwk {
             // CLDRTransforms.registerCldrTransforms(null, ".*(Tamil).*", out);
             String name = "Tamil-Devanagari";
             Transliterator tamil_devanagari = Transliterator.getInstance(name);
-            Transliterator devanagari_tamil = Transliterator.getInstance(name, Transliterator.REVERSE);
-            writeFile(name, new UnicodeSet("[[:block=tamil:]-[ௗ]]"), null, tamil_devanagari, devanagari_tamil, false,
-                null, null);
+            Transliterator devanagari_tamil =
+                    Transliterator.getInstance(name, Transliterator.REVERSE);
+            writeFile(
+                    name,
+                    new UnicodeSet("[[:block=tamil:]-[ௗ]]"),
+                    null,
+                    tamil_devanagari,
+                    devanagari_tamil,
+                    false,
+                    null,
+                    null);
         }
     }
 
@@ -151,17 +164,29 @@ public class TestTransformsSimple extends TestFmwk {
         }
     }
 
-    private int writeFile(String title, UnicodeSet sourceSet, Transliterator nfd, Transliterator toLatin,
-        Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials)
-        throws IOException {
+    private int writeFile(
+            String title,
+            UnicodeSet sourceSet,
+            Transliterator nfd,
+            Transliterator toLatin,
+            Transliterator fromLatin,
+            boolean doLatin,
+            UnicodeSet nativeSpecials,
+            UnicodeSet latinSpecials)
+            throws IOException {
         int errorCount = 0;
-        PrintWriter out = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY + "transTest/", title + ".html");
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(
+                        org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY + "transTest/",
+                        title + ".html");
         out.println("<html><head>");
-        out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");
+        out.println(
+                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");
         if (nativeSpecials != null) {
-            out.println("<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+            out.println(
+                    "<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
             showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin");
-            for (UnicodeSetIterator it = new UnicodeSetIterator(nativeSpecials); it.next();) {
+            for (UnicodeSetIterator it = new UnicodeSetIterator(nativeSpecials); it.next(); ) {
                 String item = it.getString();
                 errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, null);
                 errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
@@ -174,9 +199,10 @@ public class TestTransformsSimple extends TestFmwk {
         }
 
         if (latinSpecials != null) {
-            out.println("<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+            out.println(
+                    "<h1>Specials</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
             showItems(out, true, "Latin", "ToNative", "BackToLatin", "BackToNative");
-            for (UnicodeSetIterator it = new UnicodeSetIterator(latinSpecials); it.next();) {
+            for (UnicodeSetIterator it = new UnicodeSetIterator(latinSpecials); it.next(); ) {
                 String item = it.getString();
                 errorCount = checkString(out, item, nfd, toLatin, fromLatin, errorCount, null);
                 // errorCount = checkString(out, item, nfd, fromLatin, toLatin, errorCount, "-");
@@ -189,7 +215,8 @@ public class TestTransformsSimple extends TestFmwk {
         }
 
         if (doLatin) {
-            out.println("<h1>Latin failures</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+            out.println(
+                    "<h1>Latin failures</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
             showItems(out, true, "Latin", "Target", "BackToLatin", "BackToTarget");
             errorCount = checkLatin(out, fromLatin, toLatin);
             out.println("</table><p>Latin failures:\t" + errorCount + "</p>");
@@ -197,10 +224,10 @@ public class TestTransformsSimple extends TestFmwk {
                 errln("Latin failures:\t" + errorCount);
                 errorCount = 0;
             }
-
         }
 
-        out.println("<h1>Not Reversible</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+        out.println(
+                "<h1>Not Reversible</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
         errorCount = showMappings(out, sourceSet, null, nfd, fromLatin, toLatin);
         out.println("</table><p>Reversible failures:\t" + errorCount + "</p>");
         if (errorCount != 0) {
@@ -208,7 +235,8 @@ public class TestTransformsSimple extends TestFmwk {
             errorCount = 0;
         }
 
-        out.println("<h1>Has Unneeded Separator</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
+        out.println(
+                "<h1>Has Unneeded Separator</h1><table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse'>");
         errorCount = showMappings(out, sourceSet, "-", nfd, fromLatin, toLatin);
         out.println("</table><p>Separator failures:\t" + errorCount + "</p>");
         if (errorCount != 0) {
@@ -223,9 +251,10 @@ public class TestTransformsSimple extends TestFmwk {
 
     static UnicodeSet latin = new UnicodeSet("[a-z]");
 
-    private static int checkLatin(PrintWriter out, Transliterator fromLatin, Transliterator toLatin) {
+    private static int checkLatin(
+            PrintWriter out, Transliterator fromLatin, Transliterator toLatin) {
         int errorCount = 0;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(latin); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(latin); it.next(); ) {
             String source = it.getString();
             String to = fromLatin.transliterate(source);
             if (latin.containsSome(to)) {
@@ -237,22 +266,36 @@ public class TestTransformsSimple extends TestFmwk {
         return errorCount;
     }
 
-    private static int showMappings(PrintWriter out, UnicodeSet testSet, String separator, Transliterator nfd,
-        Transliterator fromLatin, Transliterator toLatin) {
+    private static int showMappings(
+            PrintWriter out,
+            UnicodeSet testSet,
+            String separator,
+            Transliterator nfd,
+            Transliterator fromLatin,
+            Transliterator toLatin) {
         int errorCount = 0;
         if (separator == null) {
             showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin");
         } else {
-            showItems(out, true, "Source", "ToLatin", "FromLatin", "BackToLatin", "WithoutSeparator");
+            showItems(
+                    out, true, "Source", "ToLatin", "FromLatin", "BackToLatin", "WithoutSeparator");
         }
-        for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next();) {
-            errorCount = checkString(out, it.getString(), nfd, fromLatin, toLatin, errorCount, separator);
+        for (UnicodeSetIterator it = new UnicodeSetIterator(testSet); it.next(); ) {
+            errorCount =
+                    checkString(
+                            out, it.getString(), nfd, fromLatin, toLatin, errorCount, separator);
         }
         return errorCount;
     }
 
-    private static int checkString(PrintWriter out, String source1, Transliterator nfd, Transliterator fromLatin,
-        Transliterator toLatin, int errorCount, String separator) {
+    private static int checkString(
+            PrintWriter out,
+            String source1,
+            Transliterator nfd,
+            Transliterator fromLatin,
+            Transliterator toLatin,
+            int errorCount,
+            String separator) {
         String source = nfd == null ? source1 : nfd.transliterate(source1);
         String to = toLatin.transliterate(source);
         String from = fromLatin.transliterate(to);
@@ -275,7 +318,8 @@ public class TestTransformsSimple extends TestFmwk {
                 if (bad) {
                     // String backto = toLatin.transliterate(from);
                     errorCount += 1;
-                    showItems(out, false, source, to, from, otherTo, otherFrom, bad ? "FAIL" : null);
+                    showItems(
+                            out, false, source, to, from, otherTo, otherFrom, bad ? "FAIL" : null);
                 }
             }
         }
@@ -303,9 +347,12 @@ public class TestTransformsSimple extends TestFmwk {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < source.length(); ++i) {
             char c = source.charAt(i);
-            String color = lead.contains(c) ? "FFcccc"
-                : vowel.contains(c) ? "ccFFcc"
-                    : trail.contains(c) ? "ccccFF" : "FFFFFF";
+            String color =
+                    lead.contains(c)
+                            ? "FFcccc"
+                            : vowel.contains(c)
+                                    ? "ccFFcc"
+                                    : trail.contains(c) ? "ccccFF" : "FFFFFF";
             result.append("<span style='background-color: #" + color + "'>" + c + "</span>");
         }
         return result.toString();
@@ -360,14 +407,16 @@ public class TestTransformsSimple extends TestFmwk {
     // }
 
     public static UnicodeSet getRepresentativeHangul() {
-        UnicodeSet extraSamples = new UnicodeSet(
-            "[\uCE20{\uAD6C\uB514}{\uAD73\uC774}{\uBB34\uB837}{\uBB3C\uC5FF}{\uC544\uAE4C}{\uC544\uB530}{\uC544\uBE60}{\uC544\uC2F8}{\uC544\uC9DC}{\uC544\uCC28}{\uC545\uC0AC}{\uC545\uC2F8}{\uC546\uCE74}{\uC548\uAC00}{\uC548\uC790}{\uC548\uC9DC}{\uC548\uD558}{\uC54C\uAC00}{\uC54C\uB530}{\uC54C\uB9C8}{\uC54C\uBC14}{\uC54C\uBE60}{\uC54C\uC0AC}{\uC54C\uC2F8}{\uC54C\uD0C0}{\uC54C\uD30C}{\uC54C\uD558}{\uC555\uC0AC}{\uC555\uC2F8}{\uC558\uC0AC}{\uC5C5\uC12F\uC501}{\uC5C6\uC5C8\uC2B5}]");
+        UnicodeSet extraSamples =
+                new UnicodeSet(
+                        "[\uCE20{\uAD6C\uB514}{\uAD73\uC774}{\uBB34\uB837}{\uBB3C\uC5FF}{\uC544\uAE4C}{\uC544\uB530}{\uC544\uBE60}{\uC544\uC2F8}{\uC544\uC9DC}{\uC544\uCC28}{\uC545\uC0AC}{\uC545\uC2F8}{\uC546\uCE74}{\uC548\uAC00}{\uC548\uC790}{\uC548\uC9DC}{\uC548\uD558}{\uC54C\uAC00}{\uC54C\uB530}{\uC54C\uB9C8}{\uC54C\uBC14}{\uC54C\uBE60}{\uC54C\uC0AC}{\uC54C\uC2F8}{\uC54C\uD0C0}{\uC54C\uD30C}{\uC54C\uD558}{\uC555\uC0AC}{\uC555\uC2F8}{\uC558\uC0AC}{\uC5C5\uC12F\uC501}{\uC5C6\uC5C8\uC2B5}]");
         UnicodeSet sourceSet = new UnicodeSet();
         addRepresentativeHangul(sourceSet, 2, false);
         addRepresentativeHangul(sourceSet, 3, false);
         addRepresentativeHangul(sourceSet, 2, true);
         addRepresentativeHangul(sourceSet, 3, true);
-        // add the boundary cases; we want an example of each case of V + L and one example of each case of T+L
+        // add the boundary cases; we want an example of each case of V + L and one example of each
+        // case of T+L
 
         UnicodeSet more = getRepresentativeBoundaryHangul();
         sourceSet.addAll(more);
@@ -392,9 +441,9 @@ public class TestTransformsSimple extends TestFmwk {
 
         // do all combinations of L0 + V + nullL + V
 
-        for (UnicodeSetIterator iL0 = new UnicodeSetIterator(L0); iL0.next();) {
-            for (UnicodeSetIterator iV = new UnicodeSetIterator(V); iV.next();) {
-                for (UnicodeSetIterator iV2 = new UnicodeSetIterator(V); iV2.next();) {
+        for (UnicodeSetIterator iL0 = new UnicodeSetIterator(L0); iL0.next(); ) {
+            for (UnicodeSetIterator iV = new UnicodeSetIterator(V); iV.next(); ) {
+                for (UnicodeSetIterator iV2 = new UnicodeSetIterator(V); iV2.next(); ) {
                     String sample = iL0.getString() + iV.getString() + nullL + iV2.getString();
                     String trial = Normalizer.compose(sample, false);
                     if (trial.length() == 2) {
@@ -404,10 +453,10 @@ public class TestTransformsSimple extends TestFmwk {
             }
         }
 
-        for (UnicodeSetIterator iL = new UnicodeSetIterator(L); iL.next();) {
+        for (UnicodeSetIterator iL = new UnicodeSetIterator(L); iL.next(); ) {
             // do all combinations of "g" + V + L + "a"
             final String suffix = iL.getString() + suffixV;
-            for (UnicodeSetIterator iV = new UnicodeSetIterator(V); iV.next();) {
+            for (UnicodeSetIterator iV = new UnicodeSetIterator(V); iV.next(); ) {
                 String sample = prefixL + iV.getString() + suffix;
                 String trial = Normalizer.compose(sample, false);
                 if (trial.length() == 2) {
@@ -415,7 +464,7 @@ public class TestTransformsSimple extends TestFmwk {
                 }
             }
             // do all combinations of "ga" + T + L + "a"
-            for (UnicodeSetIterator iT = new UnicodeSetIterator(T); iT.next();) {
+            for (UnicodeSetIterator iT = new UnicodeSetIterator(T); iT.next(); ) {
                 String sample = prefixLV + iT.getString() + suffix;
                 String trial = Normalizer.compose(sample, false);
                 if (trial.length() == 2) {
@@ -426,7 +475,8 @@ public class TestTransformsSimple extends TestFmwk {
         return resultToAddTo;
     }
 
-    private static void addRepresentativeHangul(UnicodeSet resultToAddTo, int leng, boolean noFirstConsonant) {
+    private static void addRepresentativeHangul(
+            UnicodeSet resultToAddTo, int leng, boolean noFirstConsonant) {
         UnicodeSet notYetSeen = new UnicodeSet();
         for (char c = '\uAC00'; c < '\uD7AF'; ++c) {
             String charStr = String.valueOf(c);

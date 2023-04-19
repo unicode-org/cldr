@@ -1,9 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
-
-import com.ibm.icu.text.UnicodeSet;
 
 public class EscapingUtilities {
     public static UnicodeSet OK_TO_NOT_QUOTE = new UnicodeSet("[!(-*,-\\:A-Z_a-z~]").freeze();

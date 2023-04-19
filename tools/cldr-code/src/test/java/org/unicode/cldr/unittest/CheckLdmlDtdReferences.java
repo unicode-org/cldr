@@ -1,5 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Pair;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,28 +21,19 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Pair;
-
 public class CheckLdmlDtdReferences {
 
-    static Map<DtdType, DtdData> typeToData = ImmutableMap.of(
-        DtdType.ldml, DtdData.getInstance(DtdType.ldml),
-        DtdType.supplementalData, DtdData.getInstance(DtdType.supplementalData),
-        DtdType.ldmlBCP47, DtdData.getInstance(DtdType.ldmlBCP47)
-        );
+    static Map<DtdType, DtdData> typeToData =
+            ImmutableMap.of(
+                    DtdType.ldml, DtdData.getInstance(DtdType.ldml),
+                    DtdType.supplementalData, DtdData.getInstance(DtdType.supplementalData),
+                    DtdType.ldmlBCP47, DtdData.getInstance(DtdType.ldmlBCP47));
 
     static Multimap<DtdType, String> mismatched = TreeMultimap.create();
     static Multimap<String, String> unrecognized = LinkedHashMultimap.create();
@@ -45,28 +43,32 @@ public class CheckLdmlDtdReferences {
     static Map<DtdType, Multimap<Element, String>> foundElementsToLink = new LinkedHashMap<>();
 
     static Map<DtdType, Multimap<Element, Element>> childToParent = new LinkedHashMap<>();
-//    static Map<DtdType, Multimap<Element, String>> foundAttributesToLink = new LinkedHashMap<>();
+    //    static Map<DtdType, Multimap<Element, String>> foundAttributesToLink = new
+    // LinkedHashMap<>();
     static {
         for (DtdType dtdType : typeToData.keySet()) {
             final DtdData dtdData = typeToData.get(dtdType);
             missingElements.putAll(dtdType, dtdData.getElements());
             missingAttributes.putAll(dtdType, dtdData.getAttributes());
             foundElementsToLink.put(dtdType, LinkedHashMultimap.create());
-            childToParent.put(dtdType, getChildToParent(dtdData, dtdData.ROOT, LinkedHashMultimap.create()));
+            childToParent.put(
+                    dtdType, getChildToParent(dtdData, dtdData.ROOT, LinkedHashMultimap.create()));
         }
     }
 
     public static void main(String[] args) throws IOException {
-        try (Stream<Path> stream = Files.list(Paths.get(CLDRPaths.BASE_DIRECTORY+"docs","ldml"))) {
-            stream.forEach(x -> {
-                try {
-                    if (Files.isReadable(x) && x.endsWith(".md") && x.startsWith("tr35") ) {
-                        process(x);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+        try (Stream<Path> stream =
+                Files.list(Paths.get(CLDRPaths.BASE_DIRECTORY + "docs", "ldml"))) {
+            stream.forEach(
+                    x -> {
+                        try {
+                            if (Files.isReadable(x) && x.endsWith(".md") && x.startsWith("tr35")) {
+                                process(x);
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
         }
 
         System.out.println("UNRECOGNIZED or deprecated");
@@ -92,10 +94,17 @@ public class CheckLdmlDtdReferences {
         }
 
         System.out.println("\nMISSING ELEMENTS");
-        System.out.println("№\tDTD\tDTD line\tOk or missing\tPreceding Link?\tPreceding Link?\tPreceding Link?");
+        System.out.println(
+                "№\tDTD\tDTD line\tOk or missing\tPreceding Link?\tPreceding Link?\tPreceding Link?");
         counter = 0;
         for (DtdType dtdType : Arrays.asList(DtdType.ldml, DtdType.supplementalData)) {
-            counter = showMissing(dtdType, typeToData.get(dtdType).ROOT, "", new HashSet<Element>(), counter);
+            counter =
+                    showMissing(
+                            dtdType,
+                            typeToData.get(dtdType).ROOT,
+                            "",
+                            new HashSet<Element>(),
+                            counter);
         }
         if (counter == 0) {
             System.out.println("NONE");
@@ -110,11 +119,10 @@ public class CheckLdmlDtdReferences {
                 // tr35-general.md#Display_Name_Elements
                 // https://unicode.org/reports/tr35/tr35-general.html#Display_Name_Elements
                 final Element element = entry2.getKey();
-                System.out.print(++counter
-                    + "\t" + dtdType
-                    + "\t" + element);
+                System.out.print(++counter + "\t" + dtdType + "\t" + element);
                 for (String link : entry2.getValue()) {
-                    System.out.print("\thttps://unicode.org/reports/tr35/" +link.replace(".md", ".html"));
+                    System.out.print(
+                            "\thttps://unicode.org/reports/tr35/" + link.replace(".md", ".html"));
                 }
                 System.out.println();
             }
@@ -124,7 +132,8 @@ public class CheckLdmlDtdReferences {
         }
     }
 
-    private static Multimap<Element, Element> getChildToParent(DtdData dtdData, Element current, Multimap<Element, Element> result) {
+    private static Multimap<Element, Element> getChildToParent(
+            DtdData dtdData, Element current, Multimap<Element, Element> result) {
         Set<Element> children = current.getChildren().keySet();
         for (Element child : children) {
             result.put(child, current);
@@ -134,9 +143,11 @@ public class CheckLdmlDtdReferences {
     }
 
     static final Set<String> SKIP_ELEMENTS = ImmutableSet.of("special", "alias");
-    static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of("alias", "alt", "draft", "references");
+    static final Set<String> SKIP_ATTRIBUTES =
+            ImmutableSet.of("alias", "alt", "draft", "references");
 
-    private static int showMissing(DtdType dtdType, Element element, String padding, HashSet<Element> seen, int counter) {
+    private static int showMissing(
+            DtdType dtdType, Element element, String padding, HashSet<Element> seen, int counter) {
         if (seen.contains(element) || SKIP_ELEMENTS.contains(element.getName())) {
             return counter;
         }
@@ -150,13 +161,19 @@ public class CheckLdmlDtdReferences {
         Set<Attribute> attributes = element.getAttributes().keySet();
         for (Attribute attribute : attributes) {
             if (!attribute.isDeprecated()
-                && !SKIP_ATTRIBUTES.contains(attribute.getName())
-                && missingAttributes.get(dtdType).contains(attribute)) {
+                    && !SKIP_ATTRIBUTES.contains(attribute.getName())
+                    && missingAttributes.get(dtdType).contains(attribute)) {
                 if (!elementShown) {
                     counter = showMissing(dtdType, element, padding, true, counter);
                     elementShown = true;
                 }
-                System.out.println(++counter + "\t" + dtdType + "\t" + padding + attribute.appendDtdString(new StringBuilder()));
+                System.out.println(
+                        ++counter
+                                + "\t"
+                                + dtdType
+                                + "\t"
+                                + padding
+                                + attribute.appendDtdString(new StringBuilder()));
             }
         }
         Set<Element> children = element.getChildren().keySet();
@@ -168,7 +185,8 @@ public class CheckLdmlDtdReferences {
         return counter;
     }
 
-    public static int showMissing(DtdType dtdType, Element element, String padding, boolean ok, int counter) {
+    public static int showMissing(
+            DtdType dtdType, Element element, String padding, boolean ok, int counter) {
         if (element.name.equals("script")) {
             int debug = 0;
         }
@@ -191,7 +209,11 @@ public class CheckLdmlDtdReferences {
         while (true) {
             Collection<String> links = elementToLink.get(element);
             if (!links.isEmpty()) {
-                return message + " " + (i == 0 ? "" : element.getName()) + "\t" + Joiner.on('\t').join(links);
+                return message
+                        + " "
+                        + (i == 0 ? "" : element.getName())
+                        + "\t"
+                        + Joiner.on('\t').join(links);
             }
             Collection<Element> parents = childToParents.get(element);
             if (parents.isEmpty()) {
@@ -204,31 +226,32 @@ public class CheckLdmlDtdReferences {
     }
 
     private static void process(Path file) throws IOException {
-        DtdType dtdDtype = file.getFileName().toString().equals("info.md")
-            ? DtdType.supplementalData
-                : DtdType.ldml;
+        DtdType dtdDtype =
+                file.getFileName().toString().equals("info.md")
+                        ? DtdType.supplementalData
+                        : DtdType.ldml;
         lastLink = "?";
         Files.lines(file).forEach(x -> processLine(dtdDtype, file, x));
     }
 
     static final Pattern NAME_PATTERN = Pattern.compile("<a [^>]*name=\\\"([^\\\"]*)\\\"([^>]*)>");
 
-    static final Pattern ELEMENT_PATTERN = Pattern.compile("<\\!ELEMENT\\s*"
-        + "([a-zA-Z_0-9]*)\\s*"
-        + "([^>]*)>");
+    static final Pattern ELEMENT_PATTERN =
+            Pattern.compile("<\\!ELEMENT\\s*" + "([a-zA-Z_0-9]*)\\s*" + "([^>]*)>");
 
-    static final Pattern ATTLIST_PATTERN = Pattern.compile("<\\!ATTLIST\\s*"
-        + "([a-zA-Z_0-9]*)\\s*"
-        + "([a-zA-Z_0-9:]*)\\s*"
-        + "([^>]*)>");
+    static final Pattern ATTLIST_PATTERN =
+            Pattern.compile(
+                    "<\\!ATTLIST\\s*"
+                            + "([a-zA-Z_0-9]*)\\s*"
+                            + "([a-zA-Z_0-9:]*)\\s*"
+                            + "([^>]*)>");
 
     static String lastLink;
 
     private static void processLine(DtdType dtdType, Path file, String line) {
         /**
-         * <a ... name="Territory_Data" ...>
-         * <!ELEMENT group EMPTY >
-         * <!ATTLIST group type NMTOKEN #REQUIRED >
+         * <a ... name="Territory_Data" ...> <!ELEMENT group EMPTY > <!ATTLIST group type NMTOKEN
+         * #REQUIRED >
          */
         if (line.contains("<a name=\"locale_display_name_fields\"")) {
             int debug = 0;
@@ -298,7 +321,8 @@ public class CheckLdmlDtdReferences {
         return null;
     }
 
-    public static Pair<DtdType, Attribute> findAttribute(DtdType dtdType, String elementName, String attributeName) {
+    public static Pair<DtdType, Attribute> findAttribute(
+            DtdType dtdType, String elementName, String attributeName) {
         DtdData data = typeToData.get(dtdType);
         Attribute attribute = data.getAttribute(elementName, attributeName);
         if (attribute != null) {
@@ -316,10 +340,11 @@ public class CheckLdmlDtdReferences {
         return null;
     }
 
-
-    public static boolean verifyMatch(DtdType dtdType, final String documentLine, String canonicalDtd) {
+    public static boolean verifyMatch(
+            DtdType dtdType, final String documentLine, String canonicalDtd) {
         if (!matches(documentLine, canonicalDtd)) {
-            mismatched.put(dtdType, lastLink + "\tDOC:\t" + documentLine + "\t≠DTD:\t" + canonicalDtd);
+            mismatched.put(
+                    dtdType, lastLink + "\tDOC:\t" + documentLine + "\t≠DTD:\t" + canonicalDtd);
             return true;
         }
         return false;
@@ -330,10 +355,10 @@ public class CheckLdmlDtdReferences {
     }
 
     public static String fixLine(String canonicalDtd) {
-        return canonicalDtd.replace(" ", "")
-            .replace("(special*)", "EMPTY")
-            .replace(",special*", "")
-            ;
+        return canonicalDtd
+                .replace(" ", "")
+                .replace("(special*)", "EMPTY")
+                .replace(",special*", "");
     }
 
     public static DtdType getOtherType(DtdType dtdType) {

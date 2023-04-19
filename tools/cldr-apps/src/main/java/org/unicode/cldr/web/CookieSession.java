@@ -22,15 +22,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
- * Instances of this class represent the session-persistent data kept on a
- * per-user basis. Instances are typically held by WebContext.session.
+ * Instances of this class represent the session-persistent data kept on a per-user basis. Instances
+ * are typically held by WebContext.session.
  */
 public class CookieSession {
     static final Logger logger = SurveyLog.forClass(CookieSession.class);
@@ -61,26 +60,26 @@ public class CookieSession {
     public String ip;
 
     /**
-     * "stuff" must be public since it is referenced by jsp for bulk upload
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15676
+     * "stuff" must be public since it is referenced by jsp for bulk upload Reference:
+     * https://unicode-org.atlassian.net/browse/CLDR-15676
      */
     public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
     /**
-     * CookieSession.sm was formerly deprecated: "need to refactor anything that uses this."
-     * But, refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
-     * SurveyAjax.processRequest, which requires the HttpServletRequest.
-     * Another possibility: WebContext.sm (not static; e.g. "ctx.sm")
-     * Those aren't always possible or straightforward. The huge number of
-     * deprecation warnings produced by this deprecation were distractions.
+     * CookieSession.sm was formerly deprecated: "need to refactor anything that uses this." But,
+     * refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
+     * SurveyAjax.processRequest, which requires the HttpServletRequest. Another possibility:
+     * WebContext.sm (not static; e.g. "ctx.sm") Those aren't always possible or straightforward.
+     * The huge number of deprecation warnings produced by this deprecation were distractions.
      */
     public static SurveyMain sm = null;
 
     /**
      * The time (in millis since 1970) when the user last took an explicit action.
      *
-     * Compare lastBrowserCallMillisSinceEpoch.
+     * <p>Compare lastBrowserCallMillisSinceEpoch.
      */
     private long lastActionMillisSinceEpoch = System.currentTimeMillis();
 
@@ -88,10 +87,8 @@ public class CookieSession {
      * Get the time (in millis since 1970) when the user last took an explicit action.
      *
      * @return the time
-     *
-     * Called only by AdminAjax.jsp.
-     *
-     * Compare getLastBrowserCallMillisSinceEpoch.
+     *     <p>Called only by AdminAjax.jsp.
+     *     <p>Compare getLastBrowserCallMillisSinceEpoch.
      */
     public long getLastActionMillisSinceEpoch() {
         return lastActionMillisSinceEpoch;
@@ -100,12 +97,10 @@ public class CookieSession {
     /**
      * How long, in millis, before we kick due to inactivity?
      *
-     * @return the number of milliseconds remaining before the user will be disconnected
-     *         unless the user does something "active" before then.
-     *
-     * Here, something "active" means anything that causes userDidAction() to be called.
-     *
-     * Called locally and by SurveyAjax.processRequest
+     * @return the number of milliseconds remaining before the user will be disconnected unless the
+     *     user does something "active" before then.
+     *     <p>Here, something "active" means anything that causes userDidAction() to be called.
+     *     <p>Called locally and by SurveyAjax.processRequest
      */
     public long millisTillKick() {
         if (!KICK_IF_INACTIVE) {
@@ -133,7 +128,8 @@ public class CookieSession {
             }
         }
 
-        final long remainMillis = (1000 * myTimeoutSecs) - (nowMillisSinceEpoch - lastActionMillisSinceEpoch);
+        final long remainMillis =
+                (1000 * myTimeoutSecs) - (nowMillisSinceEpoch - lastActionMillisSinceEpoch);
 
         if (remainMillis < 0) {
             return 0;
@@ -145,66 +141,72 @@ public class CookieSession {
     /**
      * The time (in millis since 1970) when the user last touched this session.
      *
-     * Set only by touch(); returned by getLastBrowserCallMillisSinceEpoch().
+     * <p>Set only by touch(); returned by getLastBrowserCallMillisSinceEpoch().
      *
-     * Compare lastActionMillisSinceEpoch.
+     * <p>Compare lastActionMillisSinceEpoch.
      */
     private long lastBrowserCallMillisSinceEpoch;
 
     /**
      * Get the time (in millis since 1970) when the user last touched this session.
      *
-     * Compare getLastActionMillisSinceEpoch.
+     * <p>Compare getLastActionMillisSinceEpoch.
      *
-     * Called by SurveyMain and AdminAjax.jsp.
+     * <p>Called by SurveyMain and AdminAjax.jsp.
      */
     public long getLastBrowserCallMillisSinceEpoch() {
         return lastBrowserCallMillisSinceEpoch;
     }
 
     /**
-     * TODO: clarify who calls this and why; the usage of durationDiff with millisTillKick appears dubious
+     * TODO: clarify who calls this and why; the usage of durationDiff with millisTillKick appears
+     * dubious
      */
     @Override
     public String toString() {
-        return "{CookieSession#" + id
-            + ", user=" + user
-            + ", millisTillKick=" + SurveyMain.durationDiff(millisTillKick())
-            + ", millisSinceLastBrowserCall=" + millisSinceLastBrowserCall()
-            + ", millisSinceLastUserAction=" + millisSinceLastUserAction()
-            + "}";
+        return "{CookieSession#"
+                + id
+                + ", user="
+                + user
+                + ", millisTillKick="
+                + SurveyMain.durationDiff(millisTillKick())
+                + ", millisSinceLastBrowserCall="
+                + millisSinceLastBrowserCall()
+                + ", millisSinceLastUserAction="
+                + millisSinceLastUserAction()
+                + "}";
     }
 
     static Hashtable<String, CookieSession> gHash = new Hashtable<>(); // hash by sess ID
     static Hashtable<String, CookieSession> uHash = new Hashtable<>(); // hash by user ID
 
     /**
-     *
-     * @return the set of CookieSession objects
-     * Called by AdminAjax.jsp
+     * @return the set of CookieSession objects Called by AdminAjax.jsp
      */
     public static Set<CookieSession> getAllSet() {
         synchronized (gHash) {
-            TreeSet<CookieSession> sessSet = new TreeSet<>((Comparator<Object>) (a, b) -> {
-                CookieSession aa = (CookieSession) a;
-                CookieSession bb = (CookieSession) b;
-                if (aa == bb)
-                    return 0;
-                return Long.compare(bb.lastBrowserCallMillisSinceEpoch, aa.lastBrowserCallMillisSinceEpoch);
-                // same age
-            });
+            TreeSet<CookieSession> sessSet =
+                    new TreeSet<>(
+                            (Comparator<Object>)
+                                    (a, b) -> {
+                                        CookieSession aa = (CookieSession) a;
+                                        CookieSession bb = (CookieSession) b;
+                                        if (aa == bb) return 0;
+                                        return Long.compare(
+                                                bb.lastBrowserCallMillisSinceEpoch,
+                                                aa.lastBrowserCallMillisSinceEpoch);
+                                        // same age
+                                    });
             sessSet.addAll(gHash.values()); // ALL sessions
             return sessSet;
         }
     }
 
     /**
-     * Fetch a specific session. 'touch' it (mark it as recently active) if
-     * found.
+     * Fetch a specific session. 'touch' it (mark it as recently active) if found.
      *
      * @return session or null
-     * @param sessionid
-     *            id to fetch
+     * @param sessionid id to fetch
      */
     public static CookieSession retrieve(String sessionid) {
         if (sessionid == null || sessionid.isEmpty()) {
@@ -218,11 +220,10 @@ public class CookieSession {
     }
 
     /**
-     * fetch a session if it exists. Don't touch it as recently active. Useful
-     * for administratively retrieving a session
+     * fetch a session if it exists. Don't touch it as recently active. Useful for administratively
+     * retrieving a session
      *
-     * @param sessionid
-     *            session ID
+     * @param sessionid session ID
      * @return session or null
      */
     public static CookieSession retrieveWithoutTouch(String sessionid) {
@@ -235,8 +236,7 @@ public class CookieSession {
     /**
      * Retrieve a user's session. Don't touch it (mark it active) if found.
      *
-     * @param email
-     *            user's email
+     * @param email user's email
      * @return session or null
      */
     public static CookieSession retrieveUserWithoutTouch(String email) {
@@ -248,8 +248,7 @@ public class CookieSession {
     /**
      * Retrieve a user's session. Touch it (mark it active) if found.
      *
-     * @param email
-     *            user's email
+     * @param email user's email
      * @return session or null
      */
     public static CookieSession retrieveUser(String email) {
@@ -262,9 +261,9 @@ public class CookieSession {
         }
     }
 
-
     /**
      * Retrieve the session for a user
+     *
      * @param user
      * @return
      */
@@ -272,10 +271,10 @@ public class CookieSession {
         return retrieveUser(user.email);
     }
 
-
     /**
-     * Create a new session for this user.
-     * Will return an existing valid session if one is available.
+     * Create a new session for this user. Will return an existing valid session if one is
+     * available.
+     *
      * @param user the user to create
      * @param ip the user's IP
      * @return
@@ -289,11 +288,10 @@ public class CookieSession {
     /**
      * Associate this session with a user
      *
-     * @param u
-     *            user
+     * @param u user
      */
     public void setUser(UserRegistry.User u) {
-        if(u == null) return;
+        if (u == null) return;
         user = u;
         settings = null;
         synchronized (gHash) {
@@ -302,10 +300,7 @@ public class CookieSession {
         }
     }
 
-    /**
-     * Create a new session.
-     *
-     */
+    /** Create a new session. */
     private CookieSession(String ip, String fromId) {
         this.ip = ip;
         if (fromId == null) {
@@ -334,7 +329,8 @@ public class CookieSession {
             if (rv != null) {
                 System.err.println("Trying to create extant session " + rv);
                 if (!rv.ip.equals(ip)) {
-                    if (SurveyMain.isUnofficial()) System.out.println("IP changed from " + rv.ip + " to " + ip + " - " + rv);
+                    if (SurveyMain.isUnofficial())
+                        System.out.println("IP changed from " + rv.ip + " to " + ip + " - " + rv);
                     rv.ip = ip;
                     rv.touch();
                 }
@@ -345,24 +341,18 @@ public class CookieSession {
         return rv;
     }
 
-    /**
-     * mark this session as recently updated and shouldn't expire
-     */
+    /** mark this session as recently updated and shouldn't expire */
     public void touch() {
         lastBrowserCallMillisSinceEpoch = System.currentTimeMillis();
         if (DEBUG_INOUT) System.out.println("S: touch " + id + " - " + user);
     }
 
-    /**
-     * Note a direct user action.
-     */
+    /** Note a direct user action. */
     public void userDidAction() {
         lastActionMillisSinceEpoch = System.currentTimeMillis();
     }
 
-    /**
-     * Delete a session.
-     */
+    /** Delete a session. */
     public void remove() {
         synchronized (gHash) {
             if (user != null) {
@@ -375,6 +365,7 @@ public class CookieSession {
 
     /**
      * Remove a specific session
+     *
      * @param sessionId
      */
     public static void remove(String sessionId) {
@@ -407,10 +398,7 @@ public class CookieSession {
 
     /* Secure random number generator */
 
-    /**
-     * Generate a new ID.
-     *
-     */
+    /** Generate a new ID. */
     public static synchronized String newId() {
         try {
             if (myRand == null) {
@@ -431,8 +419,7 @@ public class CookieSession {
     /**
      * Get some object out of the session
      *
-     * @param key
-     *            the key to load
+     * @param key the key to load
      */
     Object get(String key) {
         synchronized (stuff) {
@@ -443,10 +430,8 @@ public class CookieSession {
     /**
      * Store an object in the session
      *
-     * @param key
-     *            the key to set
-     * @param value
-     *            object to be set
+     * @param key the key to set
+     * @param value object to be set
      */
     public void put(String key, Object value) {
         synchronized (stuff) {
@@ -457,10 +442,8 @@ public class CookieSession {
     /**
      * Fetch a named boolean from the preferences string
      *
-     * @param key
-     *            parameter to look at
-     * @param defVal
-     *            default value of parameter
+     * @param key parameter to look at
+     * @param defVal default value of parameter
      * @return boolean result, or defVal as default
      */
     boolean prefGetBool(String key, boolean defVal) {
@@ -475,8 +458,7 @@ public class CookieSession {
     /**
      * Get a string preference
      *
-     * @param key
-     *            the key to load
+     * @param key the key to load
      * @return named pref, or null as default
      */
     String prefGet(String key) {
@@ -486,10 +468,8 @@ public class CookieSession {
     /**
      * Store a boolean preference value
      *
-     * @param key
-     *            the pref to put
-     * @param value
-     *            boolean value
+     * @param key the pref to put
+     * @param value boolean value
      */
     void prefPut(String key, boolean value) {
         prefs.put(key, value);
@@ -498,24 +478,22 @@ public class CookieSession {
     /**
      * Store a string preference value
      *
-     * @param key
-     *            the pref to put
-     * @param value
-     *            string value
+     * @param key the pref to put
+     * @param value string value
      */
     void prefPut(String key, String value) {
         prefs.put(key, value);
     }
 
     /**
-     * Fetch a hashtable of per-locale session data. Will create one if it
-     * wasn't already there.
+     * Fetch a hashtable of per-locale session data. Will create one if it wasn't already there.
      *
      * @return the locale hashtable
      */
     public Hashtable<String, Hashtable<String, Object>> getLocales() {
         synchronized (stuff) {
-            Hashtable<String, Hashtable<String, Object>> l = (Hashtable<String, Hashtable<String, Object>>) get("locales");
+            Hashtable<String, Hashtable<String, Object>> l =
+                    (Hashtable<String, Hashtable<String, Object>>) get("locales");
             if (l == null) {
                 l = new Hashtable<>();
                 put("locales", l);
@@ -525,12 +503,10 @@ public class CookieSession {
     }
 
     /**
-     * utility function for doing an encoding of a long. Creates a base26 (a-z)
-     * representation of the number, plus a leading '-' if negative. TODO:
-     * shrink? base64?
+     * utility function for doing an encoding of a long. Creates a base26 (a-z) representation of
+     * the number, plus a leading '-' if negative. TODO: shrink? base64?
      *
-     * @param l
-     *            some number
+     * @param l some number
      * @return string
      */
     public static String cheapEncode(long l) {
@@ -569,34 +545,28 @@ public class CookieSession {
     }
 
     /**
-     * Parameters for when to disconnect users.
-     * These defaults can be changed in cldr.properties.
-     * Formerly CLDR_USER_TIMEOUT only related to what's now called KICK_IF_ABSENT,
-     * while CLDR_USER_INACTIVITY only related to what's now called KICK_IF_INACTIVE.
-     * No more distinction _INACTIVITY versus _TIMEOUT, use _TIMEOUT_SECS for all.
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-11799
+     * Parameters for when to disconnect users. These defaults can be changed in cldr.properties.
+     * Formerly CLDR_USER_TIMEOUT only related to what's now called KICK_IF_ABSENT, while
+     * CLDR_USER_INACTIVITY only related to what's now called KICK_IF_INACTIVE. No more distinction
+     * _INACTIVITY versus _TIMEOUT, use _TIMEOUT_SECS for all. Reference:
+     * https://unicode-org.atlassian.net/browse/CLDR-11799
      *
      * @author srl
      */
     private enum Params {
-        /**
-         * max logged in user count allowed before stricter requirements apply to stay connected
-         */
+        /** max logged in user count allowed before stricter requirements apply to stay connected */
         CLDR_MAX_USERS(30),
 
         /**
-         * max observers allowed before observers start getting shut out (should be < CLDR_MAX_USERS)
+         * max observers allowed before observers start getting shut out (should be <
+         * CLDR_MAX_USERS)
          */
         CLDR_MAX_OBSERVERS(0), // zero means tooManyObservers == tooManyUsers
 
-        /**
-         * how many seconds observer can be absent/inactive before getting kicked
-         */
+        /** how many seconds observer can be absent/inactive before getting kicked */
         CLDR_OBSERVER_TIMEOUT_SECS(5 * 60), // 5 minutes
 
-        /**
-         * how many seconds logged-in user can be absent/inactive before getting kicked
-         */
+        /** how many seconds logged-in user can be absent/inactive before getting kicked */
         CLDR_USER_TIMEOUT_SECS(30 * 60); // 30 minutes
 
         private final int defVal;
@@ -604,6 +574,7 @@ public class CookieSession {
 
         /**
          * Construct a new parameter
+         *
          * @param defVal
          */
         Params(int defVal) {
@@ -612,12 +583,21 @@ public class CookieSession {
 
         /**
          * Get the param's value
+         *
          * @return
          */
-        final public int value() {
+        public final int value() {
             if (value == null) {
                 value = CLDRConfig.getInstance().getProperty(this.name().toUpperCase(), defVal);
-                SurveyLog.warnOnce(logger, "CookieSession: " + this.name().toUpperCase() + "=" + value + " (default: " + defVal + ")");
+                SurveyLog.warnOnce(
+                        logger,
+                        "CookieSession: "
+                                + this.name().toUpperCase()
+                                + "="
+                                + value
+                                + " (default: "
+                                + defVal
+                                + ")");
             }
             return value;
         }
@@ -625,6 +605,7 @@ public class CookieSession {
 
     /**
      * Return true if too many users are logged in.
+     *
      * @return
      */
     public static boolean tooManyUsers() {
@@ -649,6 +630,7 @@ public class CookieSession {
 
     /**
      * Return true if too many observers are logged in.
+     *
      * @return
      */
     public static boolean tooManyObservers() {
@@ -673,19 +655,13 @@ public class CookieSession {
 
     // parameters
 
-    /**
-     * last time reaped. Starts at 0, so reap immediately
-     */
+    /** last time reaped. Starts at 0, so reap immediately */
     static long lastReapMillisSinceEpoch = 0;
 
-    /**
-     * Number of observers (users who are not logged in)
-     */
+    /** Number of observers (users who are not logged in) */
     private static int nObservers = 0;
 
-    /**
-     * Number of users
-     */
+    /** Number of users */
     private static int nUsers = 0;
 
     public static int getObserverCount() {
@@ -695,6 +671,7 @@ public class CookieSession {
 
     /**
      * Perform a reap if need be, and count.
+     *
      * @return user count
      */
     public static int getUserCount() {
@@ -731,14 +708,18 @@ public class CookieSession {
             for (CookieSession cs : gHash.values()) {
                 if (cs.user == null) { // observer
                     if (tooManyUsers
-                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_OBSERVER_TIMEOUT_SECS.value() * 1000L)
+                            || (KICK_IF_ABSENT
+                                    && cs.millisSinceLastBrowserCall()
+                                            > Params.CLDR_OBSERVER_TIMEOUT_SECS.value() * 1000L)
                             || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
                         observers++;
                     }
                 } else {
-                    if ((KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
+                    if ((KICK_IF_ABSENT
+                                    && cs.millisSinceLastBrowserCall()
+                                            > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
                             || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
@@ -818,9 +799,9 @@ public class CookieSession {
         }
     }
 
-    public static synchronized CookieSession checkForAbuseFrom(String userIP, Hashtable<String, Object> BAD_IPS, String userAgent) {
-        if (userAgent == null)
-            userAgent = "X-None";
+    public static synchronized CookieSession checkForAbuseFrom(
+            String userIP, Hashtable<String, Object> BAD_IPS, String userAgent) {
+        if (userAgent == null) userAgent = "X-None";
         if (BAD_IPS.containsKey(userIP)) {
             BadUserRecord bur = (BadUserRecord) BAD_IPS.get(userIP);
             bur.hit(userAgent);
@@ -844,13 +825,17 @@ public class CookieSession {
                     return null; // has a user, OK
                 }
                 final long N_MINUTES = 5; // five minutes (why?)
-                if ((nowMillisSinceEpoch - cs.lastBrowserCallMillisSinceEpoch) < (N_MINUTES * 60 * 1000)) {
+                if ((nowMillisSinceEpoch - cs.lastBrowserCallMillisSinceEpoch)
+                        < (N_MINUTES * 60 * 1000)) {
                     noSes++;
                 }
             }
         }
-        if ((noSes > 10) || userAgent.contains("Googlebot") || userAgent.contains("MJ12bot") || userAgent.contains("ezooms.bot")
-            || userAgent.contains("bingbot")) {
+        if ((noSes > 10)
+                || userAgent.contains("Googlebot")
+                || userAgent.contains("MJ12bot")
+                || userAgent.contains("ezooms.bot")
+                || userAgent.contains("bingbot")) {
             BadUserRecord bur = new BadUserRecord(userIP);
             bur.hit(userAgent);
 
@@ -876,6 +861,7 @@ public class CookieSession {
 
     /**
      * Get the coverage level for my organization (if I have one)
+     *
      * @param locale
      * @return
      */
@@ -896,11 +882,13 @@ public class CookieSession {
 
     /**
      * Get my actual effective coverage level, including preference settings.
+     *
      * @param locale
      * @return
      */
     public String getEffectiveCoverageLevel(String locale) {
-        String level = sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
+        String level =
+                sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
         if (level == null || level.equals(WebContext.COVLEV_RECOMMENDED)) {
             // fetch from org
             level = getOrgCoverageLevel(locale);

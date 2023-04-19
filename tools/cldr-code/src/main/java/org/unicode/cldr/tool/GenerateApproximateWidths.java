@@ -1,5 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,19 +24,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
-
 import javax.swing.JApplet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
-
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class GenerateApproximateWidths extends JApplet implements Runnable {
     private static final long serialVersionUID = 1L;
@@ -63,14 +60,17 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         g.setStroke(BASIC_STROKE);
 
         drawString(g, FONT, string, 0.25f, w, 0.5f, h); // draw the 1st size character on the left
-        drawString(g, FONT101, string, 0.75, w, 0.5f, h); // draw the 2st size character on the right
+        drawString(
+                g, FONT101, string, 0.75, w, 0.5f, h); // draw the 2st size character on the right
         showWidths(g);
         g.dispose();
     }
 
     private void showWidths(Graphics2D g) {
         try {
-            PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
+            PrintWriter out =
+                    FileUtilities.openUTF8Writer(
+                            CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
             // TODO Auto-generated method stub
             UnicodeMap<Integer> map = new UnicodeMap<>();
             Widths widths = new Widths(g, new Font("Serif", 0, 100), new Font("SansSerif", 0, 100));
@@ -80,8 +80,11 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
 
             // corrections
             CHECK.removeAll(addCorrections(map, "[:Cn:]", defaultWidth));
-            CHECK.removeAll(addCorrections(map, "[\\u0000-\\u0008\\u000E-\\u001F\\u007F-\\u0084\\u0086-\\u009F]",
-                defaultWidth));
+            CHECK.removeAll(
+                    addCorrections(
+                            map,
+                            "[\\u0000-\\u0008\\u000E-\\u001F\\u007F-\\u0084\\u0086-\\u009F]",
+                            defaultWidth));
 
             int cjkWidth = widths.getMetrics(0x4E00);
             CHECK.removeAll(addCorrections(map, "[:ideographic:]", cjkWidth));
@@ -89,7 +92,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
             CHECK.removeAll(addCorrections(map, "[[:Cf:][:Mn:][:Me:]]", 0));
 
             int count = 0;
-            for (UnicodeSetIterator it = new UnicodeSetIterator(CHECK); it.next();) {
+            for (UnicodeSetIterator it = new UnicodeSetIterator(CHECK); it.next(); ) {
                 ++count;
                 if ((count % 1000) == 0) {
                     System.out.println(count + "\t" + Utility.hex(it.codepoint));
@@ -99,8 +102,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                     map.put(it.codepoint, cpWidth);
                 }
             }
-            out.println("# ApproximateWidth\n" +
-                "# @missing: 0000..10FFFF; " + defaultWidth);
+            out.println("# ApproximateWidth\n" + "# @missing: 0000..10FFFF; " + defaultWidth);
 
             Set<Integer> values = new TreeSet<>(map.values());
             for (Integer integer0 : values) {
@@ -113,14 +115,25 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                 }
                 UnicodeSet uset = map.getSet(integer);
                 out.println("\n# width: " + integer + "\n");
-                for (UnicodeSetIterator foo = new UnicodeSetIterator(uset); foo.nextRange();) {
+                for (UnicodeSetIterator foo = new UnicodeSetIterator(uset); foo.nextRange(); ) {
                     if (foo.codepoint != foo.codepointEnd) {
-                        out.println(Utility.hex(foo.codepoint) + ".." + Utility.hex(foo.codepointEnd) + "; "
-                            + integer + "; # " + UCharacter.getExtendedName(foo.codepoint) + ".."
-                            + UCharacter.getExtendedName(foo.codepointEnd));
+                        out.println(
+                                Utility.hex(foo.codepoint)
+                                        + ".."
+                                        + Utility.hex(foo.codepointEnd)
+                                        + "; "
+                                        + integer
+                                        + "; # "
+                                        + UCharacter.getExtendedName(foo.codepoint)
+                                        + ".."
+                                        + UCharacter.getExtendedName(foo.codepointEnd));
                     } else {
-                        out.println(Utility.hex(foo.codepoint) + "; "
-                            + integer + "; # " + UCharacter.getExtendedName(foo.codepoint));
+                        out.println(
+                                Utility.hex(foo.codepoint)
+                                        + "; "
+                                        + integer
+                                        + "; # "
+                                        + UCharacter.getExtendedName(foo.codepoint));
                     }
                 }
                 out.println("\n# codepoints: " + uset.size() + "\n");
@@ -150,6 +163,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
 
         UnicodeSet SPACING_COMBINING = new UnicodeSet("[:Mc:]").freeze();
         int[] SCRIPT2BASE = new int[UScript.CODE_LIMIT];
+
         {
             for (int i = 0; i < SCRIPT2BASE.length; ++i) {
                 SCRIPT2BASE[i] = -1;
@@ -238,8 +252,14 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         }
     }
 
-    public void drawString(Graphics2D g, Font font2, String mainString,
-        double wPercent, double w, double hPercent, double h) {
+    public void drawString(
+            Graphics2D g,
+            Font font2,
+            String mainString,
+            double wPercent,
+            double w,
+            double hPercent,
+            double h) {
         g.setFont(font2);
         FontMetrics metrics = g.getFontMetrics();
         int ascent = metrics.getAscent();
@@ -255,7 +275,8 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         g.setColor(Color.black);
         g.drawString(mainString, (int) x, (int) y + ascent);
 
-        System.out.println(font2.getSize() + "\t" + string + " " + Integer.toHexString(string.codePointAt(0)));
+        System.out.println(
+                font2.getSize() + "\t" + string + " " + Integer.toHexString(string.codePointAt(0)));
     }
 
     public static void main(String argv[]) throws IOException {
@@ -263,22 +284,23 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         final GenerateApproximateWidths demo = new GenerateApproximateWidths();
         demo.init();
         Frame f = new Frame("Frame");
-        f.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
+        f.addWindowListener(
+                new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        System.exit(0);
+                    }
 
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-                demo.start();
-            }
+                    @Override
+                    public void windowDeiconified(WindowEvent e) {
+                        demo.start();
+                    }
 
-            @Override
-            public void windowIconified(WindowEvent e) {
-                demo.stop();
-            }
-        });
+                    @Override
+                    public void windowIconified(WindowEvent e) {
+                        demo.stop();
+                    }
+                });
         f.add(demo);
         f.pack();
         f.setSize(new Dimension(IMAGE_WIDTH, IMAGE_HEIGHT));

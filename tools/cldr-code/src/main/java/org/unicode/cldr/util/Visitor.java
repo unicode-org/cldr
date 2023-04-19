@@ -6,12 +6,11 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
-
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 public abstract class Visitor {
 
@@ -132,12 +131,11 @@ public abstract class Visitor {
 
     // ===== MUST BE OVERRIDEN =====
 
-    abstract protected void doBefore(Object container, Object item);
+    protected abstract void doBefore(Object container, Object item);
 
-    abstract protected void doBetween(Object container, Object lastItem, Object nextItem);
+    protected abstract void doBetween(Object container, Object lastItem, Object nextItem);
 
-    abstract protected void doAfter(Object container, Object item);
+    protected abstract void doAfter(Object container, Object item);
 
-    abstract protected void doSimpleAt(Object o);
-
+    protected abstract void doSimpleAt(Object o);
 }

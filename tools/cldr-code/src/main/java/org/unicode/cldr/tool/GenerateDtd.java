@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
+import com.ibm.icu.text.CaseMap;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -9,7 +10,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.DtdData;
@@ -39,7 +39,8 @@ import com.thaiopensource.xml.sax.ErrorHandlerImpl;
 @CLDRTool(alias = "generate-dtd", description = "BRS: Reformat all DTDs")
 public class GenerateDtd {
 
-    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
+    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE =
+            CaseMap.toTitle().wholeString().noLowercase();
 
     public static void main(String[] args) throws IOException {
         Path dtd2md = CLDRPaths.getDtd2Md();

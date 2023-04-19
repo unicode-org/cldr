@@ -1,22 +1,17 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.draft.FileUtilities;
 
-import com.google.common.base.Splitter;
-
-
 public class CalculatedCoverageLevels {
-    /**
-     * Assumed level for root. CLDR-16420
-     */
-    final private static Level DEFAULT_ROOT_LEVEL = Level.MODERN;
+    /** Assumed level for root. CLDR-16420 */
+    private static final Level DEFAULT_ROOT_LEVEL = Level.MODERN;
 
     final Map<String, Level> levels;
 
@@ -56,8 +51,9 @@ public class CalculatedCoverageLevels {
     }
 
     /**
-     * Is the locale present in the list? If so, it is at least basic.
-     * Requires an exact match on the locale
+     * Is the locale present in the list? If so, it is at least basic. Requires an exact match on
+     * the locale
+     *
      * @param locale
      * @return
      */
@@ -65,17 +61,18 @@ public class CalculatedCoverageLevels {
         return levels.containsKey(locale);
     }
 
-    /**
-     * Read the coverage levels from the standard file
-     */
+    /** Read the coverage levels from the standard file */
     static CalculatedCoverageLevels fromFile() throws IOException {
-        try (BufferedReader r = FileUtilities.openUTF8Reader(CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt");) {
+        try (BufferedReader r =
+                FileUtilities.openUTF8Reader(
+                        CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt"); ) {
             return fromReader(r);
         }
     }
 
     /**
      * read the coverage levels from a BufferedReader
+     *
      * @param r
      * @return
      * @throws IOException
@@ -88,19 +85,21 @@ public class CalculatedCoverageLevels {
         while ((line = r.readLine()) != null) {
             no++;
             line = line.trim();
-            if(line.isBlank() || line.startsWith("#")) {
+            if (line.isBlank() || line.startsWith("#")) {
                 continue;
             }
             final List<String> l = SEMICOLON.splitToList(line);
             if (l.size() != 3) {
-                throw new IllegalArgumentException("coverageLevels.txt:"+no+": expected 2 fields, got " + l.size());
+                throw new IllegalArgumentException(
+                        "coverageLevels.txt:" + no + ": expected 2 fields, got " + l.size());
             }
             final String uloc = l.get(0);
             final String level = l.get(1);
             final String name = l.get(2);
             final Level lev = Level.fromString(level);
             if (levels.put(uloc, lev) != null) {
-                throw new IllegalArgumentException("coverageLevels.txt:"+no+": duplicate locale " + uloc);
+                throw new IllegalArgumentException(
+                        "coverageLevels.txt:" + no + ": duplicate locale " + uloc);
             }
         }
         return new CalculatedCoverageLevels(levels);
@@ -108,20 +107,24 @@ public class CalculatedCoverageLevels {
 
     private static final class CalculatedCoverageLevelsHelper {
         public CalculatedCoverageLevels levels;
+
         public CalculatedCoverageLevelsHelper() {
             try {
                 levels = CalculatedCoverageLevels.fromFile();
-            } catch(IOException ioe) {
+            } catch (IOException ioe) {
                 ioe.printStackTrace();
                 System.err.println("Could not load CalculatedCoverageLevels: " + ioe);
                 levels = null;
             }
         }
-        public static CalculatedCoverageLevelsHelper INSTANCE = new CalculatedCoverageLevelsHelper();
+
+        public static CalculatedCoverageLevelsHelper INSTANCE =
+                new CalculatedCoverageLevelsHelper();
     }
 
     /**
      * Get the singleton.
+     *
      * @return the singleton, or NULL if there was an error.
      */
     public static CalculatedCoverageLevels getInstance() {

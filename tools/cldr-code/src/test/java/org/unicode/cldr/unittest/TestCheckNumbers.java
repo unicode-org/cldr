@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
@@ -16,7 +15,6 @@ import org.unicode.cldr.util.XMLSource;
 
 public class TestCheckNumbers extends TestFmwkPlus {
 
-
     public static void main(String[] args) {
         new TestCheckNumbers().run(args);
     }
@@ -27,19 +25,27 @@ public class TestCheckNumbers extends TestFmwkPlus {
         // construct fake locale and test
 
         // should succeed, since "one" only has one number in ast.
-        checkSingularity(checkNumbers, "en",
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-            "K", null
-            );
+        checkSingularity(
+                checkNumbers,
+                "en",
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+                "K",
+                null);
         // should fail, "one" may match both 1 and zero in french
-        checkSingularity(checkNumbers, "fr",
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-            "K", Subtype.missingZeros
-            );
-
+        checkSingularity(
+                checkNumbers,
+                "fr",
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+                "K",
+                Subtype.missingZeros);
     }
 
-    public void checkSingularity(CheckNumbers checkNumbers, String locale, final String path, final String value, Subtype expectedSubtype) {
+    public void checkSingularity(
+            CheckNumbers checkNumbers,
+            String locale,
+            final String path,
+            final String value,
+            Subtype expectedSubtype) {
         XMLSource xmlSource = new DummyXMLSource();
         xmlSource.putValueAtDPath(path, value);
         xmlSource.setLocaleID(locale);

@@ -4,16 +4,20 @@
 //  Created by Steven R. Loomis on 18/11/2005.
 //  Copyright 2005-2014 IBM. All rights reserved.
 
-// Formerly named "DataSection"; renamed, since this class now handles one "page" at a time, not one "section".
+// Formerly named "DataSection"; renamed, since this class now handles one "page" at a time, not one
+// "section".
 // A section is like "Locale Display Names"; a page is like "Languages (A-D)". Generally one section
 // contains multiple pages.
 
 package org.unicode.cldr.web;
 
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -31,92 +35,82 @@ import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.Output;
-
 /**
- * A DataPage represents a group of related data that will be displayed to
- * users in a list such as,
- * "all of the language display names contained in the en_US locale". It is
- * sortable, as well, and has some level of persistence.
+ * A DataPage represents a group of related data that will be displayed to users in a list such as,
+ * "all of the language display names contained in the en_US locale". It is sortable, as well, and
+ * has some level of persistence.
  */
 public class DataPage {
 
-    private final static Logger logger = SurveyLog.forClass(DataPage.class);
+    private static final Logger logger = SurveyLog.forClass(DataPage.class);
 
     /*
      * For debugging only (so far), setting USE_CANDIDATE_HISTORY to true causes
      * a "history" to be constructed and passed to the client for each CandidateItem,
      * indicating how/when/why it was added. This should be false for production.
      */
-    private final static boolean USE_CANDIDATE_HISTORY = false;
+    private static final boolean USE_CANDIDATE_HISTORY = false;
 
     /**
-     * The comparison-value CLDRFile for this DataPage
-     * This is English; see SurveyMain.getEnglishFile
+     * The comparison-value CLDRFile for this DataPage This is English; see
+     * SurveyMain.getEnglishFile
      */
     private CLDRFile comparisonValueFile;
 
-    /**
-     * The CLDRFile for the root locale; use lazy initialization, see getRootFile
-     */
+    /** The CLDRFile for the root locale; use lazy initialization, see getRootFile */
     private CLDRFile rootFile = null;
 
-    /**
-     * The DisplayAndInputProcessor for this DataPage
-     */
+    /** The DisplayAndInputProcessor for this DataPage */
     private DisplayAndInputProcessor processor = null;
 
     /**
      * A DataRow represents a "row" of data - a single distinguishing xpath
      *
-     * This class was formerly named "Pea"
+     * <p>This class was formerly named "Pea"
      *
      * @author srl
      */
     public class DataRow implements PathValueInfo {
 
         /**
-         * A CandidateItem represents a particular alternative item which could be chosen or voted for.
+         * A CandidateItem represents a particular alternative item which could be chosen or voted
+         * for.
          *
-         * Each DataRow has, in general, any number of these items in DataRow.items.
+         * <p>Each DataRow has, in general, any number of these items in DataRow.items.
          */
         public class CandidateItem implements Comparable<CandidateItem>, CandidateInfo {
 
             /**
-             * rawValue is the actual value of this CandidateItem, that is, the string for which
-             * a user might vote.
+             * rawValue is the actual value of this CandidateItem, that is, the string for which a
+             * user might vote.
              *
-             * This member is private; use the function getValue() to access it.
+             * <p>This member is private; use the function getValue() to access it.
              *
-             * This member is "final", its value for each CandidateItem is set once and for all
+             * <p>This member is "final", its value for each CandidateItem is set once and for all
              * when the constructor is called.
              *
-             * Renamed from "value" to "rawValue" 2018-8-13, for consistency with the client variable name,
-             * to emphasize distinction from getProcessedValue(), and to reduce confusion with other
-             * occurrences of the word "value".
+             * <p>Renamed from "value" to "rawValue" 2018-8-13, for consistency with the client
+             * variable name, to emphasize distinction from getProcessedValue(), and to reduce
+             * confusion with other occurrences of the word "value".
              */
             private final String rawValue;
 
             /**
-             * isBaselineValue means the value of this CandidateItem is equal to baselineValue, which is a member of DataRow.
+             * isBaselineValue means the value of this CandidateItem is equal to baselineValue,
+             * which is a member of DataRow.
              *
-             * isBaselineValue is used on both server and client. On the client, it can result in addIcon(choiceField,"i-star"),
-             * and that is its only usage on the client.
+             * <p>isBaselineValue is used on both server and client. On the client, it can result in
+             * addIcon(choiceField,"i-star"), and that is its only usage on the client.
              */
             private boolean isBaselineValue = false;
 
-            /**
-             * checkedVotes is used only in the function getVotes, for efficiency.
-             */
+            /** checkedVotes is used only in the function getVotes, for efficiency. */
             private boolean checkedVotes = false;
 
             /**
              * tests is included in json data sent to client
              *
-             * See setTests and getCheckStatusList
+             * <p>See setTests and getCheckStatusList
              */
             private List<CheckStatus> tests = null;
 
@@ -124,20 +118,15 @@ public class DataPage {
                 return tests;
             }
 
-            /**
-             * Set of Users who voted on this item
-             */
+            /** Set of Users who voted on this item */
             private Set<UserRegistry.User> votes = null;
 
-            /**
-             * see getValueHash
-             */
+            /** see getValueHash */
             private String valueHash = null;
 
             /**
-             * A history of events in the creation of this CandidateItem,
-             * for debugging and possibly for inspection by users;
-             * unused (stays null) if USE_CANDIDATE_HISTORY is false.
+             * A history of events in the creation of this CandidateItem, for debugging and possibly
+             * for inspection by users; unused (stays null) if USE_CANDIDATE_HISTORY is false.
              */
             private String history = null;
 
@@ -148,9 +137,9 @@ public class DataPage {
             /**
              * Create a new CandidateItem with the given value
              *
-             * @param value,  may be null if called by setShimTests!
-             *
-             * This constructor sets this.rawValue, which is final (can't be changed once set here).
+             * @param value, may be null if called by setShimTests!
+             *     <p>This constructor sets this.rawValue, which is final (can't be changed once set
+             *     here).
              */
             private CandidateItem(String value) {
                 this.rawValue = value;
@@ -160,8 +149,7 @@ public class DataPage {
              * Get the raw value of this CandidateItem
              *
              * @return the value, as a string
-             *
-             * Compare getProcessedValue.
+             *     <p>Compare getProcessedValue.
              */
             @Override
             public String getValue() {
@@ -172,9 +160,8 @@ public class DataPage {
              * Get the value of this CandidateItem, processed for display.
              *
              * @return the processed value
-             *
-             * This is what the client receives by the name "value".
-             * Compare what is called "rawValue" on both server and client.
+             *     <p>This is what the client receives by the name "value". Compare what is called
+             *     "rawValue" on both server and client.
              */
             public String getProcessedValue() {
                 if (rawValue == null) {
@@ -205,8 +192,8 @@ public class DataPage {
              * Compare this CandidateItem with the given other CandidateItem.
              *
              * @param other the other item with which to compare this one
-             * @return 0 if they are the same item, else a positive or negative number
-             *           obtained by comparing the two values as strings
+             * @return 0 if they are the same item, else a positive or negative number obtained by
+             *     comparing the two values as strings
              */
             @Override
             public int compareTo(CandidateItem other) {
@@ -219,7 +206,7 @@ public class DataPage {
             /**
              * Get the set of users who have voted for this CandidateItem
              *
-             *  @return the set of users
+             * @return the set of users
              */
             @Override
             public Collection<UserInfo> getUsersVotingOn() {
@@ -248,30 +235,31 @@ public class DataPage {
              * Get the class for this CandidateItem
              *
              * @return the class as a string, for example, "winner"
-             *
-             * All return values: "winner", "alias", "fallback", "fallback_code", "fallback_root", "loser".
-             *
-             * Called by CandidateItem.toJSONString (for item.pClass)
-             *
-             * Relationships between class, color, and inheritance (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance):
-             * "The inherited values are color coded:
-             *  1.  Darker [blue] The original is from a parent locale, such as if you are working in
-             *      Latin American Spanish (es_419), this value is inherited from European Spanish (es).
-             *      [corresponds with "fallback" and {background-color: #5bc0de;}]
-             *  2.  Lighter [violet] The original is in the same locale, but has a different ID (row).
-             *      [corresponds with "alias" and {background-color: #ddf;}]
-             *  3.  Red  The original is from the root."
-             *      [corresponds with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
+             *     <p>All return values: "winner", "alias", "fallback", "fallback_code",
+             *     "fallback_root", "loser".
+             *     <p>Called by CandidateItem.toJSONString (for item.pClass)
+             *     <p>Relationships between class, color, and inheritance
+             *     (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance): "The
+             *     inherited values are color coded: 1. Darker [blue] The original is from a parent
+             *     locale, such as if you are working in Latin American Spanish (es_419), this value
+             *     is inherited from European Spanish (es). [corresponds with "fallback" and
+             *     {background-color: #5bc0de;}] 2. Lighter [violet] The original is in the same
+             *     locale, but has a different ID (row). [corresponds with "alias" and
+             *     {background-color: #ddf;}] 3. Red The original is from the root." [corresponds
+             *     with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
              */
             public String getPClass() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
                         return "alias";
                     }
-                    if (getInheritedLocale() != null && XMLSource.CODE_FALLBACK_ID.equals(getInheritedLocale().getBaseName())) {
+                    if (getInheritedLocale() != null
+                            && XMLSource.CODE_FALLBACK_ID.equals(
+                                    getInheritedLocale().getBaseName())) {
                         return "fallback_code";
                     }
-                    if (getInheritedLocale() != null && XMLSource.ROOT_ID.equals(getInheritedLocale().getBaseName())) {
+                    if (getInheritedLocale() != null
+                            && XMLSource.ROOT_ID.equals(getInheritedLocale().getBaseName())) {
                         return "fallback_root";
                     }
                     return "fallback";
@@ -303,8 +291,15 @@ public class DataPage {
                         // skip codefallback exemplar complaints (i.e. 'JPY'
                         // isn't in exemplars).. they'll show up in missing
                         if (DEBUG)
-                            System.err.println("err: " + status.getMessage() + ", test: " + status.getClass() + ", cause: "
-                                + status.getCause() + " on " + xpath);
+                            System.err.println(
+                                    "err: "
+                                            + status.getMessage()
+                                            + ", test: "
+                                            + status.getClass()
+                                            + ", cause: "
+                                            + status.getCause()
+                                            + " on "
+                                            + xpath);
                         weHaveTests = true;
                         if (status.getType().equals(CheckStatus.errorType)) {
                             errorCount++;
@@ -314,10 +309,8 @@ public class DataPage {
                     }
                 }
                 if (weHaveTests) {
-                    if (errorCount > 0) /* row */
-                        hasErrors = true;
-                    if (warningCount > 0) /* row */
-                        hasWarnings = true;
+                    if (errorCount > 0) /* row */ hasErrors = true;
+                    if (warningCount > 0) /* row */ hasWarnings = true;
                 }
                 return weHaveTests;
             }
@@ -329,14 +322,17 @@ public class DataPage {
             /**
              * Convert this CandidateItem to a string.
              *
-             * This function CandidateItem.toString is NOT called to make the json object normally sent to the client.
+             * <p>This function CandidateItem.toString is NOT called to make the json object
+             * normally sent to the client.
              *
-             * TODO: document the purpose of this function CandidateItem.toString: who calls it; does the
-             * output need to be json; is there any need to override the default toString()?
+             * <p>TODO: document the purpose of this function CandidateItem.toString: who calls it;
+             * does the output need to be json; is there any need to override the default
+             * toString()?
              */
             @Override
             public String toString() {
-                String winner = (winningValue != null && winningValue.equals(rawValue)) ? ",winner" : "";
+                String winner =
+                        (winningValue != null && winningValue.equals(rawValue)) ? ",winner" : "";
                 return "{Item v='" + rawValue + "'" + winner + "}";
             }
 
@@ -344,8 +340,7 @@ public class DataPage {
              * Get the example for this CandidateItem
              *
              * @return the example HTML, as a string
-             *
-             * Called only by DataPage.DataRow.CandidateItem.toJSONString()
+             *     <p>Called only by DataPage.DataRow.CandidateItem.toJSONString()
              */
             public String getExample() {
                 return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
@@ -377,9 +372,11 @@ public class DataPage {
         /**
          * inheritedLocale is the locale from which this DataRow inherits.
          *
-         * DataRow.inheritedLocale on the server corresponds to theRow.inheritedLocale on the client.
+         * <p>DataRow.inheritedLocale on the server corresponds to theRow.inheritedLocale on the
+         * client.
          *
-         * inheritedLocale is accessed from InterestSort.java for Partition.Membership("Missing"), otherwise it could be private.
+         * <p>inheritedLocale is accessed from InterestSort.java for
+         * Partition.Membership("Missing"), otherwise it could be private.
          */
         CLDRLocale inheritedLocale = null;
 
@@ -387,9 +384,9 @@ public class DataPage {
          * pathWhereFound, if not null, may be, for example:
          * //ldml/numbers/currencies/currency[@type="AUD"]/displayName[@count="one"]
          *
-         * It is the inheritance path for "sideways" inheritance.
+         * <p>It is the inheritance path for "sideways" inheritance.
          *
-         * If not null it may cause getPClass to return "alias".
+         * <p>If not null it may cause getPClass to return "alias".
          */
         private String pathWhereFound = null;
 
@@ -404,9 +401,7 @@ public class DataPage {
             return confirmStatus;
         }
 
-        /**
-         * Calculated coverage level for this DataRow.
-         */
+        /** Calculated coverage level for this DataRow. */
         private int coverageValue;
 
         public int getCoverageValue() {
@@ -420,19 +415,17 @@ public class DataPage {
 
         boolean hasMultipleProposals = false; // true if more than 1 proposal is available
 
-        /**
-         * Does this DataRow have warnings?
-         */
+        /** Does this DataRow have warnings? */
         boolean hasWarnings = false;
 
         /**
          * inheritedItem is a CandidateItem representing the vetted value inherited from parent.
          *
-         * Change for https://unicode.org/cldr/trac/ticket/11299 : formerly the rawValue for
-         * inheritedItem was the Bailey value. Instead, now rawValue will be INHERITANCE_MARKER,
-         * and the Bailey value will be stored in DataRow.inheritedValue.
+         * <p>Change for https://unicode.org/cldr/trac/ticket/11299 : formerly the rawValue for
+         * inheritedItem was the Bailey value. Instead, now rawValue will be INHERITANCE_MARKER, and
+         * the Bailey value will be stored in DataRow.inheritedValue.
          *
-         * inheritedItem is set by updateInheritedValue and by setShimTests
+         * <p>inheritedItem is set by updateInheritedValue and by setShimTests
          */
         private CandidateItem inheritedItem = null;
 
@@ -446,71 +439,58 @@ public class DataPage {
             return inheritedValue;
         }
 
-        /**
-         * The winning item for this DataRow.
-         */
+        /** The winning item for this DataRow. */
         private CandidateItem winningItem = null;
 
         /**
-         * The candidate items for this DataRow, stored in a Map whose keys are CandidateItem.rawValue
-         * and whose values are CandidateItem objects.
+         * The candidate items for this DataRow, stored in a Map whose keys are
+         * CandidateItem.rawValue and whose values are CandidateItem objects.
          *
-         * Public for access by getRow.
+         * <p>Public for access by getRow.
          */
         public Map<String, CandidateItem> items = new TreeMap<>();
 
-        /** Cache of field hash **/
+        /** Cache of field hash * */
         private String myFieldHash = null;
 
-        /**
-         * Used only in the function getPrettyPath
-         */
+        /** Used only in the function getPrettyPath */
         private String pp = null;
 
         /**
          * The pretty path for this DataRow, set by the constructor.
          *
-         *  Accessed by SortMode.java
+         * <p>Accessed by SortMode.java
          */
         public String prettyPath;
 
         /**
          * The winning value for this DataRow
          *
-         * It gets set by resolver.getWinningValue() by the DataRow constructor.
+         * <p>It gets set by resolver.getWinningValue() by the DataRow constructor.
          */
         private final String winningValue;
 
-        /**
-         * The xpath for this DataRow, assigned in the constructor.
-         */
+        /** The xpath for this DataRow, assigned in the constructor. */
         private final String xpath;
 
-        /**
-         * The xpathId for this DataRow, assigned in the constructor based on xpath.
-         */
+        /** The xpathId for this DataRow, assigned in the constructor based on xpath. */
         private final int xpathId;
 
         /**
-         * The baseline value for this DataRow, that is the previous release version plus latest XML fixes by members
-         * of the technical committee (TC). In other words, the current "trunk" value, where "trunk"
-         * refers to XML files in version control (on trunk, as opposed to any branch).
+         * The baseline value for this DataRow, that is the previous release version plus latest XML
+         * fixes by members of the technical committee (TC). In other words, the current "trunk"
+         * value, where "trunk" refers to XML files in version control (on trunk, as opposed to any
+         * branch).
          */
         private final String baselineValue;
 
-        /**
-         * The baseline status for this DataRow (corresponding to baselineValue)
-         */
+        /** The baseline status for this DataRow (corresponding to baselineValue) */
         private final Status baselineStatus;
 
-        /**
-         * The PathHeader for this DataRow, assigned in the constructor based on xpath.
-         */
+        /** The PathHeader for this DataRow, assigned in the constructor based on xpath. */
         private final PathHeader pathHeader;
 
-        /**
-         * The voting transcript, set by the DataRow constructor
-         */
+        /** The voting transcript, set by the DataRow constructor */
         private final String voteTranscript;
 
         public String getVoteTranscript() {
@@ -544,45 +524,38 @@ public class DataPage {
         }
 
         /**
-         * Add a new CandidateItem to this DataRow, with the given value; or, if this DataRow already
-         * has an item with this value, return it.
+         * Add a new CandidateItem to this DataRow, with the given value; or, if this DataRow
+         * already has an item with this value, return it.
          *
-         * If the item is new, then:
-         *  check whether the item is winning, and if so make winningItem point to it;
-         *  check whether the item matches baselineValue, and if so set isBaselineValue = true.
+         * <p>If the item is new, then: check whether the item is winning, and if so make
+         * winningItem point to it; check whether the item matches baselineValue, and if so set
+         * isBaselineValue = true.
          *
          * @param value
-         * @param candidateHistory a string used for debugging and possibly also for describing to the user
-         *          how/why/when/where the item was added
+         * @param candidateHistory a string used for debugging and possibly also for describing to
+         *     the user how/why/when/where the item was added
          * @return the new or existing item with the given value
-         *
-         * Sequential order in which addItem may be called (as of 2019-04-19) for a given DataRow:
-         *
-         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getBaileyValue not null):
-         *     in updateInheritedValue (called by populateFromThisXpath):
-         *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
-         *
-         * (2) For votes:
-         *     in populateFromThisXpathAddItemsForVotes (called by populateFromThisXpath):
-         *         CandidateItem item2 = row.addItem(avalue, "votes");
-         *
-         * (3) For winningValue:
-         *     in populateFromThisXpath:
-         *         row.addItem(row.winningValue, "winning");
-         *
-         * (4) For baselineValue (if not null):
-         *     in populateFromThisXpath:
-         *         row.addItem(row.baselineValue, "baseline");
-         *
-         * (5) For ourValue:
-         *     in addOurValue (called by populateFromThisXpath):
-         *         CandidateItem myItem = row.addItem(ourValue, "our");
+         *     <p>Sequential order in which addItem may be called (as of 2019-04-19) for a given
+         *     DataRow:
+         *     <p>(1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getBaileyValue not null):
+         *     in updateInheritedValue (called by populateFromThisXpath): inheritedItem =
+         *     addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
+         *     <p>(2) For votes: in populateFromThisXpathAddItemsForVotes (called by
+         *     populateFromThisXpath): CandidateItem item2 = row.addItem(avalue, "votes");
+         *     <p>(3) For winningValue: in populateFromThisXpath: row.addItem(row.winningValue,
+         *     "winning");
+         *     <p>(4) For baselineValue (if not null): in populateFromThisXpath:
+         *     row.addItem(row.baselineValue, "baseline");
+         *     <p>(5) For ourValue: in addOurValue (called by populateFromThisXpath): CandidateItem
+         *     myItem = row.addItem(ourValue, "our");
          */
         private CandidateItem addItem(String value, String candidateHistory) {
             if (value == null) {
                 return null;
             }
-            if (VoteResolver.DROP_HARD_INHERITANCE && value.equals(inheritedValue) && !inheritsFromRootOrFallback()) {
+            if (VoteResolver.DROP_HARD_INHERITANCE
+                    && value.equals(inheritedValue)
+                    && !inheritsFromRootOrFallback()) {
                 value = CldrUtility.INHERITANCE_MARKER;
             }
             CandidateItem item = items.get(value);
@@ -611,9 +584,7 @@ public class DataPage {
             return XMLSource.ROOT_ID.equals(loc) || XMLSource.CODE_FALLBACK_ID.equals(loc);
         }
 
-        /**
-         * Calculate the hash used for HTML forms for this DataRow.
-         */
+        /** Calculate the hash used for HTML forms for this DataRow. */
         public String fieldHash() { // deterministic. No need for sync.
             if (myFieldHash == null) {
                 String ret = "";
@@ -627,8 +598,8 @@ public class DataPage {
          * Return the winning (current) item for this DataRow.
          *
          * @return winningItem
-         *
-         * "The type DataPage.DataRow must implement the inherited abstract method CLDRInfo.PathValueInfo.getCurrentItem()
+         *     <p>"The type DataPage.DataRow must implement the inherited abstract method
+         *     CLDRInfo.PathValueInfo.getCurrentItem()
          */
         @Override
         public CandidateItem getCurrentItem() {
@@ -639,9 +610,7 @@ public class DataPage {
             return displayName;
         }
 
-        /**
-         * Get the locale for this DataRow
-         */
+        /** Get the locale for this DataRow */
         @Override
         public CLDRLocale getLocale() {
             return locale;
@@ -663,16 +632,13 @@ public class DataPage {
          *
          * @param value
          * @return the CandidateItem or null if none has that value
-         *
-         * Called only from SurveyAjax.java, as "ci = pvi.getItem(candVal)".
+         *     <p>Called only from SurveyAjax.java, as "ci = pvi.getItem(candVal)".
          */
         public CandidateItem getItem(String value) {
             return items.get(value);
         }
 
-        /**
-         * Get a list of proposed items, if any, for this DataRow.
-         */
+        /** Get a list of proposed items, if any, for this DataRow. */
         @Override
         public Collection<? extends CandidateInfo> getValues() {
             return items.values();
@@ -682,9 +648,7 @@ public class DataPage {
             return winningValue;
         }
 
-        /**
-         * Get the xpath for this DataRow
-         */
+        /** Get the xpath for this DataRow */
         @Override
         public String getXpath() {
             return xpath;
@@ -701,16 +665,16 @@ public class DataPage {
         /**
          * If inheritedItem is null, possibly create inheritedItem; otherwise do nothing.
          *
-         * inheritedItem is normally null when setShimTests is called by populateFromThisXpath,
+         * <p>inheritedItem is normally null when setShimTests is called by populateFromThisXpath,
          * unless setShimTests has already been called by ensureComplete, for some timezones.
          *
-         * A Shim is a candidate item which does not correspond to actual XML
-         * data, but is synthesized.
+         * <p>A Shim is a candidate item which does not correspond to actual XML data, but is
+         * synthesized.
          *
          * @param base_xpath_string
          * @param checkCldr
-         *
-         * Called by populateFromThisXpath (if isExtraPath), and by ensureComplete (for timezones)
+         *     <p>Called by populateFromThisXpath (if isExtraPath), and by ensureComplete (for
+         *     timezones)
          */
         private void setShimTests(String base_xpath_string, TestResultBundle checkCldr) {
             if (inheritedItem == null) {
@@ -727,36 +691,39 @@ public class DataPage {
             }
         }
 
-        /**
-         * Convert this DataRow to a string.
-         */
+        /** Convert this DataRow to a string. */
         @Override
         public String toString() {
-            return "{DataRow n='" + getDisplayName() + "', x='" + xpath + "', item#='" + items.size() + "'}";
+            return "{DataRow n='"
+                    + getDisplayName()
+                    + "', x='"
+                    + xpath
+                    + "', item#='"
+                    + items.size()
+                    + "'}";
         }
 
         /**
-         * Calculate the inherited item for this DataRow, possibly including tests;
-         * possibly set some fields in the DataRow, which may include inheritedValue,
-         * inheritedItem, inheritedLocale, pathWhereFound
+         * Calculate the inherited item for this DataRow, possibly including tests; possibly set
+         * some fields in the DataRow, which may include inheritedValue, inheritedItem,
+         * inheritedLocale, pathWhereFound
          *
          * @param ourSrc the CLDRFile
          * @param checkCldr the tests to use
-         *
-         * Called only by populateFromThisXpath, which is a method of DataPage.
-         *
-         * Reference: Distinguish two kinds of votes for inherited value in Survey Tool
-         *     https://unicode.org/cldr/trac/ticket/11299
-         * This function formerly created a CandidateItem with value equal to the Bailey value,
-         * which made it look like a "hard/explicit" vote for the Bailey value, NOT a "soft/implicit"
-         * vote for inheritance, which would have value equal to INHERITANCE_MARKER. Horrible confusion
-         * was the result. This function has been changed to set the value to INHERITANCE_MARKER, and to store
-         * the actual Bailey value in the inheritedValue field of DataRow.
-         *
-         * TODO: Get rid of, or merge with, the code that currently does 'row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry")' in populateFromThisXpath.
-         *
-         * Normally (always?) inheritedItem is null when this function is called; however, in principle
-         * it may be possible that inheritedItem isn't null due to ensureComplete calling setShimTests.
+         *     <p>Called only by populateFromThisXpath, which is a method of DataPage.
+         *     <p>Reference: Distinguish two kinds of votes for inherited value in Survey Tool
+         *     https://unicode.org/cldr/trac/ticket/11299 This function formerly created a
+         *     CandidateItem with value equal to the Bailey value, which made it look like a
+         *     "hard/explicit" vote for the Bailey value, NOT a "soft/implicit" vote for
+         *     inheritance, which would have value equal to INHERITANCE_MARKER. Horrible confusion
+         *     was the result. This function has been changed to set the value to
+         *     INHERITANCE_MARKER, and to store the actual Bailey value in the inheritedValue field
+         *     of DataRow.
+         *     <p>TODO: Get rid of, or merge with, the code that currently does
+         *     'row.addItem(CldrUtility.INHERITANCE_MARKER, "getCountry")' in populateFromThisXpath.
+         *     <p>Normally (always?) inheritedItem is null when this function is called; however, in
+         *     principle it may be possible that inheritedItem isn't null due to ensureComplete
+         *     calling setShimTests.
          */
         private void updateInheritedValue(CLDRFile ourSrc, TestResultBundle checkCldr) {
             long lastTime = System.currentTimeMillis();
@@ -766,8 +733,10 @@ public class DataPage {
              * Also possibly set the inheritedLocale and pathWhereFound fields of the DataRow.
              */
             Output<String> inheritancePathWhereFound = new Output<>(); // may become pathWhereFound
-            Output<String> localeWhereFound = new Output<>(); // may be used to construct inheritedLocale
-            inheritedValue = ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+            Output<String> localeWhereFound =
+                    new Output<>(); // may be used to construct inheritedLocale
+            inheritedValue =
+                    ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
 
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -788,7 +757,8 @@ public class DataPage {
                  * Unless we're at root, shouldn't there always be a non-null inheritedValue here?
                  * See https://unicode.org/cldr/trac/ticket/11299
                  */
-                // System.out.println("Warning: no inherited value in updateInheritedValue; xpath = " + xpath);
+                // System.out.println("Warning: no inherited value in updateInheritedValue; xpath =
+                // " + xpath);
             } else {
                 /*
                  * Unless this DataRow already has an item with value INHERITANCE_MARKER,
@@ -805,7 +775,8 @@ public class DataPage {
                 }
                 inheritedLocale = CLDRLocale.getInstance(localeWhereFound.value);
 
-                if (inheritancePathWhereFound.value != null && !inheritancePathWhereFound.value.equals(xpath)) {
+                if (inheritancePathWhereFound.value != null
+                        && !inheritancePathWhereFound.value.equals(xpath)) {
                     pathWhereFound = inheritancePathWhereFound.value;
 
                     if (TRACE_TIME) {
@@ -839,15 +810,16 @@ public class DataPage {
          * Has the given user voted or not?
          *
          * @param userId
-         * @return true if user has voted at all, false otherwise. Return
-         *         false if user changes their vote back to no opinion (abstain).
+         * @return true if user has voted at all, false otherwise. Return false if user changes
+         *     their vote back to no opinion (abstain).
          */
         public boolean userHasVoted(int userId) {
             return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
         }
 
         public String getInheritedXPath() {
-            if (pathWhereFound != null && !pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) {
+            if (pathWhereFound != null
+                    && !pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) {
                 return XPathTable.getStringIDString(pathWhereFound);
             }
             return null;
@@ -858,7 +830,7 @@ public class DataPage {
         }
 
         public String getVoteVHash() {
-            String voteVhash = null;  // abstension
+            String voteVhash = null; // abstension
             if (userForVotelist != null) {
                 String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
                 if (ourVote != null) {
@@ -882,7 +854,9 @@ public class DataPage {
         public String getDisplayExample() {
             String displayExample = null;
             if (displayName != null) {
-                displayExample = sm.getComparisonValuesExample().getNonTrivialExampleHtml(xpath, displayName);
+                displayExample =
+                        sm.getComparisonValuesExample()
+                                .getNonTrivialExampleHtml(xpath, displayName);
             }
             return displayExample;
         }
@@ -900,10 +874,8 @@ public class DataPage {
         }
 
         public String getDirectionality() {
-            if (getPathHeader().getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS)
-                return "ltr";
-            else
-                return null;
+            if (getPathHeader().getSurveyToolStatus() == SurveyToolStatus.LTR_ALWAYS) return "ltr";
+            else return null;
         }
 
         public String getCode() {
@@ -914,27 +886,20 @@ public class DataPage {
             return code;
         }
 
-        /**
-         * A Map used only in getNonDistinguishingAttributes
-         */
+        /** A Map used only in getNonDistinguishingAttributes */
         private Map<String, String> nonDistinguishingAttributes = null;
 
-        /**
-         * A boolean used only in getNonDistinguishingAttributes
-         */
+        /** A boolean used only in getNonDistinguishingAttributes */
         private boolean checkedNDA = false;
 
-        /**
-         * See addAnnotationRootValue and isUnvotableRoot.
-         */
+        /** See addAnnotationRootValue and isUnvotableRoot. */
         private String unvotableRootValue = null;
 
         /**
          * Get the map of non-distinguishing attributes for this DataRow
          *
          * @return the map
-         *
-         * Called only by DataRow.toJSONString
+         *     <p>Called only by DataRow.toJSONString
          */
         public Map<String, String> getNonDistinguishingAttributes() {
             if (!checkedNDA) {
@@ -952,21 +917,21 @@ public class DataPage {
          */
         public StatusAction getStatusAction(InputMethod inputMethod) {
             // null because this is for display.
-            return SurveyMain.phase().getCPhase()
-                .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist);
+            return SurveyMain.phase()
+                    .getCPhase()
+                    .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist);
         }
 
         /**
          * Get the status action for a DIRECT (SurveyTool) action
+         *
          * @return
          */
         public StatusAction getStatusAction() {
             return getStatusAction(InputMethod.DIRECT);
         }
 
-        /**
-         * Get the baseline value for this DataRow
-         */
+        /** Get the baseline value for this DataRow */
         @Override
         public String getBaselineValue() {
             return baselineValue;
@@ -975,16 +940,14 @@ public class DataPage {
         /**
          * Get the baseline status for this DataRow
          *
-         * Called by getShowRowAction
+         * <p>Called by getShowRowAction
          */
         @Override
         public Status getBaselineStatus() {
             return baselineStatus;
         }
 
-        /**
-         * Get the coverage level for this DataRow
-         */
+        /** Get the coverage level for this DataRow */
         @Override
         public Level getCoverageLevel() {
             // access the private method of the enclosing class
@@ -992,12 +955,11 @@ public class DataPage {
         }
 
         /**
-         * Was there at least one vote for this DataRow at the end of data submission, or is
-         * there a vote now?
+         * Was there at least one vote for this DataRow at the end of data submission, or is there a
+         * vote now?
          *
          * @return true if there was at least one vote
-         *
-         * TODO: add check for whether there was a vote in data submission.
+         *     <p>TODO: add check for whether there was a vote in data submission.
          */
         @Override
         public boolean hadVotesSometimeThisRelease() {
@@ -1006,6 +968,7 @@ public class DataPage {
 
         /**
          * Does this DataRow have null for its inherited value?
+         *
          * @return true if inheritedValue is null, else false.
          */
         public boolean wouldInheritNull() {
@@ -1013,8 +976,8 @@ public class DataPage {
         }
 
         /**
-         * For annotations, include the root value as a candidate item that can't be voted for.
-         * This is so that people can search for, e.g., "E12" to find rows for emoji that are new.
+         * For annotations, include the root value as a candidate item that can't be voted for. This
+         * is so that people can search for, e.g., "E12" to find rows for emoji that are new.
          */
         private void addAnnotationRootValue() {
             if (AnnotationUtil.pathIsAnnotation(xpath)) {
@@ -1035,10 +998,10 @@ public class DataPage {
         /**
          * Does the given value match the unvotable root value for this DataRow?
          *
-         * For some annotations, the root value may be shown as a candidate item
-         * for convenience of searching, but it can't be voted for.
+         * <p>For some annotations, the root value may be shown as a candidate item for convenience
+         * of searching, but it can't be voted for.
          *
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-11157
+         * <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-11157
          *
          * @param val the given value
          * @return true if it matches unvotableRootValue, else false
@@ -1050,8 +1013,9 @@ public class DataPage {
         public CLDRLocale getInheritedLocale() {
             return inheritedLocale;
         }
+
         public String getInheritedLocaleName() {
-            if ( inheritedLocale != null ) {
+            if (inheritedLocale != null) {
                 return inheritedLocale.getBaseName();
             } else {
                 return null;
@@ -1072,13 +1036,12 @@ public class DataPage {
     /**
      * Set the user for this DataPage
      *
-     * Somehow related to vote list?
+     * <p>Somehow related to vote list?
      *
      * @param u the User
-     *
-     * TODO: Determine whether we need DataPage to be user-specific, as userForVotelist implies
-     *
-     * Called by getRow, make, submitVoteOrAbstention, and handleBulkSubmit
+     *     <p>TODO: Determine whether we need DataPage to be user-specific, as userForVotelist
+     *     implies
+     *     <p>Called by getRow, make, submitVoteOrAbstention, and handleBulkSubmit
      */
     public void setUserForVotelist(User u) {
         userForVotelist = u;
@@ -1087,8 +1050,8 @@ public class DataPage {
     /**
      * Get the CLDRFile for the root locale
      *
-     * Keep a reference since sm.getSTFactory().make() may be expensive.
-     * Use lazy initialization since it may not be needed by every DataPage.
+     * <p>Keep a reference since sm.getSTFactory().make() may be expensive. Use lazy initialization
+     * since it may not be needed by every DataPage.
      */
     private CLDRFile getRootFile() {
         if (rootFile == null) {
@@ -1097,21 +1060,18 @@ public class DataPage {
         return rootFile;
     }
 
-    /**
-     * A DisplaySet represents a list of rows, in sorted and divided order.
-     */
+    /** A DisplaySet represents a list of rows, in sorted and divided order. */
     public static class DisplaySet {
 
         /**
-         * Partitions divide up the rows into sets, such as 'proposed',
-         * 'normal', etc. The 'limit' is one more than the index number of the
-         * last item. In some cases, there is only one partition, and its name
-         * is null.
+         * Partitions divide up the rows into sets, such as 'proposed', 'normal', etc. The 'limit'
+         * is one more than the index number of the last item. In some cases, there is only one
+         * partition, and its name is null.
          *
-         * Display group partitions. Might only contain one entry: {null, 0, <end>}.
-         * Otherwise, contains a list of entries to be named separately
+         * <p>Display group partitions. Might only contain one entry: {null, 0, <end>}. Otherwise,
+         * contains a list of entries to be named separately
          *
-         * public for VoteAPI usage, json serialization
+         * <p>public for VoteAPI usage, json serialization
          */
         public Partition[] partitions;
 
@@ -1133,10 +1093,8 @@ public class DataPage {
         /**
          * Create a DisplaySet object
          *
-         * @param myRows
-         *            the original rows
-         * @param sortMode
-         *            the sort mode to use
+         * @param myRows the original rows
+         * @param sortMode the sort mode to use
          */
         public DisplaySet(DataRow[] myRows, SortMode sortMode, Partition[] partitions) {
             this.sortMode = sortMode;
@@ -1145,10 +1103,7 @@ public class DataPage {
         }
     }
 
-    /**
-     * The ExampleEntry class represents an Example box, so that it can be stored and
-     * restored.
-     */
+    /** The ExampleEntry class represents an Example box, so that it can be stored and restored. */
     public class ExampleEntry {
 
         public DataPage.DataRow dataRow;
@@ -1166,7 +1121,11 @@ public class DataPage {
          * @param item the CandidateItem
          * @param status the CheckStatus
          */
-        public ExampleEntry(DataPage page, DataRow row, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
+        public ExampleEntry(
+                DataPage page,
+                DataRow row,
+                DataRow.CandidateItem item,
+                CheckCLDR.CheckStatus status) {
             this.page = page;
             this.dataRow = row;
             this.item = item;
@@ -1181,9 +1140,7 @@ public class DataPage {
         }
     }
 
-    /**
-     * Divider denoting a specific Continent division.
-     */
+    /** Divider denoting a specific Continent division. */
     public static final String CONTINENT_DIVIDER = "~";
 
     private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
@@ -1202,21 +1159,16 @@ public class DataPage {
     /*
      * A Pattern used only in the function isName()
      */
-    private static final Pattern NAME_TYPE_PATTERN = PatternCache.get("[a-zA-Z0-9]+|.*exemplarCity.*");
+    private static final Pattern NAME_TYPE_PATTERN =
+            PatternCache.get("[a-zA-Z0-9]+|.*exemplarCity.*");
 
-    /**
-     * Trace in detail time taken to populate?
-     */
+    /** Trace in detail time taken to populate? */
     private static final boolean TRACE_TIME = false;
 
-    /**
-     * Field to cache the Coverage info
-     */
+    /** Field to cache the Coverage info */
     private static CoverageInfo covInfo = null;
 
-    /**
-     * Synchronization Mutex used for accessing/setting the coverageInfo object
-     */
+    /** Synchronization Mutex used for accessing/setting the coverageInfo object */
     private static final Object GET_COVERAGEINFO_SYNC = new Object();
 
     /*
@@ -1228,25 +1180,20 @@ public class DataPage {
         }
     }
 
-    /**
-     * A serial number, used only in the function getN()
-     */
+    /** A serial number, used only in the function getN() */
     private static int n = 0;
 
     /**
      * Get a unique serial number
      *
      * @return the number
-     *
-     * Called only by the ExampleEntry constructor
+     *     <p>Called only by the ExampleEntry constructor
      */
     protected static synchronized int getN() {
         return ++n;
     }
 
-    /**
-     * Initialize this DataPage if it hasn't already been initialized
-     */
+    /** Initialize this DataPage if it hasn't already been initialized */
     private static synchronized void init() {
         if (!isInitted) {
             /*
@@ -1260,17 +1207,31 @@ public class DataPage {
             PatternCache.get("([^/]*)/(.*)");
 
             /* This one is only used with non-pageID use. */
-            PatternCache.get("^//ldml/localeDisplayNames.*|"
-               /* these are excluded when 'misc' is chosen. */
-               + "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
-               + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
-               + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
+            PatternCache.get(
+                    "^//ldml/localeDisplayNames.*|"
+                            /* these are excluded when 'misc' is chosen. */
+                            + "^//ldml/characters/exemplarCharacters.*|"
+                            + "^//ldml/numbers.*|"
+                            + "^//ldml/units.*|"
+                            + "^//ldml/references.*|"
+                            + "^//ldml/dates/timeZoneNames/zone.*|"
+                            + "^//ldml/dates/timeZoneNames/metazone.*|"
+                            + "^//ldml/dates/calendar.*|"
+                            + "^//ldml/identity.*");
 
             /* Always excluded. Compare with PathHeader/Coverage. */
-            excludeAlways = PatternCache.get("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
-                + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
-                "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"
-                + "^//ldml/dates/.*default"); // no defaults
+            excludeAlways =
+                    PatternCache.get(
+                            "^//ldml/segmentations.*|"
+                                    + "^//ldml/measurement.*|"
+                                    + ".*week/minDays.*|"
+                                    + ".*week/firstDay.*|"
+                                    + ".*/usesMetazone.*|"
+                                    + ".*week/weekendEnd.*|"
+                                    + ".*week/weekendStart.*|"
+                                    + "^//ldml/posix/messages/.*expr$|"
+                                    + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"
+                                    + "^//ldml/dates/.*default"); // no defaults
             isInitted = true;
         }
     }
@@ -1278,20 +1239,26 @@ public class DataPage {
     /**
      * Create, populate, and complete a DataPage given the specified locale and prefix
      *
-     * @param pageId the PageId, with a name such as "Generic" or "T_NAmerica",
-     *                           and an id with a name such as "DateTime" or "Locale_Display_Names"; or null
+     * @param pageId the PageId, with a name such as "Generic" or "T_NAmerica", and an id with a
+     *     name such as "DateTime" or "Locale_Display_Names"; or null
      * @param session
      * @param locale
      * @param prefix the XPATH prefix, such as ...; or null
      * @param matcher
      * @return the DataPage
-     *
-     * Called by SurveyAjax.handleBulkSubmit and VoteApiHelper
+     *     <p>Called by SurveyAjax.handleBulkSubmit and VoteApiHelper
      */
-    public static DataPage make(PageId pageId, CookieSession session, CLDRLocale locale, String prefix,
-                                XPathMatcher matcher) {
+    public static DataPage make(
+            PageId pageId,
+            CookieSession session,
+            CLDRLocale locale,
+            String prefix,
+            XPathMatcher matcher) {
 
-        SurveyMain sm = CookieSession.sm; // TODO: non-deprecated way of getting sm -- could be ctx.sm unless ctx is null
+        SurveyMain sm =
+                CookieSession
+                        .sm; // TODO: non-deprecated way of getting sm -- could be ctx.sm unless ctx
+        // is null
 
         DataPage page = new DataPage(pageId, sm, locale, prefix, matcher);
 
@@ -1310,13 +1277,15 @@ public class DataPage {
             throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         }
         synchronized (session) {
-            TestResultBundle checkCldr = sm.getSTFactory().getTestResult(locale, getOptions(session, locale));
+            TestResultBundle checkCldr =
+                    sm.getSTFactory().getTestResult(locale, getOptions(session, locale));
             if (checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
             page.comparisonValueFile = sm.getEnglishFile();
 
-            page.nativeExampleGenerator = TestCache.getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
+            page.nativeExampleGenerator =
+                    TestCache.getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
 
             page.populateFrom(ourSrc, checkCldr);
             /*
@@ -1333,8 +1302,8 @@ public class DataPage {
     }
 
     /**
-     * Get the options for the given WebContext, or, if the context is null, get the
-     * options for the given CookieSession and CLDRLocale
+     * Get the options for the given WebContext, or, if the context is null, get the options for the
+     * given CookieSession and CLDRLocale
      *
      * @param session
      * @param locale
@@ -1342,9 +1311,9 @@ public class DataPage {
      */
     public static CheckCLDR.Options getOptions(CookieSession session, CLDRLocale locale) {
         CheckCLDR.Options options;
-        final String def = CookieSession.sm
-            .getListSetting(session.settings(), SurveyMain.PREF_COVLEV,
-                WebContext.PREF_COVLEV_LIST);
+        final String def =
+                CookieSession.sm.getListSetting(
+                        session.settings(), SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
 
         final String org = session.getEffectiveCoverageLevel(locale.toString());
 
@@ -1380,7 +1349,9 @@ public class DataPage {
         this.pageId = pageId;
 
         if (DEBUG_DATA_PAGE) {
-            creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
+            creationTime =
+                    new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+                            .format(Calendar.getInstance().getTime());
             System.out.println("🌴 Created new DataPage for loc " + loc + " at " + creationTime);
         }
     }
@@ -1389,8 +1360,7 @@ public class DataPage {
      * Add the given DataRow to this DataPage
      *
      * @param row the DataRow
-     *
-     * Called only by getDataRow
+     *     <p>Called only by getDataRow
      */
     void addDataRow(DataRow row) {
         rowsHash.put(row.xpath, row);
@@ -1400,8 +1370,7 @@ public class DataPage {
      * Get the page id
      *
      * @return pageId
-     *
-     * Called by getRow
+     *     <p>Called by getRow
      */
     public PageId getPageId() {
         return pageId;
@@ -1412,8 +1381,7 @@ public class DataPage {
      *
      * @param sortMode
      * @return the DisplaySet
-     *
-     * Called by getRow
+     *     <p>Called by getRow
      */
     public DisplaySet createDisplaySet(SortMode sortMode) {
         return sortMode.createDisplaySet(null /* matcher */, rowsHash.values());
@@ -1422,9 +1390,9 @@ public class DataPage {
     /**
      * Makes sure this DataPage contains the rows we'd like to see related to timeZoneNames
      *
-     * Called only by DataPage.make, only when pageId == null
+     * <p>Called only by DataPage.make, only when pageId == null
      *
-     * TODO: explain this mechanism and why it's limited to DataPage, not shared with Dashboard,
+     * <p>TODO: explain this mechanism and why it's limited to DataPage, not shared with Dashboard,
      * CLDRFile, or any other module. Is it in any way related to CLDRFile.getRawExtraPathsPrivate?
      */
     private void ensureComplete(TestResultBundle checkCldr) {
@@ -1451,7 +1419,8 @@ public class DataPage {
                 XPathParts xpp = XPathParts.getFrozenInstance(xpathPrefix);
                 String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
                 if (singleMetazoneName == null) {
-                    throw new NullPointerException("singleMetazoneName is null for xpp:" + xpathPrefix);
+                    throw new NullPointerException(
+                            "singleMetazoneName is null for xpp:" + xpathPrefix);
                 }
                 singleZone.add(singleMetazoneName);
                 zoneIterator = singleZone;
@@ -1461,7 +1430,8 @@ public class DataPage {
             podBase = "//ldml/dates/timeZoneNames/metazone";
         } else {
             if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
-                throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
+                throw new InternalError(
+                        "Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
             }
             zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid");
             podBase = "//ldml/dates/timeZoneNames/zone";
@@ -1470,10 +1440,15 @@ public class DataPage {
             isSingleXPath = true;
         }
 
-        final String[] tzsuffs = {
-            "/exemplarCity" };
-        final String[] mzsuffs = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
-            "/short/standard" };
+        final String[] tzsuffs = {"/exemplarCity"};
+        final String[] mzsuffs = {
+            "/long/generic",
+            "/long/daylight",
+            "/long/standard",
+            "/short/generic",
+            "/short/daylight",
+            "/short/standard"
+        };
 
         String[] suffs;
         if (isMetazones) {
@@ -1484,8 +1459,11 @@ public class DataPage {
 
         for (String zone : zoneIterator) {
             if (zone == null) {
-                throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size()
-                    + ", isEmpty: " + zoneIterator.isEmpty());
+                throw new NullPointerException(
+                        "zoneIterator.next() returned null! zoneIterator.size: "
+                                + zoneIterator.size()
+                                + ", isEmpty: "
+                                + zoneIterator.isEmpty());
             }
             /* some compatibility */
             String ourSuffix = "[@type=\"" + zone + "\"]";
@@ -1518,7 +1496,8 @@ public class DataPage {
                     }
                 }
                 // Filter out data that is higher than the desired coverage level
-                int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
+                int coverageValue =
+                        getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
 
                 DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
 
@@ -1556,7 +1535,7 @@ public class DataPage {
     /**
      * Get the row for the given xpath in this DataPage
      *
-     * Linear search for matching item.
+     * <p>Linear search for matching item.
      *
      * @param xpath the string...
      * @return the matching DataRow
@@ -1603,7 +1582,9 @@ public class DataPage {
                 String continent = null;
                 int continentStart = xpathPrefix.indexOf(DataPage.CONTINENT_DIVIDER);
                 if (continentStart > 0) {
-                    continent = xpathPrefix.substring(xpathPrefix.indexOf(DataPage.CONTINENT_DIVIDER) + 1);
+                    continent =
+                            xpathPrefix.substring(
+                                    xpathPrefix.indexOf(DataPage.CONTINENT_DIVIDER) + 1);
                 }
                 if (DEBUG) {
                     System.err.println(xpathPrefix + ": -> continent " + continent);
@@ -1628,7 +1609,13 @@ public class DataPage {
 
             // Process extra paths.
             if (DEBUG) {
-                System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
+                System.err.println(
+                        "@@X@ base["
+                                + workPrefix
+                                + "]: "
+                                + baseXpaths.size()
+                                + ", extra: "
+                                + extraXpaths.size());
             }
         }
         populateFromAllXpaths(allXpaths, workPrefix, ourSrc, extraXpaths, stf, checkCldr);
@@ -1644,8 +1631,13 @@ public class DataPage {
      * @param stf
      * @param checkCldr
      */
-    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, Set<String> extraXpaths, STFactory stf,
-        TestResultBundle checkCldr) {
+    private void populateFromAllXpaths(
+            Set<String> allXpaths,
+            String workPrefix,
+            CLDRFile ourSrc,
+            Set<String> extraXpaths,
+            STFactory stf,
+            TestResultBundle checkCldr) {
 
         for (String xpath : allXpaths) {
             if (xpath == null) {
@@ -1680,7 +1672,8 @@ public class DataPage {
                 fullPath = xpath; // (this is normal for 'extra' paths)
             }
             // Now we are ready to add the data
-            populateFromThisXpath(xpath, extraXpaths, ourSrc, fullPath, checkCldr, coverageValue, base_xpath);
+            populateFromThisXpath(
+                    xpath, extraXpaths, ourSrc, fullPath, checkCldr, coverageValue, base_xpath);
         }
     }
 
@@ -1695,8 +1688,14 @@ public class DataPage {
      * @param coverageValue
      * @param base_xpath
      */
-    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, String fullPath,
-        TestResultBundle checkCldr, int coverageValue, int base_xpath) {
+    private void populateFromThisXpath(
+            String xpath,
+            Set<String> extraXpaths,
+            CLDRFile ourSrc,
+            String fullPath,
+            TestResultBundle checkCldr,
+            int coverageValue,
+            int base_xpath) {
 
         /*
          * 'extra' paths get shim treatment
@@ -1721,8 +1720,15 @@ public class DataPage {
              * Reference: https://unicode-org.atlassian.net/browse/CLDR-14945
              */
             if (DEBUG) {
-                System.err.println("warning: populateFromThisXpath " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
-                    + isExtraPath);
+                System.err.println(
+                        "warning: populateFromThisXpath "
+                                + this
+                                + ": "
+                                + locale
+                                + ":"
+                                + xpath
+                                + " = NULL! wasExtraPath="
+                                + isExtraPath);
             }
             isExtraPath = true;
         }
@@ -1785,7 +1791,7 @@ public class DataPage {
          * Add an item for the baseline value (trunk).
          */
         if (row.baselineValue != null) {
-                row.addItem(row.baselineValue, "baseline");
+            row.addItem(row.baselineValue, "baseline");
         }
 
         row.coverageValue = coverageValue;
@@ -1813,9 +1819,11 @@ public class DataPage {
          * Test if this value of ourValueIsInherited is reliable and consistent with what happens in updateInheritedValue.
          */
         if (ourValueIsInherited && !isExtraPath) {
-             return;
+            return;
         }
-        if (altProp != null && !ourValueIsInherited && !altProp.equals(SurveyMain.PROPOSED_DRAFT)) { // 'draft=true'
+        if (altProp != null
+                && !ourValueIsInherited
+                && !altProp.equals(SurveyMain.PROPOSED_DRAFT)) { // 'draft=true'
             row.hasMultipleProposals = true;
         }
         List<CheckStatus> checkCldrResult = new ArrayList<>();
@@ -1830,20 +1838,20 @@ public class DataPage {
     }
 
     /**
-     * For each string in the given set, based on values that have votes,
-     * add an item to the given row with that string as its value,
-     * unless the string matches ourValue.
+     * For each string in the given set, based on values that have votes, add an item to the given
+     * row with that string as its value, unless the string matches ourValue.
      *
-     * Also run some tests if appropriate.
+     * <p>Also run some tests if appropriate.
      *
      * @param v the set of values that have votes
      * @param xpath
      * @param row the DataRow
      * @param checkCldr the TestResultBundle, or null
-     *
-     * TODO: populateFromThisXpathAddItemsForVotes could be a method of DataRow instead of DataPage, then wouldn't need row, xpath as params
+     *     <p>TODO: populateFromThisXpathAddItemsForVotes could be a method of DataRow instead of
+     *     DataPage, then wouldn't need row, xpath as params
      */
-    private void populateFromThisXpathAddItemsForVotes(Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
+    private void populateFromThisXpathAddItemsForVotes(
+            Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
         for (String avalue : v) {
             Set<User> votes = ballotBox.getVotesForValue(xpath, avalue);
             if (votes == null || votes.size() == 0) {
@@ -1863,16 +1871,21 @@ public class DataPage {
     /**
      * Add an item for "ourValue" to the given DataRow, and set various fields of the DataRow
      *
-     * TODO: rename this function and/or move parts elsewhere? The setting of various fields may be
-     * more necessary than adding an item for ourValue. This function lacks a coherent purpose.
-     *  @param ourValue
+     * <p>TODO: rename this function and/or move parts elsewhere? The setting of various fields may
+     * be more necessary than adding an item for ourValue. This function lacks a coherent purpose.
+     *
+     * @param ourValue
      * @param row
      * @param checkCldrResult
      * @param sourceLocaleStatus
      * @param xpath
      */
-    private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
-                             CLDRFile.Status sourceLocaleStatus, String xpath) {
+    private void addOurValue(
+            String ourValue,
+            DataRow row,
+            List<CheckStatus> checkCldrResult,
+            CLDRFile.Status sourceLocaleStatus,
+            String xpath) {
 
         /*
          * Do not add ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
@@ -1893,13 +1906,14 @@ public class DataPage {
          */
         CandidateItem myItem = null;
         if (ourValue != null) {
-            if (!VoteResolver.DROP_HARD_INHERITANCE ||
-                !ourValue.equals(row.inheritedValue) ||
-                row.items.get(ourValue) != null ||
-                row.inheritsFromRootOrFallback()) {
+            if (!VoteResolver.DROP_HARD_INHERITANCE
+                    || !ourValue.equals(row.inheritedValue)
+                    || row.items.get(ourValue) != null
+                    || row.inheritsFromRootOrFallback()) {
                 myItem = row.addItem(ourValue, "our");
                 if (DEBUG) {
-                    System.err.println("Added item " + ourValue + " - now items=" + row.items.size());
+                    System.err.println(
+                            "Added item " + ourValue + " - now items=" + row.items.size());
                 }
             }
         }
@@ -1908,19 +1922,29 @@ public class DataPage {
             myItem.setTests(checkCldrResult);
         }
 
-        if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
+        if (sourceLocaleStatus != null
+                && sourceLocaleStatus.pathWhereFound != null
                 && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
             row.pathWhereFound = sourceLocaleStatus.pathWhereFound;
         }
     }
 
-    /**
-     * Convert this DataPage to a string.
-     */
+    /** Convert this DataPage to a string. */
     @Override
     public String toString() {
-        return "{" + getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", "
-            + getAll().size() + " items, pageid " + this.pageId + " } ";
+        return "{"
+                + getClass().getSimpleName()
+                + " "
+                + locale
+                + ":"
+                + xpathPrefix
+                + " #"
+                + super.toString()
+                + ", "
+                + getAll().size()
+                + " items, pageid "
+                + this.pageId
+                + " } ";
     }
 
     public static String getValueHash(String str) {
@@ -1931,8 +1955,7 @@ public class DataPage {
      * Get the DisplayAndInputProcessor for this DataPage; if there isn't one yet, create it
      *
      * @return the processor
-     *
-     * Called by getProcessedValue
+     *     <p>Called by getProcessedValue
      */
     private DisplayAndInputProcessor getProcessor() {
         if (processor == null) {

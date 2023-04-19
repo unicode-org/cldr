@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
@@ -8,14 +10,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class FindPluralDifferences {
 
@@ -49,17 +47,26 @@ public class FindPluralDifferences {
 
             if (supplementalNew == null) {
                 try {
-                    supplementalNew = SupplementalDataInfo.getInstance(
-                        CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/common/supplemental/");
+                    supplementalNew =
+                            SupplementalDataInfo.getInstance(
+                                    CLDRPaths.ARCHIVE_DIRECTORY
+                                            + "cldr-"
+                                            + version
+                                            + "/common/supplemental/");
                 } catch (ICUUncheckedIOException e) {
                     System.out.println(e.getMessage());
                 }
                 continue;
             }
 
-            supplementalNew = newVersion.equals("trunk") ? SupplementalDataInfo.getInstance()
-                : SupplementalDataInfo.getInstance(
-                    CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
+            supplementalNew =
+                    newVersion.equals("trunk")
+                            ? SupplementalDataInfo.getInstance()
+                            : SupplementalDataInfo.getInstance(
+                                    CLDRPaths.ARCHIVE_DIRECTORY
+                                            + "cldr-"
+                                            + newVersion
+                                            + "/common/supplemental/");
             System.out.println("# " + oldVersion + "➞" + newVersion);
 
             for (PluralType pluralType : PluralType.values()) {
@@ -69,12 +76,22 @@ public class FindPluralDifferences {
                 TreeSet justOldLocales = new TreeSet(oldLocales);
                 justOldLocales.removeAll(newLocales);
                 if (!justOldLocales.isEmpty()) {
-                    System.err.println("Old locales REMOVED:\t" + justOldLocales.size() + "\t" + justOldLocales);
+                    System.err.println(
+                            "Old locales REMOVED:\t"
+                                    + justOldLocales.size()
+                                    + "\t"
+                                    + justOldLocales);
                 }
 
                 TreeSet justNewLocales = new TreeSet(newLocales);
                 justNewLocales.removeAll(oldLocales);
-                System.out.println("\nNew locales for " + pluralType + "s:\t" + justNewLocales.size() + "\t" + justNewLocales);
+                System.out.println(
+                        "\nNew locales for "
+                                + pluralType
+                                + "s:\t"
+                                + justNewLocales.size()
+                                + "\t"
+                                + justNewLocales);
                 System.out.println("Modifications:");
 
                 for (String locale : oldLocales) {
@@ -110,18 +127,33 @@ public class FindPluralDifferences {
                     } else {
                         type = "DISJOINT FROM";
                     }
-                    System.out.println(pluralType
-                        + "\t" + oldVersion + "➞" + newVersion
-                        + "\t" + ToolConfig.getToolInstance().getEnglish().getName(locale)
-                        + "\t" + locale
-                        + "\t" + oldKeywords + "\t" + type + "\t" + newKeywords
-                        + "\t" + FindPluralDifferences.show(results));
+                    System.out.println(
+                            pluralType
+                                    + "\t"
+                                    + oldVersion
+                                    + "➞"
+                                    + newVersion
+                                    + "\t"
+                                    + ToolConfig.getToolInstance().getEnglish().getName(locale)
+                                    + "\t"
+                                    + locale
+                                    + "\t"
+                                    + oldKeywords
+                                    + "\t"
+                                    + type
+                                    + "\t"
+                                    + newKeywords
+                                    + "\t"
+                                    + FindPluralDifferences.show(results));
                 }
             }
         }
         Set<String> pluralRangesLocales = supplementalNew.getPluralRangesLocales();
-        System.out.println("\nLocales for plural ranges: " + pluralRangesLocales.size()
-            + "\t" + new TreeSet(pluralRangesLocales));
+        System.out.println(
+                "\nLocales for plural ranges: "
+                        + pluralRangesLocales.size()
+                        + "\t"
+                        + new TreeSet(pluralRangesLocales));
     }
 
     static String show(Map<String, BitSet> results) {
@@ -152,8 +184,7 @@ public class FindPluralDifferences {
                 }
                 result.append(start);
                 if (end != start) {
-                    result.append("–")
-                        .append(end);
+                    result.append("–").append(end);
                 }
                 start = limit;
             }
@@ -161,5 +192,4 @@ public class FindPluralDifferences {
         }
         return null;
     }
-
 }

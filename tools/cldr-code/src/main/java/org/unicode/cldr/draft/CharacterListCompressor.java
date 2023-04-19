@@ -1,5 +1,6 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.text.UCharacterIterator;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,21 +10,16 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.MatchResult;
 
-import com.ibm.icu.text.UCharacterIterator;
-
 /**
- * Compresses list of Unicode character ranges given as starting and ending char
- * into a Base88 string.
+ * Compresses list of Unicode character ranges given as starting and ending char into a Base88
+ * string.
  *
- * Compression usage:
- * String encodedStr = base88EncodeList(List<Interval>);
+ * <p>Compression usage: String encodedStr = base88EncodeList(List<Interval>);
  *
- * Decompression usage:
- * List<Interval> decodedStrList = base88DecodeList(encodedStr);
+ * <p>Decompression usage: List<Interval> decodedStrList = base88DecodeList(encodedStr);
  *
- * Interval has two integers - first, last - to represent the range.
+ * <p>Interval has two integers - first, last - to represent the range.
  */
-
 public class CharacterListCompressor {
 
     public static class Interval {
@@ -128,7 +124,7 @@ public class CharacterListCompressor {
         int result = 0;
         for (int i = 0; i < leng; i++) {
             int c = list.get(start + i);
-            result += c * Math.pow(88, i);  // TODO: implict narrowing of double to int.
+            result += c * Math.pow(88, i); // TODO: implict narrowing of double to int.
         }
         return result;
     }
@@ -149,7 +145,8 @@ public class CharacterListCompressor {
         return list2str(result);
     }
 
-    public final static String ascii = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%()*+,-.:;<=>?@[]^_`{|}~";
+    public static final String ascii =
+            "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%()*+,-.:;<=>?@[]^_`{|}~";
 
     public static String list2str(List<Integer> list) {
         StringBuilder str = new StringBuilder();

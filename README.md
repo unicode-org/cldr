@@ -28,10 +28,14 @@ Click [HERE](https://www.unicode.org/cldr/survey_tool.html) for information on h
 
 For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
+#### Spotless
+
+A source formatter is now used, please see [spotless](./tools/README.md#spotless) for details.
+
 ### Licenses
 
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [unicode-license.txt](./unicode-license.txt).
+a copy of which is included as [LICENSE](./LICENSE).
 
 - Some CLDR tools depend on library dependencies managed via Maven,
   use of these libraries is governed by separate license agreements.

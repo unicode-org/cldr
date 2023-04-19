@@ -7,22 +7,25 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.RuleBasedCollator;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.ibm.icu.text.RuleBasedCollator;
-
 public class CollationStringByteConverter extends DictionaryStringByteConverter {
 
-    public CollationStringByteConverter(RuleBasedCollator collation, StringByteConverter byteMaker) {
+    public CollationStringByteConverter(
+            RuleBasedCollator collation, StringByteConverter byteMaker) {
         super(getDictionaryInfo(collation, byteMaker), byteMaker);
         // TODO Auto-generated constructor stub
     }
 
-    private static StateDictionary<String> getDictionaryInfo(RuleBasedCollator collation, StringByteConverter byteMaker) {
+    private static StateDictionary<String> getDictionaryInfo(
+            RuleBasedCollator collation, StringByteConverter byteMaker) {
         Map<CharSequence, String> map = new TreeMap<>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         new CollationMapMaker().generateCollatorFolding(collation, map);
-        return new StateDictionaryBuilder<String>().setByteConverter(byteMaker)
-            .setIntMapFactory(new IntMap.CompactStringIntMapFactory()).make(map);
+        return new StateDictionaryBuilder<String>()
+                .setByteConverter(byteMaker)
+                .setIntMapFactory(new IntMap.CompactStringIntMapFactory())
+                .make(map);
     }
 }

@@ -1,5 +1,20 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.OlsonTimeZone;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.SimpleTimeZone;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.TimeZoneTransition;
+import com.ibm.icu.util.ULocale;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,28 +32,11 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.Matcher;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 import org.unicode.cldr.util.LenientDateParser.Token.Type;
-
-import com.ibm.icu.impl.OlsonTimeZone;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.SimpleTimeZone;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.TimeZoneTransition;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Immutable class that will parse dates and times for a particular ULocale.
@@ -56,8 +54,8 @@ public class LenientDateParser {
 
     static final long endDate;
 
-    static final SimpleDateFormat neutralFormat = new SimpleDateFormat(
-        "yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
+    static final SimpleDateFormat neutralFormat =
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", ULocale.ENGLISH);
     static final DecimalFormat threeDigits = new DecimalFormat("000");
     static final DecimalFormat twoDigits = new DecimalFormat("00");
 
@@ -78,12 +76,15 @@ public class LenientDateParser {
         }
     }
 
-    private static final UnicodeSet disallowedInSeparator = new UnicodeSet("[:alphabetic:]").freeze();
+    private static final UnicodeSet disallowedInSeparator =
+            new UnicodeSet("[:alphabetic:]").freeze();
     private static final UnicodeSet IGNORABLE = new UnicodeSet("[,[:whitespace:]]").freeze();
-    private static final EnumSet<Type> dateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR, Type.WEEKDAY, Type.ERA);
-    private static final EnumSet<Type> timeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND, Type.AMPM,
-        Type.TIMEZONE);
-    private static final EnumSet<Type> integerTimeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND);
+    private static final EnumSet<Type> dateTypes =
+            EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR, Type.WEEKDAY, Type.ERA);
+    private static final EnumSet<Type> timeTypes =
+            EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND, Type.AMPM, Type.TIMEZONE);
+    private static final EnumSet<Type> integerTimeTypes =
+            EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND);
 
     static final int thisYear = new Date().getYear();
     static final Date june15 = new Date(thisYear, 5, 15, 0, 0, 0);
@@ -97,6 +98,7 @@ public class LenientDateParser {
         final BreakIterator breakIterator;
         Calendar calendar;
         private int twoDigitYearOffset;
+
         {
             set2DigitYearStart(new Date(new Date().getYear() - 80, 1, 1));
         }
@@ -127,44 +129,46 @@ public class LenientDateParser {
                 return false;
             }
             switch (token.getType()) {
-            case ERA:
-            case MONTH:
-            case WEEKDAY:
-            case TIMEZONE:
-            case AMPM:
-                if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
-                    return false;
-                }
-                break;
-            case INTEGER:
-                if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
-                    return false;
-                }
-                break;
-            case SEPARATOR:
-                EnumSet<Type> beforeTypes = ((SeparatorToken) token).getAllowsBefore();
-                // see if there is a restriction on the previous type
-                if (tokens.size() > 0) {
-                    if (!beforeTypes.contains(previous.getType())) {
-                        if (DEBUG) {
-                            System.out.println("Have " + token + ", while previous token is  " + previous);
-                        }
+                case ERA:
+                case MONTH:
+                case WEEKDAY:
+                case TIMEZONE:
+                case AMPM:
+                    if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
                         return false;
                     }
-                }
-                if (previous != null && previous.getType() == Type.INTEGER) {
-                    IntegerToken integerToken = (IntegerToken) previous;
-                    if (!integerToken.restrictAndSetCalendarFieldIfPossible(beforeTypes, haveSoFar, tokens)) {
-                        return false; // couldn't add
+                    break;
+                case INTEGER:
+                    if (!token.checkAllowableTypes(previous, haveSoFar, tokens)) {
+                        return false;
                     }
-                }
-                // see what first required type is
-                haveSoFar.setFirstType(beforeTypes);
-                EnumSet<Type> afterTypes = ((SeparatorToken) token).getAllowsAfter();
-                haveSoFar.setFirstType(afterTypes);
+                    break;
+                case SEPARATOR:
+                    EnumSet<Type> beforeTypes = ((SeparatorToken) token).getAllowsBefore();
+                    // see if there is a restriction on the previous type
+                    if (tokens.size() > 0) {
+                        if (!beforeTypes.contains(previous.getType())) {
+                            if (DEBUG) {
+                                System.out.println(
+                                        "Have " + token + ", while previous token is  " + previous);
+                            }
+                            return false;
+                        }
+                    }
+                    if (previous != null && previous.getType() == Type.INTEGER) {
+                        IntegerToken integerToken = (IntegerToken) previous;
+                        if (!integerToken.restrictAndSetCalendarFieldIfPossible(
+                                beforeTypes, haveSoFar, tokens)) {
+                            return false; // couldn't add
+                        }
+                    }
+                    // see what first required type is
+                    haveSoFar.setFirstType(beforeTypes);
+                    EnumSet<Type> afterTypes = ((SeparatorToken) token).getAllowsAfter();
+                    haveSoFar.setFirstType(afterTypes);
 
-                break;
-            default:
+                    break;
+                default:
             }
             tokens.add(token);
             previous = token;
@@ -178,7 +182,8 @@ public class LenientDateParser {
                     Set<Type> allowable = ((SeparatorToken) previous).getAllowsBefore();
                     if (!allowable.contains(token.getType())) {
                         if (DEBUG) {
-                            System.out.println("Have " + token + ", while previous token is " + previous);
+                            System.out.println(
+                                    "Have " + token + ", while previous token is " + previous);
                         }
                         return false;
                     }
@@ -204,7 +209,12 @@ public class LenientDateParser {
             int i = charlist.fromSourceOffset(parsePosition.getIndex());
             while (charlist.hasCharAt(i)) {
                 if (DEBUG) {
-                    System.out.println(charlist.subSequence(0, i) + "|" + charlist.charAt(i) + "\t\t" + tokens);
+                    System.out.println(
+                            charlist.subSequence(0, i)
+                                    + "|"
+                                    + charlist.charAt(i)
+                                    + "\t\t"
+                                    + tokens);
                 }
                 Status status = matcher.setOffset(i).next(Filter.LONGEST_UNIQUE);
                 if (status != Status.NONE) {
@@ -249,7 +259,8 @@ public class LenientDateParser {
                         break;
                     }
                     i = j; // we are at least (i+1).
-                    // make another pass at same point. Slightly less efficient, but makes the loop easier.
+                    // make another pass at same point. Slightly less efficient, but makes the loop
+                    // easier.
                 } else if (IGNORABLE.contains(ch)) {
                     ++i;
                 } else if (disallowedInSeparator.contains(ch)) {
@@ -286,24 +297,27 @@ public class LenientDateParser {
             ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);
             ordering.addAll(integerTimeTypes);
 
-            main: for (Token token : tokens) {
+            main:
+            for (Token token : tokens) {
                 if (token.getType() == Type.INTEGER) {
                     IntegerToken integerToken = (IntegerToken) token;
                     // pick the first ordering item that fits
                     EnumSet<Type> possible = integerToken.allowsAt;
-                    for (Iterator<Type> it = ordering.iterator(); it.hasNext();) {
+                    for (Iterator<Type> it = ordering.iterator(); it.hasNext(); ) {
                         Type item = it.next();
                         if (haveSoFar.contains(item)) {
                             continue;
                         }
                         if (possible.contains(item)) {
-                            integerToken.restrictAndSetCalendarFieldIfPossible(EnumSet.of(item), haveSoFar, tokens);
+                            integerToken.restrictAndSetCalendarFieldIfPossible(
+                                    EnumSet.of(item), haveSoFar, tokens);
                             continue main;
                         }
                     }
                     // if we get this far, then none of the orderings work; we failed
                     if (DEBUG) {
-                        System.out.println("failed to find option for " + token + " in " + possible);
+                        System.out.println(
+                                "failed to find option for " + token + " in " + possible);
                     }
                     return null;
                 }
@@ -312,40 +326,40 @@ public class LenientDateParser {
             for (Token token : tokens) {
                 int value = token.getIntValue();
                 switch (token.getType()) {
-                case ERA:
-                    calendar.set(Calendar.ERA, value);
-                    break;
-                case YEAR:
-                    if (value < 100) {
-                        value = (twoDigitYearOffset / 100) * 100 + value;
-                        if (value < twoDigitYearOffset) {
-                            value += 100;
+                    case ERA:
+                        calendar.set(Calendar.ERA, value);
+                        break;
+                    case YEAR:
+                        if (value < 100) {
+                            value = (twoDigitYearOffset / 100) * 100 + value;
+                            if (value < twoDigitYearOffset) {
+                                value += 100;
+                            }
                         }
-                    }
-                    calendar.set(Calendar.YEAR, value);
-                    break;
-                case DAY:
-                    calendar.set(Calendar.DAY_OF_MONTH, value);
-                    break;
-                case MONTH:
-                    calendar.set(Calendar.MONTH, value - 1);
-                    break;
-                case HOUR:
-                    calendar.set(Calendar.HOUR, value);
-                    break;
-                case MINUTE:
-                    calendar.set(Calendar.MINUTE, value);
-                    break;
-                case SECOND:
-                    calendar.set(Calendar.SECOND, value);
-                    break;
-                case AMPM:
-                    calendar.set(Calendar.AM_PM, value);
-                    break;
-                case TIMEZONE:
-                    calendar.setTimeZone(getTimeZone(ZONE_INT_MAP.get(value)));
-                    break;
-                default:
+                        calendar.set(Calendar.YEAR, value);
+                        break;
+                    case DAY:
+                        calendar.set(Calendar.DAY_OF_MONTH, value);
+                        break;
+                    case MONTH:
+                        calendar.set(Calendar.MONTH, value - 1);
+                        break;
+                    case HOUR:
+                        calendar.set(Calendar.HOUR, value);
+                        break;
+                    case MINUTE:
+                        calendar.set(Calendar.MINUTE, value);
+                        break;
+                    case SECOND:
+                        calendar.set(Calendar.SECOND, value);
+                        break;
+                    case AMPM:
+                        calendar.set(Calendar.AM_PM, value);
+                        break;
+                    case TIMEZONE:
+                        calendar.setTimeZone(getTimeZone(ZONE_INT_MAP.get(value)));
+                        break;
+                    default:
                 }
             }
             // if (!haveSoFar.contains(Type.YEAR)) {
@@ -368,12 +382,11 @@ public class LenientDateParser {
         }
 
         /**
-         * Sets the 100-year period 2-digit years will be interpreted as being in
-         * to begin on the date the user specifies.
+         * Sets the 100-year period 2-digit years will be interpreted as being in to begin on the
+         * date the user specifies.
          *
-         * @param startDate
-         *            During parsing, two digit years will be placed in the range <code>startDate</code> to
-         *            <code>startDate + 100 years</code>.
+         * @param startDate During parsing, two digit years will be placed in the range <code>
+         *     startDate</code> to <code>startDate + 100 years</code>.
          * @stable ICU 2.0
          */
         public void set2DigitYearStart(Date startDate) {
@@ -444,54 +457,65 @@ public class LenientDateParser {
      * Tokens can be integers, separator strings, or date elements (Timezones, Months, Days, Eras)
      *
      * @author markdavis
-     *
      */
     static class Token {
 
         enum Type {
-            ERA, YEAR, MONTH, WEEKDAY, DAY, HOUR, MINUTE, SECOND, AMPM, TIMEZONE, INTEGER, SEPARATOR, UNKNOWN;
+            ERA,
+            YEAR,
+            MONTH,
+            WEEKDAY,
+            DAY,
+            HOUR,
+            MINUTE,
+            SECOND,
+            AMPM,
+            TIMEZONE,
+            INTEGER,
+            SEPARATOR,
+            UNKNOWN;
 
             static Type getType(Object field) {
                 char ch = field.toString().charAt(0);
                 switch (ch) {
-                case 'G':
-                    return Type.ERA;
-                case 'y':
-                case 'Y':
-                case 'u':
-                    return Type.YEAR;
-                // case 'Q': return Type.QUARTER;
-                case 'M':
-                case 'L':
-                    return Type.MONTH;
-                // case 'w': case 'W': return Type.WEEK;
-                case 'e':
-                case 'E':
-                case 'c':
-                    return Type.WEEKDAY;
-                case 'd':
-                case 'D':
-                case 'F':
-                case 'g':
-                    return Type.DAY;
-                case 'a':
-                    return Type.AMPM;
-                case 'h':
-                case 'H':
-                case 'k':
-                case 'K':
-                    return Type.HOUR;
-                case 'm':
-                    return Type.MINUTE;
-                case 's':
-                case 'S':
-                case 'A':
-                    return Type.SECOND;
-                case 'v':
-                case 'z':
-                case 'Z':
-                case 'V':
-                    return Type.TIMEZONE;
+                    case 'G':
+                        return Type.ERA;
+                    case 'y':
+                    case 'Y':
+                    case 'u':
+                        return Type.YEAR;
+                        // case 'Q': return Type.QUARTER;
+                    case 'M':
+                    case 'L':
+                        return Type.MONTH;
+                        // case 'w': case 'W': return Type.WEEK;
+                    case 'e':
+                    case 'E':
+                    case 'c':
+                        return Type.WEEKDAY;
+                    case 'd':
+                    case 'D':
+                    case 'F':
+                    case 'g':
+                        return Type.DAY;
+                    case 'a':
+                        return Type.AMPM;
+                    case 'h':
+                    case 'H':
+                    case 'k':
+                    case 'K':
+                        return Type.HOUR;
+                    case 'm':
+                        return Type.MINUTE;
+                    case 's':
+                    case 'S':
+                    case 'A':
+                        return Type.SECOND;
+                    case 'v':
+                    case 'z':
+                    case 'Z':
+                    case 'V':
+                        return Type.TIMEZONE;
                 }
                 return UNKNOWN;
             }
@@ -504,7 +528,8 @@ public class LenientDateParser {
             return type;
         }
 
-        public boolean checkAllowableTypes(Token previous, SoFar haveSoFar, Collection<Token> tokensToFix) {
+        public boolean checkAllowableTypes(
+                Token previous, SoFar haveSoFar, Collection<Token> tokensToFix) {
             if (haveSoFar.contains(getType())) {
                 if (DEBUG) {
                     System.out.println("Have " + this + ", but already had " + haveSoFar);
@@ -516,20 +541,22 @@ public class LenientDateParser {
                 allowable = ((SeparatorToken) previous).getAllowsAfter();
                 if (!allowable.contains(getType())) {
                     if (DEBUG) {
-                        System.out.println("Have " + this + ", while previous token is " + previous);
+                        System.out.println(
+                                "Have " + this + ", while previous token is " + previous);
                     }
                     return false;
                 }
             }
 
             switch (getType()) {
-
-            case INTEGER:
-                IntegerToken integerToken = (IntegerToken) this; // slightly kludgy to call subclass, but simpler
-                return integerToken.restrictAndSetCalendarFieldIfPossible(allowable, haveSoFar, tokensToFix);
-            case SEPARATOR:
-                return true;
-            default:
+                case INTEGER:
+                    IntegerToken integerToken =
+                            (IntegerToken) this; // slightly kludgy to call subclass, but simpler
+                    return integerToken.restrictAndSetCalendarFieldIfPossible(
+                            allowable, haveSoFar, tokensToFix);
+                case SEPARATOR:
+                    return true;
+                default:
             }
             // only if set value
             return haveSoFar == null ? true : haveSoFar.add(this);
@@ -550,8 +577,12 @@ public class LenientDateParser {
 
         @Override
         public String toString() {
-            return "{" + getType() + ":" + value + (getType() == Type.TIMEZONE ? "/" + ZONE_INT_MAP.get(value) : "")
-                + "}";
+            return "{"
+                    + getType()
+                    + ":"
+                    + value
+                    + (getType() == Type.TIMEZONE ? "/" + ZONE_INT_MAP.get(value) : "")
+                    + "}";
         }
 
         @Override
@@ -591,8 +622,15 @@ public class LenientDateParser {
 
         @Override
         public String toString() {
-            return "{" + getType() + ":" + getIntValue() + "/" + toShortString(allowsBefore) + "/"
-                + toShortString(allowsAfter) + "}";
+            return "{"
+                    + getType()
+                    + ":"
+                    + getIntValue()
+                    + "/"
+                    + toShortString(allowsBefore)
+                    + "/"
+                    + toShortString(allowsAfter)
+                    + "}";
         }
 
         @Override
@@ -614,16 +652,40 @@ public class LenientDateParser {
 
         public IntegerToken(int value) {
             super(value, Type.INTEGER);
-            allowsAt = value == 0 ? EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND)
-                : value < 12 ? EnumSet.of(Type.YEAR, Type.MONTH, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
-                    : value < 25 ? EnumSet.of(Type.YEAR, Type.DAY, Type.HOUR, Type.MINUTE, Type.SECOND)
-                        : value < 32 ? EnumSet.of(Type.YEAR, Type.DAY, Type.MINUTE, Type.SECOND)
-                            : value < 60 ? EnumSet.of(Type.YEAR, Type.MINUTE, Type.SECOND)
-                                : EnumSet.of(Type.YEAR);
+            allowsAt =
+                    value == 0
+                            ? EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND)
+                            : value < 12
+                                    ? EnumSet.of(
+                                            Type.YEAR,
+                                            Type.MONTH,
+                                            Type.DAY,
+                                            Type.HOUR,
+                                            Type.MINUTE,
+                                            Type.SECOND)
+                                    : value < 25
+                                            ? EnumSet.of(
+                                                    Type.YEAR,
+                                                    Type.DAY,
+                                                    Type.HOUR,
+                                                    Type.MINUTE,
+                                                    Type.SECOND)
+                                            : value < 32
+                                                    ? EnumSet.of(
+                                                            Type.YEAR,
+                                                            Type.DAY,
+                                                            Type.MINUTE,
+                                                            Type.SECOND)
+                                                    : value < 60
+                                                            ? EnumSet.of(
+                                                                    Type.YEAR,
+                                                                    Type.MINUTE,
+                                                                    Type.SECOND)
+                                                            : EnumSet.of(Type.YEAR);
         }
 
-        public boolean restrictAndSetCalendarFieldIfPossible(EnumSet<Type> allowable, SoFar haveSoFar,
-            Collection<Token> tokensToFix) {
+        public boolean restrictAndSetCalendarFieldIfPossible(
+                EnumSet<Type> allowable, SoFar haveSoFar, Collection<Token> tokensToFix) {
             if (getType() != Type.INTEGER) {
                 throw new IllegalArgumentException();
             }
@@ -635,7 +697,8 @@ public class LenientDateParser {
             }
             if (ok.size() == 0) {
                 if (DEBUG) {
-                    System.out.println("No possibilities for " + this + ": " + allowable + "\t" + haveSoFar);
+                    System.out.println(
+                            "No possibilities for " + this + ": " + allowable + "\t" + haveSoFar);
                 }
                 return false; // nothing works
             }
@@ -651,8 +714,8 @@ public class LenientDateParser {
                     // look at the other tokens to see if they need fixing
                     if (token != this && token.getType() == Type.INTEGER) {
                         IntegerToken other = (IntegerToken) token;
-                        if (!other.restrictAndSetCalendarFieldIfPossible(EnumSet.complementOf(ok), haveSoFar,
-                            tokensToFix)) {
+                        if (!other.restrictAndSetCalendarFieldIfPossible(
+                                EnumSet.complementOf(ok), haveSoFar, tokensToFix)) {
                             return false;
                         }
                     }
@@ -690,7 +753,8 @@ public class LenientDateParser {
     private final BreakIterator breakIterator;
     private final DateOrdering dateOrdering;
 
-    public LenientDateParser(Matcher<Token> matcher, BreakIterator iterator, DateOrdering dateOrdering) {
+    public LenientDateParser(
+            Matcher<Token> matcher, BreakIterator iterator, DateOrdering dateOrdering) {
         this.matcher = matcher;
         breakIterator = iterator;
         this.dateOrdering = dateOrdering;
@@ -699,7 +763,8 @@ public class LenientDateParser {
     public static LenientDateParser getInstance(ULocale locale) {
         DateOrdering dateOrdering = new DateOrdering();
         // final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(locale);
-        // CollationStringByteConverter converter = new CollationStringByteConverter(col, new StringUtf8Converter()); //
+        // CollationStringByteConverter converter = new CollationStringByteConverter(col, new
+        // StringUtf8Converter()); //
         // new ByteString(true)
         // Matcher<String> matcher = converter.getDictionary().getMatcher();
         // later, cache this dictionary
@@ -723,16 +788,19 @@ public class LenientDateParser {
 
         Calendar temp = Calendar.getInstance();
 
-        String[] zoneFormats = { "z", "zzzz", "Z", "ZZZZ", "v", "vvvv", "V", "VVVV" };
+        String[] zoneFormats = {"z", "zzzz", "Z", "ZZZZ", "v", "vvvv", "V", "VVVV"};
         List<SimpleDateFormat> zoneFormatList = new ArrayList<>();
         for (String zoneFormat : zoneFormats) {
             zoneFormatList.add(new SimpleDateFormat(zoneFormat, locale));
         }
         final BestTimeZone bestTimeZone = new BestTimeZone(locale);
-        Relation<String, String> stringToZones = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, bestTimeZone);
+        Relation<String, String> stringToZones =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, bestTimeZone);
 
-        // final UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false, 0);
-        // Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator,
+        // final UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false,
+        // 0);
+        // Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[]
+        // {stringComparator,
         // stringComparator, stringComparator, stringComparator}));
 
         for (String timezone : ZONE_VALUE_MAP.keySet()) {
@@ -764,7 +832,8 @@ public class LenientDateParser {
                 // }
                 // TimeZone otherZone = temp.getTimeZone();
                 // // if (!otherZone.getID().equals(timezone.getID())) {
-                // // zoneRemaps.add(new String[] {timezone.getID(), format.toPattern(), formatted, otherZone.getID()}
+                // // zoneRemaps.add(new String[] {timezone.getID(), format.toPattern(), formatted,
+                // otherZone.getID()}
                 // );
                 // // }
                 // if (!otherZone.getID().equals(unknownZone.getID())) {
@@ -785,13 +854,20 @@ public class LenientDateParser {
                         last = zone;
                     }
                 }
-                System.out.println("Parsing \t\"" + formatted + "\"\t gets \t" + status + "\t" + show(possibilities));
+                System.out.println(
+                        "Parsing \t\""
+                                + formatted
+                                + "\"\t gets \t"
+                                + status
+                                + "\t"
+                                + show(possibilities));
             }
             String bestValue = possibilities.iterator().next(); // pick first value
             loadItem(map, formatted, ZONE_VALUE_MAP.get(bestValue), Type.TIMEZONE);
         }
         // get separators from formats
-        // we walk through to see what can come before or after a separator, accumulating them all together
+        // we walk through to see what can come before or after a separator, accumulating them all
+        // together
         FormatParser formatParser = new FormatParser();
         Map<String, EnumSet<Type>> beforeTypes = new HashMap<>();
         Map<String, EnumSet<Type>> afterTypes = new HashMap<>();
@@ -800,10 +876,20 @@ public class LenientDateParser {
         EnumSet<Type> nonTimeTypes = EnumSet.allOf(Type.class);
         nonTimeTypes.removeAll(timeTypes);
         for (int style = 0; style < 4; ++style) {
-            addSeparatorInfo((SimpleDateFormat) DateFormat.getDateInstance(style, locale), formatParser, beforeTypes,
-                afterTypes, nonDateTypes, dateOrdering);
-            addSeparatorInfo((SimpleDateFormat) DateFormat.getTimeInstance(style, locale), formatParser, beforeTypes,
-                afterTypes, nonTimeTypes, dateOrdering);
+            addSeparatorInfo(
+                    (SimpleDateFormat) DateFormat.getDateInstance(style, locale),
+                    formatParser,
+                    beforeTypes,
+                    afterTypes,
+                    nonDateTypes,
+                    dateOrdering);
+            addSeparatorInfo(
+                    (SimpleDateFormat) DateFormat.getTimeInstance(style, locale),
+                    formatParser,
+                    beforeTypes,
+                    afterTypes,
+                    nonTimeTypes,
+                    dateOrdering);
         }
         // now allow spaces between date and type
         add(beforeTypes, " ", dateTypes);
@@ -822,8 +908,8 @@ public class LenientDateParser {
         }
 
         // TODO remove the setByteConverter; it's just for debugging
-        DictionaryBuilder<Token> builder = new StateDictionaryBuilder<Token>()
-            .setByteConverter(new Utf8StringByteConverter());
+        DictionaryBuilder<Token> builder =
+                new StateDictionaryBuilder<Token>().setByteConverter(new Utf8StringByteConverter());
         if (DEBUG) {
             System.out.println(map);
         }
@@ -832,15 +918,18 @@ public class LenientDateParser {
         // System.out.println(dict.debugShow());
         // DictionaryCharList x = new DictionaryCharList(converter.getDictionary(), string);
 
-        LenientDateParser result = new LenientDateParser(dict.getMatcher(), BreakIterator.getWordInstance(locale),
-            dateOrdering);
+        LenientDateParser result =
+                new LenientDateParser(
+                        dict.getMatcher(), BreakIterator.getWordInstance(locale), dateOrdering);
         return result;
     }
 
-    static final Pattern GMT_ZONE_MATCHER = PatternCache.get("Etc/GMT([-+])([0-9]{1,2})(?::([0-9]{2}))(?::([0-9]{2}))?");
+    static final Pattern GMT_ZONE_MATCHER =
+            PatternCache.get("Etc/GMT([-+])([0-9]{1,2})(?::([0-9]{2}))(?::([0-9]{2}))?");
 
     private static TimeZone getTimeZone(String timezone) {
-        // this really ought to be done in the inverse order: try the normal timezone, then if it fails try this.
+        // this really ought to be done in the inverse order: try the normal timezone, then if it
+        // fails try this.
         // Unfortunately, getTimeZone doesn't give a failure value.
         if (timezone.startsWith("Etc/GMT")) {
             java.util.regex.Matcher matcher = GMT_ZONE_MATCHER.matcher(timezone);
@@ -852,7 +941,9 @@ public class LenientDateParser {
                         offset += Integer.parseInt(matcher.group(3)) * SECOND;
                     }
                 }
-                if (matcher.group(1).equals("+")) { // IMPORTANT: the TZDB offsets are the inverse of everyone elses!
+                if (matcher.group(1)
+                        .equals("+")) { // IMPORTANT: the TZDB offsets are the inverse of everyone
+                    // elses!
                     offset = -offset;
                 }
                 return new SimpleTimeZone(offset, timezone);
@@ -886,10 +977,11 @@ public class LenientDateParser {
 
     static final IntMap<String> ZONE_INT_MAP;
     static final Map<String, Integer> ZONE_VALUE_MAP;
-    final static SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
+    static final SupplementalDataInfo supplementalData =
+            SupplementalDataInfo.getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
 
     private static final boolean SHOW_ZONE_INFO = false;
+
     static {
         Set<String> canonicalZones = supplementalData.getCanonicalZones();
         // get all the CLDR IDs
@@ -907,7 +999,8 @@ public class LenientDateParser {
         }
 
         if (SHOW_ZONE_INFO)
-            System.out.println("Zones in CLDR but not ICU:" + getFirstMinusSecond(allCLDRZones, allIcuZones));
+            System.out.println(
+                    "Zones in CLDR but not ICU:" + getFirstMinusSecond(allCLDRZones, allIcuZones));
         final Set<String> icuMinusCldr_all = getFirstMinusSecond(allIcuZones, allCLDRZones);
         if (SHOW_ZONE_INFO) System.out.println("Zones in ICU but not CLDR:" + icuMinusCldr_all);
 
@@ -951,9 +1044,7 @@ public class LenientDateParser {
         return difference;
     }
 
-    /**
-     * The best timezone is the lower one.
-     */
+    /** The best timezone is the lower one. */
     static class BestTimeZone implements Comparator<String> {
         // TODO replace by HashMap once done debugging
         Map<String, Integer> regionToRank = new TreeMap<>();
@@ -1011,8 +1102,7 @@ public class LenientDateParser {
         }
 
         private int add(String language, int count) {
-            Set<String> data = supplementalData
-                .getTerritoriesForPopulationData(language);
+            Set<String> data = supplementalData.getTerritoriesForPopulationData(language);
             // get direct language
             if (data != null) {
                 System.out.println("???" + language + "\t" + data);
@@ -1021,8 +1111,8 @@ public class LenientDateParser {
                 }
             } else { // add scripts
                 String languageSeparator = language + "_";
-                for (String language2 : supplementalData
-                    .getLanguagesForTerritoriesPopulationData()) {
+                for (String language2 :
+                        supplementalData.getLanguagesForTerritoriesPopulationData()) {
                     if (language2.startsWith(languageSeparator)) {
                         data = supplementalData.getTerritoriesForPopulationData(language2);
                         System.out.println("???" + language2 + "\t" + data);
@@ -1117,9 +1207,13 @@ public class LenientDateParser {
         LinkedHashSet yd = new LinkedHashSet();
     }
 
-    private static void addSeparatorInfo(SimpleDateFormat d, FormatParser formatParser,
-        Map<String, EnumSet<Type>> beforeTypes, Map<String, EnumSet<Type>> afterTypes, EnumSet<Type> allowedContext,
-        DateOrdering dateOrdering) {
+    private static void addSeparatorInfo(
+            SimpleDateFormat d,
+            FormatParser formatParser,
+            Map<String, EnumSet<Type>> beforeTypes,
+            Map<String, EnumSet<Type>> afterTypes,
+            EnumSet<Type> allowedContext,
+            DateOrdering dateOrdering) {
         String pattern = d.toPattern();
         if (DEBUG) {
             System.out.println("Adding Pattern:\t" + pattern);
@@ -1147,16 +1241,16 @@ public class LenientDateParser {
                 String var = item.toString();
                 Type type = Type.getType(var);
                 switch (type) {
-                case MONTH:
-                    if (var.length() < 3) {
+                    case MONTH:
+                        if (var.length() < 3) {
+                            temp.add(type);
+                        }
+                        break;
+                    case DAY:
+                    case YEAR:
                         temp.add(type);
-                    }
-                    break;
-                case DAY:
-                case YEAR:
-                    temp.add(type);
-                    break;
-                default:
+                        break;
+                    default:
                 }
             }
         }
@@ -1176,7 +1270,8 @@ public class LenientDateParser {
         }
     }
 
-    private static void add(Map<String, EnumSet<Type>> stringToTypes, String item, EnumSet<Type> types) {
+    private static void add(
+            Map<String, EnumSet<Type>> stringToTypes, String item, EnumSet<Type> types) {
         Set<Type> set = stringToTypes.get(item);
         if (set == null) {
             stringToTypes.put(item, EnumSet.copyOf(types));
@@ -1204,7 +1299,8 @@ public class LenientDateParser {
         return source;
     }
 
-    private static void loadItem(Map<CharSequence, Token> map, String item, EnumSet<Type> before, EnumSet<Type> after) {
+    private static void loadItem(
+            Map<CharSequence, Token> map, String item, EnumSet<Type> before, EnumSet<Type> after) {
         map.put(item, new SeparatorToken(before, after, -1, Type.SEPARATOR));
     }
 
@@ -1251,8 +1347,7 @@ public class LenientDateParser {
         Set<Integer> offsets = new TreeSet<>();
         for (String tzid : supplementalData.getCanonicalZones()) {
             TimeZone zone = TimeZone.getTimeZone(tzid);
-            for (long date = startDate; date < endDate; date = getTransitionAfter(
-                zone, date)) {
+            for (long date = startDate; date < endDate; date = getTransitionAfter(zone, date)) {
                 offsets.add(zone.getOffset(date));
             }
         }
@@ -1287,13 +1382,11 @@ public class LenientDateParser {
     }
 
     public static long getTransitionAfter(TimeZone zone, long date) {
-        TimeZoneTransition transition = ((OlsonTimeZone) zone).getNextTransition(
-            date, false);
+        TimeZoneTransition transition = ((OlsonTimeZone) zone).getNextTransition(date, false);
         if (transition == null) {
             return Long.MAX_VALUE;
         }
         date = transition.getTime();
         return date;
     }
-
 }

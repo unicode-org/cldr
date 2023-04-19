@@ -1,7 +1,6 @@
 package org.unicode.cldr.draft.keyboard.test;
 
 import java.io.PrintWriter;
-
 import org.unicode.cldr.draft.keyboard.test.windows.KlcParserTest;
 
 public final class RunTests {

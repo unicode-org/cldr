@@ -8,7 +8,6 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-
 import org.unicode.cldr.api.CldrData.PathOrder;
 import org.unicode.cldr.api.CldrData.PrefixVisitor;
 import org.unicode.cldr.api.CldrData.PrefixVisitor.Context;
@@ -55,12 +54,12 @@ final class PrefixVisitorHost {
      * }</pre>
      *
      * <p>Note that deriving the proper sequence of start/end events can only occur if the data is
-     * provided in at least {@link PathOrder#NESTED_GROUPING NESTED_GROUPING} order. If a lower
-     * path order (e.g. {@link PathOrder#ARBITRARY ARBITRARY}) is given then {@code NESTED_GROUPING}
-     * will be used.
+     * provided in at least {@link PathOrder#NESTED_GROUPING NESTED_GROUPING} order. If a lower path
+     * order (e.g. {@link PathOrder#ARBITRARY ARBITRARY}) is given then {@code NESTED_GROUPING} will
+     * be used.
      */
     static void accept(
-        BiConsumer<PathOrder, ValueVisitor> acceptFn, PathOrder order, PrefixVisitor v) {
+            BiConsumer<PathOrder, ValueVisitor> acceptFn, PathOrder order, PrefixVisitor v) {
         PrefixVisitorHost host = new PrefixVisitorHost(v);
         if (order.ordinal() < NESTED_GROUPING.ordinal()) {
             order = NESTED_GROUPING;
@@ -71,14 +70,14 @@ final class PrefixVisitorHost {
 
     /**
      * Represents the root of a sub hierarchy visitation rooted at some path prefix. VisitorState
-     * instances are kept in a stack; they are added when a new visitor is installed to begin a
-     * sub hierarchy visitation and removed automatically once the visitation is complete.
+     * instances are kept in a stack; they are added when a new visitor is installed to begin a sub
+     * hierarchy visitation and removed automatically once the visitation is complete.
      */
-    @SuppressWarnings("unused")  // For unused arguments in no-op default methods.
-    private static abstract class VisitorState implements PrefixVisitor {
+    @SuppressWarnings("unused") // For unused arguments in no-op default methods.
+    private abstract static class VisitorState implements PrefixVisitor {
         /** Creates a visitor state from the given visitor for the specified leaf value. */
         static <T extends ValueVisitor> VisitorState of(
-            T visitor, Consumer<T> doneHandler, CldrPath prefix) {
+                T visitor, Consumer<T> doneHandler, CldrPath prefix) {
             return new VisitorState(prefix, () -> doneHandler.accept(visitor)) {
                 @Override
                 public void visitValue(CldrValue value) {
@@ -89,7 +88,7 @@ final class PrefixVisitorHost {
 
         /** Creates a visitor state from the given visitor rooted at the specified path prefix. */
         static <T extends PrefixVisitor> VisitorState of(
-            T visitor, Consumer<T> doneHandler, CldrPath prefix) {
+                T visitor, Consumer<T> doneHandler, CldrPath prefix) {
             return new VisitorState(prefix, () -> doneHandler.accept(visitor)) {
                 @Override
                 public void visitPrefixStart(CldrPath prefix, Context ctx) {
@@ -125,23 +124,30 @@ final class PrefixVisitorHost {
     // Visits a single value (with its path) and synthesizes prefix start/end calls according
     // to the state of the visitor stack.
     // This is a private field to avoid anyone accidentally calling the visit method directly.
-    private final ValueVisitor visitor = value -> {
-        CldrPath path = value.getPath();
-        int commonLength = 0;
-        if (lastValuePath != null) {
-            commonLength = CldrPath.getCommonPrefixLength(lastValuePath, path);
-            checkState(commonLength <= lastValuePath.getLength(),
-                "unexpected child path encountered: %s is child of %s", path, lastValuePath);
-            handleLastPath(commonLength);
-        }
-        // ... then down to the new path (which cannot be a parent of the old path either).
-        checkState(commonLength <= path.getLength(),
-            "unexpected parent path encountered: %s is parent of %s", path, lastValuePath);
-        recursiveStartVisit(path.getParent(), commonLength, new PrefixContext());
-        // This is a no-op if the head of the stack is a prefix visitor.
-        visitorStack.peek().visitValue(value);
-        lastValuePath = path;
-    };
+    private final ValueVisitor visitor =
+            value -> {
+                CldrPath path = value.getPath();
+                int commonLength = 0;
+                if (lastValuePath != null) {
+                    commonLength = CldrPath.getCommonPrefixLength(lastValuePath, path);
+                    checkState(
+                            commonLength <= lastValuePath.getLength(),
+                            "unexpected child path encountered: %s is child of %s",
+                            path,
+                            lastValuePath);
+                    handleLastPath(commonLength);
+                }
+                // ... then down to the new path (which cannot be a parent of the old path either).
+                checkState(
+                        commonLength <= path.getLength(),
+                        "unexpected parent path encountered: %s is parent of %s",
+                        path,
+                        lastValuePath);
+                recursiveStartVisit(path.getParent(), commonLength, new PrefixContext());
+                // This is a no-op if the head of the stack is a prefix visitor.
+                visitorStack.peek().visitValue(value);
+                lastValuePath = path;
+            };
 
     private PrefixVisitorHost(PrefixVisitor visitor) {
         this.visitorStack.push(VisitorState.of(visitor, v -> {}, null));
@@ -156,7 +162,7 @@ final class PrefixVisitorHost {
 
     // Recursively visits new prefix path elements (from top-to-bottom) for a new sub hierarchy.
     private void recursiveStartVisit(
-        /* @Nullable */ CldrPath prefix, int commonLength, PrefixContext ctx) {
+            /* @Nullable */ CldrPath prefix, int commonLength, PrefixContext ctx) {
         if (prefix != null && prefix.getLength() > commonLength) {
             recursiveStartVisit(prefix.getParent(), commonLength, ctx);
             // Get the current visitor here (it could have been modified by the call above).
@@ -169,8 +175,8 @@ final class PrefixVisitorHost {
     // node of the previous path and we do not allow the new path to be a sub-path) ...
     private void handleLastPath(int length) {
         for (CldrPath prefix = lastValuePath.getParent();
-             prefix != null && prefix.getLength() > length;
-             prefix = prefix.getParent()) {
+                prefix != null && prefix.getLength() > length;
+                prefix = prefix.getParent()) {
             // Get the current visitor here (it could have been modified by the last iteration).
             //
             // Note: e.prefix can be null for the top-most entry in the stack, but that's fine
@@ -187,8 +193,8 @@ final class PrefixVisitorHost {
     }
 
     /**
-     * Implements a reusable context which captures the current prefix being processed. This is
-     * used if a visitor wants to install a sub-visitor at a particular point during visitation.
+     * Implements a reusable context which captures the current prefix being processed. This is used
+     * if a visitor wants to install a sub-visitor at a particular point during visitation.
      */
     private final class PrefixContext implements Context {
         // Only null until first use.

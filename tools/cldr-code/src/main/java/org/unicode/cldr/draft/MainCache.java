@@ -20,5 +20,5 @@ public abstract class MainCache {
         return result;
     }
 
-    abstract protected Object createObject(Object key);
+    protected abstract Object createObject(Object key);
 }

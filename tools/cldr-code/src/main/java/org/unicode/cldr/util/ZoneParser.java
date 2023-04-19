@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +18,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class ZoneParser {
     static final boolean DEBUG = false;
 
@@ -29,32 +28,26 @@ public class ZoneParser {
     private Map<String, Set<String>> country_to_zoneSet;
 
     /**
-     * @return mapping from zone id to country. If a zone has no country, then XX
-     *         is used.
+     * @return mapping from zone id to country. If a zone has no country, then XX is used.
      */
     public Map<String, String> getZoneToCounty() {
-        if (zone_to_country == null)
-            make_zone_to_country();
+        if (zone_to_country == null) make_zone_to_country();
         return zone_to_country;
     }
 
     /**
-     * @return mapping from country to zoneid. If a zone has no country, then XX
-     *         is used.
+     * @return mapping from country to zoneid. If a zone has no country, then XX is used.
      */
     public Map<String, Set<String>> getCountryToZoneSet() {
-        if (country_to_zoneSet == null)
-            make_zone_to_country();
+        if (country_to_zoneSet == null) make_zone_to_country();
         return country_to_zoneSet;
     }
 
     /**
-     * @return map from tzids to a list: latitude, longitude, country, comment?. + =
-     *         N or E
+     * @return map from tzids to a list: latitude, longitude, country, comment?. + = N or E
      */
     public Map<String, List<String>> getZoneData() {
-        if (zoneData == null)
-            makeZoneData();
+        if (zoneData == null) makeZoneData();
         return zoneData;
     }
 
@@ -62,9 +55,7 @@ public class ZoneParser {
         return Arrays.asList(FIX_DEPRECATED_ZONE_DATA);
     }
 
-    /**
-     *
-     */
+    /** */
     private void make_zone_to_country() {
         zone_to_country = new TreeMap<>(TZIDComparator);
         country_to_zoneSet = new TreeMap<>();
@@ -74,8 +65,7 @@ public class ZoneParser {
             String country = zoneData.get(zone).get(2);
             zone_to_country.put(zone, country);
             Set<String> s = country_to_zoneSet.get(country);
-            if (s == null)
-                country_to_zoneSet.put(country, s = new TreeSet<>());
+            if (s == null) country_to_zoneSet.put(country, s = new TreeSet<>());
             s.add(zone);
         }
         /*
@@ -99,22 +89,16 @@ public class ZoneParser {
     }
 
     /**
-     *
-     *
      * private Map bogusZones = null;
      *
-     * private Map getAliasMap() { if (bogusZones == null) { try { bogusZones =
-     * new TreeMap(); BufferedReader in =
-     * Utility.getUTF8Data"TimeZoneAliases.txt"); while (true) { String line =
-     * in.readLine(); if (line == null) break; line = line.trim(); int pos =
-     * line.indexOf('#'); if (pos >= 0) { skippedAliases.add(line); line =
-     * line.substring(0,pos).trim(); } if (line.length() == 0) continue; List
-     * pieces = Utility.splitList(line,';', true); bogusZones.put(pieces.get(0),
-     * pieces.get(1)); } in.close(); } catch (IOException e) { throw new
-     * IllegalArgumentException("Can't find timezone aliases"); } } return
-     * bogusZones; }
+     * <p>private Map getAliasMap() { if (bogusZones == null) { try { bogusZones = new TreeMap();
+     * BufferedReader in = Utility.getUTF8Data"TimeZoneAliases.txt"); while (true) { String line =
+     * in.readLine(); if (line == null) break; line = line.trim(); int pos = line.indexOf('#'); if
+     * (pos >= 0) { skippedAliases.add(line); line = line.substring(0,pos).trim(); } if
+     * (line.length() == 0) continue; List pieces = Utility.splitList(line,';', true);
+     * bogusZones.put(pieces.get(0), pieces.get(1)); } in.close(); } catch (IOException e) { throw
+     * new IllegalArgumentException("Can't find timezone aliases"); } } return bogusZones; }
      */
-
     Map<String, List<String>> zoneData;
 
     Set<String> skippedAliases = new TreeSet<>();
@@ -130,12 +114,9 @@ public class ZoneParser {
      * are separated by a single tab.
      */
     static int parseYear(String year, int defaultValue) {
-        if ("only".startsWith(year))
-            return defaultValue;
-        if ("minimum".startsWith(year))
-            return Integer.MIN_VALUE;
-        if ("maximum".startsWith(year))
-            return Integer.MAX_VALUE;
+        if ("only".startsWith(year)) return defaultValue;
+        if ("minimum".startsWith(year)) return Integer.MIN_VALUE;
+        if ("maximum".startsWith(year)) return Integer.MAX_VALUE;
         return Integer.parseInt(year);
     }
 
@@ -148,19 +129,19 @@ public class ZoneParser {
             if (in.equals("-")) return; // zero/WALL is the default
             char suffix = in.charAt(in.length() - 1);
             switch (suffix) {
-            case 'w':
-                in = in.substring(0, in.length() - 1);
-                break;
-            case 's':
-                in = in.substring(0, in.length() - 1);
-                type = STANDARD;
-                break;
-            case 'u':
-            case 'g':
-            case 'z':
-                in = in.substring(0, in.length() - 1);
-                type = UNIVERSAL;
-                break;
+                case 'w':
+                    in = in.substring(0, in.length() - 1);
+                    break;
+                case 's':
+                    in = in.substring(0, in.length() - 1);
+                    type = STANDARD;
+                    break;
+                case 'u':
+                case 'g':
+                case 'z':
+                    in = in.substring(0, in.length() - 1);
+                    type = UNIVERSAL;
+                    break;
             }
             seconds = parseSeconds(in, false);
         }
@@ -190,9 +171,23 @@ public class ZoneParser {
         }
     }
 
-    static final String[] months = { "january", "february", "march", "april", "may", "june", "july", "august",
-        "september", "october", "november", "december" };
-    static final String[] weekdays = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+    static final String[] months = {
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december"
+    };
+    static final String[] weekdays = {
+        "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
+    };
 
     static int findStartsWith(String value, String[] array, boolean exact) {
         value = value.toLowerCase(Locale.ENGLISH);
@@ -202,8 +197,9 @@ public class ZoneParser {
         throw new IllegalArgumentException("Can't find " + value + " in " + Arrays.asList(months));
     }
 
-    static Pattern dayPattern = PatternCache.get("([0-9]+)|(last)([a-z]+)|([a-z]+)([<=>]+)([0-9]+)");
-    static final String[] relations = { "<=", ">=" };
+    static Pattern dayPattern =
+            PatternCache.get("([0-9]+)|(last)([a-z]+)|([a-z]+)([<=>]+)([0-9]+)");
+    static final String[] relations = {"<=", ">="};
 
     public static class Day implements Comparable<Object> {
         public int number;
@@ -248,96 +244,64 @@ public class ZoneParser {
     }
 
     /**
+     * A rule line has the form
      *
-     A rule line has the form
+     * <p>Rule NAME FROM TO TYPE IN ON AT SAVE LETTER/S
      *
-     * Rule NAME FROM TO TYPE IN ON AT SAVE LETTER/S
+     * <p>For example:
      *
-     * For example:
+     * <p>Rule US 1967 1973 - Apr lastSun 2:00 1:00 D
      *
-     * Rule US 1967 1973 - Apr lastSun 2:00 1:00 D
+     * <p>The fields that make up a rule line are:
      *
-     * The fields that make up a rule line are:
+     * <p>NAME Gives the (arbitrary) name of the set of rules this rule is part of.
      *
-     * NAME Gives the (arbitrary) name of the set of rules this
-     * rule is part of.
+     * <p>FROM Gives the first year in which the rule applies. Any integer year can be supplied; the
+     * Gregorian calendar is assumed. The word minimum (or an abbreviation) means the minimum year
+     * representable as an integer. The word maximum (or an abbreviation) means the maximum year
+     * representable as an integer. Rules can describe times that are not representable as time
+     * values, with the unrepresentable times ignored; this allows rules to be portable among hosts
+     * with differing time value types.
      *
-     * FROM Gives the first year in which the rule applies. Any
-     * integer year can be supplied; the Gregorian calendar
-     * is assumed. The word minimum (or an abbreviation)
-     * means the minimum year representable as an integer.
-     * The word maximum (or an abbreviation) means the
-     * maximum year representable as an integer. Rules can
-     * describe times that are not representable as time
-     * values, with the unrepresentable times ignored; this
-     * allows rules to be portable among hosts with
-     * differing time value types.
+     * <p>TO Gives the final year in which the rule applies. In addition to minimum and maximum (as
+     * above), the word only (or an abbreviation) may be used to repeat the value of the FROM field.
      *
-     * TO Gives the final year in which the rule applies. In
-     * addition to minimum and maximum (as above), the word
-     * only (or an abbreviation) may be used to repeat the
-     * value of the FROM field.
-     *
-     * TYPE Gives the type of year in which the rule applies.
-     * If TYPE is - then the rule applies in all years
-     * between FROM and TO inclusive. If TYPE is something
-     * else, then zic executes the command
-     * yearistype year type
-     * to check the type of a year: an exit status of zero
-     * is taken to mean that the year is of the given type;
-     * an exit status of one is taken to mean that the year
+     * <p>TYPE Gives the type of year in which the rule applies. If TYPE is - then the rule applies
+     * in all years between FROM and TO inclusive. If TYPE is something else, then zic executes the
+     * command yearistype year type to check the type of a year: an exit status of zero is taken to
+     * mean that the year is of the given type; an exit status of one is taken to mean that the year
      * is not of the given type.
      *
-     * IN Names the month in which the rule takes effect.
-     * Month names may be abbreviated.
+     * <p>IN Names the month in which the rule takes effect. Month names may be abbreviated.
      *
-     * ON Gives the day on which the rule takes effect.
-     * Recognized forms include:
+     * <p>ON Gives the day on which the rule takes effect. Recognized forms include:
      *
-     * 5 the fifth of the month
-     * lastSun the last Sunday in the month
-     * lastMon the last Monday in the month
-     * Sun>=8 first Sunday on or after the eighth
-     * Sun<=25 last Sunday on or before the 25th
+     * <p>5 the fifth of the month lastSun the last Sunday in the month lastMon the last Monday in
+     * the month Sun>=8 first Sunday on or after the eighth Sun<=25 last Sunday on or before the
+     * 25th
      *
-     * Names of days of the week may be abbreviated or
-     * spelled out in full. Note that there must be no
-     * spaces within the ON field.
+     * <p>Names of days of the week may be abbreviated or spelled out in full. Note that there must
+     * be no spaces within the ON field.
      *
-     * AT Gives the time of day at which the rule takes
-     * effect. Recognized forms include:
+     * <p>AT Gives the time of day at which the rule takes effect. Recognized forms include:
      *
-     * 2 time in hours
-     * 2:00 time in hours and minutes
-     * 15:00 24-hour format time (for times after noon)
-     * 1:28:14 time in hours, minutes, and seconds
-     * - equivalent to 0
+     * <p>2 time in hours 2:00 time in hours and minutes 15:00 24-hour format time (for times after
+     * noon) 1:28:14 time in hours, minutes, and seconds - equivalent to 0
      *
-     * where hour 0 is midnight at the start of the day,
-     * and hour 24 is midnight at the end of the day. Any
-     * of these forms may be followed by the letter w if
-     * the given time is local "wall clock" time, s if the
-     * given time is local "standard" time, or u (or g or
-     * z) if the given time is universal time; in the
-     * absence of an indicator, wall clock time is assumed.
-     *** cannot be negative
+     * <p>where hour 0 is midnight at the start of the day, and hour 24 is midnight at the end of
+     * the day. Any of these forms may be followed by the letter w if the given time is local "wall
+     * clock" time, s if the given time is local "standard" time, or u (or g or z) if the given time
+     * is universal time; in the absence of an indicator, wall clock time is assumed. ** cannot be
+     * negative
      *
-     * SAVE Gives the amount of time to be added to local
-     * standard time when the rule is in effect. This
-     * field has the same format as the AT field (although,
-     * of course, the w and s suffixes are not used).
-     *** can be positive or negative
+     * <p>SAVE Gives the amount of time to be added to local standard time when the rule is in
+     * effect. This field has the same format as the AT field (although, of course, the w and s
+     * suffixes are not used). ** can be positive or negative
      *
-     * LETTER/S
-     * Gives the "variable part" (for example, the "S" or
-     * "D" in "EST" or "EDT") of time zone abbreviations to
-     * be used when this rule is in effect. If this field
-     * is -, the variable part is null.
-     *
-     *
-     *
+     * <p>LETTER/S Gives the "variable part" (for example, the "S" or "D" in "EST" or "EDT") of time
+     * zone abbreviations to be used when this rule is in effect. If this field is -, the variable
+     * part is null.
      */
-
     public static class RuleLine {
         public static Set<String> types = new TreeSet<>();
         public static Set<Day> days = new TreeSet<>();
@@ -385,56 +349,41 @@ public class ZoneParser {
     /**
      * A zone line has the form
      *
-     * Zone NAME GMTOFF RULES/SAVE FORMAT [UNTIL]
+     * <p>Zone NAME GMTOFF RULES/SAVE FORMAT [UNTIL]
      *
-     * For example:
+     * <p>For example:
      *
-     * Zone Australia/Adelaide 9:30 Aus CST 1971 Oct 31 2:00
+     * <p>Zone Australia/Adelaide 9:30 Aus CST 1971 Oct 31 2:00
      *
-     * The fields that make up a zone line are:
+     * <p>The fields that make up a zone line are:
      *
-     * NAME The name of the time zone. This is the name used in
-     * creating the time conversion information file for the
-     * zone.
+     * <p>NAME The name of the time zone. This is the name used in creating the time conversion
+     * information file for the zone.
      *
-     * GMTOFF
-     * The amount of time to add to UTC to get standard time
-     * in this zone. This field has the same format as the
-     * AT and SAVE fields of rule lines; begin the field with
-     * a minus sign if time must be subtracted from UTC.
+     * <p>GMTOFF The amount of time to add to UTC to get standard time in this zone. This field has
+     * the same format as the AT and SAVE fields of rule lines; begin the field with a minus sign if
+     * time must be subtracted from UTC.
      *
-     * RULES/SAVE
-     * The name of the rule(s) that apply in the time zone
-     * or, alternately, an amount of time to add to local
-     * standard time. If this field is - then standard time
-     * always applies in the time zone.
+     * <p>RULES/SAVE The name of the rule(s) that apply in the time zone or, alternately, an amount
+     * of time to add to local standard time. If this field is - then standard time always applies
+     * in the time zone.
      *
-     * FORMAT
-     * The format for time zone abbreviations in this time
-     * zone. The pair of characters %s is used to show where
-     * the "variable part" of the time zone abbreviation
-     * goes. Alternately, a slash (/) separates standard and
-     * daylight abbreviations.
+     * <p>FORMAT The format for time zone abbreviations in this time zone. The pair of characters %s
+     * is used to show where the "variable part" of the time zone abbreviation goes. Alternately, a
+     * slash (/) separates standard and daylight abbreviations.
      *
-     * UNTIL The time at which the UTC offset or the rule(s) change
-     * for a location. It is specified as a year, a month, a
-     * day, and a time of day. If this is specified, the
-     * time zone information is generated from the given UTC
-     * offset and rule change until the time specified. The
-     * month, day, and time of day have the same format as
-     * the IN, ON, and AT columns of a rule; trailing columns
-     * can be omitted, and default to the earliest possible
-     * value for the missing columns.
+     * <p>UNTIL The time at which the UTC offset or the rule(s) change for a location. It is
+     * specified as a year, a month, a day, and a time of day. If this is specified, the time zone
+     * information is generated from the given UTC offset and rule change until the time specified.
+     * The month, day, and time of day have the same format as the IN, ON, and AT columns of a rule;
+     * trailing columns can be omitted, and default to the earliest possible value for the missing
+     * columns.
      *
-     * The next line must be a "continuation" line; this has
-     * the same form as a zone line except that the string
-     * "Zone" and the name are omitted, as the continuation
-     * line will place information starting at the time
-     * specified as the UNTIL field in the previous line in
-     * the file used by the previous line. Continuation
-     * lines may contain an UNTIL field, just as zone lines
-     * do, indicating that the next line is a further
-     * continuation.
+     * <p>The next line must be a "continuation" line; this has the same form as a zone line except
+     * that the string "Zone" and the name are omitted, as the continuation line will place
+     * information starting at the time specified as the UNTIL field in the previous line in the
+     * file used by the previous line. Continuation lines may contain an UNTIL field, just as zone
+     * lines do, indicating that the next line is a further continuation.
      */
     public static class ZoneLine {
         public static Set<Day> untilDays = new TreeSet<>();
@@ -443,25 +392,25 @@ public class ZoneParser {
         ZoneLine(List<String> l) {
             gmtOff = Time.parseSeconds(l.get(0), true);
             rulesSave = l.get(1);
-            if (rulesSave.equals("-"))
-                rulesSave = "0";
-            else if (rulesSave.charAt(0) < 'A') rulesSave = "" + Time.parseSeconds(rulesSave, false);
+            if (rulesSave.equals("-")) rulesSave = "0";
+            else if (rulesSave.charAt(0) < 'A')
+                rulesSave = "" + Time.parseSeconds(rulesSave, false);
 
             format = l.get(2);
             switch (l.size()) {
-            case 7:
-                untilTime = new Time(l.get(6)); // fall through
-            case 6:
-                untilDay = new Day(l.get(5)); // fall through
-                untilDays.add(untilDay);
-            case 5:
-                untilMonth = 1 + findStartsWith(l.get(4), months, false); // fall through
-            case 4:
-                untilYear = parseYear(l.get(3), Integer.MAX_VALUE); // fall through
-            case 3:
-                break; // ok
-            default:
-                throw new IllegalArgumentException("Wrong field count: " + l);
+                case 7:
+                    untilTime = new Time(l.get(6)); // fall through
+                case 6:
+                    untilDay = new Day(l.get(5)); // fall through
+                    untilDays.add(untilDay);
+                case 5:
+                    untilMonth = 1 + findStartsWith(l.get(4), months, false); // fall through
+                case 4:
+                    untilYear = parseYear(l.get(3), Integer.MAX_VALUE); // fall through
+                case 3:
+                    break; // ok
+                default:
+                    throw new IllegalArgumentException("Wrong field count: " + l);
             }
             rulesSaves.add(rulesSave);
         }
@@ -517,12 +466,17 @@ public class ZoneParser {
             endYear = Math.min(endYear, zoneLine.untilYear);
             int gmtOffset = lastZoneLine.gmtOff;
             for (int year = startYear; year <= endYear; ++year) {
-                resolveTime(gmtOffset, lastZoneLine.untilYear, lastZoneLine.untilMonth,
-                    lastZoneLine.untilDay, lastZoneLine.untilTime);
+                resolveTime(
+                        gmtOffset,
+                        lastZoneLine.untilYear,
+                        lastZoneLine.untilMonth,
+                        lastZoneLine.untilDay,
+                        lastZoneLine.untilTime);
             }
         }
 
-        private long resolveTime(int gmtOffset, int untilYear, int untilMonth, Day untilDay, Time untilTime) {
+        private long resolveTime(
+                int gmtOffset, int untilYear, int untilMonth, Day untilDay, Time untilTime) {
             return 0;
         }
     }
@@ -542,62 +496,65 @@ public class ZoneParser {
         return TZIDComparator;
     }
 
-    private static List<String> errorData = Arrays.asList(new String[] {
-        new Double(Double.MIN_VALUE).toString(), new Double(Double.MIN_VALUE).toString(), "" });
+    private static List<String> errorData =
+            Arrays.asList(
+                    new String[] {
+                        new Double(Double.MIN_VALUE).toString(),
+                        new Double(Double.MIN_VALUE).toString(),
+                        ""
+                    });
 
-    private Comparator<String> TZIDComparator = new Comparator<>() {
-        Map<String, List<String>> data = getZoneData();
+    private Comparator<String> TZIDComparator =
+            new Comparator<>() {
+                Map<String, List<String>> data = getZoneData();
 
-        @Override
-        public int compare(String s1, String s2) {
-            List<String> data1 = getData(s1);
-            List<String> data2 = getData(s2);
-            int result;
-            // country
-            String country1 = data1.get(2);
-            String country2 = data2.get(2);
+                @Override
+                public int compare(String s1, String s2) {
+                    List<String> data1 = getData(s1);
+                    List<String> data2 = getData(s2);
+                    int result;
+                    // country
+                    String country1 = data1.get(2);
+                    String country2 = data2.get(2);
 
-            if ((result = country1.compareTo(country2)) != 0)
-                return result;
-            // longitude
-            Double d1 = Double.valueOf(data1.get(1));
-            Double d2 = Double.valueOf(data2.get(1));
-            if ((result = d1.compareTo(d2)) != 0)
-                return result;
-            // latitude
-            d1 = Double.valueOf(data1.get(0));
-            d2 = Double.valueOf(data2.get(0));
-            if ((result = d1.compareTo(d2)) != 0)
-                return result;
-            // name
-            return s1.compareTo(s2);
-        }
-
-        /**
-         * Get timezone data for the given location
-         * Include work-arounds for missing time zones
-         *
-         * @param s the string like "Australia/Currie"
-         * @return a list of 4 strings for latitude, longitude, country, city
-         *
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-14428
-         */
-        private List<String> getData(String s) {
-            List<String> d = data.get(s);
-            if (d == null) {
-                String sNew = linkold_new.get(s);
-                if (sNew != null) {
-                    d = data.get(sNew);
+                    if ((result = country1.compareTo(country2)) != 0) return result;
+                    // longitude
+                    Double d1 = Double.valueOf(data1.get(1));
+                    Double d2 = Double.valueOf(data2.get(1));
+                    if ((result = d1.compareTo(d2)) != 0) return result;
+                    // latitude
+                    d1 = Double.valueOf(data1.get(0));
+                    d2 = Double.valueOf(data2.get(0));
+                    if ((result = d1.compareTo(d2)) != 0) return result;
+                    // name
+                    return s1.compareTo(s2);
                 }
-                if (d == null) {
-                    d = errorData;
+
+                /**
+                 * Get timezone data for the given location Include work-arounds for missing time
+                 * zones
+                 *
+                 * @param s the string like "Australia/Currie"
+                 * @return a list of 4 strings for latitude, longitude, country, city
+                 *     <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-14428
+                 */
+                private List<String> getData(String s) {
+                    List<String> d = data.get(s);
+                    if (d == null) {
+                        String sNew = linkold_new.get(s);
+                        if (sNew != null) {
+                            d = data.get(sNew);
+                        }
+                        if (d == null) {
+                            d = errorData;
+                        }
+                    }
+                    return d;
                 }
-            }
-            return d;
-        }
-    };
+            };
 
     public static MapComparator<String> regionalCompare = new MapComparator<>();
+
     static {
         regionalCompare.add("America");
         regionalCompare.add("Atlantic");
@@ -612,33 +569,43 @@ public class ZoneParser {
         regionalCompare.add("Etc");
     }
 
-    private static String[] TZFiles = { "africa", "antarctica", "asia",
-        "australasia", "backward", "etcetera", "europe", "northamerica",
-        "southamerica" };
+    private static String[] TZFiles = {
+        "africa",
+        "antarctica",
+        "asia",
+        "australasia",
+        "backward",
+        "etcetera",
+        "europe",
+        "northamerica",
+        "southamerica"
+    };
 
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
 
-    private static Set<String> SKIP_LINKS = new HashSet<>(Arrays.asList(
-        new String[] {
-            "America/Montreal", "America/Toronto",
-            "America/Santa_Isabel", "America/Tijuana" }));
+    private static Set<String> SKIP_LINKS =
+            new HashSet<>(
+                    Arrays.asList(
+                            new String[] {
+                                "America/Montreal", "America/Toronto",
+                                "America/Santa_Isabel", "America/Tijuana"
+                            }));
 
-    private static Set<String> PREFERRED_BASES = new HashSet<>(Arrays.asList(new String[] { "Europe/London" }));
+    private static Set<String> PREFERRED_BASES =
+            new HashSet<>(Arrays.asList(new String[] {"Europe/London"}));
 
     private static String[][] ADD_ZONE_ALIASES_DATA = {
-        { "Etc/UCT", "Etc/UTC" },
-
-        { "EST", "Etc/GMT+5" },
-        { "MST", "Etc/GMT+7" },
-        { "HST", "Etc/GMT+10" },
-
-        { "SystemV/AST4", "Etc/GMT+4" },
-        { "SystemV/EST5", "Etc/GMT+5" },
-        { "SystemV/CST6", "Etc/GMT+6" },
-        { "SystemV/MST7", "Etc/GMT+7" },
-        { "SystemV/PST8", "Etc/GMT+8" },
-        { "SystemV/YST9", "Etc/GMT+9" },
-        { "SystemV/HST10", "Etc/GMT+10" },
+        {"Etc/UCT", "Etc/UTC"},
+        {"EST", "Etc/GMT+5"},
+        {"MST", "Etc/GMT+7"},
+        {"HST", "Etc/GMT+10"},
+        {"SystemV/AST4", "Etc/GMT+4"},
+        {"SystemV/EST5", "Etc/GMT+5"},
+        {"SystemV/CST6", "Etc/GMT+6"},
+        {"SystemV/MST7", "Etc/GMT+7"},
+        {"SystemV/PST8", "Etc/GMT+8"},
+        {"SystemV/YST9", "Etc/GMT+9"},
+        {"SystemV/HST10", "Etc/GMT+10"},
     };
 
     static String[] FIX_DEPRECATED_ZONE_DATA = {
@@ -654,29 +621,31 @@ public class ZoneParser {
         "Asia/Harbin",
         "Asia/Kashgar"
     };
+
     static {
         // The format is <new name>, <old name>
-        String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
-            { "America/Atikokan", "America/Coral_Harbour" },
-            { "America/Argentina/Buenos_Aires", "America/Buenos_Aires" },
-            { "America/Argentina/Catamarca", "America/Catamarca" },
-            { "America/Argentina/Cordoba", "America/Cordoba" },
-            { "America/Argentina/Jujuy", "America/Jujuy" },
-            { "America/Argentina/Mendoza", "America/Mendoza" },
-            { "America/Nuuk", "America/Godthab" },
-            { "America/Kentucky/Louisville", "America/Louisville" },
-            { "America/Indiana/Indianapolis", "America/Indianapolis" },
-            { "Africa/Asmara", "Africa/Asmera" },
-            { "Atlantic/Faroe", "Atlantic/Faeroe" },
-            { "Asia/Kolkata", "Asia/Calcutta" },
-            { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
-            { "Asia/Yangon", "Asia/Rangoon" },
-            { "Asia/Kathmandu", "Asia/Katmandu" },
-            { "Europe/Kyiv", "Europe/Kiev" },
-            { "Pacific/Pohnpei", "Pacific/Ponape" },
-            { "Pacific/Chuuk", "Pacific/Truk" },
-            { "Pacific/Honolulu", "Pacific/Johnston" }
-        };
+        String[][] FIX_UNSTABLE_TZID_DATA =
+                new String[][] {
+                    {"America/Atikokan", "America/Coral_Harbour"},
+                    {"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
+                    {"America/Argentina/Catamarca", "America/Catamarca"},
+                    {"America/Argentina/Cordoba", "America/Cordoba"},
+                    {"America/Argentina/Jujuy", "America/Jujuy"},
+                    {"America/Argentina/Mendoza", "America/Mendoza"},
+                    {"America/Nuuk", "America/Godthab"},
+                    {"America/Kentucky/Louisville", "America/Louisville"},
+                    {"America/Indiana/Indianapolis", "America/Indianapolis"},
+                    {"Africa/Asmara", "Africa/Asmera"},
+                    {"Atlantic/Faroe", "Atlantic/Faeroe"},
+                    {"Asia/Kolkata", "Asia/Calcutta"},
+                    {"Asia/Ho_Chi_Minh", "Asia/Saigon"},
+                    {"Asia/Yangon", "Asia/Rangoon"},
+                    {"Asia/Kathmandu", "Asia/Katmandu"},
+                    {"Europe/Kyiv", "Europe/Kiev"},
+                    {"Pacific/Pohnpei", "Pacific/Ponape"},
+                    {"Pacific/Chuuk", "Pacific/Truk"},
+                    {"Pacific/Honolulu", "Pacific/Johnston"}
+                };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }
 
@@ -684,66 +653,59 @@ public class ZoneParser {
     // When these zones are deprecated in CLDR, remove them from this array.
     // See CLDR-16049
     static final String[][] SUPPLEMENTAL_ZONE_ID_DATA = {
-        {"Europe/Uzhgorod", "UA", "+4837+02218"},       // 2022d
-        {"Europe/Zaporozhye", "UA", "+4750+03510"},     // 2022d
-        {"America/Nipigon", "CA", "+4901-08816"},       // 2022f
-        {"America/Rainy_River", "CA", "+4843-09434"},   // 2022f
-        {"America/Thunder_Bay", "CA", "+4823-08915"},   // 2022f
-        {"America/Pangnirtung", "CA", "+6608-06544"},   // 2022g
+        {"Europe/Uzhgorod", "UA", "+4837+02218"}, // 2022d
+        {"Europe/Zaporozhye", "UA", "+4750+03510"}, // 2022d
+        {"America/Nipigon", "CA", "+4901-08816"}, // 2022f
+        {"America/Rainy_River", "CA", "+4843-09434"}, // 2022f
+        {"America/Thunder_Bay", "CA", "+4823-08915"}, // 2022f
+        {"America/Pangnirtung", "CA", "+6608-06544"}, // 2022g
     };
 
-    /**
-     *
-     */
+    /** */
     private void makeZoneData() {
         try {
             // get version
             BufferedReader versionIn = CldrUtility.getUTF8Data("tzdb-version.txt");
             version = versionIn.readLine();
             if (!version.matches("[0-9]{4}[a-z]")) {
-                throw new IllegalArgumentException(String.format("Bad Version number: %s, should be of the form 2007x",
-                    version));
+                throw new IllegalArgumentException(
+                        String.format(
+                                "Bad Version number: %s, should be of the form 2007x", version));
             }
             versionIn.close();
 
             // String deg = "([+-][0-9]+)";//
-            String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
+            String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?"; //
             Matcher m = PatternCache.get(deg + deg).matcher("");
             zoneData = new TreeMap<>();
             BufferedReader in = CldrUtility.getUTF8Data("zone.tab");
             while (true) {
                 String line = in.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 line = line.trim();
                 int pos = line.indexOf('#');
                 if (pos >= 0) {
                     skippedAliases.add(line);
                     line = line.substring(0, pos).trim();
                 }
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 List<String> pieces = CldrUtility.splitList(line, '\t', true);
                 String country = pieces.get(0);
                 String latLong = pieces.get(1);
                 String tzid = pieces.get(2);
                 String ntzid = FIX_UNSTABLE_TZIDS.get(tzid);
-                if (ntzid != null)
-                    tzid = ntzid;
+                if (ntzid != null) tzid = ntzid;
                 String comment = pieces.size() < 4 ? null : (String) pieces.get(3);
                 pieces.clear();
                 if (!m.reset(latLong).matches())
-                    throw new IllegalArgumentException("Bad zone.tab, lat/long format: "
-                        + line);
+                    throw new IllegalArgumentException("Bad zone.tab, lat/long format: " + line);
 
                 pieces.add(getDegrees(m, true).toString());
                 pieces.add(getDegrees(m, false).toString());
                 pieces.add(country);
-                if (comment != null)
-                    pieces.add(comment);
+                if (comment != null) pieces.add(comment);
                 if (zoneData.containsKey(tzid))
-                    throw new IllegalArgumentException("Bad zone.tab, duplicate entry: "
-                        + line);
+                    throw new IllegalArgumentException("Bad zone.tab, duplicate entry: " + line);
                 zoneData.put(tzid, pieces);
             }
             in.close();
@@ -760,8 +722,7 @@ public class ZoneParser {
                 pieces.add(new Double(-longitude).toString()); // long
                 pieces.add(StandardCodes.NO_COUNTRY); // country
 
-                zoneData.put("Etc/GMT" + (i == 0 ? "" : i < 0 ? "" + i : "+" + i),
-                    pieces);
+                zoneData.put("Etc/GMT" + (i == 0 ? "" : i < 0 ? "" + i : "+" + i), pieces);
             }
             // add Unknown / UTC
             List<String> pieces = new ArrayList<>();
@@ -775,7 +736,8 @@ public class ZoneParser {
             for (String[] zoneEntry : SUPPLEMENTAL_ZONE_ID_DATA) {
                 List<String> zarray = new ArrayList<>();
                 if (!m.reset(zoneEntry[2]).matches()) {
-                    throw new IllegalArgumentException("Bad zone.tab, lat/long format: " + zoneEntry[2]);
+                    throw new IllegalArgumentException(
+                            "Bad zone.tab, lat/long format: " + zoneEntry[2]);
                 }
                 zarray.add(getDegrees(m, true).toString());
                 zarray.add(getDegrees(m, false).toString());
@@ -793,8 +755,7 @@ public class ZoneParser {
                 String zoneID = null;
                 while (true) {
                     String line = in.readLine();
-                    if (line == null)
-                        break;
+                    if (line == null) break;
                     String originalLine = line;
                     int commentPos = line.indexOf("#");
                     String comment = null;
@@ -803,8 +764,7 @@ public class ZoneParser {
                         line = line.substring(0, commentPos);
                     }
                     line = line.trim();
-                    if (line.length() == 0)
-                        continue;
+                    if (line.length() == 0) continue;
                     String[] items = whitespace.split(line);
                     if (zoneID != null || items[0].equals("Zone")) {
                         List<String> l = new ArrayList<>();
@@ -816,8 +776,7 @@ public class ZoneParser {
                             l.remove(0); // "Zone"
                             zoneID = l.get(0);
                             String ntzid = FIX_UNSTABLE_TZIDS.get(zoneID);
-                            if (ntzid != null)
-                                zoneID = ntzid;
+                            if (ntzid != null) zoneID = ntzid;
                             l.remove(0);
                         }
                         List<ZoneLine> zoneRules = zone_rules.get(zoneID);
@@ -827,7 +786,7 @@ public class ZoneParser {
                         }
 
                         if (l.size() < ZoneLine.FIELD_COUNT
-                            || l.size() > ZoneLine.FIELD_COUNT_UNTIL) {
+                                || l.size() > ZoneLine.FIELD_COUNT_UNTIL) {
                             System.out.println("***Zone incorrect field count:");
                             System.out.println(l);
                             System.out.println(originalLine);
@@ -857,8 +816,7 @@ public class ZoneParser {
                             System.out.println("***Rule incorrect field count:");
                             System.out.println(l);
                         }
-                        if (comment != null)
-                            l.add(comment);
+                        if (comment != null) l.add(comment);
                         RuleLine ruleLine = new RuleLine(l);
                         ruleList.add(ruleLine);
 
@@ -866,7 +824,7 @@ public class ZoneParser {
                         String old = items[2];
                         String newOne = items[1];
                         if (!(SKIP_LINKS.contains(old) && SKIP_LINKS.contains(newOne))) {
-                            //System.out.println("Original " + old + "\t=>\t" + newOne);
+                            // System.out.println("Original " + old + "\t=>\t" + newOne);
                             linkedItems.add(old, newOne);
                         }
                         /*
@@ -876,16 +834,14 @@ public class ZoneParser {
                          * newOne); linkold_new.put(old, newOne);
                          */
                     } else {
-                        if (DEBUG)
-                            System.out.println("Unknown zone line: " + line);
+                        if (DEBUG) System.out.println("Unknown zone line: " + line);
                     }
                 }
                 in.close();
             }
             // add in stuff that should be links
             for (int i = 0; i < ADD_ZONE_ALIASES_DATA.length; ++i) {
-                linkedItems.add(ADD_ZONE_ALIASES_DATA[i][0],
-                    ADD_ZONE_ALIASES_DATA[i][1]);
+                linkedItems.add(ADD_ZONE_ALIASES_DATA[i][0], ADD_ZONE_ALIASES_DATA[i][1]);
             }
 
             Set<String> isCanonical = zoneData.keySet();
@@ -902,17 +858,16 @@ public class ZoneParser {
                 if (canonicals.size() > 1) {
                     if (DEBUG) {
                         System.out.println("Too many canonicals in: " + equivalents);
-                        System.out
-                            .println("\t*Don't* put these into the same equivalence class: "
-                                + canonicals);
+                        System.out.println(
+                                "\t*Don't* put these into the same equivalence class: "
+                                        + canonicals);
                     }
                     Set<String> remainder = new TreeSet<>(equivalents);
                     remainder.removeAll(isCanonical);
                     if (remainder.size() != 0) {
                         if (DEBUG) {
-                            System.out
-                                .println("\tThe following should be equivalent to others: "
-                                    + remainder);
+                            System.out.println(
+                                    "\tThe following should be equivalent to others: " + remainder);
                         }
                     }
                 }
@@ -929,8 +884,7 @@ public class ZoneParser {
                         newOne = canonicals.iterator().next();
                     }
                     for (String oldOne : equivalents) {
-                        if (canonicals.contains(oldOne))
-                            continue;
+                        if (canonicals.contains(oldOne)) continue;
                         // System.out.println("Mapping " + oldOne + "\t=>\t" + newOne);
                         linkold_new.put(oldOne, newOne);
                     }
@@ -968,12 +922,11 @@ public class ZoneParser {
              */
 
             // generate list of new to old
-            for (Iterator<String> it = linkold_new.keySet().iterator(); it.hasNext();) {
+            for (Iterator<String> it = linkold_new.keySet().iterator(); it.hasNext(); ) {
                 String oldZone = it.next();
                 String newZone = linkold_new.get(oldZone);
                 Set<String> s = linkNew_oldSet.get(newZone);
-                if (s == null)
-                    linkNew_oldSet.put(newZone, s = new HashSet<>());
+                if (s == null) linkNew_oldSet.put(newZone, s = new HashSet<>());
                 s.add(oldZone);
             }
 
@@ -984,8 +937,7 @@ public class ZoneParser {
             zone_rules = CldrUtility.protectCollection(zone_rules);
             // TODO protect zone info later
         } catch (IOException e) {
-            throw new ICUUncheckedIOException(
-                "Can't find timezone aliases: " + e.toString(), e);
+            throw new ICUUncheckedIOException("Can't find timezone aliases: " + e.toString(), e);
         }
     }
 
@@ -994,12 +946,12 @@ public class ZoneParser {
      */
     private Double getDegrees(Matcher m, boolean lat) {
         int startIndex = lat ? 1 : 5;
-        double amount = Integer.parseInt(m.group(startIndex + 1))
-            + Integer.parseInt(m.group(startIndex + 2)) / 60.0;
+        double amount =
+                Integer.parseInt(m.group(startIndex + 1))
+                        + Integer.parseInt(m.group(startIndex + 2)) / 60.0;
         if (m.group(startIndex + 3) != null)
             amount += Integer.parseInt(m.group(startIndex + 3)) / 3600.0;
-        if (m.group(startIndex).equals("-"))
-            amount = -amount;
+        if (m.group(startIndex).equals("-")) amount = -amount;
         return new Double(amount);
     }
 
@@ -1038,5 +990,5 @@ public class ZoneParser {
     public String getVersion() {
         return version;
     }
-
 }
+

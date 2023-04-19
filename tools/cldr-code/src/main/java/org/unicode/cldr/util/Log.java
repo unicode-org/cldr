@@ -12,11 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
-
 import org.unicode.cldr.draft.FileUtilities;
 
 public class Log {
-    static private PrintWriter log;
+    private static PrintWriter log;
 
     public static void logln(int test, String message) {
         if (log != null && test != 0) log.println(message);
@@ -38,15 +37,13 @@ public class Log {
     }
 
     /**
-     * @param newlog
-     *            The log to set.
+     * @param newlog The log to set.
      */
     public static void setLog(PrintWriter newlog) {
         log = newlog;
     }
 
-    /**
-     */
+    /** */
     public static void close() {
         if (log != null) log.close();
     }
@@ -57,12 +54,12 @@ public class Log {
     }
 
     public static void setLog(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer((File)null, file);
+        log = FileUtilities.openUTF8Writer((File) null, file);
         log.print('\uFEFF');
     }
 
     public static void setLogNoBOM(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer((File)null, file);
+        log = FileUtilities.openUTF8Writer((File) null, file);
     }
 
     public static void setLogNoBOM(String dir, String file) throws IOException {
@@ -82,7 +79,8 @@ public class Log {
     }
 
     /**
-     * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle strings.
+     * format a line and print, in 80 character pieces. A bit dumb right now: doesn't handle
+     * strings.
      *
      * @param format
      * @param args

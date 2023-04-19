@@ -1,17 +1,13 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
-
-/**
- * Build a total order from a partial order.
- * TODO optimize!
- */
+/** Build a total order from a partial order. TODO optimize! */
 public class TotalOrderBuilder<T> {
     private boolean DEBUG = true;
     private LinkedHashSet<List<T>> rows = new LinkedHashSet<>();
@@ -31,13 +27,14 @@ public class TotalOrderBuilder<T> {
         return this;
     }
 
-    public TotalOrderBuilder<T>  add(T... items) {
+    public TotalOrderBuilder<T> add(T... items) {
         return add(Arrays.asList(items));
     }
 
     public List<T> build() {
         List<T> result = new ArrayList<>();
-        // whenever a first item in a row is not in any other row (other than first position) put it into the result, and remove
+        // whenever a first item in a row is not in any other row (other than first position) put it
+        // into the result, and remove
         main:
         while (true) {
             boolean failed = false;
@@ -66,7 +63,7 @@ public class TotalOrderBuilder<T> {
             if (failed) {
                 final String items = toString();
                 rows.clear();
-                throw new IllegalArgumentException("incompatible orderings, eg:\n" + items );
+                throw new IllegalArgumentException("incompatible orderings, eg:\n" + items);
             }
             rows.clear();
             return result;
@@ -88,9 +85,7 @@ public class TotalOrderBuilder<T> {
             if (DEBUG && row.contains("kilogram")) {
                 int debug = 0;
             }
-            if (!row.isEmpty()
-                && row.contains(item)
-                && !row.iterator().next().equals(item)) {
+            if (!row.isEmpty() && row.contains(item) && !row.iterator().next().equals(item)) {
                 return true;
             }
         }

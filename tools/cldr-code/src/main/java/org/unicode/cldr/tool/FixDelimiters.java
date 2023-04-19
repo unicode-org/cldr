@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
@@ -8,7 +10,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -18,14 +19,10 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringIterables;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-
 /**
  * One-time class to fix delimiters
  *
  * @author markdavis
- *
  */
 public class FixDelimiters {
 
@@ -76,9 +73,12 @@ public class FixDelimiters {
                 }
                 cldrFile.add(paths[i], newValue[i]);
                 String revalue = cldrFile.getStringValue(paths[i]);
-                System.out.println(locale + "\t" + paths[i] + "\t" + oldValue[i] + "\t=>\t" + revalue);
+                System.out.println(
+                        locale + "\t" + paths[i] + "\t" + oldValue[i] + "\t=>\t" + revalue);
             }
-            PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "temp/", locale + ".xml");
+            PrintWriter pw =
+                    FileUtilities.openUTF8Writer(
+                            CLDRPaths.GEN_DIRECTORY + "temp/", locale + ".xml");
             cldrFile.write(pw);
             pw.close();
         }
@@ -107,6 +107,7 @@ public class FixDelimiters {
     static class Data {
         static Map<String, Row.R2<Quotes, Quotes>> locales2delimiters = new LinkedHashMap<>();
         static Matcher localeString = PatternCache.get(".*\\((.*)\\)").matcher("");
+
         static {
             final String instructionFile = "delimiterFixes.txt";
             System.out.println("Instruction file: " + instructionFile);

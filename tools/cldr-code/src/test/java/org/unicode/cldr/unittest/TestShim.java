@@ -9,9 +9,7 @@ import org.unicode.cldr.util.TestShimUtils;
 // NOTE: When not under Maven, you'll see compile errs in eclipse.
 // Ignore them.
 
-/**
- * a JUnit test that calls TestAll.
- */
+/** a JUnit test that calls TestAll. */
 class TestShim {
     @Test
     public void TestAll() {
@@ -28,7 +26,7 @@ class TestShim {
         // We expect the system property "java.lang.testArgs" will not be set,
         // and so the default "-a -b -c" will be used.
         String args[] = TestShimUtils.getArgs(java.lang.String.class, "-a -b -c");
-        String expectArgs[] = { "-a", "-b", "-c" };
+        String expectArgs[] = {"-a", "-b", "-c"};
         assertArrayEquals(args, expectArgs, "Expected arg parse");
     }
 }

@@ -7,6 +7,11 @@ import static org.unicode.cldr.api.CldrDataType.BCP47;
 import static org.unicode.cldr.api.CldrDataType.SUPPLEMENTAL;
 import static org.unicode.cldr.api.CldrDraftStatus.UNCONFIRMED;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Path;
@@ -15,12 +20,6 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.ListMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 
 /**
  * Tests XML file parsing and path/value generation. These focus on end-to-end parsing of fake data
@@ -37,56 +36,72 @@ public class XmlDataSourceTest extends TestFmwk {
 
     public void TestSimple() {
         ListMultimap<Path, String> files = LinkedListMultimap.create();
-        addFile(files, "foo.xml",
-            "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
-            "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
-            "<ldmlBCP47>",
-            "  <version number=\"42\"/>",
-            "  <keyword>",
-            "    <key name=\"cf\" description=\"Currency format key\" since=\"28\">",
-            "      <type name=\"standard\" description=\"Standard format\" since=\"28\"/>",
-            "      <type name=\"account\" description=\"Accounting format\" since=\"28\"/>",
-            "    </key>",
-            "    <key name=\"cu\" description=\"Currency type key\" alias=\"currency\">",
-            "      <type name=\"adp\" description=\"Andorran Peseta\" since=\"1.9\"/>",
-            "      <type name=\"zar\" description=\"South African Rand\"/>",
-            "    </key>",
-            "  </keyword>",
-            "</ldmlBCP47>");
-        addFile(files, "bar.xml",
-            "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
-            "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
-            "<ldmlBCP47>",
-            "  <version number=\"42\"/>",
-            "  <keyword>",
-            "    <key name=\"tz\" description=\"Time zone key\" alias=\"timezone\">",
-            "      <type name=\"adalv\" description=\"Andorra\" alias=\"Europe/Andorra\"/>",
-            "      <type name=\"fjsuv\" description=\"Fiji\" alias=\"Pacific/Fiji\"/>",
-            "    </key>",
-            "  </keyword>",
-            "</ldmlBCP47>");
+        addFile(
+                files,
+                "foo.xml",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
+                "<ldmlBCP47>",
+                "  <version number=\"42\"/>",
+                "  <keyword>",
+                "    <key name=\"cf\" description=\"Currency format key\" since=\"28\">",
+                "      <type name=\"standard\" description=\"Standard format\" since=\"28\"/>",
+                "      <type name=\"account\" description=\"Accounting format\" since=\"28\"/>",
+                "    </key>",
+                "    <key name=\"cu\" description=\"Currency type key\" alias=\"currency\">",
+                "      <type name=\"adp\" description=\"Andorran Peseta\" since=\"1.9\"/>",
+                "      <type name=\"zar\" description=\"South African Rand\"/>",
+                "    </key>",
+                "  </keyword>",
+                "</ldmlBCP47>");
+        addFile(
+                files,
+                "bar.xml",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                "<!DOCTYPE ldmlBCP47 SYSTEM \"../../common/dtd/ldmlBCP47.dtd\">",
+                "<ldmlBCP47>",
+                "  <version number=\"42\"/>",
+                "  <keyword>",
+                "    <key name=\"tz\" description=\"Time zone key\" alias=\"timezone\">",
+                "      <type name=\"adalv\" description=\"Andorra\" alias=\"Europe/Andorra\"/>",
+                "      <type name=\"fjsuv\" description=\"Fiji\" alias=\"Pacific/Fiji\"/>",
+                "    </key>",
+                "  </keyword>",
+                "</ldmlBCP47>");
         XmlDataSource xmlDataSource =
-            new XmlDataSource(BCP47, files.keySet(), UNCONFIRMED, openFileFn(files));
+                new XmlDataSource(BCP47, files.keySet(), UNCONFIRMED, openFileFn(files));
 
         Map<CldrPath, CldrValue> expected = new LinkedHashMap<>();
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"cf\"][@description=\"Currency format key\"][@since=\"28\"][@deprecated=\"false\"]"
-            + "/type[@name=\"standard\"][@description=\"Standard format\"][@since=\"28\"][@deprecated=\"false\"]");
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"cf\"][@description=\"Currency format key\"][@since=\"28\"][@deprecated=\"false\"]"
-            + "/type[@name=\"account\"][@description=\"Accounting format\"][@since=\"28\"][@deprecated=\"false\"]");
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"cu\"][@description=\"Currency type key\"][@alias=\"currency\"][@deprecated=\"false\"]"
-            + "/type[@name=\"adp\"][@description=\"Andorran Peseta\"][@since=\"1.9\"][@deprecated=\"false\"]");
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"cu\"][@description=\"Currency type key\"][@alias=\"currency\"][@deprecated=\"false\"]"
-            + "/type[@name=\"zar\"][@description=\"South African Rand\"][@deprecated=\"false\"]");
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"][@deprecated=\"false\"]"
-            + "/type[@name=\"adalv\"][@description=\"Andorra\"][@alias=\"Europe/Andorra\"][@deprecated=\"false\"]");
-        addTo(expected, "//ldmlBCP47/keyword"
-            + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"][@deprecated=\"false\"]"
-            + "/type[@name=\"fjsuv\"][@description=\"Fiji\"][@alias=\"Pacific/Fiji\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"cf\"][@description=\"Currency format key\"][@since=\"28\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"standard\"][@description=\"Standard format\"][@since=\"28\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"cf\"][@description=\"Currency format key\"][@since=\"28\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"account\"][@description=\"Accounting format\"][@since=\"28\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"cu\"][@description=\"Currency type key\"][@alias=\"currency\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"adp\"][@description=\"Andorran Peseta\"][@since=\"1.9\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"cu\"][@description=\"Currency type key\"][@alias=\"currency\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"zar\"][@description=\"South African Rand\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"adalv\"][@description=\"Andorra\"][@alias=\"Europe/Andorra\"][@deprecated=\"false\"]");
+        addTo(
+                expected,
+                "//ldmlBCP47/keyword"
+                        + "/key[@name=\"tz\"][@description=\"Time zone key\"][@alias=\"timezone\"][@deprecated=\"false\"]"
+                        + "/type[@name=\"fjsuv\"][@description=\"Fiji\"][@alias=\"Pacific/Fiji\"][@deprecated=\"false\"]");
         ImmutableList<CldrPath> naturalOrderedPaths = ImmutableList.copyOf(expected.keySet());
         ImmutableList<CldrPath> dtdOrderedPaths = ImmutableList.sortedCopyOf(expected.keySet());
         // We want to check that DTD ordering will typically differ from "natural" order.
@@ -107,32 +122,34 @@ public class XmlDataSourceTest extends TestFmwk {
         assertEquals("paths and values", expected, out);
         assertEquals("paths order", dtdOrderedPaths, ImmutableList.copyOf(out.keySet()));
     }
-    
+
     public void TestBadElementNesting() {
         ListMultimap<Path, String> files = LinkedListMultimap.create();
         String fakeXmlName = "bad.xml";
-        addFile(files, fakeXmlName,
-            "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
-            "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
-            "<supplementalData>",
-            "  <version number=\"42\"/>",
-            "  <currencyData>",
-            "    <fractions>",
-            "      <info iso4217=\"ADP\" digits=\"0\" rounding=\"0\"/>",
-            "    </fractions>",
-            "    <region iso3166=\"AC\">",
-            "      <currency iso4217=\"SHP\" from=\"1976-01-01\"/>",
-            "    </region>",
-            "    <fractions>",
-            "      <info iso4217=\"AFN\" digits=\"0\" rounding=\"0\"/>",
-            "    </fractions>",
-            "    <region iso3166=\"AE\">",
-            "      <currency iso4217=\"AED\" from=\"1973-05-19\"/>",
-            "    </region>",
-            "  </currencyData>",
-            "</supplementalData>");
+        addFile(
+                files,
+                fakeXmlName,
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
+                "<supplementalData>",
+                "  <version number=\"42\"/>",
+                "  <currencyData>",
+                "    <fractions>",
+                "      <info iso4217=\"ADP\" digits=\"0\" rounding=\"0\"/>",
+                "    </fractions>",
+                "    <region iso3166=\"AC\">",
+                "      <currency iso4217=\"SHP\" from=\"1976-01-01\"/>",
+                "    </region>",
+                "    <fractions>",
+                "      <info iso4217=\"AFN\" digits=\"0\" rounding=\"0\"/>",
+                "    </fractions>",
+                "    <region iso3166=\"AE\">",
+                "      <currency iso4217=\"AED\" from=\"1973-05-19\"/>",
+                "    </region>",
+                "  </currencyData>",
+                "</supplementalData>");
         XmlDataSource badDataSource =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+                new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
         try {
             badDataSource.accept(ARBITRARY, v -> {});
             fail("expected IllegalArgumentException");
@@ -150,24 +167,26 @@ public class XmlDataSourceTest extends TestFmwk {
     public void TestDoubleQuotesDisallowedAsAttributeValue() {
         ListMultimap<Path, String> files = LinkedListMultimap.create();
         String fakeXmlName = "bad.xml";
-        addFile(files, fakeXmlName,
-            "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
-            "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
-            "<supplementalData>",
-            "  <version number=\"42\"/>",
-            "  <characters>",
-            "    <character-fallback>",
-            "      <character value=\"'\">",
-            "        <substitute>single-quote</substitute>",
-            "      </character>",
-            "      <character value='\"'>",
-            "        <substitute>double-quote</substitute>",
-            "      </character>",
-            "    </character-fallback>",
-            "  </characters>",
-            "</supplementalData>");
+        addFile(
+                files,
+                fakeXmlName,
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
+                "<supplementalData>",
+                "  <version number=\"42\"/>",
+                "  <characters>",
+                "    <character-fallback>",
+                "      <character value=\"'\">",
+                "        <substitute>single-quote</substitute>",
+                "      </character>",
+                "      <character value='\"'>",
+                "        <substitute>double-quote</substitute>",
+                "      </character>",
+                "    </character-fallback>",
+                "  </characters>",
+                "</supplementalData>");
         XmlDataSource badDataSource =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+                new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
         try {
             badDataSource.accept(ARBITRARY, v -> {});
             fail("expected RuntimeException");
@@ -179,24 +198,29 @@ public class XmlDataSourceTest extends TestFmwk {
 
     public void TestNoDtdVersionPath() {
         ListMultimap<Path, String> files = LinkedListMultimap.create();
-        addFile(files, "bad.xml",
-            "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
-            "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
-            "<supplementalData>",
-            "  <version number=\"42\"/>",
-            "  <characters>",
-            "    <character-fallback>",
-            "      <character value=\"'\">",
-            "        <substitute>single-quote</substitute>",
-            "      </character>",
-            "    </character-fallback>",
-            "  </characters>",
-            "</supplementalData>");
+        addFile(
+                files,
+                "bad.xml",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
+                "<supplementalData>",
+                "  <version number=\"42\"/>",
+                "  <characters>",
+                "    <character-fallback>",
+                "      <character value=\"'\">",
+                "        <substitute>single-quote</substitute>",
+                "      </character>",
+                "    </character-fallback>",
+                "  </characters>",
+                "</supplementalData>");
         XmlDataSource src =
-            new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
-        src.accept(DTD, v ->
-            assertFalse("is DTD version string",
-                v.getPath().toString().startsWith("//supplementalData/version")));
+                new XmlDataSource(SUPPLEMENTAL, files.keySet(), UNCONFIRMED, openFileFn(files));
+        src.accept(
+                DTD,
+                v ->
+                        assertFalse(
+                                "is DTD version string",
+                                v.getPath().toString().startsWith("//supplementalData/version")));
     }
 
     private static void addFile(ListMultimap<Path, String> files, String path, String... lines) {
@@ -215,7 +239,7 @@ public class XmlDataSourceTest extends TestFmwk {
     private void assertErrorMessageContains(Throwable e, String expected) {
         // This test "framework" is such a limited API it encourages brittle assertions.
         assertTrue(
-            "error message \"" + e.getMessage() + "\" contains \"" + expected + "\"",
-            e.getMessage().contains(expected));
+                "error message \"" + e.getMessage() + "\" contains \"" + expected + "\"",
+                e.getMessage().contains(expected));
     }
 }

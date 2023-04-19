@@ -1,12 +1,11 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.text.Transform;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.ibm.icu.text.Transform;
 
 public class EnumLookup<T extends Enum<?>> {
     private final String name;
@@ -18,8 +17,8 @@ public class EnumLookup<T extends Enum<?>> {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className, Transform<String, String> t, String from,
-        T to, Object... extras) {
+    public static <T extends Enum<?>> EnumLookup<T> of(
+            Class<T> className, Transform<String, String> t, String from, T to, Object... extras) {
         Map<String, T> newExtras = new HashMap<>();
         newExtras.put(from, to);
         for (int i = 0; i < extras.length; i += 2) {
@@ -28,8 +27,8 @@ public class EnumLookup<T extends Enum<?>> {
         return of(className, t, newExtras);
     }
 
-    public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className, Transform<String, String> t,
-        Map<String, T> extras) {
+    public static <T extends Enum<?>> EnumLookup<T> of(
+            Class<T> className, Transform<String, String> t, Map<String, T> extras) {
         String name_ = className.getName();
         int lastDot = name_.lastIndexOf('.');
         EnumLookup<T> result = new EnumLookup<>(name_.substring(lastDot + 1));
@@ -56,18 +55,20 @@ public class EnumLookup<T extends Enum<?>> {
             if (old == null) {
                 result.map.put(key, newValue);
             } else if (old != newValue) {
-                throw new IllegalArgumentException("Incompatible mapping: " + key + "=" + old + "!=" + newValue);
+                throw new IllegalArgumentException(
+                        "Incompatible mapping: " + key + "=" + old + "!=" + newValue);
             }
         }
         return result;
     }
 
-    private static Transform<String, String> CLEAN = new Transform<String, String>() {
-        @Override
-        public String transform(String in) {
-            return in.toUpperCase(Locale.ENGLISH).replace(' ', '_');
-        }
-    };
+    private static Transform<String, String> CLEAN =
+            new Transform<String, String>() {
+                @Override
+                public String transform(String in) {
+                    return in.toUpperCase(Locale.ENGLISH).replace(' ', '_');
+                }
+            };
 
     public T forString(String s) {
         return forString(s, false);
@@ -76,7 +77,8 @@ public class EnumLookup<T extends Enum<?>> {
     public T forString(String s, boolean allowNull) {
         T result = map.get(transform.transform(s));
         if (!allowNull && result == null) {
-            throw new IllegalArgumentException("Can't find match for «" + s + "» in " + map.keySet() + " in " + name);
+            throw new IllegalArgumentException(
+                    "Can't find match for «" + s + "» in " + map.keySet() + " in " + name);
         }
         return result;
     }

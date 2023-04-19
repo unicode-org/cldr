@@ -1,6 +1,4 @@
-/**
- * Copyright (C) 2013 IBM Corporation and Others All Rights Reserved.
- */
+/** Copyright (C) 2013 IBM Corporation and Others All Rights Reserved. */
 package org.unicode.cldr.web;
 
 import java.io.File;
@@ -8,7 +6,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 
@@ -18,6 +15,7 @@ import org.unicode.cldr.util.CldrUtility;
 public class SurveyLog {
     /**
      * Get a Logger class for the specified calling class.
+     *
      * @param clazz
      * @return
      */
@@ -25,8 +23,8 @@ public class SurveyLog {
         return Logger.getLogger(clazz.getName());
     }
     /**
-     * Get a Logger class for the specified calling class, with
-     * an initial level
+     * Get a Logger class for the specified calling class, with an initial level
+     *
      * @param clazz
      * @return
      */
@@ -36,13 +34,12 @@ public class SurveyLog {
         return logger;
     }
 
-
     // Logging. Using a static reference for pedagogical reasons.
     private static final Logger logger = SurveyLog.forClass(SurveyLog.class);
 
-
     static boolean DEBUG = false;
     private static boolean checkDebug = false;
+
     @Deprecated
     static final void errln(String s) {
         logger.severe(s);
@@ -67,7 +64,16 @@ public class SurveyLog {
     public static final String FIELD_SEP = "*** ";
 
     enum LogField {
-        SURVEY_EXCEPTION, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL, REVISION, SURVEYEXCEPTION
+        SURVEY_EXCEPTION,
+        DATE,
+        UPTIME,
+        CTX,
+        LOGSITE,
+        MESSAGE,
+        STACK,
+        SQL,
+        REVISION,
+        SURVEYEXCEPTION
     }
 
     private static File gBaseDir = null;
@@ -84,14 +90,13 @@ public class SurveyLog {
         gBaseDir = homeFile;
     }
 
-    public static void logException(Logger logger, final Throwable exception, String what, WebContext ctx) {
+    public static void logException(
+            Logger logger, final Throwable exception, String what, WebContext ctx) {
         logger.log(Level.SEVERE, what, exception);
         countException(exception);
     }
 
-    /**
-     * Count an exception in the SurveyMetrics
-     */
+    /** Count an exception in the SurveyMetrics */
     public static void countException(final Throwable exception) {
         if (CookieSession.sm != null && CookieSession.sm.surveyMetrics != null) {
             CookieSession.sm.surveyMetrics.countException(exception);
@@ -99,12 +104,12 @@ public class SurveyLog {
     }
 
     /**
-     *
      * @param exception
      * @param what
      * @param ctx
      */
-    public static synchronized void logException(final Throwable exception, String what, WebContext ctx) {
+    public static synchronized void logException(
+            final Throwable exception, String what, WebContext ctx) {
         logException(logger, exception, what, ctx);
     }
 
@@ -112,8 +117,14 @@ public class SurveyLog {
 
     public static synchronized ChunkyReader getChunkyReader() {
         if (cr == null) {
-            cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty(CldrUtility.HOME_KEY), "exception.log"), RECORD_SEP
-                + LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
+            cr =
+                    new ChunkyReader(
+                            new File(
+                                    CLDRConfig.getInstance().getProperty(CldrUtility.HOME_KEY),
+                                    "exception.log"),
+                            RECORD_SEP + LogField.SURVEY_EXCEPTION.name(),
+                            FIELD_SEP,
+                            LogField.DATE.name());
         }
         return cr;
     }
@@ -122,7 +133,6 @@ public class SurveyLog {
     public static void logException(Throwable t, WebContext ctx) {
         logException(logger, t, ctx);
     }
-
 
     public static void logException(Logger logger, Throwable t, String string) {
         logger.log(Level.SEVERE, string, t);
@@ -171,6 +181,7 @@ public class SurveyLog {
 
     /**
      * Warn one time, ignore after that
+     *
      * @param string
      * @deprecated use warnOnce with your own logger
      */
@@ -180,7 +191,7 @@ public class SurveyLog {
     }
 
     public static void warnOnce(Logger logger, String string) {
-        final String key = logger.getName()+":"+string;
+        final String key = logger.getName() + ":" + string;
         if (alreadyWarned.putIfAbsent(key, true) == null) {
             logger.log(Level.WARNING, string);
         }

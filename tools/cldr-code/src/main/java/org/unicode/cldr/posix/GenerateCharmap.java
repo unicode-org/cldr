@@ -8,6 +8,10 @@
  */
 package org.unicode.cldr.posix;
 
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,27 +21,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.CldrUtility;
-
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Class to generate POSIX format charmap
  *
  * @author John C. Emmons
  */
-
 public class GenerateCharmap {
 
-    private static final int DESTDIR = 2,
-        UNICODESET = 3,
-        CHARSET = 4;
+    private static final int DESTDIR = 2, UNICODESET = 3, CHARSET = 4;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -50,9 +45,14 @@ public class GenerateCharmap {
     public static void main(String[] args) throws IOException {
         UOption.parseArgs(args, options);
         String codeset = options[CHARSET].value;
-        GenerateCharmap gp = new GenerateCharmap(new UnicodeSet(options[UNICODESET].value),
-            Charset.forName(codeset), codeset);
-        PrintWriter out = FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, codeset + ".cm");
+        GenerateCharmap gp =
+                new GenerateCharmap(
+                        new UnicodeSet(options[UNICODESET].value),
+                        Charset.forName(codeset),
+                        codeset);
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(
+                        options[DESTDIR].value + File.separator, codeset + ".cm");
         gp.write(out);
         out.close();
     }
@@ -66,8 +66,7 @@ public class GenerateCharmap {
             CharacterName = Name;
             CharacterAltName = AltName;
             CharacterValue = Value;
-            if (Name.equals(AltName))
-                CharacterAltName = "";
+            if (Name.equals(AltName)) CharacterAltName = "";
         }
 
         @Override
@@ -89,17 +88,18 @@ public class GenerateCharmap {
         }
         this.chars = chars;
         this.codeset = codeset;
-
     }
 
     public void write(PrintWriter out) {
         out.println("######################");
         out.println("# POSIX charmap ");
-        out.println("# Generated automatically from the Unicode Character Database and Common Locale Data Repository");
+        out.println(
+                "# Generated automatically from the Unicode Character Database and Common Locale Data Repository");
         out.println("# see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html");
         out.println("# charset:\t" + codeset);
         out.println("######################");
-        out.println("#################################################################################################");
+        out.println(
+                "#################################################################################################");
         out.println(CldrUtility.getCopyrightString("# "));
         out.println();
         doCharmap(out, cs);
@@ -115,10 +115,11 @@ public class GenerateCharmap {
         // print character types, restricted to the charset
         int LongestCharNameLength = 0;
         int LongestCharValueLength = 0;
-        UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
+        UnicodeSet us =
+                new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
         List<CharmapLine> cml = new ArrayList<>();
         CharmapLine current;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); ) {
             String Name = POSIXUtilities.POSIXCharFullName(it.getString());
             String AltName = POSIXUtilities.POSIXCharName(it.getString());
             String Value = getCodepointValue(it.getString(), cs);
@@ -142,7 +143,7 @@ public class GenerateCharmap {
         out.println();
         out.println("CHARMAP");
 
-        for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext();) {
+        for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext(); ) {
             current = li.next();
 
             out.print(current.CharacterName);
@@ -160,7 +161,6 @@ public class GenerateCharmap {
         out.println();
         out.println("END CHARMAP");
         out.println();
-
     }
 
     private String getCodepointValue(String cp, Charset cs) {
@@ -170,10 +170,8 @@ public class GenerateCharmap {
         while (bb.hasRemaining()) {
             result.append("\\x");
             byte b = bb.get();
-            if (b < 0)
-                i = b + 256;
-            else
-                i = b;
+            if (b < 0) i = b + 256;
+            else i = b;
 
             result.append(Utility.hex(i, 2));
         }

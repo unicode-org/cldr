@@ -1,8 +1,8 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.dev.util.UnicodeMap;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -10,8 +10,6 @@ import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.UnicodeMap;
 
 public class PrepareRootAnnotations {
 
@@ -43,7 +41,9 @@ public class PrepareRootAnnotations {
             annotations.add(keywordPath, value);
         }
 
-        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "annotations/", "root.xml")) {
+        try (PrintWriter pw =
+                FileUtilities.openUTF8Writer(
+                        CLDRPaths.GEN_DIRECTORY + "annotations/", "root.xml")) {
             annotations.write(pw);
             pw.flush();
         }

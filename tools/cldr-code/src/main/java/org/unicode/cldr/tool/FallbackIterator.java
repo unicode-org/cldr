@@ -1,6 +1,4 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.tool;
 
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.PatternCache;
 
 public class FallbackIterator implements Iterator<String> {
@@ -63,10 +60,13 @@ public class FallbackIterator implements Iterator<String> {
 
     private static final List<FallbackIterator.FallbackRule> FALLBACK_LIST = new ArrayList<>();
     private static final List<FallbackIterator.FallbackRule> CANONICALIZE_LIST = new ArrayList<>();
-    private static final List<FallbackIterator.FallbackRule> DECANONICALIZE_LIST = new ArrayList<>();
+    private static final List<FallbackIterator.FallbackRule> DECANONICALIZE_LIST =
+            new ArrayList<>();
 
     private enum Type {
-        canonicalize, fallback, decanonicalize
+        canonicalize,
+        fallback,
+        decanonicalize
     }
 
     static {
@@ -74,7 +74,6 @@ public class FallbackIterator implements Iterator<String> {
         // other languages with mixed scripts
         // Table 8 languages
         String[] data = {
-
             "canonicalize", // mechanically generated
 
             // Language tags marked as “Type: grandfathered” in BCP 47.
@@ -127,9 +126,7 @@ public class FallbackIterator implements Iterator<String> {
             "(.*-)YD(-.*)?;$1YE$2",
             "(.*-)YU(-.*)?;$1CS$2",
             "(.*-)ZR(-.*)?;$1CD$2",
-
             "decanonicalize", // mechanically generated
-
             "id(-.*)?;in$1",
             "he(-.*)?;iw$1",
             "yi(-.*)?;ji$1",
@@ -157,10 +154,9 @@ public class FallbackIterator implements Iterator<String> {
 
             // special cases: sh (no longer for nb/no)
 
-            //"nb(-.*)?;no$1",
+            // "nb(-.*)?;no$1",
             "sh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*)?;sr-Latn$1", // insert if no script
             "sh(-[a-zA-Z]{4}-.*);sr$1",
-
             "fallback",
 
             // "zh-Hant;zh-TW;zh",
@@ -175,15 +171,14 @@ public class FallbackIterator implements Iterator<String> {
 
             // normal truncation
             "(.*)-[^-]*;$1",
-
             "decanonicalize",
-            //"zh-Hant;zh-TW",
+            // "zh-Hant;zh-TW",
             // "zh-TW;zh-Hant",
-            //"zh-Hant-TW(-.*)?;zh-Hant$1;zh-TW$1",
-            //"zh-Hant-HK(-.*)?;zh-HK$1",
-            //"zh-Hans;zh-CN",
-            //"zh-CN;zh-Hans",
-            //"no(-.*)?;nb$1",
+            // "zh-Hant-TW(-.*)?;zh-Hant$1;zh-TW$1",
+            // "zh-Hant-HK(-.*)?;zh-HK$1",
+            // "zh-Hans;zh-CN",
+            // "zh-CN;zh-Hans",
+            // "no(-.*)?;nb$1",
 
         };
         // do this way to emulate reading from file
@@ -195,29 +190,30 @@ public class FallbackIterator implements Iterator<String> {
             }
             final FallbackRule fallbackRule = new FallbackRule(row);
             switch (type) {
-            case canonicalize:
-                CANONICALIZE_LIST.add(fallbackRule);
-                break;
-            case fallback:
-                FALLBACK_LIST.add(fallbackRule);
-                break;
-            case decanonicalize:
-                DECANONICALIZE_LIST.add(fallbackRule);
-                break;
+                case canonicalize:
+                    CANONICALIZE_LIST.add(fallbackRule);
+                    break;
+                case fallback:
+                    FALLBACK_LIST.add(fallbackRule);
+                    break;
+                case decanonicalize:
+                    DECANONICALIZE_LIST.add(fallbackRule);
+                    break;
             }
             if (DEBUG) System.out.println(fallbackRule);
         }
     }
     // we can look at doing this incrementally later on, but for now just generate and delegate.
     private static Iterator<String> emptyIterator;
+
     static {
         List<String> foo = Collections.emptyList();
         emptyIterator = foo.iterator();
     }
+
     private Iterator<String> iterator = emptyIterator;
 
-    public FallbackIterator() {
-    }
+    public FallbackIterator() {}
 
     public FallbackIterator(String source) {
         this.set(source);
@@ -229,7 +225,8 @@ public class FallbackIterator implements Iterator<String> {
         List<String> items = new ArrayList<>();
         items.add(original);
         // canonicalize (normally in constructor)
-        canonicalize: while (true) {
+        canonicalize:
+        while (true) {
             for (FallbackIterator.FallbackRule rule : CANONICALIZE_LIST) {
                 if (rule.matches(source)) {
                     source = rule.getAdditions().get(1);
@@ -239,7 +236,8 @@ public class FallbackIterator implements Iterator<String> {
             break;
         }
         // fallback
-        fallback: while (true) {
+        fallback:
+        while (true) {
             for (FallbackIterator.FallbackRule rule : FALLBACK_LIST) {
                 if (rule.matches(source)) {
                     items.addAll(rule.getAdditions());

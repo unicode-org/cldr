@@ -1,5 +1,17 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +31,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -38,21 +49,9 @@ import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
-
 public class TestTransforms extends TestFmwkPlus {
-    private static final String GENERATE_FILE = null; // set to a filename like "und-Latn-t-und-mlym.txt" to regenerate it
+    private static final String GENERATE_FILE =
+            null; // set to a filename like "und-Latn-t-und-mlym.txt" to regenerate it
 
     CLDRConfig testInfo = CLDRConfig.getInstance();
 
@@ -62,19 +61,19 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void TestUzbek() {
         register();
-        Transliterator cyrillicToLatin = Transliterator
-            .getInstance("uz_Cyrl-uz_Latn");
+        Transliterator cyrillicToLatin = Transliterator.getInstance("uz_Cyrl-uz_Latn");
         Transliterator latinToCyrillic = cyrillicToLatin.getInverse();
         // for (Transliterator t2 : t.getElements()) {
         // System.out.println(t2.getSourceSet().toPattern(false) + " => " +
         // t2.getTargetSet().toPattern(false));
         // }
-        String cyrillic = "аА бБ вВ гГ ғҒ   дД ЕеЕ    ЁёЁ    жЖ зЗ иИ йЙ кК қҚ лЛ мМ нН оО пП рР сС тТ уУ ўЎ   фФ хХ ҳҲ ЦцЦ    ЧчЧ    ШшШ    бъ Ъ эЭ ЮюЮ    ЯяЯ";
-        String latin = "aA bB vV gG gʻGʻ dD YeyeYE YoyoYO jJ zZ iI yY kK qQ lL mM nN oO pP rR sS tT uU oʻOʻ fF xX hH TstsTS ChchCH ShshSH bʼ ʼ eE YuyuYU YayaYA";
-        UnicodeSet vowelsAndSigns = new UnicodeSet(
-            "[аА еЕёЁ иИ оО уУўЎ эЭ юЮ яЯ ьЬ ъЪ]").freeze();
-        UnicodeSet consonants = new UnicodeSet().addAll(cyrillic)
-            .removeAll(vowelsAndSigns).remove(" ").freeze();
+        String cyrillic =
+                "аА бБ вВ гГ ғҒ   дД ЕеЕ    ЁёЁ    жЖ зЗ иИ йЙ кК қҚ лЛ мМ нН оО пП рР сС тТ уУ ўЎ   фФ хХ ҳҲ ЦцЦ    ЧчЧ    ШшШ    бъ Ъ эЭ ЮюЮ    ЯяЯ";
+        String latin =
+                "aA bB vV gG gʻGʻ dD YeyeYE YoyoYO jJ zZ iI yY kK qQ lL mM nN oO pP rR sS tT uU oʻOʻ fF xX hH TstsTS ChchCH ShshSH bʼ ʼ eE YuyuYU YayaYA";
+        UnicodeSet vowelsAndSigns = new UnicodeSet("[аА еЕёЁ иИ оО уУўЎ эЭ юЮ яЯ ьЬ ъЪ]").freeze();
+        UnicodeSet consonants =
+                new UnicodeSet().addAll(cyrillic).removeAll(vowelsAndSigns).remove(" ").freeze();
 
         // UnicodeSet englishVowels = new UnicodeSet();
         // for (String s : vowelsAndSigns) {
@@ -88,36 +87,31 @@ public class TestTransforms extends TestFmwkPlus {
         String[] cyrillicSplit = cyrillic.split("\\s+");
         String[] latinSplit = latin.split("\\s+");
         for (int i = 0; i < cyrillicSplit.length; ++i) {
-            assertTransformsTo("Uzbek to Latin", latinSplit[i],
-                cyrillicToLatin, cyrillicSplit[i]);
-            assertTransformsTo("Uzbek to Cyrillic", cyrillicSplit[i],
-                latinToCyrillic, latinSplit[i]);
+            assertTransformsTo("Uzbek to Latin", latinSplit[i], cyrillicToLatin, cyrillicSplit[i]);
+            assertTransformsTo(
+                    "Uzbek to Cyrillic", cyrillicSplit[i], latinToCyrillic, latinSplit[i]);
         }
 
         // # е → 'ye' at the beginning of a syllable, after a vowel, ъ or ь,
         // otherwise 'e'
 
-        assertEquals("Uzbek to Latin", "Belgiya",
-            cyrillicToLatin.transform("Бельгия"));
+        assertEquals("Uzbek to Latin", "Belgiya", cyrillicToLatin.transform("Бельгия"));
         UnicodeSet lower = new UnicodeSet("[:lowercase:]");
         for (String e : new UnicodeSet("[еЕ]")) {
             String ysuffix = lower.containsAll(e) ? "ye" : "YE";
             String suffix = lower.containsAll(e) ? "e" : "E";
             for (String s : vowelsAndSigns) {
                 String expected = getPrefix(cyrillicToLatin, s, ysuffix);
-                assertTransformsTo("Uzbek to Latin ye", expected,
-                    cyrillicToLatin, s + e);
+                assertTransformsTo("Uzbek to Latin ye", expected, cyrillicToLatin, s + e);
             }
             for (String s : consonants) {
                 String expected = getPrefix(cyrillicToLatin, s, suffix);
-                assertTransformsTo("Uzbek to Latin e", expected,
-                    cyrillicToLatin, s + e);
+                assertTransformsTo("Uzbek to Latin e", expected, cyrillicToLatin, s + e);
             }
             for (String s : Arrays.asList(" ", "")) { // start of string,
                 // non-letter
                 String expected = getPrefix(cyrillicToLatin, s, ysuffix);
-                assertTransformsTo("Uzbek to Latin ye", expected,
-                    cyrillicToLatin, s + e);
+                assertTransformsTo("Uzbek to Latin ye", expected, cyrillicToLatin, s + e);
             }
         }
 
@@ -140,26 +134,31 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 String latnFromCyrl = cyrillicToLatin.transform(latnValue);
                 if (latnValue.equals(latnFromCyrl)) {
-                    latinFromCyrillicSucceeds.add(latnValue + "\t←\t"
-                        + cyrlValue);
+                    latinFromCyrillicSucceeds.add(latnValue + "\t←\t" + cyrlValue);
                 } else {
-                    latinFromCyrillicFails.add(latnValue + "\t≠\t"
-                        + latnFromCyrl + "\t←\t" + cyrlValue);
+                    latinFromCyrillicFails.add(
+                            latnValue + "\t≠\t" + latnFromCyrl + "\t←\t" + cyrlValue);
                 }
             }
-            logln("Success! " + latinFromCyrillicSucceeds.size() + "\n"
-                + Joiner.on("\n").join(latinFromCyrillicSucceeds));
-            logln("\nFAILS!" + latinFromCyrillicFails.size() + "\n"
-                + Joiner.on("\n").join(latinFromCyrillicFails));
+            logln(
+                    "Success! "
+                            + latinFromCyrillicSucceeds.size()
+                            + "\n"
+                            + Joiner.on("\n").join(latinFromCyrillicSucceeds));
+            logln(
+                    "\nFAILS!"
+                            + latinFromCyrillicFails.size()
+                            + "\n"
+                            + Joiner.on("\n").join(latinFromCyrillicFails));
         }
     }
 
-    private String getPrefix(Transliterator cyrillicToLatin,
-        String prefixSource, String suffix) {
+    private String getPrefix(Transliterator cyrillicToLatin, String prefixSource, String suffix) {
         String result = cyrillicToLatin.transform(prefixSource);
         if (!result.isEmpty()
-            && UCharacter.getType(suffix.codePointAt(0)) != ECharacterCategory.UPPERCASE_LETTER
-            && UCharacter.getType(result.codePointAt(0)) == ECharacterCategory.UPPERCASE_LETTER) {
+                && UCharacter.getType(suffix.codePointAt(0)) != ECharacterCategory.UPPERCASE_LETTER
+                && UCharacter.getType(result.codePointAt(0))
+                        == ECharacterCategory.UPPERCASE_LETTER) {
             result = UCharacter.toTitleCase(result, null);
         }
         return result + suffix;
@@ -193,14 +192,15 @@ public class TestTransforms extends TestFmwkPlus {
 
     void register() {
         if (!registered) {
-            CLDRTransforms.registerCldrTransforms(null, null,
-                isVerbose() ? getLogPrintWriter() : null, true);
+            CLDRTransforms.registerCldrTransforms(
+                    null, null, isVerbose() ? getLogPrintWriter() : null, true);
             registered = true;
         }
     }
 
     enum Options {
-        transliterator, roundtrip
+        transliterator,
+        roundtrip
     }
 
     private String makeLegacyTransformID(String source, String target, String variant) {
@@ -215,8 +215,13 @@ public class TestTransforms extends TestFmwkPlus {
         if (id.indexOf("-t-") > 0) {
             String expected = ULocale.forLanguageTag(id).toLanguageTag();
             if (!id.equals(expected)) {
-                errln(file.getName() + ": BCP47-T identifier \"" +
-                    id + "\" should be \"" + expected + "\"");
+                errln(
+                        file.getName()
+                                + ": BCP47-T identifier \""
+                                + id
+                                + "\" should be \""
+                                + expected
+                                + "\"");
             }
         }
     }
@@ -226,8 +231,12 @@ public class TestTransforms extends TestFmwkPlus {
         if (oldFile == null || oldFile.equals(file)) {
             ids.put(id, file);
         } else {
-            errln(file.getName() + ": Transform \"" + id +
-                "\" already defined in " + oldFile.getName());
+            errln(
+                    file.getName()
+                            + ": Transform \""
+                            + id
+                            + "\" already defined in "
+                            + oldFile.getName());
         }
     }
 
@@ -256,8 +265,10 @@ public class TestTransforms extends TestFmwkPlus {
         String backwardAlias = parts.getAttributeValue(element, "backwardAlias");
         if (backwardAlias != null) {
             if (!"both".equals(direction)) {
-                errln(file.getName() + ": Expected direction=\"both\" " +
-                    "when backwardAlias is present");
+                errln(
+                        file.getName()
+                                + ": Expected direction=\"both\" "
+                                + "when backwardAlias is present");
             }
 
             for (String id : backwardAlias.split("\\s+")) {
@@ -292,9 +303,15 @@ public class TestTransforms extends TestFmwkPlus {
         return ids;
     }
 
-    final ImmutableSet<String> OK_MISSING_FROM_OLD = ImmutableSet.of("und-Sarb-t-und-ethi",
-        "Ethi-Sarb", "und-Ethi-t-und-latn", "Musnad-Ethiopic", "und-Ethi-t-und-sarb",
-        "Sarb-Ethi", "Ethiopic-Musnad");
+    final ImmutableSet<String> OK_MISSING_FROM_OLD =
+            ImmutableSet.of(
+                    "und-Sarb-t-und-ethi",
+                    "Ethi-Sarb",
+                    "und-Ethi-t-und-latn",
+                    "Musnad-Ethiopic",
+                    "und-Ethi-t-und-sarb",
+                    "Sarb-Ethi",
+                    "Ethiopic-Musnad");
 
     public void TestTransformIDs() {
         Map<String, File> transforms = getTransformIDs(CLDRPaths.TRANSFORMS_DIRECTORY);
@@ -314,11 +331,14 @@ public class TestTransforms extends TestFmwkPlus {
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
             String id = entry.getKey();
             if (!transforms.containsKey(id)
-                && !removedTransforms.contains(id)
-                && !OK_MISSING_FROM_OLD.contains(id)) {
+                    && !removedTransforms.contains(id)
+                    && !OK_MISSING_FROM_OLD.contains(id)) {
                 File oldFile = entry.getValue();
-                errln("Missing transform \"" + id +
-                    "\"; the previous CLDR release had defined it in " + oldFile.getName());
+                errln(
+                        "Missing transform \""
+                                + id
+                                + "\"; the previous CLDR release had defined it in "
+                                + oldFile.getName());
             }
         }
     }
@@ -327,11 +347,13 @@ public class TestTransforms extends TestFmwkPlus {
         register();
 
         String[][] tests = {
-            { "transliterator=", "Katakana-Latin" },
-            { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F",
-            "ha hā ba pa" },
-            { "transliterator=", "Hangul-Latin" },
-            { "roundtrip=", "true" }, { "갗", "gach" }, { "느", "neu" }, };
+            {"transliterator=", "Katakana-Latin"},
+            {"\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F", "ha hā ba pa"},
+            {"transliterator=", "Hangul-Latin"},
+            {"roundtrip=", "true"},
+            {"갗", "gach"},
+            {"느", "neu"},
+        };
 
         Transliterator transform = null;
         Transliterator inverse = null;
@@ -341,18 +363,16 @@ public class TestTransforms extends TestFmwkPlus {
             String source = items[0];
             String target = items[1];
             if (source.endsWith("=")) {
-                switch (Options.valueOf(source
-                    .substring(0, source.length() - 1).toLowerCase(
-                        Locale.ENGLISH))) {
-                        case transliterator:
-                            id = target;
-                            transform = Transliterator.getInstance(id);
-                            inverse = Transliterator.getInstance(id,
-                                Transliterator.REVERSE);
-                            break;
-                        case roundtrip:
-                            roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
-                            break;
+                switch (Options.valueOf(
+                        source.substring(0, source.length() - 1).toLowerCase(Locale.ENGLISH))) {
+                    case transliterator:
+                        id = target;
+                        transform = Transliterator.getInstance(id);
+                        inverse = Transliterator.getInstance(id, Transliterator.REVERSE);
+                        break;
+                    case roundtrip:
+                        roundtrip = target.toLowerCase(Locale.ENGLISH).charAt(0) == 't';
+                        break;
                 }
                 continue;
             }
@@ -368,11 +388,11 @@ public class TestTransforms extends TestFmwkPlus {
     public void Test8921() {
         register();
         Transliterator trans = Transliterator.getInstance("Latin-ASCII");
-        assertEquals("Test8921", "Kornil'ev Kirill",
-            trans.transliterate("Kornilʹev Kirill"));
+        assertEquals("Test8921", "Kornil'ev Kirill", trans.transliterate("Kornilʹev Kirill"));
     }
 
-    private Pattern rfc6497Pattern = Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
+    private Pattern rfc6497Pattern =
+            Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
 
     // cs-fonipa --> cs_fonipa; und-deva --> deva
     // TODO: Remove this workaround once ICU supports BCP47-T identifiers.
@@ -441,7 +461,9 @@ public class TestTransforms extends TestFmwkPlus {
             Set<String> foundTranslitsLower = new TreeSet();
 
             for (String file : fileDirectory.list()) {
-                if (!file.endsWith(".txt") || file.startsWith("_readme") || file.startsWith("_Generated_")) {
+                if (!file.endsWith(".txt")
+                        || file.startsWith("_readme")
+                        || file.startsWith("_Generated_")) {
                     continue;
                 }
                 logln("Testing file: " + file);
@@ -449,16 +471,21 @@ public class TestTransforms extends TestFmwkPlus {
                 if (transName.equals("ka-Latn-t-ka-m0-bgn")) {
                     logKnownIssue("cldrbug:10566", "Jenkins build failing on translit problem");
                     continue; // failures like the following need to be fixed first.
-                    // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba"
+                    // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება:
+                    // expected "up’leba", got "upleba"
                 }
 
-//              When debugging, this can be used to produce a file with the generated results
-                PrintWriter output = file.equals(GENERATE_FILE)
-                    ? FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+GENERATE_FILE)
-                        : null;
-//                if (file.equals("und-Latn-t-und-mlym.txt")) {
-//                     output = FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+file);
-//                }
+                //              When debugging, this can be used to produce a file with the
+                // generated results
+                PrintWriter output =
+                        file.equals(GENERATE_FILE)
+                                ? FileUtilities.openUTF8Writer(
+                                        fileDirectoryName, "_Generated_" + GENERATE_FILE)
+                                : null;
+                //                if (file.equals("und-Latn-t-und-mlym.txt")) {
+                //                     output = FileUtilities.openUTF8Writer(fileDirectoryName,
+                // "_Generated_"+file);
+                //                }
 
                 Transliterator trans = getTransliterator(transName);
                 String id = trans.getID().toLowerCase(Locale.ROOT);
@@ -468,8 +495,7 @@ public class TestTransforms extends TestFmwkPlus {
                 int counter = 0;
                 while (true) {
                     final String original = in.readLine();
-                    if (original == null)
-                        break;
+                    if (original == null) break;
                     String line = original.trim();
                     counter += 1;
                     if (line.startsWith("#")) {
@@ -482,8 +508,8 @@ public class TestTransforms extends TestFmwkPlus {
                     String source = parts[0];
                     String expected = parts[1];
                     String result = trans.transform(source);
-                    assertEquals(transName + " " + counter + " Transform "
-                        + source, expected, result);
+                    assertEquals(
+                            transName + " " + counter + " Transform " + source, expected, result);
                     if (output != null) {
                         output.println(source + "\t" + result);
                     }
@@ -493,7 +519,8 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 in.close();
             }
-            Set<String> allTranslitsLower = oldEnumConvertLower(Transliterator.getAvailableIDs(), new TreeSet<>());
+            Set<String> allTranslitsLower =
+                    oldEnumConvertLower(Transliterator.getAvailableIDs(), new TreeSet<>());
             // see which are missing tests
             Set<String> missingTranslits = Sets.difference(allTranslitsLower, foundTranslitsLower);
             if (!missingTranslits.isEmpty()) {
@@ -516,44 +543,46 @@ public class TestTransforms extends TestFmwkPlus {
         return target;
     }
 
-    private <U extends Collection<String>> U oldEnumConvertLower(Enumeration<String> source, U target) {
+    private <U extends Collection<String>> U oldEnumConvertLower(
+            Enumeration<String> source, U target) {
         while (source.hasMoreElements()) {
             target.add(source.nextElement().toLowerCase(Locale.ROOT));
         }
         return target;
     }
 
-
     enum Casing {
-        Upper, Title, Lower
+        Upper,
+        Title,
+        Lower
     }
 
     public void TestCasing() {
         register();
         String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
         // Transliterator.DEBUG = true;
-        Transliterator elTitle = checkString("el", Casing.Title,
-            "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource, true);
-        Transliterator elLower = checkString("el", Casing.Lower,
-            "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
-        Transliterator elUpper = checkString("el", Casing.Upper,
-            "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, true); // now true due to ICU #5456
+        Transliterator elTitle =
+                checkString("el", Casing.Title, "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource, true);
+        Transliterator elLower =
+                checkString("el", Casing.Lower, "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
+        Transliterator elUpper =
+                checkString(
+                        "el",
+                        Casing.Upper,
+                        "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ",
+                        greekSource,
+                        true); // now true due to ICU #5456
 
         String turkishSource = "Isiİ İsıI";
-        Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı",
-            turkishSource, true);
-        Transliterator trLower = checkString("tr", Casing.Lower, "ısii isıı",
-            turkishSource, true);
-        Transliterator trUpper = checkString("tr", Casing.Upper, "ISİİ İSII",
-            turkishSource, true);
-        Transliterator azTitle = checkString("az", Casing.Title, "Isii İsıı",
-            turkishSource, true);
-        Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı",
-            turkishSource, true);
-        Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII",
-            turkishSource, true);
+        Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı", turkishSource, true);
+        Transliterator trLower = checkString("tr", Casing.Lower, "ısii isıı", turkishSource, true);
+        Transliterator trUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource, true);
+        Transliterator azTitle = checkString("az", Casing.Title, "Isii İsıı", turkishSource, true);
+        Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
+        Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
 
-        String lithuanianSource = "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308";
+        String lithuanianSource =
+                "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308";
         // The following test was formerly skipped with
         // !logKnownIssue("11094", "Fix ICU4J UCharacter.toTitleCase/toLowerCase for lt").
         // However [https://unicode-org.atlassian.net/browse/ICU-11094] is supposedly
@@ -561,38 +590,47 @@ public class TestTransforms extends TestFmwkPlus {
         // to execute the test results in test failures, mainly for  i\u0307\u0308.
         // So I am changing the logKnownIssue to reference a CLDR ticket about
         // investigating the test (it may be wrong).
-        if (!logKnownIssue("cldrbug:13313",
-            "Investigate the Lithuanian casing test, it may be wrong")) {
-            Transliterator ltTitle = checkString(
-                "lt",
-                Casing.Title,
-                "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 Xi\u0307\u0308 Xj\u0307\u0308 X\u012F\u0307\u0308 Xi\u0307\u0300 Xi\u0307\u0301 Xi\u0307\u0303 Xi Xi\u0307\u0308 Xj Xj\u0307\u0308 X\u012F X\u012F\u0307\u0308",
-                lithuanianSource, true);
-            Transliterator ltLower = checkString(
-                "lt",
-                Casing.Lower,
-                "i i\u0307\u0308 j j\u0307\u0308 \u012F \u012F\u0307\u0308 i\u0307\u0300 i\u0307\u0301 i\u0307\u0303 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 xi xi\u0307\u0308 xj xj\u0307\u0308 x\u012F x\u012F\u0307\u0308",
-                lithuanianSource, true);
+        if (!logKnownIssue(
+                "cldrbug:13313", "Investigate the Lithuanian casing test, it may be wrong")) {
+            Transliterator ltTitle =
+                    checkString(
+                            "lt",
+                            Casing.Title,
+                            "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 Xi\u0307\u0308 Xj\u0307\u0308 X\u012F\u0307\u0308 Xi\u0307\u0300 Xi\u0307\u0301 Xi\u0307\u0303 Xi Xi\u0307\u0308 Xj Xj\u0307\u0308 X\u012F X\u012F\u0307\u0308",
+                            lithuanianSource,
+                            true);
+            Transliterator ltLower =
+                    checkString(
+                            "lt",
+                            Casing.Lower,
+                            "i i\u0307\u0308 j j\u0307\u0308 \u012F \u012F\u0307\u0308 i\u0307\u0300 i\u0307\u0301 i\u0307\u0303 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 xi xi\u0307\u0308 xj xj\u0307\u0308 x\u012F x\u012F\u0307\u0308",
+                            lithuanianSource,
+                            true);
         }
-        Transliterator ltUpper = checkString(
-            "lt",
-            Casing.Upper,
-            "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 X\u00CF XJ\u0308 X\u012E\u0308 X\u00CC X\u00CD X\u0128 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308",
-            lithuanianSource, true);
+        Transliterator ltUpper =
+                checkString(
+                        "lt",
+                        Casing.Upper,
+                        "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 X\u00CF XJ\u0308 X\u012E\u0308 X\u00CC X\u00CD X\u0128 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308",
+                        lithuanianSource,
+                        true);
 
         String dutchSource = "IJKIJ ijkij IjkIj";
-        Transliterator nlTitle = checkString("nl", Casing.Title,
-            "IJkij IJkij IJkij", dutchSource, true);
+        Transliterator nlTitle =
+                checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
         // Transliterator nlLower = checkString("nl", Casing.Lower, "ısii isıı",
         // turkishSource);
         // Transliterator nlUpper = checkString("tr", Casing.Upper, "ISİİ İSII",
         // turkishSource);
     }
 
-    private Transliterator checkString(String locale, Casing casing,
-        String expected, String source, boolean sameAsSpecialCasing) {
-        Transliterator translit = Transliterator.getInstance(locale + "-"
-            + casing);
+    private Transliterator checkString(
+            String locale,
+            Casing casing,
+            String expected,
+            String source,
+            boolean sameAsSpecialCasing) {
+        Transliterator translit = Transliterator.getInstance(locale + "-" + casing);
         String result = checkString(locale, expected, source, translit);
         ULocale ulocale = new ULocale(locale);
         String specialCasing;
@@ -602,36 +640,30 @@ public class TestTransforms extends TestFmwkPlus {
         // Transliterator
         // does
         switch (casing) {
-        case Upper:
-            specialCasing = normNFC.normalize(UCharacter.toUpperCase(ulocale,
-                source));
-            break;
-        case Title:
-            specialCasing = normNFC.normalize(UCharacter.toTitleCase(ulocale,
-                source, null));
-            break;
-        case Lower:
-            specialCasing = normNFC.normalize(UCharacter.toLowerCase(ulocale,
-                source));
-            break;
-        default:
-            throw new IllegalArgumentException();
+            case Upper:
+                specialCasing = normNFC.normalize(UCharacter.toUpperCase(ulocale, source));
+                break;
+            case Title:
+                specialCasing = normNFC.normalize(UCharacter.toTitleCase(ulocale, source, null));
+                break;
+            case Lower:
+                specialCasing = normNFC.normalize(UCharacter.toLowerCase(ulocale, source));
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
         if (sameAsSpecialCasing) {
-            if (!assertEquals(locale + "-" + casing + " Vs SpecialCasing",
-                specialCasing, result)) {
-                showFirstDifference("Special: ", specialCasing, "Transform: ",
-                    result);
+            if (!assertEquals(locale + "-" + casing + " Vs SpecialCasing", specialCasing, result)) {
+                showFirstDifference("Special: ", specialCasing, "Transform: ", result);
             }
         } else {
-            assertNotEquals(locale + "-" + casing + "Vs SpecialCasing",
-                specialCasing, result);
+            assertNotEquals(locale + "-" + casing + "Vs SpecialCasing", specialCasing, result);
         }
         return translit;
     }
 
-    private String checkString(String locale, String expected, String source,
-        Transliterator translit) {
+    private String checkString(
+            String locale, String expected, String source, Transliterator translit) {
         String transformed = translit.transform(source);
         if (!assertEquals(locale, expected, transformed)) {
             showTransliterator(translit);
@@ -639,8 +671,7 @@ public class TestTransforms extends TestFmwkPlus {
         return transformed;
     }
 
-    private void showFirstDifference(String titleA, String a, String titleB,
-        String b) {
+    private void showFirstDifference(String titleA, String a, String titleB, String b) {
         StringBuilder buffer = new StringBuilder();
         for (int i = 0; i < Math.min(a.length(), b.length()); ++i) {
             char aChar = a.charAt(i);
@@ -648,9 +679,17 @@ public class TestTransforms extends TestFmwkPlus {
             if (aChar == bChar) {
                 buffer.append(aChar);
             } else {
-                errln("\t" + buffer + "\n\t\t" + titleA + "\t"
-                    + Utility.hex(a.substring(i)) + "\n\t\t" + titleB
-                    + "\t" + Utility.hex(b.substring(i)));
+                errln(
+                        "\t"
+                                + buffer
+                                + "\n\t\t"
+                                + titleA
+                                + "\t"
+                                + Utility.hex(a.substring(i))
+                                + "\n\t\t"
+                                + titleB
+                                + "\t"
+                                + Utility.hex(b.substring(i)));
                 return;
             }
         }
@@ -677,10 +716,9 @@ public class TestTransforms extends TestFmwkPlus {
         // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
         Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
 
-        String z1 =
-            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String z1 = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
         String expected =
-            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+                "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
         String actual = z2u.transform(z1);
 
@@ -702,9 +740,8 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
 
         String expected =
-            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-        String u1 =
-            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+                "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String u1 = "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
         String actual = u2z.transform(u1);
 
@@ -722,8 +759,13 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestLocales() {
-        Set<String> modernCldr = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
-        Set<String> special = StandardCodes.make().getLocaleCoverageLocales(Organization.special, ImmutableSet.of(Level.MODERN));
+        Set<String> modernCldr =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
+        Set<String> special =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(
+                                Organization.special, ImmutableSet.of(Level.MODERN));
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
         Set<String> missing = new TreeSet<>();
         SampleDataSet badPlusSample = new SampleDataSet();
@@ -767,8 +809,14 @@ public class TestTransforms extends TestFmwkPlus {
                 badPlusSample.addNonLatin(locale, script, path, value, transformed);
             }
             if (!badPlusSample.isEmpty()) {
-                logln(locale + " " + script + " transform doesn't handle " + badPlusSample.size()
-                + " code points:\n" + badPlusSample);
+                logln(
+                        locale
+                                + " "
+                                + script
+                                + " transform doesn't handle "
+                                + badPlusSample.size()
+                                + " code points:\n"
+                                + badPlusSample);
                 allMissing.addAll(badPlusSample);
             }
         }
@@ -785,14 +833,24 @@ public class TestTransforms extends TestFmwkPlus {
                 CLDRTransforms.showTransliterator("", hantLatin, 100000);
             }
 
-            warnln("Some X-Latn transforms don't handle " + allMissing.size()
-            + " code points:" + allMissing.dataSet.keySet().toPattern(false)
-            + "=" + allMissing.dataSet.keySet());
+            warnln(
+                    "Some X-Latn transforms don't handle "
+                            + allMissing.size()
+                            + " code points:"
+                            + allMissing.dataSet.keySet().toPattern(false)
+                            + "="
+                            + allMissing.dataSet.keySet());
             for (String script : allMissing.scriptMissing.values()) {
                 UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(script);
-                errln("Transliterator for\t" + script + "\tmissing\t" + missingFoScript.size()
-                + ":\t" + missingFoScript.toPattern(false)
-                + "=" + missingFoScript);
+                errln(
+                        "Transliterator for\t"
+                                + script
+                                + "\tmissing\t"
+                                + missingFoScript.size()
+                                + ":\t"
+                                + missingFoScript.toPattern(false)
+                                + "="
+                                + missingFoScript);
             }
         }
     }
@@ -806,40 +864,47 @@ public class TestTransforms extends TestFmwkPlus {
             final String path;
             final String value;
             final String transformed;
+
             public SampleData(String locale, String path, String value, String transformed) {
                 this.locale = locale;
                 this.path = path;
                 this.value = value;
                 this.transformed = transformed;
             }
+
             @Override
             public String toString() {
-                return String.format("%s;\t%s;\t%s;\t%s;\t%s", locale, ExemplarUtilities.getScript(locale), path, value, transformed);
+                return String.format(
+                        "%s;\t%s;\t%s;\t%s;\t%s",
+                        locale, ExemplarUtilities.getScript(locale), path, value, transformed);
             }
         }
 
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder();
-            result
-            .append("size=\t").append(dataSet.size())
-            .append("\nkeys=\t").append(dataSet.keySet().toPattern(false))
-            .append("\ndetails=")
-            ;
+            result.append("size=\t")
+                    .append(dataSet.size())
+                    .append("\nkeys=\t")
+                    .append(dataSet.keySet().toPattern(false))
+                    .append("\ndetails=");
             for (Entry<String, SampleData> entry : dataSet.entrySet()) {
                 final String key = entry.getKey();
                 final int cp = key.codePointAt(0);
-                result
-                .append("\n").append(Utility.hex(cp))
-                .append("\t").append(key)
-                .append("\t").append(UScript.getShortName(UScript.getScript(cp)))
-                .append("\t").append(entry.getValue())
-                ;
+                result.append("\n")
+                        .append(Utility.hex(cp))
+                        .append("\t")
+                        .append(key)
+                        .append("\t")
+                        .append(UScript.getShortName(UScript.getScript(cp)))
+                        .append("\t")
+                        .append(entry.getValue());
             }
             return result.toString();
         }
 
-        private void addNonLatin(String locale, String script, String path, String source, String transformed) {
+        private void addNonLatin(
+                String locale, String script, String path, String source, String transformed) {
             int cp = 0;
             BitSet bs = new BitSet();
             for (int ci = 0; ci < transformed.length(); ci += Character.charCount(cp)) {
@@ -848,19 +913,21 @@ public class TestTransforms extends TestFmwkPlus {
                     continue;
                 }
                 int scriptCode = UScript.getScriptExtensions(cp, bs);
-                switch(scriptCode) {
-                case UScript.LATIN: case UScript.COMMON: case UScript.INHERITED:
-                    continue;
-                default:
-                    // add(locale, script, path, source, transformed, cp);
-                    if (scriptCode >= 0) { // no extensions, not latin, etc.
-                        add(locale, script, path, source, transformed, cp);
-                    } else {
-                        bs.clear(UScript.LATIN);
-                        if (!bs.isEmpty()) {
+                switch (scriptCode) {
+                    case UScript.LATIN:
+                    case UScript.COMMON:
+                    case UScript.INHERITED:
+                        continue;
+                    default:
+                        // add(locale, script, path, source, transformed, cp);
+                        if (scriptCode >= 0) { // no extensions, not latin, etc.
                             add(locale, script, path, source, transformed, cp);
+                        } else {
+                            bs.clear(UScript.LATIN);
+                            if (!bs.isEmpty()) {
+                                add(locale, script, path, source, transformed, cp);
+                            }
                         }
-                    }
                 }
             }
         }
@@ -877,13 +944,20 @@ public class TestTransforms extends TestFmwkPlus {
             dataSet.clear();
         }
 
-        private void add(String locale, String script, String path, String source, String transformed, int cp) {
+        private void add(
+                String locale,
+                String script,
+                String path,
+                String source,
+                String transformed,
+                int cp) {
             SampleData old = dataSet.get(cp);
             if (old == null || old.transformed.length() > transformed.length()) {
                 dataSet.put(cp, new SampleData(locale, path, source, transformed));
                 scriptMissing.add(cp, script);
             }
         }
+
         private void addAll(SampleDataSet badPlusSample) {
             for (String c : badPlusSample.scriptMissing.keySet()) {
                 scriptMissing.addAll(c, badPlusSample.scriptMissing.get(c));

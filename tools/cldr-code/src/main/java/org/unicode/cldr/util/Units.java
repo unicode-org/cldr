@@ -1,15 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.Validity.Status;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableMap;
@@ -19,30 +9,45 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.regex.Pattern;
+import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity.Status;
 
 public class Units {
 
     private static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
-    public static Pattern NO_SPACE_PREFIX = Pattern.compile("\\}" + ExampleGenerator.backgroundEndSymbol + "?\\p{L}|\\p{L}" + ExampleGenerator.backgroundStartSymbol + "?\\{");
+    public static Pattern NO_SPACE_PREFIX =
+            Pattern.compile(
+                    "\\}"
+                            + ExampleGenerator.backgroundEndSymbol
+                            + "?\\p{L}|\\p{L}"
+                            + ExampleGenerator.backgroundStartSymbol
+                            + "?\\{");
 
-    public static String combinePattern(String unitFormat, String compoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
+    public static String combinePattern(
+            String unitFormat, String compoundPattern, boolean lowercaseUnitIfNoSpaceInCompound) {
         // meterFormat of the form {0} meters or {0} Meter
         // compoundPattern is of the form Z{0} or Zetta{0}
 
         // extract the unit
         String modUnit = (String) SPACE_SPANNER.trim(unitFormat.replace("{0}", ""));
-        Object[] parameters = { modUnit };
+        Object[] parameters = {modUnit};
 
-        String modFormat = unitFormat.replace(modUnit, MessageFormat.format(compoundPattern, parameters));
+        String modFormat =
+                unitFormat.replace(modUnit, MessageFormat.format(compoundPattern, parameters));
         if (modFormat.equals(unitFormat)) {
             // didn't work, so fall back
-            Object[] parameters1 = { unitFormat };
+            Object[] parameters1 = {unitFormat};
             modFormat = MessageFormat.format(compoundPattern, parameters1);
         }
 
         // hack to fix casing
-        if (lowercaseUnitIfNoSpaceInCompound
-            && NO_SPACE_PREFIX.matcher(compoundPattern).find()) {
+        if (lowercaseUnitIfNoSpaceInCompound && NO_SPACE_PREFIX.matcher(compoundPattern).find()) {
             modFormat = modFormat.replace(modUnit, modUnit.toLowerCase(Locale.ENGLISH));
         }
 
@@ -51,22 +56,23 @@ public class Units {
 
     static final UnicodeSetSpanner SPACE_SPANNER = new UnicodeSetSpanner(WHITESPACE);
 
-    public static final Map<String,String> CORE_TO_TYPE;
-    public static final Multimap<String,String> TYPE_TO_CORE;
-    public static final BiMap<String,String> LONG_TO_SHORT;
+    public static final Map<String, String> CORE_TO_TYPE;
+    public static final Multimap<String, String> TYPE_TO_CORE;
+    public static final BiMap<String, String> LONG_TO_SHORT;
 
     static {
-        Set<String> VALID_UNITS = Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+        Set<String> VALID_UNITS =
+                Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
 
         Map<String, String> coreToType = new TreeMap<>();
         Multimap<String, String> typeToCore = TreeMultimap.create();
         Map<String, String> longToShort = new TreeMap<>();
         for (String s : VALID_UNITS) {
             int dashPos = s.indexOf('-');
-            String unitType = s.substring(0,dashPos);
-            String coreUnit = s.substring(dashPos+1);
+            String unitType = s.substring(0, dashPos);
+            String coreUnit = s.substring(dashPos + 1);
             longToShort.put(s, coreUnit);
-            //coreUnit = converter.fixDenormalized(coreUnit);
+            // coreUnit = converter.fixDenormalized(coreUnit);
             coreToType.put(coreUnit, unitType);
             typeToCore.put(unitType, coreUnit);
         }
@@ -78,6 +84,7 @@ public class Units {
     public static String getShort(String longUnit) {
         return LONG_TO_SHORT.get(longUnit);
     }
+
     public static String getLong(String shortId) {
         return LONG_TO_SHORT.inverse().get(shortId);
     }

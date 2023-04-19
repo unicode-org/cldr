@@ -1,9 +1,8 @@
 package org.unicode.cldr.draft.keyboard.test;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
 import org.unicode.cldr.draft.keyboard.KeycodeMap;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 public class KeycodeMapTest extends TestFmwk {
     public void testGetIsoLayoutPosition() {

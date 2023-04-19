@@ -14,12 +14,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
- * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a pain to rename
- * files in CVS.
+ * This is a simple dictionary class used for testing. Should be in the package usertest, but it's a
+ * pain to rename files in CVS.
  *
  * @author markdavis
  */
@@ -38,7 +37,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         public SimpleDictionary<T> make(Map<CharSequence, T> source) {
             return new SimpleDictionary(source);
         }
-
     }
 
     private SimpleDictionary(Map<CharSequence, T> source) {
@@ -72,7 +70,8 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
     private void addMapping(CharSequence text, T result) {
         if (CharUtilities.compare(text, lastEntry) <= 0) {
-            throw new IllegalArgumentException("Each string must be greater than the previous one.");
+            throw new IllegalArgumentException(
+                    "Each string must be greater than the previous one.");
         }
         lastEntry = text;
         data.put(text, result);
@@ -98,18 +97,17 @@ public class SimpleDictionary<T> extends Dictionary<T> {
             return super.setOffset(offset);
         }
 
-        /**
-         * Dumb implementation.
-         *
-         */
+        /** Dumb implementation. */
         @Override
         public Status next() {
-            // There are two degenerate cases: our dictionary is empty, or we are called on an empty string.
+            // There are two degenerate cases: our dictionary is empty, or we are called on an empty
+            // string.
 
             // As long as we get matches, we return them.
             // When we fail, we return one of two statuses
             // DONE if there were no more matches in the dictionary past the last match
-            // SINGLE if there was a longer match, plus the longest offset that we successfully got to.
+            // SINGLE if there was a longer match, plus the longest offset that we successfully got
+            // to.
 
             // if we have already narrowed down to the end, just return the status
             // everything should already be set to make this work.
@@ -177,8 +175,8 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
 
         /**
-         * Returns the first matching item, if there is one, and
-         * filters the rest of the list to those that match the probe.
+         * Returns the first matching item, if there is one, and filters the rest of the list to
+         * those that match the probe.
          *
          * @param probe
          * @return
@@ -281,5 +279,4 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
         return true;
     }
-
 }

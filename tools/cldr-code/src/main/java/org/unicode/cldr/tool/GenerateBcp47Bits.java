@@ -1,17 +1,15 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 public class GenerateBcp47Bits {
     static final boolean QUICK = false; // true for debugging
@@ -42,9 +40,16 @@ public class GenerateBcp47Bits {
 
         // Compress it
         System.out.println("\t<bits>");
-        writeInfo("region", regions, new Bcp47StringBitTransform(Bcp47StringBitTransform.Type.REGION), regionStaticTest);
-        writeInfo("language", languages, new Bcp47StringBitTransform(Bcp47StringBitTransform.Type.LANGUAGE),
-            languageStaticTest);
+        writeInfo(
+                "region",
+                regions,
+                new Bcp47StringBitTransform(Bcp47StringBitTransform.Type.REGION),
+                regionStaticTest);
+        writeInfo(
+                "language",
+                languages,
+                new Bcp47StringBitTransform(Bcp47StringBitTransform.Type.LANGUAGE),
+                languageStaticTest);
         System.out.println("\t</bits>");
     }
 
@@ -56,8 +61,11 @@ public class GenerateBcp47Bits {
      * @param transform
      * @param staticTest2
      */
-    private static void writeInfo(String element, Collection<String> codes, StringBitTransform transform,
-        long[] testStatic) {
+    private static void writeInfo(
+            String element,
+            Collection<String> codes,
+            StringBitTransform transform,
+            long[] testStatic) {
         System.out.println("<!-- " + codes + " -->");
         System.out.println("\t\t<" + element + ">");
         writeBits(codes, transform, "\t\t\t\t", testStatic);
@@ -72,8 +80,11 @@ public class GenerateBcp47Bits {
      * @param indent
      * @param testStatic
      */
-    private static void writeBits(final Collection<String> source, StringBitTransform transform, String indent,
-        long[] testStatic) {
+    private static void writeBits(
+            final Collection<String> source,
+            StringBitTransform transform,
+            String indent,
+            long[] testStatic) {
         Set<String> codes = new TreeSet<>(source);
 
         // Transform into bits
@@ -126,7 +137,7 @@ public class GenerateBcp47Bits {
         if (QUICK) System.out.println(reversed);
         if (QUICK) System.out.println(reversed.toString(16, indent, 4));
         if (!reversed.equals(bits)) {
-            //int diff = reversed.firstDifference(bits);
+            // int diff = reversed.firstDifference(bits);
             throw new IllegalArgumentException("Reversal failure" + bits + " != " + reversed);
         }
 
@@ -140,8 +151,8 @@ public class GenerateBcp47Bits {
     }
 
     /**
-     * Simple Bitset (java BitSet doesn't do enough).
-     * Note that bits are stored in order, eg 0 => 800..., 1 => 40...
+     * Simple Bitset (java BitSet doesn't do enough). Note that bits are stored in order, eg 0 =>
+     * 800..., 1 => 40...
      */
     static class Bits {
         private final long[] bits;
@@ -155,7 +166,7 @@ public class GenerateBcp47Bits {
         public Bits set(int bit) {
             final int index = bit >> SHIFT;
             final int remainder = bit & MASK;
-            //int restore = (index << SHIFT) | remainder;
+            // int restore = (index << SHIFT) | remainder;
             final long mask = 1L << remainder;
             bits[index] |= mask;
             return this;
@@ -164,7 +175,7 @@ public class GenerateBcp47Bits {
         public boolean get(int bit) {
             final int index = bit >> SHIFT;
             final int remainder = bit & MASK;
-            //int restore = (index << SHIFT) | remainder;
+            // int restore = (index << SHIFT) | remainder;
             final long mask = 1L << remainder;
             final long masked = bits[index] & mask;
             return 0 != masked;
@@ -176,8 +187,7 @@ public class GenerateBcp47Bits {
             int count = perLineMax;
             // strip final zeros
             int last = bits.length;
-            while (bits[--last] == 0) {
-            }
+            while (bits[--last] == 0) {}
             // write out up to those
             for (int i = 0; i <= last; ++i) {
                 if (i != 0) {
@@ -259,9 +269,7 @@ public class GenerateBcp47Bits {
         }
     }
 
-    /**
-     * Encapsulates a transformation between string and bit
-     */
+    /** Encapsulates a transformation between string and bit */
     static interface StringBitTransform {
         public int getLimit();
 
@@ -272,7 +280,8 @@ public class GenerateBcp47Bits {
 
     static class Bcp47StringBitTransform implements StringBitTransform {
         enum Type {
-            LANGUAGE, REGION
+            LANGUAGE,
+            REGION
         }
 
         Type type;
@@ -295,25 +304,24 @@ public class GenerateBcp47Bits {
         public int toBit(String string) {
             string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
             switch (string.length()) {
-            case 2:
-                if (!alpha.containsAll(string)) {
+                case 2:
+                    if (!alpha.containsAll(string)) {
+                        throw new IllegalArgumentException(string);
+                    }
+                    return (string.codePointAt(0) - 'a') * 26 + (string.codePointAt(1) - 'a');
+                case 3:
+                    if (alpha.containsAll(string)) {
+                        return 26 * 26
+                                + (string.codePointAt(0) - 'a') * 26 * 26
+                                + (string.codePointAt(1) - 'a') * 26
+                                + (string.codePointAt(2) - 'a');
+                    }
+                    if (!num.containsAll(string)) {
+                        throw new IllegalArgumentException(string);
+                    }
+                    return 26 * 26 + Integer.parseInt(string);
+                default:
                     throw new IllegalArgumentException(string);
-                }
-                return (string.codePointAt(0) - 'a') * 26
-                    + (string.codePointAt(1) - 'a');
-            case 3:
-                if (alpha.containsAll(string)) {
-                    return 26 * 26 +
-                        (string.codePointAt(0) - 'a') * 26 * 26
-                        + (string.codePointAt(1) - 'a') * 26
-                        + (string.codePointAt(2) - 'a');
-                }
-                if (!num.containsAll(string)) {
-                    throw new IllegalArgumentException(string);
-                }
-                return 26 * 26 + Integer.parseInt(string);
-            default:
-                throw new IllegalArgumentException(string);
             }
         }
 
@@ -324,8 +332,7 @@ public class GenerateBcp47Bits {
                 throw new IllegalArgumentException(String.valueOf(bit));
             }
             if (bit < 26 * 26) {
-                result.appendCodePoint('a' + bit / 26)
-                    .appendCodePoint('a' + bit % 26);
+                result.appendCodePoint('a' + bit / 26).appendCodePoint('a' + bit % 26);
             } else {
                 bit -= 26 * 26;
                 if (type == Type.LANGUAGE) {
@@ -334,17 +341,14 @@ public class GenerateBcp47Bits {
                     }
                     result.appendCodePoint('a' + bit / (26 * 26));
                     bit %= (26 * 26);
-                    result.appendCodePoint('a' + bit / 26)
-                        .appendCodePoint('a' + bit % 26);
+                    result.appendCodePoint('a' + bit / 26).appendCodePoint('a' + bit % 26);
                 } else {
                     if (bit >= 26 * 26 + 1000) {
                         throw new IllegalArgumentException(String.valueOf(bit));
                     }
                     result.append(bit / (10 * 10));
                     bit %= (10 * 10);
-                    result.append(bit / 10)
-                        .append(bit % 10);
-
+                    result.append(bit / 10).append(bit % 10);
                 }
             }
             if (type == Type.REGION) return result.toString().toUpperCase(Locale.ENGLISH);
@@ -352,12 +356,8 @@ public class GenerateBcp47Bits {
         }
     }
 
-    /**
-     * The following are for testing, using generated data.
-     */
-
+    /** The following are for testing, using generated data. */
     static long[] javaTestRegions = {};
 
     static long[] javaTestLanguages = {};
-
 }

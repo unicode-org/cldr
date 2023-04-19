@@ -1,53 +1,47 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.unicode.cldr.util.CldrUtility;
-
 import com.google.common.base.Joiner;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import org.unicode.cldr.util.CldrUtility;
 
 public class TestFmwkPlus extends TestFmwk {
 
     @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertTrue(
-        String message, T arg0, R relation, V... args) {
+            String message, T arg0, R relation, V... args) {
         return assertRelation(message, true, arg0, relation, args);
     }
 
     @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertFalse(
-        String message, T arg0, R relation, V... args) {
+            String message, T arg0, R relation, V... args) {
         return assertRelation(message, false, arg0, relation, args);
     }
 
     @SuppressWarnings("unchecked")
-    public <T, V, R extends TestRelation<T, V>> boolean assertTrue(T arg0,
-        R relation, V... args) {
+    public <T, V, R extends TestRelation<T, V>> boolean assertTrue(T arg0, R relation, V... args) {
         return assertRelation(null, true, arg0, relation, args);
     }
 
     @SuppressWarnings("unchecked")
-    public <T, V, R extends TestRelation<T, V>> boolean assertFalse(T arg0,
-        R relation, V... args) {
+    public <T, V, R extends TestRelation<T, V>> boolean assertFalse(T arg0, R relation, V... args) {
         return assertRelation(null, false, arg0, relation, args);
     }
 
     @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertRelation(
-        String message, boolean expected, T arg0, R relation, V... args) {
-        boolean actual = args.length == 0 ? relation.isTrue(arg0) : relation
-            .isTrue(arg0, args);
+            String message, boolean expected, T arg0, R relation, V... args) {
+        boolean actual = args.length == 0 ? relation.isTrue(arg0) : relation.isTrue(arg0, args);
         boolean test = expected == actual;
         if (!test) {
-            errln(showArgs("", message, actual, arg0, relation, args)
-                + "; expected " + expected);
+            errln(showArgs("", message, actual, arg0, relation, args) + "; expected " + expected);
         } else if (isVerbose()) {
             logln(showArgs("OK ", message, actual, arg0, relation, args));
         }
@@ -55,30 +49,44 @@ public class TestFmwkPlus extends TestFmwk {
     }
 
     public <E, S, T extends Transform<S, E>> boolean assertTransformsTo(
-        String message, E expected, T transform, S source) {
+            String message, E expected, T transform, S source) {
         E actual = transform.transform(source);
         boolean test = CldrUtility.equals(expected, actual);
         if (!test) {
-            errln(showArgs("", message, expected, actual, transform, source)
-                + "; expected " + "‹" + expected + "›");
+            errln(
+                    showArgs("", message, expected, actual, transform, source)
+                            + "; expected "
+                            + "‹"
+                            + expected
+                            + "›");
         } else if (isVerbose()) {
             logln(showArgs("OK ", message, expected, actual, transform, source));
         }
         return test;
     }
 
-    private <E, S, T extends Transform<S, E>> String showArgs(String prefix,
-        String message, E expected, E actual, T transform, S source) {
-        String simpleName = transform instanceof Transliterator ? ((Transliterator) transform)
-            .getID() : transform.getClass().getSimpleName();
-        return prefix + sourceLocationPlus() + " "
-            + (message == null ? "" : message + " : ") + "got ‹" + actual
-            + "› from " + simpleName + "(‹" + source + "›)";
+    private <E, S, T extends Transform<S, E>> String showArgs(
+            String prefix, String message, E expected, E actual, T transform, S source) {
+        String simpleName =
+                transform instanceof Transliterator
+                        ? ((Transliterator) transform).getID()
+                        : transform.getClass().getSimpleName();
+        return prefix
+                + sourceLocationPlus()
+                + " "
+                + (message == null ? "" : message + " : ")
+                + "got ‹"
+                + actual
+                + "› from "
+                + simpleName
+                + "(‹"
+                + source
+                + "›)";
     }
 
     @SuppressWarnings("unchecked")
-    private <T, V, R extends TestRelation<T, V>> String showArgs(String prefix,
-        String message, boolean expected, T arg0, R relation, V... args) {
+    private <T, V, R extends TestRelation<T, V>> String showArgs(
+            String prefix, String message, boolean expected, T arg0, R relation, V... args) {
         StringBuilder others = new StringBuilder();
         for (V arg : args) {
             if (others.length() != 0) {
@@ -86,10 +94,15 @@ public class TestFmwkPlus extends TestFmwk {
             }
             others.append(relation.showOther(arg));
         }
-        return prefix + sourceLocationPlus() + " "
-            + (message == null ? "" : message + " : ")
-            + relation.showFirst(arg0) + (expected ? " " : " NOT ")
-            + relation + " " + others;
+        return prefix
+                + sourceLocationPlus()
+                + " "
+                + (message == null ? "" : message + " : ")
+                + relation.showFirst(arg0)
+                + (expected ? " " : " NOT ")
+                + relation
+                + " "
+                + others;
     }
 
     public abstract static class TestRelation<T, U> {
@@ -190,174 +203,180 @@ public class TestFmwkPlus extends TestFmwk {
     }
 
     @SuppressWarnings("rawtypes")
-    public static TestRelation CONTAINS = new TestRelation<Collection, Object>() {
-        @Override
-        public boolean isTrue(Collection a, Object... bs) {
-            for (Object b : bs) {
-                if (!a.contains(b)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public String toString() {
-            return "contains";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation CONTAINS_ALL = new TestRelation<Collection, Object>() {
-        @Override
-        public boolean isTrue(Collection a, Object... bs) {
-            for (Object b : bs) {
-                if (!(b instanceof Collection)) {
-                    return false;
-                }
-                if (!a.containsAll((Collection) b)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public String toString() {
-            return "contains-all";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation CONTAINS_SOME = new TestRelation<Collection, Object>() {
-        @Override
-        public boolean isTrue(Collection a, Object... bs) {
-            for (Object b : bs) {
-                if (!(b instanceof Collection)) {
-                    return false;
-                }
-                if (Collections.disjoint(a, (Collection) b)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public String toString() {
-            return "contains-some";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation EMPTY = new TestRelation<Collection, Object>() {
-        @Override
-        public boolean isTrue(Collection a, Object... bs) {
-            if (bs.length != 0) {
-                throw new IllegalArgumentException(
-                    "Should only have 1 argument");
-            }
-            return a.size() == 0;
-        }
-
-        @Override
-        public String toString() {
-            return "is empty";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
-        @SuppressWarnings("unchecked")
-        @Override
-        public boolean isTrue(Comparable a, Comparable... bs) {
-            if (bs.length != 1) {
-                throw new IllegalArgumentException("Should have 2 arguments");
-            }
-            return a.compareTo(bs[0]) <= 0;
-        }
-
-        @Override
-        public String toString() {
-            return " ≤ ";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation GEQ = new TestRelation<Comparable, Comparable>() {
-        @SuppressWarnings("unchecked")
-        @Override
-        public boolean isTrue(Comparable a, Comparable... bs) {
-            if (bs.length != 1) {
-                throw new IllegalArgumentException("Should have 2 arguments");
-            }
-            return a.compareTo(bs[0]) >= 0;
-        }
-
-        @Override
-        public String toString() {
-            return "≥ ";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation IDENTICAL = new TestRelation<Object, Object>() {
-        @Override
-        public boolean isTrue(Object a, Object... bs) {
-            for (Object b : bs) {
-                if (a != b) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public String toString() {
-            return "is identical to";
-        }
-    };
-
-    @SuppressWarnings("rawtypes")
-    public static TestRelation CONTAINS_US = new TestRelation<UnicodeSet, Object>() {
-        @Override
-        public boolean isTrue(UnicodeSet a, Object... bs) {
-            for (Object b : bs) {
-                if (b instanceof UnicodeSet) {
-                    if (!a.containsAll((UnicodeSet) b)) {
-                        return false;
+    public static TestRelation CONTAINS =
+            new TestRelation<Collection, Object>() {
+                @Override
+                public boolean isTrue(Collection a, Object... bs) {
+                    for (Object b : bs) {
+                        if (!a.contains(b)) {
+                            return false;
+                        }
                     }
-                } else if (b instanceof Integer) {
-                    if (!a.contains((Integer) b)) {
-                        return false;
-                    }
+                    return true;
                 }
-            }
-            return true;
-        }
 
-        @Override
-        public String showFirst(UnicodeSet a) {
-            return show(a.toPattern(false));
-        }
+                @Override
+                public String toString() {
+                    return "contains";
+                }
+            };
 
-        public String showOther(UnicodeSet b) {
-            return show(b.toPattern(false));
-        }
+    @SuppressWarnings("rawtypes")
+    public static TestRelation CONTAINS_ALL =
+            new TestRelation<Collection, Object>() {
+                @Override
+                public boolean isTrue(Collection a, Object... bs) {
+                    for (Object b : bs) {
+                        if (!(b instanceof Collection)) {
+                            return false;
+                        }
+                        if (!a.containsAll((Collection) b)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
 
-        @Override
-        public String toString() {
-            return "contains";
-        }
-    };
+                @Override
+                public String toString() {
+                    return "contains-all";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation CONTAINS_SOME =
+            new TestRelation<Collection, Object>() {
+                @Override
+                public boolean isTrue(Collection a, Object... bs) {
+                    for (Object b : bs) {
+                        if (!(b instanceof Collection)) {
+                            return false;
+                        }
+                        if (Collections.disjoint(a, (Collection) b)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                @Override
+                public String toString() {
+                    return "contains-some";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation EMPTY =
+            new TestRelation<Collection, Object>() {
+                @Override
+                public boolean isTrue(Collection a, Object... bs) {
+                    if (bs.length != 0) {
+                        throw new IllegalArgumentException("Should only have 1 argument");
+                    }
+                    return a.size() == 0;
+                }
+
+                @Override
+                public String toString() {
+                    return "is empty";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation LEQ =
+            new TestRelation<Comparable, Comparable>() {
+                @SuppressWarnings("unchecked")
+                @Override
+                public boolean isTrue(Comparable a, Comparable... bs) {
+                    if (bs.length != 1) {
+                        throw new IllegalArgumentException("Should have 2 arguments");
+                    }
+                    return a.compareTo(bs[0]) <= 0;
+                }
+
+                @Override
+                public String toString() {
+                    return " ≤ ";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation GEQ =
+            new TestRelation<Comparable, Comparable>() {
+                @SuppressWarnings("unchecked")
+                @Override
+                public boolean isTrue(Comparable a, Comparable... bs) {
+                    if (bs.length != 1) {
+                        throw new IllegalArgumentException("Should have 2 arguments");
+                    }
+                    return a.compareTo(bs[0]) >= 0;
+                }
+
+                @Override
+                public String toString() {
+                    return "≥ ";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation IDENTICAL =
+            new TestRelation<Object, Object>() {
+                @Override
+                public boolean isTrue(Object a, Object... bs) {
+                    for (Object b : bs) {
+                        if (a != b) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                @Override
+                public String toString() {
+                    return "is identical to";
+                }
+            };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation CONTAINS_US =
+            new TestRelation<UnicodeSet, Object>() {
+                @Override
+                public boolean isTrue(UnicodeSet a, Object... bs) {
+                    for (Object b : bs) {
+                        if (b instanceof UnicodeSet) {
+                            if (!a.containsAll((UnicodeSet) b)) {
+                                return false;
+                            }
+                        } else if (b instanceof Integer) {
+                            if (!a.contains((Integer) b)) {
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+
+                @Override
+                public String showFirst(UnicodeSet a) {
+                    return show(a.toPattern(false));
+                }
+
+                public String showOther(UnicodeSet b) {
+                    return show(b.toPattern(false));
+                }
+
+                @Override
+                public String toString() {
+                    return "contains";
+                }
+            };
 
     private String sourceLocationPlus() {
         // Walk up the stack to the first call site outside this file
         StackTraceElement[] st = new Throwable().getStackTrace();
         for (int i = 0; i < st.length; ++i) {
             if (!"TestFmwkPlus.java".equals(st[i].getFileName())) {
-                return "File " + st[i].getFileName() + ", Line "
-                    + st[i].getLineNumber();
+                return "File " + st[i].getFileName() + ", Line " + st[i].getLineNumber();
             }
         }
         throw new InternalError();
@@ -396,8 +415,7 @@ public class TestFmwkPlus extends TestFmwk {
         assertTrue(containerA, new Or(CONTAINS, IDENTICAL), stringA);
         assertFalse(containerA, new And(CONTAINS, IDENTICAL), stringA);
 
-        assertTrue(new UnicodeSet("[:L:]"), CONTAINS_US, 'a', new UnicodeSet(
-            "[ab]"));
+        assertTrue(new UnicodeSet("[:L:]"), CONTAINS_US, 'a', new UnicodeSet("[ab]"));
         assertTrue(3, LEQ, 4);
     }
 }

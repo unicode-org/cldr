@@ -8,16 +8,14 @@
  */
 package org.unicode.cldr.posix;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import java.text.StringCharacterIterator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.unicode.cldr.util.CLDRFile;
-
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
 
 public class POSIXUtilities {
 
@@ -26,7 +24,8 @@ public class POSIXUtilities {
     private static Map<Integer, String> controlCodeNames = new HashMap<>();
 
     // Since UCharacter.getExtendedName() in ICU doesn't provide the names for control characters
-    // we have to force the issue here. Required elements for the POSIX portable character set will be
+    // we have to force the issue here. Required elements for the POSIX portable character set will
+    // be
     // used when necessary (in lower case). Otherwise, the name from the Unicode data file is used.
     private static void initControlCodeNames() {
         controlCodeNames.put(0x0000, "NULL");
@@ -39,10 +38,14 @@ public class POSIXUtilities {
         controlCodeNames.put(0x0007, "ALERT");
         controlCodeNames.put(0x0008, "BACKSPACE");
         controlCodeNames.put(0x0009, "tab"); // Required element for POSIX portable character set
-        controlCodeNames.put(0x000A, "newline"); // Required element for POSIX portable character set
-        controlCodeNames.put(0x000B, "vertical-tab"); // Required element for POSIX portable character set
-        controlCodeNames.put(0x000C, "form-feed"); // Required element for POSIX portable character set
-        controlCodeNames.put(0x000D, "carriage-return"); // Required element for POSIX portable character set
+        controlCodeNames.put(
+                0x000A, "newline"); // Required element for POSIX portable character set
+        controlCodeNames.put(
+                0x000B, "vertical-tab"); // Required element for POSIX portable character set
+        controlCodeNames.put(
+                0x000C, "form-feed"); // Required element for POSIX portable character set
+        controlCodeNames.put(
+                0x000D, "carriage-return"); // Required element for POSIX portable character set
         controlCodeNames.put(0x000E, "SHIFT_OUT");
         controlCodeNames.put(0x000F, "SHIFT_IN");
         controlCodeNames.put(0x0010, "DATA_LINK_ESCAPE");
@@ -128,9 +131,8 @@ public class POSIXUtilities {
 
         StringBuffer result = new StringBuffer();
         result.append("<");
-        if ((cp >= 0x0041 && cp <= 0x005A) ||
-            (cp >= 0x0061 && cp <= 0x007A)) // Latin letters
-            result.append((char) cp);
+        if ((cp >= 0x0041 && cp <= 0x005A) || (cp >= 0x0061 && cp <= 0x007A)) // Latin letters
+        result.append((char) cp);
         else if (cp >= 0x0030 && cp <= 0x0039) // digits
         {
             String n = UCharacter.getExtendedName(cp);
@@ -145,36 +147,41 @@ public class POSIXUtilities {
         else // everything else
         {
             String n = UCharacter.getExtendedName(cp);
-            result.append(n.replaceAll(" ", "_").replaceAll("<", "").replaceAll(">", "").toUpperCase());
+            result.append(
+                    n.replaceAll(" ", "_").replaceAll("<", "").replaceAll(">", "").toUpperCase());
         }
 
         int i = result.indexOf("_(");
-        if (i >= 0)
-            result.setLength(i);
+        if (i >= 0) result.setLength(i);
 
         result.append(">");
 
         if (!repertoire.contains(cp)) {
-            System.out.println("WARNING: character " + result.toString() + " is not in the target codeset.");
+            System.out.println(
+                    "WARNING: character " + result.toString() + " is not in the target codeset.");
 
             String substituteString = "";
             boolean SubFound = false;
-            String SearchLocation = "//supplementalData/characters/character-fallback/character[@value=\""
-                + UCharacter.toString(cp) + "\"]/substitute";
+            String SearchLocation =
+                    "//supplementalData/characters/character-fallback/character[@value=\""
+                            + UCharacter.toString(cp)
+                            + "\"]/substitute";
 
-            for (Iterator<String> it = char_fallbk.iterator(SearchLocation, char_fallbk.getComparator()); it.hasNext()
-                && !SubFound;) {
+            for (Iterator<String> it =
+                            char_fallbk.iterator(SearchLocation, char_fallbk.getComparator());
+                    it.hasNext() && !SubFound; ) {
                 String path = it.next();
                 substituteString = char_fallbk.getStringValue(path);
-                if (repertoire.containsAll(substituteString))
-                    SubFound = true;
+                if (repertoire.containsAll(substituteString)) SubFound = true;
             }
 
             if (SubFound) {
-                System.out.println("	Substituted: " + POSIXUtilities.POSIXCharName(substituteString));
+                System.out.println(
+                        "	Substituted: " + POSIXUtilities.POSIXCharName(substituteString));
                 result = new StringBuffer(POSIXUtilities.POSIXCharName(substituteString));
             } else
-                System.out.println("	No acceptable substitute found. The resulting locale source may not compile.");
+                System.out.println(
+                        "	No acceptable substitute found. The resulting locale source may not compile.");
         }
 
         return result.toString();
@@ -197,86 +204,83 @@ public class POSIXUtilities {
         result.append(n.replaceAll(" ", "_").replaceAll("<", "").replaceAll(">", "").toUpperCase());
 
         int i = result.indexOf("_(");
-        if (i >= 0)
-            result.setLength(i);
+        if (i >= 0) result.setLength(i);
 
         result.append(">");
 
         return result.toString();
     }
 
-    // POSIXCharNameNP replaces all non-portable characters with their expanded POSIX character name.
+    // POSIXCharNameNP replaces all non-portable characters with their expanded POSIX character
+    // name.
 
     public static String POSIXCharNameNP(String s) {
         int cp;
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
             cp = UTF16.charAt(s, i);
-            if (cp <= 0x007F)
-                result.append((char) cp);
-            else
-                result.append(POSIXCharName(cp));
+            if (cp <= 0x007F) result.append((char) cp);
+            else result.append(POSIXCharName(cp));
         }
         return result.toString();
     }
 
     public static String POSIXDateTimeFormat(String s, boolean UseAltDigits, POSIXVariant variant) {
 
-        // This is an array of the POSIX date / time field descriptors and their corresponding representations
+        // This is an array of the POSIX date / time field descriptors and their corresponding
+        // representations
         // in LDML. We use these to replace the LDML fields with POSIX field descriptors.
 
         String[][] FieldDescriptors = {
-            { "/d/", "<SOLIDUS>%d<SOLIDUS>", "<SOLIDUS>%d<SOLIDUS>", "<SOLIDUS>%d<SOLIDUS>" },
-            { "/", "<SOLIDUS>", "<SOLIDUS>", "<SOLIDUS>" },
-            { "DDD", "%j", "%j", "%j" },
-            { "EEEE", "%A", "%A", "%A" },
-            { "EEE", "%a", "%a", "%a" },
-            { "G", "%N", "%N", "%N" },
-            { "HH", "%H", "%OH", "%H" },
-            { "H", "%H", "%OH", "%k" }, // solaris defines exact mapping for "H""
-            { "KK", "%I", "%OI", "%I" },
-            { "K", "%I", "%OI", "%l" },
-            { "MMMM", "%B", "%B", "%B" },
-            { "MMM", "%b", "%b", "%b" },
-            { "MM", "%m", "%Om", "%m" },
-            { "M", "%m", "%Om", "%m" },
-            { "VVVV", "%Z", "%Z", "%Z" },
-            { "V", "%Z", "%Z", "%Z" },
-            { "a", "%p", "%p", "%p" },
-            { "dd", "%d", "%Od", "%d" },
-            { "d", "%e", "%Oe", "%e" },
-            { "hh", "%I", "%OI", "%I" },
-            { "h", "%I", "%OI", "%l" }, // solaris defines exact mapping for "h"
-            { "kk", "%H", "%OH", "%H" },
-            { "k", "%H", "%OH", "%k" },
-            { "mm", "%M", "%OM", "%M" },
-            { "m", "%M", "%OM", "%M" },
-            { "vvvv", "%Z", "%Z", "%Z" },
-            { "v", "%Z", "%Z", "%Z" },
-            { "yyyy", "%Y", "%Oy", "%Y" },
-            { "yy", "%y", "%Oy", "%y" },
-            { "y", "%Y", "%Oy", "%Y" },
-            { "zzzz", "%Z", "%Z", "%Z" },
-            { "zzz", "%Z", "%Z", "%Z" },
-            { "zz", "%Z", "%Z", "%Z" },
-            { "z", "%Z", "%Z", "%Z" },
-            { "ss", "%S", "%OS", "%S" },
-            { "s", "%S", "%OS", "%S" }
+            {"/d/", "<SOLIDUS>%d<SOLIDUS>", "<SOLIDUS>%d<SOLIDUS>", "<SOLIDUS>%d<SOLIDUS>"},
+            {"/", "<SOLIDUS>", "<SOLIDUS>", "<SOLIDUS>"},
+            {"DDD", "%j", "%j", "%j"},
+            {"EEEE", "%A", "%A", "%A"},
+            {"EEE", "%a", "%a", "%a"},
+            {"G", "%N", "%N", "%N"},
+            {"HH", "%H", "%OH", "%H"},
+            {"H", "%H", "%OH", "%k"}, // solaris defines exact mapping for "H""
+            {"KK", "%I", "%OI", "%I"},
+            {"K", "%I", "%OI", "%l"},
+            {"MMMM", "%B", "%B", "%B"},
+            {"MMM", "%b", "%b", "%b"},
+            {"MM", "%m", "%Om", "%m"},
+            {"M", "%m", "%Om", "%m"},
+            {"VVVV", "%Z", "%Z", "%Z"},
+            {"V", "%Z", "%Z", "%Z"},
+            {"a", "%p", "%p", "%p"},
+            {"dd", "%d", "%Od", "%d"},
+            {"d", "%e", "%Oe", "%e"},
+            {"hh", "%I", "%OI", "%I"},
+            {"h", "%I", "%OI", "%l"}, // solaris defines exact mapping for "h"
+            {"kk", "%H", "%OH", "%H"},
+            {"k", "%H", "%OH", "%k"},
+            {"mm", "%M", "%OM", "%M"},
+            {"m", "%M", "%OM", "%M"},
+            {"vvvv", "%Z", "%Z", "%Z"},
+            {"v", "%Z", "%Z", "%Z"},
+            {"yyyy", "%Y", "%Oy", "%Y"},
+            {"yy", "%y", "%Oy", "%y"},
+            {"y", "%Y", "%Oy", "%Y"},
+            {"zzzz", "%Z", "%Z", "%Z"},
+            {"zzz", "%Z", "%Z", "%Z"},
+            {"zz", "%Z", "%Z", "%Z"},
+            {"z", "%Z", "%Z", "%Z"},
+            {"ss", "%S", "%OS", "%S"},
+            {"s", "%S", "%OS", "%S"}
         };
 
         boolean inquotes = false;
         StringBuffer result = new StringBuffer("");
 
-        for (int pos = 0; pos < s.length();) {
+        for (int pos = 0; pos < s.length(); ) {
             boolean replaced = false;
             for (int i = 0; i < FieldDescriptors.length && !replaced && !inquotes; i++) {
                 if (s.indexOf(FieldDescriptors[i][0], pos) == pos) {
-                    if (UseAltDigits)
-                        result.append(FieldDescriptors[i][2]);
+                    if (UseAltDigits) result.append(FieldDescriptors[i][2]);
                     else if (variant.platform.equals(POSIXVariant.SOLARIS))
                         result.append(FieldDescriptors[i][3]);
-                    else
-                        result.append(FieldDescriptors[i][1]);
+                    else result.append(FieldDescriptors[i][1]);
                     replaced = true;
                     pos += FieldDescriptors[i][0].length();
                 }
@@ -287,15 +291,12 @@ public class POSIXUtilities {
                     if (pos < (s.length() - 1) && s.charAt(pos + 1) == '\'') {
                         result.append('\'');
                         pos++;
-                    } else
-                        inquotes = !inquotes;
-                } else
-                    result.append(s.charAt(pos));
+                    } else inquotes = !inquotes;
+                } else result.append(s.charAt(pos));
                 pos++;
             }
         }
         return result.toString();
-
     }
 
     public static String POSIXGrouping(String grouping_pattern) {
@@ -307,13 +308,11 @@ public class POSIXUtilities {
         boolean first_grouping = true;
         String result;
 
-        if (i < 0)
-            result = "-1";
+        if (i < 0) result = "-1";
         else {
             result = new String();
             while ((j = grouping_pattern.lastIndexOf(",", i - 1)) > 0) {
-                if (!first_grouping)
-                    result = result.concat(";");
+                if (!first_grouping) result = result.concat(";");
                 Integer num_digits = new Integer(i - j - 1);
                 result = result.concat(num_digits.toString());
 
@@ -322,11 +321,9 @@ public class POSIXUtilities {
             }
         }
 
-        if (result.length() == 0)
-            result = "-1";
+        if (result.length() == 0) result = "-1";
 
         return result;
-
     }
 
     public static boolean isBetween(int a, int b, int c) {
@@ -340,10 +337,8 @@ public class POSIXUtilities {
         for (int i = 0; i < YesNoElements.length; i++) {
             String cur = YesNoElements[i];
             if (cur.length() >= 1 && cur.toLowerCase().equals(cur)) {
-                if (result.length() > 0)
-                    result.append(")|(");
-                else
-                    result.append("^((");
+                if (result.length() > 0) result.append(")|(");
+                else result.append("^((");
 
                 StringCharacterIterator si = new StringCharacterIterator(cur);
                 boolean OptLastChars = false;
@@ -357,11 +352,9 @@ public class POSIXUtilities {
                         result.append(c);
                         result.append(Character.toUpperCase(c));
                         result.append("]");
-                    } else
-                        result.append(c);
+                    } else result.append(c);
                 }
-                if (OptLastChars)
-                    result.append(")?");
+                if (OptLastChars) result.append(")?");
             }
         }
         result.append("))");

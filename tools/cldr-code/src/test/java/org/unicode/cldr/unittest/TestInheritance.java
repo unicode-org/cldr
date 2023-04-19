@@ -1,5 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Sets;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.GenerateMaximalLocales;
@@ -37,29 +41,21 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Sets;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-
 public class TestInheritance extends TestFmwk {
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
-    private static Matcher pathMatcher = PatternCache.get(
-        CldrUtility.getProperty("XPATH", ".*")).matcher("");
+    private static Matcher pathMatcher =
+            PatternCache.get(CldrUtility.getProperty("XPATH", ".*")).matcher("");
 
     public static void main(String[] args) throws IOException {
         new TestInheritance().run(args);
     }
 
-    private static final SupplementalDataInfo dataInfo = SupplementalDataInfo
-        .getInstance();
-    private static final Set<String> defaultContents = dataInfo
-        .getDefaultContentLocales();
+    private static final SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();
+    private static final Set<String> defaultContents = dataInfo.getDefaultContentLocales();
 
     private static final boolean EXPECT_EQUALITY = false;
 
@@ -68,44 +64,40 @@ public class TestInheritance extends TestFmwk {
     public void TestLocalesHaveOfficial() {
         // If we have a language, we have all the region locales where the
         // language is official
-        Set<String> SKIP_TERRITORIES = new HashSet<>(Arrays.asList("001",
-            "150"));
+        Set<String> SKIP_TERRITORIES = new HashSet<>(Arrays.asList("001", "150"));
         SKIP_TERRITORIES.addAll(Iso3166Data.getRegionCodesNotForTranslation());
-        for (Entry<String, R2<List<String>, String>> s : dataInfo
-            .getLocaleAliasInfo().get("territory").entrySet()) {
+        for (Entry<String, R2<List<String>, String>> s :
+                dataInfo.getLocaleAliasInfo().get("territory").entrySet()) {
             SKIP_TERRITORIES.add(s.getKey());
         }
 
         LanguageTagParser ltp = new LanguageTagParser();
 
-        Relation<String, String> languageLocalesSeen = Relation.of(
-            new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> languageLocalesSeen =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
-        Set<String> testOrg = StandardCodes.make()
-            .getLocaleCoverageLocales("google");
-        ChainedMap.M4<String, OfficialStatus, String, Boolean> languageToOfficialChildren = ChainedMap
-            .of(new TreeMap<String, Object>(),
-                new TreeMap<OfficialStatus, Object>(),
-                new TreeMap<String, Object>(), Boolean.class);
+        Set<String> testOrg = StandardCodes.make().getLocaleCoverageLocales("google");
+        ChainedMap.M4<String, OfficialStatus, String, Boolean> languageToOfficialChildren =
+                ChainedMap.of(
+                        new TreeMap<String, Object>(),
+                        new TreeMap<OfficialStatus, Object>(),
+                        new TreeMap<String, Object>(),
+                        Boolean.class);
 
         // gather the data
 
-        for (String language : dataInfo
-            .getLanguagesForTerritoriesPopulationData()) {
-            for (String territory : dataInfo
-                .getTerritoriesForPopulationData(language)) {
+        for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
+            for (String territory : dataInfo.getTerritoriesForPopulationData(language)) {
                 if (SKIP_TERRITORIES.contains(territory)) {
                     continue;
                 }
-                PopulationData data = dataInfo
-                    .getLanguageAndTerritoryPopulationData(language,
-                        territory);
+                PopulationData data =
+                        dataInfo.getLanguageAndTerritoryPopulationData(language, territory);
                 OfficialStatus status = data.getOfficialStatus();
                 if (data.getOfficialStatus() != OfficialStatus.unknown) {
                     String locale = removeScript(language + "_" + territory);
                     String lang = removeScript(ltp.set(locale).getLanguage());
-                    languageToOfficialChildren.put(lang, status, locale,
-                        Boolean.TRUE);
+                    languageToOfficialChildren.put(lang, status, locale, Boolean.TRUE);
                     languageLocalesSeen.put(lang, locale);
                 }
             }
@@ -114,8 +106,8 @@ public class TestInheritance extends TestFmwk {
         // flesh it out by adding 'clean' codes.
         // also get the child locales in cldr.
 
-        Relation<String, String> languageToChildren = Relation.of(
-            new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> languageToChildren =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             String lang = ltp.set(locale).getLanguage();
             if (SKIP_TERRITORIES.contains(ltp.getRegion())) {
@@ -128,42 +120,44 @@ public class TestInheritance extends TestFmwk {
                 languageToChildren.put(lang, locale);
                 Set<String> localesSeen = languageLocalesSeen.get(lang);
                 if (localesSeen == null || !localesSeen.contains(locale)) {
-                    languageToOfficialChildren.put(lang,
-                        OfficialStatus.unknown, locale, Boolean.TRUE);
+                    languageToOfficialChildren.put(
+                            lang, OfficialStatus.unknown, locale, Boolean.TRUE);
                 }
             }
         }
 
-        for (Entry<String, Set<String>> languageAndChildren : languageToChildren
-            .keyValuesSet()) {
+        for (Entry<String, Set<String>> languageAndChildren : languageToChildren.keyValuesSet()) {
             String language = languageAndChildren.getKey();
             Set<String> children = languageAndChildren.getValue();
-            M3<OfficialStatus, String, Boolean> officalStatusToChildren = languageToOfficialChildren
-                .get(language);
+            M3<OfficialStatus, String, Boolean> officalStatusToChildren =
+                    languageToOfficialChildren.get(language);
             for (Entry<OfficialStatus, Map<String, Boolean>> entry : officalStatusToChildren) {
                 OfficialStatus status = entry.getKey();
                 if (status != OfficialStatus.official
-                    && status != OfficialStatus.de_facto_official) {
+                        && status != OfficialStatus.de_facto_official) {
                     continue;
                 }
                 Set<String> officalChildren = entry.getValue().keySet();
                 if (!children.containsAll(officalChildren)) {
                     Set<String> missing = new TreeSet<>(officalChildren);
                     missing.removeAll(children);
-                    String message = "Missing CLDR locales for " + status
-                        + " languages: " + missing;
+                    String message =
+                            "Missing CLDR locales for " + status + " languages: " + missing;
                     errln(message);
                 } else {
-                    logln("CLDR locales " + children + " cover " + status
-                        + " locales " + officalChildren);
+                    logln(
+                            "CLDR locales "
+                                    + children
+                                    + " cover "
+                                    + status
+                                    + " locales "
+                                    + officalChildren);
                 }
-
             }
         }
 
         if (DEBUG) {
-            Set<String> languages = new TreeSet<>(
-                languageToChildren.keySet());
+            Set<String> languages = new TreeSet<>(languageToChildren.keySet());
             languages.addAll(languageToOfficialChildren.keySet());
             System.out.print("\ncode\tlanguage");
             for (OfficialStatus status : OfficialStatus.values()) {
@@ -174,19 +168,17 @@ public class TestInheritance extends TestFmwk {
                 if (!testOrg.contains(language)) {
                     continue;
                 }
-                System.out.print(language + "\t"
-                    + testInfo.getEnglish().getName(language));
+                System.out.print(language + "\t" + testInfo.getEnglish().getName(language));
 
-                M3<OfficialStatus, String, Boolean> officialChildren = languageToOfficialChildren
-                    .get(language);
+                M3<OfficialStatus, String, Boolean> officialChildren =
+                        languageToOfficialChildren.get(language);
                 for (OfficialStatus status : OfficialStatus.values()) {
-                    Map<String, Boolean> children = officialChildren
-                        .get(status);
+                    Map<String, Boolean> children = officialChildren.get(status);
                     if (children == null) {
                         System.out.print("\t" + 0 + "\t");
                     } else {
-                        System.out.print("\t" + children.size() + "\t"
-                            + show(children.keySet(), false));
+                        System.out.print(
+                                "\t" + children.size() + "\t" + show(children.keySet(), false));
                     }
                 }
                 System.out.println();
@@ -203,31 +195,28 @@ public class TestInheritance extends TestFmwk {
             LanguageTagParser ltp = new LanguageTagParser().set(s);
             String script = ltp.getScript();
             if (script.length() != 0) {
-                b.append(testInfo.getEnglish().getName(CLDRFile.SCRIPT_NAME,
-                    script));
+                b.append(testInfo.getEnglish().getName(CLDRFile.SCRIPT_NAME, script));
             }
             String region = ltp.getRegion();
             if (region.length() != 0) {
                 if (script.length() != 0) {
                     b.append("-");
                 }
-                b.append(testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME,
-                    region));
+                b.append(testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region));
             }
             b.append(" [").append(s);
             if (showStatus) {
-                PopulationData data = dataInfo
-                    .getLanguageAndTerritoryPopulationData(
-                        ltp.getLanguage(), region);
+                PopulationData data =
+                        dataInfo.getLanguageAndTerritoryPopulationData(ltp.getLanguage(), region);
                 if (data == null) {
-                    data = dataInfo.getLanguageAndTerritoryPopulationData(
-                        ltp.getLanguageScript(), region);
+                    data =
+                            dataInfo.getLanguageAndTerritoryPopulationData(
+                                    ltp.getLanguageScript(), region);
                 }
                 b.append("; ");
                 b.append(data == null ? "?" : data.getOfficialStatus());
             }
             b.append("]");
-
         }
         return b.toString();
     }
@@ -248,12 +237,12 @@ public class TestInheritance extends TestFmwk {
         LikelySubtags likelySubtags = new LikelySubtags();
         LanguageTagParser ltp = new LanguageTagParser();
         // find multiscript locales
-        Relation<String, String> base2scripts = Relation.of(
-            new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> base2scripts =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Map<String, String> parent2default = new TreeMap<>();
         Map<String, String> default2parent = new TreeMap<>();
-        Relation<String, String> base2locales = Relation.of(
-            new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> base2locales =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
         Set<String> knownMultiScriptLanguages = new HashSet<>(Arrays.asList("bm", "ha"));
         // get multiscript locales
@@ -275,7 +264,8 @@ public class TestInheritance extends TestFmwk {
         // get default contents
         for (String localeID : defaultContents) {
             checkLocale(localeID, false);
-            String parent = LocaleIDParser.getParent(localeID); // was using getSimpleParent, not sure why
+            String parent =
+                    LocaleIDParser.getParent(localeID); // was using getSimpleParent, not sure why
             parent2default.put(parent, localeID);
             default2parent.put(localeID, parent);
             // if (!available.contains(simpleParent)) {
@@ -288,33 +278,33 @@ public class TestInheritance extends TestFmwk {
 
         // get likely
         Map<String, String> likely2Maximized = likelySubtags.getToMaximized();
-        for (Entry<String, String> likelyAndMaximized : likely2Maximized
-            .entrySet()) {
+        for (Entry<String, String> likelyAndMaximized : likely2Maximized.entrySet()) {
             checkLocale(likelyAndMaximized.getKey(), true);
             checkLocale(likelyAndMaximized.getValue(), true);
         }
         Map<String, String> exceptionDcLikely = new HashMap<>();
         Map<String, String> exceptionLikelyDc = new HashMap<>();
-        for (String[] s : new String[][] { { "ar_001", "ar_Arab_EG" }, { "nb", "no_Latn_NO" }, }) {
+        for (String[] s :
+                new String[][] {
+                    {"ar_001", "ar_Arab_EG"}, {"nb", "no_Latn_NO"},
+                }) {
             exceptionDcLikely.put(s[0], s[1]);
             exceptionLikelyDc.put(s[1], s[0]);
         }
 
-        verifyDefaultContentsImplicationsForLikelySubtags(ltp, parent2default,
-            likely2Maximized, exceptionDcLikely);
+        verifyDefaultContentsImplicationsForLikelySubtags(
+                ltp, parent2default, likely2Maximized, exceptionDcLikely);
 
-        verifyLikelySubtagsImplicationsForDefaultContents(ltp, base2scripts,
-            parent2default, likely2Maximized, exceptionLikelyDc);
+        verifyLikelySubtagsImplicationsForDefaultContents(
+                ltp, base2scripts, parent2default, likely2Maximized, exceptionLikelyDc);
 
-        verifyScriptsWithDefaultContents(ltp, base2scripts, parent2default,
-            base2locales);
+        verifyScriptsWithDefaultContents(ltp, base2scripts, parent2default, base2locales);
     }
 
     public void TestParentLocaleRelationships() {
         // Testing invariant relationships between locales - See
         // http://unicode.org/cldr/trac/ticket/5758
-        Matcher langScript = PatternCache.get("^[a-z]{2,3}_[A-Z][a-z]{3}$")
-            .matcher("");
+        Matcher langScript = PatternCache.get("^[a-z]{2,3}_[A-Z][a-z]{3}$").matcher("");
         for (String loc : availableLocales) {
             if (langScript.reset(loc).matches()) {
                 if (ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
@@ -330,32 +320,42 @@ public class TestInheritance extends TestFmwk {
                     actualParent = loc.split("_")[0];
                 }
                 if (!actualParent.equals(expectedParent)) {
-                    errln("Unexpected parent locale for locale " + loc
-                        + ". Expected: " + expectedParent + " Got: "
-                        + actualParent + " " + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
+                    errln(
+                            "Unexpected parent locale for locale "
+                                    + loc
+                                    + ". Expected: "
+                                    + expectedParent
+                                    + " Got: "
+                                    + actualParent
+                                    + " "
+                                    + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
 
                 if (dataInfo.getExplicitParentLocale(loc) != null
-                    && defaultContents.contains(loc)) {
-                    errln("Locale "
-                        + loc
-                        + " can't have an explicit parent AND be a default content locale");
+                        && defaultContents.contains(loc)) {
+                    errln(
+                            "Locale "
+                                    + loc
+                                    + " can't have an explicit parent AND be a default content locale");
                 }
             }
         }
     }
 
-    final String ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE
-        = "See ALLOW_DIFFERENT_PARENT_LOCALE in TestInheritance.java";
-    final public Set<String> ALLOW_DIFFERENT_PARENT_LOCALE =
-        Collections.unmodifiableSet(Sets.newHashSet(
-        // Update this if additional locales have explicit parents in a different language code
+    final String ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE =
+            "See ALLOW_DIFFERENT_PARENT_LOCALE in TestInheritance.java";
+    public final Set<String> ALLOW_DIFFERENT_PARENT_LOCALE =
+            Collections.unmodifiableSet(
+                    Sets.newHashSet(
+                            // Update this if additional locales have explicit parents in a
+                            // different language code
 
-        // Per CLDR-2698/14493 we allow nb,nn to have an explicit parent no which is a different language code.
-        "nn", "nb",
-        // Per CLDR-15276 hi-Latn can have an explicit parent
-        "hi_Latn"
-    ));
+                            // Per CLDR-2698/14493 we allow nb,nn to have an explicit parent no
+                            // which is a different language code.
+                            "nn",
+                            "nb",
+                            // Per CLDR-15276 hi-Latn can have an explicit parent
+                            "hi_Latn"));
 
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
@@ -364,28 +364,37 @@ public class TestInheritance extends TestFmwk {
         for (String loc : availableLocales) {
             String parentLocale = dataInfo.getExplicitParentLocale(loc);
             if (parentLocale != null) {
-                if (!"root".equals(parentLocale) &&
-                    !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
-                    && !lp.set(loc).getLanguage()
-                        .equals(lp.set(parentLocale).getLanguage())) {
-                    errln("Parent locale [" + parentLocale + "] for locale ["
-                        + loc + "] cannot be a different language code. " +
-                        ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
+                if (!"root".equals(parentLocale)
+                        && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
+                        && !lp.set(loc).getLanguage().equals(lp.set(parentLocale).getLanguage())) {
+                    errln(
+                            "Parent locale ["
+                                    + parentLocale
+                                    + "] for locale ["
+                                    + loc
+                                    + "] cannot be a different language code. "
+                                    + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
                 if (!"root".equals(parentLocale)
-                    && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
-                    && !lp.set(loc).getScript()
-                        .equals(lp.set(parentLocale).getScript())) {
-                    errln("Parent locale [" + parentLocale + "] for locale ["
-                        + loc + "] cannot be a different script code.");
+                        && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
+                        && !lp.set(loc).getScript().equals(lp.set(parentLocale).getScript())) {
+                    errln(
+                            "Parent locale ["
+                                    + parentLocale
+                                    + "] for locale ["
+                                    + loc
+                                    + "] cannot be a different script code.");
                 }
                 lp.set(loc);
-                if (lp.getScript().length() == 0 && lp.getRegion().length() == 0 &&
-                    !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
-                    errln("Base language locale [" + loc + "] cannot have an explicit parent. " +
-                    ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
+                if (lp.getScript().length() == 0
+                        && lp.getRegion().length() == 0
+                        && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
+                    errln(
+                            "Base language locale ["
+                                    + loc
+                                    + "] cannot have an explicit parent. "
+                                    + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
-
             }
         }
     }
@@ -402,22 +411,27 @@ public class TestInheritance extends TestFmwk {
                 if (inheritanceChain.contains(currentLoc)) {
                     foundError = true;
                     inheritanceChain.add(currentLoc);
-                    errln("Inheritance chain for locale [" + loc + "] contains a cyclic relationship. " + inheritanceChain.toString());
+                    errln(
+                            "Inheritance chain for locale ["
+                                    + loc
+                                    + "] contains a cyclic relationship. "
+                                    + inheritanceChain.toString());
                 }
                 inheritanceChain.add(currentLoc);
             }
         }
     }
 
-    private void verifyScriptsWithDefaultContents(LanguageTagParser ltp,
-        Relation<String, String> base2scripts,
-        Map<String, String> parent2default,
-        Relation<String, String> base2locales) {
-        Set<String> skip = Builder.with(new HashSet<String>())
-            .addAll("root", "und")
-            .freeze();
-        Set<String> languagesWithOneOrLessLocaleScriptInCommon = new HashSet<>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
-        Set<String> baseLanguagesWhoseDefaultContentHasNoRegion = new HashSet<>(Arrays.asList("no"));
+    private void verifyScriptsWithDefaultContents(
+            LanguageTagParser ltp,
+            Relation<String, String> base2scripts,
+            Map<String, String> parent2default,
+            Relation<String, String> base2locales) {
+        Set<String> skip = Builder.with(new HashSet<String>()).addAll("root", "und").freeze();
+        Set<String> languagesWithOneOrLessLocaleScriptInCommon =
+                new HashSet<>(Arrays.asList("bm", "ha", "hi", "ms", "iu", "mn"));
+        Set<String> baseLanguagesWhoseDefaultContentHasNoRegion =
+                new HashSet<>(Arrays.asList("no"));
         // for each base we have to have,
         // if multiscript, we have default contents for base+script,
         // base+script+region;
@@ -433,8 +447,7 @@ public class TestInheritance extends TestFmwk {
             // suggestLikelySubtagFor(base));
             // }
             if (defaultContent == null) {
-                errln("Missing default content for: " + base + "  "
-                    + suggestLikelySubtagFor(base));
+                errln("Missing default content for: " + base + "  " + suggestLikelySubtagFor(base));
                 continue;
             }
             Set<String> scripts = base2scripts.get(base);
@@ -443,21 +456,34 @@ public class TestInheritance extends TestFmwk {
             String region = ltp.getRegion();
             if (scripts == null || languagesWithOneOrLessLocaleScriptInCommon.contains(base)) {
                 if (!script.isEmpty()) {
-                    errln("Script should be empty in default content for: "
-                        + base + "," + defaultContent);
+                    errln(
+                            "Script should be empty in default content for: "
+                                    + base
+                                    + ","
+                                    + defaultContent);
                 }
-                if (region.isEmpty() && !baseLanguagesWhoseDefaultContentHasNoRegion.contains(base)) {
-                    errln("Region must not be empty in default content for: "
-                        + base + "," + defaultContent);
+                if (region.isEmpty()
+                        && !baseLanguagesWhoseDefaultContentHasNoRegion.contains(base)) {
+                    errln(
+                            "Region must not be empty in default content for: "
+                                    + base
+                                    + ","
+                                    + defaultContent);
                 }
             } else {
                 if (script.isEmpty()) {
-                    errln("Script should not be empty in default content for: "
-                        + base + "," + defaultContent);
+                    errln(
+                            "Script should not be empty in default content for: "
+                                    + base
+                                    + ","
+                                    + defaultContent);
                 }
                 if (!region.isEmpty()) {
-                    errln("Region should be empty in default content for: "
-                        + base + "," + defaultContent);
+                    errln(
+                            "Region should be empty in default content for: "
+                                    + base
+                                    + ","
+                                    + defaultContent);
                 }
                 String defaultContent2 = parent2default.get(defaultContent);
                 if (defaultContent2 == null) {
@@ -467,18 +493,22 @@ public class TestInheritance extends TestFmwk {
                 ltp.set(defaultContent2);
                 region = ltp.getRegion();
                 if (region.isEmpty()) {
-                    errln("Region must not be empty in default content for: "
-                        + base + "," + defaultContent);
+                    errln(
+                            "Region must not be empty in default content for: "
+                                    + base
+                                    + ","
+                                    + defaultContent);
                 }
             }
         }
     }
 
     private void verifyLikelySubtagsImplicationsForDefaultContents(
-        LanguageTagParser ltp, Relation<String, String> base2scripts,
-        Map<String, String> parent2default,
-        Map<String, String> likely2Maximized,
-        Map<String, String> exceptionLikelyDc) {
+            LanguageTagParser ltp,
+            Relation<String, String> base2scripts,
+            Map<String, String> parent2default,
+            Map<String, String> likely2Maximized,
+            Map<String, String> exceptionLikelyDc) {
         // Now check invariants for all LikelySubtags implications for Default
         // Contents
         // a) suppose likely max for la_Scrp => la_Scrp_RG
@@ -496,8 +526,7 @@ public class TestInheritance extends TestFmwk {
             String source = entry.getKey();
             String likelyMax = entry.getValue();
             String sourceLang = ltp.set(source).getLanguage();
-            if (sourceLang.equals("und") || source.equals("zh_Hani")
-                || source.equals("tl")) {
+            if (sourceLang.equals("und") || source.equals("zh_Hani") || source.equals("tl")) {
                 continue;
             }
             String sourceScript = ltp.getScript();
@@ -523,8 +552,11 @@ public class TestInheritance extends TestFmwk {
                     if (dc == null) {
                         if (EXPECT_EQUALITY) {
                             String expected = likelyMax;
-                            errln("Default contents null for " + source
-                                + ", expected:\t" + expected);
+                            errln(
+                                    "Default contents null for "
+                                            + source
+                                            + ", expected:\t"
+                                            + expected);
                             additionalDefaultContents.add(expected);
                         }
                         continue;
@@ -537,42 +569,58 @@ public class TestInheritance extends TestFmwk {
                     caseNumber = "c";
                     if (dc == null) {
                         if (EXPECT_EQUALITY) {
-                            String expected = base2scripts.get(source) == null ? likelyMaxLang
-                                + "_" + likelyMaxRegion
-                                : likelyMaxLang + "_" + likelyMaxScript;
-                            errln("Default contents null for " + source
-                                + ", expected:\t" + expected);
+                            String expected =
+                                    base2scripts.get(source) == null
+                                            ? likelyMaxLang + "_" + likelyMaxRegion
+                                            : likelyMaxLang + "_" + likelyMaxScript;
+                            errln(
+                                    "Default contents null for "
+                                            + source
+                                            + ", expected:\t"
+                                            + expected);
                             additionalDefaultContents.add(expected);
                         }
                         continue;
                     }
                     String dcScript = ltp.set(dc).getScript();
-                    consistent = likelyLangScript.equals(dc)
-                        && likelyMax.equals(dcFromLangScript)
-                        || dcScript.isEmpty()
-                        && !likelyMax.equals(dcFromLangScript);
+                    consistent =
+                            likelyLangScript.equals(dc) && likelyMax.equals(dcFromLangScript)
+                                    || dcScript.isEmpty() && !likelyMax.equals(dcFromLangScript);
                     // || dcScript.isEmpty() && dcRegion.equals(likelyMaxRegion)
                     // && dcFromLangScript == null;
                 }
             }
             if (!consistent) {
-                errln("default contents inconsistent with likely subtag: ("
-                    + caseNumber + ")" + "\n\t" + source + " => (ls) "
-                    + likelyMax + "\n\t" + source + " => (dc) " + dc
-                    + "\n\t" + likelyLangScript + " => (dc) "
-                    + dcFromLangScript);
+                errln(
+                        "default contents inconsistent with likely subtag: ("
+                                + caseNumber
+                                + ")"
+                                + "\n\t"
+                                + source
+                                + " => (ls) "
+                                + likelyMax
+                                + "\n\t"
+                                + source
+                                + " => (dc) "
+                                + dc
+                                + "\n\t"
+                                + likelyLangScript
+                                + " => (dc) "
+                                + dcFromLangScript);
             }
         }
         if (additionalDefaultContents.size() != 0) {
-            errln("Suggested additions to supplementalMetadata/../defaultContent:\n"
-                + Joiner.on(" ").join(additionalDefaultContents));
+            errln(
+                    "Suggested additions to supplementalMetadata/../defaultContent:\n"
+                            + Joiner.on(" ").join(additionalDefaultContents));
         }
     }
 
     private void verifyDefaultContentsImplicationsForLikelySubtags(
-        LanguageTagParser ltp, Map<String, String> parent2default,
-        Map<String, String> likely2Maximized,
-        Map<String, String> exceptionDcLikely) {
+            LanguageTagParser ltp,
+            Map<String, String> parent2default,
+            Map<String, String> likely2Maximized,
+            Map<String, String> exceptionDcLikely) {
         // Now check invariants for all Default Contents implications for
         // LikelySubtags
         // a) suppose default contents la => la_Scrp.
@@ -589,8 +637,7 @@ public class TestInheritance extends TestFmwk {
 
             // skip special exceptions
             String possibleException = exceptionDcLikely.get(dc);
-            if (possibleException != null
-                && possibleException.equals(likelyMax)) {
+            if (possibleException != null && possibleException.equals(likelyMax)) {
                 continue;
             }
 
@@ -614,27 +661,27 @@ public class TestInheritance extends TestFmwk {
 
             if (sourceScript.isEmpty()) { // a or b
                 if (!dcScript.isEmpty()) { // a
-                    consistent = likelyMaxLang.equals(source)
-                        && likelyMaxScript.equals(dcScript);
+                    consistent = likelyMaxLang.equals(source) && likelyMaxScript.equals(dcScript);
                 } else { // b
-                    consistent = likelyMaxLang.equals(source)
-                        && likelyMaxRegion.equals(dcRegion);
+                    consistent = likelyMaxLang.equals(source) && likelyMaxRegion.equals(dcRegion);
                 }
             } else { // c
                 consistent = dc.equals(likelyMax) || likelyMax2 != null;
             }
             if (!consistent) {
-                errln("likely subtag inconsistent with default contents: "
-                    + "\n\t"
-                    + source
-                    + " =>( dc) "
-                    + dc
-                    + "\n\t"
-                    + source
-                    + " => (ls) "
-                    + likelyMax
-                    + (source.equals(sourceLang) ? "" : "\n\t" + sourceLang
-                        + " => (ls) " + likelyMax2));
+                errln(
+                        "likely subtag inconsistent with default contents: "
+                                + "\n\t"
+                                + source
+                                + " =>( dc) "
+                                + dc
+                                + "\n\t"
+                                + source
+                                + " => (ls) "
+                                + likelyMax
+                                + (source.equals(sourceLang)
+                                        ? ""
+                                        : "\n\t" + sourceLang + " => (ls) " + likelyMax2));
             }
         }
     }
@@ -662,17 +709,21 @@ public class TestInheritance extends TestFmwk {
         Set<BasicLanguageData> basicData = sdi.getBasicLanguageData(base);
 
         for (BasicLanguageData bld : basicData) {
-            if (bld.getType() == org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
+            if (bld.getType()
+                    == org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
                 Set<String> scripts = bld.getScripts();
                 Set<String> territories = bld.getTerritories();
 
                 if (scripts.size() == 1) {
                     if (territories.size() == 1) {
                         return createSuggestion(
-                            loc,
-                            CLDRLocale.getInstance(base + "_"
-                                + scripts.iterator().next() + "_"
-                                + territories.iterator().next()));
+                                loc,
+                                CLDRLocale.getInstance(
+                                        base
+                                                + "_"
+                                                + scripts.iterator().next()
+                                                + "_"
+                                                + territories.iterator().next()));
                     }
                 }
                 return "(no suggestion - multiple scripts or territories)";
@@ -681,76 +732,73 @@ public class TestInheritance extends TestFmwk {
         return ("(no suggestion- no data)");
     }
 
-    /**
-     * Format and return a suggested likelysubtag
-     */
+    /** Format and return a suggested likelysubtag */
     private static String createSuggestion(CLDRLocale loc, CLDRLocale toLoc) {
         return " Suggest this to likelySubtags.xml:        <likelySubtag from=\""
-            + loc
-            + "\" to=\""
-            + toLoc
-            + "\"/>\n"
-            + "        <!--{ "
-            + loc.getDisplayName()
-            + "; ?; ? } => { "
-            + loc.getDisplayName()
-            + "; "
-            + toLoc.toULocale().getDisplayScript()
-            + "; "
-            + toLoc.toULocale().getDisplayCountry() + " }-->";
-
+                + loc
+                + "\" to=\""
+                + toLoc
+                + "\"/>\n"
+                + "        <!--{ "
+                + loc.getDisplayName()
+                + "; ?; ? } => { "
+                + loc.getDisplayName()
+                + "; "
+                + toLoc.toULocale().getDisplayScript()
+                + "; "
+                + toLoc.toULocale().getDisplayCountry()
+                + " }-->";
     }
 
     public void TestDeprecatedTerritoryDataLocaleIds() {
         HashSet<String> checked = new HashSet<>();
-        for (String language : dataInfo
-            .getLanguagesForTerritoriesPopulationData()) {
+        for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
             checkLocale(language, false); // checks la_Scrp and la
-            for (String region : dataInfo
-                .getTerritoriesForPopulationData(language)) {
+            for (String region : dataInfo.getTerritoriesForPopulationData(language)) {
                 if (!checked.contains(region)) {
-                    checkValidCode(language + "_" + region, "territory",
-                        region, false);
+                    checkValidCode(language + "_" + region, "territory", region, false);
                     checked.add(region);
                 }
             }
         }
         for (String language : dataInfo.getBasicLanguageDataLanguages()) {
             checkLocale(language, false); // checks la_Scrp and la
-            Set<BasicLanguageData> data = dataInfo
-                .getBasicLanguageData(language);
+            Set<BasicLanguageData> data = dataInfo.getBasicLanguageData(language);
             for (BasicLanguageData datum : data) {
                 for (String script : datum.getScripts()) {
-                    checkValidCode(language + "_" + script, "script", script,
-                        false);
+                    checkValidCode(language + "_" + script, "script", script, false);
                     checked.add(script);
                 }
                 for (String region : datum.getTerritories()) {
-                    checkValidCode(language + "_" + region, "territory",
-                        region, false);
+                    checkValidCode(language + "_" + region, "territory", region, false);
                     checked.add(region);
                 }
             }
         }
-
     }
 
     public void TestBasicLanguageDataAgainstScriptMetadata() {
         // the invariants are:
         // if there is primary data, the script must be there
         // otherwise it must be in the secondary
-        main: for (String script : ScriptMetadata.getScripts()) {
+        main:
+        for (String script : ScriptMetadata.getScripts()) {
             Info info = ScriptMetadata.getInfo(script);
             String language = info.likelyLanguage;
             if (language.equals("und")) {
                 continue;
             }
-            Map<Type, BasicLanguageData> data = dataInfo
-                .getBasicLanguageDataMap(language);
+            Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
             if (data == null) {
-                logln("Warning: ScriptMetadata has " + language + " for "
-                    + script + "," + " but " + language
-                    + " is missing in language_script.txt");
+                logln(
+                        "Warning: ScriptMetadata has "
+                                + language
+                                + " for "
+                                + script
+                                + ","
+                                + " but "
+                                + language
+                                + " is missing in language_script.txt");
                 continue;
             }
             for (BasicLanguageData entry : data.values()) {
@@ -759,17 +807,24 @@ public class TestInheritance extends TestFmwk {
                 }
                 continue;
             }
-            logln("Warning: ScriptMetadata has " + language + " for " + script
-                + "," + " but " + language + " doesn't have " + script
-                + " in language_script.txt");
+            logln(
+                    "Warning: ScriptMetadata has "
+                            + language
+                            + " for "
+                            + script
+                            + ","
+                            + " but "
+                            + language
+                            + " doesn't have "
+                            + script
+                            + " in language_script.txt");
         }
     }
 
     public void TestCldrFileConsistency() {
         boolean haveErrors = false;
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
-            CLDRFile cldrFileToCheck = testInfo.getCLDRFile(locale,
-                false);
+            CLDRFile cldrFileToCheck = testInfo.getCLDRFile(locale, false);
             int errors = 0;
             for (String path : cldrFileToCheck) {
                 if (!pathMatcher.reset(path).find()) {
@@ -781,17 +836,22 @@ public class TestInheritance extends TestFmwk {
                     fullPath = cldrFileToCheck.getFullXPath(path);
                     String value = cldrFileToCheck.getStringValue(path);
                     if (DEBUG) {
-                        errln("Invalid full path\t" + locale + ", " + path
-                            + ", " + fullPath + ", " + value);
+                        errln(
+                                "Invalid full path\t"
+                                        + locale
+                                        + ", "
+                                        + path
+                                        + ", "
+                                        + fullPath
+                                        + ", "
+                                        + value);
                     }
                     errors++;
                     haveErrors = true;
                 }
             }
             if (errors != 0) {
-                errln(locale
-                    + (errors != 0 ? "\tinvalid getFullXPath() values:"
-                        + errors : ""));
+                errln(locale + (errors != 0 ? "\tinvalid getFullXPath() values:" + errors : ""));
             } else {
                 logln(locale);
             }
@@ -807,8 +867,7 @@ public class TestInheritance extends TestFmwk {
     Matcher aliasMatcher = PatternCache.get("//ldml.*/alias.*").matcher("");
 
     private String minimize(Map<String, String> likelySubtags, String locale) {
-        String result = GenerateMaximalLocales.minimize(locale, likelySubtags,
-            false);
+        String result = GenerateMaximalLocales.minimize(locale, likelySubtags, false);
         if (result == null) {
             LanguageTagParser ltp3 = new LanguageTagParser().set(locale);
             List<String> variants = ltp3.getVariants();
@@ -818,8 +877,7 @@ public class TestInheritance extends TestFmwk {
             Map<String, String> emptyMap = Collections.emptyMap();
             ltp3.setExtensions(emptyMap);
             String newLocale = ltp3.toString();
-            result = GenerateMaximalLocales.minimize(newLocale, likelySubtags,
-                false);
+            result = GenerateMaximalLocales.minimize(newLocale, likelySubtags, false);
             if (result != null) {
                 ltp3.set(result);
                 ltp3.setVariants(variants);
@@ -858,21 +916,20 @@ public class TestInheritance extends TestFmwk {
             return false;
         }
         switch (string.length()) {
-        case 1:
-            return codePoint == string.charAt(0);
-        case 2:
-            return codePoint >= 0x10000
-            && codePoint == Character.codePointAt(string, 0);
-        default:
-            return false;
+            case 1:
+                return codePoint == string.charAt(0);
+            case 2:
+                return codePoint >= 0x10000 && codePoint == Character.codePointAt(string, 0);
+            default:
+                return false;
         }
     }
 
     // TODO move this into central utilities
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
-    private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo
-        .getLocaleAliasInfo();
+    private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO =
+            dataInfo.getLocaleAliasInfo();
 
     private void checkLocale(String localeID, boolean allowDeprecated) {
         // verify that the localeID is valid
@@ -886,8 +943,8 @@ public class TestInheritance extends TestFmwk {
         checkValidCode(localeID, "territory", region, allowDeprecated);
     }
 
-    private void checkValidCode(String localeID, String subtagType,
-        String subtag, boolean allowDeprecated) {
+    private void checkValidCode(
+            String localeID, String subtagType, String subtag, boolean allowDeprecated) {
         if (subtagType.equals("language")) {
             if (subtag.equals("und")) {
                 return;
@@ -901,13 +958,17 @@ public class TestInheritance extends TestFmwk {
             errln("Locale " + localeID + " contains illegal " + showCode(subtagType, subtag));
         } else if (!allowDeprecated) {
             // "language" -> "sh" -> <{"sr_Latn"}, reason>
-            R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(
-                subtagType).get(subtag);
+            R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(subtagType).get(subtag);
             if (deprecatedInfo != null) {
-                errln("Locale " + localeID + " contains deprecated "
-                    + showCode(subtagType, subtag) + " "
-                    + deprecatedInfo.get1() + "; suggest "
-                    + showName(deprecatedInfo.get0(), subtagType));
+                errln(
+                        "Locale "
+                                + localeID
+                                + " contains deprecated "
+                                + showCode(subtagType, subtag)
+                                + " "
+                                + deprecatedInfo.get1()
+                                + "; suggest "
+                                + showName(deprecatedInfo.get0(), subtagType));
             }
         }
     }
@@ -929,8 +990,7 @@ public class TestInheritance extends TestFmwk {
     }
 
     private String getName(String subtagType, String subtag) {
-        Map<String, String> data = STANDARD_CODES.getLangData(subtagType,
-            subtag);
+        Map<String, String> data = STANDARD_CODES.getLangData(subtagType, subtag);
         if (data == null) {
             return "<no name>";
         }
@@ -955,17 +1015,19 @@ public class TestInheritance extends TestFmwk {
         keys.addAll(b.keySet());
         for (K key : keys) {
             if (!a.containsKey(key)) {
-                result.append(key).append("→‹").append(a.get(key))
-                .append("›,∅; ");
+                result.append(key).append("→‹").append(a.get(key)).append("›,∅; ");
             } else if (!b.containsKey(key)) {
-                result.append(key).append("→∅,‹").append(b.get(key))
-                .append("›; ");
+                result.append(key).append("→∅,‹").append(b.get(key)).append("›; ");
             } else {
                 V aKey = a.get(key);
                 V bKey = b.get(key);
                 if (!equals(aKey, bKey)) {
-                    result.append(key).append("→‹").append(a.get(key))
-                    .append("›,‹").append(b.get(key)).append("›; ");
+                    result.append(key)
+                            .append("→‹")
+                            .append(a.get(key))
+                            .append("›,‹")
+                            .append(b.get(key))
+                            .append("›; ");
                 }
             }
         }
@@ -993,7 +1055,7 @@ public class TestInheritance extends TestFmwk {
             {"fr_CA", "[fr, root]"},
             {"fr", "[root]"},
             {"root", "[]"},
-            };
+        };
 
         for (String[] test : tests) {
             assertEquals(test[0], test[1], LocaleIDParser.getParentChain(test[0]).toString());

@@ -1,11 +1,5 @@
 package org.unicode.cldr.draft;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
@@ -14,6 +8,11 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ShortestCanonicalForm {
 
@@ -22,8 +21,9 @@ public class ShortestCanonicalForm {
     static final UnicodeSet leading3 = new UnicodeSet();
     static StringComparator cpCompare = new UTF16.StringComparator(true, false, 0);
     static final Map<Integer, Set<String>> leadToTrail = new TreeMap<>();
-    static UnicodeSet skip = new UnicodeSet(
-        "[[:hangulsyllabletype=l:][:hangulsyllabletype=v:][:hangulsyllabletype=t:]]");
+    static UnicodeSet skip =
+            new UnicodeSet(
+                    "[[:hangulsyllabletype=l:][:hangulsyllabletype=v:][:hangulsyllabletype=t:]]");
     static Map<String, String> restoreExclusions = new TreeMap<>();
     static UnicodeSet breakingTrail = new UnicodeSet();
 
@@ -53,7 +53,7 @@ public class ShortestCanonicalForm {
                 }
                 trails.add(trailingString);
                 if (UScript.getScript(i) != UScript.HANGUL
-                    && trailingString.codePointCount(0, trailingString.length()) > 1) {
+                        && trailingString.codePointCount(0, trailingString.length()) > 1) {
                     leading3.add(first);
                 }
             }
@@ -63,8 +63,13 @@ public class ShortestCanonicalForm {
         for (int first : leadToTrail.keySet()) {
             if (leading3.contains(first)) {
                 for (String trail : leadToTrail.get(first)) {
-                    System.out.println(Utility.hex(first, 4) + "," + Utility.hex(trail, 4, ",") + "\t"
-                        + UTF16.valueOf(first) + trail);
+                    System.out.println(
+                            Utility.hex(first, 4)
+                                    + ","
+                                    + Utility.hex(trail, 4, ",")
+                                    + "\t"
+                                    + UTF16.valueOf(first)
+                                    + trail);
                 }
             }
         }
@@ -84,7 +89,7 @@ public class ShortestCanonicalForm {
                     if (trail1.length() >= trail2.length()) {
                         continue;
                     }
-                    for (Iterator<String> it = new SubstringIterator(trail1); it.hasNext();) {
+                    for (Iterator<String> it = new SubstringIterator(trail1); it.hasNext(); ) {
                         String sub = it.next();
                         String trial = leadStr + sub + trail2;
                         String nfc = shortNFC(trial);
@@ -93,10 +98,14 @@ public class ShortestCanonicalForm {
                             final int blocker = nfc.codePointAt(0);
                             if (!blockers.contains(blocker)) {
                                 blockers.add(blocker);
-                                System.out.println("Adding blocker: " + Utility.hex(blocker, 4) + "\t"
-                                    + UTF16.valueOf(blocker));
+                                System.out.println(
+                                        "Adding blocker: "
+                                                + Utility.hex(blocker, 4)
+                                                + "\t"
+                                                + UTF16.valueOf(blocker));
                                 System.out.println("\tNFC: " + Utility.hex(nfc) + "\t" + nfc);
-                                System.out.println("\tShort: " + Utility.hex(shortest) + "\t" + shortest);
+                                System.out.println(
+                                        "\tShort: " + Utility.hex(shortest) + "\t" + shortest);
                             }
                         }
                     }
@@ -193,7 +202,7 @@ public class ShortestCanonicalForm {
             if (isNFD) {
                 if (inProblem) {
                     // continue;
-                } else {// reached end of problem
+                } else { // reached end of problem
                     b.append(process(input, start, i));
                     start = i;
                 }

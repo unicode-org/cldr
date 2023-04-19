@@ -1,17 +1,15 @@
 package org.unicode.cldr.draft;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.draft.PatternFixer.Target;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.unicode.cldr.draft.PatternFixer.Target;
 
 public class RegexTransformBuilder {
     static final boolean DEBUG = false;
@@ -59,7 +57,8 @@ public class RegexTransformBuilder {
                     System.out.println("BAD RULE");
                     continue;
                 } else {
-                    throw new IllegalArgumentException("Bad rule: {" + Utility.escape(ruleString) + "} ;");
+                    throw new IllegalArgumentException(
+                            "Bad rule: {" + Utility.escape(ruleString) + "} ;");
                 }
             }
 
@@ -105,7 +104,8 @@ public class RegexTransformBuilder {
         }
 
         // generate final result
-        StringTransform result = compound.size() == 1 ? compound.get(0) : new CompoundTransform(compound);
+        StringTransform result =
+                compound.size() == 1 ? compound.get(0) : new CompoundTransform(compound);
         if (filter != null) {
             return new UnicodeSetFilteredTransform(filter, result);
         }
@@ -124,13 +124,9 @@ public class RegexTransformBuilder {
 
     private static final PatternFixer PATTERN_FIXER = new PatternFixer(Target.JAVA);
 
-    static Pattern RULE_PATTERN = Pattern.compile(
-        "(?:([^{}>]*) \\{)?" +
-            "([^}<>]*)" +
-            "(?:\\} ([^<>]*))?" +
-            "<?> (.*)",
-        Pattern.COMMENTS);
-    static Pattern VARIABLE = Pattern.compile(
-        "\\$[0-9]",
-        Pattern.COMMENTS);
+    static Pattern RULE_PATTERN =
+            Pattern.compile(
+                    "(?:([^{}>]*) \\{)?" + "([^}<>]*)" + "(?:\\} ([^<>]*))?" + "<?> (.*)",
+                    Pattern.COMMENTS);
+    static Pattern VARIABLE = Pattern.compile("\\$[0-9]", Pattern.COMMENTS);
 }

@@ -23,12 +23,20 @@ public class StatisticsUtils {
 
     public static final int NO_LIMIT = -1;
 
-    public static final String QUERY_ALL_VOTES = "select  locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE + "  where submitter is not null " + ""
-        + " group by locale ";
+    public static final String QUERY_ALL_VOTES =
+            "select  locale,count(*) as count from "
+                    + DBUtils.Table.VOTE_VALUE
+                    + "  where submitter is not null "
+                    + ""
+                    + " group by locale ";
 
-    public static final String QUERY_NEW_VOTES = "select  locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE + " as new_votes  where submitter is not null " +
-        " AND " + StatisticsUtils.getExcludeOldVotesSql()
-        + " group by locale ";
+    public static final String QUERY_NEW_VOTES =
+            "select  locale,count(*) as count from "
+                    + DBUtils.Table.VOTE_VALUE
+                    + " as new_votes  where submitter is not null "
+                    + " AND "
+                    + StatisticsUtils.getExcludeOldVotesSql()
+                    + " group by locale ";
 
     public static String[][] calcSubmits(String[][] v, String[][] d) {
         return calcSubmits(v, d, NO_LIMIT);
@@ -51,17 +59,19 @@ public class StatisticsUtils {
             }
             ent.d = Integer.parseInt(d[i][1]);
         }
-        Set<di> asSet = new TreeSet<>(new Comparator<di>() {
+        Set<di> asSet =
+                new TreeSet<>(
+                        new Comparator<di>() {
 
-            @Override
-            public int compare(di arg0, di arg1) {
-                int rc = arg1.d - arg0.d;
-                if (rc == 0) {
-                    rc = arg0.s.compareTo(arg1.s);
-                }
-                return rc;
-            }
-        });
+                            @Override
+                            public int compare(di arg0, di arg1) {
+                                int rc = arg1.d - arg0.d;
+                                if (rc == 0) {
+                                    rc = arg0.s.compareTo(arg1.s);
+                                }
+                                return rc;
+                            }
+                        });
         asSet.addAll(all.values());
 
         int newSize = asSet.size();
@@ -86,38 +96,48 @@ public class StatisticsUtils {
 
     /**
      * Total items submitted. Updated every few minutes
+     *
      * @return
      */
     public static int getTotalItems() {
         final String queryName = "total_items";
-        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null";
+        final String querySql =
+                "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null";
         return getCachedQuery(queryName, querySql);
     }
 
     /**
      * Total items submitted. Updated every few minutes
+     *
      * @return
      */
     public static int getTotalNewItems() {
         final String queryName = "total_new_items";
-        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " as new_votes where new_votes.submitter is not null  and "
-            + getExcludeOldVotesSql();
+        final String querySql =
+                "select count(*) from "
+                        + DBUtils.Table.VOTE_VALUE
+                        + " as new_votes where new_votes.submitter is not null  and "
+                        + getExcludeOldVotesSql();
         return getCachedQuery(queryName, querySql);
     }
 
     public static String getExcludeOldVotesSql() {
-        return " not exists ( select * from " + DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false) + " as old_votes "
-            + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
-            + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value) ";
+        return " not exists ( select * from "
+                + DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false)
+                + " as old_votes "
+                + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
+                + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value) ";
     }
 
     /**
      * Total submitters. Updated every few minutes
+     *
      * @return
      */
     public static int getTotalSubmitters() {
         final String queryName = "total_submitters";
-        final String querySql = "select count(distinct submitter) from " + DBUtils.Table.VOTE_VALUE + " ";
+        final String querySql =
+                "select count(distinct submitter) from " + DBUtils.Table.VOTE_VALUE + " ";
         return getCachedQuery(queryName, querySql);
     }
 
@@ -131,8 +151,7 @@ public class StatisticsUtils {
             return -2;
         }
         try {
-            return DBUtils.getFirstInt(DBUtils.queryToCachedJSON(queryName, FEW_MINUTES,
-                querySql));
+            return DBUtils.getFirstInt(DBUtils.queryToCachedJSON(queryName, FEW_MINUTES, querySql));
         } catch (Throwable t) {
             return -1;
         }

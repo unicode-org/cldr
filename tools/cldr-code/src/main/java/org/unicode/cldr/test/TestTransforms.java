@@ -1,30 +1,29 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.text.Transliterator;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
-
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
-
-import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms {
 
     public static void main(String[] args) throws IOException {
         // checkRegistry();
-//        String source = CldrUtility.getProperty("files", null, CLDRPaths.BASE_DIRECTORY
-//            + "dropbox/gen/icu-transforms/");
+        //        String source = CldrUtility.getProperty("files", null, CLDRPaths.BASE_DIRECTORY
+        //            + "dropbox/gen/icu-transforms/");
         boolean verbose = CldrUtility.getProperty("verbose", false);
         PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;
 
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
 
-//        if (source == null) {
-            CLDRTransforms.registerCldrTransforms(null, ".*", out, false);
-//        } else {
-//            CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
-//        }
+        //        if (source == null) {
+        CLDRTransforms.registerCldrTransforms(null, ".*", out, false);
+        //        } else {
+        //
+        // CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
+        //        }
         if (out != null) {
             out.flush();
         }
@@ -43,9 +42,9 @@ public class TestTransforms {
             Class ta = Class.forName("com.ibm.icu.dev.test.translit.TestAll");
             Object testAll = ta.newInstance();
             // String[] params = new String[]{"-n "};
-            Method m = ta.getDeclaredMethod("main", new Class[] { String[].class });
+            Method m = ta.getDeclaredMethod("main", new Class[] {String[].class});
             System.out.println("Starting ICU Test");
-            m.invoke(ta, new Object[] { args });
+            m.invoke(ta, new Object[] {args});
             // TestAll.main(new String[]{"-n"});
         } catch (Exception ex) {
             System.err.println("Could not load TestAll. Encountered exception: " + ex.toString());
@@ -55,8 +54,9 @@ public class TestTransforms {
 
     private static void checkRegistry() {
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
-        Transliterator t = Transliterator.createFromRules("foo", "a > b; ::[:greek:] halfwidth-fullwidth;",
-            Transliterator.FORWARD);
+        Transliterator t =
+                Transliterator.createFromRules(
+                        "foo", "a > b; ::[:greek:] halfwidth-fullwidth;", Transliterator.FORWARD);
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
         Transliterator.registerInstance(t);
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
@@ -129,6 +129,5 @@ public class TestTransforms {
         // System.out.println(t2.toRules(true));
         String test2 = t2.transliterate(test);
         System.out.println("Test\t" + id + "\t" + dir2 + "\t" + test2);
-
     }
 }

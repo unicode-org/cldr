@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
@@ -12,15 +11,15 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 public class SummarizingSubmissionResultHandler implements DataSubmissionResultHandler {
 
-    /**
-     * Print a log of each item's status change.
-     */
+    /** Print a log of each item's status change. */
     static final boolean DEBUG = false;
 
     boolean hadErrors = false;
 
     public enum ItemStatus {
-        ITEM_UNKNOWN, ITEM_GOOD, ITEM_BAD
+        ITEM_UNKNOWN,
+        ITEM_GOOD,
+        ITEM_BAD
     }
 
     public class ItemInfo {
@@ -52,8 +51,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         }
 
         void setError(CheckStatus status) {
-            if (DEBUG)
-                System.out.println(this + " - setError(status:" + status.getMessage() + ")");
+            if (DEBUG) System.out.println(this + " - setError(status:" + status.getMessage() + ")");
             setStatus(ItemStatus.ITEM_BAD);
             hadErrors = true;
             if (errors == null) {
@@ -63,8 +61,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         }
 
         void setError() {
-            if (DEBUG)
-                System.out.println(this + " - setError()");
+            if (DEBUG) System.out.println(this + " - setError()");
             setStatus(ItemStatus.ITEM_BAD);
             hadErrors = true;
         }
@@ -75,8 +72,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         }
 
         void setOK() {
-            if (DEBUG)
-                System.out.println(this + " - setOK()");
+            if (DEBUG) System.out.println(this + " - setOK()");
             setStatus(ItemStatus.ITEM_GOOD);
         }
 
@@ -95,16 +91,18 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
 
         private void assertStatus(ItemStatus expectedStatus) {
             if (status != expectedStatus) {
-                throw new InternalError(this.toString() + ": Expected status " + expectedStatus.name() + " but was "
-                    + status.name());
+                throw new InternalError(
+                        this.toString()
+                                + ": Expected status "
+                                + expectedStatus.name()
+                                + " but was "
+                                + status.name());
             }
         }
 
         void append(String what) {
-            if (DEBUG)
-                System.out.println(this + " - append(" + what + ")");
-            if (what == null)
-                return;
+            if (DEBUG) System.out.println(this + " - append(" + what + ")");
+            if (what == null) return;
             if (description == null) {
                 description = what;
             } else {
@@ -130,8 +128,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
          * @param v
          */
         public void setProposed(String v) {
-            if (DEBUG)
-                System.out.println(this + " - spv(" + v + ")");
+            if (DEBUG) System.out.println(this + " - spv(" + v + ")");
             this.proposedValue = v;
         }
 
@@ -170,9 +167,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         getInfo(d).setError(what);
     }
 
-    /**
-     * Were any errors encountered?
-     */
+    /** Were any errors encountered? */
     public boolean hadErrors() {
         return hadErrors;
     }

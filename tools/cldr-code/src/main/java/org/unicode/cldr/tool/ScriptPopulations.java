@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
@@ -13,8 +12,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class ScriptPopulations {
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalDataInfo =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
     static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
@@ -29,7 +28,8 @@ public class ScriptPopulations {
 
         for (String territory : info.getTerritoriesWithPopulationData()) {
             for (String language : info.getLanguagesForTerritoryWithPopulationData(territory)) {
-                PopulationData languageInfo = info.getLanguageAndTerritoryPopulationData(language, territory);
+                PopulationData languageInfo =
+                        info.getLanguageAndTerritoryPopulationData(language, territory);
                 OfficialStatus officialStatus = languageInfo.getOfficialStatus();
                 String baseLanguage = languageTagParser.set(language).getLanguage();
                 String script = languageTagParser.getScript();
@@ -57,13 +57,21 @@ public class ScriptPopulations {
 
             OfficialStatus officialStatus = bestStatus.get(lang);
             System.out.println(
-                baseLanguage + "\t" + script
-                    + "\t" + langScriptLitPop.getCount(lang)
-                    + "\t" + english.getName(baseLanguage)
-                    + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    + "\t" + officialStatus
-                    + "\t" + officialStatus.ordinal()
-                    + "\t" + scriptLitPop.getCount(script));
+                    baseLanguage
+                            + "\t"
+                            + script
+                            + "\t"
+                            + langScriptLitPop.getCount(lang)
+                            + "\t"
+                            + english.getName(baseLanguage)
+                            + "\t"
+                            + english.getName(CLDRFile.SCRIPT_NAME, script)
+                            + "\t"
+                            + officialStatus
+                            + "\t"
+                            + officialStatus.ordinal()
+                            + "\t"
+                            + scriptLitPop.getCount(script));
         }
     }
 }

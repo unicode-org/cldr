@@ -1,15 +1,13 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.ListFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
-
-import com.ibm.icu.text.ListFormat;
-import com.ibm.icu.text.SimpleDateFormat;
 
 public class GenerateSeedDurations {
     /*
@@ -31,12 +29,8 @@ public class GenerateSeedDurations {
      * </combinationUnits>
      */
     static CLDRConfig testInfo = ToolConfig.getToolInstance();
-    static String[] numericUnits = {
-        "ms", "Hm", "Hms"
-    };
-    static String[] combinationUnits = {
-        "ms", "Hm", "Hms", "dH", "dHm", "wd", "md", "ym", "ymd"
-    };
+    static String[] numericUnits = {"ms", "Hm", "Hms"};
+    static String[] combinationUnits = {"ms", "Hm", "Hms", "dH", "dHm", "wd", "md", "ym", "ymd"};
 
     /*
      * Seed these values using:
@@ -68,8 +62,12 @@ public class GenerateSeedDurations {
                 if (!patternString.contains(":")) {
                     warnings.add(localeString + "\t" + patternString + "\t ***No ':'");
                 }
-                System.out.println("        <numericUnit type=\"" + numericUnit + "\">" + patternString
-                    + "<numericUnit>");
+                System.out.println(
+                        "        <numericUnit type=\""
+                                + numericUnit
+                                + "\">"
+                                + patternString
+                                + "<numericUnit>");
             }
             System.out.println("    </numericUnits>");
 
@@ -80,11 +78,16 @@ public class GenerateSeedDurations {
 
             System.out.println("    <combinationUnits>");
             for (String combinationUnit : combinationUnits) {
-                String pattern = combinationUnit.length() == 2
-                    ? listFormat.format("{0}", "{1}")
-                    : listFormat.format("{0}", "{1}", "{2}");
-                System.out.println("        <combinationUnit type=\"" + combinationUnit + "\">" + pattern
-                    + "<combinationUnit>");
+                String pattern =
+                        combinationUnit.length() == 2
+                                ? listFormat.format("{0}", "{1}")
+                                : listFormat.format("{0}", "{1}", "{2}");
+                System.out.println(
+                        "        <combinationUnit type=\""
+                                + combinationUnit
+                                + "\">"
+                                + pattern
+                                + "<combinationUnit>");
             }
             System.out.println("    </combinationUnits>");
         }

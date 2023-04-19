@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transform;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,24 +13,24 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 
-import com.ibm.icu.text.Transform;
-
 /**
- * Convenience class for building collections and maps. Allows them to be built by chaining, making it simpler to
- * set as parameters and fields. Also supplies some operations that are missing on the JDK maps and collections,
- * and provides finer control for what happens with equal elements.
- * <p>
- * You start with Builder.with(...) and end with either .get() or .freeze(). With .freeze, the result is unmodifiable
- * (but its objects may be). Examples:
+ * Convenience class for building collections and maps. Allows them to be built by chaining, making
+ * it simpler to set as parameters and fields. Also supplies some operations that are missing on the
+ * JDK maps and collections, and provides finer control for what happens with equal elements.
+ *
+ * <p>You start with Builder.with(...) and end with either .get() or .freeze(). With .freeze, the
+ * result is unmodifiable (but its objects may be). Examples:
+ *
  * <ul>
- * <li>Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(anIterator).addAll(aCollection).addAll(item1,
- * item2, item3).get();</li>
- * <li>Map<String, Integer> map = Builder.with(new TreeMap<String, Integer>()).put("one",2).putAll(otherMap).freeze();
+ *   <li>Set<String> sorted = Builder.with(new
+ *       TreeSet<String>()).addAll(anIterator).addAll(aCollection).addAll(item1, item2,
+ *       item3).get();
+ *   <li>Map<String, Integer> map = Builder.with(new TreeMap<String,
+ *       Integer>()).put("one",2).putAll(otherMap).freeze();
  * </ul>
  *
- * <p>
- * The builder allows some options that the normal collections don't have, with the EqualAction. If none it specified,
- * then it behaves like Java collections.
+ * <p>The builder allows some options that the normal collections don't have, with the EqualAction.
+ * If none it specified, then it behaves like Java collections.
  *
  * <pre>
  * Operations: A is current contents, B is new collection, x indicates the results
@@ -49,20 +50,23 @@ import com.ibm.icu.text.Transform;
 public final class Builder {
     enum EqualAction {
         /**
-         * If you try to add an item that is already there, or change the mapping, do whatever the source collation or
-         * map does.
+         * If you try to add an item that is already there, or change the mapping, do whatever the
+         * source collation or map does.
          */
         NATIVE,
         /**
-         * If you try to add an item that is already there, or change the mapping, take the new item.
+         * If you try to add an item that is already there, or change the mapping, take the new
+         * item.
          */
         REPLACE,
         /**
-         * If you try to add an item that is already there, or change the mapping, retain the old one.
+         * If you try to add an item that is already there, or change the mapping, retain the old
+         * one.
          */
         RETAIN,
         /**
-         * If you try to add an item that is already there, or change the mapping, throw an exception.
+         * If you try to add an item that is already there, or change the mapping, throw an
+         * exception.
          */
         THROW
     }
@@ -102,20 +106,20 @@ public final class Builder {
 
         public CBuilder<E, U> add(E e) {
             switch (equalAction) {
-            case NATIVE:
-                break;
-            case REPLACE:
-                collection.remove(e);
-                break;
-            case RETAIN:
-                if (collection.contains(e)) {
-                    return this;
-                }
-                break;
-            case THROW:
-                if (collection.contains(e)) {
-                    throw new IllegalArgumentException("Map already contains " + e);
-                }
+                case NATIVE:
+                    break;
+                case REPLACE:
+                    collection.remove(e);
+                    break;
+                case RETAIN:
+                    if (collection.contains(e)) {
+                        return this;
+                    }
+                    break;
+                case THROW:
+                    if (collection.contains(e)) {
+                        throw new IllegalArgumentException("Map already contains " + e);
+                    }
             }
             collection.add(e);
             return this;
@@ -319,20 +323,20 @@ public final class Builder {
 
         public MBuilder<K, V, M> put(K key, V value) {
             switch (equalAction) {
-            case NATIVE:
-                break;
-            case REPLACE:
-                map.remove(key);
-                break;
-            case RETAIN:
-                if (map.containsKey(key)) {
-                    return this;
-                }
-                break;
-            case THROW:
-                if (map.containsKey(key)) {
-                    throw new IllegalArgumentException("Map already contains " + key);
-                }
+                case NATIVE:
+                    break;
+                case REPLACE:
+                    map.remove(key);
+                    break;
+                case RETAIN:
+                    if (map.containsKey(key)) {
+                        return this;
+                    }
+                    break;
+                case THROW:
+                    if (map.containsKey(key)) {
+                        throw new IllegalArgumentException("Map already contains " + key);
+                    }
             }
             map.put(key, value);
             return this;
@@ -500,8 +504,10 @@ public final class Builder {
         }
     }
 
-    public static <E> Collection<E> getMatchingItems(Transform<E, Boolean> predicate, Collection<E> collection,
-        Collection<E> matchingItems) {
+    public static <E> Collection<E> getMatchingItems(
+            Transform<E, Boolean> predicate,
+            Collection<E> collection,
+            Collection<E> matchingItems) {
         for (E item : collection) {
             if (predicate.transform(item)) {
                 matchingItems.add(item);

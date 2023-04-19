@@ -8,6 +8,14 @@
  */
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.impl.ICUData;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UResourceBundle;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +31,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -31,15 +38,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
-
-import com.ibm.icu.impl.ICUData;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.UResourceBundle;
 
 /**
  * Extract ICU transform data and convert to CLDR format.<br>
@@ -49,16 +47,17 @@ import com.ibm.icu.util.UResourceBundle;
  * -DSHOW_FILES -Dfile=c:/downloads/zh_Hans-zh_Hant.txt
  * </pre>
  *
- * The option -Dtarget=yyy will specify an output directory; otherwise it is Utility.GEN_DIRECTORY + "/translit/gen/"
+ * The option -Dtarget=yyy will specify an output directory; otherwise it is Utility.GEN_DIRECTORY +
+ * "/translit/gen/"
  *
  * @author markdavis
- *
  */
 public class ExtractICUData {
     public static void main(String[] args) throws Exception {
         String file = CldrUtility.getProperty("file", null);
         if (file != null) {
-            String targetDirectory = CldrUtility.getProperty("target", CLDRPaths.GEN_DIRECTORY + "/translit/gen/");
+            String targetDirectory =
+                    CldrUtility.getProperty("target", CLDRPaths.GEN_DIRECTORY + "/translit/gen/");
             convertFile(file, targetDirectory);
         } else {
             generateTransliterators();
@@ -66,17 +65,20 @@ public class ExtractICUData {
         System.out.println("Done");
     }
 
-    static Set<String> skipLines = new HashSet<>(Arrays.asList(new String[] {
-        "#--------------------------------------------------------------------",
-
-        "#--------------------------------------------------------------------"
-    }));
-    static Set<String> skipFiles = new HashSet<>(Arrays.asList(new String[] {
-        // "Any_Accents",
-        "el",
-        "en",
-        "root"
-    }));
+    static Set<String> skipLines =
+            new HashSet<>(
+                    Arrays.asList(
+                            new String[] {
+                                "#--------------------------------------------------------------------",
+                                "#--------------------------------------------------------------------"
+                            }));
+    static Set<String> skipFiles =
+            new HashSet<>(
+                    Arrays.asList(
+                            new String[] {
+                                // "Any_Accents",
+                                "el", "en", "root"
+                            }));
 
     static void generateTransliterators() throws IOException {
         Matcher fileFilter = PatternCache.get(".*").matcher("");
@@ -89,23 +91,23 @@ public class ExtractICUData {
         File[] fileArray = translitSource.listFiles();
         List<Object> list = new ArrayList<>(Arrays.asList(fileArray));
 
-//        List<String> extras = Arrays.asList(new String[] {
-//            "Arabic_Latin.txt",
-//            "CanadianAboriginal_Latin.txt",
-//            "Cyrillic_Latin.txt",
-//            "Georgian_Latin.txt",
-//            // "Khmer_Latin.txt", "Lao_Latin.txt", "Tibetan_Latin.txt"
-//            "Latin_Armenian.txt",
-//            "Latin_Ethiopic.txt",
-//            "Syriac_Latin.txt", "Thaana_Latin.txt", });
-//        list.addAll(extras);
+        //        List<String> extras = Arrays.asList(new String[] {
+        //            "Arabic_Latin.txt",
+        //            "CanadianAboriginal_Latin.txt",
+        //            "Cyrillic_Latin.txt",
+        //            "Georgian_Latin.txt",
+        //            // "Khmer_Latin.txt", "Lao_Latin.txt", "Tibetan_Latin.txt"
+        //            "Latin_Armenian.txt",
+        //            "Latin_Ethiopic.txt",
+        //            "Syriac_Latin.txt", "Thaana_Latin.txt", });
+        //        list.addAll(extras);
 
         String[] attributesOut = new String[1];
         for (Object file : list) {
             String fileName = (file instanceof File) ? ((File) file).getName() : (String) file;
-//            if (file instanceof File && extras.contains(fileName)) {
-//                System.out.println("Skipping old version: " + fileName);
-//            }
+            //            if (file instanceof File && extras.contains(fileName)) {
+            //                System.out.println("Skipping old version: " + fileName);
+            //            }
             if (!fileName.endsWith(".txt")) continue;
             String coreName = fileName.substring(0, fileName.length() - 4);
             if (skipFiles.contains(coreName)) continue;
@@ -120,15 +122,20 @@ public class ExtractICUData {
 
             BufferedReader input;
             if (file instanceof File) {
-                input = FileUtilities.openUTF8Reader(((File) file).getParent() + File.separator, fileName);
+                input =
+                        FileUtilities.openUTF8Reader(
+                                ((File) file).getParent() + File.separator, fileName);
             } else {
                 input = CldrUtility.getUTF8Data(fileName);
             }
             {
                 CLDRFile outFile = SimpleFactory.makeSupplemental(fileName);
                 int count = 0;
-                String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
-                    + attributes;
+                String prefixBase =
+                        "//supplementalData[@version=\""
+                                + CLDRFile.GEN_VERSION
+                                + "\"]/transforms/transform"
+                                + attributes;
                 String rulePrefix = prefixBase + "/tRule[@_q=\"";
                 String commentPrefix = prefixBase + "/comment[@_q=\"";
 
@@ -148,12 +155,16 @@ public class ExtractICUData {
                     addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
                 }
 
-                PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+                PrintWriter pw =
+                        FileUtilities.openUTF8Writer(
+                                CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
                 outFile.write(pw);
                 pw.close();
             }
         }
-        PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
+        PrintWriter pw =
+                FileUtilities.openUTF8Writer(
+                        CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
         accumulatedItems.write(pw);
         pw.close();
     }
@@ -176,8 +187,11 @@ public class ExtractICUData {
         BufferedReader input = FileUtilities.openUTF8Reader("", fileName);
         CLDRFile outFile = SimpleFactory.makeSupplemental(coreName);
         int count = 0;
-        String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
-            + attributes;
+        String prefixBase =
+                "//supplementalData[@version=\""
+                        + CLDRFile.GEN_VERSION
+                        + "\"]/transforms/transform"
+                        + attributes;
         String rulePrefix = prefixBase + "/tRule[@_q=\"";
         String commentPrefix = prefixBase + "/comment[@_q=\"";
 
@@ -200,10 +214,10 @@ public class ExtractICUData {
         PrintWriter pw = FileUtilities.openUTF8Writer(targetDirectory, outName + ".xml");
         outFile.write(pw);
         pw.close();
-
     }
 
-    private static void addInTwo(CLDRFile outFile, CLDRFile accumulatedItems, String path, String value) {
+    private static void addInTwo(
+            CLDRFile outFile, CLDRFile accumulatedItems, String path, String value) {
         // System.out.println("Adding: " + path + "\t\t" + value);
         outFile.add(path, value);
         if (accumulatedItems != null) {
@@ -232,19 +246,19 @@ public class ExtractICUData {
         return fixedLine;
     }
 
-    static String fixLineRules = "'<>' > '\u2194';" +
-        "'<' > '\u2190';" +
-        "'>' > '\u2192';" +
-        "'&' > '\u00A7';" +
-        "('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
-        "('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
-        "([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"
+    static String fixLineRules =
+            "'<>' > '\u2194';"
+                    + "'<' > '\u2190';"
+                    + "'>' > '\u2192';"
+                    + "'&' > '\u00A7';"
+                    + "('\\u00'[0-7][0-9A-Fa-f]) > $1;"
+                    + // leave ASCII alone
+                    "('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);"
+                    + "([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);";
+    static Transliterator fixLine =
+            Transliterator.createFromRules("foo", fixLineRules, Transliterator.FORWARD);
 
-    ;
-    static Transliterator fixLine = Transliterator.createFromRules("foo", fixLineRules, Transliterator.FORWARD);
-
-    private static final String INDEX = "index",
-        RB_RULE_BASED_IDS = "RuleBasedTransliteratorIDs";
+    private static final String INDEX = "index", RB_RULE_BASED_IDS = "RuleBasedTransliteratorIDs";
 
     private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
 
@@ -279,8 +293,12 @@ public class ExtractICUData {
                 String attributes = attributesOut[0];
                 attributes += "[@direction=\"forward\"]";
                 System.out.println(ID + " => " + attributes);
-                String prefix = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
-                    + attributes + "/tRule[@_q=\"";
+                String prefix =
+                        "//supplementalData[@version=\""
+                                + CLDRFile.GEN_VERSION
+                                + "\"]/transforms/transform"
+                                + attributes
+                                + "/tRule[@_q=\"";
                 String resString = res.getString();
                 if (!instanceMatcher.reset(resString).matches()) {
                     System.out.println("Doesn't match id: " + resString);
@@ -301,8 +319,9 @@ public class ExtractICUData {
                         accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
                     }
                 }
-                PrintWriter pw = FileUtilities.openUTF8Writer(
-                    CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+                PrintWriter pw =
+                        FileUtilities.openUTF8Writer(
+                                CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
                 outFile.write(pw);
                 pw.close();
             } else {
@@ -321,20 +340,22 @@ public class ExtractICUData {
             String variant = fixTransIDPart(idMatcher.group(3));
 
             if (attributesOut != null) {
-                attributesOut[0] = "[@source=\"" + source + "\"]"
-                    + "[@target=\"" + target + "\"]"
-                    + (variant == null ? "" : "[@variant=\"" + variant + "\"]");
-                if (privateFiles.reset(id).matches()) attributesOut[0] += "[@visibility=\"internal\"]";
+                attributesOut[0] =
+                        "[@source=\""
+                                + source
+                                + "\"]"
+                                + "[@target=\""
+                                + target
+                                + "\"]"
+                                + (variant == null ? "" : "[@variant=\"" + variant + "\"]");
+                if (privateFiles.reset(id).matches())
+                    attributesOut[0] += "[@visibility=\"internal\"]";
             }
 
-            if (target == null)
-                target = "";
-            else
-                target = "-" + target;
-            if (variant == null)
-                variant = "";
-            else
-                variant = "/" + variant;
+            if (target == null) target = "";
+            else target = "-" + target;
+            if (variant == null) variant = "";
+            else variant = "/" + variant;
             id = source + target + variant;
         }
         return id;
@@ -356,11 +377,14 @@ public class ExtractICUData {
     // + "[@target=\"" + target + "\"]"
     // + (variant == null ? "" : "[@variant=\"" + variant + "\"]");
     // if (privateFiles.reset(name).matches()) attributesOut[0] += "[@visibility=\"internal\"]";
-    // return source + (target == null ? "" : "-") + target + (variant == null ? "" : "/" + variant);
+    // return source + (target == null ? "" : "-") + target + (variant == null ? "" : "/" +
+    // variant);
     // }
 
-    static Matcher privateFiles = PatternCache.get(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
-    static Matcher allowNames = PatternCache.get("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
+    static Matcher privateFiles =
+            PatternCache.get(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
+    static Matcher allowNames =
+            PatternCache.get("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
 
     static Set<String> collectedNames = new TreeSet<>();
 
@@ -381,10 +405,11 @@ public class ExtractICUData {
     }
 
     static void testProps() {
-        int[][] ranges = { { UProperty.BINARY_START, UProperty.BINARY_LIMIT },
-            { UProperty.INT_START, UProperty.INT_LIMIT },
-            { UProperty.DOUBLE_START, UProperty.DOUBLE_START },
-            { UProperty.STRING_START, UProperty.STRING_LIMIT },
+        int[][] ranges = {
+            {UProperty.BINARY_START, UProperty.BINARY_LIMIT},
+            {UProperty.INT_START, UProperty.INT_LIMIT},
+            {UProperty.DOUBLE_START, UProperty.DOUBLE_START},
+            {UProperty.STRING_START, UProperty.STRING_LIMIT},
         };
         Collator col = Collator.getInstance(ULocale.ROOT);
         ((RuleBasedCollator) col).setNumericCollation(true);
@@ -393,45 +418,48 @@ public class ExtractICUData {
         for (int range = 0; range < ranges.length; ++range) {
             for (int propIndex = ranges[range][0]; propIndex < ranges[range][1]; ++propIndex) {
                 String propName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.LONG);
-                String shortPropName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.SHORT);
+                String shortPropName =
+                        UCharacter.getPropertyName(propIndex, UProperty.NameChoice.SHORT);
                 propName = getName(propIndex, propName, shortPropName);
                 Set<String> valueOrder = new TreeSet<>(col);
                 alpha.put(propName, valueOrder);
                 switch (range) {
-                case 0:
-                    valueOrder.add("[binary]");
-                    break;
-                case 2:
-                    valueOrder.add("[double]");
-                    break;
-                case 3:
-                    valueOrder.add("[string]");
-                    break;
-                case 1:
-                    for (int valueIndex = 0; valueIndex < 256; ++valueIndex) {
-                        try {
-                            String valueName = UCharacter.getPropertyValueName(propIndex, valueIndex,
-                                UProperty.NameChoice.LONG);
-                            String shortValueName = UCharacter.getPropertyValueName(propIndex, valueIndex,
-                                UProperty.NameChoice.SHORT);
-                            valueName = getName(valueIndex, valueName, shortValueName);
-                            valueOrder.add(valueName);
-                        } catch (RuntimeException e) {
-                            // just skip
+                    case 0:
+                        valueOrder.add("[binary]");
+                        break;
+                    case 2:
+                        valueOrder.add("[double]");
+                        break;
+                    case 3:
+                        valueOrder.add("[string]");
+                        break;
+                    case 1:
+                        for (int valueIndex = 0; valueIndex < 256; ++valueIndex) {
+                            try {
+                                String valueName =
+                                        UCharacter.getPropertyValueName(
+                                                propIndex, valueIndex, UProperty.NameChoice.LONG);
+                                String shortValueName =
+                                        UCharacter.getPropertyValueName(
+                                                propIndex, valueIndex, UProperty.NameChoice.SHORT);
+                                valueName = getName(valueIndex, valueName, shortValueName);
+                                valueOrder.add(valueName);
+                            } catch (RuntimeException e) {
+                                // just skip
+                            }
                         }
-                    }
-                    break;
+                        break;
                 }
             }
         }
         PrintStream out = System.out;
 
-        for (Iterator<String> it = alpha.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = alpha.keySet().iterator(); it.hasNext(); ) {
             String propName = it.next();
             Set<String> values = alpha.get(propName);
             out.println("<tr><td>" + propName + "</td>");
             out.println("<td><table>");
-            for (Iterator<String> it2 = values.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = values.iterator(); it2.hasNext(); ) {
                 String propValue = it2.next();
                 System.out.println("<tr><td>" + propValue + "</td></tr>");
             }

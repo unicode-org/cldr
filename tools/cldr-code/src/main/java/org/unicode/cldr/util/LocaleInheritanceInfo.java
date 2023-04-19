@@ -3,7 +3,7 @@ package org.unicode.cldr.util;
 /** A triple with information about why an inheritance worked the way it did */
 public final class LocaleInheritanceInfo {
     /** Reason this entry is there */
-    enum Reason {
+    public enum Reason {
         value("A value was present at this location"),
         codefallback("This value represents an implicit value per spec"),
         itemalias("An alias was found at this location"),
@@ -19,6 +19,10 @@ public final class LocaleInheritanceInfo {
 
         Reason(String description) {
             this.description = description;
+        }
+
+        public String getDescription() {
+            return this.description;
         }
 
         @Override

@@ -2094,8 +2094,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="{combination of characters}" [to="{output}"]
-        </transforms>
+        <transform from="{combination of characters}" [to="{output}"] />
     </transformGroup>
 </transforms>
 ```
@@ -2104,7 +2103,8 @@ In text editing mode, different keyboard layouts may behave differently in the s
 
 For example, consider deleting a Devanagari ksha:
 
-> :point_right: **TODO** All of the examples in this section need the regex syntax updated and double checked. Will do that as they move into unit tests! -srl
+While this character is made up of three codepoints, the following rule causes all three to be deleted by a single press of the backspace.
+
 
 ```xml
 <transforms type="backspace">
@@ -2114,7 +2114,7 @@ For example, consider deleting a Devanagari ksha:
 </transforms>
 ```
 
-Here the optional attribute `@to` attribute is omitted, since the whole string is being deleted. This is not uncommon in the backspace transforms.
+Note that the optional attribute `@to` is omitted, since the whole string is being deleted. This is not uncommon in backspace transforms.
 
 A more complex example comes from a Burmese visually ordered keyboard:
 
@@ -2141,26 +2141,39 @@ A more complex example comes from a Burmese visually ordered keyboard:
         <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
 
         <!-- base consonant before e-vowel -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\uFDDF\u1031" />
+        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\m{prebase}\u1031" />
 
         <!-- subjoined consonant before medial r -->
         <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
 
         <!-- base consonant before medial r -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\uFDDF\u103C" />
+        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\m{prebase}\u103C" />
 
         <!-- delete lone medial r or e-vowel -->
-        <transform from="\uFDDF[\u1031\u103C]" />
+        <transform from="\m{prebase}[\u1031\u103C]" />
     </transformGroup>
 </transforms>
 ```
 
 The above example is simplified, and doesn't fully handle the interaction between medial-r and e-vowel.
 
-The character \\uFDDF does not represent a literal character, but is instead a special placeholder, a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. The precise filler string is implementation dependent. Rather than requiring keyboard layout designers to know what the filler string is, we reserve a special character that the keyboard layout designer may use to reference this filler string. It is up to the keyboard implementation to, in effect, replace that character with the filler string.
+
+> The character `\m{prebase}` does not represent a literal character, but is instead a special marker, used as a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. See [markers](#markers) for the `\m` syntax.
 
 The first three transforms above delete various ligatures with a single keypress. The other transforms handle prebase characters. There are two in this Burmese keyboard. The transforms delete the characters preceding the prebase character up to base which gets replaced with the prebase filler string, which represents a null base. Finally the prebase filler string + prebase is deleted as a unit.
 
+If no specified transform among all `transformGroup`s under the `<transforms type="backspace">` element matches, a default will be used instead — an implied final transform that simply deletes the most recent codepoint. This implied transform can be represented as follows, using `.`.  See the documentation for *Match a single Unicode codepoint* under [transform syntax](#regex-like-syntax), above.
+
+```xml
+<transforms type="backspace">
+    <!-- Other explicit transforms -->
+
+    <!-- Final implicit backspace transform: Delete the final codepoint. -->
+    <transformGroup>
+        <transform from="." />
+    </transformGroup>
+</transforms>
+```
 
 * * *
 

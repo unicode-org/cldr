@@ -34,11 +34,7 @@ A source formatter is now used, please see [spotless](./tools/README.md#spotless
 
 ### Licenses
 
-- Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [LICENSE](./LICENSE).
-
-- Some CLDR tools depend on library dependencies managed via Maven,
-  use of these libraries is governed by separate license agreements.
+This project is released under the free and open-source [Unicode License](./LICENSE), also known as _Unicode, Inc. License Agreement - Data Files and Software_. Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
 
 SPDX-License-Identifier: Unicode-DFS-2016
 

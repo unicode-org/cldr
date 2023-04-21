@@ -61,7 +61,7 @@ public class XPathAlt {
         if (locale == null) {
             return STError.badLocale(localeId);
         }
-        String xpath = getXPathByHex(hexId);
+        final String xpath = sm.xpt.getByStringID(hexId);
         if (xpath == null) {
             return STError.badPath(hexId);
         }

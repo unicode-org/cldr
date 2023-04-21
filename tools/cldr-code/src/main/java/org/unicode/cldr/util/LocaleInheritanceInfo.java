@@ -48,7 +48,7 @@ public final class LocaleInheritanceInfo {
         return reason;
     }
 
-    private String attribute;
+    private String attribute = null;
 
     public String getAttribute() {
         return attribute;

@@ -16,16 +16,17 @@
             reason,
             xpath,
             xpathFull,
+            attribute,
           } in inheritance"
           v-bind:color="colorForReason(reason)"
         >
-          <p v-bind:title="reason">{{ reasons[reason] || reason }}</p>
+          <p v-bind:title="reason">{{ getReason(reason, attribute) }}</p>
           <!-- only show on change -->
           <p v-if="newLocale">
             Locale: <b>{{ locale }}</b>
           </p>
           <!-- <b v-if="locale" v-bind:title="Locale ID">{{ locale }}</b> -->
-          <p v-if="xpath && newXpath" class="xpath">
+          <p v-if="newXpath" class="xpath">
             {{ xpathFull }}
           </p>
           <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
@@ -40,6 +41,7 @@
 
 <script>
 import * as cldrInheritance from "../esm/cldrInheritance.mjs";
+import * as cldrText from "../esm/cldrText.js";
 import { ref } from "vue";
 import { notification } from "ant-design-vue";
 export default {
@@ -107,6 +109,10 @@ export default {
     go(locale, xpath) {
       const href = `#/${locale}//${xpath}`;
       window.location.assign(href);
+    },
+    getReason(reason, attribute) {
+      const r = this.reasons[reason] || reason;
+      return cldrText.subTemplate(r, { attribute });
     },
   },
 };

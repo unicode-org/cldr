@@ -37,10 +37,8 @@ async function explainInheritance(itemLocale, itemXpath) {
     // set newLocale whenever the locale changes (and isn't null)
     // this way we don’t repeat the locale message
     if (locale && lastLocale !== locale) {
-      if (i !== 0 || locale !== itemLocale) {
-        // Don't set newLocale for the first (current) locale.
-        items[i].newLocale = locale;
-      }
+      // Don't set newLocale for the first (current) locale.
+      items[i].newLocale = locale;
       lastLocale = locale;
     }
     if (xpath && lastPath !== xpath) {
@@ -48,6 +46,7 @@ async function explainInheritance(itemLocale, itemXpath) {
         // Don't set newXpath for the first (current) xpath.
         items[i].newXpath = xpath;
       }
+      lastPath = xpath;
     }
   }
   return items;

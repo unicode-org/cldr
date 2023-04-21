@@ -10,7 +10,6 @@
         >
           ✕
         </a-button>
-        <span class="i-am-info-panel">Info Panel</span>
         <a-button
           shape="circle"
           class="cldr-nav-btn"
@@ -19,10 +18,11 @@
         >
           ↻
         </a-button>
+        <span class="i-am-info-panel">Info Panel</span>
         <a-button
           shape="circle"
           class="cldr-nav-btn"
-          title="Reload"
+          title="Explain"
           @click="explain"
         >
           ↑

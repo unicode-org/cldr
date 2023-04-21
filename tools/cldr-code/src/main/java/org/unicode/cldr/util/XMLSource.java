@@ -593,7 +593,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             } else {
                 list.add(
                         new LocaleInheritanceInfo(
-                                locale, path, LocaleInheritanceInfo.Reason.novalue)); // not found
+                                locale, path, LocaleInheritanceInfo.Reason.none)); // not found
             }
         }
         return locale;
@@ -1101,7 +1101,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         if (list != null) {
                             list.add(
                                     new LocaleInheritanceInfo(
-                                            localeID, xpath, Reason.inheritancemarker));
+                                            localeID, xpath, Reason.inheritanceMarker));
                         }
                         continue;
                     }
@@ -1113,7 +1113,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 if (list != null) {
                     // Note that the path wasn't found in this locale
                     // This also gives a trace of the locale inheritance
-                    list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.novalue));
+                    list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.none));
                 }
             }
             // Path not found, check if an alias exists
@@ -1139,7 +1139,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         // It's an explicit alias, just at a parent element (subset xpath)
                         list.add(
                                 new LocaleInheritanceInfo(
-                                        rootAliasLocale, aliasedPath, Reason.itemalias));
+                                        rootAliasLocale, aliasedPath, Reason.alias));
                     }
                     //                        xpath = aliasedPath;
                     //                    } else {
@@ -1149,9 +1149,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             } else {
                 if (list != null) {
                     // explicit, exact alias at this location
-                    list.add(
-                            new LocaleInheritanceInfo(
-                                    rootAliasLocale, aliasedPath, Reason.itemalias));
+                    list.add(new LocaleInheritanceInfo(rootAliasLocale, aliasedPath, Reason.alias));
                 }
             }
 
@@ -1159,7 +1157,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             if (aliasedPath == null && xpath.contains("[@alt=")) {
                 aliasedPath = XPathParts.getPathWithoutAlt(xpath);
                 if (list != null) {
-                    list.add(new LocaleInheritanceInfo(null, aliasedPath, Reason.alt));
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    null, aliasedPath, Reason.removedAttribute, "alt"));
                 }
             }
 
@@ -1182,7 +1182,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
                 if (list != null && aliasedPath != null) {
                     // two different paths above reach here
-                    list.add(new LocaleInheritanceInfo(null, aliasedPath, Reason.count));
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    null, aliasedPath, Reason.changedAttribute, "count"));
                 }
             }
 
@@ -1197,7 +1199,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         new LocaleInheritanceInfo(
                                 null,
                                 xpath,
-                                Reason.codefallback)); // Not using CODE_FALLBACK_ID as it is
+                                Reason.codeFallback)); // Not using CODE_FALLBACK_ID as it is
                 // implicit in the reason
             }
             return new AliasLocation(xpath, CODE_FALLBACK_ID);

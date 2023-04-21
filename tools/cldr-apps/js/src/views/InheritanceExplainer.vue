@@ -7,10 +7,16 @@
   >
     <template #content>
       <a-spin size="large" :delay="500" v-if="visible && !inheritance" />
-      <p></p>
       <a-timeline v-if="visible && inheritance">
         <a-timeline-item
-          v-for="{ locale, newLocale, reason, xpath, xpathFull } in inheritance"
+          v-for="{
+            locale,
+            newLocale,
+            newXpath,
+            reason,
+            xpath,
+            xpathFull,
+          } in inheritance"
           v-bind:color="colorForReason(reason)"
         >
           <p v-bind:title="reason">{{ reasons[reason] || reason }}</p>
@@ -19,19 +25,13 @@
             Locale: <b>{{ locale }}</b>
           </p>
           <!-- <b v-if="locale" v-bind:title="Locale ID">{{ locale }}</b> -->
-          <p v-if="xpath" class="xpath">
+          <p v-if="xpath && newXpath" class="xpath">
             {{ xpathFull }}
-            <!-- show the Go button, only if we have locale AND xpath, and if it's actually not where we already  -->
-            <a-button
-              v-if="
-                locale &&
-                xpath &&
-                (xpath !== itemXpath || locale !== itemLocale)
-              "
-              @click="go(locale, xpath)"
-              >Go</a-button
-            >
           </p>
+          <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
+          <a-button v-if="locale && xpath" @click="go(locale, xpath)"
+            >Go</a-button
+          >
         </a-timeline-item>
       </a-timeline>
     </template>
@@ -93,14 +93,14 @@ export default {
     colorForReason(reason) {
       return (
         {
-          novalue: "gray",
+          none: "gray",
           value: "green",
-          itemalias: "teal",
-          codefallback: "red",
+          itemAlias: "teal",
+          codeFallback: "red",
           constructed: "purple",
-          alt: "blue",
-          count: "yellow",
-          inheritancemarker: "orange",
+          removedAttribute: "blue",
+          changedAttribute: "yellow",
+          inheritanceMarker: "orange",
         }[reason] || null
       );
     },

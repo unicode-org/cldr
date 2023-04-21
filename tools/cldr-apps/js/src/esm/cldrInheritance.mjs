@@ -25,14 +25,15 @@ function getInheritanceReasonStrings() {
  * @param {String} xpath
  * @return Promise<Object[]> array of explanations
  */
-async function explainInheritance(itemLocale, xpath) {
+async function explainInheritance(itemLocale, itemXpath) {
   const r = await cldrAjax.doFetch(
-    `api/xpath/inheritance/locale/${itemLocale}/${xpath}`
+    `api/xpath/inheritance/locale/${itemLocale}/${itemXpath}`
   );
   const { items } = await r.json();
   let lastLocale = null;
+  let lastPath = null;
   for (let i = 0; i < items.length; i++) {
-    const { locale } = items[i];
+    const { locale, xpath } = items[i];
     // set newLocale whenever the locale changes (and isn't null)
     // this way we don’t repeat the locale message
     if (locale && lastLocale !== locale) {
@@ -41,6 +42,12 @@ async function explainInheritance(itemLocale, xpath) {
         items[i].newLocale = locale;
       }
       lastLocale = locale;
+    }
+    if (xpath && lastPath !== xpath) {
+      if (i !== 0 || xpath !== itemXpath) {
+        // Don't set newXpath for the first (current) xpath.
+        items[i].newXpath = xpath;
+      }
     }
   }
   return items;

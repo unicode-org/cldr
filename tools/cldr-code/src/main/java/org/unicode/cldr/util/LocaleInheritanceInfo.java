@@ -4,14 +4,14 @@ package org.unicode.cldr.util;
 public final class LocaleInheritanceInfo {
     /** Reason this entry is there */
     public enum Reason {
-        value("A value was present at this location"),
-        codefallback("This value represents an implicit value per spec"),
-        itemalias("An alias was found at this location"),
-        constructed("This xpath contributes to a constructed (fallback) value"),
-        novalue("The value was not found in this locale."),
-        inheritancemarker("An inheritance marker ↑↑↑ was found here"),
-        alt("An alt attribute was removed"),
-        count("A count attribute was changed"),
+        value("Found: explicit value"),
+        codeFallback("Found: code fallback"),
+        alias("An alias was found at this location"),
+        constructed("Constructed value"),
+        none("The value was not found in this locale."),
+        inheritanceMarker("Found: Inheritance marker"),
+        removedAttribute("Removed attribute: ${attribute}"), // such as alt
+        changedAttribute("Changed attribute: ${attribute}"), // such as count
         ;
 
         private String description;
@@ -48,6 +48,12 @@ public final class LocaleInheritanceInfo {
         return reason;
     }
 
+    private String attribute;
+
+    public String getAttribute() {
+        return attribute;
+    }
+
     /**
      * @param locale required locale
      * @param path optional xpath
@@ -57,6 +63,13 @@ public final class LocaleInheritanceInfo {
         this.locale = locale;
         this.path = path;
         this.reason = reason;
+    }
+
+    LocaleInheritanceInfo(String locale, String path, Reason reason, String attribute) {
+        this.locale = locale;
+        this.path = path;
+        this.reason = reason;
+        this.attribute = attribute;
     }
 
     @Override

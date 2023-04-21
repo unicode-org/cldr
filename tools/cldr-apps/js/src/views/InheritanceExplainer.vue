@@ -7,32 +7,39 @@
   >
     <template #content>
       <a-spin size="large" :delay="500" v-if="visible && !inheritance" />
-      <a-timeline v-if="visible && inheritance">
+      <a-timeline id="inheritanceTimeline" v-if="visible && inheritance">
         <a-timeline-item
           v-for="{
+            attribute,
             locale,
             newLocale,
             newXpath,
             reason,
+            showReason,
             xpath,
             xpathFull,
-            attribute,
           } in inheritance"
           v-bind:color="colorForReason(reason)"
         >
-          <p v-bind:title="reason">{{ getReason(reason, attribute) }}</p>
-          <!-- only show on change -->
-          <p v-if="newLocale">
-            Locale: <b>{{ locale }}</b>
+          <p v-bind:title="reason">
+            <b class="locale" v-if="newLocale">{{ newLocale }}</b>
+            <span class="reason" v-if="showReason">{{
+              getReason(reason, attribute)
+            }}</span>
+            <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
+            <a-button
+              size="small"
+              shape="round"
+              v-if="locale && xpath"
+              @click="go(locale, xpath)"
+              >Jump</a-button
+            >
           </p>
+          <!-- only show on change -->
           <!-- <b v-if="locale" v-bind:title="Locale ID">{{ locale }}</b> -->
           <p v-if="newXpath" class="xpath">
             {{ xpathFull }}
           </p>
-          <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
-          <a-button v-if="locale && xpath" @click="go(locale, xpath)"
-            >Go</a-button
-          >
         </a-timeline-item>
       </a-timeline>
     </template>
@@ -118,4 +125,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+/* .inheritanceTimeline {
+  overflow-y: scroll;
+} */
+
+.locale {
+  padding-right: 0.5em;
+}
+
+.reason {
+  padding-left: 0.5em;
+}
+</style>

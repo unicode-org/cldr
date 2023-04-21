@@ -32,24 +32,44 @@ public final class LocaleInheritanceInfo {
 
     private String locale;
 
+    /**
+     * Optional locale for this entry. or null
+     *
+     * @return
+     */
     public String getLocale() {
         return locale;
     }
 
     private String path;
 
+    /**
+     * Optional path for this entry, or null
+     *
+     * @return
+     */
     public String getPath() {
         return path;
     }
 
     private Reason reason;
 
+    /**
+     * Reason enum for this entry
+     *
+     * @return
+     */
     public Reason getReason() {
         return reason;
     }
 
     private String attribute = null;
 
+    /**
+     * Which attribute was involved (for Reason.removedAttribute/Reason.changedAttribute)
+     *
+     * @return
+     */
     public String getAttribute() {
         return attribute;
     }

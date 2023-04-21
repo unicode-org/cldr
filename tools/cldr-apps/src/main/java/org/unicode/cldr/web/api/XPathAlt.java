@@ -69,19 +69,6 @@ public class XPathAlt {
         return Response.ok(new AltSetResponse(hexId, set)).build();
     }
 
-    private String getXPathByHex(String hexId) {
-        String xpath = null;
-        try {
-            xpath = sm.xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
-        return xpath;
-    }
-
     @Schema(description = "Response for XPath alt set query")
     public static final class AltSetResponse {
 
@@ -138,7 +125,7 @@ public class XPathAlt {
         if (locale == null) {
             return STError.badLocale(request.localeId);
         }
-        String xpath = getXPathByHex(request.hexId);
+        final String xpath = sm.xpt.getByStringID(request.hexId);
         if (xpath == null) {
             return STError.badPath(request.hexId);
         }

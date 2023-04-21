@@ -90,7 +90,7 @@ public class Inheritance {
         if (locale == null) {
             return STError.badLocale(localeId);
         }
-        String xpath = getXPathByHex(hexId);
+        final String xpath = sm.xpt.getByStringID(hexId);
         if (xpath == null) {
             return STError.badPath(hexId);
         }
@@ -118,11 +118,13 @@ public class Inheritance {
         public String xpath;
         public String locale;
         public String xpathFull;
+        public String attribute;
         public LocaleInheritanceInfo.Reason reason;
 
         public LocaleInheritance(LocaleInheritanceInfo info) {
             this.reason = info.getReason();
             this.locale = info.getLocale();
+            this.attribute = info.getAttribute();
             final String x = info.getPath();
             if (x != null) {
                 this.xpath = StringId.getHexId(x);

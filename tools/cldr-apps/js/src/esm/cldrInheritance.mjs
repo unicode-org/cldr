@@ -2,7 +2,7 @@
  * cldrInheritance: encapsulate inheritance explainer.
  */
 import * as cldrAjax from "./cldrAjax.js";
-
+import * as cldrLoad from "./cldrLoad.js";
 /**
  * null, or promise to reason explanations
  */
@@ -26,19 +26,29 @@ function getInheritanceReasonStrings() {
  * @return Promise<Object[]> array of explanations
  */
 async function explainInheritance(itemLocale, itemXpath) {
+  const locMap = cldrLoad.getTheLocaleMap();
   const r = await cldrAjax.doFetch(
     `api/xpath/inheritance/locale/${itemLocale}/${itemXpath}`
   );
   const { items } = await r.json();
   let lastLocale = null;
   let lastPath = null;
+  let firstNone = false;
   for (let i = 0; i < items.length; i++) {
-    const { locale, xpath } = items[i];
+    const { locale, xpath, reason } = items[i];
+    if (reason === "none") {
+      if (!firstNone) {
+        items[i].showReason = true;
+        firstNone = true;
+      }
+    } else {
+      items[i].showReason = true;
+    }
     // set newLocale whenever the locale changes (and isn't null)
     // this way we don’t repeat the locale message
     if (locale && lastLocale !== locale) {
       // Don't set newLocale for the first (current) locale.
-      items[i].newLocale = locale;
+      items[i].newLocale = locMap.getLocaleName(locale);
       lastLocale = locale;
     }
     if (xpath && lastPath !== xpath) {

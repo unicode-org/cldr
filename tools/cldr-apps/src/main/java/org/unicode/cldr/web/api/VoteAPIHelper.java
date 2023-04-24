@@ -34,6 +34,9 @@ import org.unicode.cldr.web.api.VoteAPI.VoteResponse;
 public class VoteAPIHelper {
     private static final boolean DEBUG_SERIALIZATION = false;
 
+    /** Compare VoteResolver.DROP_HARD_INHERITANCE */
+    private static final boolean DROP_HARD_INHERITANCE_FROM_RESPONSE = true;
+
     public static final class VoteEntry {
         public final String email;
         public final VoteResolver.Level level;
@@ -239,6 +242,10 @@ public class VoteAPIHelper {
         row.votingResults = getVotingResults(resolver);
         row.winningValue = r.getWinningValue();
         row.winningVhash = r.getWinningVHash();
+        if (row.winningValue != null && row.winningValue.equals(row.inheritedValue)) {
+            row.winningValue = CldrUtility.INHERITANCE_MARKER;
+            row.winningVhash = DataPage.getValueHash(CldrUtility.INHERITANCE_MARKER);
+        }
         row.voteTranscript = r.getVoteTranscript();
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
@@ -283,19 +290,35 @@ public class VoteAPIHelper {
     private static Map<String, Candidate> calculateItems(final DataRow r) {
         final Map<String, Candidate> items = new HashMap<>();
         for (final CandidateItem i : r.items.values()) {
-            items.put(i.getValueHash(), calculateItem(i));
+            RowResponse.Row.Candidate candidate = calculateItem(i, r);
+            if (candidate != null) {
+                items.put(i.getValueHash(), candidate);
+            }
         }
         return items;
     }
 
-    private static RowResponse.Row.Candidate calculateItem(final CandidateItem i) {
+    private static RowResponse.Row.Candidate calculateItem(final CandidateItem i, DataRow r) {
+        String inheritedValue = r.getInheritedValue();
         RowResponse.Row.Candidate c = new RowResponse.Row.Candidate();
         c.example = i.getExample();
         c.history = i.getHistory();
-        c.isBaselineValue = i.isBaselineValue();
+        c.rawValue = i.getValue();
+        if (DROP_HARD_INHERITANCE_FROM_RESPONSE
+                && inheritedValue != null
+                && inheritedValue.equals(c.rawValue)) {
+            System.out.println(
+                    "calculateItem skipping hard value matching bailey = " + inheritedValue);
+            return null;
+        }
+        c.isBaselineValue =
+                i.isBaselineValue()
+                        || (DROP_HARD_INHERITANCE_FROM_RESPONSE
+                                && CldrUtility.INHERITANCE_MARKER.equals(c.rawValue)
+                                && inheritedValue != null
+                                && inheritedValue.equals(r.getBaselineValue()));
         c.pClass =
                 i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
-        c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
         c.valueHash = i.getValueHash();

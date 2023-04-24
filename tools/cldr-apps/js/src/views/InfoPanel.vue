@@ -1,25 +1,54 @@
 <template>
-  <section id="InfoPanelSection">
-    <header class="sidebyside-column-top">
-      <button
-        class="cldr-nav-btn info-panel-closebox"
-        title="Close"
-        @click="closeInfoPanel"
-      >
-        ✕
-      </button>
-      <span class="i-am-info-panel">Info Panel</span>
-      <button class="cldr-nav-btn" title="Reload" @click="reloadInfoPanel">
-        ↻
-      </button>
-    </header>
-  </section>
+  <div>
+    <section id="InfoPanelSection">
+      <header class="sidebyside-column-top">
+        <a-button
+          shape="circle"
+          class="cldr-nav-btn info-panel-closebox"
+          title="Close"
+          @click="closeInfoPanel"
+        >
+          ✕
+        </a-button>
+        <a-button
+          shape="circle"
+          class="cldr-nav-btn"
+          title="Reload"
+          @click="reloadInfoPanel"
+        >
+          ↻
+        </a-button>
+        <span class="i-am-info-panel">Info Panel</span>
+        <a-button
+          shape="circle"
+          class="cldr-nav-btn"
+          title="Explain"
+          @click="explain"
+        >
+          ↑
+        </a-button>
+      </header>
+    </section>
+    <InheritanceExplainer ref="inheritanceExplainer" />
+  </div>
 </template>
 
 <script>
+import { ref } from "vue";
 import * as cldrInfo from "../esm/cldrInfo.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
+import InheritanceExplainer from "./InheritanceExplainer.vue";
 
 export default {
+  setup() {
+    let inheritanceExplainer = ref(null);
+    return {
+      inheritanceExplainer,
+    };
+  },
+  components: {
+    InheritanceExplainer,
+  },
   methods: {
     closeInfoPanel() {
       cldrInfo.closePanel();
@@ -27,6 +56,13 @@ export default {
 
     reloadInfoPanel() {
       cldrInfo.clearCachesAndReload();
+    },
+
+    explain() {
+      this.inheritanceExplainer.explain(
+        cldrStatus.getCurrentLocale(),
+        cldrStatus.getCurrentId()
+      );
     },
   },
 };
@@ -59,5 +95,6 @@ header {
 .i-am-info-panel {
   font-weight: bold;
   margin-right: 1ex;
+  flex-grow: 1;
 }
 </style>

@@ -116,15 +116,7 @@ public class XPathAPI {
 
         // the actual implementation
         XPathTable xpt = getXPathTable();
-        String xpath = null;
-        try {
-            xpath = xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
+        final String xpath = xpt.getByStringID(hexId);
         if (xpath == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity(new STError("XPath " + hexId + " not found"))

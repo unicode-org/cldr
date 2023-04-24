@@ -59,27 +59,14 @@ public class XPathAlt {
                     String hexId) {
         CLDRLocale locale = CLDRLocale.getInstance(localeId);
         if (locale == null) {
-            return badLocale(localeId);
+            return STError.badLocale(localeId);
         }
-        String xpath = getXPathByHex(hexId);
+        final String xpath = sm.xpt.getByStringID(hexId);
         if (xpath == null) {
-            return badPath(hexId);
+            return STError.badPath(hexId);
         }
         Set<String> set = getSet(locale, xpath);
         return Response.ok(new AltSetResponse(hexId, set)).build();
-    }
-
-    private String getXPathByHex(String hexId) {
-        String xpath = null;
-        try {
-            xpath = sm.xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
-        return xpath;
     }
 
     @Schema(description = "Response for XPath alt set query")
@@ -136,11 +123,11 @@ public class XPathAlt {
         }
         CLDRLocale locale = CLDRLocale.getInstance(request.localeId);
         if (locale == null) {
-            return badLocale(request.localeId);
+            return STError.badLocale(request.localeId);
         }
-        String xpath = getXPathByHex(request.hexId);
+        final String xpath = sm.xpt.getByStringID(request.hexId);
         if (xpath == null) {
-            return badPath(request.hexId);
+            return STError.badPath(request.hexId);
         }
         String alt = getFromSet(request.alt, locale, xpath);
         if (alt == null) {
@@ -246,18 +233,6 @@ public class XPathAlt {
 
     private CLDRFile getFile(CLDRLocale locale) {
         return sm.getSTFactory().make(locale.getBaseName(), true);
-    }
-
-    private Response badLocale(String localeId) {
-        return Response.status(Response.Status.NOT_FOUND)
-                .entity(new STError("Locale ID " + localeId + " not found"))
-                .build();
-    }
-
-    private Response badPath(String hexId) {
-        return Response.status(Response.Status.NOT_FOUND)
-                .entity(new STError("XPath Hex ID " + hexId + " not found"))
-                .build();
     }
 
     private Response noAlt(String hexId, String alt) {

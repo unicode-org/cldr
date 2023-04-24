@@ -73,4 +73,16 @@ public class STError {
                         "{\"error\": \"SurveyTool is not ready to handle API requests, try again later\"}")
                 .build();
     }
+
+    public static Response badLocale(String localeId) {
+        return Response.status(Response.Status.NOT_FOUND)
+                .entity(new STError("Locale ID " + localeId + " not found"))
+                .build();
+    }
+
+    public static Response badPath(String hexId) {
+        return Response.status(Response.Status.NOT_FOUND)
+                .entity(new STError("XPath Hex ID " + hexId + " not found"))
+                .build();
+    }
 }

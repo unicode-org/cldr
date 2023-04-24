@@ -53,7 +53,7 @@ import org.unicode.cldr.util.VettingViewer.VoteStatus;
  * </pre>
  */
 public class VoteResolver<T> {
-    public static final boolean DROP_HARD_INHERITANCE = false;
+    public static final boolean DROP_HARD_INHERITANCE = true;
 
     private final VoterInfoList voterInfoList;
 

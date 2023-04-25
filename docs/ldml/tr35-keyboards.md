@@ -1516,10 +1516,10 @@ _Attribute:_ `value` (required)
 ```xml
 <variables>
   <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others - 
+  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -
  ->
   <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
-  <unicodeSet id="KhmrMn" value="[[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+  <unicodeSet id="KhmrMn" value="[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
 
@@ -1838,10 +1838,6 @@ The following are additions to standard Regex syntax.
     ```xml
     <unicodeSet id="Mn" value="[\u034F\u0591-\u05AF\u05BD\u05C4\u05C5\…]" /> <!-- 1,985 code points -->
     ```
-
-- **Ranges**
-
-    To use a range, use a `<unicodeset>` or `<set>` variable.
 
 - **Backreferences**
 

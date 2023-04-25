@@ -1447,6 +1447,7 @@ _Attribute:_ `value` (required)
 > Leading and trailing whitespace is ignored.
 > This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 > Sets may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined sets using `$[set]` syntax.
+> Set references must be separated by whitespace: `$[set1]$[set2]` is an error; instead use `$[set1] $[set2]`.
 > [Markers](#markers) may be included with the `\m{…}` notation.
 
 **Examples**
@@ -1489,7 +1490,7 @@ See [transform](#element-transform) for further details.
 > Occurrence: optional, multiple
 > </small>
 
-> This element represents a set, using a subset of the [UnicodeSet](tr35.md#Unicode_Sets) format, used by the [transform](#element-transform) elements for string matching and substitution.
+> This element represents a set, using a subset of the [UnicodeSet](tr35.md#Unicode_Sets) format, used by the [`transform`](#element-transform) elements for string matching and substitution.
 > Note important restrictions on the syntax below.
 
 _Attribute:_ `id` (required)
@@ -1505,6 +1506,7 @@ _Attribute:_ `value` (required)
 
 **Syntax Note**
 
+- Warning: UnicodeSets look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
 - Multi-character strings (`{}`) are not supported, such as `[żġħ{ie}{għ}]`.
 - UnicodeSet property notation (`\p{…}` or `[:…:]`) may **NOT** be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of `$[KhmrMn]` matches all nonspacing marks in the `Khmr` script.
 - UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.
@@ -1513,14 +1515,15 @@ _Attribute:_ `value` (required)
 
 ```xml
 <variables>
-<unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-<unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -->
-<unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
-<unicodeSet id="KhmrMn" value="[[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+  <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
+  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others - 
+ ->
+  <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
+  <unicodeSet id="KhmrMn" value="[[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
 
-The `unicodeSet` element may not be used in mapping operations.
+The `unicodeSet` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax), nor referenced by [`key`](#element-key) and [`display`](#element-display) elements.
 
 * * *
 
@@ -1724,7 +1727,7 @@ _Attribute:_ `from` (required)
 
 - **Fixed character classes and escapes**
 
-    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W` … TODO: check these
+    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
 
     The value of these classes do not change with Unicode versions.
 
@@ -1734,10 +1737,11 @@ _Attribute:_ `from` (required)
 
 - **Character classes**
 
-    `[abc]` `[^def]`
+    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u093F-\u0944\u0962\u0963]`
 
     - supported
     - no Unicode properties such as `\p{…}`
+    - Warning: Character classes look superficially similar to UnicodeSets as defined in [`unicodeSet`](#element-unicodeSet) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
 
 - **Bounded quantifier**
 
@@ -1915,7 +1919,7 @@ Used in the `to=`
 
     ```xml
     <set id="upper" value="A B CC D E  FF       G" />
-    <set id="lower" value="a b c  d e  \u{0192} g " />
+    <set id="lower" value="a b c  d e  \u{0192} g" />
     <!-- note that values may be spaced for ease of reading -->
     …
     <transform from="($[upper])" to="$[1:lower]" />
@@ -1924,7 +1928,7 @@ Used in the `to=`
     - The capture group on the `from=` side **must** contain exactly one set variable.  `from="Q($[upper])X"` can be used (other context before or after the capture group), but `from="(Q$[upper])"` may not be used with a mapped variable and is flagged as an error.
 
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
-    UnicodeSets may not be used.
+    A UnicodeSet may not be used directly, but must be defined as a `unicodeSet` variable.
 
     - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
 

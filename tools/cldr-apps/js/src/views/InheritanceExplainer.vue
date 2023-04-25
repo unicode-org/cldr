@@ -75,9 +75,21 @@ export default {
 
       this.itemLocale = locale;
       this.itemXpath = xpath;
-      if (locale && xpath) {
-        this.visible = true;
+      if (!locale || !xpath) {
+        // Not the best UX, but we don't have an easy way
+        // to track whether the locale is set or not without
+        // registering a callback, which seems heavyweight for
+        // this feature. Ideally, we would gray out this button
+        // if inappropriate.
+        notification.info({
+          description:
+            "Please click on an item first, and then clicking this button.",
+          message: "Inheritance Explainer",
+          placement: "topLeft",
+        });
+        return;
       }
+      this.visible = true;
 
       const reasons = cldrInheritance.getInheritanceReasonStrings();
       const explain = cldrInheritance.explainInheritance(locale, xpath);

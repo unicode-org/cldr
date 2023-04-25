@@ -337,13 +337,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="variable"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="string"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="set"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="unicodeSet"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
-  <xs:element name="variable">
+  <xs:element name="string">
     <xs:complexType>
       <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
       <xs:attribute name="value" use="required"/>
@@ -353,6 +355,25 @@
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @ALLOWS_UESC -->
+  <xs:element name="set">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:regex/[0-9A-Za-z_]{1,32} -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @ALLOWS_UESC -->
+  <xs:element name="unicodeSet">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:regex/[0-9A-Za-z_]{1,32} -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
   <xs:element name="transforms">
     <xs:complexType>
       <xs:sequence>

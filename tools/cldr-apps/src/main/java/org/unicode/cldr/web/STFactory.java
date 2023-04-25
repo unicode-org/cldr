@@ -1072,6 +1072,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throws BallotBox.InvalidXPathException, BallotBox.VoteNotAcceptedException {
             makeSureInPathsForFile(distinguishingXpath, user, value);
             value = processValue(distinguishingXpath, value);
+            value = reviseInheritanceAsNeeded(distinguishingXpath, value);
             SurveyLog.debug(
                     "V4v: "
                             + locale
@@ -1148,6 +1149,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (newVal != null && !newVal.equals(oldVal)) {
                 xmlsource.notifyListeners(distinguishingXpath);
             }
+        }
+
+        /**
+         * Get the possibly modified value. If value matches the bailey value or inheritance marker,
+         * possibly change it from bailey value to inheritance marker, or vice-versa, as needed to
+         * meet requirements described and implemented in VoteResolver.
+         *
+         * @param path the path
+         * @param value the input value
+         * @return the possibly modified value
+         */
+        private String reviseInheritanceAsNeeded(String path, String value) {
+            if (value != null) {
+                CLDRFile cldrFile = getFile(true);
+                if (cldrFile == null) {
+                    throw new InternalCldrException("getFile failure in reviseInheritanceAsNeeded");
+                }
+                value = VoteResolver.reviseInheritanceAsNeeded(path, value, cldrFile);
+            }
+            return value;
         }
 
         /**

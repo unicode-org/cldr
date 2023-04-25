@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.sql.Timestamp;
 import java.util.*;
@@ -53,7 +54,7 @@ import org.unicode.cldr.util.VettingViewer.VoteStatus;
  * </pre>
  */
 public class VoteResolver<T> {
-    public static final boolean DROP_HARD_INHERITANCE = false;
+    public static final boolean DROP_HARD_INHERITANCE = true;
 
     private final VoterInfoList voterInfoList;
 
@@ -2206,5 +2207,82 @@ public class VoteResolver<T> {
             }
         }
         return status;
+    }
+    /**
+     * Get the possibly modified value. If value matches the bailey value or inheritance marker,
+     * possibly change it from bailey value to inheritance marker, or vice-versa, as needed to meet
+     * these requirements: 1. If the path changes when getting bailey, then we are inheriting
+     * sideways. We need to use a hard value. 2. If the value is different from the bailey value,
+     * can't use inheritance; we need a hard value. 3. Otherwise we use inheritance marker.
+     *
+     * <p>These requirements are pragmatic, to work around limitations of the current inheritance
+     * algorithm, which is hyper-sensitive to the distinction between inheritance marker and bailey,
+     * which, depending on that distinction, unintentionally tends to change lateral inheritance to
+     * vertical inheritance, or vice-versa.
+     *
+     * <p>This method has consequences affecting vote resolution. For example, assume
+     * DROP_HARD_INHERITANCE is true. If a user votes for what is currently the inherited value, and
+     * these requirements call for using inheritance marker, then their vote is stored as
+     * inheritance marker in the db; if the parent value then changes (even during same release
+     * cycle), the vote is still a vote for inheritance -- that is how soft inheritence has long
+     * been intended to work. In the cases where this method returns the hard value matching bailey,
+     * the user's vote is stored in the db as that hard value; if the parent value then changes, the
+     * user's vote does not change -- this differs from what we'd like ideally (which is for all
+     * inh. votes to be "soft"). If and when the inheritance algorithm changes to reduce or
+     * eliminate the problematic aspects of the hard/soft distinction, this method might no longer
+     * be needed.
+     *
+     * <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-16560
+     *
+     * @param path the path
+     * @param value the input value
+     * @param cldrFile the CLDRFile for determining inheritance
+     * @return the possibly modified value
+     */
+    public static String reviseInheritanceAsNeeded(String path, String value, CLDRFile cldrFile) {
+        if (!DROP_HARD_INHERITANCE) {
+            return value;
+        }
+        if (!cldrFile.isResolved()) {
+            throw new InternalCldrException("must be resolved");
+        }
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
+        String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+        if (baileyValue != null
+                && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
+            boolean DEBUG_INHER = true;
+            if (DEBUG_INHER) {
+                boolean pathSame = pathWhereFound.value.equals(path);
+                String retValue = pathSame ? CldrUtility.INHERITANCE_MARKER : baileyValue;
+                boolean valueSame = retValue.equals(value);
+                System.out.println(
+                        "reviseInheritanceAsNeeded: start loc = "
+                                + cldrFile.getLocaleID()
+                                + "; start path = "
+                                + path
+                                + "; found loc: "
+                                + localeWhereFound.value
+                                + "; found path: "
+                                + pathWhereFound.value
+                                + "; pathSame = "
+                                + pathSame
+                                + "; value = "
+                                + value
+                                + "; bailey = "
+                                + baileyValue
+                                + "; retValue = "
+                                + retValue
+                                + "; valueSame = "
+                                + valueSame);
+                value = retValue;
+            } else {
+                value =
+                        pathWhereFound.value.equals(path)
+                                ? CldrUtility.INHERITANCE_MARKER
+                                : baileyValue;
+            }
+        }
+        return value;
     }
 }

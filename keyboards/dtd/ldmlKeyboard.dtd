@@ -231,12 +231,22 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST reorder before CDATA #IMPLIED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST reorder from CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST reorder order CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder tertiary CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder tertiaryBase CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder preBase CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->

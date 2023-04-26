@@ -83,7 +83,7 @@
 		<key id="super-2" to="²" longPress="₂" />
 
 		<!-- test key -->
- 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
+		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
 		<flicks id="a">
 			<flick directions="nw" to="\u1234" />
 			<flick directions="nw se" to="\uFFFF" />
@@ -106,7 +106,8 @@
 	<layers form="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
 		<layer modifier="none">
-			<row keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row
+				keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
 			<row keys="q s d f g h j k l m u-grave asterisk" />
 			<row keys="open-angle w x c v b n comma semi-colon colon bang" />
@@ -140,13 +141,15 @@
 
 		<layer id="numeric">
 			<row keys="1 2 3 4 5 6 7 8 9 0" />
-			<row keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
+			<row
+				keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
 			<row keys="symbol period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
 		</layer>
 
 		<layer id="symbol">
-			<row keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
+			<row
+				keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
 			<row keys="underscore backslash pipe tilde open-angle close-angle euro pound yen bullet" />
 			<row keys="numeric period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
@@ -154,53 +157,35 @@
 	</layers>
 
 	<variables>
-		<string id="grave" value="`" />
-		<string id="caret" value="^" />
+		<!-- spacing accents as string variables -->
+		<string id="grave"  value="`" />
+		<string id="caret"  value="^" />
 		<string id="umlaut" value="¨" />
-		<string id="tilde" value="~" />
-		<set id="visible_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
+		<string id="tilde"  value="~" />
+
+		<!-- sets representing vowels and accented vowels.  -->
+		<!-- There's an extra space between the lower and upper case for visual separation -->
+		<!-- but, there are only 10 items in the following four sets -->
+		<set id="vowel"       value="a e i o u  A E I O U" />
+		<set id="graveVowel"  value="à è ì ò ù  À È Ì Ò Ù" />
+		<set id="caretVowel"  value="â ê î ô û  Â Ê Î Ô Û" />
+		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
+
+		<!-- a set containing all spacing accents -->
+		<set id="spacing_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
 	</variables>
 
 	<transforms type="simple">
 		<transformGroup>
-			<import path="./path/to/some/transforms.xml" />
-		</transformGroup>
-		<transformGroup>
-			<!-- transformGroup that has transform items -->
-			<transform from="${grave}a" to="à" />
-			<transform from="${grave}A" to="À" />
-			<transform from="${grave}e" to="è" />
-			<transform from="${grave}E" to="È" />
-			<transform from="${grave}i" to="ì" />
-			<transform from="${grave}I" to="Ì" />
-			<transform from="${grave}o" to="ò" />
-			<transform from="${grave}O" to="Ò" />
-			<transform from="${grave}u" to="ù" />
-			<transform from="${grave}U" to="Ù" />
+			<!-- use sets for those that fit neatly into sets -->
+			<transform from="${grave}($[vowel])"  to="$[1:graveVowel]" />
+			<transform from="${caret}($[vowel])"  to="$[1:caretVowel]" />
+			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
 
-			<transform from="${caret}a" to="â" />
-			<transform from="${caret}A" to=" " />
-			<transform from="${caret}e" to="ê" />
-			<transform from="${caret}E" to="Ê" />
-			<transform from="${caret}i" to="î" />
-			<transform from="${caret}I" to="Î" />
-			<transform from="${caret}o" to="ô" />
-			<transform from="${caret}O" to="Ô" />
-			<transform from="${caret}u" to="û" />
-			<transform from="${caret}U" to="Û" />
-
-			<transform from="${umlaut}a" to="ä" />
-			<transform from="${umlaut}A" to="Ä" />
-			<transform from="${umlaut}e" to="ë" />
-			<transform from="${umlaut}E" to="Ë" />
-			<transform from="${umlaut}i" to="ï" />
-			<transform from="${umlaut}I" to="Ï" />
-			<transform from="${umlaut}o" to="ö" />
-			<transform from="${umlaut}O" to="Ö" />
-			<transform from="${umlaut}u" to="ü" />
-			<transform from="${umlaut}U" to="Ü" />
+			<!-- y also takes umlaut (in this sample) -->
 			<transform from="${umlaut}y" to="ÿ" />
 
+			<!-- tilde is on a subset, not all vowels, + n -->
 			<transform from="${tilde}a" to="ã" />
 			<transform from="${tilde}A" to="Ã" />
 			<transform from="${tilde}n" to="ñ" />
@@ -208,8 +193,8 @@
 			<transform from="${tilde}o" to="õ" />
 			<transform from="${tilde}O" to="Õ" />
 
-			<!-- accent + space = accent -->
-			<transform from="($[visible_accent]) " to="$1"/>
+			<!-- accent + space = spacing accent -->
+			<transform from="($[spacing_accent]) " to="$1" />
 		</transformGroup>
 		<transformGroup>
 			<!-- this is a reorder group -->

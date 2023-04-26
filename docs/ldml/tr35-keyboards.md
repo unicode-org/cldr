@@ -1516,16 +1516,14 @@ _Attribute:_ `value` (required)
 ```xml
 <variables>
   <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -
- ->
+  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -->
   <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
   <unicodeSet id="KhmrMn" value="[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
 
-The `unicodeSet` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax), nor referenced by [`key`](#element-key) and [`display`](#element-display) elements.
-
-* * *
+The `unicodeSet` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax).
+The `unicodeSet` element may not be referenced by [`key`](#element-key) and [`display`](#element-display) elements.
 
 * * *
 
@@ -1639,25 +1637,15 @@ Each `transformGroup` element, after imports are processed, must have either [re
 
 **Examples**
 
-#### Example: `transformGroup` with only `import` elements
-
-This is a `transformGroup` that consists only of [`import`](#element-import) elements.  With this form, only `transform` OR `reorder` elements may be imported by all import statements, but not both.
-
-```xml
-<transformGroup>
-    <import path="..."/>
-    <!-- other <import> elements -->
-</transformGroup>
-```
-
 
 #### Example: `transformGroup` with `transform` elements
 
-This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, prefaced by one or more `import` elements. See the discussion of those elements for details.
+This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, prefaced by one or more `import` elements. See the discussion of those elements for details. `import` elements in this group may not import `reorder` elements.
+
 
 ```xml
 <transformGroup>
-    <import path="..."/> <!-- zero or more optional import elements-->
+    <import path="..."/> <!-- optional import elements-->
     <transform />
     <!-- other <transform/> elements -->
 </transformGroup>
@@ -1666,11 +1654,13 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 
 #### Example: `transformGroup` with `reorder` elements
 
-This is a `transformGroup` that consists of one or more [`reorder`](#element-reorder) elements, prefaced by one or more `import` elements. See the discussion of those elements for details.
+This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, optionally prefaced by one or more `import` elements that import `transform` elements. See the discussion of those elements for details.
+
+`import` elements in this group may not import `transform` elements.
 
 ```xml
 <transformGroup>
-    <import path="..."/> <!-- zero or more optional import elements-->
+    <import path="..."/> <!-- optional import elements-->
     <reorder ... />
     <!-- other <reorder> elements -->
 </transformGroup>

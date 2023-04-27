@@ -306,27 +306,27 @@ public class TestDtdData extends TestFmwk {
             for (Element element : dtdData.getElements()) {
                 boolean orderedNew = dtdData.isOrdered(element.name);
                 boolean orderedOld = isOrderedOld(element.name, type);
-                assertEquals("isOrdered " + type + ":" + element, orderedOld, orderedNew);
+                assertEquals("isOrdered " + type + ":" + element + " (old vs. DTD)", orderedOld, orderedNew);
                 boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
                 boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*");
-                assertEquals("isDeprecated " + type + ":" + element, deprecatedOld, deprecatedNew);
+                assertEquals("isDeprecated " + type + ":" + element + " (old vs. DTD)", deprecatedOld, deprecatedNew);
 
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
                     boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
                     if (!assertEquals("isDistinguished " + type
-                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew)) {
+                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\") (old vs. DTD)", distinguishedOld, distinguishedNew)) {
                         // for debugging
                         dtdData.isDistinguishing(element.name, attribute.name);
                         isDistinguishingOld(type, element.name, attribute.name);
                     }
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
-                    assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
+                    assertEquals("isDeprecated " + type + ":" + attribute + " (old vs. DTD)", deprecatedOld, deprecatedNew);
                     for (String value : attribute.values.keySet()) {
                         deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
                         deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, value);
-                        assertEquals("isDeprecated " + type + ":" + attribute + ":" + value, deprecatedOld, deprecatedNew);
+                        assertEquals("isDeprecated " + type + ":" + attribute + ":" + value + " (old vs. DTD)", deprecatedOld, deprecatedNew);
                     }
                 }
             }
@@ -448,18 +448,32 @@ public class TestDtdData extends TestFmwk {
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute", // needed for characters.xml
-            "unitPreference",
-            "row", // keyboard
-            "name" // keyboard
+            "unitPreference"
             )));
 
     static final Set<String> orderedKeyboardTestElements = Collections.unmodifiableSet(new HashSet<>(Arrays
-        .asList( "emit", "keystroke", "check", "backspace" )));
+        .asList(
+                "emit",
+                "keystroke",
+                "check",
+                "backspace"
+            )));
+
+    static final Set<String> orderedKeyboardElements = Collections.unmodifiableSet(new HashSet<>(Arrays
+        .asList(
+                "name",
+                "reorder",
+                "row",
+                "settings",
+                "transform"
+            )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         switch (type) {
             case keyboardTest:
                 return orderedKeyboardTestElements.contains(element);
+            case keyboard:
+                return orderedKeyboardElements.contains(element);
             default:
                 // all others, above
                 return orderedElements.contains(element);
@@ -635,7 +649,7 @@ public class TestDtdData extends TestFmwk {
                 ;
 
         case keyboard:
-            if   ( elementName.equals("keyboard3") && attribute.equals("locale")
+            if   ( elementName.equals("keyboard") && attribute.equals("locale")
                 || elementName.equals("vkeys") && attribute.equals("from")
                 || elementName.equals("layers") && attribute.equals("form")
                 || elementName.equals("layers") && attribute.equals("minDeviceWidth")
@@ -645,7 +659,11 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("key") && attribute.equals("id")
                 || elementName.equals("import") && attribute.equals("path")
                 || elementName.equals("import") && attribute.equals("base")
-                || elementName.equals("layer") && attribute.equals("id")) {
+                || elementName.equals("layer") && attribute.equals("id")
+                || elementName.equals("string") && attribute.equals("id")
+                || elementName.equals("set") && attribute.equals("id")
+                || elementName.equals("unicodeSet") && attribute.equals("id")
+                ) {
                 return true;
             }
             // fall through to old keyboard
@@ -654,10 +672,6 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("keyMap") && attribute.equals("modifiers")
                 || elementName.equals("key") && attribute.equals("flicks")
                 || elementName.equals("transforms") && attribute.equals("type")
-                || elementName.equals("transform") && attribute.equals("from")
-                || elementName.equals("reorder") && attribute.equals("before")
-                || elementName.equals("reorder") && attribute.equals("from")
-                || elementName.equals("reorder") && attribute.equals("after")
                 || elementName.equals("layerMap") && attribute.equals("modifier")
                 || elementName.equals("transform") && attribute.equals("before")
                 || elementName.equals("transform") && attribute.equals("after")
@@ -669,8 +683,8 @@ public class TestDtdData extends TestFmwk {
                 // || elementName.equals("row") && attribute.equals("keys")
                 || elementName.equals("vkey") && attribute.equals("iso")
                 || elementName.equals("display") && attribute.equals("to")
-                || elementName.equals("flicks") && attribute.equals("id");
-
+                || elementName.equals("flicks") && attribute.equals("id")
+                || elementName.equals("flick") && attribute.equals("directions");
         case keyboardTest:
             return elementName.equals("tests") && attribute.equals("name")
                 || elementName.equals("test") && attribute.equals("name")

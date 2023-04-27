@@ -21,8 +21,7 @@
 		<name value="French Test" />
 		<name value="French Test AZERTY" />
 	</names>
-
-	<settings fallback="omit" transformPartial="hide" /> <!-- "hide" makes this act like a dead keyTBD -->
+	<settings fallback="omit" />
 
 	<vkeys>
 		<vkey from="Q" to="A" />
@@ -44,7 +43,7 @@
 		<!-- Note: displays is only used for keycap presentation -->
 		<!-- this example is not required for this keyboard as we use the spacing
 			modifiers -->
-		<display to="\u0300" display="\u02CB" /> <!-- display combining grave as modifier letter grave ˋ -->
+		<display to="\u0300" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
 		<!-- Note: We discussed why the existing displayMap was used for display.
 			rather than adding something closer to the key layout. 1. This way we can
 			tell the renderer what to do. Could be double diacritics, spacing issues,
@@ -84,7 +83,7 @@
 		<key id="super-2" to="²" longPress="₂" />
 
 		<!-- test key -->
- 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
+		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
 		<flicks id="a">
 			<flick directions="nw" to="\u1234" />
 			<flick directions="nw se" to="\uFFFF" />
@@ -107,7 +106,8 @@
 	<layers form="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
 		<layer modifier="none">
-			<row keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row
+				keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
 			<row keys="q s d f g h j k l m u-grave asterisk" />
 			<row keys="open-angle w x c v b n comma semi-colon colon bang" />
@@ -141,60 +141,68 @@
 
 		<layer id="numeric">
 			<row keys="1 2 3 4 5 6 7 8 9 0" />
-			<row keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
+			<row
+				keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
 			<row keys="symbol period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
 		</layer>
 
 		<layer id="symbol">
-			<row keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
+			<row
+				keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
 			<row keys="underscore backslash pipe tilde open-angle close-angle euro pound yen bullet" />
 			<row keys="numeric period comma question bang double-quote" /> <!--TODO:  + bksp -->
 			<row keys="base extra space enter" />
 		</layer>
 	</layers>
 
+	<variables>
+		<!-- spacing accents as string variables -->
+		<string id="grave"  value="`" />
+		<string id="caret"  value="^" />
+		<string id="umlaut" value="¨" />
+		<string id="tilde"  value="~" />
+
+		<!-- sets representing vowels and accented vowels.  -->
+		<!-- There's an extra space between the lower and upper case for visual separation -->
+		<!-- but, there are only 10 items in the following four sets -->
+		<set id="vowel"       value="a e i o u  A E I O U" />
+		<set id="graveVowel"  value="à è ì ò ù  À È Ì Ò Ù" />
+		<set id="caretVowel"  value="â ê î ô û  Â Ê Î Ô Û" />
+		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
+
+		<!-- a set containing all spacing accents -->
+		<set id="spacing_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
+	</variables>
+
 	<transforms type="simple">
-		<transform from="` " to="`" />
-		<transform from="`a" to="à" />
-		<transform from="`A" to="À" />
-		<transform from="`e" to="è" />
-		<transform from="`E" to="È" />
-		<transform from="`i" to="ì" />
-		<transform from="`I" to="Ì" />
-		<transform from="`o" to="ò" />
-		<transform from="`O" to="Ò" />
-		<transform from="`u" to="ù" />
-		<transform from="`U" to="Ù" />
-		<transform from="^ " to="^" />
-		<transform from="^a" to="â" />
-		<transform from="^A" to=" " />
-		<transform from="^e" to="ê" />
-		<transform from="^E" to="Ê" />
-		<transform from="^i" to="î" />
-		<transform from="^I" to="Î" />
-		<transform from="^o" to="ô" />
-		<transform from="^O" to="Ô" />
-		<transform from="^u" to="û" />
-		<transform from="^U" to="Û" />
-		<transform from="¨ " to="¨" />
-		<transform from="¨a" to="ä" />
-		<transform from="¨A" to="Ä" />
-		<transform from="¨e" to="ë" />
-		<transform from="¨E" to="Ë" />
-		<transform from="¨i" to="ï" />
-		<transform from="¨I" to="Ï" />
-		<transform from="¨o" to="ö" />
-		<transform from="¨O" to="Ö" />
-		<transform from="¨u" to="ü" />
-		<transform from="¨U" to="Ü" />
-		<transform from="¨y" to="ÿ" />
-		<transform from="~ " to="~" />
-		<transform from="~a" to="ã" />
-		<transform from="~A" to="Ã" />
-		<transform from="~n" to="ñ" />
-		<transform from="~N" to="Ñ" />
-		<transform from="~o" to="õ" />
-		<transform from="~O" to="Õ" />
+		<transformGroup>
+			<!-- use sets for those that fit neatly into sets -->
+			<transform from="${grave}($[vowel])"  to="$[1:graveVowel]" />
+			<transform from="${caret}($[vowel])"  to="$[1:caretVowel]" />
+			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
+
+			<!-- y also takes umlaut (in this sample) -->
+			<transform from="${umlaut}y" to="ÿ" />
+
+			<!-- tilde is on a subset, not all vowels, + n -->
+			<transform from="${tilde}a" to="ã" />
+			<transform from="${tilde}A" to="Ã" />
+			<transform from="${tilde}n" to="ñ" />
+			<transform from="${tilde}N" to="Ñ" />
+			<transform from="${tilde}o" to="õ" />
+			<transform from="${tilde}O" to="Õ" />
+
+			<!-- accent + space = spacing accent -->
+			<transform from="($[spacing_accent]) " to="$1" />
+		</transformGroup>
+		<transformGroup>
+			<!-- this is a reorder group -->
+			<!-- nod-Lana partial example -->
+			<reorder from="\u1A60" order="127" />
+			<reorder from="\u1A6B" order="42" />
+			<reorder from="[\u1A75-\u1A79]" order="55" />
+			<!-- ... partial example ... -->
+		</transformGroup>
 	</transforms>
 </keyboard>

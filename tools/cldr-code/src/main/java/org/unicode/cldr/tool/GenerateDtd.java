@@ -79,7 +79,9 @@ public class GenerateDtd {
             out.println("# DTD data: " + type);
             out.println();
             for (final DtdData.Element e : data.getElements()) {
-                out.println("## Element: " + e.getName());
+                out.println(String.format(
+                    "### <a name=\"Element_%s\" href=\"#Element_%s\">Element: %s</a>",
+                    e.getName(), e.getName(), e.getName()));
                 out.println();
                 out.println("> <small>");
                 out.println(">");

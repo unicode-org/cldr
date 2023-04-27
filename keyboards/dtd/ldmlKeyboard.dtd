@@ -13,7 +13,7 @@ This DTD is a work in progress.
 
 Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information. -->
 
-<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, transforms*, reorders?, special* ) >
+<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
@@ -78,10 +78,6 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST settings fallback (omit) #IMPLIED >
-    <!--@VALUE-->
-<!ATTLIST settings transformFailure (omit) #IMPLIED >
-    <!--@VALUE-->
-<!ATTLIST settings transformPartial (hide) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT vkeys ( import*, vkey*, special* ) >
@@ -186,35 +182,71 @@ Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest info
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT transforms ( import*, transform*, special* ) >
+<!ELEMENT variables ( import*, string*, set*, unicodeSet*, special* ) >
     <!--@TECHPREVIEW-->
-<!ATTLIST transforms type (simple | final | backspace) #REQUIRED >
-    <!--@MATCH:literal/simple, final, backspace-->
+
+<!ELEMENT string EMPTY >
+<!ATTLIST string id NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[0-9A-Za-z_]{1,32}-->
+<!ATTLIST string value CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
+
+<!ELEMENT set EMPTY >
+<!ATTLIST set id NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[0-9A-Za-z_]{1,32}-->
+<!ATTLIST set value CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
+
+<!ELEMENT unicodeSet EMPTY >
+<!ATTLIST unicodeSet id NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[0-9A-Za-z_]{1,32}-->
+<!ATTLIST unicodeSet value CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+
+<!ELEMENT transforms ( import*, transformGroup*, special* ) >
+    <!--@TECHPREVIEW-->
+<!ATTLIST transforms type (simple | backspace) #REQUIRED >
+    <!--@MATCH:literal/simple, backspace-->
+
+<!ELEMENT transformGroup ( import*, ( transform* | reorder* ), special* ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT transform EMPTY >
-    <!--@TECHPREVIEW-->
-<!ATTLIST transform before CDATA #IMPLIED >
+    <!--@ORDERED-->
 <!ATTLIST transform from CDATA #REQUIRED >
     <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST transform to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
-<!ATTLIST transform error (fail) #IMPLIED >
-    <!--@VALUE-->
-
-<!ELEMENT reorders ( import*, reorder*, special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT reorder EMPTY >
+    <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST reorder before CDATA #IMPLIED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST reorder from CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+    <!--@ALLOWS_UESC-->
 <!ATTLIST reorder order CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder tertiary CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder tertiaryBase CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST reorder preBase CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->

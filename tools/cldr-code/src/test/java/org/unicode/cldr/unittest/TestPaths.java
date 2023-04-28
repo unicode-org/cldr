@@ -541,16 +541,21 @@ public class TestPaths extends TestFmwkPlus {
                             //                        parts.set(path);
                             //                        removeNonDistinguishing(parts, dtdData,
                             // counter, removed, nonFinalValues);
-                            if (type != DtdType.keyboardTest || !logKnownIssue("CLDR-15034", "keyboardTest data appears as duplicate xpaths")) {
-                            errln(
-                                    "Duplicate " + type.toString() + ": "
-                                            + file
-                                            + ", "
-                                            + path
-                                            + ", "
-                                            + cleaned
-                                            + ", "
-                                            + value);
+                            if (type != DtdType.keyboardTest
+                                    || !logKnownIssue(
+                                            "CLDR-15034",
+                                            "keyboardTest data appears as duplicate xpaths")) {
+                                errln(
+                                        "Duplicate "
+                                                + type.toString()
+                                                + ": "
+                                                + file
+                                                + ", "
+                                                + path
+                                                + ", "
+                                                + cleaned
+                                                + ", "
+                                                + value);
                             }
                         } else {
                             seen.add(pair);

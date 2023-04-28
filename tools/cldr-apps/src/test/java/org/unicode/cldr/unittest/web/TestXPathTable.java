@@ -57,8 +57,15 @@ public class TestXPathTable extends TestFmwk {
             } else {
                 // logln("XP#"+n+" -> " + xpath);
             }
+            String xpathString = xpt.getStringIDString(xpath);
+            assertNotNull("hex for " + xpath, xpathString);
+            String xpathFromString = xpt.getByStringID(xpathString);
+            assertEquals("for hex " + xpathString, xpath, xpathFromString);
         }
         logln("OK: Tested " + ii + " values");
+        assertNull(
+                "for hex 'Not Really Hex'",
+                xpt.getByStringID("Not Really Hex")); // null, parse failure
     }
 
     public void TestRemoveDraftAltProposed() {

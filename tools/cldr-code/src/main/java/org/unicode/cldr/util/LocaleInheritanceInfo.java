@@ -3,22 +3,25 @@ package org.unicode.cldr.util;
 /** A triple with information about why an inheritance worked the way it did */
 public final class LocaleInheritanceInfo {
     /** Reason this entry is there */
-    enum Reason {
-        value("A value was present at this location"),
-        codefallback("This value represents an implicit value per spec"),
-        itemalias("An alias was found at this location"),
-        none("No value was found"),
-        constructed("This xpath contributes to a constructed (fallback) value"),
-        novalue("The value was not found in this locale."),
-        inheritancemarker("An inheritance marker ↑↑↑ was found here"),
-        alt("An alt attribute was removed"),
-        count("A count attribute was changed"),
+    public enum Reason {
+        value("Found: explicit value"),
+        codeFallback("Found: code fallback"),
+        alias("An alias was found at this location"),
+        constructed("Constructed value"),
+        none("The value was not found in this locale."),
+        inheritanceMarker("Found: Inheritance marker"),
+        removedAttribute("Removed attribute: ${attribute}"), // such as alt
+        changedAttribute("Changed attribute: ${attribute}"), // such as count
         ;
 
         private String description;
 
         Reason(String description) {
             this.description = description;
+        }
+
+        public String getDescription() {
+            return this.description;
         }
 
         @Override
@@ -29,20 +32,46 @@ public final class LocaleInheritanceInfo {
 
     private String locale;
 
+    /**
+     * Optional locale for this entry. or null
+     *
+     * @return
+     */
     public String getLocale() {
         return locale;
     }
 
     private String path;
 
+    /**
+     * Optional path for this entry, or null
+     *
+     * @return
+     */
     public String getPath() {
         return path;
     }
 
     private Reason reason;
 
+    /**
+     * Reason enum for this entry
+     *
+     * @return
+     */
     public Reason getReason() {
         return reason;
+    }
+
+    private String attribute = null;
+
+    /**
+     * Which attribute was involved (for Reason.removedAttribute/Reason.changedAttribute)
+     *
+     * @return
+     */
+    public String getAttribute() {
+        return attribute;
     }
 
     /**
@@ -54,6 +83,13 @@ public final class LocaleInheritanceInfo {
         this.locale = locale;
         this.path = path;
         this.reason = reason;
+    }
+
+    LocaleInheritanceInfo(String locale, String path, Reason reason, String attribute) {
+        this.locale = locale;
+        this.path = path;
+        this.reason = reason;
+        this.attribute = attribute;
     }
 
     @Override

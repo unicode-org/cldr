@@ -224,7 +224,7 @@ public class TestCLDRFile {
             final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
             assertEquals(
                     List.of(
-                            new LocaleInheritanceInfo(locale, p, Reason.inheritancemarker),
+                            new LocaleInheritanceInfo(locale, p, Reason.inheritanceMarker),
                             new LocaleInheritanceInfo(parent, p, Reason.value)),
                     f.getPathsWhereFound(p),
                     "For " + locale + ":" + p);
@@ -260,10 +260,11 @@ public class TestCLDRFile {
             final CLDRFile f = myFactory.make(locale, true);
             assertEquals(
                     List.of(
-                            new LocaleInheritanceInfo(locale, p, Reason.novalue),
-                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.novalue),
-                            new LocaleInheritanceInfo(null, pother, Reason.count),
-                            new LocaleInheritanceInfo(locale, pother, Reason.novalue),
+                            new LocaleInheritanceInfo(locale, p, Reason.none),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
+                            new LocaleInheritanceInfo(
+                                    null, pother, Reason.changedAttribute, "count"),
+                            new LocaleInheritanceInfo(locale, pother, Reason.none),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, pother, Reason.value)),
                     f.getPathsWhereFound(p),
                     "For (TESTDATA) " + locale + ":" + p);

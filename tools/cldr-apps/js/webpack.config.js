@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
       libraryExport: "default",
       hashFunction: "xxhash64"
     },
-    devtool: DEV ? "eval" : "source-map",
+    devtool: DEV ? "eval-cheap-module-source-map" : "source-map",
     module: {
       rules: [
         {

@@ -742,9 +742,21 @@ public class XPathTable {
         return base_xpath;
     }
 
+    /**
+     * @param id hex string ID
+     * @return null if not found or invalid
+     */
     public String getByStringID(String id) {
         if (id == null) return null;
-        Long l = Long.parseLong(id, 16);
+        try {
+            Long l = Long.parseLong(id, 16);
+            return getByStringID(l);
+        } catch (NumberFormatException nfe) {
+            return null;
+        }
+    }
+
+    String getByStringID(long l) {
         String s = sidToString.get(l);
         if (s != null) return s;
         // slow way
@@ -756,7 +768,10 @@ public class XPathTable {
         }
         if (SurveyMain.isUnofficial()) {
             logger.warning(
-                    "xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+                    "xpt: Couldn't find stringid "
+                            + Long.toHexString(l)
+                            + " - sid has "
+                            + sidToString.size());
         }
         // it may be
         return null;

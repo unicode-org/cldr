@@ -190,11 +190,13 @@ public class TestLocale extends TestFmwkPlus {
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             String parent = file.getParent();
             if (parent.contains("transform")
-                || parent.contains("bcp47")
-                || parent.contains("supplemental")
-                || parent.contains("validity")
-                || parent.contains("keyboards/import")  // exclude keyboard imports: not locale IDs
-                || parent.contains("keyboards/test")) { // exclude keyboard test files: not locale IDs
+                    || parent.contains("bcp47")
+                    || parent.contains("supplemental")
+                    || parent.contains("validity")
+                    || parent.contains(
+                            "keyboards/import") // exclude keyboard imports: not locale IDs
+                    || parent.contains(
+                            "keyboards/test")) { // exclude keyboard test files: not locale IDs
                 continue;
             }
             String localeName = file.getName();

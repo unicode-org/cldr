@@ -160,7 +160,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
         private boolean isUEscapedAttribute = false;
-        public AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations, or for xml: attributes
+        public AttributeStatus attributeStatus =
+                AttributeStatus.distinguished; // default unless reset by annotations, or for xml:
+        // attributes
         private Set<String> deprecatedValues = Collections.emptySet();
         public MatchValue matchValue;
         private final Comparator<String> attributeValueComparator;
@@ -292,7 +294,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@DEPRECATED":
                         isDeprecatedAttribute = true;
                         break;
-                        case "@ALLOWS_UESC":
+                    case "@ALLOWS_UESC":
                         isUEscapedAttribute = true;
                         break;
 
@@ -1237,7 +1239,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 continue;
             }
             seen.seenAttributes.add(a);
-            boolean attributeDeprecated = elementDeprecated || isDeprecated(current.name, a.name, "*");
+            boolean attributeDeprecated =
+                    elementDeprecated || isDeprecated(current.name, a.name, "*");
             boolean attributeUEscaped = isUEscaped(current.name, a.name, "*");
             deprecatedValues.clear();
 
@@ -1406,7 +1409,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         } else if (attribute.isDeprecatedAttribute) {
             return true;
         }
-        return attribute.deprecatedValues.contains(attributeValue); // don't need special test for "*"
+        return attribute.deprecatedValues.contains(
+                attributeValue); // don't need special test for "*"
     }
 
     public boolean isUEscaped(String elementName, String attributeName, String attributeValue) {

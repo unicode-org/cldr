@@ -70,7 +70,8 @@ public class XMLValidator {
             } else if (args[i].startsWith(SCHEMA)) {
                 withSchema = new File(args[i].substring(SCHEMA.length()));
                 if (!withSchema.canRead()) {
-                    throw new FileNotFoundException("Could not read schema " + withSchema.getAbsolutePath());
+                    throw new FileNotFoundException(
+                            "Could not read schema " + withSchema.getAbsolutePath());
                 }
             } else {
                 File f = new File(args[i]);
@@ -95,8 +96,9 @@ public class XMLValidator {
             System.err.println("# " + toCheck.size() + " file(s) to check");
         }
         int failCount = new XMLValidator(quiet, parseonly, justCheckBom, withSchema).check(toCheck);
-        if(failCount != 0) {
-            System.err.println("# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
+        if (failCount != 0) {
+            System.err.println(
+                    "# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
             System.exit(1);
         } else if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) OK");

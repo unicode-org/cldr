@@ -171,8 +171,8 @@ public class TestBasic extends TestFmwkPlus {
             List<TimingInfo> data)
             throws IOException {
         boolean deepCheck = getInclusion() >= 10;
-        if (directoryFile.getName().equals("import") &&
-            directoryFile.getParentFile().getName().equals("keyboards")) {
+        if (directoryFile.getName().equals("import")
+                && directoryFile.getParentFile().getName().equals("keyboards")) {
             return; // skip imports
         }
         File[] listFiles = directoryFile.listFiles();
@@ -1403,15 +1403,15 @@ public class TestBasic extends TestFmwkPlus {
                 } catch (IllegalArgumentException e) {
                     boolean tooOld = false;
                     switch (type) {
-                    case ldmlBCP47:
-                    case ldmlICU:
-                        tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
-                        break;
-                    case keyboard:
-                        tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
-                    break;
-                    default:
-                        break;
+                        case ldmlBCP47:
+                        case ldmlICU:
+                            tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
+                            break;
+                        case keyboard:
+                            tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
+                            break;
+                        default:
+                            break;
                     }
                     if (tooOld) {
                         continue;
@@ -1509,8 +1509,8 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
-            if (file.getParentFile().getName().equals("import") &&
-                file.getParentFile().getParentFile().getName().equals("keyboards")) {
+            if (file.getParentFile().getName().equals("import")
+                    && file.getParentFile().getParentFile().getName().equals("keyboards")) {
                 return; // skip imports
             }
             checkDtdComparatorFor(file, null);

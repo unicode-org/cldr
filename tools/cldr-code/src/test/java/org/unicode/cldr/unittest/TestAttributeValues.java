@@ -307,7 +307,8 @@ public class TestAttributeValues extends TestFmwk {
         }
 
         void show(boolean verbose, ImmutableSet<ValueStatus> retain) {
-            if (dtdData.dtdType == DtdType.keyboard && testLog.logKnownIssue("CLDR-14974", "skipping for keyboard")) {
+            if (dtdData.dtdType == DtdType.keyboard
+                    && testLog.logKnownIssue("CLDR-14974", "skipping for keyboard")) {
                 testLog.warnln("Skipping for keyboard");
             }
             boolean haveProblems = false;

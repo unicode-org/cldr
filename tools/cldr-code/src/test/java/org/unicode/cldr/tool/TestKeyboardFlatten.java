@@ -8,13 +8,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
-import java.net.MalformedURLException;
-
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -24,22 +20,27 @@ import org.xml.sax.SAXException;
 
 public class TestKeyboardFlatten {
     @ParameterizedTest
-    @ValueSource(strings = {
-        "KeyboardFlatten/broken-import-wrongparent.xml",
-        "KeyboardFlatten/broken-import-unknownbase.xml",
-        "KeyboardFlatten/broken-import-unknownver.xml",
-        "KeyboardFlatten/broken-import-missing.xml",
-    })
+    @ValueSource(
+            strings = {
+                "KeyboardFlatten/broken-import-wrongparent.xml",
+                "KeyboardFlatten/broken-import-unknownbase.xml",
+                "KeyboardFlatten/broken-import-unknownver.xml",
+                "KeyboardFlatten/broken-import-missing.xml",
+            })
     void TestBrokenImports(final String path) throws IOException {
-        try (final InputStream input = TestKeyboardFlatten.class.getResourceAsStream(path);) {
+        try (final InputStream input = TestKeyboardFlatten.class.getResourceAsStream(path); ) {
             final InputSource source = new InputSource(input);
             // Expect failure.
-            assertThrows(IllegalArgumentException.class, () -> KeyboardFlatten.flatten(source, path, System.out));
+            assertThrows(
+                    IllegalArgumentException.class,
+                    () -> KeyboardFlatten.flatten(source, path, System.out));
         }
     }
 
     @Test
-    void TestImportMaltese() throws TransformerConfigurationException, SAXException, TransformerException, TransformerFactoryConfigurationError, IOException {
+    void TestImportMaltese()
+            throws TransformerConfigurationException, SAXException, TransformerException,
+                    TransformerFactoryConfigurationError, IOException {
         final File base = CLDRConfig.getInstance().getCldrBaseDirectory();
         final File mtxml = new File(base, "keyboards/3.0/mt.xml");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

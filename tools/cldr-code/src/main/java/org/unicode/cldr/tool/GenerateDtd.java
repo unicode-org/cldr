@@ -1,7 +1,20 @@
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import com.ibm.icu.text.CaseMap;
+import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.text.ListFormatter.Type;
+import com.ibm.icu.text.ListFormatter.Width;
+import com.thaiopensource.relaxng.edit.SchemaCollection;
+import com.thaiopensource.relaxng.input.InputFailedException;
+import com.thaiopensource.relaxng.input.InputFormat;
+import com.thaiopensource.relaxng.input.dtd.DtdInputFormat;
+import com.thaiopensource.relaxng.output.LocalOutputDirectory;
+import com.thaiopensource.relaxng.output.OutputFailedException;
+import com.thaiopensource.relaxng.output.OutputFormat;
+import com.thaiopensource.relaxng.output.xsd.XsdOutputFormat;
+import com.thaiopensource.relaxng.translate.util.InvalidParamsException;
+import com.thaiopensource.xml.sax.ErrorHandlerImpl;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -16,25 +29,9 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Mode;
-import org.xml.sax.SAXException;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.TempPrintWriter;
-
-import com.ibm.icu.text.CaseMap;
-import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.text.ListFormatter.Type;
-import com.ibm.icu.text.ListFormatter.Width;
-import com.thaiopensource.relaxng.edit.SchemaCollection;
-import com.thaiopensource.relaxng.input.InputFailedException;
-import com.thaiopensource.relaxng.input.InputFormat;
-import com.thaiopensource.relaxng.input.dtd.DtdInputFormat;
-import com.thaiopensource.relaxng.output.LocalOutputDirectory;
-import com.thaiopensource.relaxng.output.OutputFailedException;
-import com.thaiopensource.relaxng.output.OutputFormat;
-import com.thaiopensource.relaxng.output.xsd.XsdOutputFormat;
-import com.thaiopensource.relaxng.translate.Driver;
-import com.thaiopensource.relaxng.translate.util.InvalidParamsException;
-import com.thaiopensource.xml.sax.ErrorHandlerImpl;
+import org.xml.sax.SAXException;
 
 @CLDRTool(alias = "generate-dtd", description = "BRS: Reformat all DTDs")
 public class GenerateDtd {
@@ -46,7 +43,7 @@ public class GenerateDtd {
         Path dtd2md = CLDRPaths.getDtd2Md();
         // make sure the paths exist
         dtd2md.toFile().mkdirs();
-        //System.setProperty("show_all", "true");
+        // System.setProperty("show_all", "true");
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) {
                 continue;
@@ -80,7 +77,10 @@ public class GenerateDtd {
             out.println("# DTD data: " + type);
             out.println();
             for (final DtdData.Element e : data.getElements()) {
-                out.println("## Element: " + e.getName());
+                out.println(
+                        String.format(
+                                "### <a name=\"Element_%s\" href=\"#Element_%s\">Element: %s</a>",
+                                e.getName(), e.getName(), e.getName()));
                 out.println();
                 out.println("> <small>");
                 out.println(">");
@@ -93,12 +93,14 @@ public class GenerateDtd {
                 out.println();
                 final Set<Attribute> attrs = e.getAttributes().keySet();
                 if (!attrs.isEmpty()) {
-                    final TreeSet<Attribute> ts = new TreeSet<>(new Comparator<Attribute>() {
-                        @Override
-                        public int compare(Attribute o1, Attribute o2) {
-                            return o1.getName().compareTo(o2.getName());
-                        }
-                    });
+                    final TreeSet<Attribute> ts =
+                            new TreeSet<>(
+                                    new Comparator<Attribute>() {
+                                        @Override
+                                        public int compare(Attribute o1, Attribute o2) {
+                                            return o1.getName().compareTo(o2.getName());
+                                        }
+                                    });
                     ts.addAll(attrs);
                     for (final Attribute a : ts) {
                         out.println("_Attribute:_ " + escapeStr(a.getName()) + getAttr(a));
@@ -133,12 +135,12 @@ public class GenerateDtd {
     }
 
     private static String setToString(Stream<Element> children) {
-        final String ret = lf.format(
-            children
-                .map(Element::getName)
-                .sorted()
-                .map(GenerateDtd::linkifyElementStr)
-                .collect(Collectors.toList()));
+        final String ret =
+                lf.format(
+                        children.map(Element::getName)
+                                .sorted()
+                                .map(GenerateDtd::linkifyElementStr)
+                                .collect(Collectors.toList()));
         if (ret.isEmpty()) {
             return "_none_";
         } else {
@@ -147,22 +149,20 @@ public class GenerateDtd {
     }
 
     private static String getParents(DtdData data, final Element e) {
-        return setToString(data.getElements()
-            .stream()
-            .filter(p -> p.getChildren().containsKey(e)));
+        return setToString(data.getElements().stream().filter(p -> p.getChildren().containsKey(e)));
     }
 
-    final static ListFormatter lf = ListFormatter.getInstance(Locale.ENGLISH, Type.AND, Width.NARROW);
+    static final ListFormatter lf =
+            ListFormatter.getInstance(Locale.ENGLISH, Type.AND, Width.NARROW);
 
-    /**
-     * Escape a string for markdown
-     */
+    /** Escape a string for markdown */
     public static String escapeStr(String t) {
         return "`" + t + "`";
     }
 
     /**
      * Linkify an element to a link to `#Element_t`
+     *
      * @param t
      * @return
      */
@@ -174,7 +174,8 @@ public class GenerateDtd {
         return "[" + t + "](#Element_" + t + ")";
     }
 
-    private static void writeXsd(DtdType type, DtdData data, final String dtdPath, final String xsdPath) {
+    private static void writeXsd(
+            DtdType type, DtdData data, final String dtdPath, final String xsdPath) {
         // Step 1: trang
         InputFormat inFormat = new DtdInputFormat();
         OutputFormat outputFormat = new XsdOutputFormat();
@@ -183,8 +184,17 @@ public class GenerateDtd {
         String params[] = {};
         try {
             SchemaCollection sc = inFormat.load(inputUri, params, "xsd", eh, null);
-            outputFormat.output(sc, new LocalOutputDirectory(inputUri, new File(xsdPath), ".xsd", "UTF-8", 72, 2), params, "dtd", eh);
-        } catch (InputFailedException | InvalidParamsException | IOException | SAXException | OutputFailedException e) {
+            outputFormat.output(
+                    sc,
+                    new LocalOutputDirectory(inputUri, new File(xsdPath), ".xsd", "UTF-8", 72, 2),
+                    params,
+                    "dtd",
+                    eh);
+        } catch (InputFailedException
+                | InvalidParamsException
+                | IOException
+                | SAXException
+                | OutputFailedException e) {
             e.printStackTrace();
             System.err.println("Error generating XSD from " + inputUri);
         }

@@ -377,8 +377,10 @@ public class TestPaths extends TestFmwkPlus {
 
         public void show(int inclusion) {
             for (DtdType dtdType : DtdType.values()) {
-                if (dtdType == DtdType.ldmlICU ||
-                    (inclusion <= 5 && false)) { // keyboards/*/_platform.xml won't be in the list for non-exhaustive runs
+                if (dtdType == DtdType.ldmlICU
+                        || (inclusion <= 5
+                                && false)) { // keyboards/*/_platform.xml won't be in the list for
+                    // non-exhaustive runs
                     continue;
                 }
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
@@ -451,14 +453,15 @@ public class TestPaths extends TestFmwkPlus {
             for (String fileName : new File(dirPath).list()) {
                 File dir2 = new File(dirPath + fileName);
                 if (!dir2.isDirectory()
-                    || (dir2.getName().equals("import") && directory.equals("keyboards/")) // has a different root element
-                    || fileName.equals("properties") // TODO as flat files
-//                    || fileName.equals(".DS_Store")
-//                    || ChartDelta.LDML_DIRECTORIES.contains(dir)
-//                    || fileName.equals("dtd")  // TODO as flat files
-//                    || fileName.equals(".project")  // TODO as flat files
-//                    //|| dir.equals("uca") // TODO as flat files
-                    ) {
+                        || (dir2.getName().equals("import")
+                                && directory.equals("keyboards/")) // has a different root element
+                        || fileName.equals("properties") // TODO as flat files
+                //                    || fileName.equals(".DS_Store")
+                //                    || ChartDelta.LDML_DIRECTORIES.contains(dir)
+                //                    || fileName.equals("dtd")  // TODO as flat files
+                //                    || fileName.equals(".project")  // TODO as flat files
+                //                    //|| dir.equals("uca") // TODO as flat files
+                ) {
                     continue;
                 }
 

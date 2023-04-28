@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.TransformerConfigurationException;
@@ -14,7 +13,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathUtilities;
@@ -29,11 +27,11 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-/**
- * Read a Keyboard and write it out with no import statements
- */
+/** Read a Keyboard and write it out with no import statements */
 public class KeyboardFlatten {
-    public static void flatten(String path, OutputStream stream) throws MalformedURLException, SAXException, TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError {
+    public static void flatten(String path, OutputStream stream)
+            throws MalformedURLException, SAXException, TransformerConfigurationException,
+                    TransformerException, TransformerFactoryConfigurationError {
         final String filename = PathUtilities.getNormalizedPathString(path);
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
@@ -42,7 +40,9 @@ public class KeyboardFlatten {
         flatten(new InputSource(docURI), filename, stream);
     }
 
-    public static void flatten(InputSource inputSource, String filename, OutputStream stream) throws SAXException, TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError, MalformedURLException {
+    public static void flatten(InputSource inputSource, String filename, OutputStream stream)
+            throws SAXException, TransformerConfigurationException, TransformerException,
+                    TransformerFactoryConfigurationError, MalformedURLException {
         final DocumentBuilderFactory dfactory = getKeyboardDocFactory();
         final ErrorHandler nullHandler = getNullHandler(filename);
         // Parse
@@ -55,14 +55,15 @@ public class KeyboardFlatten {
         write(doc, stream);
     }
 
-    private static void flattenDoc(final DocumentBuilderFactory dfactory, Document doc) throws MalformedURLException {
+    private static void flattenDoc(final DocumentBuilderFactory dfactory, Document doc)
+            throws MalformedURLException {
         // Now, flatten it
         NodeList imports = doc.getElementsByTagName("import");
 
-        if (imports.getLength() == 0 ) {
+        if (imports.getLength() == 0) {
             System.err.println("No imports");
         } else {
-            for (int i=0; i<imports.getLength(); i++) {
+            for (int i = 0; i < imports.getLength(); i++) {
                 Node item = imports.item(i);
                 flattenImport(dfactory, doc, item);
             }
@@ -75,14 +76,19 @@ public class KeyboardFlatten {
         }
     }
 
-    private static void flattenImport(final DocumentBuilderFactory dfactory, Document doc, Node item) throws MalformedURLException {
+    private static void flattenImport(
+            final DocumentBuilderFactory dfactory, Document doc, Node item)
+            throws MalformedURLException {
         final String base = getBase(item);
         final String path = getPath(item);
         System.err.println("Import: " + base + ":" + path);
         if (base.equals("cldr")) {
             if (path.startsWith("techpreview/")) {
                 final String subpath = path.replaceFirst("techpreview/", "");
-                final File importDir = new File(CLDRConfig.getInstance().getCldrBaseDirectory(), "keyboards/import");
+                final File importDir =
+                        new File(
+                                CLDRConfig.getInstance().getCldrBaseDirectory(),
+                                "keyboards/import");
                 final File importFile = new File(importDir, subpath);
                 applyImportFile(dfactory, doc, item, path, importFile);
             } else {
@@ -93,19 +99,27 @@ public class KeyboardFlatten {
         }
     }
 
-    private static void applyImportFile(final DocumentBuilderFactory dfactory, Document doc, Node item, final String path, final File importFile)
-        throws MalformedURLException {
+    private static void applyImportFile(
+            final DocumentBuilderFactory dfactory,
+            Document doc,
+            Node item,
+            final String path,
+            final File importFile)
+            throws MalformedURLException {
         if (!importFile.exists()) {
-            throw new IllegalArgumentException("File " + importFile+" does not exist");
+            throw new IllegalArgumentException("File " + importFile + " does not exist");
         }
         System.err.println("Importing: " + importFile.getAbsolutePath());
-        final String ifilename = PathUtilities.getNormalizedPathString(importFile.getAbsolutePath());
+        final String ifilename =
+                PathUtilities.getNormalizedPathString(importFile.getAbsolutePath());
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
         String docURI;
         docURI = XMLValidator.filenameToURL(ifilename);
 
-        Document importDoc = parseDocument(new InputSource(docURI), ifilename, dfactory, getNullHandler(ifilename));
+        Document importDoc =
+                parseDocument(
+                        new InputSource(docURI), ifilename, dfactory, getNullHandler(ifilename));
         System.err.println("Parsed import OK");
         // Now perform the import
 
@@ -115,10 +129,14 @@ public class KeyboardFlatten {
         if (importParentNode.getNodeType() != Node.ELEMENT_NODE) {
             throw new IllegalArgumentException("import parent is not an element");
         }
-        final Element importParent = (Element)importParentNode;
+        final Element importParent = (Element) importParentNode;
         // Elements must be same name
         if (!importParent.getTagName().equals(importedRoot.getTagName())) {
-            throw new IllegalArgumentException("trying to import " + importedRoot.getTagName() + " root into child of " + importParent.getTagName());
+            throw new IllegalArgumentException(
+                    "trying to import "
+                            + importedRoot.getTagName()
+                            + " root into child of "
+                            + importParent.getTagName());
         }
         System.err.println("Importing into " + importParent.getTagName());
 
@@ -128,7 +146,7 @@ public class KeyboardFlatten {
         // OK here we go
         NodeList moveChildren = importedRoot.getChildNodes();
         importParent.insertBefore(preComment, item);
-        for (int j=0; j<moveChildren.getLength(); j++) {
+        for (int j = 0; j < moveChildren.getLength(); j++) {
             final Node child = moveChildren.item(j);
             final Node clone = doc.importNode(child, true);
             importParent.insertBefore(clone, item);
@@ -141,27 +159,33 @@ public class KeyboardFlatten {
     }
 
     private static ErrorHandler getNullHandler(final String filename2) {
-        ErrorHandler nullHandler = new ErrorHandler() {
-            @Override
-            public void warning(SAXParseException e) throws SAXException {
-                System.err.println(filename2 + ": Warning: " + e.getMessage());
+        ErrorHandler nullHandler =
+                new ErrorHandler() {
+                    @Override
+                    public void warning(SAXParseException e) throws SAXException {
+                        System.err.println(filename2 + ": Warning: " + e.getMessage());
+                    }
 
-            }
+                    @Override
+                    public void error(SAXParseException e) throws SAXException {
+                        int col = e.getColumnNumber();
+                        System.err.println(
+                                filename2
+                                        + ":"
+                                        + e.getLineNumber()
+                                        + (col >= 0 ? ":" + col : "")
+                                        + ": ERROR: Element "
+                                        + e.getPublicId()
+                                        + " is not valid because "
+                                        + e.getMessage());
+                    }
 
-            @Override
-            public void error(SAXParseException e) throws SAXException {
-                int col = e.getColumnNumber();
-                System.err.println(filename2 + ":" + e.getLineNumber() + (col >= 0 ? ":" + col : "")
-                    + ": ERROR: Element " + e.getPublicId()
-                    + " is not valid because " + e.getMessage());
-            }
-
-            @Override
-            public void fatalError(SAXParseException e) throws SAXException {
-                System.err.println(filename2 + ": ERROR ");
-                throw e;
-            }
-        };
+                    @Override
+                    public void fatalError(SAXParseException e) throws SAXException {
+                        System.err.println(filename2 + ": ERROR ");
+                        throw e;
+                    }
+                };
         return nullHandler;
     }
 
@@ -171,8 +195,11 @@ public class KeyboardFlatten {
         dfactory.setNamespaceAware(true);
         dfactory.setValidating(true);
         SchemaFactory sfac = SchemaFactory.newDefaultInstance();
-        Schema schema = sfac.newSchema(new File(CLDRConfig.getInstance().getCldrBaseDirectory(),
-            DtdType.keyboard.getXsdPath()));
+        Schema schema =
+                sfac.newSchema(
+                        new File(
+                                CLDRConfig.getInstance().getCldrBaseDirectory(),
+                                DtdType.keyboard.getXsdPath()));
         dfactory.setSchema(schema);
         // Set other attributes here as needed
         // applyAttributes(dfactory, attributes);
@@ -193,7 +220,11 @@ public class KeyboardFlatten {
         return item.getAttributes().getNamedItem(attrName).getTextContent();
     }
 
-    private static Document parseDocument(InputSource inputSource, String filename, DocumentBuilderFactory dfactory, ErrorHandler nullHandler) {
+    private static Document parseDocument(
+            InputSource inputSource,
+            String filename,
+            DocumentBuilderFactory dfactory,
+            ErrorHandler nullHandler) {
         Document doc = null;
         try {
             // First, attempt to parse as XML (preferred)...
@@ -207,8 +238,13 @@ public class KeyboardFlatten {
             if (se instanceof SAXParseException) {
                 SAXParseException pe = (SAXParseException) se;
                 int col = pe.getColumnNumber();
-                System.err.println(filename + ":" + pe.getLineNumber() + (col >= 0 ? ":" + col : "") + ": ERROR:"
-                    + se.toString());
+                System.err.println(
+                        filename
+                                + ":"
+                                + pe.getLineNumber()
+                                + (col >= 0 ? ":" + col : "")
+                                + ": ERROR:"
+                                + se.toString());
             } else {
                 System.err.println(filename + ": ERROR:" + se.toString());
             }
@@ -219,9 +255,14 @@ public class KeyboardFlatten {
 
     /**
      * Serialize XML out to stream
+     *
      * @param doc
      */
-    private static void write(Document doc, OutputStream stream) throws TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError {
-        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(stream));
+    private static void write(Document doc, OutputStream stream)
+            throws TransformerConfigurationException, TransformerException,
+                    TransformerFactoryConfigurationError {
+        TransformerFactory.newInstance()
+                .newTransformer()
+                .transform(new DOMSource(doc), new StreamResult(stream));
     }
 }

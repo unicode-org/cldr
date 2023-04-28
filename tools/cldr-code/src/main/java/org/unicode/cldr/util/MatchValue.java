@@ -58,47 +58,48 @@ public abstract class MatchValue implements Predicate<String> {
         try {
             MatchValue result = null;
             switch (command) {
-            case "any":
-                result = AnyMatchValue.of(subargument);
-                break;
-            case "set":
-                result =  SetMatchValue.of(subargument);
-                break;
-            case "validity":
-                result =  ValidityMatchValue.of(subargument);
-                break;
-            case "bcp47":
-                result =  Bcp47MatchValue.of(subargument);
-                break;
-            case "range":
-                result =  RangeMatchValue.of(subargument);
-                break;
-            case "literal":
-                result =  LiteralMatchValue.of(subargument);
-                break;
-            case "regex":
-                result =  RegexMatchValue.of(subargument);
-                break;
-            case "semver":
-                result =  SemverMatchValue.of(subargument);
-                break;
-            case "metazone":
-                result =  MetazoneMatchValue.of(subargument);
-                break;
-            case "version":
-                result =  VersionMatchValue.of(subargument);
-                break;
-            case "time":
-                result =  TimeMatchValue.of(subargument);
-                break;
-            case "or":
-                result =  OrMatchValue.of(subargument);
-                break;
-            case "unicodeset":
-                result =  UnicodeSpanMatchValue.of(subargument);
-                break;
-            default:
-                throw new IllegalArgumentException("Illegal/Unimplemented match type: " + originalArg);
+                case "any":
+                    result = AnyMatchValue.of(subargument);
+                    break;
+                case "set":
+                    result = SetMatchValue.of(subargument);
+                    break;
+                case "validity":
+                    result = ValidityMatchValue.of(subargument);
+                    break;
+                case "bcp47":
+                    result = Bcp47MatchValue.of(subargument);
+                    break;
+                case "range":
+                    result = RangeMatchValue.of(subargument);
+                    break;
+                case "literal":
+                    result = LiteralMatchValue.of(subargument);
+                    break;
+                case "regex":
+                    result = RegexMatchValue.of(subargument);
+                    break;
+                case "semver":
+                    result = SemverMatchValue.of(subargument);
+                    break;
+                case "metazone":
+                    result = MetazoneMatchValue.of(subargument);
+                    break;
+                case "version":
+                    result = VersionMatchValue.of(subargument);
+                    break;
+                case "time":
+                    result = TimeMatchValue.of(subargument);
+                    break;
+                case "or":
+                    result = OrMatchValue.of(subargument);
+                    break;
+                case "unicodeset":
+                    result = UnicodeSpanMatchValue.of(subargument);
+                    break;
+                default:
+                    throw new IllegalArgumentException(
+                            "Illegal/Unimplemented match type: " + originalArg);
             }
             if (!originalArg.equals(result.getName())) {
                 System.err.println(
@@ -112,13 +113,14 @@ public abstract class MatchValue implements Predicate<String> {
 
     public static class BCP47LocaleMatchValue extends MatchValue {
         static final UnicodeSet basechars = new UnicodeSet("[A-Za-z0-9_]");
-        public BCP47LocaleMatchValue() {
-        }
+
+        public BCP47LocaleMatchValue() {}
 
         @Override
         public String getName() {
             return "validity/bcp47";
         }
+
         @Override
         public boolean is(String item) {
             try {
@@ -126,11 +128,12 @@ public abstract class MatchValue implements Predicate<String> {
                 if (l == null) {
                     return false;
                 }
-            } catch(Throwable t) {
+            } catch (Throwable t) {
                 return false;
             }
             return true;
         }
+
         @Override
         public String getSample() {
             return "de-u-nu-ethi";
@@ -603,17 +606,17 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-    static public class SemverMatchValue extends RegexMatchValue {
+    public static class SemverMatchValue extends RegexMatchValue {
         /**
          * Regex from: Semantic Versioning 2.0 originally by Tom Preston-Werner
          * https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
          * Licensed under CC-BY-3.0
          */
         public static final String SEMVER_REGEX =
-           "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)"+
-            "(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)"+
-            "(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?"+
-            "(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$";
+                "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)"
+                        + "(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)"
+                        + "(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?"
+                        + "(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$";
 
         @Override
         public String getName() {
@@ -632,7 +635,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-    static public class VersionMatchValue extends MatchValue {
+    public static class VersionMatchValue extends MatchValue {
 
         @Override
         public String getName() {

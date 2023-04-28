@@ -58,16 +58,32 @@ public class ElementAttributeInfo {
                     result = new HashMap<>();
                     // pick short files that are in repository
                     // Add to this when a DTD is added
-                    result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml",
-                        DtdType.ldml));
-                    result.put(DtdType.supplementalData, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/supplemental/plurals.xml", DtdType.supplementalData));
-                    result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
-                    result.put(DtdType.keyboard, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/3.0/fr-t-k0-azerty.xml", DtdType.keyboard));
-                    result.put(DtdType.keyboardTest, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/test/fr-t-k0-azerty-test.xml", DtdType.keyboardTest));
+                    result.put(
+                            DtdType.ldml,
+                            new ElementAttributeInfo(
+                                    canonicalCommonDirectory + "/main/root.xml", DtdType.ldml));
+                    result.put(
+                            DtdType.supplementalData,
+                            new ElementAttributeInfo(
+                                    canonicalCommonDirectory + "/supplemental/plurals.xml",
+                                    DtdType.supplementalData));
+                    result.put(
+                            DtdType.ldmlBCP47,
+                            new ElementAttributeInfo(
+                                    canonicalCommonDirectory + "/bcp47/calendar.xml",
+                                    DtdType.ldmlBCP47));
+                    result.put(
+                            DtdType.keyboard,
+                            new ElementAttributeInfo(
+                                    canonicalCommonDirectory
+                                            + "/../keyboards/3.0/fr-t-k0-azerty.xml",
+                                    DtdType.keyboard));
+                    result.put(
+                            DtdType.keyboardTest,
+                            new ElementAttributeInfo(
+                                    canonicalCommonDirectory
+                                            + "/../keyboards/test/fr-t-k0-azerty-test.xml",
+                                    DtdType.keyboardTest));
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -76,8 +92,11 @@ public class ElementAttributeInfo {
             }
         }
         final ElementAttributeInfo eai = result.get(dtdType);
-        if(eai == null) {
-            throw new NullPointerException("ElementAttributeInfo.getInstance(…,"+dtdType.name()+") returns null, please update this function");
+        if (eai == null) {
+            throw new NullPointerException(
+                    "ElementAttributeInfo.getInstance(…,"
+                            + dtdType.name()
+                            + ") returns null, please update this function");
         }
         return eai;
     }

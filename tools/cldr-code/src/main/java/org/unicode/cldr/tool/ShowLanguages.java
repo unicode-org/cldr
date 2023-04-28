@@ -201,15 +201,15 @@ public class ShowLanguages {
         System.out.println("Done - wrote into " + FormattedFileWriter.CHART_TARGET_DIR);
     }
 
-    /**
-     *
-     */
-    public static FormattedFileWriter.Anchors SUPPLEMENTAL_INDEX_ANCHORS = new FormattedFileWriter.Anchors();
+    /** */
+    public static FormattedFileWriter.Anchors SUPPLEMENTAL_INDEX_ANCHORS =
+            new FormattedFileWriter.Anchors();
 
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalDataInfo =
+            SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
-    private static void writeSupplementalIndex(String filename, StringWriter sw) throws IOException {
+    private static void writeSupplementalIndex(String filename, StringWriter sw)
+            throws IOException {
         String[] replacements = {
             "%date%", CldrUtility.isoFormatDateOnly(new Date()),
             "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(),
@@ -1091,23 +1091,33 @@ public class ShowLanguages {
                             new FormattedFileWriter(
                                     null, "Likely Subtags", null, SUPPLEMENTAL_INDEX_ANCHORS));
 
-            TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Target Lang", "class='target'", CldrUtility.getDoubleLinkMsg(), "class='target'", true)
-                .setSortPriority(0)
-                .setBreakSpans(true)
-                .addColumn("Target Script", "class='target'", null, "class='target'", true)
-                .setSortPriority(1)
-                .addColumn("Target Region", "class='target'", null, "class='target'", true)
-                .setSortPriority(2)
-                .addColumn("Target ID", "class='target'", null, "class='target'", true)
-                .addColumn("Source ID", "class='source'", null, "class='source'", true)
-                .addColumn("Source Lang", "class='source'", null, "class='source'", true)
-                .setSortPriority(3)
-                .addColumn("Source Script", "class='source'", null, "class='source'", true)
-                .setSortPriority(4)
-                .addColumn("Source Region", "class='source'", null, "class='source'", true)
-                .setSortPriority(5)
-                ;
+            TablePrinter tablePrinter =
+                    new TablePrinter()
+                            .addColumn(
+                                    "Target Lang",
+                                    "class='target'",
+                                    CldrUtility.getDoubleLinkMsg(),
+                                    "class='target'",
+                                    true)
+                            .setSortPriority(0)
+                            .setBreakSpans(true)
+                            .addColumn(
+                                    "Target Script", "class='target'", null, "class='target'", true)
+                            .setSortPriority(1)
+                            .addColumn(
+                                    "Target Region", "class='target'", null, "class='target'", true)
+                            .setSortPriority(2)
+                            .addColumn("Target ID", "class='target'", null, "class='target'", true)
+                            .addColumn("Source ID", "class='source'", null, "class='source'", true)
+                            .addColumn(
+                                    "Source Lang", "class='source'", null, "class='source'", true)
+                            .setSortPriority(3)
+                            .addColumn(
+                                    "Source Script", "class='source'", null, "class='source'", true)
+                            .setSortPriority(4)
+                            .addColumn(
+                                    "Source Region", "class='source'", null, "class='source'", true)
+                            .setSortPriority(5);
             Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();
             LanguageTagParser sourceParsed = new LanguageTagParser();
             LanguageTagParser targetParsed = new LanguageTagParser();
@@ -1115,20 +1125,23 @@ public class ShowLanguages {
                 String target = subtags.get(source);
                 sourceParsed.set(source);
                 targetParsed.set(target);
-                String targetLanguageName = getName(CLDRFile.LANGUAGE_NAME, targetParsed.getLanguage());
-                if (targetLanguageName.equals("\u00A0")) { // undo the handling in getName for this field
+                String targetLanguageName =
+                        getName(CLDRFile.LANGUAGE_NAME, targetParsed.getLanguage());
+                if (targetLanguageName.equals(
+                        "\u00A0")) { // undo the handling in getName for this field
                     targetLanguageName = "Undetermined";
                 }
-                tablePrinter.addRow()
-                .addCell(targetLanguageName)
-                .addCell(getName(CLDRFile.SCRIPT_NAME, targetParsed.getScript()))
-                .addCell(getName(CLDRFile.TERRITORY_NAME, targetParsed.getRegion()))
-                .addCell(target)
-                .addCell(source)
-                .addCell(getName(CLDRFile.LANGUAGE_NAME, sourceParsed.getLanguage()))
-                .addCell(getName(CLDRFile.SCRIPT_NAME, sourceParsed.getScript()))
-                .addCell(getName(CLDRFile.TERRITORY_NAME, sourceParsed.getRegion()))
-                .finishRow();
+                tablePrinter
+                        .addRow()
+                        .addCell(targetLanguageName)
+                        .addCell(getName(CLDRFile.SCRIPT_NAME, targetParsed.getScript()))
+                        .addCell(getName(CLDRFile.TERRITORY_NAME, targetParsed.getRegion()))
+                        .addCell(target)
+                        .addCell(source)
+                        .addCell(getName(CLDRFile.LANGUAGE_NAME, sourceParsed.getLanguage()))
+                        .addCell(getName(CLDRFile.SCRIPT_NAME, sourceParsed.getScript()))
+                        .addCell(getName(CLDRFile.TERRITORY_NAME, sourceParsed.getRegion()))
+                        .finishRow();
             }
             pw.println(tablePrinter.toTable());
             pw.close();

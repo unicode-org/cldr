@@ -92,12 +92,23 @@ The LDML specification is divided into the following parts:
   * [Element: row](#Element_row)
   * [Element: vkeys](#Element_vkeys)
   * [Element: vkey](#Element_vkey)
+  * [Element: variables](#Element_variables)
+  * [Element: variable](#Element_variable)
   * [Element: transforms](#Element_transforms)
+    * [Markers](#markers)
+  * [Element: transformGroup](#Element_transformGroup)
+    * [Example: `transformGroup` with only `import` elements](#example-transformgroup-with-only-import-elements)
+    * [Example: `transformGroup` with `transform` elements](#example-transformgroup-with-transform-elements)
+    * [Example: `transformGroup` with `reorder` elements](#example-transformgroup-with-reorder-elements)
   * [Element: transform](#Element_transform)
-  * [Element: reorders](#Element_reorders)
+    * [Regex-like Syntax](#regex-like-syntax)
+    * [Additional Features](#additional-features)
+    * [Disallowed Regex Features](#disallowed-regex-features)
+    * [Replacement syntax](#replacement-syntax)
   * [Element: reorder](#Element_reorder)
+    * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
   * [Element: transform final](#Element_final)
-  * [Element: transform backspace](#Element_backspaces)
+  * [transform type="backspace"](#Element_backspaces)
 * [Invariants](#Invariants)
 * [Keyboard IDs](#Keyboard_IDs)
   * [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
@@ -197,6 +208,8 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 **Core keys:** also known as “alpha” block. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal keyset for a language as seen on mobile phone keyboards.
 Distinguished from the **frame keys**.
 
+**Dead keys:** These are keys which do not emit normal characters by themselves.  They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many latin keyboards hitting the `^` dead-key followed by the `e` key produces `ê`. The `^` by itself may be invisible or presented in a special way by the platform.
+
 **Frame keys:** These are keys which do not emit characters and are outside of the area of the **core keys**. These keys include both **modifier** keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, emoji keys.
 
 **Hardware keyboard:** an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.
@@ -237,7 +250,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Touch keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
-**Transform:** A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
+**Transform:** A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. Transforms may reorder or replace text. They may be used to implement “dead key” behaviors, simple orthographic corrections, and visual (typewriter) type input.
 
 **Virtual keyboard:** see **Touch keyboard**
 
@@ -259,7 +272,8 @@ The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 secti
 
 * `to`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
 * `to` on the `<flick>` element
-* `to` on the `<transform>` element
+* `from` or `to` on the `<transform>` element
+* `value` on the `<variable>` element
 * `to` and `display` on the `<display>` element
 * `baseCharacter` on the `<displayOptions>` element
 * Some attributes on [Keyboard Test Data](#Keyboard Test Data) subelements
@@ -315,7 +329,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [names](#Element_names), [reorders](#Element_reorders), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [version](#Element_version), [vkeys](#Element_vkeys)
+> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [names](#Element_names), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version), [vkeys](#Element_vkeys)
 >
 > Occurrence: required, single
 >
@@ -569,7 +583,7 @@ _Attribute:_ `value` (required)
 
 ### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).
+An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
 **Syntax**
 
@@ -593,40 +607,13 @@ _Attribute:_ `fallback="omit"`
 
 If this attribute is present, it must have a value of omit.
 
-_Attribute:_ `transformFailure="omit"`
-
-> This attribute describes the behavior of a transform when it is escaped (see the `transform` element in the Layout file for more information). A transform is escaped when it can no longer continue due to the entry of an invalid key. For example, suppose the following set of transforms are valid:
->
-> ^e → ê
->
-> ^a → â
-
-Suppose a user now enters the "\^" key then "\^" is now stored in a buffer and may or may not be shown to the user (see the `partial` attribute).
-
-If a user now enters d, then the transform has failed and there are two options for output.
-
-1. default behavior - "^d"
-
-2. omit - "" (nothing and the buffer is cleared)
-
-The default behavior (when this attribute is not present) is to emit the contents of the buffer upon failure of a transform.
-
-If this attribute is present, it must have a value of omit.
-
-_Attribute:_ `transformPartial="hide"`
-
-> This attribute describes the behavior of the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
-
-By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the macOS platform).
-
-If this attribute is present, it must have a value of hide.
 
 **Example**
 
 ```xml
 <keyboard locale="bg">
     …
-    <settings fallback="omit" transformPartial="hide" />
+    <settings fallback="omit" />
     …
 </keyboard>
 ```
@@ -763,6 +750,8 @@ _Attribute:_ `switch="shift"` (optional)
 _Attribute:_ `to`
 
 > The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
+
+> The `to` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
 
 _Attribute:_ `transform="no"` (optional)
 
@@ -924,7 +913,7 @@ If two identical elements are defined, the later element will take precedence, t
 ```
 > <small>
 >
-> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeys](#Element_vkeys)
+> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
 >
 > Children: _none_
 >
@@ -1059,13 +1048,15 @@ The `display` element describes how a character, that has come from a `keys/key`
 >
 > </small>
 
-_Attribute:_ `to` (optional- `to` or `id` is required, or both)
+One of the `to` or `id` attributes is required.
+
+_Attribute:_ `to` (optional)
 
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
+> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> The `to` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 
-This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
-
-_Attribute:_ `id` (optional- `to` or `id` is required, or both)
+_Attribute:_ `id` (optional)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
 
@@ -1087,6 +1078,7 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
         <display to="\u0300" display="ˋ" /> <!-- \u02CB -->
         <display to="\u0301" display="ˊ" /> <!-- \u02CA -->
         <display id="shift"  display="⇪" /> <!-- U+21EA -->
+        <display to="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
     </displays>
 </keyboard>
 ```
@@ -1350,17 +1342,202 @@ This example shows some of the mappings for a French keyboard layout:
 
 * * *
 
+### <a name="Element_variables" href="#Element_variables">Element: variables</a>
+
+> <small>
+>
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [import](#Element_import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeSet)
+>
+> Occurrence: optional, single
+> </small>
+
+This is a container for variables to be used with [transform](#element-transform), [display](#element-display) and [key](#element-key) elements.
+
+Note that the `id=` attribute must be unique across all children of the `variables` element.
+
+**Example**
+
+```xml
+<variables>
+    <string id="y" value="yes" /> <!-- a simple string-->
+    <set id="upper" value="A B C D E FF" /> <!-- a set with 6 items -->
+    <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- a UnicodeSet -->
+</variables>
+```
+
+* * *
+
+### Element: string
+
+> <small>
+>
+> Parents: [variables](#Element_variables)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+> </small>
+
+> This element represents a single string which is used by the [transform](#element-transform) elements for string matching and substitution, as well as by the [key](#element-key) and [display](#element-display) elements.
+
+_Attribute:_ `id` (required)
+
+> Specifies the identifier (name) of this string.
+> All ids must be unique across all types of variables.
+
+_Attribute:_ `value` (required)
+
+> Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
+> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> Variables may refer to other string variables if they have been previously defined, using `${string}` syntax.
+> [Markers](#markers) may be included with the `\m{…}` notation.
+
+**Example**
+
+```xml
+<variables>
+    <string id="cluster_hi" value="हि" /> <!-- a string -->
+    <string id="zwnj" value="\u{200C}"/> <!-- single codepoint -->
+    <string id="acute" value="\m{acute}"/> <!-- refer to a marker -->
+    <string id="zwnj_acute" value="${zwnj}${acute}"  /> <!-- Combine two variables -->
+    <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
+</variables>
+```
+
+These may be then used in multiple contexts:
+
+```xml
+<!-- as part of a regex -->
+<transform from="${cluster_hi}X" to="X" />
+<transform from="Y" to="${cluster_hi}" />
+…
+<!-- as part of a key bag  -->
+<key id="hi_key" to="${cluster_hi}" />
+<key id="acute_key" to="${acute}" />
+…
+<!-- Display ´ instead of the non-displayable marker -->
+<display to="${acute}" display="´" />
+```
+
+* * *
+
+### Element: set
+
+> <small>
+>
+> Parents: [variables](#Element_variables)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+> </small>
+
+> This element represents a set of strings used by the [transform](#element-transform) elements for string matching and substitution.
+
+_Attribute:_ `id` (required)
+
+> Specifies the identifier (name) of this set.
+> All ids must be unique across all types of variables.
+
+_Attribute:_ `value` (required)
+
+> The `value` attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as `"A"`.
+> Leading and trailing whitespace is ignored.
+> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> Sets may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined sets using `$[set]` syntax.
+> Set references must be separated by whitespace: `$[set1]$[set2]` is an error; instead use `$[set1] $[set2]`.
+> [Markers](#markers) may be included with the `\m{…}` notation.
+
+**Examples**
+
+```xml
+<variables>
+    <set id="upper" value="A B CC D E FF " /> <!-- 6 items -->
+    <set id="lower" value="a b c  d e  f " /> <!-- 6 items -->
+    <set id="upper_or_lower" value="$[upper] $[lower]"  /> <!-- Concatenate two sets -->
+    <set id="lower_or_upper" value="$[lower] $[upper]"  /> <!-- Concatenate two sets -->
+    <set id="a" value="A"/> <!-- Just one element, an 'A'-->
+    <set id="cluster_or_zwnj" value="${hi_cluster} ${zwnj}"/> <!-- 2 items: "हि \u${200C}"-->
+</variables>
+```
+
+Match "X" followed by any uppercase letter:
+
+```xml
+<transform from="X$[upper]" to="…" />
+```
+
+Map from upper to lower:
+
+```xml
+<transform from="($[upper])" to="$[1:lower]" />
+```
+
+See [transform](#element-transform) for further details.
+
+* * *
+
+### Element: unicodeSet
+
+> <small>
+>
+> Parents: [variables](#Element_variables)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+> </small>
+
+> This element represents a set, using a subset of the [UnicodeSet](tr35.md#Unicode_Sets) format, used by the [`transform`](#element-transform) elements for string matching and substitution.
+> Note important restrictions on the syntax below.
+
+_Attribute:_ `id` (required)
+
+> Specifies the identifier (name) of this unicodeSet.
+> All ids must be unique across all types of variables.
+
+_Attribute:_ `value` (required)
+
+> String value in [UnicodeSet](tr35.md#Unicode_Sets) format.
+> Leading and trailing whitespace is ignored.
+> Variables may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined UnicodeSets (not sets) using `$[unicodeSet]` syntax.
+
+**Syntax Note**
+
+- Warning: UnicodeSets look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
+- Multi-character strings (`{}`) are not supported, such as `[żġħ{ie}{għ}]`.
+- UnicodeSet property notation (`\p{…}` or `[:…:]`) may **NOT** be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of `$[KhmrMn]` matches all nonspacing marks in the `Khmr` script.
+- UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.
+
+**Examples**
+
+```xml
+<variables>
+  <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
+  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -->
+  <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
+  <unicodeSet id="KhmrMn" value="[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+</variables>
+```
+
+The `unicodeSet` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax).
+The `unicodeSet` element may not be referenced by [`key`](#element-key) and [`display`](#element-display) elements.
+
+* * *
+
 ### <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
 
-This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
+This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
-There can be multiple `<transforms>` elements.
+There can be multiple `<transforms>` elements, but only one for each `type`.
 
-Syntax
+**Syntax**
 
 ```xml
 <transforms type="...">
-    {a set of transform elements}
+    {a set of transform groups}
 </transforms>
 ```
 
@@ -1368,7 +1545,7 @@ Syntax
 >
 > Parents: [keyboard](#Element_keyboard)
 >
-> Children: [import](#Element_import), [_special_](tr35.md#special), [transform](#Element_transform)
+> Children: [import](#Element_import), [_special_](tr35.md#special), [transformGroup](#Element_transformGroup)
 >
 > Occurrence: optional, multiple
 >
@@ -1376,7 +1553,7 @@ Syntax
 
 _Attribute:_ `type` (required)
 
-> Current values: `simple`, `final`, `backspace`
+> Values: `simple`, `backspace`
 
 There are other keying behaviors that are needed particularly in handing complex orthographies from various parts of the world. The behaviors intended to be covered by the transforms are:
 
@@ -1384,172 +1561,386 @@ There are other keying behaviors that are needed particularly in handing complex
 * Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.
 * Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.
 
-We consider each transform type in turn and consider attributes to the `<transforms>` element pertinent to that type.
+#### Markers
+
+Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.
+
+Consider the following abbreviated example:
+
+```xml
+    <display to="\m{circ_marker}" display="^" />
+…
+    <key id="circ_key" to="\m{circ_marker}" />
+    <key id="e" to="e" />
+…
+    <transform from="\m{circ_marker}e" to="ê" />
+```
+
+1. The user presses the `circ_key` key. The key can be shown with the keycap `^` due to the `<display>` element.
+
+2. The special marker, `circ_marker`, is added to the end of input context.
+
+    The input context does not match any transforms.
+
+    The input context has:
+
+    - …
+    - marker `circ_marker`
+
+3. Also due to the `<display>` element, implementations can opt to display a visible `^` (perhaps visually distinct from a plain `^` carat). Implementations may opt to display nothing and only store the marker in the input context.
+
+4. The user now presses the `e` key, which is also added to the input context. The input context now has:
+
+    - …
+    - character `e`
+    - marker `circ_marker`
+
+5. Now, the input context matches the transform.  The `e` and the marker are replaced with `ê`.
+
+    The input context now has:
+
+    - …
+    - character `ê`
+
+**Effect of markers on final text**
+
+All markers must be removed before text is returned to the application from the input context.
+If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.
+
+**Implementation Notes**
+
+Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations _may_ choose to map each marker to a [Unicode private-use character](https://www.unicode.org/glossary/#private_use_character) for use only within the implementation’s processing and temporary storage in the input context.
+
+For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  `[^\uE000-\uE009]` could be used as an expression to match a character that is not a marker, and `[Ee]\u{E000}` could match `E` or `e` followed by the first marker.
+
+Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.
+
+* * *
+
+### <a name="Element_transformGroup" href="#Element_transformGroup">Element: transformGroup</a>
+
+> <small>
+>
+> Parents: [transforms](#Element_transforms)
+>
+> Children: [import](#Element_import), [reorder](#Element_reorder), [_special_](tr35.md#special), [transform](#Element_transform)
+>
+> Occurrence: optional, multiple
+> </small>
+
+A `transformGroup` represents a set of transform elements or reorder elements.
+
+Each `transformGroup` is processed entirely before proceeding to the next one.
+
+
+Each `transformGroup` element, after imports are processed, must have either [reorder](#Element_reorder) elements or [transform](#Element_transform) elements, but not both. The `<transformGroup>` element may not be empty.
+
+**Examples**
+
+
+#### Example: `transformGroup` with `transform` elements
+
+This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, prefaced by one or more `import` elements. See the discussion of those elements for details. `import` elements in this group may not import `reorder` elements.
+
+
+```xml
+<transformGroup>
+    <import path="..."/> <!-- optional import elements-->
+    <transform />
+    <!-- other <transform/> elements -->
+</transformGroup>
+```
+
+
+#### Example: `transformGroup` with `reorder` elements
+
+This is a `transformGroup` that consists of one or more [`transform`](#element-transform) elements, optionally prefaced by one or more `import` elements that import `transform` elements. See the discussion of those elements for details.
+
+`import` elements in this group may not import `transform` elements.
+
+```xml
+<transformGroup>
+    <import path="..."/> <!-- optional import elements-->
+    <reorder ... />
+    <!-- other <reorder> elements -->
+</transformGroup>
+```
 
 * * *
 
 ### <a name="Element_transform" href="#Element_transform">Element: transform</a>
 
-This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
+This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the `^` dead-key followed by the `e` key produces `ê`.
+
+Matches are processed against the "input context", a temporary buffer containing all relevant text up to the insertion point. If the user moves the insertion point, the input context is discarded and recreated from the application’s text buffer.  Implementations may discard the input context at any time.
+
+The input context may contain, besides regular text, any [Markers](#markers) as a result of keys or transforms, since the insertion point was moved.
+
+Using regular expression terminology, matches are done as if there was an implicit `$` (match end of buffer) at the end of each pattern. In otherwords, `<transform from="ke" …>` will not match an input context ending with `…keyboard`, but it will match the last two codepoints of an input context ending with `…awake`.
+
+All of the `transform` elements in a `transformGroup` are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the **next** `transformGroup`. If none of the `tranform` elements match, processing proceeds without modification to the buffer to the **next** `transformGroup`.
 
 **Syntax**
 
 ```xml
-<transform from="{combination of characters}" to="{output}"
-   [before="{look-behind required match}"]
-   [error="fail"] />
+<transform from="{input rule}" to="{output pattern}"/>
 ```
 
 > <small>
 >
-> Parents: [transforms](#Element_transforms)
+> Parents: [transformGroup](#Element_transformGroup)
 > Children: _none_
 > Occurrence: required, multiple
 >
 > </small>
 
+
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
+> The `from` attribute consists of an input rule for matching the input context.
+>
+> The `transform` rule and output pattern uses a modified, mostly subsetted, regular expression syntax, with EcmaScript syntax (with the `u` Unicode flag) as its baseline reference (see [MDN-REGEX](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions)). Differences from regex implementations will be noted.
 
-For example, suppose there are the following transforms:
+#### Regex-like Syntax
 
-```default
-^e → ê
-^a → â
-^o → ô
-```
+- **Simple matches**
 
-If the user types a key that produces "\^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "\^" then "u". In this case, there is no match for the "\^u", and the "\^" is output if the `transformFailure` attribute in the `settings` element is set to emit. If there is no transform starting with "u", then it is also output (again only if `transformFailure` is set to emit) and the mechanism leaves the "dead" state.
+    `abc` `𐒵`
 
-The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the `partial` attribute in the `transform` element.
+- **Unicode codepoint escapes**
 
-Most transforms in practice have only a couple of characters. But for completeness, the behavior is defined on all strings. The following applies when no exact match exists:
+    `\u1234 \u012A`
+    `\u{012a} \u{1234a}`
 
-1. If there could be a longer match if the user were to type additional keys, go into a 'dead' state.
-2. If there could not be a longer match, find the longest actual match, emit the transformed text (if `transformFailure` is set to emit), and start processing again with the remainder.
-3. If there is no possible match, output the first character, and start processing again with the remainder.
+    The hex escaping is case insensitive. The value may not match a surrogate or illegal character.
+    The form
 
-Suppose that there are the following transforms:
+- **Fixed character classes and escapes**
 
-```default
-ab → x
-abc → y
-abef → z
-bc → m
-beq → n
-```
+    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
 
-Here's what happens when the user types various sequence characters:
+    The value of these classes do not change with Unicode versions.
 
-| Input characters | Result | Comments |
-|------------------|--------|----------|
-| ab               |        | No output, since there is a longer transform with this as prefix. |
-| abc              | y      | Complete transform match. |
-| abd              | xd     | The longest match is "ab", so that is converted and output. The 'd' follows, since it is not the start of any transform. |
-| abeq             | xeq    | "ab" wins over "beq", since it comes first. That is, there is no longer possible match starting with 'a'. |
-| bc               | m      |          |
+    `\s` for example is exactly `[\f\n\r\t\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]`
 
-Control characters, combining marks and whitespace in this attribute are escaped using the `\u{...}` notation.
+    `\\` and `\$` evaluate to `\` and `$`, respectively.
+
+- **Character classes**
+
+    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u093F-\u0944\u0962\u0963]`
+
+    - supported
+    - no Unicode properties such as `\p{…}`
+    - Warning: Character classes look superficially similar to UnicodeSets as defined in [`unicodeSet`](#element-unicodeSet) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
+
+- **Bounded quantifier**
+
+    `{x,y}`
+
+    `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+
+- **Optional Specifier**
+
+    `?` - equivalent of `{0,1}`
+
+- **Numbered Capture Groups**
+
+    `([abc])([def])` (up to 9 groups)
+
+    These refer to groups captured as a set, and can be referenced with the `$1` through `$9` operators in the `to=` pattern. May not be nested.
+
+- **Nested capture groups**
+
+    `(?:thismatches) (?:[abc]([def]))|(?:[ghi])`
+
+    Only the innermost group is allowed to be a capture group.
+
+- **Disjunctions**
+
+    `abc|def`
+
+    Match either `abc` or `def`.
+
+- **Match a single Unicode codepoint**
+
+    `.`
+
+    Matches a codepoint, not individual code units. (See the ’u’ option in EcmaScript262 regex.)
+    For example, Osage `𐒵` is one match (`.`) not two.
+    Does not match [markers](#markers). (See `\m{.}` and `\m{marker}`, below.)
+
+- **Match the start of the text context**
+
+    `^`
+
+    The start of the context could be the start of a line, a grid cell, or some other formatting boundary.
+    See description at the top of [`transforms`](#element-transform).
+
+#### Additional Features
+
+The following are additions to standard Regex syntax.
+
+- **Match a Marker**
+
+    `\m{Some_Marker}`
+
+    Matches the named marker.
+    Also see [Markers](#markers).
+
+- **Match a single marker**
+
+    `\m{.}`
+
+    Matches any single marker.
+    Also see [Markers](#markers).
+
+- **String Variables**
+
+    `${zwnj}`
+
+    In this usage, the variable with `id="zwnj"` will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If `zwnj` is a simple string, the pattern will match that string at this point.
+
+- **Set and UnicodeSet variables**
+
+    `$[upper]`
+
+    Given a space-separated variable, this syntax will match _any_ of the substrings. This expression may be thought of  (and implemented) as if it were a _non-capturing group_. It may, however, be enclosed within a capturing group. For example, the following definition of `$[upper]` will match as if it were written `(?:A|B|CC|D|E|FF)`.
+
+    ```xml
+    <variables>
+        <set id="upper" value=" A B CC  D E  FF " />
+    </variables>
+    ```
+
+    This expression in a `from=` may be used to **insert a mapped variable**, see below under [Replacement syntax](#replacement-syntax).
+
+#### Disallowed Regex Features
+
+- **Unicode properties**
+
+    `\p{property}` `\P{property}`
+
+    **Rationale:** The behavior of this feature varies by Unicode version, and so would not have predictable results.
+
+    Tooling may choose to suggest an expansion of properties, such as `\p{Mn}` to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an `import`-able file matching particularly useful Unicode properties.
+
+    ```xml
+    <unicodeSet id="Mn" value="[\u034F\u0591-\u05AF\u05BD\u05C4\u05C5\…]" /> <!-- 1,985 code points -->
+    ```
+
+- **Backreferences**
+
+    `([abc])-\1` `\k<something>`
+
+    **Rationale:** Implementation and cognitive complexity.
+
+- **Unbounded Quantifiers**
+
+    `* + *? +? {1,} {0,}`
+
+    **Rationale:** Implementation and Computational complexity.
+
+- **Nested capture groups**
+
+    `((a|b|c)|(d|e|f))`
+
+    **Rationale:** Computational and cognitive complexity.
+
+- **Named capture groups**
+
+    `(?<something>)`
+
+    **Rationale:** Cognitive complexity.
+
+- **Assertions** other than `^`
+
+    `\b` `\B` `(?<!…)` …
+
+    **Rationale:** Implementation complexity.
+
+- **End marker**
+
+    `$`
+
+    The end marker can be thought of as being implicitly at the end of every `from=` pattern, matching the insertion point. Transforms do not match past the insertion point.
 
 _Attribute:_ `to`
 
-> This attribute represents the characters that are output from the transform. The output can contain more than one character, so you could have `<transform from="´A" to="Fred"/>`.
-
-If this attribute is absent, it indicates that the no characters are output, such as with a backspace transform.
-
-Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation.
-
-Examples
-
-```xml
-<keyboard locale="fr-CA-t-k0-CSA">
-    <transforms type="simple">
-        <transform from="´a" to="á" />
-        <transform from="´A" to="Á" />
-        <transform from="´e" to="é" />
-        <transform from="´E" to="É" />
-        <transform from="´i" to="í" />
-        <transform from="´I" to="Í" />
-        <transform from="´o" to="ó" />
-        <transform from="´O" to="Ó" />
-        <transform from="´u" to="ú" />
-        <transform from="´U" to="Ú" />
-    </transforms>
-    ...
-</keyboard>
-```
-
-```xml
-<keyboard locale="nl-BE">
-    <transforms type="simple">
-        <transform from="\u{30c}a" to="ǎ" /> <!-- ̌a → ǎ -->
-        <transform from="\u{30c}A" to="Ǎ" /> <!-- ̌A → Ǎ -->
-        <transform from="\u{30a}a" to="å" /> <!-- ̊a → å -->
-        <transform from="\u{30a}A" to="Å" /> <!-- ̊A → Å -->
-    </transforms>
-    ...
-</keyboard>
-```
-
-_Attribute:_ `before`
-
-> This attribute consists of a sequence of elements (codepoint or UnicodeSet) to match the text up to the current position in the text (this is similar to a regex "look behind" assertion: `(?<=a)b` matches a "b" that is preceded by an "a"). The attribute must match for the transform to apply. If missing, no before constraint is applied. The attribute value must not be empty.
-
-_Attribute:_ `error="fail"`
-
-> If set, this attribute indicates that the keyboarding application may indicate an error to the user in some way. Processing may stop and rewind to any state before the key was pressed. If processing does stop, no further transforms on the same input are applied. The `@error` attribute takes the value `"fail"`, or must be absent. If processing continues, the `@to` is used for output as normal. It thus should contain a reasonable value.
-
-When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute. After the change, the current position is reset to just after the text output from the `@to` attribute.
-
-For example:
-
-```xml
-<transform from="\u037A\u037A" to="\u037A" error="fail" />
-```
-
-This indicates that it is an error to type two iota subscripts immediately after each other.
-
-In terms of how these different attributes work in processing a sequence of transforms, consider the transform:
-
-```xml
-<transform before="X" from="Y" to="B" />
-```
-
-This would transform the string:
-
-```default
-XYZ → XBZ
-```
-
-If we mark where the current match position is before and after the transform we see:
-
-```default
-X | Y Z → X B | Z
-```
-
-And a subsequent transform could transform the Z string, looking back (using @before) to match the B.
-
-* * *
-
-### <a name="Element_reorders" href="#Element_reorders">Element: reorders</a>
-
-This element defines a group of one or more `reorder` elements associated with this keyboard layout.
-
-> <small>
+> This attribute represents the characters that are output from the transform.
 >
-> Parents: [keyboard](#Element_keyboard)
+> If this attribute is absent, it indicates that the no characters are output, such as with a backspace transform.
 >
-> Children: [import](#Element_import), [reorder](#Element_reorder), [_special_](tr35.md#special)
->
-> Occurrence: Optional, multiple
-> </small>
+> A final rule such as `<transform from=".*"/>` will remove all context which doesn’t match one of the prior rules.
+
+#### Replacement syntax
+
+Used in the `to=`
+
+- **Literals**
+
+    `$$ \$ \\` = `$ $ \`
+
+- **Entire matched substring**
+
+    `*&`
+
+- **Insert the specified capture group**
+
+    `$1 $2 $3 … $9`
+
+- **Insert an entire variable**
+
+    `${variable}`
+
+    The entire contents of the named variable will be inserted at this point.
+
+- **Insert a mapped set**
+
+    `$[1:variable]` (Where "1" is be any numbered capture group from 1 to 9)
+
+    Maps capture group 1 to variable `variable`. The `from=` side must also contain a grouped variable. This expression may appear anywhere or multiple times in the `to=` pattern.
+
+    **Example**
+
+    ```xml
+    <set id="upper" value="A B CC D E  FF       G" />
+    <set id="lower" value="a b c  d e  \u{0192} g" />
+    <!-- note that values may be spaced for ease of reading -->
+    …
+    <transform from="($[upper])" to="$[1:lower]" />
+    ```
+
+    - The capture group on the `from=` side **must** contain exactly one set variable.  `from="Q($[upper])X"` can be used (other context before or after the capture group), but `from="(Q$[upper])"` may not be used with a mapped variable and is flagged as an error.
+
+    - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
+    A UnicodeSet may not be used directly, but must be defined as a `unicodeSet` variable.
+
+    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
+
+    - As described in [Additional Features](#additional-features), the `upper` set variable as used here matches as if it is `((?:A|B|CC|D|E|FF|G))`, showing the enclosing capturing group. When text from the input context matches this expression, and all above conditions are met, the mapping proceeds as follows:
+
+    1. The portion of the input context, such as `CC`, is matched against the above calculated pattern.
+
+    2. The position within the `from=` variable (`upper`) is calculated. The regex match may not have this information, but the matched substring `CC` can be compared against the tokenized input variable: `A`, `B`, `CC`, `D`, … to find that the 3rd item matches exactly.
+
+    3. The same position within the `to=` variable (`lower`) is calculated. The 3rd item is `c`.
+
+    4. `CC` in the input context is replaced with `c`, and processing proceeds to the next `transformGroup`.
+
+- **Emit a marker**
+
+    `\m{Some_marker}`
+
+    Emits the named mark. Also see [Markers](#markers).
 
 * * *
 
 ### <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
 
-The reorder transform is applied after all transforms except for those with `type="final"`.
+The reorder transform consists of a [`<transformGroup>`](#element-transformgroup) element containing `<reorder>` elements.  Multiple such `<transformGroup>` elements may be contained in an enclosing `<transforms>` element.
+
+One or more [`<import>`](#element-import) elements are allowed to precede the `<reorder>` elements.
 
 This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.
 
@@ -1569,34 +1960,40 @@ The primary order of a character with the Unicode property Combining_Character_C
 
 In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
-The reorder transform consists of `<reorder>` elements encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiaryBase`, `preBase`) for the matched characters in the string.
+The reorder transform consists of `<reorder>` elements encapsulated in a `<transformGroup>` element. Each element is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiaryBase`, `preBase`) for the matched characters in the string.
+
+The relative ordering of `<reorder>` elements is not significant.
 
 **Syntax**
 
 ```xml
-<reorder from="{combination of characters}"
-   [before="{look-behind required match}"]
-   [order="{list of weights}"]
-   [tertiary="{list of weights}"]
-   [tertiaryBase="{list of true/false}"]
-   [preBase="{list of true/false}"] />
+<transformGroup>
+    <!-- one or more <import/> elements are allowed at this point -->
+    <reorder from="{combination of characters}"
+    [before="{look-behind required match}"]
+    [order="{list of weights}"]
+    [tertiary="{list of weights}"]
+    [tertiaryBase="{list of true/false}"]
+    [preBase="{list of true/false}"] />
+    <!-- other <reorder/> elements... -->
+</transformGroup>
 ```
 
 > <small>
 >
-> Parents: [reorders](#Element_reorder)
+> Parents: [transformGroup](#Element_transformGroup)
 > Children: _none_
-> Occurrence: required, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
 _Attribute:_ `from` (required)
 
-> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
+> This attribute contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
 
 _Attribute:_ `before`
 
-> This attribute follows the `transform/@before` attribute and contains the element string that must match the string immediately preceding the start of the string that the @from matches.
+> This attribute contains the element string that must match the string immediately preceding the start of the string that the @from matches.
 
 _Attribute:_ `order`
 
@@ -1638,9 +2035,7 @@ _Attribute:_ `preBase`
 >
 > If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@order` shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
-_Note:_ Unlike on the similar `transform` and `backspace` elements, there is no `@error` attribute.
-
-For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiaryBase`, `@preBase`) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
+For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiaryBase`, `@preBase`) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
 
 ```java
 if len(@from) < len(@list) then error
@@ -1653,7 +2048,7 @@ endif
 
 **Example**
 
-For example, consider the Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
+For example, consider the Northern Thai (`nod-Lana`, Tai Tham script) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
 
 | name | _kha_ | _sakot_ | _wa_ | _o_  | _t2_ |
 |------|-------|---------|------|------|------|
@@ -1700,55 +2095,58 @@ The first reorder is the default ordering for the _sakot_ which allows for it to
 
 `<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` attribute matches.
 
-If a layout has two `<reorders>` elements, e.g. from importing one and specifying the second, then `<reorder>` elements are merged. The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` attribute. The intersection of two `<reorder>` elements consists of the intersections of their `@from` and `@before` string sets. It is illegal for the intersection between any two `<reorder>` elements in the same `<reorders>` element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.
+#### Using `<import>` with `<reorder>` elements
 
-If two `<reorder>` elements in two different `<reorders>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
+This section describes the impact of using [`import`](#element-import) elements with `<reorder>` elements.
+
+The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` attribute. The **intersection** of any two `<reorder>` elements consists of the intersections of their `@from` and `@before` string sets. Tooling should warn users if the intersection between any two `<reorder>` elements in the same `<transformGroup>` element to be non empty prior to processing imports.
+
+If two `<reorder>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
 
 * `@from`, `@before` that match the intersection of the two rules. The other attributes are merged, as described below.
 * `@from`, `@before` that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
 * `@from`, `@before` that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.
 
-When merging the other attributes, the second rule is taken to have priority (occurring later in the layout description file). Where the second rule does not define the value for a character but the first does, it is taken from the first rule, otherwise it is taken from the second rule.
+When merging the other attributes, the second rule is taken to have priority (being an override of the earlier element). Where the second rule does not define the value for a character but the first does, the value is taken from the first rule, otherwise it is taken from the second rule.
 
-Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across `@before` and `@from` is different. For example:
+Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across `@before` and `@from` is different. For example, the following would not merge:
 
 ```xml
 <reorder before="ab" from="cd" />
-```
-
-would not merge with:
-
-```xml
 <reorder before="a" from="bcd" />
 ```
 
-When two `<reorders>` elements merge as the result of an import, the resulting `reorder` elements are sorted into priority order for matching.
+After `<reorder>` elements merge, the resulting `reorder` elements are sorted into priority order for matching.
 
 Consider this fragment from a shared reordering for the Myanmar script:
 
 ```xml
-<!-- medial-r -->
-<reorder from="\u103C" order="20" />
+<!-- File: "myanmar-reordering.xml" -->
+<transformGroup>
+    <!-- medial-r -->
+    <reorder from="\u103C" order="20" />
 
-<!-- [medial-wa or shan-medial-wa] -->
-<reorder from="[\u103D\u1082]" order="25" />
+    <!-- [medial-wa or shan-medial-wa] -->
+    <reorder from="[\u103D\u1082]" order="25" />
 
-<!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->
-<reorder from="[\u103E\u1082]\u103A" order="27" />
+    <!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->
+    <reorder from="[\u103E\u1082]\u103A" order="27" />
 
-<!-- [medial-ha or mon-medial-wa] -->
-<reorder from="[\u103E\u1060]" order="27" />
+    <!-- [medial-ha or mon-medial-wa] -->
+    <reorder from="[\u103E\u1060]" order="27" />
 
-<!-- [e-vowel or shan-e-vowel] -->
-<reorder from="[\u1031\u1084]" order="30" />
+    <!-- [e-vowel (U+1031) or shan-e-vowel (U+1084)] -->
+    <reorder from="[\u1031\u1084]" order="30" />
 
-<reorder from="[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]" order="35" />
+    <reorder from="[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]" order="35" />
+</transformGroup>
 ```
 
-A particular Myanmar keyboard layout can have this `reorders` element:
+A particular Myanmar keyboard layout can have these `reorder` elements:
 
 ```xml
-<reorders>
+<transformGroup>
+    <import path="myanmar-reordering.xml"/> <!-- import the above transformGroup -->
     <!-- Kinzi -->
     <reorder from="\u1004\u103A\u1039" order="-1" />
 
@@ -1757,10 +2155,10 @@ A particular Myanmar keyboard layout can have this `reorders` element:
 
     <!-- medial-r -->
     <reorder from="\u103C" preBase="1" />
-</reorders>
+</transformGroup>
 ```
 
-The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
+The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u1084`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
 * * *
 
@@ -1785,9 +2183,11 @@ Another example allows a keyboard implementation to alert or stop people typing 
 <transform from="[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]" error="fail" />
 ```
 
-### <a name="Element_backspaces" href="#Element_backspaces">Element: transform backspace</a>
+### <a name="Element_backspaces" href="#Element_backspaces">transform type="backspace"</a>
 
-The backspace transform is an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
+The `<transforms type="backspace">` describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
+
+When the backspace key is pressed, the `<transforms type="backspace">` element (if present) is processed, and then the `<transforms type="simple">` element (if processed) as with any other key.
 
 Keyboarding applications typically work, but are not required to, in one of two modes:
 
@@ -1799,92 +2199,95 @@ Keyboarding applications typically work, but are not required to, in one of two 
 
 > text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
 
-In the text entry mode, there is no need for any special description of backspace behaviour. A keyboarding application will typically keep a history of previous output states and just revert to the previous state when backspace is hit.
+In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a `transforms type="backspace"` element.
 
-In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed as `transform type="backspace"` elements.
 
 ```xml
 <transforms type="backspace">
-<transform from="{combination of characters}" [to="{output}"]
-   [before="{look-behind required match}"]
-   [error="fail"] />
+    <transformGroup>
+        <transform from="{combination of characters}" [to="{output}"] />
+    </transformGroup>
 </transforms>
 ```
 
 **Example**
 
-For example, consider deleting a Devanagari ksha:
+For example, consider deleting a Devanagari ksha क्श:
+
+While this character is made up of three codepoints, the following rule causes all three to be deleted by a single press of the backspace.
+
 
 ```xml
 <transforms type="backspace">
-    <transform from="\u0915\u094D\u0936"/>
+    <transformGroup>
+        <transform from="\u0915\u094D\u0936"/>
+    </transformGroup>
 </transforms>
 ```
 
-Here there is no `@to` attribute since the whole string is being deleted. This is not uncommon in the backspace transforms.
+Note that the optional attribute `@to` is omitted, since the whole string is being deleted. This is not uncommon in backspace transforms.
 
 A more complex example comes from a Burmese visually ordered keyboard:
 
 ```xml
 <transforms type="backspace">
-    <!-- Kinzi -->
-    <transform from="[\u1004\u101B\u105A]\u103A\u1039" />
+    <transformGroup>
+        <!-- Kinzi -->
+        <transform from="[\u1004\u101B\u105A]\u103A\u1039" />
 
-    <!-- subjoined consonant -->
-    <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]" />
+        <!-- subjoined consonant -->
+        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]" />
 
-    <!-- tone mark -->
-    <transform from="\u102B\u103A" />
+        <!-- tone mark -->
+        <transform from="\u102B\u103A" />
 
-    <!-- Handle prebases -->
-    <!-- diacritics stored before e-vowel -->
-    <transform from="[\u103A-\u103F\u105E-\u1060\u1082]\u1031" to="\u1031" />
+        <!-- Handle prebases -->
+        <!-- diacritics stored before e-vowel -->
+        <transform from="[\u103A-\u103F\u105E-\u1060\u1082]\u1031" to="\u1031" />
 
-    <!-- diacritics stored before medial r -->
-    <transform from="[\u103A-\u103B\u105E-\u105F]\u103C" to="\u103C" />
+        <!-- diacritics stored before medial r -->
+        <transform from="[\u103A-\u103B\u105E-\u105F]\u103C" to="\u103C" />
 
-    <!-- subjoined consonant before e-vowel -->
-    <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
+        <!-- subjoined consonant before e-vowel -->
+        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
 
-    <!-- base consonant before e-vowel -->
-    <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\uFDDF\u1031" />
+        <!-- base consonant before e-vowel -->
+        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\m{prebase}\u1031" />
 
-    <!-- subjoined consonant before medial r -->
-    <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
+        <!-- subjoined consonant before medial r -->
+        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
 
-    <!-- base consonant before medial r -->
-    <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\uFDDF\u103C" />
+        <!-- base consonant before medial r -->
+        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\m{prebase}\u103C" />
 
-    <!-- delete lone medial r or e-vowel -->
-    <transform from="\uFDDF[\u1031\u103C]" />
+        <!-- delete lone medial r or e-vowel -->
+        <transform from="\m{prebase}[\u1031\u103C]" />
+    </transformGroup>
 </transforms>
 ```
 
 The above example is simplified, and doesn't fully handle the interaction between medial-r and e-vowel.
 
-The character \\uFDDF does not represent a literal character, but is instead a special placeholder, a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. The precise filler string is implementation dependent. Rather than requiring keyboard layout designers to know what the filler string is, we reserve a special character that the keyboard layout designer may use to reference this filler string. It is up to the keyboard implementation to, in effect, replace that character with the filler string.
+
+> The character `\m{prebase}` does not represent a literal character, but is instead a special marker, used as a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. See [markers](#markers) for the `\m` syntax.
 
 The first three transforms above delete various ligatures with a single keypress. The other transforms handle prebase characters. There are two in this Burmese keyboard. The transforms delete the characters preceding the prebase character up to base which gets replaced with the prebase filler string, which represents a null base. Finally the prebase filler string + prebase is deleted as a unit.
 
-The backspace transform is much like other transforms except in its processing model. If we consider the same transform as in the simple transform example, but as a backspace:
+If no specified transform among all `transformGroup`s under the `<transforms type="backspace">` element matches, a default will be used instead — an implied final transform that simply deletes the codepoint at the end of the input context. This implied transform is effectively similar to the following code sample, even though the `*` operator is not actually allowed in `from=`.  See the documentation for *Match a single Unicode codepoint* under [transform syntax](#regex-like-syntax) and [markers](#markers), above.
+
+It is important that implementations do not by default delete more than one non-marker codepoint at a time, except in the case of emoji clusters. Note that implementations will vary in the emoji handling due to the iterative nature of successive Unicode releases. See [UTS#51 §2.4.2: Emoji Modifiers in Text](https://www.unicode.org/reports/tr51/#Emoji_Modifiers_in_Text)
 
 ```xml
-<transform before="X" from="Y" to="B"/>
+<transforms type="backspace">
+    <!-- Other explicit transforms -->
+
+    <!-- Final implicit backspace transform: Delete the final codepoint. -->
+    <transformGroup>
+        <!-- (:?\m{*})*  - matches any number of contiguous markers -->
+        <transform from="(:?\m{*})*.(:?\m{*})*" /> <!-- deletes any number of markers directly on either side of the final pre-caret codepoint -->
+    </transformGroup>
+</transforms>
 ```
-
-This would transform the string:
-
-```default
-XY → XB
-```
-
-If we mark where the current match position is before and after the transform we see:
-
-```default
-X Y | → X B |
-```
-
-Whereas a simple or final transform would then run other transforms in the transform list, advancing the processing position until it gets to the end of the string, the backspace transform only matches a single backspace rule and then finishes.
 
 * * *
 

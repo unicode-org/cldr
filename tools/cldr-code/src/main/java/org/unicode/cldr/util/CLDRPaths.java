@@ -1,8 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableList;
 import java.io.File;
 import java.nio.file.Path;
-import com.google.common.collect.ImmutableList;
 import java.util.List;
 import org.unicode.cldr.tool.GenerateDtd;
 import org.unicode.cldr.tool.ToolConstants;
@@ -37,16 +37,18 @@ public class CLDRPaths {
     // if the main is different, use -Dcldrmain=<value>
 
     /** Maintained in GitHub, base directory for CLDR */
-
-    public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty(CldrUtility.DIR_KEY, null));
+    public static final String BASE_DIRECTORY =
+            CldrUtility.getPath(CldrUtility.getProperty(CldrUtility.DIR_KEY, null));
     /**
      * Get path to dtd2md dir
+     *
      * @see GenerateDtd
      * @return Path
      */
     public static final Path getDtd2Md() {
         return new File(BASE_DIRECTORY).toPath().resolve("./docs/ldml/dtd2md");
     }
+
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
     public static final String COLLATION_DIRECTORY =
             CldrUtility.getPath(COMMON_DIRECTORY, COLLATION_SUBDIR);
@@ -188,7 +190,9 @@ public class CLDRPaths {
         common_segments(DtdType.ldml),
         common_subdivisions(DtdType.ldml),
 
-        common_supplemental(DtdType.supplementalData), common_transforms(DtdType.supplementalData), common_validity(DtdType.supplementalData);
+        common_supplemental(DtdType.supplementalData),
+        common_transforms(DtdType.supplementalData),
+        common_validity(DtdType.supplementalData);
         public final List<DtdType> dtdType;
 
         private DIRECTORIES(DtdType... dtdType) {

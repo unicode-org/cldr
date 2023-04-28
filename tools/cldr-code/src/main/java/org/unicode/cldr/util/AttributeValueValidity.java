@@ -250,7 +250,9 @@ public class AttributeValueValidity {
                         // check if unnecessary
                         DtdData.Element elementInfo = data.getElementFromName().get(element);
                         if (elementInfo == null) {
-                            System.out.println("Have elements: " + data.getElementFromName().keySet().toString());
+                            System.out.println(
+                                    "Have elements: "
+                                            + data.getElementFromName().keySet().toString());
                             throw new ICUException(
                                     "Illegal <attributeValues>, element not valid: "
                                             + dtdType

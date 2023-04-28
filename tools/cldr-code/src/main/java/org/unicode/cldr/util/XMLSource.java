@@ -590,6 +590,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 list.add(
                         new LocaleInheritanceInfo(
                                 locale, path, LocaleInheritanceInfo.Reason.value));
+                // Since we’re not resolving, there’s no way to look for a Bailey value here.
             } else {
                 list.add(
                         new LocaleInheritanceInfo(
@@ -987,7 +988,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
              *
-             * Also skip caching if the list (tracing) is enabled.
+             * Also skip caching if the list is non-null, for tracing.
              */
             if (!skipInheritanceMarker || !cachingIsEnabled || (list != null)) {
                 return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker, list);
@@ -1089,6 +1090,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 boolean skipFirst,
                 boolean skipInheritanceMarker,
                 List<LocaleInheritanceInfo> list) {
+
+            //   When calculating the Bailey values, we track the final
+            //   return value as firstValue. If non-null, this will become
+            //   the function's ultimate return value.
+            AliasLocation firstValue = null;
             for (XMLSource source : sources.values()) {
                 if (skipFirst) {
                     skipFirst = false;
@@ -1103,14 +1109,24 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                     new LocaleInheritanceInfo(
                                             localeID, xpath, Reason.inheritanceMarker));
                         }
-                        continue;
-                    }
-                    if (list != null) {
+                        // skip the inheritance marker and keep going
+                    } else {
+                        // We have a “hard” value.
+                        if (list == null) {
+                            return new AliasLocation(xpath, localeID);
+                        }
                         list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
+                        // Now, keep looping to add additional Bailey values.
+                        // Note that we will typically exit the recursion (terminal state)
+                        // with Reason.codeFallback or Reason.none
+                        if (firstValue != null) {
+                            // Save this, this will eventually be the function return.
+                            firstValue = new AliasLocation(xpath, localeID);
+                            // Everything else is only for Bailey.
+                        } // else: we’re already looping.
                     }
-                    return new AliasLocation(xpath, localeID);
-                }
-                if (list != null) {
+                } else if (list != null) {
+                    // No value, but we do have a list to update
                     // Note that the path wasn't found in this locale
                     // This also gives a trace of the locale inheritance
                     list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.none));
@@ -1190,19 +1206,28 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             if (aliasedPath != null) {
                 // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
-                return getCachedFullStatus(aliasedPath, skipInheritanceMarker, list);
+                AliasLocation cachedFullStatus =
+                        getCachedFullStatus(aliasedPath, skipInheritanceMarker, list);
+                // We call the above first, to update the list (if needed)
+                if (firstValue == null) {
+                    // not looping due to Bailey - return the cached status.
+                    return cachedFullStatus;
+                } else {
+                    // Bailey loop. Return the first value.
+                    return firstValue;
+                }
             }
 
             // Fallback location.
             if (list != null) {
-                list.add(
-                        new LocaleInheritanceInfo(
-                                null,
-                                xpath,
-                                Reason.codeFallback)); // Not using CODE_FALLBACK_ID as it is
-                // implicit in the reason
+                // Not using CODE_FALLBACK_ID as it is implicit in the reason
+                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codeFallback));
             }
-            return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            if (firstValue == null) {
+                return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            } else {
+                return firstValue;
+            }
         }
 
         /**

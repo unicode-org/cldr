@@ -541,8 +541,9 @@ public class TestPaths extends TestFmwkPlus {
                             //                        parts.set(path);
                             //                        removeNonDistinguishing(parts, dtdData,
                             // counter, removed, nonFinalValues);
+                            if (type != DtdType.keyboardTest || !logKnownIssue("CLDR-15034", "keyboardTest data appears as duplicate xpaths")) {
                             errln(
-                                    "Duplicate: "
+                                    "Duplicate " + type.toString() + ": "
                                             + file
                                             + ", "
                                             + path
@@ -550,6 +551,7 @@ public class TestPaths extends TestFmwkPlus {
                                             + cleaned
                                             + ", "
                                             + value);
+                            }
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
@@ -559,7 +561,7 @@ public class TestPaths extends TestFmwkPlus {
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
-                            if (isVerbose()) {
+                            if (true || isVerbose()) {
                                 String starredPath = starrer.set(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);

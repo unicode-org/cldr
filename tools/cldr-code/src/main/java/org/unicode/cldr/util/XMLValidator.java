@@ -6,8 +6,7 @@
  */
 /**
  * @author Ram Viswanadha
- *
- * This tool validates xml against DTD or valid XML ... IE 6 does not do a good job
+ *     <p>This tool validates xml against DTD or valid XML ... IE 6 does not do a good job
  */
 package org.unicode.cldr.util;
 
@@ -21,12 +20,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -73,127 +70,135 @@ public class XMLValidator {
             } else if (args[i].startsWith(SCHEMA)) {
                 withSchema = new File(args[i].substring(SCHEMA.length()));
                 if (!withSchema.canRead()) {
-                    throw new FileNotFoundException("Could not read schema " + withSchema.getAbsolutePath());
+                    throw new FileNotFoundException(
+                            "Could not read schema " + withSchema.getAbsolutePath());
                 }
             } else {
                 File f = new File(args[i]);
                 if (f.isDirectory()) {
                     addDirectory(f, toCheck);
-                } else if(f.canRead()) {
+                } else if (f.canRead()) {
                     toCheck.add(f);
                 } else {
-                    throw(new IllegalArgumentException("Not a regular file: " + f.getAbsolutePath()));
+                    throw (new IllegalArgumentException(
+                            "Not a regular file: " + f.getAbsolutePath()));
                 }
             }
         }
         if (parseonly) {
-            System.err.println("# DTD Validation is disabled. Will only check for well-formed XML.");
+            System.err.println(
+                    "# DTD Validation is disabled. Will only check for well-formed XML.");
         }
-        if(toCheck.isEmpty()) {
+        if (toCheck.isEmpty()) {
             throw new IllegalArgumentException("No files specified to check.");
         }
-        if(!quiet) {
+        if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) to check");
         }
         int failCount = new XMLValidator(quiet, parseonly, justCheckBom, withSchema).check(toCheck);
-        if(failCount != 0) {
-            System.err.println("# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
+        if (failCount != 0) {
+            System.err.println(
+                    "# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
             System.exit(1);
-        } else if(!quiet) {
+        } else if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) OK");
         }
     }
 
     private static void addDirectory(File f, List<File> toCheck) throws IOException {
         // System.err.println("Parsing directory " + f.getAbsolutePath());
-        for (final File s : f.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File arg0, String arg1) {
-                if (arg1.startsWith(".")) {
-                    return false; // skip .git, .svn, ...
-                }
-                File n = new File(arg0, arg1);
-                // System.err.println("Considering " + n.getAbsolutePath() );
-                if (n.isDirectory()) {
-                    try {
-                        addDirectory(n, toCheck);
-                    } catch (IOException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                        System.err.println("Error " + e.toString() + " parsing " + arg0.getPath());
-                    }
-                    return false;
-                } else if (arg1.endsWith(".xml")) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        })) {
+        for (final File s :
+                f.listFiles(
+                        new FilenameFilter() {
+                            @Override
+                            public boolean accept(File arg0, String arg1) {
+                                if (arg1.startsWith(".")) {
+                                    return false; // skip .git, .svn, ...
+                                }
+                                File n = new File(arg0, arg1);
+                                // System.err.println("Considering " + n.getAbsolutePath() );
+                                if (n.isDirectory()) {
+                                    try {
+                                        addDirectory(n, toCheck);
+                                    } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                        System.err.println(
+                                                "Error "
+                                                        + e.toString()
+                                                        + " parsing "
+                                                        + arg0.getPath());
+                                    }
+                                    return false;
+                                } else if (arg1.endsWith(".xml")) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        })) {
             toCheck.add(s);
         }
     }
 
     /**
      * Check a list of files, return the number of failures
+     *
      * @param toCheck
      * @return failure count, or 0 if all OK
      */
     public int check(List<File> toCheck) {
-       return toCheck
-            .parallelStream()
-            .mapToInt(f -> parse(f))
-            .sum();
+        return toCheck.parallelStream().mapToInt(f -> parse(f)).sum();
     }
 
     private static void usage() {
-        System.err.println("usage:  " + XMLValidator.class.getName() + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] file ...");
-        System.err.println("usage:  " + XMLValidator.class.getName()
-            + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] directory ...");
+        System.err.println(
+                "usage:  "
+                        + XMLValidator.class.getName()
+                        + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] file ...");
+        System.err.println(
+                "usage:  "
+                        + XMLValidator.class.getName()
+                        + " [ -q ] [ --help ] [ --parseonly ] [ --justCheckBom ] directory ...");
     }
 
     /**
      * Utility method to translate a String filename to URL.
      *
-     * If the name is null, return null. If the name starts with a common URI
-     * scheme (namely the ones found in the examples of RFC2396), then simply
-     * return the name as-is (the assumption is that it's already a URL)
-     * Otherwise we attempt (cheaply) to convert to a file:/// URL.
+     * <p>If the name is null, return null. If the name starts with a common URI scheme (namely the
+     * ones found in the examples of RFC2396), then simply return the name as-is (the assumption is
+     * that it's already a URL) Otherwise we attempt (cheaply) to convert to a file:/// URL.
      *
-     * @param filename
-     *            a local path/filename of a file
-     * @return a file:/// URL, the same string if it appears to already be a
-     *         URL, or null if error
+     * @param filename a local path/filename of a file
+     * @return a file:/// URL, the same string if it appears to already be a URL, or null if error
      * @throws MalformedURLException
      */
     public static String filenameToURL(String filename) throws MalformedURLException {
         // null begets null - something like the commutative property
-        if (null == filename)
-            return null;
+        if (null == filename) return null;
 
         // Don't translate a string that already looks like a URL
-        if (filename.startsWith("file:") || filename.startsWith("http:")
-            || filename.startsWith("ftp:")
-            || filename.startsWith("gopher:")
-            || filename.startsWith("mailto:")
-            || filename.startsWith("news:")
-            || filename.startsWith("telnet:"))
-            return filename;
+        if (filename.startsWith("file:")
+                || filename.startsWith("http:")
+                || filename.startsWith("ftp:")
+                || filename.startsWith("gopher:")
+                || filename.startsWith("mailto:")
+                || filename.startsWith("news:")
+                || filename.startsWith("telnet:")) return filename;
 
         File f = new File(filename);
         return f.toURI().toURL().toString();
     }
 
     /**
-     *
      * @param f file to parse
      * @return 1 if problems, 0 if OK
      */
     public int parse(File f) {
 
-        if(checkForBOM(f)) return 1; // had BOM - fail
+        if (checkForBOM(f)) return 1; // had BOM - fail
 
-        if(justCheckBom) return 0; // short cut
+        if (justCheckBom) return 0; // short cut
 
         final String filename = PathUtilities.getNormalizedPathString(f);
         // Force filerefs to be URI's if needed: note this is independent of any
@@ -203,7 +208,7 @@ public class XMLValidator {
             docURI = filenameToURL(filename);
             parse(new InputSource(docURI), filename);
             return 0; // OK
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             t.printStackTrace();
             System.err.println(f.getPath() + " - fail - " + t);
             return 1; // fail
@@ -233,27 +238,33 @@ public class XMLValidator {
         // Local class: cheap non-printing ErrorHandler
         // This is used to suppress validation warnings
         final String filename2 = filename;
-        ErrorHandler nullHandler = new ErrorHandler() {
-            @Override
-            public void warning(SAXParseException e) throws SAXException {
-                System.err.println(filename2 + ": Warning: " + e.getMessage());
+        ErrorHandler nullHandler =
+                new ErrorHandler() {
+                    @Override
+                    public void warning(SAXParseException e) throws SAXException {
+                        System.err.println(filename2 + ": Warning: " + e.getMessage());
+                    }
 
-            }
+                    @Override
+                    public void error(SAXParseException e) throws SAXException {
+                        int col = e.getColumnNumber();
+                        System.err.println(
+                                filename2
+                                        + ":"
+                                        + e.getLineNumber()
+                                        + (col >= 0 ? ":" + col : "")
+                                        + ": ERROR: Element "
+                                        + e.getPublicId()
+                                        + " is not valid because "
+                                        + e.getMessage());
+                    }
 
-            @Override
-            public void error(SAXParseException e) throws SAXException {
-                int col = e.getColumnNumber();
-                System.err.println(filename2 + ":" + e.getLineNumber() + (col >= 0 ? ":" + col : "")
-                    + ": ERROR: Element " + e.getPublicId()
-                    + " is not valid because " + e.getMessage());
-            }
-
-            @Override
-            public void fatalError(SAXParseException e) throws SAXException {
-                System.err.println(filename2 + ": ERROR ");
-                throw e;
-            }
-        };
+                    @Override
+                    public void fatalError(SAXParseException e) throws SAXException {
+                        System.err.println(filename2 + ": ERROR ");
+                        throw e;
+                    }
+                };
 
         Document doc = null;
         try {
@@ -269,8 +280,13 @@ public class XMLValidator {
             if (se instanceof SAXParseException) {
                 SAXParseException pe = (SAXParseException) se;
                 int col = pe.getColumnNumber();
-                System.err.println(filename + ":" + pe.getLineNumber() + (col >= 0 ? ":" + col : "") + ": ERROR:"
-                    + se.toString());
+                System.err.println(
+                        filename
+                                + ":"
+                                + pe.getLineNumber()
+                                + (col >= 0 ? ":" + col : "")
+                                + ": ERROR:"
+                                + se.toString());
             } else {
                 System.err.println(filename + ": ERROR:" + se.toString());
             }
@@ -289,7 +305,7 @@ public class XMLValidator {
                         FileReader fr = new FileReader(filename);
                         BufferedReader br = new BufferedReader(fr);
                         StringBuffer buffer = new StringBuffer();
-                        for (;;) {
+                        for (; ; ) {
                             String tmp = br.readLine();
 
                             if (tmp == null) {
@@ -300,8 +316,7 @@ public class XMLValidator {
                             buffer.append("\n"); // Put in the newlines as well
                         }
                         br.close();
-                        DocumentBuilder docBuilder = dfactory
-                            .newDocumentBuilder();
+                        DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
                         doc = docBuilder.newDocument();
                         Element outElem = doc.createElement("out");
                         Text textNode = doc.createTextNode(buffer.toString());
@@ -333,11 +348,13 @@ public class XMLValidator {
             try {
                 fis = new FileInputStream(f);
                 byte bytes[] = new byte[3];
-                if (fis.read(bytes) == 3 &&
-                    bytes[0] == (byte) 0xef &&
-                    bytes[1] == (byte) 0xbb &&
-                    bytes[2] == (byte) 0xbf) {
-                    System.err.println(f.getPath() + ": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
+                if (fis.read(bytes) == 3
+                        && bytes[0] == (byte) 0xef
+                        && bytes[1] == (byte) 0xbb
+                        && bytes[2] == (byte) 0xbf) {
+                    System.err.println(
+                            f.getPath()
+                                    + ": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
                     return true;
                 }
             } finally {
@@ -345,7 +362,8 @@ public class XMLValidator {
                     fis.close();
                 }
             }
-        } catch (IOException ioe) { /* ignored- other branches will report an error. */
+        } catch (IOException ioe) {
+            /* ignored- other branches will report an error. */
         }
         return false;
     }

@@ -4,12 +4,11 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.naturalOrder;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 
 /** An in-memory representation of CldrData based on a simple map. */
 final class InMemoryData implements CldrData {
@@ -22,8 +21,10 @@ final class InMemoryData implements CldrData {
         // requirement for distinguishing paths.
         Set<CldrPath> pathPrefixes = new HashSet<>();
         for (CldrPath p : pathValuePairs.keySet()) {
-            checkArgument(pathPrefixes.add(p),
-                "distinguishing paths must not be prefixes of other paths: %s", p);
+            checkArgument(
+                    pathPrefixes.add(p),
+                    "distinguishing paths must not be prefixes of other paths: %s",
+                    p);
             // Add the rest of the path prefixes for this path (until we hit existing values).
             for (p = p.getParent(); p != null && pathPrefixes.add(p); p = p.getParent()) {}
         }
@@ -42,17 +43,17 @@ final class InMemoryData implements CldrData {
     private Stream<CldrPath> sortKeys(PathOrder order) {
         Stream<CldrPath> rawOrder = pathValuePairs.keySet().stream();
         switch (order) {
-        case ARBITRARY:
-            return rawOrder;
-        case NESTED_GROUPING:
-            // toString() will give nested grouping if no paths are prefixes of each other.
-            // More importantly for testing, this is NOT DTD order.
-            return rawOrder.sorted(comparing(Object::toString));
-        case DTD:
-            // Paths are naturally DTD order.
-            return rawOrder.sorted(naturalOrder());
-        default:
-            throw new AssertionError("Unknown path order!!: " + order);
+            case ARBITRARY:
+                return rawOrder;
+            case NESTED_GROUPING:
+                // toString() will give nested grouping if no paths are prefixes of each other.
+                // More importantly for testing, this is NOT DTD order.
+                return rawOrder.sorted(comparing(Object::toString));
+            case DTD:
+                // Paths are naturally DTD order.
+                return rawOrder.sorted(naturalOrder());
+            default:
+                throw new AssertionError("Unknown path order!!: " + order);
         }
     }
 }

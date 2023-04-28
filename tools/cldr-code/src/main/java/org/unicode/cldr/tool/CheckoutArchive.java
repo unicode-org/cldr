@@ -5,13 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 
-
-@CLDRTool(alias = "checkout-archive",
+@CLDRTool(
+        alias = "checkout-archive",
         description = "Checkout CLDR archive to $ARCHIVE (usually ../cldr-archive)",
         url = "https://cldr.unicode.org/development/creating-the-archive")
 public class CheckoutArchive {
@@ -32,6 +31,7 @@ public class CheckoutArchive {
         }
 
         static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -49,8 +49,9 @@ public class CheckoutArchive {
         Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
         if (!archiveDir.toFile().isDirectory()) {
             throw new FileNotFoundException(
-                "Archive directory " + archiveDir.toString() +
-                " does not exist, please create it or change the value of -DARCHIVE=");
+                    "Archive directory "
+                            + archiveDir.toString()
+                            + " does not exist, please create it or change the value of -DARCHIVE=");
         }
         System.out.println("Setting up in $ARCHIVE " + archiveDir.toString() + " …");
         int skip = 0;
@@ -59,9 +60,7 @@ public class CheckoutArchive {
 
         if (MyOptions.prune.option.doesOccur()) {
             final String cmd[] = {
-                "git",
-                "worktree",
-                "prune",
+                "git", "worktree", "prune",
             };
             if (runCommand(cmd)) {
                 err++;
@@ -75,13 +74,7 @@ public class CheckoutArchive {
                 System.out.println("# Skipping existing \t" + dirName.toString());
             } else {
                 final String tag = "release-" + ver.replaceAll("\\.", "-").replaceAll("-0$", "");
-                final String cmd[] = {
-                    "git",
-                    "worktree",
-                    "add",
-                    dirName.toString(),
-                    tag
-                };
+                final String cmd[] = {"git", "worktree", "add", dirName.toString(), tag};
                 if (runCommand(cmd)) {
                     err++;
                 }
@@ -95,6 +88,7 @@ public class CheckoutArchive {
 
     /**
      * Run a command
+     *
      * @param cmd
      * @return true on err
      * @throws InterruptedException
@@ -103,11 +97,12 @@ public class CheckoutArchive {
     private static boolean runCommand(final String[] cmd) throws InterruptedException, IOException {
         System.out.println("# " + String.join(" ", cmd));
         if (!MyOptions.echo.option.doesOccur()) {
-            int ev = new ProcessBuilder(cmd)
-                .directory(new File(CLDRPaths.BASE_DIRECTORY))
-                .inheritIO()
-                .start()
-                .waitFor();
+            int ev =
+                    new ProcessBuilder(cmd)
+                            .directory(new File(CLDRPaths.BASE_DIRECTORY))
+                            .inheritIO()
+                            .start()
+                            .waitFor();
             if (ev != 0) {
                 System.err.println("Error: exit value " + ev);
                 return true;

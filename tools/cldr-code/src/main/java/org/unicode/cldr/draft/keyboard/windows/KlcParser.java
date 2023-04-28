@@ -3,23 +3,6 @@ package org.unicode.cldr.draft.keyboard.windows;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.draft.keyboard.CharacterMap;
-import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
-import org.unicode.cldr.draft.keyboard.Keyboard;
-import org.unicode.cldr.draft.keyboard.KeyboardBuilder;
-import org.unicode.cldr.draft.keyboard.KeyboardId;
-import org.unicode.cldr.draft.keyboard.KeyboardId.Platform;
-import org.unicode.cldr.draft.keyboard.KeyboardIdMap;
-import org.unicode.cldr.draft.keyboard.KeycodeMap;
-import org.unicode.cldr.draft.keyboard.ModifierKey;
-import org.unicode.cldr.draft.keyboard.ModifierKeyCombination;
-
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ArrayListMultimap;
@@ -33,26 +16,40 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
+import org.unicode.cldr.draft.keyboard.CharacterMap;
+import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
+import org.unicode.cldr.draft.keyboard.Keyboard;
+import org.unicode.cldr.draft.keyboard.KeyboardBuilder;
+import org.unicode.cldr.draft.keyboard.KeyboardId;
+import org.unicode.cldr.draft.keyboard.KeyboardId.Platform;
+import org.unicode.cldr.draft.keyboard.KeyboardIdMap;
+import org.unicode.cldr.draft.keyboard.KeycodeMap;
+import org.unicode.cldr.draft.keyboard.ModifierKey;
+import org.unicode.cldr.draft.keyboard.ModifierKeyCombination;
 
 /**
  * This class allows the parsing of Windows source keyboard files which are created by the Windows
  * Keyboard Layout Creator application. These files are simply text files divided into sections.
  *
- * <p>
- * A typical layout file has multiple sections (always in the same order) with each section headed
- * by a title in capital letters (eg. "LAYOUT"). Each of these sections are parsed independently of
- * the others.
+ * <p>A typical layout file has multiple sections (always in the same order) with each section
+ * headed by a title in capital letters (eg. "LAYOUT"). Each of these sections are parsed
+ * independently of the others.
  */
 public final class KlcParser {
-    public static final KeycodeMap KEYCODE_MAP = KeycodeMap.fromResource(KlcParser.class,
-        "windows-keycodes.csv");
-    public static final KeyboardIdMap KEYBOARD_ID_MAP = KeyboardIdMap.fromResource(KlcParser.class,
-        "windows-locales.csv", Platform.WINDOWS);
+    public static final KeycodeMap KEYCODE_MAP =
+            KeycodeMap.fromResource(KlcParser.class, "windows-keycodes.csv");
+    public static final KeyboardIdMap KEYBOARD_ID_MAP =
+            KeyboardIdMap.fromResource(KlcParser.class, "windows-locales.csv", Platform.WINDOWS);
 
-    private static final Splitter WHITESPACE_SPLITTER = Splitter.on(CharMatcher.whitespace())
-        .omitEmptyStrings();
-    private static final Splitter LINE_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r"))
-        .omitEmptyStrings();
+    private static final Splitter WHITESPACE_SPLITTER =
+            Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
+    private static final Splitter LINE_SPLITTER =
+            Splitter.on(CharMatcher.anyOf("\n\r")).omitEmptyStrings();
 
     private final KeyboardBuilder builder;
     private final String klcContents;
@@ -87,13 +84,15 @@ public final class KlcParser {
     }
 
     private void parseNameAndId() {
-        // The descriptions section (containing the name) is bounded below by the languagenames section.
+        // The descriptions section (containing the name) is bounded below by the languagenames
+        // section.
         int descriptionsIndex = klcContents.indexOf("\nDESCRIPTIONS");
         int languageNamesIndex = klcContents.indexOf("\nLANGUAGENAMES");
         String section = klcContents.substring(descriptionsIndex, languageNamesIndex);
         List<String> lines = LINE_SPLITTER.splitToList(section);
         checkArgument(lines.size() == 2, section);
-        // The name line always starts with a 4 digit number, then a tab followed by the actual name.
+        // The name line always starts with a 4 digit number, then a tab followed by the actual
+        // name.
         // eg. "0409   Canadian French - Custom"
         String name = lines.get(1).substring(5).replace(" - Custom", "").trim();
         checkArgument(!name.isEmpty(), section);
@@ -129,8 +128,8 @@ public final class KlcParser {
                 dontCareKeys = ImmutableSet.of(ModifierKey.CAPSLOCK);
             }
             modifierIndexes.add(index);
-            ModifierKeyCombination combination = ModifierKeyCombination.ofOnAndDontCareKeys(modifiers,
-                dontCareKeys);
+            ModifierKeyCombination combination =
+                    ModifierKeyCombination.ofOnAndDontCareKeys(modifiers, dontCareKeys);
             indexToModifierKeyCombinations.put(index, combination);
             if (combination.equals(SHIFT)) {
                 shiftIndex = index;
@@ -142,8 +141,9 @@ public final class KlcParser {
                 keys.remove(ModifierKey.ALT);
                 keys.remove(ModifierKey.CONTROL);
                 keys.add(ModifierKey.ALT_RIGHT);
-                ModifierKeyCombination rAltCombination = ModifierKeyCombination.ofOnAndDontCareKeys(keys,
-                    ImmutableSet.of(ModifierKey.CAPSLOCK));
+                ModifierKeyCombination rAltCombination =
+                        ModifierKeyCombination.ofOnAndDontCareKeys(
+                                keys, ImmutableSet.of(ModifierKey.CAPSLOCK));
                 indexToModifierKeyCombinations.put(index, rAltCombination);
             }
         }
@@ -184,7 +184,8 @@ public final class KlcParser {
             }
             String ligatureValue = ligature.toString();
             checkArgument(!ligatureValue.isEmpty(), section);
-            virtualKeyAndIndexPlaceToLigature.put(virtualKey, modifierIndexPlace, ligature.toString());
+            virtualKeyAndIndexPlaceToLigature.put(
+                    virtualKey, modifierIndexPlace, ligature.toString());
         }
     }
 
@@ -198,14 +199,15 @@ public final class KlcParser {
         return Math.min(Math.min(deadKeyIndex, keynameIndex), ligatureIndex);
     }
 
-    private static final ModifierKeyCombination SHIFT = ModifierKeyCombination.ofOnKeys(
-        ImmutableSet.of(ModifierKey.SHIFT));
+    private static final ModifierKeyCombination SHIFT =
+            ModifierKeyCombination.ofOnKeys(ImmutableSet.of(ModifierKey.SHIFT));
 
-    private static final ModifierKeyCombination CAPSLOCK = ModifierKeyCombination.ofOnKeys(
-        ImmutableSet.of(ModifierKey.CAPSLOCK));
+    private static final ModifierKeyCombination CAPSLOCK =
+            ModifierKeyCombination.ofOnKeys(ImmutableSet.of(ModifierKey.CAPSLOCK));
 
-    private static final ModifierKeyCombination SHIFT_CAPSLOCK = ModifierKeyCombination.ofOnKeys(
-        ImmutableSet.of(ModifierKey.CAPSLOCK, ModifierKey.SHIFT));
+    private static final ModifierKeyCombination SHIFT_CAPSLOCK =
+            ModifierKeyCombination.ofOnKeys(
+                    ImmutableSet.of(ModifierKey.CAPSLOCK, ModifierKey.SHIFT));
 
     private void parseLayout() {
         // The layout section is bounded from below by the deadkey, keyname or ligature section.
@@ -231,7 +233,8 @@ public final class KlcParser {
                     break;
                 }
                 Integer modifierIndex = modifierIndexes.get(index++);
-                Collection<ModifierKeyCombination> combinations = indexToModifierKeyCombinations.get(modifierIndex);
+                Collection<ModifierKeyCombination> combinations =
+                        indexToModifierKeyCombinations.get(modifierIndex);
                 if (output.equals("-1")) {
                     continue;
                 }
@@ -239,13 +242,18 @@ public final class KlcParser {
                 boolean deadKey = false;
                 if (output.equals("%%")) {
                     String virtualKey = components.get(1);
-                    // Getting ligatures is always based on the index of the modifier index. (The position of
+                    // Getting ligatures is always based on the index of the modifier index. (The
+                    // position of
                     // the index in order).
                     Integer modifierIndexPlace = index - 1;
-                    character = checkNotNull(
-                        virtualKeyAndIndexPlaceToLigature.get(virtualKey, modifierIndexPlace),
-                        "[Modifier: %s, VirtualKey: %s]", modifierIndexPlace, virtualKey,
-                        virtualKeyAndIndexPlaceToLigature);
+                    character =
+                            checkNotNull(
+                                    virtualKeyAndIndexPlaceToLigature.get(
+                                            virtualKey, modifierIndexPlace),
+                                    "[Modifier: %s, VirtualKey: %s]",
+                                    modifierIndexPlace,
+                                    virtualKey,
+                                    virtualKeyAndIndexPlaceToLigature);
                 } else {
                     // An @ appended to the output value indicates that this is a deadkey.
                     deadKey = output.endsWith("@");
@@ -280,10 +288,15 @@ public final class KlcParser {
                         break;
                     }
                     Integer modifierIndex = modifierIndexes.get(nextLineIndex++);
-                    ModifierKeyCombination combination = Iterables.getOnlyElement(indexToModifierKeyCombinations.get(modifierIndex));
-                    ModifierKeyCombination capsCombination = ModifierKeyCombination.ofOnKeys(
-                        ImmutableSet.copyOf(Iterables.concat(
-                            combination.onKeys(), ImmutableSet.of(ModifierKey.CAPSLOCK))));
+                    ModifierKeyCombination combination =
+                            Iterables.getOnlyElement(
+                                    indexToModifierKeyCombinations.get(modifierIndex));
+                    ModifierKeyCombination capsCombination =
+                            ModifierKeyCombination.ofOnKeys(
+                                    ImmutableSet.copyOf(
+                                            Iterables.concat(
+                                                    combination.onKeys(),
+                                                    ImmutableSet.of(ModifierKey.CAPSLOCK))));
                     if (output.equals("-1")) {
                         continue;
                     }
@@ -296,7 +309,8 @@ public final class KlcParser {
                     builder.addCharacterMap(CAPSLOCK, modifierIndexToCharacterMap.get(0));
                 }
                 if (modifierIndexToCharacterMap.containsKey(shiftIndex)) {
-                    builder.addCharacterMap(SHIFT_CAPSLOCK, modifierIndexToCharacterMap.get(shiftIndex));
+                    builder.addCharacterMap(
+                            SHIFT_CAPSLOCK, modifierIndexToCharacterMap.get(shiftIndex));
                 }
             } else {
                 throw new IllegalArgumentException(capsLock);
@@ -309,7 +323,10 @@ public final class KlcParser {
         int deadkeyIndex = klcContents.indexOf("\nDEADKEY");
         while (deadkeyIndex != -1) {
             int nextDeadkeySection = klcContents.indexOf("\nDEADKEY", deadkeyIndex + 1);
-            int endIndex = nextDeadkeySection == -1 ? klcContents.indexOf("\nKEYNAME") : nextDeadkeySection;
+            int endIndex =
+                    nextDeadkeySection == -1
+                            ? klcContents.indexOf("\nKEYNAME")
+                            : nextDeadkeySection;
             String section = klcContents.substring(deadkeyIndex, endIndex);
             checkArgument(!section.isEmpty(), klcContents);
             parseDeadkeySection(klcContents.substring(deadkeyIndex, endIndex));
@@ -320,7 +337,8 @@ public final class KlcParser {
     private void parseDeadkeySection(String section) {
         List<String> lines = LINE_SPLITTER.splitToList(section);
         // The first line contains the actual deadkey. Eg. "DEADKEY 0060"
-        String deadkey = convertHexValueToString(WHITESPACE_SPLITTER.splitToList(lines.get(0)).get(1));
+        String deadkey =
+                convertHexValueToString(WHITESPACE_SPLITTER.splitToList(lines.get(0)).get(1));
         // The remaining lines include all possible combinations.
         for (int i = 1; i < lines.size(); i++) {
             List<String> components = WHITESPACE_SPLITTER.splitToList(lines.get(i));

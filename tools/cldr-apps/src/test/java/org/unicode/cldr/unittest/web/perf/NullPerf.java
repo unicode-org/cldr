@@ -6,10 +6,7 @@
  */
 package org.unicode.cldr.unittest.web.perf;
 
-/**
- * A class for testing null performance.
- *
- */
+/** A class for testing null performance. */
 public class NullPerf extends PerfTest {
     // vars here
 
@@ -42,5 +39,4 @@ public class NullPerf extends PerfTest {
             }
         };
     }
-
 }

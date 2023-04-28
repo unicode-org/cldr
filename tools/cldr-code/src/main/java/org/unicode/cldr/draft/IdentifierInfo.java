@@ -1,30 +1,29 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterCategory;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterCategory;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
- * This class analyzes a possible identifier for script and identifier status.
- * Use it by calling setIdentifierProfile then setIdentifier.
- * At this point:
+ * This class analyzes a possible identifier for script and identifier status. Use it by calling
+ * setIdentifierProfile then setIdentifier. At this point:
+ *
  * <ol>
- * <li>call getScripts for the specific scripts in the identifier. The identifier contains at least one character in
- * each of these.
- * <li>call getAlternates to get cases where a character is not limited to a single script. For example, it could be
- * either Katakana or Hiragana.
- * <li>call getCommonAmongAlternates to find out if any scripts are common to all the alternates.
- * <li>call getNumerics to get a representative character (with value zero) for each of the decimal number systems in
- * the identifier.
- * <li>call getRestrictionLevel to see what the UTS36 restriction level is. (This has some proposed changes from the
- * current one, however.)
+ *   <li>call getScripts for the specific scripts in the identifier. The identifier contains at
+ *       least one character in each of these.
+ *   <li>call getAlternates to get cases where a character is not limited to a single script. For
+ *       example, it could be either Katakana or Hiragana.
+ *   <li>call getCommonAmongAlternates to find out if any scripts are common to all the alternates.
+ *   <li>call getNumerics to get a representative character (with value zero) for each of the
+ *       decimal number systems in the identifier.
+ *   <li>call getRestrictionLevel to see what the UTS36 restriction level is. (This has some
+ *       proposed changes from the current one, however.)
  * </ol>
  *
  * @author markdavis
@@ -33,29 +32,29 @@ import com.ibm.icu.text.UnicodeSet;
 public class IdentifierInfo {
 
     public enum IdentifierStatus {
-        /** Only ASCII characters: U+0000..U+007F **/
+        /** Only ASCII characters: U+0000..U+007F * */
         ASCII,
         /**
-         * All characters in each identifier must be from a single script, or
-         * from the combinations: Latin + Han + Hiragana + Katakana; Latin + Han
-         * + Bopomofo; or Latin + Han + Hangul. Note that this level will satisfy
-         * the vast majority of Latin-script users; also that TR36 has ASCII instead of Latin.
-         **/
+         * All characters in each identifier must be from a single script, or from the combinations:
+         * Latin + Han + Hiragana + Katakana; Latin + Han + Bopomofo; or Latin + Han + Hangul. Note
+         * that this level will satisfy the vast majority of Latin-script users; also that TR36 has
+         * ASCII instead of Latin.
+         */
         HIGHLY_RESTRICTIVE,
         /**
-         * Allow Latin with other scripts except Cyrillic, Greek, Cherokee
-         * Otherwise, the same as Highly Restrictive
-         **/
+         * Allow Latin with other scripts except Cyrillic, Greek, Cherokee Otherwise, the same as
+         * Highly Restrictive
+         */
         MODERATELY_RESTRICTIVE,
         /**
-         * Allow arbitrary mixtures of scripts, such as Ωmega, Teχ, HλLF-LIFE,
-         * Toys-Я-Us. Otherwise, the same as Moderately Restrictive
-         **/
+         * Allow arbitrary mixtures of scripts, such as Ωmega, Teχ, HλLF-LIFE, Toys-Я-Us. Otherwise,
+         * the same as Moderately Restrictive
+         */
         MINIMALLY_RESTRICTIVE,
         /**
-         * Any valid identifiers, including characters outside of the Identifier
-         * Profile, such as I♥NY.org
-         **/
+         * Any valid identifiers, including characters outside of the Identifier Profile, such as
+         * I♥NY.org
+         */
         UNRESTRICTIVE
     }
 
@@ -94,7 +93,8 @@ public class IdentifierInfo {
             cp = Character.codePointAt(identifier, i);
             // Store a representative character for each kind of decimal digit
             if (UCharacter.getType(cp) == UCharacterCategory.DECIMAL_DIGIT_NUMBER) {
-                // Just store the zero character as a representative for comparison. Unicode guarantees it is cp - value
+                // Just store the zero character as a representative for comparison. Unicode
+                // guarantees it is cp - value
                 numerics.add(cp - UCharacter.getNumericValue(cp));
             }
             UScript.getScriptExtensions(cp, temp);
@@ -106,9 +106,9 @@ public class IdentifierInfo {
             } else if (temp.cardinality() == 1) {
                 // Single script, record it.
                 requiredScripts.or(temp);
-            } else if (!requiredScripts.intersects(temp)
-                && scriptSetSet.add(temp)) {
-                // If the set hasn't been added already, add it and create new temporary for the next pass,
+            } else if (!requiredScripts.intersects(temp) && scriptSetSet.add(temp)) {
+                // If the set hasn't been added already, add it and create new temporary for the
+                // next pass,
                 // so we don't rewrite what's already in the set.
                 temp = new BitSet();
             }
@@ -120,7 +120,7 @@ public class IdentifierInfo {
             commonAmongAlternates.clear();
         } else {
             commonAmongAlternates.set(0, UScript.CODE_LIMIT);
-            for (Iterator<BitSet> it = scriptSetSet.iterator(); it.hasNext();) {
+            for (Iterator<BitSet> it = scriptSetSet.iterator(); it.hasNext(); ) {
                 final BitSet next = it.next();
                 if (requiredScripts.intersects(next)) {
                     it.remove();
@@ -162,7 +162,8 @@ public class IdentifierInfo {
             }
             temp.andNot(COMMON_AND_INHERITED);
             if (temp.cardinality() != 0 && setOfScriptSets.add(temp)) {
-                // If the set hasn't been added already, add it and create new temporary for the next pass,
+                // If the set hasn't been added already, add it and create new temporary for the
+                // next pass,
                 // so we don't rewrite what's already in the set.
                 temp = new BitSet();
             }
@@ -191,14 +192,14 @@ public class IdentifierInfo {
             cp = Character.codePointAt(identifier, i);
             // Store a representative character for each kind of decimal digit
             switch (UCharacter.getType(cp)) {
-            case UCharacterCategory.DECIMAL_DIGIT_NUMBER:
-                // Just store the zero character as a representative for comparison.
-                // Unicode guarantees it is cp - value
-                numerics.add(cp - UCharacter.getNumericValue(cp));
-                break;
-            case UCharacterCategory.OTHER_NUMBER:
-            case UCharacterCategory.LETTER_NUMBER:
-                throw new IllegalArgumentException("Should not be in identifiers.");
+                case UCharacterCategory.DECIMAL_DIGIT_NUMBER:
+                    // Just store the zero character as a representative for comparison.
+                    // Unicode guarantees it is cp - value
+                    numerics.add(cp - UCharacter.getNumericValue(cp));
+                    break;
+                case UCharacterCategory.OTHER_NUMBER:
+                case UCharacterCategory.LETTER_NUMBER:
+                    throw new IllegalArgumentException("Should not be in identifiers.");
             }
         }
         return numerics.size() > 1;
@@ -230,12 +231,14 @@ public class IdentifierInfo {
 
     // BitSet doesn't support "contains(...)", so we have inverted constants
     // They are private; they can't be made immutable in Java.
-    private final static BitSet JAPANESE = set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.HIRAGANA,
-        UScript.KATAKANA);
-    private final static BitSet CHINESE = set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.BOPOMOFO);
-    private final static BitSet KOREAN = set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.HANGUL);
-    private final static BitSet CONFUSABLE_WITH_LATIN = set(new BitSet(), UScript.CYRILLIC, UScript.GREEK,
-        UScript.CHEROKEE);
+    private static final BitSet JAPANESE =
+            set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.HIRAGANA, UScript.KATAKANA);
+    private static final BitSet CHINESE =
+            set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.BOPOMOFO);
+    private static final BitSet KOREAN =
+            set(new BitSet(), UScript.LATIN, UScript.HAN, UScript.HANGUL);
+    private static final BitSet CONFUSABLE_WITH_LATIN =
+            set(new BitSet(), UScript.CYRILLIC, UScript.GREEK, UScript.CHEROKEE);
 
     public IdentifierStatus getRestrictionLevel() {
         if (!identifierProfile.containsAll(identifier) || getNumerics().size() > 1) {
@@ -251,19 +254,21 @@ public class IdentifierInfo {
         // This is a bit tricky. We look at a number of factors.
         // The number of scripts in the text.
         // Plus 1 if there is some commonality among the alternates (eg [Arab Thaa]; [Arab Syrc])
-        // Plus number of alternates otherwise (this only works because we only test cardinality up to 2.)
-        final int cardinalityPlus = temp.cardinality() + (commonAmongAlternates.isEmpty() ? scriptSetSet.size() : 1);
+        // Plus number of alternates otherwise (this only works because we only test cardinality up
+        // to 2.)
+        final int cardinalityPlus =
+                temp.cardinality() + (commonAmongAlternates.isEmpty() ? scriptSetSet.size() : 1);
         if (cardinalityPlus < 2) {
             return IdentifierStatus.HIGHLY_RESTRICTIVE;
         }
         if (containsWithAlternates(JAPANESE, temp)
-            || containsWithAlternates(CHINESE, temp)
-            || containsWithAlternates(KOREAN, temp)) {
+                || containsWithAlternates(CHINESE, temp)
+                || containsWithAlternates(KOREAN, temp)) {
             return IdentifierStatus.HIGHLY_RESTRICTIVE;
         }
         if (cardinalityPlus == 2
-            && temp.get(UScript.LATIN)
-            && !temp.intersects(CONFUSABLE_WITH_LATIN)) {
+                && temp.get(UScript.LATIN)
+                && !temp.intersects(CONFUSABLE_WITH_LATIN)) {
             return IdentifierStatus.MODERATELY_RESTRICTIVE;
         }
         return IdentifierStatus.MINIMALLY_RESTRICTIVE;
@@ -271,11 +276,17 @@ public class IdentifierInfo {
 
     @Override
     public String toString() {
-        return identifier + ", " + identifierProfile.toPattern(false)
-            + ", " + getRestrictionLevel()
-            + ", " + displayScripts(requiredScripts)
-            + ", " + displayAlternates(scriptSetSet)
-            + ", " + numerics.toPattern(false);
+        return identifier
+                + ", "
+                + identifierProfile.toPattern(false)
+                + ", "
+                + getRestrictionLevel()
+                + ", "
+                + displayScripts(requiredScripts)
+                + ", "
+                + displayAlternates(scriptSetSet)
+                + ", "
+                + numerics.toPattern(false);
     }
 
     private boolean containsWithAlternates(BitSet container, BitSet containee) {

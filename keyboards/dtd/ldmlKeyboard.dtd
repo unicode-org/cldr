@@ -6,12 +6,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 -->
 <!-- Important Note:
 
-The CLDR Keyboard Workgroup is currently developing major changes to the
-CLDR keyboard specification.
+The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR keyboard specification.
+Please view the subcommittee page for the most recent information.
+<https://cldr.unicode.org/index/keyboard-workgroup>
 
-This DTD is a work in progress.
-
-Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information. -->
+-->
 
 <!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->

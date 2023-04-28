@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Produce an ID for a string based on a long hash. When used properly, the odds
- * of collision are so low that the ID can be used as a proxy for the
- * original string. The ID is non-negative. The algorithm uses SHA-1 over the
- * UTF-8 bytes in the string. Also provides lookup for long previously generated for string.
+ * Produce an ID for a string based on a long hash. When used properly, the odds of collision are so
+ * low that the ID can be used as a proxy for the original string. The ID is non-negative. The
+ * algorithm uses SHA-1 over the UTF-8 bytes in the string. Also provides lookup for long previously
+ * generated for string.
  *
  * @author markdavis
  */
@@ -18,6 +18,7 @@ public final class StringId {
     private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<>();
     private static final MessageDigest digest;
     private static final int RETRY_LIMIT = 9;
+
     static {
         try {
             digest = MessageDigest.getInstance("SHA-1");
@@ -29,8 +30,7 @@ public final class StringId {
     /**
      * Get the ID for a string.
      *
-     * @param string
-     *            input string.
+     * @param string input string.
      * @return a value from 0 to 0x7FFFFFFFFFFFFFFFL.
      */
     public static long getId(CharSequence charSequence) {
@@ -66,8 +66,7 @@ public final class StringId {
     /**
      * Get the hex ID for a string.
      *
-     * @param string
-     *            input string.
+     * @param string input string.
      * @return a string with the hex value
      */
     public static String getHexId(CharSequence string) {
@@ -77,8 +76,7 @@ public final class StringId {
     /**
      * Get the hex ID for a string.
      *
-     * @param string
-     *            input string.
+     * @param string input string.
      * @return a string with the hex value
      */
     public static String getStringFromHexId(String string) {
@@ -87,6 +85,7 @@ public final class StringId {
 
     /**
      * Returns string previously used to generate the longValue with getId.
+     *
      * @param longValue
      * @return String previously used to generate the longValue with getId.
      */

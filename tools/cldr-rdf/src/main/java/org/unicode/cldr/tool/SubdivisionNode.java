@@ -1,5 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.CaseMap;
+import com.ibm.icu.text.LocaleDisplayNames;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
@@ -18,7 +27,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.GenerateSubdivisions.SubdivisionInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -39,33 +47,28 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.CaseMap;
-import com.ibm.icu.text.LocaleDisplayNames;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.util.ULocale;
-
 public class SubdivisionNode {
-    private static final Comparator<String> COMPARATOR_ROOT = CLDRConfig.getInstance().getComparatorRoot();
+    private static final Comparator<String> COMPARATOR_ROOT =
+            CLDRConfig.getInstance().getComparatorRoot();
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    static final Map<String, R2<List<String>, String>> territoryAliases = SDI.getLocaleAliasInfo().get("territory");
+    static final Map<String, R2<List<String>, String>> territoryAliases =
+            SDI.getLocaleAliasInfo().get("territory");
     static final Set<String> containment = SDI.getContainers();
-    static final Map<String, Map<LstrField, String>> codeToData = StandardCodes.getEnumLstreg().get(LstrType.region);
+    static final Map<String, Map<LstrField, String>> codeToData =
+            StandardCodes.getEnumLstreg().get(LstrType.region);
 
     static LocaleDisplayNames ENGLISH_ICU = LocaleDisplayNames.getInstance(ULocale.ENGLISH);
 
-    static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE = CaseMap.toTitle().wholeString().noLowercase();
+    static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE =
+            CaseMap.toTitle().wholeString().noLowercase();
     static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
     static final Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static String convertToCldr(String regionOrSubdivision) {
-        return SubdivisionNames.isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
-            : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
+        return SubdivisionNames.isRegionCode(regionOrSubdivision)
+                ? regionOrSubdivision.toUpperCase(Locale.ROOT)
+                : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
     }
 
     final SubdivisionSet sset;
@@ -89,14 +92,15 @@ public class SubdivisionNode {
 
     static class SubdivisionSet {
 
-		final M3<String, String, String> NAMES = ChainedMap.of(
-            new TreeMap<String, Object>(),
-            new TreeMap<String, Object>(),
-            String.class);
+        final M3<String, String, String> NAMES =
+                ChainedMap.of(
+                        new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
         final Map<String, String> TO_COUNTRY_CODE = new TreeMap<>();
-        final Relation<String, String> ID_SAMPLE = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        final Relation<String, String> ID_SAMPLE =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         final Map<String, String> SUB_TO_CAT = new TreeMap<>();
-        final Relation<String, String> REGION_CONTAINS = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        final Relation<String, String> REGION_CONTAINS =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         final Map<String, SubdivisionNode> ID_TO_NODE = new HashMap<>();
 
         final SubdivisionNode BASE = new SubdivisionNode("001", null, this).addName("en", "World");
@@ -112,22 +116,21 @@ public class SubdivisionNode {
                 Error: (TestSubdivisions.java:66) : country SJ = subdivisionNO-22: expected "Svalbard & Jan Mayen", got "Jan Mayen"
                  */
                 // OLD code to guess country from comment
-//              String paren = value.substring(value.length() - 3, value.length() - 1);
-//                if (!paren.equals("BQ") && !paren.equals("SJ")) {
-//                    String old = TO_COUNTRY_CODE.get(code);
-//                    if (old != null) {
-//                        System.err.println("Duplicate: " + code + "\t" + old + "\t" + paren);
-//                    }
-//                    TO_COUNTRY_CODE.put(code, paren);
-//                }
+                //              String paren = value.substring(value.length() - 3, value.length() -
+                // 1);
+                //                if (!paren.equals("BQ") && !paren.equals("SJ")) {
+                //                    String old = TO_COUNTRY_CODE.get(code);
+                //                    if (old != null) {
+                //                        System.err.println("Duplicate: " + code + "\t" + old +
+                // "\t" + paren);
+                //                    }
+                //                    TO_COUNTRY_CODE.put(code, paren);
+                //                }
                 value = value.substring(0, parenPos).trim();
             }
             value = value.replace("*", "");
             NAMES.put(code, lang, value);
         }
-
-
-
 
         static final String[] CRUFT = {
             "Emirate",
@@ -171,7 +174,8 @@ public class SubdivisionNode {
             "municipality"
         };
 
-        static final Pattern CRUFT_PATTERN = PatternCache.get("(?i)\\b" + String.join("|", CRUFT) + "\\b");
+        static final Pattern CRUFT_PATTERN =
+                PatternCache.get("(?i)\\b" + String.join("|", CRUFT) + "\\b");
         static final Pattern BRACKETED = PatternCache.get("\\[.*\\]");
 
         static String clean(String input) {
@@ -181,12 +185,13 @@ public class SubdivisionNode {
             // Quick & dirty
             input = BRACKETED.matcher(input).replaceAll("");
             input = CRUFT_PATTERN.matcher(input).replaceAll("");
-//            for (String cruft : CRUFT) {
-//                int pos = input.indexOf(cruft);
-//                if (pos >= 0) {
-//                    input = input.substring(0,pos) + input.substring(pos + cruft.length());
-//                }
-//            }
+            //            for (String cruft : CRUFT) {
+            //                int pos = input.indexOf(cruft);
+            //                if (pos >= 0) {
+            //                    input = input.substring(0,pos) + input.substring(pos +
+            // cruft.length());
+            //                }
+            //            }
             input = input.replace("  ", " ");
             if (input.endsWith(",")) {
                 input = input.substring(0, input.length() - 1);
@@ -194,14 +199,17 @@ public class SubdivisionNode {
             return fixName(input);
         }
 
-
-
-        private static void appendName(CLDRFile fileSubdivisions, final String sdCode, String name, String level) throws IOException {
+        private static void appendName(
+                CLDRFile fileSubdivisions, final String sdCode, String name, String level)
+                throws IOException {
             if (name == null) {
                 return;
             }
             String cldrCode = convertToCldr(sdCode);
-            String path = "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"" + cldrCode + "\"]";
+            String path =
+                    "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\""
+                            + cldrCode
+                            + "\"]";
             String oldValue = fileSubdivisions.getStringValue(path);
             if (oldValue != null) {
                 return; // don't override old values
@@ -217,8 +225,11 @@ public class SubdivisionNode {
                 return false;
             }
             if (territoryAliases.containsKey(regionCode)
-                || containment.contains(regionCode)
-                || codeToData.get(regionCode).get(LstrField.Description).contains("Private use")) {
+                    || containment.contains(regionCode)
+                    || codeToData
+                            .get(regionCode)
+                            .get(LstrField.Description)
+                            .contains("Private use")) {
                 Set<String> rc = REGION_CONTAINS.get(regionCode);
                 if (rc != null) {
                     throw new IllegalArgumentException("? " + regionCode + ": " + rc);
@@ -228,7 +239,8 @@ public class SubdivisionNode {
             return true;
         }
 
-        private static void addChildren(Set<SubdivisionNode> ordered, Map<String, SubdivisionNode> children2) {
+        private static void addChildren(
+                Set<SubdivisionNode> ordered, Map<String, SubdivisionNode> children2) {
             TreeMap<String, SubdivisionNode> temp = new TreeMap<>(COMPARATOR_ROOT);
             temp.putAll(children2);
             ordered.addAll(temp.values());
@@ -247,7 +259,8 @@ public class SubdivisionNode {
             if (cldrName != null) {
                 return fixName(cldrName);
             }
-            R2<List<String>, String> subdivisionAlias = SubdivisionInfo.SUBDIVISION_ALIASES_FORMER.get(value);
+            R2<List<String>, String> subdivisionAlias =
+                    SubdivisionInfo.SUBDIVISION_ALIASES_FORMER.get(value);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);
                 cldrName = ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, country);
@@ -255,7 +268,6 @@ public class SubdivisionNode {
                     return fixName(cldrName);
                 }
             }
-
 
             cldrName = SubdivisionInfo.SUBDIVISION_NAMES_ENGLISH_FORMER.get(value);
             if (cldrName != null) {
@@ -276,7 +288,7 @@ public class SubdivisionNode {
                 cldrName = getIsoName(value);
                 if (cldrName == null) {
                     cldrName = "UNKNOWN";
-                    //throw new IllegalArgumentException("Failed to find name: " + value);
+                    // throw new IllegalArgumentException("Failed to find name: " + value);
                 }
                 return fixName(cldrName);
             }
@@ -284,7 +296,9 @@ public class SubdivisionNode {
         }
 
         private static String fixName(String name) {
-            return name == null ? null : nfc.normalize(name.replace('\'', '’').replace("  ", " ").trim());
+            return name == null
+                    ? null
+                    : nfc.normalize(name.replace('\'', '’').replace("  ", " ").trim());
         }
 
         public SubdivisionSet(String sourceFile) {
@@ -294,9 +308,9 @@ public class SubdivisionNode {
             //             <subdivision-locale lang3code="eng" xml:lang="en">
             //                  <subdivision-locale-name>Otago</subdivision-locale-name>
 
-            List<Pair<String, String>> pathValues = XMLFileReader.loadPathValues(
-                sourceFile,
-                new ArrayList<Pair<String, String>>(), false);
+            List<Pair<String, String>> pathValues =
+                    XMLFileReader.loadPathValues(
+                            sourceFile, new ArrayList<Pair<String, String>>(), false);
             int maxIndent = 0;
             SubdivisionNode lastNode = null;
             String lastCode = null;
@@ -317,7 +331,8 @@ public class SubdivisionNode {
 
                 // new XML from ISO, so we don't have to guess the country code:
                 //            <subdivision-code footnote="*">NL-BQ1</subdivision-code>
-                //            <subdivision-related-country country-id="BQ" xml:lang="en">BONAIRE, SINT EUSTATIUS AND SABA</subdivision-related-country>
+                //            <subdivision-related-country country-id="BQ" xml:lang="en">BONAIRE,
+                // SINT EUSTATIUS AND SABA</subdivision-related-country>
 
                 if (!code && !name && !nameCat && !relatedCountry) {
                     continue;
@@ -330,13 +345,14 @@ public class SubdivisionNode {
                     for (Entry<String, String> entry : TO_COUNTRY_CODE.entrySet()) {
                         if (entry.getValue().equals(target)) {
                             conflictingTargetCountries.add(target);
-                            TO_COUNTRY_CODE.remove(entry.getKey(), target); // there can be at most one
+                            TO_COUNTRY_CODE.remove(
+                                    entry.getKey(), target); // there can be at most one
                             break;
                         }
                     }
                     if (!conflictingTargetCountries.contains(target)) {
                         TO_COUNTRY_CODE.put(lastCode, target);
-                        //System.out.println(lastCode + " => " + target);
+                        // System.out.println(lastCode + " => " + target);
                     }
                 } else if (name) {
                     int elementNum = -2;
@@ -345,9 +361,10 @@ public class SubdivisionNode {
                         lang = parts.getAttributeValue(elementNum, "lang3code");
                     }
                     addName(lastCode, lang, value);
-                    //output.println(count + Utility.repeat("\t", indent) + "\tlang=" + lang + ":\t«" + value + "»\t");
+                    // output.println(count + Utility.repeat("\t", indent) + "\tlang=" + lang +
+                    // ":\t«" + value + "»\t");
                 } else if (nameCat) {
-                    //country-codes[@generated="2015-05-04T15:40:13.424465+02:00"]/country[@id="AD"][@version="16"]/category[@id="262"]/category-name[@lang3code="fra"][@xml:lang="fr"]
+                    // country-codes[@generated="2015-05-04T15:40:13.424465+02:00"]/country[@id="AD"][@version="16"]/category[@id="262"]/category-name[@lang3code="fra"][@xml:lang="fr"]
                     int elementNum = -1;
                     String lang = parts.getAttributeValue(elementNum, "xml:lang");
                     if (lang == null) {
@@ -355,7 +372,8 @@ public class SubdivisionNode {
                     }
                     String category = parts.getAttributeValue(-2, "id");
                     addName(category, lang, value);
-                    //output.println(count + Utility.repeat("\t", indent) + "\tlang=" + lang + ":\t«" + value + "»\t");
+                    // output.println(count + Utility.repeat("\t", indent) + "\tlang=" + lang +
+                    // ":\t«" + value + "»\t");
                 } else {
                     int countSubdivision = 0;
                     for (int i = 0; i < parts.size(); ++i) {
@@ -376,9 +394,10 @@ public class SubdivisionNode {
                     int subdivisionElement = parts.findElement("subdivision");
                     String id = parts.getAttributeValue(subdivisionElement, "category-id");
                     addIdSample(id, value);
-                    //<subdivision category-id="262">//<subdivision-code footnote="*">AD-06</subdivision-code>
+                    // <subdivision category-id="262">//<subdivision-code
+                    // footnote="*">AD-06</subdivision-code>
                     // <subdivision category-id="262">
-                    //output.println(++count + Utility.repeat("\t", indent) + "code=" + value);
+                    // output.println(++count + Utility.repeat("\t", indent) + "code=" + value);
                 }
             }
         }
@@ -395,7 +414,9 @@ public class SubdivisionNode {
             if (lastSubdivision == null) {
                 lastSubdivision = BASE.children.get(region);
                 if (lastSubdivision == null) {
-                    lastSubdivision = new SubdivisionNode(region, BASE, this).addName("en", ENGLISH_ICU.regionDisplayName(region));
+                    lastSubdivision =
+                            new SubdivisionNode(region, BASE, this)
+                                    .addName("en", ENGLISH_ICU.regionDisplayName(region));
                     BASE.children.put(region, lastSubdivision);
                 }
                 return add(lastSubdivision, subdivision);
@@ -442,18 +463,20 @@ public class SubdivisionNode {
             }
             return name;
         }
+
         public void print(PrintWriter out) {
             print(out, 0, "", BASE);
             for (Entry<String, String> entry : TO_COUNTRY_CODE.entrySet()) {
                 out.println(entry.getKey() + "\t" + entry.getValue());
             }
         }
+
         private void print(PrintWriter out, int indent, String prefix, SubdivisionNode base2) {
             if (!prefix.isEmpty()) {
                 prefix += "\t";
             }
             prefix += base2.code;
-            final String indentString = Utility.repeat("\t", 4-indent);
+            final String indentString = Utility.repeat("\t", 4 - indent);
             out.println(prefix + indentString + getName(base2));
             if (base2.children.isEmpty()) {
                 return;
@@ -470,10 +493,11 @@ public class SubdivisionNode {
         final Map<String, R2<List<String>, String>> subdivisionAliasesFormer;
         final Relation<String, String> formerRegionToSubdivisions;
 
-        public SubDivisionExtractor(SubdivisionSet sdset,
-            Validity validityFormer,
-            Map<String, R2<List<String>, String>> subdivisionAliasesFormer,
-            Relation<String, String> formerRegionToSubdivisions) {
+        public SubDivisionExtractor(
+                SubdivisionSet sdset,
+                Validity validityFormer,
+                Map<String, R2<List<String>, String>> subdivisionAliasesFormer,
+                Relation<String, String> formerRegionToSubdivisions) {
             this.sdset = sdset;
             this.validityFormer = validityFormer;
             this.subdivisionAliasesFormer = subdivisionAliasesFormer;
@@ -491,9 +515,10 @@ public class SubdivisionNode {
             </subdivisionContainment>
              */
             output.append(
-                DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                + "\t<version number=\"$Revision" + "$\"/>\n"
-                + "\t<subdivisionContainment>\n");
+                    DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
+                            + "\t<version number=\"$Revision"
+                            + "$\"/>\n"
+                            + "\t<subdivisionContainment>\n");
             printXml(output, sdset.BASE, 0);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
@@ -502,7 +527,8 @@ public class SubdivisionNode {
             addAliases(output, sdset.TO_COUNTRY_CODE.keySet());
 
             // Get the old validity data
-            Map<Status, Set<String>> oldSubdivisionData = validityFormer.getStatusToCodes(LstrType.subdivision);
+            Map<Status, Set<String>> oldSubdivisionData =
+                    validityFormer.getStatusToCodes(LstrType.subdivision);
             Set<String> missing = new TreeSet<>(COMPARATOR_ROOT);
             missing.addAll(sdset.TO_COUNTRY_CODE.keySet());
             Set<String> nowValid = sdset.ID_TO_NODE.keySet();
@@ -514,7 +540,7 @@ public class SubdivisionNode {
                 Set<String> set = e.getValue();
                 for (String sdcodeRaw : set) {
                     String sdcode = sdcodeRaw; // .toUpperCase(Locale.ROOT);
-//                  sdcode = sdcode.substring(0,2) + "-" + sdcode.substring(2);
+                    //                  sdcode = sdcode.substring(0,2) + "-" + sdcode.substring(2);
                     if (!nowValid.contains(sdcode)) {
                         missing.add(sdcode);
                     }
@@ -538,27 +564,45 @@ public class SubdivisionNode {
                     if (replacement != null) {
                         replaceBy = Collections.singletonList(replacement);
                         reason = "overlong";
-                        System.out.println("Adding country code alias: " + toReplace + " => " + replaceBy);
+                        System.out.println(
+                                "Adding country code alias: " + toReplace + " => " + replaceBy);
                     }
                 }
                 addAlias(output, toReplace, replaceBy, reason);
             }
         }
 
-        private void addAlias(Appendable output, final String toReplace, final List<String> replaceBy, final String reason) throws IOException {
-            // <languageAlias type="art_lojban" replacement="jbo" reason="deprecated"/> <!-- Lojban -->
+        private void addAlias(
+                Appendable output,
+                final String toReplace,
+                final List<String> replaceBy,
+                final String reason)
+                throws IOException {
+            // <languageAlias type="art_lojban" replacement="jbo" reason="deprecated"/> <!-- Lojban
+            // -->
             output.append("\t\t\t");
             if (replaceBy == null) {
                 output.append("<!-- ");
             }
-            output.append("<subdivisionAlias"
-                + " type=\"" + toReplace + "\""
-                + " replacement=\"" + (replaceBy == null ? toReplace.substring(0, 2) + "?" :
-                Joiner.on(" ").join(replaceBy)) + "\""
-                + " reason=\"" + reason + "\"/>"
-                + (replaceBy == null ? " <!- - " : " <!-- ")
-                + sdset.getBestName(toReplace, true) + " => " + (replaceBy == null ? "??" : getBestName(replaceBy, true)) + " -->"
-                + "\n");
+            output.append(
+                    "<subdivisionAlias"
+                            + " type=\""
+                            + toReplace
+                            + "\""
+                            + " replacement=\""
+                            + (replaceBy == null
+                                    ? toReplace.substring(0, 2) + "?"
+                                    : Joiner.on(" ").join(replaceBy))
+                            + "\""
+                            + " reason=\""
+                            + reason
+                            + "\"/>"
+                            + (replaceBy == null ? " <!- - " : " <!-- ")
+                            + sdset.getBestName(toReplace, true)
+                            + " => "
+                            + (replaceBy == null ? "??" : getBestName(replaceBy, true))
+                            + " -->"
+                            + "\n");
         }
 
         private String getBestName(List<String> replaceBy, boolean useIso) {
@@ -576,16 +620,15 @@ public class SubdivisionNode {
             return result.toString();
         }
 
-        private void printXml(Appendable output, SubdivisionNode base2, int indent) throws IOException {
+        private void printXml(Appendable output, SubdivisionNode base2, int indent)
+                throws IOException {
             if (base2.children.isEmpty()) {
                 return;
             }
             String type = base2.code;
             if (base2 != sdset.BASE) {
                 type = convertToCldr(type);
-                output.append("\t\t" + "<subgroup"
-                    + " type=\"" + type + "\""
-                    + " contains=\"");
+                output.append("\t\t" + "<subgroup" + " type=\"" + type + "\"" + " contains=\"");
                 boolean first = true;
                 for (String child : base2.children.keySet()) {
                     if (first) {
@@ -607,7 +650,7 @@ public class SubdivisionNode {
             Set<String> seen = new HashSet<>();
             for (Entry<String, Set<String>> entry : sdset.ID_SAMPLE.keyValuesSet()) {
                 pw.append(entry.getKey());
-                //int max = 10;
+                // int max = 10;
                 seen.clear();
                 for (String sample : entry.getValue()) {
                     String region = sample.substring(0, 2);
@@ -615,9 +658,15 @@ public class SubdivisionNode {
                         continue;
                     }
                     seen.add(region);
-                    pw.append(";\t" + ENGLISH_ICU.regionDisplayName(region) + ": " + sdset.getIsoName(sample)
-                    + " (" + sample + ")");
-                    //if (--max < 0) break;
+                    pw.append(
+                            ";\t"
+                                    + ENGLISH_ICU.regionDisplayName(region)
+                                    + ": "
+                                    + sdset.getIsoName(sample)
+                                    + " ("
+                                    + sample
+                                    + ")");
+                    // if (--max < 0) break;
                 }
                 pw.append(System.lineSeparator());
             }
@@ -631,7 +680,13 @@ public class SubdivisionNode {
                 final String countryCode = entry.getKey();
                 if (!countryCode.equals(lastCC)) {
                     if (lastCC != null && countEqual.size() != 0) {
-                        output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
+                        output.append(
+                                ENGLISH_ICU.regionDisplayName(lastCC)
+                                        + "\t\t\tEquals:\t"
+                                        + countEqual.size()
+                                        + "\t"
+                                        + countEqual
+                                        + "\n");
                     }
                     countEqual.clear();
 
@@ -646,17 +701,28 @@ public class SubdivisionNode {
                         continue;
                     }
                     output.append(
-                        ENGLISH_ICU.regionDisplayName(countryCode)
-//                        + "\t" + WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
-                        + "\t" + cldrName
-                        + "\t" + value
-                        + "\t" + iso
-                        + "\t" + wiki
-                        + "\n");
+                            ENGLISH_ICU.regionDisplayName(countryCode)
+                                    //                        + "\t" +
+                                    // WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
+                                    + "\t"
+                                    + cldrName
+                                    + "\t"
+                                    + value
+                                    + "\t"
+                                    + iso
+                                    + "\t"
+                                    + wiki
+                                    + "\n");
                 }
             }
             if (countEqual.size() != 0) {
-                output.append(ENGLISH_ICU.regionDisplayName(lastCC) + "\t\t\tEquals:\t" + countEqual.size() + "\t" + countEqual + "\n");
+                output.append(
+                        ENGLISH_ICU.regionDisplayName(lastCC)
+                                + "\t\t\tEquals:\t"
+                                + countEqual.size()
+                                + "\t"
+                                + countEqual
+                                + "\n");
             }
         }
 
@@ -666,17 +732,22 @@ public class SubdivisionNode {
                 final String countryCode = entry.getKey();
                 for (String value : entry.getValue()) {
                     String cldrName = sdset.getBestName(value, false);
-                    //getBestName(value);
+                    // getBestName(value);
                     String wiki = WikiSubdivisionLanguages.getBestWikiEnglishName(value);
                     final String iso = sdset.getIsoName(value);
                     output.append(
-                        ENGLISH_ICU.regionDisplayName(countryCode)
-//                        + "\t" + WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
-                        + "\t" + value
-                        + "\t" + cldrName
-                        + "\t" + iso
-                        + "\t" + wiki
-                        + "\n");
+                            ENGLISH_ICU.regionDisplayName(countryCode)
+                                    //                        + "\t" +
+                                    // WikiSubdivisionLanguages.WIKIDATA_TO_MID.get(value)
+                                    + "\t"
+                                    + value
+                                    + "\t"
+                                    + cldrName
+                                    + "\t"
+                                    + iso
+                                    + "\t"
+                                    + wiki
+                                    + "\n");
                 }
             }
         }
@@ -700,7 +771,8 @@ public class SubdivisionNode {
                     continue;
                 }
                 Set<String> remainder = formerRegionToSubdivisions.get(regionCode);
-                remainder = remainder == null ? Collections.emptySet() : new LinkedHashSet<>(remainder);
+                remainder =
+                        remainder == null ? Collections.emptySet() : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = sdset.ID_TO_NODE.get(regionCode);
                 if (regionNode == null) {
@@ -714,7 +786,9 @@ public class SubdivisionNode {
                     final String sdCode = node.code;
                     String name = sdset.getBestName(sdCode, true);
                     String upper = UCharacter.toUpperCase(name);
-                    String title = SubdivisionNode.TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(Locale.ROOT, null, name);
+                    String title =
+                            SubdivisionNode.TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(
+                                    Locale.ROOT, null, name);
                     if (name.equals(upper) || !name.equals(title)) {
                         System.out.println("Suspicious name: " + name);
                     }
@@ -724,7 +798,8 @@ public class SubdivisionNode {
                 for (String sdCode : remainder) {
                     String name = sdset.getBestName(sdCode, true);
                     if (!name.equals("???")) {
-                        SubdivisionSet.appendName(fileSubdivisions, sdCode, name, "\t<!-- deprecated -->");
+                        SubdivisionSet.appendName(
+                                fileSubdivisions, sdCode, name, "\t<!-- deprecated -->");
                     }
                 }
             }
@@ -733,27 +808,28 @@ public class SubdivisionNode {
         }
 
         public void printMissingMIDs(PrintWriter pw) {
-//          for (Entry<String, String> entry : WikiSubdivisionLanguages.WIKIDATA_TO_MID.entrySet()) {
-//              String mid = entry.getValue();
-//              if (!mid.isEmpty()) {
-//                  continue;
-//              }
-//              String subCode = entry.getKey();
-//              String wiki = clean(getWikiName(subCode));
-//              String iso = clean(getIsoName(subCode));
-//              String countryCode = subCode.substring(0, 2);
-//              String cat = SUB_TO_CAT.get(subCode);
-//              String catName = getIsoName(cat);
-//              pw.append(
-//                  ENGLISH_ICU.regionDisplayName(countryCode)
-//                  + "\t" + mid
-//                  + "\t" + subCode
-//                  + "\t" + catName
-//                  + "\t" + wiki
-//                  + "\t" + iso
-//                  + "\n"
-//                  );
-//          }
+            //          for (Entry<String, String> entry :
+            // WikiSubdivisionLanguages.WIKIDATA_TO_MID.entrySet()) {
+            //              String mid = entry.getValue();
+            //              if (!mid.isEmpty()) {
+            //                  continue;
+            //              }
+            //              String subCode = entry.getKey();
+            //              String wiki = clean(getWikiName(subCode));
+            //              String iso = clean(getIsoName(subCode));
+            //              String countryCode = subCode.substring(0, 2);
+            //              String cat = SUB_TO_CAT.get(subCode);
+            //              String catName = getIsoName(cat);
+            //              pw.append(
+            //                  ENGLISH_ICU.regionDisplayName(countryCode)
+            //                  + "\t" + mid
+            //                  + "\t" + subCode
+            //                  + "\t" + catName
+            //                  + "\t" + wiki
+            //                  + "\t" + iso
+            //                  + "\n"
+            //                  );
+            //          }
         }
     }
 }

@@ -8,6 +8,10 @@
  */
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,29 +20,22 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.util.Date;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
-
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
 
 /**
  * Class to generate CLDR's RBNF rules from existing ICU RBNF text files.
  *
  * @author John C. Emmons
  */
-
 public class RBNFWriter {
 
     private static final int SOURCEDIR = 2,
-        DESTDIR = 3,
-        FROMFILE = 4,
-        TOFILE = 5,
-        SPEC = 6,
-        COPYRIGHT = 7;
+            DESTDIR = 3,
+            FROMFILE = 4,
+            TOFILE = 5,
+            SPEC = 6,
+            COPYRIGHT = 7;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -60,10 +57,8 @@ public class RBNFWriter {
         int dot = fromfile.indexOf('.');
         String localeSpec;
 
-        if (dot > 0)
-            localeSpec = fromfile.substring(0, dot);
-        else
-            localeSpec = fromfile;
+        if (dot > 0) localeSpec = fromfile.substring(0, dot);
+        else localeSpec = fromfile;
 
         String[] pieces = localeSpec.split("_");
         String language = pieces[0];
@@ -71,8 +66,10 @@ public class RBNFWriter {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         System.out.println(tofile);
 
-        PrintWriter out = FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, tofile);
-        FileInputStream inFileStream = new FileInputStream(options[SOURCEDIR].value + File.separator + fromfile);
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, tofile);
+        FileInputStream inFileStream =
+                new FileInputStream(options[SOURCEDIR].value + File.separator + fromfile);
         InputStreamReader inFileReader = new InputStreamReader(inFileStream, "UTF-8");
         BufferedReader in = new BufferedReader(inFileReader);
 
@@ -90,7 +87,6 @@ public class RBNFWriter {
             out.println(CldrUtility.getCopyrightString());
             out.println("-->");
             sdf.applyPattern("yyyy/MM/dd HH:mm:ss");
-
         }
         out.println("<ldml>");
         out.println("    <identity>");
@@ -99,9 +95,8 @@ public class RBNFWriter {
 
         if (pieces.length > 1)
             if (pieces[1].length() == 2)
-            out.println("        <territory type=\"" + pieces[1] + "\"/>");
-            else
-            out.println("        <script type=\"" + pieces[1] + "\"/>");
+                out.println("        <territory type=\"" + pieces[1] + "\"/>");
+            else out.println("        <script type=\"" + pieces[1] + "\"/>");
 
         out.println("    </identity>");
         if (options[SPEC].value.equals("true")) {
@@ -153,8 +148,10 @@ public class RBNFWriter {
                     } else {
                         numberString = parts[0];
                         ruleString = parts[1];
-                        if (numberString.contains("x") || numberString.contains(">")
-                            || numberString.equals("Inf") || numberString.equals("NaN")) {
+                        if (numberString.contains("x")
+                                || numberString.contains(">")
+                                || numberString.equals("Inf")
+                                || numberString.equals("NaN")) {
                             currentRuleValue = new BigInteger("-1");
                             numberString = numberString.replace('>', RARROW).replaceAll(",", "");
                         } else {
@@ -181,12 +178,27 @@ public class RBNFWriter {
                         firstRuleset = false;
                     }
                     if (radixString != null) {
-                        out.println("                <rbnfrule value=\"" + numberString + "\" radix=\""
-                            + radixString + "\">" + ruleString.trim().replace('<', LARROW).replace('>', RARROW)
-                            + "</rbnfrule>");
+                        out.println(
+                                "                <rbnfrule value=\""
+                                        + numberString
+                                        + "\" radix=\""
+                                        + radixString
+                                        + "\">"
+                                        + ruleString
+                                                .trim()
+                                                .replace('<', LARROW)
+                                                .replace('>', RARROW)
+                                        + "</rbnfrule>");
                     } else {
-                        out.println("                <rbnfrule value=\"" + numberString + "\">"
-                            + ruleString.trim().replace('<', LARROW).replace('>', RARROW) + "</rbnfrule>");
+                        out.println(
+                                "                <rbnfrule value=\""
+                                        + numberString
+                                        + "\">"
+                                        + ruleString
+                                                .trim()
+                                                .replace('<', LARROW)
+                                                .replace('>', RARROW)
+                                        + "</rbnfrule>");
                     }
                     int i = ruleString.indexOf(";");
                     while (i != -1) {

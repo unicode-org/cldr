@@ -7,71 +7,60 @@
 
 package org.unicode.cldr.icu;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.text.UTF16;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Hashtable;
-
 import org.unicode.cldr.util.CldrUtility;
 
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
-import com.ibm.icu.text.UTF16;
-
 /**
- * The LDML2ICUBinaryWriter class is a set of methods which can be used
- * to generate Binary (.res) files in the ICU Binary format.
+ * The LDML2ICUBinaryWriter class is a set of methods which can be used to generate Binary (.res)
+ * files in the ICU Binary format.
  *
  * @author Brian Rower - June 2008
- *
  */
 public class LDML2ICUBinaryWriter {
     /**
-     * This string is the copyright to be written into the file.
-     * In the C version, can be found in <I>icu4c_root</I>/source/common/unicode/uversion.h
+     * This string is the copyright to be written into the file. In the C version, can be found in
+     * <I>icu4c_root</I>/source/common/unicode/uversion.h
      */
     private static final String COPYRIGHT = CldrUtility.getCopyrightString();
 
     public static int written = 0;
 
-    /**
-     * Magic numbers!!!!
-     */
+    /** Magic numbers!!!! */
     private static final byte MAGIC1 = (byte) 0xda;
+
     private static final byte MAGIC2 = 0x27;
 
     private static boolean INCLUDE_COPYRIGHT = false;
-    /**
-     * The number of bytes it takes to write magic number 1.
-     */
+    /** The number of bytes it takes to write magic number 1. */
     private static final short BYTES_TAKEN_BY_MAGIC1 = 1;
 
-    /**
-     * The number of bytes it takes to write magic number 2;
-     */
+    /** The number of bytes it takes to write magic number 2; */
     private static final short BYTES_TAKEN_BY_MAGIC2 = 1;
 
-    /**
-     * The number of bytes that it takes to write the size of the header.
-     */
+    /** The number of bytes that it takes to write the size of the header. */
     private static final short BYTES_TAKEN_BY_HEADER_SIZE = 2;
 
-    /**
-     * The charsets to be used when encoding strings.
-     */
+    /** The charsets to be used when encoding strings. */
     public static final String CHARSET8 = "UTF-8";
+
     public static final String CHARSET16 = "UTF-16BE";
 
     /**
-     * The number of bytes that each character takes up. This is dependant on the encoding (see CHARSET above).
+     * The number of bytes that each character takes up. This is dependant on the encoding (see
+     * CHARSET above).
      */
     private static final int BYTES_PER_UTF8_CHAR = 1;
 
-    /**
-     * Numeric constants for special elements.
-     */
+    /** Numeric constants for special elements. */
     private static final int SPECIAL_NONE = 0;
+
     private static final int SPECIAL_COLLATIONS = 1;
     private static final int SPECIAL_COLLATIONELEMENTS = 2;
     private static final int SPECIAL_DEPENDENCY = 3;
@@ -99,27 +88,25 @@ public class LDML2ICUBinaryWriter {
     public static final int URES_TABLE = 2;
 
     /**
-     * Resource type constant for aliases;
-     * internally stores a string which identifies the actual resource
-     * storing the data (can be in a different resource bundle).
-     * Resolved internally before delivering the actual resource through the API.
+     * Resource type constant for aliases; internally stores a string which identifies the actual
+     * resource storing the data (can be in a different resource bundle). Resolved internally before
+     * delivering the actual resource through the API.
      *
      * @stable ICU 2.6
      */
     public static final int URES_ALIAS = 3;
 
     /**
-     * Internal use only.
-     * Alternative resource type constant for tables of key-value pairs.
-     * Never returned by ures_getType().
+     * Internal use only. Alternative resource type constant for tables of key-value pairs. Never
+     * returned by ures_getType().
      *
      * @internal
      */
     public static final int URES_TABLE32 = 4;
 
     /**
-     * Resource type constant for a single 28-bit integer, interpreted as
-     * signed or unsigned by the ures_getInt() or ures_getUInt() function.
+     * Resource type constant for a single 28-bit integer, interpreted as signed or unsigned by the
+     * ures_getInt() or ures_getUInt() function.
      *
      * @see ures_getInt
      * @see ures_getUInt
@@ -163,24 +150,20 @@ public class LDML2ICUBinaryWriter {
     // must be set if writing transliteration
     private static Hashtable<String, String> ruleStringsHash = null;
 
-    public static void main() {
-
-    }
+    public static void main() {}
 
     /**
-     * This method is called upon the top of an ICUResourceWriter.Resource
-     * in order to write the whole Resource tree into binary format.
+     * This method is called upon the top of an ICUResourceWriter.Resource in order to write the
+     * whole Resource tree into binary format.
      *
-     * @param resTop
-     *            The top of the resource tree that you would like written to file. This
-     *            object should be a ICUResourceWriter.ResourceTable.
-     * @param outDir
-     *            A string pointing to the path of the output directory.
-     * @param outFile
-     *            The name of the output file. If filename has an extension other than .res
-     *            (ex: .txt) this method will strip that extention and replace with .res.
+     * @param resTop The top of the resource tree that you would like written to file. This object
+     *     should be a ICUResourceWriter.ResourceTable.
+     * @param outDir A string pointing to the path of the output directory.
+     * @param outFile The name of the output file. If filename has an extension other than .res (ex:
+     *     .txt) this method will strip that extention and replace with .res.
      */
-    public static void writeBinaryFile(ICUResourceWriter.Resource resTop, String outDir, String outFile) {
+    public static void writeBinaryFile(
+            ICUResourceWriter.Resource resTop, String outDir, String outFile) {
         String fileName = "";
         int usedOffset = 0;
         String directoryPath = "";
@@ -242,10 +225,20 @@ public class LDML2ICUBinaryWriter {
             File f = new File(directoryPath, fileName);
             out = new FileOutputStream(f);
 
-            info = new UDataInfo(UDataInfo.getSize(), (short) 0, UDataInfo.BIGENDIAN, UDataInfo.ASCII_FAMILY,
-                UDataInfo.SIZE_OF_UCHAR, (byte) 0, dataFormat, formatVersion, dataVersion);
+            info =
+                    new UDataInfo(
+                            UDataInfo.getSize(),
+                            (short) 0,
+                            UDataInfo.BIGENDIAN,
+                            UDataInfo.ASCII_FAMILY,
+                            UDataInfo.SIZE_OF_UCHAR,
+                            (byte) 0,
+                            dataFormat,
+                            formatVersion,
+                            dataVersion);
 
-            // this method goes through the tree and looks for a table named CollationElements or Collations, and adds
+            // this method goes through the tree and looks for a table named CollationElements or
+            // Collations, and adds
             // the
             // appropriate data to the tree
             dealWithSpecialElements(resTop, outDir);
@@ -269,7 +262,10 @@ public class LDML2ICUBinaryWriter {
             out.close();
             System.out.println("Finished writing binary.");
         } catch (FileNotFoundException e) {
-            printError(directoryPath + fileName + " could not be opened, please ensure the correct path is given.");
+            printError(
+                    directoryPath
+                            + fileName
+                            + " could not be opened, please ensure the correct path is given.");
             e.printStackTrace();
             System.exit(1);
         } catch (SecurityException e) {
@@ -287,7 +283,8 @@ public class LDML2ICUBinaryWriter {
             return SPECIAL_NONE;
         }
 
-        if (res.name.equals("CollationElements") && res instanceof ICUResourceWriter.ResourceTable) {
+        if (res.name.equals("CollationElements")
+                && res instanceof ICUResourceWriter.ResourceTable) {
             return SPECIAL_COLLATIONELEMENTS;
         }
 
@@ -300,7 +297,8 @@ public class LDML2ICUBinaryWriter {
         }
 
         if (res instanceof ICUResourceWriter.ResourceProcess) {
-            if (((ICUResourceWriter.ResourceProcess) res).ext.equals(ICUResourceWriter.TRANSLITERATOR)) {
+            if (((ICUResourceWriter.ResourceProcess) res)
+                    .ext.equals(ICUResourceWriter.TRANSLITERATOR)) {
                 return SPECIAL_TRANSLITERATOR;
             }
         }
@@ -309,36 +307,39 @@ public class LDML2ICUBinaryWriter {
     }
 
     /**
+     * Goes through the resource tree recursively and looks for a table named CollationElements,
+     * collations, dependency, or transliterator and adds the appropriate data
      *
-     * Goes through the resource tree recursively and looks for a table named
-     * CollationElements, collations, dependency, or transliterator and adds the appropriate data
-     *
-     * @param top
-     *            The top of the Resource Tree
+     * @param top The top of the Resource Tree
      */
     private static void dealWithSpecialElements(ICUResourceWriter.Resource top, String outDir) {
         // if it's a table
         if (top instanceof ICUResourceWriter.ResourceTable) {
-            // loop through all it's elements and check if they're anything specialCollationElements or Collation
+            // loop through all it's elements and check if they're anything specialCollationElements
+            // or Collation
             ICUResourceWriter.Resource cur = top.first;
             while (cur != null) {
                 switch (getSpecialType(cur)) {
-                case SPECIAL_COLLATIONELEMENTS:
-                    addCollation(cur);
-                    break;
-                case SPECIAL_COLLATIONS:
-                    addCollationElements(cur);
-                    break;
-                case SPECIAL_DEPENDENCY:
-                    addDependency((ICUResourceWriter.ResourceTable) top, (ICUResourceWriter.ResourceProcess) cur,
-                        outDir);
-                    break;
-                case SPECIAL_TRANSLITERATOR:
-                    addTransliteration((ICUResourceWriter.ResourceTable) top, (ICUResourceWriter.ResourceProcess) cur);
-                    break;
-                case SPECIAL_NONE:
-                default:
-                    dealWithSpecialElements(cur, outDir);
+                    case SPECIAL_COLLATIONELEMENTS:
+                        addCollation(cur);
+                        break;
+                    case SPECIAL_COLLATIONS:
+                        addCollationElements(cur);
+                        break;
+                    case SPECIAL_DEPENDENCY:
+                        addDependency(
+                                (ICUResourceWriter.ResourceTable) top,
+                                (ICUResourceWriter.ResourceProcess) cur,
+                                outDir);
+                        break;
+                    case SPECIAL_TRANSLITERATOR:
+                        addTransliteration(
+                                (ICUResourceWriter.ResourceTable) top,
+                                (ICUResourceWriter.ResourceProcess) cur);
+                        break;
+                    case SPECIAL_NONE:
+                    default:
+                        dealWithSpecialElements(cur, outDir);
                 }
 
                 cur = cur.next;
@@ -352,10 +353,11 @@ public class LDML2ICUBinaryWriter {
     }
 
     // Parallels the C function for parseTransliterator in parse.c of genrb
-    private static void addTransliteration(ICUResourceWriter.ResourceTable parent,
-        ICUResourceWriter.ResourceProcess trans) {
+    private static void addTransliteration(
+            ICUResourceWriter.ResourceTable parent, ICUResourceWriter.ResourceProcess trans) {
         if (ruleStringsHash == null) {
-            System.err.println("If you are processing transliteration, you must set the Rules Hashtable.");
+            System.err.println(
+                    "If you are processing transliteration, you must set the Rules Hashtable.");
             System.exit(-1);
         }
 
@@ -372,11 +374,13 @@ public class LDML2ICUBinaryWriter {
         // create a string resource containing the data and add it to the resource tree
         // remove the ResourceProcess and add the String
 
-        ICUResourceWriter.ResourceString replacement = new ICUResourceWriter.ResourceString("Resource", dataString);
+        ICUResourceWriter.ResourceString replacement =
+                new ICUResourceWriter.ResourceString("Resource", dataString);
 
         ICUResourceWriter.Resource current = parent.first;
 
-        // yes, we're using an address comparison below...because they should both be pointing the the same object when
+        // yes, we're using an address comparison below...because they should both be pointing the
+        // the same object when
         // we find it.
         if (current != trans) {
             while (current != null && current.next != trans) {
@@ -386,19 +390,25 @@ public class LDML2ICUBinaryWriter {
                 replacement.next = trans.next;
                 current.next = replacement;
             } else {
-                System.err.println("An unexpected error has occured: Could not find Transliteration resource.");
+                System.err.println(
+                        "An unexpected error has occured: Could not find Transliteration resource.");
                 System.exit(-1);
             }
         } else {
             replacement.next = trans.next;
             parent.first = replacement;
         }
-
     }
 
     private static boolean isUWhiteSpace(char c) {
-        return (c >= 0x0009 && c <= 0x2029 && (c <= 0x000D || c == 0x0020 || c == 0x0085 ||
-            c == 0x200E || c == 0x200F || c >= 0x2028));
+        return (c >= 0x0009
+                && c <= 0x2029
+                && (c <= 0x000D
+                        || c == 0x0020
+                        || c == 0x0085
+                        || c == 0x200E
+                        || c == 0x200F
+                        || c >= 0x2028));
     }
 
     private static boolean isNewLine(char c) {
@@ -411,26 +421,26 @@ public class LDML2ICUBinaryWriter {
     private static boolean isPunctuation(char c) {
         int x = UCharacter.getType(c);
         switch (x) {
-        case ECharacterCategory.CONNECTOR_PUNCTUATION:
-        case ECharacterCategory.DASH_PUNCTUATION:
-        case ECharacterCategory.END_PUNCTUATION:
-        case ECharacterCategory.FINAL_PUNCTUATION:
-        case ECharacterCategory.INITIAL_PUNCTUATION:
-        case ECharacterCategory.OTHER_PUNCTUATION:
-        case ECharacterCategory.START_PUNCTUATION:
-            return true;
-        default:
-            return false;
+            case ECharacterCategory.CONNECTOR_PUNCTUATION:
+            case ECharacterCategory.DASH_PUNCTUATION:
+            case ECharacterCategory.END_PUNCTUATION:
+            case ECharacterCategory.FINAL_PUNCTUATION:
+            case ECharacterCategory.INITIAL_PUNCTUATION:
+            case ECharacterCategory.OTHER_PUNCTUATION:
+            case ECharacterCategory.START_PUNCTUATION:
+                return true;
+            default:
+                return false;
         }
     }
 
     private static boolean isControl(char c) {
         int x = UCharacter.getType(c);
         switch (x) {
-        case ECharacterCategory.CONTROL:
-            return true;
-        default:
-            return false;
+            case ECharacterCategory.CONTROL:
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -454,19 +464,20 @@ public class LDML2ICUBinaryWriter {
                 }
                 // otherwise...if the quote flag is NOT set.
                 else if (!quoted) {
-                    // IF comment... ignore comment lines ...starting with #....and until a carriage return or line feed
+                    // IF comment... ignore comment lines ...starting with #....and until a carriage
+                    // return or line feed
                     if (curChar == '#') {
-                        // if the preceeding characters were whitepace or new lines, go back and get rid of them
+                        // if the preceeding characters were whitepace or new lines, go back and get
+                        // rid of them
 
                         while (newData.length() > 0
-                            && (isNewLine(newData.charAt(newData.length() - 1)) || isUWhiteSpace(newData.charAt(newData
-                                .length() - 1)))) {
+                                && (isNewLine(newData.charAt(newData.length() - 1))
+                                        || isUWhiteSpace(newData.charAt(newData.length() - 1)))) {
                             if (newData.length() == 1) {
                                 newData = "";
                             } else {
                                 newData = newData.substring(0, newData.length() - 2);
                             }
-
                         }
 
                         // move to the end of the line
@@ -505,24 +516,29 @@ public class LDML2ICUBinaryWriter {
 
                             // if its 0xFFFFFFFF
                             if (tempChar == 0xFFFFFFFF) {
-                                System.err.println("Invalid character found while processing file.");
+                                System.err.println(
+                                        "Invalid character found while processing file.");
                                 System.exit(-1);
                             }
-                            // if NOT whitespace(isUWhiteSpace) && NOT a control character? && not punctuation
-                            if (!isUWhiteSpace(tempChar) && !isPunctuation(tempChar) && !isControl(tempChar)) {
+                            // if NOT whitespace(isUWhiteSpace) && NOT a control character? && not
+                            // punctuation
+                            if (!isUWhiteSpace(tempChar)
+                                    && !isPunctuation(tempChar)
+                                    && !isControl(tempChar)) {
                                 // set the current character to this character
                                 curChar = tempChar;
-                                currentIndex += 4; // the 4 numbers...will add one more for the u, already did one for
+                                currentIndex +=
+                                        4; // the 4 numbers...will add one more for the u, already
+                                // did one for
                                 // the slash
                                 if (temp.length() > 1) {
                                     curChar2 = temp.charAt(1);
                                     needChar2 = true;
                                 }
                             }
-
                         }
 
-                    } else if (curChar == '\'')// OR if it's a quote
+                    } else if (curChar == '\'') // OR if it's a quote
                     {
                         quoted = !quoted;
                     }
@@ -560,13 +576,16 @@ public class LDML2ICUBinaryWriter {
         return newData;
     }
 
-    private static void addDependency(ICUResourceWriter.ResourceTable parent, ICUResourceWriter.ResourceProcess dep,
-        String outDir) {
+    private static void addDependency(
+            ICUResourceWriter.ResourceTable parent,
+            ICUResourceWriter.ResourceProcess dep,
+            String outDir) {
         String filename;
         File f;
 
         filename = outDir;
-        if (!(outDir.charAt(outDir.length() - 1) == '/' || outDir.charAt(outDir.length() - 1) == '\\')) {
+        if (!(outDir.charAt(outDir.length() - 1) == '/'
+                || outDir.charAt(outDir.length() - 1) == '\\')) {
             filename += "/";
         }
 
@@ -584,18 +603,19 @@ public class LDML2ICUBinaryWriter {
         dep.addAfter(a);
 
         // Remove the ResourceProcess object and replace it with a ResourceString object.
-        ICUResourceWriter.ResourceString replacement = new ICUResourceWriter.ResourceString(dep.name, dep.val);
+        ICUResourceWriter.ResourceString replacement =
+                new ICUResourceWriter.ResourceString(dep.name, dep.val);
 
         ICUResourceWriter.Resource current = parent.first;
 
-        // yes, we're using an address comparison below...because they should both be pointing the the same object when
+        // yes, we're using an address comparison below...because they should both be pointing the
+        // the same object when
         // we find it.
         while (current != null && current.next != dep) {
             current = current.next;
         }
         replacement.next = dep.next;
         current.next = replacement;
-
     }
 
     private static void addCollationElements(ICUResourceWriter.Resource elementTable) {
@@ -614,7 +634,8 @@ public class LDML2ICUBinaryWriter {
 
         while (cur != null) {
             if (cur.hasKey && (cur instanceof ICUResourceWriter.ResourceString)) {
-                ICUResourceWriter.ResourceString strElement = (ICUResourceWriter.ResourceString) cur;
+                ICUResourceWriter.ResourceString strElement =
+                        (ICUResourceWriter.ResourceString) cur;
 
                 if (strElement.name.equals("Sequence")) {
                     try {
@@ -628,7 +649,8 @@ public class LDML2ICUBinaryWriter {
                          * subdirectory of icu4j in the IBM local cvs
                          */
                         // byte[] bytes = CollatorWriter.writeRBC(rbc);
-                        // ICUResourceWriter.ResourceBinary b = new ICUResourceWriter.ResourceBinary();
+                        // ICUResourceWriter.ResourceBinary b = new
+                        // ICUResourceWriter.ResourceBinary();
                         // b.data = bytes;
                         // b.name = "%%CollationBin";
                         // element.addAfter(b);
@@ -646,8 +668,7 @@ public class LDML2ICUBinaryWriter {
      * Write the header section of the file. This section of the file currently contains:<br>
      * -A 2 byte number containing the length (in bytes) of the header.<br>
      * -Two "magic numbers" each 1 byte in size.<br>
-     * -The UDataInfo structure
-     * -The null terminated copyright string (if it should be written)
+     * -The UDataInfo structure -The null terminated copyright string (if it should be written)
      *
      * @param out
      * @param info
@@ -663,7 +684,11 @@ public class LDML2ICUBinaryWriter {
          * two magic numbers each 1 byte in size, the UDataInfo structure, and the
          * copyright plus null terminator. Subject to change.
          */
-        headSize += info.size + BYTES_TAKEN_BY_HEADER_SIZE + BYTES_TAKEN_BY_MAGIC1 + BYTES_TAKEN_BY_MAGIC2;
+        headSize +=
+                info.size
+                        + BYTES_TAKEN_BY_HEADER_SIZE
+                        + BYTES_TAKEN_BY_MAGIC1
+                        + BYTES_TAKEN_BY_MAGIC2;
         if (copyright != null && INCLUDE_COPYRIGHT) {
             headSize += copyright.length() + 1;
         }
@@ -691,7 +716,6 @@ public class LDML2ICUBinaryWriter {
             if (copyright != null && INCLUDE_COPYRIGHT) {
                 out.write((copyright + "\0").getBytes(CHARSET8));
                 written += ((copyright + "\0").getBytes(CHARSET8)).length;
-
             }
 
             if (pad != 0) {
@@ -712,32 +736,23 @@ public class LDML2ICUBinaryWriter {
 
     /**
      * Write some information about the key string and then write a chunk of bytes which mirrors the
-     * SRBRoot->fkeys character buffer. This will be a list of null
-     * terminated strings. Each string pertains to a certain resource. This method also modifies the resources in
-     * 'resTop' by setting the keyStringOffset variable. The keyStringOffset variable is the number of bytes from
-     * the start of the key string that the resources key starts. For example:
+     * SRBRoot->fkeys character buffer. This will be a list of null terminated strings. Each string
+     * pertains to a certain resource. This method also modifies the resources in 'resTop' by
+     * setting the keyStringOffset variable. The keyStringOffset variable is the number of bytes
+     * from the start of the key string that the resources key starts. For example:
      *
-     * <p>
-     * In the 'en_PK' locale, you may have a Table resource with the key "Version." The Table contains a string resource
-     * with the key "1.31."
-     * </p>
-     * <p>
-     * If this were the whole of the locale data, the key string would be an encoded version of this:
-     * </p>
+     * <p>In the 'en_PK' locale, you may have a Table resource with the key "Version." The Table
+     * contains a string resource with the key "1.31."
      *
-     * "Version\01.31\0"
-     *
-     * <br>
+     * <p>If this were the whole of the locale data, the key string would be an encoded version of
+     * this: "Version\01.31\0" <br>
      * <br>
      * In UTF-16 encoding, each character will take 2 bytes. <br>
      * keyStringOffset for the table object would be 0. <br>
      * keyStringOffset for the string resource would be = "Version".length() + 2 = 16
      *
-     *
-     * @param out
-     *            The output stream to write this to.
-     * @param resTop
-     *            The top of the resource tree whose keys shall be written
+     * @param out The output stream to write this to.
+     * @param resTop The top of the resource tree whose keys shall be written
      */
     private static int writeKeyString(FileOutputStream out, ICUResourceWriter.Resource resTop) {
         String keyList = "";
@@ -776,7 +791,6 @@ public class LDML2ICUBinaryWriter {
                 usedOffset += padding.length;
                 end += padding.length;
             }
-
         }
 
         // build a set of 32 bits (in C this variable is called 'root' in reslist.c)
@@ -833,13 +847,12 @@ public class LDML2ICUBinaryWriter {
      * Recursively go through the whole tree and continue to add to the keyList. As this is done,
      * set the keyStringOffset, numChildren, sizeOfChildren, and size variables.
      *
-     * @param keyList
-     *            The current string of keys.
-     * @param resTop
-     *            The resource whose keys shall be written to the keyList.
+     * @param keyList The current string of keys.
+     * @param resTop The resource whose keys shall be written to the keyList.
      * @return
      */
-    private static String buildKeyList(String keyList, ICUResourceWriter.Resource resTop, int usedOffset) {
+    private static String buildKeyList(
+            String keyList, ICUResourceWriter.Resource resTop, int usedOffset) {
         ICUResourceWriter.Resource current = resTop.first;
         int x = 0;
 
@@ -852,13 +865,12 @@ public class LDML2ICUBinaryWriter {
             // set the keyStringOffset
             resTop.keyStringOffset = usedOffset + (keyList.length() * BYTES_PER_UTF8_CHAR);
             keyList += (resTop.name + "\0");
-
         }
 
         // if it has children, call this method on them too
         while (current != null) {
             if (resTop instanceof ICUResourceWriter.ResourceArray
-                || resTop instanceof ICUResourceWriter.ResourceIntVector) {
+                    || resTop instanceof ICUResourceWriter.ResourceIntVector) {
                 current.hasKey = false;
             }
 
@@ -878,23 +890,20 @@ public class LDML2ICUBinaryWriter {
     }
 
     /**
-     * Takes a 16 bit number and returns a two byte array. 0th element is lower byte, 1st element is upper byte.
-     * Ex: x = 28,000. In binary: 0110 1101 0110 0000. This method will return:
-     * [0] = 0110 0000 or 0x60
-     * [1] = 0110 1101 or 0x6D
+     * Takes a 16 bit number and returns a two byte array. 0th element is lower byte, 1st element is
+     * upper byte. Ex: x = 28,000. In binary: 0110 1101 0110 0000. This method will return: [0] =
+     * 0110 0000 or 0x60 [1] = 0110 1101 or 0x6D
      */
     private static byte[] shortToBytes(short x) {
         byte[] b = new byte[2];
         b[1] = (byte) (x); // bitwise AND with the lower byte
-        b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and then bitwise and with the
+        b[0] = (byte) (x >>> 8); // shift four bits to the right and fill with zeros, and
+        // then bitwise and with the
         // lower byte
         return b;
     }
 
-    /**
-     * Takes a 32 bit integer and returns an array of 4 bytes.
-     *
-     */
+    /** Takes a 32 bit integer and returns an array of 4 bytes. */
     private static byte[] intToBytes(int x) {
         byte[] b = new byte[4];
         b[3] = (byte) (x); // just the last byte
@@ -945,9 +954,7 @@ public class LDML2ICUBinaryWriter {
         return ((x % 16) == 0) ? 0 : (16 - (x % 16));
     }
 
-    /**
-     * for printing errors.
-     */
+    /** for printing errors. */
     private static void printError(String message) {
 
         System.err.println("LDML2ICUBinaryWriter : ERROR : " + message);
@@ -979,5 +986,4 @@ public class LDML2ICUBinaryWriter {
 
         return temp;
     }
-
 }

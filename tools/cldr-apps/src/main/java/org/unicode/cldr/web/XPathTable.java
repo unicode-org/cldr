@@ -9,6 +9,8 @@
 
 package org.unicode.cldr.web;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.impl.Utility;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +22,6 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
-
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -30,25 +31,17 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.impl.Utility;
-
 /**
- * This class maps between full and partial xpaths, and the small integers (xpids) which
- * are actually stored in the database. It keeps an in-memory cache which is
- * populated as ids are requested.
+ * This class maps between full and partial xpaths, and the small integers (xpids) which are
+ * actually stored in the database. It keeps an in-memory cache which is populated as ids are
+ * requested.
  *
- *
- * Definitions:
- *    xpath:        an XPath, such as "//ldml/shoeSize"
- *    xpid / int:   an integer 'token' value, such as 123.
- *                   This is old and deprecated.
- *                   Specific to this instance of SurveyTool.
- *                   This is usually what is meant by "int xpath" in code or in the database.
- *    strid / hex:  a hexadecimal "hash" of the full xpath such as "b1dfb436c841a73".
- *                   This is the preferred method of condensing of xpaths.
- *                   Note that you can't calculate the xpath from this without a look-up table.
- *    "long" StringID:    this is the "long" form of the hex id.  Not used within the SurveyTool, some CLDR tools use it.
+ * <p>Definitions: xpath: an XPath, such as "//ldml/shoeSize" xpid / int: an integer 'token' value,
+ * such as 123. This is old and deprecated. Specific to this instance of SurveyTool. This is usually
+ * what is meant by "int xpath" in code or in the database. strid / hex: a hexadecimal "hash" of the
+ * full xpath such as "b1dfb436c841a73". This is the preferred method of condensing of xpaths. Note
+ * that you can't calculate the xpath from this without a look-up table. "long" StringID: this is
+ * the "long" form of the hex id. Not used within the SurveyTool, some CLDR tools use it.
  */
 public class XPathTable {
     private static final Logger logger = SurveyLog.forClass(XPathTable.class);
@@ -61,8 +54,7 @@ public class XPathTable {
     /**
      * Called by SM to create the reg
      *
-     * @param ourConn
-     *            the conn to use
+     * @param ourConn the conn to use
      */
     public static XPathTable createTable(Connection ourConn) throws SQLException {
         try {
@@ -79,7 +71,6 @@ public class XPathTable {
         }
     }
 
-
     private void loadXPaths(Connection conn) throws SQLException {
         if (stringToId.size() != 0) { // Only load the entire stringToId map
             // once.
@@ -87,7 +78,8 @@ public class XPathTable {
         }
         ElapsedTimer et = new ElapsedTimer("XPathTable:  xpaths");
         int ixpaths = 0;
-        PreparedStatement queryStmt = DBUtils.prepareForwardReadOnly(conn, "SELECT id,xpath FROM " + CLDR_XPATHS);
+        PreparedStatement queryStmt =
+                DBUtils.prepareForwardReadOnly(conn, "SELECT id,xpath FROM " + CLDR_XPATHS);
         // First, try to query it back from the DB.
         ResultSet rs = queryStmt.executeQuery();
         while (rs.next()) {
@@ -99,13 +91,12 @@ public class XPathTable {
         }
         queryStmt.close();
         // quell this message in testing
-        final boolean hushMessages = CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
-        if(!hushMessages) logger.info(et + ": " + ixpaths + " loaded");
+        final boolean hushMessages =
+                CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST;
+        if (!hushMessages) logger.info(et + ": " + ixpaths + " loaded");
     }
 
-    /**
-     * internal - called to setup db
-     */
+    /** internal - called to setup db */
     private void setupDB(Connection ourConn) throws SQLException {
         String sql = null;
         Statement s = null;
@@ -120,12 +111,31 @@ public class XPathTable {
                 uniqueness = "";
                 xpathindex = "xpath(768)";
             }
-            sql = ("create table " + CLDR_XPATHS + "(id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " + "xpath "
-                + DBUtils.DB_SQL_VARCHARXPATH + DBUtils.DB_SQL_MB4 + " NOT NULL" + uniqueness + ") " + DBUtils.DB_SQL_ENGINE_INNO + DBUtils.DB_SQL_MB4);
+            sql =
+                    ("create table "
+                            + CLDR_XPATHS
+                            + "(id INT NOT NULL "
+                            + DBUtils.DB_SQL_IDENTITY
+                            + ", "
+                            + "xpath "
+                            + DBUtils.DB_SQL_VARCHARXPATH
+                            + DBUtils.DB_SQL_MB4
+                            + " NOT NULL"
+                            + uniqueness
+                            + ") "
+                            + DBUtils.DB_SQL_ENGINE_INNO
+                            + DBUtils.DB_SQL_MB4);
             s.execute(sql);
             sql = ("CREATE INDEX " + CLDR_XPATHS + "_id on " + CLDR_XPATHS + "(id)");
             s.execute(sql);
-            sql = ("CREATE INDEX " + CLDR_XPATHS + "_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");
+            sql =
+                    ("CREATE INDEX "
+                            + CLDR_XPATHS
+                            + "_xpath on "
+                            + CLDR_XPATHS
+                            + " ("
+                            + xpathindex
+                            + ")");
             s.execute(sql);
             sql = null;
             s.close();
@@ -139,23 +149,29 @@ public class XPathTable {
         }
     }
 
-    public Hashtable<String, Integer> stringToId = new Hashtable<>(4096); // public for statistics only
-    public Hashtable<Long, String> sidToString = new Hashtable<>(4096); // public for statistics only
+    public Hashtable<String, Integer> stringToId =
+            new Hashtable<>(4096); // public for statistics only
+    public Hashtable<Long, String> sidToString =
+            new Hashtable<>(4096); // public for statistics only
 
     public String statistics() {
-        return "DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
-            + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats();
+        return "DB: "
+                + stat_dbAdd
+                + "add/"
+                + stat_dbFetch
+                + "fetch/"
+                + (stat_dbAdd + stat_dbFetch)
+                + "total."
+                + "-"
+                + idStats();
     }
 
     private static int stat_dbAdd = 0;
     private static int stat_dbFetch = 0;
 
-    public XPathTable() {
-    }
+    public XPathTable() {}
 
-    /**
-     * SpecialTable implementation
-     */
+    /** SpecialTable implementation */
     IntHash<String> xptHash = new IntHash<>();
 
     String idToString_put(int id, String str) {
@@ -173,9 +189,8 @@ public class XPathTable {
     /** END specialtable implementation */
 
     /**
-     * Loads all xpath-id mappings from the database. If there are any xpaths in
-     * the specified XMLSource which are not already in the database, they will
-     * be created here.
+     * Loads all xpath-id mappings from the database. If there are any xpaths in the specified
+     * XMLSource which are not already in the database, they will be created here.
      */
     public synchronized void loadXPaths(XMLSource source) {
         // Get list of xpaths that aren't already loaded.
@@ -218,14 +233,14 @@ public class XPathTable {
      * @throws SQLException
      */
     private synchronized void addXpaths(Set<String> xpaths, Connection conn) throws SQLException {
-        if (xpaths.size() == 0)
-            return;
+        if (xpaths.size() == 0) return;
 
         PreparedStatement queryStmt = null;
         PreparedStatement insertStmt = null;
         // Insert new xpaths.
-        insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values ("
-            + " ?)");
+        insertStmt =
+                conn.prepareStatement(
+                        "INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" + " ?)");
         for (String xpath : xpaths) {
             insertStmt.setString(1, Utility.escape(xpath));
             insertStmt.addBatch();
@@ -238,7 +253,8 @@ public class XPathTable {
         // PreparedStatement.getGeneratedKeys() only returns the ID of the
         // last INSERT statement, so we have to improvise here by performing
         // another SELECT to get the newly-inserted IDs.
-        queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS + " ORDER BY id DESC");
+        queryStmt =
+                conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS + " ORDER BY id DESC");
         queryStmt.setMaxRows(xpaths.size());
         queryStmt.setFetchSize(xpaths.size());
         ResultSet rs = queryStmt.executeQuery();
@@ -268,8 +284,9 @@ public class XPathTable {
             } else {
                 conn = DBUtils.getInstance().getDBConnection();
             }
-            queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH="
-                + " ? ");
+            queryStmt =
+                    conn.prepareStatement(
+                            "SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH=" + " ? ");
             queryStmt.setString(1, Utility.escape(xpath));
             // First, try to query it back from the DB.
             ResultSet rs = queryStmt.executeQuery();
@@ -278,8 +295,14 @@ public class XPathTable {
                     return -1;
                 } else {
                     // add it
-                    insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath ) " + " values ("
-                        + " ?)", Statement.RETURN_GENERATED_KEYS);
+                    insertStmt =
+                            conn.prepareStatement(
+                                    "INSERT INTO "
+                                            + CLDR_XPATHS
+                                            + " (xpath ) "
+                                            + " values ("
+                                            + " ?)",
+                                    Statement.RETURN_GENERATED_KEYS);
 
                     insertStmt.setString(1, Utility.escape(xpath));
                     insertStmt.execute();
@@ -304,8 +327,16 @@ public class XPathTable {
             return nid;
         } catch (SQLException sqe) {
             logger.warning("xpath [" + xpath + "] len " + xpath.length());
-            logger.severe("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
-            SurveyMain.busted("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
+            logger.severe(
+                    "XPathTable: Failed in addXPath("
+                            + xpath
+                            + "): "
+                            + DBUtils.unchainSqlException(sqe));
+            SurveyMain.busted(
+                    "XPathTable: Failed in addXPath("
+                            + xpath
+                            + "): "
+                            + DBUtils.unchainSqlException(sqe));
         } finally {
             if (inConn != null) {
                 conn = null; // don't close
@@ -317,8 +348,10 @@ public class XPathTable {
 
     /**
      * API for get by ID
+     *
      * @param id an integer like 677172
-     * @return a string like //ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"]
+     * @return a string like
+     *     //ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"]
      */
     public final String getById(int id) {
         if (id == -1) {
@@ -332,11 +365,12 @@ public class XPathTable {
     }
 
     /**
-     * Adds an xpathid-xpath value pair to the XPathTable. This method is used
-     * by classes to cache the values obtained by using their own queries.
+     * Adds an xpathid-xpath value pair to the XPathTable. This method is used by classes to cache
+     * the values obtained by using their own queries.
      *
      * @param id an integer like 24600
-     * @param xpath a string like //ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight
+     * @param xpath a string like
+     *     //ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight
      */
     public final void setById(int id, String xpath) {
         stringToId.put(idToString_put(id, xpath), id);
@@ -376,8 +410,7 @@ public class XPathTable {
     /**
      * get an xpath id by value, add it if not found
      *
-     * @param xpath
-     *            string string to add
+     * @param xpath string string to add
      * @return the id for the specified path
      */
     public final int getByXpath(String xpath, Connection conn) {
@@ -405,7 +438,6 @@ public class XPathTable {
     }
 
     /**
-     *
      * @param path
      * @return
      */
@@ -414,28 +446,30 @@ public class XPathTable {
     }
 
     /**
-     *
      * @param path
-     * @return
-     *
-     * Called by handlePathValue and makeProposedFile
+     * @return Called by handlePathValue and makeProposedFile
      */
     public static String removeAlt(String path) {
-        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
+        XPathParts xpp =
+                XPathParts.getFrozenInstance(path)
+                        .cloneAsThawed(); // not frozen, for removeAttribute
         xpp.removeAttribute(-1, LDMLConstants.ALT);
         return xpp.toString();
     }
 
     /**
-     * remove the 'draft=' and 'alt=*proposed' from the XPath. Makes the path
-     * almost distinguishing, except that certain attributes, such as numbers=,
-     * will be left.
+     * remove the 'draft=' and 'alt=*proposed' from the XPath. Makes the path almost distinguishing,
+     * except that certain attributes, such as numbers=, will be left.
      *
-     * @param path a string like //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
-     * @return a string like //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
+     * @param path a string like
+     *     //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
+     * @return a string like
+     *     //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
      */
     public static String removeDraftAltProposed(String path) {
-        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
+        XPathParts xpp =
+                XPathParts.getFrozenInstance(path)
+                        .cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
 
         // Remove alt proposed, but leave the type
@@ -460,11 +494,8 @@ public class XPathTable {
     }
 
     /**
-     *
      * @param path
-     * @return
-     *
-     * Called by handlePathValue and makeProposedFile
+     * @return Called by handlePathValue and makeProposedFile
      */
     public static String getAlt(String path) {
         XPathParts xpp = XPathParts.getFrozenInstance(path);
@@ -479,8 +510,7 @@ public class XPathTable {
      * note does not remove draft. expects a dpath.
      *
      * @param xpath
-     *
-     * This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
+     *     <p>This is NOT the same as the two-parameter xpathToBaseXpath elsewhere in this file
      */
     public static String xpathToBaseXpath(String xpath) {
         XPathParts xpp = XPathParts.getFrozenInstance(xpath);
@@ -509,8 +539,7 @@ public class XPathTable {
      * Modify the given XPathParts by possibly changing or removing its ALT attribute.
      *
      * @param xpp the XPathParts, whose contents get changed here and used/modified by the caller
-     *
-     * Called only from submit.jsp
+     *     <p>Called only from submit.jsp
      */
     public static void xPathPartsToBase(XPathParts xpp) {
         Map<String, String> lastAtts = xpp.getAttributes(-1);
@@ -536,7 +565,9 @@ public class XPathTable {
      * @return the type as a string
      */
     private String whatFromPathToTinyXpath(String path, String what) {
-        XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
+        XPathParts xpp =
+                XPathParts.getFrozenInstance(path)
+                        .cloneAsThawed(); // not frozen, for removeAttribute
         Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {
@@ -574,7 +605,8 @@ public class XPathTable {
     public static final String PROPOSED_V = "v";
     public static final int NO_XPATH = -1;
 
-    public static final StringBuilder appendAltProposedPrefix(StringBuilder sb, int userid, Integer voteValue) {
+    public static final StringBuilder appendAltProposedPrefix(
+            StringBuilder sb, int userid, Integer voteValue) {
         sb.append(PROPOSED_U);
         sb.append(userid);
         if (voteValue != null) {
@@ -586,8 +618,8 @@ public class XPathTable {
     }
 
     /**
-     * parse an alt-proposed, such as "proposed-u4-1" into a userid (4, in this
-     * case). returns -1 if altProposed is null or in any way malformed.
+     * parse an alt-proposed, such as "proposed-u4-1" into a userid (4, in this case). returns -1 if
+     * altProposed is null or in any way malformed.
      */
     public static final int altProposedToUserid(String altProposed, Integer voteValue[]) {
         if ((altProposed == null) || !altProposed.contains(PROPOSED_U)) {
@@ -608,13 +640,11 @@ public class XPathTable {
 
     // re export PrettyPath API but synchronized
     /**
-     * Gets sortable form of the pretty path, and caches the mapping for faster
-     * later mapping.
+     * Gets sortable form of the pretty path, and caches the mapping for faster later mapping.
      *
      * @param path
      * @deprecated PrettyPath is deprecated.
-     *
-     * This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
+     *     <p>This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
      */
     @Deprecated
     public String getPrettyPath(String path) {
@@ -629,9 +659,7 @@ public class XPathTable {
     /**
      * @deprecated PrettyPath
      * @param path
-     * @return
-     *
-     * This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
+     * @return This is possibly referenced by tc-mzfix.jsp (as of 2020-12-23)
      */
     @Deprecated
     public String getPrettyPath(int path) {
@@ -640,7 +668,6 @@ public class XPathTable {
         }
         return getPrettyPath(getById(path));
     }
-
 
     /**
      * How much is inside?
@@ -653,10 +680,13 @@ public class XPathTable {
 
     /**
      * xpath to long
-     * @param xpath a string identifying a path, for example "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
-     * @return a long integer, which is a hash of xpath; for example 2795888612892500012 (decimal) = 6d37a14eec91cee6 (hex)
      *
-     * CAUTION: this is NOT the same as getByXpath, which is generally a much smaller integer!
+     * @param xpath a string identifying a path, for example
+     *     "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
+     * @return a long integer, which is a hash of xpath; for example 2795888612892500012 (decimal) =
+     *     6d37a14eec91cee6 (hex)
+     *     <p>CAUTION: this is NOT the same as getByXpath, which is generally a much smaller
+     *     integer!
      */
     public static final long getStringID(String xpath) {
         return StringId.getId(xpath);
@@ -664,6 +694,7 @@ public class XPathTable {
 
     /**
      * xpid to hex
+     *
      * @param baseXpath an integer like 690863
      * @return a sixteen-digit hex string like "2066782cf4356135"
      */
@@ -673,7 +704,9 @@ public class XPathTable {
 
     /**
      * xpath to hex
-     * @param xpath a string identifying a path, for example "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
+     *
+     * @param xpath a string identifying a path, for example
+     *     "//ldml/numbers/symbols[@numberSystem="sund"]/infinity"
      * @return a sixteen-digit hex string, which is a hash of xpath; for example "6d37a14eec91cee6"
      */
     public static final String getStringIDString(String xpath) {
@@ -682,6 +715,7 @@ public class XPathTable {
 
     /**
      * Turn a strid into a xpid (int token)
+     *
      * @param sid like "2066782cf4356135"
      * @return an integer like 690863
      */
@@ -690,10 +724,11 @@ public class XPathTable {
     }
 
     /**
-     * Given an XPath stringid, return an integer xpid or NO_XPATH
-     * This function is there to ease transition away from xpids.
+     * Given an XPath stringid, return an integer xpid or NO_XPATH This function is there to ease
+     * transition away from xpids.
+     *
      * @param xpath a StringID (hex) or a decimal id of the form "#1234"
-     * @return the integer xpid or  {@link XPathTable#NO_XPATH}
+     * @return the integer xpid or {@link XPathTable#NO_XPATH}
      */
     public int getXpathIdOrNoneFromStringID(String xpath) {
         int base_xpath;
@@ -707,12 +742,23 @@ public class XPathTable {
         return base_xpath;
     }
 
+    /**
+     * @param id hex string ID
+     * @return null if not found or invalid
+     */
     public String getByStringID(String id) {
         if (id == null) return null;
-        Long l = Long.parseLong(id, 16);
+        try {
+            Long l = Long.parseLong(id, 16);
+            return getByStringID(l);
+        } catch (NumberFormatException nfe) {
+            return null;
+        }
+    }
+
+    String getByStringID(long l) {
         String s = sidToString.get(l);
-        if (s != null)
-            return s;
+        if (s != null) return s;
         // slow way
         for (String x : stringToId.keySet()) {
             if (getStringID(x) == l) {
@@ -721,10 +767,13 @@ public class XPathTable {
             }
         }
         if (SurveyMain.isUnofficial()) {
-            logger.warning("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+            logger.warning(
+                    "xpt: Couldn't find stringid "
+                            + Long.toHexString(l)
+                            + " - sid has "
+                            + sidToString.size());
         }
         // it may be
         return null;
     }
-
 }

@@ -1,12 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -16,13 +18,11 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 
-import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.ULocale;
-
 /**
- * To add a new chart, subclass this, and add the subclass to {@link ShowLanguages.printLanguageData()}. There isn't much
- * documentation, so best to look at a simple subclass to see how it works.
+ * To add a new chart, subclass this, and add the subclass to {@link
+ * ShowLanguages.printLanguageData()}. There isn't much documentation, so best to look at a simple
+ * subclass to see how it works.
+ *
  * @author markdavis
  */
 public abstract class Chart {
@@ -31,38 +31,57 @@ public abstract class Chart {
     public static final CLDRFile ENGLISH = CONFIG.getEnglish();
     public static final String LS = System.lineSeparator();
 
-    public static final String PREV_CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
-    public static final String CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
+    public static final String PREV_CHART_VERSION_DIRECTORY =
+            ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
+    public static final String CHART_VERSION_DIRECTORY =
+            ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
 
     public static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_ROOT + "/blob/main/";
     public static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
-        final String dataFileList = dataFiles.length == 0 ? null :
-            ListFormatter.getInstance(ULocale.ENGLISH).format(
-                Arrays.asList(dataFiles).stream()
-                .map(dataFile -> Chart.dataFileLink(dataFile))
-                .collect(Collectors.toSet()));
+        final String dataFileList =
+                dataFiles.length == 0
+                        ? null
+                        : ListFormatter.getInstance(ULocale.ENGLISH)
+                                .format(
+                                        Arrays.asList(dataFiles).stream()
+                                                .map(dataFile -> Chart.dataFileLink(dataFile))
+                                                .collect(Collectors.toSet()));
 
         return "<p>"
-        + "<b>Warning:</b> Do not scrape this chart for production data.\n"
-        + "Instead, for the meaning of the fields and data consult the " + Chart.ldmlSpecLink(specPart)
-        + (dataFileList == null ? "" : ", and for machine-readable source data, access " + dataFileList)
-        + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
-        + ".</p>\n";
+                + "<b>Warning:</b> Do not scrape this chart for production data.\n"
+                + "Instead, for the meaning of the fields and data consult the "
+                + Chart.ldmlSpecLink(specPart)
+                + (dataFileList == null
+                        ? ""
+                        : ", and for machine-readable source data, access " + dataFileList)
+                + (testFile == null ? "" : ", and for test data, access " + dataFileLink(testFile))
+                + ".</p>\n";
     }
 
-
     private static String dataFileLink(String dataFile) {
-        return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
+        return "<a href='"
+                + GITHUB_ROOT
+                + dataFile
+                + "' target='"
+                + dataFile
+                + "'>"
+                + dataFile
+                + "</a>";
     }
 
     public static String ldmlSpecLink(String specPart) {
-        return "<a href='" + LDML_SPEC + (specPart == null ? "" : specPart) + "' target='units.xml'>LDML specification</a>";
+        return "<a href='"
+                + LDML_SPEC
+                + (specPart == null ? "" : specPart)
+                + "' target='units.xml'>LDML specification</a>";
     }
 
     /**
-     * null means a string will be constructed from the title. Otherwise a real file name (no html extension).
+     * null means a string will be constructed from the title. Otherwise a real file name (no html
+     * extension).
+     *
      * @return
      */
     public String getFileName() {
@@ -71,6 +90,7 @@ public abstract class Chart {
 
     /**
      * Show Date?
+     *
      * @return
      */
     public String getExplanation() {
@@ -79,6 +99,7 @@ public abstract class Chart {
 
     /**
      * Short explanation that will go just after the title/dates.
+     *
      * @return
      */
     public boolean getShowDate() {
@@ -87,18 +108,21 @@ public abstract class Chart {
 
     /**
      * Directory for the file to go into.
+     *
      * @return
      */
     public abstract String getDirectory();
 
     /**
      * Short title for page. Will appear at the top, and in the window title, and in the index.
+     *
      * @return
      */
     public abstract String getTitle();
 
     /**
      * Work
+     *
      * @param pw
      * @throws IOException
      */
@@ -107,8 +131,8 @@ public abstract class Chart {
     }
 
     /**
-     * Helper function to use the default factory.
-     * Not for use within SurveyTool.
+     * Helper function to use the default factory. Not for use within SurveyTool.
+     *
      * @param pw
      * @throws IOException
      */
@@ -117,59 +141,59 @@ public abstract class Chart {
     }
 
     public void writeContents(OutputStream output, Factory factory) throws IOException {
-        try(final Writer w = new OutputStreamWriter(output);) {
+        try (final Writer w = new OutputStreamWriter(output); ) {
             writeContents(w, factory);
         }
     }
 
     /**
      * Do the work of generating the chart.
+     *
      * @param pw
      * @param factory
      * @throws IOException
      */
     public void writeContents(Writer pw, Factory factory) throws IOException {
-       // TODO: this should be an abstract function.
-       throw new IllegalArgumentException("Not implemented yet");
+        // TODO: this should be an abstract function.
+        throw new IllegalArgumentException("Not implemented yet");
     }
 
-    public void writeFooter(FormattedFileWriter pw) throws IOException {
-        standardFooter(pw, AnalyticsID.CLDR);
+    private static final class AnalyticsHelper {
+        private static final AnalyticsHelper INSTANCE = new AnalyticsHelper();
+
+        public final String str;
+
+        AnalyticsHelper() {
+            str =
+                    ToolUtilities.getUTF8Data("analytics.html")
+                            .lines()
+                            .collect(Collectors.joining("\n"));
+        }
     }
 
-    private enum AnalyticsID {
-        CLDR("UA-7672775-1"), ICU("UA-7670213-1"), ICU_GUIDE("UA-7670256-1"), UNICODE("UA-7670213-1"), UNICODE_UTILITY("UA-8314904-1");
+    public enum AnalyticsID {
+        CLDR("G-BPN1D3SEJM"),
+        ICU("G-06PL1DM20S"),
+        ICU_GUIDE("UA-7670256-1"),
+        UNICODE("G-GC4HXC4GVQ"),
+        UNICODE_UTILITY("G-0M7Q5QLZPV");
         public final String id;
 
         private AnalyticsID(String id) {
             this.id = id;
         }
-    }
 
-    private static void standardFooter(FormattedFileWriter pw, AnalyticsID analytics) throws IOException {
-        pw.write("<div style='text-align: center; margin-top:2em; margin-bottom: 60em;'><br>\n"
-            + "<a href='https://www.unicode.org/copyright.html'>\n"
-            + "<img src='https://www.unicode.org/img/hb_notice.gif' style='border-style: none; width: 216px; height:50px;' alt='Access to Copyright and terms of use'>"
-            + "</a>\n"
-            + "</div><script>\n\n"
-            + "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"
-            + "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"
-            + "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"
-            + "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"
-            + "  ga('create', '"
-            + analytics
-            + "', 'auto');"
-            + "  ga('send', 'pageview');"
-            + "</script>\n");
+        public String getScript() {
+            return AnalyticsHelper.INSTANCE.str.replaceAll("TAG_ID", id);
+        }
     }
 
     public final void writeChart(Anchors anchors) {
-        try (
-            FormattedFileWriter x = new FormattedFileWriter(getFileName(), getTitle(), getExplanation(), anchors);) {
+        try (FormattedFileWriter x =
+                new FormattedFileWriter(getFileName(), getTitle(), getExplanation(), anchors); ) {
             x.setDirectory(getDirectory());
             x.setShowDate(getShowDate());
             writeContents(x);
-            writeFooter(x);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -189,12 +213,11 @@ public abstract class Chart {
     }
 
     /**
-     * Attempt to allocate the Chart that goes along with this report
-     * Also see {@link org.unicode.cldr.util.VoterReportStatus.ReportId} 
-     * and keep up to date
+     * Attempt to allocate the Chart that goes along with this report Also see {@link
+     * org.unicode.cldr.util.VoterReportStatus.ReportId} and keep up to date
      */
     public static Chart forReport(final ReportId report, final String locale) {
-        switch(report) {
+        switch (report) {
             case personnames:
                 return new ChartPersonName(locale);
             default:

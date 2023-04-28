@@ -1,5 +1,17 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +29,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
@@ -50,37 +61,33 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Output;
-
 public class ChartDelta extends Chart {
     private static final boolean verbose_skipping = false;
 
     private static final String DEFAULT_DELTA_DIR_NAME = "delta";
     private static final String DEFAULT_CHURN_DIR_NAME = "churn";
 
-    private static final boolean SKIP_REFORMAT_ANNOTATIONS = ToolConstants.PREV_CHART_VERSION.compareTo("30") >= 0;
+    private static final boolean SKIP_REFORMAT_ANNOTATIONS =
+            ToolConstants.PREV_CHART_VERSION.compareTo("30") >= 0;
 
     private static final PageId DEBUG_PAGE_ID = PageId.DayPeriod;
 
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private enum MyOptions {
-        fileFilter(new Params().setHelp("filter files by dir/locale, eg: ^main/en$ or .*/en").setMatch(".*")),
+        fileFilter(
+                new Params()
+                        .setHelp("filter files by dir/locale, eg: ^main/en$ or .*/en")
+                        .setMatch(".*")),
         orgFilter(new Params().setHelp("filter files by organization").setMatch(".*")),
         Vxml(new Params().setHelp("use cldr-aux for the base directory")),
         coverageFilter(new Params().setHelp("filter files by coverage").setMatch(".*")),
-        directory(new Params().setHelp("Set the output directory name").setDefault(DEFAULT_DELTA_DIR_NAME).setMatch(".*")),
+        directory(
+                new Params()
+                        .setHelp("Set the output directory name")
+                        .setDefault(DEFAULT_DELTA_DIR_NAME)
+                        .setMatch(".*")),
         verbose(new Params().setHelp("verbose debugging messages")),
         highLevelOnly(new Params().setHelp("check high-level paths (churn) only").setFlag('H')),
         ;
@@ -93,6 +100,7 @@ public class ChartDelta extends Chart {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -112,8 +120,8 @@ public class ChartDelta extends Chart {
     private final boolean verbose;
 
     /**
-     * If true, check only high-level paths, i.e., paths for which any changes
-     * have high potential to cause disruptive "churn"
+     * If true, check only high-level paths, i.e., paths for which any changes have high potential
+     * to cause disruptive "churn"
      */
     private final boolean highLevelOnly;
 
@@ -122,9 +130,13 @@ public class ChartDelta extends Chart {
     }
 
     public static void main(String[] args, boolean highLevelOnly) {
-        System.out.println("use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
+        System.out.println(
+                "use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
         MyOptions.parse(args);
-        Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
+        Matcher fileFilter =
+                !MyOptions.fileFilter.option.doesOccur()
+                        ? null
+                        : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         if (MyOptions.orgFilter.option.doesOccur()) {
             if (MyOptions.fileFilter.option.doesOccur()) {
                 throw new IllegalArgumentException("Can't have both fileFilter and orgFilter");
@@ -132,17 +144,25 @@ public class ChartDelta extends Chart {
             String rawOrg = MyOptions.orgFilter.option.getValue();
             Organization org = Organization.fromString(rawOrg);
             Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(org);
-            fileFilter = PatternCache.get("^(main|annotations)/(" + Joiner.on("|").join(locales) + ")$").matcher("");
+            fileFilter =
+                    PatternCache.get("^(main|annotations)/(" + Joiner.on("|").join(locales) + ")$")
+                            .matcher("");
         }
-        Level coverage = !MyOptions.coverageFilter.option.doesOccur() ? null : Level.fromString(MyOptions.coverageFilter.option.getValue());
+        Level coverage =
+                !MyOptions.coverageFilter.option.doesOccur()
+                        ? null
+                        : Level.fromString(MyOptions.coverageFilter.option.getValue());
         boolean verbose = MyOptions.verbose.option.doesOccur();
         if (MyOptions.highLevelOnly.option.doesOccur()) {
             highLevelOnly = true;
         }
         String dirName = MyOptions.directory.option.getValue();
         if (highLevelOnly && DEFAULT_DELTA_DIR_NAME.equals(dirName)) {
-            System.out.println("For highLevelOnly, changing directory from " + DEFAULT_DELTA_DIR_NAME
-                    + " to " + DEFAULT_CHURN_DIR_NAME);
+            System.out.println(
+                    "For highLevelOnly, changing directory from "
+                            + DEFAULT_DELTA_DIR_NAME
+                            + " to "
+                            + DEFAULT_CHURN_DIR_NAME);
             dirName = DEFAULT_CHURN_DIR_NAME;
         }
         ChartDelta temp = new ChartDelta(fileFilter, coverage, dirName, verbose, highLevelOnly);
@@ -156,7 +176,12 @@ public class ChartDelta extends Chart {
         System.out.println(getTsvDir(temp.DIR, temp.dirName));
     }
 
-    private ChartDelta(Matcher fileFilter, Level coverage, String dirName, boolean verbose, boolean highLevelOnly) {
+    private ChartDelta(
+            Matcher fileFilter,
+            Level coverage,
+            String dirName,
+            boolean verbose,
+            boolean highLevelOnly) {
         this.fileFilter = fileFilter;
         this.verbose = verbose;
         this.highLevelOnly = highLevelOnly;
@@ -172,7 +197,8 @@ public class ChartDelta extends Chart {
     static Pattern fileMatcher = PatternCache.get(".*");
 
     static PathHeader.Factory phf = PathHeader.getFactory(ENGLISH);
-    static final Set<String> DONT_CARE = new HashSet<>(Arrays.asList("draft", "standard", "reference"));
+    static final Set<String> DONT_CARE =
+            new HashSet<>(Arrays.asList("draft", "standard", "reference"));
 
     @Override
     public String getDirectory() {
@@ -192,8 +218,8 @@ public class ChartDelta extends Chart {
     @Override
     public String getExplanation() {
         return "<p>Charts showing the differences from the last version. "
-            + "Titles prefixed by ¤ are special: either the locale data summary or supplemental data. "
-            + "Not all changed data is charted yet. For details see each chart.</p>";
+                + "Titles prefixed by ¤ are special: either the locale data summary or supplemental data. "
+                + "Not all changed data is charted yet. For details see each chart.</p>";
     }
 
     @Override
@@ -216,7 +242,11 @@ public class ChartDelta extends Chart {
     }
 
     private static class PathDiff extends R4<PathHeaderSegment, String, String, String> {
-        public PathDiff(String locale, PathHeaderSegment pathHeaderSegment, String oldValue, String newValue) {
+        public PathDiff(
+                String locale,
+                PathHeaderSegment pathHeaderSegment,
+                String oldValue,
+                String newValue) {
             super(pathHeaderSegment, locale, oldValue, newValue);
         }
     }
@@ -226,12 +256,17 @@ public class ChartDelta extends Chart {
     private static final File CLDR_BASE_DIR = CLDRConfig.getInstance().getCldrBaseDirectory();
 
     private enum ChangeType {
-        added, deleted, changed, same;
+        added,
+        deleted,
+        changed,
+        same;
+
         public static ChangeType get(String oldValue, String currentValue) {
-            return oldValue == null ? added
-                : currentValue == null ? deleted
-                    : oldValue.equals(currentValue) ? same
-                        : changed;
+            return oldValue == null
+                    ? added
+                    : currentValue == null
+                            ? deleted
+                            : oldValue.equals(currentValue) ? same : changed;
         }
     }
 
@@ -239,9 +274,7 @@ public class ChartDelta extends Chart {
     private Map<String, Counter<ChangeType>> fileCounters = new TreeMap<>();
     private Set<String> badHeaders = new TreeSet<>();
 
-    /**
-     * Add the count of changed items
-     */
+    /** Add the count of changed items */
     private void addChange(String file, ChangeType changeType, int count) {
         counter.add(changeType, count); // unified add
         Counter<ChangeType> fileCounter = fileCounters.get(file);
@@ -252,7 +285,8 @@ public class ChartDelta extends Chart {
     }
 
     private void showTotals() {
-        try (PrintWriter pw = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_summary.tsv")) {
+        try (PrintWriter pw =
+                FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_summary.tsv")) {
             // pw.println("# percentages are of *new* total");
             pw.print("# dir\tfile");
             for (ChangeType item : ChangeType.values()) {
@@ -291,16 +325,16 @@ public class ChartDelta extends Chart {
     }
 
     /**
-     *
      * @param anchors
      * @throws IOException
-     *
-     * TODO: shorten the function using subroutines
+     *     <p>TODO: shorten the function using subroutines
      */
-    private void writeLdml(Anchors anchors)  throws IOException {
-        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + ".tsv");
-            PrintWriter tsvCountFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_count.tsv");
-            ) {
+    private void writeLdml(Anchors anchors) throws IOException {
+        try (PrintWriter tsvFile =
+                        FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + ".tsv");
+                PrintWriter tsvCountFile =
+                        FileUtilities.openUTF8Writer(
+                                getTsvDir(DIR, dirName), dirName + "_count.tsv"); ) {
             tsvFile.println("# Section\tPage\tHeader\tCode\tLocale\tOld\tNew\tLevel");
 
             // set up factories
@@ -334,12 +368,13 @@ public class ChartDelta extends Chart {
                 System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
-                throw new IllegalArgumentException("No factories found for "
-                    + dirBase + ": " + DtdType.ldml.directories);
+                throw new IllegalArgumentException(
+                        "No factories found for " + dirBase + ": " + DtdType.ldml.directories);
             }
             // get a list of all the locales to cycle over
 
-            Relation<String, String> baseToLocales = Relation.of(new TreeMap<String, Set<String>>(), HashSet.class);
+            Relation<String, String> baseToLocales =
+                    Relation.of(new TreeMap<String, Set<String>>(), HashSet.class);
             Matcher m = fileMatcher.matcher("");
             Set<String> defaultContents = SDI.getDefaultContentLocales();
             LanguageTagParser ltp = new LanguageTagParser();
@@ -351,7 +386,10 @@ public class ChartDelta extends Chart {
                 if (!m.reset(file).matches()) {
                     continue;
                 }
-                String base = file.equals("root") ? "root" : ltp.set(ls.minimize(file)).getLanguageScript();
+                String base =
+                        file.equals("root")
+                                ? "root"
+                                : ltp.set(ls.minimize(file)).getLanguageScript();
                 baseToLocales.put(base, file);
             }
 
@@ -362,7 +400,8 @@ public class ChartDelta extends Chart {
             Set<PathDiff> diff = new TreeSet<>();
             Set<String> paths = new HashSet<>();
 
-            Relation<PathHeader, String> diffAll = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
+            Relation<PathHeader, String> diffAll =
+                    Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
             for (Entry<String, Set<String>> baseNLocale : baseToLocales.keyValuesSet()) {
                 String base = baseNLocale.getKey();
                 for (int i = 0; i < factories.size(); ++i) {
@@ -370,12 +409,14 @@ public class ChartDelta extends Chart {
                     Factory oldFactory = oldFactories.get(i);
                     List<File> sourceDirs = Arrays.asList(factory.getSourceDirectories());
                     if (sourceDirs.size() != 1) {
-                        throw new IllegalArgumentException("Internal error: expect single source dir");
+                        throw new IllegalArgumentException(
+                                "Internal error: expect single source dir");
                     }
                     File sourceDir = sourceDirs.get(0);
                     String sourceDirLeaf = sourceDir.getName();
-                    boolean resolving = !sourceDirLeaf.contains("subdivisions")
-                        && !sourceDirLeaf.contains("transforms");
+                    boolean resolving =
+                            !sourceDirLeaf.contains("subdivisions")
+                                    && !sourceDirLeaf.contains("transforms");
 
                     for (String locale : baseNLocale.getValue()) {
                         String nameAndLocale = sourceDirLeaf + "/" + locale;
@@ -392,7 +433,9 @@ public class ChartDelta extends Chart {
                         CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
                         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(old);
 
-                        if (!locale.equals("root") && current.getLocaleID().equals("root") && old.getLocaleID().equals("root")) {
+                        if (!locale.equals("root")
+                                && current.getLocaleID().equals("root")
+                                && old.getLocaleID().equals("root")) {
                             continue;
                         }
                         if (old == EMPTY_CLDR && current == EMPTY_CLDR) {
@@ -418,10 +461,10 @@ public class ChartDelta extends Chart {
 
                         for (String path : paths) {
                             if (path.startsWith("//ldml/identity")
-                                || path.endsWith("/alias")
-                                || path.startsWith("//ldml/segmentations") // do later
-                                || path.startsWith("//ldml/rbnf") // do later
-                                ) {
+                                    || path.endsWith("/alias")
+                                    || path.startsWith("//ldml/segmentations") // do later
+                                    || path.startsWith("//ldml/rbnf") // do later
+                            ) {
                                 continue;
                             }
                             PathHeader ph = getPathHeader(path);
@@ -433,16 +476,23 @@ public class ChartDelta extends Chart {
                             String currentValue;
 
                             {
-                                String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
-                                String sourceLocaleOld = getReformattedPath(oldStatus, old, path, reformattedValue, hasReformattedValue);
+                                String sourceLocaleCurrent =
+                                        current.getSourceLocaleID(path, currentStatus);
+                                String sourceLocaleOld =
+                                        getReformattedPath(
+                                                oldStatus,
+                                                old,
+                                                path,
+                                                reformattedValue,
+                                                hasReformattedValue);
 
                                 // filter out stuff that differs at a higher level
                                 if (!sourceLocaleCurrent.equals(locale)
-                                    && !sourceLocaleOld.equals(locale)) {
+                                        && !sourceLocaleOld.equals(locale)) {
                                     continue;
                                 }
                                 if (!path.equals(currentStatus.pathWhereFound)
-                                    && !path.equals(oldStatus.pathWhereFound)) {
+                                        && !path.equals(oldStatus.pathWhereFound)) {
                                     continue;
                                 }
                                 // fix some incorrect cases?
@@ -452,20 +502,30 @@ public class ChartDelta extends Chart {
                                     currentValue = current.getBaileyValue(path, null, null);
                                 }
 
-                                String oldRawValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                                String oldRawValue =
+                                        hasReformattedValue.value
+                                                ? reformattedValue.value
+                                                : old.getStringValue(path);
                                 if (CldrUtility.INHERITANCE_MARKER.equals(oldRawValue)) {
                                     oldRawValue = old.getBaileyValue(path, null, null);
                                 }
                                 // ignore differences due to old DAIP
-                                oldValue = dontDaipValue(oldRawValue, path) ? oldRawValue : daip.processInput(path, oldRawValue, null);
+                                oldValue =
+                                        dontDaipValue(oldRawValue, path)
+                                                ? oldRawValue
+                                                : daip.processInput(path, oldRawValue, null);
                             }
-                            if (highLevelOnly && new SuspiciousChange(oldValue, currentValue, path, locale).isDisruptive() == false) {
+                            if (highLevelOnly
+                                    && new SuspiciousChange(oldValue, currentValue, path, locale)
+                                                    .isDisruptive()
+                                            == false) {
                                 continue;
                             }
                             // handle non-distinguishing attributes
                             addPathDiff(sourceDir, old, current, locale, ph, diff);
 
-                            addValueDiff(sourceDir, oldValue, currentValue, locale, ph, diff, diffAll);
+                            addValueDiff(
+                                    sourceDir, oldValue, currentValue, locale, ph, diff, diffAll);
                         }
                     }
                 }
@@ -492,7 +552,12 @@ public class ChartDelta extends Chart {
         return true;
     }
 
-    private String getReformattedPath(Status oldStatus, CLDRFile old, String path, Output<String> value, Output<Boolean> hasReformattedValue) {
+    private String getReformattedPath(
+            Status oldStatus,
+            CLDRFile old,
+            String path,
+            Output<String> value,
+            Output<Boolean> hasReformattedValue) {
         if (SKIP_REFORMAT_ANNOTATIONS || !path.startsWith("//ldml/annotations/")) {
             hasReformattedValue.value = Boolean.FALSE;
             return old.getSourceLocaleID(path, oldStatus);
@@ -501,7 +566,9 @@ public class ChartDelta extends Chart {
         // NEW:     <annotation cp="😀">face | grin</annotation>
         //          <annotation cp="😀" type="tts">grinning face</annotation>
         // from the NEW paths, get the OLD values
-        XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
+        XPathParts parts =
+                XPathParts.getFrozenInstance(path)
+                        .cloneAsThawed(); // not frozen, for removeAttribute
         boolean isTts = parts.getAttributeValue(-1, "type") != null;
         if (isTts) {
             parts.removeAttribute(-1, "type");
@@ -563,7 +630,13 @@ public class ChartDelta extends Chart {
         return old;
     }
 
-    private void addPathDiff(File sourceDir, CLDRFile old, CLDRFile current, String locale, PathHeader ph, Set<PathDiff> diff2) {
+    private void addPathDiff(
+            File sourceDir,
+            CLDRFile old,
+            CLDRFile current,
+            String locale,
+            PathHeader ph,
+            Set<PathDiff> diff2) {
         String path = ph.getOriginalPath();
         String fullPathCurrent = current.getFullXPath(path);
         String fullPathOld = old.getFullXPath(path);
@@ -571,8 +644,10 @@ public class ChartDelta extends Chart {
             return;
         }
         XPathParts pathPlain = XPathParts.getFrozenInstance(path);
-        XPathParts pathCurrent = fullPathCurrent == null ? pathPlain : XPathParts.getFrozenInstance(fullPathCurrent);
-        XPathParts pathOld = fullPathOld == null ? pathPlain : XPathParts.getFrozenInstance(fullPathOld);
+        XPathParts pathCurrent =
+                fullPathCurrent == null ? pathPlain : XPathParts.getFrozenInstance(fullPathCurrent);
+        XPathParts pathOld =
+                fullPathOld == null ? pathPlain : XPathParts.getFrozenInstance(fullPathOld);
         TreeSet<String> fullAttributes = null;
         int size = pathCurrent.size();
         String parentAndName = parentAndName(sourceDir, locale);
@@ -596,18 +671,21 @@ public class ChartDelta extends Chart {
             // at this point we only have non-distinguishing
             for (String attribute : fullAttributes) {
                 String attributeValueOld = pathOld.getAttributeValue(elementIndex, attribute);
-                String attributeValueCurrent = pathCurrent.getAttributeValue(elementIndex, attribute);
+                String attributeValueCurrent =
+                        pathCurrent.getAttributeValue(elementIndex, attribute);
                 if (Objects.equals(attributeValueOld, attributeValueCurrent)) {
                     addChange(parentAndName, ChangeType.same, 1);
                     continue;
                 }
-                addChange(parentAndName, ChangeType.get(attributeValueOld, attributeValueCurrent), 1);
+                addChange(
+                        parentAndName, ChangeType.get(attributeValueOld, attributeValueCurrent), 1);
 
-                PathDiff row = new PathDiff(
-                    locale,
-                    new PathHeaderSegment(ph, size - elementIndex - 1, attribute),
-                    attributeValueOld,
-                    attributeValueCurrent);
+                PathDiff row =
+                        new PathDiff(
+                                locale,
+                                new PathHeaderSegment(ph, size - elementIndex - 1, attribute),
+                                attributeValueOld,
+                                attributeValueCurrent);
                 if (DEBUG) {
                     System.out.println(row);
                 }
@@ -620,8 +698,14 @@ public class ChartDelta extends Chart {
         return sourceDir.getName() + "/" + locale + ".xml";
     }
 
-    private void addValueDiff(File sourceDir, String valueOld, String valueCurrent, String locale, PathHeader ph, Set<PathDiff> diff,
-        Relation<PathHeader, String> diffAll) {
+    private void addValueDiff(
+            File sourceDir,
+            String valueOld,
+            String valueCurrent,
+            String locale,
+            PathHeader ph,
+            Set<PathDiff> diff,
+            Relation<PathHeader, String> diffAll) {
         // handle stuff that can be split specially
         Splitter splitter = getSplitter(ph.getOriginalPath(), valueOld, valueCurrent);
         int count = 1;
@@ -644,18 +728,26 @@ public class ChartDelta extends Chart {
                 addChange(parentAndName, ChangeType.added, sameAndNotInSecond[1]);
             } else if (hasUnicodeSetValue(ph.getOriginalPath())) {
                 UnicodeSet usOld = valueOld == null ? UnicodeSet.EMPTY : new UnicodeSet(valueOld);
-                UnicodeSet usCurrent = valueCurrent == null ? UnicodeSet.EMPTY : new UnicodeSet(valueCurrent);
+                UnicodeSet usCurrent =
+                        valueCurrent == null ? UnicodeSet.EMPTY : new UnicodeSet(valueCurrent);
                 UnicodeSet oldOnly = new UnicodeSet(usOld).removeAll(usCurrent);
                 UnicodeSet currentOnly = new UnicodeSet(usCurrent).removeAll(usOld);
-                addChange(parentAndName, ChangeType.same, usOld.size()-oldOnly.size());
+                addChange(parentAndName, ChangeType.same, usOld.size() - oldOnly.size());
                 addChange(parentAndName, ChangeType.deleted, oldOnly.size());
                 addChange(parentAndName, ChangeType.added, currentOnly.size());
-                valueOld = usOld.size()==oldOnly.size() ? oldOnly.toPattern(false) : "…" + oldOnly + "…";
-                valueCurrent = usCurrent.size()==currentOnly.size() ? currentOnly.toPattern(false) : "…" + currentOnly + "…";
+                valueOld =
+                        usOld.size() == oldOnly.size()
+                                ? oldOnly.toPattern(false)
+                                : "…" + oldOnly + "…";
+                valueCurrent =
+                        usCurrent.size() == currentOnly.size()
+                                ? currentOnly.toPattern(false)
+                                : "…" + currentOnly + "…";
             } else {
                 addChange(parentAndName, ChangeType.get(valueOld, valueCurrent), count);
             }
-            PathDiff row = new PathDiff(locale, new PathHeaderSegment(ph, -1, ""), valueOld, valueCurrent);
+            PathDiff row =
+                    new PathDiff(locale, new PathHeaderSegment(ph, -1, ""), valueOld, valueCurrent);
             diff.add(row);
             diffAll.put(ph, locale);
         }
@@ -672,7 +764,8 @@ public class ChartDelta extends Chart {
     private Splitter getSplitter(String path, String valueOld, String valueCurrent) {
         if (path.contains("/annotation") && !path.contains("tts")) {
             return DtdData.BAR_SPLITTER;
-        } else if (valueOld != null && valueOld.contains("\n") || valueCurrent != null && valueCurrent.contains("\n")) {
+        } else if (valueOld != null && valueOld.contains("\n")
+                || valueCurrent != null && valueCurrent.contains("\n")) {
             return DtdData.CR_SPLITTER;
         } else {
             return null;
@@ -681,17 +774,21 @@ public class ChartDelta extends Chart {
 
     /**
      * Return string with all lines from linesToRemove removed
+     *
      * @param toGetStringFor
      * @param linesToRemove
      * @return
      */
-    private String getFilteredValue(Collection<String> toGetStringFor, Collection<String> linesToRemove,
-        int[] sameAndDiff) {
+    private String getFilteredValue(
+            Collection<String> toGetStringFor,
+            Collection<String> linesToRemove,
+            int[] sameAndDiff) {
         if (toGetStringFor == null) {
             return null;
         }
         StringBuilder buf = new StringBuilder();
-        Set<String> toRemove = linesToRemove == null ? Collections.emptySet() : new HashSet<>(linesToRemove);
+        Set<String> toRemove =
+                linesToRemove == null ? Collections.emptySet() : new HashSet<>(linesToRemove);
         boolean removed = false;
         for (String old : toGetStringFor) {
             if (toRemove.contains(old)) {
@@ -714,21 +811,56 @@ public class ChartDelta extends Chart {
         return buf.toString();
     }
 
-    private void writeDiffs(Anchors anchors, String file, String title, Multimap<PathHeader, String> bcp, PrintWriter tsvFile) {
+    private void writeDiffs(
+            Anchors anchors,
+            String file,
+            String title,
+            Multimap<PathHeader, String> bcp,
+            PrintWriter tsvFile) {
         if (bcp.isEmpty()) {
             System.out.println("\tDeleting: " + DIR + "/" + file);
             new File(DIR + file).delete();
             return;
         }
-        TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)//.setRepeatDivider(true)
-            .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Code", "class='source'", null, "class='source'", false)
-            .addColumn("Old", "class='target'", null, "class='target'", false) //  width='20%'
-            .addColumn("New", "class='target'", null, "class='target'", false); //  width='20%'
-        PathHeader ph1 = phf.fromPath("//supplementalData/metadata/alias/subdivisionAlias[@type=\"TW-TXQ\"]/_reason");
-        PathHeader ph2 = phf.fromPath("//supplementalData/metadata/alias/subdivisionAlias[@type=\"LA-XN\"]/_replacement");
+        TablePrinter tablePrinter =
+                new TablePrinter()
+                        .addColumn(
+                                "Section",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn(
+                                "Page",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true) // .setRepeatDivider(true)
+                        .addColumn(
+                                "Header",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn("Code", "class='source'", null, "class='source'", false)
+                        .addColumn(
+                                "Old",
+                                "class='target'",
+                                null,
+                                "class='target'",
+                                false) //  width='20%'
+                        .addColumn(
+                                "New",
+                                "class='target'",
+                                null,
+                                "class='target'",
+                                false); //  width='20%'
+        PathHeader ph1 =
+                phf.fromPath(
+                        "//supplementalData/metadata/alias/subdivisionAlias[@type=\"TW-TXQ\"]/_reason");
+        PathHeader ph2 =
+                phf.fromPath(
+                        "//supplementalData/metadata/alias/subdivisionAlias[@type=\"LA-XN\"]/_replacement");
         ph1.compareTo(ph2);
         for (Entry<PathHeader, Collection<String>> entry : bcp.asMap().entrySet()) {
             PathHeader ph = entry.getKey();
@@ -737,52 +869,106 @@ public class ChartDelta extends Chart {
             }
             for (String value : entry.getValue()) {
                 String[] oldNew = value.split(SEP);
-                tablePrinter.addRow()
-                .addCell(ph.getSectionId())
-                .addCell(ph.getPageId())
-                .addCell(ph.getHeader())
-                .addCell(ph.getCode())
-                .addCell(oldNew[0])
-                .addCell(oldNew[1])
-                .finishRow();
+                tablePrinter
+                        .addRow()
+                        .addCell(ph.getSectionId())
+                        .addCell(ph.getPageId())
+                        .addCell(ph.getHeader())
+                        .addCell(ph.getCode())
+                        .addCell(oldNew[0])
+                        .addCell(oldNew[1])
+                        .finishRow();
             }
         }
         writeTable(anchors, file, tablePrinter, title, tsvFile);
     }
 
     private void writeDiffs(Relation<PathHeader, String> diffAll) {
-        TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Code", "class='source'", null, "class='source'", true)
-            .addColumn("Locales where different", "class='target'", null, "class='target'", true);
+        TablePrinter tablePrinter =
+                new TablePrinter()
+                        .addColumn(
+                                "Section",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn(
+                                "Page",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn(
+                                "Header",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn("Code", "class='source'", null, "class='source'", true)
+                        .addColumn(
+                                "Locales where different",
+                                "class='target'",
+                                null,
+                                "class='target'",
+                                true);
         for (Entry<PathHeader, Set<String>> row : diffAll.keyValuesSet()) {
             PathHeader ph = row.getKey();
             Set<String> locales = row.getValue();
-            tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(ph.getCode())
-            .addCell(Joiner.on(" ").join(locales))
-            .finishRow();
+            tablePrinter
+                    .addRow()
+                    .addCell(ph.getSectionId())
+                    .addCell(ph.getPageId())
+                    .addCell(ph.getHeader())
+                    .addCell(ph.getCode())
+                    .addCell(Joiner.on(" ").join(locales))
+                    .finishRow();
         }
     }
 
-    private void writeDiffs(Anchors anchors, String file, Set<PathDiff> diff, PrintWriter tsvFile, Counter<PathHeader> counts) {
+    private void writeDiffs(
+            Anchors anchors,
+            String file,
+            Set<PathDiff> diff,
+            PrintWriter tsvFile,
+            Counter<PathHeader> counts) {
         if (diff.isEmpty()) {
             return;
         }
-        TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Code", "class='source'", null, "class='source'", true)
-            .addColumn("Locale", "class='source'", null, "class='source'", true)
-            .addColumn("Old", "class='target'", null, "class='target'", true) //  width='20%'
-            .addColumn("New", "class='target'", null, "class='target'", true) //  width='20%'
-            .addColumn("Level", "class='target'", null, "class='target'", true);
+        TablePrinter tablePrinter =
+                new TablePrinter()
+                        .addColumn(
+                                "Section",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn(
+                                "Page",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn(
+                                "Header",
+                                "class='source'",
+                                CldrUtility.getDoubleLinkMsg(),
+                                "class='source'",
+                                true)
+                        .addColumn("Code", "class='source'", null, "class='source'", true)
+                        .addColumn("Locale", "class='source'", null, "class='source'", true)
+                        .addColumn(
+                                "Old",
+                                "class='target'",
+                                null,
+                                "class='target'",
+                                true) //  width='20%'
+                        .addColumn(
+                                "New",
+                                "class='target'",
+                                null,
+                                "class='target'",
+                                true) //  width='20%'
+                        .addColumn("Level", "class='target'", null, "class='target'", true);
 
         for (PathDiff row : diff) {
             PathHeaderSegment phs = row.get0();
@@ -802,21 +988,28 @@ public class ChartDelta extends Chart {
                     specialCode += "|" + pathIndex;
                 }
             }
-            Level coverageLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
-            String fixedOldValue = oldValue == null ? "▷missing◁" : TransliteratorUtilities.toHTML.transform(oldValue);
-            String fixedNewValue = currentValue == null ? "▷removed◁" : TransliteratorUtilities.toHTML.transform(currentValue);
+            Level coverageLevel =
+                    SUPPLEMENTAL_DATA_INFO.getCoverageLevel(ph.getOriginalPath(), locale);
+            String fixedOldValue =
+                    oldValue == null
+                            ? "▷missing◁"
+                            : TransliteratorUtilities.toHTML.transform(oldValue);
+            String fixedNewValue =
+                    currentValue == null
+                            ? "▷removed◁"
+                            : TransliteratorUtilities.toHTML.transform(currentValue);
 
-            tablePrinter.addRow()
-            .addCell(ph.getSectionId())
-            .addCell(ph.getPageId())
-            .addCell(ph.getHeader())
-            .addCell(specialCode)
-            .addCell(locale)
-            .addCell(fixedOldValue)
-            .addCell(fixedNewValue)
-            .addCell(coverageLevel)
-            .finishRow();
-
+            tablePrinter
+                    .addRow()
+                    .addCell(ph.getSectionId())
+                    .addCell(ph.getPageId())
+                    .addCell(ph.getHeader())
+                    .addCell(specialCode)
+                    .addCell(locale)
+                    .addCell(fixedOldValue)
+                    .addCell(fixedNewValue)
+                    .addCell(coverageLevel)
+                    .finishRow();
         }
         String title = ENGLISH.getName(file) + " " + chartNameCap;
         writeTable(anchors, file, tablePrinter, title, tsvFile);
@@ -830,7 +1023,8 @@ public class ChartDelta extends Chart {
         private TablePrinter tablePrinter;
         private PrintWriter tsvFile;
 
-        private ChartDeltaSub(String title, String file, TablePrinter tablePrinter, PrintWriter tsvFile) {
+        private ChartDeltaSub(
+                String title, String file, TablePrinter tablePrinter, PrintWriter tsvFile) {
             super();
             this.title = title;
             this.file = file;
@@ -861,8 +1055,8 @@ public class ChartDelta extends Chart {
         @Override
         public String getExplanation() {
             return "<p>Lists data fields that differ from the last major version (see versions above)."
-                + " Inherited differences in locales are suppressed, except where the source locales are different. "
-                + "<p>";
+                    + " Inherited differences in locales are suppressed, except where the source locales are different. "
+                    + "<p>";
         }
 
         @Override
@@ -872,15 +1066,23 @@ public class ChartDelta extends Chart {
         }
     }
 
-    private void writeTable(Anchors anchors, String file, TablePrinter tablePrinter, String title, PrintWriter tsvFile) {
+    private void writeTable(
+            Anchors anchors,
+            String file,
+            TablePrinter tablePrinter,
+            String title,
+            PrintWriter tsvFile) {
         ChartDeltaSub chartDeltaSub = new ChartDeltaSub(title, file, tablePrinter, tsvFile);
         chartDeltaSub.writeChart(anchors);
     }
 
     private void writeNonLdmlPlain(Anchors anchors) throws IOException {
-        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_supp.tsv");
-            PrintWriter tsvCountFile = FileUtilities.openUTF8Writer(getTsvDir(DIR, dirName), dirName + "_supp_count.tsv");
-            ) {
+        try (PrintWriter tsvFile =
+                        FileUtilities.openUTF8Writer(
+                                getTsvDir(DIR, dirName), dirName + "_supp.tsv");
+                PrintWriter tsvCountFile =
+                        FileUtilities.openUTF8Writer(
+                                getTsvDir(DIR, dirName), dirName + "_supp_count.tsv"); ) {
             tsvFile.println("# Section\tPage\tHeader\tCode\tOld\tNew");
 
             Multimap<PathHeader, String> bcp = TreeMultimap.create();
@@ -893,11 +1095,11 @@ public class ChartDelta extends Chart {
 
             for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
                 if (DtdType.ldml.directories.contains(dir)
-                    || dir.equals(".DS_Store")
-                    || dir.equals("dtd") // TODO as flat files
-                    || dir.equals("properties") // TODO as flat files
-                    || dir.equals("uca") // TODO as flat files
-                    ) {
+                        || dir.equals(".DS_Store")
+                        || dir.equals("dtd") // TODO as flat files
+                        || dir.equals("properties") // TODO as flat files
+                        || dir.equals("uca") // TODO as flat files
+                ) {
                     continue;
                 }
                 File dirOld = new File(PREV_CHART_VERSION_DIRECTORY + "common/" + dir);
@@ -923,11 +1125,19 @@ public class ChartDelta extends Chart {
                     if (verbose) {
                         System.out.println(file);
                     }
-                    Relation<PathHeader, String> contentsOld = fillData(dirOld.toString() + "/", file, base);
-                    Relation<PathHeader, String> contents2 = fillData(dir2.toString() + "/", file, base);
+                    Relation<PathHeader, String> contentsOld =
+                            fillData(dirOld.toString() + "/", file, base);
+                    Relation<PathHeader, String> contents2 =
+                            fillData(dir2.toString() + "/", file, base);
 
-                    Set<PathHeader> keys = new TreeSet<>(CldrUtility.ifNull(contentsOld.keySet(), Collections.<PathHeader> emptySet()));
-                    keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
+                    Set<PathHeader> keys =
+                            new TreeSet<>(
+                                    CldrUtility.ifNull(
+                                            contentsOld.keySet(),
+                                            Collections.<PathHeader>emptySet()));
+                    keys.addAll(
+                            CldrUtility.ifNull(
+                                    contents2.keySet(), Collections.<PathHeader>emptySet()));
                     DtdType dtdType = null;
                     for (PathHeader key : keys) {
                         String originalPath = key.getOriginalPath();
@@ -938,9 +1148,10 @@ public class ChartDelta extends Chart {
                         if (dtdType == null) {
                             dtdType = DtdType.fromPath(originalPath);
                         }
-                        Multimap<PathHeader, String> target = dtdType == DtdType.ldmlBCP47 ? bcp
-                            : isTransform ? transforms
-                                : supplemental;
+                        Multimap<PathHeader, String> target =
+                                dtdType == DtdType.ldmlBCP47
+                                        ? bcp
+                                        : isTransform ? transforms : supplemental;
                         Set<String> setOld = contentsOld.get(key);
                         Set<String> set2 = contents2.get(key);
 
@@ -996,7 +1207,12 @@ public class ChartDelta extends Chart {
                 }
             }
             writeDiffs(anchors, "bcp47", "¤¤BCP47 " + chartNameCap, bcp, tsvFile);
-            writeDiffs(anchors, "supplemental-data", "¤¤Supplemental " + chartNameCap, supplemental, tsvFile);
+            writeDiffs(
+                    anchors,
+                    "supplemental-data",
+                    "¤¤Supplemental " + chartNameCap,
+                    supplemental,
+                    tsvFile);
             writeDiffs(anchors, "transforms", "¤¤Transforms " + chartNameCap, transforms, tsvFile);
 
             writeCounter(tsvCountFile, "CountSame", countSame);
@@ -1005,21 +1221,20 @@ public class ChartDelta extends Chart {
             tsvCountFile.println();
             writeCounter(tsvCountFile, "CountDeleted", countDeleted);
 
-            //tsvFile.println("# EOF");
-            //tsvCountFile.println("# EOF");
+            // tsvFile.println("# EOF");
+            // tsvCountFile.println("# EOF");
         }
     }
 
     private void writeCounter(PrintWriter tsvFile, String title, Counter<PathHeader> countDeleted) {
-        tsvFile.append("# "
-            + title
-            + "\tSection\tPage\tSubhead\tCode\n\n");
+        tsvFile.append("# " + title + "\tSection\tPage\tSubhead\tCode\n\n");
         for (R2<Long, PathHeader> entry : countDeleted.getEntrySetSortedByCount(false, null)) {
             tsvFile.println(entry.get0() + "\t" + entry.get1());
         }
     }
 
-    private void addRow(Multimap<PathHeader, String> target, PathHeader key, String oldItem, String newItem) {
+    private void addRow(
+            Multimap<PathHeader, String> target, PathHeader key, String oldItem, String newItem) {
         if (oldItem.isEmpty() || newItem.isEmpty()) {
             throw new IllegalArgumentException();
         }
@@ -1035,11 +1250,14 @@ public class ChartDelta extends Chart {
      * @return the Relation
      */
     private Relation<PathHeader, String> fillData(String directory, String file, String fileBase) {
-        Relation<PathHeader, String> results = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
+        Relation<PathHeader, String> results =
+                Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
 
         List<Pair<String, String>> contents1;
         try {
-            contents1 = XMLFileReader.loadPathValues(directory + file, new ArrayList<Pair<String, String>>(), true);
+            contents1 =
+                    XMLFileReader.loadPathValues(
+                            directory + file, new ArrayList<Pair<String, String>>(), true);
         } catch (Exception e) {
             /*
              * This happens with e = ICUException, file = grammaticalFeatures.xml in cldr-36.0
@@ -1052,7 +1270,8 @@ public class ChartDelta extends Chart {
 
         for (Pair<String, String> s : contents1) {
             String path = s.getFirst();
-            if (highLevelOnly && !HighLevelPaths.pathIsHighLevel(path, fileBase /* locale, or not */)) {
+            if (highLevelOnly
+                    && !HighLevelPaths.pathIsHighLevel(path, fileBase /* locale, or not */)) {
                 continue;
             }
             String value = s.getSecond();
@@ -1078,7 +1297,9 @@ public class ChartDelta extends Chart {
                  * //supplementalData/grammaticalData/grammaticalFeatures[@targets="nominal"][@locales="he"]/grammaticalState[@values="definite indefinite construct"]
                  * Reference: https://unicode-org.atlassian.net/browse/CLDR-13306
                  */
-                System.out.println("Caught NullPointerException in fillData calling isMetadata, path = " + path);
+                System.out.println(
+                        "Caught NullPointerException in fillData calling isMetadata, path = "
+                                + path);
                 continue;
             }
             Set<String> pathForValues = dtdData.getRegularizedPaths(pathPlain, extras);
@@ -1121,7 +1342,8 @@ public class ChartDelta extends Chart {
     }
 
     private boolean isExtraSplit(String extraPath) {
-        if (extraPath.endsWith("/_type") && extraPath.startsWith("//supplementalData/metaZones/mapTimezones")) {
+        if (extraPath.endsWith("/_type")
+                && extraPath.startsWith("//supplementalData/metaZones/mapTimezones")) {
             return true;
         }
         return false;
@@ -1137,24 +1359,23 @@ public class ChartDelta extends Chart {
     }
 
     /**
-     * Determine when changes to the values for paths should be treated as
-     * potentially "disruptive" for the purpose of "churn" reporting
+     * Determine when changes to the values for paths should be treated as potentially "disruptive"
+     * for the purpose of "churn" reporting
      */
     private class SuspiciousChange {
-        /**
-         * the old and new values, such as "HH:mm–HH:mm v" and "HH:mm – HH:mm v"
-         */
+        /** the old and new values, such as "HH:mm–HH:mm v" and "HH:mm – HH:mm v" */
         private String oldValue, newValue;
 
         /**
-         * the path, such as //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]
+         * the path, such as
+         * //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]
          */
         private String path;
 
         /**
-         * the locale (such as "doi") in which the path was found, or null, or possibly
-         * the base file name without extension, like "xx" if the file name is "xx.xml",
-         * where "xx" may or may not be a locale; e.g., "supplementalData"
+         * the locale (such as "doi") in which the path was found, or null, or possibly the base
+         * file name without extension, like "xx" if the file name is "xx.xml", where "xx" may or
+         * may not be a locale; e.g., "supplementalData"
          */
         private String locale;
 
@@ -1166,7 +1387,8 @@ public class ChartDelta extends Chart {
         }
 
         /**
-         * Is the change from the old value to the new value, for this path and locale, potentially disruptive?
+         * Is the change from the old value to the new value, for this path and locale, potentially
+         * disruptive?
          *
          * @return true or false
          */
@@ -1181,8 +1403,8 @@ public class ChartDelta extends Chart {
         }
 
         /**
-         * Is the change from the old value to the current value potentially disruptive, based (primarily) on
-         * the values themselves?
+         * Is the change from the old value to the current value potentially disruptive, based
+         * (primarily) on the values themselves?
          *
          * @return true or false
          */
@@ -1197,9 +1419,9 @@ public class ChartDelta extends Chart {
         }
 
         /**
-         * Is the change disruptive whitespace only?
-         * Per design doc, "Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
-         * or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none."
+         * Is the change disruptive whitespace only? Per design doc, "Format changes: second to none
+         * on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP or NBSP ->
+         * Narrow NBSP. Or adding a space somewhere in the format where previously there was none."
          *
          * @return true or false
          */
@@ -1219,10 +1441,8 @@ public class ChartDelta extends Chart {
         /**
          * Remove whitespace from the given string
          *
-         * Remove whitespace as defined by regex \s, and also
-         * U+00A0 NO-BREAK SPACE
-         * U+2007 FIGURE SPACE
-         * U+202F NARROW NO-BREAK SPACE
+         * <p>Remove whitespace as defined by regex \s, and also U+00A0 NO-BREAK SPACE U+2007 FIGURE
+         * SPACE U+202F NARROW NO-BREAK SPACE
          *
          * @param s the string
          * @return the modified string
@@ -1233,149 +1453,155 @@ public class ChartDelta extends Chart {
     }
 
     /**
-     * Determine which paths are considered "high-level" paths, i.e.,
-     * paths for which any changes have high potential to cause disruptive "churn".
-     * Whether a path is high-level sometimes depends on the locale or xml file in
-     * which it occurs.
-     * Some paths are high-level regardless of the locale in which they are located.
-     * Other paths are high-level for some locales but not others. For example,
-     *    //ldml/localeDisplayNames/languages/language[@type="xx"]
-     * is high level in locale "xx", and maybe "en", but not for all locales.
+     * Determine which paths are considered "high-level" paths, i.e., paths for which any changes
+     * have high potential to cause disruptive "churn". Whether a path is high-level sometimes
+     * depends on the locale or xml file in which it occurs. Some paths are high-level regardless of
+     * the locale in which they are located. Other paths are high-level for some locales but not
+     * others. For example, //ldml/localeDisplayNames/languages/language[@type="xx"] is high level
+     * in locale "xx", and maybe "en", but not for all locales.
      */
     private static class HighLevelPaths {
         /**
-         * A set of paths to be treated as "high-level".
-         * These are complete paths to be matched exactly.
-         * Other paths are recognized by special functions like isHighLevelTerritoryName.
+         * A set of paths to be treated as "high-level". These are complete paths to be matched
+         * exactly. Other paths are recognized by special functions like isHighLevelTerritoryName.
          *
-         * The ordering and comments are based on the design spec.
+         * <p>The ordering and comments are based on the design spec.
          */
-        final private static Set<String> highLevelPaths = new HashSet<>(Arrays.asList(
-            /*
-             * Core data
-             */
-            "//ldml/characters/exemplarCharacters",
-            "//ldml/numbers/defaultNumberingSystem",
-            "//ldml/numbers/otherNumberingSystems/native",
-            /*
-             * Territory and Language names
-             *  Country/Region names (English and Native names) -- see isHighLevelTerritoryName
-             *   //ldml/localeDisplayName/territories/territory/...
-             *  Language names (English and Native) -- see isHighLevelLangName
-             *   //ldml/localeDisplayNames/languages/language/...
-             */
-            /*
-             * Date
-             * Note: "year", "month", etc., below, form a subset (eight) of all possible values for type,
-             * excluding, for example, "fri" and "zone". If we use starred paths, we would need further complication
-             * to filter out "fri", "zone", etc.
-             */
-            "//ldml/dates/fields/field[@type=\"year\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"month\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"week\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"day\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"hour\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"era\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"minute\"]/displayName",
-            "//ldml/dates/fields/field[@type=\"second\"]/displayName",
-            /*
-             * First day of week: firstDay in supplementalData.xml; see isHighLevelFirstDay
-             * First week of year: see isHighLevelWeekOfPreference
-             */
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMEd\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MEd\"]",
-            /*
-             * Time
-             */
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"am\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"am\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"pm\"]",
-            /*
-             * Currency (English and Native) -- see isHighLevelCurrencyName
-             * E.g., //ldml/numbers/currencies/currency[@type=\"KRW\"]/displayName"
-             *
-             * ISO Currency Code: SupplementalData.xml match <region iso3166> -- see isHighLevelCurrencyCode
-             */
-            /*
-             * Currency Formats
-             *  a. Currency thousand separator
-             *  b. Currency decimal separator
-             *  c. Currency Symbol //ldml/numbers/currencies/currency[@type="CNY"]/symbol
-             *  d. Currency Symbol Narrow //ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]"
-             *
-             * See isHighLevelCurrencySeparatorOrSymbol
-             */
-            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            /*
-             * Number Symbols
-             */
-            "//ldml/numbers/minimumGroupingDigits",
-            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
-            "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
-            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal",
-            "//ldml/numbers/symbols[@numberSystem=\"arab\"]/group",
-            /*
-             * Number formats
-             */
-            "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]",
-            "//ldml/numbers/decimalFormats[@numberSystem=\"arab\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-            "//ldml/numbers/percentFormats[@numberSystem=\"arab\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"
-            /*
-             * "Complementary Observations"
-             */
-            /*
-             * Changes to language aliases (supplementalMetaData) -- see isHighLevelLangAlias
-             * E.g., //supplementalData/metadata/alias/languageAlias[@type="aar"]
-             */
-            /*
-             * Changes in the containment graph -- see isHighLevelTerritoryContainment
-             * Data mostly (or entirely?) from M49 standard, thus CLDR has limited control.
-             * Users use the containment graph in a variety of ways.
-             * E.g., //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
-             */
-            /*
-             * Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
-             *  or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none.
-             *  -- see SuspiciousChange.valueChangeIsDisruptiveWhitespaceOnly
-             */
-            /*
-             * TODO: per design doc, "Adding a timezone"
-             * TODO: per design doc, "Changes of symbols or codes that are cross-locale in some way such as the unknown
-             *  currency symbol change '???' -> '¤'."
-             * TODO: per design doc, "Change in character properties (not a CLDR but a Unicode change), and here especially
-             *  newly adding or removing punctuation. Frequently irritates parsers."
-             */
-        ));
+        private static final Set<String> highLevelPaths =
+                new HashSet<>(
+                        Arrays.asList(
+                                /*
+                                 * Core data
+                                 */
+                                "//ldml/characters/exemplarCharacters",
+                                "//ldml/numbers/defaultNumberingSystem",
+                                "//ldml/numbers/otherNumberingSystems/native",
+                                /*
+                                 * Territory and Language names
+                                 *  Country/Region names (English and Native names) -- see isHighLevelTerritoryName
+                                 *   //ldml/localeDisplayName/territories/territory/...
+                                 *  Language names (English and Native) -- see isHighLevelLangName
+                                 *   //ldml/localeDisplayNames/languages/language/...
+                                 */
+                                /*
+                                 * Date
+                                 * Note: "year", "month", etc., below, form a subset (eight) of all possible values for type,
+                                 * excluding, for example, "fri" and "zone". If we use starred paths, we would need further complication
+                                 * to filter out "fri", "zone", etc.
+                                 */
+                                "//ldml/dates/fields/field[@type=\"year\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"month\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"week\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"day\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"hour\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"era\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"minute\"]/displayName",
+                                "//ldml/dates/fields/field[@type=\"second\"]/displayName",
+                                /*
+                                 * First day of week: firstDay in supplementalData.xml; see isHighLevelFirstDay
+                                 * First week of year: see isHighLevelWeekOfPreference
+                                 */
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMEd\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MEd\"]",
+                                /*
+                                 * Time
+                                 */
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"am\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"am\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]",
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"pm\"]",
+                                /*
+                                 * Currency (English and Native) -- see isHighLevelCurrencyName
+                                 * E.g., //ldml/numbers/currencies/currency[@type=\"KRW\"]/displayName"
+                                 *
+                                 * ISO Currency Code: SupplementalData.xml match <region iso3166> -- see isHighLevelCurrencyCode
+                                 */
+                                /*
+                                 * Currency Formats
+                                 *  a. Currency thousand separator
+                                 *  b. Currency decimal separator
+                                 *  c. Currency Symbol //ldml/numbers/currencies/currency[@type="CNY"]/symbol
+                                 *  d. Currency Symbol Narrow //ldml/numbers/currencies/currency[@type=\"CNY\"]/symbol[@alt=\"narrow\"]"
+                                 *
+                                 * See isHighLevelCurrencySeparatorOrSymbol
+                                 */
+                                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                /*
+                                 * Number Symbols
+                                 */
+                                "//ldml/numbers/minimumGroupingDigits",
+                                "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal",
+                                "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
+                                "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal",
+                                "//ldml/numbers/symbols[@numberSystem=\"arab\"]/group",
+                                /*
+                                 * Number formats
+                                 */
+                                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]",
+                                "//ldml/numbers/decimalFormats[@numberSystem=\"arab\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "//ldml/numbers/percentFormats[@numberSystem=\"arab\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"
+                                /*
+                                 * "Complementary Observations"
+                                 */
+                                /*
+                                 * Changes to language aliases (supplementalMetaData) -- see isHighLevelLangAlias
+                                 * E.g., //supplementalData/metadata/alias/languageAlias[@type="aar"]
+                                 */
+                                /*
+                                 * Changes in the containment graph -- see isHighLevelTerritoryContainment
+                                 * Data mostly (or entirely?) from M49 standard, thus CLDR has limited control.
+                                 * Users use the containment graph in a variety of ways.
+                                 * E.g., //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
+                                 */
+                                /*
+                                 * Format changes: second to none on the disruptiveness scale are changes involving spaces such as SPACE -> NBSP
+                                 *  or NBSP -> Narrow NBSP. Or adding a space somewhere in the format where previously there was none.
+                                 *  -- see SuspiciousChange.valueChangeIsDisruptiveWhitespaceOnly
+                                 */
+                                /*
+                                 * TODO: per design doc, "Adding a timezone"
+                                 * TODO: per design doc, "Changes of symbols or codes that are cross-locale in some way such as the unknown
+                                 *  currency symbol change '???' -> '¤'."
+                                 * TODO: per design doc, "Change in character properties (not a CLDR but a Unicode change), and here especially
+                                 *  newly adding or removing punctuation. Frequently irritates parsers."
+                                 */
+                                ));
 
-        static Pattern currencyPattern = Pattern.compile("^//ldml/numbers/currencies/currency.*/displayName.*");
+        static Pattern currencyPattern =
+                Pattern.compile("^//ldml/numbers/currencies/currency.*/displayName.*");
 
         /**
-         * Should the given path in the given locale be taken into account for generating "churn" reports?
+         * Should the given path in the given locale be taken into account for generating "churn"
+         * reports?
          *
          * @param path the path of interest
-         * @param locale the locale in which the path was found, or null, or possibly
-         *     the base file name without extension, like "xx" if the file name is "xx.xml",
-         *     where "xx" may or may not be a locale; e.g., "supplementalData"
+         * @param locale the locale in which the path was found, or null, or possibly the base file
+         *     name without extension, like "xx" if the file name is "xx.xml", where "xx" may or may
+         *     not be a locale; e.g., "supplementalData"
          * @return true if it counts, else false to ignore
          */
         private static boolean pathIsHighLevel(String path, String locale) {
             if (path == null || locale == null) {
                 return false;
             }
-            if (!localeIsHighLevel(locale)) { // for efficiency, this should be caught at a higher level
-                System.out.println("locale [" + locale + "] failed localeIsHighLevel in pathIsHighLevel; path = " + path);
+            if (!localeIsHighLevel(
+                    locale)) { // for efficiency, this should be caught at a higher level
+                System.out.println(
+                        "locale ["
+                                + locale
+                                + "] failed localeIsHighLevel in pathIsHighLevel; path = "
+                                + path);
                 return false;
             }
             if (pathIsReallyHighLevel(path, locale)) {
@@ -1415,17 +1641,18 @@ public class ChartDelta extends Chart {
         /**
          * Is the given locale, or base name, to be considered for "high level" churn report?
          *
-         * @param locale the locale string, or base name like "supplementalData" as in "supplementalData.xml"
+         * @param locale the locale string, or base name like "supplementalData" as in
+         *     "supplementalData.xml"
          * @return true or false
          */
         private static boolean localeIsHighLevel(String locale) {
             return SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES.contains(locale)
-                || "supplementalData".equals(locale);
+                    || "supplementalData".equals(locale);
         }
 
         /**
-         * Changes to language aliases (supplemental metadata)
-         * E.g., //supplementalData/metadata/alias/languageAlias[@type="aar"]
+         * Changes to language aliases (supplemental metadata) E.g.,
+         * //supplementalData/metadata/alias/languageAlias[@type="aar"]
          *
          * @param path
          * @param locale must be "supplementalData" to match
@@ -1441,10 +1668,9 @@ public class ChartDelta extends Chart {
         }
 
         /**
-         * Changes in the containment graph
-         * Data mostly (or entirely?) from M49 standard, thus CLDR has limited control.
-         * Users use the containment graph in a variety of ways.
-         * E.g., //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
+         * Changes in the containment graph Data mostly (or entirely?) from M49 standard, thus CLDR
+         * has limited control. Users use the containment graph in a variety of ways. E.g.,
+         * //supplementalData/territoryContainment/group[@type="003"][@contains="013 021 029"]
          *
          * @param path
          * @param locale must be "supplementalData" to match
@@ -1462,13 +1688,13 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level territory name path in the given locale?
          *
-         * E.g., //ldml/localeDisplayNames/territories/territory[@type="NNN"]
-         * if type "NNN" CORRESPONDS TO the locale or the locale is "en"
+         * <p>E.g., //ldml/localeDisplayNames/territories/territory[@type="NNN"] if type "NNN"
+         * CORRESPONDS TO the locale or the locale is "en"
          *
-         * English names (en.xml): match all types
-         * Native: check each territory type NNN corresponding to the given locale
+         * <p>English names (en.xml): match all types Native: check each territory type NNN
+         * corresponding to the given locale
          *
-         * Exclude "alt"
+         * <p>Exclude "alt"
          *
          * @param path
          * @param locale
@@ -1495,10 +1721,10 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level language name path in the given locale?
          *
-         * E.g., //ldml/localeDisplayNames/languages/language[@type="xx"]
-         * if type "xx" matches the locale or the locale is "en"
+         * <p>E.g., //ldml/localeDisplayNames/languages/language[@type="xx"] if type "xx" matches
+         * the locale or the locale is "en"
          *
-         * Exclude "alt"
+         * <p>Exclude "alt"
          *
          * @param path
          * @param locale
@@ -1525,13 +1751,13 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level currency name path in the given locale?
          *
-         * E.g., //ldml/numbers/currencies/currency[@type=\"AAA\"]/displayName
-         * if type "AAA" CORRESPONDS TO the locale or the locale is "en"
+         * <p>E.g., //ldml/numbers/currencies/currency[@type=\"AAA\"]/displayName if type "AAA"
+         * CORRESPONDS TO the locale or the locale is "en"
          *
-         * English names (en.xml): match all types
-         * Native: check each currency type AAA corresponding to the given locale
+         * <p>English names (en.xml): match all types Native: check each currency type AAA
+         * corresponding to the given locale
          *
-         * Do NOT exclude "alt"; e.g.,
+         * <p>Do NOT exclude "alt"; e.g.,
          * //ldml/numbers/currencies/currency[@type="ADP"]/displayName[@alt="proposed-u167-1"]
          *
          * @param path
@@ -1558,7 +1784,8 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level currency code path in the given locale?
          *
-         * E.g., //supplementalData/currencyData/region[@iso3166="AC"]/currency[@iso4217="SHP"][@from="1976-01-01"]
+         * <p>E.g.,
+         * //supplementalData/currencyData/region[@iso3166="AC"]/currency[@iso4217="SHP"][@from="1976-01-01"]
          *
          * @param path
          * @param locale must be "supplementalData" to match
@@ -1574,12 +1801,13 @@ public class ChartDelta extends Chart {
         }
 
         /**
-         * Is the given path a high-level currency thousands-separator or decimal-separator path in the given locale?
+         * Is the given path a high-level currency thousands-separator or decimal-separator path in
+         * the given locale?
          *
-         * E.g., //ldml/numbers/currencies/currency[@type="ESP"]/group
-         *       //ldml/numbers/currencies/currency[@type="ESP"]/decimal
-         *       //ldml/numbers/currencies/currency[@type="CNY"]/symbol
-         *       //ldml/numbers/currencies/currency[@type="CNY"]/symbol[@alt="narrow"]"
+         * <p>E.g., //ldml/numbers/currencies/currency[@type="ESP"]/group
+         * //ldml/numbers/currencies/currency[@type="ESP"]/decimal
+         * //ldml/numbers/currencies/currency[@type="CNY"]/symbol
+         * //ldml/numbers/currencies/currency[@type="CNY"]/symbol[@alt="narrow"]"
          *
          * @param path
          * @param locale
@@ -1587,7 +1815,9 @@ public class ChartDelta extends Chart {
          */
         private static boolean isHighLevelCurrencySeparatorOrSymbol(String path, String locale) {
             if (path.startsWith("//ldml/numbers/currencies/currency")
-                && (path.contains("group") || path.contains("decimal") || path.contains("symbol"))) {
+                    && (path.contains("group")
+                            || path.contains("decimal")
+                            || path.contains("symbol"))) {
                 return true;
             }
             return false;
@@ -1596,7 +1826,7 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level weekData/firstDay in the given locale?
          *
-         * E.g.,//supplementalData/weekData/firstDay[@day="fri"][@territories="MV"]
+         * <p>E.g.,//supplementalData/weekData/firstDay[@day="fri"][@territories="MV"]
          *
          * @param path
          * @param locale must be "supplementalData" to match
@@ -1614,7 +1844,8 @@ public class ChartDelta extends Chart {
         /**
          * Is the given path a high-level weekOfPreference in the given locale?
          *
-         * E.g., //supplementalData/weekData/weekOfPreference[@ordering="weekOfYear"][@locales="und"]
+         * <p>E.g.,
+         * //supplementalData/weekData/weekOfPreference[@ordering="weekOfYear"][@locales="und"]
          *
          * @param path
          * @param locale must be "supplementalData" to match
@@ -1629,10 +1860,9 @@ public class ChartDelta extends Chart {
             return false;
         }
 
-        /**
-         * For debugging, testing
-         */
+        /** For debugging, testing */
         private static Set<String> highLevelPathMatched = null;
+
         private static boolean verboseHighLevelReporting = false;
 
         private static void recordHighLevelMatch(String path) {
@@ -1642,9 +1872,7 @@ public class ChartDelta extends Chart {
             highLevelPathMatched.add(path);
         }
 
-        /**
-         * For debugging, report on any paths in highLevelPaths that never matched
-         */
+        /** For debugging, report on any paths in highLevelPaths that never matched */
         private static void reportHighLevelPathUsage() {
             if (!verboseHighLevelReporting) {
                 return;

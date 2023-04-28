@@ -9,12 +9,13 @@ package org.unicode.cldr.util;
 import java.util.Comparator;
 
 public class ArrayComparator implements Comparator {
-    public static final Comparator COMPARABLE = new Comparator() {
-        @Override
-        public int compare(Object o1, Object o2) {
-            return ((Comparable) o1).compareTo(o2);
-        }
-    };
+    public static final Comparator COMPARABLE =
+            new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    return ((Comparable) o1).compareTo(o2);
+                }
+            };
     private Comparator[] comparators;
     private int[] reordering;
 
@@ -76,5 +77,4 @@ public class ArrayComparator implements Comparator {
             }
         }
     }
-
 }

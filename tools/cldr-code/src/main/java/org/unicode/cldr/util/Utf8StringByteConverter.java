@@ -7,11 +7,10 @@
  */
 package org.unicode.cldr.util;
 
-import java.io.IOException;
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.IOException;
 
 /**
  * @author markdavis
@@ -71,8 +70,7 @@ public class Utf8StringByteConverter extends StringByteConverter {
     }
 
     @Override
-    public Appendable fromBytes(byte[] input, int byteStart, int byteLength,
-        Appendable result) {
+    public Appendable fromBytes(byte[] input, int byteStart, int byteLength, Appendable result) {
         try {
             while (byteStart < byteLength) {
                 char b = (char) (input[byteStart++] & 0xFF);

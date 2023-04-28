@@ -2,6 +2,7 @@ package org.unicode.cldr.api;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -9,16 +10,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.Lists;
-
-/**
- * Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}.
- */
+/** Serializes a CLDRFile as a sequence of {@link CldrValue CldrValues}. */
 final class CldrFileDataSource implements CldrData {
     private static final Pattern CAPTURE_SORT_INDEX = Pattern.compile("#([0-9]+)");
 
@@ -32,28 +28,29 @@ final class CldrFileDataSource implements CldrData {
     public void accept(PathOrder order, ValueVisitor visitor) {
         Iterator<String> paths;
         switch (order) {
-        case ARBITRARY:
-            paths = source.iterator();
-            break;
+            case ARBITRARY:
+                paths = source.iterator();
+                break;
 
-        case NESTED_GROUPING:
-            // Distinguishing paths when sorted by string order should yield "nested grouping".
-            // This is because lexicographical order is determined by the earliest character
-            // difference, which either occurs in the element name or the attribute declaration.
-            // Either way, the string before the first difference will agree on zero or more
-            // complete path elements and order is always decided by a change to the lowest path
-            // element. This should therefore result in common parent prefixes always being visited
-            // consecutively. It also (like DTD ordering) greatly improves the performance when
-            // parsing paths because consecutive paths share common parent elements.
-            paths = source.iterator(null, Comparator.naturalOrder());
-            break;
+            case NESTED_GROUPING:
+                // Distinguishing paths when sorted by string order should yield "nested grouping".
+                // This is because lexicographical order is determined by the earliest character
+                // difference, which either occurs in the element name or the attribute declaration.
+                // Either way, the string before the first difference will agree on zero or more
+                // complete path elements and order is always decided by a change to the lowest path
+                // element. This should therefore result in common parent prefixes always being
+                // visited
+                // consecutively. It also (like DTD ordering) greatly improves the performance when
+                // parsing paths because consecutive paths share common parent elements.
+                paths = source.iterator(null, Comparator.naturalOrder());
+                break;
 
-        case DTD:
-            paths = source.iterator(null, source.getComparator());
-            break;
+            case DTD:
+                paths = source.iterator(null, source.getComparator());
+                break;
 
-        default:
-            throw new AssertionError("Unknown path ordering: " + order);
+            default:
+                throw new AssertionError("Unknown path ordering: " + order);
         }
         read(paths, source, visitor);
     }
@@ -71,11 +68,11 @@ final class CldrFileDataSource implements CldrData {
         Map<AttributeKey, String> attributes = new LinkedHashMap<>();
         for (int n = 0; n < length; n++) {
             CldrPaths.processPathAttributes(
-                pathPaths.getElement(n),
-                pathPaths.getAttributes(n),
-                cldrPath.getDataType(),
-                e -> {},
-                attributes::put);
+                    pathPaths.getElement(n),
+                    pathPaths.getAttributes(n),
+                    cldrPath.getDataType(),
+                    e -> {},
+                    attributes::put);
         }
         // This is MUCH faster if you pass the distinguishing path in. If the CLDRFile is
         // "unresolved" then we can get the special "inheritance marker" returned, which
@@ -126,8 +123,9 @@ final class CldrFileDataSource implements CldrData {
             // There's a cache behind XPathParts which probably makes it faster to lookup these
             // instances rather than parse them each time (it all depends on whether this is the
             // first time the full paths are used).
-            CldrPath cldrPath = CldrPaths.processXPath(
-                src.getFullXPath(dPath), previousElements, valueAttributes::put);
+            CldrPath cldrPath =
+                    CldrPaths.processXPath(
+                            src.getFullXPath(dPath), previousElements, valueAttributes::put);
 
             if (CldrPaths.isLeafPath(cldrPath) && CldrPaths.shouldEmit(cldrPath)) {
                 visitor.visit(CldrValue.create(value, valueAttributes, cldrPath));
@@ -141,8 +139,8 @@ final class CldrFileDataSource implements CldrData {
 
     /**
      * Pushes the elements of the given path into the list. This is efficient but results in the
-     * list order being reversed (e.g. path "a->b->c->d" results in "(d,c,b,a)". A reversed view
-     * of this stack is used to present the path elements in "forward order".
+     * list order being reversed (e.g. path "a->b->c->d" results in "(d,c,b,a)". A reversed view of
+     * this stack is used to present the path elements in "forward order".
      */
     private static void pushPathElements(CldrPath cldrPath, List<CldrPath> stack) {
         stack.clear();

@@ -3,14 +3,12 @@ package org.unicode.cldr.web.api;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -34,19 +32,29 @@ public class Whatis {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Look up a code",
-        description = "Searches for codes containing the given string, with the given base locale")
+            summary = "Look up a code",
+            description =
+                    "Searches for codes containing the given string, with the given base locale")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Look up a code",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = WhatisResponse.class))),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Look up a code",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = WhatisResponse.class))),
+            })
     public Response getWhatis(
-        @Parameter(required = true, example = "jgo", schema = @Schema(type = SchemaType.STRING)) @QueryParam("q") String q,
-        @Parameter(required = true, example = "en_US", schema = @Schema(type = SchemaType.STRING)) @QueryParam("loc") String loc) {
+            @Parameter(required = true, example = "jgo", schema = @Schema(type = SchemaType.STRING))
+                    @QueryParam("q")
+                    String q,
+            @Parameter(
+                            required = true,
+                            example = "en_US",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @QueryParam("loc")
+                    String loc) {
 
         q = q.trim();
         if (q.isEmpty()) {
@@ -79,8 +87,8 @@ public class Whatis {
             try {
                 f = sm.getSTFactory().make(loc.getBaseName(), false);
             } catch (Throwable t) {
-                what.err = t.toString() + " loading " + loc.getDisplayName()
-                    + " - " + loc.toString();
+                what.err =
+                        t.toString() + " loading " + loc.getDisplayName() + " - " + loc.toString();
             }
             if (f == null) {
                 continue;
@@ -145,8 +153,9 @@ public class Whatis {
                         allMatch.append(s).append("\n");
                     }
                 }
-                if (!code.toLowerCase().equals(q) &&
-                    (code.toLowerCase().contains(q) || allMatch.toString().toLowerCase().contains(q))) {
+                if (!code.toLowerCase().equals(q)
+                        && (code.toLowerCase().contains(q)
+                                || allMatch.toString().toLowerCase().contains(q))) {
                     StandardCodeResult r = what.new StandardCodeResult(type, code);
                     if (v != null && !v.isEmpty()) {
                         for (String s : v) {

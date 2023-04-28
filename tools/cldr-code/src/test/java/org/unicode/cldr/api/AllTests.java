@@ -2,23 +2,22 @@ package org.unicode.cldr.api;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import java.io.PrintWriter;
-
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.TestShimUtils;
 
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-
 public class AllTests extends TestGroup {
-    private static final ImmutableList<Class<?>> TEST_CLASSES = ImmutableList.of(
-        CldrFileDataSourceTest.class,
-        CldrPathTest.class,
-        CldrValueTest.class,
-        FilteredDataTest.class,
-        PathMatcherTest.class,
-        PrefixVisitorTest.class,
-        XmlDataSourceTest.class);
+    private static final ImmutableList<Class<?>> TEST_CLASSES =
+            ImmutableList.of(
+                    CldrFileDataSourceTest.class,
+                    CldrPathTest.class,
+                    CldrValueTest.class,
+                    FilteredDataTest.class,
+                    PathMatcherTest.class,
+                    PrefixVisitorTest.class,
+                    XmlDataSourceTest.class);
 
     public static void main(String[] args) {
         System.setProperty("CLDR_ENVIRONMENT", "UNITTEST");
@@ -27,8 +26,9 @@ public class AllTests extends TestGroup {
 
     private static String[] getTestClassNames() {
         return TEST_CLASSES.stream()
-            .map(Class::getName)
-            .collect(toImmutableList()).toArray(new String[0]);
+                .map(Class::getName)
+                .collect(toImmutableList())
+                .toArray(new String[0]);
     }
 
     public AllTests() {

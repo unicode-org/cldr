@@ -6,6 +6,20 @@
  */
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.dev.util.UnicodeMapIterator;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +40,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -50,71 +63,56 @@ import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.dev.util.UnicodeMapIterator;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
-
-/**
- * Simple program to count the amount of data in CLDR. Internal Use.
- */
+/** Simple program to count the amount of data in CLDR. Internal Use. */
 public class CountItems {
 
-    private static final Collator ROOT_PRIMARY_COLLATOR = Collator.getInstance(ULocale.ROOT)
-        .setStrength2(Collator.PRIMARY);
+    private static final Collator ROOT_PRIMARY_COLLATOR =
+            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY);
 
-    static final String needsTranslationString = "America/Buenos_Aires " // America/Rio_Branco
-        + " America/Manaus America/Belem "
-        + " America/Campo_Grande America/Sao_Paulo "
-        + " Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart "
-        + " America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns "
-        + " Asia/Jakarta "
-        + " America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City "
-        + " Europe/Moscow Europe/Kaliningrad Europe/Moscow Asia/Yekaterinburg Asia/Novosibirsk Asia/Yakutsk Asia/Vladivostok"
-        + " Pacific/Honolulu America/Indiana/Indianapolis America/Anchorage "
-        + " America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis"
-        + " America/New_York";
+    static final String needsTranslationString =
+            "America/Buenos_Aires " // America/Rio_Branco
+                    + " America/Manaus America/Belem "
+                    + " America/Campo_Grande America/Sao_Paulo "
+                    + " Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart "
+                    + " America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns "
+                    + " Asia/Jakarta "
+                    + " America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City "
+                    + " Europe/Moscow Europe/Kaliningrad Europe/Moscow Asia/Yekaterinburg Asia/Novosibirsk Asia/Yakutsk Asia/Vladivostok"
+                    + " Pacific/Honolulu America/Indiana/Indianapolis America/Anchorage "
+                    + " America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis"
+                    + " America/New_York";
 
-    static final ImmutableMap<String, String> country_map = ImmutableMap.<String, String>builder()
-        .put("AQ", "http://www.worldtimezone.com/time-antarctica24.php")
-        .put("AR", "http://www.worldtimezone.com/time-south-america24.php")
-        .put("AU", "http://www.worldtimezone.com/time-australia24.php")
-        .put("BR", "http://www.worldtimezone.com/time-south-america24.php")
-        .put("CA", "http://www.worldtimezone.com/time-canada24.php")
-        .put("CD", "http://www.worldtimezone.com/time-africa24.php")
-        .put("CL", "http://www.worldtimezone.com/time-south-america24.php")
-        .put("CN", "http://www.worldtimezone.com/time-cis24.php")
-        .put("EC", "http://www.worldtimezone.com/time-south-america24.php")
-        .put("ES", "http://www.worldtimezone.com/time-europe24.php")
-        .put("FM", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("GL", "http://www.worldtimezone.com/index24.php")
-        .put("ID", "http://www.worldtimezone.com/time-asia24.php")
-        .put("KI", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("KZ", "http://www.worldtimezone.com/time-cis24.php")
-        .put("MH", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("MN", "http://www.worldtimezone.com/time-cis24.php")
-        .put("MX", "http://www.worldtimezone.com/index24.php")
-        .put("MY", "http://www.worldtimezone.com/time-asia24.php")
-        .put("NZ", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("PF", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("PT", "http://www.worldtimezone.com/time-europe24.php")
-        .put("RU", "http://www.worldtimezone.com/time-russia24.php")
-        .put("SJ", "http://www.worldtimezone.com/index24.php")
-        .put("UA", "http://www.worldtimezone.com/time-cis24.php")
-        .put("UM", "http://www.worldtimezone.com/time-oceania24.php")
-        .put("US", "http://www.worldtimezone.com/time-usa24.php")
-        .put("UZ", "http://www.worldtimezone.com/time-cis24.php")
-        .build();
+    static final ImmutableMap<String, String> country_map =
+            ImmutableMap.<String, String>builder()
+                    .put("AQ", "http://www.worldtimezone.com/time-antarctica24.php")
+                    .put("AR", "http://www.worldtimezone.com/time-south-america24.php")
+                    .put("AU", "http://www.worldtimezone.com/time-australia24.php")
+                    .put("BR", "http://www.worldtimezone.com/time-south-america24.php")
+                    .put("CA", "http://www.worldtimezone.com/time-canada24.php")
+                    .put("CD", "http://www.worldtimezone.com/time-africa24.php")
+                    .put("CL", "http://www.worldtimezone.com/time-south-america24.php")
+                    .put("CN", "http://www.worldtimezone.com/time-cis24.php")
+                    .put("EC", "http://www.worldtimezone.com/time-south-america24.php")
+                    .put("ES", "http://www.worldtimezone.com/time-europe24.php")
+                    .put("FM", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("GL", "http://www.worldtimezone.com/index24.php")
+                    .put("ID", "http://www.worldtimezone.com/time-asia24.php")
+                    .put("KI", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("KZ", "http://www.worldtimezone.com/time-cis24.php")
+                    .put("MH", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("MN", "http://www.worldtimezone.com/time-cis24.php")
+                    .put("MX", "http://www.worldtimezone.com/index24.php")
+                    .put("MY", "http://www.worldtimezone.com/time-asia24.php")
+                    .put("NZ", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("PF", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("PT", "http://www.worldtimezone.com/time-europe24.php")
+                    .put("RU", "http://www.worldtimezone.com/time-russia24.php")
+                    .put("SJ", "http://www.worldtimezone.com/index24.php")
+                    .put("UA", "http://www.worldtimezone.com/time-cis24.php")
+                    .put("UM", "http://www.worldtimezone.com/time-oceania24.php")
+                    .put("US", "http://www.worldtimezone.com/time-usa24.php")
+                    .put("UZ", "http://www.worldtimezone.com/time-cis24.php")
+                    .build();
 
     /**
      * Count the data.
@@ -139,21 +137,30 @@ public class CountItems {
 
     static void subheader(PrintWriter out, Tabber tabber) {
         // out.println("<tr><td colspan='6' class='gap'>&nbsp;</td></tr>");
-        out.println(tabber.process("Cnty" + "\t" + "Grp" + "\t" + "ZoneID" + "\t"
-            + "Formatted ID" + "\t" + "MaxOffset" + "\t" + "MinOffset"));
+        out.println(
+                tabber.process(
+                        "Cnty"
+                                + "\t"
+                                + "Grp"
+                                + "\t"
+                                + "ZoneID"
+                                + "\t"
+                                + "Formatted ID"
+                                + "\t"
+                                + "MaxOffset"
+                                + "\t"
+                                + "MinOffset"));
     }
 
-    /**
-     *
-     */
+    /** */
     private static void getPatternBlocks() {
         UnicodeSet patterns = new UnicodeSet("[:pattern_syntax:]");
         UnicodeSet unassigned = new UnicodeSet("[:unassigned:]");
         UnicodeSet punassigned = new UnicodeSet(patterns).retainAll(unassigned);
-        UnicodeMap<String> blocks = ICUPropertyFactory.make().getProperty("block")
-            .getUnicodeMap();
+        UnicodeMap<String> blocks = ICUPropertyFactory.make().getProperty("block").getUnicodeMap();
         blocks.setMissing("<Reserved-Block>");
-        // blocks.composeWith(new UnicodeMap().putAll(new UnicodeSet(patterns).retainAll(unassigned),"<reserved>"),
+        // blocks.composeWith(new UnicodeMap().putAll(new
+        // UnicodeSet(patterns).retainAll(unassigned),"<reserved>"),
         // new UnicodeMap.Composer() {
         // public Object compose(int codePoint, Object a, Object b) {
         // if (a == null) {
@@ -164,55 +171,58 @@ public class CountItems {
         // }
         // return a.toString() + " " + b.toString();
         // }});
-        for (UnicodeMapIterator<String> it = new UnicodeMapIterator<>(blocks); it
-            .nextRange();) {
+        for (UnicodeMapIterator<String> it = new UnicodeMapIterator<>(blocks); it.nextRange(); ) {
             UnicodeSet range = new UnicodeSet(it.codepoint, it.codepointEnd);
             boolean hasPat = range.containsSome(patterns);
-            String prefix = !hasPat ? "Not-Syntax"
-                : !range.containsSome(unassigned) ? "Closed" : !range
-                    .containsSome(punassigned) ? "Closed2" : "Open";
+            String prefix =
+                    !hasPat
+                            ? "Not-Syntax"
+                            : !range.containsSome(unassigned)
+                                    ? "Closed"
+                                    : !range.containsSome(punassigned) ? "Closed2" : "Open";
 
             boolean show = (prefix.equals("Open") || prefix.equals("Closed2"));
 
-            if (show)
-                System.out.println();
+            if (show) System.out.println();
             System.out.println(prefix + "\t" + range + "\t" + it.value);
             if (show) {
-                System.out.println(new UnicodeMap<String>().putAll(unassigned, "<reserved>")
-                    .putAll(punassigned, "<reserved-for-syntax>").setMissing(
-                        "<assigned>")
-                    .putAll(range.complement(), null));
+                System.out.println(
+                        new UnicodeMap<String>()
+                                .putAll(unassigned, "<reserved>")
+                                .putAll(punassigned, "<reserved-for-syntax>")
+                                .setMissing("<assigned>")
+                                .putAll(range.complement(), null));
             }
         }
     }
 
     /**
      * @throws IOException
-     *
      */
     private static void showExemplars() throws IOException {
-        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "fixed_exemplars.txt");
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "fixed_exemplars.txt");
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = cldrFactory.getAvailable();
-        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
             System.out.print('.');
             String locale = it.next();
             CLDRFile cldrfile = cldrFactory.make(locale, false);
-            String v = cldrfile
-                .getStringValue("//ldml/characters/exemplarCharacters");
-            if (v == null)
-                continue;
+            String v = cldrfile.getStringValue("//ldml/characters/exemplarCharacters");
+            if (v == null) continue;
             UnicodeSet exemplars = new UnicodeSet(v);
             if (exemplars.size() != 0 && exemplars.size() < 500) {
                 Collator col = Collator.getInstance(new ULocale(locale));
                 Collator spaceCol = Collator.getInstance(new ULocale(locale));
                 spaceCol.setStrength(Collator.PRIMARY);
                 out.println(locale + ":\t\u200E" + v + '\u200E');
-                String fixed = new UnicodeSetPrettyPrinter()
-                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                    .setSpaceComparator(spaceCol != null ? spaceCol : ROOT_PRIMARY_COLLATOR)
-                    .setCompressRanges(true)
-                    .format(exemplars);
+                String fixed =
+                        new UnicodeSetPrettyPrinter()
+                                .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                                .setSpaceComparator(
+                                        spaceCol != null ? spaceCol : ROOT_PRIMARY_COLLATOR)
+                                .setCompressRanges(true)
+                                .format(exemplars);
                 out.println(" =>\t\u200E" + fixed + '\u200E');
 
                 verifyEquality(exemplars, new UnicodeSet(fixed));
@@ -222,27 +232,21 @@ public class CountItems {
         out.close();
     }
 
-    /**
-     *
-     */
+    /** */
     private static void verifyEquality(UnicodeSet exemplars, UnicodeSet others) {
-        if (others.equals(exemplars))
-            return;
-        System.out.println("FAIL\ta-b\t"
-            + new UnicodeSet(exemplars).removeAll(others));
+        if (others.equals(exemplars)) return;
+        System.out.println("FAIL\ta-b\t" + new UnicodeSet(exemplars).removeAll(others));
         System.out.println("\tb-a\t" + new UnicodeSet(others).removeAll(exemplars));
     }
 
-    /**
-     *
-     */
+    /** */
     public static void generateSupplementalCurrencyItems() {
         IsoCurrencyParser isoCurrencyParser = IsoCurrencyParser.getInstance();
         Relation<String, Data> codeList = isoCurrencyParser.getCodeList();
         Map<String, String> numericTocurrencyCode = new TreeMap<>();
         StringBuffer list = new StringBuffer();
 
-        for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext(); ) {
             String currencyCode = it.next();
             int numericCode = -1;
             Set<Data> dataSet = codeList.getAll(currencyCode);
@@ -257,30 +261,31 @@ public class CountItems {
             String strNumCode = "" + numericCode;
             String otherCode = numericTocurrencyCode.get(strNumCode);
             if (otherCode != null) {
-                System.out.println("Warning: duplicate code " + otherCode +
-                    "for " + numericCode);
+                System.out.println("Warning: duplicate code " + otherCode + "for " + numericCode);
             }
             numericTocurrencyCode.put(strNumCode, currencyCode);
-            if (list.length() != 0)
-                list.append(" ");
-            String currencyLine = "<currencyCodes type=" + "\"" + currencyCode +
-                "\"" + " numeric=" + "\"" + numericCode + "\"/>";
+            if (list.length() != 0) list.append(" ");
+            String currencyLine =
+                    "<currencyCodes type="
+                            + "\""
+                            + currencyCode
+                            + "\""
+                            + " numeric="
+                            + "\""
+                            + numericCode
+                            + "\"/>";
             list.append(currencyLine);
             System.out.println(currencyLine);
-
         }
         System.out.println();
-
     }
 
-    /**
-     *
-     */
+    /** */
     public static void generateCurrencyItems() {
         IsoCurrencyParser isoCurrencyParser = IsoCurrencyParser.getInstance();
         Relation<String, Data> codeList = isoCurrencyParser.getCodeList();
         StringBuffer list = new StringBuffer();
-        for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = codeList.keySet().iterator(); it.hasNext(); ) {
             // String lastField = (String) it.next();
             // String zone = (String) fullMap.get(lastField);
             String currencyCode = it.next();
@@ -294,21 +299,22 @@ public class CountItems {
                 System.out.println("\t" + data);
             }
 
-            if (list.length() != 0)
-                list.append(" ");
+            if (list.length() != 0) list.append(" ");
             list.append(currencyCode);
-
         }
         System.out.println();
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
         // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-        String broken = CldrUtility.breakLines(list.toString(), sep, PatternCache.get(
-            "([A-Z])[A-Z][A-Z]").matcher(""), 80);
+        String broken =
+                CldrUtility.breakLines(
+                        list.toString(),
+                        sep,
+                        PatternCache.get("([A-Z])[A-Z][A-Z]").matcher(""),
+                        80);
         assert (list.toString().equals(broken.replace(sep, " ")));
-        //System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
+        // System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
         //    + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
-        Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes(
-            "currency");
+        Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes("currency");
         Set<String> temp = new TreeSet<>(codeList.keySet());
         temp.removeAll(isoTextFileCodes);
         if (temp.size() != 0) {
@@ -320,8 +326,7 @@ public class CountItems {
         genSupplementalZoneData(false);
     }
 
-    public static void genSupplementalZoneData(boolean skipUnaliased)
-        throws IOException {
+    public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
         RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
         col.setNumericCollation(true);
         StandardCodes sc = StandardCodes.make();
@@ -336,80 +341,79 @@ public class CountItems {
         Map<String, String> old_new = sc.getZoneLinkold_new();
         Map<String, Set<String>> new_old = new TreeMap<>();
 
-        for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext(); ) {
             String old = it.next();
             String newOne = old_new.get(old);
             Set<String> oldSet = new_old.get(newOne);
-            if (oldSet == null)
-                new_old.put(newOne, oldSet = new TreeSet<>());
+            if (oldSet == null) new_old.put(newOne, oldSet = new TreeSet<>());
             oldSet.add(old);
         }
         Map<String, String> fullMap = new TreeMap<>(col);
-        for (Iterator<String> it = zone_country.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = zone_country.keySet().iterator(); it.hasNext(); ) {
             String zone = it.next();
             String defaultName = TimezoneFormatter.getFallbackName(zone);
             Object already = fullMap.get(defaultName);
-            if (already != null)
-                System.out.println("CONFLICT: " + already + ", " + zone);
+            if (already != null) System.out.println("CONFLICT: " + already + ", " + zone);
             fullMap.put(defaultName, zone);
         }
         // fullSet.addAll(zone_country.keySet());
         // fullSet.addAll(new_old.keySet());
 
-        System.out
-            .println("<!-- Generated by org.unicode.cldr.tool.CountItems -->");
+        System.out.println("<!-- Generated by org.unicode.cldr.tool.CountItems -->");
         System.out.println("<supplementalData>");
         System.out.println("\t<timezoneData>");
         System.out.println();
 
         Set<String> multizone = new TreeSet<>();
-        for (Iterator<String> it = country_zone.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = country_zone.keySet().iterator(); it.hasNext(); ) {
             String country = it.next();
             Set<String> zones = country_zone.get(country);
-            if (zones != null && zones.size() != 1)
-                multizone.add(country);
+            if (zones != null && zones.size() != 1) multizone.add(country);
         }
 
-        System.out.println("\t\t<zoneFormatting multizone=\""
-            + toString(multizone, " ") + "\"" + " tzidVersion=\""
-            + sc.getZoneVersion() + "\"" + ">");
+        System.out.println(
+                "\t\t<zoneFormatting multizone=\""
+                        + toString(multizone, " ")
+                        + "\""
+                        + " tzidVersion=\""
+                        + sc.getZoneVersion()
+                        + "\""
+                        + ">");
 
         Set<String> orderedSet = new TreeSet<>(col);
         orderedSet.addAll(zone_country.keySet());
         orderedSet.addAll(sc.getDeprecatedZoneIDs());
         StringBuffer tzid = new StringBuffer();
 
-        for (Iterator<String> it = orderedSet.iterator(); it.hasNext();) {
+        for (Iterator<String> it = orderedSet.iterator(); it.hasNext(); ) {
             // String lastField = (String) it.next();
             // String zone = (String) fullMap.get(lastField);
             String zone = it.next();
-            if (tzid.length() != 0)
-                tzid.append(' ');
+            if (tzid.length() != 0) tzid.append(' ');
             tzid.append(zone);
 
             String country = zone_country.get(zone);
-            if (country == null)
-                continue; // skip deprecated
+            if (country == null) continue; // skip deprecated
 
             Set<String> aliases = new_old.get(zone);
             if (aliases != null) {
                 aliases = new TreeSet<>(aliases);
                 aliases.remove(zone);
             }
-            if (skipUnaliased)
-                if (aliases == null || aliases.size() == 0)
-                    continue;
+            if (skipUnaliased) if (aliases == null || aliases.size() == 0) continue;
 
-            System.out.println("\t\t\t<zoneItem"
-                + " type=\""
-                + zone
-                + "\""
-                + " territory=\""
-                + country
-                + "\""
-                + (aliases != null && aliases.size() > 0 ? " aliases=\""
-                    + toString(aliases, " ") + "\"" : "")
-                + "/>");
+            System.out.println(
+                    "\t\t\t<zoneItem"
+                            + " type=\""
+                            + zone
+                            + "\""
+                            + " territory=\""
+                            + country
+                            + "\""
+                            + (aliases != null && aliases.size() > 0
+                                    ? " aliases=\"" + toString(aliases, " ") + "\""
+                                    : "")
+                            + "/>");
         }
 
         System.out.println("\t\t</zoneFormatting>");
@@ -419,21 +423,29 @@ public class CountItems {
         System.out.println();
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
         // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
-        String broken = CldrUtility.breakLines(tzid, sep, PatternCache.get(
-            "((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""),
-            80);
+        String broken =
+                CldrUtility.breakLines(
+                        tzid,
+                        sep,
+                        PatternCache.get("((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*")
+                                .matcher(""),
+                        80);
         assert (tzid.toString().equals(broken.replace(sep, " ")));
-        System.out.println("\t\t\t<variable id=\"$tzid\" type=\"choice\">" + broken
-            + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
+        System.out.println(
+                "\t\t\t<variable id=\"$tzid\" type=\"choice\">"
+                        + broken
+                        + CldrUtility.LINE_SEPARATOR
+                        + "\t\t\t</variable>");
     }
 
     public static void writeMetazonePrettyPath() {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
-        Map<String, Map<String, String>> map = testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
+        Map<String, Map<String, String>> map =
+                testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
         Map zoneToCountry = StandardCodes.make().getZoneToCounty();
         Set<Pair<String, String>> results = new TreeSet<>();
-        Map<String, String> countryToContinent = getCountryToContinent(testInfo.getSupplementalDataInfo(),
-            testInfo.getEnglish());
+        Map<String, String> countryToContinent =
+                getCountryToContinent(testInfo.getSupplementalDataInfo(), testInfo.getEnglish());
 
         for (String metazone : map.keySet()) {
             Map<String, String> regionToZone = map.get(metazone);
@@ -444,16 +456,26 @@ public class CountItems {
             String continent = zone.split("/")[0];
 
             final Object country = zoneToCountry.get(zone);
-            results.add(new Pair<>(continent + "\t" + country + "\t" + countryToContinent.get(country)
-                + "\t" + metazone, metazone));
+            results.add(
+                    new Pair<>(
+                            continent
+                                    + "\t"
+                                    + country
+                                    + "\t"
+                                    + countryToContinent.get(country)
+                                    + "\t"
+                                    + metazone,
+                            metazone));
         }
         for (Pair<String, String> line : results) {
             System.out.println("'" + line.getSecond() + "'\t>\t'\t" + line.getFirst() + "\t'");
         }
     }
 
-    private static Map<String, String> getCountryToContinent(SupplementalDataInfo supplementalDataInfo, CLDRFile english) {
-        Relation<String, String> countryToContinent = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+    private static Map<String, String> getCountryToContinent(
+            SupplementalDataInfo supplementalDataInfo, CLDRFile english) {
+        Relation<String, String> countryToContinent =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> continents = new HashSet<>(Arrays.asList("002", "019", "142", "150", "009"));
         // note: we don't need more than 3 levels
         for (String continent : continents) {
@@ -472,20 +494,23 @@ public class CountItems {
             if (containees.size() != 1) {
                 throw new IllegalArgumentException(item + "\t" + containees);
             }
-            results.put(item, english.getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+            results.put(
+                    item, english.getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
         }
         return results;
     }
 
-    private static void writeZonePrettyPath(RuleBasedCollator col, Map<String, String> zone_country,
-        CLDRFile english) throws IOException {
+    private static void writeZonePrettyPath(
+            RuleBasedCollator col, Map<String, String> zone_country, CLDRFile english)
+            throws IOException {
         System.out.println("Writing zonePrettyPath");
         Set<String> masked = new HashSet<>();
         Map<String, String> zoneNew_Old = new TreeMap<>(col);
         String lastZone = "XXX";
         for (String zone : new TreeSet<>(zone_country.keySet())) {
             String[] parts = zone.split("/");
-            String newPrefix = zone_country.get(zone); // english.getName("tzid", zone_country.get(zone),
+            String newPrefix =
+                    zone_country.get(zone); // english.getName("tzid", zone_country.get(zone),
             // false).replace(' ', '_');
             if (newPrefix.equals("001")) {
                 newPrefix = "ZZ";
@@ -515,12 +540,11 @@ public class CountItems {
         for (int i = 0; i < 2; ++i) {
             Set<String> orderedList = zoneNew_Old.keySet();
             if (i == 0) {
-                Log
-                    .println("# Short IDs for zone names: country code + last part of TZID");
-                Log
-                    .println("# First are items that would be masked, and are moved forwards and sorted in reverse order");
+                Log.println("# Short IDs for zone names: country code + last part of TZID");
+                Log.println(
+                        "# First are items that would be masked, and are moved forwards and sorted in reverse order");
                 Log.println();
-                //Comparator c;
+                // Comparator c;
                 Set<String> temp = new TreeSet<>(new ReverseComparator<>(col));
                 temp.addAll(orderedList);
                 orderedList = temp;
@@ -539,8 +563,8 @@ public class CountItems {
                 }
                 String newCountry = newName.split("/")[0];
                 if (!newCountry.equals(lastCountry)) {
-                    Log.println("# " + newCountry + "\t"
-                        + english.getName("territory", newCountry));
+                    Log.println(
+                            "# " + newCountry + "\t" + english.getName("territory", newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -565,9 +589,14 @@ public class CountItems {
 
     public static void getSubtagVariables2() throws IOException {
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = FileUtilities.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<!-- start of data generated with CountItems.*"),
-            Log.getLog(), true);
+        BufferedReader oldFile =
+                FileUtilities.openUTF8Reader(
+                        CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
+        CldrUtility.copyUpTo(
+                oldFile,
+                PatternCache.get("\\s*<!-- start of data generated with CountItems.*"),
+                Log.getLog(),
+                true);
 
         Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
         for (Entry<String, String> type : variableSubstitutions.entrySet()) {
@@ -582,40 +611,49 @@ public class CountItems {
         // Log.println("\t\t/>");
 
         // Log.println("</supplementalData>");
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s<!-- end of data generated by CountItems.*"), null, true);
+        CldrUtility.copyUpTo(
+                oldFile,
+                PatternCache.get("\\s<!-- end of data generated by CountItems.*"),
+                null,
+                true);
         CldrUtility.copyUpTo(oldFile, null, Log.getLog(), true);
 
         Log.close();
         oldFile.close();
     }
 
-    static final SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static final SupplementalDataInfo supplementalData =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static final StandardCodes sc = StandardCodes.make();
 
     public static void getSubtagVariables() {
-//        This section no longer necessary, as it has been replaced by the new attributeValueValidity.xml
-//
-//        System.out.println("Validity variables");
-//        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
-//        System.out.println("<!-- start of data generated with CountItems tool ...");
-//        Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
+        //        This section no longer necessary, as it has been replaced by the new
+        // attributeValueValidity.xml
+        //
+        //        System.out.println("Validity variables");
+        //        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
+        //        System.out.println("<!-- start of data generated with CountItems tool ...");
+        //        Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
 
-//        for (Entry<String, String> type : variableSubstitutions.entrySet()) {
-//            System.out.println(type.getValue());
-//        }
-//        System.out.println("<!-- end of Validity variables generated with CountItems tool ...");
-//        System.out.println();
+        //        for (Entry<String, String> type : variableSubstitutions.entrySet()) {
+        //            System.out.println(type.getValue());
+        //        }
+        //        System.out.println("<!-- end of Validity variables generated with CountItems tool
+        // ...");
+        //        System.out.println();
         System.out.println("Language aliases");
         System.out.println("Cut/paste into supplementalMetadata.xml under the line");
         System.out.println("<!-- start of data generated with CountItems tool ...");
 
-        Map<String, Map<String, String>> languageReplacement = StandardCodes.getLStreg().get("language");
-        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
+        Map<String, Map<String, String>> languageReplacement =
+                StandardCodes.getLStreg().get("language");
+        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo =
+                supplementalData.getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> languageAliasInfo = localeAliasInfo.get("language");
 
         Set<String> available = Iso639Data.getAvailable();
-        // <languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic -->
+        // <languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic
+        // -->
         Set<String> bad3letter = new HashSet<>();
         for (String lang : available) {
             if (lang.length() != 2) continue;
@@ -637,9 +675,14 @@ public class CountItems {
             } else {
                 targetAliased = target;
             }
-            System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + targetAliased
-                + "\" reason=\"overlong\"/> <!-- " +
-                Iso639Data.getNames(target) + " -->");
+            System.out.println(
+                    "\t\t\t<languageAlias type=\""
+                            + alpha3
+                            + "\" replacement=\""
+                            + targetAliased
+                            + "\" reason=\"overlong\"/> <!-- "
+                            + Iso639Data.getNames(target)
+                            + " -->");
         }
         System.out.println("\t\t\t<!-- Bibliographic -->");
         TreeMap<String, String> sorted = new TreeMap<>();
@@ -650,9 +693,14 @@ public class CountItems {
         for (Entry<String, String> entry : sorted.entrySet()) {
             String biblio = entry.getKey();
             String hasBiblio = entry.getValue();
-            System.out.println("\t\t\t<languageAlias type=\"" + biblio + "\" replacement=\"" + hasBiblio
-                + "\" reason=\"bibliographic\"/> <!-- " +
-                Iso639Data.getNames(hasBiblio) + " -->");
+            System.out.println(
+                    "\t\t\t<languageAlias type=\""
+                            + biblio
+                            + "\" replacement=\""
+                            + hasBiblio
+                            + "\" reason=\"bibliographic\"/> <!-- "
+                            + Iso639Data.getNames(hasBiblio)
+                            + " -->");
         }
         System.out.println("<!-- end of Language alises generated with CountItems tool ...");
 
@@ -679,9 +727,14 @@ public class CountItems {
         missing.removeAll(encompassed_macro.values());
         if (missing.size() != 0) {
             for (String missingMacro : missing) {
-                System.err.println("ERROR: Missing <languageAlias type=\"" + "???" + "\" replacement=\"" + missingMacro
-                    + "\"/> <!-- ??? => " +
-                    Iso639Data.getNames(missingMacro) + " -->");
+                System.err.println(
+                        "ERROR: Missing <languageAlias type=\""
+                                + "???"
+                                + "\" replacement=\""
+                                + missingMacro
+                                + "\"/> <!-- ??? => "
+                                + Iso639Data.getNames(missingMacro)
+                                + " -->");
                 System.out.println("\tOptions for ???:");
                 for (String enc : Iso639Data.getEncompassedForMacro(missingMacro)) {
                     System.out.println("\t" + enc + "\t// " + Iso639Data.getNames(enc));
@@ -699,8 +752,13 @@ public class CountItems {
             if (replacements == null) continue;
             for (String replacement : replacements) {
                 if (bad3letter.contains(replacement)) {
-                    System.err.println("ERROR: Replacement(s) for type=\"" + type +
-                        "\" contains " + replacement + ", which should be: " + Iso639Data.fromAlpha3(replacement));
+                    System.err.println(
+                            "ERROR: Replacement(s) for type=\""
+                                    + type
+                                    + "\" contains "
+                                    + replacement
+                                    + ", which should be: "
+                                    + Iso639Data.fromAlpha3(replacement));
                 }
             }
         }
@@ -720,20 +778,31 @@ public class CountItems {
         System.out.println("Territory aliases");
         System.out.println("Cut/paste into supplementalMetadata.xml under the line");
         System.out.println("<!-- start of data generated with CountItems tool ...");
-        //final Map<String, R2<List<String>, String>> territoryAliasInfo = localeAliasInfo.get("territory");
+        // final Map<String, R2<List<String>, String>> territoryAliasInfo =
+        // localeAliasInfo.get("territory");
 
-        addRegions(english, territories, "alpha3", "EA,EU,IC".split(","), new Transform<String, String>() {
-            @Override
-            public String transform(String region) {
-                return IsoRegionData.get_alpha3(region);
-            }
-        });
-        addRegions(english, territories, "numeric", "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String, String>() {
-            @Override
-            public String transform(String region) {
-                return IsoRegionData.getNumeric(region);
-            }
-        });
+        addRegions(
+                english,
+                territories,
+                "alpha3",
+                "EA,EU,IC".split(","),
+                new Transform<String, String>() {
+                    @Override
+                    public String transform(String region) {
+                        return IsoRegionData.get_alpha3(region);
+                    }
+                });
+        addRegions(
+                english,
+                territories,
+                "numeric",
+                "AC,CP,DG,EA,EU,IC,TA".split(","),
+                new Transform<String, String>() {
+                    @Override
+                    public String transform(String region) {
+                        return IsoRegionData.getNumeric(region);
+                    }
+                });
         System.out.println("<!-- end of Territory alises generated with CountItems tool ...");
         System.out.println();
         System.out.println("Deprecated codes check (informational)");
@@ -765,7 +834,8 @@ public class CountItems {
             String lang = row.get2();
             String name = Iso639Data.getNames(lang).iterator().next(); // english.getName(lang);
             if ((bib != null && !lang.equals(bib)) || (tech != null && !lang.equals(tech))) {
-                System.out.println("  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
+                System.out.println(
+                        "  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
             }
         }
         System.out.println("End of Mapping equivalences...");
@@ -782,9 +852,12 @@ public class CountItems {
         territories.add("QO");
         territories.add("EU");
         // territories.add("MF");
-        //Map<String, R2<List<String>, String>> territoryAliases = supplementalData.getLocaleAliasInfo().get("territory");
-        Relation<String, String> numeric2region = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class);
-        Relation<String, String> alpha32region = Relation.of(new HashMap<String, Set<String>>(), TreeSet.class);
+        // Map<String, R2<List<String>, String>> territoryAliases =
+        // supplementalData.getLocaleAliasInfo().get("territory");
+        Relation<String, String> numeric2region =
+                Relation.of(new HashMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> alpha32region =
+                Relation.of(new HashMap<String, Set<String>>(), TreeSet.class);
         for (String region : territories) {
             String numeric = IsoRegionData.getNumeric(region);
             String alpha3 = IsoRegionData.get_alpha3(region);
@@ -798,12 +871,17 @@ public class CountItems {
             String numeric = IsoRegionData.getNumeric(region);
             String alpha3 = IsoRegionData.get_alpha3(region);
             String fips10 = IsoRegionData.get_fips10(region);
-            System.out.println("        <territoryCodes"
-                + " type=\"" + region + "\""
-                + (numeric == null ? "" : " numeric=\"" + numeric + "\"")
-                + (alpha3 == null ? "" : " alpha3=\"" + alpha3 + "\"")
-                + (fips10 == null || fips10.equals(region) ? "" : " fips10=\"" + fips10 + "\"")
-                + "/>");
+            System.out.println(
+                    "        <territoryCodes"
+                            + " type=\""
+                            + region
+                            + "\""
+                            + (numeric == null ? "" : " numeric=\"" + numeric + "\"")
+                            + (alpha3 == null ? "" : " alpha3=\"" + alpha3 + "\"")
+                            + (fips10 == null || fips10.equals(region)
+                                    ? ""
+                                    : " fips10=\"" + fips10 + "\"")
+                            + "/>");
         }
         System.out.println("    </codeMappings>");
         System.out.println("<!-- end of Code Mappings generated with CountItems tool ...");
@@ -811,15 +889,19 @@ public class CountItems {
     }
 
     enum VariableType {
-        full, partial
+        full,
+        partial
     }
 
     public static Map<String, String> getVariables(VariableType variableType) {
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
         Map<String, String> variableSubstitutions = new LinkedHashMap<>();
-        for (String type : new String[] { "legacy", "territory", "script", "variant" }) {
+        for (String type : new String[] {"legacy", "territory", "script", "variant"}) {
             Set<String> i;
-            i = (variableType == VariableType.full || type.equals("legacy")) ? sc.getAvailableCodes(type) : sc.getGoodAvailableCodes(type);
+            i =
+                    (variableType == VariableType.full || type.equals("legacy"))
+                            ? sc.getAvailableCodes(type)
+                            : sc.getGoodAvailableCodes(type);
             addVariable(variableSubstitutions, type, i, sep);
         }
 
@@ -842,30 +924,42 @@ public class CountItems {
         return variableSubstitutions;
     }
 
-    private static final Pattern BreakerPattern = PatternCache.get("([-_A-Za-z0-9])[-/+_A-Za-z0-9]*");
+    private static final Pattern BreakerPattern =
+            PatternCache.get("([-_A-Za-z0-9])[-/+_A-Za-z0-9]*");
 
-    private static void addVariable(Map<String, String> variableSubstitutions, String type, Set<String> sinput,
-        String sep) {
+    private static void addVariable(
+            Map<String, String> variableSubstitutions,
+            String type,
+            Set<String> sinput,
+            String sep) {
         TreeSet<String> s = new TreeSet<>(ROOT_PRIMARY_COLLATOR);
         s.addAll(sinput);
 
         StringBuffer b = new StringBuffer();
         for (String code : s) {
-            if (b.length() != 0)
-                b.append(' ');
+            if (b.length() != 0) b.append(' ');
             b.append(code);
         }
         // "((?:[-+_A-Za-z0-9]+[/])+[A-Za-z0-9])[-+_A-Za-z0-9]*"
         String broken = CldrUtility.breakLines(b, sep, BreakerPattern.matcher(""), 80);
         assert (b.toString().equals(broken.replace(sep, " ")));
-        variableSubstitutions.put(type, "\t\t\t<variable id=\"$" + type
-            + "\" type=\"choice\">" + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
+        variableSubstitutions.put(
+                type,
+                "\t\t\t<variable id=\"$"
+                        + type
+                        + "\" type=\"choice\">"
+                        + broken
+                        + CldrUtility.LINE_SEPARATOR
+                        + "\t\t\t</variable>");
     }
 
-    private static void checkCodes(String type, StandardCodes sc,
-        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo,
-        Map<String, Map<String, Map<String, String>>> fullData) {
-        Map<String, Map<String, String>> typeData = fullData.get("territory".equals(type) ? "region" : type);
+    private static void checkCodes(
+            String type,
+            StandardCodes sc,
+            Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo,
+            Map<String, Map<String, Map<String, String>>> fullData) {
+        Map<String, Map<String, String>> typeData =
+                fullData.get("territory".equals(type) ? "region" : type);
         Map<String, R2<List<String>, String>> aliasInfo = localeAliasInfo.get(type);
         for (String code : sc.getAvailableCodes(type)) {
             Map<String, String> subdata = typeData.get(code);
@@ -874,14 +968,23 @@ public class CountItems {
             String replacement = subdata.get("Preferred-Value");
             R2<List<String>, String> supplementalReplacements = aliasInfo.get(code);
             if (supplementalReplacements == null) {
-                System.out.println("Deprecated in LSTR, but not in supplementalData: " + type + "\t" + code + "\t"
-                    + replacement);
+                System.out.println(
+                        "Deprecated in LSTR, but not in supplementalData: "
+                                + type
+                                + "\t"
+                                + code
+                                + "\t"
+                                + replacement);
             }
         }
     }
 
-    private static void addRegions(CLDRFile english, Set<String> availableCodes, String codeType, String[] exceptions,
-        Transform<String, String> trans) {
+    private static void addRegions(
+            CLDRFile english,
+            Set<String> availableCodes,
+            String codeType,
+            String[] exceptions,
+            Transform<String, String> trans) {
         Set<String> missingRegions = new TreeSet<>();
         Set<String> exceptionSet = new HashSet<>(Arrays.asList(exceptions));
         List<String> duplicateDestroyer = new ArrayList<>();
@@ -893,7 +996,8 @@ public class CountItems {
                 missingRegions.add(region);
                 continue;
             }
-            Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
+            Map<String, R2<List<String>, String>> territoryAliasInfo =
+                    supplementalData.getLocaleAliasInfo().get("territory");
             String result;
             if (territoryAliasInfo.containsKey(region)) {
                 result = Joiner.on(" ").join(territoryAliasInfo.get(region).get0());
@@ -903,8 +1007,14 @@ public class CountItems {
             String name = english.getName(CLDRFile.TERRITORY_NAME, result);
             if (!(duplicateDestroyer.contains(alpha3 + result + name))) {
                 duplicateDestroyer.add(alpha3 + result + name);
-                System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
-                    + "\" reason=\"overlong\"/> <!-- " + name + " -->");
+                System.out.println(
+                        "\t\t\t<territoryAlias type=\""
+                                + alpha3
+                                + "\" replacement=\""
+                                + result
+                                + "\" reason=\"overlong\"/> <!-- "
+                                + name
+                                + " -->");
             }
         }
         for (String region : missingRegions) {
@@ -913,18 +1023,14 @@ public class CountItems {
         }
     }
 
-    /**
-     *
-     */
+    /** */
     private static String toString(Collection aliases, String separator) {
         StringBuffer result = new StringBuffer();
         boolean first = true;
-        for (Iterator<Object> it = aliases.iterator(); it.hasNext();) {
+        for (Iterator<Object> it = aliases.iterator(); it.hasNext(); ) {
             Object item = it.next();
-            if (first)
-                first = false;
-            else
-                result.append(separator);
+            if (first) first = false;
+            else result.append(separator);
             result.append(item);
         }
         return result.toString();
@@ -938,7 +1044,7 @@ public class CountItems {
         System.out.println();
         i = 0;
         System.out.println("/* zoneID, canonical zoneID */");
-        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = m.keySet().iterator(); it.hasNext(); ) {
             String old = it.next();
             String newOne = m.get(old);
             System.out.println("{\"" + old + "\", \"" + newOne + "\"},");
@@ -949,55 +1055,55 @@ public class CountItems {
         System.out.println();
         i = 0;
         System.out.println("/* All canonical zoneIDs */");
-        for (Iterator<String> it = sc.getZoneData().keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = sc.getZoneData().keySet().iterator(); it.hasNext(); ) {
             String old = it.next();
             System.out.println("\"" + old + "\",");
             ++i;
         }
         System.out.println("/* Total: " + i + " */");
 
-        Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main"
-            + File.separator, ".*");
+        Factory mainCldrFactory =
+                Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
-        String temp = desiredLocaleFile
-            .getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
+        String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
         XPathParts parts = XPathParts.getFrozenInstance(temp);
         String singleCountriesList = parts.findAttributes("singleCountries").get("list");
-        Set<String> singleCountriesSet = new TreeSet<>(CldrUtility.splitList(singleCountriesList, ' '));
+        Set<String> singleCountriesSet =
+                new TreeSet<>(CldrUtility.splitList(singleCountriesList, ' '));
 
         Map<String, String> zone_countries = StandardCodes.make().getZoneToCounty();
         Map<String, Set<String>> countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
         System.out.println();
         i = 0;
         System.out.println("/* zoneID, country, isSingle */");
-        for (Iterator<String> it = zone_countries.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = zone_countries.keySet().iterator(); it.hasNext(); ) {
             String old = it.next();
             String newOne = zone_countries.get(old);
             Set<String> s = countries_zoneSet.get(newOne);
-            String isSingle = (s != null && s.size() == 1 || singleCountriesSet
-                .contains(old)) ? "T" : "F";
-            System.out.println("{\"" + old + "\", \"" + newOne + "\", \"" + isSingle
-                + "\"},");
+            String isSingle =
+                    (s != null && s.size() == 1 || singleCountriesSet.contains(old)) ? "T" : "F";
+            System.out.println("{\"" + old + "\", \"" + newOne + "\", \"" + isSingle + "\"},");
             ++i;
         }
         System.out.println("/* Total: " + i + " */");
 
-        if (true)
-            return;
+        if (true) return;
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Map<Organization, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
+        Map<Organization, Map<String, Level>> platform_locale_status =
+                StandardCodes.make().getLocaleTypes();
         Map<String, Level> onlyLocales = platform_locale_status.get(Organization.ibm);
         Set<String> locales = onlyLocales.keySet();
         CLDRFile english = cldrFactory.make("en", true);
-        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
             String locale = it.next();
-            System.out.println(locale + "\t" + english.getName(locale) + "\t"
-                + onlyLocales.get(locale));
+            System.out.println(
+                    locale + "\t" + english.getName(locale) + "\t" + onlyLocales.get(locale));
         }
     }
 
     static final NumberFormat decimal = NumberFormat.getNumberInstance();
+
     static {
         decimal.setGroupingUsed(true);
     }
@@ -1023,14 +1129,13 @@ public class CountItems {
         Matcher alt = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
 
         Set<String> temp = new HashSet<>();
-        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
             String locale = it.next();
-            if (CLDRFile.isSupplementalName(locale))
-                continue;
+            if (CLDRFile.isSupplementalName(locale)) continue;
             CLDRFile item = cldrFactory.make(locale, false);
 
             temp.clear();
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
                 String path = it2.next();
                 if (alt.reset(path).matches()) {
                     continue;
@@ -1047,21 +1152,26 @@ public class CountItems {
             itemResolved.forEach(temp::add);
             int resolvedCurrent = temp.size();
 
-            System.out.println(locale + "\tPlain:\t" + current + "\tResolved:\t"
-                + resolvedCurrent + "\tUnique Paths:\t" + keys.size()
-                + "\tUnique Values:\t" + values.size() + "\tUnique Full Paths:\t"
-                + fullpaths.size());
+            System.out.println(
+                    locale
+                            + "\tPlain:\t"
+                            + current
+                            + "\tResolved:\t"
+                            + resolvedCurrent
+                            + "\tUnique Paths:\t"
+                            + keys.size()
+                            + "\tUnique Values:\t"
+                            + values.size()
+                            + "\tUnique Full Paths:\t"
+                            + fullpaths.size());
             count += current;
             resolvedCount += resolvedCurrent;
         }
         System.out.println("Total Items\t" + decimal.format(count));
-        System.out
-            .println("Total Resolved Items\t" + decimal.format(resolvedCount));
+        System.out.println("Total Resolved Items\t" + decimal.format(resolvedCount));
         System.out.println("Unique Paths\t" + decimal.format(keys.size()));
         System.out.println("Unique Values\t" + decimal.format(values.size()));
-        System.out
-            .println("Unique Full Paths\t" + decimal.format(fullpaths.size()));
+        System.out.println("Unique Full Paths\t" + decimal.format(fullpaths.size()));
         return count;
     }
-
 }

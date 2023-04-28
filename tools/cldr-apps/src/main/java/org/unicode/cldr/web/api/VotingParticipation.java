@@ -12,7 +12,6 @@ import java.util.TreeSet;
 import java.util.Vector;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
@@ -20,7 +19,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -38,35 +36,43 @@ import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/participation")
-@Tag(name = "voting_participation", description = "APIs for voting and retrieving vote participation")
-
+@Tag(
+        name = "voting_participation",
+        description = "APIs for voting and retrieving vote participation")
 public class VotingParticipation {
     Logger logger = SurveyLog.forClass(VotingParticipation.class);
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Get voting participation summary",
-        description = "Get voting participation summary")
+            summary = "Get voting participation summary",
+            description = "Get voting participation summary")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Vote participation results",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = VotingParticipationResults.class))),
-            @APIResponse(
-                responseCode = "401",
-                description = "Authorization required, send a valid session id"),
-            @APIResponse(
-                responseCode = "403",
-                description = "Forbidden, no access to this data"),
-            @APIResponse(
-                responseCode = "500",
-                description = "Internal Server Error",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = STError.class))),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Vote participation results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                VotingParticipationResults.class))),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
     public Response getParticipation(@HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         if (mySession == null) {
@@ -80,15 +86,16 @@ public class VotingParticipation {
             // Restrict results to one organization
             results.onlyOrg = mySession.user.getOrganization();
 
-            if (CLDRConfig.getInstance().getEnvironment()
-                    == CLDRConfig.Environment.PRODUCTION) {
+            if (CLDRConfig.getInstance().getEnvironment() == CLDRConfig.Environment.PRODUCTION) {
                 // This is a slow operation (querying all rows of votes in a dozen tables)
                 // so, for now, restrict it to admins only. It's only available in the
                 // admin UI at present.
                 return Response.status(Status.FORBIDDEN).build();
             }
         }
-        logger.info("Getting full vetting participation (slow), requested by " + mySession.user.toString());
+        logger.info(
+                "Getting full vetting participation (slow), requested by "
+                        + mySession.user.toString());
         DBUtils dbUtils = DBUtils.getInstance();
         for (final Organization o : Organization.values()) {
             if (results.onlyOrg != null && (results.onlyOrg != o)) continue;
@@ -96,8 +103,8 @@ public class VotingParticipation {
             results.results.add(p);
             UserRegistry reg = CookieSession.sm.reg;
             try (Connection conn = dbUtils.getAConnection();
-                PreparedStatement userListStatement = reg.list(o.name(), conn);
-                ResultSet userList = userListStatement.executeQuery();) {
+                    PreparedStatement userListStatement = reg.list(o.name(), conn);
+                    ResultSet userList = userListStatement.executeQuery(); ) {
                 // get all vetters
                 final Set<String> localesWithVetters = new TreeSet<String>();
                 while (userList.next()) {
@@ -112,28 +119,39 @@ public class VotingParticipation {
         }
 
         // add per-version
-        try (Connection conn = dbUtils.getAConnection();) {
-            Collection<String> tables = DBUtils.getTables(conn,
-                Pattern.compile("cldr_vote_value_[0-9]+$").asPredicate()); // skip beta
+        try (Connection conn = dbUtils.getAConnection(); ) {
+            Collection<String> tables =
+                    DBUtils.getTables(
+                            conn,
+                            Pattern.compile("cldr_vote_value_[0-9]+$").asPredicate()); // skip beta
             for (String table : tables) {
                 final String ver = "v" + table.substring(table.lastIndexOf('_') + 1);
                 SurveyParticipation participation = new SurveyParticipation();
                 results.participationByVersion.put(ver, participation);
-                try (PreparedStatement psParticipation = conn.prepareStatement("SELECT count(v.xpath) as count, v.locale as locale, u.org as org \n"
-                    + "    FROM " + table + " as v, cldr_users as u\n"
-                    + "    WHERE v.submitter = u.id\n"
-                    + " group by u.org, v.locale",
-                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-                    ResultSet rs = psParticipation.executeQuery();) {
+                try (PreparedStatement psParticipation =
+                                conn.prepareStatement(
+                                        "SELECT count(v.xpath) as count, v.locale as locale, u.org as org \n"
+                                                + "    FROM "
+                                                + table
+                                                + " as v, cldr_users as u\n"
+                                                + "    WHERE v.submitter = u.id\n"
+                                                + " group by u.org, v.locale",
+                                        ResultSet.TYPE_FORWARD_ONLY,
+                                        ResultSet.CONCUR_READ_ONLY);
+                        ResultSet rs = psParticipation.executeQuery(); ) {
                     while (rs.next()) {
                         final int count = rs.getInt("count");
                         final String locale = rs.getString("locale");
                         final String org = rs.getString("org");
                         participation.put(count, locale, org);
                     }
-                    logger.info("Got full vetter info for " + ver +
-                        "- locales: " + participation.allParticipationByLocale.size() +
-                        "- orgs: " + participation.allParticipationByOrgLocale.size());
+                    logger.info(
+                            "Got full vetter info for "
+                                    + ver
+                                    + "- locales: "
+                                    + participation.allParticipationByLocale.size()
+                                    + "- orgs: "
+                                    + participation.allParticipationByOrgLocale.size());
                 }
             }
         } catch (SQLException sqe) {
@@ -144,17 +162,19 @@ public class VotingParticipation {
         return Response.ok(results).build();
     }
 
-    private void appendInterestLocales(UserRegistry reg, final Set<String> localesWithVetters, int theirId) {
+    private void appendInterestLocales(
+            UserRegistry reg, final Set<String> localesWithVetters, int theirId) {
         final UserRegistry.User theUser = reg.getInfo(theirId);
-        if ((theUser.userlevel > UserRegistry.GUEST) ||
-            UserRegistry.userIsLocked(theUser) // skip these
+        if ((theUser.userlevel > UserRegistry.GUEST)
+                || UserRegistry.userIsLocked(theUser) // skip these
         ) {
             return;
         }
         appendInterestLocales(localesWithVetters, theUser);
     }
 
-    private void appendInterestLocales(final Set<String> localesWithVetters, final UserRegistry.User theUser) {
+    private void appendInterestLocales(
+            final Set<String> localesWithVetters, final UserRegistry.User theUser) {
         LocaleSet interestLocales = theUser.getInterestLocales();
         if (!interestLocales.isAllLocales()) {
             final Set<CLDRLocale> intSet = interestLocales.getSet();
@@ -174,7 +194,8 @@ public class VotingParticipation {
             return results.toArray(new OrgParticipation[0]);
         }
 
-        public Map<String, SurveyParticipation> participationByVersion = new TreeMap<String, SurveyParticipation>();
+        public Map<String, SurveyParticipation> participationByVersion =
+                new TreeMap<String, SurveyParticipation>();
     }
 
     public static class SurveyParticipation {
@@ -187,14 +208,15 @@ public class VotingParticipation {
             allParticipationByLocale.put(locale, allCount);
 
             // Set the participation for this org, locale
-            allParticipationByOrgLocale.computeIfAbsent(org, ignored -> new TreeMap<String, Integer>())
-                .put(locale, count);
+            allParticipationByOrgLocale
+                    .computeIfAbsent(org, ignored -> new TreeMap<String, Integer>())
+                    .put(locale, count);
         }
     }
 
     public static class OrgParticipation {
         public String[] localesWithVetters;
-        final public String[] coverageLocales;
+        public final String[] coverageLocales;
         public String defaultCoverage;
 
         public OrgParticipation(Organization o) {

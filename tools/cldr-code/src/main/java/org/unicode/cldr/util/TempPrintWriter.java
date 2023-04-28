@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,15 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Random;
-
 import org.unicode.cldr.draft.FileUtilities;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 /**
- * Simple utility to create a temporary file, write into it, then close it.
- * If the file differs from the old file (except for date), then it is deleted.
- * Otherwise it replaces the target file. Moved from UnicodeTools.
+ * Simple utility to create a temporary file, write into it, then close it. If the file differs from
+ * the old file (except for date), then it is deleted. Otherwise it replaces the target file. Moved
+ * from UnicodeTools.
+ *
  * @author markdavis
  */
 public class TempPrintWriter extends Writer {
@@ -107,9 +106,11 @@ public class TempPrintWriter extends Writer {
     }
 
     /**
-     * If contents(newFile) ≠ contents(oldFile), rename newFile to old. Otherwise delete newfile. Return true if replaced. *
+     * If contents(newFile) ≠ contents(oldFile), rename newFile to old. Otherwise delete newfile.
+     * Return true if replaced. *
      */
-    private static boolean replaceDifferentOrDelete(String oldFile, String newFile, boolean skipCopyright) throws IOException {
+    private static boolean replaceDifferentOrDelete(
+            String oldFile, String newFile, boolean skipCopyright) throws IOException {
         final File oldFile2 = new File(oldFile);
         if (oldFile2.exists()) {
             final String lines[] = new String[2];
@@ -120,21 +121,32 @@ public class TempPrintWriter extends Writer {
             }
             System.out.println("Found difference in : " + oldFile + ", " + newFile);
             final int diff = compare(lines[0], lines[1]);
-            System.out.println(" File1: '" + lines[0].substring(0,diff) + "', '" + lines[0].substring(diff) + "'");
-            System.out.println(" File2: '" + lines[1].substring(0,diff) + "', '" + lines[1].substring(diff) + "'");
+            System.out.println(
+                    " File1: '"
+                            + lines[0].substring(0, diff)
+                            + "', '"
+                            + lines[0].substring(diff)
+                            + "'");
+            System.out.println(
+                    " File2: '"
+                            + lines[1].substring(0, diff)
+                            + "', '"
+                            + lines[1].substring(diff)
+                            + "'");
         }
         Files.move(Path.of(newFile), oldFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);
         return true;
     }
 
-    private static boolean filesAreIdentical(String file1, String file2, boolean skipCopyright, String[] lines) throws IOException {
+    private static boolean filesAreIdentical(
+            String file1, String file2, boolean skipCopyright, String[] lines) throws IOException {
         if (file1 == null) {
             lines[0] = null;
             lines[1] = null;
             return false;
         }
-        final BufferedReader br1 = new BufferedReader(new FileReader(file1), 32*1024);
-        final BufferedReader br2 = new BufferedReader(new FileReader(file2), 32*1024);
+        final BufferedReader br1 = new BufferedReader(new FileReader(file1), 32 * 1024);
+        final BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024);
         String line1 = "";
         String line2 = "";
         try {
@@ -166,7 +178,8 @@ public class TempPrintWriter extends Writer {
         }
     }
 
-    private static String getLineWithoutFluff(BufferedReader br1, boolean first, boolean skipCopyright) throws IOException {
+    private static String getLineWithoutFluff(
+            BufferedReader br1, boolean first, boolean skipCopyright) throws IOException {
         while (true) {
             String line1 = br1.readLine();
             if (line1 == null) {
@@ -185,7 +198,8 @@ public class TempPrintWriter extends Writer {
             if (line1.startsWith("# Date")) {
                 continue;
             }
-            if (skipCopyright && (line1.startsWith("# Copyright") || (line1.trim().startsWith("<!--") && line1.contains("Copyright")))) {
+            if (skipCopyright
+                    && (line1.startsWith("# Copyright") || line1.contains("Copyright ©"))) {
                 continue;
             }
             if (line1.startsWith("<p><b>Date:</b>")) {
@@ -206,9 +220,7 @@ public class TempPrintWriter extends Writer {
         }
     }
 
-    /**
-     * Returns -1 if strings are equal; otherwise the first position they are different at.
-     */
+    /** Returns -1 if strings are equal; otherwise the first position they are different at. */
     public static int compare(String a, String b) {
         int len = a.length();
         if (len > b.length()) {
@@ -224,5 +236,4 @@ public class TempPrintWriter extends Writer {
         }
         return -1;
     }
-
 }

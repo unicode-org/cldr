@@ -1,5 +1,16 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParsePosition;
@@ -18,7 +29,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -39,18 +49,6 @@ import org.unicode.cldr.util.VariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.props.BagFormatter;
 
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.ULocale;
-
 public class TestMisc {
 
     static Currency SWISS_FRANC = Currency.getInstance("CHF");
@@ -65,7 +63,9 @@ public class TestMisc {
     }
 
     enum Foo {
-        A, M, Z
+        A,
+        M,
+        Z
     }
 
     public static void main(String[] args) {
@@ -82,50 +82,55 @@ public class TestMisc {
         Transliterator ulatn_ucyrl = Transliterator.getInstance("und_Latn-und_Cyrl");
         System.out.println("Mark + " + latn_cyrl.transform("Mark"));
 
-        Locale locale = new Locale("abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi");
+        Locale locale =
+                new Locale("abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi", "abc-d αγζθ ?ef_g%hi");
 
-        System.out
-            .println("Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");
+        System.out.println(
+                "Locale locale = new Locale(\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\",\"abc-d αγζθ ?ef_g%hi\");");
         System.out.println("locale.toString() == \"" + locale + "\"");
 
         MyXSymbolTable sym = new MyXSymbolTable();
         BagFormatter bf = new BagFormatter();
-        for (String test : new String[] {
-            "[:reduceCase=[[Åå{fi}]]:]",
-            "[:reduceCanonical=[[Åå{fi}]]:]",
-            "[[,٫.]]",
-            "[[,٫.][:close=compatibility:]]",
-            "[[\\ ,٬.']]",
-            "[[\\ ,٬.'][:close=compatibility:]]",
-            "[[\u002E\u2024\uFE52\uFF0E\u3002][:close=compatibility:]]",
-            "[[[\u002C \u002E \u066B \u2024 \u3002 \uFE52 \uFF0E、، \u002E \u2024 \uFE52 \uFF0E \u3002]-[\u002E\u2024\uFE52\uFF0E\u3002]][:close=compatibility:]]",
+        for (String test :
+                new String[] {
+                    "[:reduceCase=[[Åå{fi}]]:]",
+                    "[:reduceCanonical=[[Åå{fi}]]:]",
+                    "[[,٫.]]",
+                    "[[,٫.][:close=compatibility:]]",
+                    "[[\\ ,٬.']]",
+                    "[[\\ ,٬.'][:close=compatibility:]]",
+                    "[[\u002E\u2024\uFE52\uFF0E\u3002][:close=compatibility:]]",
+                    "[[[\u002C \u002E \u066B \u2024 \u3002 \uFE52 \uFF0E、، \u002E \u2024 \uFE52 \uFF0E \u3002]-[\u002E\u2024\uFE52\uFF0E\u3002]][:close=compatibility:]]",
+                    "[["
+                            + "\\u0020"
+                            + "[, ٬ .．․﹒ '＇ \u2018 \u2019 ]"
+                            + "-[.\u2024\u3002\uFE12\uFE52\uFF0E\uFF61]"
+                            + "-[,\u060C\u066B\u3001\uFE10\uFE11\uFE50\uFE51\uFF0C\uFF64]]"
+                            + "[:close=compatibility:]]",
 
-            "[[" +
-                "\\u0020" +
-                "[, ٬ .．․﹒ '＇ \u2018 \u2019 ]" +
-                "-[.\u2024\u3002\uFE12\uFE52\uFF0E\uFF61]" +
-                "-[,\u060C\u066B\u3001\uFE10\uFE11\uFE50\uFE51\uFF0C\uFF64]]" +
-                "[:close=compatibility:]]",
-
-            /*
-             * "[[Åå{fi}][:close=canonical:]]",
-             * "[[Åå{fi}][:close=compatibility:]]",
-             * "[[Åå{fi}][:reduce=case:]]",
-             * "[[Åå{fi}][:reduce=canonical:]]",
-             * "[[Åå{fi}][:reduce=compatibility:]]",
-             */
-        }) {
+                    /*
+                     * "[[Åå{fi}][:close=canonical:]]",
+                     * "[[Åå{fi}][:close=compatibility:]]",
+                     * "[[Åå{fi}][:reduce=case:]]",
+                     * "[[Åå{fi}][:reduce=canonical:]]",
+                     * "[[Åå{fi}][:reduce=compatibility:]]",
+                     */
+                }) {
             ParsePosition p = new ParsePosition(0);
             UnicodeSet set = new UnicodeSet(test, p, sym);
             UnicodeSet codes = set.complement().complement();
-            System.out.println(test + CldrUtility.LINE_SEPARATOR +
-                codes.toPattern(true) + CldrUtility.LINE_SEPARATOR +
-                bf.showSetNames(set.complement().complement()) + CldrUtility.LINE_SEPARATOR);
+            System.out.println(
+                    test
+                            + CldrUtility.LINE_SEPARATOR
+                            + codes.toPattern(true)
+                            + CldrUtility.LINE_SEPARATOR
+                            + bf.showSetNames(set.complement().complement())
+                            + CldrUtility.LINE_SEPARATOR);
         }
         if (true) return;
 
         StandardCodes sc = StandardCodes.make();
-        for (String s : new String[] { "language", "script", "territory" }) {
+        for (String s : new String[] {"language", "script", "territory"}) {
             System.out.println(s + ":\t" + sc.getGoodAvailableCodes(s).size());
         }
         if (true) return;
@@ -135,7 +140,8 @@ public class TestMisc {
         System.out.println(inFileOrder);
         System.out.println(inAlphaOrder);
 
-        DecimalFormat currencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(new ULocale("de-CH"));
+        DecimalFormat currencyFormat =
+                (DecimalFormat) NumberFormat.getCurrencyInstance(new ULocale("de-CH"));
         currencyFormat.setCurrency(SWISS_FRANC);
         // sometime later...
         // we want the financial format of the currency, not the retail format
@@ -161,18 +167,18 @@ public class TestMisc {
         // checkEastAsianWidth();
         if (true) return;
         // import ICU
-        UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
+        UnicodeSet RTL =
+                new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]");
 
         checkCollections();
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile englishFile = cldrFactory.make("en", true);
         ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile);
-        System.out
-            .println(eg
-                .getHelpHtml(
-                    "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
-                    ""));
+        System.out.println(
+                eg.getHelpHtml(
+                        "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
+                        ""));
         System.out.println(eg.getHelpHtml("/exemplarCharacters", ""));
         System.out.println(eg.getHelpHtml("/calendar/pattern", ""));
 
@@ -205,12 +211,12 @@ public class TestMisc {
         CLDRFile en = cldrFactory.make("root", true);
         Status status = new Status();
         Matcher m = PatternCache.get("gregorian.*dayPeriods").matcher("");
-        for (Iterator<String> it = en.iterator(null, en.getComparator()); it.hasNext();) {
+        for (Iterator<String> it = en.iterator(null, en.getComparator()); it.hasNext(); ) {
             String path = it.next();
             if (!m.reset(path).find()) {
                 continue;
             }
-            //String locale = en.getSourceLocaleID(path, status);
+            // String locale = en.getSourceLocaleID(path, status);
             String value = en.getStringValue(path);
             String fullPath = en.getFullXPath(path);
             System.out.println("value:\t" + value + "\tpath:\t" + fullPath);
@@ -252,53 +258,64 @@ public class TestMisc {
         caseFolded.freeze();
         simpleCaseFolded.freeze();
 
-        UnicodeSet functionalExceptCase = new UnicodeSet("[" +
-            "[:L:][:Mc:][:Mn:][:Nd:]" +
-            "&[:^NFKC_QuickCheck=No:]" +
-            "&[:^default_ignorable_code_point:]]").freeze();
+        UnicodeSet functionalExceptCase =
+                new UnicodeSet(
+                                "["
+                                        + "[:L:][:Mc:][:Mn:][:Nd:]"
+                                        + "&[:^NFKC_QuickCheck=No:]"
+                                        + "&[:^default_ignorable_code_point:]]")
+                        .freeze();
 
         UnicodeSet asciiIdn = new UnicodeSet("[-A-Z0-9]").freeze();
 
-        UnicodeSet archaic = new UnicodeSet("[" +
-            "[:script=Bugi:]" +
-            "[:script=Copt:]" +
-            "[:script=Cprt:]" +
-            "[:script=Dsrt:]" +
-            "[:script=Glag:]" +
-            "[:script=Goth:]" +
-            "[:script=Hano:]" +
-            "[:script=Ital:]" +
-            "[:script=Khar:]" +
-            "[:script=Linb:]" +
-            "[:script=Ogam:]" +
-            "[:script=Osma:]" +
-            "[:script=Phag:]" +
-            "[:script=Phnx:]" +
-            "[:script=Runr:]" +
-            "[:script=Shaw:]" +
-            "[:script=Sylo:]" +
-            "[:script=Syrc:]" +
-            "[:script=Tagb:]" +
-            "[:script=Tglg:]" +
-            "[:script=Ugar:]" +
-            "[:script=Xpeo:]" +
-            "[:script=Xsux:]" +
-            // "[:script=Arab:]" +
-            // "[:script=Armn:]" +
-            // "[:script=Beng:]" +
-            // "[:script=Bopo:]" +
-            "[:block=Combining_Diacritical_Marks _for_Symbols:]" +
-            "[:block=Musical_Symbols:]" +
-            "[:block=Ancient_Greek_Musical_Notation:]]").freeze();
+        UnicodeSet archaic =
+                new UnicodeSet(
+                                "["
+                                        + "[:script=Bugi:]"
+                                        + "[:script=Copt:]"
+                                        + "[:script=Cprt:]"
+                                        + "[:script=Dsrt:]"
+                                        + "[:script=Glag:]"
+                                        + "[:script=Goth:]"
+                                        + "[:script=Hano:]"
+                                        + "[:script=Ital:]"
+                                        + "[:script=Khar:]"
+                                        + "[:script=Linb:]"
+                                        + "[:script=Ogam:]"
+                                        + "[:script=Osma:]"
+                                        + "[:script=Phag:]"
+                                        + "[:script=Phnx:]"
+                                        + "[:script=Runr:]"
+                                        + "[:script=Shaw:]"
+                                        + "[:script=Sylo:]"
+                                        + "[:script=Syrc:]"
+                                        + "[:script=Tagb:]"
+                                        + "[:script=Tglg:]"
+                                        + "[:script=Ugar:]"
+                                        + "[:script=Xpeo:]"
+                                        + "[:script=Xsux:]"
+                                        +
+                                        // "[:script=Arab:]" +
+                                        // "[:script=Armn:]" +
+                                        // "[:script=Beng:]" +
+                                        // "[:script=Bopo:]" +
+                                        "[:block=Combining_Diacritical_Marks _for_Symbols:]"
+                                        + "[:block=Musical_Symbols:]"
+                                        + "[:block=Ancient_Greek_Musical_Notation:]]")
+                        .freeze();
 
         System.out.println("functionalExceptCase: " + functionalExceptCase);
         System.out.println("archaic: " + archaic);
 
-        System.out.println("SimpleCaseFolded & !CaseFolded & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR
-            + bf.showSetNames(new UnicodeSet(simpleCaseFolded)
-                .removeAll(caseFolded)
-                .retainAll(functionalExceptCase)
-                .removeAll(archaic).removeAll(asciiIdn)));
+        System.out.println(
+                "SimpleCaseFolded & !CaseFolded & Functional & !Archaic:"
+                        + CldrUtility.LINE_SEPARATOR
+                        + bf.showSetNames(
+                                new UnicodeSet(simpleCaseFolded)
+                                        .removeAll(caseFolded)
+                                        .retainAll(functionalExceptCase)
+                                        .removeAll(archaic)
+                                        .removeAll(asciiIdn)));
 
         UnicodeSet functional = new UnicodeSet(functionalExceptCase).retainAll(caseFolded).freeze();
         System.out.println("functional: " + functional.size());
@@ -306,30 +323,49 @@ public class TestMisc {
         System.out.println("archaic: " + archaic.size());
         System.out.println("functionalAndNotArchaic: " + functionalAndNotArchaic.size());
 
-        // System.out.println(bf.showSetNames("Case Folded", caseFolded,"Simple Case Folded", simpleCaseFolded));
+        // System.out.println(bf.showSetNames("Case Folded", caseFolded,"Simple Case Folded",
+        // simpleCaseFolded));
 
-        UnicodeSet functionalCommon = new UnicodeSet("[:script=common:]").retainAll(functional).removeAll(archaic)
-            .removeAll(asciiIdn);
-        System.out.println("Common & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR
-            + bf.showSetNames(functionalCommon));
+        UnicodeSet functionalCommon =
+                new UnicodeSet("[:script=common:]")
+                        .retainAll(functional)
+                        .removeAll(archaic)
+                        .removeAll(asciiIdn);
+        System.out.println(
+                "Common & Functional & !Archaic:"
+                        + CldrUtility.LINE_SEPARATOR
+                        + bf.showSetNames(functionalCommon));
 
-        UnicodeSet functionalInherited = new UnicodeSet("[:script=inherited:]").retainAll(functional)
-            .removeAll(archaic).removeAll(asciiIdn);
-        System.out.println("Inherited & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR
-            + bf.showSetNames(functionalInherited));
+        UnicodeSet functionalInherited =
+                new UnicodeSet("[:script=inherited:]")
+                        .retainAll(functional)
+                        .removeAll(archaic)
+                        .removeAll(asciiIdn);
+        System.out.println(
+                "Inherited & Functional & !Archaic:"
+                        + CldrUtility.LINE_SEPARATOR
+                        + bf.showSetNames(functionalInherited));
 
         UnicodeSet nl = new UnicodeSet("[:Nl:]").retainAll(functional).removeAll(archaic);
-        System.out.println("Nl:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(new UnicodeSet("[:Nl:]")));
-        System.out.println("Nl & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(nl));
+        System.out.println(
+                "Nl:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(new UnicodeSet("[:Nl:]")));
+        System.out.println(
+                "Nl & Functional & !Archaic:" + CldrUtility.LINE_SEPARATOR + bf.showSetNames(nl));
 
-        UnicodeSet restrictedXidContinue = new UnicodeSet(
-            "[[:xid_continue:]" +
-                "&[:^NFKC_QuickCheck=No:]" +
-                "&[:^default_ignorable_code_point:]" +
-                "&[:^Pc:]]").retainAll(caseFolded);
+        UnicodeSet restrictedXidContinue =
+                new UnicodeSet(
+                                "[[:xid_continue:]"
+                                        + "&[:^NFKC_QuickCheck=No:]"
+                                        + "&[:^default_ignorable_code_point:]"
+                                        + "&[:^Pc:]]")
+                        .retainAll(caseFolded);
 
-        System.out.println(bf.showSetDifferences("IDNA Functional", functional,
-            "Unicode XID & NFKC &!DefaultIgnorable &! Pc", restrictedXidContinue));
+        System.out.println(
+                bf.showSetDifferences(
+                        "IDNA Functional",
+                        functional,
+                        "Unicode XID & NFKC &!DefaultIgnorable &! Pc",
+                        restrictedXidContinue));
 
         Transliterator t = Transliterator.getInstance("lower");
         System.out.println("ABC " + t.transliterate("ABC"));
@@ -342,7 +378,9 @@ public class TestMisc {
         BitSet scripts = new BitSet();
         for (int cp = 0; cp < 0x10FFFF; ++cp) {
             int script = UScript.getScript(cp);
-            if (script == UScript.COMMON || script == UScript.UNKNOWN || script == UScript.INHERITED) {
+            if (script == UScript.COMMON
+                    || script == UScript.UNKNOWN
+                    || script == UScript.INHERITED) {
                 continue;
             }
             scripts.set(script);
@@ -383,8 +421,17 @@ public class TestMisc {
     }
 
     static void testToRegex() {
-        String[] tests = { "\\-", "a", "d-f", "\\u2000", "\\uAC00-\\uAC12", "{AB}", "{CDE}", "\\uFFF0-\\U0010000F",
-            "\\U0010100F-\\U0010300F" }; // }; //
+        String[] tests = {
+            "\\-",
+            "a",
+            "d-f",
+            "\\u2000",
+            "\\uAC00-\\uAC12",
+            "{AB}",
+            "{CDE}",
+            "\\uFFF0-\\U0010000F",
+            "\\U0010100F-\\U0010300F"
+        }; // }; //
         for (int i = (1 << tests.length) - 1; i >= 0; --i) {
             String test = "[";
             for (int j = 0; j < tests.length; ++j) {
@@ -402,7 +449,7 @@ public class TestMisc {
         System.out.println(test + "\t->\t" + formatted);
         Matcher newTest = PatternCache.get(formatted).matcher("");
         UnicodeSet failures = new UnicodeSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(test); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(test); it.next(); ) {
             if (!newTest.reset(it.getString()).matches()) {
                 failures.add(it.getString());
             }
@@ -417,16 +464,21 @@ public class TestMisc {
         UnicodeSet dontCares = new UnicodeSet("[[:surrogate:][:unassigned:][:control:]]").freeze();
         UnicodeSet dontCares2 = new UnicodeSet("[:^letter:]").freeze();
 
-        // UnicodeSet wide = new UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); //
+        // UnicodeSet wide = new
+        // UnicodeSet("[[:East_Asian_Width=wide:][:East_Asian_Width=fullwidth:][:Co:]]"); //
         // remove supplementaries
-        // System.out.format("Wide %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, wide);
-        // System.out.format("Wide(spanned) %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR,
+        // System.out.format("Wide %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR,
+        // wide);
+        // System.out.format("Wide(spanned) %s" + Utility.LINE_SEPARATOR + "" +
+        // Utility.LINE_SEPARATOR,
         // Utility.addDontCareSpans(wide, dontCares));
         // UnicodeSet zeroWidth = new
         // UnicodeSet("[[:default_ignorable_code_point:][:Mn:][:Me:]-[:Noncharacter_Code_Point:]-[:Cc:]]"); // remove
         // supplementaries
-        // System.out.format("ZeroWidth %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR, zeroWidth);
-        // System.out.format("ZeroWidth(spanned) %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR,
+        // System.out.format("ZeroWidth %s" + Utility.LINE_SEPARATOR + "" + Utility.LINE_SEPARATOR,
+        // zeroWidth);
+        // System.out.format("ZeroWidth(spanned) %s" + Utility.LINE_SEPARATOR + "" +
+        // Utility.LINE_SEPARATOR,
         // Utility.addDontCareSpans(zeroWidth, dontCares));
 
         // P2. In each paragraph, find the first character of type L, AL, or R.
@@ -434,15 +486,16 @@ public class TestMisc {
         showSpans("Bidi L", strongL, dontCares);
         showSpans("Bidi L*", strongL, dontCares2);
 
-        UnicodeSet strongRAL = new UnicodeSet("[[:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]").freeze();
+        UnicodeSet strongRAL =
+                new UnicodeSet("[[:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]").freeze();
         showSpans("Bidi R,AL", strongRAL, dontCares);
         showSpans("Bidi R,AL*", strongRAL, dontCares2);
 
-        UnicodeSet strong = new UnicodeSet(
-            "[[:BidiClass=L:][:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]").freeze();
+        UnicodeSet strong =
+                new UnicodeSet("[[:BidiClass=L:][:BidiClass=R:][:BidiClass=AL:]-[:unassigned:]]")
+                        .freeze();
         showSpans("Strong", strong, dontCares);
         showSpans("Strong*", strong, dontCares2);
-
     }
 
     private static void showSpans(String title, UnicodeSet sourceSet, UnicodeSet dontCares) {
@@ -455,7 +508,8 @@ public class TestMisc {
         String unescapedString = spanned.toPattern(false);
         System.out.format("\tRanges: %d" + CldrUtility.LINE_SEPARATOR, spanned.getRangeCount());
         System.out.format("\tStrlen(\\u): %d" + CldrUtility.LINE_SEPARATOR, spannedString.length());
-        System.out.format("\tStrlen(!\\u): %d" + CldrUtility.LINE_SEPARATOR, unescapedString.length());
+        System.out.format(
+                "\tStrlen(!\\u): %d" + CldrUtility.LINE_SEPARATOR, unescapedString.length());
         String title2 = "Result";
         String sample = spannedString;
         if (false) {
@@ -469,7 +523,6 @@ public class TestMisc {
     }
 
     static int[] extraCJK = {
-
         0x3006, // IDEOGRAPHIC CLOSING MARK;Lo
         0x302A, // IDEOGRAPHIC LEVEL TONE MARK;Mn
         0x302B, // IDEOGRAPHIC RISING TONE MARK;Mn
@@ -503,13 +556,13 @@ public class TestMisc {
         Set<String> cldrFiles = cldrFactory.getAvailableLanguages();
         Set<String> distinguishing = new TreeSet<>();
         Set<String> nondistinguishing = new TreeSet<>();
-        for (Iterator<String> it = cldrFiles.iterator(); it.hasNext();) {
+        for (Iterator<String> it = cldrFiles.iterator(); it.hasNext(); ) {
             CLDRFile cldrFile = cldrFactory.make(it.next(), false);
             DtdType dtdType = null;
             if (cldrFile.isNonInheriting()) {
                 continue;
             }
-            for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext(); ) {
                 String path = it2.next();
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
@@ -525,7 +578,7 @@ public class TestMisc {
                         continue;
                     }
                     String element = parts.getElement(i);
-                    for (Iterator<String> mit = m.keySet().iterator(); mit.hasNext();) {
+                    for (Iterator<String> mit = m.keySet().iterator(); mit.hasNext(); ) {
                         String attribute = mit.next();
                         if (CLDRFile.isDistinguishing(dtdType, element, attribute)) {
                             distinguishing.add(attribute + "\tD\t" + element);
@@ -537,12 +590,12 @@ public class TestMisc {
             }
         }
         System.out.println("Distinguishing");
-        for (Iterator<String> it = distinguishing.iterator(); it.hasNext();) {
+        for (Iterator<String> it = distinguishing.iterator(); it.hasNext(); ) {
             System.out.println(it.next());
         }
         System.out.println();
         System.out.println("Non-Distinguishing");
-        for (Iterator<String> it = nondistinguishing.iterator(); it.hasNext();) {
+        for (Iterator<String> it = nondistinguishing.iterator(); it.hasNext(); ) {
             System.out.println(it.next());
         }
     }
@@ -552,15 +605,22 @@ public class TestMisc {
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         CLDRFile.Status status = new CLDRFile.Status();
-        for (Iterator<String> it = cldrFile.iterator(); it.hasNext();) {
+        for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
             String requestedPath = it.next();
             String localeWhereFound = cldrFile.getSourceLocaleID(requestedPath, status);
-            if (!localeWhereFound.equals(requestedLocale) || !status.pathWhereFound.equals(requestedPath)) {
-                System.out.println("requested path:\t" + requestedPath
-                    + "\tfound locale:\t" + localeWhereFound
-                    + "\tsame?\t" + localeWhereFound.equals(requestedLocale)
-                    + "\tfound path:\t" + status.pathWhereFound
-                    + "\tsame?\t" + status.pathWhereFound.equals(requestedPath));
+            if (!localeWhereFound.equals(requestedLocale)
+                    || !status.pathWhereFound.equals(requestedPath)) {
+                System.out.println(
+                        "requested path:\t"
+                                + requestedPath
+                                + "\tfound locale:\t"
+                                + localeWhereFound
+                                + "\tsame?\t"
+                                + localeWhereFound.equals(requestedLocale)
+                                + "\tfound path:\t"
+                                + status.pathWhereFound
+                                + "\tsame?\t"
+                                + status.pathWhereFound.equals(requestedPath));
             }
         }
     }
@@ -570,10 +630,14 @@ public class TestMisc {
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         StandardCodes sc = StandardCodes.make();
-        Set<String> careAbout = new HashSet<>(Arrays.asList(new String[] { "language", "script", "territory", "variant" }));
+        Set<String> careAbout =
+                new HashSet<>(
+                        Arrays.asList(new String[] {"language", "script", "territory", "variant"}));
         HashMap<String, Set<String>> foundItems = new HashMap<>();
         TreeSet<String> problems = new TreeSet<>();
-        for (Iterator<String> it = cldrFile.iterator("", new UTF16.StringComparator(true, false, 0)); it.hasNext();) {
+        for (Iterator<String> it =
+                        cldrFile.iterator("", new UTF16.StringComparator(true, false, 0));
+                it.hasNext(); ) {
             String requestedPath = it.next();
             XPathParts parts = XPathParts.getFrozenInstance(requestedPath);
             String element = parts.getElement(-1);
@@ -592,30 +656,42 @@ public class TestMisc {
 
             List<String> data = sc.getFullData(element, type);
             if (data == null) {
-                problems.add("No RFC3066bis data for: " + element + "\t" + type + "\t"
-                    + cldrFile.getStringValue(requestedPath));
+                problems.add(
+                        "No RFC3066bis data for: "
+                                + element
+                                + "\t"
+                                + type
+                                + "\t"
+                                + cldrFile.getStringValue(requestedPath));
                 continue;
             }
             if (isPrivateOrDeprecated(data)) {
-                problems.add("Private/Deprecated Data for: " + element + "\t" + type + "\t"
-                    + cldrFile.getStringValue(requestedPath) + "\t" + data);
+                problems.add(
+                        "Private/Deprecated Data for: "
+                                + element
+                                + "\t"
+                                + type
+                                + "\t"
+                                + cldrFile.getStringValue(requestedPath)
+                                + "\t"
+                                + data);
             }
             // String canonical_value = (String)data.get(2);
         }
-        for (Iterator<String> it = problems.iterator(); it.hasNext();) {
+        for (Iterator<String> it = problems.iterator(); it.hasNext(); ) {
             System.out.println(it.next());
         }
-        for (Iterator<String> it = careAbout.iterator(); it.hasNext();) {
+        for (Iterator<String> it = careAbout.iterator(); it.hasNext(); ) {
             String element = it.next();
             Set<String> real = sc.getAvailableCodes(element);
             Set<String> notFound = new TreeSet<>(real);
             notFound.removeAll(foundItems.get(element));
-            for (Iterator<String> it2 = notFound.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = notFound.iterator(); it2.hasNext(); ) {
                 String type = it2.next();
                 List<String> data = sc.getFullData(element, type);
                 if (isPrivateOrDeprecated(data)) continue;
-                System.out.println("Missing Translation for: " + element + "\t" + type + "\t"
-                    + "\t" + data);
+                System.out.println(
+                        "Missing Translation for: " + element + "\t" + type + "\t" + "\t" + data);
             }
         }
     }
@@ -636,7 +712,7 @@ public class TestMisc {
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = SimpleFactory.makeFile("supplemental");
         temp.setNonInheriting(true);
-        for (Iterator<String> it = supp.iterator(null, supp.getComparator()); it.hasNext();) {
+        for (Iterator<String> it = supp.iterator(null, supp.getComparator()); it.hasNext(); ) {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);
@@ -657,163 +733,166 @@ public class TestMisc {
 
     private static final Map<String, String> language_territory_hack_map = new HashMap<>();
     private static final String[][] language_territory_hack = {
-        { "af", "ZA" },
-        { "am", "ET" },
-        { "ar", "SA" },
-        { "as", "IN" },
-        { "ay", "PE" },
-        { "az", "AZ" },
-        { "bal", "PK" },
-        { "be", "BY" },
-        { "bg", "BG" },
-        { "bn", "IN" },
-        { "bs", "BA" },
-        { "ca", "ES" },
-        { "ch", "MP" },
-        { "cpe", "SL" },
-        { "cs", "CZ" },
-        { "cy", "GB" },
-        { "da", "DK" },
-        { "de", "DE" },
-        { "dv", "MV" },
-        { "dz", "BT" },
-        { "el", "GR" },
-        { "en", "US" },
-        { "es", "ES" },
-        { "et", "EE" },
-        { "eu", "ES" },
-        { "fa", "IR" },
-        { "fi", "FI" },
-        { "fil", "PH" },
-        { "fj", "FJ" },
-        { "fo", "FO" },
-        { "fr", "FR" },
-        { "ga", "IE" },
-        { "gd", "GB" },
-        { "gl", "ES" },
-        { "gn", "PY" },
-        { "gu", "IN" },
-        { "gv", "GB" },
-        { "ha", "NG" },
-        { "he", "IL" },
-        { "hi", "IN" },
-        { "ho", "PG" },
-        { "hr", "HR" },
-        { "ht", "HT" },
-        { "hu", "HU" },
-        { "hy", "AM" },
-        { "id", "ID" },
-        { "is", "IS" },
-        { "it", "IT" },
-        { "ja", "JP" },
-        { "ka", "GE" },
-        { "kk", "KZ" },
-        { "kl", "GL" },
-        { "km", "KH" },
-        { "kn", "IN" },
-        { "ko", "KR" },
-        { "kok", "IN" },
-        { "ks", "IN" },
-        { "ku", "TR" },
-        { "ky", "KG" },
-        { "la", "VA" },
-        { "lb", "LU" },
-        { "ln", "CG" },
-        { "lo", "LA" },
-        { "lt", "LT" },
-        { "lv", "LV" },
-        { "mai", "IN" },
-        { "men", "GN" },
-        { "mg", "MG" },
-        { "mh", "MH" },
-        { "mk", "MK" },
-        { "ml", "IN" },
-        { "mn", "MN" },
-        { "mni", "IN" },
-        { "mo", "MD" },
-        { "mr", "IN" },
-        { "ms", "MY" },
-        { "mt", "MT" },
-        { "my", "MM" },
-        { "na", "NR" },
-        { "nb", "NO" },
-        { "nd", "ZA" },
-        { "ne", "NP" },
-        { "niu", "NU" },
-        { "nl", "NL" },
-        { "nn", "NO" },
-        { "no", "NO" },
-        { "nr", "ZA" },
-        { "nso", "ZA" },
-        { "ny", "MW" },
-        { "om", "KE" },
-        { "or", "IN" },
-        { "pa", "IN" },
-        { "pau", "PW" },
-        { "pl", "PL" },
-        { "ps", "PK" },
-        { "pt", "BR" },
-        { "qu", "PE" },
-        { "rn", "BI" },
-        { "ro", "RO" },
-        { "ru", "RU" },
-        { "rw", "RW" },
-        { "sd", "IN" },
-        { "sg", "CF" },
-        { "si", "LK" },
-        { "sk", "SK" },
-        { "sl", "SI" },
-        { "sm", "WS" },
-        { "so", "DJ" },
-        { "sq", "CS" },
-        { "sr", "CS" },
-        { "ss", "ZA" },
-        { "st", "ZA" },
-        { "sv", "SE" },
-        { "sw", "KE" },
-        { "ta", "IN" },
-        { "te", "IN" },
-        { "tem", "SL" },
-        { "tet", "TL" },
-        { "th", "TH" },
-        { "ti", "ET" },
-        { "tg", "TJ" },
-        { "tk", "TM" },
-        { "tkl", "TK" },
-        { "tvl", "TV" },
-        { "tl", "PH" },
-        { "tn", "ZA" },
-        { "to", "TO" },
-        { "tpi", "PG" },
-        { "tr", "TR" },
-        { "ts", "ZA" },
-        { "uk", "UA" },
-        { "ur", "IN" },
-        { "uz", "UZ" },
-        { "ve", "ZA" },
-        { "vi", "VN" },
-        { "wo", "SN" },
-        { "xh", "ZA" },
-        { "zh", "CN" },
-        { "zh_Hant", "TW" },
-        { "zu", "ZA" },
-        { "aa", "ET" },
-        { "byn", "ER" },
-        { "eo", "DE" },
-        { "gez", "ET" },
-        { "haw", "US" },
-        { "iu", "CA" },
-        { "kw", "GB" },
-        { "sa", "IN" },
-        { "sh", "HR" },
-        { "sid", "ET" },
-        { "syr", "SY" },
-        { "tig", "ER" },
-        { "tt", "RU" },
-        { "wal", "ET" }, };
+        {"af", "ZA"},
+        {"am", "ET"},
+        {"ar", "SA"},
+        {"as", "IN"},
+        {"ay", "PE"},
+        {"az", "AZ"},
+        {"bal", "PK"},
+        {"be", "BY"},
+        {"bg", "BG"},
+        {"bn", "IN"},
+        {"bs", "BA"},
+        {"ca", "ES"},
+        {"ch", "MP"},
+        {"cpe", "SL"},
+        {"cs", "CZ"},
+        {"cy", "GB"},
+        {"da", "DK"},
+        {"de", "DE"},
+        {"dv", "MV"},
+        {"dz", "BT"},
+        {"el", "GR"},
+        {"en", "US"},
+        {"es", "ES"},
+        {"et", "EE"},
+        {"eu", "ES"},
+        {"fa", "IR"},
+        {"fi", "FI"},
+        {"fil", "PH"},
+        {"fj", "FJ"},
+        {"fo", "FO"},
+        {"fr", "FR"},
+        {"ga", "IE"},
+        {"gd", "GB"},
+        {"gl", "ES"},
+        {"gn", "PY"},
+        {"gu", "IN"},
+        {"gv", "GB"},
+        {"ha", "NG"},
+        {"he", "IL"},
+        {"hi", "IN"},
+        {"ho", "PG"},
+        {"hr", "HR"},
+        {"ht", "HT"},
+        {"hu", "HU"},
+        {"hy", "AM"},
+        {"id", "ID"},
+        {"is", "IS"},
+        {"it", "IT"},
+        {"ja", "JP"},
+        {"ka", "GE"},
+        {"kk", "KZ"},
+        {"kl", "GL"},
+        {"km", "KH"},
+        {"kn", "IN"},
+        {"ko", "KR"},
+        {"kok", "IN"},
+        {"ks", "IN"},
+        {"ku", "TR"},
+        {"ky", "KG"},
+        {"la", "VA"},
+        {"lb", "LU"},
+        {"ln", "CG"},
+        {"lo", "LA"},
+        {"lt", "LT"},
+        {"lv", "LV"},
+        {"mai", "IN"},
+        {"men", "GN"},
+        {"mg", "MG"},
+        {"mh", "MH"},
+        {"mk", "MK"},
+        {"ml", "IN"},
+        {"mn", "MN"},
+        {"mni", "IN"},
+        {"mo", "MD"},
+        {"mr", "IN"},
+        {"ms", "MY"},
+        {"mt", "MT"},
+        {"my", "MM"},
+        {"na", "NR"},
+        {"nb", "NO"},
+        {"nd", "ZA"},
+        {"ne", "NP"},
+        {"niu", "NU"},
+        {"nl", "NL"},
+        {"nn", "NO"},
+        {"no", "NO"},
+        {"nr", "ZA"},
+        {"nso", "ZA"},
+        {"ny", "MW"},
+        {"om", "KE"},
+        {"or", "IN"},
+        {"pa", "IN"},
+        {"pau", "PW"},
+        {"pl", "PL"},
+        {"ps", "PK"},
+        {"pt", "BR"},
+        {"qu", "PE"},
+        {"rn", "BI"},
+        {"ro", "RO"},
+        {"ru", "RU"},
+        {"rw", "RW"},
+        {"sd", "IN"},
+        {"sg", "CF"},
+        {"si", "LK"},
+        {"sk", "SK"},
+        {"sl", "SI"},
+        {"sm", "WS"},
+        {"so", "DJ"},
+        {"sq", "CS"},
+        {"sr", "CS"},
+        {"ss", "ZA"},
+        {"st", "ZA"},
+        {"sv", "SE"},
+        {"sw", "KE"},
+        {"ta", "IN"},
+        {"te", "IN"},
+        {"tem", "SL"},
+        {"tet", "TL"},
+        {"th", "TH"},
+        {"ti", "ET"},
+        {"tg", "TJ"},
+        {"tk", "TM"},
+        {"tkl", "TK"},
+        {"tvl", "TV"},
+        {"tl", "PH"},
+        {"tn", "ZA"},
+        {"to", "TO"},
+        {"tpi", "PG"},
+        {"tr", "TR"},
+        {"ts", "ZA"},
+        {"uk", "UA"},
+        {"ur", "IN"},
+        {"uz", "UZ"},
+        {"ve", "ZA"},
+        {"vi", "VN"},
+        {"wo", "SN"},
+        {"xh", "ZA"},
+        {"zh", "CN"},
+        {"zh_Hant", "TW"},
+        {"zu", "ZA"},
+        {"aa", "ET"},
+        {"byn", "ER"},
+        {"eo", "DE"},
+        {"gez", "ET"},
+        {"haw", "US"},
+        {"iu", "CA"},
+        {"kw", "GB"},
+        {"sa", "IN"},
+        {"sh", "HR"},
+        {"sid", "ET"},
+        {"syr", "SY"},
+        {"tig", "ER"},
+        {"tt", "RU"},
+        {"wal", "ET"},
+    };
+
     static {
         for (int i = 0; i < language_territory_hack.length; ++i) {
-            language_territory_hack_map.put(language_territory_hack[i][0], language_territory_hack[i][1]);
+            language_territory_hack_map.put(
+                    language_territory_hack[i][0], language_territory_hack[i][1]);
         }
     }
 
@@ -823,7 +902,8 @@ public class TestMisc {
         static VariantFolder compatibilityFolder = new VariantFolder(new CompatibilityFolder());
 
         @Override
-        public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
+        public boolean applyPropertyAlias(
+                String propertyName, String propertyValue, UnicodeSet result) {
             if (propertyName.equalsIgnoreCase("close")) {
                 if (propertyValue.equalsIgnoreCase("case")) {
                     result.addAll(caseFolder.getClosure(result));
@@ -846,23 +926,22 @@ public class TestMisc {
                 }
                 return true;
             } else if (propertyName.equalsIgnoreCase("reduceCase")) {
-                UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
-                    "·]", ":]")));
+                UnicodeSet temp =
+                        caseFolder.reduce(new UnicodeSet(propertyValue.replace("·]", ":]")));
                 result.clear().addAll(temp);
                 return true;
             } else if (propertyName.equalsIgnoreCase("reduceCanonical")) {
-                UnicodeSet temp = canonicalFolder.reduce(new UnicodeSet(propertyValue.replace(
-                    "·]", ":]")));
+                UnicodeSet temp =
+                        canonicalFolder.reduce(new UnicodeSet(propertyValue.replace("·]", ":]")));
                 result.clear().addAll(temp);
                 return true;
             } else if (propertyName.equalsIgnoreCase("reduceCase")) {
-                UnicodeSet temp = caseFolder.reduce(new UnicodeSet(propertyValue.replace(
-                    "·]", ":]")));
+                UnicodeSet temp =
+                        caseFolder.reduce(new UnicodeSet(propertyValue.replace("·]", ":]")));
                 result.clear().addAll(temp);
                 return true;
             }
             return false;
         }
     }
-
 }

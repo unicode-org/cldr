@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class SurveySnapshotMap implements SurveySnapshot {
 
-    final private TreeMap<String, String> snapMap = new TreeMap<>();
+    private final TreeMap<String, String> snapMap = new TreeMap<>();
 
     @Override
     public void put(String snapshotId, String json) {

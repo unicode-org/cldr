@@ -7,7 +7,7 @@
 
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
-	<version>43.0-SNAPSHOT</version>
+	<version>44.0-SNAPSHOT</version>
 	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
 	<licenses>
@@ -22,14 +22,17 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<!-- Note: see https://github.com/unicode-org/icu/packages/411079/versions
 			for the icu4j.version tag to use -->
-		<icu4j.version>73.0.1-SNAPSHOT-cldr-2023-02-21</icu4j.version>
+		<icu4j.version>73.1-release-73-1</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>2.22.2</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
 		<httpcomponents-version>5.0.3</httpcomponents-version>
 		<!--  web-specific properties are under cldr-apps -->
 		<mysql.version>8.0.30</mysql.version>
-		<derby.version>10.15.2.0</derby.version>
+		<!-- jsonwebtoken.io -->
+		<jjwt.version>0.11.5</jjwt.version>
+        <spotless.version>2.35.0</spotless.version>
+		<google-java-style.version>1.15.0</google-java-style.version>
 	</properties>
 
 	<modules>
@@ -97,7 +100,7 @@
 			<dependency>
 				<groupId>commons-fileupload</groupId>
 				<artifactId>commons-fileupload</artifactId>
-				<version>1.4</version>
+				<version>1.5</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-io</groupId>
@@ -123,7 +126,7 @@
 			<dependency>
 				<groupId>org.json</groupId>
 				<artifactId>json</artifactId>
-				<version>20190722</version>
+				<version>20230227</version>
 			</dependency>
 
 			<!-- HTTP client -->
@@ -139,17 +142,6 @@
 			</dependency>
 
 			<!-- db connectors -->
-			<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derby</artifactId>
-				<version>${derby.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derbytools</artifactId>
-				<version>${derby.version}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
@@ -176,6 +168,22 @@
 				<artifactId>trang</artifactId>
 				<version>20220510</version>
 			</dependency>
+			<!-- jwt -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-gson</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -190,6 +198,27 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${spotless.version}</version>
+                    <configuration>
+                        <!-- optional: limit format enforcement to just the files changed by this feature branch -->
+                        <!-- You can explicitly disable ratchet functionality by providing the value 'NONE': -->
+                        <ratchetFrom>NONE</ratchetFrom>
+                        <!-- define a language-specific format -->
+                        <java>
+                            <!-- no need to specify files, inferred automatically, but you can if you want -->
+                            <!-- apply a specific flavor of google-java-format and reflow long strings -->
+                            <googleJavaFormat>
+                                <!-- version of google-java-style -->
+                                <version>${google-java-style.version}</version>
+                                <style>AOSP</style>
+                                <reflowLongStrings>false</reflowLongStrings>
+                            </googleJavaFormat>
+                        </java>
+                    </configuration>
+                </plugin>
 				<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -198,7 +227,7 @@
 				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>3.0.2</version>
+					<version>3.3.1</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -217,12 +246,41 @@
 					</configuration>
 				</plugin>
 				<plugin>
+					<groupId>io.openliberty.tools</groupId>
+					<artifactId>liberty-maven-plugin</artifactId>
+					<version>3.5.1</version>
+				</plugin>
+				<plugin>
+					<groupId>com.github.eirslett</groupId>
+					<artifactId>frontend-maven-plugin</artifactId>
+					<version>1.12.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.22.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>1.1.0</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>3.0.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>3.0.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>3.3.2</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>

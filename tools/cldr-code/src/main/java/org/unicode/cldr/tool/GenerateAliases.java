@@ -1,5 +1,8 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -9,17 +12,12 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.UnicodeSet;
 
 public class GenerateAliases {
     public static void main(String[] args) {
@@ -33,7 +31,8 @@ public class GenerateAliases {
         SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContents = dataInfo.getDefaultContentLocales();
         LikelySubtags likelySubtags = new LikelySubtags();
-        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = dataInfo.getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> aliasInfo =
+                dataInfo.getLocaleAliasInfo();
 
         Relation<String, String> goodToBadLanguages = getGoodToBad(aliasInfo, "language");
         Relation<String, String> goodToBadTerritories = getGoodToBad(aliasInfo, "territory");
@@ -112,8 +111,10 @@ public class GenerateAliases {
             likely.put(partial, target);
         }
 
-        static final Set<String> HAS_MULTIPLE_SCRIPTS = org.unicode.cldr.util.Builder.with(new HashSet<String>())
-            .addAll("ha", "ku", "zh", "sr", "uz", "sh").freeze();
+        static final Set<String> HAS_MULTIPLE_SCRIPTS =
+                org.unicode.cldr.util.Builder.with(new HashSet<String>())
+                        .addAll("ha", "ku", "zh", "sr", "uz", "sh")
+                        .freeze();
 
         private boolean hasMultipleScripts(String localeID) {
             LanguageTagParser ltp = new LanguageTagParser().set(localeID);
@@ -121,8 +122,10 @@ public class GenerateAliases {
         }
 
         private String getDefaultContents(String localeID) {
-            String targetID = hasMultipleScripts(localeID) ? likelySubtags.maximize(localeID) : likelySubtags
-                .minimize(localeID);
+            String targetID =
+                    hasMultipleScripts(localeID)
+                            ? likelySubtags.maximize(localeID)
+                            : likelySubtags.minimize(localeID);
 
             if (targetID == null) {
                 System.out.println("missingLikely" + "\t" + localeID);
@@ -144,9 +147,10 @@ public class GenerateAliases {
 
         static final UnicodeSet NUMBERS = new UnicodeSet("[0-9]");
 
-        private Relation<String, String> getGoodToBad(Map<String, Map<String, R2<List<String>, String>>> aliasInfo,
-            String tag) {
-            Relation<String, String> result = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        private Relation<String, String> getGoodToBad(
+                Map<String, Map<String, R2<List<String>, String>>> aliasInfo, String tag) {
+            Relation<String, String> result =
+                    Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
             Map<String, R2<List<String>, String>> map = aliasInfo.get(tag);
             for (Entry<String, R2<List<String>, String>> entity : map.entrySet()) {
                 final String key = entity.getKey();
@@ -186,21 +190,32 @@ public class GenerateAliases {
                     for (String territory : territories) {
                         ltp.setRegion(territory);
                         String newTag = ltp.toString().replace('-', '_');
-                        main: {
+                        main:
+                        {
                             if (newTag.equals(targetID)) {
                                 break main;
                             }
                             String old = aliasMap.get(newTag);
                             if (old != null) {
                                 if (!old.equals(targetID)) {
-                                    System.out.println(newTag + "\t→\t" + targetID + "\tconflict with\t" + old);
+                                    System.out.println(
+                                            newTag
+                                                    + "\t→\t"
+                                                    + targetID
+                                                    + "\tconflict with\t"
+                                                    + old);
                                 }
                                 break main;
                             }
                             final boolean wholeAlias = isWholeAlias(factory, newTag);
                             if (!available.contains(newTag) || wholeAlias) {
-                                System.out.println(title + "\t" + newTag + "\t→\t" + targetID
-                                    + (wholeAlias ? "\talias-already" : ""));
+                                System.out.println(
+                                        title
+                                                + "\t"
+                                                + newTag
+                                                + "\t→\t"
+                                                + targetID
+                                                + (wholeAlias ? "\talias-already" : ""));
                                 aliasMap.put(newTag, targetID);
                             }
                         }
@@ -220,7 +235,8 @@ public class GenerateAliases {
          * sh_YU -> conflict with sr_Latn_RS
          */
 
-        private Set<String> addExtras(String language, Relation<String, String> goodToBadLanguages) {
+        private Set<String> addExtras(
+                String language, Relation<String, String> goodToBadLanguages) {
             Set<String> languages = new TreeSet<>();
             languages.add(language);
             Set<String> badLanguages = goodToBadLanguages.get(language);

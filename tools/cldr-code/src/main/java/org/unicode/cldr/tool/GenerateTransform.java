@@ -1,5 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -9,34 +16,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
-
 /**
  * Take a list of pairs, and generate a bidirectional transform.
  *
  * @author markdavis
- *
  */
 // TODO handle casing
 public class GenerateTransform {
-    private static final String TRANSFORM_DIRECTORY = CLDRPaths.COMMON_DIRECTORY
-        + "transforms"
-        + File.separator;
+    private static final String TRANSFORM_DIRECTORY =
+            CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator;
 
-    private final Set<Pair<String, String>> pairs = new TreeSet<>(
-        new MyComparator(ULocale.ROOT));
+    private final Set<Pair<String, String>> pairs = new TreeSet<>(new MyComparator(ULocale.ROOT));
     private final Map<String, String> source_target = new LinkedHashMap<>();
     private final Map<String, String> target_source = new LinkedHashMap<>();
     private final UnicodeContext addDotBetween = new UnicodeContext();
@@ -73,8 +68,10 @@ public class GenerateTransform {
             throwException(sourceIn, targetIn, "both source and target must be nonempty");
         }
         final String source = Normalizer.decompose(sourceIn, false);
-        final String target = falloff < 0 ? Normalizer.decompose(targetIn, false)
-            : Normalizer.decompose(targetIn + FALLOFFS.charAt(falloff), false);
+        final String target =
+                falloff < 0
+                        ? Normalizer.decompose(targetIn, false)
+                        : Normalizer.decompose(targetIn + FALLOFFS.charAt(falloff), false);
         if (source_target.containsKey(source)) {
             throwException(sourceIn, targetIn, "source occurs twice");
         }
@@ -92,8 +89,7 @@ public class GenerateTransform {
     }
 
     private void throwException(final String source, final String target, final String title) {
-        throw new IllegalArgumentException(title +
-            ": " + source + " => " + target);
+        throw new IllegalArgumentException(title + ": " + source + " => " + target);
     }
 
     public String toRules(UnicodeSet sourceSet, UnicodeSet targetSet) {
@@ -130,11 +126,17 @@ public class GenerateTransform {
 
         Set<UnicodeSet[]> items = addDotBetween.get();
         if (items.size() != 0) {
-            result.append("# Sequences requiring insertion of hyphenation point for disambiguation"
-                + CldrUtility.LINE_SEPARATOR);
+            result.append(
+                    "# Sequences requiring insertion of hyphenation point for disambiguation"
+                            + CldrUtility.LINE_SEPARATOR);
             for (UnicodeSet[] pair : items) {
                 // X {} y → · ;
-                result.append(show(pair[0]) + " {} " + show(pair[1]) + " → ‧ ;" + CldrUtility.LINE_SEPARATOR);
+                result.append(
+                        show(pair[0])
+                                + " {} "
+                                + show(pair[1])
+                                + " → ‧ ;"
+                                + CldrUtility.LINE_SEPARATOR);
             }
         }
 
@@ -143,17 +145,24 @@ public class GenerateTransform {
             if (pair.getFirst().length() == 0) {
                 continue;
             }
-            result.append(pair.getFirst() + " ↔ " + pair.getSecond() + " ;" + CldrUtility.LINE_SEPARATOR);
+            result.append(
+                    pair.getFirst() + " ↔ " + pair.getSecond() + " ;" + CldrUtility.LINE_SEPARATOR);
         }
 
         items = removeDot.get();
         if (items.size() != 0) {
-            result.append("# Removal of hyphenation point for disambiguation" + CldrUtility.LINE_SEPARATOR);
+            result.append(
+                    "# Removal of hyphenation point for disambiguation"
+                            + CldrUtility.LINE_SEPARATOR);
             for (UnicodeSet[] pair : items) {
                 // ← x {·} Y ;
-                result
-                    .append(" ← " + show(pair[0]) + " {‧} " + show(pair[1]) + " ;"
-                        + CldrUtility.LINE_SEPARATOR);
+                result.append(
+                        " ← "
+                                + show(pair[0])
+                                + " {‧} "
+                                + show(pair[1])
+                                + " ;"
+                                + CldrUtility.LINE_SEPARATOR);
             }
         }
 
@@ -161,19 +170,32 @@ public class GenerateTransform {
             result.append("# Retargetting items for completeness" + CldrUtility.LINE_SEPARATOR);
             for (String target : target_retarget.keySet()) {
                 // ← x {·} Y ;
-                result.append("|" + target_retarget.get(target) + " ← " + target + " ;"
-                    + CldrUtility.LINE_SEPARATOR);
+                result.append(
+                        "|"
+                                + target_retarget.get(target)
+                                + " ← "
+                                + target
+                                + " ;"
+                                + CldrUtility.LINE_SEPARATOR);
                 missingTarget.remove(target);
             }
         }
 
         if (missingSource.size() != 0) {
-            result.append("# Missing Source: " + missingSource.size() + " - "
-                + missingSource.toPattern(false) + CldrUtility.LINE_SEPARATOR);
+            result.append(
+                    "# Missing Source: "
+                            + missingSource.size()
+                            + " - "
+                            + missingSource.toPattern(false)
+                            + CldrUtility.LINE_SEPARATOR);
         }
         if (missingTarget.size() != 0) {
-            result.append("# Missing Target: " + missingTarget.size() + " - "
-                + missingTarget.toPattern(false) + CldrUtility.LINE_SEPARATOR);
+            result.append(
+                    "# Missing Target: "
+                            + missingTarget.size()
+                            + " - "
+                            + missingTarget.toPattern(false)
+                            + CldrUtility.LINE_SEPARATOR);
         }
 
         if (!sourceCased && targetCased) {
@@ -182,17 +204,17 @@ public class GenerateTransform {
 
         String rules = result.toString();
         if (false) {
-            Transliterator forward = Transliterator.createFromRules("forward", rules,
-                Transliterator.FORWARD);
-            Transliterator reverse = Transliterator.createFromRules("reverse", rules,
-                Transliterator.REVERSE);
+            Transliterator forward =
+                    Transliterator.createFromRules("forward", rules, Transliterator.FORWARD);
+            Transliterator reverse =
+                    Transliterator.createFromRules("reverse", rules, Transliterator.REVERSE);
         }
         return rules;
     }
 
     private UnicodeSet decomposeAndRemoveMarks(UnicodeSet sourceSet) {
         UnicodeSet result = new UnicodeSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next(); ) {
             String decompose = Normalizer.decompose(it.getString(), true);
             decompose = UCharacter.foldCase(decompose, true);
             result.addAll(Normalizer.decompose(decompose, true));
@@ -219,13 +241,11 @@ public class GenerateTransform {
 
         @Override
         public int compare(Pair<String, String> arg0, Pair<String, String> arg1) {
-            int result = arg0.getFirst().length()
-                - arg1.getFirst().length();
+            int result = arg0.getFirst().length() - arg1.getFirst().length();
             if (result != 0) {
                 return -result;
             }
-            result = arg0.getSecond().length()
-                - arg1.getSecond().length();
+            result = arg0.getSecond().length() - arg1.getSecond().length();
             if (result != 0) {
                 return -result;
             }
@@ -258,7 +278,7 @@ public class GenerateTransform {
             Set<UnicodeSet[]> result = new LinkedHashSet<>();
             for (UnicodeSet second : second_first.keySet()) {
                 UnicodeSet first = second_first.get(second);
-                result.add(new UnicodeSet[] { first, second });
+                result.add(new UnicodeSet[] {first, second});
             }
             return result;
         }
@@ -276,7 +296,7 @@ public class GenerateTransform {
         String rules = transformFromCldrFile(transformName);
         Transliterator trans = Transliterator.createFromRules(transformName, rules, dir);
         UnicodeSet sourceSet = trans.getSourceSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next(); ) {
             String source = it.getString();
             add(source, trans.transform(source));
         }
@@ -286,8 +306,10 @@ public class GenerateTransform {
     public String transformFromCldrFile(String transformName) {
         MyHandler myHandler = new MyHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-        xfr.read(TRANSFORM_DIRECTORY + transformName + ".xml", XMLFileReader.CONTENT_HANDLER
-            | XMLFileReader.ERROR_HANDLER, false);
+        xfr.read(
+                TRANSFORM_DIRECTORY + transformName + ".xml",
+                XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER,
+                false);
         return myHandler.toString();
     }
 
@@ -308,8 +330,7 @@ public class GenerateTransform {
         @Override
         public void handlePathValue(String path, String value) {
             if (path.indexOf("/comment") >= 0) {
-                if (!value.trim().startsWith("#"))
-                    value = value + "# ";
+                if (!value.trim().startsWith("#")) value = value + "# ";
                 output.append(value).append(CldrUtility.LINE_SEPARATOR);
             } else if (path.indexOf("/tRule") >= 0) {
                 // value = replaceUnquoted(value,"\u00A7", "&");

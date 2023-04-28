@@ -1,5 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collections;
@@ -10,7 +19,6 @@ import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.EnumLookup;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
@@ -23,16 +31,6 @@ import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
 
 public class TestScriptMetadata extends TestFmwkPlus {
     private static final VersionInfo ICU_UNICODE_VERSION = UCharacter.getUnicodeVersion();
@@ -54,11 +52,14 @@ public class TestScriptMetadata extends TestFmwkPlus {
             int codePointCount = UTF16.countCodePoint(info0.sampleChar);
             assertEquals("Sample must be single character", 1, codePointCount);
             if (ICU_UNICODE_VERSION.compareTo(info0.age) >= 0) {
-                int scriptCode = UScript.getScriptExtensions(
-                    info0.sampleChar.codePointAt(0), bitset);
-                assertTrue(script + ": The sample character must have a " +
-                    "single, valid script, no ScriptExtensions: " + scriptCode,
-                    scriptCode >= 0);
+                int scriptCode =
+                        UScript.getScriptExtensions(info0.sampleChar.codePointAt(0), bitset);
+                assertTrue(
+                        script
+                                + ": The sample character must have a "
+                                + "single, valid script, no ScriptExtensions: "
+                                + scriptCode,
+                        scriptCode >= 0);
             }
         }
     }
@@ -67,13 +68,17 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);
         if (ScriptMetadata.errors.size() != 0) {
             if (ScriptMetadata.errors.size() == 1) {
-                logln("ScriptMetadata initialization errors\t"
-                    + ScriptMetadata.errors.size() + "\t"
-                    + Joiner.on("\n").join(ScriptMetadata.errors));
+                logln(
+                        "ScriptMetadata initialization errors\t"
+                                + ScriptMetadata.errors.size()
+                                + "\t"
+                                + Joiner.on("\n").join(ScriptMetadata.errors));
             } else {
-                errln("ScriptMetadata initialization errors\t"
-                    + ScriptMetadata.errors.size() + "\t"
-                    + Joiner.on("\n").join(ScriptMetadata.errors));
+                errln(
+                        "ScriptMetadata initialization errors\t"
+                                + ScriptMetadata.errors.size()
+                                + "\t"
+                                + Joiner.on("\n").join(ScriptMetadata.errors));
             }
         }
 
@@ -81,8 +86,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
         assertEquals("Latin-rank", 2, info0.rank);
         assertEquals("Latin-country", "IT", info0.originCountry);
         assertEquals("Latin-sample", "L", info0.sampleChar);
-        assertEquals("Latin-id usage", ScriptMetadata.IdUsage.RECOMMENDED,
-            info0.idUsage);
+        assertEquals("Latin-id usage", ScriptMetadata.IdUsage.RECOMMENDED, info0.idUsage);
         assertEquals("Latin-ime?", Trinary.NO, info0.ime);
         assertEquals("Latin-lb letters?", Trinary.NO, info0.lbLetters);
         assertEquals("Latin-rtl?", Trinary.NO, info0.rtl);
@@ -100,23 +104,25 @@ public class TestScriptMetadata extends TestFmwkPlus {
     public void TestScripts() {
         UnicodeSet temp = new UnicodeSet();
         Set<String> missingScripts = new TreeSet<>();
-        Relation<IdUsage, String> map = Relation.of(
-            new EnumMap<IdUsage, Set<String>>(IdUsage.class),
-            LinkedHashSet.class);
+        Relation<IdUsage, String> map =
+                Relation.of(new EnumMap<IdUsage, Set<String>>(IdUsage.class), LinkedHashSet.class);
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
-                map.put(info.idUsage,
-                    UScript.getName(i) + "\t(" + UScript.getShortName(i)
-                        + ")\t" + info);
+                map.put(
+                        info.idUsage,
+                        UScript.getName(i) + "\t(" + UScript.getShortName(i) + ")\t" + info);
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln("Missing script metadata for " + UScript.getName(i)
-                        + "\t(" + UScript.getShortName(i));
+                    errln(
+                            "Missing script metadata for "
+                                    + UScript.getName(i)
+                                    + "\t("
+                                    + UScript.getShortName(i));
                 } else { // is not real
                     missingScripts.add(UScript.getShortName(i));
                 }
@@ -126,15 +132,17 @@ public class TestScriptMetadata extends TestFmwkPlus {
             logln("Script metadata found for script:" + entry.getValue());
         }
         if (!missingScripts.isEmpty()) {
-            logln("No script metadata for the following scripts (no Unicode characters defined): "
-                + missingScripts.toString());
+            logln(
+                    "No script metadata for the following scripts (no Unicode characters defined): "
+                            + missingScripts.toString());
         }
     }
 
     // lifted from ShowLanguages
-    private static Set<String> getEnglishTypes(String type, int code, StandardCodes sc, CLDRFile english) {
+    private static Set<String> getEnglishTypes(
+            String type, int code, StandardCodes sc, CLDRFile english) {
         Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
-        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
+        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext(); ) {
             XPathParts parts = XPathParts.getFrozenInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
@@ -145,8 +153,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
     }
 
     // lifted from ShowLanguages
-    private static Set<String> getScriptsToShow(StandardCodes sc,
-        CLDRFile english) {
+    private static Set<String> getScriptsToShow(StandardCodes sc, CLDRFile english) {
         return getEnglishTypes("script", CLDRFile.SCRIPT_NAME, sc, english);
     }
 
@@ -161,8 +168,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
                 // separate those out.
-                temp.applyIntPropertyValue(UProperty.SCRIPT,
-                    UScript.getCodeFromName(s));
+                temp.applyIntPropertyValue(UProperty.SCRIPT, UScript.getCodeFromName(s));
                 if (temp.size() != 0) { // is real
                     bads.add(s);
                 }
@@ -184,18 +190,22 @@ public class TestScriptMetadata extends TestFmwkPlus {
             }
             Info info = sc.getValue();
             String continent = Containment.getContinent(info.originCountry);
-            String container = !continent.equals("142") ? continent
-                : Containment.getSubcontinent(info.originCountry);
+            String container =
+                    !continent.equals("142")
+                            ? continent
+                            : Containment.getSubcontinent(info.originCountry);
 
-            lines.add(Row.of(
-                info.idUsage,
-                english.getName(CLDRFile.TERRITORY_NAME, continent),
-                info.idUsage
-                    + "\t"
-                    + english.getName(CLDRFile.TERRITORY_NAME,
-                        container)
-                    + "\t" + scriptCode + "\t"
-                    + english.getName(CLDRFile.SCRIPT_NAME, scriptCode)));
+            lines.add(
+                    Row.of(
+                            info.idUsage,
+                            english.getName(CLDRFile.TERRITORY_NAME, continent),
+                            info.idUsage
+                                    + "\t"
+                                    + english.getName(CLDRFile.TERRITORY_NAME, container)
+                                    + "\t"
+                                    + scriptCode
+                                    + "\t"
+                                    + english.getName(CLDRFile.SCRIPT_NAME, scriptCode)));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {
             logln(s.get2());
@@ -218,10 +228,8 @@ public class TestScriptMetadata extends TestFmwkPlus {
         assertEquals("Overlap", Collections.EMPTY_SET, scripts);
         for (ScriptMetadata.Groupings x : ScriptMetadata.Groupings.values()) {
             for (ScriptMetadata.Groupings y : ScriptMetadata.Groupings.values()) {
-                if (y == x)
-                    continue;
-                assertTrue("overlap",
-                    Collections.disjoint(x.scripts, y.scripts));
+                if (y == x) continue;
+                assertTrue("overlap", Collections.disjoint(x.scripts, y.scripts));
             }
         }
 
@@ -241,13 +249,13 @@ public class TestScriptMetadata extends TestFmwkPlus {
         //
     }
 
-//    private void assertEqualsX(Groupings aRaw, Set<String> bRaw) {
-//        assertEqualsX(aRaw.toString(), aRaw.scripts, bRaw);
-//    }
+    //    private void assertEqualsX(Groupings aRaw, Set<String> bRaw) {
+    //        assertEqualsX(aRaw.toString(), aRaw.scripts, bRaw);
+    //    }
 
     public void assertEqualsX(String title, Set<String> a, Set<String> bRaw) {
-        TreeSet<String> b = With.in(bRaw).toCollection(
-            ScriptMetadata.TO_SHORT_SCRIPT, new TreeSet<String>());
+        TreeSet<String> b =
+                With.in(bRaw).toCollection(ScriptMetadata.TO_SHORT_SCRIPT, new TreeSet<String>());
 
         Set<String> a_b = new TreeSet<>(a);
         a_b.removeAll(b);
@@ -255,5 +263,4 @@ public class TestScriptMetadata extends TestFmwkPlus {
         b_a.removeAll(a);
         assertEquals(title + " New vs Old, ", a_b.toString(), b_a.toString());
     }
-
 }

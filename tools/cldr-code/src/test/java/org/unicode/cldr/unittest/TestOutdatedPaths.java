@@ -1,18 +1,16 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PathHeader;
-
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 
 public class TestOutdatedPaths extends TestFmwkPlus {
 
@@ -40,18 +38,17 @@ public class TestOutdatedPaths extends TestFmwkPlus {
     }
 
     public void TestBasic() {
-        assertEquals("English should have none", 0,
-            outdatedPaths.countOutdated("en"));
+        assertEquals("English should have none", 0, outdatedPaths.countOutdated("en"));
 
         // Update the number when GenerateBirth is rerun.
 
-        assertTrue("French should have at least one",
-            outdatedPaths.countOutdated("fr") > 10);
+        assertTrue("French should have at least one", outdatedPaths.countOutdated("fr") > 10);
 
         // If this path is not outdated, find another one
 
         // assertTrue(
-        // "Test one path known to be outdated. Use TestShow -v to find a path, and verify that it is outdated",
+        // "Test one path known to be outdated. Use TestShow -v to find a path, and verify that it
+        // is outdated",
         // outdatedPaths
         // .isOutdated(
         // "fr",
@@ -78,14 +75,23 @@ public class TestOutdatedPaths extends TestFmwkPlus {
         for (Entry<PathHeader, String> entry : sorted.entrySet()) {
             PathHeader p = entry.getKey();
             String originalPath = p.getOriginalPath();
-            logln("English (" + outdatedPaths.getEnglishBirth(originalPath) + "):\\t"
-                + "«" + outdatedPaths.getPreviousEnglish(originalPath) + "»"
-                + "\t⇒\\t"
-                + "«" + CLDRConfig.getInstance().getEnglish().getStringValue(originalPath) + "»"
-                + "\tNative: «" + cldrFile.getStringValue(originalPath) //
-                + "»\tPath: " + p.toString() //
-                + "\tXML-Path: " + originalPath);
+            logln(
+                    "English ("
+                            + outdatedPaths.getEnglishBirth(originalPath)
+                            + "):\\t"
+                            + "«"
+                            + outdatedPaths.getPreviousEnglish(originalPath)
+                            + "»"
+                            + "\t⇒\\t"
+                            + "«"
+                            + CLDRConfig.getInstance().getEnglish().getStringValue(originalPath)
+                            + "»"
+                            + "\tNative: «"
+                            + cldrFile.getStringValue(originalPath) //
+                            + "»\tPath: "
+                            + p.toString() //
+                            + "\tXML-Path: "
+                            + originalPath);
         }
     }
-
 }

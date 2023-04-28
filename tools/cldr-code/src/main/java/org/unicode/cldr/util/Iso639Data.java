@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -11,11 +15,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-
-import com.google.common.base.Splitter;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Iso639Data {
 
@@ -48,46 +47,52 @@ public class Iso639Data {
     private static String version;
 
     /**
+     *
+     *
      * <h3><a NAME="I">Individual</a> languages</h3>
-     * <p>
-     * Judgments regarding when two varieties are considered to be the same or different languages are based on a number
-     * of factors, including linguistic similarity, intelligibility, a common literature, the views of speakers
-     * concerning the relationship between language and identity, and other factors.
-     * </p>
+     *
+     * <p>Judgments regarding when two varieties are considered to be the same or different
+     * languages are based on a number of factors, including linguistic similarity, intelligibility,
+     * a common literature, the views of speakers concerning the relationship between language and
+     * identity, and other factors.
+     *
      * <h3><a NAME="M">Macrolanguages</a></h3>
-     * <p>
-     * In various parts of the world, there are clusters of closely-related language varieties that, based on the
-     * criteria discussed above, can be considered distinct individual languages, yet in certain usage contexts a single
-     * language identity for all is needed.
-     * </p>
-     * <p>
-     * Macrolanguages are distinguished from language collections in that the individual languages that correspond to a
-     * macrolanguage must be very closely related, and there must be some domain in which only a single language
-     * identity is recognized.
-     * </p>
+     *
+     * <p>In various parts of the world, there are clusters of closely-related language varieties
+     * that, based on the criteria discussed above, can be considered distinct individual languages,
+     * yet in certain usage contexts a single language identity for all is needed.
+     *
+     * <p>Macrolanguages are distinguished from language collections in that the individual
+     * languages that correspond to a macrolanguage must be very closely related, and there must be
+     * some domain in which only a single language identity is recognized.
      *
      * <h3><a NAME="C">Collections</a> of languages</h3>
-     * <p>
-     * A collective language code element is an identifier that represents a group of individual languages that are not
-     * deemed to be one language in any usage context.
-     * </p>
-     * </p> <h3><a NAME="R">Private Use</a></h3>
-     * <p>
-     * Identifiers <tt>qaa</tt> through <tt>qtz</tt> are reserved for local use, to be used in cases in which there is
-     * no suitable existing code in ISO 639. There are no constraints as to scope of denotation. These identifiers may
-     * only be used locally, and may not be used in interchange without a private agreement.
-     * </p>
+     *
+     * <p>A collective language code element is an identifier that represents a group of individual
+     * languages that are not deemed to be one language in any usage context.
+     *
+     * <h3><a NAME="R">Private Use</a></h3>
+     *
+     * <p>Identifiers <tt>qaa</tt> through <tt>qtz</tt> are reserved for local use, to be used in
+     * cases in which there is no suitable existing code in ISO 639. There are no constraints as to
+     * scope of denotation. These identifiers may only be used locally, and may not be used in
+     * interchange without a private agreement.
+     *
      * <h3><a NAME="S">Special situations</a></h3>
-     * <p>
-     * A few code elements are defined for other special situations.
-     * </p>
-     * For more information, see http://www.sil.org/iso639-3/scope.asp
-     * <p>
-     * Note that the casing on these enum values is chosen to match standard usage.
-     * </p>
+     *
+     * <p>A few code elements are defined for other special situations. For more information, see
+     * http://www.sil.org/iso639-3/scope.asp
+     *
+     * <p>Note that the casing on these enum values is chosen to match standard usage.
      */
     public enum Scope {
-        Individual, Macrolanguage, Special, Collection, PrivateUse, Unknown;
+        Individual,
+        Macrolanguage,
+        Special,
+        Collection,
+        PrivateUse,
+        Unknown;
+
         public static Scope fromString(String input) {
             input = input.replace("-", "");
             for (Scope item : Scope.values()) {
@@ -100,46 +105,57 @@ public class Iso639Data {
     }
 
     /**
+     *
+     *
      * <h3><a NAME="L"></a>Living languages</h3>
-     * <p>
-     * A language is listed as <i>living</i> when there are people still living who learned it as a first language.
-     * </p>
+     *
+     * <p>A language is listed as <i>living</i> when there are people still living who learned it as
+     * a first language.
+     *
      * <h3><a NAME="E"></a>Extinct languages</h3>
      *
-     * <p>
-     * A language is listed as <i>extinct</i> if it has gone extinct in recent times. (e.g. in the last few centuries).
-     * </p>
+     * <p>A language is listed as <i>extinct</i> if it has gone extinct in recent times. (e.g. in
+     * the last few centuries).
+     *
      * <h3><a NAME="A"></a>Ancient languages</h3>
-     * <p>
-     * A language is listed as <i>ancient</i> if it went extinct in ancient times (e.g. more than a millennium ago).
-     * </p>
+     *
+     * <p>A language is listed as <i>ancient</i> if it went extinct in ancient times (e.g. more than
+     * a millennium ago).
+     *
      * <h3><a NAME="H"></a>Historic languages</h3>
-     * <p>
-     * A language is listed as <i>historic</i> when it is considered to be distinct from any modern languages that are
-     * descended from it; for instance, Old English and Middle English.
-     * </p>
+     *
+     * <p>A language is listed as <i>historic</i> when it is considered to be distinct from any
+     * modern languages that are descended from it; for instance, Old English and Middle English.
      *
      * <h3><a NAME="C"></a>Constructed languages</h3>
-     * <p>
-     * Artificial languages are those like Esperanto: it excludes programming languages.
-     * </p>
-     * <p>
-     * Note that the casing on these enum values is chosen to match standard usage. <i>For more information, see
-     * http://www.sil.org/iso639-3/scope.asp</i>
-     * </p>
+     *
+     * <p>Artificial languages are those like Esperanto: it excludes programming languages.
+     *
+     * <p>Note that the casing on these enum values is chosen to match standard usage. <i>For more
+     * information, see http://www.sil.org/iso639-3/scope.asp</i>
      */
     public enum Type {
-        Ancient, Constructed, Extinct, Historical, Living, Special, Collection, Unknown
+        Ancient,
+        Constructed,
+        Extinct,
+        Historical,
+        Living,
+        Special,
+        Collection,
+        Unknown
     }
 
     /**
      * This indicates the source of the language subtag.
      *
      * @author markdavis
-     *
      */
     public enum Source {
-        ISO_639_1, ISO_639_2, ISO_639_3, BCP47, CLDR
+        ISO_639_1,
+        ISO_639_2,
+        ISO_639_3,
+        BCP47,
+        CLDR
     }
 
     public static String getVersion() {
@@ -154,8 +170,7 @@ public class Iso639Data {
             return null;
         }
         Source result = toSource.get(languageSubtag);
-        if (result == null)
-            return Source.ISO_639_3;
+        if (result == null) return Source.ISO_639_3;
         return result;
     }
 
@@ -225,17 +240,13 @@ public class Iso639Data {
         if (toScope == null) {
             getData();
         }
-        if (!isValid(languageSubtag))
-            return Scope.Unknown;
+        if (!isValid(languageSubtag)) return Scope.Unknown;
         Scope result = toScope.get(languageSubtag);
-        if (result != null)
-            return result;
+        if (result != null) return result;
         return Scope.Individual;
     }
 
-    /**
-     * Returns the ISO 639-5 heirarchy if available, otherwise null.
-     */
+    /** Returns the ISO 639-5 heirarchy if available, otherwise null. */
     public static List<String> getHeirarchy(String languageSubtag) {
         if (toHeirarchy == null) {
             getData();
@@ -247,38 +258,42 @@ public class Iso639Data {
         if (toAlpha3 == null) {
             getData();
         }
-        if (!isValid(languageSubtag))
-            return Type.Unknown;
+        if (!isValid(languageSubtag)) return Type.Unknown;
         Type result = toType.get(languageSubtag);
-        if (result != null)
-            return result;
+        if (result != null) return result;
         return Type.Living;
     }
 
     /**
-     * Id char(3) NOT NULL, -- The three-letter 639-3 identifier Part2B char(3)
-     * NULL, -- Equivalent 639-2 identifier of the bibliographic applications code
-     * set, if there is one Part2T char(3) NULL, -- Equivalent 639-2 identifier of
-     * the terminology applications code set, if there is one Part1 char(2) NULL, --
-     * Equivalent 639-1 identifier, if there is one Scope char(1) NOT NULL, --
-     * I(ndividual), M(acrolanguage), S(pecial) Type char(1) NOT NULL, --
-     * A(ncient), C(onstructed), -- E(xtinct), H(istorical), L(iving), S(pecial)
-     * Ref_Name varchar(150) NOT NULL) -- Reference language name
+     * Id char(3) NOT NULL, -- The three-letter 639-3 identifier Part2B char(3) NULL, -- Equivalent
+     * 639-2 identifier of the bibliographic applications code set, if there is one Part2T char(3)
+     * NULL, -- Equivalent 639-2 identifier of the terminology applications code set, if there is
+     * one Part1 char(2) NULL, -- Equivalent 639-1 identifier, if there is one Scope char(1) NOT
+     * NULL, -- I(ndividual), M(acrolanguage), S(pecial) Type char(1) NOT NULL, -- A(ncient),
+     * C(onstructed), -- E(xtinct), H(istorical), L(iving), S(pecial) Ref_Name varchar(150) NOT
+     * NULL) -- Reference language name
      *
      * @throws IOException
      */
     enum IsoColumn {
-        Id, Part2B, Part2T, Part1, Scope, Type, Ref_Name
+        Id,
+        Part2B,
+        Part2T,
+        Part1,
+        Scope,
+        Type,
+        Ref_Name
     }
 
     /**
-     * Id char(3) NOT NULL, -- The three-letter 639-3 identifier Print_Name
-     * varchar(75) NOT NULL, -- One of the names associated with this identifier
-     * Inverted_Name varchar(75) NOT NULL) -- The inverted form of this Print_Name
-     * form
+     * Id char(3) NOT NULL, -- The three-letter 639-3 identifier Print_Name varchar(75) NOT NULL, --
+     * One of the names associated with this identifier Inverted_Name varchar(75) NOT NULL) -- The
+     * inverted form of this Print_Name form
      */
     enum IsoNamesColumn {
-        Id, Print_Name, Inverted_Name
+        Id,
+        Print_Name,
+        Inverted_Name
     }
 
     private static void getData() {
@@ -298,7 +313,8 @@ public class Iso639Data {
             toNames = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             toRetirements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             toChangeTo = new TreeMap<>();
-            macro_encompassed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            macro_encompassed =
+                    Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             encompassed_macro = new HashMap<>();
             toSource = new HashMap<>();
             toSource.put("sh", Source.ISO_639_1); // add deprecated language
@@ -319,8 +335,7 @@ public class Iso639Data {
                 }
                 String[] parts = tabs.split(line);
                 String alpha3 = parts[IsoColumn.Id.ordinal()];
-                if (alpha3.equals("Id"))
-                    continue;
+                if (alpha3.equals("Id")) continue;
                 String languageSubtag = alpha3;
                 if (parts[IsoColumn.Part1.ordinal()].length() != 0) { // parts.length >
                     // IsoColumn.Part1.ordinal()
@@ -342,11 +357,9 @@ public class Iso639Data {
 
                 toNames.put(languageSubtag, parts[IsoColumn.Ref_Name.ordinal()]);
                 Scope scope = findMatchToPrefix(parts[IsoColumn.Scope.ordinal()], Scope.values());
-                if (scope != Scope.Individual)
-                    toScope.put(languageSubtag, scope);
+                if (scope != Scope.Individual) toScope.put(languageSubtag, scope);
                 Type type = findMatchToPrefix(parts[IsoColumn.Type.ordinal()], Type.values());
-                if (type != Type.Living)
-                    toType.put(languageSubtag, type);
+                if (type != Type.Living) toType.put(languageSubtag, type);
             }
             // System.out.println("Size:\t" + toNames.size());
             in.close();
@@ -355,14 +368,11 @@ public class Iso639Data {
             in = CldrUtility.getUTF8Data("iso-639-3_Retirements.tab");
             while (true) {
                 String line = in.readLine();
-                if (line == null)
-                    break;
-                if (line.startsWith("\uFEFF"))
-                    line = line.substring(1);
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) line = line.substring(1);
                 String[] parts = tabs.split(line);
                 String alpha3 = parts[0];
-                if (alpha3.equals("Id"))
-                    continue;
+                if (alpha3.equals("Id")) continue;
                 // Id   Ref_Name    Ret_Reason  Change_To   Ret_Remedy  Effective
                 // fri  Western Frisian C   fry     2007-02-01
 
@@ -380,14 +390,11 @@ public class Iso639Data {
             in = CldrUtility.getUTF8Data("iso-639-3-macrolanguages.tab");
             while (true) {
                 String line = in.readLine();
-                if (line == null)
-                    break;
-                if (line.startsWith("\uFEFF"))
-                    line = line.substring(1);
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) line = line.substring(1);
                 String[] parts = tabs.split(line);
                 String prefix = parts[0];
-                if (prefix.equals("M_Id"))
-                    continue;
+                if (prefix.equals("M_Id")) continue;
                 prefix = fromAlpha3(prefix);
                 String suffix = fromAlpha3(parts[1]);
                 if (suffix == null || prefix == null) {
@@ -404,14 +411,11 @@ public class Iso639Data {
             in = CldrUtility.getUTF8Data("iso-639-3_Name_Index.tab");
             while (true) {
                 String line = in.readLine();
-                if (line == null)
-                    break;
-                if (line.startsWith("\uFEFF"))
-                    line = line.substring(1);
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) line = line.substring(1);
                 String[] parts = tabs.split(line);
                 String alpha3 = parts[IsoColumn.Id.ordinal()];
-                if (alpha3.equals("Id"))
-                    continue;
+                if (alpha3.equals("Id")) continue;
                 String languageSubTag = fromAlpha3(alpha3);
                 toNames.put(languageSubTag, parts[IsoNamesColumn.Print_Name.ordinal()]);
                 // skip inverted name for now
@@ -428,10 +432,8 @@ public class Iso639Data {
             // characters.
             while (true) {
                 String line = in.readLine();
-                if (line == null)
-                    break;
-                if (line.startsWith("\uFEFF"))
-                    line = line.substring(1);
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) line = line.substring(1);
                 String[] parts = line.split("\\s*\\|\\s*");
                 String alpha3 = parts[0];
                 if (alpha3.equals("qaa-qtz")) {
@@ -446,17 +448,19 @@ public class Iso639Data {
                     }
                     continue;
                 }
-                if (parts[1].length() != 0)
-                    alpha3 = parts[1];
+                if (parts[1].length() != 0) alpha3 = parts[1];
                 String languageSubtag = parts[2];
                 if (languageSubtag.length() == 0) {
                     languageSubtag = alpha3;
                 }
                 String[] english = parts[3].split(";");
-                toSource.put(languageSubtag, languageSubtag.length() == 2 ? Source.ISO_639_1 : Source.ISO_639_2);
+                toSource.put(
+                        languageSubtag,
+                        languageSubtag.length() == 2 ? Source.ISO_639_1 : Source.ISO_639_2);
                 if (!isValid(languageSubtag)) {
                     // we don't have it already,
-                    // System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" + Arrays.asList(english));
+                    // System.out.println("Adding2: " + alpha3 + "\t" + languageSubtag + "\t" +
+                    // Arrays.asList(english));
                     if (languageSubtag.length() == 2) {
                         toAlpha3.put(languageSubtag, alpha3);
                         fromAlpha3.put(alpha3, languageSubtag);
@@ -476,87 +480,92 @@ public class Iso639Data {
             boolean lastAttributeIsScope = false;
             boolean lastElementIsTD = false;
             boolean hadPop = true;
-            // if the table level is 1 (we are in the main table), then we look for <td>...</td><td>...</td>. That means
+            // if the table level is 1 (we are in the main table), then we look for
+            // <td>...</td><td>...</td>. That means
             // that we have column 1 and column 2.
 
             SimpleHtmlParser simple = new SimpleHtmlParser().setReader(in);
             StringBuilder result = new StringBuilder();
 
-            main: while (true) {
+            main:
+            while (true) {
                 SimpleHtmlParser.Type x = simple.next(result);
                 // System.out.println(column + "\t" + x + "\t" + result);
                 switch (x) {
-                case ELEMENT_START:
-                    hadPop = false;
-                    lastElementIsTD = false;
-                    break;
-                case ELEMENT:
-                    if (SimpleHtmlParser.equals("tr", result)) {
-                        column = 0;
-                    } else if (SimpleHtmlParser.equals("td", result)) {
-                        lastElementIsTD = true;
-                    }
-                    break;
-                case ELEMENT_POP:
-                    hadPop = true;
-                    break;
-                case ELEMENT_END:
-                    // if we get a POP and a TD, and we have column > 0, we increment
-                    if (lastElementIsTD && hadPop && column > 0) {
-                        ++column;
-                    }
-                    break;
-                case ELEMENT_CONTENT:
-                    /*
-                     * <th scope="col">Identifier<br />Indicatif</th>
-                     * <th scope="col">English name<br />Nom anglais</th>
-                     * <th scope="col">French name<br />Nom français</th>
-                     * <th scope="col">639-2</th>
-                     * <th scope="col">Hierarchy<br />Hiérarchie</th>
-                     * <th scope="col">Notes<br />Notes</th>
-                     *
-                     * <td scope="row">apa</td>
-                     * <td>Apache languages</td>
-                     * <td>apaches, langues</td>
-                     * <td>language group<br />groupe de langues</td>
-                     * <td>nai : xnd : ath : apa</td>
-                     * <td>
-                     * <br />
-                     * </td>
-                     */
-                    switch (column) {
-                    case 1:
-                        lastCode = result.toString();
+                    case ELEMENT_START:
+                        hadPop = false;
+                        lastElementIsTD = false;
                         break;
-                    case 5:
-                        String old = toHeirarchyTemp.get(lastCode);
-                        toHeirarchyTemp.put(lastCode, old == null || old.length() == 0 ? result.toString().trim()
-                            : old + " " + result.toString().trim());
+                    case ELEMENT:
+                        if (SimpleHtmlParser.equals("tr", result)) {
+                            column = 0;
+                        } else if (SimpleHtmlParser.equals("td", result)) {
+                            lastElementIsTD = true;
+                        }
                         break;
-                    case 2:
+                    case ELEMENT_POP:
+                        hadPop = true;
                         break;
-                    case 3:
+                    case ELEMENT_END:
+                        // if we get a POP and a TD, and we have column > 0, we increment
+                        if (lastElementIsTD && hadPop && column > 0) {
+                            ++column;
+                        }
                         break;
-                    case 4:
+                    case ELEMENT_CONTENT:
+                        /*
+                         * <th scope="col">Identifier<br />Indicatif</th>
+                         * <th scope="col">English name<br />Nom anglais</th>
+                         * <th scope="col">French name<br />Nom français</th>
+                         * <th scope="col">639-2</th>
+                         * <th scope="col">Hierarchy<br />Hiérarchie</th>
+                         * <th scope="col">Notes<br />Notes</th>
+                         *
+                         * <td scope="row">apa</td>
+                         * <td>Apache languages</td>
+                         * <td>apaches, langues</td>
+                         * <td>language group<br />groupe de langues</td>
+                         * <td>nai : xnd : ath : apa</td>
+                         * <td>
+                         * <br />
+                         * </td>
+                         */
+                        switch (column) {
+                            case 1:
+                                lastCode = result.toString();
+                                break;
+                            case 5:
+                                String old = toHeirarchyTemp.get(lastCode);
+                                toHeirarchyTemp.put(
+                                        lastCode,
+                                        old == null || old.length() == 0
+                                                ? result.toString().trim()
+                                                : old + " " + result.toString().trim());
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                break;
+                        }
                         break;
-                    case 0:
+                    case ATTRIBUTE:
+                        lastAttributeIsScope = SimpleHtmlParser.equals("scope", result);
                         break;
-                    default:
+                    case ATTRIBUTE_CONTENT:
+                        if (lastAttributeIsScope && SimpleHtmlParser.equals("row", result)) {
+                            column = 1;
+                        }
                         break;
-                    }
-                    break;
-                case ATTRIBUTE:
-                    lastAttributeIsScope = SimpleHtmlParser.equals("scope", result);
-                    break;
-                case ATTRIBUTE_CONTENT:
-                    if (lastAttributeIsScope && SimpleHtmlParser.equals("row", result)) {
-                        column = 1;
-                    }
-                    break;
-                case QUOTE:
-                    break;
-                case DONE:
-                    break main;
+                    case QUOTE:
+                        break;
+                    case DONE:
+                        break main;
                 }
             }
 
@@ -572,8 +581,13 @@ public class Iso639Data {
                 String[] values = SPLIT_HEIRARCHY.split(valueString);
                 for (String value : values) {
                     if (toScope.get(value) == null && toHeirarchyTemp.get(value) == null) {
-                        throw new IllegalArgumentException("Unexpected value in heirarchy:\t" + value + "\t" + code
-                            + "\t" + valueString);
+                        throw new IllegalArgumentException(
+                                "Unexpected value in heirarchy:\t"
+                                        + value
+                                        + "\t"
+                                        + code
+                                        + "\t"
+                                        + valueString);
                     }
                 }
                 toHeirarchy.put(code, Arrays.asList(values));
@@ -606,7 +620,8 @@ public class Iso639Data {
                 return x;
             }
         }
-        throw new IllegalArgumentException("Prefix <" + prefix + "> not found in " + Arrays.asList(values));
+        throw new IllegalArgumentException(
+                "Prefix <" + prefix + "> not found in " + Arrays.asList(values));
     }
 
     public static Set<String> getAvailable() {
@@ -618,16 +633,12 @@ public class Iso639Data {
 
     public static String getMacroForEncompassed(String suffix) {
         String prefix = encompassed_macro.get(suffix);
-        if (prefix != null)
-            return prefix;
-        if (suffix.equals("sgn"))
-            return null;
+        if (prefix != null) return prefix;
+        if (suffix.equals("sgn")) return null;
         Set<String> names = toNames.getAll(suffix);
-        if (names == null)
-            return null;
+        if (names == null) return null;
         for (String name : names) {
-            if (name.contains("Sign Language"))
-                return "sgn";
+            if (name.contains("Sign Language")) return "sgn";
         }
         return null;
     }

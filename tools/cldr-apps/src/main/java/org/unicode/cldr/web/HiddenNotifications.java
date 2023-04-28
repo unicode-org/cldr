@@ -3,7 +3,6 @@ package org.unicode.cldr.web;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 @Schema(description = "Hidden notifications")

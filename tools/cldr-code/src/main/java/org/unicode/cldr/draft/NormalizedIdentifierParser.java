@@ -1,33 +1,46 @@
 package org.unicode.cldr.draft;
 
-import java.util.Map;
-import java.util.TreeMap;
-
-import org.unicode.cldr.util.Timer;
-
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.Map;
+import java.util.TreeMap;
+import org.unicode.cldr.util.Timer;
 
 public class NormalizedIdentifierParser {
     enum Status {
-        NotNameChar, NameContinue, Name, UNKNOWN, DONE
+        NotNameChar,
+        NameContinue,
+        Name,
+        UNKNOWN,
+        DONE
     }
 
     enum CharType {
-        Illegal, NameContinueNFC, NameContinueOther, NameStartNFC, NameStartOther, Whitespace, Other
+        Illegal,
+        NameContinueNFC,
+        NameContinueOther,
+        NameStartNFC,
+        NameStartOther,
+        Whitespace,
+        Other
     }
 
-    static final UnicodeSet XmlNameStartChar = new UnicodeSet("[\\: A-Z _ a-z " +
-        "\\u00C0-\\u00D6 \\u00D8-\\u00F6 \\u00F8-\\u02FF \\u0370-\\u037D \\u037F-\\u1FFF \\u200C-\\u200D" +
-        "\\u2070-\\u218F \\u2C00-\\u2FEF \\u3001-\\uD7FF \\uF900-\\uFDCF \\uFDF0-\\uFFFD \\U00010000-\\U000EFFFF]")
-            .freeze();
-    static final UnicodeSet XmlNameContinueChar = new UnicodeSet(
-        "[- . 0-9 \\u00B7 \\u0300-\\u036F \\u203F-\\u2040]").freeze();
-    static final UnicodeSet XmlNameChar = new UnicodeSet(XmlNameStartChar).addAll(XmlNameContinueChar)
-        .freeze();
-    static final UnicodeSet XmlWhiteSpace = new UnicodeSet("[\\u0009\\u000D\\u000A\\u0020]").freeze();
-    static final UnicodeSet XmlIllegal = new UnicodeSet(
-        "[^\\u0009\\u000D\\u000A\\u0020-\uD7FF\\uE000-\\uFFFD\\U00010000-\\U000EFFFF]").freeze();
+    static final UnicodeSet XmlNameStartChar =
+            new UnicodeSet(
+                            "[\\: A-Z _ a-z "
+                                    + "\\u00C0-\\u00D6 \\u00D8-\\u00F6 \\u00F8-\\u02FF \\u0370-\\u037D \\u037F-\\u1FFF \\u200C-\\u200D"
+                                    + "\\u2070-\\u218F \\u2C00-\\u2FEF \\u3001-\\uD7FF \\uF900-\\uFDCF \\uFDF0-\\uFFFD \\U00010000-\\U000EFFFF]")
+                    .freeze();
+    static final UnicodeSet XmlNameContinueChar =
+            new UnicodeSet("[- . 0-9 \\u00B7 \\u0300-\\u036F \\u203F-\\u2040]").freeze();
+    static final UnicodeSet XmlNameChar =
+            new UnicodeSet(XmlNameStartChar).addAll(XmlNameContinueChar).freeze();
+    static final UnicodeSet XmlWhiteSpace =
+            new UnicodeSet("[\\u0009\\u000D\\u000A\\u0020]").freeze();
+    static final UnicodeSet XmlIllegal =
+            new UnicodeSet(
+                            "[^\\u0009\\u000D\\u000A\\u0020-\uD7FF\\uE000-\\uFFFD\\U00010000-\\U000EFFFF]")
+                    .freeze();
     static final UnicodeSet NfcSafe = new UnicodeSet("[:nfkcqc=yes:]").freeze();
 
     private String input;
@@ -57,40 +70,44 @@ public class NormalizedIdentifierParser {
         CharType type = getCharType(codePoint);
         endPosition += codePoint < 0x10000 ? 1 : 2;
         switch (type) {
-        case NameStartNFC:
-            knownNfc = true;
-            status = Status.Name;
-            break;
-        case NameStartOther:
-            knownNfc = false;
-            status = Status.Name;
-            break;
-        case NameContinueNFC:
-            knownNfc = true;
-            status = Status.NameContinue;
-            break;
-        case NameContinueOther:
-            knownNfc = false;
-            status = Status.NameContinue;
-            break;
-        default:
-            knownNfc = NfcSafe.contains(codePoint); // we don't care about the value, so production code wouldn't check
-            return Status.NotNameChar;
+            case NameStartNFC:
+                knownNfc = true;
+                status = Status.Name;
+                break;
+            case NameStartOther:
+                knownNfc = false;
+                status = Status.Name;
+                break;
+            case NameContinueNFC:
+                knownNfc = true;
+                status = Status.NameContinue;
+                break;
+            case NameContinueOther:
+                knownNfc = false;
+                status = Status.NameContinue;
+                break;
+            default:
+                knownNfc =
+                        NfcSafe.contains(
+                                codePoint); // we don't care about the value, so production code
+                // wouldn't check
+                return Status.NotNameChar;
         }
 
-        loop: while (endPosition < input.length()) {
+        loop:
+        while (endPosition < input.length()) {
             codePoint = input.codePointAt(endPosition);
             type = getCharType(codePoint);
             switch (type) {
-            case NameStartOther:
-            case NameContinueOther:
-                knownNfc = false;
-                break;
-            case NameStartNFC:
-            case NameContinueNFC:
-                break;
-            default:
-                break loop;
+                case NameStartOther:
+                case NameContinueOther:
+                    knownNfc = false;
+                    break;
+                case NameStartNFC:
+                case NameContinueNFC:
+                    break;
+                default:
+                    break loop;
             }
             endPosition += codePoint < 0x10000 ? 1 : 2;
         }
@@ -100,7 +117,9 @@ public class NormalizedIdentifierParser {
     public CharType getCharType(int codePoint) {
         // Normally this would just be a trie lookup, but we simulate it here
         if (XmlNameContinueChar.contains(codePoint)) {
-            return NfcSafe.contains(codePoint) ? CharType.NameContinueNFC : CharType.NameContinueOther;
+            return NfcSafe.contains(codePoint)
+                    ? CharType.NameContinueNFC
+                    : CharType.NameContinueOther;
         } else if (XmlNameStartChar.contains(codePoint)) {
             return NfcSafe.contains(codePoint) ? CharType.NameStartNFC : CharType.NameStartOther;
         } else if (XmlIllegal.contains(codePoint)) {
@@ -181,7 +200,11 @@ public class NormalizedIdentifierParser {
         NormalizedIdentifierParser parser = new NormalizedIdentifierParser();
         parser.set("\u0308ghi)j\u0308$abc+def*(", 0);
         for (Status status = parser.next(); status != Status.DONE; status = parser.next()) {
-            System.out.println(status + ": \t" + parser.getToken() + (!parser.isKnownNfc() ? "\tNot Known NFC!" : ""));
+            System.out.println(
+                    status
+                            + ": \t"
+                            + parser.getToken()
+                            + (!parser.isKnownNfc() ? "\tNot Known NFC!" : ""));
         }
     }
 
@@ -202,8 +225,11 @@ public class NormalizedIdentifierParser {
         }
         timer.stop();
         final long lowercaseDuration = timer.getDuration();
-        System.out.println("Java Lowercasing: " + lowercaseDuration * 1000.0d / iterations
-            + "µs; for " + test);
+        System.out.println(
+                "Java Lowercasing: "
+                        + lowercaseDuration * 1000.0d / iterations
+                        + "µs; for "
+                        + test);
 
         timer.start();
         for (int i = 0; i < iterations; ++i) {
@@ -211,8 +237,12 @@ public class NormalizedIdentifierParser {
         }
         timer.stop();
         final long nfcDuration = timer.getDuration();
-        System.out.println("ICU Normalizing: " + nfcDuration * 1000.0d / iterations
-            + "µs = " + (nfcDuration * 100.0d / lowercaseDuration - 1)
-            + "%; for " + test);
+        System.out.println(
+                "ICU Normalizing: "
+                        + nfcDuration * 1000.0d / iterations
+                        + "µs = "
+                        + (nfcDuration * 100.0d / lowercaseDuration - 1)
+                        + "%; for "
+                        + test);
     }
 }

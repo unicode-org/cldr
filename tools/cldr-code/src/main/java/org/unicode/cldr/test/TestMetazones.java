@@ -1,5 +1,13 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.impl.OlsonTimeZone;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.TimeZoneTransition;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -12,7 +20,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -22,21 +29,10 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.OlsonTimeZone;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.TimeZoneTransition;
-
 /**
- * Verify that all zones in a metazone have the same behavior within the
- * specified period.
+ * Verify that all zones in a metazone have the same behavior within the specified period.
  *
  * @author markdavis
- *
  */
 public class TestMetazones {
     public static boolean DEBUG = false;
@@ -45,10 +41,8 @@ public class TestMetazones {
     private static final long DAY = 24 * 60 * 60 * 1000L;
     private static final long MINUTE = 60000;
 
-    /**
-     * Set if we are suppressing daylight differences in the test.
-     */
-    final static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
+    /** Set if we are suppressing daylight differences in the test. */
+    static final SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
 
     // WARNING: right now, the only metazone rules are in root, so that's all we're testing.
     // if there were rules in other files, we'd have to check them to, by changing this line.
@@ -77,16 +71,21 @@ public class TestMetazones {
             skipPartialDays = CldrUtility.getProperty("skippartialdays", null, "") != null;
             skipConsistency = CldrUtility.getProperty("skipconsistency", null, "") != null;
 
-            String exemplarOutFile = CldrUtility.getProperty("log", null,
-                CLDRPaths.GEN_DIRECTORY + "metazoneLog.txt");
+            String exemplarOutFile =
+                    CldrUtility.getProperty(
+                            "log", null, CLDRPaths.GEN_DIRECTORY + "metazoneLog.txt");
             if (exemplarOutFile != null) {
                 log = FileUtilities.openUTF8Writer("", exemplarOutFile);
             }
-            String errorOutFile = CldrUtility.getProperty("errors", null,
-                CLDRPaths.GEN_DIRECTORY + "metazoneErrors" +
-                    (noDaylight ? "-noDaylight" : "") +
-                    (skipPartialDays ? "-skipPartialDays" : "")
-                    + ".txt");
+            String errorOutFile =
+                    CldrUtility.getProperty(
+                            "errors",
+                            null,
+                            CLDRPaths.GEN_DIRECTORY
+                                    + "metazoneErrors"
+                                    + (noDaylight ? "-noDaylight" : "")
+                                    + (skipPartialDays ? "-skipPartialDays" : "")
+                                    + ".txt");
             if (errorOutFile != null) {
                 errorLog = FileUtilities.openUTF8Writer("", errorOutFile);
             } else {
@@ -108,9 +107,7 @@ public class TestMetazones {
         }
     }
 
-    /**
-     * Test a locale.
-     */
+    /** Test a locale. */
     void test(String locale) {
         CLDRFile file = factory.make(locale, false);
         if (!fileHasMetazones(file)) {
@@ -120,11 +117,13 @@ public class TestMetazones {
         errorLog.println("Testing metazone info in: " + locale);
         // get the resolved version
         file = factory.make(locale, true);
-        Relation<String, DateRangeAndZone> mzoneToData = Relation.<String, DateRangeAndZone> of(
-            new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
+        Relation<String, DateRangeAndZone> mzoneToData =
+                Relation.<String, DateRangeAndZone>of(
+                        new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
-        Relation<String, DateRangeAndZone> zoneToDateRanges = Relation.<String, DateRangeAndZone> of(
-            new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
+        Relation<String, DateRangeAndZone> zoneToDateRanges =
+                Relation.<String, DateRangeAndZone>of(
+                        new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
         fillMetazoneData(file, mzoneToData, zoneToDateRanges);
 
@@ -138,9 +137,10 @@ public class TestMetazones {
         checkMetazoneConsistency(mzoneToData);
     }
 
-    private void fillMetazoneData(CLDRFile file,
-        Relation<String, DateRangeAndZone> mzoneToData,
-        Relation<String, DateRangeAndZone> zoneToDateRanges) {
+    private void fillMetazoneData(
+            CLDRFile file,
+            Relation<String, DateRangeAndZone> mzoneToData,
+            Relation<String, DateRangeAndZone> zoneToDateRanges) {
         for (String path : file) {
             if (path.contains("/usesMetazone")) {
                 /*
@@ -167,8 +167,7 @@ public class TestMetazones {
         }
     }
 
-    private void checkMetazoneConsistency(
-        Relation<String, DateRangeAndZone> mzoneToData) {
+    private void checkMetazoneConsistency(Relation<String, DateRangeAndZone> mzoneToData) {
         errorLog.println();
         errorLog.println("*** Verify everything matches in metazones");
         errorLog.println();
@@ -201,13 +200,24 @@ public class TestMetazones {
 
                     OlsonTimeZone timezone1 = new OlsonTimeZone(value.zone);
                     OlsonTimeZone timezone2 = new OlsonTimeZone(value2.zone);
-                    List<Pair<Long, Long>> list = getDifferencesOverRange(timezone1, timezone2, overlap);
+                    List<Pair<Long, Long>> list =
+                            getDifferencesOverRange(timezone1, timezone2, overlap);
 
                     if (list.size() != 0) {
-                        errln("Zones " + showZone(value.zone) + " and " + showZone(value2.zone)
-                            + " shouldn't be in the same metazone <" + mzone + "> during the period "
-                            + overlap + ". " + "Sample dates:" + CldrUtility.LINE_SEPARATOR + "\t"
-                            + showDifferences(timezone1, timezone2, list));
+                        errln(
+                                "Zones "
+                                        + showZone(value.zone)
+                                        + " and "
+                                        + showZone(value2.zone)
+                                        + " shouldn't be in the same metazone <"
+                                        + mzone
+                                        + "> during the period "
+                                        + overlap
+                                        + ". "
+                                        + "Sample dates:"
+                                        + CldrUtility.LINE_SEPARATOR
+                                        + "\t"
+                                        + showDifferences(timezone1, timezone2, list));
                     }
                 }
             }
@@ -219,8 +229,7 @@ public class TestMetazones {
         return zone + " [" + supplementalData.getZone_territory(zone) + "]";
     }
 
-    String showDifferences(OlsonTimeZone zone1, OlsonTimeZone zone2,
-        List<Pair<Long, Long>> list) {
+    String showDifferences(OlsonTimeZone zone1, OlsonTimeZone zone2, List<Pair<Long, Long>> list) {
 
         StringBuffer buffer = new StringBuffer();
 
@@ -240,38 +249,52 @@ public class TestMetazones {
             final long errorPeriod = end - start + MINUTE;
             totalErrorPeriod += errorPeriod;
             if (abbreviating) {
-                if (count == 4)
-                    buffer.append("..." + CldrUtility.LINE_SEPARATOR + "\t");
-                if (count >= 4 && count < list.size() - 2)
-                    continue;
+                if (count == 4) buffer.append("..." + CldrUtility.LINE_SEPARATOR + "\t");
+                if (count >= 4 && count < list.size() - 2) continue;
             }
 
-            buffer.append("delta=\t"
-                + hours.format(startDelta / (double) HOUR) + " hours:\t" + DateRange.format(start) + "\tto\t" +
-                DateRange.format(end) + ";\ttotal:\t" + days.format((errorPeriod) / (double) DAY) + " days"
-                + CldrUtility.LINE_SEPARATOR + "\t");
+            buffer.append(
+                    "delta=\t"
+                            + hours.format(startDelta / (double) HOUR)
+                            + " hours:\t"
+                            + DateRange.format(start)
+                            + "\tto\t"
+                            + DateRange.format(end)
+                            + ";\ttotal:\t"
+                            + days.format((errorPeriod) / (double) DAY)
+                            + " days"
+                            + CldrUtility.LINE_SEPARATOR
+                            + "\t");
         }
-        buffer.append("\tTotal Period in Error:\t" + days.format((totalErrorPeriod) / (double) DAY) + " days");
+        buffer.append(
+                "\tTotal Period in Error:\t"
+                        + days.format((totalErrorPeriod) / (double) DAY)
+                        + " days");
         return buffer.toString();
     }
 
     private void showDeltas(OlsonTimeZone zone1, OlsonTimeZone zone2, long start, long end) {
-        errorLog.println(zone1.getID() + ", start: " + start + ", startOffset " + getOffset(zone1, start));
-        errorLog.println(zone1.getID() + ", end: " + start + ", endOffset " + getOffset(zone1, end));
-        errorLog.println(zone2.getID() + ", start: " + start + ", startOffset " + getOffset(zone2, start));
-        errorLog.println(zone2.getID() + ", end: " + start + ", endOffset " + getOffset(zone2, end));
+        errorLog.println(
+                zone1.getID() + ", start: " + start + ", startOffset " + getOffset(zone1, start));
+        errorLog.println(
+                zone1.getID() + ", end: " + start + ", endOffset " + getOffset(zone1, end));
+        errorLog.println(
+                zone2.getID() + ", start: " + start + ", startOffset " + getOffset(zone2, start));
+        errorLog.println(
+                zone2.getID() + ", end: " + start + ", endOffset " + getOffset(zone2, end));
     }
 
     /**
-     * Returns a list of pairs. The delta timezone offsets for both zones should be identical between each of the points
-     * in the pair
+     * Returns a list of pairs. The delta timezone offsets for both zones should be identical
+     * between each of the points in the pair
      *
      * @param zone1
      * @param zone2
      * @param overlap
      * @return
      */
-    private List<Pair<Long, Long>> getDifferencesOverRange(OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
+    private List<Pair<Long, Long>> getDifferencesOverRange(
+            OlsonTimeZone zone1, OlsonTimeZone zone2, DateRange overlap) {
         Set<Long> list1 = new TreeSet<>();
         addTransitions(zone1, overlap, list1);
         addTransitions(zone2, overlap, list1);
@@ -347,8 +370,7 @@ public class TestMetazones {
         list.add(endTime);
         while (true) {
             TimeZoneTransition transition = zone1.getNextTransition(startTime, false);
-            if (transition == null)
-                break;
+            if (transition == null) break;
             long newTime = transition.getTime();
             if (newTime > endTime) {
                 break;
@@ -358,8 +380,7 @@ public class TestMetazones {
         }
     }
 
-    private void checkGapsAndOverlaps(
-        Relation<String, DateRangeAndZone> zoneToDateRanges) {
+    private void checkGapsAndOverlaps(Relation<String, DateRangeAndZone> zoneToDateRanges) {
         errorLog.println();
         errorLog.println("*** Verify no gaps or overlaps in zones");
         for (String zone : zoneToDateRanges.keySet()) {
@@ -380,8 +401,8 @@ public class TestMetazones {
     }
 
     private void checkExemplars(
-        Relation<String, DateRangeAndZone> mzoneToData,
-        Relation<String, DateRangeAndZone> zoneToData) {
+            Relation<String, DateRangeAndZone> mzoneToData,
+            Relation<String, DateRangeAndZone> zoneToData) {
 
         if (log != null) {
             log.println();
@@ -399,13 +420,14 @@ public class TestMetazones {
         }
 
         errorLog.println();
-        errorLog
-            .println("*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
+        errorLog.println(
+                "*** Verify that every metazone has at least one zone that is always in that metazone, over the span of the metazone's existance.");
         errorLog.println();
 
         // get the best exemplars
 
-        Map<String, Map<String, String>> metazoneToRegionToZone = supplementalData.getMetazoneToRegionToZone();
+        Map<String, Map<String, String>> metazoneToRegionToZone =
+                supplementalData.getMetazoneToRegionToZone();
 
         for (String mzone : mzoneToData.keySet()) {
             if (DEBUG) {
@@ -415,7 +437,10 @@ public class TestMetazones {
             // get the best zone
             final String bestZone = metazoneToRegionToZone.get(mzone).get("001");
             if (bestZone == null) {
-                errorLog.println("Metazone <" + mzone + "> is missing a 'best zone' (for 001) in supplemental data.");
+                errorLog.println(
+                        "Metazone <"
+                                + mzone
+                                + "> is missing a 'best zone' (for 001) in supplemental data.");
             }
             Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
 
@@ -434,8 +459,12 @@ public class TestMetazones {
 
             if (bestZone != null && !zoneToRanges.keySet().contains(bestZone)) {
                 zoneToRanges.keySet().contains(bestZone);
-                errorLog.println("The 'best zone' (" + showZone(bestZone) + ") for the metazone <" + mzone
-                    + "> is not in the metazone!");
+                errorLog.println(
+                        "The 'best zone' ("
+                                + showZone(bestZone)
+                                + ") for the metazone <"
+                                + mzone
+                                + "> is not in the metazone!");
             }
 
             // now see how many there are
@@ -446,23 +475,35 @@ public class TestMetazones {
             for (String zone : zoneToRanges.keySet()) {
                 final boolean isComplete = mzoneRanges.equals(zoneToRanges.get(zone));
                 if (zone.equals(bestZone) && !isComplete) {
-                    errorLog.println("The 'best zone' (" + showZone(bestZone) + ") for the metazone <" + mzone
-                        + "> is only partially in the metazone!");
+                    errorLog.println(
+                            "The 'best zone' ("
+                                    + showZone(bestZone)
+                                    + ") for the metazone <"
+                                    + mzone
+                                    + "> is only partially in the metazone!");
                 }
                 if (isComplete) {
                     count++;
                 }
                 if (log != null) {
-                    log.println("\t" + zone + ":\t"
-                        + supplementalData.getZone_territory(zone) + "\t"
-                        + zoneToRanges.get(zone) + (isComplete ? "" : "\t\tPartial"));
+                    log.println(
+                            "\t"
+                                    + zone
+                                    + ":\t"
+                                    + supplementalData.getZone_territory(zone)
+                                    + "\t"
+                                    + zoneToRanges.get(zone)
+                                    + (isComplete ? "" : "\t\tPartial"));
                 }
-
             }
 
             // show the errors
             if (count == 0) {
-                errln("Metazone <" + mzone + "> does not have exemplar for whole span: " + mzoneRanges);
+                errln(
+                        "Metazone <"
+                                + mzone
+                                + "> does not have exemplar for whole span: "
+                                + mzoneRanges);
                 for (DateRangeAndZone value : values) {
                     errorLog.println("\t" + mzone + ":\t" + value);
                     for (DateRangeAndZone mvalues : zoneToData.getAll(value.zone)) {
@@ -484,7 +525,7 @@ public class TestMetazones {
         Set<String> canonicalZones = supplementalData.getCanonicalZones();
         Set<String> missing = new TreeSet<>(canonicalZones);
         missing.removeAll(zoneToDateRanges.keySet());
-        for (Iterator<String> it = missing.iterator(); it.hasNext();) {
+        for (Iterator<String> it = missing.iterator(); it.hasNext(); ) {
             String value = it.next();
             if (value.startsWith("Etc/")) {
                 it.remove();
@@ -503,11 +544,17 @@ public class TestMetazones {
     private void checkGapOrOverlap(long last, long nextDate) {
         if (last != nextDate) {
             if (last < nextDate) {
-                warnln("Gap in coverage: " + DateRange.format(last) + ", "
-                    + DateRange.format(nextDate));
+                warnln(
+                        "Gap in coverage: "
+                                + DateRange.format(last)
+                                + ", "
+                                + DateRange.format(nextDate));
             } else {
-                errln("Overlap in coverage: " + DateRange.format(last) + ", "
-                    + DateRange.format(nextDate));
+                errln(
+                        "Overlap in coverage: "
+                                + DateRange.format(last)
+                                + ", "
+                                + DateRange.format(nextDate));
             }
         }
     }
@@ -526,7 +573,6 @@ public class TestMetazones {
      * Stores a range and a zone. The zone might be a timezone or metazone.
      *
      * @author markdavis
-     *
      */
     static class DateRangeAndZone implements Comparable<DateRangeAndZone> {
         DateRange range;
@@ -545,8 +591,7 @@ public class TestMetazones {
         @Override
         public int compareTo(DateRangeAndZone other) {
             int result = range.compareTo(other.range);
-            if (result != 0)
-                return result;
+            if (result != 0) return result;
             return zone.compareTo(other.zone);
         }
 
@@ -689,8 +734,7 @@ public class TestMetazones {
         }
 
         static long parse(String date, boolean end) {
-            if (date == null)
-                return end ? MAX_DATE : MIN_DATE;
+            if (date == null) return end ? MAX_DATE : MIN_DATE;
             try {
                 return iso1.parse(date).getTime();
             } catch (ParseException e) {
@@ -708,19 +752,16 @@ public class TestMetazones {
 
         @Override
         public int compareTo(DateRange other) {
-            if (startDate < other.startDate)
-                return -1;
-            if (startDate > other.startDate)
-                return 1;
-            if (endDate < other.endDate)
-                return -1;
-            if (endDate > other.endDate)
-                return 1;
+            if (startDate < other.startDate) return -1;
+            if (startDate > other.startDate) return 1;
+            if (endDate < other.endDate) return -1;
+            if (endDate > other.endDate) return 1;
             return 0;
         }
 
         // Get Date-Time in milliseconds
-        private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second) {
+        private static long getDateTimeinMillis(
+                int year, int month, int date, int hourOfDay, int minute, int second) {
             Calendar cal = Calendar.getInstance();
             cal.set(year, month, date, hourOfDay, minute, second);
             return cal.getTimeInMillis();
@@ -736,20 +777,18 @@ public class TestMetazones {
         }
 
         public static String format(Date date) {
-            return (// date.equals(MIN_DATE) ? "-∞" : date.equals(MAX_DATE) ? "+∞" :
+            return ( // date.equals(MIN_DATE) ? "-∞" : date.equals(MAX_DATE) ? "+∞" :
             iso1.format(date));
         }
 
         public static String format(long date) {
             return format(new Date(date));
         }
-
     }
 
     boolean fileHasMetazones(CLDRFile file) {
         for (String path : file) {
-            if (path.contains("usesMetazone"))
-                return true;
+            if (path.contains("usesMetazone")) return true;
         }
         return false;
     }

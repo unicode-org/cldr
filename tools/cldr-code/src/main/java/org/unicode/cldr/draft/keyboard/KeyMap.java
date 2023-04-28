@@ -11,32 +11,36 @@ import com.google.common.collect.Maps;
 /**
  * Object that represents a full keyboard mapping for a given modifier key combination set.
  *
- * <p>
- * For example, the English-US keyboard with the Shift modifier activated outputs:
+ * <p>For example, the English-US keyboard with the Shift modifier activated outputs:
+ *
  * <ul>
- * <li>{@code ISO=E01 US-101 keyboard=[1] = '!'}
- * <li>{@code E02 [2] = '@'}
- * <li>{@code E03 [3] = '#'}
- * <li>{@code E04 [4] = '$'}
- * <li>{@code D01 [Q] = 'Q'}
- * <li>And so on...
+ *   <li>{@code ISO=E01 US-101 keyboard=[1] = '!'}
+ *   <li>{@code E02 [2] = '@'}
+ *   <li>{@code E03 [3] = '#'}
+ *   <li>{@code E04 [4] = '$'}
+ *   <li>{@code D01 [Q] = 'Q'}
+ *   <li>And so on...
  * </ul>
  */
 public final class KeyMap implements Comparable<KeyMap> {
     private final ModifierKeyCombinationSet modifierKeyCombinationSet;
     private final ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap;
 
-    private KeyMap(ModifierKeyCombinationSet modifierKeyCombinationSet,
-        ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap) {
+    private KeyMap(
+            ModifierKeyCombinationSet modifierKeyCombinationSet,
+            ImmutableSortedMap<IsoLayoutPosition, CharacterMap> isoLayoutToCharacterMap) {
         this.modifierKeyCombinationSet = checkNotNull(modifierKeyCombinationSet);
         this.isoLayoutToCharacterMap = checkNotNull(isoLayoutToCharacterMap);
     }
 
     /** Creates a key map from the given modifier key combination set and characer maps. */
-    public static KeyMap of(ModifierKeyCombinationSet modifierKeyCombinationSet,
-        ImmutableSet<CharacterMap> characterMaps) {
-        return new KeyMap(modifierKeyCombinationSet, ImmutableSortedMap.copyOf(Maps.uniqueIndex(
-            characterMaps, CharacterMap.isoLayoutPositionFunction())));
+    public static KeyMap of(
+            ModifierKeyCombinationSet modifierKeyCombinationSet,
+            ImmutableSet<CharacterMap> characterMaps) {
+        return new KeyMap(
+                modifierKeyCombinationSet,
+                ImmutableSortedMap.copyOf(
+                        Maps.uniqueIndex(characterMaps, CharacterMap.isoLayoutPositionFunction())));
     }
 
     public ModifierKeyCombinationSet modifierKeyCombinationSet() {
@@ -50,9 +54,9 @@ public final class KeyMap implements Comparable<KeyMap> {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("modifierKeyCombinationSet", modifierKeyCombinationSet)
-            .add("isoLayoutToCharacterMap", isoLayoutToCharacterMap)
-            .toString();
+                .add("modifierKeyCombinationSet", modifierKeyCombinationSet)
+                .add("isoLayoutToCharacterMap", isoLayoutToCharacterMap)
+                .toString();
     }
 
     @Override
@@ -63,7 +67,7 @@ public final class KeyMap implements Comparable<KeyMap> {
         if (o instanceof KeyMap) {
             KeyMap other = (KeyMap) o;
             return modifierKeyCombinationSet.equals(other.modifierKeyCombinationSet)
-                && isoLayoutToCharacterMap.equals(other.isoLayoutToCharacterMap);
+                    && isoLayoutToCharacterMap.equals(other.isoLayoutToCharacterMap);
         }
         return false;
     }

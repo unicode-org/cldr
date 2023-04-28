@@ -1,9 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.GrammarInfo;
@@ -13,12 +13,11 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.google.common.base.Joiner;
-
 public class ListGrammarInfo {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     public static final CLDRFile english = CONFIG.getEnglish();
+
     public static void main(String[] args) {
         Set<String> locales = GrammarInfo.getGrammarLocales();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -39,10 +38,18 @@ public class ListGrammarInfo {
             if (grammarInfo == null || !grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
                 continue;
             }
-            //CLDRFile cldrFile = factory.make(locale, true);
+            // CLDRFile cldrFile = factory.make(locale, true);
 
-            Collection<String> genders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
-            Collection<String> rawCases = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalCase, GrammaticalScope.units);
+            Collection<String> genders =
+                    grammarInfo.get(
+                            GrammaticalTarget.nominal,
+                            GrammaticalFeature.grammaticalGender,
+                            GrammaticalScope.units);
+            Collection<String> rawCases =
+                    grammarInfo.get(
+                            GrammaticalTarget.nominal,
+                            GrammaticalFeature.grammaticalCase,
+                            GrammaticalScope.units);
 
             boolean hasGender = genders != null && genders.size() > 1;
             boolean hasCase = rawCases != null && rawCases.size() > 1;
@@ -62,12 +69,19 @@ public class ListGrammarInfo {
         System.out.println("Gender & Case\t" + Joiner.on(", ").join(sortedBothLocales));
     }
 
-    private static String format(String locale, Collection<String> genders, Collection<String> rawCases) {
-        return english.getName(locale) + " (" + locale + "/" + genders.size() + "×" + rawCases.size() + ")";
+    private static String format(
+            String locale, Collection<String> genders, Collection<String> rawCases) {
+        return english.getName(locale)
+                + " ("
+                + locale
+                + "/"
+                + genders.size()
+                + "×"
+                + rawCases.size()
+                + ")";
     }
 
     public static String format(String locale, Collection<String> genders) {
         return english.getName(locale) + " (" + locale + "/" + genders.size() + ")";
     }
 }
-

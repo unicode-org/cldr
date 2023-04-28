@@ -1,5 +1,9 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,7 +19,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -34,16 +37,16 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.UnicodeSet;
-
 public class CheckAttributeValues extends FactoryCheckCLDR {
 
-    private static final Predicate<String> NOT_DONE_YET = new RegexMatcher().set(".*", Pattern.COMMENTS);
-    private static final boolean FIND_MISSING = CldrUtility.getProperty("FIND_MISSING_ATTRIBUTE_TESTS", false); // turn on to show <attributeValues> that are missing.
-    private static final boolean SHOW_UNNECESSARY = false; // turn on to show <attributeValues> we should delete.
+    private static final Predicate<String> NOT_DONE_YET =
+            new RegexMatcher().set(".*", Pattern.COMMENTS);
+    private static final boolean FIND_MISSING =
+            CldrUtility.getProperty(
+                    "FIND_MISSING_ATTRIBUTE_TESTS",
+                    false); // turn on to show <attributeValues> that are missing.
+    private static final boolean SHOW_UNNECESSARY =
+            false; // turn on to show <attributeValues> we should delete.
 
     static LinkedHashSet<String> elementOrder = new LinkedHashSet<>();
     static LinkedHashSet<String> attributeOrder = new LinkedHashSet<>();
@@ -51,12 +54,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     static Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<>();
     static Map<String, MatcherPattern> common_attribute_validity = new HashMap<>();
     static Map<String, MatcherPattern> variables = new HashMap<>();
-    // static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
+    // static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be
+    // coalesced with the above
     // -- to do later.
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
     static Map<String, Map<String, String>> code_type_replacement = new TreeMap<>();
-    static final SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+    static final SupplementalDataInfo supplementalData =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
     static DtdData ldmlDtdData = DtdData.getInstance(DtdType.ldml);
 
     boolean isEnglish;
@@ -72,13 +77,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     @Override
     public void handleFinish() {
         for (Entry<String, Set<String>> entry : missingTests.keyValuesSet()) {
-            System.out.println("Missing element: " + entry.getKey() + ", attributes: " + entry.getValue());
+            System.out.println(
+                    "Missing element: " + entry.getKey() + ", attributes: " + entry.getValue());
         }
     }
 
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
-        List<CheckStatus> result) {
+    public CheckCLDR handleCheck(
+            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
         String locale = getCldrFileToCheck().getSourceLocaleID(path, null);
@@ -96,7 +102,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             String element = parts.getElement(i);
             Element elementInfo = ldmlDtdData.getElementFromName().get(element);
 
-            Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+            Map<String, MatcherPattern> attribute_validity =
+                    element_attribute_validity.get(element);
             for (String attribute : attributes.keySet()) {
                 Attribute attributeInfo = elementInfo.getAttributeNamed(attribute);
                 if (!attributeInfo.values.isEmpty()) {
@@ -105,19 +112,27 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 }
                 String attributeValue = attributes.get(attribute);
 
-                // special hack for         // <type key="calendar" type="chinese">Chinese Calendar</type>
+                // special hack for         // <type key="calendar" type="chinese">Chinese
+                // Calendar</type>
                 if (element.equals("type") && attribute.equals("type")) {
                     Set<String> typeValues = BCP47_KEY_VALUES.get(attributes.get("key"));
                     if (!typeValues.contains(attributeValue)) {
-                        result.add(new CheckStatus()
-                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-                            .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
-                                new Object[] { attribute, attributeValue, typeValues }));
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.unexpectedAttributeValue)
+                                        .setMessage(
+                                                "Unexpected Attribute Value {0}={1}: expected: {2}",
+                                                new Object[] {
+                                                    attribute, attributeValue, typeValues
+                                                }));
                     }
                     continue;
                 }
                 // check the common attributes first
-                boolean haveTest = check(common_attribute_validity, attribute, attributeValue, result);
+                boolean haveTest =
+                        check(common_attribute_validity, attribute, attributeValue, result);
                 // then for the specific element
                 haveTest = haveTest || check(attribute_validity, attribute, attributeValue, result);
                 if (!haveTest && FIND_MISSING) {
@@ -132,11 +147,17 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     } else {
                         final Count countValue = PluralInfo.Count.valueOf(attributeValue);
                         if (!pluralInfo.getCounts().contains(countValue)
-                            && !isPluralException(countValue, locale)) {
-                            result.add(new CheckStatus()
-                                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-                                .setMessage("Illegal plural value {0}; must be one of: {1}",
-                                    new Object[] { countValue, pluralInfo.getCounts() }));
+                                && !isPluralException(countValue, locale)) {
+                            result.add(
+                                    new CheckStatus()
+                                            .setCause(this)
+                                            .setMainType(CheckStatus.errorType)
+                                            .setSubtype(Subtype.illegalPlural)
+                                            .setMessage(
+                                                    "Illegal plural value {0}; must be one of: {1}",
+                                                    new Object[] {
+                                                        countValue, pluralInfo.getCounts()
+                                                    }));
                         }
                     }
                 }
@@ -147,8 +168,10 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         return this;
     }
 
-    static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
-        new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class), HashSet.class);
+    static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS =
+            Relation.of(
+                    new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class),
+                    HashSet.class);
 
     static {
         PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "hr");
@@ -178,14 +201,18 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
     /**
      * return true if we performed a test
+     *
      * @param attribute_validity
      * @param attribute
      * @param attributeValue
      * @param result
      * @return
      */
-    private boolean check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
-        List<CheckStatus> result) {
+    private boolean check(
+            Map<String, MatcherPattern> attribute_validity,
+            String attribute,
+            String attributeValue,
+            List<CheckStatus> result) {
         if (attribute_validity == null) {
             return false; // no test
         }
@@ -203,32 +230,42 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 return true; // don't flag English
             }
             if (replacement.length() == 0) {
-                result.add(new CheckStatus()
-                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
-                    .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",
-                        new Object[] { attribute, attributeValue }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.deprecatedAttribute)
+                                .setMessage(
+                                        "Deprecated Attribute Value {0}={1}. Consider removing.",
+                                        new Object[] {attribute, attributeValue}));
             } else {
-                result
-                    .add(new CheckStatus()
-                        .setCause(this)
-                        .setMainType(CheckStatus.warningType)
-                        .setSubtype(Subtype.deprecatedAttributeWithReplacement)
-                        .setMessage(
-                            "Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.",
-                            new Object[] { attribute, attributeValue, replacement }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.deprecatedAttributeWithReplacement)
+                                .setMessage(
+                                        "Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.",
+                                        new Object[] {attribute, attributeValue, replacement}));
             }
         } else {
-            result.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-                .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
-                    new Object[] { attribute, attributeValue, matcherPattern.pattern }));
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.unexpectedAttributeValue)
+                            .setMessage(
+                                    "Unexpected Attribute Value {0}={1}: expected: {2}",
+                                    new Object[] {
+                                        attribute, attributeValue, matcherPattern.pattern
+                                    }));
         }
         return true;
     }
 
     /**
-     * Returns replacement, or null if there is none. "" if the code is deprecated, but without a replacement.
-     * Input is of the form $language
+     * Returns replacement, or null if there is none. "" if the code is deprecated, but without a
+     * replacement. Input is of the form $language
      *
      * @return
      */
@@ -243,8 +280,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     LocaleIDParser localeIDParser = new LocaleIDParser();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-        List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
             setSkipTest(false); // ok
@@ -253,7 +290,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return this;
         }
 
-        pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
+        pluralInfo =
+                supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
@@ -264,11 +302,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             }
         }
         if (!localeMatcher.test(cldrFileToCheck.getLocaleID())) {
-            possibleErrors.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
-                .setMessage("Invalid Locale {0}",
-                    new Object[] { cldrFileToCheck.getLocaleID() }));
-
+            possibleErrors.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidLocale)
+                            .setMessage(
+                                    "Invalid Locale {0}",
+                                    new Object[] {cldrFileToCheck.getLocaleID()}));
         }
         return this;
     }
@@ -288,9 +329,10 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 // variableReplacer.add(id, value);
             }
         }
-        //System.out.println("Variables: " + variables.keySet());
+        // System.out.println("Variables: " + variables.keySet());
 
-        Map<AttributeValidityInfo, String> rawAttributeValueInfo = supplementalData.getAttributeValidity();
+        Map<AttributeValidityInfo, String> rawAttributeValueInfo =
+                supplementalData.getAttributeValidity();
 
         for (Entry<AttributeValidityInfo, String> entry : rawAttributeValueInfo.entrySet()) {
             AttributeValidityInfo item = entry.getKey();
@@ -318,24 +360,37 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     // check if unnecessary
                     Element elementInfo = ldmlDtdData.getElementFromName().get(element);
                     if (elementInfo == null) {
-                        System.out.println("Illegal <attributeValues>, element not valid: element: " + element);
+                        System.out.println(
+                                "Illegal <attributeValues>, element not valid: element: "
+                                        + element);
                     } else {
                         for (String attribute : attributeList) {
                             Attribute attributeInfo = elementInfo.getAttributeNamed(attribute);
                             if (attributeInfo == null) {
-                                System.out.println("Illegal <attributeValues>, attribute not valid: element: " + element + ", attribute: " + attribute);
+                                System.out.println(
+                                        "Illegal <attributeValues>, attribute not valid: element: "
+                                                + element
+                                                + ", attribute: "
+                                                + attribute);
                             } else if (!attributeInfo.values.isEmpty()) {
                                 if (SHOW_UNNECESSARY) {
-                                    System.out.println("Unnecessary <attributeValues …>, the DTD has specific list: element: " + element + ", attribute: "
-                                        + attribute + ", " + attributeInfo.values);
+                                    System.out.println(
+                                            "Unnecessary <attributeValues …>, the DTD has specific list: element: "
+                                                    + element
+                                                    + ", attribute: "
+                                                    + attribute
+                                                    + ", "
+                                                    + attributeInfo.values);
                                 }
                             }
                         }
                     }
                     // System.out.println("\t" + element);
-                    Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+                    Map<String, MatcherPattern> attribute_validity =
+                            element_attribute_validity.get(element);
                     if (attribute_validity == null) {
-                        element_attribute_validity.put(element, attribute_validity = new TreeMap<>());
+                        element_attribute_validity.put(
+                                element, attribute_validity = new TreeMap<>());
                     }
                     addAttributes(attributeList, attribute_validity, mp);
                 }
@@ -343,11 +398,13 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
     }
 
-    final static Map<String, Set<String>> BCP47_KEY_VALUES;
+    static final Map<String, Set<String>> BCP47_KEY_VALUES;
+
     static {
         Map<String, Set<String>> temp = new HashMap<>();
         Relation<R2<String, String>, String> bcp47Aliases = supplementalData.getBcp47Aliases();
-        for (Entry<String, Set<String>> keyValues : supplementalData.getBcp47Keys().keyValuesSet()) {
+        for (Entry<String, Set<String>> keyValues :
+                supplementalData.getBcp47Keys().keyValuesSet()) {
             Set<String> fullValues = new TreeSet<>();
             String key = keyValues.getKey();
             Set<String> rawValues = keyValues.getValue();
@@ -363,7 +420,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     fullValues.addAll(aliases);
                 }
             }
-            // Special case exception for generic calendar, since we don't want to expose it in bcp47
+            // Special case exception for generic calendar, since we don't want to expose it in
+            // bcp47
             if (key.equals("ca")) {
                 fullValues.add("generic");
             }
@@ -385,9 +443,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         // <key type="calendar">Calendar</key>
         // <type key="calendar" type="chinese">Chinese Calendar</type>
 
-        //<attributeValues elements="key" attributes="type" type="bcp47">key</attributeValues>
-        //<attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
-        //<attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>
+        // <attributeValues elements="key" attributes="type" type="bcp47">key</attributeValues>
+        // <attributeValues elements="type" attributes="key" type="bcp47">key</attributeValues>
+        // <attributeValues elements="type" attributes="type" type="bcp47">use-key</attributeValues>
 
         MatcherPattern m = new MatcherPattern();
         Set<String> values;
@@ -421,12 +479,15 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         result.pattern = value;
         result.value = value;
         if ("choice".equals(typeAttribute)) {
-            result.matcher = new CollectionMatcher()
-                .set(new HashSet<>(Arrays.asList(value.trim().split("\\s+"))));
+            result.matcher =
+                    new CollectionMatcher()
+                            .set(new HashSet<>(Arrays.asList(value.trim().split("\\s+"))));
         } else if ("bcp47".equals(typeAttribute)) {
             result = getBcp47MatcherPattern(value);
         } else if ("regex".equals(typeAttribute)) {
-            result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
+            result.matcher =
+                    new RegexMatcher()
+                            .set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
         } else if ("locale".equals(typeAttribute)) {
             result.matcher = LocaleMatcher.make();
         } else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
@@ -438,7 +499,10 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         return result;
     }
 
-    private void addAttributes(Set<String> attributes, Map<String, MatcherPattern> attribute_validity, MatcherPattern mp) {
+    private void addAttributes(
+            Set<String> attributes,
+            Map<String, MatcherPattern> attribute_validity,
+            MatcherPattern mp) {
         for (String attribute : attributes) {
             MatcherPattern old = attribute_validity.get(attribute);
             if (old != null) {
@@ -539,8 +603,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         Predicate<String> variant = variables.get("$variant").matcher;
         LocaleIDParser lip = new LocaleIDParser();
 
-        private LocaleMatcher() {
-        }
+        private LocaleMatcher() {}
 
         private static final class LocaleMatcherHelper {
             static LocaleMatcher SINGLETON = new LocaleMatcher();
@@ -567,5 +630,4 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return true;
         }
     }
-
 }

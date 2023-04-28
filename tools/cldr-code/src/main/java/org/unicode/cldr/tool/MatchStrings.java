@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,17 +9,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.draft.FileUtilities;
 
-import com.ibm.icu.impl.Relation;
-
-/**
- * Take mappings to IPA and interleave them.
- */
+/** Take mappings to IPA and interleave them. */
 public class MatchStrings {
 
-    static String cldrDataDir = "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
+    static String cldrDataDir =
+            "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
 
     static class Info {
         String english;
@@ -39,17 +36,15 @@ public class MatchStrings {
         }
     }
 
-    Relation<String, Info> letter_correspondances = Relation.of(new TreeMap<String, Set<Info>>(),
-        LinkedHashSet.class);
+    Relation<String, Info> letter_correspondances =
+            Relation.of(new TreeMap<String, Set<Info>>(), LinkedHashSet.class);
 
     MatchStrings() throws IOException {
         BufferedReader in = FileUtilities.openUTF8Reader(cldrDataDir, "internal_matchIpaRules.txt");
         while (true) {
             String line = in.readLine();
-            if (line == null)
-                break;
-            if (line.length() == 0)
-                continue;
+            if (line == null) break;
+            if (line.length() == 0) continue;
             String[] parts = line.split("\\s+");
             String ipa = parts.length > 1 ? parts[1] : "";
             add(parts[0], ipa, parts.length > 2 ? parts[2] : ipa);
@@ -59,8 +54,7 @@ public class MatchStrings {
 
     void add(String english, String ipa, String fixedIpa) {
         String key = english.length() == 0 ? "" : english.substring(0, 1);
-        letter_correspondances.put(key, new Info(english, ipa,
-            fixedIpa));
+        letter_correspondances.put(key, new Info(english, ipa, fixedIpa));
     }
 
     /**
@@ -91,8 +85,8 @@ public class MatchStrings {
     private int longestIpa;
 
     /**
-     * Recursively match the string. Right now, we just take the matches in order;
-     * later we could try a weighted fit
+     * Recursively match the string. Right now, we just take the matches in order; later we could
+     * try a weighted fit
      *
      * @param english
      * @param englishPosition
@@ -183,8 +177,7 @@ public class MatchStrings {
     }
 
     /**
-     * Does ipaPart match ipa at the position, ignoring stress marks in ipa?
-     * Returns how far it got.
+     * Does ipaPart match ipa at the position, ignoring stress marks in ipa? Returns how far it got.
      *
      * @param ipaPosition
      * @param ipaPart
@@ -214,8 +207,7 @@ public class MatchStrings {
      */
     String fixIPA(String english, String ipa) {
         int result = interleaveIPA(english, ipa, current);
-        if (result == 0)
-            return null;
+        if (result == 0) return null;
         StringBuilder buffer = new StringBuilder();
         for (Info englishIpa : current) {
             buffer.append(englishIpa.fixedIpa);
@@ -224,7 +216,10 @@ public class MatchStrings {
     }
 
     String getTrace() {
-        return highWaterList.toString() + "\t\t" + english.substring(longestEnglish) + "\t≠\t"
-            + ipa.substring(longestIpa);
+        return highWaterList.toString()
+                + "\t\t"
+                + english.substring(longestEnglish)
+                + "\t≠\t"
+                + ipa.substring(longestIpa);
     }
 }

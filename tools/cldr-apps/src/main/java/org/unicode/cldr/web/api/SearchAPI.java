@@ -12,7 +12,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -30,6 +29,7 @@ import org.unicode.cldr.web.SearchManager.SearchResponse;
 
 /**
  * API for querying SurveyTool
+ *
  * @see {@link SearchManager}
  */
 @Path("/search")
@@ -37,40 +37,46 @@ import org.unicode.cldr.web.SearchManager.SearchResponse;
 public class SearchAPI {
 
     protected static final class SearchAPIHelper {
-        final SearchManager searchManager = SearchManager.forFactory(CookieSession.sm.getSTFactory());
-        public final static SearchAPIHelper INSTANCE = new SearchAPIHelper();
+        final SearchManager searchManager =
+                SearchManager.forFactory(CookieSession.sm.getSTFactory());
+        public static final SearchAPIHelper INSTANCE = new SearchAPIHelper();
 
         public static final SearchManager getSearchManager() {
             return INSTANCE.searchManager;
         }
-    };
+    }
+    ;
 
     @Path("/value")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Begin a new search",
-        description = "Searches for paths containing the given string value")
+            summary = "Begin a new search",
+            description = "Searches for paths containing the given string value")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Perform search",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = SearchResponse.class))),
-            @APIResponse(
-                responseCode = "401",
-                description = "Unauthorized - need to be logged in as a valid user"),
-            @APIResponse(
-                responseCode = "404",
-                description = "Locale not found"),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Perform search",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = SearchResponse.class))),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Unauthorized - need to be logged in as a valid user"),
+                @APIResponse(responseCode = "404", description = "Locale not found"),
+            })
     public Response newSearch(
-        @Parameter(
-            required = false, example = "jgo", schema = @Schema(type = SchemaType.STRING)) @QueryParam("locale") String loc,
-        @HeaderParam(Auth.SESSION_HEADER) String session,
-        @RequestBody(required = true) SearchRequest request) {
+            @Parameter(
+                            required = false,
+                            example = "jgo",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @QueryParam("locale")
+                    String loc,
+            @HeaderParam(Auth.SESSION_HEADER) String session,
+            @RequestBody(required = true) SearchRequest request) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
         if (mySession == null || mySession.user == null) {
@@ -79,7 +85,9 @@ public class SearchAPI {
 
         final SearchManager searchManager = SearchAPIHelper.getSearchManager();
 
-        if (loc == null || loc.isBlank() || !CookieSession.sm.isValidLocale(CLDRLocale.getInstance(loc))) {
+        if (loc == null
+                || loc.isBlank()
+                || !CookieSession.sm.isValidLocale(CLDRLocale.getInstance(loc))) {
             return Response.status(Status.NOT_FOUND).build();
         }
         SearchResponse search = searchManager.newSearch(request, loc);
@@ -89,19 +97,22 @@ public class SearchAPI {
     @Path("/status/{token}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Get status of existing search",
-        description = "Check on status of an existing search")
+    @Operation(
+            summary = "Get status of existing search",
+            description = "Check on status of an existing search")
     @APIResponses(
-        value = {
-            @APIResponse(responseCode = "200", description = "Get status of an existing search",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = SearchResponse.class))),
-            @APIResponse(responseCode = "404", description = "Search not found")
-        })
-
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Get status of an existing search",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = SearchResponse.class))),
+                @APIResponse(responseCode = "404", description = "Search not found")
+            })
     public Response searchStatus(
-        @PathParam("token") String token,
-        @HeaderParam(Auth.SESSION_HEADER) String session) {
+            @PathParam("token") String token, @HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
         if (mySession == null || mySession.user == null) {
@@ -119,21 +130,14 @@ public class SearchAPI {
 
     @Path("/status/{token}")
     @DELETE
-    @Operation(
-        summary = "Cancel search",
-        description = "Cancel an existing search")
+    @Operation(summary = "Cancel search", description = "Cancel an existing search")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "204",
-                description = "Search was deleted"),
-            @APIResponse(
-                responseCode = "404",
-                description = "Search was not found"),
-        })
+            value = {
+                @APIResponse(responseCode = "204", description = "Search was deleted"),
+                @APIResponse(responseCode = "404", description = "Search was not found"),
+            })
     public Response searchDelete(
-        @PathParam("token") String token,
-        @HeaderParam(Auth.SESSION_HEADER) String session) {
+            @PathParam("token") String token, @HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
         if (mySession == null || mySession.user == null) {
@@ -150,5 +154,4 @@ public class SearchAPI {
             return Response.status(Status.NOT_FOUND).build();
         }
     }
-
 }

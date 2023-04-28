@@ -1,8 +1,7 @@
 package org.unicode.cldr.draft.keyboard.test;
 
-import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
-
 import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
 
 public class IsoLayoutPositionTest extends TestFmwk {
     public void testForPosition() {

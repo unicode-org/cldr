@@ -11,13 +11,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.PatternCache;
 
-/**
- * This class represents items which consist of multiple-choice attributes
- */
-
+/** This class represents items which consist of multiple-choice attributes */
 public class AttributeChoice {
 
     static Hashtable<String, Pattern> allXpaths = new Hashtable<>(); // String
@@ -34,11 +30,22 @@ public class AttributeChoice {
     // ->
     // used
 
-    public static final String COMMONLY_USED = "//ldml/dates/timeZoneNames/metazone.*/commonlyUsed.*";
+    public static final String COMMONLY_USED =
+            "//ldml/dates/timeZoneNames/metazone.*/commonlyUsed.*";
     public static final String INLIST = "//ldml/layout/inList.*";
 
-    public static String[] setup = { COMMONLY_USED, "true", COMMONLY_USED, "false", INLIST, "mixed", INLIST,
-        "titlecase-firstword", INLIST, "titlecase-words", };
+    public static String[] setup = {
+        COMMONLY_USED,
+        "true",
+        COMMONLY_USED,
+        "false",
+        INLIST,
+        "mixed",
+        INLIST,
+        "titlecase-firstword",
+        INLIST,
+        "titlecase-words",
+    };
 
     static {
         allAttributes.put(COMMONLY_USED, "used");
@@ -60,7 +67,6 @@ public class AttributeChoice {
             // System.err.println("Add " + k + "/"+v + " - " +
             // valueList.size());
         }
-
     }
 
     public String baseXpath;

@@ -3,6 +3,22 @@
 
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.myanmartools.ZawgyiDetector;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,7 +28,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.Builder;
@@ -33,31 +48,15 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.myanmartools.ZawgyiDetector;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateIntervalInfo;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
-
 /**
- * Class for processing the input and output of CLDR data for use in the
- * Survey Tool and other tools.
+ * Class for processing the input and output of CLDR data for use in the Survey Tool and other
+ * tools.
  */
 public class DisplayAndInputProcessor {
 
     /** Special PersonName paths that allow empty string, public for testing */
     public static final String NOL_START_PATH = "//ldml/personNames/nameOrderLocales";
+
     public static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
     public static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
@@ -65,94 +64,108 @@ public class DisplayAndInputProcessor {
 
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
-    public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-        .freeze();
+    public static final UnicodeSet RTL =
+            new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]").freeze();
 
-    public static final UnicodeSet TO_QUOTE = new UnicodeSet(
-        "[[:Cn:]" +
-            "[:Default_Ignorable_Code_Point:]" +
-            "[:patternwhitespace:]" +
-            "[:Me:][:Mn:]]" // add non-spacing marks
-    ).freeze();
+    public static final UnicodeSet TO_QUOTE =
+            new UnicodeSet(
+                            "[[:Cn:]"
+                                    + "[:Default_Ignorable_Code_Point:]"
+                                    + "[:patternwhitespace:]"
+                                    + "[:Me:][:Mn:]]" // add non-spacing marks
+                            )
+                    .freeze();
 
-    public static final Pattern NUMBER_SEPARATOR_PATTERN = Pattern
-        .compile("//ldml/numbers/symbols.*/(decimal|group)");
+    public static final Pattern NUMBER_SEPARATOR_PATTERN =
+            Pattern.compile("//ldml/numbers/symbols.*/(decimal|group)");
 
-    private static final Pattern APOSTROPHE_SKIP_PATHS = PatternCache.get("//ldml/("
-        + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
-        + "characters/.*|"
-        + "delimiters/.*|"
-        + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
-        + "units/.+/unitPattern.*|"
-        + "units/.+/durationUnitPattern.*|"
-        + "numbers/symbols.*|"
-        + "numbers/miscPatterns.*|"
-        + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
-    private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormat(Item.*|Fallback)");
+    private static final Pattern APOSTROPHE_SKIP_PATHS =
+            PatternCache.get(
+                    "//ldml/("
+                            + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
+                            + "characters/.*|"
+                            + "delimiters/.*|"
+                            + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
+                            + "units/.+/unitPattern.*|"
+                            + "units/.+/durationUnitPattern.*|"
+                            + "numbers/symbols.*|"
+                            + "numbers/miscPatterns.*|"
+                            + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
+    private static final Pattern INTERVAL_FORMAT_PATHS =
+            PatternCache.get("//ldml/dates/.+/intervalFormat(Item.*|Fallback)");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
 
     // Pattern to match against paths that might have time formats with h or K (12-hour cycles)
-    private static final Pattern HOUR_FORMAT_XPATHS = PatternCache
-        .get("//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
-            + "timeFormats/timeFormatLength\\[@type=\"[^\"]*\"]/timeFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
-            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*|"
-            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*)");
+    private static final Pattern HOUR_FORMAT_XPATHS =
+            PatternCache.get(
+                    "//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
+                            + "timeFormats/timeFormatLength\\[@type=\"[^\"]*\"]/timeFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
+                            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*|"
+                            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*)");
 
-    private static final Pattern AMPM_SPACE_BEFORE = PatternCache.get("([Khms])([ \\u00A0]+)(a+)"); // time, space, a+
-    private static final Pattern AMPM_SPACE_AFTER = PatternCache.get("(a+)([ \\u00A0]+)([Kh])"); // a+, space, hour
+    private static final Pattern AMPM_SPACE_BEFORE =
+            PatternCache.get("([Khms])([ \\u00A0]+)(a+)"); // time, space, a+
+    private static final Pattern AMPM_SPACE_AFTER =
+            PatternCache.get("(a+)([ \\u00A0]+)([Kh])"); // a+, space, hour
 
     // Pattern to match against paths that might have date formats with y
-    private static final Pattern YEAR_FORMAT_XPATHS = PatternCache
-        .get("//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
-            + "dateFormats/dateFormatLength\\[@type=\"[^\"]*\"]/dateFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
-            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*|"
-            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*)");
+    private static final Pattern YEAR_FORMAT_XPATHS =
+            PatternCache.get(
+                    "//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
+                            + "dateFormats/dateFormatLength\\[@type=\"[^\"]*\"]/dateFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
+                            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*|"
+                            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*)");
 
-    // Cyrillic year markers are or begin with (in various languages) \u0430 \u0433 \u0435 \u0436 \u043E \u0440 \u0441
-    private static final Pattern YEAR_SPACE_YEARMARKER = PatternCache.get("y[ \\u00A0]+('?[агежорс])"); // y, space, Cyrillic year marker start
+    // Cyrillic year markers are or begin with (in various languages) \u0430 \u0433 \u0435 \u0436
+    // \u043E \u0440 \u0441
+    private static final Pattern YEAR_SPACE_YEARMARKER =
+            PatternCache.get("y[ \\u00A0]+('?[агежорс])"); // y, space, Cyrillic year marker start
 
-    public static final Pattern UNIT_NARROW_XPATHS = PatternCache
-        .get("//ldml/units/unitLength\\[@type=\"narrow\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
+    public static final Pattern UNIT_NARROW_XPATHS =
+            PatternCache.get(
+                    "//ldml/units/unitLength\\[@type=\"narrow\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
 
-    public static final Pattern UNIT_SHORT_XPATHS = PatternCache
-        .get("//ldml/units/unitLength\\[@type=\"short\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
+    public static final Pattern UNIT_SHORT_XPATHS =
+            PatternCache.get(
+                    "//ldml/units/unitLength\\[@type=\"short\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
 
-    private static final Pattern PLACEHOLDER_SPACE_AFTER = PatternCache.get("\\}[ \\u00A0\\u202F]+");
-    private static final Pattern PLACEHOLDER_SPACE_BEFORE = PatternCache.get("[ \\u00A0\\u202F]+\\{");
+    private static final Pattern PLACEHOLDER_SPACE_AFTER =
+            PatternCache.get("\\}[ \\u00A0\\u202F]+");
+    private static final Pattern PLACEHOLDER_SPACE_BEFORE =
+            PatternCache.get("[ \\u00A0\\u202F]+\\{");
     private static final Pattern INTERVAL_FALLBACK_RANGE = PatternCache.get("\\} [\\u2013-] \\{");
 
-    /**
-     * string of whitespace not including NBSP, i.e. [\t\n\r]+
-     */
+    /** string of whitespace not including NBSP, i.e. [\t\n\r]+ */
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = PatternCache.get("\\s+"); //
 
-    /**
-     * string of whitespace, possibly including NBSP and/or NNBSP, ie., [\u00A0\t\n\r\u202F]+
-     */
-    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0]+");
+    /** string of whitespace, possibly including NBSP and/or NNBSP, ie., [\u00A0\t\n\r\u202F]+ */
+    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE =
+            PatternCache.get("[\\s\\u00A0]+");
     // Reverted 2022-12-08 from:
-    // private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0\\u202F]+");
+    // private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE =
+    // PatternCache.get("[\\s\\u00A0\\u202F]+");
 
-    /**
-     * one or more NBSP (or NNBSP) followed by one or more regular spaces
-     */
-    private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("\\u00A0+\\u0020+");
+    /** one or more NBSP (or NNBSP) followed by one or more regular spaces */
+    private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE =
+            PatternCache.get("\\u00A0+\\u0020+");
     // Reverted 2022-12-08 from:
-    // private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("[\\u00A0\\u202F]+\\u0020+");
+    // private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE =
+    // PatternCache.get("[\\u00A0\\u202F]+\\u0020+");
 
-    /**
-     * one or more regular spaces followed by one or more NBSP (or NNBSP)
-     */
-    private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+\\u00A0+");
+    /** one or more regular spaces followed by one or more NBSP (or NNBSP) */
+    private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE =
+            PatternCache.get("\\u0020+\\u00A0+");
     // Reverted 2022-12-08 from:
-    // private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
+    // private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE =
+    // PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
 
     private static final Pattern INITIAL_NBSP = PatternCache.get("^[\\u00A0\\u202F]+");
     private static final Pattern FINAL_NBSP = PatternCache.get("[\\u00A0\\u202F]+$");
 
     private static final Pattern MULTIPLE_NBSP = PatternCache.get("\\u00A0\\u00A0+");
     // Reverted 2022-12-08 from:
-    // private static final Pattern MULTIPLE_NBSP = PatternCache.get("[\\u00A0\\u202F][\\u00A0\\u202F]+");
+    // private static final Pattern MULTIPLE_NBSP =
+    // PatternCache.get("[\\u00A0\\u202F][\\u00A0\\u202F]+");
 
     // The following includes (among others) \u0009, \u0020, \u00A0, \u2007, \u2009, \u202F, \u3000
     private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
@@ -171,47 +184,56 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
-    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = new HashSet<>(
-        Arrays.asList("br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
+            new HashSet<>(
+                    Arrays.asList(
+                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
+                            "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
-        { '\u015E', '\u0218' }, { '\u015F', '\u0219' }, { '\u0162', '\u021A' },
-        { '\u0163', '\u021B' } };
+        {'\u015E', '\u0218'}, {'\u015F', '\u0219'}, {'\u0162', '\u021A'}, {'\u0163', '\u021B'}
+    };
 
     private static final char[][] CATALAN_CONVERSIONS = {
-        { '\u013F', '\u004C', '\u00B7' }, // Ŀ -> L·
-        { '\u0140', '\u006C', '\u00B7' } }; // ŀ -> l·
+        {'\u013F', '\u004C', '\u00B7'}, // Ŀ -> L·
+        {'\u0140', '\u006C', '\u00B7'}
+    }; // ŀ -> l·
 
     private static final char[][] NGOMBA_CONVERSIONS = {
-        { '\u0251', '\u0061' }, { '\u0261', '\u0067' }, //  ɑ -> a , ɡ -> g , See ticket #5691
-        { '\u2019', '\uA78C' }, { '\u02BC', '\uA78C' } }; //  Saltillo, see ticket #6805
+        {'\u0251', '\u0061'}, {'\u0261', '\u0067'}, //  ɑ -> a , ɡ -> g , See ticket #5691
+        {'\u2019', '\uA78C'}, {'\u02BC', '\uA78C'}
+    }; //  Saltillo, see ticket #6805
 
     private static final char[][] KWASIO_CONVERSIONS = {
-        { '\u0306', '\u030C' }, // See ticket #6571, use caron instead of breve
-        { '\u0103', '\u01CE' }, { '\u0102', '\u01CD' }, // a-breve -> a-caron
-        { '\u0115', '\u011B' }, { '\u011A', '\u01CD' }, // e-breve -> e-caron
-        { '\u012D', '\u01D0' }, { '\u012C', '\u01CF' }, // i-breve -> i-caron
-        { '\u014F', '\u01D2' }, { '\u014E', '\u01D1' }, // o-breve -> o-caron
-        { '\u016D', '\u01D4' }, { '\u016C', '\u01D3' } // u-breve -> u-caron
+        {'\u0306', '\u030C'}, // See ticket #6571, use caron instead of breve
+        {'\u0103', '\u01CE'},
+        {'\u0102', '\u01CD'}, // a-breve -> a-caron
+        {'\u0115', '\u011B'},
+        {'\u011A', '\u01CD'}, // e-breve -> e-caron
+        {'\u012D', '\u01D0'},
+        {'\u012C', '\u01CF'}, // i-breve -> i-caron
+        {'\u014F', '\u01D2'},
+        {'\u014E', '\u01D1'}, // o-breve -> o-caron
+        {'\u016D', '\u01D4'},
+        {'\u016C', '\u01D3'} // u-breve -> u-caron
     };
 
     private static final char[][] HEBREW_CONVERSIONS = {
-        { '\'', '\u05F3' }, { '"', '\u05F4' } }; //  ' -> geresh  " -> gershayim
+        {'\'', '\u05F3'}, {'"', '\u05F4'}
+    }; //  ' -> geresh  " -> gershayim
 
-    private static final char[][] KYRGYZ_CONVERSIONS = {
-        { 'ӊ', 'ң' }, { 'Ӊ', 'Ң' } }; //  right modifier
+    private static final char[][] KYRGYZ_CONVERSIONS = {{'ӊ', 'ң'}, {'Ӊ', 'Ң'}}; //  right modifier
 
-    private static final char[][] URDU_PLUS_CONVERSIONS = {
-        { '\u0643', '\u06A9' }}; //  wrong char
+    private static final char[][] URDU_PLUS_CONVERSIONS = {{'\u0643', '\u06A9'}}; //  wrong char
 
     private static final ZawgyiDetector detector = new ZawgyiDetector();
     private static final Transliterator zawgyiUnicodeTransliterator =
-        Transliterator.getInstance("Zawgyi-my");
+            Transliterator.getInstance("Zawgyi-my");
 
     private UnicodeSetPrettyPrinter pp = null;
 
-    final private CLDRLocale locale;
+    private final CLDRLocale locale;
     private String scriptCode; // actual or default script code (not null after init)
     private boolean isPosix;
 
@@ -254,12 +276,16 @@ public class DisplayAndInputProcessor {
             if (spaceCol instanceof RuleBasedCollator) {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
-            pp = new UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
-                .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-                .setCompressRanges(true)
-                .setToQuote(new UnicodeSet(TO_QUOTE))
-                .setOrdering(col)
-                .setSpaceComparator(spaceCol);
+            pp =
+                    new UnicodeSetPrettyPrinter()
+                            .setOrdering(Collator.getInstance(ULocale.ROOT))
+                            .setSpaceComparator(
+                                    Collator.getInstance(ULocale.ROOT)
+                                            .setStrength2(Collator.PRIMARY))
+                            .setCompressRanges(true)
+                            .setToQuote(new UnicodeSet(TO_QUOTE))
+                            .setOrdering(col)
+                            .setSpaceComparator(spaceCol);
         }
         String script = locale.getScript();
         if (script == null || script.length() < 4) {
@@ -284,8 +310,7 @@ public class DisplayAndInputProcessor {
      *
      * @param locale the ULocale
      * @param needsCollator true or false
-     *
-     * Called by getProcessor, with locale = SurveyMain.TRANS_HINT_LOCALE
+     *     <p>Called by getProcessor, with locale = SurveyMain.TRANS_HINT_LOCALE
      */
     public DisplayAndInputProcessor(ULocale locale, boolean needsCollator) {
         init(this.locale = CLDRLocale.getInstance(locale), needsCollator);
@@ -320,8 +345,8 @@ public class DisplayAndInputProcessor {
     }
 
     /**
-     * Process the value for display. The result is a string for display in the
-     * Survey tool or similar program.
+     * Process the value for display. The result is a string for display in the Survey tool or
+     * similar program.
      *
      * @param path
      * @param value
@@ -343,7 +368,8 @@ public class DisplayAndInputProcessor {
                 } catch (IllegalArgumentException e) {
                     if (DEBUG_DAIP) System.err.println("Illegal pattern: " + value);
                 }
-                if (numericType != NumericType.CURRENCY && numericType != NumericType.CURRENCY_ABBREVIATED) {
+                if (numericType != NumericType.CURRENCY
+                        && numericType != NumericType.CURRENCY_ABBREVIATED) {
                     value = value.replace("'", "");
                 }
             }
@@ -358,19 +384,23 @@ public class DisplayAndInputProcessor {
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
-            value = normalizeIntervalHyphensAndSpaces(value); // This may also adjust spaces around en dash
+            value =
+                    normalizeIntervalHyphensAndSpaces(
+                            value); // This may also adjust spaces around en dash
         } else {
             value = normalizeHyphens(value);
         }
         // Fix up possibly empty field
-        if (value.isEmpty() && (path.startsWith(FSR_START_PATH) || path.startsWith(NOL_START_PATH))) {
+        if (value.isEmpty()
+                && (path.startsWith(FSR_START_PATH) || path.startsWith(NOL_START_PATH))) {
             value = EMPTY_ELEMENT_VALUE;
         }
         return value;
     }
 
     private boolean hasUnicodeSetValue(String path) {
-        return path.startsWith("//ldml/characters/exemplarCharacters") || path.startsWith("//ldml/characters/parseLenients");
+        return path.startsWith("//ldml/characters/exemplarCharacters")
+                || path.startsWith("//ldml/characters/parseLenients");
     }
 
     static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
@@ -379,23 +409,25 @@ public class DisplayAndInputProcessor {
     private static final String BAR_EL = "\\s+l\\s+"; // U+006C LATIN SMALL LETTER L with space
     private static final String BAR_DANDA = "।"; // U+0964 DEVANAGARI DANDA
     private static final String BAR_REGEX = "(" + BAR_VL + "|" + BAR_EL + "|" + BAR_DANDA + ")";
-    public static final Splitter SPLIT_BAR = Splitter.on(Pattern.compile(BAR_REGEX)).trimResults().omitEmptyStrings();
+    public static final Splitter SPLIT_BAR =
+            Splitter.on(Pattern.compile(BAR_REGEX)).trimResults().omitEmptyStrings();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Joiner JOIN_BAR = Joiner.on(" | ");
     static final Joiner JOIN_SPACE = Joiner.on(' ');
 
     /**
-     * Process the value for input. The result is a cleaned-up value. For example,
-     * an exemplar set is modified to be in the normal format, and any missing [ ]
-     * are added (a common omission on entry). If there are any failures then the
-     * original value is returned, so that the proper error message can be given.
+     * Process the value for input. The result is a cleaned-up value. For example, an exemplar set
+     * is modified to be in the normal format, and any missing [ ] are added (a common omission on
+     * entry). If there are any failures then the original value is returned, so that the proper
+     * error message can be given.
      *
      * @param path
      * @param value
      * @param internalException to be filled in if RuntimeException occurs
      * @return the possibly modified value
      */
-    public synchronized String processInput(String path, String value, Exception[] internalException) {
+    public synchronized String processInput(
+            String path, String value, Exception[] internalException) {
         final String original = value;
         value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
@@ -412,7 +444,7 @@ public class DisplayAndInputProcessor {
             return value;
         }
         try {
-             value = processInputMore(path, value);
+            value = processInputMore(path, value);
         } catch (RuntimeException e) {
             if (internalException != null) {
                 internalException[0] = e;
@@ -437,8 +469,10 @@ public class DisplayAndInputProcessor {
 
         // all of our values should not have leading or trailing spaces, except insertBetween,
         // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
-        if (!path.contains("/insertBetween") && !path.contains("/foreignSpaceReplacement") &&
-            !path.contains("[@xml:space=\"preserve\"]") && !isUnicodeSet) {
+        if (!path.contains("/insertBetween")
+                && !path.contains("/foreignSpaceReplacement")
+                && !path.contains("[@xml:space=\"preserve\"]")
+                && !isUnicodeSet) {
             value = value.trim();
         }
 
@@ -468,15 +502,18 @@ public class DisplayAndInputProcessor {
             if (numericType == NumericType.CURRENCY) {
                 value = value.replaceAll(" ", "\u00A0");
                 // NOTE: the following "if ... NumericType.CURRENCY_ABBREVIATED" was false here,
-                // since we know it is NumericType.CURRENCY; so now the code is commented out; if anyone
-                // understands what the intention was, maybe the condition should be restored somehow,
+                // since we know it is NumericType.CURRENCY; so now the code is commented out; if
+                // anyone
+                // understands what the intention was, maybe the condition should be restored
+                // somehow,
                 // such as with "else if"
                 // if (numericType == NumericType.CURRENCY_ABBREVIATED) {
                 //    value = value.replaceAll("0\\.0+", "0");
                 // }
             } else {
-                value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
-                    .replaceAll(" ([%\u00A4])", "\u00A0$1");
+                value =
+                        value.replaceAll("([%\u00A4]) ", "$1\u00A0")
+                                .replaceAll(" ([%\u00A4])", "\u00A0$1");
                 value = replace(NON_DECIMAL_PERIOD, value, "'.'");
                 if (numericType == NumericType.DECIMAL_ABBREVIATED) {
                     value = value.replaceAll("0\\.0+", "0");
@@ -487,11 +524,11 @@ public class DisplayAndInputProcessor {
 
         // fix [,]
         if (path.startsWith("//ldml/localeDisplayNames/languages/language")
-            || path.startsWith("//ldml/localeDisplayNames/scripts/script")
-            || path.startsWith("//ldml/localeDisplayNames/territories/territory")
-            || path.startsWith("//ldml/localeDisplayNames/variants/variant")
-            || path.startsWith("//ldml/localeDisplayNames/keys/key")
-            || path.startsWith("//ldml/localeDisplayNames/types/type")) {
+                || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                || path.startsWith("//ldml/localeDisplayNames/territories/territory")
+                || path.startsWith("//ldml/localeDisplayNames/variants/variant")
+                || path.startsWith("//ldml/localeDisplayNames/keys/key")
+                || path.startsWith("//ldml/localeDisplayNames/types/type")) {
             value = value.replace('[', '(').replace(']', ')').replace('［', '（').replace('］', '）');
         }
 
@@ -531,7 +568,9 @@ public class DisplayAndInputProcessor {
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
-            value = normalizeIntervalHyphensAndSpaces(value); // This may also adjust spaces around en dash
+            value =
+                    normalizeIntervalHyphensAndSpaces(
+                            value); // This may also adjust spaces around en dash
         } else if (!isUnicodeSet) {
             value = normalizeHyphens(value);
         }
@@ -546,7 +585,9 @@ public class DisplayAndInputProcessor {
     private String processLocaleSpecificInput(String path, String value, boolean isUnicodeSet) {
         if (locale.childOf(MALAYALAM)) {
             String newvalue = normalizeMalayalam(value);
-            if (DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '" + value + "' to '" + newvalue + "'");
+            if (DEBUG_DAIP)
+                System.out.println(
+                        "DAIP: Normalized Malayalam '" + value + "' to '" + newvalue + "'");
             value = newvalue;
         } else if (locale.childOf(ROMANIAN) && !isUnicodeSet) {
             value = standardizeRomanian(value);
@@ -558,7 +599,8 @@ public class DisplayAndInputProcessor {
             value = standardizeKwasio(value);
         } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = replaceChars(path, value, HEBREW_CONVERSIONS, false);
-        } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !isUnicodeSet) {
+        } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND))
+                && !isUnicodeSet) {
             value = standardizeSwissGerman(value);
         } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
             value = standardizeMyanmar(value);
@@ -575,12 +617,15 @@ public class DisplayAndInputProcessor {
     private String processAnnotations(String path, String value) {
         if (AnnotationUtil.pathIsAnnotation(path)) {
             if (path.contains(Emoji.TYPE_TTS)) {
-                // The row has something like "🦓 -name" in the first column. Cf. namePath, getNamePaths.
+                // The row has something like "🦓 -name" in the first column. Cf. namePath,
+                // getNamePaths.
                 // Normally the value is like "zebra" or "unicorn face", without "|".
-                // If the user enters a value with "|",  discard anything after "|"; e.g., change "a | b | c" to "a".
+                // If the user enters a value with "|",  discard anything after "|"; e.g., change "a
+                // | b | c" to "a".
                 value = SPLIT_BAR.split(value).iterator().next();
             } else {
-                // The row has something like "🦓 –keywords" in the first column. Cf. keywordPath, getKeywordPaths.
+                // The row has something like "🦓 –keywords" in the first column. Cf. keywordPath,
+                // getKeywordPaths.
                 // Normally the value is like "stripe | zebra", with "|".
                 value = annotationsForDisplay(value);
             }
@@ -603,8 +648,8 @@ public class DisplayAndInputProcessor {
     }
 
     /**
-     * Strip out all code points less than U+0020 except for U+0009 tab,
-     * U+000A line feed, and U+000D carriage return.
+     * Strip out all code points less than U+0020 except for U+0009 tab, U+000A line feed, and
+     * U+000D carriage return.
      *
      * @param s the string
      * @return the resulting string
@@ -614,17 +659,19 @@ public class DisplayAndInputProcessor {
             return s;
         }
         return s.codePoints()
-            .filter(c -> (c >= 0x20 || c == 9 || c == 0xA || c == 0xD))
-            .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-            .toString();
+                .filter(c -> (c >= 0x20 || c == 9 || c == 0xA || c == 0xD))
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 
     private static final boolean REMOVE_COVERED_KEYWORDS = true;
 
     /**
-     * Produce a modification of the given annotation by sorting its components and filtering covered keywords.
+     * Produce a modification of the given annotation by sorting its components and filtering
+     * covered keywords.
      *
-     * Examples: Given "b | a", return "a | b". Given "bear | panda | panda bear", return "bear | panda".
+     * <p>Examples: Given "b | a", return "a | b". Given "bear | panda | panda bear", return "bear |
+     * panda".
      *
      * @param value the string
      * @return the possibly modified string
@@ -640,11 +687,12 @@ public class DisplayAndInputProcessor {
     }
 
     /**
-     * Filter from the given set some keywords that include spaces, if they duplicate,
-     * or are "covered by", other keywords in the set.
+     * Filter from the given set some keywords that include spaces, if they duplicate, or are
+     * "covered by", other keywords in the set.
      *
-     * For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda | panda bear"),
-     * then remove "panda bear", treating it as "covered" since the set already includes "panda" and "bear".
+     * <p>For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda |
+     * panda bear"), then remove "panda bear", treating it as "covered" since the set already
+     * includes "panda" and "bear".
      *
      * @param sorted the set from which items may be removed
      */
@@ -728,7 +776,8 @@ public class DisplayAndInputProcessor {
     }
 
     private String normalizeApostrophes(String value) {
-        // If our DAIP always had a CLDRFile to work with, then we could just check the exemplar set in it to see.
+        // If our DAIP always had a CLDRFile to work with, then we could just check the exemplar set
+        // in it to see.
         // But since we don't, we just maintain the list internally and use it.
         if (LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(locale.getLanguage())) {
             return value.replace('\'', '\u02bc');
@@ -760,14 +809,21 @@ public class DisplayAndInputProcessor {
             return value;
         }
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
-        fp.set(DateIntervalInfo.genPatternInfo(value, false).getFirstPart()); // first format & separator including spaces
+        fp.set(
+                DateIntervalInfo.genPatternInfo(value, false)
+                        .getFirstPart()); // first format & separator including spaces
         List<Object> items = fp.getItems();
         Object last = items.get(items.size() - 1);
         if (last instanceof String) {
-            String separator = last.toString(); // separator including spaces, and possibly preceding literal text (. or quoted)
+            String separator =
+                    last.toString(); // separator including spaces, and possibly preceding
+            // literal text (. or quoted)
             String replacement = separator;
-            if (scriptCode.equals("Latn") && (separator.endsWith(" - ") || separator.endsWith(" \u2013 "))) {
-                replacement = separator.substring(0, separator.length()-3) + "\u2009\u2013\u2009"; // Per CLDR-14032,16308
+            if (scriptCode.equals("Latn")
+                    && (separator.endsWith(" - ") || separator.endsWith(" \u2013 "))) {
+                replacement =
+                        separator.substring(0, separator.length() - 3)
+                                + "\u2009\u2013\u2009"; // Per CLDR-14032,16308
             } else if (separator.contains("-")) {
                 replacement = separator.replace("-", "\u2013");
             }
@@ -777,7 +833,9 @@ public class DisplayAndInputProcessor {
                 if (sb.lastIndexOf(separator) >= 0) {
                     sb.delete(sb.lastIndexOf(separator), sb.length());
                     sb.append(replacement);
-                    sb.append(DateIntervalInfo.genPatternInfo(value, false).getSecondPart()); // second format only
+                    sb.append(
+                            DateIntervalInfo.genPatternInfo(value, false)
+                                    .getSecondPart()); // second format only
                     return sb.toString();
                 }
             }
@@ -787,13 +845,13 @@ public class DisplayAndInputProcessor {
 
     private String normalizeHyphens(String value) {
         int hyphenLocation = value.indexOf("-");
-        if (hyphenLocation > 0 &&
-            Character.isDigit(value.charAt(hyphenLocation - 1)) &&
-            hyphenLocation < value.length() - 1 &&
-            Character.isDigit(value.charAt(hyphenLocation + 1))) {
-            return value.substring(0, hyphenLocation) +
-                "\u2013" +
-                value.substring(hyphenLocation + 1);
+        if (hyphenLocation > 0
+                && Character.isDigit(value.charAt(hyphenLocation - 1))
+                && hyphenLocation < value.length() - 1
+                && Character.isDigit(value.charAt(hyphenLocation + 1))) {
+            return value.substring(0, hyphenLocation)
+                    + "\u2013"
+                    + value.substring(hyphenLocation + 1);
         }
         return value;
     }
@@ -849,9 +907,14 @@ public class DisplayAndInputProcessor {
                     break;
                 }
             }
-            if (convertedSaltillo &&
-                ((i > 0 && i < charArray.length - 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i + 1])) ||
-                    (i > 1 && Character.isUpperCase(charArray[i - 1]) && Character.isUpperCase(charArray[i - 2])))) {
+            if (convertedSaltillo
+                    && ((i > 0
+                                    && i < charArray.length - 1
+                                    && Character.isUpperCase(charArray[i - 1])
+                                    && Character.isUpperCase(charArray[i + 1]))
+                            || (i > 1
+                                    && Character.isUpperCase(charArray[i - 1])
+                                    && Character.isUpperCase(charArray[i - 2])))) {
                 c = '\uA78B'; // UPPER CASE SALTILLO
             }
             builder.append(c);
@@ -859,7 +922,8 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String replaceChars(String path, String value, char[][] charsToReplace, boolean skipAuxExemplars) {
+    private String replaceChars(
+            String path, String value, char[][] charsToReplace, boolean skipAuxExemplars) {
         if (skipAuxExemplars && path.contains("/exemplarCharacters[@type=\"auxiliary\"]")) {
             return value;
         }
@@ -907,19 +971,23 @@ public class DisplayAndInputProcessor {
         return value2;
     }
 
-    private static final Pattern UNNORMALIZED_MALAYALAM = PatternCache.get(
-        "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
+    private static final Pattern UNNORMALIZED_MALAYALAM =
+            PatternCache.get("(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
 
-    private static final Map<Character, Character> NORMALIZING_MAP = Builder.with(new HashMap<Character, Character>())
-        .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
-        .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
-        .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
+    private static final Map<Character, Character> NORMALIZING_MAP =
+            Builder.with(new HashMap<Character, Character>())
+                    .put('\u0D23', '\u0D7A')
+                    .put('\u0D28', '\u0D7B')
+                    .put('\u0D30', '\u0D7C')
+                    .put('\u0D32', '\u0D7D')
+                    .put('\u0D33', '\u0D7E')
+                    .put('\u0D15', '\u0D7F')
+                    .get();
 
     /**
      * Normalizes the Malayalam characters in the specified input.
      *
-     * @param value
-     *            the input to be normalized
+     * @param value the input to be normalized
      * @return
      */
     private String normalizeMalayalam(String value) {
@@ -940,14 +1008,14 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    static final Transform<String, String> fixArabicPresentation = Transliterator.getInstance(
-        "[[:block=Arabic_Presentation_Forms_A:][:block=Arabic_Presentation_Forms_B:]] nfkc");
+    static final Transform<String, String> fixArabicPresentation =
+            Transliterator.getInstance(
+                    "[[:block=Arabic_Presentation_Forms_A:][:block=Arabic_Presentation_Forms_B:]] nfkc");
 
     /**
      * Normalizes the Arabic presentation forms characters in the specified input.
      *
-     * @param value
-     *            the input to be normalized
+     * @param value the input to be normalized
      * @return
      */
     private String replaceArabicPresentationForms(String value) {
@@ -959,15 +1027,17 @@ public class DisplayAndInputProcessor {
     public static String ADLAM_NASALIZATION = "𞥋"; // U+1E94B (Unicode 12.0)
 
     public static String fixAdlamNasalization(String fromString) {
-        return ADLAM_MISNASALIZED.matcher(fromString)
-        .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
+        return ADLAM_MISNASALIZED
+                .matcher(fromString)
+                .replaceAll("$1" + ADLAM_NASALIZATION + "$2"); // replace quote with 𞥋
     }
 
     static Pattern NEEDS_QUOTE1 = PatternCache.get("(\\s|$)([-\\}\\]\\&])()");
-    static Pattern NEEDS_QUOTE2 = PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
+    static Pattern NEEDS_QUOTE2 =
+            PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public static String getCleanedUnicodeSet(UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter,
-        ExemplarType exemplarType) {
+    public static String getCleanedUnicodeSet(
+            UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter, ExemplarType exemplarType) {
         if (prettyPrinter == null) {
             return exemplar.toPattern(false);
         }
@@ -976,21 +1046,33 @@ public class DisplayAndInputProcessor {
         value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 
-        for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next();) {
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
             String string = usi.getString();
             if (string.equals("ß") || string.equals("İ")) {
                 toAdd.add(string);
                 continue;
             }
             switch (string) {
-            case "\u2011": toAdd.add("-"); break; // nobreak hyphen
-            case "-": toAdd.add("\u2011"); break; // nobreak hyphen
+                case "\u2011":
+                    toAdd.add("-");
+                    break; // nobreak hyphen
+                case "-":
+                    toAdd.add("\u2011");
+                    break; // nobreak hyphen
 
-            case " ": toAdd.add("\u00a0"); break; // nobreak space
-            case "\u00a0": toAdd.add(" "); break; // nobreak space
+                case " ":
+                    toAdd.add("\u00a0");
+                    break; // nobreak space
+                case "\u00a0":
+                    toAdd.add(" ");
+                    break; // nobreak space
 
-            case "\u202F": toAdd.add("\u2009"); break; // nobreak narrow space
-            case "\u2009": toAdd.add("\u202F"); break; // nobreak narrow space
+                case "\u202F":
+                    toAdd.add("\u2009");
+                    break; // nobreak narrow space
+                case "\u2009":
+                    toAdd.add("\u202F");
+                    break; // nobreak narrow space
             }
             if (exemplarType.convertUppercase) {
                 string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
@@ -1007,7 +1089,13 @@ public class DisplayAndInputProcessor {
         if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
             UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
             UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
-            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly + ",\tadded\t" + newOnly);
+            System.out.println(
+                    "Exemplar:\t"
+                            + exemplarType
+                            + ",\tremoved\t"
+                            + oldOnly
+                            + ",\tadded\t"
+                            + newOnly);
         }
 
         String fixedExemplar = prettyPrinter.format(toAdd);
@@ -1016,10 +1104,9 @@ public class DisplayAndInputProcessor {
             // something went wrong, leave as is
         } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
             if (DEBUG_DAIP) {
-                System.out.println(TestMetadata.showDifference(
-                    With.codePoints(value),
-                    With.codePoints(fixedExemplar),
-                    "\n"));
+                System.out.println(
+                        TestMetadata.showDifference(
+                                With.codePoints(value), With.codePoints(fixedExemplar), "\n"));
             }
             value = fixedExemplar;
         }
@@ -1029,14 +1116,16 @@ public class DisplayAndInputProcessor {
     static final Splitter SEMI_SPLITTER = Splitter.on(';').trimResults();
 
     /**
-     * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is set for en_US_POSIX.
+     * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is
+     *     set for en_US_POSIX.
      */
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 
         DecimalFormat df = new DecimalFormat(inpattern);
-        if (type == NumericType.DECIMAL_ABBREVIATED || type == NumericType.CURRENCY_ABBREVIATED
-            || CldrUtility.INHERITANCE_MARKER.equals(inpattern)) {
+        if (type == NumericType.DECIMAL_ABBREVIATED
+                || type == NumericType.CURRENCY_ABBREVIATED
+                || CldrUtility.INHERITANCE_MARKER.equals(inpattern)) {
             return inpattern; // TODO fix when ICU bug is fixed
             // df.setMaximumFractionDigits(df.getMinimumFractionDigits());
             // df.setMaximumIntegerDigits(Math.max(1, df.getMinimumIntegerDigits()));
@@ -1069,17 +1158,21 @@ public class DisplayAndInputProcessor {
      * This tests what type a numeric pattern is.
      */
     public enum NumericType {
-        CURRENCY(new int[] { 1, 2, 2 }, new int[] { 1, 2, 2 }), CURRENCY_ABBREVIATED(), DECIMAL(new int[] { 1, 0, 3 },
-            new int[] { 1, 0, 6 }), DECIMAL_ABBREVIATED(), PERCENT(new int[] { 1, 0, 0 },
-                new int[] { 1, 0, 0 }), SCIENTIFIC(new int[] { 0, 0, 0 }, new int[] { 1, 6, 6 }), NOT_NUMERIC;
+        CURRENCY(new int[] {1, 2, 2}, new int[] {1, 2, 2}),
+        CURRENCY_ABBREVIATED(),
+        DECIMAL(new int[] {1, 0, 3}, new int[] {1, 0, 6}),
+        DECIMAL_ABBREVIATED(),
+        PERCENT(new int[] {1, 0, 0}, new int[] {1, 0, 0}),
+        SCIENTIFIC(new int[] {0, 0, 0}, new int[] {1, 6, 6}),
+        NOT_NUMERIC;
 
-        private static final Pattern NUMBER_PATH = Pattern
-            .compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+        private static final Pattern NUMBER_PATH =
+                Pattern.compile(
+                        "//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
         private int[] digitCount;
         private int[] posixDigitCount;
 
-        NumericType() {
-        }
+        NumericType() {}
 
         NumericType(int[] digitCount, int[] posixDigitCount) {
             this.digitCount = digitCount;
@@ -1124,9 +1217,9 @@ public class DisplayAndInputProcessor {
     }
 
     /**
-     * Turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
-     * into a single space or a single NBSP depending on path.
-     * Also trim initial/final NBSP, unless the value is only the one character, "\u00A0"
+     * Turn all whitespace sequences (including tab and newline, and NBSP for certain paths) into a
+     * single space or a single NBSP depending on path. Also trim initial/final NBSP, unless the
+     * value is only the one character, "\u00A0"
      *
      * @param path
      * @param value
@@ -1135,18 +1228,30 @@ public class DisplayAndInputProcessor {
     private String normalizeWhitespace(String path, String value) {
         PathSpaceType pst = PathSpaceType.get(path);
         if (pst == PathSpaceType.allowSp) {
-            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+            value =
+                    WHITESPACE_AND_NBSP_TO_NORMALIZE
+                            .matcher(value)
+                            .replaceAll(" "); // replace with regular space
         } else if (pst == PathSpaceType.allowNbsp) {
-            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
+            value =
+                    WHITESPACE_AND_NBSP_TO_NORMALIZE
+                            .matcher(value)
+                            .replaceAll("\u00A0"); // replace with NBSP
             value = trimNBSP(value);
         } else if (pst == PathSpaceType.allowNNbsp) {
-            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u202F"); // replace with NNBSP
+            value =
+                    WHITESPACE_AND_NBSP_TO_NORMALIZE
+                            .matcher(value)
+                            .replaceAll("\u202F"); // replace with NNBSP
             value = trimNBSP(value);
         } else if (pst == PathSpaceType.allowSpOrNbsp) {
             /*
              * in this case don't normalize away NBSP
              */
-            value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+            value =
+                    WHITESPACE_NO_NBSP_TO_NORMALIZE
+                            .matcher(value)
+                            .replaceAll(" "); // replace with regular space
             /*
              * if any NBSP and regular space are adjacent, replace with NBSP
              */
@@ -1159,8 +1264,8 @@ public class DisplayAndInputProcessor {
         }
 
         // Further whitespace adjustments per CLDR-14032
-        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) &&
-                HOUR_FORMAT_XPATHS.matcher(path).matches()) {
+        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek"))
+                && HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
                 value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202F$3");
@@ -1199,11 +1304,12 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    /**
-     * Categorize xpaths according to whether they allow space, NBSP, or both
-     */
+    /** Categorize xpaths according to whether they allow space, NBSP, or both */
     public enum PathSpaceType {
-        allowSp, allowNbsp, allowNNbsp, allowSpOrNbsp;
+        allowSp,
+        allowNbsp,
+        allowNNbsp,
+        allowSpOrNbsp;
 
         public static PathSpaceType get(String path) {
             if (wantsRegularSpace(path)) {
@@ -1218,38 +1324,46 @@ public class DisplayAndInputProcessor {
         }
 
         private static boolean wantsRegularSpace(String path) {
-            if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
-                path.contains("/availableFormats/dateFormatItem") ||
-                (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
-                path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
-                path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
-                path.startsWith("//ldml/localeDisplayNames/languages/language") ||
-                path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
-                path.startsWith("//ldml/localeDisplayNames/types/type") ||
-                (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
-                (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
-                path.startsWith("//ldml/posix/messages") ||
-                (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
+            if ((path.contains("/dateFormatLength") && path.contains("/pattern"))
+                    || path.contains("/availableFormats/dateFormatItem")
+                    || (path.startsWith("//ldml/dates/timeZoneNames/metazone")
+                            && path.contains("/long"))
+                    || path.startsWith("//ldml/dates/timeZoneNames/regionFormat")
+                    || path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern")
+                    || path.startsWith("//ldml/localeDisplayNames/languages/language")
+                    || path.startsWith("//ldml/localeDisplayNames/territories/territory")
+                    || path.startsWith("//ldml/localeDisplayNames/types/type")
+                    || (path.startsWith("//ldml/numbers/currencies/currency")
+                            && path.contains("/displayName"))
+                    || (path.contains("/decimalFormatLength[@type=\"long\"]")
+                            && path.contains("/pattern"))
+                    || path.startsWith("//ldml/posix/messages")
+                    || (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
                 return true;
             }
             return false;
         }
 
         private static boolean wantsNBSP(String path) {
-            if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern"))) ||
-                (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
-                (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
-                (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
-                (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
-                (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
+            if ((path.contains("/currencies/currency")
+                            && (path.contains("/group") || path.contains("/pattern")))
+                    || (path.contains("/currencyFormatLength") && path.contains("/pattern"))
+                    || (path.contains("/currencySpacing") && path.contains("/insertBetween"))
+                    || (path.contains("/decimalFormatLength") && path.contains("/pattern"))
+                    || // i.e. the non-long ones
+                    (path.contains("/percentFormatLength") && path.contains("/pattern"))
+                    || (path.startsWith("//ldml/numbers/symbols")
+                            && (path.contains("/group") || path.contains("/nan")))) {
                 return true;
             }
             return false;
         }
 
         private static boolean wantsNNBSP(String path) {
-            if ((path.contains("/dayPeriodWidth[@type=\"abbreviated\"]") || path.contains("/dayPeriodWidth[@type=\"narrow\"]")) &&
-                (path.contains("/dayPeriod[@type=\"am\"]") || path.contains("/dayPeriod[@type=\"pm\"]")) ) {
+            if ((path.contains("/dayPeriodWidth[@type=\"abbreviated\"]")
+                            || path.contains("/dayPeriodWidth[@type=\"narrow\"]"))
+                    && (path.contains("/dayPeriod[@type=\"am\"]")
+                            || path.contains("/dayPeriod[@type=\"pm\"]"))) {
                 return true;
             }
             return false;
@@ -1257,21 +1371,20 @@ public class DisplayAndInputProcessor {
     }
 
     private static final Pattern ZERO_WIDTH_SPACES = PatternCache.get("\\u200B+");
-    private static final Set<String> LOCALES_NOT_ALLOWING_ZWS = new HashSet<>(Arrays.asList("da", "fr"));
+    private static final Set<String> LOCALES_NOT_ALLOWING_ZWS =
+            new HashSet<>(Arrays.asList("da", "fr"));
 
     /**
      * Remove occurrences of U+200B ZERO_WIDTH_SPACE under certain conditions
      *
      * @param value the value to be normalized
      * @return the normalized value
-     *
-     * TODO: extend this method to address more concerns, after clarifying the conditions
-     *   - enlarge the set LOCALES_NOT_ALLOWING_ZWS?
-     *   - strip initial and final ZWS in all locales?
-     *   - reduce two or more adjacent ZWS to one ZWS?
-     *   - allow or prohibit ZWS by itself as currency symbol, as currently in locales kea, pt_CV, pt_PT
-     *   - allow or prohibit ZWS preceding URL as in "as per [U+200B]http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations"
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15976
+     *     <p>TODO: extend this method to address more concerns, after clarifying the conditions -
+     *     enlarge the set LOCALES_NOT_ALLOWING_ZWS? - strip initial and final ZWS in all locales? -
+     *     reduce two or more adjacent ZWS to one ZWS? - allow or prohibit ZWS by itself as currency
+     *     symbol, as currently in locales kea, pt_CV, pt_PT - allow or prohibit ZWS preceding URL
+     *     as in "as per [U+200B]https://www.unicode.org/reports/tr35/tr35-general.html#Annotations
+     *     " Reference: https://unicode-org.atlassian.net/browse/CLDR-15976
      */
     private String normalizeZeroWidthSpace(String value) {
         if (ZERO_WIDTH_SPACES.matcher(value).find()) {
@@ -1287,11 +1400,11 @@ public class DisplayAndInputProcessor {
      * If inheritance replacement is enabled and the value matches the Bailey (inherited) value,
      * replace the value with CldrUtility.INHERITANCE_MARKER
      *
-     * This is only appropriate if cldrFileForBailey != null, meaning that
-     * enableInheritanceReplacement has been called -- some cost may be
-     * involved in getting cldrFileForBailey and calling getBaileyValue,
-     * and some callers of DAIP may not want the replacement, so the default,
-     * when enableInheritanceReplacement has not been called, is no replacement
+     * <p>This is only appropriate if cldrFileForBailey != null, meaning that
+     * enableInheritanceReplacement has been called -- some cost may be involved in getting
+     * cldrFileForBailey and calling getBaileyValue, and some callers of DAIP may not want the
+     * replacement, so the default, when enableInheritanceReplacement has not been called, is no
+     * replacement
      *
      * @param path
      * @param value
@@ -1301,10 +1414,11 @@ public class DisplayAndInputProcessor {
         if (cldrFileForBailey != null && !value.isEmpty()) {
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
-            String baileyValue = cldrFileForBailey.getBaileyValue(path, pathWhereFound, localeWhereFound);
-            if (value.equals(baileyValue) &&
-                !XMLSource.ROOT_ID.equals(localeWhereFound.value) &&
-                !XMLSource.CODE_FALLBACK_ID.equals(localeWhereFound.value)) {
+            String baileyValue =
+                    cldrFileForBailey.getBaileyValue(path, pathWhereFound, localeWhereFound);
+            if (value.equals(baileyValue)
+                    && !XMLSource.ROOT_ID.equals(localeWhereFound.value)
+                    && !XMLSource.CODE_FALLBACK_ID.equals(localeWhereFound.value)) {
                 return CldrUtility.INHERITANCE_MARKER;
             }
         }

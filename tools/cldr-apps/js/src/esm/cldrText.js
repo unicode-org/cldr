@@ -212,6 +212,8 @@ const strings = {
   voteInfo_moreInfo:
     "Click here for a full explanation of the icons and their meanings.",
   voteInfo_votesForInheritance: "These are votes for inheritance.",
+  voteInfo_votesForSpecificValue:
+    "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
   // CheckCLDR.StatusAction
   StatusAction_msg: "Not submitted: ${0}",
   StatusAction_popupmsg:
@@ -573,6 +575,17 @@ function get(k) {
  */
 function sub(k, map) {
   const template = get(k);
+  return subTemplate(template, map);
+}
+
+/**
+ * Substitute the placeholders in the template for the given key using the given map
+ *
+ * @param template template string
+ * @param map an array like ['a', 'b'] or an object like {a: 'A', b: 'B'}
+ * @return the string with substitutions made, or an empty string for failure
+ */
+function subTemplate(template, map) {
   if (template) {
     if (map instanceof Array) {
       return template.replace(/\${(\d)}/g, (blank, i) => map[i]);
@@ -584,4 +597,4 @@ function sub(k, map) {
   return "";
 }
 
-export { get, sub };
+export { get, sub, subTemplate };

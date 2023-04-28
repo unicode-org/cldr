@@ -6,21 +6,19 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.SubmissionLocales;
 
-
 /**
  * This interface is for objects which can expose information on which reports have been completed.
+ *
  * @param T the type for each voter. Must be an Integer.
  */
 public abstract class VoterReportStatus<T> {
     /**
-     * Enumeration for the reports. In order shown in SurveyTool.
-     * Note: when adding an entry here, also update cldrText.js to add the
-     * display name, for example, 'special_r_personnames': 'Person Names'
-     * Also see {@link org.unicode.cldr.tool.Chart#forReport(ReportId, String)}
+     * Enumeration for the reports. In order shown in SurveyTool. Note: when adding an entry here,
+     * also update cldrText.js to add the display name, for example, 'special_r_personnames':
+     * 'Person Names' Also see {@link org.unicode.cldr.tool.Chart#forReport(ReportId, String)}
      */
     public enum ReportId {
         datetime, // non-Chart
@@ -30,10 +28,12 @@ public abstract class VoterReportStatus<T> {
 
         /**
          * True if this report is available in this vetting period
+         *
          * @return
          */
         public boolean isAvailable() {
-            return (!CheckCLDR.LIMITED_SUBMISSION) || (SubmissionLocales.getReportsAvailableInLimited().contains(this));
+            return (!CheckCLDR.LIMITED_SUBMISSION)
+                    || (SubmissionLocales.getReportsAvailableInLimited().contains(this));
         }
 
         public static Set<ReportId> getReportsAvailable() {
@@ -46,7 +46,8 @@ public abstract class VoterReportStatus<T> {
     };
 
     public enum ReportAcceptability {
-        notAcceptable, acceptable;
+        notAcceptable,
+        acceptable;
 
         boolean isAcceptable() {
             return this == acceptable;
@@ -98,6 +99,7 @@ public abstract class VoterReportStatus<T> {
 
         /**
          * Return the acceptability enum for this report type
+         *
          * @param r report type
          * @return the acceptability enum, or null if there was no entry
          */
@@ -107,33 +109,38 @@ public abstract class VoterReportStatus<T> {
     }
 
     /**
-     * Update a Resolver for a particular Report. The resolver will be cleared.
-     * Note that T must be an Integer for this to succeed.
+     * Update a Resolver for a particular Report. The resolver will be cleared. Note that T must be
+     * an Integer for this to succeed.
+     *
      * @param l locale
      * @param r which report
      * @param userList set of users
      * @param res which
      * @return vote statistics for each acceptability level
      */
-    public Map<ReportAcceptability, Set<Integer>>
-    updateResolver(CLDRLocale l, ReportId r,
-        Set<T> userList, VoteResolver<ReportAcceptability> res) {
+    public Map<ReportAcceptability, Set<Integer>> updateResolver(
+            CLDRLocale l, ReportId r, Set<T> userList, VoteResolver<ReportAcceptability> res) {
         Map<ReportAcceptability, Set<Integer>> statistics = new HashMap<>();
         res.clear();
         res.setBaileyValue(null);
         // Get the report status for each user
-        userList.forEach(id -> {
-            // get the report status for this user
-            final ReportStatus rs = getReportStatus(id, l);
-            // convert the ReportStatus for the specific id, into an enum (or null)
-            final ReportAcceptability acc = rs.getAcceptability(r);
-            if (acc != null) {
-                // if not an abstention, add
-                res.add(acc, (Integer) id, null, rs.getDate()); // TODO: Cast because T must be an Integer. Refactor class to not be templatized
-                statistics.computeIfAbsent(acc, k -> new HashSet<>())
-                    .add((Integer) id);
-            }
-        });
+        userList.forEach(
+                id -> {
+                    // get the report status for this user
+                    final ReportStatus rs = getReportStatus(id, l);
+                    // convert the ReportStatus for the specific id, into an enum (or null)
+                    final ReportAcceptability acc = rs.getAcceptability(r);
+                    if (acc != null) {
+                        // if not an abstention, add
+                        res.add(
+                                acc,
+                                (Integer) id,
+                                null,
+                                rs.getDate()); // TODO: Cast because T must be an Integer.
+                        // Refactor class to not be templatized
+                        statistics.computeIfAbsent(acc, k -> new HashSet<>()).add((Integer) id);
+                    }
+                });
         return statistics;
     }
 }

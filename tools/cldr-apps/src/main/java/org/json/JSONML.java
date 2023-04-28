@@ -1,35 +1,34 @@
 package org.json;
 
 /*
- Copyright (c) 2008 JSON.org
+Copyright (c) 2008 JSON.org
 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
- The Software shall be used for Good, not Evil.
+The Software shall be used for Good, not Evil.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
- */
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
 import java.util.Iterator;
 
 /**
- * This provides static methods to convert an XML text into a JSONArray or
- * JSONObject, and to covert a JSONArray or JSONObject into an XML text using
- * the JsonML transform.
+ * This provides static methods to convert an XML text into a JSONArray or JSONObject, and to covert
+ * a JSONArray or JSONObject into an XML text using the JsonML transform.
  *
  * @author JSON.org
  * @version 2010-02-12
@@ -39,17 +38,15 @@ public class JSONML {
     /**
      * Parse XML values and store them in a JSONArray.
      *
-     * @param x
-     *            The XMLTokener containing the source string.
-     * @param arrayForm
-     *            true if array form, false if object form.
-     * @param ja
-     *            The JSONArray that is containing the current tag or null if we
-     *            are at the outermost level.
+     * @param x The XMLTokener containing the source string.
+     * @param arrayForm true if array form, false if object form.
+     * @param ja The JSONArray that is containing the current tag or null if we are at the outermost
+     *     level.
      * @return A JSONArray if the value is the outermost tag, otherwise null.
      * @throws JSONException
      */
-    private static Object parse(XMLTokener x, boolean arrayForm, JSONArray ja) throws JSONException {
+    private static Object parse(XMLTokener x, boolean arrayForm, JSONArray ja)
+            throws JSONException {
         String attribute;
         char c;
         String closeTag = null;
@@ -76,7 +73,8 @@ public class JSONML {
 
                         token = x.nextToken();
                         if (!(token instanceof String)) {
-                            throw new JSONException("Expected a closing name instead of '" + token + "'.");
+                            throw new JSONException(
+                                    "Expected a closing name instead of '" + token + "'.");
                         }
                         if (x.nextToken() != XML.GT) {
                             throw x.syntaxError("Misshaped close tag");
@@ -144,7 +142,7 @@ public class JSONML {
                         }
                     }
                     token = null;
-                    for (;;) {
+                    for (; ; ) {
                         if (token == null) {
                             token = x.nextToken();
                         }
@@ -200,7 +198,8 @@ public class JSONML {
                         closeTag = (String) parse(x, arrayForm, newja);
                         if (closeTag != null) {
                             if (!closeTag.equals(tagName)) {
-                                throw x.syntaxError("Mismatched '" + tagName + "' and '" + closeTag + "'");
+                                throw x.syntaxError(
+                                        "Mismatched '" + tagName + "' and '" + closeTag + "'");
                             }
                             tagName = null;
                             if (!arrayForm && newja.length() > 0) {
@@ -218,23 +217,24 @@ public class JSONML {
                 }
             } else {
                 if (ja != null) {
-                    ja.put(token instanceof String ? JSONObject.stringToValue((String) token) : token);
+                    ja.put(
+                            token instanceof String
+                                    ? JSONObject.stringToValue((String) token)
+                                    : token);
                 }
             }
         }
     }
 
     /**
-     * Convert a well-formed (but not necessarily valid) XML string into a
-     * JSONArray using the JsonML transform. Each XML tag is represented as a
-     * JSONArray in which the first element is the tag name. If the tag has
-     * attributes, then the second element will be JSONObject containing the
-     * name/value pairs. If the tag contains children, then strings and
-     * JSONArrays will represent the child tags. Comments, prologs, DTDs, and
-     * <code>&lt;[ [ ]]></code> are ignored.
+     * Convert a well-formed (but not necessarily valid) XML string into a JSONArray using the
+     * JsonML transform. Each XML tag is represented as a JSONArray in which the first element is
+     * the tag name. If the tag has attributes, then the second element will be JSONObject
+     * containing the name/value pairs. If the tag contains children, then strings and JSONArrays
+     * will represent the child tags. Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are
+     * ignored.
      *
-     * @param string
-     *            The source string.
+     * @param string The source string.
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException
      */
@@ -243,16 +243,14 @@ public class JSONML {
     }
 
     /**
-     * Convert a well-formed (but not necessarily valid) XML string into a
-     * JSONArray using the JsonML transform. Each XML tag is represented as a
-     * JSONArray in which the first element is the tag name. If the tag has
-     * attributes, then the second element will be JSONObject containing the
-     * name/value pairs. If the tag contains children, then strings and
-     * JSONArrays will represent the child content and tags. Comments, prologs,
-     * DTDs, and <code>&lt;[ [ ]]></code> are ignored.
+     * Convert a well-formed (but not necessarily valid) XML string into a JSONArray using the
+     * JsonML transform. Each XML tag is represented as a JSONArray in which the first element is
+     * the tag name. If the tag has attributes, then the second element will be JSONObject
+     * containing the name/value pairs. If the tag contains children, then strings and JSONArrays
+     * will represent the child content and tags. Comments, prologs, DTDs, and <code>&lt;[ [ ]]>
+     * </code> are ignored.
      *
-     * @param x
-     *            An XMLTokener.
+     * @param x An XMLTokener.
      * @return A JSONArray containing the structured data from the XML string.
      * @throws JSONException
      */
@@ -261,17 +259,15 @@ public class JSONML {
     }
 
     /**
-     * Convert a well-formed (but not necessarily valid) XML string into a
-     * JSONObject using the JsonML transform. Each XML tag is represented as a
-     * JSONObject with a "tagName" property. If the tag has attributes, then the
-     * attributes will be in the JSONObject as properties. If the tag contains
-     * children, the object will have a "childNodes" property which will be an
-     * array of strings and JsonML JSONObjects.
+     * Convert a well-formed (but not necessarily valid) XML string into a JSONObject using the
+     * JsonML transform. Each XML tag is represented as a JSONObject with a "tagName" property. If
+     * the tag has attributes, then the attributes will be in the JSONObject as properties. If the
+     * tag contains children, the object will have a "childNodes" property which will be an array of
+     * strings and JsonML JSONObjects.
      *
-     * Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
+     * <p>Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
      *
-     * @param x
-     *            An XMLTokener of the XML source text.
+     * @param x An XMLTokener of the XML source text.
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException
      */
@@ -280,17 +276,15 @@ public class JSONML {
     }
 
     /**
-     * Convert a well-formed (but not necessarily valid) XML string into a
-     * JSONObject using the JsonML transform. Each XML tag is represented as a
-     * JSONObject with a "tagName" property. If the tag has attributes, then the
-     * attributes will be in the JSONObject as properties. If the tag contains
-     * children, the object will have a "childNodes" property which will be an
-     * array of strings and JsonML JSONObjects.
+     * Convert a well-formed (but not necessarily valid) XML string into a JSONObject using the
+     * JsonML transform. Each XML tag is represented as a JSONObject with a "tagName" property. If
+     * the tag has attributes, then the attributes will be in the JSONObject as properties. If the
+     * tag contains children, the object will have a "childNodes" property which will be an array of
+     * strings and JsonML JSONObjects.
      *
-     * Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
+     * <p>Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code> are ignored.
      *
-     * @param string
-     *            The XML source text.
+     * @param string The XML source text.
      * @return A JSONObject containing the structured data from the XML string.
      * @throws JSONException
      */
@@ -301,8 +295,7 @@ public class JSONML {
     /**
      * Reverse the JSONML transformation, making an XML text from a JSONArray.
      *
-     * @param ja
-     *            A JSONArray.
+     * @param ja A JSONArray.
      * @return An XML string.
      * @throws JSONException
      */
@@ -380,13 +373,11 @@ public class JSONML {
     }
 
     /**
-     * Reverse the JSONML transformation, making an XML text from a JSONObject.
-     * The JSONObject must contain a "tagName" property. If it has children,
-     * then it must have a "childNodes" property containing an array of objects.
-     * The other properties are attributes with string values.
+     * Reverse the JSONML transformation, making an XML text from a JSONObject. The JSONObject must
+     * contain a "tagName" property. If it has children, then it must have a "childNodes" property
+     * containing an array of objects. The other properties are attributes with string values.
      *
-     * @param jo
-     *            A JSONObject.
+     * @param jo A JSONObject.
      * @return An XML string.
      * @throws JSONException
      */

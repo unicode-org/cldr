@@ -11,7 +11,6 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 import java.util.Locale;
-
 import org.unicode.cldr.util.CLDRFile;
 
 public class POSIX_LCMessages {
@@ -25,10 +24,8 @@ public class POSIX_LCMessages {
 
     public POSIX_LCMessages(CLDRFile doc, String locale_name, POSIXVariant variant) {
         int i = locale_name.indexOf('_');
-        if (i > 0)
-            loc = new Locale(locale_name.substring(0, i));
-        else
-            loc = Locale.getDefault();
+        if (i > 0) loc = new Locale(locale_name.substring(0, i));
+        else loc = Locale.getDefault();
 
         SearchLocation = "//ldml/posix/messages/yesstr";
         String s;
@@ -37,16 +34,12 @@ public class POSIX_LCMessages {
             StringBuffer buf;
             if (variant.yesno.equals("short")) {
                 i = s.indexOf(":");
-                if (i > 0)
-                    buf = new StringBuffer(s.substring(0, i));
-                else
-                    buf = new StringBuffer(s);
+                if (i > 0) buf = new StringBuffer(s.substring(0, i));
+                else buf = new StringBuffer(s);
             } else {
                 buf = new StringBuffer(s);
-                if (!s.equals(s.toUpperCase(loc)))
-                    buf.append(":" + s.toUpperCase(loc));
-                if (!s.startsWith("yes:"))
-                    buf.append(":yes:y:YES:Y");
+                if (!s.equals(s.toUpperCase(loc))) buf.append(":" + s.toUpperCase(loc));
+                if (!s.startsWith("yes:")) buf.append(":yes:y:YES:Y");
             }
             yesstr = POSIXUtilities.POSIXCharNameNP(buf.toString());
             yesexpr = POSIXUtilities.POSIXYesNoExpr(buf.toString());
@@ -64,16 +57,12 @@ public class POSIX_LCMessages {
             StringBuffer buf;
             if (variant.yesno.equals("short")) {
                 i = s.indexOf(":");
-                if (i > 0)
-                    buf = new StringBuffer(s.substring(0, i));
-                else
-                    buf = new StringBuffer(s);
+                if (i > 0) buf = new StringBuffer(s.substring(0, i));
+                else buf = new StringBuffer(s);
             } else {
                 buf = new StringBuffer(s);
-                if (!s.equals(s.toUpperCase(loc)))
-                    buf.append(":" + s.toUpperCase(loc));
-                if (!s.startsWith("no:"))
-                    buf.append(":no:n:NO:N");
+                if (!s.equals(s.toUpperCase(loc))) buf.append(":" + s.toUpperCase(loc));
+                if (!s.startsWith("no:")) buf.append(":no:n:NO:N");
             }
             nostr = POSIXUtilities.POSIXCharNameNP(buf.toString());
             noexpr = POSIXUtilities.POSIXYesNoExpr(buf.toString());
@@ -84,7 +73,6 @@ public class POSIX_LCMessages {
             nostr = "no:n:NO:N";
             noexpr = POSIXUtilities.POSIXYesNoExpr(nostr);
         }
-
     }
 
     public void write(PrintWriter out) {

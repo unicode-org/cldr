@@ -1,36 +1,29 @@
-/**
- * Copyright (C) 2009-2010 IBM Corp. and Others. All Rights Reserved.
- */
+/** Copyright (C) 2009-2010 IBM Corp. and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 import java.io.IOException;
 import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
  * This class has routines on it helpful for JSPs.
  *
- * See this URL for documentation about the Easy Steps system:
+ * <p>See this URL for documentation about the Easy Steps system:
  * http://cldr.unicode.org/development/coding-cldr-tools/easy-steps
  *
  * @author srl
- *
  */
 public class JspWebContext extends WebContext {
 
     private enum MainFormState {
-        OPEN, CLOSED
+        OPEN,
+        CLOSED
     }
 
     MainFormState mainFormState = MainFormState.CLOSED;
-    /**
-     * List of xpaths indicating the types of data being submitted (numbers,
-     * currency, etc)
-     */
+    /** List of xpaths indicating the types of data being submitted (numbers, currency, etc) */
     Set<String> podBases = null;
 
     /**
@@ -45,8 +38,8 @@ public class JspWebContext extends WebContext {
     }
 
     /**
-     * For creating a JspContext from another WebContext. Slicing is fine here
-     * (for now), as there isn't any extra state in a JspWebContext
+     * For creating a JspContext from another WebContext. Slicing is fine here (for now), as there
+     * isn't any extra state in a JspWebContext
      *
      * @param other
      */

@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -14,7 +18,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
@@ -28,17 +31,13 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-
 public class ReadSql {
     static final boolean DEBUG = false;
     static UserMap umap = new UserMap(CLDRPaths.DATA_DIRECTORY + "cldr/users.xml");
 
     enum MyOptions {
-        organization(".*", "google", "organization"), verbose("", "", "verbose"),
+        organization(".*", "google", "organization"),
+        verbose("", "", "verbose"),
         ;
 
         // BOILERPLATE TO COPY
@@ -49,6 +48,7 @@ public class ReadSql {
         }
 
         static Options options = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 options.add(option, option.option);
@@ -71,14 +71,15 @@ public class ReadSql {
         long max = Long.MAX_VALUE;
         long maxItems = 10;
         boolean inCreate = false;
-        try (BufferedReader r = FileUtilities.openFile(CLDRPaths.DATA_DIRECTORY, "cldr/cldr-DUMP-20160817.sql")) {
+        try (BufferedReader r =
+                FileUtilities.openFile(CLDRPaths.DATA_DIRECTORY, "cldr/cldr-DUMP-20160817.sql")) {
             while (--max > 0) {
                 String line = r.readLine();
                 if (line == null) {
                     break;
                 }
                 if (line.startsWith("INSERT")) {
-                    //System.out.println(trunc(line, 100));
+                    // System.out.println(trunc(line, 100));
                     Data.parseLine(line, maxItems);
                 } else if (line.startsWith("CREATE")) {
                     inCreate = true;
@@ -137,12 +138,12 @@ public class ReadSql {
             } else {
                 String ownerField;
                 switch (key) {
-                case "FEEDBACK":
-                    ownerField = raw.get(1);
-                    break;
-                default:
-                    ownerField = raw.get(2);
-                    break;
+                    case "FEEDBACK":
+                        ownerField = raw.get(1);
+                        break;
+                    default:
+                        ownerField = raw.get(2);
+                        break;
                 }
                 owner = umap.get(ownerField);
             }
@@ -150,17 +151,27 @@ public class ReadSql {
 
         @Override
         public String toString() {
-            return (date == null ? "???" : df.format(date)) + ";\t" + owner + ";\t" + CldrUtility.toString(raw);
+            return (date == null ? "???" : df.format(date))
+                    + ";\t"
+                    + owner
+                    + ";\t"
+                    + CldrUtility.toString(raw);
         }
     }
 
     static class DateMap {
-        M5<Integer, Integer, Integer, Integer, Boolean> yearMonthDays = ChainedMap.of(new TreeMap<>(), new TreeMap(), new TreeMap(), new TreeMap(),
-            Boolean.class);
+        M5<Integer, Integer, Integer, Integer, Boolean> yearMonthDays =
+                ChainedMap.of(
+                        new TreeMap<>(),
+                        new TreeMap(),
+                        new TreeMap(),
+                        new TreeMap(),
+                        Boolean.class);
         int current = 0;
 
         void add(Date d) {
-            yearMonthDays.put(d.getYear() + 1900, d.getMonth() + 1, d.getDate(), current++, Boolean.TRUE);
+            yearMonthDays.put(
+                    d.getYear() + 1900, d.getMonth() + 1, d.getDate(), current++, Boolean.TRUE);
         }
 
         static DateFormat monthFormat = new SimpleDateFormat("MMM");
@@ -169,7 +180,8 @@ public class ReadSql {
         public String toString() {
             StringBuilder result = new StringBuilder();
             int years = 0;
-            for (Entry<Integer, Map<Integer, Map<Integer, Map<Integer, Boolean>>>> yearMonthDay : yearMonthDays) {
+            for (Entry<Integer, Map<Integer, Map<Integer, Map<Integer, Boolean>>>> yearMonthDay :
+                    yearMonthDays) {
                 if (years++ > 0) {
                     result.append("; ");
                 }
@@ -177,7 +189,8 @@ public class ReadSql {
                 result.append(year);
                 result.append(": ");
                 int months = 0;
-                for (Entry<Integer, Map<Integer, Map<Integer, Boolean>>> monthDay : yearMonthDay.getValue().entrySet()) {
+                for (Entry<Integer, Map<Integer, Map<Integer, Boolean>>> monthDay :
+                        yearMonthDay.getValue().entrySet()) {
                     if (months++ > 0) {
                         result.append("; ");
                     }
@@ -185,7 +198,8 @@ public class ReadSql {
                     result.append(monthFormat.format(new Date(year - 1900, month - 1, 1)));
                     result.append(": ");
                     int days = 0;
-                    for (Entry<Integer, Map<Integer, Boolean>> dayCount : monthDay.getValue().entrySet()) {
+                    for (Entry<Integer, Map<Integer, Boolean>> dayCount :
+                            monthDay.getValue().entrySet()) {
                         if (days++ > 0) {
                             result.append(", ");
                         }
@@ -244,7 +258,15 @@ public class ReadSql {
                 for (R2<Long, User> item : counter.getEntrySetSortedByCount(false, null)) {
                     final Long count = item.get0();
                     final User user = item.get1();
-                    System.out.println("key: " + data.key + "; count: " + count + "; " + user + "\t" + dateMaps.get(user));
+                    System.out.println(
+                            "key: "
+                                    + data.key
+                                    + "; count: "
+                                    + count
+                                    + "; "
+                                    + user
+                                    + "\t"
+                                    + dateMaps.get(user));
                 }
             }
         }
@@ -273,7 +295,9 @@ public class ReadSql {
             } else {
                 throw new IllegalArgumentException();
             }
-            if (key.equals("FEEDBACK") || key.equals("sf_fora")) { // cf. private FeedBack.TABLE_FEEDBACK and public SurveyForum.DB_FORA
+            if (key.equals("FEEDBACK")
+                    || key.equals("sf_fora")) { // cf. private FeedBack.TABLE_FEEDBACK and public
+                // SurveyForum.DB_FORA
                 return; // old format
             }
             boolean inQuote = false;
@@ -291,51 +315,51 @@ public class ReadSql {
                 i += Character.charCount(cp);
                 if (inQuote) {
                     switch (cp) {
-                    case '\'':
-                        inQuote = false;
-                        break;
-                    case '\\':
-                        cp = line.codePointAt(i);
-                        i += Character.charCount(cp);
-                        // fall through
-                    default:
-                        buffer.appendCodePoint(cp);
-                        break;
+                        case '\'':
+                            inQuote = false;
+                            break;
+                        case '\\':
+                            cp = line.codePointAt(i);
+                            i += Character.charCount(cp);
+                            // fall through
+                        default:
+                            buffer.appendCodePoint(cp);
+                            break;
                     }
                 } else {
                     switch (cp) {
-                    case '\'':
-                        inQuote = true;
-                        break;
-                    case ',':
-                        if (!skipComma) {
+                        case '\'':
+                            inQuote = true;
+                            break;
+                        case ',':
+                            if (!skipComma) {
+                                items.add(buffer.toString());
+                                buffer.setLength(0);
+                            }
+                            break;
+                        case ' ':
+                        case '\t':
+                        case '\n':
+                        case '(':
+                            skipComma = false;
+                            break;
+                        case ')':
+                            skipComma = true;
                             items.add(buffer.toString());
                             buffer.setLength(0);
-                        }
-                        break;
-                    case ' ':
-                    case '\t':
-                    case '\n':
-                    case '(':
-                        skipComma = false;
-                        break;
-                    case ')':
-                        skipComma = true;
-                        items.add(buffer.toString());
-                        buffer.setLength(0);
-                        Items lastItem = current.add(items);
-                        if (--maxItems > 0 && lastItem != null) {
-                            if (verbose) System.out.println(key + "\t" + lastItem);
-                        }
-                        items = new ArrayList<>();
-                        break;
-                    case '\\':
-                        cp = line.codePointAt(i);
-                        i += Character.charCount(cp);
-                        // fall through
-                    default:
-                        buffer.appendCodePoint(cp);
-                        break;
+                            Items lastItem = current.add(items);
+                            if (--maxItems > 0 && lastItem != null) {
+                                if (verbose) System.out.println(key + "\t" + lastItem);
+                            }
+                            items = new ArrayList<>();
+                            break;
+                        case '\\':
+                            cp = line.codePointAt(i);
+                            i += Character.charCount(cp);
+                            // fall through
+                        default:
+                            buffer.appendCodePoint(cp);
+                            break;
                     }
                 }
             }
@@ -356,17 +380,25 @@ public class ReadSql {
             this.level = Level.valueOf(parts.getAttributeValue(-1, "level"));
             this.name = parts.getAttributeValue(-1, "name");
             this.org = Organization.fromString(parts.getAttributeValue(-1, "org"));
-            this.locales = ImmutableSet.copyOf(Arrays.asList(parts.getAttributeValue(-1, "locales").split("[, ]+")));
+            this.locales =
+                    ImmutableSet.copyOf(
+                            Arrays.asList(parts.getAttributeValue(-1, "locales").split("[, ]+")));
         }
 
         @Override
         public String toString() {
-            return "id: " + id
-                + "; email: " + email
-                + "; name: " + name
-                + "; level: " + level
-                + "; org: " + org
-                + "; locales: " + locales;
+            return "id: "
+                    + id
+                    + "; email: "
+                    + email
+                    + "; name: "
+                    + name
+                    + "; level: "
+                    + level
+                    + "; org: "
+                    + org
+                    + "; locales: "
+                    + locales;
         }
     }
 

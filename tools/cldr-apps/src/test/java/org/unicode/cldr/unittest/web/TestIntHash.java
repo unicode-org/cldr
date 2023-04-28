@@ -1,11 +1,9 @@
 package org.unicode.cldr.unittest.web;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import java.util.HashSet;
 import java.util.Set;
-
 import org.unicode.cldr.web.IntHash;
-
-import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestIntHash extends TestFmwk {
     // static TestInfo testInfo = TestInfo.getInstance();
@@ -39,5 +37,4 @@ public class TestIntHash extends TestFmwk {
         }
         log("Tested " + ii + " values");
     }
-
 }

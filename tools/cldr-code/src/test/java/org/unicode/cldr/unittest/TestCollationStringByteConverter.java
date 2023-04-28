@@ -7,11 +7,19 @@
  */
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.SimpleTimeZone;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 import java.text.ParsePosition;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CollationStringByteConverter;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
@@ -23,16 +31,6 @@ import org.unicode.cldr.util.LenientDateParser.Parser;
 import org.unicode.cldr.util.StateDictionaryBuilder;
 import org.unicode.cldr.util.TestStateDictionaryBuilder;
 import org.unicode.cldr.util.Utf8StringByteConverter;
-
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.SimpleTimeZone;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 
 public class TestCollationStringByteConverter {
 
@@ -120,8 +118,7 @@ public class TestCollationStringByteConverter {
     public static void main(String[] args) throws Exception {
         check2(ULocale.JAPANESE);
         // check2(ULocale.FRANCE);
-        if (true)
-            return;
+        if (true) return;
         checkBasic();
         check();
     }
@@ -130,23 +127,20 @@ public class TestCollationStringByteConverter {
         System.out.println(ULocale.getDisplayName("en_GB", "en"));
 
         DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
-        Map<CharSequence, CharSequence> map = new TreeMap<CharSequence, CharSequence>(
-            Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        Map<CharSequence, CharSequence> map =
+                new TreeMap<CharSequence, CharSequence>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("a", "ABC");
         map.put("bc", "B"); // ß
         Dictionary<CharSequence> dict = builder.make(map);
-        String[] tests = { "a/bc", "bc", "a", "d", "", "abca" };
+        String[] tests = {"a/bc", "bc", "a", "d", "", "abca"};
         for (String test : tests) {
             System.out.println("TRYING: " + test);
-            DictionaryCharList<CharSequence> gcs = new DictionaryCharList<CharSequence>(
-                dict, test);
+            DictionaryCharList<CharSequence> gcs = new DictionaryCharList<CharSequence>(dict, test);
             for (int i = 0; gcs.hasCharAt(i); ++i) {
                 char c = gcs.charAt(i);
                 final int sourceOffset = gcs.toSourceOffset(i);
-                final CharSequence sourceSubSequence = gcs.sourceSubSequence(i,
-                    i + 1);
-                System.out.println(i + "\t" + c + "\t" + sourceOffset + "\t"
-                    + sourceSubSequence);
+                final CharSequence sourceSubSequence = gcs.sourceSubSequence(i, i + 1);
+                System.out.println(i + "\t" + c + "\t" + sourceOffset + "\t" + sourceSubSequence);
             }
             gcs.hasCharAt(Integer.MAX_VALUE);
             System.out.println("Length: " + gcs.getKnownLength());
@@ -219,25 +213,24 @@ public class TestCollationStringByteConverter {
         SimpleDateFormat iso = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss VVVV");
 
         for (int style = 0; style < 4; ++style) {
-            final DateFormat dateInstance = DateFormat.getDateInstance(style,
-                testLocale);
+            final DateFormat dateInstance = DateFormat.getDateInstance(style, testLocale);
             dateInstance.setTimeZone(testTimeZone);
             tests.add(dateInstance);
-            final DateFormat timeInstance = DateFormat.getTimeInstance(style,
-                testLocale);
+            final DateFormat timeInstance = DateFormat.getTimeInstance(style, testLocale);
             timeInstance.setTimeZone(testTimeZone);
             tests.add(timeInstance);
             for (int style2 = 0; style2 < 4; ++style2) {
-                final DateFormat dateTimeInstance = DateFormat
-                    .getDateTimeInstance(style, style, testLocale);
+                final DateFormat dateTimeInstance =
+                        DateFormat.getDateTimeInstance(style, style, testLocale);
                 dateTimeInstance.setTimeZone(testTimeZone);
                 tests.add(dateTimeInstance);
-                final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-                    ((SimpleDateFormat) DateFormat.getTimeInstance(style2,
-                        testLocale)).toPattern()
-                        + " "
-                        + ((SimpleDateFormat) dateInstance).toPattern(),
-                    testLocale);
+                final SimpleDateFormat simpleDateFormat =
+                        new SimpleDateFormat(
+                                ((SimpleDateFormat) DateFormat.getTimeInstance(style2, testLocale))
+                                                .toPattern()
+                                        + " "
+                                        + ((SimpleDateFormat) dateInstance).toPattern(),
+                                testLocale);
                 simpleDateFormat.setTimeZone(testTimeZone);
                 tests.add(simpleDateFormat);
                 // tests.put(DateFormat.getTimeInstance(style,
@@ -275,14 +268,16 @@ public class TestCollationStringByteConverter {
             calendar2.setTimeZone(unknown);
             test.parse(expected, calendar2, parsePosition2);
 
-            if (true) {
-
-            }
+            if (true) {}
 
             if (areEqual(calendar, calendar2)) {
-                System.out.println("OK\t" + expected + "\t=>\t<"
-                    + iso.format(calendar) + ">\t"
-                    + show(expected, parsePosition));
+                System.out.println(
+                        "OK\t"
+                                + expected
+                                + "\t=>\t<"
+                                + iso.format(calendar)
+                                + ">\t"
+                                + show(expected, parsePosition));
                 success++;
             } else {
                 failure++;
@@ -292,12 +287,21 @@ public class TestCollationStringByteConverter {
                 parser.parse(expected, calendar, parsePosition);
                 LenientDateParser.DEBUG = false;
 
-                System.out.println("FAIL\t" + expected + "\t=>\t<"
-                    + iso.format(calendar) + "//"
-                    + showZone(ldp, calendar.getTimeZone())
-                    + ">\texpected: <" + iso.format(calendar2) + "//"
-                    + showZone(ldp, calendar2.getTimeZone()) + ">\t"
-                    + show(expected, parsePosition) + "\t" + parser);
+                System.out.println(
+                        "FAIL\t"
+                                + expected
+                                + "\t=>\t<"
+                                + iso.format(calendar)
+                                + "//"
+                                + showZone(ldp, calendar.getTimeZone())
+                                + ">\texpected: <"
+                                + iso.format(calendar2)
+                                + "//"
+                                + showZone(ldp, calendar2.getTimeZone())
+                                + ">\t"
+                                + show(expected, parsePosition)
+                                + "\t"
+                                + parser);
             }
             System.out.println();
         }
@@ -323,21 +327,19 @@ public class TestCollationStringByteConverter {
 
     private static String show(String test, ParsePosition parsePosition) {
         return "{"
-            + test.substring(0, parsePosition.getIndex())
-            + "|"
-            + test.substring(parsePosition.getIndex())
-            + (parsePosition.getErrorIndex() == -1 ? "" : "/"
-                + parsePosition.getErrorIndex())
-            + "}";
+                + test.substring(0, parsePosition.getIndex())
+                + "|"
+                + test.substring(parsePosition.getIndex())
+                + (parsePosition.getErrorIndex() == -1 ? "" : "/" + parsePosition.getErrorIndex())
+                + "}";
     }
 
     public static void check() throws Exception {
-        final RuleBasedCollator col = (RuleBasedCollator) Collator
-            .getInstance(ULocale.ENGLISH);
+        final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
         col.setStrength(Collator.PRIMARY);
         col.setAlternateHandlingShifted(true);
-        CollationStringByteConverter converter = new CollationStringByteConverter(
-            col, new Utf8StringByteConverter()); // new
+        CollationStringByteConverter converter =
+                new CollationStringByteConverter(col, new Utf8StringByteConverter()); // new
         // ByteString(true)
         Matcher<String> matcher = converter.getDictionary().getMatcher();
         // if (true) {
@@ -351,19 +353,18 @@ public class TestCollationStringByteConverter {
         // }
         // System.out.println(converter.getDictionary().debugShow());
         // }
-        String[] tests = { "ab", "abc", "ss", "ß", "Abcde",
-            "Once Upon AB Time", "\u00E0b", "A\u0300b" };
+        String[] tests = {
+            "ab", "abc", "ss", "ß", "Abcde", "Once Upon AB Time", "\u00E0b", "A\u0300b"
+        };
         byte[] output = new byte[1000];
         for (String test : tests) {
-            String result = matcher
-                .setText(
-                    new DictionaryCharList<String>(converter
-                        .getDictionary(), test))
-                .convert(new StringBuffer()).toString();
+            String result =
+                    matcher.setText(new DictionaryCharList<String>(converter.getDictionary(), test))
+                            .convert(new StringBuffer())
+                            .toString();
             System.out.println(test + "\t=>\t" + result);
             int len = converter.toBytes(test, output, 0);
-            String result2 = converter.fromBytes(output, 0, len,
-                new StringBuilder()).toString();
+            String result2 = converter.fromBytes(output, 0, len, new StringBuilder()).toString();
             System.out.println(test + "\t(bytes) =>\t" + result2);
             for (int i = 0; i < len; ++i) {
                 System.out.print(Utility.hex(output[i] & 0xFF, 2) + " ");
@@ -371,29 +372,30 @@ public class TestCollationStringByteConverter {
             System.out.println();
         }
 
-        DictionaryBuilder<String> builder = new StateDictionaryBuilder<String>(); // .setByteConverter(converter);
-        Map<CharSequence, String> map = new TreeMap<CharSequence, String>(
-            Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        DictionaryBuilder<String> builder =
+                new StateDictionaryBuilder<String>(); // .setByteConverter(converter);
+        Map<CharSequence, String> map =
+                new TreeMap<CharSequence, String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("ab", "found-ab");
         map.put("abc", "found-ab");
         map.put("ss", "found-ss"); // ß
         Dictionary<String> dict = builder.make(map);
         final String string = "Abcde and ab c Upon aß AB basS Time\u00E0bA\u0300b";
-        DictionaryCharList<String> x = new DictionaryCharList<String>(
-            converter.getDictionary(), string);
+        DictionaryCharList<String> x =
+                new DictionaryCharList<String>(converter.getDictionary(), string);
         x.hasCharAt(Integer.MAX_VALUE); // force growth
-        System.out.println("Internal: "
-            + x.sourceSubSequence(0, x.getKnownLength()));
+        System.out.println("Internal: " + x.sourceSubSequence(0, x.getKnownLength()));
 
-        TestStateDictionaryBuilder.tryFind(string,
-            new DictionaryCharList<String>(converter.getDictionary(),
-                string),
-            dict, Filter.ALL);
+        TestStateDictionaryBuilder.tryFind(
+                string,
+                new DictionaryCharList<String>(converter.getDictionary(), string),
+                dict,
+                Filter.ALL);
 
-        TestStateDictionaryBuilder.tryFind(string,
-            new DictionaryCharList<String>(converter.getDictionary(),
-                string),
-            dict, Filter.LONGEST_MATCH);
-
+        TestStateDictionaryBuilder.tryFind(
+                string,
+                new DictionaryCharList<String>(converter.getDictionary(), string),
+                dict,
+                Filter.LONGEST_MATCH);
     }
 }

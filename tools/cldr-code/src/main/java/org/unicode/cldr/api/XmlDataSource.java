@@ -4,6 +4,16 @@ import static com.google.common.base.CharMatcher.whitespace;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multiset;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.UncheckedIOException;
@@ -20,7 +30,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -30,21 +39,10 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Multiset;
-
 /** Serializes a set of LDML XML files as a sequence of {@code CldrValue}s. */
 final class XmlDataSource implements CldrData {
     private static final Splitter TRIMMING_LINE_SPLITTER =
-        Splitter.on('\n').trimResults().omitEmptyStrings();
+            Splitter.on('\n').trimResults().omitEmptyStrings();
     private static final CharMatcher NOT_WHITESPACE = whitespace().negate();
 
     private final CldrDataType dtdType;
@@ -81,7 +79,10 @@ final class XmlDataSource implements CldrData {
 
     // @VisibleForTesting
     XmlDataSource(
-        CldrDataType dtdType, Set<Path> xmlFiles, CldrDraftStatus draftStatus, Function<Path, Reader> openFn) {
+            CldrDataType dtdType,
+            Set<Path> xmlFiles,
+            CldrDraftStatus draftStatus,
+            Function<Path, Reader> openFn) {
         this.xmlFiles = ImmutableSet.copyOf(xmlFiles);
         this.dtdType = dtdType;
         this.minimalDraftStatus = checkNotNull(draftStatus);
@@ -171,21 +172,24 @@ final class XmlDataSource implements CldrData {
             // expectations.
         } catch (SAXParseException e) {
             throw new IllegalArgumentException(
-                "error reading " + path + " (line " + e.getLineNumber() + ")", e);
+                    "error reading " + path + " (line " + e.getLineNumber() + ")", e);
         } catch (SAXException | IOException e) {
             throw new IllegalArgumentException("error reading " + path, e);
         } catch (RuntimeException e) {
             // TODO: Solve this properly by using a parser that we completely control.
-            throw new RuntimeException("\n"
-                + "------------------------------------------------------------------\n"
-                + "Unknown error reading " + path + "\n"
-                + "\n"
-                + "This can sometimes be caused by using a version of Java which does\n"
-                + "not support all the XML parsing features required by this tool.\n"
-                + "Try setting the JAVA_HOME environment variable to a different Java\n"
-                + "release, if possible.\n"
-                + "------------------------------------------------------------------\n>",
-                e);
+            throw new RuntimeException(
+                    "\n"
+                            + "------------------------------------------------------------------\n"
+                            + "Unknown error reading "
+                            + path
+                            + "\n"
+                            + "\n"
+                            + "This can sometimes be caused by using a version of Java which does\n"
+                            + "not support all the XML parsing features required by this tool.\n"
+                            + "Try setting the JAVA_HOME environment variable to a different Java\n"
+                            + "release, if possible.\n"
+                            + "------------------------------------------------------------------\n>",
+                    e);
         }
     }
 
@@ -217,7 +221,8 @@ final class XmlDataSource implements CldrData {
         }
 
         @Override
-        public void startElement(String uri, String localName, String qName, Attributes attributes) {
+        public void startElement(
+                String uri, String localName, String qName, Attributes attributes) {
             if (path == null && !qName.equals(dataType.getLdmlName())) {
                 throw new IncompatibleDtdException();
             }
@@ -278,8 +283,10 @@ final class XmlDataSource implements CldrData {
                     visitor.visit(CldrValue.create(value, valueAttributes, path));
                 }
             } else {
-                checkState(whitespace().matchesAllOf(elementText),
-                    "mixed content found in XML file: %s", path);
+                checkState(
+                        whitespace().matchesAllOf(elementText),
+                        "mixed content found in XML file: %s",
+                        path);
             }
             elementText.setLength(0);
 
@@ -318,12 +325,12 @@ final class XmlDataSource implements CldrData {
      *     encountered during processing (they get "saved up" to go on the CldrValue).
      */
     private static CldrPath extendPath(
-        /* @Nullable */ CldrPath parent,
-        String elementName,
-        Attributes xmlAttributes,
-        int sortIndex,
-        CldrDataType dataType,
-        BiConsumer<AttributeKey, String> valueAttributeCollector) {
+            /* @Nullable */ CldrPath parent,
+            String elementName,
+            Attributes xmlAttributes,
+            int sortIndex,
+            CldrDataType dataType,
+            BiConsumer<AttributeKey, String> valueAttributeCollector) {
         List<String> attributeKeyValuePairs = ImmutableList.of();
         CldrDraftStatus draftStatus = null;
         if (xmlAttributes.getLength() > 0) {
@@ -331,19 +338,20 @@ final class XmlDataSource implements CldrData {
 
             // XML attributes are NOT necessarily ordered by DTD ordering, so we must fix that.
             Stream<Entry<String, String>> sortedAttributes =
-                IntStream.range(0, xmlAttributes.getLength())
-                    .mapToObj(xmlAttributes::getQName)
-                    .sorted(dataType.getAttributeComparator())
-                    .map(s -> Maps.immutableEntry(s, xmlAttributes.getValue(s)));
+                    IntStream.range(0, xmlAttributes.getLength())
+                            .mapToObj(xmlAttributes::getQName)
+                            .sorted(dataType.getAttributeComparator())
+                            .map(s -> Maps.immutableEntry(s, xmlAttributes.getValue(s)));
 
             // New variable needed because of lambdas needing "effectively final" instances.
             List<String> valueAttributes = new ArrayList<>();
-            CldrPaths
-                .processAttributes(sortedAttributes, elementName, valueAttributeCollector, dataType)
-                .forEach(e -> {
-                    valueAttributes.add(e.getKey());
-                    valueAttributes.add(e.getValue());
-                });
+            CldrPaths.processAttributes(
+                            sortedAttributes, elementName, valueAttributeCollector, dataType)
+                    .forEach(
+                            e -> {
+                                valueAttributes.add(e.getKey());
+                                valueAttributes.add(e.getValue());
+                            });
             attributeKeyValuePairs = valueAttributes;
         }
         // IMPORTANT: XML based CLDR data currently invents sort indices based on "encounter order"
@@ -353,25 +361,26 @@ final class XmlDataSource implements CldrData {
         // there should probably be code to handle it one way or another.
         // TODO: Figure out how to handle sort indices split over multiple files (possibly error).
         return new CldrPath(
-            parent, elementName, attributeKeyValuePairs, dataType, draftStatus, sortIndex);
+                parent, elementName, attributeKeyValuePairs, dataType, draftStatus, sortIndex);
     }
 
     // Handler used by the XML SAX parser to handle various events during parsing.
-    private static ErrorHandler ERROR_HANDLER = new ErrorHandler() {
-        @Override
-        public void warning(SAXParseException exception) { }
+    private static ErrorHandler ERROR_HANDLER =
+            new ErrorHandler() {
+                @Override
+                public void warning(SAXParseException exception) {}
 
-        @Override
-        public void error(SAXParseException exception) throws SAXException {
-            throw exception;
-        }
+                @Override
+                public void error(SAXParseException exception) throws SAXException {
+                    throw exception;
+                }
 
-        @Override
-        public void fatalError(SAXParseException exception) throws SAXException {
-            throw exception;
-        }
-    };
+                @Override
+                public void fatalError(SAXParseException exception) throws SAXException {
+                    throw exception;
+                }
+            };
 
     // A private exception used to allow non-matching DTDs to be ignored.
-    private static final class IncompatibleDtdException extends RuntimeException { }
+    private static final class IncompatibleDtdException extends RuntimeException {}
 }

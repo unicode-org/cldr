@@ -1,28 +1,29 @@
 package org.unicode.cldr.tool;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Set;
-import java.util.TreeSet;
-
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.FileCopier;
-
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.VersionInfo;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Set;
+import java.util.TreeSet;
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.FileCopier;
 
 public class GenerateScriptMetadata {
     public static void main(String[] args) throws IOException {
-        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "/properties", "scriptMetadata.txt");
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(
+                        CLDRPaths.COMMON_DIRECTORY + "/properties", "scriptMetadata.txt");
         // PrintWriter out = new PrintWriter(System.out);
-//        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
+        //        FileUtilities.appendFile(GenerateScriptMetadata.class,
+        // "GenerateScriptMetadata.txt", out);
         FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
 
         Set<R3<Integer, String, Info>> sorted = new TreeSet<>();
@@ -33,27 +34,42 @@ public class GenerateScriptMetadata {
         }
         if (ScriptMetadata.errors.size() > 0) {
             System.err.println(Joiner.on("\n\t").join(ScriptMetadata.errors));
-            //throw new IllegalArgumentException();
+            // throw new IllegalArgumentException();
         }
         VersionInfo currentUnicodeVersion = UCharacter.getUnicodeVersion();
         for (R3<Integer, String, Info> s : sorted) {
             String script = s.get1();
             Info i = s.get2();
-            String comment = i.age.compareTo(currentUnicodeVersion) > 0 ? "  # provisional data for future Unicode " + i.age.getVersionString(2, 2) + " script"
-                : "";
-            out.println(script
-                + "; " + i.rank
-                + "; " + Utility.hex(i.sampleChar)
-                + "; " + i.originCountry
-                + "; " + i.density
-                // + "; " + i.likelyLanguage
-                + "; " + i.idUsage
-                + "; " + i.rtl
-                + "; " + i.lbLetters
-                + "; " + i.shapingReq
-                + "; " + i.ime
-                + "; " + i.hasCase
-                + comment);
+            String comment =
+                    i.age.compareTo(currentUnicodeVersion) > 0
+                            ? "  # provisional data for future Unicode "
+                                    + i.age.getVersionString(2, 2)
+                                    + " script"
+                            : "";
+            out.println(
+                    script
+                            + "; "
+                            + i.rank
+                            + "; "
+                            + Utility.hex(i.sampleChar)
+                            + "; "
+                            + i.originCountry
+                            + "; "
+                            + i.density
+                            // + "; " + i.likelyLanguage
+                            + "; "
+                            + i.idUsage
+                            + "; "
+                            + i.rtl
+                            + "; "
+                            + i.lbLetters
+                            + "; "
+                            + i.shapingReq
+                            + "; "
+                            + i.ime
+                            + "; "
+                            + i.hasCase
+                            + comment);
             // RTL? LB letters? Shaping Req? IME? Has Case?
         }
         out.println();

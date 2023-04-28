@@ -9,27 +9,23 @@
 
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.lang.UCharacter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.lang.UCharacter;
-
 /**
- *
  * @author pn153353
- *
- *         class will lower case data specified by an xpath and output the modified data only to a destination folder
- *         then use CLDRModify to merge this output with the originasl data, thereby lower casing the CLDR source
- *
- *         TODO : handling of multiple xpaths not fully working - where elements have same parents - too amny parent
- *         elements get written
+ *     <p>class will lower case data specified by an xpath and output the modified data only to a
+ *     destination folder then use CLDRModify to merge this output with the originasl data, thereby
+ *     lower casing the CLDR source
+ *     <p>TODO : handling of multiple xpaths not fully working - where elements have same parents -
+ *     too amny parent elements get written
  */
 public class ModifyCase {
     static final int INDENT = 8;
@@ -42,15 +38,14 @@ public class ModifyCase {
     static String m_destDir; // = "/home/pn153353/CLDR/BUGS/casing_1177/src";
 
     /** Creates a new instance of ModifyCase */
-    public ModifyCase() {
-    }
+    public ModifyCase() {}
 
     private static final int HELP1 = 0,
-        HELP2 = 1,
-        DESTDIR = 2,
-        LOCALES = 3,
-        SOURCEDIR = 4,
-        XPATHS = 5;
+            HELP2 = 1,
+            DESTDIR = 2,
+            LOCALES = 3,
+            SOURCEDIR = 4,
+            XPATHS = 5;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -63,16 +58,14 @@ public class ModifyCase {
 
     public static void main(String[] args) {
         UOption.parseArgs(args, options);
-        if (processArgs() == false)
-            return;
+        if (processArgs() == false) return;
 
         for (int i = 0; i < m_locales.length; i++) {
             System.err.println("Locale : " + m_locales[i]);
             String srcfile = m_sourceDir + "/" + m_locales[i] + ".xml";
             String destfile = m_destDir + "/" + m_locales[i] + ".xml";
             Document doc = LDMLUtilities.parse(srcfile, false);
-            if (doc == null)
-                continue;
+            if (doc == null) continue;
             try {
                 m_out = new BufferedWriter(new FileWriter(destfile));
                 openLDML(m_locales[i], doc);
@@ -87,15 +80,17 @@ public class ModifyCase {
     }
 
     private static void usage() {
-        System.err.println("org.unicode.cldr.tool.ModifyCase allows the casing of the first letter to be changed");
-        System.err
-            .println("The output is just the data category which has changed. Run CLDRModify to merge with source");
-        System.err.println("-d : specify dest dir (must exist) where resulting modified data is written");
+        System.err.println(
+                "org.unicode.cldr.tool.ModifyCase allows the casing of the first letter to be changed");
+        System.err.println(
+                "The output is just the data category which has changed. Run CLDRModify to merge with source");
+        System.err.println(
+                "-d : specify dest dir (must exist) where resulting modified data is written");
         System.err.println("-l : specify comma separated list of LDML locales to be changed");
         System.err.println("-s : specify src dir of LDML data to be modified");
         System.err.println("-x : specify comma separated list of xpaths to data to be modified");
-        System.err
-            .println("Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
+        System.err.println(
+                "Example : ModifyCase -d /dest -s /cldr/comon/main -l bg,en,it,fr -x //ldml/localeDisplayNames/languages/language");
     }
 
     private static boolean processArgs() {
@@ -103,8 +98,10 @@ public class ModifyCase {
             usage();
             return false;
         }
-        if (options[DESTDIR].value == null || options[LOCALES].value == null ||
-            options[SOURCEDIR].value == null || options[XPATHS].value == null) {
+        if (options[DESTDIR].value == null
+                || options[LOCALES].value == null
+                || options[SOURCEDIR].value == null
+                || options[XPATHS].value == null) {
             usage();
             return false;
         }
@@ -119,7 +116,8 @@ public class ModifyCase {
     public static void openLDML(String locale, Document doc) {
         try {
             m_out.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
-            m_out.write("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.5/ldml.dtd\">\n");
+            m_out.write(
+                    "<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.5/ldml.dtd\">\n");
             m_out.write("<ldml>\n");
             indent(INDENT);
             m_out.write("<identity>\n");
@@ -152,8 +150,7 @@ public class ModifyCase {
                 indent(INDENT * (i + 1));
                 if (addCasingAttribute(parts[i]))
                     m_out.write("<" + parts[i] + " casing=\"lowercase-words\">\n");
-                else
-                    m_out.write("<" + parts[i] + ">\n");
+                else m_out.write("<" + parts[i] + ">\n");
             }
 
             Node n[] = LDMLUtilities.getNodeListAsArray(doc, xpath);
@@ -175,7 +172,8 @@ public class ModifyCase {
                             break;
                         }
                     }
-                    if (bUpperFound == true) // don't convert where an upper case is found mid sentence
+                    if (bUpperFound
+                            == true) // don't convert where an upper case is found mid sentence
                     {
                         NamedNodeMap map = n[j].getAttributes();
                         Node langnode = map.getNamedItem("type");
@@ -183,8 +181,9 @@ public class ModifyCase {
                         System.err.println("Skipping conversion of : " + lang + "  " + value);
                     }
 
-                    if (bUpperFound == false) // don't convert where an upper case is found mid sentence
-                        value = value.toLowerCase();
+                    if (bUpperFound
+                            == false) // don't convert where an upper case is found mid sentence
+                    value = value.toLowerCase();
 
                     indent(INDENT * parts.length);
                     m_out.write("<" + parts[parts.length - 1]);
@@ -195,7 +194,6 @@ public class ModifyCase {
                         m_out.write(" " + node.getNodeName() + "=\"" + node.getNodeValue() + "\"");
                     }
                     m_out.write(">" + value + "</" + parts[parts.length - 1] + ">\n");
-
                 }
             }
 
@@ -220,14 +218,12 @@ public class ModifyCase {
             m_out.close();
         } catch (IOException e) {
         }
-
     }
 
     private static void indent(int n) {
         try {
             String spaces = "";
-            for (int i = 0; i < n; i++)
-                spaces += " ";
+            for (int i = 0; i < n; i++) spaces += " ";
             m_out.write(spaces);
         } catch (IOException e) {
         }
@@ -236,13 +232,23 @@ public class ModifyCase {
     /* checks if the element can have a casing attribute */
     private static boolean addCasingAttribute(String element) {
         String[] elements_with_casing_attribute = {
-            "languages", "scripts", "territories", "variants",
-            "keys", "types", "measurementSystemNames", "monthWidth",
-            "dayWidth", "quarterWidth", "long" /* tz */, "fields", "currency" };
+            "languages",
+            "scripts",
+            "territories",
+            "variants",
+            "keys",
+            "types",
+            "measurementSystemNames",
+            "monthWidth",
+            "dayWidth",
+            "quarterWidth",
+            "long" /* tz */,
+            "fields",
+            "currency"
+        };
 
         for (int i = 0; i < elements_with_casing_attribute.length; i++) {
-            if (element.compareTo(elements_with_casing_attribute[i]) == 0)
-                return true;
+            if (element.compareTo(elements_with_casing_attribute[i]) == 0) return true;
         }
         return false;
     }

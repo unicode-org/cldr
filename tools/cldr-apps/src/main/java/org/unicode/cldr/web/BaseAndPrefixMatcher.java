@@ -1,7 +1,4 @@
-/**
- * Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved.
- *
- */
+/** Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 /**
@@ -59,7 +56,8 @@ public class BaseAndPrefixMatcher extends XPathMatcher {
         return name;
     }
 
-    public static BaseAndPrefixMatcher getInstance(int only_base_xpath2, String only_prefix_xpath2) {
+    public static BaseAndPrefixMatcher getInstance(
+            int only_base_xpath2, String only_prefix_xpath2) {
         if ((only_base_xpath2 != XPathTable.NO_XPATH) || (only_prefix_xpath2 != null)) {
             return new BaseAndPrefixMatcher(only_base_xpath2, only_prefix_xpath2);
         } else {

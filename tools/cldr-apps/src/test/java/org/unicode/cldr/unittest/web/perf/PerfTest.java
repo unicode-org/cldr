@@ -6,6 +6,8 @@
  */
 package org.unicode.cldr.unittest.web.perf;
 
+import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.LocaleUtility;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,53 +25,43 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.LocaleUtility;
-
 /**
- * Base class for performance testing framework. To use, the subclass can simply
- * define one or more instance methods with names beginning with "test" (case
- * ignored). The prototype of the method is
+ * Base class for performance testing framework. To use, the subclass can simply define one or more
+ * instance methods with names beginning with "test" (case ignored). The prototype of the method is
  *
- * PerfTest.Function testTheName()
+ * <p>PerfTest.Function testTheName()
  *
- * The actual performance test will execute on the returned Commond object
- * (refer to Command Pattern). To call a test from command line, the 'test'
- * prefix of the test method name can be ignored/removed.
+ * <p>The actual performance test will execute on the returned Commond object (refer to Command
+ * Pattern). To call a test from command line, the 'test' prefix of the test method name can be
+ * ignored/removed.
  *
- * In addition, the subclass should define a main() method that calls
- * PerfTest.run() as defined here.
+ * <p>In addition, the subclass should define a main() method that calls PerfTest.run() as defined
+ * here.
  *
- * If the subclasses uses any command line arguments (beyond those handled
- * automatically by this calss) then it should override PerfTest.setup() to
- * handle its arguments. If the subclasse needs more sophisticated management
- * for controlling finding/calling test method, it can replace the default
- * implementation for PerfTest.testProvider before calling PerfTest.run().
+ * <p>If the subclasses uses any command line arguments (beyond those handled automatically by this
+ * calss) then it should override PerfTest.setup() to handle its arguments. If the subclasse needs
+ * more sophisticated management for controlling finding/calling test method, it can replace the
+ * default implementation for PerfTest.testProvider before calling PerfTest.run().
  *
- * Example invocation: java -cp classes -verbose:gc
- * com.ibm.icu.dev.test.perf.UnicodeSetPerf --gc --passes 4 --iterations 100
- * UnicodeSetAdd [[:l:][:c:]]
+ * <p>Example invocation: java -cp classes -verbose:gc com.ibm.icu.dev.test.perf.UnicodeSetPerf --gc
+ * --passes 4 --iterations 100 UnicodeSetAdd [[:l:][:c:]]
  *
- * Example output: [GC 511K->192K(1984K), 0.0086170 secs] [GC 704K->353K(1984K),
- * 0.0059619 secs] [Full GC 618K->371K(1984K), 0.0242779 secs] [Full GC
- * 371K->371K(1984K), 0.0228649 secs] = testUnicodeSetAdd begin 100 =
- * testUnicodeSetAdd end 11977 1109044 = testUnicodeSetAdd begin 100 =
- * testUnicodeSetAdd end 12047 1109044 = testUnicodeSetAdd begin 100 =
- * testUnicodeSetAdd end 11987 1109044 = testUnicodeSetAdd begin 100 =
- * testUnicodeSetAdd end 11978 1109044
+ * <p>Example output: [GC 511K->192K(1984K), 0.0086170 secs] [GC 704K->353K(1984K), 0.0059619 secs]
+ * [Full GC 618K->371K(1984K), 0.0242779 secs] [Full GC 371K->371K(1984K), 0.0228649 secs] =
+ * testUnicodeSetAdd begin 100 = testUnicodeSetAdd end 11977 1109044 = testUnicodeSetAdd begin 100 =
+ * testUnicodeSetAdd end 12047 1109044 = testUnicodeSetAdd begin 100 = testUnicodeSetAdd end 11987
+ * 1109044 = testUnicodeSetAdd begin 100 = testUnicodeSetAdd end 11978 1109044
  *
- * The [] lines are emitted by the JVM as a result of the -verbose:gc switch.
+ * <p>The [] lines are emitted by the JVM as a result of the -verbose:gc switch.
  *
- * Lines beginning with '=' are emitted by PerfTest: = testUnicodeSetAdd begin
- * 100 A 'begin' statement contains the name of the setup method, which
- * determines what test function is measures, and the number of iterations that
- * will be times. = testUnicodeSetAdd end 12047 1109044 An 'end' statement gives
- * the name of the setup method again, and then two integers. The first is the
- * total elapsed time in milliseconds, and the second is the number of events
- * per iteration. In this example, the time per event is 12047 / (100 * 1109044)
- * or 108.6 ns/event.
+ * <p>Lines beginning with '=' are emitted by PerfTest: = testUnicodeSetAdd begin 100 A 'begin'
+ * statement contains the name of the setup method, which determines what test function is measures,
+ * and the number of iterations that will be times. = testUnicodeSetAdd end 12047 1109044 An 'end'
+ * statement gives the name of the setup method again, and then two integers. The first is the total
+ * elapsed time in milliseconds, and the second is the number of events per iteration. In this
+ * example, the time per event is 12047 / (100 * 1109044) or 108.6 ns/event.
  *
- * Raw times are given as integer ms, because this is what the system measures.
+ * <p>Raw times are given as integer ms, because this is what the system measures.
  *
  * @author Alan Liu
  * @since ICU 2.4
@@ -103,9 +95,8 @@ public abstract class PerfTest {
 
         /**
          * @param name
-         * @return Whether the given name is a test name. The implementation may
-         *         have more sophisticated naming control here.
-         *         TestCmdProvider.isTestCmd() != Set.contains()
+         * @return Whether the given name is a test name. The implementation may have more
+         *     sophisticated naming control here. TestCmdProvider.isTestCmd() != Set.contains()
          */
         public boolean isTestCmd(String name);
 
@@ -117,8 +108,8 @@ public abstract class PerfTest {
     }
 
     /**
-     * Treat all method beginning with 'test' prefix (ignoring case) for given
-     * object as the test methods.
+     * Treat all method beginning with 'test' prefix (ignoring case) for given object as the test
+     * methods.
      */
     static class TestPrefixProvider implements TestCmdProvider {
         private Map<String, String> theTests = null; // Map<string(no case), string(with case)>
@@ -154,8 +145,8 @@ public abstract class PerfTest {
         }
 
         /**
-         * The given name will map to a method of the same name, or a method
-         * named "test" + name. Case is ignored.
+         * The given name will map to a method of the same name, or a method named "test" + name.
+         * Case is ignored.
          */
         private String isTestCmd_impl(String name) {
             getAllTestCmdNames();
@@ -191,56 +182,49 @@ public abstract class PerfTest {
     }
 
     /**
-     * Subclasses of PerfTest will need to create subclasses of Function that
-     * define a call() method which contains the code to be timed. They then
-     * call setTestFunction() in their "Test..." method to establish this as the
-     * current test functor.
+     * Subclasses of PerfTest will need to create subclasses of Function that define a call() method
+     * which contains the code to be timed. They then call setTestFunction() in their "Test..."
+     * method to establish this as the current test functor.
      */
     public abstract static class Function {
 
         /**
-         * Subclasses should implement this method to do the action to be
-         * measured if the action is thread-safe
+         * Subclasses should implement this method to do the action to be measured if the action is
+         * thread-safe
          */
         public void call() {
             call(0);
         }
 
-        /**
-         * Subclasses should implement this method if the action is not
-         * thread-safe
-         */
+        /** Subclasses should implement this method if the action is not thread-safe */
         public void call(int i) {
             call();
         }
 
         /**
-         * Subclasses may implement this method to return positive integer
-         * indicating the number of operations in a single call to this object's
-         * call() method. If subclasses do not override this method, the default
-         * implementation returns 1.
+         * Subclasses may implement this method to return positive integer indicating the number of
+         * operations in a single call to this object's call() method. If subclasses do not override
+         * this method, the default implementation returns 1.
          */
         public long getOperationsPerIteration() {
             return 1;
         }
 
         /**
-         * Subclasses may implement this method to return either positive or
-         * negative integer indicating the number of events in a single call to
-         * this object's call() method. If subclasses do not override this
-         * method, the default implementation returns -1, indicating that events
-         * are not applicable to this test. e.g: Number of breaks / iterations
-         * for break iterator
+         * Subclasses may implement this method to return either positive or negative integer
+         * indicating the number of events in a single call to this object's call() method. If
+         * subclasses do not override this method, the default implementation returns -1, indicating
+         * that events are not applicable to this test. e.g: Number of breaks / iterations for break
+         * iterator
          */
         public long getEventsPerIteration() {
             return -1;
         }
 
         /**
-         * Call call() n times in a tight loop and return the elapsed
-         * milliseconds. If n is small and call() is fast the return result may
-         * be zero. Small return values have limited meaningfulness, depending
-         * on the underlying VM and OS.
+         * Call call() n times in a tight loop and return the elapsed milliseconds. If n is small
+         * and call() is fast the return result may be zero. Small return values have limited
+         * meaningfulness, depending on the underlying VM and OS.
          */
         public final long time(long n) {
             long start, stop;
@@ -252,11 +236,8 @@ public abstract class PerfTest {
             return stop - start; // ms
         }
 
-        /**
-         * init is called each time before looping through call
-         */
-        public void init() {
-        }
+        /** init is called each time before looping through call */
+        public void init() {}
 
         public final int getID() {
             return id;
@@ -279,8 +260,7 @@ public abstract class PerfTest {
         @Override
         public void run() {
             long n = loops;
-            while (n-- > 0)
-                f.call(id);
+            while (n-- > 0) f.call(id);
         }
 
         private Function f;
@@ -289,13 +269,9 @@ public abstract class PerfTest {
         private int id;
     }
 
-    /**
-     * Exception indicating a usage error.
-     */
+    /** Exception indicating a usage error. */
     public static class UsageException extends Exception {
-        /**
-         * For serialization
-         */
+        /** For serialization */
         private static final long serialVersionUID = -1201256240606806242L;
 
         public UsageException(String message) {
@@ -307,16 +283,13 @@ public abstract class PerfTest {
         }
     }
 
-    /**
-     * Constructor.
-     */
-    protected PerfTest() {
-    }
+    /** Constructor. */
+    protected PerfTest() {}
 
     /**
-     * Framework method. Default implementation does not parse any extra
-     * arguments. Subclasses may override this to parse extra arguments.
-     * Subclass implementations should NOT call the base class implementation.
+     * Framework method. Default implementation does not parse any extra arguments. Subclasses may
+     * override this to parse extra arguments. Subclass implementations should NOT call the base
+     * class implementation.
      */
     protected void setup(String[] args) {
         if (args.length > 0) {
@@ -324,10 +297,9 @@ public abstract class PerfTest {
         }
     }
 
-    /**
-     * These must be kept in sync with getOptions().
-     */
+    /** These must be kept in sync with getOptions(). */
     static final int HELP1 = 0;
+
     static final int HELP2 = 1;
     static final int VERBOSE = 2;
     static final int SOURCEDIR = 3;
@@ -349,31 +321,41 @@ public abstract class PerfTest {
     static final int LIST = 15;
 
     UOption[] getOptions() {
-        return new UOption[] { UOption.HELP_H(), UOption.HELP_QUESTION_MARK(), UOption.VERBOSE(), UOption.SOURCEDIR(),
-            UOption.ENCODING(), UOption.DEF("uselen", 'u', UOption.NO_ARG),
-            UOption.DEF("filename", 'f', UOption.REQUIRES_ARG), UOption.DEF("passes", 'p', UOption.REQUIRES_ARG),
-            UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG), UOption.DEF("time", 't', UOption.REQUIRES_ARG),
-            UOption.DEF("line-mode", 'l', UOption.NO_ARG), UOption.DEF("bulk-mode", 'b', UOption.NO_ARG),
-            UOption.DEF("locale", 'L', UOption.REQUIRES_ARG), UOption.DEF("testname", 'T', UOption.REQUIRES_ARG),
+        return new UOption[] {
+            UOption.HELP_H(),
+            UOption.HELP_QUESTION_MARK(),
+            UOption.VERBOSE(),
+            UOption.SOURCEDIR(),
+            UOption.ENCODING(),
+            UOption.DEF("uselen", 'u', UOption.NO_ARG),
+            UOption.DEF("filename", 'f', UOption.REQUIRES_ARG),
+            UOption.DEF("passes", 'p', UOption.REQUIRES_ARG),
+            UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG),
+            UOption.DEF("time", 't', UOption.REQUIRES_ARG),
+            UOption.DEF("line-mode", 'l', UOption.NO_ARG),
+            UOption.DEF("bulk-mode", 'b', UOption.NO_ARG),
+            UOption.DEF("locale", 'L', UOption.REQUIRES_ARG),
+            UOption.DEF("testname", 'T', UOption.REQUIRES_ARG),
             UOption.DEF("threads", 'r', UOption.REQUIRES_ARG),
 
             // Options above here are identical to those in C; keep in sync
             // Options below here are unique to Java
 
-            UOption.DEF("gc", 'g', UOption.NO_ARG), UOption.DEF("list", (char) -1, UOption.NO_ARG), };
+            UOption.DEF("gc", 'g', UOption.NO_ARG),
+            UOption.DEF("list", (char) -1, UOption.NO_ARG),
+        };
     }
 
     /**
-     * Subclasses should call this method in their main(). run() will in turn
-     * call setup() with any arguments it does not parse. This method parses the
-     * command line and runs the tests given on the command line, with the given
-     * parameters. See the class description for details.
+     * Subclasses should call this method in their main(). run() will in turn call setup() with any
+     * arguments it does not parse. This method parses the command line and runs the tests given on
+     * the command line, with the given parameters. See the class description for details.
      */
     protected final void run(String[] args) throws Exception {
         Set<String> testList = parseOptions(args);
 
         // Run the tests
-        for (Iterator<String> iter = testList.iterator(); iter.hasNext();) {
+        for (Iterator<String> iter = testList.iterator(); iter.hasNext(); ) {
             String meth = iter.next();
 
             // Call meth to set up the test
@@ -410,22 +392,53 @@ public abstract class PerfTest {
 
                 if (verbose) {
                     if (events == -1) {
-                        System.out.println("= " + meth + " end " + (t / 1000.0) + " loops: " + loops + " operations: "
-                            + testFunction.getOperationsPerIteration());
+                        System.out.println(
+                                "= "
+                                        + meth
+                                        + " end "
+                                        + (t / 1000.0)
+                                        + " loops: "
+                                        + loops
+                                        + " operations: "
+                                        + testFunction.getOperationsPerIteration());
                     } else {
-                        System.out.println("= " + meth + " end " + (t / 1000.0) + " loops: " + loops + " operations: "
-                            + testFunction.getOperationsPerIteration() + " events: " + events);
+                        System.out.println(
+                                "= "
+                                        + meth
+                                        + " end "
+                                        + (t / 1000.0)
+                                        + " loops: "
+                                        + loops
+                                        + " operations: "
+                                        + testFunction.getOperationsPerIteration()
+                                        + " events: "
+                                        + events);
                     }
                 } else {
                     if (events == -1) {
-                        System.out.println("= " + meth + " end " + (t / 1000.0) + " " + loops + " "
-                            + testFunction.getOperationsPerIteration());
+                        System.out.println(
+                                "= "
+                                        + meth
+                                        + " end "
+                                        + (t / 1000.0)
+                                        + " "
+                                        + loops
+                                        + " "
+                                        + testFunction.getOperationsPerIteration());
                     } else {
-                        System.out.println("= " + meth + " end " + (t / 1000.0) + " " + loops + " "
-                            + testFunction.getOperationsPerIteration() + " " + events);
+                        System.out.println(
+                                "= "
+                                        + meth
+                                        + " end "
+                                        + (t / 1000.0)
+                                        + " "
+                                        + loops
+                                        + " "
+                                        + testFunction.getOperationsPerIteration()
+                                        + " "
+                                        + events);
                     }
                 }
-
             }
         }
     }
@@ -459,7 +472,7 @@ public abstract class PerfTest {
         if (options[LIST].doesOccur) {
             System.err.println("Available tests:");
             Set<String> testNames = testProvider.getAllTestCmdNames();
-            for (Iterator<String> iter = testNames.iterator(); iter.hasNext();) {
+            for (Iterator<String> iter = testNames.iterator(); iter.hasNext(); ) {
                 String name = iter.next();
                 System.err.println(" " + name);
             }
@@ -469,12 +482,14 @@ public abstract class PerfTest {
         if (options[TIME].doesOccur && options[ITERATIONS].doesOccur)
             throw new UsageException("Cannot specify both '-t <seconds>' and '-i <iterations>'");
         else if (!options[TIME].doesOccur && !options[ITERATIONS].doesOccur)
-            throw new UsageException("Either '-t <seconds>' or '-i <iterations>' must be specified");
+            throw new UsageException(
+                    "Either '-t <seconds>' or '-i <iterations>' must be specified");
         else if (options[ITERATIONS].doesOccur) {
             try {
                 iterations = Integer.parseInt(options[ITERATIONS].value);
             } catch (NumberFormatException ex) {
-                throw new UsageException("'-i <iterations>' requires an integer number of iterations");
+                throw new UsageException(
+                        "'-i <iterations>' requires an integer number of iterations");
             }
         } else { // if (options[TIME].doesOccur)
             try {
@@ -484,10 +499,8 @@ public abstract class PerfTest {
             }
         }
 
-        if (!options[PASSES].doesOccur)
-            throw new UsageException("'-p <passes>' must be specified");
-        else
-            passes = Integer.parseInt(options[PASSES].value);
+        if (!options[PASSES].doesOccur) throw new UsageException("'-p <passes>' must be specified");
+        else passes = Integer.parseInt(options[PASSES].value);
 
         if (options[LINE_MODE].doesOccur && options[BULK_MODE].doesOccur)
             throw new UsageException("Cannot specify both '-l' (line mode) and '-b' (bulk mode)");
@@ -499,7 +512,8 @@ public abstract class PerfTest {
                 throw new UsageException("'-r <threads>' requires an integer number of threads");
             }
             if (threads <= 0)
-                throw new UsageException("'-r <threads>' requires an number of threads greater than 0");
+                throw new UsageException(
+                        "'-r <threads>' requires an number of threads greater than 0");
         }
 
         line_mode = options[LINE_MODE].doesOccur;
@@ -508,14 +522,10 @@ public abstract class PerfTest {
         uselen = options[USELEN].doesOccur;
         doPriorGC = options[GARBAGE_COLLECT].doesOccur;
 
-        if (options[SOURCEDIR].doesOccur)
-            sourceDir = options[SOURCEDIR].value;
-        if (options[ENCODING].doesOccur)
-            encoding = options[ENCODING].value;
-        if (options[FILE_NAME].doesOccur)
-            fileName = options[FILE_NAME].value;
-        if (options[TEST_NAME].doesOccur)
-            testName = options[TEST_NAME].value;
+        if (options[SOURCEDIR].doesOccur) sourceDir = options[SOURCEDIR].value;
+        if (options[ENCODING].doesOccur) encoding = options[ENCODING].value;
+        if (options[FILE_NAME].doesOccur) fileName = options[FILE_NAME].value;
+        if (options[TEST_NAME].doesOccur) testName = options[TEST_NAME].value;
         if (options[LOCALE].doesOccur)
             locale = LocaleUtility.getLocaleFromName(options[LOCALE].value);
 
@@ -538,20 +548,17 @@ public abstract class PerfTest {
         if (testList.size() == 0) {
             Set<String> testNames = testProvider.getAllTestCmdNames();
             Iterator<String> iter = testNames.iterator();
-            while (iter.hasNext())
-                testList.add(iter.next());
+            while (iter.hasNext()) testList.add(iter.next());
         }
 
         // pass remaining arguments, if any, through to the subclass via setup()
         // method.
         String[] subclassArgs = new String[remainingArgc - i];
-        for (j = 0; i < remainingArgc; j++)
-            subclassArgs[j] = args[i++];
+        for (j = 0; i < remainingArgc; j++) subclassArgs[j] = args[i++];
         setup(subclassArgs);
 
         // Put the heap in a consistent state
-        if (doPriorGC)
-            gc();
+        if (doPriorGC) gc();
 
         return testList;
     }
@@ -618,10 +625,8 @@ public abstract class PerfTest {
                 threadList[i] = new Thread(new FunctionRunner(function, loops, i));
 
             long start = System.currentTimeMillis();
-            for (int i = 0; i < threads; i++)
-                threadList[i].start();
-            for (int i = 0; i < threads; i++)
-                threadList[i].join();
+            for (int i = 0; i < threads; i++) threadList[i].start();
+            for (int i = 0; i < threads; i++) threadList[i].join();
             return System.currentTimeMillis() - start;
 
         } else {
@@ -630,8 +635,8 @@ public abstract class PerfTest {
     }
 
     /**
-     * Invoke the runtime's garbage collection procedure repeatedly until the
-     * amount of free memory stabilizes to within 10%.
+     * Invoke the runtime's garbage collection procedure repeatedly until the amount of free memory
+     * stabilizes to within 10%.
      */
     protected void gc() {
         if (false) {
@@ -755,10 +760,8 @@ public abstract class PerfTest {
                 System.err.println("Read File Error" + e.getMessage() + "!");
                 System.exit(1);
             }
-            if (line == null)
-                break;
-            if (line.length() == 0)
-                continue;
+            if (line == null) break;
+            if (line.length() == 0) continue;
             list.add(line);
         }
 
@@ -790,16 +793,14 @@ public abstract class PerfTest {
         String line = "";
         try {
             line = originalLine = br.readLine();
-            if (line == null)
-                return null;
-            if (line.length() > 0 && line.charAt(0) == 0xFEFF)
-                line = line.substring(1);
+            if (line == null) return null;
+            if (line.length() > 0 && line.charAt(0) == 0xFEFF) line = line.substring(1);
             int commentPos = line.indexOf('#');
-            if (commentPos >= 0)
-                line = line.substring(0, commentPos);
+            if (commentPos >= 0) line = line.substring(0, commentPos);
             line = line.trim();
         } catch (Exception e) {
-            throw new Exception("Line \"{0}\",  \"{1}\"" + originalLine + " " + line + " " + e.toString());
+            throw new Exception(
+                    "Line \"{0}\",  \"{1}\"" + originalLine + " " + line + " " + e.toString());
         }
         return line;
     }
@@ -810,29 +811,23 @@ public abstract class PerfTest {
         int MAX_BOM_LENGTH = 5;
 
         /**
-         * Creates a new reader, skipping a BOM associated with the given
-         * encoding. Equivalent to BOMFreeReader(in, null).
+         * Creates a new reader, skipping a BOM associated with the given encoding. Equivalent to
+         * BOMFreeReader(in, null).
          *
-         * @param in
-         *            The input stream.
-         * @throws IOException
-         *             Thrown if reading for a BOM causes an IOException.
+         * @param in The input stream.
+         * @throws IOException Thrown if reading for a BOM causes an IOException.
          */
         public BOMFreeReader(InputStream in) throws IOException {
             this(in, null);
         }
 
         /**
-         * Creates a new reader, skipping a BOM associated with the given
-         * encoding. If encoding is null, attempts to detect the encoding by the
-         * BOM.
+         * Creates a new reader, skipping a BOM associated with the given encoding. If encoding is
+         * null, attempts to detect the encoding by the BOM.
          *
-         * @param in
-         *            The input stream.
-         * @param encoding
-         *            The encoding to use. Can be null.
-         * @throws IOException
-         *             Thrown if reading for a BOM causes an IOException.
+         * @param in The input stream.
+         * @param encoding The encoding to use. Can be null.
+         * @throws IOException Thrown if reading for a BOM causes an IOException.
          */
         public BOMFreeReader(InputStream in, String encoding) throws IOException {
             PushbackInputStream pushback = new PushbackInputStream(in, MAX_BOM_LENGTH);
@@ -843,75 +838,84 @@ public abstract class PerfTest {
 
             int amountRead = pushback.read(start, 0, MAX_BOM_LENGTH);
             int bomLength = detectBOMLength(start);
-            if (amountRead > bomLength)
-                pushback.unread(start, bomLength, amountRead - bomLength);
+            if (amountRead > bomLength) pushback.unread(start, bomLength, amountRead - bomLength);
 
-            reader = (encoding == null) ? new InputStreamReader(pushback) : new InputStreamReader(pushback, encoding);
+            reader =
+                    (encoding == null)
+                            ? new InputStreamReader(pushback)
+                            : new InputStreamReader(pushback, encoding);
         }
 
         /**
-         * Determines the length of a BOM in the beginning of start. Assumes
-         * start is at least a length 5 array. If encoding is null, the check
-         * will not be encoding specific and it will set the encoding of this
-         * BOMFreeReader.
+         * Determines the length of a BOM in the beginning of start. Assumes start is at least a
+         * length 5 array. If encoding is null, the check will not be encoding specific and it will
+         * set the encoding of this BOMFreeReader.
          *
-         * @param start
-         *            The starting bytes.
-         * @param encoding
-         *            The encoding. Can be null.
+         * @param start The starting bytes.
+         * @param encoding The encoding. Can be null.
          * @return The length of a detected BOM.
          */
         private int detectBOMLength(byte[] start) {
-            if ((encoding == null || "UTF-16BE".equals(encoding)) && start[0] == (byte) 0xFE && start[1] == (byte) 0xFF) {
-                if (encoding == null)
-                    this.encoding = "UTF-16BE";
+            if ((encoding == null || "UTF-16BE".equals(encoding))
+                    && start[0] == (byte) 0xFE
+                    && start[1] == (byte) 0xFF) {
+                if (encoding == null) this.encoding = "UTF-16BE";
                 return 2; // "UTF-16BE";
             } else if (start[0] == (byte) 0xFF && start[1] == (byte) 0xFE) {
-                if ((encoding == null || "UTF-32LE".equals(encoding)) && start[2] == (byte) 0x00 && start[3] == (byte) 0x00) {
-                    if (encoding == null)
-                        this.encoding = "UTF-32LE";
+                if ((encoding == null || "UTF-32LE".equals(encoding))
+                        && start[2] == (byte) 0x00
+                        && start[3] == (byte) 0x00) {
+                    if (encoding == null) this.encoding = "UTF-32LE";
                     return 4; // "UTF-32LE";
                 } else if ((encoding == null || "UTF-16LE".equals(encoding))) {
-                    if (encoding == null)
-                        this.encoding = "UTF-16LE";
+                    if (encoding == null) this.encoding = "UTF-16LE";
                     return 2; // "UTF-16LE";
                 }
-            } else if ((encoding == null || "UTF-8".equals(encoding)) && start[0] == (byte) 0xEF && start[1] == (byte) 0xBB
-                && start[2] == (byte) 0xBF) {
-                if (encoding == null)
-                    this.encoding = "UTF-8";
+            } else if ((encoding == null || "UTF-8".equals(encoding))
+                    && start[0] == (byte) 0xEF
+                    && start[1] == (byte) 0xBB
+                    && start[2] == (byte) 0xBF) {
+                if (encoding == null) this.encoding = "UTF-8";
                 return 3; // "UTF-8";
-            } else if ((encoding == null || "UTF-32BE".equals(encoding)) && start[0] == (byte) 0x00 && start[1] == (byte) 0x00
-                && start[2] == (byte) 0xFE && start[3] == (byte) 0xFF) {
-                if (encoding == null)
-                    this.encoding = "UTF-32BE";
+            } else if ((encoding == null || "UTF-32BE".equals(encoding))
+                    && start[0] == (byte) 0x00
+                    && start[1] == (byte) 0x00
+                    && start[2] == (byte) 0xFE
+                    && start[3] == (byte) 0xFF) {
+                if (encoding == null) this.encoding = "UTF-32BE";
                 return 4; // "UTF-32BE";
-            } else if ((encoding == null || "SCSU".equals(encoding)) && start[0] == (byte) 0x0E && start[1] == (byte) 0xFE
-                && start[2] == (byte) 0xFF) {
-                if (encoding == null)
-                    this.encoding = "SCSU";
+            } else if ((encoding == null || "SCSU".equals(encoding))
+                    && start[0] == (byte) 0x0E
+                    && start[1] == (byte) 0xFE
+                    && start[2] == (byte) 0xFF) {
+                if (encoding == null) this.encoding = "SCSU";
                 return 3; // "SCSU";
-            } else if ((encoding == null || "BOCU-1".equals(encoding)) && start[0] == (byte) 0xFB && start[1] == (byte) 0xEE
-                && start[2] == (byte) 0x28) {
-                if (encoding == null)
-                    this.encoding = "BOCU-1";
+            } else if ((encoding == null || "BOCU-1".equals(encoding))
+                    && start[0] == (byte) 0xFB
+                    && start[1] == (byte) 0xEE
+                    && start[2] == (byte) 0x28) {
+                if (encoding == null) this.encoding = "BOCU-1";
                 return 3; // "BOCU-1";
-            } else if ((encoding == null || "UTF-7".equals(encoding)) && start[0] == (byte) 0x2B && start[1] == (byte) 0x2F
-                && start[2] == (byte) 0x76) {
+            } else if ((encoding == null || "UTF-7".equals(encoding))
+                    && start[0] == (byte) 0x2B
+                    && start[1] == (byte) 0x2F
+                    && start[2] == (byte) 0x76) {
                 if (start[3] == (byte) 0x38 && start[4] == (byte) 0x2D) {
-                    if (encoding == null)
-                        this.encoding = "UTF-7";
+                    if (encoding == null) this.encoding = "UTF-7";
                     return 5; // "UTF-7";
-                } else if (start[3] == (byte) 0x38 || start[3] == (byte) 0x39 || start[3] == (byte) 0x2B
-                    || start[3] == (byte) 0x2F) {
-                    if (encoding == null)
-                        this.encoding = "UTF-7";
+                } else if (start[3] == (byte) 0x38
+                        || start[3] == (byte) 0x39
+                        || start[3] == (byte) 0x2B
+                        || start[3] == (byte) 0x2F) {
+                    if (encoding == null) this.encoding = "UTF-7";
                     return 4; // "UTF-7";
                 }
-            } else if ((encoding == null || "UTF-EBCDIC".equals(encoding)) && start[0] == (byte) 0xDD && start[2] == (byte) 0x73
-                && start[2] == (byte) 0x66 && start[3] == (byte) 0x73) {
-                if (encoding == null)
-                    this.encoding = "UTF-EBCDIC";
+            } else if ((encoding == null || "UTF-EBCDIC".equals(encoding))
+                    && start[0] == (byte) 0xDD
+                    && start[2] == (byte) 0x73
+                    && start[2] == (byte) 0x66
+                    && start[3] == (byte) 0x73) {
+                if (encoding == null) this.encoding = "UTF-EBCDIC";
                 return 4; // "UTF-EBCDIC";
             }
 

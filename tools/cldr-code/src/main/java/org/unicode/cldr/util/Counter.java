@@ -1,16 +1,16 @@
 /**
- *******************************************************************************
- * Copyright (C) 1996-2001, International Business Machines Corporation and    *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 1996-2001, International Business Machines Corporation and * others. All Rights Reserved. *
+ * ******************************************************************************
  *
- * $Revision$
+ * <p>$Revision$
  *
- *******************************************************************************
+ * <p>******************************************************************************
  */
-
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -20,9 +20,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 
 public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     Map<T, RWLong> map;
@@ -45,12 +42,13 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         }
     }
 
-    static private final class RWLong implements Comparable<RWLong> {
+    private static final class RWLong implements Comparable<RWLong> {
         // the uniqueCount ensures that two different RWIntegers will always be different
         static int uniqueCount;
         public long value;
         private final int forceUnique;
         public long time;
+
         {
             synchronized (RWLong.class) { // make thread-safe
                 forceUnique = uniqueCount++;
@@ -65,14 +63,14 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
             synchronized (this) { // make thread-safe
                 if (that.forceUnique < forceUnique) return -1;
             }
-            return 1; // the forceUnique values must be different, so this is the only remaining case
+            return 1; // the forceUnique values must be different, so this is the only remaining
+            // case
         }
 
         @Override
         public String toString() {
             return String.valueOf(value);
         }
-
     }
 
     public Counter<T> add(T obj, long countValue) {
@@ -110,6 +108,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
 
     /**
      * Get the time, or 0
+     *
      * @param obj
      * @return the time, or 0 as a fallback
      */

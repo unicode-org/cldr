@@ -1,6 +1,6 @@
 # Unicode CLDR Project
 
-Latest Release: [v42.0](https://cldr.unicode.org/index/downloads/cldr-42) published 2022-10-19
+Latest Release: [v42.0](https://cldr.unicode.org/index/downloads/cldr-43) published 2023-04-12
 
 ## Build Status
 
@@ -28,13 +28,13 @@ Click [HERE](https://www.unicode.org/cldr/survey_tool.html) for information on h
 
 For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
+#### Spotless
+
+A source formatter is now used, please see [spotless](./tools/README.md#spotless) for details.
+
 ### Licenses
 
-- Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [unicode-license.txt](./unicode-license.txt).
-
-- Some CLDR tools depend on library dependencies managed via Maven,
-  use of these libraries is governed by separate license agreements.
+This project is released under the free and open-source [Unicode License](./LICENSE), also known as _Unicode, Inc. License Agreement - Data Files and Software_. Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
 
 SPDX-License-Identifier: Unicode-DFS-2016
 

@@ -1,23 +1,18 @@
-/**
- * Copyright (C) 2012
- */
+/** Copyright (C) 2012 */
 package org.unicode.cldr.unittest.web;
 
+import com.ibm.icu.dev.test.TestFmwk;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.XPathTable;
 
-import com.ibm.icu.dev.test.TestFmwk;
-
 /**
  * @author srl
- *
  */
 public class TestXPathTable extends TestFmwk {
     public static void main(String[] args) {
@@ -25,12 +20,14 @@ public class TestXPathTable extends TestFmwk {
     }
 
     public TestXPathTable() {
+        if (TestAll.skipIfNoDb()) return;
         TestAll.setupTestDb();
     }
 
     public static final int TEST_COUNT = 200;
 
     public void TestPutGet() throws SQLException {
+        if (TestAll.skipIfNoDb()) return;
         logln("Testing " + TEST_COUNT + " xpaths");
         Connection conn = DBUtils.getInstance().getDBConnection();
         XPathTable xpt = XPathTable.createTable(conn);
@@ -60,45 +57,42 @@ public class TestXPathTable extends TestFmwk {
             } else {
                 // logln("XP#"+n+" -> " + xpath);
             }
+            String xpathString = xpt.getStringIDString(xpath);
+            assertNotNull("hex for " + xpath, xpathString);
+            String xpathFromString = xpt.getByStringID(xpathString);
+            assertEquals("for hex " + xpathString, xpath, xpathFromString);
         }
         logln("OK: Tested " + ii + " values");
+        assertNull(
+                "for hex 'Not Really Hex'",
+                xpt.getByStringID("Not Really Hex")); // null, parse failure
     }
 
     public void TestRemoveDraftAltProposed() {
         String inout[] = {
-
             "//ldml/foo/bar[@draft=\"true\"]",
             "//ldml/foo/bar",
-
             "//ldml/foo/bar[@alt=\"variant\"]",
             "//ldml/foo/bar[@alt=\"variant\"]",
-
             "//ldml/foo/bar[@alt=\"variant\"][@draft=\"true\"]",
             "//ldml/foo/bar[@alt=\"variant\"]",
-
             "//ldml/foo/bar[@alt=\"proposed-x222\"]",
             "//ldml/foo/bar",
-
             "//ldml/foo/bar[@alt=\"proposed-x222\"][@draft=\"true\"]",
             "//ldml/foo/bar",
-
             "//ldml/foo/bar[@alt=\"variant-proposed-x333\"]",
             "//ldml/foo/bar[@alt=\"variant\"]",
-
             "//ldml/foo/bar[@draft=\"true\"][@alt=\"variant-proposed-x333\"]",
             "//ldml/foo/bar[@alt=\"variant\"]",
-
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
-
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
-
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
-
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@alt=\"variant\"]", };
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@alt=\"variant\"]",
+        };
 
         for (int i = 0; i < inout.length; i += 2) {
             final String in = inout[i + 0];
@@ -116,6 +110,7 @@ public class TestXPathTable extends TestFmwk {
     }
 
     public void TestNonDistinguishing() throws SQLException {
+        if (TestAll.skipIfNoDb()) return;
         Connection conn = DBUtils.getInstance().getDBConnection();
         XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
@@ -135,13 +130,14 @@ public class TestXPathTable extends TestFmwk {
             "numbers=hanidec",
             "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"preserve\"]",
             "",
-
         };
 
         for (int i = 0; i < xpaths.length; i += 2) {
             String xpath = xpaths[i + 0];
             String expect = xpaths[i + 1];
-            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath); // just calls XPathParts.getSpecialNondistinguishingAttributes()
+            Map<String, String> ueMap =
+                    xpt.getUndistinguishingElementsFor(
+                            xpath); // just calls XPathParts.getSpecialNondistinguishingAttributes()
             if (ueMap != null) {
                 logln(xpath + "\n -> " + ueMap.toString() + " expect " + expect);
             } else {
@@ -149,11 +145,21 @@ public class TestXPathTable extends TestFmwk {
             }
             if (expect.isEmpty()) {
                 if (ueMap != null && !ueMap.isEmpty()) {
-                    errln("Error for xpath " + xpath + " expected nondistinguishing =EMPTY got " + ueMap.toString());
+                    errln(
+                            "Error for xpath "
+                                    + xpath
+                                    + " expected nondistinguishing =EMPTY got "
+                                    + ueMap.toString());
                 }
             } else {
                 if (ueMap == null || ueMap.isEmpty()) {
-                    errln("Error for xpath " + xpath + " expected nondistinguishing =" + expect + " got " + ueMap.toString());
+                    errln(
+                            "Error for xpath "
+                                    + xpath
+                                    + " expected nondistinguishing ="
+                                    + expect
+                                    + " got "
+                                    + ueMap.toString());
                 } else {
                     Map<String, String> mymap = new TreeMap<>();
                     Map<String, String> uemap2 = new TreeMap<>(ueMap);

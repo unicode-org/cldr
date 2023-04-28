@@ -17,8 +17,11 @@ public final class CharacterMap implements Comparable<CharacterMap> {
     private final ImmutableList<String> longPressKeys;
     private final boolean transformNo;
 
-    private CharacterMap(IsoLayoutPosition position, String output,
-        ImmutableList<String> longPressKeys, boolean transformNo) {
+    private CharacterMap(
+            IsoLayoutPosition position,
+            String output,
+            ImmutableList<String> longPressKeys,
+            boolean transformNo) {
         this.position = Preconditions.checkNotNull(position);
         this.output = Preconditions.checkNotNull(output);
         this.longPressKeys = Preconditions.checkNotNull(longPressKeys);
@@ -27,12 +30,12 @@ public final class CharacterMap implements Comparable<CharacterMap> {
 
     /** Creates a new character map from the given position and output. */
     public static CharacterMap of(IsoLayoutPosition position, String output) {
-        return new CharacterMap(position, output, ImmutableList.<String> of(), false);
+        return new CharacterMap(position, output, ImmutableList.<String>of(), false);
     }
 
     /** Creates a new character map from the given position, output and long press keys. */
-    public static CharacterMap of(IsoLayoutPosition position, String output,
-        ImmutableList<String> longPressKeys) {
+    public static CharacterMap of(
+            IsoLayoutPosition position, String output, ImmutableList<String> longPressKeys) {
         return new CharacterMap(position, output, longPressKeys, false);
     }
 
@@ -59,10 +62,10 @@ public final class CharacterMap implements Comparable<CharacterMap> {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("position", position)
-            .add("output", output)
-            .add("longPressKeys", longPressKeys)
-            .toString();
+                .add("position", position)
+                .add("output", output)
+                .add("longPressKeys", longPressKeys)
+                .toString();
     }
 
     @Override
@@ -72,8 +75,9 @@ public final class CharacterMap implements Comparable<CharacterMap> {
         }
         if (o instanceof CharacterMap) {
             CharacterMap other = (CharacterMap) o;
-            return position.equals(other.position) && output.equals(other.output)
-                && longPressKeys.equals(other.longPressKeys);
+            return position.equals(other.position)
+                    && output.equals(other.output)
+                    && longPressKeys.equals(other.longPressKeys);
         }
         return false;
     }
@@ -94,7 +98,7 @@ public final class CharacterMap implements Comparable<CharacterMap> {
     }
 
     private enum CharacterMapToIsoLayoutFunction
-        implements Function<CharacterMap, IsoLayoutPosition> {
+            implements Function<CharacterMap, IsoLayoutPosition> {
         INSTANCE;
 
         @Override

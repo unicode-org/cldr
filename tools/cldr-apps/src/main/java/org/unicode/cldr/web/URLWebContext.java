@@ -34,10 +34,8 @@ public class URLWebContext extends WebContext {
     public void setURL(String urlString) throws java.net.MalformedURLException {
         this.url = new URL(urlString);
         String work = this.url.getQuery(); // .replaceAll("+"," ");
-        if (work == null)
-            return;
-        if (work.length() == 0)
-            return;
+        if (work == null) return;
+        if (work.length() == 0) return;
         String splits[] = work.split("&");
         if (splits != null) {
             for (String q : splits) {
@@ -110,5 +108,4 @@ public class URLWebContext extends WebContext {
     public Object clone() {
         return new URLWebContext(this);
     }
-
 }

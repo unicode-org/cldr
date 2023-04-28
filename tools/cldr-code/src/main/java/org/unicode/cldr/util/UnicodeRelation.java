@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,10 +11,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Freezable;
 
 public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
 
@@ -22,19 +21,21 @@ public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
         Set<T> make();
     }
 
-    public static SetMaker<Object> HASHSET_MAKER = new SetMaker<Object>() {
-        @Override
-        public Set<Object> make() {
-            return new HashSet<>();
-        }
-    };
+    public static SetMaker<Object> HASHSET_MAKER =
+            new SetMaker<Object>() {
+                @Override
+                public Set<Object> make() {
+                    return new HashSet<>();
+                }
+            };
 
-    public static final SetMaker<Object> LINKED_HASHSET_MAKER = new SetMaker<Object>() {
-        @Override
-        public Set<Object> make() {
-            return new LinkedHashSet<>();
-        }
-    };
+    public static final SetMaker<Object> LINKED_HASHSET_MAKER =
+            new SetMaker<Object>() {
+                @Override
+                public Set<Object> make() {
+                    return new LinkedHashSet<>();
+                }
+            };
 
     public UnicodeRelation(SetMaker<T> maker) {
         this.maker = maker;
@@ -178,7 +179,9 @@ public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
         } else {
             Set<T> newValues = make(oldValues);
             newValues.removeAll(values);
-            return newValues.size() == 0 ? Collections.EMPTY_SET : Collections.unmodifiableSet(newValues);
+            return newValues.size() == 0
+                    ? Collections.EMPTY_SET
+                    : Collections.unmodifiableSet(newValues);
         }
     }
 

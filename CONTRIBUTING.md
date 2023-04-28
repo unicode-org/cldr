@@ -33,7 +33,7 @@ The CLDR project consists of 3 aspects:
 For all PRs these steps are required before the PR is merged:
 
 - The PR and commits must reference a [Jira][] ticket which has been accepted by the CLDR-TC. Open a ticket if there is not already a relevant one open.
-- The CLA must be signed, agreeing to the [Terms of use][]. You will be prompted on the PR to sign this if you have not already done so.
+- A Contributor License Agreement (CLA) must be signed. For more information, see [Contributor License Agreement](#contributor-license-agreement), below.
 - All tests must pass (See below)
 - The PR must be reviewed by a TC member.
 - The PR should have a single commit, and the first line of the commit must
@@ -48,13 +48,16 @@ begin with the accepted Jira ticket number.
     - Here is an item
     - Here is another item
 
-### Licenses
+## Contributor License Agreement
 
-- Usage of CLDR data and software is governed by the Unicode [Terms of use][] a copy of which is included as [unicode-license.txt][]
-- Some CLDR tools depend on libraries in tools/cldr-code/libs/; use of these libraries is governed by separate license agreements.
-  - For example, use of the Guava, Xerces, and Myanmar Tools libraries is subject to the Apache License included as [apache-license.txt](./apache-license.txt)
-- Use of the ICU libraries is subject to the ICU License, included as [ICU-LICENSE](./ICU-LICENSE).
-- There must be a signed CLA before code is contributed, the PR will not be merged until the CLA is signed.
+In order to contribute to this project, the Unicode Consortium must have on file a Contributor License Agreement (CLA) covering your contributions, either an individual or a corporate CLA. Pull Requests will not be merged until the correct CLA is signed. Which version needs to be signed depends on who owns the contribution being made: you as the individual making the contribution or your employer. _It is your responsibility to determine whether your contribution is owned by your employer._ Please review [The Unicode Consortium Intellectual Property, Licensing, and Technical Contribution Policies][policies] for further guidance on which CLA to sign, as well as other information and guidelines regarding the Consortium’s licensing and technical contribution policies and procedures.
+
+- **Individual CLA**: If you have determined that the Individual CLA is appropriate, just open a Pull Request and you will have the opportunity to click to accept the Individual CLA.
+
+- **Corporate CLA**: If you have determined that a Corporate CLA is appropriate, please check the [public list of Corporate CLAs][unicode-corporate-clas] that the Consortium has on file. If your employer has already signed a CLA, then just open a Pull Request and you will have the opportunity to click that your employer has already signed a CLA. If your employer has not already signed a CLA, you will need to arrange for your employer to sign the Corporate CLA, as described in [How to Sign a Unicode CLA][signing].
+
+Unless otherwise noted in the LICENSE file, this project is released under the free and open-source [Unicode License][unicode-license], also known as Unicode, Inc. License Agreement - Data Files and Software.
+
 
 ## Building
 
@@ -103,3 +106,7 @@ All rights reserved. [Terms of use][]
 [supplemental data]: https://github.com/unicode-org/cldr/tree/main/common/supplemental
 [About Status Checks]: https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks
 [Running Tests]: https://cldr.unicode.org/development/cldr-development-site/running-tests
+[policies]: https://www.unicode.org/policies/licensing_policy.html
+[unicode-corporate-clas]: https://www.unicode.org/policies/corporate-cla-list/
+[signing]: https://www.unicode.org/policies/licensing_policy.html#signing
+[unicode-license]: ./LICENSE

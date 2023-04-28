@@ -1,9 +1,8 @@
 // Copied from ICU4J 57.1
 /**
- *******************************************************************************
- * Copyright (C) 2005-2008, International Business Machines Corporation and    *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 2005-2008, International Business Machines Corporation and * others. All Rights Reserved. *
+ * ******************************************************************************
  */
 package com.ibm.icu.dev.test;
 
@@ -16,8 +15,8 @@ public final class TestLogWriter extends Writer {
     private boolean closed;
 
     public TestLogWriter(TestLog log, int level) {
-    this.log = log;
-    this.level = level;
+        this.log = log;
+        this.level = level;
     }
 
     @Override
@@ -38,8 +37,7 @@ public final class TestLogWriter extends Writer {
     }
 
     @Override
-    public void flush() throws IOException {
-    }
+    public void flush() throws IOException {}
 
     @Override
     public void close() throws IOException {

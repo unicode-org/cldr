@@ -1,5 +1,8 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,13 +10,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.draft.StateMachine.StateAction;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilderFactory;
-
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachineBuilder<T> {
     private static final UnicodeSet WHITESPACE = new UnicodeSet("[:Pattern_Whitespace:]").freeze();
@@ -55,49 +53,27 @@ public class StateMachineBuilder<T> {
     }
 
     // build state machines with rules on icu4c-trunk/source/common/rbbirpt.txt
-    //@formatter:off
-/**
-#
-# Here is the syntax of the state definitions in this file:
-#
-#
-#StateName:
-#   input-char           n next-state           ^push-state     action
-#   input-char           n next-state           ^push-state     action
-#       |                |   |                      |             |
-#       |                |   |                      |             |--- action to be performed by state machine
-#       |                |   |                      |                  See function RBBIRuleScanner::doParseActions()
-#       |                |   |                      |
-#       |                |   |                      |--- Push this named state onto the state stack.
-#       |                |   |                           Later, when next state is specified as "pop",
-#       |                |   |                           the pushed state will become the current state.
-#       |                |   |
-#       |                |   |--- Transition to this state if the current input character matches the input
-#       |                |        character or char class in the left hand column.  "pop" causes the next
-#       |                |        state to be popped from the state stack.
-#       |                |
-#       |                |--- When making the state transition specified on this line, advance to the next
-#       |                     character from the input only if 'n' appears here.
-#       |
-#       |--- Character or named character classes to test for.  If the current character being scanned
-#            matches, peform the actions and go to the state specified on this line.
-#            The input character is tested sequentally, in the order written.  The characters and
-#            character classes tested for do not need to be mutually exclusive.  The first match wins.
-#
-Example:
-#
-#  start state, scan position is at the beginning of the rules file, or in between two rules.
-#
-start:
-    escaped                term                  ^break-rule-end    doExprStart
-    white_space          n start
-    '$'                    scan-var-name         ^assign-or-rule    doExprStart
-    '!'                  n rev-option
-    ';'                  n start                                                  # ignore empty rules.
-    eof                    exit
-    default                term                  ^break-rule-end    doExprStart
-*/
-//@formatter:on
+    // @formatter:off
+    /**
+     * # # Here is the syntax of the state definitions in this file: # # #StateName: # input-char n
+     * next-state ^push-state action # input-char n next-state ^push-state action # | | | | | # | |
+     * | | |--- action to be performed by state machine # | | | | See function
+     * RBBIRuleScanner::doParseActions() # | | | | # | | | |--- Push this named state onto the state
+     * stack. # | | | Later, when next state is specified as "pop", # | | | the pushed state will
+     * become the current state. # | | | # | | |--- Transition to this state if the current input
+     * character matches the input # | | character or char class in the left hand column. "pop"
+     * causes the next # | | state to be popped from the state stack. # | | # | |--- When making the
+     * state transition specified on this line, advance to the next # | character from the input
+     * only if 'n' appears here. # | # |--- Character or named character classes to test for. If the
+     * current character being scanned # matches, peform the actions and go to the state specified
+     * on this line. # The input character is tested sequentally, in the order written. The
+     * characters and # character classes tested for do not need to be mutually exclusive. The first
+     * match wins. # Example: # # start state, scan position is at the beginning of the rules file,
+     * or in between two rules. # start: escaped term ^break-rule-end doExprStart white_space n
+     * start '$' scan-var-name ^assign-or-rule doExprStart '!' n rev-option ';' n start # ignore
+     * empty rules. eof exit default term ^break-rule-end doExprStart
+     */
+    // @formatter:on
     void add(String rules) {
         for (String rule : rules.split("[\n]")) {
             rule = rule.trim();
@@ -174,7 +150,8 @@ start:
                 }
                 if (set == null) { // default case
                     if (defaultAction != null) {
-                        throw new IllegalArgumentException("Cannot have more than one defaultAction: " + rule);
+                        throw new IllegalArgumentException(
+                                "Cannot have more than one defaultAction: " + rule);
                     } else {
                         defaultAction = action;
                     }
@@ -208,7 +185,8 @@ start:
 
     private void fixDefaultAction() {
         if (defaultAction == null) {
-            throw new IllegalArgumentException("Missing default action for: " + numberToState.get(currentState));
+            throw new IllegalArgumentException(
+                    "Missing default action for: " + numberToState.get(currentState));
         } else {
             currentMap.putAll(currentMap.keySet(null), defaultAction);
             defaultAction = null;
@@ -248,7 +226,8 @@ start:
         return set;
     }
 
-    private short getItemNumber(String item, Map<String, Short> itemToNumber, List<String> numberToItem) {
+    private short getItemNumber(
+            String item, Map<String, Short> itemToNumber, List<String> numberToItem) {
         Short result = itemToNumber.get(item);
         if (result == null) {
             result = (short) itemToNumber.size();
@@ -260,7 +239,7 @@ start:
 
     public static int scanOver(String string, UnicodeSet set, ParsePosition parsePosition) {
         int i;
-        for (i = parsePosition.getIndex(); i < string.length();) {
+        for (i = parsePosition.getIndex(); i < string.length(); ) {
             // TODO make this public API
             // fix description: returns the new index, and may be index -1
             int match = set.matchesAt(string, i);

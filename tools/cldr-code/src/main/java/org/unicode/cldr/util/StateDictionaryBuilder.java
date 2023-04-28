@@ -12,7 +12,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
@@ -24,8 +23,7 @@ import org.unicode.cldr.util.StateDictionary.Row.Uniqueness;
  * A simple state-table based dictionary builder.
  *
  * @author markdavis
- * @param <T>
- *            the return type for the dictionary
+ * @param <T> the return type for the dictionary
  */
 public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
 
@@ -42,7 +40,8 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     private IntMap<T> builtResults;
     private int builtMaxByteLength;
 
-    private StringByteConverter byteConverter = new CompactStringByteConverter(true); // new StringUtf8Converter(); //
+    private StringByteConverter byteConverter =
+            new CompactStringByteConverter(true); // new StringUtf8Converter(); //
     // new ByteString(false); // new
     // ByteString(true); //
 
@@ -63,8 +62,8 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     }
 
     /**
-     * Get/Set the StringByteConverter used to convert strings to bytes and back. The default is a compacted form:
-     * ByteString(true).
+     * Get/Set the StringByteConverter used to convert strings to bytes and back. The default is a
+     * compacted form: ByteString(true).
      *
      * @return
      */
@@ -78,9 +77,9 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     }
 
     /**
-     * Create a new simple StateDictionary. This format is relatively fast to
-     * produce, and has a fair amount of compaction. The Map must be sorted
-     * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+     * Create a new simple StateDictionary. This format is relatively fast to produce, and has a
+     * fair amount of compaction. The Map must be sorted according to
+     * Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
      *
      * @param source
      * @return
@@ -119,7 +118,9 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
                 }
             }
         }
-        if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size() + "\t REPLACEMENTS: " + replacements.size());
+        if (SHOW_SIZE)
+            System.out.println(
+                    "***ROWS: " + builtRows.size() + "\t REPLACEMENTS: " + replacements.size());
 
         // now replace all references to rows by their equivalents
         for (Row row : builtRows) {
@@ -142,7 +143,8 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         setUniqueValues(builtBaseRow);
         builtRows = newRows;
         if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size());
-        return new StateDictionary<>(builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
+        return new StateDictionary<>(
+                builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
     }
 
     private Row makeRow() {
@@ -192,12 +194,10 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     }
 
     /**
-     * Follow all the path values, and determine whether all possible results from
-     * a row (when following bytes) are the same. If so, set the flag on the row.
-     * The return value
+     * Follow all the path values, and determine whether all possible results from a row (when
+     * following bytes) are the same. If so, set the flag on the row. The return value
      *
-     * @param savedMatchValue
-     *            TODO
+     * @param savedMatchValue TODO
      * @return true if unique
      */
     // NOTE: The way the table is built, we are guaranteed that the current value
@@ -236,21 +236,21 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         return true;
     }
 
-    static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
+    static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR =
+            new Comparator<byte[]>() {
 
-        @Override
-        public int compare(byte[] o1, byte[] o2) {
-            int minLen = o1.length;
-            if (minLen > o2.length) {
-                minLen = o2.length;
-            }
-            for (int i = 0; i < minLen; ++i) {
-                if (o1[i] != o2[i]) {
-                    return o1[i] < o2[i] ? -1 : 1; // return lesser first
+                @Override
+                public int compare(byte[] o1, byte[] o2) {
+                    int minLen = o1.length;
+                    if (minLen > o2.length) {
+                        minLen = o2.length;
+                    }
+                    for (int i = 0; i < minLen; ++i) {
+                        if (o1[i] != o2[i]) {
+                            return o1[i] < o2[i] ? -1 : 1; // return lesser first
+                        }
+                    }
+                    return o1.length < o2.length ? -1 : o1.length > o2.length ? 1 : 0;
                 }
-            }
-            return o1.length < o2.length ? -1 : o1.length > o2.length ? 1 : 0;
-        }
-
-    };
+            };
 }

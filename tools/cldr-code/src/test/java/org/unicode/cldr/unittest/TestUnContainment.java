@@ -1,19 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.SupplementalDataInfo;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -21,22 +7,37 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestUnContainment extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
-    Map<String, R2<List<String>, String>> regionToInfo = SUPPLEMENTAL_DATA_INFO
-        .getLocaleAliasInfo()
-        .get("territory");
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
+            testInfo.getSupplementalDataInfo();
+    Map<String, R2<List<String>, String>> regionToInfo =
+            SUPPLEMENTAL_DATA_INFO.getLocaleAliasInfo().get("territory");
 
-    private static final Set<String> NOT_CLDR_TERRITORY_CODES = ImmutableSet.of("830"); // Channel Islands
-    private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS = ImmutableSet.of("AQ","680"); // Antarctica, Sark
+    private static final Set<String> NOT_CLDR_TERRITORY_CODES =
+            ImmutableSet.of("830"); // Channel Islands
+    private static final Set<String> KNOWN_CONTAINMENT_EXCEPTIONS =
+            ImmutableSet.of("AQ", "680"); // Antarctica, Sark
 
     final Multimap<String, String> UnChildToParent;
+
     {
         Multimap<String, String> _UnChildToParent = TreeMultimap.create();
         Splitter tab = Splitter.on('\t').trimResults();
-        try (BufferedReader unCodes = CldrUtility.getUTF8Data("external/UnCodes.tsv");) {
+        try (BufferedReader unCodes = CldrUtility.getUTF8Data("external/UnCodes.tsv"); ) {
             for (String line : FileUtilities.in(unCodes)) {
                 List<String> items = tab.splitToList(line);
                 if (line.isEmpty() || line.startsWith("Global Code")) {
@@ -47,7 +48,7 @@ public class TestUnContainment extends TestFmwkPlus {
                     String region = items.get(i);
                     if (!region.isEmpty()) {
                         region = unToCldrCode(region);
-                        if (parent != null && region != null){
+                        if (parent != null && region != null) {
                             _UnChildToParent.put(region, parent);
                         }
                         if (region != null) {
@@ -112,7 +113,7 @@ public class TestUnContainment extends TestFmwkPlus {
         for (Entry<String, Collection<String>> entry : UnChildToParent.asMap().entrySet()) {
             Collection<String> unParents = entry.getValue();
             String unChild = entry.getKey();
-            //System.out.println(name(unParents) + "\t" + name(unChild));
+            // System.out.println(name(unParents) + "\t" + name(unChild));
             for (String unParent : unParents) {
                 Set<String> children = SUPPLEMENTAL_DATA_INFO.getContained(unParent);
                 if (children != null && children.contains(unChild)) {
@@ -122,9 +123,16 @@ public class TestUnContainment extends TestFmwkPlus {
                 if (KNOWN_CONTAINMENT_EXCEPTIONS.contains(unChild)) {
                     continue;
                 }
-                msg("UN containment doesn't match CLDR for " + name(unParent)
-                    + ": cldr children " + children
-                    + " don't contain UN " + name(unChild), ERR, true, true);
+                msg(
+                        "UN containment doesn't match CLDR for "
+                                + name(unParent)
+                                + ": cldr children "
+                                + children
+                                + " don't contain UN "
+                                + name(unChild),
+                        ERR,
+                        true,
+                        true);
             }
         }
     }

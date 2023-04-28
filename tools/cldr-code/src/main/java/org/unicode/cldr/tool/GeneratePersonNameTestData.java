@@ -1,5 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -11,7 +17,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,22 +34,20 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.util.ULocale;
-
 public class GeneratePersonNameTestData {
     private static final Joiner COMMA_JOINER = Joiner.on(", ");
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
 
-    static final Comparator<String> LENGTH_FIRST = Comparator.comparingInt(String::length).reversed()
-        .thenComparing(Collator.getInstance(Locale.ROOT));
+    static final Comparator<String> LENGTH_FIRST =
+            Comparator.comparingInt(String::length)
+                    .reversed()
+                    .thenComparing(Collator.getInstance(Locale.ROOT));
 
-    enum Options {none, sorting}
+    enum Options {
+        none,
+        sorting
+    }
 
     public static void main(String[] args) {
         File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
@@ -64,15 +67,18 @@ public class GeneratePersonNameTestData {
 
                 // Check that we have person data
 
-                String givenOrder = unresolved.getStringValue("//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
+                String givenOrder =
+                        unresolved.getStringValue(
+                                "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
                 if (givenOrder == null) {
                     continue; // skip unless we have person data
                 }
-                String surnameOrder = unresolved.getStringValue("//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
+                String surnameOrder =
+                        unresolved.getStringValue(
+                                "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
                 if (surnameOrder == null) {
                     continue; // skip unless we have person data
                 }
-
 
                 Map<SampleType, SimpleNameObject> names;
                 PersonNameFormatter formatter;
@@ -101,9 +107,13 @@ public class GeneratePersonNameTestData {
                 // We see if we can get a locale of the other direction
                 // Otherwise we pick either English or German
 
-                Order otherOrder = myOrder == Order.givenFirst ? Order.surnameFirst : Order.givenFirst;
-                Map<ULocale, Order> localeToOrder = formatter.getNamePatternData().getLocaleToOrder();
-                Multimap<Order, ULocale> orderToLocale = Multimaps.invertFrom(Multimaps.forMap(localeToOrder), TreeMultimap.create());
+                Order otherOrder =
+                        myOrder == Order.givenFirst ? Order.surnameFirst : Order.givenFirst;
+                Map<ULocale, Order> localeToOrder =
+                        formatter.getNamePatternData().getLocaleToOrder();
+                Multimap<Order, ULocale> orderToLocale =
+                        Multimaps.invertFrom(
+                                Multimaps.forMap(localeToOrder), TreeMultimap.create());
                 ULocale otherLocale = null;
                 for (ULocale tryLocale : orderToLocale.get(otherOrder)) {
                     if (!undLocale.equals(tryLocale)) {
@@ -117,7 +127,7 @@ public class GeneratePersonNameTestData {
 
                 // now change region to AQ, just to check for inheritance
                 myLocale = addRegionIfMissing(myLocale, "AQ");
-                otherLocale =  addRegionIfMissing(otherLocale, "AQ");
+                otherLocale = addRegionIfMissing(otherLocale, "AQ");
 
                 // Start collecting output
 
@@ -134,7 +144,8 @@ public class GeneratePersonNameTestData {
                     // write the name information
                     SampleType sampleType = entry.getKey();
                     output.write("\n");
-                    for (Entry<ModifiedField, String> x : entry.getValue().getModifiedFieldToValue().entrySet()) {
+                    for (Entry<ModifiedField, String> x :
+                            entry.getValue().getModifiedFieldToValue().entrySet()) {
                         output.write("name ; " + x.getKey() + "; " + x.getValue() + "\n");
                     }
 
@@ -154,7 +165,8 @@ public class GeneratePersonNameTestData {
 
                     // Group the formatted names, longest first
 
-                    Multimap<String, String> valueToSource = TreeMultimap.create(LENGTH_FIRST, Comparator.naturalOrder());
+                    Multimap<String, String> valueToSource =
+                            TreeMultimap.create(LENGTH_FIRST, Comparator.naturalOrder());
                     for (FormatParameters parameters : FormatParameters.allCldr()) {
                         Options options;
                         Order order = parameters.getOrder();
@@ -171,71 +183,77 @@ public class GeneratePersonNameTestData {
                         if (formatted.isEmpty()) {
                             continue;
                         }
-                        valueToSource.put(formatted,
-                            options.name() + "; "
-                                + parameters.getLength() + "; "
-                                + parameters.getUsage() + "; "
-                                + parameters.getFormality());
+                        valueToSource.put(
+                                formatted,
+                                options.name()
+                                        + "; "
+                                        + parameters.getLength()
+                                        + "; "
+                                        + parameters.getUsage()
+                                        + "; "
+                                        + parameters.getFormality());
                     }
                     // write out the result, and then all the parameters that give produce it.
-                    for (Entry<String, Collection<String>> entry2 : valueToSource.asMap().entrySet()) {
+                    for (Entry<String, Collection<String>> entry2 :
+                            valueToSource.asMap().entrySet()) {
                         output.write("\nexpectedResult; " + entry2.getKey() + "\n\n");
                         entry2.getValue().forEach(x -> output.write("parameters; " + x + "\n"));
                     }
                     output.write("\nendName\n");
                 }
 
-
-                try (PrintWriter output2 = FileUtilities.openUTF8Writer(dir, locale + ".txt");) {
-                    output2.write("# CLDR person name formatting test data for: " + locale + ""
-                        + "\n#"
-                        + "\n# Test lines have the following structure:"
-                        + "\n#"
-                        + "\n# enum ; <type> ; <value>(', ' <value)"
-                        + "\n#   For all the elements in <…> below, the possible choices that could appear in the file."
-                        + "\n#   For example, <field> could be any of title, given, … credentials."
-                        + "\n#   Verify that all of these values work with the implementation."
-                        + "\n#"
-                        + "\n# name ; <field>('-'<modifier>) ; <value>"
-                        + "\n#   A sequence of these is to be used to build a person name object with the given field values."
-                        + "\n#   If the <field> is 'locale', then the value is the locale of the name."
-                        + "\n#     That will always be the last field in the name."
-                        + "\n#     NOTE: the locale for the name (where different than the test file's locale) will generally not match the text."
-                        + "\n#     It is chosen to exercise the person name formatting, by having a different given-surname order than the file's locale."
-                        + "\n#"
-                        + "\n# expectedResult; <value>"
-                        + "\n#   This line follows a sequence of name lines, and indicates the that all the following parameter lines have this expected value."
-                        + "\n#"
-                        + "\n# parameters; <options>; <length>; <usage>; <formality>"
-                        + "\n#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, "
-                        + "\n#   the expected value is produced."
-                        + "\n#"
-                        + "\n# endName"
-                        + "\n#   Indicates the end of the values to be tested with the current name."
-                        + "\n#"
-                        + "\n# ====="
-                        + "\n# Example:"
-                        + "\n#     enum ; field ; title, given, given2, surname, surname2, generation, credentials"
-                        + "\n#     …"
-                        + "\n#"
-                        + "\n#     name ; given; Iris"
-                        + "\n#     name ; surname; Falke"
-                        + "\n#     name ; locale; de"
-                        + "\n#"
-                        + "\n#     expectedResult; Falke, Iris"
-                        + "\n#"
-                        + "\n#     parameters; sorting; long; referring; formal"
-                        + "\n#     parameters; sorting; medium; referring; informal"
-                        + "\n#"
-                        + "\n#     endName"
-                        + "\n#"
-                        + "\n#     name ; given; Max"
-                        + "\n#     name ; given2; Ben"
-                        + "\n#     name ; surname; Mustermann"
-                        + "\n#     …"
-                        + "\n# ====="
-                        + "\n"
-                        );
+                try (PrintWriter output2 = FileUtilities.openUTF8Writer(dir, locale + ".txt"); ) {
+                    output2.write(
+                            "# CLDR person name formatting test data for: "
+                                    + locale
+                                    + ""
+                                    + "\n#"
+                                    + "\n# Test lines have the following structure:"
+                                    + "\n#"
+                                    + "\n# enum ; <type> ; <value>(', ' <value)"
+                                    + "\n#   For all the elements in <…> below, the possible choices that could appear in the file."
+                                    + "\n#   For example, <field> could be any of title, given, … credentials."
+                                    + "\n#   Verify that all of these values work with the implementation."
+                                    + "\n#"
+                                    + "\n# name ; <field>('-'<modifier>) ; <value>"
+                                    + "\n#   A sequence of these is to be used to build a person name object with the given field values."
+                                    + "\n#   If the <field> is 'locale', then the value is the locale of the name."
+                                    + "\n#     That will always be the last field in the name."
+                                    + "\n#     NOTE: the locale for the name (where different than the test file's locale) will generally not match the text."
+                                    + "\n#     It is chosen to exercise the person name formatting, by having a different given-surname order than the file's locale."
+                                    + "\n#"
+                                    + "\n# expectedResult; <value>"
+                                    + "\n#   This line follows a sequence of name lines, and indicates the that all the following parameter lines have this expected value."
+                                    + "\n#"
+                                    + "\n# parameters; <options>; <length>; <usage>; <formality>"
+                                    + "\n#   Each of these parameter lines should be tested to see that when formatting the current name with these parameters, "
+                                    + "\n#   the expected value is produced."
+                                    + "\n#"
+                                    + "\n# endName"
+                                    + "\n#   Indicates the end of the values to be tested with the current name."
+                                    + "\n#"
+                                    + "\n# ====="
+                                    + "\n# Example:"
+                                    + "\n#     enum ; field ; title, given, given2, surname, surname2, generation, credentials"
+                                    + "\n#     …"
+                                    + "\n#"
+                                    + "\n#     name ; given; Iris"
+                                    + "\n#     name ; surname; Falke"
+                                    + "\n#     name ; locale; de"
+                                    + "\n#"
+                                    + "\n#     expectedResult; Falke, Iris"
+                                    + "\n#"
+                                    + "\n#     parameters; sorting; long; referring; formal"
+                                    + "\n#     parameters; sorting; medium; referring; informal"
+                                    + "\n#"
+                                    + "\n#     endName"
+                                    + "\n#"
+                                    + "\n#     name ; given; Max"
+                                    + "\n#     name ; given2; Ben"
+                                    + "\n#     name ; surname; Mustermann"
+                                    + "\n#     …"
+                                    + "\n# ====="
+                                    + "\n");
                     output2.write(output.toString());
                 }
             } catch (Exception e) {
@@ -243,13 +261,13 @@ public class GeneratePersonNameTestData {
                 e.printStackTrace();
                 continue;
             }
-
         }
     }
 
     public static ULocale addRegionIfMissing(ULocale myLocale, String region) {
-        return !myLocale.getCountry().isEmpty() ? myLocale
-            : new ULocale.Builder().setLocale(myLocale).setRegion(region).build();
+        return !myLocale.getCountry().isEmpty()
+                ? myLocale
+                : new ULocale.Builder().setLocale(myLocale).setRegion(region).build();
     }
 
     public static <T> void writeChoices(String kind, Collection<T> choices, StringWriter output) {

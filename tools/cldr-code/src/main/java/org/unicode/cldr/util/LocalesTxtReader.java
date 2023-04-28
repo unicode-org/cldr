@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.EnumMap;
@@ -10,10 +13,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 class LocalesTxtReader {
     Map<Organization, Map<String, Level>> platform_locale_level = null;
     Map<Organization, Relation<Level, String>> platform_level_locale = null;
@@ -23,15 +22,15 @@ class LocalesTxtReader {
 
     public static final String DEFAULT_NAME = "Locales.txt";
 
-    public LocalesTxtReader() {
-    }
+    public LocalesTxtReader() {}
 
     /**
      * Read from Locales.txt, from the default location
+     *
      * @param lstreg stream to read from
      */
     public LocalesTxtReader read(StandardCodes sc) {
-        try (BufferedReader lstreg = CldrUtility.getUTF8Data(DEFAULT_NAME);) {
+        try (BufferedReader lstreg = CldrUtility.getUTF8Data(DEFAULT_NAME); ) {
             return read(sc, lstreg);
         } catch (IOException e) {
             throw new ICUUncheckedIOException("Internal Error reading Locales.txt", e);
@@ -40,6 +39,7 @@ class LocalesTxtReader {
 
     /**
      * Parse a Locales.txt file
+     *
      * @param sc StandardCodes used for validation
      * @param lstreg stream to read from
      */
@@ -56,15 +56,13 @@ class LocalesTxtReader {
                 Integer weight = null; // @weight
                 String pathMatch = null; // @pathMatch
                 line = lstreg.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 int commentPos = line.indexOf('#');
                 if (commentPos >= 0) {
                     line = line.substring(0, commentPos);
                 }
                 line = line.trim();
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 List<String> stuff = CldrUtility.splitList(line, ';', true);
                 Organization organization;
 
@@ -72,7 +70,8 @@ class LocalesTxtReader {
                 try {
                     organization = Organization.fromString(stuff.get(0));
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Invalid organization in Locales.txt: " + line);
+                    throw new IllegalArgumentException(
+                            "Invalid organization in Locales.txt: " + line);
                 }
 
                 // verify that the locale is valid BCP47
@@ -84,19 +83,24 @@ class LocalesTxtReader {
                     if (entry.startsWith("@")) {
                         List<String> kwStuff = CldrUtility.splitList(entry, '=', true);
                         if (kwStuff.size() > 2 || kwStuff.size() < 1) {
-                            throw new IllegalArgumentException("Invalid @-command " + entry + " in Locales.txt: " + line);
+                            throw new IllegalArgumentException(
+                                    "Invalid @-command " + entry + " in Locales.txt: " + line);
                         }
                         final String atCommand = kwStuff.get(0);
-                        switch(atCommand) {
+                        switch (atCommand) {
                             case "@weight":
                                 weight = Integer.parseInt(kwStuff.get(1));
                                 break;
 
                             case "@pathMatch":
                                 pathMatch = kwStuff.get(1);
-                            break;
+                                break;
                             default:
-                                throw new IllegalArgumentException("Unknown @-command " + atCommand + " in Locales.txt: " + line);
+                                throw new IllegalArgumentException(
+                                        "Unknown @-command "
+                                                + atCommand
+                                                + " in Locales.txt: "
+                                                + line);
                         }
                     } else {
                         locales.add(entry);
@@ -106,7 +110,11 @@ class LocalesTxtReader {
                 if (locales.size() != 1) {
                     // require there to be exactly one locale.
                     // This would allow collapsing into fewer lines.
-                    throw new IllegalArgumentException("Expected one locale entry in Locales.txt but got " + locales.size() + ": " + line);
+                    throw new IllegalArgumentException(
+                            "Expected one locale entry in Locales.txt but got "
+                                    + locales.size()
+                                    + ": "
+                                    + line);
                 }
 
                 // extract the single locale, process as before
@@ -116,13 +124,15 @@ class LocalesTxtReader {
                     parser.set(locale);
                     String valid = sc.validate(parser);
                     if (valid.length() != 0) {
-                        throw new IllegalArgumentException("Invalid locale in Locales.txt: " + line);
+                        throw new IllegalArgumentException(
+                                "Invalid locale in Locales.txt: " + line);
                     }
                     locale = parser.toString(); // normalize
 
                     // verify that the locale is not a default content locale
                     if (defaultContentLocales.contains(locale)) {
-                        throw new IllegalArgumentException("Cannot have default content locale in Locales.txt: " + line);
+                        throw new IllegalArgumentException(
+                                "Cannot have default content locale in Locales.txt: " + line);
                     }
                 }
 
@@ -138,13 +148,13 @@ class LocalesTxtReader {
 
                 if (weight != null) {
                     organization_locale_weight
-                        .computeIfAbsent(organization, ignored -> new TreeMap<>())
-                        .put(locale, weight);
+                            .computeIfAbsent(organization, ignored -> new TreeMap<>())
+                            .put(locale, weight);
                 }
                 if (pathMatch != null) {
                     organization_locale_match
-                        .computeIfAbsent(organization, ignored -> new TreeMap<>())
-                        .put(locale, ImmutableSet.copyOf(pathMatch.split(",")));
+                            .computeIfAbsent(organization, ignored -> new TreeMap<>())
+                            .put(locale, ImmutableSet.copyOf(pathMatch.split(",")));
                 }
             }
         } catch (IOException e) {
@@ -161,7 +171,8 @@ class LocalesTxtReader {
             for (String locale : locale_level.keySet()) {
                 locale_levelString.put(locale, locale_level.get(locale).toString());
             }
-            Relation<Level, String> level_locale = Relation.of(new EnumMap(Level.class), HashSet.class);
+            Relation<Level, String> level_locale =
+                    Relation.of(new EnumMap(Level.class), HashSet.class);
             level_locale.addAllInverted(locale_level).freeze();
             platform_level_locale.put(platform, level_locale);
         }

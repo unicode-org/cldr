@@ -13,6 +13,7 @@ public final class Timer {
 
     private long startTime;
     private long duration;
+
     {
         start();
     }
@@ -39,6 +40,7 @@ public final class Timer {
 
     /**
      * Return nanos
+     *
      * @return
      */
     public long stop() {
@@ -59,8 +61,9 @@ public final class Timer {
         seconds = seconds - (minutes * 60.0);
 
         return MeasureFormat.getInstance(ULocale.ENGLISH, FormatWidth.SHORT)
-            .formatMeasures(new Measure(seconds, MeasureUnit.SECOND),
-                new Measure(minutes, MeasureUnit.MINUTE));
+                .formatMeasures(
+                        new Measure(seconds, MeasureUnit.SECOND),
+                        new Measure(minutes, MeasureUnit.MINUTE));
     }
 
     public String toString(Timer other) {
@@ -72,12 +75,14 @@ public final class Timer {
     }
 
     public String toString(long iterations, long other) {
-        return toString(iterations) + "\t(" + pf.format((double) getDuration() / other - 1D)
-            + ")";
+        return toString(iterations) + "\t(" + pf.format((double) getDuration() / other - 1D) + ")";
     }
 
-    private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);
-    private static DecimalFormat pf = (DecimalFormat) NumberFormat.getPercentInstance(ULocale.ENGLISH);
+    private static DecimalFormat nf =
+            (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);
+    private static DecimalFormat pf =
+            (DecimalFormat) NumberFormat.getPercentInstance(ULocale.ENGLISH);
+
     static {
         nf.setMaximumSignificantDigits(3);
         pf.setMaximumFractionDigits(1);

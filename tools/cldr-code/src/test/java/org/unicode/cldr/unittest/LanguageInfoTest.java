@@ -1,20 +1,18 @@
 package org.unicode.cldr.unittest;
 
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.LocaleNames;
-import org.unicode.cldr.util.Pair;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.Pair;
 
 public class LanguageInfoTest extends TestFmwk {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -43,7 +41,8 @@ public class LanguageInfoTest extends TestFmwk {
 
     public void testGetData() {
         Set<Pair<String, String>> alreadySeen = new HashSet<>();
-        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
+        for (R4<String, String, Integer, Boolean> foo :
+                testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
             //            assertTrue("check bounds", foo.get2() >= 0 && foo.get2() <= 100);
 
             String desired = foo.get0();
@@ -58,10 +57,18 @@ public class LanguageInfoTest extends TestFmwk {
                 continue;
             }
             alreadySeen.add(source);
-            logln(score
-                + "\t" + desired + "\t" + getName(desired)
-                + "\t" + supported + "\t" + getName(supported)
-                + "\t" + oneway);
+            logln(
+                    score
+                            + "\t"
+                            + desired
+                            + "\t"
+                            + getName(desired)
+                            + "\t"
+                            + supported
+                            + "\t"
+                            + getName(supported)
+                            + "\t"
+                            + oneway);
         }
     }
 
@@ -76,7 +83,9 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public static String getName(String item) {
-        return item.contains("*") ? "n/a" : item.contains("$") ? item : testInfo.getEnglish().getName(item);
+        return item.contains("*")
+                ? "n/a"
+                : item.contains("$") ? item : testInfo.getEnglish().getName(item);
     }
 
     public static void main(String[] args) {
@@ -87,19 +96,19 @@ public class LanguageInfoTest extends TestFmwk {
         if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
             return;
         }
-        final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
-            .add(ULocale.FRENCH).add(ULocale.UK).add(ULocale.ENGLISH)
-            .build(), data);
+        final LocaleMatcher matcher =
+                new LocaleMatcher(
+                        LocalePriorityList.add(ULocale.FRENCH)
+                                .add(ULocale.UK)
+                                .add(ULocale.ENGLISH)
+                                .build(),
+                        data);
         logln(matcher.toString());
 
-        assertEquals("UK in FR, UK, EN", ULocale.UK,
-            matcher.getBestMatch(ULocale.UK));
-        assertEquals("US in FR, UK, EN", ULocale.ENGLISH,
-            matcher.getBestMatch(ULocale.US));
-        assertEquals("FR in FR, UK, EN", ULocale.FRENCH,
-            matcher.getBestMatch(ULocale.FRANCE));
-        assertEquals("JA in FR, UK, EN", ULocale.FRENCH,
-            matcher.getBestMatch(ULocale.JAPAN));
+        assertEquals("UK in FR, UK, EN", ULocale.UK, matcher.getBestMatch(ULocale.UK));
+        assertEquals("US in FR, UK, EN", ULocale.ENGLISH, matcher.getBestMatch(ULocale.US));
+        assertEquals("FR in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.FRANCE));
+        assertEquals("JA in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.JAPAN));
     }
 
     public void TestChinese() {
@@ -110,25 +119,18 @@ public class LanguageInfoTest extends TestFmwk {
         if (logKnownIssue("CLDR-14166", "Skip until CLDR updated for new ICU4J LocaleMatcher")) {
             return;
         }
-        LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add(
-            "zh_CN, zh_TW, iw").build(), data);
+        LocaleMatcher matcher =
+                new LocaleMatcher(LocalePriorityList.add("zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-            matcher.getBestMatch("zh_Hant_HK"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK"));
 
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-            matcher.getBestMatch("zh_Hant_TW"));
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-            matcher.getBestMatch("zh_Hant"));
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese,
-            matcher.getBestMatch("zh_TW"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-            matcher.getBestMatch("zh_Hans_CN"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-            matcher.getBestMatch("zh_CN"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese,
-            matcher.getBestMatch("zh"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_TW"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_TW"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_Hans_CN"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_CN"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh"));
     }
 
     static final ULocale MUL = new ULocale(LocaleNames.MUL);
@@ -137,7 +139,8 @@ public class LanguageInfoTest extends TestFmwk {
         if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
             return;
         }
-        for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
+        for (R4<String, String, Integer, Boolean> foo :
+                testInfo.getSupplementalDataInfo().getLanguageMatcherData("written_new")) {
             String rawDesired = foo.get0();
             if (rawDesired.contains("*")) {
                 continue;
@@ -155,22 +158,23 @@ public class LanguageInfoTest extends TestFmwk {
                 continue;
             }
 
-            // we put LocaleNames.MUL first in the list, to verify that the fallback works enough to be better than the default.
+            // we put LocaleNames.MUL first in the list, to verify that the fallback works enough to
+            // be better than the default.
 
             @SuppressWarnings("deprecation")
-            final LocaleMatcher matcher = new LocaleMatcher(
-                LocalePriorityList
-                    .add(MUL).add(supported)
-                    .build(),
-                data);
+            final LocaleMatcher matcher =
+                    new LocaleMatcher(LocalePriorityList.add(MUL).add(supported).build(), data);
 
             ULocale bestMatch = matcher.getBestMatch(desired);
             if (!assertEquals("fallback for " + desired + ", " + score, supported, bestMatch)) {
                 ULocale max = ULocale.addLikelySubtags(desired);
-                warnln("Might be missing something like\n"
-                    + "<languageMatch desired=\""
-                    + desired.getLanguage() + "_" + max.getScript()
-                    + "\" supported=\"en_Latn\" percent=\"90\" oneway=\"true\" />");
+                warnln(
+                        "Might be missing something like\n"
+                                + "<languageMatch desired=\""
+                                + desired.getLanguage()
+                                + "_"
+                                + max.getScript()
+                                + "\" supported=\"en_Latn\" percent=\"90\" oneway=\"true\" />");
                 bestMatch = matcher.getBestMatch(desired); // for debugging
             }
         }

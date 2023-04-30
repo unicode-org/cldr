@@ -23,6 +23,7 @@ final class ExternalUnitConversionData {
     public final String source;
     public final String target;
     public final ConversionInfo info;
+    public final String from;
     public final String line;
 
     public ExternalUnitConversionData(
@@ -30,10 +31,15 @@ final class ExternalUnitConversionData {
             String source,
             String target,
             Rational factor,
+            String from,
             String line,
             Multimap<String, String> changes) {
         super();
         this.quantity = quantity;
+
+        if (source.contains("thermal")) {
+            int debug = 0;
+        }
 
         LinkedHashSet<String> sourceChanges = new LinkedHashSet<>();
         this.source = extractUnit(quantity, source, sourceChanges);
@@ -45,6 +51,7 @@ final class ExternalUnitConversionData {
 
         Rational offset = temperatureHack.get(this.source + "|" + this.target);
         this.info = new ConversionInfo(factor, offset == null ? Rational.ZERO : offset);
+        this.from = from;
         this.line = line;
     }
 
@@ -150,6 +157,8 @@ final class ExternalUnitConversionData {
             source = source.replace("second", "arc-second");
         }
         source = source.replace("British thermal unitth", "british thermal unit");
+        source = source.replace("British thermal unitIT", "british thermal unit it");
+        source = source.replace("calorieIT", "calorie it");
 
         source = replaceWhole(oldSource, source, changes);
 

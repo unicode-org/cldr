@@ -107,7 +107,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public void addQuantityInfo(String baseUnit, String quantity, String status) {
         if (baseUnitToQuantity.containsKey(baseUnit)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    "base unit "
+                            + baseUnit
+                            + " already defined for quantity "
+                            + quantity
+                            + " with status "
+                            + status);
         }
         baseUnitToQuantity.put(baseUnit, quantity);
         if (status != null) {
@@ -121,6 +127,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     .add("per")
                     .add("square")
                     .add("cubic")
+                    .add("pow4")
                     .addAll(BASE_UNITS)
                     .build();
 
@@ -1440,7 +1447,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         PREFIXES = ImmutableMap.copyOf(temp);
     }
 
-    static final Set<String> SKIP_PREFIX = ImmutableSet.of("millimeter-ofhg", "kilogram");
+    static final Set<String> SKIP_PREFIX =
+            ImmutableSet.of("millimeter-ofhg", "kilogram", "kilogram-force");
 
     static final Rational RATIONAL1000 = Rational.of(1000);
     /**

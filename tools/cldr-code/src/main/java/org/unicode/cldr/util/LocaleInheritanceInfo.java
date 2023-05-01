@@ -25,9 +25,12 @@ public final class LocaleInheritanceInfo {
         constructed("Constructed value", false),
         none("The value was not found in this locale.", true),
         inheritanceMarker("Found: Inheritance marker", false),
-        removedAttribute("Removed attribute: ${attribute}", false), // such as alt
-        changedAttribute("Changed attribute: ${attribute}", false), // such as count
-        ;
+        removedAttribute("Removed attribute: ${attribute}", false),
+        changedAttribute("Changed attribute: ${attribute}", false),
+        /**
+         * @see CLDRFile#getFallbackPath - used for other fallback paths
+         */
+        fallback("Other fallback path", false);
 
         private String description;
         private boolean terminal;

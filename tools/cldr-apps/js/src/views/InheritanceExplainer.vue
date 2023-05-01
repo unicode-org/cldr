@@ -118,14 +118,15 @@ export default {
     colorForReason(reason) {
       return (
         {
-          none: "gray",
-          value: "green",
-          itemAlias: "teal",
+          changedAttribute: "yellow",
           codeFallback: "red",
           constructed: "purple",
-          removedAttribute: "blue",
-          changedAttribute: "yellow",
+          fallback: "brown",
           inheritanceMarker: "orange",
+          itemAlias: "teal",
+          none: "gray",
+          removedAttribute: "blue",
+          value: "green",
         }[reason] || null
       );
     },

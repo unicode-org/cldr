@@ -570,10 +570,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         LinkedList<LocaleInheritanceInfo> list = new LinkedList<>();
         // first, call getSourceLocaleIdExtended to populate the list
         Status status = new Status();
-        final String locale1 = // for debugging
-                getSourceLocaleIdExtended(xpath, status, false, list);
+        getSourceLocaleIdExtended(xpath, status, false, list);
         final String path1 = status.pathWhereFound;
-        System.out.println("Path: " + path1 + ", loc: " + locale1);
         // For now, the only special case is Glossonym
         if (path1.equals(GlossonymConstructor.PSEUDO_PATH)) {
             // it's a Glossonym, so as the GlossonymConstructor what the paths are.  Sort paths in
@@ -712,6 +710,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(distinguishedXPath, false, true);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
+                if (list != null) {
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    getLocaleID(), distinguishedXPath, Reason.fallback, null));
+                }
                 result =
                         dataSource.getSourceLocaleIdExtended(
                                 fallbackPath, status, skipInheritanceMarker, list);

@@ -1,23 +1,53 @@
 package org.unicode.cldr.util;
 
-/** A triple with information about why an inheritance worked the way it did */
+/** A class with information about why an inheritance worked the way it did */
 public final class LocaleInheritanceInfo {
     /** Reason this entry is there */
     public enum Reason {
-        value("Found: explicit value"),
-        codeFallback("Found: code fallback"),
-        alias("An alias was found at this location"),
-        constructed("Constructed value"),
-        none("The value was not found in this locale."),
-        inheritanceMarker("Found: Inheritance marker"),
-        removedAttribute("Removed attribute: ${attribute}"), // such as alt
-        changedAttribute("Changed attribute: ${attribute}"), // such as count
+        /**
+         * An actual value was found in the XML source. This is never returned for constructed or
+         * other synthesized values.
+         */
+        value("Found: explicit value", true),
+        /**
+         * codeFallback does not have a locale, it is effectively the parent of 'root'. A value was
+         * calculated according to the specification.
+         */
+        codeFallback("Found: code fallback", true),
+        /**
+         * This shows the location where an alias was found which affected the inheritance chain.
+         */
+        alias("An alias was found at this location", false),
+        /**
+         * Constructed entries form a block. All such values are in place of the actual constructed
+         * value.
+         */
+        constructed("Constructed value", false),
+        none("The value was not found in this locale.", true),
+        inheritanceMarker("Found: Inheritance marker", false),
+        removedAttribute("Removed attribute: ${attribute}", false), // such as alt
+        changedAttribute("Changed attribute: ${attribute}", false), // such as count
         ;
 
         private String description;
+        private boolean terminal;
 
-        Reason(String description) {
+        /**
+         * An entry is 'terminal' if it represents the end of a successful look up chain. A
+         * nonterminal entry merely contributes to the look up. Only terminal entries will
+         * correspond to a return value from {@link CLDRFile#getSourceLocaleIdExtended(String,
+         * org.unicode.cldr.util.CLDRFile.Status, boolean)} for example. Entries following a
+         * terminal entry are the start of a bailey value.
+         *
+         * @return
+         */
+        public boolean isTerminal() {
+            return terminal;
+        }
+
+        Reason(String description, boolean terminal) {
             this.description = description;
+            this.terminal = terminal;
         }
 
         public String getDescription() {

@@ -554,32 +554,47 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Similar to {@link #getBaileyValue(String, Output, Output)} except returns a map, as
-     * constructed values can have multiple contributory paths.
+     * Return a list of all paths which contributed to the value, as well as all bailey values. This
+     * is used to explain inheritance and bailey values. The list must be interpreted in order. When
+     * {@link LocaleInheritanceInfo.Reason#isTerminal()} return true, that indicates a successful
+     * lookup and partitions values from subsequent bailey values.
      *
-     * @return map from xpath to locale of one or more contributing paths in the case of glossonymns
-     *     or other constructed values.
+     * @see #getBaileyValue(String, Output, Output)
+     * @see #getSourceLocaleIdExtended(String, Status, boolean)
      */
     public List<LocaleInheritanceInfo> getPathsWhereFound(String xpath) {
-        List<LocaleInheritanceInfo> list = new LinkedList<>();
+        if (!isResolved()) {
+            throw new IllegalArgumentException(
+                    "getPathsWhereFound() is only valid on a resolved CLDRFile");
+        }
+        LinkedList<LocaleInheritanceInfo> list = new LinkedList<>();
         // first, call getSourceLocaleIdExtended to populate the list
         Status status = new Status();
-        getSourceLocaleIdExtended(xpath, status, true, list);
+        final String locale1 = // for debugging
+                getSourceLocaleIdExtended(xpath, status, false, list);
         final String path1 = status.pathWhereFound;
+        System.out.println("Path: " + path1 + ", loc: " + locale1);
         // For now, the only special case is Glossonym
         if (path1.equals(GlossonymConstructor.PSEUDO_PATH)) {
-            list.clear(); // Rebuild this
-            // it's a Glossonym, so dig in
+            // it's a Glossonym, so as the GlossonymConstructor what the paths are.  Sort paths in
+            // reverse order.
             final Set<String> xpaths =
-                    new GlossonymConstructor(this).getPathsWhereFound(xpath, new TreeSet<String>());
+                    new GlossonymConstructor(this)
+                            .getPathsWhereFound(
+                                    xpath, new TreeSet<String>(Comparator.reverseOrder()));
             for (final String subpath : xpaths) {
-                // recurse
                 final String locale2 = getSourceLocaleIdExtended(subpath, status, true);
                 final String path2 = status.pathWhereFound;
-                list.add(new LocaleInheritanceInfo(locale2, path2, Reason.constructed));
+                // Paths are in reverse order (c-b-a) so we insert them at the top of our list.
+                list.addFirst(new LocaleInheritanceInfo(locale2, path2, Reason.constructed));
             }
-        } else {
-            return list;
+
+            // now the list contains:
+            // constructed: a
+            // constructed: b
+            // constructed: c
+            // (none) - this is where the glossonym was
+            // (bailey value(s))
         }
         return list;
     }

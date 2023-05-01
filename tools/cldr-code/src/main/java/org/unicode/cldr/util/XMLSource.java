@@ -1115,11 +1115,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         if (list == null) {
                             return new AliasLocation(xpath, localeID);
                         }
-                        list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
+                        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            list.add(
+                                    new LocaleInheritanceInfo(
+                                            localeID, xpath, Reason.inheritanceMarker));
+                        } else {
+                            list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
+                        }
                         // Now, keep looping to add additional Bailey values.
                         // Note that we will typically exit the recursion (terminal state)
                         // with Reason.codeFallback or Reason.none
-                        if (firstValue != null) {
+                        if (firstValue == null) {
                             // Save this, this will eventually be the function return.
                             firstValue = new AliasLocation(xpath, localeID);
                             // Everything else is only for Bailey.

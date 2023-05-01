@@ -9,13 +9,14 @@ import * as cldrLoad from "./cldrLoad.js";
 let reasonStrings = null;
 
 /**
- * @returns Promise<Map<String,String>> map from reason enum to string
+ * @returns Promise<Map<String,Object>> map from reason enum to object
  */
 function getInheritanceReasonStrings() {
   if (reasonStrings === null) {
     reasonStrings = cldrAjax
       .doFetch(`api/xpath/inheritance/reasons`)
-      .then((v) => v.json());
+      .then((v) => v.json())
+      .then((r) => r.reduce((p, v) => ((p[v.reason] = v), p), {}));
   }
   return reasonStrings;
 }
@@ -33,7 +34,6 @@ async function explainInheritance(itemLocale, itemXpath) {
   const { items } = await r.json();
   let lastLocale = null;
   let lastPath = null;
-  let firstNone = false;
   for (let i = 0; i < items.length; i++) {
     const { locale, xpath, reason } = items[i];
     if (reason !== "none") {

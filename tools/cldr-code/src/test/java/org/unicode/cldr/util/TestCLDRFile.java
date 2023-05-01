@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -212,27 +214,41 @@ public class TestCLDRFile {
             String locale = "en";
             String p = GERMAN_IN_SWITZERLAND;
             final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
             assertEquals(
-                    List.of(new LocaleInheritanceInfo(locale, p, Reason.value)),
-                    f.getPathsWhereFound(p),
+                    List.of(
+                            new LocaleInheritanceInfo(locale, p, Reason.value),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
+                            new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
+                    pwf,
                     "For " + locale + ":" + p);
+            assertTrue(
+                    pwf.get(pwf.size() - 1).getReason().isTerminal(),
+                    "Last Reason should be terminal");
         }
         {
             String locale = "en_CA";
             String parent = "en";
             String p = GERMAN_IN_SWITZERLAND;
             final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(locale, p, Reason.inheritanceMarker),
-                            new LocaleInheritanceInfo(parent, p, Reason.value)),
-                    f.getPathsWhereFound(p),
+                            new LocaleInheritanceInfo(parent, p, Reason.value),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
+                            new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
+                    pwf,
                     "For " + locale + ":" + p);
+            assertTrue(
+                    pwf.get(pwf.size() - 1).getReason().isTerminal(),
+                    "Last Reason should be terminal");
         }
         {
             String locale = "root";
             String p = GERMAN_IN_SWITZERLAND;
             final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(locale, true);
+            List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
@@ -244,9 +260,14 @@ public class TestCLDRFile {
                             new LocaleInheritanceInfo(
                                     XMLSource.CODE_FALLBACK_ID,
                                     "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
-                                    Reason.constructed)),
-                    f.getPathsWhereFound(p),
+                                    Reason.constructed),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
+                            new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
+                    pwf,
                     "For " + locale + ":" + p);
+            assertTrue(
+                    pwf.get(pwf.size() - 1).getReason().isTerminal(),
+                    "Last Reason should be terminal");
         }
         {
             // Note: Uses the special test data in
@@ -258,6 +279,7 @@ public class TestCLDRFile {
             final String pother =
                     "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"angle-revolution\"]/unitPattern[@count=\"other\"]";
             final CLDRFile f = myFactory.make(locale, true);
+            List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(locale, p, Reason.none),
@@ -265,9 +287,52 @@ public class TestCLDRFile {
                             new LocaleInheritanceInfo(
                                     null, pother, Reason.changedAttribute, "count"),
                             new LocaleInheritanceInfo(locale, pother, Reason.none),
-                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, pother, Reason.value)),
-                    f.getPathsWhereFound(p),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, pother, Reason.value),
+                            new LocaleInheritanceInfo(null, pother, Reason.codeFallback)),
+                    pwf,
                     "For (TESTDATA) " + locale + ":" + p);
+            assertTrue(
+                    pwf.get(pwf.size() - 1).getReason().isTerminal(),
+                    "Last Reason should be terminal");
+        }
+        {
+            String locale = "hy";
+            final String p = GERMAN_IN_SWITZERLAND;
+            final CLDRFile f = myFactory.make(locale, true);
+            List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
+            assertEquals(
+                    List.of(
+                            new LocaleInheritanceInfo(
+                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
+                            new LocaleInheritanceInfo(
+                                    XMLSource
+                                            .CODE_FALLBACK_ID /* test data does not have this in root */,
+                                    "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                                    Reason.constructed),
+                            new LocaleInheritanceInfo(
+                                    XMLSource.CODE_FALLBACK_ID,
+                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
+                                    Reason.constructed),
+                            new LocaleInheritanceInfo(locale, p, Reason.none),
+                            new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
+                            new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
+                    pwf,
+                    "For (TESTDATA) " + locale + ":" + p);
+            assertTrue(
+                    pwf.get(pwf.size() - 1).getReason().isTerminal(),
+                    "Last Reason should be terminal");
+
+            // new LocaleInheritanceInfo(
+
+        }
+        {
+            // assert that throws with a non-resolved
+            assertThrows(
+                    IllegalArgumentException.class,
+                    () ->
+                            CLDRConfig.getInstance()
+                                    .getCLDRFile("en", false)
+                                    .getPathsWhereFound(GERMAN_IN_SWITZERLAND));
         }
     }
 }

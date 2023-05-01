@@ -48,7 +48,7 @@ async function explainInheritance(itemLocale, itemXpath) {
       lastLocale = locale;
     }
     if (xpath && lastPath !== xpath) {
-      if (i !== 0 || xpath !== itemXpath) {
+      if (i === 0 || xpath !== itemXpath) {
         // Don't set newXpath for the first (current) xpath.
         items[i].newXpath = xpath;
       }

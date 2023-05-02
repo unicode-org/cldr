@@ -1,14 +1,14 @@
 package org.unicode.cldr.util;
 
-import java.util.Locale;
-import java.util.Set;
-
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.Locale;
+import java.util.Set;
 
 /**
- * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including hex.
+ * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
+ * hex.
  */
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
@@ -37,20 +37,24 @@ public enum CodePointEscaper {
 
     RANGE('➖', "range syntax mark", "heavy minus sign"),
     ESCS('⦕', "escape start", "double open paren angle"),
-    ESCE('⦖', "escape end", "double close paren angle")
-    ;
+    ESCE('⦖', "escape end", "double close paren angle");
 
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
-    public static final char ESCAPE_END =  (char) ESCE.getCodePoint();
+    public static final char ESCAPE_END = (char) ESCE.getCodePoint();
 
     /** Assemble the reverse mapping */
     private static final UnicodeMap<CodePointEscaper> _fromCodePoint = new UnicodeMap<>();
+
     static {
         for (CodePointEscaper abbr : CodePointEscaper.values()) {
             CodePointEscaper oldValue = _fromCodePoint.get(abbr.codePoint);
             if (oldValue != null) {
-                throw new IllegalArgumentException("Abbreviation code points collide: " + oldValue.name() + ", " + abbr.name());
+                throw new IllegalArgumentException(
+                        "Abbreviation code points collide: "
+                                + oldValue.name()
+                                + ", "
+                                + abbr.name());
             }
             _fromCodePoint.put(abbr.codePoint, abbr);
         }
@@ -58,9 +62,10 @@ public enum CodePointEscaper {
     }
 
     /** Characters that need escaping */
-    public static final UnicodeSet FORCE_ESCAPE = new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:Cn:][:Cc:]]")
-        .addAll(getNamedEscapes())
-        .freeze();
+    public static final UnicodeSet FORCE_ESCAPE =
+            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:Cn:][:Cc:]]")
+                    .addAll(getNamedEscapes())
+                    .freeze();
 
     private final int codePoint;
     private final Set<String> longNames;
@@ -75,22 +80,20 @@ public enum CodePointEscaper {
     }
 
     /**
-     * Return long names for this character. The set is immutable and ordered,
-     * with the first name being the most user-friendly.
+     * Return long names for this character. The set is immutable and ordered, with the first name
+     * being the most user-friendly.
      */
     public Set<String> getLongNames() {
         return longNames;
     }
-    /**
-     * Return the code point for this character.
-     */
+    /** Return the code point for this character. */
     public int getCodePoint() {
         return codePoint;
     }
 
     /**
-     * Return an Abbreviation for a string (or CharSequence), or null if not found.
-     * Handles lower and uppercase input.
+     * Return an Abbreviation for a string (or CharSequence), or null if not found. Handles lower
+     * and uppercase input.
      */
     public static CodePointEscaper fromString(CharSequence source) {
         try {
@@ -100,17 +103,12 @@ public enum CodePointEscaper {
         }
     }
 
-    /**
-     * Returns an Abbreviation for a codePoint, or null if not found.
-     */
+    /** Returns an Abbreviation for a codePoint, or null if not found. */
     public static CodePointEscaper fromCodePoint(int codePoint) {
         return _fromCodePoint.get(codePoint);
     }
 
-
-    /**
-     * Returns a codepoint from an abbreviation string or hex string.
-     */
+    /** Returns a codepoint from an abbreviation string or hex string. */
     public static int fromAbbreviationOrHex(CharSequence value) {
         CodePointEscaper abbreviation = CodePointEscaper.fromString(value.toString());
         if (abbreviation != null) {
@@ -123,13 +121,11 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
-    /**
-     * Returns an abbreviation string or hex string from a code point.
-     */
+    /** Returns an abbreviation string or hex string from a code point. */
     public static String toAbbreviationOrHex(int codePoint) {
         CodePointEscaper result = CodePointEscaper.fromCodePoint(codePoint);
         return result == null
-            ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
+                ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
     }
 }

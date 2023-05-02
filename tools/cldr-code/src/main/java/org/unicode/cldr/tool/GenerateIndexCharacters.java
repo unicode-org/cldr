@@ -1,11 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.AlphabeticIndex;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -15,11 +18,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
-
-import com.ibm.icu.text.AlphabeticIndex;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 public class GenerateIndexCharacters {
     public static void main(String[] args) throws IOException {
@@ -57,12 +55,12 @@ public class GenerateIndexCharacters {
         for (String item : items) {
             uset.add(item);
         }
-        SimpleUnicodeSetFormatter pp = new SimpleUnicodeSetFormatter((Comparator)collator);
-//        new UnicodeSetPrettyPrinter()
-//            .setCompressRanges(true)
-//            .setToQuote(DisplayAndInputProcessor.TO_QUOTE)
-//            .setOrdering(collator)
-//            .setSpaceComparator(collator);
+        SimpleUnicodeSetFormatter pp = new SimpleUnicodeSetFormatter((Comparator) collator);
+        //        new UnicodeSetPrettyPrinter()
+        //            .setCompressRanges(true)
+        //            .setToQuote(DisplayAndInputProcessor.TO_QUOTE)
+        //            .setOrdering(collator)
+        //            .setSpaceComparator(collator);
 
         String cleanedSet =
                 DisplayAndInputProcessor.getCleanedUnicodeSet(uset, pp, ExemplarType.index);

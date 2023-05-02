@@ -3,6 +3,22 @@
 
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.myanmartools.ZawgyiDetector;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -13,7 +29,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.Builder;
@@ -32,23 +47,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.myanmartools.ZawgyiDetector;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateIntervalInfo;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Class for processing the input and output of CLDR data for use in the Survey Tool and other
@@ -278,13 +276,15 @@ public class DisplayAndInputProcessor {
             if (spaceCol instanceof RuleBasedCollator) {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
-            pp = new SimpleUnicodeSetFormatter((Comparator)col);
-//                new UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
-//                .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-//                .setCompressRanges(true)
-//                .setToQuote(new UnicodeSet(TO_QUOTE))
-//                .setOrdering(col)
-//                .setSpaceComparator(spaceCol);
+            pp = new SimpleUnicodeSetFormatter((Comparator) col);
+            //                new
+            // UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+            //
+            // .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+            //                .setCompressRanges(true)
+            //                .setToQuote(new UnicodeSet(TO_QUOTE))
+            //                .setOrdering(col)
+            //                .setSpaceComparator(spaceCol);
         } else {
             pp = new SimpleUnicodeSetFormatter(); // default collator
         }
@@ -427,7 +427,8 @@ public class DisplayAndInputProcessor {
      * @param internalException to be filled in if RuntimeException occurs
      * @return the possibly modified value
      */
-    public synchronized String processInput(String path, String value, Exception[] internalException) {
+    public synchronized String processInput(
+            String path, String value, Exception[] internalException) {
         // skip processing for inheritance marker
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             return value;
@@ -541,10 +542,10 @@ public class DisplayAndInputProcessor {
         }
 
         // check specific cases
-//        if (isUnicodeSet) {
-//            value = inputUnicodeSet(path, value);
-//        } else
-            if (path.contains("stopword")) {
+        //        if (isUnicodeSet) {
+        //            value = inputUnicodeSet(path, value);
+        //        } else
+        if (path.contains("stopword")) {
             if (value.equals("NONE")) {
                 value = "";
             }
@@ -718,17 +719,17 @@ public class DisplayAndInputProcessor {
 
     private String displayUnicodeSet(String value) {
         return pp.format(new UnicodeSet(value));
-//        if (value.startsWith("[") && value.endsWith("]")) {
-//            value = value.substring(1, value.length() - 1);
-//        }
-//
-//        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-//        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+        //        if (value.startsWith("[") && value.endsWith("]")) {
+        //            value = value.substring(1, value.length() - 1);
+        //        }
+        //
+        //        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+        //        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
 
         // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
         // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
         // }
-//        return value;
+        //        return value;
     }
 
     private String inputUnicodeSet(String path, String value) {
@@ -761,9 +762,9 @@ public class DisplayAndInputProcessor {
             exemplar = new UnicodeSet(value);
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
-//        if (parts.getElement(2).equals("parseLenients")) {
-//            return exemplar.toPattern(false);
-//        }
+        //        if (parts.getElement(2).equals("parseLenients")) {
+        //            return exemplar.toPattern(false);
+        //        }
         final String type = parts.getAttributeValue(-1, "type");
         ExemplarType exemplarType = type == null ? null : ExemplarType.valueOf(type);
         value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
@@ -1040,17 +1041,19 @@ public class DisplayAndInputProcessor {
     public static String ADLAM_NASALIZATION = "𞥋"; // U+1E94B (Unicode 12.0)
 
     public static String fixAdlamNasalization(String fromString) {
-        return ADLAM_MISNASALIZED.matcher(fromString)
-            .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
+        return ADLAM_MISNASALIZED
+                .matcher(fromString)
+                .replaceAll("$1" + ADLAM_NASALIZATION + "$2"); // replace quote with 𞥋
     }
 
     static Pattern NEEDS_QUOTE1 = PatternCache.get("(\\s|$)([-\\}\\]\\&])()");
     static Pattern NEEDS_QUOTE2 =
             PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public static String getCleanedUnicodeSet(UnicodeSet exemplar,
-        SimpleUnicodeSetFormatter prettyPrinter,
-        ExemplarType exemplarType) {
+    public static String getCleanedUnicodeSet(
+            UnicodeSet exemplar,
+            SimpleUnicodeSetFormatter prettyPrinter,
+            ExemplarType exemplarType) {
 
         if (prettyPrinter == null) {
             throw new IllegalArgumentException("Formatter must not be null");
@@ -1104,25 +1107,27 @@ public class DisplayAndInputProcessor {
         }
         value = toAdd.toPattern(false);
 
-//        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
-//            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
-//            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
-//            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly + ",\tadded\t" + newOnly);
-//        }
-//        String fixedExemplar = prettyPrinter.format(toAdd);
-//        UnicodeSet doubleCheck = prettyPrinter.parse(fixedExemplar);
-//        if (!toAdd.equals(doubleCheck)) {
-//            System.out.println("fail")
-//        }
-//        else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
-//            if (DEBUG_DAIP) {
-//                System.out.println(TestMetadata.showDifference(
-//                    With.codePoints(value),
-//                    With.codePoints(fixedExemplar),
-//                    "\n"));
-//            }
-//            value = fixedExemplar;
-//        }
+        //        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
+        //            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
+        //            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
+        //            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly +
+        // ",\tadded\t" + newOnly);
+        //        }
+        //        String fixedExemplar = prettyPrinter.format(toAdd);
+        //        UnicodeSet doubleCheck = prettyPrinter.parse(fixedExemplar);
+        //        if (!toAdd.equals(doubleCheck)) {
+        //            System.out.println("fail")
+        //        }
+        //        else if (!value.equals(fixedExemplar)) { // put in this condition just for
+        // debugging
+        //            if (DEBUG_DAIP) {
+        //                System.out.println(TestMetadata.showDifference(
+        //                    With.codePoints(value),
+        //                    With.codePoints(fixedExemplar),
+        //                    "\n"));
+        //            }
+        //            value = fixedExemplar;
+        //        }
         return value;
     }
 
@@ -1277,8 +1282,8 @@ public class DisplayAndInputProcessor {
         }
 
         // Further whitespace adjustments per CLDR-14032
-        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) &&
-            HOUR_FORMAT_XPATHS.matcher(path).matches()) {
+        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek"))
+                && HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
                 value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202F$3");

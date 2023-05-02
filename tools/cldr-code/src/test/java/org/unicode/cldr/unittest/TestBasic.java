@@ -1,5 +1,26 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +40,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -62,28 +82,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwkPlus {
 
@@ -253,8 +251,7 @@ public class TestBasic extends TestFmwkPlus {
                     SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, "*", "*");
             String header = type + "\t" + element + "\t" + (deprecatedElement ? "X" : "") + "\t";
             Set<String> usedAttributes = foundAttributes.get(typeElement);
-            Set<String> unusedAttributes = new LinkedHashSet<>(
-                theoryAttributeSet);
+            Set<String> unusedAttributes = new LinkedHashSet<>(theoryAttributeSet);
             if (usedAttributes == null) {
                 logln(
                         header
@@ -443,8 +440,7 @@ public class TestBasic extends TestFmwkPlus {
                             if (fallbackList == null) {
                                 fallbackList = new ArrayList<>();
                             } else {
-                                fallbackList = new ArrayList<>(
-                                    fallbackList); // writable
+                                fallbackList = new ArrayList<>(fallbackList); // writable
                             }
                             fallbackList.add(nfkc);
                         }
@@ -512,11 +508,14 @@ public class TestBasic extends TestFmwkPlus {
         Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = testInfo.getEnglish();
         Map<String, Counter<Level>> abstactPaths = new TreeMap<>();
-        RegexTransform abstractPathTransform = new RegexTransform(
-            RegexTransform.Processing.ONE_PASS).add("//ldml/", "")
-                .add("\\[@alt=\"[^\"]*\"\\]", "").add("=\"[^\"]*\"", "=\"*\"")
-                .add("([^]])\\[", "$1\t[").add("([^]])/", "$1\t/")
-                .add("/", "\t");
+        RegexTransform abstractPathTransform =
+                new RegexTransform(RegexTransform.Processing.ONE_PASS)
+                        .add("//ldml/", "")
+                        .add("\\[@alt=\"[^\"]*\"\\]", "")
+                        .add("=\"[^\"]*\"", "=\"*\"")
+                        .add("([^]])\\[", "$1\t[")
+                        .add("([^]])/", "$1\t/")
+                        .add("/", "\t");
 
         for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
@@ -690,8 +689,8 @@ public class TestBasic extends TestFmwkPlus {
 
     /** The verbose output shows the results of 1..3 \u00a4 signs. */
     public void checkCurrency() {
-        Map<String, Set<R2<String, Integer>>> results = new TreeMap<>(
-            Collator.getInstance(ULocale.ENGLISH));
+        Map<String, Set<R2<String, Integer>>> results =
+                new TreeMap<>(Collator.getInstance(ULocale.ENGLISH));
         for (ULocale locale : ULocale.getAvailableLocales()) {
             if (locale.getCountry().length() != 0) {
                 continue;
@@ -708,8 +707,7 @@ public class TestBasic extends TestFmwkPlus {
                     final String formatted = format.format(12345.67);
                     Set<R2<String, Integer>> set = results.get(formatted);
                     if (set == null) {
-                        results.put(formatted,
-                            set = new TreeSet<>());
+                        results.put(formatted, set = new TreeSet<>());
                     }
                     set.add(Row.of(locale.toString(), Integer.valueOf(i)));
                 }
@@ -1198,11 +1196,18 @@ public class TestBasic extends TestFmwkPlus {
         final String oldCommon = CldrVersion.LAST_RELEASE_VERSION.getBaseDirectory() + "/common";
 
         // set up exceptions
-        Set<String> changedToEmpty = new HashSet<>(
-            Arrays.asList(new String[] { "version", "languageCoverage",
-                "scriptCoverage", "territoryCoverage",
-                "currencyCoverage", "timezoneCoverage",
-                "skipDefaultLocale" }));
+        Set<String> changedToEmpty =
+                new HashSet<>(
+                        Arrays.asList(
+                                new String[] {
+                                    "version",
+                                    "languageCoverage",
+                                    "scriptCoverage",
+                                    "territoryCoverage",
+                                    "currencyCoverage",
+                                    "timezoneCoverage",
+                                    "skipDefaultLocale"
+                                }));
         Set<String> PCDATA = new HashSet<>();
         PCDATA.add("PCDATA");
         Set<String> EMPTY = new HashSet<>();
@@ -1264,8 +1269,7 @@ public class TestBasic extends TestFmwkPlus {
                         newAttributes = Collections.emptySet();
                     }
                     if (!newAttributes.containsAll(oldAttributes)) {
-                        LinkedHashSet<String> missing = new LinkedHashSet<>(
-                            oldAttributes);
+                        LinkedHashSet<String> missing = new LinkedHashSet<>(oldAttributes);
                         missing.removeAll(newAttributes);
                         if (element.equals(dtd.toString()) && missing.equals(VERSION)) {
                             // ok, skip
@@ -1325,8 +1329,7 @@ public class TestBasic extends TestFmwkPlus {
             Map<String, Element> currentElementFromName = dtdData.getElementFromName();
 
             // current has no orphan
-            Set<Element> orphans = new LinkedHashSet<>(dtdData
-                .getElementFromName().values());
+            Set<Element> orphans = new LinkedHashSet<>(dtdData.getElementFromName().values());
             orphans.remove(dtdData.ROOT);
             orphans.remove(dtdData.PCDATA);
             orphans.remove(dtdData.ANY);

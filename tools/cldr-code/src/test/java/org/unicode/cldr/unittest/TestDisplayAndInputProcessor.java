@@ -62,7 +62,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile("twq", true));
         // time for data driven test
         final String input = "Z \u017E";
-        final String expect = "[zž]"; // lower case
+        final String expect = "[zž]"; // should only be lowercased if the exemplar class is set.
         String value = daip.processInput("//ldml/characters/exemplarCharacters", input, null);
         if (!value.equals(expect)) {
             errln(
@@ -349,6 +349,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
+                display = daip.processForDisplay(path, value);
+                input = daip.processInput(path, display, internalException);
+                diff(value, input, path);
                 errln(
                         cldrFile.getLocaleID()
                                 + "\tNo roundtrip in DAIP:"
@@ -391,6 +394,32 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             }
         }
     }
+    /** DAIP can add characters to UnicodeSets, so remove them for a clean test. Could optimize */
+    UnicodeSet suppressAdditions(UnicodeSet value, UnicodeSet input_value) {
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(value); usi.next(); ) {
+            switch (usi.getString()) {
+                case "\u2011":
+                    input_value.remove('-');
+                    break; // nobreak hyphen
+                case "-":
+                    input_value.remove('\u2011');
+                    break; // nobreak hyphen
+                case " ":
+                    input_value.remove('\u00a0');
+                    break; // nobreak space
+                case "\u00a0":
+                    input_value.remove(' ');
+                    break; // nobreak space
+                case "\u202F":
+                    input_value.remove('\u2009');
+                    break; // nobreak narrow space
+                case "\u2009":
+                    input_value.remove('\u202F');
+                    break; // nobreak narrow space
+            }
+        }
+        return input_value;
+    }
 
     private String diff(String value, String input, String path) {
         if (value.equals(input)) {
@@ -401,18 +430,26 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
-                UnicodeSet s1 = new UnicodeSet(value);
-                UnicodeSet s2;
+                UnicodeSet valueSet = new UnicodeSet(value);
+                UnicodeSet inputSet;
                 try {
-                    s2 = new UnicodeSet(input);
+                    inputSet = new UnicodeSet(input);
                 } catch (Exception e) {
-                    s2 = UnicodeSet.EMPTY;
+                    inputSet = UnicodeSet.EMPTY;
                 }
-                if (!s1.equals(s2)) {
-                    UnicodeSet temp = new UnicodeSet(s1).removeAll(s2);
-                    UnicodeSet temp2 = new UnicodeSet(s2).removeAll(s1);
-                    temp.addAll(temp2);
-                    return temp.toPattern(true);
+                if (!valueSet.equals(inputSet)) {
+                    // The test has problems, because DAIP can add characters.
+                    // So check that it adds them right
+                    UnicodeSet value_input = new UnicodeSet(valueSet).removeAll(inputSet);
+                    UnicodeSet input_value =
+                            suppressAdditions(
+                                    valueSet, new UnicodeSet(inputSet).removeAll(valueSet));
+                    if (!value_input.isEmpty() && !input_value.isEmpty()) {
+                        return (value_input.isEmpty() ? "" : "V-I:" + value_input.toPattern(true))
+                                + (input_value.isEmpty()
+                                        ? ""
+                                        : "I-V:" + input_value.toPattern(true));
+                    }
                 }
                 return null;
             } catch (Exception e) {

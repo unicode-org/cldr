@@ -766,7 +766,10 @@ public class DisplayAndInputProcessor {
         //            return exemplar.toPattern(false);
         //        }
         final String type = parts.getAttributeValue(-1, "type");
-        ExemplarType exemplarType = type == null ? null : ExemplarType.valueOf(type);
+        ExemplarType exemplarType =
+                !path.contains("exemplarCharacters")
+                        ? null
+                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
         value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
         return value;
     }
@@ -1060,7 +1063,7 @@ public class DisplayAndInputProcessor {
         }
         String value;
         // prettyPrinter.setCompressRanges(exemplar.size() > 300);
-        value = exemplar.toPattern(false);
+        // value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 
         for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {

@@ -24,8 +24,8 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
- * Very basic class for rational numbers. No attempt to optimize, since it will just be used for
- * testing within CLDR.
+ * Basic class for rational numbers. There is little attempt to optimize, since it will just be used
+ * for testing and data production within CLDR.
  *
  * @author markdavis
  */
@@ -312,6 +312,7 @@ public final class Rational implements Comparable<Rational> {
         plain,
         simple,
         repeating,
+        repeatingAll,
         html
     }
 
@@ -331,11 +332,14 @@ public final class Rational implements Comparable<Rational> {
         final String numStr = format(newNumerator.value);
         final String denStr = nf.format(newDenominator).toString();
         final boolean denIsOne = newDenominator.equals(BigInteger.ONE);
+        int limit = 1000;
 
         switch (style) {
             case repeating:
+                limit = 30;
+            case repeatingAll:
                 String result =
-                        toRepeating(30); // limit of 30 on the repeating length, so we don't get
+                        toRepeating(limit); // limit of 30 on the repeating length, so we don't get
                 // unreasonable
                 if (result != null) {
                     return result;

@@ -1086,7 +1086,7 @@ public class PathHeader implements Comparable<PathHeader> {
             "Und"
         };
         static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-        static List<String> unitOrder = DtdData.unitOrder.getOrder();
+        static List<String> unitOrder = DtdData.getUnitOrder().getOrder();
         static final MapComparator<String> dayPeriods =
                 new MapComparator<String>()
                         .add(
@@ -2440,6 +2440,7 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param path
      * @return
      */
+    @Deprecated
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return SECTION_LINK
                 + PathHeader.getUrl(baseUrl, file.getLocaleID(), path)

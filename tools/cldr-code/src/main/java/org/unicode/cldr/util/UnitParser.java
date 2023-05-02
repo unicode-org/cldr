@@ -3,7 +3,9 @@ package org.unicode.cldr.util;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.ibm.icu.util.Output;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 
 public class UnitParser {
@@ -37,11 +39,24 @@ public class UnitParser {
         haveBaseOrSuffix
     }
 
+    public List<Pair<UnitIdComponentType, String>> getRemaining() {
+        List<Pair<UnitIdComponentType, String>> result = new ArrayList<>();
+        Output<UnitIdComponentType> type = new Output<>();
+        while (true) {
+            String item = nextParse(type);
+            if (item == null) {
+                return result;
+            }
+            result.add(Pair.of(type.value, item));
+        }
+    }
+
     /**
      * Parses the next segment in the source from set.
      *
-     * @param output returns type type of the item, where base is for prefix* base suffix*
-     * @return a unit segment of the form: prefix* base suffix*, and, per, or power
+     * @param output returns type type of the item
+     * @return a unit segment of the form: prefix* base suffix*, and, per, or power; or null if no
+     *     more remaining
      */
     public String nextParse(Output<UnitIdComponentType> type) {
         String output = null;
@@ -106,7 +121,7 @@ public class UnitParser {
                         case start: // return this item
                             output = bufferedItem;
                             bufferedItem = null;
-                            type.value = outputType;
+                            type.value = bufferedType;
                             return output;
                         case havePrefix:
                             throw new IllegalArgumentException(

@@ -15,8 +15,9 @@ import java.util.function.Function;
 
 /**
  * Goal is a very simple format for UnicodeSet, that keeps vetters from having to know about \ for
- * quoting or {...} for strings. We do this by using spaces to always separate different characters,
- * and special syntax for ranges, escaped hex, and named entities There are 2 special characters:
+ * quoting or {...} for strings, or $ for FFFF. We do this by using spaces to always separate
+ * different characters, and special syntax for ranges, escaped hex, and named entities. There are 2
+ * special characters:
  *
  * <ul>
  *   <li>➖ a range, but if between two code points

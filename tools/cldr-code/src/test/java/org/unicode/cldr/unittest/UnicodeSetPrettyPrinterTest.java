@@ -72,6 +72,8 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
     public void testSimpleUnicodeSetFormatter() {
         String[][] tests = {
+            {"[\\u0024\\uFE69\\uFF04]", "$ ＄ ﹩"},
+            {"[\\u0024﹩＄]", "$ ＄ ﹩"},
             {"[\u000F]", "⦕F⦖"},
             {"[\\u0020]", "⦕SP⦖"},
             {"[A-Z]", "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"},
@@ -88,13 +90,14 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         for (String[] test : tests) {
             final UnicodeSet source = new UnicodeSet(test[0]);
             String actual = susf.format(source);
-            UnicodeSet expectedRoundtrip = null;
-            try {
-                expectedRoundtrip = susf.parse(actual);
-            } catch (Exception e) {
-            }
             String expected = test.length < 2 ? actual : test[1];
             assertEquals(source + " to format", expected, actual);
+
+            UnicodeSet expectedRoundtrip = null;
+            try {
+                expectedRoundtrip = susf.parse(expected);
+            } catch (Exception e) {
+            }
             assertEquals(source + " roundtrip", expectedRoundtrip, source);
         }
     }

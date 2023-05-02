@@ -354,6 +354,9 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            return value;
+        }
         value = Normalizer.compose(value, false); // Always normalize all text to NFC.
         if (hasUnicodeSetValue(path)) {
             return displayUnicodeSet(value);
@@ -719,9 +722,9 @@ public class DisplayAndInputProcessor {
 
     private String displayUnicodeSet(String value) {
         return pp.format(new UnicodeSet(value));
-        //        if (value.startsWith("[") && value.endsWith("]")) {
-        //            value = value.substring(1, value.length() - 1);
-        //        }
+        //                if (value.startsWith("[") && value.endsWith("]")) {
+        //                    value = value.substring(1, value.length() - 1);
+        //                }
         //
         //        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
         //        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
@@ -737,7 +740,8 @@ public class DisplayAndInputProcessor {
         try {
             exemplar = pp.parse(value);
         } catch (Exception e) {
-            int debug = 0;
+            pp.parse(value); // for debugging
+            return value; // we can't throw an exception because clients won't expect it.
         }
         if (false) {
             // clean up the user's input.
@@ -1061,6 +1065,10 @@ public class DisplayAndInputProcessor {
         if (prettyPrinter == null) {
             throw new IllegalArgumentException("Formatter must not be null");
         }
+        if (exemplar == null) {
+            throw new IllegalArgumentException("set to be cleaned must not be null");
+        }
+
         String value;
         // prettyPrinter.setCompressRanges(exemplar.size() > 300);
         // value = exemplar.toPattern(false);

@@ -444,7 +444,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     UnicodeSet input_value =
                             suppressAdditions(
                                     valueSet, new UnicodeSet(inputSet).removeAll(valueSet));
-                    if (!value_input.isEmpty() && !input_value.isEmpty()) {
+                    if (!value_input.isEmpty() || !input_value.isEmpty()) {
                         return (value_input.isEmpty() ? "" : "V-I:" + value_input.toPattern(true))
                                 + (input_value.isEmpty()
                                         ? ""

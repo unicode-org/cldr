@@ -626,7 +626,8 @@ public class TestBasic extends TestFmwkPlus {
                                     + path);
                 }
                 String inputValue =
-                        displayAndInputProcessor.processInput(path, value, internalException);
+                        displayAndInputProcessor.processInput(
+                                path, displayValue, internalException);
                 if (internalException[0] != null) {
                     errln(
                             "\t"

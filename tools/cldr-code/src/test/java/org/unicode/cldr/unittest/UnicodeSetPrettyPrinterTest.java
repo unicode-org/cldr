@@ -6,13 +6,15 @@
  */
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.UnicodeSet;
 import java.text.Collator;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -22,10 +24,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.base.Joiner;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.text.UnicodeSet;
 
 public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static void main(String[] args) throws Exception {
@@ -77,8 +75,10 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             {"[\u000F]", "⦕F⦖"},
             {"[\\u0020]", "⦕SP⦖"},
             {"[A-Z]", "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"},
-            {"[A Á B C {CS} D {DZ} {DZS} E É F G {GY} H I Í J K L {LY} M N {NY} O Ó Ö Ő P Q R S {SZ} T {TY} U Ú Ü Ű V W X Y Z {ZS}]",
-                "A Á B C CS D DZ DZS E É F G GY H I Í J K L LY M N NY O Ó Ö Ő P Q R S SZ T TY U Ú Ü Ű V W X Y Z ZS"},
+            {
+                "[A Á B C {CS} D {DZ} {DZS} E É F G {GY} H I Í J K L {LY} M N {NY} O Ó Ö Ő P Q R S {SZ} T {TY} U Ú Ü Ű V W X Y Z {ZS}]",
+                "A Á B C CS D DZ DZS E É F G GY H I Í J K L LY M N NY O Ó Ö Ő P Q R S SZ T TY U Ú Ü Ű V W X Y Z ZS"
+            },
             {"[:block=Hangul_Jamo:]", "ᄀ➖ᇿ"},
             {"[:block=CJK_Unified_Ideographs:]", "一➖鿿"},
         };

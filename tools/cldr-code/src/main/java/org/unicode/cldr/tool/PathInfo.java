@@ -19,7 +19,8 @@ public class PathInfo {
     static final Options options =
             new Options(PathInfo.class)
                     .add("locale", ".*", "und", "Locale ID for the path info")
-                    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin");
+                    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin")
+                    .add("nosource", "Don’t print the XML Source line");
 
     public static void main(String args[]) throws IOException {
         final Set<String> paths = options.parse(args, true);
@@ -90,6 +91,7 @@ public class PathInfo {
     }
 
     private static void showPath(final String path, CLDRFile file) {
+        final boolean nosource = options.get("nosource").doesOccur();
         System.out.println("-------------------\n");
         System.out.println("• " + path);
         System.out.println("• " + StringId.getHexId(path));
@@ -123,13 +125,22 @@ public class PathInfo {
         }
         System.out.println("• Inheritance chain:");
         for (final LocaleInheritanceInfo e : file.getPathsWhereFound(dPath)) {
-            System.out.println("\n  • " + e); // reason : locale + xpath
+            System.out.print("  ");
+            if (e.getReason().isTerminal()) {
+                System.out.print("•"); // terminal
+            } else {
+                System.out.print("|"); // non-terminal
+            }
+            System.out.println(" " + e); // reason : locale + xpath
+            if (e.getAttribute() != null) {
+                System.out.println("    attribute=" + e.getAttribute());
+            }
             if (e.getLocale() != null
                     && e.getPath() != null
                     && !e.getLocale().equals(CODE_FALLBACK_ID)) {
                 final CLDRFile subFile = CLDRConfig.getInstance().getCLDRFile(e.getLocale(), false);
                 SourceLocation subsource = subFile.getSourceLocation(e.getPath());
-                if (subsource != null) {
+                if (subsource != null && !nosource) {
                     System.out.println("    " + subsource + " XML Source");
                 }
             }

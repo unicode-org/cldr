@@ -960,20 +960,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * @return the fileBase
+     * @return the fileBase for common/main
      */
-    private static String getFileBase() {
+    private static String getCommonMainFileBase() {
         if (fileBase == null) {
-            CLDRConfig survprops = CLDRConfig.getInstance();
-            File base = survprops.getCldrBaseDirectory();
-            fileBase = new File(base, "common/main").getAbsolutePath();
-            fileBaseSeed = new File(base, "seed/main").getAbsolutePath();
-            File commonAnnotations = new File(base, "common/annotations");
-            fileBaseA = commonAnnotations.getAbsolutePath();
-            commonAnnotations.mkdirs(); // make sure this exists
-            File seedAnnotations = new File(base, "seed/annotations");
-            seedAnnotations.mkdirs(); // make sure this exists
-            fileBaseASeed = seedAnnotations.getAbsolutePath();
+            getFileBases();
         }
         if (fileBase == null) throw new NullPointerException("fileBase==NULL");
         return fileBase;
@@ -986,11 +977,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * @return
      */
-    private static File[] getFileBases() {
+    private static synchronized File[] getFileBases() {
+        if (fileBase == null) {
+            CLDRConfig survprops = CLDRConfig.getInstance();
+            File base = survprops.getCldrBaseDirectory();
+            fileBase = new File(base, "common/main").getAbsolutePath();
+            fileBaseSeed = new File(base, "seed/main").getAbsolutePath();
+            File commonAnnotations = new File(base, "common/annotations");
+            fileBaseA = commonAnnotations.getAbsolutePath();
+            commonAnnotations.mkdirs(); // make sure this exists
+            File seedAnnotations = new File(base, "seed/annotations");
+            seedAnnotations.mkdirs(); // make sure this exists
+            fileBaseASeed = seedAnnotations.getAbsolutePath();
+        }
         SandboxLocales sandbox = getSandbox();
-        getFileBase(); // load these
         return new File[] {
-            new File(getFileBase()),
+            new File(getCommonMainFileBase()),
             new File(getFileBaseSeed()),
             new File(fileBaseA),
             new File(fileBaseASeed),
@@ -1045,7 +1047,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private static String getFileBaseSeed() {
         if (fileBaseSeed == null) {
-            getFileBase();
+            getCommonMainFileBase();
         }
         if (fileBaseSeed == null) throw new NullPointerException("fileBaseSeed==NULL");
         return fileBaseSeed;
@@ -2354,6 +2356,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private Factory gFactory = null;
 
     /**
+     * @return a Factory (not a singleton) just for use with supplemental data
+     */
+    public Factory getSupplementalDiskFactory() {
+        return SimpleFactory.make(getCommonMainFileBase(), ".*");
+    }
+
+    /**
      * Return the factory that corresponds to trunk
      *
      * @return
@@ -2793,8 +2802,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return supplementalDataInfo;
     }
 
-    public File getSupplementalDirectory() {
-        return getDiskFactory().getSupplementalDirectory();
+    File getSupplementalDirectory() {
+        // Normally we would use getDiskFactory() here. However, during startup we don't want the
+        // overhead
+        // of that function. Specifically, getDiskFactory() needs to spin up the sandbox
+        // directories,
+        // which depend on supplemental data in order to be created (writing XML files).
+        // So we take a shorter path here, since we don't need a factory that has all possible
+        // roots.
+        return getSupplementalDiskFactory().getSupplementalDirectory();
     }
 
     private static int pages = 0;
@@ -2884,8 +2900,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 survprops.getEnvironment();
             }
 
-            getFileBase();
-            getFileBaseSeed();
+            // confirm that the files are available
+            getFileBases();
 
             // static - may change later
             specialMessage = survprops.getProperty("CLDR_MESSAGE");

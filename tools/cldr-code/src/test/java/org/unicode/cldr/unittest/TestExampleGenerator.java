@@ -1482,13 +1482,13 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖[\\-.็๎​]〗"
+                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖[a-z็๎​]〗"
+                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
             },
         };
 

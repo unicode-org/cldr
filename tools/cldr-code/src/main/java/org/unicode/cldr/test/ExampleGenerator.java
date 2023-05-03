@@ -546,11 +546,7 @@ public class ExampleGenerator {
         if (valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
             StringBuilder result = new StringBuilder();
             for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.NON_SPACING)) {
-                if (NEEDS_LRM.containsSome(nsm)) {
-                    result.append(LRM).append("  ").append(nsm).append(LRM);
-                } else {
-                    result.append("  ").append(nsm);
-                }
+                result.append("  ").append(nsm);
                 result.append(" = U+" + Utility.hex(nsm.codePointAt(0)));
             }
             examples.add(result.toString());
@@ -568,7 +564,7 @@ public class ExampleGenerator {
                 examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
             }
         }
-        examples.add(valueSet.toPattern(false)); // internal format
+        examples.add(setBackground("internal: ") + valueSet.toPattern(false)); // internal format
         return formatExampleList(examples);
     }
 

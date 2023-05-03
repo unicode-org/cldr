@@ -145,7 +145,7 @@ public class TestBasic extends TestFmwkPlus {
         final File basedir = config.getCldrBaseDirectory();
         List<TimingInfo> data = new ArrayList<>();
 
-        for (String subdir : config.getCLDRDataDirectories()) {
+        for (String subdir : CLDRConfig.getCLDRDataDirectories()) {
             checkDtds(new File(basedir, subdir), 0, foundAttributes, data);
         }
         if (foundAttributes.size() > 0) {
@@ -251,7 +251,7 @@ public class TestBasic extends TestFmwkPlus {
                     SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, "*", "*");
             String header = type + "\t" + element + "\t" + (deprecatedElement ? "X" : "") + "\t";
             Set<String> usedAttributes = foundAttributes.get(typeElement);
-            Set<String> unusedAttributes = new LinkedHashSet<String>(theoryAttributeSet);
+            Set<String> unusedAttributes = new LinkedHashSet<>(theoryAttributeSet);
             if (usedAttributes == null) {
                 logln(
                         header
@@ -438,9 +438,9 @@ public class TestBasic extends TestFmwkPlus {
                         String nfkc = Normalizer.normalize(fishyCodepoint, Normalizer.NFKC);
                         if (!nfkc.equals(UTF16.valueOf(fishyCodepoint))) {
                             if (fallbackList == null) {
-                                fallbackList = new ArrayList<String>();
+                                fallbackList = new ArrayList<>();
                             } else {
-                                fallbackList = new ArrayList<String>(fallbackList); // writable
+                                fallbackList = new ArrayList<>(fallbackList); // writable
                             }
                             fallbackList.add(nfkc);
                         }
@@ -507,7 +507,7 @@ public class TestBasic extends TestFmwkPlus {
     public void TestAbstractPaths() {
         Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = testInfo.getEnglish();
-        Map<String, Counter<Level>> abstactPaths = new TreeMap<String, Counter<Level>>();
+        Map<String, Counter<Level>> abstactPaths = new TreeMap<>();
         RegexTransform abstractPathTransform =
                 new RegexTransform(RegexTransform.Processing.ONE_PASS)
                         .add("//ldml/", "")
@@ -535,7 +535,7 @@ public class TestBasic extends TestFmwkPlus {
                 }
                 Counter<Level> row = abstactPaths.get(abstractPath);
                 if (row == null) {
-                    abstactPaths.put(abstractPath, row = new Counter<Level>());
+                    abstactPaths.put(abstractPath, row = new Counter<>());
                 }
                 row.add(level, 1);
             }
@@ -626,7 +626,8 @@ public class TestBasic extends TestFmwkPlus {
                                     + path);
                 }
                 String inputValue =
-                        displayAndInputProcessor.processInput(path, value, internalException);
+                        displayAndInputProcessor.processInput(
+                                path, displayValue, internalException);
                 if (internalException[0] != null) {
                     errln(
                             "\t"
@@ -690,8 +691,7 @@ public class TestBasic extends TestFmwkPlus {
     /** The verbose output shows the results of 1..3 \u00a4 signs. */
     public void checkCurrency() {
         Map<String, Set<R2<String, Integer>>> results =
-                new TreeMap<String, Set<R2<String, Integer>>>(
-                        Collator.getInstance(ULocale.ENGLISH));
+                new TreeMap<>(Collator.getInstance(ULocale.ENGLISH));
         for (ULocale locale : ULocale.getAvailableLocales()) {
             if (locale.getCountry().length() != 0) {
                 continue;
@@ -708,7 +708,7 @@ public class TestBasic extends TestFmwkPlus {
                     final String formatted = format.format(12345.67);
                     Set<R2<String, Integer>> set = results.get(formatted);
                     if (set == null) {
-                        results.put(formatted, set = new TreeSet<R2<String, Integer>>());
+                        results.put(formatted, set = new TreeSet<>());
                     }
                     set.add(Row.of(locale.toString(), Integer.valueOf(i)));
                 }
@@ -816,7 +816,7 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             }
 
-            Set<String> defaultContentChildren = new LinkedHashSet<String>(children);
+            Set<String> defaultContentChildren = new LinkedHashSet<>(children);
             defaultContentChildren.retainAll(defaultContents);
             if (defaultContentChildren.size() == 1) {
                 continue;
@@ -1062,7 +1062,7 @@ public class TestBasic extends TestFmwkPlus {
         warnings.put(MissingType.index_exemplars, "?");
         warnings.put(MissingType.punct_exemplars, "?");
 
-        Set<String> collations = new HashSet<String>();
+        Set<String> collations = new HashSet<>();
 
         // collect collation info
         Factory collationFactory =
@@ -1158,7 +1158,7 @@ public class TestBasic extends TestFmwkPlus {
     public void TestDtdCompleteness() {
         for (DtdType type : DtdType.values()) {
             DtdData dtdData = DtdData.getInstance(type);
-            Set<Element> descendents = new LinkedHashSet<Element>();
+            Set<Element> descendents = new LinkedHashSet<>();
             dtdData.getDescendents(dtdData.ROOT, descendents);
             Set<Element> elements = dtdData.getElements();
             if (!elements.equals(descendents)) {
@@ -1175,7 +1175,7 @@ public class TestBasic extends TestFmwkPlus {
                     }
                 }
             }
-            LinkedHashSet<Element> all = new LinkedHashSet<Element>(descendents);
+            LinkedHashSet<Element> all = new LinkedHashSet<>(descendents);
             all.addAll(elements);
             Set<Attribute> attributes = dtdData.getAttributes();
             for (Attribute a : attributes) {
@@ -1198,7 +1198,7 @@ public class TestBasic extends TestFmwkPlus {
 
         // set up exceptions
         Set<String> changedToEmpty =
-                new HashSet<String>(
+                new HashSet<>(
                         Arrays.asList(
                                 new String[] {
                                     "version",
@@ -1209,11 +1209,11 @@ public class TestBasic extends TestFmwkPlus {
                                     "timezoneCoverage",
                                     "skipDefaultLocale"
                                 }));
-        Set<String> PCDATA = new HashSet<String>();
+        Set<String> PCDATA = new HashSet<>();
         PCDATA.add("PCDATA");
-        Set<String> EMPTY = new HashSet<String>();
+        Set<String> EMPTY = new HashSet<>();
         EMPTY.add("EMPTY");
-        Set<String> VERSION = new HashSet<String>();
+        Set<String> VERSION = new HashSet<>();
         VERSION.add("version");
 
         // test all DTDs
@@ -1270,7 +1270,7 @@ public class TestBasic extends TestFmwkPlus {
                         newAttributes = Collections.emptySet();
                     }
                     if (!newAttributes.containsAll(oldAttributes)) {
-                        LinkedHashSet<String> missing = new LinkedHashSet<String>(oldAttributes);
+                        LinkedHashSet<String> missing = new LinkedHashSet<>(oldAttributes);
                         missing.removeAll(newAttributes);
                         if (element.equals(dtd.toString()) && missing.equals(VERSION)) {
                             // ok, skip
@@ -1298,7 +1298,7 @@ public class TestBasic extends TestFmwkPlus {
 
     private <T> Set<T> containsInOrder(Set<T> superset, Set<T> subset) {
         if (!superset.containsAll(subset)) {
-            LinkedHashSet<T> missing = new LinkedHashSet<T>(subset);
+            LinkedHashSet<T> missing = new LinkedHashSet<>(subset);
             missing.removeAll(superset);
             return missing;
         }
@@ -1312,7 +1312,7 @@ public class TestBasic extends TestFmwkPlus {
                 int order = comp.compare(last, item);
                 if (order != -1) {
                     if (result == null) {
-                        result = new HashSet<T>();
+                        result = new HashSet<>();
                         result.add(last);
                         result.add(item);
                     }
@@ -1330,15 +1330,14 @@ public class TestBasic extends TestFmwkPlus {
             Map<String, Element> currentElementFromName = dtdData.getElementFromName();
 
             // current has no orphan
-            Set<Element> orphans =
-                    new LinkedHashSet<Element>(dtdData.getElementFromName().values());
+            Set<Element> orphans = new LinkedHashSet<>(dtdData.getElementFromName().values());
             orphans.remove(dtdData.ROOT);
             orphans.remove(dtdData.PCDATA);
             orphans.remove(dtdData.ANY);
-            Set<String> elementsWithoutAlt = new TreeSet<String>();
-            Set<String> elementsWithoutDraft = new TreeSet<String>();
-            Set<String> elementsWithoutAlias = new TreeSet<String>();
-            Set<String> elementsWithoutSpecial = new TreeSet<String>();
+            Set<String> elementsWithoutAlt = new TreeSet<>();
+            Set<String> elementsWithoutDraft = new TreeSet<>();
+            Set<String> elementsWithoutAlias = new TreeSet<>();
+            Set<String> elementsWithoutSpecial = new TreeSet<>();
 
             for (Element element : dtdData.getElementFromName().values()) {
                 Set<Element> children = element.getChildren().keySet();

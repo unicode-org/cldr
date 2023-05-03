@@ -20,6 +20,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -41,10 +42,9 @@ import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -231,7 +231,7 @@ public class DisplayAndInputProcessor {
     private static final Transliterator zawgyiUnicodeTransliterator =
             Transliterator.getInstance("Zawgyi-my");
 
-    private UnicodeSetPrettyPrinter pp = null;
+    private SimpleUnicodeSetFormatter pp = new SimpleUnicodeSetFormatter(); // default collator
 
     private final CLDRLocale locale;
     private String scriptCode; // actual or default script code (not null after init)
@@ -276,16 +276,17 @@ public class DisplayAndInputProcessor {
             if (spaceCol instanceof RuleBasedCollator) {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
-            pp =
-                    new UnicodeSetPrettyPrinter()
-                            .setOrdering(Collator.getInstance(ULocale.ROOT))
-                            .setSpaceComparator(
-                                    Collator.getInstance(ULocale.ROOT)
-                                            .setStrength2(Collator.PRIMARY))
-                            .setCompressRanges(true)
-                            .setToQuote(new UnicodeSet(TO_QUOTE))
-                            .setOrdering(col)
-                            .setSpaceComparator(spaceCol);
+            pp = new SimpleUnicodeSetFormatter((Comparator) col);
+            //                new
+            // UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+            //
+            // .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+            //                .setCompressRanges(true)
+            //                .setToQuote(new UnicodeSet(TO_QUOTE))
+            //                .setOrdering(col)
+            //                .setSpaceComparator(spaceCol);
+        } else {
+            pp = new SimpleUnicodeSetFormatter(); // default collator
         }
         String script = locale.getScript();
         if (script == null || script.length() < 4) {
@@ -301,7 +302,7 @@ public class DisplayAndInputProcessor {
         scriptCode = script;
     }
 
-    public UnicodeSetPrettyPrinter getPrettyPrinter() {
+    public SimpleUnicodeSetFormatter getPrettyPrinter() {
         return pp;
     }
 
@@ -353,9 +354,12 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            return value;
+        }
         value = Normalizer.compose(value, false); // Always normalize all text to NFC.
         if (hasUnicodeSetValue(path)) {
-            value = displayUnicodeSet(value);
+            return displayUnicodeSet(value);
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
         } else {
@@ -428,16 +432,16 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(
             String path, String value, Exception[] internalException) {
+        // skip processing for inheritance marker
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            return value;
+        }
         final String original = value;
         value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         value = value.replace('\u00B5', '\u03BC'); // use the right Greek mu character
         if (internalException != null) {
             internalException[0] = null;
-        }
-        // skip processing for inheritance marker
-        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            return value;
         }
         // for root annotations
         if (CLDRLocale.ROOT.equals(locale) && path.contains("/annotations")) {
@@ -456,6 +460,9 @@ public class DisplayAndInputProcessor {
 
     private String processInputMore(String path, String value) {
         final boolean isUnicodeSet = hasUnicodeSetValue(path);
+        if (isUnicodeSet) {
+            return inputUnicodeSet(path, value);
+        }
 
         value = processLocaleSpecificInput(path, value, isUnicodeSet);
 
@@ -538,9 +545,10 @@ public class DisplayAndInputProcessor {
         }
 
         // check specific cases
-        if (isUnicodeSet) {
-            value = inputUnicodeSet(path, value);
-        } else if (path.contains("stopword")) {
+        //        if (isUnicodeSet) {
+        //            value = inputUnicodeSet(path, value);
+        //        } else
+        if (path.contains("stopword")) {
             if (value.equals("NONE")) {
                 value = "";
             }
@@ -713,46 +721,59 @@ public class DisplayAndInputProcessor {
     }
 
     private String displayUnicodeSet(String value) {
-        if (value.startsWith("[") && value.endsWith("]")) {
-            value = value.substring(1, value.length() - 1);
-        }
-
-        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+        return pp.format(new UnicodeSet(value));
+        //                if (value.startsWith("[") && value.endsWith("]")) {
+        //                    value = value.substring(1, value.length() - 1);
+        //                }
+        //
+        //        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+        //        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
 
         // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
         // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
         // }
-        return value;
+        //        return value;
     }
 
     private String inputUnicodeSet(String path, String value) {
-        // clean up the user's input.
-        // first, fix up the '['
-        value = value.trim();
-
-        // remove brackets and trim again before regex
-        if (value.startsWith("[")) {
-            value = value.substring(1);
+        UnicodeSet exemplar = null;
+        try {
+            exemplar = pp.parse(value);
+        } catch (Exception e) {
+            pp.parse(value); // for debugging
+            return value; // we can't throw an exception because clients won't expect it.
         }
-        if (value.endsWith("]") && (!value.endsWith("\\]") || value.endsWith("\\\\]"))) {
-            value = value.substring(0, value.length() - 1);
+        if (false) {
+            // clean up the user's input.
+            // first, fix up the '['
+            value = value.trim();
+
+            // remove brackets and trim again before regex
+            if (value.startsWith("[")) {
+                value = value.substring(1);
+            }
+            if (value.endsWith("]") && (!value.endsWith("\\]") || value.endsWith("\\\\]"))) {
+                value = value.substring(0, value.length() - 1);
+            }
+            value = value.trim();
+
+            value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+            value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+
+            // re-add brackets.
+            value = "[" + value + "]";
+
+            exemplar = new UnicodeSet(value);
         }
-        value = value.trim();
-
-        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-        // re-add brackets.
-        value = "[" + value + "]";
-
-        UnicodeSet exemplar = new UnicodeSet(value);
         XPathParts parts = XPathParts.getFrozenInstance(path);
-        if (parts.getElement(2).equals("parseLenients")) {
-            return exemplar.toPattern(false);
-        }
+        //        if (parts.getElement(2).equals("parseLenients")) {
+        //            return exemplar.toPattern(false);
+        //        }
         final String type = parts.getAttributeValue(-1, "type");
-        ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+        ExemplarType exemplarType =
+                !path.contains("exemplarCharacters")
+                        ? null
+                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
         value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
         return value;
     }
@@ -1037,13 +1058,20 @@ public class DisplayAndInputProcessor {
             PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
     public static String getCleanedUnicodeSet(
-            UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter, ExemplarType exemplarType) {
+            UnicodeSet exemplar,
+            SimpleUnicodeSetFormatter prettyPrinter,
+            ExemplarType exemplarType) {
+
         if (prettyPrinter == null) {
-            return exemplar.toPattern(false);
+            throw new IllegalArgumentException("Formatter must not be null");
         }
+        if (exemplar == null) {
+            throw new IllegalArgumentException("set to be cleaned must not be null");
+        }
+
         String value;
-        prettyPrinter.setCompressRanges(exemplar.size() > 300);
-        value = exemplar.toPattern(false);
+        // prettyPrinter.setCompressRanges(exemplar.size() > 300);
+        // value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 
         for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
@@ -1074,42 +1102,43 @@ public class DisplayAndInputProcessor {
                     toAdd.add("\u202F");
                     break; // nobreak narrow space
             }
-            if (exemplarType.convertUppercase) {
+            if (exemplarType != null && exemplarType.convertUppercase) {
                 string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
             }
             toAdd.add(string);
+            // we allow
             String composed = Normalizer.compose(string, false);
             if (!string.equals(composed)) {
                 toAdd.add(composed);
             }
         }
 
-        toAdd.removeAll(exemplarType.toRemove);
-
-        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
-            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
-            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
-            System.out.println(
-                    "Exemplar:\t"
-                            + exemplarType
-                            + ",\tremoved\t"
-                            + oldOnly
-                            + ",\tadded\t"
-                            + newOnly);
+        if (exemplarType != null) {
+            toAdd.removeAll(exemplarType.toRemove);
         }
+        value = toAdd.toPattern(false);
 
-        String fixedExemplar = prettyPrinter.format(toAdd);
-        UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
-        if (!toAdd.equals(doubleCheck)) {
-            // something went wrong, leave as is
-        } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
-            if (DEBUG_DAIP) {
-                System.out.println(
-                        TestMetadata.showDifference(
-                                With.codePoints(value), With.codePoints(fixedExemplar), "\n"));
-            }
-            value = fixedExemplar;
-        }
+        //        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
+        //            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
+        //            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
+        //            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly +
+        // ",\tadded\t" + newOnly);
+        //        }
+        //        String fixedExemplar = prettyPrinter.format(toAdd);
+        //        UnicodeSet doubleCheck = prettyPrinter.parse(fixedExemplar);
+        //        if (!toAdd.equals(doubleCheck)) {
+        //            System.out.println("fail")
+        //        }
+        //        else if (!value.equals(fixedExemplar)) { // put in this condition just for
+        // debugging
+        //            if (DEBUG_DAIP) {
+        //                System.out.println(TestMetadata.showDifference(
+        //                    With.codePoints(value),
+        //                    With.codePoints(fixedExemplar),
+        //                    "\n"));
+        //            }
+        //            value = fixedExemplar;
+        //        }
         return value;
     }
 

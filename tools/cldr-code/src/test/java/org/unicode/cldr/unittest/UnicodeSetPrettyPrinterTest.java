@@ -8,8 +8,11 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import java.text.Collator;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -72,9 +75,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
     public void testSimpleUnicodeSetFormatter() {
         String[][] tests = {
+            {"[\u000F]", "⦕F⦖"},
             {"[\\u0024\\uFE69\\uFF04]", "$ ＄ ﹩"},
             {"[\\u0024﹩＄]", "$ ＄ ﹩"},
-            {"[\u000F]", "⦕F⦖"},
             {"[\\u0020]", "⦕SP⦖"},
             {"[A-Z]", "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"},
             {
@@ -173,6 +176,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                 // SimpleUnicodeSetFormatter.nfc.normalize(x)); //current CLDR might not be
                 // normalized
                 check(susf, locale, type.toString(), source, showAnyway);
+                localeNeedsEscape.addAll(source);
             }
             CLDRFile cldrFile2 = cldrFactory.make(locale, false); // just existing paths
             for (String path : cldrFile2) {
@@ -187,7 +191,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                                             XPathParts.getFrozenInstance(path)
                                                     .getAttributes(-1)
                                                     .values());
-                    check(susf, locale, label, new UnicodeSet(value), showAnyway);
+                    final UnicodeSet source = new UnicodeSet(value);
+                    check(susf, locale, label, source, showAnyway);
+                    localeNeedsEscape.addAll(source);
                 }
                 if (CodePointEscaper.FORCE_ESCAPE.containsSome(value)) {
                     localeNeedsEscape.addAll(value); // add more than we need
@@ -195,15 +201,26 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             }
             localeNeedsEscape.retainAll(CodePointEscaper.FORCE_ESCAPE);
             if (showAnyway) {
-                needsEscapeReport.append("*\t" + locale + "\tNeeds Escape:\t" + needsEscape + "\n");
+                needsEscapeReport.append(
+                        "*\t"
+                                + locale
+                                + "\tNeeds Escape:\t"
+                                + susf.format(localeNeedsEscape)
+                                + "\n");
             }
             needsEscape.addAll(localeNeedsEscape);
         }
         if (needsEscapeReport.length() != 0) {
             System.out.print(needsEscapeReport);
         }
-        System.out.println("*\tALL\tNeeds Escape:\t" + needsEscape);
+        System.out.println("*\tALL\tNeeds Escape:\t" + susf.format(needsEscape));
         System.out.println("*\tALL\tNamed Escapes:\t" + CodePointEscaper.getNamedEscapes());
+        System.out.println(
+                "*\tMissing\tNamed Escapes:\t"
+                        + "\t"
+                        + susf.format(
+                                new UnicodeSet(needsEscape)
+                                        .removeAll(CodePointEscaper.getNamedEscapes())));
     }
 
     boolean havePrintln = false;
@@ -263,5 +280,32 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         return SimpleUnicodeSetFormatter.appendWithHex(
                         new StringBuilder(), input.toPattern(false), forceHex)
                 .toString();
+    }
+
+    public void TestCodePointEscaper() {
+        ArrayList<String> collection = new ArrayList<>();
+        CodePointEscaper.getNamedEscapes().addAllTo(collection);
+        collection.add("\u0000");
+        collection.add("\u00AD");
+        collection.add("\uFEFF");
+        collection.add("\uFFFF");
+        collection.add(new StringBuilder().appendCodePoint(0x10FFFF).toString());
+        for (String item : collection) {
+            final int cp = item.codePointAt(0);
+            String display = CodePointEscaper.toAbbreviationOrHex(cp);
+            int roundtrip = CodePointEscaper.fromAbbreviationOrHex(display);
+            assertEquals(
+                    "\tU+"
+                            + Utility.hex(cp, 4)
+                            + " "
+                            + UCharacter.getExtendedName(cp)
+                            + " ⇒ "
+                            + CodePointEscaper.ESCAPE_START
+                            + display
+                            + CodePointEscaper.ESCAPE_END
+                            + "\t",
+                    cp,
+                    roundtrip);
+        }
     }
 }

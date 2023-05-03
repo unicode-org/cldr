@@ -53,6 +53,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -67,6 +68,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -509,7 +511,12 @@ public class ExampleGenerator {
             result = handleLabelPattern(parts, value);
         } else if (parts.getElement(1).equals("personNames")) {
             result = handlePersonName(parts, value);
+        } else if (parts.getElement(-1).equals("exemplarCharacters")
+                || parts.getElement(-1).equals("parseLenients")) {
+            result = handleUnicodeSet(parts, xpath, value);
         }
+
+        // Handle the outcome
         if (result != null) {
             if (nonTrivial && value.equals(result)) {
                 result = null;
@@ -518,6 +525,51 @@ public class ExampleGenerator {
             }
         }
         return result;
+    }
+
+    // Note: may want to change to locale's order; if so, these would be instance fields
+    static final SimpleUnicodeSetFormatter SUSF =
+            new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR);
+    static final SimpleUnicodeSetFormatter SUSFNS =
+            new SimpleUnicodeSetFormatter(
+                    SimpleUnicodeSetFormatter.BASIC_COLLATOR,
+                    CodePointEscaper.FORCE_ESCAPE_WITH_NONSPACING);
+    static final String LRM = "\u200E";
+    static final UnicodeSet NEEDS_LRM = new UnicodeSet("[:BidiClass=R:]").freeze();
+    /**
+     * Add examples for UnicodeSets. First, show a hex format of non-spacing marks if there are any,
+     * then show delta to the winning value if there are any.
+     */
+    private String handleUnicodeSet(XPathParts parts, String xpath, String value) {
+        ArrayList<String> examples = new ArrayList<>();
+        final UnicodeSet valueSet = new UnicodeSet(value);
+        if (valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
+            StringBuilder result = new StringBuilder();
+            for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.NON_SPACING)) {
+                if (NEEDS_LRM.containsSome(nsm)) {
+                    result.append(LRM).append("  ").append(nsm).append(LRM);
+                } else {
+                    result.append("  ").append(nsm);
+                }
+                result.append(" = U+" + Utility.hex(nsm.codePointAt(0)));
+            }
+            examples.add(result.toString());
+        }
+        String winningValue = cldrFile.getWinningValue(xpath);
+        if (!winningValue.equals(value)) {
+            // show delta
+            final UnicodeSet winningSet = new UnicodeSet(winningValue);
+            UnicodeSet value_minus_winning = new UnicodeSet(valueSet).removeAll(winningSet);
+            UnicodeSet winning_minus_value = new UnicodeSet(winningSet).removeAll(valueSet);
+            if (!value_minus_winning.isEmpty()) {
+                examples.add("➕ " + SUSF.format(value_minus_winning));
+            }
+            if (!winning_minus_value.isEmpty()) {
+                examples.add("➖ " + SUSF.format(winning_minus_value));
+            }
+        }
+        examples.add(valueSet.toPattern(false)); // internal format
+        return formatExampleList(examples);
     }
 
     /**

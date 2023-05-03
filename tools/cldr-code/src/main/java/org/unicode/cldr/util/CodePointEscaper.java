@@ -13,6 +13,9 @@ import java.util.Set;
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
     // The long names don't necessarily match the formal Unicode names
+    TAB(9, "tab"),
+    LF(0xA, "line feed"),
+    CR(0xD, "carriage return"),
     SP(0x20, "space", "ASCII space"),
     NBSP(0xA0, "no-break space"),
 
@@ -34,6 +37,15 @@ public enum CodePointEscaper {
     PDF(0x202C, "end override"),
 
     SHY(0x00AD, "soft hyphen"),
+    BOM(0xFEFF, "byte-order mark"),
+
+    ANS(0x0600, "Arabic number sign"),
+    ASNS(0x0601, "Arabic sanah sign"),
+    AFM(0x602, "Arabic footnote marker"),
+    ASFS(0x603, "Arabic safha sign"),
+    SAM(0x70F, "Syriac abbreviation mark"),
+    KIAQ(0x17B4, "Khmer inherent aq"),
+    KIAA(0x17B5, "Khmer inherent aa"),
 
     RANGE('➖', "range syntax mark", "heavy minus sign"),
     ESCS('⦕', "escape start", "double open paren angle"),
@@ -63,9 +75,14 @@ public enum CodePointEscaper {
 
     /** Characters that need escaping */
     public static final UnicodeSet FORCE_ESCAPE =
-            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:Cn:][:Cc:]]")
+            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]]")
                     .addAll(getNamedEscapes())
                     .freeze();
+
+    public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
+
+    public static final UnicodeSet FORCE_ESCAPE_WITH_NONSPACING =
+            new UnicodeSet(FORCE_ESCAPE).addAll(NON_SPACING).freeze();
 
     private final int codePoint;
     private final Set<String> longNames;

@@ -512,7 +512,7 @@ public class ExampleGenerator {
         } else if (parts.getElement(1).equals("personNames")) {
             result = handlePersonName(parts, value);
         } else if (parts.getElement(-1).equals("exemplarCharacters")
-                || parts.getElement(-1).equals("parseLenients")) {
+                || parts.getElement(-1).equals("parseLenient")) {
             result = handleUnicodeSet(parts, xpath, value);
         }
 
@@ -562,10 +562,10 @@ public class ExampleGenerator {
             UnicodeSet value_minus_winning = new UnicodeSet(valueSet).removeAll(winningSet);
             UnicodeSet winning_minus_value = new UnicodeSet(winningSet).removeAll(valueSet);
             if (!value_minus_winning.isEmpty()) {
-                examples.add("➕ " + SUSF.format(value_minus_winning));
+                examples.add(LRM + "➕ " + SUSF.format(value_minus_winning));
             }
             if (!winning_minus_value.isEmpty()) {
-                examples.add("➖ " + SUSF.format(winning_minus_value));
+                examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
             }
         }
         examples.add(valueSet.toPattern(false)); // internal format

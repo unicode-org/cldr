@@ -93,7 +93,9 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT display EMPTY >
     <!--@TECHPREVIEW-->
-<!ATTLIST display to CDATA #REQUIRED >
+<!ATTLIST display id CDATA #IMPLIED >
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+<!ATTLIST display to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@ALLOWS_UESC-->
 <!ATTLIST display display CDATA #REQUIRED >
@@ -168,9 +170,9 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT layer ( row+, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST layer id NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 <!ATTLIST layer modifier NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)-->
 
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->

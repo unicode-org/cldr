@@ -349,7 +349,7 @@ For purposes of this current draft spec, the value should always be `techpreview
 
 _Attribute:_ `locale` (required)
 
-This mandatory attribute represents the primary locale of the keyboard using Unicode locale identifiers (see [LDML](tr35.md)) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For further details, see [Keyboard IDs](#Keyboard_IDs).
+This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For further details, see [Keyboard IDs](#Keyboard_IDs).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 
@@ -412,7 +412,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 _Attribute:_ `id` (required)
 
-> The BCP47 locale ID of an additional language supported by this keyboard.
+> The [BCP 47](tr35.md#Canonical_Unicode_Locale_Identifiers) locale ID of an additional language supported by this keyboard.
 > Do _not_ include the `-k0-` subtag for this additional language.
 
 **Example**
@@ -568,6 +568,7 @@ _Attribute:_ `value` (required)
 
 > The name of the layout.
 
+
 **Example**
 
 ```xml
@@ -697,7 +698,7 @@ This element defines a mapping between an abstract key and its output. This elem
 
 _Attribute:_ `id`
 
-> The `id` attribute uniquely identifies the key. NMTOKEN, restricted to "[a-zA-Z0-9_.-]". It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)
+> The `id` attribute uniquely identifies the key. NMTOKEN, restricted to `[a-zA-Z0-9_.-]`. It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)
 
 _Attribute:_ `flicks="flick-id"` (optional)
 
@@ -747,6 +748,9 @@ _Attribute:_ `switch="shift"` (optional)
 > Note that a key may have both a `switch=` and a `to=` attribute, indicating that the key outputs prior to switching layers.
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
+>
+> This attribute is an NMTOKEN, restricted to `[a-zA-Z0-9-]`
+
 
 _Attribute:_ `to`
 
@@ -857,7 +861,7 @@ The `flicks` element is used to generate results from a "flick" of the finger on
 
 _Attribute:_ `id` (required)
 
-> The `id` attribute identifies the flicks. It can be any NMTOKEN.
+> The `id` attribute identifies the flicks. It can be any NMTOKEN matching `[A-Za-z0-9][A-Za-z0-9-]*`
 > The `flicks` do not share a namespace with the `key`s, so it would also be allowed
 > to have `<key id="a" flicks="a"/><flicks id="a"/>`
 
@@ -1060,6 +1064,8 @@ _Attribute:_ `to` (optional)
 _Attribute:_ `id` (optional)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
+>
+> This attribute must match `[A-Za-z0-9][A-Za-z0-9-]*`
 
 _Attribute:_ `display` (required)
 
@@ -1176,6 +1182,8 @@ _Attribute:_ `form` (required)
 _Attribute:_ `minDeviceWidth`
 
 > This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms.
+>
+> This must be a whole number between 1 and 999, inclusive.
 
 ### <a name="Element_layer" href="#Element_layer">Element: layer</a>
 
@@ -1203,6 +1211,8 @@ _Attribute_ `id` (required for `touch`)
 
 > The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#Element_key) element.
 > Touch layouts must have one `layer` with `id="base"` to serve as the base layer.
+>
+> Must match `[A-Za-z0-9][A-Za-z0-9-]*`
 
 _Attribute:_ `modifier` (required for `hardware`)
 
@@ -1231,6 +1241,8 @@ _Attribute:_ `modifier` (required for `hardware`)
 > Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
 
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+>
+> The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
 
 * * *
 
@@ -1387,6 +1399,8 @@ _Attribute:_ `id` (required)
 
 > Specifies the identifier (name) of this string.
 > All ids must be unique across all types of variables.
+>
+> `id` must match `[0-9A-Za-z_]{1,32}`
 
 _Attribute:_ `value` (required)
 
@@ -1441,6 +1455,8 @@ _Attribute:_ `id` (required)
 
 > Specifies the identifier (name) of this set.
 > All ids must be unique across all types of variables.
+>
+> `id` must match `[0-9A-Za-z_]{1,32}`
 
 _Attribute:_ `value` (required)
 
@@ -1498,6 +1514,8 @@ _Attribute:_ `id` (required)
 
 > Specifies the identifier (name) of this unicodeSet.
 > All ids must be unique across all types of variables.
+>
+> `id` must match `[0-9A-Za-z_]{1,32}`
 
 _Attribute:_ `value` (required)
 

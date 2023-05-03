@@ -9,11 +9,10 @@ on:
     tags:
       - "release-*"
     # Only run if docs change.
-    ## TODO CLDR-15464 reenable this!!
-    # paths:
-    #   - "tools/scripts/tr-archive/**"
-    #   - "docs/**"
-    #   - '.github/workflows/gh-pages.yml'
+    paths:
+      - "tools/scripts/tr-archive/**"
+      - "docs/**"
+      - '.github/workflows/gh-pages.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,6 +35,11 @@ jobs:
       - name: 'Run TR link extractor (experimental)'
         # Note: see CLDR-16526 for making this an error
         run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
+      - name: Upload tr35.zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: tr35-spec
+          path: tools/scripts/tr-archiver/tr35.zip
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)

@@ -23,6 +23,12 @@ jobs:
           lfs: false
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
+      - name: Upload keyboards.zip
+        if: github.event_name == 'push' && github.ref == 'refs/heads/keyboard-preview'
+        uses: actions/upload-artifact@v3
+        with:
+          name: keyboards
+          path: keyboards/
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:

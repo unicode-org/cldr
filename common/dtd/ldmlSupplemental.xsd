@@ -59,10 +59,10 @@
   <xs:element name="version">
     <xs:complexType>
       <xs:attribute name="number" use="required"/>
-      <xs:attribute name="cldrVersion" default="43">
+      <xs:attribute name="cldrVersion" default="44">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="43"/>
+            <xs:enumeration value="44"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -508,6 +508,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" ref="calendarSystem"/>
+        <xs:element minOccurs="0" ref="inheritEras"/>
         <xs:element minOccurs="0" ref="eras"/>
       </xs:sequence>
       <xs:attribute name="type" use="required" type="xs:NMTOKEN"/>
@@ -553,6 +554,13 @@
   </xs:element>
   <!-- @VALUE -->
   <!-- @METADATA -->
+  <xs:element name="inheritEras">
+    <xs:complexType>
+      <xs:attribute name="calendar" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:bcp47/ca -->
+  <!-- @VALUE -->
   <xs:element name="eras">
     <xs:complexType>
       <xs:sequence>
@@ -579,7 +587,7 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:range/-2~250 -->
+  <!-- @MATCH:range/0~250 -->
   <!-- @MATCH:time/yyyy-MM-dd -->
   <!-- @VALUE -->
   <!-- @MATCH:time/yyyy-MM-dd -->

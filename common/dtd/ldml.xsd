@@ -124,10 +124,10 @@
   <xs:element name="version">
     <xs:complexType>
       <xs:attribute name="number" use="required"/>
-      <xs:attribute name="cldrVersion" default="43">
+      <xs:attribute name="cldrVersion" default="44">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="43"/>
+            <xs:enumeration value="44"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>

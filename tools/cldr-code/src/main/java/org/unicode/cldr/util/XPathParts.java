@@ -35,7 +35,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * on xPath. Each Element object has an "element" string such as "ldml", "characters", or
  * "exemplarCharacters", plus attributes such as a Map from key "type" to value "auxiliary".
  */
-public final class XPathParts implements Freezable<XPathParts>, Comparable<XPathParts> {
+public final class XPathParts extends XPathParser
+        implements Freezable<XPathParts>, Comparable<XPathParts> {
     private static final boolean DEBUGGING = false;
 
     private volatile boolean frozen = false;
@@ -386,6 +387,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     }
 
     /** Get the nth element. Negative values are from end */
+    @Override
     public String getElement(int elementIndex) {
         return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getElement();
     }
@@ -420,6 +422,7 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
      * Get the attributeValue for the attrbute at the nth element (negative index is from end).
      * Returns null if there's nothing.
      */
+    @Override
     public String getAttributeValue(int elementIndex, String attribute) {
         if (elementIndex < 0) {
             elementIndex += size();
@@ -464,6 +467,15 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return attributes.get(attributeName);
     }
 
+    @Override
+    protected void handleClearElements() {
+        elements.clear();
+    }
+
+    @Override
+    protected void handleAddElement(String element) {
+        addElement(element);
+    }
     /**
      * Add an Element object to this XPathParts, using the given element name. If this is the first
      * Element in this XPathParts, also set dtdData. Do not set any attributes.
@@ -524,6 +536,11 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
         return this;
     }
 
+    @Override
+    protected void handleAddAttribute(String attribute, String value) {
+        addAttribute(attribute, value);
+    }
+
     /** Add an attribute/value pair to the current last element. */
     public XPathParts addAttribute(String attribute, String value) {
         putAttributeValue(elements.size() - 1, attribute, value);
@@ -570,90 +587,13 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
      *     <p>Called by set (initial = true), and addRelative (initial = false)
      */
     private XPathParts addInternal(String xPath, boolean initial) {
-        String lastAttributeName = "";
-        String requiredPrefix = "/";
         if (initial) {
-            elements.clear();
             dtdData = null;
-            requiredPrefix = "//";
         }
-        if (!xPath.startsWith(requiredPrefix)) {
-            return parseError(xPath, 0);
-        }
-        int stringStart = requiredPrefix.length(); // skip prefix
-        char state = 'p';
-        // since only ascii chars are relevant, use char
-        int len = xPath.length();
-        for (int i = 2; i < len; ++i) {
-            char cp = xPath.charAt(i);
-            if (cp != state && (state == '\"' || state == '\'')) {
-                continue; // stay in quotation
-            }
-            switch (cp) {
-                case '/':
-                    if (state != 'p' || stringStart >= i) {
-                        return parseError(xPath, i);
-                    }
-                    if (stringStart > 0) {
-                        addElement(xPath.substring(stringStart, i));
-                    }
-                    stringStart = i + 1;
-                    break;
-                case '[':
-                    if (state != 'p' || stringStart >= i) {
-                        return parseError(xPath, i);
-                    }
-                    if (stringStart > 0) {
-                        addElement(xPath.substring(stringStart, i));
-                    }
-                    state = cp;
-                    break;
-                case '@':
-                    if (state != '[') {
-                        return parseError(xPath, i);
-                    }
-                    stringStart = i + 1;
-                    state = cp;
-                    break;
-                case '=':
-                    if (state != '@' || stringStart >= i) {
-                        return parseError(xPath, i);
-                    }
-                    lastAttributeName = xPath.substring(stringStart, i);
-                    state = cp;
-                    break;
-                case '\"':
-                case '\'':
-                    if (state == cp) { // finished
-                        if (stringStart > i) {
-                            return parseError(xPath, i);
-                        }
-                        addAttribute(lastAttributeName, xPath.substring(stringStart, i));
-                        state = 'e';
-                        break;
-                    }
-                    if (state != '=') {
-                        return parseError(xPath, i);
-                    }
-                    stringStart = i + 1;
-                    state = cp;
-                    break;
-                case ']':
-                    if (state != 'e') {
-                        return parseError(xPath, i);
-                    }
-                    state = 'p';
-                    stringStart = -1;
-                    break;
-            }
-        }
-        // check to make sure terminated
-        if (state != 'p' || stringStart >= xPath.length()) {
-            return parseError(xPath, xPath.length());
-        }
-        if (stringStart > 0) {
-            addElement(xPath.substring(stringStart, xPath.length()));
-        }
+
+        // call superclass for parsing
+        handleParse(xPath, initial);
+
         return this;
     }
 
@@ -727,10 +667,6 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     }
 
     // ========== Privates ==========
-
-    private XPathParts parseError(String s, int i) {
-        throw new IllegalArgumentException("Malformed xPath '" + s + "' at " + i);
-    }
 
     public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
     public static final String NEWLINE = "\n";

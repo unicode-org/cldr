@@ -79,7 +79,7 @@ public class Validity {
 
             XMLFileReader.loadPathValues(basePath + file, lineData, true);
             for (Pair<String, String> item : lineData) {
-                XPathParts parts = XPathParts.getFrozenInstance(item.getFirst());
+                XPathValue parts = SimpleXPathParts.getFrozenInstance(item.getFirst());
                 if (!"id".equals(parts.getElement(-1))) {
                     continue;
                 }

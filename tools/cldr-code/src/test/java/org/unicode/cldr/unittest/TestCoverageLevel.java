@@ -612,6 +612,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (xpp.containsElement("datetimeSkeleton")) {
                     continue;
                 }
+                // The alt="ascii" time patterns are hopefully short-lived. We do not survey
+                // for them, they can be generated mechanically from the non-alt patterns. CLDR-16606
+                if (path.contains("[@alt=\"ascii\"]")) {
+                    continue;
+                }
                 String element = xpp.getElement(-1);
                 // Skip things that shouldn't normally exist in the generic calendar
                 // days, dayPeriods, quarters, and months

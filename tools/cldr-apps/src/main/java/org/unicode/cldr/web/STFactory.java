@@ -21,7 +21,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.*;
@@ -366,8 +365,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         private final CLDRFile diskFile;
 
-        private DisplayAndInputProcessor daip;
-
         /**
          * Per-xpath data. There's one of these per xpath- voting data, etc. Does not contain the
          * actual xpath, at least for now.
@@ -694,7 +691,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         continue;
                     }
                     try {
-                        value = processValue(xpath, value);
                         if (voteType == null || voteType == VoteType.NONE) {
                             logger.warning(
                                     "loadVoteValues got vote type "
@@ -705,14 +701,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         internalSetVoteForValue(
                                 theSubmitter, xpath, value, voteOverride, last_mod, voteType);
                         n++;
-                    } catch (VoteNotAcceptedException e) {
-                        logger.severe(
-                                "VoteNotAcceptedException: "
-                                        + theSubmitter
-                                        + ":"
-                                        + locale
-                                        + ":"
-                                        + xpath);
                     } catch (BallotBox.InvalidXPathException e) {
                         logger.severe(
                                 "InvalidXPathException: Deleting vote for "
@@ -1071,7 +1059,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 VoteType voteType)
                 throws BallotBox.InvalidXPathException, BallotBox.VoteNotAcceptedException {
             makeSureInPathsForFile(distinguishingXpath, user, value);
-            value = processValue(distinguishingXpath, value);
             SurveyLog.debug(
                     "V4v: "
                             + locale
@@ -1177,44 +1164,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     throw new BallotBox.InvalidXPathException(xpath);
                 }
             }
-        }
-
-        /**
-         * Normalize the value using DAIP including inheritance replacement
-         *
-         * <p>Votes retrieved from the db, uploaded by bulk submission, and imported old votes, may
-         * all have been normalized before, but the normalization criteria and/or the inherited
-         * value may have changed in the meantime.
-         *
-         * <p>DAIP exceptions will not be reported here. For new submissions, DAIP with exception
-         * reporting is assumed to be invoked elsewhere such as VoteAPIHelper.
-         *
-         * @param xpath the path
-         * @param value the value to process
-         * @return the processed value
-         * @throws VoteNotAcceptedException
-         */
-        private String processValue(String xpath, String value) throws VoteNotAcceptedException {
-            if (value != null
-                    && !value.isEmpty()
-                    && !CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                value = getProcessor().processInput(xpath, value, null);
-                if (value.isEmpty()) {
-                    throw new VoteNotAcceptedException(
-                            ErrorCode.E_BAD_VALUE, "Normalization results in empty string.");
-                }
-            }
-            return value;
-        }
-
-        private DisplayAndInputProcessor getProcessor() {
-            if (daip == null) {
-                daip = new DisplayAndInputProcessor(locale, true);
-                if (VoteResolver.DROP_HARD_INHERITANCE) {
-                    daip.enableInheritanceReplacement(getFile(true));
-                }
-            }
-            return daip;
         }
 
         /**

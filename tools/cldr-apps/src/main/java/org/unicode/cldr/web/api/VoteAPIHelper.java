@@ -221,12 +221,14 @@ public class VoteAPIHelper {
         // situations.
         row.displayExample = r.getDisplayExample();
         row.displayName = r.getDisplayName();
+        row.rawEnglish = r.getRawEnglish();
         row.extraAttributes = r.getNonDistinguishingAttributes();
         row.flagged = r.isFlagged();
         row.hasVoted = r.userHasVoted();
         row.helpHtml = r.getHelpHTML();
         row.inheritedLocale = r.getInheritedLocaleName();
         row.inheritedValue = r.getInheritedValue();
+        row.inheritedDisplayValue = r.getInheritedDisplayValue();
         row.inheritedXpid = r.getInheritedXPath();
         row.items = calculateItems(r);
         row.placeholderInfo = placeholders.get(xpath);

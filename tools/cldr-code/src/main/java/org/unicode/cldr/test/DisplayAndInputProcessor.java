@@ -354,6 +354,9 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        if (value == null) {
+            return null;
+        }
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             return value;
         }

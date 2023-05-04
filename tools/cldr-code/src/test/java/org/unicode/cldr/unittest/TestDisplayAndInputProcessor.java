@@ -737,16 +737,18 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             // unicodeSet, displayForm, roundtrip
             {
                 "//ldml/characters/exemplarCharacters",
-                "[a-c \\u200B \\- . ๎ ็]",
-                "⦕ZWSP⦖ ๎ ็ - . a b c",
-                "[a-c\u0E47\u0E4E\u200B]", // note: DAIP also adds break/nobreak alternates for
+                "[a-c {def} \\u200B \\- . ๎ ็]",
+                "⦕ZWSP⦖ ๎ ็ - . a b c def",
+                "[a-c\u0E47\u0E4E\u200B{def}]",
+                // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
             },
             {
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
-                "[a-c \\u200B \\- . ๎ ็]",
-                "⦕ZWSP⦖ ๎ ็ - . a b c",
-                "[a-c \\u2011 \\u200B \\- . ๎ ็]", // note: DAIP also adds break/nobreak alternates
+                "[a-c {def} \\u200B \\- . ๎ ็]",
+                "⦕ZWSP⦖ ๎ ็ - . a b c def",
+                "[\\-.a-c\u0E47\u0E4E\u200B\u2011{def}]",
+                // note: DAIP also adds break/nobreak alternates
                 // for hyphen, etc.
             },
         };

@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 8: Person Names
 
-|Version|43                      |
+|Version|43.1                    |
 |-------|------------------------|
 |Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and [other CLDR committee members](tr35.md#Acknowledgments)|
 
@@ -16,8 +16,12 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -506,7 +510,18 @@ Let the **full formatting locale** be the maximal likely locale for the formatte
 
 A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to _match_ when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.
 
-If the **name script** doesn't match the **formatting script**, then the name is formatted with the name locale, _**not**_ the originally requested formatting locale. For example, when a Hindi formatter (hi-Deva) is called upon to format a name with the Ukrainian (Cyrillic) locale (uk-Cyrl), under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name.
+If the **name script** doesn't match the **formatting script**:
+1. If the name locale has name formatting data, then set the formatting locale to the name locale. 
+2. Otherwise, set the formatting locale to the maximal likely locale for the the locale formed from und, plus the name script plus the region of the nameLocale.
+
+For example, when a Hindi (Devanagari) formatter is called upon to format a name object that has the locale Ukrainian (Cyrillic):
+* If the name is written with Cyrillic letters, under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name. 
+* If the name is written in Greek letters, then under the covers a Greek (Greek-script) formatter should be instantiated and used to format.
+
+To determine whether there is name formatting data for a locale, get the values for each of the following paths.
+If at least one of them doesn’t inherit their value from root, then the locale has name formatting data.
+* //ldml/personNames/nameOrderLocales[@order="givenFirst"]
+* //ldml/personNames/nameOrderLocales[@order="surnameFirst"]
 
 ### Derive the name order
 

@@ -518,7 +518,7 @@ For example, when a Hindi (Devanagari) formatter is called upon to format a name
 * If the name is written with Cyrillic letters, under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name. 
 * If the name is written in Greek letters, then under the covers a Greek (Greek-script) formatter should be instantiated and used to format.
 
-To determine whether there is name formatting data for a locale, get the values for each of the following paths:
+To determine whether there is name formatting data for a locale, get the values for each of the following paths.
 If at least one of them doesn’t inherit from root, then the locale has name formatting data.
 * //ldml/personNames/nameOrderLocales[@order="givenFirst"]
 * //ldml/personNames/nameOrderLocales[@order="surnameFirst"]

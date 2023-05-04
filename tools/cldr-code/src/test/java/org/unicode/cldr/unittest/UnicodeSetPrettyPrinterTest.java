@@ -74,11 +74,17 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     }
 
     public void testSimpleUnicodeSetFormatter() {
-        String[][] tests = {
+        String[][] unicodeToDisplay = {
             {"[\u000F]", "⦕F⦖"},
             {"[\\u0024\\uFE69\\uFF04]", "$ ＄ ﹩"},
             {"[\\u0024﹩＄]", "$ ＄ ﹩"},
             {"[\\u0020]", "⦕SP⦖"},
+            {
+                "[\\u0020-\\u0023 \\u00AB-\\u00AD \\u0081-\\u0083]",
+                "⦕81⦖ ⦕82⦖ ⦕83⦖ ⦕SHY⦖ ⦕SP⦖ ! \" « # ¬"
+                // Note: don't currently form ranges with escaped characters in display
+                // But they they parse (see below)
+            },
             {"[A-Z]", "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"},
             {
                 "[A Á B C {CS} D {DZ} {DZS} E É F G {GY} H I Í J K L {LY} M N {NY} O Ó Ö Ő P Q R S {SZ} T {TY} U Ú Ü Ű V W X Y Z {ZS}]",
@@ -90,7 +96,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         SimpleUnicodeSetFormatter susf =
                 new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR, null);
 
-        for (String[] test : tests) {
+        for (String[] test : unicodeToDisplay) {
             final UnicodeSet source = new UnicodeSet(test[0]);
             String actual = susf.format(source);
             String expected = test.length < 2 ? actual : test[1];
@@ -102,6 +108,24 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             } catch (Exception e) {
             }
             assertEquals(source + " roundtrip", expectedRoundtrip, source);
+        }
+
+        String[][] displayToUnicode = {
+            {"⦕81⦖➖⦕83⦖ «➖⦕SHY⦖ ⦕SP⦖➖#", "[\\u0020-\\u0023 \\u00AB-\\u00AD \\u0081-\\u0083]"},
+            {"«➖⦕SHY⦖", "[\\u00AB-\\u00AD]"},
+            {"⦕81⦖➖⦕83⦖", "[\\u0081-\\u0083]"},
+            {"⦕SP⦖➖#", "[\\ -#]"},
+        };
+
+        for (String[] test : displayToUnicode) {
+            final String display = test[0];
+            final UnicodeSet expectedUnicodeSet = new UnicodeSet(test[1]);
+            UnicodeSet actualUnicodeSet = null;
+            try {
+                actualUnicodeSet = susf.parse(display);
+            } catch (Exception e) {
+            }
+            assertEquals(display, expectedUnicodeSet, actualUnicodeSet);
         }
     }
 

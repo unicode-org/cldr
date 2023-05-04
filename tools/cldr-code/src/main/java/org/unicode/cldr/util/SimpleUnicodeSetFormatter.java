@@ -164,6 +164,7 @@ public class SimpleUnicodeSetFormatter {
         for (String word : SPACE_SPLITTER.split(input)) {
             // parts between spaces can be single code points, or strings, or ranges of single code
             // points
+            // points
             int rangePos = word.indexOf(CodePointEscaper.RANGE_SYNTAX);
             if (rangePos < 0) {
                 result.add(unescape(word));

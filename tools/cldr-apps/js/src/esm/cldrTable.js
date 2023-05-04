@@ -864,7 +864,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
     copyWinning.onclick = function (e) {
       let theValue = getValidWinningValue(theRow);
       if (theValue === cldrSurvey.INHERITANCE_MARKER || theValue === null) {
-        theValue = theRow.inheritedValue;
+        theValue = theRow.inheritedDisplayValue;
       }
       input.value = theValue || null;
       input.focus();
@@ -995,7 +995,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
 function addVitem(td, tr, theRow, item, newButton) {
   let displayValue = item.value;
   if (displayValue === cldrSurvey.INHERITANCE_MARKER) {
-    displayValue = theRow.inheritedValue;
+    displayValue = theRow.inheritedDisplayValue;
   }
   if (!displayValue && displayValue !== "") {
     return;

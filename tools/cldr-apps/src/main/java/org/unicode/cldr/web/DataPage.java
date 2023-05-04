@@ -408,7 +408,11 @@ public class DataPage {
             return coverageValue;
         }
 
+        /** the displayName is the value of the 'English' column. */
         private final String displayName;
+
+        /** Same as displayName, but unprocessed */
+        private final String rawEnglish;
 
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
@@ -437,6 +441,13 @@ public class DataPage {
 
         public String getInheritedValue() {
             return inheritedValue;
+        }
+
+        private String inheritedDisplayValue = null;
+
+        /** like getInheritedValue(), but processed */
+        public String getInheritedDisplayValue() {
+            return inheritedDisplayValue;
         }
 
         /** The winning item for this DataRow. */
@@ -520,7 +531,8 @@ public class DataPage {
             baselineValue = resolver.getBaselineValue();
             baselineStatus = resolver.getBaselineStatus();
 
-            this.displayName = comparisonValueFile.getStringValue(xpath);
+            rawEnglish = comparisonValueFile.getStringValue(xpath);
+            displayName = getProcessor().processForDisplay(xpath, rawEnglish);
         }
 
         /**
@@ -608,6 +620,10 @@ public class DataPage {
 
         public String getDisplayName() {
             return displayName;
+        }
+
+        public String getRawEnglish() {
+            return rawEnglish;
         }
 
         /** Get the locale for this DataRow */
@@ -759,6 +775,7 @@ public class DataPage {
                  */
                 // System.out.println("Warning: no inherited value in updateInheritedValue; xpath =
                 // " + xpath);
+                inheritedDisplayValue = null;
             } else {
                 /*
                  * Unless this DataRow already has an item with value INHERITANCE_MARKER,
@@ -783,6 +800,7 @@ public class DataPage {
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
                     }
                 }
+                inheritedDisplayValue = getProcessor().processForDisplay(xpath, inheritedValue);
             }
             if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {
                 if (TRACE_TIME) {
@@ -848,15 +866,14 @@ public class DataPage {
         }
 
         public String getHelpHTML() {
-            return nativeExampleGenerator.getHelpHtml(xpath, this.displayName);
+            return nativeExampleGenerator.getHelpHtml(xpath, rawEnglish);
         }
 
         public String getDisplayExample() {
             String displayExample = null;
             if (displayName != null) {
                 displayExample =
-                        sm.getComparisonValuesExample()
-                                .getNonTrivialExampleHtml(xpath, displayName);
+                        sm.getComparisonValuesExample().getNonTrivialExampleHtml(xpath, rawEnglish);
             }
             return displayExample;
         }

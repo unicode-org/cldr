@@ -513,7 +513,7 @@ function updateRowVoteInfo(tr, theRow) {
        * theRow.inheritedValue can be undefined here; then do not append
        */
       if (theRow.inheritedValue) {
-        cldrVote.appendItem(valdiv, theRow.inheritedValue, item.pClass);
+        cldrVote.appendItem(valdiv, theRow.inheritedDisplayValue, item.pClass);
         valdiv.appendChild(
           cldrDom.createChunk(cldrText.get("voteInfo_votesForInheritance"), "p")
         );
@@ -787,7 +787,7 @@ function showItemInfoFn(theRow, item) {
     var h3 = document.createElement("div");
     var displayValue = item.value;
     if (item.value === cldrSurvey.INHERITANCE_MARKER) {
-      displayValue = theRow.inheritedValue;
+      displayValue = theRow.inheritedDisplayValue;
     }
 
     cldrVote.appendItem(h3, displayValue, item.pClass);

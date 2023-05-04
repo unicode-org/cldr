@@ -175,12 +175,14 @@ public class VoteAPI {
             public String dir;
             public String displayExample;
             public String displayName;
+            public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
             public boolean hasVoted;
             public String helpHtml;
             public String inheritedLocale;
             public String inheritedValue;
+            public String inheritedDisplayValue;
             public String inheritedXpid;
             public Map<String, Candidate> items;
 

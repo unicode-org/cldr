@@ -20,7 +20,7 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVote from "./cldrVote.js";
-import * as cldrXPathUtils from "./cldrXpathUtils.js";
+import * as cldrXPathUtils from "./cldrXpathUtils.mjs";
 
 const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"

@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -15,7 +14,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
-//import org.unicode.cldr.util.XPathParts.Comments;
+// import org.unicode.cldr.util.XPathParts.Comments;
 
 public class CLDRFormat {
     public static void main(String[] args) throws Exception {
@@ -26,8 +25,11 @@ public class CLDRFormat {
         File dest = new File(CLDRPaths.BASE_DIRECTORY + "/common-test/");
         File dtd = new File(dest + "/main/" + "../../common/dtd/ldmlSupplemental.dtd");
         if (!dtd.exists()) {
-            throw new IllegalArgumentException("Can't access DTD\nas is: " + dtd + "\ncanonical: "
-                + PathUtilities.getNormalizedPathString(dtd));
+            throw new IllegalArgumentException(
+                    "Can't access DTD\nas is: "
+                            + dtd
+                            + "\ncanonical: "
+                            + PathUtilities.getNormalizedPathString(dtd));
         }
         // Log.setLog(Utility.GEN_DIRECTORY + "logCldr.txt");
         for (String subDir : src.list()) {
@@ -60,16 +62,29 @@ public class CLDRFormat {
                 // check
                 try {
                     // byte[] utf8 = results.getBytes("utf-8");
-                    // CLDRFile regenFile = CLDRFile.make(destSubdir + key, key, new ByteArrayInputStream(utf8),
+                    // CLDRFile regenFile = CLDRFile.make(destSubdir + key, key, new
+                    // ByteArrayInputStream(utf8),
                     // DraftStatus.unconfirmed);
-                    CLDRFile regenFile = SimpleFactory.makeFile(key, destSubdir + key, DraftStatus.unconfirmed);
+                    CLDRFile regenFile =
+                            SimpleFactory.makeFile(key, destSubdir + key, DraftStatus.unconfirmed);
                     String diff = findFirstDifference(cldrFile, regenFile);
                     if (diff != null) {
-                        System.out.println("\tERROR: difference introduced in reformatting " + srcSubdir + "/" + key
-                            + ".xml" + "\n" + diff);
+                        System.out.println(
+                                "\tERROR: difference introduced in reformatting "
+                                        + srcSubdir
+                                        + "/"
+                                        + key
+                                        + ".xml"
+                                        + "\n"
+                                        + diff);
                     }
                 } catch (Exception e) {
-                    System.err.println("\tERROR: can't read reformatted file " + srcSubdir + "/" + key + ".xml");
+                    System.err.println(
+                            "\tERROR: can't read reformatted file "
+                                    + srcSubdir
+                                    + "/"
+                                    + key
+                                    + ".xml");
                     // e.printStackTrace();
                 }
             }
@@ -89,12 +104,14 @@ public class CLDRFormat {
             missing.removeAll(keys2);
             Set<String> extras = new TreeSet<>(keys2);
             extras.removeAll(keys1);
-            return "\tMissing: " + missing.toString().replace(", ", ",\n") + ";\n\tExtras: "
-                + extras.toString().replace(", ", ",\n");
-
+            return "\tMissing: "
+                    + missing.toString().replace(", ", ",\n")
+                    + ";\n\tExtras: "
+                    + extras.toString().replace(", ", ",\n");
         }
         for (String path : keys1) {
-            if (path.startsWith("//ldml/identity/generation") || path.startsWith("//ldml/identity/version")) {
+            if (path.startsWith("//ldml/identity/generation")
+                    || path.startsWith("//ldml/identity/version")) {
                 continue;
             }
             String full1 = cldrFile.getFullXPath(path);
@@ -103,8 +120,8 @@ public class CLDRFormat {
                 return "\tFull XPaths differ: " + full1 + "!=" + full2;
             }
         }
-//        Comments comments1 = cldrFile.getXpath_comments();
-//        Comments comments2 = regenFile.getXpath_comments();
+        //        Comments comments1 = cldrFile.getXpath_comments();
+        //        Comments comments2 = regenFile.getXpath_comments();
         // TODO fix later
         return null;
     }

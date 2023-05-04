@@ -1,37 +1,37 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.text.MessageFormat;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
-import com.ibm.icu.text.MessageFormat;
-
-/**
- * Private class to get the messages from a help file.
- */
+/** Private class to get the messages from a help file. */
 public class HelpMessages {
     private static final Matcher CLEANUP_BOOKMARK = PatternCache.get("[^a-zA-Z0-9]").matcher("");
 
-    private static final MessageFormat DEFAULT_HEADER_PATTERN = new MessageFormat("<p>{0}</p>"
-        + CldrUtility.LINE_SEPARATOR);
+    private static final MessageFormat DEFAULT_HEADER_PATTERN =
+            new MessageFormat("<p>{0}</p>" + CldrUtility.LINE_SEPARATOR);
 
-    private static final Matcher HEADER_HTML = PatternCache.get("<h[0-9]>(.*)</h[0-9]>").matcher("");
+    private static final Matcher HEADER_HTML =
+            PatternCache.get("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
     List<Matcher> keys = new ArrayList<>();
 
     List<String> values = new ArrayList<>();
 
     enum Status {
-        BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
+        BASE,
+        BEFORE_CELL,
+        IN_CELL,
+        IN_INSIDE_TABLE
     }
 
     StringBuilder[] currentColumn = new StringBuilder[2];
@@ -41,15 +41,17 @@ public class HelpMessages {
     private static HelpMessages helpMessages;
 
     /**
-     * Create a HelpMessages object from a filename.
-     * The file has to be in the format of a table of <keyRegex,htmlText> pairs,
-     * where the key is a keyRegex expression and htmlText is arbitrary HTML text. For example:
-     * <p>
-     * {@link http://unicode.org/cldr/data/tools/cldr-code/org/unicode/cldr/util/data/chart_messages.html} is used for
-     * chart messages, where the key is the name of the chart.
-     * <p>
-     * {@link http://unicode.org/cldr/data/tools/cldr-code/org/unicode/cldr/util/data/test_help_messages.html} is used
-     * for help messages in the survey tool, where the key is an xpath.
+     * Create a HelpMessages object from a filename. The file has to be in the format of a table of
+     * <keyRegex,htmlText> pairs, where the key is a keyRegex expression and htmlText is arbitrary
+     * HTML text. For example:
+     *
+     * <p>{@link
+     * http://unicode.org/cldr/data/tools/cldr-code/org/unicode/cldr/util/data/chart_messages.html}
+     * is used for chart messages, where the key is the name of the chart.
+     *
+     * <p>{@link
+     * http://unicode.org/cldr/data/tools/cldr-code/org/unicode/cldr/util/data/test_help_messages.html}
+     * is used for help messages in the survey tool, where the key is an xpath.
      *
      * @param filename
      */
@@ -62,47 +64,49 @@ public class HelpMessages {
             int tableCount = 0;
 
             boolean inContent = false;
-            // if the table level is 1 (we are in the main table), then we look for <td>...</td><td>...</td>. That
+            // if the table level is 1 (we are in the main table), then we look for
+            // <td>...</td><td>...</td>. That
             // means that we have column 1 and column 2.
 
             SimpleHtmlParser simple = new SimpleHtmlParser().setReader(in);
             StringBuilder result = new StringBuilder();
             boolean hadPop = false;
-            main: while (true) {
+            main:
+            while (true) {
                 Type x = simple.next(result);
                 switch (x) {
-                case ELEMENT: // with /table we pop the count
-                    if (SimpleHtmlParser.equals("table", result)) {
-                        if (hadPop) {
-                            --tableCount;
-                        } else {
-                            ++tableCount;
-                        }
-                    } else if (tableCount == 1) {
-                        if (SimpleHtmlParser.equals("tr", result)) {
+                    case ELEMENT: // with /table we pop the count
+                        if (SimpleHtmlParser.equals("table", result)) {
                             if (hadPop) {
-                                addHelpMessages();
-                            }
-                            column = 0;
-                        } else if (SimpleHtmlParser.equals("td", result)) {
-                            if (hadPop) {
-                                inContent = false;
-                                ++column;
+                                --tableCount;
                             } else {
-                                inContent = true;
-                                continue main; // skip adding
+                                ++tableCount;
+                            }
+                        } else if (tableCount == 1) {
+                            if (SimpleHtmlParser.equals("tr", result)) {
+                                if (hadPop) {
+                                    addHelpMessages();
+                                }
+                                column = 0;
+                            } else if (SimpleHtmlParser.equals("td", result)) {
+                                if (hadPop) {
+                                    inContent = false;
+                                    ++column;
+                                } else {
+                                    inContent = true;
+                                    continue main; // skip adding
+                                }
                             }
                         }
-                    }
-                    break;
-                case ELEMENT_POP:
-                    hadPop = true;
-                    break;
-                case ELEMENT_END:
-                    hadPop = false;
-                    break;
-                case DONE:
-                    break main;
+                        break;
+                    case ELEMENT_POP:
+                        hadPop = true;
+                        break;
+                    case ELEMENT_END:
+                        hadPop = false;
+                        break;
+                    case DONE:
+                        break main;
                 }
                 if (inContent) {
                     SimpleHtmlParser.writeResult(x, result, currentColumn[column]);
@@ -116,10 +120,10 @@ public class HelpMessages {
     }
 
     /**
-     * Get message corresponding to a key out of the file set on this object.
-     * For many files, the key will be an xpath, but it doesn't have to be.
-     * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
-     * will be concatenated together in order to get the result.
+     * Get message corresponding to a key out of the file set on this object. For many files, the
+     * key will be an xpath, but it doesn't have to be. Note that <i>all</i> of pairs of
+     * <keyRegex,htmlText> where the key matches keyRegex will be concatenated together in order to
+     * get the result.
      *
      * @param key
      * @return
@@ -129,14 +133,13 @@ public class HelpMessages {
     }
 
     /**
-     * Get message corresponding to a key out of the file set on this object.
-     * For many files, the key will be an xpath, but it doesn't have to be.
-     * Note that <i>all</i> of pairs of <keyRegex,htmlText> where the key matches keyRegex
-     * will be concatenated together in order to get the result.
+     * Get message corresponding to a key out of the file set on this object. For many files, the
+     * key will be an xpath, but it doesn't have to be. Note that <i>all</i> of pairs of
+     * <keyRegex,htmlText> where the key matches keyRegex will be concatenated together in order to
+     * get the result.
      *
      * @param key
-     * @param addHeader
-     *            true if you want a header formed by looking at all the hN elements.
+     * @param addHeader true if you want a header formed by looking at all the hN elements.
      * @return
      */
     public String find(String key, MessageFormat headerPattern) {
@@ -163,9 +166,17 @@ public class HelpMessages {
                         if (header.length() > 0) {
                             header.append(" | ");
                         }
-                        header.append("<a href='#").append(bookmark).append("'>").append(contents).append("</a>");
+                        header.append("<a href='#")
+                                .append(bookmark)
+                                .append("'>")
+                                .append(contents)
+                                .append("</a>");
                         newValue.append(value.substring(lastEnd, HEADER_HTML.start(1)));
-                        newValue.append("<a name='").append(bookmark).append("'>").append(contents).append("</a>");
+                        newValue.append("<a name='")
+                                .append(bookmark)
+                                .append("'>")
+                                .append(contents)
+                                .append("</a>");
                         lastEnd = HEADER_HTML.end(1);
                     }
                     newValue.append(value.substring(lastEnd));
@@ -176,7 +187,7 @@ public class HelpMessages {
         }
         if (result.length() != 0) {
             if (keyCount > 1) {
-                result.insert(0, headerPattern.format(new Object[] { header.toString() }));
+                result.insert(0, headerPattern.format(new Object[] {header.toString()}));
             }
             return result.toString();
         }
@@ -192,8 +203,11 @@ public class HelpMessages {
                 if (ExampleGenerator.DEBUG_SHOW_HELP) {
                     System.out.println("{" + key + "} => {" + value + "}");
                 }
-                Matcher m = Pattern.compile(TransliteratorUtilities.fromHTML.transliterate(key), Pattern.COMMENTS)
-                    .matcher("");
+                Matcher m =
+                        Pattern.compile(
+                                        TransliteratorUtilities.fromHTML.transliterate(key),
+                                        Pattern.COMMENTS)
+                                .matcher("");
                 keys.add(m);
                 values.add(value);
             } catch (RuntimeException e) {
@@ -213,9 +227,12 @@ public class HelpMessages {
         }
         return HelpMessages.helpMessages.find(xpath);
         // if (xpath.contains("/exemplarCharacters")) {
-        // result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
-        // + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
-        // + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
+        // result = "The standard exemplar characters are those used in customary writing ([a-z] for
+        // English; "
+        // + "the auxiliary characters are used in foreign words found in typical magazines,
+        // newspapers, &c.; "
+        // + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'.
+        // ";
         // }
         // return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
     }

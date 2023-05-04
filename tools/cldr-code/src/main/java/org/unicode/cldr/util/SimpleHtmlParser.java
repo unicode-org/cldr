@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * Extremely simple class for parsing HTML. Extremely lenient. Call next() until
- * DONE is returned.
- * <p>
- * Element content will be returned in the following sequence:
+ * Extremely simple class for parsing HTML. Extremely lenient. Call next() until DONE is returned.
+ *
+ * <p>Element content will be returned in the following sequence:
  *
  * <pre>
  *  ELEMENT_START
@@ -30,49 +29,40 @@ import java.io.Reader;
  *  ELEMENT_END
  * </pre>
  *
- *
  * @author markdavis
- *
  */
 public class SimpleHtmlParser {
     public enum Type {
         DONE,
-        /**
-         * No contents, set when we hit <
-         */
+        /** No contents, set when we hit < */
         ELEMENT_START,
-        /**
-         * '&lt;' contents/b
-         */
+        /** '&lt;' contents/b */
         ELEMENT,
-        /**
-         * '&lt;element/bcontents(=...)
-         */
+        /** '&lt;element/bcontents(=...) */
         ATTRIBUTE,
-        /**
-         * attribute=['"]contents['"]
-         */
+        /** attribute=['"]contents['"] */
         ATTRIBUTE_CONTENT,
-        /**
-         * No contents, set when we hit '&gt'
-         */
+        /** No contents, set when we hit '&gt' */
         ELEMENT_END,
-        /**
-         * No contents, set when we hit '/' after '&lt;'
-         */
+        /** No contents, set when we hit '/' after '&lt;' */
         ELEMENT_POP,
-        /**
-         * '&lt;!--' contents '--&gt;'
-         */
+        /** '&lt;!--' contents '--&gt;' */
         QUOTE,
-        /**
-         * '&lt;element&gt;' contents '&lt;/element&gt;'
-         */
+        /** '&lt;element&gt;' contents '&lt;/element&gt;' */
         ELEMENT_CONTENT
     }
 
     private enum State {
-        BASE, IN_ELEMENT, AFTER_ELEMENT, IN_CONTENT, IN_ATTRIBUTE, IN_ATTRIBUTE_CONTENT, IN_ATTRIBUTE_CONTENT1, IN_ATTRIBUTE_CONTENT2, ELEMENT_STOP, IN_QUOTE
+        BASE,
+        IN_ELEMENT,
+        AFTER_ELEMENT,
+        IN_CONTENT,
+        IN_ATTRIBUTE,
+        IN_ATTRIBUTE_CONTENT,
+        IN_ATTRIBUTE_CONTENT1,
+        IN_ATTRIBUTE_CONTENT2,
+        ELEMENT_STOP,
+        IN_QUOTE
     }
 
     private Reader input;
@@ -120,121 +110,119 @@ public class SimpleHtmlParser {
             }
 
             switch (state) {
-            case BASE:
-                if (ch == 0xFEFF)
+                case BASE:
+                    if (ch == 0xFEFF) break;
+                    // fall through!
+
+                case IN_CONTENT:
+                    if (ch == '<') {
+                        state = State.IN_ELEMENT;
+                        bufferedReturn = Type.ELEMENT_START;
+                        return Type.ELEMENT_CONTENT;
+                    }
+                    if (ch == 0) {
+                        return Type.ELEMENT_CONTENT;
+                    }
+                    result.append(ch);
                     break;
-                // fall through!
 
-            case IN_CONTENT:
-                if (ch == '<') {
-                    state = State.IN_ELEMENT;
-                    bufferedReturn = Type.ELEMENT_START;
-                    return Type.ELEMENT_CONTENT;
-                }
-                if (ch == 0) {
-                    return Type.ELEMENT_CONTENT;
-                }
-                result.append(ch);
-                break;
+                case IN_ELEMENT:
+                    if (ch <= ' ') {
+                        if (equals(result, "!--")) {
+                            state = State.IN_QUOTE;
+                            result.setLength(0);
+                            break;
+                        }
+                        state = State.AFTER_ELEMENT;
+                        return Type.ELEMENT;
+                    }
+                    if (ch == '>') {
+                        state = State.IN_CONTENT;
+                        bufferedReturn = Type.ELEMENT_END;
+                        return Type.ELEMENT;
+                    }
+                    if (ch == '/') {
+                        return Type.ELEMENT_POP;
+                    }
+                    result.append(ch);
+                    break;
 
-            case IN_ELEMENT:
-                if (ch <= ' ') {
-                    if (equals(result, "!--")) {
-                        state = State.IN_QUOTE;
-                        result.setLength(0);
+                case AFTER_ELEMENT:
+                    if (ch <= ' ') break;
+                    if (ch == '>') {
+                        state = State.IN_CONTENT;
+                        return Type.ELEMENT_END;
+                    }
+                    result.append(ch);
+                    state = State.IN_ATTRIBUTE;
+                    break;
+
+                case IN_ATTRIBUTE:
+                    if (ch <= ' ') {
+                        state = State.AFTER_ELEMENT;
+                        return Type.ATTRIBUTE;
+                    }
+                    if (ch == '>') {
+                        state = State.IN_CONTENT;
+                        bufferedReturn = Type.ELEMENT_END;
+                        return Type.ATTRIBUTE;
+                    }
+                    if (ch == '=') {
+                        state = State.IN_ATTRIBUTE_CONTENT;
+                        return Type.ATTRIBUTE;
+                    }
+                    result.append(ch);
+                    break;
+
+                case IN_ATTRIBUTE_CONTENT:
+                    if (ch <= ' ') {
                         break;
                     }
-                    state = State.AFTER_ELEMENT;
-                    return Type.ELEMENT;
-                }
-                if (ch == '>') {
-                    state = State.IN_CONTENT;
-                    bufferedReturn = Type.ELEMENT_END;
-                    return Type.ELEMENT;
-                }
-                if (ch == '/') {
-                    return Type.ELEMENT_POP;
-                }
-                result.append(ch);
-                break;
-
-            case AFTER_ELEMENT:
-                if (ch <= ' ')
+                    if (ch == '>') {
+                        state = State.IN_CONTENT;
+                        bufferedReturn = Type.ELEMENT_END;
+                        return Type.ATTRIBUTE_CONTENT;
+                    }
+                    if (ch == '\'') {
+                        state = State.IN_ATTRIBUTE_CONTENT1;
+                        break;
+                    }
+                    if (ch == '"') {
+                        state = State.IN_ATTRIBUTE_CONTENT2;
+                        break;
+                    }
+                    result.append(ch);
                     break;
-                if (ch == '>') {
-                    state = State.IN_CONTENT;
-                    return Type.ELEMENT_END;
-                }
-                result.append(ch);
-                state = State.IN_ATTRIBUTE;
-                break;
 
-            case IN_ATTRIBUTE:
-                if (ch <= ' ') {
-                    state = State.AFTER_ELEMENT;
-                    return Type.ATTRIBUTE;
-                }
-                if (ch == '>') {
-                    state = State.IN_CONTENT;
-                    bufferedReturn = Type.ELEMENT_END;
-                    return Type.ATTRIBUTE;
-                }
-                if (ch == '=') {
-                    state = State.IN_ATTRIBUTE_CONTENT;
-                    return Type.ATTRIBUTE;
-                }
-                result.append(ch);
-                break;
-
-            case IN_ATTRIBUTE_CONTENT:
-                if (ch <= ' ') {
+                case IN_ATTRIBUTE_CONTENT1:
+                    if (ch == 0 || ch == '\'') {
+                        state = State.AFTER_ELEMENT;
+                        return Type.ATTRIBUTE_CONTENT;
+                    }
+                    result.append(ch);
                     break;
-                }
-                if (ch == '>') {
-                    state = State.IN_CONTENT;
-                    bufferedReturn = Type.ELEMENT_END;
-                    return Type.ATTRIBUTE_CONTENT;
-                }
-                if (ch == '\'') {
-                    state = State.IN_ATTRIBUTE_CONTENT1;
+
+                case IN_ATTRIBUTE_CONTENT2:
+                    if (ch == 0 || ch == '"') {
+                        state = State.AFTER_ELEMENT;
+                        return Type.ATTRIBUTE_CONTENT;
+                    }
+                    result.append(ch);
                     break;
-                }
-                if (ch == '"') {
-                    state = State.IN_ATTRIBUTE_CONTENT2;
+
+                case IN_QUOTE:
+                    if (ch == 0) {
+                        state = State.IN_CONTENT;
+                        return Type.QUOTE;
+                    }
+                    if (ch == '>' && endsWith(result, "--")) {
+                        result.setLength(result.length() - 2);
+                        state = State.IN_CONTENT;
+                        return Type.QUOTE;
+                    }
+                    result.append(ch);
                     break;
-                }
-                result.append(ch);
-                break;
-
-            case IN_ATTRIBUTE_CONTENT1:
-                if (ch == 0 || ch == '\'') {
-                    state = State.AFTER_ELEMENT;
-                    return Type.ATTRIBUTE_CONTENT;
-                }
-                result.append(ch);
-                break;
-
-            case IN_ATTRIBUTE_CONTENT2:
-                if (ch == 0 || ch == '"') {
-                    state = State.AFTER_ELEMENT;
-                    return Type.ATTRIBUTE_CONTENT;
-                }
-                result.append(ch);
-                break;
-
-            case IN_QUOTE:
-                if (ch == 0) {
-                    state = State.IN_CONTENT;
-                    return Type.QUOTE;
-                }
-                if (ch == '>' && endsWith(result, "--")) {
-                    result.setLength(result.length() - 2);
-                    state = State.IN_CONTENT;
-                    return Type.QUOTE;
-                }
-                result.append(ch);
-                break;
-            default:
+                default:
             }
         }
     }
@@ -264,36 +252,37 @@ public class SimpleHtmlParser {
         return true;
     }
 
-    public static void writeResult(Type type, StringBuilder result, Appendable writer) throws IOException {
+    public static void writeResult(Type type, StringBuilder result, Appendable writer)
+            throws IOException {
         switch (type) {
-        case ELEMENT:
-            writer.append(result);
-            break;
-        case ELEMENT_START:
-            writer.append('<');
-            break;
-        case ELEMENT_END:
-            writer.append('>');
-            break;
-        case ATTRIBUTE:
-            writer.append(' ').append(result);
-            break;
-        case ATTRIBUTE_CONTENT:
-            writer.append("=\"").append(result).append('"');
-            break;
-        case ELEMENT_CONTENT:
-            writer.append(result);
-            break;
-        case ELEMENT_POP:
-            writer.append('/');
-            break;
-        case QUOTE:
-            writer.append(result);
-            break;
-        case DONE:
-            break;
-        default:
-            throw new IllegalArgumentException("Missing case: " + type);
+            case ELEMENT:
+                writer.append(result);
+                break;
+            case ELEMENT_START:
+                writer.append('<');
+                break;
+            case ELEMENT_END:
+                writer.append('>');
+                break;
+            case ATTRIBUTE:
+                writer.append(' ').append(result);
+                break;
+            case ATTRIBUTE_CONTENT:
+                writer.append("=\"").append(result).append('"');
+                break;
+            case ELEMENT_CONTENT:
+                writer.append(result);
+                break;
+            case ELEMENT_POP:
+                writer.append('/');
+                break;
+            case QUOTE:
+                writer.append(result);
+                break;
+            case DONE:
+                break;
+            default:
+                throw new IllegalArgumentException("Missing case: " + type);
         }
     }
 }

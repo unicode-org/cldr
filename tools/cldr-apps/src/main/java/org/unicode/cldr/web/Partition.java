@@ -1,15 +1,10 @@
-/**
- * Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved.
- *
- */
+/** Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 /**
  * @author srl
- *
- *         This would be Generic except generic arrays are UGLY.
- *         http://stackoverflow
- *         .com/questions/529085/java-how-to-generic-array-creation
+ *     <p>This would be Generic except generic arrays are UGLY. http://stackoverflow
+ *     .com/questions/529085/java-how-to-generic-array-creation
  */
 public class Partition {
 
@@ -28,5 +23,4 @@ public class Partition {
     public String toString() {
         return name + " - [" + start + ".." + limit + "]";
     }
-
 }

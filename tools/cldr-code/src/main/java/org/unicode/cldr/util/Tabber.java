@@ -1,4 +1,3 @@
-
 /*
  *******************************************************************************
  * Copyright (C) 2002-2012, International Business Machines Corporation and    *
@@ -7,18 +6,18 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.text.UnicodeSet;
-
 public abstract class Tabber {
     public static final byte LEFT = 0, CENTER = 1, RIGHT = 2;
-    private static final String[] ALIGNMENT_NAMES = { "Left", "Center", "Right" };
+    private static final String[] ALIGNMENT_NAMES = {"Left", "Center", "Right"};
 
     /**
      * Repeats a string n times
+     *
      * @param source
      * @param times
      */
@@ -48,7 +47,8 @@ public abstract class Tabber {
     private String prefix = "";
     private String postfix = "";
 
-    public abstract void process_field(int count, String source, int start, int limit, StringBuffer output);
+    public abstract void process_field(
+            int count, String source, int start, int limit, StringBuffer output);
 
     public Tabber clear() {
         return this;
@@ -73,16 +73,16 @@ public abstract class Tabber {
             StringBuffer buffer = new StringBuffer();
             for (int i = 0; i < stops.size(); ++i) {
                 if (i != 0) buffer.append("; ");
-                buffer
-                    .append(ALIGNMENT_NAMES[((Integer) types.get(i)).intValue()])
-                    .append(",")
-                    .append(stops.get(i));
+                buffer.append(ALIGNMENT_NAMES[((Integer) types.get(i)).intValue()])
+                        .append(",")
+                        .append(stops.get(i));
             }
             return buffer.toString();
         }
 
         /**
          * Adds tab stop and how to align the text UP TO that stop
+         *
          * @param tabPos
          * @param type
          */
@@ -92,9 +92,7 @@ public abstract class Tabber {
             return this;
         }
 
-        /**
-         * Adds relative tab stop and how to align the text UP TO that stop
-         */
+        /** Adds relative tab stop and how to align the text UP TO that stop */
         @Override
         public Tabber add(int fieldWidth, byte type) {
             int last = getStop(stops.size() - 1);
@@ -116,21 +114,22 @@ public abstract class Tabber {
         }
 
         @Override
-        public void process_field(int count, String source, int start, int limit, StringBuffer output) {
+        public void process_field(
+                int count, String source, int start, int limit, StringBuffer output) {
             String piece = source.substring(start, limit);
             int startPos = getStop(count - 1);
             int endPos = getStop(count) - minGap;
             int type = getType(count);
             final int pieceLength = getMonospaceWidth(piece);
             switch (type) {
-            case LEFT:
-                break;
-            case RIGHT:
-                startPos = endPos - pieceLength;
-                break;
-            case CENTER:
-                startPos = (startPos + endPos - pieceLength + 1) / 2;
-                break;
+                case LEFT:
+                    break;
+                case RIGHT:
+                    startPos = endPos - pieceLength;
+                    break;
+                case CENTER:
+                    startPos = (startPos + endPos - pieceLength + 1) / 2;
+                    break;
             }
 
             int gap = startPos - getMonospaceWidth(output);
@@ -152,17 +151,20 @@ public abstract class Tabber {
         }
     }
 
-    public static Tabber NULL_TABBER = new Tabber() {
-        @Override
-        public void process_field(int count, String source, int start, int limit, StringBuffer output) {
-            if (count > 0) output.append("\t");
-            output.append(source.substring(start, limit));
-        }
-    };
+    public static Tabber NULL_TABBER =
+            new Tabber() {
+                @Override
+                public void process_field(
+                        int count, String source, int start, int limit, StringBuffer output) {
+                    if (count > 0) output.append("\t");
+                    output.append(source.substring(start, limit));
+                }
+            };
 
     public static class HTMLTabber extends Tabber {
         private List<String> parameters = new ArrayList();
         private String element = "td";
+
         {
             setPrefix("<tr>");
             setPostfix("</tr>");
@@ -187,7 +189,8 @@ public abstract class Tabber {
         }
 
         @Override
-        public void process_field(int count, String source, int start, int limit, StringBuffer output) {
+        public void process_field(
+                int count, String source, int start, int limit, StringBuffer output) {
             output.append("<" + element);
             String params = null;
             if (count < parameters.size()) {
@@ -204,14 +207,12 @@ public abstract class Tabber {
         }
     }
 
-    /**
-     */
+    /** */
     public String getPostfix() {
         return postfix;
     }
 
-    /**
-     */
+    /** */
     public String getPrefix() {
         return prefix;
     }
@@ -236,5 +237,4 @@ public abstract class Tabber {
         // does nothing unless overridden
         return this;
     }
-
 }

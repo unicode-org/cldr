@@ -8,22 +8,17 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 import java.util.logging.Logger;
-
 import org.unicode.cldr.web.DataPage.DataRow;
 
 /**
  * This class represents a mode of sorting: i.e., by code, etc.
  *
  * @author srl
- *
  */
-
 public abstract class SortMode {
     final Logger logger = SurveyLog.forClass(SortMode.class);
 
-    /**
-     * Name of this mode.
-     */
+    /** Name of this mode. */
     abstract String getName();
 
     abstract String getDisplayName();
@@ -54,7 +49,8 @@ public abstract class SortMode {
         return new DataPage.DisplaySet(rows, this, createPartitions(rows));
     }
 
-    protected DataRow[] createSortedList(Comparator<DataRow> comparator, XPathMatcher matcher, Collection<DataRow> rows) {
+    protected DataRow[] createSortedList(
+            Comparator<DataRow> comparator, XPathMatcher matcher, Collection<DataRow> rows) {
         Set<DataRow> newSet = new TreeSet<>(comparator);
 
         if (matcher == null) {
@@ -73,8 +69,15 @@ public abstract class SortMode {
         if (matcher != null) {
             matchName = matcher.getName();
         }
-        logger.fine("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
-            + getName());
+        logger.fine(
+                "Loaded "
+                        + newSet.size()
+                        + " from "
+                        + matchName
+                        + " - base xpath ("
+                        + rows.size()
+                        + ")  = "
+                        + getName());
         return newSet.toArray(new DataRow[0]);
     }
 }

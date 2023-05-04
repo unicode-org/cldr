@@ -1,5 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R5;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.Transform;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
@@ -13,7 +20,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
@@ -31,34 +37,31 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R5;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transform;
-
 public class GenerateCoverageLevels {
     // see ShowLocaleCoverage.java
     private static boolean SKIP_UNCONFIRMED = true;
     private static int SHOW_EXAMPLES = 5;
     private static final String FILES = ".*";
-    private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
+    private static final String MAIN_DIRECTORY =
+            CLDRPaths.MAIN_DIRECTORY; // CldrUtility.SUPPLEMENTAL_DIRECTORY;
     // //CldrUtility.MAIN_DIRECTORY;
-    private static final String COLLATION_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/collation/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
+    private static final String COLLATION_DIRECTORY =
+            CLDRPaths.COMMON_DIRECTORY + "/collation/"; // CldrUtility.SUPPLEMENTAL_DIRECTORY;
     // //CldrUtility.MAIN_DIRECTORY;
-    private static final String RBNF_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/rbnf/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
+    private static final String RBNF_DIRECTORY =
+            CLDRPaths.COMMON_DIRECTORY + "/rbnf/"; // CldrUtility.SUPPLEMENTAL_DIRECTORY;
     // //CldrUtility.MAIN_DIRECTORY;
-    private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
+    private static final String OUT_DIRECTORY =
+            CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
     private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     private static final Comparator<String> attributeComparator = CLDRFile.getAttributeOrdering();
     private static final CLDRFile english = cldrFactory.make("en", true);
-    private static SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static SupplementalDataInfo supplementalData =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
     // SupplementalDataInfo.getInstance(english.getSupplementalDirectory());
     private static Set<String> defaultContents = supplementalData.getDefaultContentLocales();
-    private static Map<String, R2<List<String>, String>> languageAliasInfo = supplementalData.getLocaleAliasInfo().get(
-        "language");
+    private static Map<String, R2<List<String>, String>> languageAliasInfo =
+            supplementalData.getLocaleAliasInfo().get("language");
     private static LocaleFilter localeFilter = new LocaleFilter(true);
     private static BooleanLocaleFilter nonAliasLocaleFilter = new BooleanLocaleFilter();
 
@@ -72,7 +75,8 @@ public class GenerateCoverageLevels {
     static int totalCount = 0;
 
     enum Inheritance {
-        actual, inherited
+        actual,
+        inherited
     }
 
     public static void main(String[] args) throws IOException {
@@ -96,17 +100,21 @@ public class GenerateCoverageLevels {
     private static void showEnglish(PrintWriter out) throws IOException {
         CLDRFile cldrFile = english;
         String locale = "en";
-        Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
-            .addAll(cldrFile.getExtraPaths()).get();
+        Set<String> sorted =
+                Builder.with(new TreeSet<String>())
+                        .addAll(cldrFile.iterator())
+                        .addAll(cldrFile.getExtraPaths())
+                        .get();
         Set<R3<Level, String, Inheritance>> items = new TreeSet<>(new RowComparator());
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
             }
             String source = cldrFile.getSourceLocaleID(path, null);
-            Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
+            Inheritance inherited =
+                    !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-//            Level level = supplementalData.getCoverageLevel(path, locale);
+            //            Level level = supplementalData.getCoverageLevel(path, locale);
             Level level = CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, locale);
 
             items.add(Row.of(level, path, inherited));
@@ -132,8 +140,10 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static void show(PrintWriter out, R3<Level, String, Inheritance> next, PathStore store) {
-        R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = store.add(next);
+    private static void show(
+            PrintWriter out, R3<Level, String, Inheritance> next, PathStore store) {
+        R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results =
+                store.add(next);
         if (results != null) {
             Level lastLevel = results.get0();
             int count = results.get2();
@@ -145,15 +155,24 @@ public class GenerateCoverageLevels {
                 for (String key : types.keySet()) {
                     Relation<String, String> attr_values = types.get(key);
                     for (String attr : attr_values.keySet()) {
-                        resultString.append("\t").append(key + ":\u200b" + attr).append("=\u200b")
-                            .append(attr_values.getAll(attr));
+                        resultString
+                                .append("\t")
+                                .append(key + ":\u200b" + attr)
+                                .append("=\u200b")
+                                .append(attr_values.getAll(attr));
                     }
                 }
-                out.println(lastLevel.ordinal()
-                    + "\t" + lastLevel
-                    + "\t" + count
-                    + "\t" + totalCount
-                    + "\t" + path + resultString);
+                out.println(
+                        lastLevel.ordinal()
+                                + "\t"
+                                + lastLevel
+                                + "\t"
+                                + count
+                                + "\t"
+                                + totalCount
+                                + "\t"
+                                + path
+                                + resultString);
             } catch (RuntimeException e) {
                 throw e;
             }
@@ -170,7 +189,7 @@ public class GenerateCoverageLevels {
         TreeMap<String, Relation<String, String>> differences = new TreeMap<>();
 
         R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> add(
-            R3<Level, String, Inheritance> next) {
+                R3<Level, String, Inheritance> next) {
             count++;
             boolean wasNull = lastLevel == null;
             Level level = null;
@@ -190,8 +209,14 @@ public class GenerateCoverageLevels {
             }
             // clear the values
             clean(differences);
-            R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = Row.of(
-                lastLevel, lastInheritance, count - 1, lastParts.toString().replace("/", "\u200B/"), differences);
+            R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>>
+                    results =
+                            Row.of(
+                                    lastLevel,
+                                    lastInheritance,
+                                    count - 1,
+                                    lastParts.toString().replace("/", "\u200B/"),
+                                    differences);
             lastParts = nextParts;
             differences = new TreeMap<>();
             nextParts = new XPathParts();
@@ -214,9 +239,11 @@ public class GenerateCoverageLevels {
         }
 
         private XPathParts setNewParts(String path) {
-            XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeElement
+            XPathParts parts =
+                    XPathParts.getFrozenInstance(path)
+                            .cloneAsThawed(); // not frozen, for removeElement
             if (path.startsWith("//ldml/dates/timeZoneNames/metazone")
-                || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
+                    || path.startsWith("//ldml/dates/timeZoneNames/zone")) {
                 String element = nextParts.getElement(-1);
                 nextParts.setElement(-1, "zoneChoice");
                 nextParts.putAttributeValue(-1, "type", element);
@@ -242,11 +269,17 @@ public class GenerateCoverageLevels {
                     String element = lastParts.getElement(i);
                     Relation<String, String> old = differences.get(element);
                     if (old == null) {
-                        old = Relation.of(new TreeMap<String, Set<String>>(attributeComparator), TreeSet.class);
+                        old =
+                                Relation.of(
+                                        new TreeMap<String, Set<String>>(attributeComparator),
+                                        TreeSet.class);
                         differences.put(element, old);
                     }
-                    Set<String> union = Builder.with(new TreeSet<String>()).addAll(lastAttrs.keySet())
-                        .addAll(nextAttrs.keySet()).get();
+                    Set<String> union =
+                            Builder.with(new TreeSet<String>())
+                                    .addAll(lastAttrs.keySet())
+                                    .addAll(nextAttrs.keySet())
+                                    .get();
                     for (String key : union) {
                         String lastValue = lastAttrs.get(key);
                         String nextValue = nextAttrs.get(key);
@@ -266,16 +299,18 @@ public class GenerateCoverageLevels {
             }
             return true;
         }
-
     }
 
-    private static void summarizeCoverage(PrintWriter summary, PrintWriter samples2, PrintWriter counts) {
+    private static void summarizeCoverage(
+            PrintWriter summary, PrintWriter samples2, PrintWriter counts) {
         final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
         final Factory collationFactory = Factory.make(COLLATION_DIRECTORY, FILES);
         final Factory rbnfFactory = Factory.make(RBNF_DIRECTORY, FILES);
 
-        // CLDRFile sd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_NAME, CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
-        // CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
+        // CLDRFile sd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_NAME,
+        // CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
+        // CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA,
+        // CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
         //
         // CoverageLevel.init(sd, smd);
 
@@ -308,18 +343,36 @@ public class GenerateCoverageLevels {
             System.out.println(locale + "\t" + english.getName(locale));
             getRBNFData(locale, rbnfFactory.make(locale, true), ordinals, spellout, localesFound);
         }
-        markData("RBNF-Ordinals", ordinals, mapLevelData, mainAvailable, RBNF_LEVEL, RBNF_WEIGHT,
-            Row.of("//ldml/rbnf/ordinals", "?"));
-        markData("RBNF-Spellout", spellout, mapLevelData, mainAvailable, RBNF_LEVEL, RBNF_WEIGHT,
-            Row.of("//ldml/rbnf/spellout", "?"));
+        markData(
+                "RBNF-Ordinals",
+                ordinals,
+                mapLevelData,
+                mainAvailable,
+                RBNF_LEVEL,
+                RBNF_WEIGHT,
+                Row.of("//ldml/rbnf/ordinals", "?"));
+        markData(
+                "RBNF-Spellout",
+                spellout,
+                mapLevelData,
+                mainAvailable,
+                RBNF_LEVEL,
+                RBNF_WEIGHT,
+                Row.of("//ldml/rbnf/spellout", "?"));
         if (localesFound.size() != 0) {
             System.out.println("Other rbnf found:\t" + localesFound);
         }
 
         System.out.println("gathering plural data");
         localesFound = new TreeSet<>(supplementalData.getPluralLocales(PluralType.cardinal));
-        markData("Plurals", localesFound, mapLevelData, mainAvailable, PLURALS_LEVEL, PLURALS_WEIGHT,
-            Row.of("//supplementalData/plurals", "UCA"));
+        markData(
+                "Plurals",
+                localesFound,
+                mapLevelData,
+                mainAvailable,
+                PLURALS_LEVEL,
+                PLURALS_WEIGHT,
+                Row.of("//supplementalData/plurals", "UCA"));
 
         System.out.println("gathering collation data");
         localesFound.clear();
@@ -328,8 +381,14 @@ public class GenerateCoverageLevels {
             System.out.println(locale + "\t" + english.getName(locale));
             getCollationData(locale, collationFactory.make(locale, true), localesFound);
         }
-        markData("Collation", localesFound, mapLevelData, mainAvailable, COLLATION_LEVEL, COLLATION_WEIGHT,
-            Row.of("//ldml/collations", "UCA"));
+        markData(
+                "Collation",
+                localesFound,
+                mapLevelData,
+                mainAvailable,
+                COLLATION_LEVEL,
+                COLLATION_WEIGHT,
+                Row.of("//ldml/collations", "UCA"));
 
         System.out.println("gathering main data");
         for (String locale : mainAvailable) {
@@ -344,7 +403,8 @@ public class GenerateCoverageLevels {
         LanguageTagParser languageTagParser = new LanguageTagParser();
 
         StringBuilder header = new StringBuilder();
-        //EnumSet<Level> skipLevels = EnumSet.of(Level.CORE, Level.POSIX, Level.COMPREHENSIVE, Level.OPTIONAL);
+        // EnumSet<Level> skipLevels = EnumSet.of(Level.CORE, Level.POSIX, Level.COMPREHENSIVE,
+        // Level.OPTIONAL);
         for (String locale : mapLevelData.keySet()) {
             LevelData levelData = mapLevelData.get(locale);
             String max = LikelySubtags.maximize(locale, supplementalData.getLikelySubtags());
@@ -354,11 +414,15 @@ public class GenerateCoverageLevels {
             Counter<Level> missing = levelData.missing;
             Counter<Level> found = levelData.found;
             Relation<Level, R2<String, String>> samples = levelData.samples;
-            StringBuilder countLine = new StringBuilder(
-                script
-                    + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    + "\t" + lang
-                    + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, lang));
+            StringBuilder countLine =
+                    new StringBuilder(
+                            script
+                                    + "\t"
+                                    + english.getName(CLDRFile.SCRIPT_NAME, script)
+                                    + "\t"
+                                    + lang
+                                    + "\t"
+                                    + english.getName(CLDRFile.LANGUAGE_NAME, lang));
             if (header != null) {
                 header.append("Code\tScript\tCode\tLocale");
             }
@@ -381,15 +445,25 @@ public class GenerateCoverageLevels {
                 weightedFound += foundCount * level.getValue();
                 weightedMissing += missingCount * level.getValue();
 
-                countLine.append('\t').append(missingCountTotal).append('\t').append(foundCountTotal);
+                countLine
+                        .append('\t')
+                        .append(missingCountTotal)
+                        .append('\t')
+                        .append(foundCountTotal);
                 if (header != null) {
                     header.append("\t" + level + "-Missing\tFound");
                 }
 
-                samples2.println(level + "\tMissing:\t" + integer.format(missingCount) + "\tFound:\t"
-                    + integer.format(foundCount)
-                    + "\tScore:\t" + percent.format(foundCount / (double) (foundCount + missingCount))
-                    + "\tLevel-Value:\t" + level.getValue());
+                samples2.println(
+                        level
+                                + "\tMissing:\t"
+                                + integer.format(missingCount)
+                                + "\tFound:\t"
+                                + integer.format(foundCount)
+                                + "\tScore:\t"
+                                + percent.format(foundCount / (double) (foundCount + missingCount))
+                                + "\tLevel-Value:\t"
+                                + level.getValue());
                 Set<R2<String, String>> samplesAlready = samples.getAll(level);
                 if (samplesAlready != null) {
                     for (R2<String, String> row : samplesAlready) {
@@ -403,11 +477,20 @@ public class GenerateCoverageLevels {
             int base = Level.POSIX.getValue();
             double foundCount = weightedFound / base;
             double missingCount = weightedMissing / base;
-            String summaryLine = "Weighted Missing:\t" + decimal.format(missingCount) + "\tFound:\t"
-                + decimal.format(foundCount) + "\tScore:\t"
-                + percent.format(foundCount / (foundCount + missingCount));
-            String summaryLine2 = "\t" + decimal.format(missingCount) + "\t" + decimal.format(foundCount) + "\t"
-                + percent.format(foundCount / (foundCount + missingCount));
+            String summaryLine =
+                    "Weighted Missing:\t"
+                            + decimal.format(missingCount)
+                            + "\tFound:\t"
+                            + decimal.format(foundCount)
+                            + "\tScore:\t"
+                            + percent.format(foundCount / (foundCount + missingCount));
+            String summaryLine2 =
+                    "\t"
+                            + decimal.format(missingCount)
+                            + "\t"
+                            + decimal.format(foundCount)
+                            + "\t"
+                            + percent.format(foundCount / (foundCount + missingCount));
             samples2.println(summaryLine);
             summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine2);
             if (header != null) {
@@ -418,8 +501,12 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static void getRBNFData(String locale, CLDRFile cldrFile, Set<String> ordinals, Set<String> spellout,
-        Set<String> others) {
+    private static void getRBNFData(
+            String locale,
+            CLDRFile cldrFile,
+            Set<String> ordinals,
+            Set<String> spellout,
+            Set<String> others) {
         for (String path : cldrFile) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -442,20 +529,30 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static void markData(String title, Set<String> localesFound, LocaleLevelData mapLevelData,
-        TreeSet<String> mainAvailable, Level level, long weight, R2<String, String> samples) {
+    private static void markData(
+            String title,
+            Set<String> localesFound,
+            LocaleLevelData mapLevelData,
+            TreeSet<String> mainAvailable,
+            Level level,
+            long weight,
+            R2<String, String> samples) {
         if (!mainAvailable.containsAll(localesFound)) {
             final CBuilder<String, TreeSet<String>> cb = Builder.with(new TreeSet<String>());
-            System.out.println(title + " Locales that are not in main: " + cb
-                .addAll(localesFound)
-                .removeAll(mainAvailable)
-                .filter(nonAliasLocaleFilter).get());
+            System.out.println(
+                    title
+                            + " Locales that are not in main: "
+                            + cb.addAll(localesFound)
+                                    .removeAll(mainAvailable)
+                                    .filter(nonAliasLocaleFilter)
+                                    .get());
         }
         for (String locale : mainAvailable) {
             if (localesFound.contains(locale)) {
                 mapLevelData.get(locale).found.add(level, weight);
             } else {
-                System.out.println(locale + "\t" + english.getName(locale) + "\t" + "missing " + title);
+                System.out.println(
+                        locale + "\t" + english.getName(locale) + "\t" + "missing " + title);
                 mapLevelData.get(locale).missing.add(level, weight);
                 mapLevelData.get(locale).samples.put(level, samples);
             }
@@ -463,7 +560,10 @@ public class GenerateCoverageLevels {
     }
 
     enum LocaleStatus {
-        BASE, ALIAS, VARIANT, DEFAULT_CONTENTS
+        BASE,
+        ALIAS,
+        VARIANT,
+        DEFAULT_CONTENTS
     }
 
     private static class LocaleFilter implements Transform<String, LocaleStatus> {
@@ -511,7 +611,8 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static void getCollationData(String locale, CLDRFile cldrFile, Set<String> localesFound) {
+    private static void getCollationData(
+            String locale, CLDRFile cldrFile, Set<String> localesFound) {
         for (String path : cldrFile) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -547,8 +648,11 @@ public class GenerateCoverageLevels {
 
     private static void getMainData(String locale, LevelData levelData, CLDRFile cldrFile) {
         Status status = new Status();
-        Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
-            .addAll(cldrFile.getExtraPaths()).get();
+        Set<String> sorted =
+                Builder.with(new TreeSet<String>())
+                        .addAll(cldrFile.iterator())
+                        .addAll(cldrFile.getExtraPaths())
+                        .get();
         CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
@@ -557,11 +661,12 @@ public class GenerateCoverageLevels {
 
             String fullPath = cldrFile.getFullXPath(path);
             String source = cldrFile.getSourceLocaleID(path, status);
-            Inheritance inherited = !source.equals(locale) || skipUnconfirmed(path)
-                ? Inheritance.inherited
-                : Inheritance.actual;
+            Inheritance inherited =
+                    !source.equals(locale) || skipUnconfirmed(path)
+                            ? Inheritance.inherited
+                            : Inheritance.actual;
 
-//            Level level = sdi.getCoverageLevel(fullPath, locale);
+            //            Level level = sdi.getCoverageLevel(fullPath, locale);
             Level level = coverageInfo.getCoverageLevel(fullPath, locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
@@ -579,8 +684,10 @@ public class GenerateCoverageLevels {
 
     static class LevelData {
         Counter<Level> missing = new Counter<>();
-        Relation<Level, R2<String, String>> samples = Relation.of(new EnumMap<Level, Set<R2<String, String>>>(
-            Level.class), LinkedHashSet.class);
+        Relation<Level, R2<String, String>> samples =
+                Relation.of(
+                        new EnumMap<Level, Set<R2<String, String>>>(Level.class),
+                        LinkedHashSet.class);
         Counter<Level> found = new Counter<>();
     }
 
@@ -602,5 +709,4 @@ public class GenerateCoverageLevels {
             return locale_levelData.keySet();
         }
     }
-
 }

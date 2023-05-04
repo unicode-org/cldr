@@ -436,7 +436,7 @@ parameters; none; short; monogram; informal
 
 endName
 
-name ; title; Prof. Dr
+name ; title; Prof Dr
 name ; given; Ada Cornelia
 name ; given-informal; Neele
 name ; given2; César Martín
@@ -447,7 +447,7 @@ name ; generation; Jr
 name ; credentials; MD DDS
 name ; locale; ja_AQ
 
-expectedResult; von Brühl Prof. Dr Ada Cornelia César Martín Jr, MD DDS
+expectedResult; von Brühl Prof Dr Ada Cornelia César Martín Jr, MD DDS
 
 parameters; none; long; referring; formal
 
@@ -455,15 +455,15 @@ expectedResult; von Brühl Ada Cornelia C.M. Jr, MD DDS
 
 parameters; none; medium; referring; formal
 
-expectedResult; Prof. Dr von Brühl
+expectedResult; von Brühl A.C.C.M.
+
+parameters; none; short; referring; formal
+
+expectedResult; Prof Dr von Brühl
 
 parameters; none; long; addressing; formal
 parameters; none; medium; addressing; formal
 parameters; none; short; addressing; formal
-
-expectedResult; von Brühl A.C.C.M.
-
-parameters; none; short; referring; formal
 
 expectedResult; von Brühl Neele
 

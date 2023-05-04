@@ -114,4 +114,4 @@ And here is an alert rule to make sure the exporter itself is up.
 
 For license and copyright see
 https://www.unicode.org/copyright.html
-or [../../unicode-license.txt](../../unicode-license.txt)
+or [../../LICENSE](../../LICENSE)

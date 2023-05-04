@@ -1,20 +1,19 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 
 public class GenerateBcp47Tests {
     public static void main(String[] args) {
-//        UnicodeSet s = new UnicodeSet("[[:di:][:whitespace:]-[:cn:][:cc:]]").complement().complement();
-//        System.out.println(s);
+        //        UnicodeSet s = new
+        // UnicodeSet("[[:di:][:whitespace:]-[:cn:][:cc:]]").complement().complement();
+        //        System.out.println(s);
         SupplementalDataInfo info = SupplementalDataInfo.getInstance();
         Map<R2<String, String>, String> deprecatedMap = info.getBcp47Deprecated();
         Map<R2<String, String>, String> descriptionsMap = info.getBcp47Descriptions();
@@ -43,26 +42,52 @@ public class GenerateBcp47Tests {
                 if (subtypes != null) {
                     for (String subtype : subtypes) {
                         final R2<String, String> keySubtype = Row.of(key, subtype);
-                        boolean deprecatedSubtype = deprecatedKey || "true".equals(deprecatedMap.get(keySubtype));
+                        boolean deprecatedSubtype =
+                                deprecatedKey || "true".equals(deprecatedMap.get(keySubtype));
                         String subtypeDescription = descriptionsMap.get(keySubtype);
 
                         if (deprecatedSubtype) {
                             if (deprecated == null) {
-                                deprecatedSet.add("{\"OK\", \"en-" + extension + "-" + key + "-" + subtype + "\"}, // deprecated "
-                                    + keyDescription + "; " + subtypeDescription);
+                                deprecatedSet.add(
+                                        "{\"OK\", \"en-"
+                                                + extension
+                                                + "-"
+                                                + key
+                                                + "-"
+                                                + subtype
+                                                + "\"}, // deprecated "
+                                                + keyDescription
+                                                + "; "
+                                                + subtypeDescription);
                                 deprecated = subtype;
                             }
                         } else {
                             if (non_deprecated == null) {
-                                System.out.println("{\"OK\", \"en-" + extension + "-" + key + "-" + subtype + "\"}, // "
-                                    + keyDescription + "; " + subtypeDescription);
+                                System.out.println(
+                                        "{\"OK\", \"en-"
+                                                + extension
+                                                + "-"
+                                                + key
+                                                + "-"
+                                                + subtype
+                                                + "\"}, // "
+                                                + keyDescription
+                                                + "; "
+                                                + subtypeDescription);
                                 non_deprecated = subtype;
                             }
                         }
                     }
                 } else {
-                    System.out.println("{\"OK\", \"en-" + extension + "-" + key + "-" + "SPECIAL" + "\"}, // "
-                        + keyDescription);
+                    System.out.println(
+                            "{\"OK\", \"en-"
+                                    + extension
+                                    + "-"
+                                    + key
+                                    + "-"
+                                    + "SPECIAL"
+                                    + "\"}, // "
+                                    + keyDescription);
                 }
             }
         }

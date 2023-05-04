@@ -1,31 +1,29 @@
 package org.unicode.cldr.json;
 
+import com.ibm.icu.impl.Utility;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.ibm.icu.impl.Utility;
-
-/**
- * CldrNode represent a Element in XML as it appears in a CldrItem's path.
- */
+/** CldrNode represent a Element in XML as it appears in a CldrItem's path. */
 public class CldrNode {
 
-    public static CldrNode createNode(String parent, String pathSegment,
-        String fullPathSegment) throws ParseException {
-            return createNode(parent, pathSegment, fullPathSegment, null);
+    public static CldrNode createNode(String parent, String pathSegment, String fullPathSegment)
+            throws ParseException {
+        return createNode(parent, pathSegment, fullPathSegment, null);
     }
-    public static CldrNode createNode(String parent, String pathSegment,
-    String fullPathSegment, CldrItem item) throws ParseException {
+
+    public static CldrNode createNode(
+            String parent, String pathSegment, String fullPathSegment, CldrItem item)
+            throws ParseException {
         CldrNode node = new CldrNode();
         node.item = item;
         node.parent = parent;
         node.name = extractAttrs(pathSegment, node.distinguishingAttributes);
-        String fullTrunk = extractAttrs(fullPathSegment,
-            node.nondistinguishingAttributes);
+        String fullTrunk = extractAttrs(fullPathSegment, node.nondistinguishingAttributes);
         if (!node.name.equals(fullTrunk)) {
-            throw new ParseException("Error in parsing \"" + pathSegment + " \":\"" +
-                fullPathSegment, 0);
+            throw new ParseException(
+                    "Error in parsing \"" + pathSegment + " \":\"" + fullPathSegment, 0);
         }
 
         for (String key : node.distinguishingAttributes.keySet()) {
@@ -52,16 +50,13 @@ public class CldrNode {
     /**
      * Extract all the attributes and their value in the path.
      *
-     * @param pathSegment
-     *            A complete or partial path.
-     * @param attributes
-     *            String map to receive attribute mapping.
-     *
+     * @param pathSegment A complete or partial path.
+     * @param attributes String map to receive attribute mapping.
      * @return Part of the string before the first attribute.
      * @throws ParseException
      */
-    private static String extractAttrs(String pathSegment,
-        Map<String, String> attributes) throws ParseException {
+    private static String extractAttrs(String pathSegment, Map<String, String> attributes)
+            throws ParseException {
         int start = 0;
 
         String trunk = new String();
@@ -79,8 +74,7 @@ public class CldrNode {
             ind1 += 2;
             int ind2 = pathSegment.indexOf("=", ind1);
             if (ind2 < 0) {
-                throw new ParseException("Missing '=' in attribute specification.",
-                    ind1);
+                throw new ParseException("Missing '=' in attribute specification.", ind1);
             }
             String attr = pathSegment.substring(ind1, ind2);
 
@@ -93,8 +87,7 @@ public class CldrNode {
             }
 
             if (ind2 < 0) {
-                throw new ParseException(
-                    "Unexpected end in attribute specification.", ind1);
+                throw new ParseException("Unexpected end in attribute specification.", ind1);
             }
 
             String value = pathSegment.substring(ind1, ind2);
@@ -107,29 +100,19 @@ public class CldrNode {
         return trunk;
     }
 
-    /**
-     * distinguishing attributes as identified by CLDR tools.
-     */
+    /** distinguishing attributes as identified by CLDR tools. */
     private Map<String, String> distinguishingAttributes;
 
-    /**
-     * non-distinguishing attributes as identified by CLDR tools.
-     */
+    /** non-distinguishing attributes as identified by CLDR tools. */
     private Map<String, String> nondistinguishingAttributes;
 
-    /**
-     * name of the element.
-     */
+    /** name of the element. */
     private String name;
 
-    /**
-     * parent element for this element.
-     */
+    /** parent element for this element. */
     private String parent;
 
-    /**
-     * CldrItem, if any
-     */
+    /** CldrItem, if any */
     private CldrItem item;
 
     public String getUntransformedPath() {
@@ -141,8 +124,8 @@ public class CldrNode {
     }
 
     /**
-     * This name is derived from element name and attributes. Once it is
-     * calculated, it is cached in this variable.
+     * This name is derived from element name and attributes. Once it is calculated, it is cached in
+     * this variable.
      */
     private String uniqueNodeName;
 
@@ -162,11 +145,12 @@ public class CldrNode {
             String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             String keyStrMidStar = LdmlConvertRules.getKeyStr(getParent(), "*", key);
             String keyStr2 = LdmlConvertRules.getKeyStr(name, key);
-            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr2)) {
+            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr)
+                    || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr2)) {
                 if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)
-                     || LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
-                    attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
-                        distinguishingAttributes.get(key));
+                        || LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
+                    attributesAsValues.put(
+                            LdmlConvertRules.ANONYMOUS_KEY, distinguishingAttributes.get(key));
                 } else {
                     attributesAsValues.put(key, distinguishingAttributes.get(key));
                 }
@@ -179,10 +163,10 @@ public class CldrNode {
             }
             String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
             String keyStrMidStar = LdmlConvertRules.getKeyStr(getParent(), "*", key);
-            if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr) ||
-                LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
-                attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
-                    nondistinguishingAttributes.get(key));
+            if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)
+                    || LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
+                attributesAsValues.put(
+                        LdmlConvertRules.ANONYMOUS_KEY, nondistinguishingAttributes.get(key));
             } else {
                 attributesAsValues.put(key, nondistinguishingAttributes.get(key));
             }
@@ -190,7 +174,7 @@ public class CldrNode {
 
         // ADJUST RADIX BASED ON ICU RULE
         final String radixValue = attributesAsValues.get("radix");
-        if(radixValue != null) {
+        if (radixValue != null) {
             attributesAsValues.remove("radix");
             for (Map.Entry<String, String> attributes : attributesAsValues.entrySet()) {
                 String oldKey = attributes.getKey();
@@ -198,7 +182,6 @@ public class CldrNode {
                 String newKey = oldKey + "/" + radixValue;
                 attributesAsValues.remove(oldKey);
                 attributesAsValues.put(newKey, newValue);
-
             }
         }
         return attributesAsValues;
@@ -225,18 +208,15 @@ public class CldrNode {
     }
 
     /**
-     * Construct a name that can be used as key in its container (by
-     * incorporating distinguishing attributes).
+     * Construct a name that can be used as key in its container (by incorporating distinguishing
+     * attributes).
      *
-     * Each segment in CLDR path corresponding to a XML element. Element name
-     * itself can not be used as JSON key because it might not be unique in its
-     * container. A set of rules is used here to construct this key name. Some
-     * of the attributes will be used in constructing the key name, the remaining
-     * attributes are returned and should be used to fill the mapping.
+     * <p>Each segment in CLDR path corresponding to a XML element. Element name itself can not be
+     * used as JSON key because it might not be unique in its container. A set of rules is used here
+     * to construct this key name. Some of the attributes will be used in constructing the key name,
+     * the remaining attributes are returned and should be used to fill the mapping.
      *
-     * The basic mapping is from
-     * <element_name>[@<attr_name>=<attr_value>]+
-     * to
+     * <p>The basic mapping is from <element_name>[@<attr_name>=<attr_value>]+ to
      * <element_name>-<attr_name>-<attr_value>
      *
      * @return A unique name that can be used as key in its container.
@@ -256,17 +236,27 @@ public class CldrNode {
                 continue;
             }
             if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr)
-                || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) { // with *
+                    || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) { // with *
                 continue;
             }
 
-            if (!key.equals("alt") && !key.equals("count") &&
-                !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
+            if (!key.equals("alt")
+                    && !key.equals("count")
+                    && !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
                 if (strbuf.length() != 0) {
                     throw new IllegalArgumentException(
-                        "Can not have more than 1 key values in name: " +
-                            "both '" + strbuf + "' ("+lastKey+") and '" + distinguishingAttributes.get(key) +
-                            "' ("+key+"). attrIdStr=" + attrIdStr + " - check LdmlConvertRules.java#NAME_PART_DISTINGUISHING_ATTR_SET");
+                            "Can not have more than 1 key values in name: "
+                                    + "both '"
+                                    + strbuf
+                                    + "' ("
+                                    + lastKey
+                                    + ") and '"
+                                    + distinguishingAttributes.get(key)
+                                    + "' ("
+                                    + key
+                                    + "). attrIdStr="
+                                    + attrIdStr
+                                    + " - check LdmlConvertRules.java#NAME_PART_DISTINGUISHING_ATTR_SET");
                 }
                 strbuf.append(distinguishingAttributes.get(key));
                 lastKey = key;
@@ -283,12 +273,13 @@ public class CldrNode {
             if (LdmlConvertRules.IsSuppresedAttr(attrIdStr)) {
                 continue;
             }
-            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) {
+            if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr)
+                    || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(attrIdStr2)) {
                 continue;
             }
 
-            if (!key.equals("alt") &&
-                !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
+            if (!key.equals("alt")
+                    && !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
                 continue;
             }
             strbuf.append("-");
@@ -313,11 +304,10 @@ public class CldrNode {
     }
 
     /**
-     * Construct a name that has all distinguishing attributes that should not be
-     * ignored.
+     * Construct a name that has all distinguishing attributes that should not be ignored.
      *
-     * Different from getNodeKeyName, this name has include those distinguishing
-     * attributes that will be treated as values.
+     * <p>Different from getNodeKeyName, this name has include those distinguishing attributes that
+     * will be treated as values.
      *
      * @return A distinguishing name for differentiating element.
      */
@@ -342,7 +332,7 @@ public class CldrNode {
 
     @Override
     public String toString() {
-        return "[CldrNode "+getParent()+"/"+getNodeDistinguishingName()+"]";
+        return "[CldrNode " + getParent() + "/" + getNodeDistinguishingName() + "]";
     }
 
     public String getParent() {

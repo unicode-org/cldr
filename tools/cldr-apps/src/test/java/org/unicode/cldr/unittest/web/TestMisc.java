@@ -1,21 +1,15 @@
 package org.unicode.cldr.unittest.web;
 
+/** Copyright (C) 2012-2023 Unicode */
+import com.ibm.icu.dev.test.TestFmwk;
 import java.util.Set;
-
-/**
- * Copyright (C) 2012
- */
-
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.WebContext;
 
-import com.ibm.icu.dev.test.TestFmwk;
-
 /**
  * @author srl
- *
  */
 public class TestMisc extends TestFmwk {
     public static void main(String[] args) {
@@ -35,11 +29,16 @@ public class TestMisc extends TestFmwk {
         final String TESTCASES[] = {
             "root", "//foo/bar", Integer.toString(STFactory.LocaleMaxSizer.MAX_VAL_LEN),
             "zh", "//foo/bar", Integer.toString(STFactory.LocaleMaxSizer.MAX_VAL_LEN),
-            "zh", "//ldml/characters/exemplarCharacters", Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
-            "zh_Hans_CN", "//ldml/characters/exemplarCharacters", Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
-            "zh_Hans_CN", "//ldml/characters/exemplarCharacters", Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
-            "zh_Hant", "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]", Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
-            "zh_Hant_HK", "//ldml/characters/exemplarCharacters", Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+            "zh", "//ldml/characters/exemplarCharacters",
+                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+            "zh_Hans_CN", "//ldml/characters/exemplarCharacters",
+                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+            "zh_Hans_CN", "//ldml/characters/exemplarCharacters",
+                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+            "zh_Hant", "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+            "zh_Hant_HK", "//ldml/characters/exemplarCharacters",
+                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
         };
 
         for (int i = 0; i < TESTCASES.length; i += 3) {
@@ -52,10 +51,10 @@ public class TestMisc extends TestFmwk {
     }
 
     /**
-     * Test that the function WebContext.isCoverageOrganization returns
-     * true for "Microsoft" and "microsoft", and false for "FakeOrgName".
+     * Test that the function WebContext.isCoverageOrganization returns true for "Microsoft" and
+     * "microsoft", and false for "FakeOrgName".
      *
-     * Reference: https://unicode.org/cldr/trac/ticket/10289
+     * <p>Reference: https://unicode.org/cldr/trac/ticket/10289
      */
     public void TestIsCoverageOrganization() {
         String orgName = "Microsoft";
@@ -75,7 +74,13 @@ public class TestMisc extends TestFmwk {
                 return;
             }
         } catch (Exception e) {
-            errln("❌ isCoverageOrganization(" + orgName + "). Unexpected exception: " + e.toString() + " - " + e.getMessage());
+            errln(
+                    "❌ isCoverageOrganization("
+                            + orgName
+                            + "). Unexpected exception: "
+                            + e.toString()
+                            + " - "
+                            + e.getMessage());
             return;
         }
         System.out.println("✅");

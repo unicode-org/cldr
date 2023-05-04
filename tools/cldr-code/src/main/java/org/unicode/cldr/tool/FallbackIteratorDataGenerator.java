@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes;
@@ -23,10 +22,12 @@ public class FallbackIteratorDataGenerator {
             final boolean isLanguage = type.equals("language");
             final boolean isLegacy = type.equals("legacy");
             final boolean isRegion = type.equals("territory");
-            final String canonicalizationFormat = isLegacy ? "\t\t\"%s;%s\","
-                : isLanguage ? "\t\t\"%s(-.*)?;%s$1\","
-                    : isRegion ? "\t\t\"(.*-)%s(-.*)?;$1%s$2\","
-                        : null;
+            final String canonicalizationFormat =
+                    isLegacy
+                            ? "\t\t\"%s;%s\","
+                            : isLanguage
+                                    ? "\t\t\"%s(-.*)?;%s$1\","
+                                    : isRegion ? "\t\t\"(.*-)%s(-.*)?;$1%s$2\"," : null;
             if (canonicalizationFormat == null) {
                 continue;
             }
@@ -50,7 +51,8 @@ public class FallbackIteratorDataGenerator {
                     }
                 }
                 if (canonicalValue.startsWith("deprecated")) {
-                    System.out.println("\t\t// skipping " + code + ", deprecated but no replacement");
+                    System.out.println(
+                            "\t\t// skipping " + code + ", deprecated but no replacement");
                     continue;
                 }
                 System.out.format(canonicalizationFormat, code, canonicalValue);
@@ -59,7 +61,8 @@ public class FallbackIteratorDataGenerator {
                 }
                 System.out.println();
                 if (!isLegacy) {
-                    decanonicalizeList.add(String.format(canonicalizationFormat, canonicalValue, code));
+                    decanonicalizeList.add(
+                            String.format(canonicalizationFormat, canonicalValue, code));
                 }
             }
         }
@@ -78,13 +81,14 @@ public class FallbackIteratorDataGenerator {
         }
     }
 
-    static Map<String, String> specialCanonicalValue = CldrUtility.asMap(new String[][] {
-        { "cel-gaulish", "xcg" },
-        { "en-GB-oed", "en-GB-x-oed" },
-        { "i-default", "und" },
-        { "i-enochian", "x-enochian" },
-        { "i-mingo", "see" },
-        { "zh-min", "nan" },
-    });
-
+    static Map<String, String> specialCanonicalValue =
+            CldrUtility.asMap(
+                    new String[][] {
+                        {"cel-gaulish", "xcg"},
+                        {"en-GB-oed", "en-GB-x-oed"},
+                        {"i-default", "und"},
+                        {"i-enochian", "x-enochian"},
+                        {"i-mingo", "see"},
+                        {"zh-min", "nan"},
+                    });
 }

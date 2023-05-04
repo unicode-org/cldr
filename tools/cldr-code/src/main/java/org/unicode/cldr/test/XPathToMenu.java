@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.XPathParts;
 
@@ -26,22 +25,27 @@ final class XPathToMenu {
 
     private static final String LOCALEDISPLAYPATTERN_XPATH =
             LOCALEDISPLAYNAMES + LDMLConstants.LOCALEDISPLAYPATTERN;
-    private static final String NUMBERSCURRENCIES =
-            LDMLConstants.NUMBERS + "/" + CURRENCIES;
+    private static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/" + CURRENCIES;
 
-    /**
-     * All of the data items under LOCALEDISPLAYNAMES (menu items)
-     */
-    private static final String[] LOCALEDISPLAYNAMES_ITEMS = { LDMLConstants.LANGUAGES,
-        LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES, LDMLConstants.VARIANTS, LDMLConstants.KEYS,
-        LDMLConstants.TYPES, CURRENCIES, TIMEZONES, CODEPATTERNS, MEASNAMES };
+    /** All of the data items under LOCALEDISPLAYNAMES (menu items) */
+    private static final String[] LOCALEDISPLAYNAMES_ITEMS = {
+        LDMLConstants.LANGUAGES,
+        LDMLConstants.SCRIPTS,
+        LDMLConstants.TERRITORIES,
+        LDMLConstants.VARIANTS,
+        LDMLConstants.KEYS,
+        LDMLConstants.TYPES,
+        CURRENCIES,
+        TIMEZONES,
+        CODEPATTERNS,
+        MEASNAMES
+    };
 
     public static String xpathToMenu(String path) {
         String theMenu = null;
         if (path.startsWith(LOCALEDISPLAYNAMES)) {
             for (int i = 0; i < LOCALEDISPLAYNAMES_ITEMS.length; i++) {
-                if (path.startsWith(LOCALEDISPLAYNAMES
-                    + LOCALEDISPLAYNAMES_ITEMS[i])) {
+                if (path.startsWith(LOCALEDISPLAYNAMES + LOCALEDISPLAYNAMES_ITEMS[i])) {
                     theMenu = LOCALEDISPLAYNAMES_ITEMS[i];
                 }
             }
@@ -70,7 +74,8 @@ final class XPathToMenu {
             if (theMenu == null) {
                 theMenu = METAZONES;
             }
-        } else if (path.startsWith("//ldml/" + LDMLConstants.CHARACTERS + "/" + LDMLConstants.EXEMPLAR_CHARACTERS)) {
+        } else if (path.startsWith(
+                "//ldml/" + LDMLConstants.CHARACTERS + "/" + LDMLConstants.EXEMPLAR_CHARACTERS)) {
             theMenu = LDMLConstants.CHARACTERS;
         } else if (path.startsWith("//ldml/" + LDMLConstants.NUMBERS)) {
             theMenu = LDMLConstants.NUMBERS;
@@ -95,7 +100,8 @@ final class XPathToMenu {
         // }
         // else {
 
-        String defaultCalendarsItems = "gregorian buddhist coptic ethiopic chinese hebrew indian islamic japanese persian roc";
+        String defaultCalendarsItems =
+                "gregorian buddhist coptic ethiopic chinese hebrew indian islamic japanese persian roc";
         return (defaultCalendarsItems.split(" "));
 
         // }
@@ -111,8 +117,7 @@ final class XPathToMenu {
 
     private static Map<String, String> getMetazoneToContinentMap() {
         if (mzToContinentMap == null) {
-            System.err
-                .println(
+            System.err.println(
                     "PathUtilities.java getMetazoneToContinentMap(): TODO: Get this data from supplemental data! http://unicode.org/cldr/trac/ticket/3761");
             HashMap<String, String> newMap = new HashMap<>();
             for (int i = 0; i < mzToContinentStatic.length; i += 2) {

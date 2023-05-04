@@ -2,11 +2,9 @@ package org.unicode.cldr.web.api;
 
 import java.util.List;
 import java.util.Map;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -22,9 +20,9 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataPage;
@@ -38,86 +36,93 @@ public class VoteAPI {
     @GET
     @Path("/{locale}/row/{xpstrid}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(
-        summary = "Get row info",
-        description = "Get info for a single xpath")
+    @Operation(summary = "Get row info", description = "Get info for a single xpath")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Vote results",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = RowResponse.class))),
-            @APIResponse(
-                responseCode = "401",
-                description = "Authorization required, send a valid session id"),
-            @APIResponse(
-                responseCode = "403",
-                description = "Forbidden, no access to this data"),
-            @APIResponse(
-                responseCode = "404",
-                description = "Row or Locale does not exist"),
-            @APIResponse(
-                responseCode = "500",
-                description = "Internal Server Error",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = STError.class))),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Vote results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = RowResponse.class))),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(responseCode = "404", description = "Row or Locale does not exist"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
     public Response getRow(
-        @Parameter(required = true, example = "br",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
-
-        @Parameter(example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
-
-        @QueryParam("dashboard") @Schema(description = "Whether to get dashboard info")
-            @DefaultValue("false") Boolean getDashboard,
-
-        @HeaderParam(Auth.SESSION_HEADER) String session) {
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(example = "132345490064d839", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("xpstrid")
+                    String xpstrid,
+            @QueryParam("dashboard")
+                    @Schema(description = "Whether to get dashboard info")
+                    @DefaultValue("false")
+                    Boolean getDashboard,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
         return VoteAPIHelper.handleGetOneRow(loc, session, xpstrid, getDashboard);
     }
 
     @GET
     @Path("/{locale}/page/{page}")
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(
-        summary = "Get page info",
-        description = "Get all info for all xpaths in a page")
+    @Operation(summary = "Get page info", description = "Get all info for all xpaths in a page")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Vote results",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = RowResponse.class))),
-            @APIResponse(
-                responseCode = "401",
-                description = "Authorization required, send a valid session id"),
-            @APIResponse(
-                responseCode = "403",
-                description = "Forbidden, no access to this data"),
-            @APIResponse(
-                responseCode = "404",
-                description = "Row or Locale does not exist. More details in the 'code' field.",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = STError.class))),
-            @APIResponse(
-                responseCode = "500",
-                description = "Internal Server Error",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = STError.class))),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Vote results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = RowResponse.class))),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(
+                        responseCode = "404",
+                        description =
+                                "Row or Locale does not exist. More details in the 'code' field.",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
     public Response getPage(
-        @Parameter(required = true, example = "br",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
-
-        @Parameter(example = "Languages_K_N",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("page") String page,
-
-        @QueryParam("xpstrid") @Schema(description = "Xpath string ID if page is auto")
-            @DefaultValue("") String xpstrid,
-
-        @HeaderParam(Auth.SESSION_HEADER) String session) {
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(example = "Languages_K_N", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("page")
+                    String page,
+            @QueryParam("xpstrid")
+                    @Schema(description = "Xpath string ID if page is auto")
+                    @DefaultValue("")
+                    String xpstrid,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
 
         /*
          * The optional xpstrid query parameter enables requests like
@@ -144,19 +149,20 @@ public class VoteAPI {
                 public List<CheckStatusSummary> tests;
                 public String value;
                 public String valueHash;
-                public Map<String,VoteEntry> votes;
+                public Map<String, VoteEntry> votes;
             }
 
             public static final class OrgValueVotes {
                 public boolean conflicted;
                 public String orgVote; // value like "↑↑↑"
                 public String status; // like "ok"
-                public Map<String,Long> votes; // key is value like "↑↑↑"
+                public Map<String, Long> votes; // key is value like "↑↑↑"
             }
 
             public static final class VotingResults {
                 public Map<String, Long> nameTime;
-                public Map<String,OrgValueVotes> orgs; // key is organization name like "apple", "google"
+                public Map<String, OrgValueVotes>
+                        orgs; // key is organization name like "apple", "google"
                 public int requiredVotes;
                 public String[] value_vote;
                 public boolean valueIsLocked;
@@ -211,7 +217,9 @@ public class VoteAPI {
 
         public Object canModify;
 
-        @Schema(description = "If set, row is not available because there is a Default Content parent. See the specified locale instead.")
+        @Schema(
+                description =
+                        "If set, row is not available because there is a Default Content parent. See the specified locale instead.")
         public String dcParent;
 
         public DisplaySets displaySets;
@@ -226,38 +234,42 @@ public class VoteAPI {
     @Path("/{locale}/row/{xpstrid}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(
-        summary = "Submit a vote",
-        description = "Submit a specific vote")
+    @Operation(summary = "Submit a vote", description = "Submit a specific vote")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Vote operation completed (but check result status)",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = VoteResponse.class))),
-            @APIResponse(
-                responseCode = "401",
-                description = "Authorization required, send a valid session id"),
-            @APIResponse(
-                responseCode = "403",
-                description = "Forbidden, no access to make this vote"),
-            @APIResponse(
-                responseCode = "500",
-                description = "Internal Server Error",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = STError.class))),
-        })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Vote operation completed (but check result status)",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = VoteResponse.class))),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to make this vote"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
     public Response vote(
-        @Parameter(required = true, example = "br",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
-
-        @Parameter(required = true, example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
-
-        @HeaderParam(Auth.SESSION_HEADER) String session,
-
-        VoteRequest request) {
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(
+                            required = true,
+                            example = "132345490064d839",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("xpstrid")
+                    String xpstrid,
+            @HeaderParam(Auth.SESSION_HEADER) String session,
+            VoteRequest request) {
         // Verify session
         final CookieSession mySession = Auth.getSession(session);
         if (mySession == null) {
@@ -267,20 +279,31 @@ public class VoteAPI {
         if (xp == null) {
             return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
         }
-        return VoteAPIHelper.handleVote(loc, xp, request.value, request.voteLevelChanged, mySession, true /* forbiddenIsOk */);
+        return VoteAPIHelper.handleVote(
+                loc,
+                xp,
+                request.value,
+                request.voteLevelChanged,
+                mySession,
+                true /* forbiddenIsOk */);
     }
 
-    final static public class VoteResponse {
+    public static final class VoteResponse {
         @Schema(description = "True if voting succeeded.")
         public boolean didVote;
+
         @Schema(description = "If set, some other reason why the submission failed.")
         public String didNotSubmit;
+
         @Schema(description = "If not ALLOW_*, gives reason why the voting was not allowed.")
         public StatusAction statusAction = null;
+
         @Schema(description = "Results of status checks.")
         public CheckStatusSummary[] testResults;
+
         @Schema(description = "True if testResults include warnings.")
         public boolean testWarnings;
+
         @Schema(description = "True if testResults include errors.")
         public boolean testErrors;
 
@@ -303,7 +326,7 @@ public class VoteAPI {
         }
     }
 
-    final static public class CheckStatusSummary {
+    public static final class CheckStatusSummary {
         public String message;
         public Type type;
         public Subtype subtype;

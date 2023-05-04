@@ -17,9 +17,12 @@ public class TestIso3166Data {
     void testRegionNotForTranslation() {
         // Verify that all region code(s) in getRegionCodesNotForTranslation() are
         // listed as exceptionally reserved
-        Iso3166Data.getRegionCodesNotForTranslation().forEach((region) -> assertEquals(
-            Iso3166Data.Iso3166Status.exceptionally_reserved,
-            Iso3166Data.getIsoStatus().get(region),
-            () -> ("Wrong ISO-3166 status for " + region)));
+        Iso3166Data.getRegionCodesNotForTranslation()
+                .forEach(
+                        (region) ->
+                                assertEquals(
+                                        Iso3166Data.Iso3166Status.exceptionally_reserved,
+                                        Iso3166Data.getIsoStatus().get(region),
+                                        () -> ("Wrong ISO-3166 status for " + region)));
     }
 }

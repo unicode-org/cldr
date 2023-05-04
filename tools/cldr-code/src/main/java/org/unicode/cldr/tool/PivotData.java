@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -27,45 +26,54 @@ public class PivotData {
     private static Matcher fileMatcher;
 
     public static void main(String[] args) throws IOException {
-        System.out.println("WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3"
-            + CldrUtility.LINE_SEPARATOR +
-            "These are Lang+Script+Region, then Lang+Region, then Lang+Script" + CldrUtility.LINE_SEPARATOR +
-            "Inspect and check-in after each phase");
+        System.out.println(
+                "WARNING: Must be done in 3 phases. -DPhase=1, then -DPhase=2, then -DPhase=3"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "These are Lang+Script+Region, then Lang+Region, then Lang+Script"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "Inspect and check-in after each phase");
         fileMatcher = PatternCache.get(CldrUtility.getProperty("FILE", ".*")).matcher("");
         int phase = Integer.parseInt(CldrUtility.getProperty("phase", null));
         Set<LocaleIDParser.Level> conditions = null;
         switch (phase) {
-        case 1:
-            conditions = EnumSet.of(LocaleIDParser.Level.Language,
-                LocaleIDParser.Level.Script,
-                LocaleIDParser.Level.Region);
-            break;
-        case 2:
-            conditions = EnumSet.of(LocaleIDParser.Level.Language,
-                LocaleIDParser.Level.Region);
-            break;
-        case 3:
-            conditions = EnumSet.of(LocaleIDParser.Level.Language,
-                LocaleIDParser.Level.Script);
-            break;
+            case 1:
+                conditions =
+                        EnumSet.of(
+                                LocaleIDParser.Level.Language,
+                                LocaleIDParser.Level.Script,
+                                LocaleIDParser.Level.Region);
+                break;
+            case 2:
+                conditions = EnumSet.of(LocaleIDParser.Level.Language, LocaleIDParser.Level.Region);
+                break;
+            case 3:
+                conditions = EnumSet.of(LocaleIDParser.Level.Language, LocaleIDParser.Level.Script);
+                break;
         }
 
         try {
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-            PivotData pd = new PivotData(cldrFactory, CLDRPaths.MAIN_DIRECTORY, CLDRPaths.GEN_DIRECTORY + "pivot/");
+            PivotData pd =
+                    new PivotData(
+                            cldrFactory,
+                            CLDRPaths.MAIN_DIRECTORY,
+                            CLDRPaths.GEN_DIRECTORY + "pivot/");
             pd.pivotGroup(cldrFactory, conditions);
         } finally {
             System.out.println("DONE");
         }
     }
 
-    private void pivotGroup(Factory cldrFactory, Set<LocaleIDParser.Level> conditions) throws IOException {
+    private void pivotGroup(Factory cldrFactory, Set<LocaleIDParser.Level> conditions)
+            throws IOException {
         CLDRFile supplementalMetadata = cldrFactory.make("supplementalMetadata", false);
-        if (false) for (Iterator<String> it = supplementalMetadata.iterator(); it.hasNext();) {
-            System.out.println(it.next());
-        }
-        String defaultContentList = supplementalMetadata.getFullXPath("//supplementalData/metadata/defaultContent",
-            true);
+        if (false)
+            for (Iterator<String> it = supplementalMetadata.iterator(); it.hasNext(); ) {
+                System.out.println(it.next());
+            }
+        String defaultContentList =
+                supplementalMetadata.getFullXPath(
+                        "//supplementalData/metadata/defaultContent", true);
 
         XPathParts parts = XPathParts.getFrozenInstance(defaultContentList);
         String list = parts.getAttributeValue(-1, "locales");
@@ -94,12 +102,10 @@ public class PivotData {
     }
 
     /**
-     * Move all of the contents in the localeID to the parent. Maintain, however,
-     * the same nominal contents by moving all the replaced contents (inherited or
-     * not) to the other children.
+     * Move all of the contents in the localeID to the parent. Maintain, however, the same nominal
+     * contents by moving all the replaced contents (inherited or not) to the other children.
      *
-     * @param localeID
-     *            to modify
+     * @param localeID to modify
      * @return Return list of locale IDs written out
      * @throws IOException
      */
@@ -112,9 +118,11 @@ public class PivotData {
         }
         String parentID = LocaleIDParser.getParent(localeID);
 
-        if (DEBUG) System.out.format("LocaleID: %s, %s" + CldrUtility.LINE_SEPARATOR, localeID, parentID);
+        if (DEBUG)
+            System.out.format("LocaleID: %s, %s" + CldrUtility.LINE_SEPARATOR, localeID, parentID);
 
-        // find all the unique paths that I have, where the value or fullpath is different from the parent.
+        // find all the unique paths that I have, where the value or fullpath is different from the
+        // parent.
         // AND the parent has the path
 
         Set<String> uniquePaths = new TreeSet<>();
@@ -123,7 +131,7 @@ public class PivotData {
             throw new IllegalArgumentException("File cannot be completely aliased: " + localeID);
         }
 
-        for (Iterator<String> it = me.iterator(); it.hasNext();) {
+        for (Iterator<String> it = me.iterator(); it.hasNext(); ) {
             String path = it.next();
             if (path.startsWith("//ldml/identity")) continue;
             String fullPath = me.getFullXPath(path);
@@ -139,8 +147,16 @@ public class PivotData {
                 if (fullPath.contains("[@casing") != oldFullXPath.contains("[@casing")) {
                     // only do if parent's value is "real"
                     if (resolvedParent.getSourceLocaleID(path, status).equals(parentID)) {
-                        throw new IllegalArgumentException("Mismatched casing: " + localeID + ", " + parentID + " For:"
-                            + CldrUtility.LINE_SEPARATOR + fullPath + CldrUtility.LINE_SEPARATOR + oldFullXPath);
+                        throw new IllegalArgumentException(
+                                "Mismatched casing: "
+                                        + localeID
+                                        + ", "
+                                        + parentID
+                                        + " For:"
+                                        + CldrUtility.LINE_SEPARATOR
+                                        + fullPath
+                                        + CldrUtility.LINE_SEPARATOR
+                                        + oldFullXPath);
                     }
                 }
                 uniquePaths.add(path);
@@ -150,11 +166,14 @@ public class PivotData {
         // if there are no unique paths our work here is done
         if (uniquePaths.size() == 0) {
             if (DEBUG)
-                System.out.format("LocaleID: %s is EMPTY, no changes necessary" + CldrUtility.LINE_SEPARATOR, localeID);
+                System.out.format(
+                        "LocaleID: %s is EMPTY, no changes necessary" + CldrUtility.LINE_SEPARATOR,
+                        localeID);
             return countChanges;
         }
 
-        // now find all the siblings. These are all the locales that have the same parent, and are one-level down
+        // now find all the siblings. These are all the locales that have the same parent, and are
+        // one-level down
         Set<String> siblings = lidp.set(localeID).getSiblings(factory.getAvailable());
         siblings.remove(localeID); // remove myself
 
@@ -165,7 +184,9 @@ public class PivotData {
 
         CLDRFile newFile = SimpleFactory.makeFile(localeID);
         writeFile(newFile);
-        if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, uniquePaths.size(), localeID);
+        if (DEBUG)
+            System.out.format(
+                    "%s changes in: %s" + CldrUtility.LINE_SEPARATOR, uniquePaths.size(), localeID);
 
         // now add the different paths to the copy of the parent, and write out
 
@@ -174,7 +195,9 @@ public class PivotData {
         // System.out.println("clone " + size(newFile.iterator()));
         int deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, me, true);
         countChanges += deltaChangeCount;
-        if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, parentID);
+        if (DEBUG)
+            System.out.format(
+                    "%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, parentID);
         writeFile(newFile);
 
         // now add the parent's values for the paths to the siblings, and write out
@@ -186,7 +209,9 @@ public class PivotData {
             }
             deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, resolvedParent, false);
             countChanges += deltaChangeCount;
-            if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, id);
+            if (DEBUG)
+                System.out.format(
+                        "%s changes in: %s" + CldrUtility.LINE_SEPARATOR, deltaChangeCount, id);
             writeFile(newFile);
         }
 
@@ -203,7 +228,8 @@ public class PivotData {
         return count;
     }
 
-    private int addPathsAndValuesFrom(CLDRFile toModify, Set<String> uniquePaths, CLDRFile toAddFrom, boolean override) {
+    private int addPathsAndValuesFrom(
+            CLDRFile toModify, Set<String> uniquePaths, CLDRFile toAddFrom, boolean override) {
         int changeCount = 0;
         for (String path : uniquePaths) {
             String fullPath = null, value = null, oldFullXPath = null, oldValue = null;
@@ -217,9 +243,13 @@ public class PivotData {
             oldValue = toModify.getStringValue(path);
             try {
                 if (!fullPath.equals(oldFullXPath) || !value.equals(oldValue)) {
-                    if (oldFullXPath != null && fullPath.contains("[@casing") != oldFullXPath.contains("[@casing")) {
-                        throw new IllegalArgumentException("Mismatched casing: " + toAddFrom.getLocaleID() + ", "
-                            + toModify.getLocaleID());
+                    if (oldFullXPath != null
+                            && fullPath.contains("[@casing") != oldFullXPath.contains("[@casing")) {
+                        throw new IllegalArgumentException(
+                                "Mismatched casing: "
+                                        + toAddFrom.getLocaleID()
+                                        + ", "
+                                        + toModify.getLocaleID());
                     }
                     if (override && oldFullXPath != null) {
                         XPathParts parts = XPathParts.getFrozenInstance(oldFullXPath);
@@ -245,11 +275,12 @@ public class PivotData {
         return changeCount;
     }
 
-    SimpleLineComparator lineComparer = new SimpleLineComparator(
-        // SimpleLineComparator.SKIP_SPACES +
-        SimpleLineComparator.TRIM +
-            SimpleLineComparator.SKIP_EMPTY +
-            SimpleLineComparator.SKIP_CVS_TAGS);
+    SimpleLineComparator lineComparer =
+            new SimpleLineComparator(
+                    // SimpleLineComparator.SKIP_SPACES +
+                    SimpleLineComparator.TRIM
+                            + SimpleLineComparator.SKIP_EMPTY
+                            + SimpleLineComparator.SKIP_CVS_TAGS);
 
     private void writeFile(CLDRFile newFile) throws IOException {
         String id = newFile.getLocaleID();
@@ -257,7 +288,7 @@ public class PivotData {
         newFile.write(out);
         out.println();
         out.close();
-        ToolUtilities.generateBat(sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
+        ToolUtilities.generateBat(
+                sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
     }
-
 }

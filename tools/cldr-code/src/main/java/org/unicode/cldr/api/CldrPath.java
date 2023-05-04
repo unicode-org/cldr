@@ -8,6 +8,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 import static java.util.stream.Collectors.toCollection;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -15,12 +18,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import org.unicode.cldr.api.AttributeKey.AttributeSupplier;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 
 /**
  * A sequence of CLDR path elements and "distinguishing" attributes.
@@ -43,24 +41,25 @@ import com.google.common.collect.ImmutableMap;
  *
  * <p>CldrPath is an immutable value type with efficient equality semantics.
  *
- * <p>See <a href="https://www.unicode.org/reports/tr35/#Definitions">the LDML specification</a>
- * for more details.
+ * <p>See <a href="https://www.unicode.org/reports/tr35/#Definitions">the LDML specification</a> for
+ * more details.
  */
 public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     // This is approximate and DOES NOT promise correctness, it's mainly there to catch unexpected
     // changes in the data and it can be updated or removed if needed. At the very least element
     // names must not contain '/', '[', ']', '@', '=', '#' or '"' to permit re-parsing of paths.
     private static final CharMatcher NAME_CHARACTERS =
-        inRange('a', 'z').or(inRange('A', 'Z')).or(inRange('0', '9')).or(anyOf(":-_"));
+            inRange('a', 'z').or(inRange('A', 'Z')).or(inRange('0', '9')).or(anyOf(":-_"));
 
     /**
      * Parses a distinguishing CLDR path string, including "distinguishing" and private "metadata"
      * attributes into a normalized {@link CldrPath} instance. Attributes will be parsed and handled
      * according to their type:
+     *
      * <ul>
-     * <li>Distinguishing attributes will be added to the returned CldrPath instance.
-     * <li>Non-public metadata attributes will be ignored.
-     * <li>Value attributes are not permitted in distinguishing paths and will cause an error.
+     *   <li>Distinguishing attributes will be added to the returned CldrPath instance.
+     *   <li>Non-public metadata attributes will be ignored.
+     *   <li>Value attributes are not permitted in distinguishing paths and will cause an error.
      * </ul>
      *
      * <p>The path string must be structured correctly (e.g. "//ldml/foo[@bar="baz]") and must
@@ -70,19 +69,24 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
      * @param path the distinguishing path string, containing only distinguishing attributes.
      * @return the parsed distinguishing path instance.
      * @throws IllegalArgumentException if the path is not well formed (e.g. contains unexpected
-     *      value or metadata attributes).
+     *     value or metadata attributes).
      */
     public static CldrPath parseDistinguishingPath(String path) {
-        return CldrPaths.processXPath(path, ImmutableList.of(), (k, v) -> {
-            throw new IllegalArgumentException(String.format(
-                "unexpected value attribute '%s' in distinguishing path: %s", k, path));
-        });
+        return CldrPaths.processXPath(
+                path,
+                ImmutableList.of(),
+                (k, v) -> {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "unexpected value attribute '%s' in distinguishing path: %s",
+                                    k, path));
+                });
     }
 
     /**
-     * Returns the number of common path elements from the root. This is useful when determining
-     * the last common ancestor during visitation. A {@code null} path is treated as having zero
-     * length (and will always result in zero being returned).
+     * Returns the number of common path elements from the root. This is useful when determining the
+     * last common ancestor during visitation. A {@code null} path is treated as having zero length
+     * (and will always result in zero being returned).
      *
      * <p>Note: This is only currently use by PrefixVisitorHost, but could be made public if needed.
      * It's only here (rather than in PrefixVisitorHost) because it depends on private methods of
@@ -96,10 +100,8 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
 
         // Trim whichever path is longer until both are same length.
         int minLength = Math.min(a.getLength(), b.getLength());
-        while (a.getLength() > minLength)
-            a = a.getParent();
-        while (b.getLength() > minLength)
-            b = b.getParent();
+        while (a.getLength() > minLength) a = a.getParent();
+        while (b.getLength() > minLength) b = b.getParent();
 
         // Work up the paths, resetting the common length every time the elements differ.
         int commonLength = minLength;
@@ -138,13 +140,18 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     // care about making assignment atomic however, since all values would be equal anyway.
     private String localToString = null;
 
-    CldrPath(CldrPath parent,
-        String name,
-        List<String> attributeKeyValuePairs,
-        CldrDataType dtdType,
-        /* @Nullable */ CldrDraftStatus localDraftStatus, int sortIndex) {
-        checkState(parent != null || dtdType.getLdmlName().equals(name),
-            "unexpected root element: expected %s, but got %s", dtdType.getLdmlName(), name);
+    CldrPath(
+            CldrPath parent,
+            String name,
+            List<String> attributeKeyValuePairs,
+            CldrDataType dtdType,
+            /* @Nullable */ CldrDraftStatus localDraftStatus,
+            int sortIndex) {
+        checkState(
+                parent != null || dtdType.getLdmlName().equals(name),
+                "unexpected root element: expected %s, but got %s",
+                dtdType.getLdmlName(),
+                name);
         this.parent = parent;
         this.length = (parent != null ? parent.getLength() : 0) + 1;
         this.elementName = checkValidName(name, "element");
@@ -152,11 +159,17 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         this.draftStatus = resolveDraftStatus(parent, localDraftStatus);
         // Ordered elements have a sort index of 0 or more, and un-ordered have an index of -1.
         if (CldrPaths.isOrdered(dtdType, elementName)) {
-            checkArgument(sortIndex >= 0,
-                "missing or invalid sort index '%s' for element: %s", sortIndex, elementName);
+            checkArgument(
+                    sortIndex >= 0,
+                    "missing or invalid sort index '%s' for element: %s",
+                    sortIndex,
+                    elementName);
         } else {
-            checkArgument(sortIndex == -1,
-                "unexpected sort index '%s' for element: %s", sortIndex, elementName);
+            checkArgument(
+                    sortIndex == -1,
+                    "unexpected sort index '%s' for element: %s",
+                    sortIndex,
+                    elementName);
         }
         this.sortIndex = sortIndex;
         this.dtdType = checkNotNull(dtdType);
@@ -166,16 +179,21 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
 
     private static String checkValidName(String value, String description) {
         checkArgument(!value.isEmpty(), "%s name cannot be empty", description);
-        checkArgument(NAME_CHARACTERS.matchesAllOf(value),
-            "invalid character in %s name: %s", description, value);
+        checkArgument(
+                NAME_CHARACTERS.matchesAllOf(value),
+                "invalid character in %s name: %s",
+                description,
+                value);
         return value;
     }
 
     private static ImmutableList<String> checkKeyValuePairs(List<String> keyValuePairs) {
         // Ensure attribute values never have double-quote in them (since current we don't escape
         // value when putting into toString().
-        checkArgument((keyValuePairs.size() & 1) == 0,
-            "key/value pairs must have an even number of elements: %s", keyValuePairs);
+        checkArgument(
+                (keyValuePairs.size() & 1) == 0,
+                "key/value pairs must have an even number of elements: %s",
+                keyValuePairs);
         for (int n = 0; n < keyValuePairs.size(); n += 2) {
             checkValidName(keyValuePairs.get(n), "attribute");
             String v = keyValuePairs.get(n + 1);
@@ -189,13 +207,14 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
      * unnecessary allocations during processing (see {@link CldrFileDataSource}).
      */
     boolean matchesContent(
-        String name,
-        int sortIndex,
-        List<String> keyValuePairs, /* Nullable */ CldrDraftStatus draftStatus) {
+            String name,
+            int sortIndex,
+            List<String> keyValuePairs, /* Nullable */
+            CldrDraftStatus draftStatus) {
         return this.elementName.equals(name)
-            && this.sortIndex == sortIndex
-            && this.attributeKeyValuePairs.equals(keyValuePairs)
-            && this.draftStatus.equals(resolveDraftStatus(this.parent, draftStatus));
+                && this.sortIndex == sortIndex
+                && this.attributeKeyValuePairs.equals(keyValuePairs)
+                && this.draftStatus.equals(resolveDraftStatus(this.parent, draftStatus));
     }
 
     // Helper to resolve the current draft status of a path based on any local draft status
@@ -207,7 +226,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     // likely that the implicit expectation in CLDRFile is that there's only ever one draft
     // status attributes in any given path (see the pop() method in MyDeclHandler).
     private static Optional<CldrDraftStatus> resolveDraftStatus(
-        /* @Nullable */ CldrPath parent, /* @Nullable */ CldrDraftStatus localStatus) {
+            /* @Nullable */ CldrPath parent, /* @Nullable */ CldrDraftStatus localStatus) {
         if (parent != null && parent.draftStatus.isPresent()) {
             return parent.draftStatus;
         }
@@ -273,8 +292,10 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
      */
     @Override
     /* @Nullable */ public String get(AttributeKey key) {
-        checkArgument(!getDataType().isValueAttribute(key),
-            "cannot get 'value attribute' values from a distinguishing path: %s", key);
+        checkArgument(
+                !getDataType().isValueAttribute(key),
+                "cannot get 'value attribute' values from a distinguishing path: %s",
+                key);
         String v = null;
         for (CldrPath p = this; v == null && p != null; p = p.getParent()) {
             if (p.getName().equals(key.getElementName())) {
@@ -303,7 +324,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
      */
     boolean containsElement(String elementName) {
         return getName().equals(elementName)
-            || (parent != null && parent.containsElement(elementName));
+                || (parent != null && parent.containsElement(elementName));
     }
 
     /**
@@ -360,15 +381,15 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     }
 
     /**
-     * Returns a combined full path string in the XPath style {@code //foo/bar[@x="y"]/baz},
-     * with value attributes inserted in correct DTD order for each path element.
+     * Returns a combined full path string in the XPath style {@code //foo/bar[@x="y"]/baz}, with
+     * value attributes inserted in correct DTD order for each path element.
      *
      * <p>Note that while in most cases the values attributes simply follow the path attributes on
      * each element, this is not necessarily always true, and DTD ordering can place value
      * attributes before path attributes in an element.
      *
      * @param value a value to be associated with this path (from which value attributes will be
-     *              obtained).
+     *     obtained).
      * @return the full XPath representation containing both distinguishing and value attributes.
      */
     String getFullPath(CldrValue value) {
@@ -420,7 +441,9 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         return hashCode;
     }
 
-    /** @return the distinguishing path string in the XPath style {@code //foo/bar[@x="y"]/baz}. */
+    /**
+     * @return the distinguishing path string in the XPath style {@code //foo/bar[@x="y"]/baz}.
+     */
     @Override
     public String toString() {
         return appendToString(new StringBuilder(), ImmutableMap.of()).toString();
@@ -430,8 +453,8 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         // In _theory_ only length and localToString need to be checked (since the localToString is
         // an unambiguous representation of the data, but it seems a bit hacky to rely on that.
         return this.elementName.equals(other.elementName)
-            && this.sortIndex == other.sortIndex
-            && this.attributeKeyValuePairs.equals(other.attributeKeyValuePairs);
+                && this.sortIndex == other.sortIndex
+                && this.attributeKeyValuePairs.equals(other.attributeKeyValuePairs);
     }
 
     // XPath like toString() representation of a path element (e.g. foo[@bar="x"][@baz="y"]).
@@ -445,10 +468,15 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
                 str += "#" + sortIndex;
             }
             if (getAttributeCount() > 0) {
-                str = IntStream.range(0, getAttributeCount())
-                    .mapToObj(n ->
-                        String.format("[@%s=\"%s\"]", getLocalAttributeName(n), getLocalAttributeValue(n)))
-                    .collect(Collectors.joining("", str, ""));
+                str =
+                        IntStream.range(0, getAttributeCount())
+                                .mapToObj(
+                                        n ->
+                                                String.format(
+                                                        "[@%s=\"%s\"]",
+                                                        getLocalAttributeName(n),
+                                                        getLocalAttributeValue(n)))
+                                .collect(Collectors.joining("", str, ""));
             }
             // Overwrite only once the local string is completed (this is idempotent so we don't
             // have to care about locking etc.).
@@ -459,7 +487,7 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
 
     // Recursive helper for toString().
     private StringBuilder appendToString(
-        StringBuilder out, ImmutableMap<AttributeKey, String> valueAttributes) {
+            StringBuilder out, ImmutableMap<AttributeKey, String> valueAttributes) {
         CldrPath parent = getParent();
         if (parent != null) {
             parent.appendToString(out, valueAttributes).append('/');
@@ -470,10 +498,10 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
             return out.append(getLocalToString());
         }
         List<String> attributeNames =
-            valueAttributes.keySet().stream()
-                .filter(k -> k.getElementName().equals(getName()))
-                .map(AttributeKey::getAttributeName)
-                .collect(toCollection(ArrayList::new));
+                valueAttributes.keySet().stream()
+                        .filter(k -> k.getElementName().equals(getName()))
+                        .map(AttributeKey::getAttributeName)
+                        .collect(toCollection(ArrayList::new));
         if (attributeNames.isEmpty()) {
             // No value attributes for _this_ element so can use just the local toString().
             return out.append(getLocalToString());
@@ -481,20 +509,22 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
         if (getAttributeCount() > 0) {
             String lastPathAttributeName = getLocalAttributeName(getAttributeCount() - 1);
             if (dtdType.getAttributeComparator()
-                .compare(lastPathAttributeName, attributeNames.get(0)) > 0) {
+                            .compare(lastPathAttributeName, attributeNames.get(0))
+                    > 0) {
                 // Oops, order is not as expected, so must reorder all attributes.
                 appendResortedValueAttributesTo(out, attributeNames, valueAttributes);
                 return out;
             }
         }
         // Value attributes all come after path attributes.
-        return appendValueAttributesTo(out.append(getLocalToString()), attributeNames, valueAttributes);
+        return appendValueAttributesTo(
+                out.append(getLocalToString()), attributeNames, valueAttributes);
     }
 
     private void appendResortedValueAttributesTo(
-        StringBuilder out,
-        List<String> attributeNames,
-        ImmutableMap<AttributeKey, String> valueAttributes) {
+            StringBuilder out,
+            List<String> attributeNames,
+            ImmutableMap<AttributeKey, String> valueAttributes) {
         out.append(elementName);
         for (int n = 0; n < attributeKeyValuePairs.size(); n += 2) {
             attributeNames.add(attributeKeyValuePairs.get(n));
@@ -511,9 +541,9 @@ public final class CldrPath implements AttributeSupplier, Comparable<CldrPath> {
     }
 
     private StringBuilder appendValueAttributesTo(
-        StringBuilder out,
-        List<String> attributeNames,
-        ImmutableMap<AttributeKey, String> valueAttributes) {
+            StringBuilder out,
+            List<String> attributeNames,
+            ImmutableMap<AttributeKey, String> valueAttributes) {
         for (String attrName : attributeNames) {
             String value = valueAttributes.get(AttributeKey.keyOf(elementName, attrName));
             checkState(value != null, "missing value %s:%s", elementName, attrName);

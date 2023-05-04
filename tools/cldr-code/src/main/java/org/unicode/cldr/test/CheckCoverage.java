@@ -7,7 +7,6 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -26,15 +25,13 @@ import org.unicode.cldr.util.XMLSource;
 /**
  * Checks locale data for coverage.<br>
  * Options:<br>
- * CheckCoverage.requiredLevel=value to override the required level. values:
- * comprehensive, modern, moderate, basic...<br>
- * Use the option CheckCoverage.skip=true to skip a locale. For console testing,
- * you want to skip the non-language locales, since they don't typically add,
- * just replace. See CheckCLDR for an example.
- * CoverageLevel.localeType=organization to override the organization.
+ * CheckCoverage.requiredLevel=value to override the required level. values: comprehensive, modern,
+ * moderate, basic...<br>
+ * Use the option CheckCoverage.skip=true to skip a locale. For console testing, you want to skip
+ * the non-language locales, since they don't typically add, just replace. See CheckCLDR for an
+ * example. CoverageLevel.localeType=organization to override the organization.
  *
  * @author davis
- *
  */
 public class CheckCoverage extends FactoryCheckCLDR {
     static final boolean DEBUG = false;
@@ -53,8 +50,8 @@ public class CheckCoverage extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Options options, List<CheckStatus> result) {
+    public CheckCLDR handleCheck(
+            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
 
         if (isSkipTest()) {
             return this;
@@ -75,15 +72,18 @@ public class CheckCoverage extends FactoryCheckCLDR {
          *
          * Compare same change in getMissingStatus for https://unicode.org/cldr/trac/ticket/11765
          */
-        String source = resolvedCldrFileToCheck.getSourceLocaleIdExtended(path, status, false /* skipInheritanceMarker */);
+        String source =
+                resolvedCldrFileToCheck.getSourceLocaleIdExtended(
+                        path, status, false /* skipInheritanceMarker */);
 
-        // if the source is a language locale (that is, not root or code fallback) then we have something already, so
+        // if the source is a language locale (that is, not root or code fallback) then we have
+        // something already, so
         // skip.
         // we test stuff matching specialsToKeep, or code fallback
         // skip anything else
         if (!source.equals(XMLSource.CODE_FALLBACK_ID)
-            && !source.equals(LocaleNames.ROOT)
-            && (path.indexOf("metazone") < 0 || value != null && value.length() > 0)) {
+                && !source.equals(LocaleNames.ROOT)
+                && (path.indexOf("metazone") < 0 || value != null && value.length() > 0)) {
             return this; // skip!
         }
 
@@ -109,10 +109,14 @@ public class CheckCoverage extends FactoryCheckCLDR {
             if (this.getPhase().equals(CheckCLDR.Phase.VETTING)) {
                 coverageErrorType = CheckStatus.errorType;
             }
-            result.add(new CheckStatus().setCause(this).setMainType(coverageErrorType)
-                .setSubtype(Subtype.coverageLevel)
-                .setCheckOnSubmit(false)
-                .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(coverageErrorType)
+                            .setSubtype(Subtype.coverageLevel)
+                            .setCheckOnSubmit(false)
+                            .setMessage(
+                                    "Needed to meet {0} coverage level.", new Object[] {level}));
         } else if (DEBUG) {
             System.out.println(level + "\t" + path);
         }
@@ -120,21 +124,26 @@ public class CheckCoverage extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-        List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
         final String localeID = cldrFileToCheck.getLocaleID();
         if (localeID.equals(new LanguageTagParser().set(localeID).getLanguageScript())) {
-            supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
+            supplementalData =
+                    SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
             coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
             PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
             if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, LocaleNames.ROOT)
-                   && !SpecialLocales.isScratchLocale(localeID)) {
-                possibleErrors.add(new CheckStatus()
-                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
-                    .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
-                        new Object[] {}));
+                    && !SpecialLocales.isScratchLocale(localeID)) {
+                possibleErrors.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.missingPluralInfo)
+                                .setMessage(
+                                        "Missing Plural Information - see supplemental plural charts to file bug.",
+                                        new Object[] {}));
             }
         }
 

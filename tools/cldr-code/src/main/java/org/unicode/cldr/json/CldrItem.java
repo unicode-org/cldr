@@ -4,16 +4,13 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneParser;
 
-/**
- * A object to present a CLDR XML item.
- */
+/** A object to present a CLDR XML item. */
 public class CldrItem implements Comparable<CldrItem> {
 
     private static boolean DEBUG = false;
@@ -21,8 +18,7 @@ public class CldrItem implements Comparable<CldrItem> {
     /**
      * Split the path to an array of string, each string represent a segment.
      *
-     * @param path
-     *            The path of XML element.
+     * @param path The path of XML element.
      * @return array of segments.
      */
     private static String[] splitPathToSegments(String path) {
@@ -64,30 +60,30 @@ public class CldrItem implements Comparable<CldrItem> {
     /**
      * The full path of a CLDR item.
      *
-     * Comparing to path, this full contains non-distinguishable attributes.
+     * <p>Comparing to path, this full contains non-distinguishable attributes.
      */
     private String fullPath;
 
     /**
      * The resolution path of a CLDR item.
      *
-     * This path only contains distinguishable attributes that are necessary to
-     * identify a CLDR XML item in the CLDR tree.
+     * <p>This path only contains distinguishable attributes that are necessary to identify a CLDR
+     * XML item in the CLDR tree.
      */
     private String path;
 
     /**
      * The full path of a CLDR item.
      *
-     * Comparing to path, this full contains non-distinguishable attributes.
+     * <p>Comparing to path, this full contains non-distinguishable attributes.
      */
     private String untransformedFullPath;
 
     /**
      * The resolution path of a CLDR item.
      *
-     * This path only contains distinguishable attributes that are necessary to
-     * identify a CLDR XML item in the CLDR tree.
+     * <p>This path only contains distinguishable attributes that are necessary to identify a CLDR
+     * XML item in the CLDR tree.
      */
     private String untransformedPath;
 
@@ -97,15 +93,18 @@ public class CldrItem implements Comparable<CldrItem> {
 
     @Override
     public String toString() {
-        return "[CldrItem " + getUntransformedPath()+"]";
+        return "[CldrItem " + getUntransformedPath() + "]";
     }
 
-    /**
-     * The value of this CLDR item.
-     */
+    /** The value of this CLDR item. */
     private String value;
 
-    CldrItem(final String path, String fullPath, String untransformedPath, String untransformedFullPath, String value) {
+    CldrItem(
+            final String path,
+            String fullPath,
+            String untransformedPath,
+            String untransformedFullPath,
+            String value) {
 
         if (DEBUG) {
             System.out.println("---");
@@ -115,9 +114,17 @@ public class CldrItem implements Comparable<CldrItem> {
             System.out.println("---");
         }
 
-        if(path.isEmpty()) {
+        if (path.isEmpty()) {
             // Should not happen
-            throw new IllegalArgumentException("empty path with " + fullPath+"|"+untransformedPath+"|"+untransformedFullPath+ " = " + value );
+            throw new IllegalArgumentException(
+                    "empty path with "
+                            + fullPath
+                            + "|"
+                            + untransformedPath
+                            + "|"
+                            + untransformedFullPath
+                            + " = "
+                            + value);
         }
 
         this.path = path;
@@ -145,7 +152,6 @@ public class CldrItem implements Comparable<CldrItem> {
      *
      * @return sort key string.
      */
-
     public String getValue() {
         return value;
     }
@@ -168,9 +174,9 @@ public class CldrItem implements Comparable<CldrItem> {
     /**
      * This function create a node list from a CLDR path.
      *
-     * Mostly, the node has one-to-one correspondence with path segment. But there
-     * are special cases where one segment can be split to multiple nodes. If
-     * necessary, several segments can also be combined to one node.
+     * <p>Mostly, the node has one-to-one correspondence with path segment. But there are special
+     * cases where one segment can be split to multiple nodes. If necessary, several segments can
+     * also be combined to one node.
      *
      * @return A list of node in strict parent-to-child order.
      * @throws ParseException
@@ -183,8 +189,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
         String parent = "";
         for (int i = 0; i < pathSegments.length; i++) {
-            CldrNode node = CldrNode.createNode(parent, pathSegments[i],
-                fullPathSegments[i], this);
+            CldrNode node = CldrNode.createNode(parent, pathSegments[i], fullPathSegments[i], this);
 
             // Zone and time zone element has '/' in attribute value, like
             // .../zone[@type="America/Adak"]/...
@@ -194,17 +199,16 @@ public class CldrItem implements Comparable<CldrItem> {
             // .../zone/America/Adak/...
             String nodeName = node.getName();
             if (node.isTimezoneType()) {
-                nodesInPath.add(CldrNode.createNode(parent, node.getName(),
-                    node.getName(), this));
+                nodesInPath.add(CldrNode.createNode(parent, node.getName(), node.getName(), this));
                 String typeValue = node.getDistinguishingAttributes().get("type");
                 typeValue = typeValue.replaceAll("Asia:Taipei", "Asia/Taipei");
                 String[] segments = typeValue.split("/");
                 for (int j = 0; j < segments.length; j++) {
-                    CldrNode newNode = CldrNode.createNode(parent, node.getName(),
-                        node.getName(), this);
+                    CldrNode newNode =
+                            CldrNode.createNode(parent, node.getName(), node.getName(), this);
                     if (j == segments.length - 1) {
-                        newNode.getDistinguishingAttributes().putAll(
-                            node.getDistinguishingAttributes());
+                        newNode.getDistinguishingAttributes()
+                                .putAll(node.getDistinguishingAttributes());
                         newNode.getDistinguishingAttributes().remove("type");
                     }
                     newNode.getDistinguishingAttributes().put("type", segments[j]);
@@ -219,19 +223,18 @@ public class CldrItem implements Comparable<CldrItem> {
     }
 
     public void setPath(String path) {
-        if(path.isEmpty()) {
+        if (path.isEmpty()) {
             throw new IllegalArgumentException("empty path");
         }
         this.path = path;
     }
 
     /**
-     * Some CLDR items have attributes that should be split before
-     * transformation. For examples, item like:
-     * <calendarPreference territories="CN CX" ordering="gregorian chinese"/>
-     * should really be treated as 2 separate items:
-     * <calendarPreference territories="CN" ordering="gregorian chinese"/>
-     * <calendarPreference territories="CX" ordering="gregorian chinese"/>
+     * Some CLDR items have attributes that should be split before transformation. For examples,
+     * item like: <calendarPreference territories="CN CX" ordering="gregorian chinese"/> should
+     * really be treated as 2 separate items: <calendarPreference territories="CN"
+     * ordering="gregorian chinese"/> <calendarPreference territories="CX" ordering="gregorian
+     * chinese"/>
      *
      * @return Array of CldrItem if it can be split, otherwise null if nothing to split.
      */
@@ -248,8 +251,9 @@ public class CldrItem implements Comparable<CldrItem> {
                 String[] words = wordString.trim().split("\\s+");
                 Set<String> hadWords = new TreeSet<>();
                 for (String word : words) {
-                    if(hadWords.add(word) == false) {
-                        System.err.println("Warning: Duplicate attribute " + word + " in " + fullPath);
+                    if (hadWords.add(word) == false) {
+                        System.err.println(
+                                "Warning: Duplicate attribute " + word + " in " + fullPath);
                         continue;
                     }
                     // TODO: Ideally, there would be a separate post-split path transform.
@@ -265,18 +269,29 @@ public class CldrItem implements Comparable<CldrItem> {
                     untransformednewfullxpp.setAttribute(s.element, s.attribute, word);
 
                     if (s.attrAsValueAfterSplit != null) {
-                        String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
+                        String newValue =
+                                fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
                         newxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
                         newxpp.removeAttribute(s.element, s.attribute);
                         newxpp.addElement(word);
                         newfullxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
                         newfullxpp.removeAttribute(s.element, s.attribute);
                         newfullxpp.addElement(word);
-                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(), untransformednewfullxpp.toString(),
-                            newValue));
+                        list.add(
+                                new CldrItem(
+                                        newxpp.toString(),
+                                        newfullxpp.toString(),
+                                        untransformednewxpp.toString(),
+                                        untransformednewfullxpp.toString(),
+                                        newValue));
                     } else {
-                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(), untransformednewfullxpp.toString(),
-                            value));
+                        list.add(
+                                new CldrItem(
+                                        newxpp.toString(),
+                                        newfullxpp.toString(),
+                                        untransformednewxpp.toString(),
+                                        untransformednewfullxpp.toString(),
+                                        value));
                     }
                 }
                 return list.toArray(new CldrItem[list.size()]);
@@ -328,7 +343,8 @@ public class CldrItem implements Comparable<CldrItem> {
             fileDtdType = DtdType.ldml;
         }
         int result = 0;
-        if (thisxpp.getElement(1).equals("weekData") && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
+        if (thisxpp.getElement(1).equals("weekData")
+                && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
             String thisTerritory = thisxpp.findFirstAttributeValue("territories");
             String otherTerritory = otherxpp.findFirstAttributeValue("territories");
             if (thisTerritory != null && otherTerritory != null) {
@@ -338,7 +354,8 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
-        if (thisxpp.getElement(1).equals("measurementData") && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
+        if (thisxpp.getElement(1).equals("measurementData")
+                && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
             String thisCategory = thisxpp.findAttributeValue("measurementSystem", "category");
             if (thisCategory == null) {
                 thisCategory = "";
@@ -360,14 +377,17 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
-        result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
+        result =
+                DtdData.getInstance(fileDtdType)
+                        .getDtdComparator(null)
+                        .compare(untransformedPath, otherItem.untransformedPath);
         return result;
     }
 
     void adjustRbnfPath() {
         XPathParts xpp = XPathParts.getFrozenInstance(getFullPath());
         final String sub = xpp.findAttributeValue("rbnfrule", "value");
-        if(sub != null){
+        if (sub != null) {
             xpp = xpp.cloneAsThawed();
             final String value = getValue();
             xpp.removeAttribute(-1, "value");

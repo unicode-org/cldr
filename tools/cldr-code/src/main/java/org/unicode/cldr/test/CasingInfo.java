@@ -1,5 +1,7 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +14,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckConsistentCasing.CasingType;
 import org.unicode.cldr.test.CheckConsistentCasing.CasingTypeAndErrFlag;
 import org.unicode.cldr.test.CheckConsistentCasing.Category;
@@ -30,22 +31,24 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
- * Calculates, reads, writes and returns casing information about locales for
- * CheckConsistentCasing.
+ * Calculates, reads, writes and returns casing information about locales for CheckConsistentCasing.
  * Run main() to generate the casing information files which will be stored in common/casing.
  *
  * @author jchye
  */
 public class CasingInfo {
-    private static final Options options = new Options(
-        "This program is used to generate casing files for locales.")
-            .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
-            .add("summary", null,
-                "generates a summary of the casing for all locales that had casing generated for this run");
+    private static final Options options =
+            new Options("This program is used to generate casing files for locales.")
+                    .add(
+                            "locales",
+                            ".*",
+                            ".*",
+                            "A regex of the locales to generate casing information for")
+                    .add(
+                            "summary",
+                            null,
+                            "generates a summary of the casing for all locales that had casing generated for this run");
     private Map<String, Map<Category, CasingTypeAndErrFlag>> casing;
     private List<File> casingDirs;
 
@@ -57,9 +60,7 @@ public class CasingInfo {
         casing = CldrUtility.newConcurrentHashMap();
     }
 
-    /**
-     * ONLY usable in command line tests.
-     */
+    /** ONLY usable in command line tests. */
     public CasingInfo() {
         casingDirs = new ArrayList<>();
         this.casingDirs.add(new File(CLDRPaths.CASING_DIRECTORY));
@@ -96,8 +97,7 @@ public class CasingInfo {
     }
 
     /**
-     * Loads casing information about a specified locale from the casing XML,
-     * if it exists.
+     * Loads casing information about a specified locale from the casing XML, if it exists.
      *
      * @param localeID
      */
@@ -114,9 +114,7 @@ public class CasingInfo {
         return null;
     }
 
-    /**
-     * Calculates casing information about all languages from the locale data.
-     */
+    /** Calculates casing information about all languages from the locale data. */
     private Map<String, Boolean> generateCasingInformation(String localePattern) {
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
@@ -193,13 +191,12 @@ public class CasingInfo {
         out.close();
     }
 
-    /**
-     * Writes casing information for the specified locale to XML format.
-     */
+    /** Writes casing information for the specified locale to XML format. */
     private void createCasingXml(String localeID, Map<Category, CasingType> localeCasing) {
         // Load any existing overrides over casing info.
         CasingHandler handler = loadFromXml(localeID);
-        Map<Category, CasingType> overrides = handler == null ? new EnumMap<>(Category.class) : handler.getOverrides();
+        Map<Category, CasingType> overrides =
+                handler == null ? new EnumMap<>(Category.class) : handler.getOverrides();
         localeCasing.putAll(overrides);
 
         XMLSource source = new SimpleXMLSource(localeID);
@@ -207,7 +204,10 @@ public class CasingInfo {
             if (category == Category.NOT_USED) continue;
             CasingType type = localeCasing.get(category);
             if (overrides.containsKey(category)) {
-                String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
+                String path =
+                        MessageFormat.format(
+                                "//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]",
+                                category);
                 source.putValueAtPath(path, type.toString());
             } else if (type != CasingType.other) {
                 String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
@@ -227,25 +227,25 @@ public class CasingInfo {
     }
 
     /**
-     * Generates all the casing information and writes it to XML.
-     * A CSV summary of casing information is written to file if a filename argument is provided.
+     * Generates all the casing information and writes it to XML. A CSV summary of casing
+     * information is written to file if a filename argument is provided.
      *
      * @param args
      */
     public static void main(String[] args) {
         CasingInfo casingInfo = new CasingInfo();
         options.parse(args, true);
-        Map<String, Boolean> localeUsesCasing = casingInfo.generateCasingInformation(options.get("locales").getValue());
+        Map<String, Boolean> localeUsesCasing =
+                casingInfo.generateCasingInformation(options.get("locales").getValue());
         if (options.get("summary").doesOccur()) {
             casingInfo.createCasingSummary(args[0], localeUsesCasing);
         }
     }
 
-    /**
-     * XML handler for parsing casing files.
-     */
+    /** XML handler for parsing casing files. */
     private class CasingHandler extends XMLFileReader.SimpleHandler {
-        private Pattern localePattern = PatternCache.get("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
+        private Pattern localePattern =
+                PatternCache.get("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
         private Map<Category, CasingTypeAndErrFlag> caseMap = new EnumMap<>(Category.class);
         private Map<Category, CasingType> overrideMap = new EnumMap<>(Category.class);
@@ -255,7 +255,8 @@ public class CasingInfo {
             // Parse casing info.
             if (path.contains("casingItem")) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                Category category = Category.valueOf(parts.getAttributeValue(-1, "type").replace('-', '_'));
+                Category category =
+                        Category.valueOf(parts.getAttributeValue(-1, "type").replace('-', '_'));
                 CasingType casingType = CasingType.valueOf(value);
                 boolean errFlag = Boolean.parseBoolean(parts.getAttributeValue(-1, "forceError"));
                 for (CasingTypeAndErrFlag typeAndFlag : CasingTypeAndErrFlag.values()) {

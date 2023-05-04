@@ -1,14 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
 import java.util.EnumMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Level;
-
-import com.ibm.icu.impl.Relation;
 
 public class ShowCoverageLevels {
     private static CLDRConfig testInfo = ToolConfig.getToolInstance();
@@ -17,12 +15,13 @@ public class ShowCoverageLevels {
 
     public static void main(String[] args) {
         if (true) {
-            //ShowLocaleCoverage foo;
+            // ShowLocaleCoverage foo;
             throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
         }
 
         double startTime = System.currentTimeMillis();
-        Relation<Level, String> values = new Relation(new EnumMap<Level, String>(Level.class), TreeSet.class);
+        Relation<Level, String> values =
+                new Relation(new EnumMap<Level, String>(Level.class), TreeSet.class);
         int oldSize = 0;
 
         CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();
@@ -34,13 +33,21 @@ public class ShowCoverageLevels {
                     continue;
                 }
                 try {
-//                    Level level = testInfo.getSupplementalDataInfo().getCoverageLevel(fullPath, locale);
+                    //                    Level level =
+                    // testInfo.getSupplementalDataInfo().getCoverageLevel(fullPath, locale);
                     Level level = coverageInfo.getCoverageLevel(fullPath, locale);
                     values.put(level, path);
                 } catch (Exception e) {
                     String value = cldrFileToCheck.getStringValue(path);
-                    System.out.println("Can't create coverage level for path\t"
-                        + locale + ", " + path + ", " + fullPath + ", " + value);
+                    System.out.println(
+                            "Can't create coverage level for path\t"
+                                    + locale
+                                    + ", "
+                                    + path
+                                    + ", "
+                                    + fullPath
+                                    + ", "
+                                    + value);
                 }
             }
             int size = keyValuePairCount(values);

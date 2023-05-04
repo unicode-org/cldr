@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Comparators;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.PluralRules;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,31 +11,26 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Comparators;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.PluralRules;
-
 public class WritePluralRules {
     // Ordering by size-of-set first, and then lexicographically, with a final tie-break on the
     // string representation.
     private static final Comparator<PluralRules> PLURAL_RULES_COMPARATOR =
-        Comparator.<PluralRules, Integer>comparing(r -> r.getKeywords().size())
-            .thenComparing(PluralRules::getKeywords,
-                Comparators.lexicographical(Comparator.<String>naturalOrder()))
-            .thenComparing(Object::toString);
+            Comparator.<PluralRules, Integer>comparing(r -> r.getKeywords().size())
+                    .thenComparing(
+                            PluralRules::getKeywords,
+                            Comparators.lexicographical(Comparator.<String>naturalOrder()))
+                    .thenComparing(Object::toString);
 
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void main(String[] args) {
         Relation<PluralRules, String> rulesToLocales =
-            Relation.of(new TreeMap<>(PLURAL_RULES_COMPARATOR), TreeSet.class);
+                Relation.of(new TreeMap<>(PLURAL_RULES_COMPARATOR), TreeSet.class);
         for (String locale : sInfo.getPluralLocales(PluralType.cardinal)) {
             if (locale.equals("root")) {
                 continue;
@@ -43,14 +42,13 @@ public class WritePluralRules {
             //            }
             rulesToLocales.put(rules, locale);
         }
-        System.out.println(
-            formatPluralHeader(PluralType.cardinal, "WritePluralRules"));
+        System.out.println(formatPluralHeader(PluralType.cardinal, "WritePluralRules"));
         TreeSet<Entry<PluralRules, Set<String>>> sorted = new TreeSet<>(new HackComparator());
         sorted.addAll(rulesToLocales.keyValuesSet());
         for (Entry<PluralRules, Set<String>> entry : sorted) {
             PluralRules rules = entry.getKey();
             Set<String> values = entry.getValue();
-            //String comment = hackComments.get(locales);
+            // String comment = hackComments.get(locales);
             System.out.println(formatPluralRuleHeader(values));
             for (String keyword : rules.getKeywords()) {
                 String rule = rules.getRules(keyword);
@@ -78,7 +76,8 @@ public class WritePluralRules {
         return "        </pluralRules>";
     }
 
-    public static String formatPluralRule(String keyword, String rule, String samples, boolean newLine) {
+    public static String formatPluralRule(
+            String keyword, String rule, String samples, boolean newLine) {
         if (rule == null) {
             rule = "";
         } else {
@@ -89,38 +88,45 @@ public class WritePluralRules {
             rule = "\n                " + rule;
             samples = samples.replace("\t@", "\n                @");
         }
-        String result = ("            <pluralRule count=\"" + keyword + "\">"
-            + rule
-            + samples.replace('\t', ' ')
-            + (newLine ? "\n            " : "")
-            + "</pluralRule>");
+        String result =
+                ("            <pluralRule count=\""
+                        + keyword
+                        + "\">"
+                        + rule
+                        + samples.replace('\t', ' ')
+                        + (newLine ? "\n            " : "")
+                        + "</pluralRule>");
         return result;
     }
 
     public static String formatPluralRuleHeader(Set<String> values) {
         String locales = Joiner.on(" ").join(values);
         String result = ("        <pluralRules locales=\"" + locales + "\">"
-        //+ (comment != null ? comment : "")
-        );
+                // + (comment != null ? comment : "")
+                );
         return result;
     }
 
     public static String formatPluralFooter() {
-        return "    </plurals>\n" +
-            "</supplementalData>";
+        return "    </plurals>\n" + "</supplementalData>";
     }
 
     public static String formatPluralHeader(PluralType type, String filename) {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-            + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
-            + "<!--\n"
-            + CldrUtility.getCopyrightString() + "\n"
-            + "-->\n"
-            + "<supplementalData>\n"
-            + "    <version number=\"$Revision" +
-            "$\"/>\n"
-            + "    <plurals type=\"" + type + "\">\n"
-            + "        <!-- For a canonicalized list, use " + filename + " -->\n";
+                + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
+                + "<!--\n"
+                + CldrUtility.getCopyrightString()
+                + "\n"
+                + "-->\n"
+                + "<supplementalData>\n"
+                + "    <version number=\"$Revision"
+                + "$\"/>\n"
+                + "    <plurals type=\""
+                + type
+                + "\">\n"
+                + "        <!-- For a canonicalized list, use "
+                + filename
+                + " -->\n";
     }
 
     //    static Map<String,String> hackComments = new HashMap<String,String>();
@@ -128,12 +134,14 @@ public class WritePluralRules {
     //        hackComments.put("ga", " <!-- http://unicode.org/cldr/trac/ticket/3915 -->");
     //        hackComments.put("mt", " <!-- from Tamplin's data -->");
     //        hackComments.put("mk", " <!-- from Tamplin's data -->");
-    //        hackComments.put("cy", " <!-- from http://www.saltcymru.org/wordpress/?p=99&lang=en -->");
+    //        hackComments.put("cy", " <!-- from http://www.saltcymru.org/wordpress/?p=99&lang=en
+    // -->");
     //        hackComments.put("br", " <!-- from http://unicode.org/cldr/trac/ticket/2886 -->");
     //    }
 
     static class HackComparator implements Comparator<Entry<PluralRules, Set<String>>> {
-        // we get the order of the first items in each of the old rules, and use that order where we can.
+        // we get the order of the first items in each of the old rules, and use that order where we
+        // can.
         @Override
         public int compare(Entry<PluralRules, Set<String>> o1, Entry<PluralRules, Set<String>> o2) {
             Integer firstLocale1 = HACK_ORDER_PLURALS.get(o1.getValue().iterator().next());
@@ -153,22 +161,29 @@ public class WritePluralRules {
 
     static Map<String, Integer> HACK_ORDER_PLURALS = new HashMap<>();
     static Map<String, Integer> HACK_ORDER_ORDINALS = new HashMap<>();
+
     static {
-//        int i = 0;
-//        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu hi kn mr zu is si bs hr sh sr ru uk"
-//            .split(" ")) {
-//            HACK_ORDER_PLURALS.put(s, i++);
-//        }
-//        i = 0;
-//        for (String s : "af fil hu sv en it ca mr gu hi bn zu".split(" ")) {
-//            HACK_ORDER_ORDINALS.put(s, i++);
-//        }
+        //        int i = 0;
+        //        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es
+        // eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn
+        // nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st
+        // syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr
+        // hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br
+        // ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg
+        // th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu
+        // hi kn mr zu is si bs hr sh sr ru uk"
+        //            .split(" ")) {
+        //            HACK_ORDER_PLURALS.put(s, i++);
+        //        }
+        //        i = 0;
+        //        for (String s : "af fil hu sv en it ca mr gu hi bn zu".split(" ")) {
+        //            HACK_ORDER_ORDINALS.put(s, i++);
+        //        }
     }
 
     static PluralRules forLocale(String locale) {
-        PluralRules override = null; // PluralRulesFactory.getPluralOverrides().get(new ULocale(locale));
-        return override != null
-            ? override
-            : sInfo.getPlurals(locale).getPluralRules();
+        PluralRules override =
+                null; // PluralRulesFactory.getPluralOverrides().get(new ULocale(locale));
+        return override != null ? override : sInfo.getPlurals(locale).getPluralRules();
     }
 }

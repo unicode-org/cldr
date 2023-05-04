@@ -1,5 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,39 +34,50 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-
 public class ChartCollation extends Chart {
 
     static final String NOT_TAILORED = "notTailored";
     static final String NOT_EXEMPLARS = "notExemplars";
 
     private static final String KNOWN_PROBLEMS =
-        "<ul>" + LS
-        + "<li>The characters used in the illustration are:" + LS
-        + "<ol>" + LS
-        + "<li>those <span class='" + NOT_TAILORED + "'>not tailored</span> (added from standard exemplars for context)</li>" + LS
-        + "<li>those <span class='" + NOT_EXEMPLARS + "'>tailored</span>, but not in any exemplars (standard, aux, punctuation)</li>" + LS
-        + "<li>those both tailored and in exemplars</li>" + LS
-        + "</ol>" + LS
-        + "<li>The tailored characters may include:" + LS
-        + "<ol>" + LS
-        + "<li>some longer strings (contractions) from the rules</li>" + LS
-        + "<li>generated Unicode characters (for <i>canonical closure</i>)</li>" + LS
-        + "</ol>" + LS
-        + "</li>" + LS
-        + "</ul>" + LS;
+            "<ul>"
+                    + LS
+                    + "<li>The characters used in the illustration are:"
+                    + LS
+                    + "<ol>"
+                    + LS
+                    + "<li>those <span class='"
+                    + NOT_TAILORED
+                    + "'>not tailored</span> (added from standard exemplars for context)</li>"
+                    + LS
+                    + "<li>those <span class='"
+                    + NOT_EXEMPLARS
+                    + "'>tailored</span>, but not in any exemplars (standard, aux, punctuation)</li>"
+                    + LS
+                    + "<li>those both tailored and in exemplars</li>"
+                    + LS
+                    + "</ol>"
+                    + LS
+                    + "<li>The tailored characters may include:"
+                    + LS
+                    + "<ol>"
+                    + LS
+                    + "<li>some longer strings (contractions) from the rules</li>"
+                    + LS
+                    + "<li>generated Unicode characters (for <i>canonical closure</i>)</li>"
+                    + LS
+                    + "</ol>"
+                    + LS
+                    + "</li>"
+                    + LS
+                    + "</ul>"
+                    + LS;
 
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "collation/";
 
-    //static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "collation/", ".*");
+    // static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "collation/", ".*");
 
     public static void main(String[] args) {
         new ChartCollation().writeChart(null);
@@ -85,9 +101,13 @@ public class ChartCollation extends Chart {
     @Override
     public String getExplanation() {
         return "<p>Collation tailorings provide language or locale-specific modifications of the standard Unicode CLDR collation order, "
-            + "which is based on <a target='_blank' href='http://unicode.org/charts/collation/'>Unicode default collation charts</a>. "
-            + "Locales that just use the standard CLDR order (<a href='root.html'>Root</a>) are not listed.</p>"
-            + dataScrapeMessage("/tr35-collation.html", "common/testData/units/unitsTest.txt", "common/collation")+ LS;
+                + "which is based on <a target='_blank' href='http://unicode.org/charts/collation/'>Unicode default collation charts</a>. "
+                + "Locales that just use the standard CLDR order (<a href='root.html'>Root</a>) are not listed.</p>"
+                + dataScrapeMessage(
+                        "/tr35-collation.html",
+                        "common/testData/units/unitsTest.txt",
+                        "common/collation")
+                + LS;
     }
 
     @Override
@@ -108,24 +128,25 @@ public class ChartCollation extends Chart {
     }
 
     public void writeSubcharts(Anchors anchors) throws IOException {
-        Matcher settingsMatcher = PatternCache.get(
-            "//ldml/collations/collation"
-                + "\\[@type=\"([^\"]+)\"]"
-                + "(.*)?"
-                + "/(settings|import|cr)"
-                + "(.*)")
-            .matcher("");
+        Matcher settingsMatcher =
+                PatternCache.get(
+                                "//ldml/collations/collation"
+                                        + "\\[@type=\"([^\"]+)\"]"
+                                        + "(.*)?"
+                                        + "/(settings|import|cr)"
+                                        + "(.*)")
+                        .matcher("");
         Splitter settingSplitter = Splitter.onPattern("[\\[\\]@]").omitEmptyStrings().trimResults();
         File baseDir = new File(CLDRPaths.COMMON_DIRECTORY + "collation/");
         Transliterator fromUnicode = Transliterator.getInstance("Hex-Any");
         List<Pair<String, String>> pathValueList = new ArrayList<>();
         HashSet<String> mainAvailable = new HashSet<>(CLDR_FACTORY.getAvailable());
-//        for (String xmlName : baseDir.list()) {
-//            if (!xmlName.endsWith(".xml")) {
-//                continue;
-//            }
-//            String locale = xmlName.substring(0,xmlName.length()-4);
-//        }
+        //        for (String xmlName : baseDir.list()) {
+        //            if (!xmlName.endsWith(".xml")) {
+        //                continue;
+        //            }
+        //            String locale = xmlName.substring(0,xmlName.length()-4);
+        //        }
         for (String xmlName : baseDir.list()) {
             if (!xmlName.endsWith(".xml")) {
                 continue;
@@ -137,7 +158,8 @@ public class ChartCollation extends Chart {
             }
 
             pathValueList.clear();
-            XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "collation/" + xmlName, pathValueList, true);
+            XMLFileReader.loadPathValues(
+                    CLDRPaths.COMMON_DIRECTORY + "collation/" + xmlName, pathValueList, true);
             Map<String, Data> data = new TreeMap<>();
 
             for (Pair<String, String> entry : pathValueList) {
@@ -153,13 +175,20 @@ public class ChartCollation extends Chart {
                 }
 
                 // Root collator being empty isn't really a failure - just skip it.
-                if (xmlName.equals("root.xml") && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
+                if (xmlName.equals("root.xml")
+                        && path.equals("//ldml/collations/collation[@type=\"standard\"]")) {
                     continue;
                 }
                 XPathParts xpp = XPathParts.getFrozenInstance(path);
                 DraftStatus status = DraftStatus.forString(xpp.findFirstAttributeValue("draft"));
                 if (status == DraftStatus.unconfirmed) {
-                    System.out.println("Skipping " + path + " in: " + xmlName + " due to draft status = " + status.toString());
+                    System.out.println(
+                            "Skipping "
+                                    + path
+                                    + " in: "
+                                    + xmlName
+                                    + " due to draft status = "
+                                    + status.toString());
                     continue;
                 }
 
@@ -173,14 +202,14 @@ public class ChartCollation extends Chart {
                 String values = settingsMatcher.group(4);
 
                 if (leaf.equals("settings") || leaf.equals("import")) {
-                    //ldml/collations/collation[@type="compat"][@visibility="external"]/settings[@reorder="Arab"]
+                    // ldml/collations/collation[@type="compat"][@visibility="external"]/settings[@reorder="Arab"]
                     List<String> settings = settingSplitter.splitToList(values);
                     addCollator(data, type, leaf, settings);
                     continue;
                 }
                 String rules = value;
                 if (!rules.contains("'#⃣'")) {
-                    rules = rules.replace("#⃣", "'#⃣'").replace("*⃣", "'*⃣'"); //hack for 8288
+                    rules = rules.replace("#⃣", "'#⃣'").replace("*⃣", "'*⃣'"); // hack for 8288
                 }
                 rules = fromUnicode.transform(rules);
 
@@ -199,11 +228,13 @@ public class ChartCollation extends Chart {
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
-            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data).writeChart(anchors);
+            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data)
+                    .writeChart(anchors);
         }
     }
 
-    private void addCollator(Map<String, Data> data, String type, String leaf, List<String> settings) {
+    private void addCollator(
+            Map<String, Data> data, String type, String leaf, List<String> settings) {
         if (type.startsWith("private-")) {
             type = "\uFFFF" + type;
         }
@@ -227,7 +258,7 @@ public class ChartCollation extends Chart {
         dataItem.collator = col;
     }
 
-    //RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    // RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
 
     private class Subchart extends Chart {
         private static final String HIGH_COLLATION_PRIMARY = "\uFFFF";
@@ -263,13 +294,15 @@ public class ChartCollation extends Chart {
 
         @Override
         public String getExplanation() {
-            return "<p>The following illustrates the ordering for the " + title
-                + " collation tailorings. It does not show the <i>strength differences</i>, such as where case is ignored where there are letter differences. "
-                + " The <i>search</i> order is special: it only used for comparing characters for similarity, so the order among the characters does not matter. "
-                + " Where a type is not present, such as <i>emoji</i> or <i>search</i>, it defaults to the <a href='root.html'>Root</a> type.</p>" + LS
-                + KNOWN_PROBLEMS
-                + dataScrapeMessage("/tr35-collation.html", null, "common/collation") + LS
-                ;
+            return "<p>The following illustrates the ordering for the "
+                    + title
+                    + " collation tailorings. It does not show the <i>strength differences</i>, such as where case is ignored where there are letter differences. "
+                    + " The <i>search</i> order is special: it only used for comparing characters for similarity, so the order among the characters does not matter. "
+                    + " Where a type is not present, such as <i>emoji</i> or <i>search</i>, it defaults to the <a href='root.html'>Root</a> type.</p>"
+                    + LS
+                    + KNOWN_PROBLEMS
+                    + dataScrapeMessage("/tr35-collation.html", null, "common/collation")
+                    + LS;
         }
 
         @Override
@@ -278,29 +311,40 @@ public class ChartCollation extends Chart {
             CLDRFile cldrFile = CLDR_FACTORY.make(file, true);
             UnicodeSet exemplars_all = new UnicodeSet();
             for (ExemplarType ex : ExemplarType.values()) {
-                UnicodeSet possExemplars = cldrFile.getExemplarSet(ex, WinningChoice.WINNING).freeze();
+                UnicodeSet possExemplars =
+                        cldrFile.getExemplarSet(ex, WinningChoice.WINNING).freeze();
                 exemplars_all.addAll(possExemplars);
             }
-//            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING).freeze();
-//
-//            UnicodeSet exemplars_all = new UnicodeSet(exemplars);
-//            UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
-//            UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
-//            exemplars_all.addAll(exemplars_auxiliary)
-//                .addAll(exemplars_punctuation);
+            //            UnicodeSet exemplars = cldrFile.getExemplarSet("",
+            // WinningChoice.WINNING).freeze();
+            //
+            //            UnicodeSet exemplars_all = new UnicodeSet(exemplars);
+            //            UnicodeSet exemplars_auxiliary = cldrFile.getExemplarSet("auxiliary",
+            // WinningChoice.WINNING);
+            //            UnicodeSet exemplars_punctuation = cldrFile.getExemplarSet("punctuation",
+            // WinningChoice.WINNING);
+            //            exemplars_all.addAll(exemplars_auxiliary)
+            //                .addAll(exemplars_punctuation);
 
             for (NumberingSystem system : NumberingSystem.values()) {
                 UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
                 if (exemplars_numeric != null) {
                     exemplars_all.addAll(exemplars_numeric);
-                    //System.out.println(file + "\t" + system + "\t" + exemplars_numeric.toPattern(false));
+                    // System.out.println(file + "\t" + system + "\t" +
+                    // exemplars_numeric.toPattern(false));
                 }
             }
             exemplars_all.freeze();
 
-            TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Type", "class='source'", null, "class='source'", true)
-                .addColumn("Ordering", "class='target'", null, "class='target_nofont'", true);
+            TablePrinter tablePrinter =
+                    new TablePrinter()
+                            .addColumn("Type", "class='source'", null, "class='source'", true)
+                            .addColumn(
+                                    "Ordering",
+                                    "class='target'",
+                                    null,
+                                    "class='target_nofont'",
+                                    true);
 
             for (Entry<String, Data> entry : data.entrySet()) {
                 // sort the characters
@@ -324,10 +368,10 @@ public class ChartCollation extends Chart {
                     tailored.addAllTo(sorted);
                     boolean first = true;
                     for (String s : sorted) {
-//                        if (--maxCount < 0) {
-//                            list.append(" …");
-//                            break;
-//                        }
+                        //                        if (--maxCount < 0) {
+                        //                            list.append(" …");
+                        //                            break;
+                        //                        }
                         if (first) {
                             first = false;
                         } else {
@@ -341,18 +385,19 @@ public class ChartCollation extends Chart {
                             continue;
                         }
                         if (!tailored.contains(s)) {
-                            list.append("<span class='" + NOT_TAILORED + "'>").append(s).append("</span>");
+                            list.append("<span class='" + NOT_TAILORED + "'>")
+                                    .append(s)
+                                    .append("</span>");
                         } else if (!exemplars_all.containsAll(s) && !file.equals("root")) {
-                            list.append("<span class='" + NOT_EXEMPLARS + "'>").append(s).append("</span>");
+                            list.append("<span class='" + NOT_EXEMPLARS + "'>")
+                                    .append(s)
+                                    .append("</span>");
                         } else {
                             list.append(s);
                         }
                     }
                 }
-                tablePrinter
-                .addRow()
-                .addCell(type)
-                .addCell(list.toString());
+                tablePrinter.addRow().addCell(type).addCell(list.toString());
                 tablePrinter.finishRow();
             }
             pw.write(tablePrinter.toTable());

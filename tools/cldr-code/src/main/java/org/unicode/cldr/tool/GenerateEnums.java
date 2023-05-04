@@ -1,5 +1,15 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +26,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -33,17 +42,6 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ULocale;
-
 public class GenerateEnums {
     private static final String CODE_INDENT = "  ";
 
@@ -55,8 +53,8 @@ public class GenerateEnums {
 
     private Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
-//    private Factory supplementalFactory = Factory.make(
-//        CLDRPaths.SUPPLEMENTAL_DIRECTORY, ".*");
+    //    private Factory supplementalFactory = Factory.make(
+    //        CLDRPaths.SUPPLEMENTAL_DIRECTORY, ".*");
 
     private Set<String> cldrCodes = new TreeSet<>();
 
@@ -71,8 +69,7 @@ public class GenerateEnums {
 
     private CLDRFile english = factory.make("en", false);
 
-    private CLDRFile supplementalMetadata = factory.make("supplementalMetadata",
-        false);
+    private CLDRFile supplementalMetadata = factory.make("supplementalMetadata", false);
 
     private CLDRFile supplementalData = factory.make("supplementalData", false);
 
@@ -95,12 +92,15 @@ public class GenerateEnums {
     }
 
     private void showCounts() {
-        System.out.format("Language Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
-            "language").size());
-        System.out.format("Script Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
-            "script").size());
-        System.out.format("Territory Subtags: %s" + CldrUtility.LINE_SEPARATOR, sc.getGoodAvailableCodes(
-            "territory").size());
+        System.out.format(
+                "Language Subtags: %s" + CldrUtility.LINE_SEPARATOR,
+                sc.getGoodAvailableCodes("language").size());
+        System.out.format(
+                "Script Subtags: %s" + CldrUtility.LINE_SEPARATOR,
+                sc.getGoodAvailableCodes("script").size());
+        System.out.format(
+                "Territory Subtags: %s" + CldrUtility.LINE_SEPARATOR,
+                sc.getGoodAvailableCodes("territory").size());
     }
 
     private void showCurrencies() throws IOException {
@@ -109,25 +109,23 @@ public class GenerateEnums {
         Log.println("Currency Data");
         Log.println();
         showGeneratedCommentStart(CODE_INDENT);
-        compareSets("currencies from sup.data", currencyCodes, "valid currencies",
-            validCurrencyCodes);
+        compareSets(
+                "currencies from sup.data", currencyCodes, "valid currencies", validCurrencyCodes);
         Set<String> unused = new TreeSet<>(validCurrencyCodes);
         unused.removeAll(currencyCodes);
         showCurrencies(currencyCodes);
         Log.println();
         showCurrencies(unused);
-        Map<String, String> sorted = new TreeMap<>(Collator
-            .getInstance(ULocale.ENGLISH));
+        Map<String, String> sorted = new TreeMap<>(Collator.getInstance(ULocale.ENGLISH));
         for (String code : validCurrencyCodes) {
             if (unused.contains(code) && !code.equals("CLF"))
                 continue; // we include CLF for compatibility
             sorted.put(getName(code), code);
         }
-        int lineLength = "  /** Belgian Franc */                                            BEF,"
-            .length();
+        int lineLength =
+                "  /** Belgian Franc */                                            BEF,".length();
         for (String name : sorted.keySet()) {
-            printRow(Log.getLog(), sorted.get(name), name, "currency", null,
-                lineLength);
+            printRow(Log.getLog(), sorted.get(name), name, "currency", null, lineLength);
         }
         showGeneratedCommentEnd(CODE_INDENT);
         Log.close();
@@ -144,21 +142,21 @@ public class GenerateEnums {
 
     private void showCurrencies(Set<String> both) {
         // /** Afghani */ AFN,
-        for (Iterator<String> it = both.iterator(); it.hasNext();) {
+        for (Iterator<String> it = both.iterator(); it.hasNext(); ) {
             String code = it.next();
             String englishName = getName(code);
-            if (englishName == null) {
-            }
+            if (englishName == null) {}
             Set<String> regions = unlimitedCurrencyCodes.getAll(code);
-            System.out
-                .println(code
-                    + "\t"
-                    + englishName
-                    + "\t"
-                    + (validCurrencyCodes.contains(code) ? currencyCodes
-                        .contains(code) ? "" : "valid-only" : "supp-only")
-                    + "\t"
-                    + (regions != null ? regions : "unused"));
+            System.out.println(
+                    code
+                            + "\t"
+                            + englishName
+                            + "\t"
+                            + (validCurrencyCodes.contains(code)
+                                    ? currencyCodes.contains(code) ? "" : "valid-only"
+                                    : "supp-only")
+                            + "\t"
+                            + (regions != null ? regions : "unused"));
         }
     }
 
@@ -170,13 +168,11 @@ public class GenerateEnums {
 
         showGeneratedCommentStart(CODE_INDENT);
         Map<String, String> code_replacements = new TreeMap<>();
-        int len = "  /** Arabic */                                        Arab,"
-            .length();
-        for (Iterator<String> it = scripts.iterator(); it.hasNext();) {
+        int len = "  /** Arabic */                                        Arab,".length();
+        for (Iterator<String> it = scripts.iterator(); it.hasNext(); ) {
             String code = it.next();
             String englishName = english.getName(CLDRFile.SCRIPT_NAME, code);
-            if (englishName == null)
-                continue;
+            if (englishName == null) continue;
             printRow(Log.getLog(), code, null, "script", code_replacements, len);
             // Log.println(" /**" + englishName + "*/ " + code + ",");
         }
@@ -221,11 +217,10 @@ public class GenerateEnums {
         System.out.println("Language Data");
         System.out.println();
 
-        for (Iterator<String> it = languages.iterator(); it.hasNext();) {
+        for (Iterator<String> it = languages.iterator(); it.hasNext(); ) {
             String code = it.next();
             String englishName = english.getName(CLDRFile.LANGUAGE_NAME, code);
-            if (englishName == null)
-                continue;
+            if (englishName == null) continue;
             System.out.println("     /**" + englishName + "*/    " + code + ",");
         }
 
@@ -238,15 +233,13 @@ public class GenerateEnums {
         StringBuffer buffer = new StringBuffer();
         int lineLimit = 70 - LIST_INDENT.length();
         char lastChar = 0;
-        for (Iterator<String> it = languages.iterator(); it.hasNext();) {
+        for (Iterator<String> it = languages.iterator(); it.hasNext(); ) {
             String code = it.next();
             if (code.equals("root")) {
                 continue;
             }
-            if (code.charAt(0) != lastChar
-                || buffer.length() + 1 + code.length() > lineLimit) {
-                if (buffer.length() != 0)
-                    Log.println(LIST_INDENT + "+ \"" + buffer + "\"");
+            if (code.charAt(0) != lastChar || buffer.length() + 1 + code.length() > lineLimit) {
+                if (buffer.length() != 0) Log.println(LIST_INDENT + "+ \"" + buffer + "\"");
                 buffer.setLength(0);
                 lastChar = code.charAt(0);
             }
@@ -264,15 +257,12 @@ public class GenerateEnums {
 
     @SuppressWarnings("rawtypes")
     private Object join(Collection collection, String separator) {
-        if (collection == null)
-            return null;
+        if (collection == null) return null;
         StringBuffer result = new StringBuffer();
         boolean first = true;
-        for (Iterator it = collection.iterator(); it.hasNext();) {
-            if (first)
-                first = false;
-            else
-                result.append(separator);
+        for (Iterator it = collection.iterator(); it.hasNext(); ) {
+            if (first) first = false;
+            else result.append(separator);
             result.append(it.next());
         }
         return result.toString();
@@ -318,24 +308,34 @@ public class GenerateEnums {
         for (String value : supplementalDataInfo.getNumericTerritoryMapping().keySet()) {
             cldrCodes.add(value);
             if (isPrivateUseRegion(value)) continue;
-            enum_UN.put(value,
-                threeDigits.format(supplementalDataInfo.getNumericTerritoryMapping().getAll(value).iterator().next()));
+            enum_UN.put(
+                    value,
+                    threeDigits.format(
+                            supplementalDataInfo
+                                    .getNumericTerritoryMapping()
+                                    .getAll(value)
+                                    .iterator()
+                                    .next()));
         }
         for (String value : supplementalDataInfo.getAlpha3TerritoryMapping().keySet()) {
             cldrCodes.add(value);
             if (isPrivateUseRegion(value)) continue;
-            enum_alpha3.put(value, supplementalDataInfo.getAlpha3TerritoryMapping().getAll(value).iterator().next());
+            enum_alpha3.put(
+                    value,
+                    supplementalDataInfo
+                            .getAlpha3TerritoryMapping()
+                            .getAll(value)
+                            .iterator()
+                            .next());
         }
 
         BufferedReader codes = CldrUtility.getUTF8Data("UnMacroRegions.txt");
         Map<String, String> macro_name = new TreeMap<>();
         while (true) {
             String line = codes.readLine();
-            if (line == null)
-                break;
+            if (line == null) break;
             line = line.trim();
-            if (line.length() == 0)
-                continue;
+            if (line.length() == 0) continue;
             if (line.charAt(0) < '0' || line.charAt(0) > '9') {
                 System.out.println("GenerateEnums: Skipping: " + line);
                 continue;
@@ -346,22 +346,22 @@ public class GenerateEnums {
             macro_name.put(codeName, line);
         }
         codes.close();
-//        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
-        Map<Status, Set<String>> validRegions = Validity.getInstance().getStatusToCodes(LstrType.region);
+        //        String values =
+        // supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
+        Map<Status, Set<String>> validRegions =
+                Validity.getInstance().getStatusToCodes(LstrType.region);
         Set<String> regions = new TreeSet<>();
         regions.addAll(validRegions.get(Status.regular));
         regions.addAll(validRegions.get(Status.macroregion));
-//        String[] validTerritories = values.split("\\s+");
-//        for (int i = 0; i < validTerritories.length; ++i) {
+        //        String[] validTerritories = values.split("\\s+");
+        //        for (int i = 0; i < validTerritories.length; ++i) {
         for (String region : regions) {
             if (corrigendum.contains(region)) {
-                System.out.println("Skipping " + region + "\t\t"
-                    + getEnglishName(region));
+                System.out.println("Skipping " + region + "\t\t" + getEnglishName(region));
                 continue; // exception, corrigendum
             }
-            if (isPrivateUseRegion(region))
-                continue;
-            if (region.charAt(0) < 'A') {// numeric
+            if (isPrivateUseRegion(region)) continue;
+            if (region.charAt(0) < 'A') { // numeric
                 enum_UN.put(enumName(region), region);
                 cldrCodes.add(region);
             } else {
@@ -388,22 +388,20 @@ public class GenerateEnums {
         missing.remove("CQ");
 
         if (missing.size() != 0) {
-            throw new IllegalArgumentException("Codes in Registry but not in CLDR: "
-                + missing);
+            throw new IllegalArgumentException("Codes in Registry but not in CLDR: " + missing);
         }
 
         Set<String> UNValues = new TreeSet<>(enum_UN.values());
 
-        for (Iterator<String> it = macro_name.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = macro_name.keySet().iterator(); it.hasNext(); ) {
             Object key = it.next();
             Object value = macro_name.get(key);
             if (!UNValues.contains(key)) {
                 System.out.println("Macro " + key + "\t" + value);
             }
-
         }
 
-        for (Iterator<String> it = enum_UN.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = enum_UN.keySet().iterator(); it.hasNext(); ) {
             String region = it.next();
             String englishName = getEnglishName(region);
             if (englishName == null) {
@@ -411,27 +409,39 @@ public class GenerateEnums {
             }
             String rfcName = getRFC3066Name(region);
             if (!englishName.equals(rfcName)) {
-                System.out.println("Different names: {\"" + region + "\",\t\""
-                    + englishName + " (" + rfcName + ")\"},");
+                System.out.println(
+                        "Different names: {\""
+                                + region
+                                + "\",\t\""
+                                + englishName
+                                + " ("
+                                + rfcName
+                                + ")\"},");
             }
         }
 
         getContainment();
 
-        DateFormat[] simpleFormats = { new SimpleDateFormat("yyyy-MM-dd"),
-            new SimpleDateFormat("yyyy-MM"), new SimpleDateFormat("yyyy"), };
+        DateFormat[] simpleFormats = {
+            new SimpleDateFormat("yyyy-MM-dd"),
+            new SimpleDateFormat("yyyy-MM"),
+            new SimpleDateFormat("yyyy"),
+        };
         Date today = new Date();
         Date longAgo = new Date(1000 - 1900, 1, 1);
         currencyCodes = new TreeSet<>();
-        unlimitedCurrencyCodes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
-        for (Iterator<String> it = supplementalData
-            .iterator("//supplementalData/currencyData/region"); it.hasNext();) {
+        unlimitedCurrencyCodes =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+        for (Iterator<String> it =
+                        supplementalData.iterator("//supplementalData/currencyData/region");
+                it.hasNext(); ) {
             String path = it.next();
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String region = parts.findAttributeValue("region", "iso3166");
             String code = parts.findAttributeValue("currency", "iso4217");
             String to = parts.findAttributeValue("currency", "to");
-            main: if (to == null) {
+            main:
+            if (to == null) {
                 unlimitedCurrencyCodes.put(code, region);
             } else {
                 for (int i = 0; i < simpleFormats.length; ++i) {
@@ -491,8 +501,9 @@ public class GenerateEnums {
 
     public void getContainment() {
         // <group type="001" contains="002 009 019 142 150"/> <!--World -->
-        for (Iterator<String> it = supplementalData
-            .iterator("//supplementalData/territoryContainment/group"); it.hasNext();) {
+        for (Iterator<String> it =
+                        supplementalData.iterator("//supplementalData/territoryContainment/group");
+                it.hasNext(); ) {
             String path = it.next();
             String fullPath = supplementalData.getFullXPath(path);
             XPathParts parts = XPathParts.getFrozenInstance(fullPath);
@@ -533,16 +544,14 @@ public class GenerateEnums {
     private void addContains(String string, Set<String> startingFromWorld) {
         startingFromWorld.add(string);
         List<String> contained = containment.get(string);
-        if (contained == null)
-            return;
-        for (Iterator<String> it = contained.iterator(); it.hasNext();) {
+        if (contained == null) return;
+        for (Iterator<String> it = contained.iterator(); it.hasNext(); ) {
             addContains(it.next(), startingFromWorld);
         }
     }
 
     @SuppressWarnings("rawtypes")
-    private void compareSets(String name, Set availableCodes, String name2,
-        Set cldrCodes) {
+    private void compareSets(String name, Set availableCodes, String name2, Set cldrCodes) {
         Set temp = new TreeSet();
         temp.addAll(availableCodes);
         temp.removeAll(cldrCodes);
@@ -556,36 +565,38 @@ public class GenerateEnums {
     @SuppressWarnings("rawtypes")
     private void checkDuplicates(Map m) {
         Map backMap = new HashMap();
-        for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+        for (Iterator it = m.keySet().iterator(); it.hasNext(); ) {
             Object key = it.next();
             Object o = m.get(key);
             Object otherKey = backMap.get(o);
             if (otherKey != null)
-                System.out.println("Collision with: " + key + ",\t" + otherKey + ",\t"
-                    + o);
-            else
-                backMap.put(o, key);
+                System.out.println("Collision with: " + key + ",\t" + otherKey + ",\t" + o);
+            else backMap.put(o, key);
         }
     }
 
-    Set<String> corrigendum = new TreeSet<>(Arrays.asList(new String[] { "QE", "833",
-        "830", "172" })); // 003, 419
+    Set<String> corrigendum =
+            new TreeSet<>(Arrays.asList(new String[] {"QE", "833", "830", "172"})); // 003, 419
 
-    private ImmutableMap<String, String> extraNames = ImmutableMap.<String, String>builder()
-        .put("BU", "Burma").put("TP", "East Timor").put("YU", "Yugoslavia")
-        .put("ZR", "Zaire").put("CD", "Congo (Kinshasa, Democratic Republic)")
-        .put("CI", "Ivory Coast (Cote d'Ivoire)")
-        .put("FM", "Micronesia (Federated States)")
-        .put("TL", "East Timor (Timor-Leste)")
-        // .put("155", "Western Europe")
-        .build();
+    private ImmutableMap<String, String> extraNames =
+            ImmutableMap.<String, String>builder()
+                    .put("BU", "Burma")
+                    .put("TP", "East Timor")
+                    .put("YU", "Yugoslavia")
+                    .put("ZR", "Zaire")
+                    .put("CD", "Congo (Kinshasa, Democratic Republic)")
+                    .put("CI", "Ivory Coast (Cote d'Ivoire)")
+                    .put("FM", "Micronesia (Federated States)")
+                    .put("TL", "East Timor (Timor-Leste)")
+                    // .put("155", "Western Europe")
+                    .build();
 
     private Set<String> currencyCodes;
 
     private Set<String> validCurrencyCodes;
 
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalDataInfo =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     /**
      * Get the RegionCode Enum
@@ -602,9 +613,8 @@ public class GenerateEnums {
         Set<String> reordered = new TreeSet<>(new LengthFirstComparator());
         reordered.addAll(enum_UN.keySet());
         Map<String, String> code_replacements = new TreeMap<>();
-        int len = "  /** Polynesia */                                    UN061,"
-            .length();
-        for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
+        int len = "  /** Polynesia */                                    UN061,".length();
+        for (Iterator<String> it = reordered.iterator(); it.hasNext(); ) {
             String region = it.next();
             printRow(Log.getLog(), region, null, "territory", code_replacements, len);
         }
@@ -615,33 +625,33 @@ public class GenerateEnums {
         Log.println();
         Log.println("Data for ISO Region Codes");
         Log.println();
-        for (String territory : supplementalDataInfo
-            .getTerritoriesWithPopulationData()) {
+        for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {
             if (territory.equals("ZZ")) {
                 continue;
             }
-            PopulationData popData = supplementalDataInfo
-                .getPopulationDataForTerritory(territory);
+            PopulationData popData = supplementalDataInfo.getPopulationDataForTerritory(territory);
             // to("ak").add(Scope.Macrolanguage).add("aka");
-            Log.formatln("    addRegion(RegionCode.%s, %s, %s, %s) // %s", territory,
-                format(popData.getPopulation()), format(popData
-                    .getLiteratePopulation()
-                    / popData.getPopulation()),
-                format(popData.getGdp()), english
-                    .getName("territory", territory));
+            Log.formatln(
+                    "    addRegion(RegionCode.%s, %s, %s, %s) // %s",
+                    territory,
+                    format(popData.getPopulation()),
+                    format(popData.getLiteratePopulation() / popData.getPopulation()),
+                    format(popData.getGdp()),
+                    english.getName("territory", territory));
             // remove all the ISO 639-3 until they are part of BCP 47
             // we need to remove in earlier pass so we have the count
             Set<String> languages = new TreeSet<>();
-            for (String language : supplementalDataInfo
-                .getLanguagesForTerritoryWithPopulationData(territory)) {
+            for (String language :
+                    supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(territory)) {
                 if (Iso639Data.getSource(language) == Iso639Data.Source.ISO_639_3) {
                     continue;
                 }
-                popData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
-                    language, territory);
+                popData =
+                        supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                                language, territory);
                 if (popData.getPopulation() == 0
-                    || Double.isNaN(popData.getLiteratePopulation()
-                        / popData.getPopulation())) {
+                        || Double.isNaN(
+                                popData.getLiteratePopulation() / popData.getPopulation())) {
                     continue;
                 }
                 languages.add(language);
@@ -649,14 +659,16 @@ public class GenerateEnums {
             int count = languages.size();
             for (String language : languages) {
                 --count; // we need to know the last one
-                popData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
-                    language, territory);
-                Log.formatln("    .addLanguage(\"%s\", %s, %s)%s // %s", language,
-                    format(popData.getPopulation()), format(popData
-                        .getLiteratePopulation()
-                        / popData.getPopulation()),
-                    (count == 0 ? ";" : ""), english
-                        .getName(language));
+                popData =
+                        supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                                language, territory);
+                Log.formatln(
+                        "    .addLanguage(\"%s\", %s, %s)%s // %s",
+                        language,
+                        format(popData.getPopulation()),
+                        format(popData.getLiteratePopulation() / popData.getPopulation()),
+                        (count == 0 ? ";" : ""),
+                        english.getName(language));
             }
         }
         Log.close();
@@ -670,7 +682,7 @@ public class GenerateEnums {
         // containees
         reordered = new TreeSet<>(new DeprecatedAndLengthFirstComparator("territory"));
         reordered.addAll(enum_UN.keySet());
-        for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
+        for (Iterator<String> it = reordered.iterator(); it.hasNext(); ) {
             String region = it.next();
             // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
@@ -679,10 +691,9 @@ public class GenerateEnums {
             // dumb octal
             // syntax
             String isoCode = enum_alpha3.get(region);
-            if (isoCode == null)
-                continue;
-            Log.println(DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode."
-                + region + ");");
+            if (isoCode == null) continue;
+            Log.println(
+                    DATA_INDENT + "add(" + quote(isoCode) + ", " + "RegionCode." + region + ");");
         }
         doAliases(code_replacements);
         showGeneratedCommentEnd(DATA_INDENT);
@@ -691,7 +702,7 @@ public class GenerateEnums {
         Log.println();
         showGeneratedCommentStart(DATA_INDENT);
 
-        for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
+        for (Iterator<String> it = reordered.iterator(); it.hasNext(); ) {
             String region = it.next();
             // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
@@ -701,28 +712,25 @@ public class GenerateEnums {
             // dumb
             // octal
             // syntax
-            Log.println(DATA_INDENT + "add(" + un + ", " + "RegionCode." + region
-                + ");");
+            Log.println(DATA_INDENT + "add(" + un + ", " + "RegionCode." + region + ");");
         }
         doAliases(code_replacements);
 
         System.out.println("Plain list");
-        for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
+        for (Iterator<String> it = reordered.iterator(); it.hasNext(); ) {
             String region = it.next();
             // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
             // name
             String newCode = code_replacements.get(region);
-            if (newCode != null)
-                continue;
+            if (newCode != null) continue;
 
             int un = Integer.parseInt(enum_UN.get(region), 10); // get
             // around
             // dumb
             // octal
             // syntax
-            System.out.println(un + "\t" + region + "\t"
-                + english.getName("territory", region));
+            System.out.println(un + "\t" + region + "\t" + english.getName("territory", region));
         }
 
         showGeneratedCommentEnd(DATA_INDENT);
@@ -734,6 +742,7 @@ public class GenerateEnums {
     static NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
 
     static NumberFormat sf = NumberFormat.getScientificInstance(Locale.ENGLISH);
+
     static {
         nf.setMaximumFractionDigits(3);
         sf.setMaximumFractionDigits(3);
@@ -750,10 +759,9 @@ public class GenerateEnums {
     private void doAliases(Map<String, String> code_replacements) {
         for (String code : code_replacements.keySet()) {
             String newCode = code_replacements.get(code);
-            if (newCode.length() == 0)
-                newCode = "ZZ";
-            Log.println(DATA_INDENT + "addAlias(" + "RegionCode." + code + ", \""
-                + newCode + "\");");
+            if (newCode.length() == 0) newCode = "ZZ";
+            Log.println(
+                    DATA_INDENT + "addAlias(" + "RegionCode." + code + ", \"" + newCode + "\");");
         }
     }
 
@@ -763,8 +771,7 @@ public class GenerateEnums {
 
     private void showGeneratedCommentStart(String indent) {
         Log.println(indent + "/*");
-        Log.println(indent
-            + " * The following information is generated from a tool,");
+        Log.println(indent + " * The following information is generated from a tool,");
         Log.println(indent + " * as described on");
         Log.println(indent + " * http://wiki/Main/InternationalIdentifierUpdates.");
         Log.println(indent + " * Do not edit manually.");
@@ -772,15 +779,13 @@ public class GenerateEnums {
         Log.println(indent + " */");
     }
 
-    public final static class LengthFirstComparator implements Comparator<Object> {
+    public static final class LengthFirstComparator implements Comparator<Object> {
         @Override
         public int compare(Object a, Object b) {
             String as = a.toString();
             String bs = b.toString();
-            if (as.length() < bs.length())
-                return -1;
-            if (as.length() > bs.length())
-                return 1;
+            if (as.length() < bs.length()) return -1;
+            if (as.length() > bs.length()) return 1;
             return as.compareTo(bs);
         }
     }
@@ -800,25 +805,21 @@ public class GenerateEnums {
             String br = getDeprecatedReplacement(type, bs);
             // put the deprecated ones first, eg those that aren't null
             if (ar != null) {
-                if (br == null)
-                    return -1;
+                if (br == null) return -1;
             }
             if (br != null) {
-                if (ar == null)
-                    return 1;
+                if (ar == null) return 1;
             }
             // now check the length
-            if (as.length() < bs.length())
-                return -1;
-            if (as.length() > bs.length())
-                return 1;
+            if (as.length() < bs.length()) return -1;
+            if (as.length() > bs.length()) return 1;
             return as.compareTo(bs);
         }
     }
 
     /**
-     * Returns null if not deprecated, otherwise "" if there is no replacement,
-     * otherwise the replacement.
+     * Returns null if not deprecated, otherwise "" if there is no replacement, otherwise the
+     * replacement.
      *
      * @return
      */
@@ -826,10 +827,14 @@ public class GenerateEnums {
         if (type.equals("currency")) {
             return null;
         }
-        String path = supplementalMetadata.getFullXPath(
-            "//supplementalData/metadata/alias/" + type + "Alias[@type=\""
-                + cldrTypeValue + "\"]",
-            true);
+        String path =
+                supplementalMetadata.getFullXPath(
+                        "//supplementalData/metadata/alias/"
+                                + type
+                                + "Alias[@type=\""
+                                + cldrTypeValue
+                                + "\"]",
+                        true);
         if (path == null) {
             return null;
         }
@@ -841,11 +846,16 @@ public class GenerateEnums {
         return replacement;
     }
 
-    static Transliterator doFallbacks = Transliterator.createFromRules("id",
-        "[’ʻ] > ''; ", Transliterator.FORWARD);
+    static Transliterator doFallbacks =
+            Transliterator.createFromRules("id", "[’ʻ] > ''; ", Transliterator.FORWARD);
 
-    private void printRow(PrintWriter out, String codeName, String englishName,
-        String type, Map<String, String> code_replacements, int lineLength) {
+    private void printRow(
+            PrintWriter out,
+            String codeName,
+            String englishName,
+            String type,
+            Map<String, String> code_replacements,
+            int lineLength) {
         // int numeric = Integer.parseInt((String) enum_UN.get(codeName));
         // String alpha3 = (String) enum_alpha3.get(codeName);
         String cldrName = codeName.length() < 5 ? codeName : codeName.substring(2); // fix
@@ -853,9 +863,14 @@ public class GenerateEnums {
         // name
         String replacement = getDeprecatedReplacement(type, cldrName);
 
-        String resolvedEnglishName = englishName != null ? englishName : type
-            .equals("territory") ? getEnglishName(codeName) : type
-                .equals("currency") ? getName(codeName) : english.getName(CLDRFile.SCRIPT_NAME, codeName);
+        String resolvedEnglishName =
+                englishName != null
+                        ? englishName
+                        : type.equals("territory")
+                                ? getEnglishName(codeName)
+                                : type.equals("currency")
+                                        ? getName(codeName)
+                                        : english.getName(CLDRFile.SCRIPT_NAME, codeName);
         resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
         String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
@@ -864,8 +879,10 @@ public class GenerateEnums {
         if (replacement != null) {
             code_replacements.put(codeName, replacement);
             out.println(prefix);
-            prefix = CODE_INDENT + " * @deprecated"
-                + (replacement.length() == 0 ? "" : " see " + replacement);
+            prefix =
+                    CODE_INDENT
+                            + " * @deprecated"
+                            + (replacement.length() == 0 ? "" : " see " + replacement);
             printedCodeName = "@Deprecated " + printedCodeName;
         }
         prefix += " */";
@@ -875,35 +892,30 @@ public class GenerateEnums {
         }
         if (prefix.length() > lineLength - (printedCodeName.length() + 1)) {
             // break at last space
-            int lastFit = prefix.lastIndexOf(' ', lineLength
-                - (printedCodeName.length() + 1) - 2);
+            int lastFit = prefix.lastIndexOf(' ', lineLength - (printedCodeName.length() + 1) - 2);
             out.println(prefix.substring(0, lastFit));
             prefix = CODE_INDENT + " *" + prefix.substring(lastFit);
         }
         out.print(prefix);
-        out.print(Utility.repeat(" ", (lineLength
-            - (prefix.length() + printedCodeName.length() + 1))));
+        out.print(
+                Utility.repeat(
+                        " ", (lineLength - (prefix.length() + printedCodeName.length() + 1))));
         out.println(printedCodeName + ",");
     }
 
     private String getEnglishName(String codeName) {
-        if (codeName.length() > 3)
-            codeName = codeName.substring(2); // fix UN name
+        if (codeName.length() > 3) codeName = codeName.substring(2); // fix UN name
         String name = extraNames.get(codeName);
-        if (name != null)
-            return name;
+        if (name != null) return name;
         name = english.getName(CLDRFile.TERRITORY_NAME, codeName);
-        if (name != null)
-            return name;
+        if (name != null) return name;
         return codeName;
     }
 
     private String getRFC3066Name(String codeName) {
-        if (codeName.length() > 2)
-            codeName = codeName.substring(2); // fix UN name
+        if (codeName.length() > 2) codeName = codeName.substring(2); // fix UN name
         List<String> list = sc.getFullData("territory", codeName);
-        if (list == null)
-            return null;
+        if (list == null) return null;
         return list.get(0);
     }
 
@@ -912,8 +924,7 @@ public class GenerateEnums {
     }
 
     static String quote(Object input) {
-        if (input != null)
-            return '"' + input.toString().trim() + '"';
+        if (input != null) return '"' + input.toString().trim() + '"';
         return null;
     }
 

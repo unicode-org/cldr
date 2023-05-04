@@ -1,16 +1,15 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UExtension;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Relation;
-
 public class TestUExtension extends TestFmwk {
 
-    static SupplementalDataInfo data = SupplementalDataInfo
-        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo data =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     public static void main(String[] args) {
         new TestUExtension().run(args);

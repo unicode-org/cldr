@@ -1,15 +1,13 @@
 package org.unicode.cldr.web;
 
+import com.ibm.icu.text.RuleBasedCollator;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
-
-import com.ibm.icu.text.RuleBasedCollator;
 
 public class LocaleTree {
     CLDRFormatter displayLocale;
@@ -27,16 +25,16 @@ public class LocaleTree {
     /**
      * TreeMap of all locales.
      *
-     * localeListMap = TreeMap [ (String langScriptDisplayName) , (String
-     * localecode) ] subLocales = Hashtable [ localecode, TreeMap ] --> TreeMap
-     * [ langScriptDisplayName, String localeCode ] example
+     * <p>localeListMap = TreeMap [ (String langScriptDisplayName) , (String localecode) ]
+     * subLocales = Hashtable [ localecode, TreeMap ] --> TreeMap [ langScriptDisplayName, String
+     * localeCode ] example
      *
-     * localeListMap English -> en Serbian -> sr Serbian (Cyrillic) -> sr_Cyrl
-     * sublocales en -> [ "English (US)" -> en_US ], [ "English (Australia)" ->
-     * en_AU ] ... sr -> "Serbian (Yugoslavia)" -> sr_YU
+     * <p>localeListMap English -> en Serbian -> sr Serbian (Cyrillic) -> sr_Cyrl sublocales en -> [
+     * "English (US)" -> en_US ], [ "English (Australia)" -> en_AU ] ... sr -> "Serbian
+     * (Yugoslavia)" -> sr_YU
      */
-
     Map<String, CLDRLocale> localeListMap = new TreeMap<>(RuleBasedCollator.getInstance());
+
     Map<String, CLDRLocale> localeNameToCode = new HashMap<>();
     Map<CLDRLocale, Map<String, CLDRLocale>> subLocales = new HashMap<>();
 
@@ -77,11 +75,14 @@ public class LocaleTree {
             if (v == null) {
                 lm.put(localeName.getDisplayCountry(displayLocale), localeName);
             } else if (t != null) {
-                lm.put(localeName.getDisplayCountry(displayLocale) + " (" + localeName.getDisplayVariant(displayLocale) + ")",
-                    localeName);
+                lm.put(
+                        localeName.getDisplayCountry(displayLocale)
+                                + " ("
+                                + localeName.getDisplayVariant(displayLocale)
+                                + ")",
+                        localeName);
             } else {
-                lm.put("(" + localeName.getDisplayVariant(displayLocale) + ")",
-                    localeName);
+                lm.put("(" + localeName.getDisplayVariant(displayLocale) + ")", localeName);
             }
         }
     }
@@ -117,5 +118,4 @@ public class LocaleTree {
     public Map<String, CLDRLocale> getSubLocales(CLDRLocale locale) {
         return subLocales.get(locale);
     }
-
 }

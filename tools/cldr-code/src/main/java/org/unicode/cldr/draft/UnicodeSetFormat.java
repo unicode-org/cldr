@@ -1,20 +1,18 @@
 package org.unicode.cldr.draft;
 
-import java.text.FieldPosition;
-import java.text.Format;
-import java.text.ParsePosition;
-import java.util.BitSet;
-import java.util.Set;
-import java.util.TreeSet;
-
-import org.unicode.cldr.draft.PatternFixer.Target;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import java.text.FieldPosition;
+import java.text.Format;
+import java.text.ParsePosition;
+import java.util.BitSet;
+import java.util.Set;
+import java.util.TreeSet;
+import org.unicode.cldr.draft.PatternFixer.Target;
 
 public class UnicodeSetFormat extends Format {
 
@@ -36,7 +34,7 @@ public class UnicodeSetFormat extends Format {
         int startPos = toAppendTo.length();
         Set<String> strings = null;
         toAppendTo.append('[');
-        for (UnicodeSetIterator it = new UnicodeSetIterator((UnicodeSet) obj); it.nextRange();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator((UnicodeSet) obj); it.nextRange(); ) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 if (strings == null) {
                     strings = new TreeSet<>();
@@ -65,29 +63,29 @@ public class UnicodeSetFormat extends Format {
     // and (possibly) the given location in the character class
     private StringBuffer appendQuoted(StringBuffer target, int codePoint) {
         switch (codePoint) {
-        case '[': // SET_OPEN:
-        case ']': // SET_CLOSE:
-        case '-': // HYPHEN:
-        case '^': // COMPLEMENT:
-        case '&': // INTERSECTION:
-        case '\\': // BACKSLASH:
-        case '{':
-        case '}':
-        case '$':
-        case ':':
-            target.append('\\');
-            break;
-        default:
-            if (toQuote.contains(codePoint)) {
-                if (codePoint > 0xFFFF) {
+            case '[': // SET_OPEN:
+            case ']': // SET_CLOSE:
+            case '-': // HYPHEN:
+            case '^': // COMPLEMENT:
+            case '&': // INTERSECTION:
+            case '\\': // BACKSLASH:
+            case '{':
+            case '}':
+            case '$':
+            case ':':
+                target.append('\\');
+                break;
+            default:
+                if (toQuote.contains(codePoint)) {
+                    if (codePoint > 0xFFFF) {
+                        target.append("\\u");
+                        target.append(Utility.hex(UTF16.getLeadSurrogate(codePoint), 4));
+                        codePoint = UTF16.getTrailSurrogate(codePoint);
+                    }
                     target.append("\\u");
-                    target.append(Utility.hex(UTF16.getLeadSurrogate(codePoint), 4));
-                    codePoint = UTF16.getTrailSurrogate(codePoint);
+                    target.append(Utility.hex(codePoint, 4));
+                    return target;
                 }
-                target.append("\\u");
-                target.append(Utility.hex(codePoint, 4));
-                return target;
-            }
         }
         UTF16.append(target, codePoint);
         return target;
@@ -140,35 +138,36 @@ public class UnicodeSetFormat extends Format {
 
         /**
          * Is called every time an unquoted $ is found. Should parse out variables as appropriate
-         * and return how far we got, and the replacement string. Returns null if doesn't match a variable.
+         * and return how far we got, and the replacement string. Returns null if doesn't match a
+         * variable.
          *
-         * @pos on input should be set to the position just before the dollar sign.
-         *      On output should be set to the end of the text to replace.
+         * @pos on input should be set to the position just before the dollar sign. On output should
+         *     be set to the end of the text to replace.
          */
         public abstract String replaceVariable(String pattern, ParsePosition pos);
 
         /**
          * Resolves anything that looks like a property, eg: <br>
-         * encountering \p{whitespace} or [:whitespace:] would call
-         * getProperty("whitespace", "", false, result)<br>
-         * while
-         * \p{bidi_class=neutral} would call getProperty("bidi_class", "neutral",
-         * false, result) and <br>
-         * \p{name=/DOT/} would call
-         * getProperty("bidi_class", "neutral", false, result) <br>
+         * encountering \p{whitespace} or [:whitespace:] would call getProperty("whitespace", "",
+         * false, result)<br>
+         * while \p{bidi_class=neutral} would call getProperty("bidi_class", "neutral", false,
+         * result) and <br>
+         * \p{name=/DOT/} would call getProperty("bidi_class", "neutral", false, result) <br>
          * (for an example of the latter, see {@linkplain http
          * ://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p name=/WITH%20DOT%20ABOVE/}
          *
-         * @param regex
-         *            Set to true if the property value is a regex "find" expression. In that case,
-         *            the return value should be the set of Unicode characters that match the regex.
+         * @param regex Set to true if the property value is a regex "find" expression. In that
+         *     case, the return value should be the set of Unicode characters that match the regex.
          */
-        public abstract boolean getProperty(String propertyName, String propertyValue, boolean regex, UnicodeSet result);
-
+        public abstract boolean getProperty(
+                String propertyName, String propertyValue, boolean regex, UnicodeSet result);
     }
 
-    public String formatWithProperties(UnicodeSet original, boolean addOthers, UnicodeSet expandBlockIgnorables,
-        int... properties) {
+    public String formatWithProperties(
+            UnicodeSet original,
+            boolean addOthers,
+            UnicodeSet expandBlockIgnorables,
+            int... properties) {
         UnicodeSet remainder = new UnicodeSet().addAll(original);
         Set<String> propSet = new TreeSet<>();
         BitSet props = new BitSet();
@@ -199,14 +198,22 @@ public class UnicodeSetFormat extends Format {
 
     static final int blockEnum = UCharacter.getPropertyEnum("block");
 
-    private void reduceByProperty(UnicodeSet original, UnicodeSet expandBlockIgnorables, int property,
-        UnicodeSet remainder, Set<String> result) {
+    private void reduceByProperty(
+            UnicodeSet original,
+            UnicodeSet expandBlockIgnorables,
+            int property,
+            UnicodeSet remainder,
+            Set<String> result) {
         String propertyAlias = UCharacter.getPropertyName(property, UProperty.NameChoice.SHORT);
         UnicodeSet valueChars = new UnicodeSet();
-        for (int i = UCharacter.getIntPropertyMinValue(property); i <= UCharacter.getIntPropertyMaxValue(property); ++i) {
-            String valueAlias = UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.SHORT);
+        for (int i = UCharacter.getIntPropertyMinValue(property);
+                i <= UCharacter.getIntPropertyMaxValue(property);
+                ++i) {
+            String valueAlias =
+                    UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.SHORT);
             if (valueAlias == null) {
-                valueAlias = UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.LONG);
+                valueAlias =
+                        UCharacter.getPropertyValueName(property, i, UProperty.NameChoice.LONG);
             }
             if (valueAlias == null) continue;
 
@@ -217,7 +224,8 @@ public class UnicodeSetFormat extends Format {
                     result.add("[:" + propertyAlias + '=' + valueAlias + ":]");
                     remainder.removeAll(valueChars);
                 } else if (property == blockEnum && expandBlockIgnorables != null) {
-                    UnicodeSet hasScript = new UnicodeSet(valueChars).removeAll(expandBlockIgnorables);
+                    UnicodeSet hasScript =
+                            new UnicodeSet(valueChars).removeAll(expandBlockIgnorables);
                     if (hasScript.size() > 5 && original.containsAll(hasScript)) {
                         System.out.println("Broadening to block: " + valueAlias);
                         result.add("[:" + propertyAlias + '=' + valueAlias + ":]");
@@ -233,7 +241,7 @@ public class UnicodeSetFormat extends Format {
     private Target target;
     private int options;
     private Extension[] extensions;
-    private static final UnicodeSet toQuote = new UnicodeSet(
-        "[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
-
+    private static final UnicodeSet toQuote =
+            new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]")
+                    .freeze();
 }

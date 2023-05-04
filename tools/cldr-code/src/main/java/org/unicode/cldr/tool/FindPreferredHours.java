@@ -1,5 +1,10 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,7 +14,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -22,62 +26,57 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.With;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
-import com.ibm.icu.text.UnicodeSet;
-
 public class FindPreferredHours {
     private static CLDRConfig INFO = ToolConfig.getToolInstance();
     private static final CLDRFile ENGLISH = INFO.getEnglish();
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
-    private static final Set<Character> ONLY24 = Collections.unmodifiableSet(new LinkedHashSet<>(Arrays
-        .asList('H')));
+    private static final Set<Character> ONLY24 =
+            Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList('H')));
 
-    private final static Map<String, Set<Character>> OVERRIDE_ALLOWED = Builder
-        .with(new HashMap<String, Set<Character>>())
-        .put("RU", ONLY24)
-        .put("IL", ONLY24)
-        .freeze();
+    private static final Map<String, Set<Character>> OVERRIDE_ALLOWED =
+            Builder.with(new HashMap<String, Set<Character>>())
+                    .put("RU", ONLY24)
+                    .put("IL", ONLY24)
+                    .freeze();
 
-    private final static Map<String, Character> CONFLICT_RESOLUTION = Builder.with(new HashMap<String, Character>())
-        .put("DJ", 'h')
-        .put("KM", 'H')
-        .put("MG", 'H')
-        .put("MU", 'H')
-        .put("MZ", 'H')
-        .put("SC", 'H')
-        .put("CM", 'H')
-        .put("TD", 'h')
-        .put("DZ", 'h')
-        .put("MA", 'h')
-        .put("TN", 'h')
-        .put("BW", 'h')
-        .put("LS", 'h')
-        .put("NA", 'h')
-        .put("SZ", 'h')
-        .put("ZA", 'h')
-        .put("GH", 'h')
-        .put("MR", 'h')
-        .put("NG", 'h')
-        .put("TG", 'H')
-        .put("CA", 'h')
-        .put("US", 'h')
-        .put("CN", 'h')
-        .put("MO", 'h')
-        .put("PH", 'H')
-        .put("IN", 'h')
-        .put("LK", 'H')
-        .put("CY", 'h')
-        .put("IL", 'H')
-        .put("SY", 'h')
-        .put("MK", 'H')
-        .put("VU", 'h')
-        .put("TO", 'H')
-        .put("001", 'H')
-        .freeze();
+    private static final Map<String, Character> CONFLICT_RESOLUTION =
+            Builder.with(new HashMap<String, Character>())
+                    .put("DJ", 'h')
+                    .put("KM", 'H')
+                    .put("MG", 'H')
+                    .put("MU", 'H')
+                    .put("MZ", 'H')
+                    .put("SC", 'H')
+                    .put("CM", 'H')
+                    .put("TD", 'h')
+                    .put("DZ", 'h')
+                    .put("MA", 'h')
+                    .put("TN", 'h')
+                    .put("BW", 'h')
+                    .put("LS", 'h')
+                    .put("NA", 'h')
+                    .put("SZ", 'h')
+                    .put("ZA", 'h')
+                    .put("GH", 'h')
+                    .put("MR", 'h')
+                    .put("NG", 'h')
+                    .put("TG", 'H')
+                    .put("CA", 'h')
+                    .put("US", 'h')
+                    .put("CN", 'h')
+                    .put("MO", 'h')
+                    .put("PH", 'H')
+                    .put("IN", 'h')
+                    .put("LK", 'H')
+                    .put("CY", 'h')
+                    .put("IL", 'H')
+                    .put("SY", 'h')
+                    .put("MK", 'H')
+                    .put("VU", 'h')
+                    .put("TO", 'H')
+                    .put("001", 'H')
+                    .freeze();
 
     static final class Hours implements Comparable<Hours> {
         final DateTimePatternType type;
@@ -109,7 +108,8 @@ public class FindPreferredHours {
     }
 
     public static void main(String[] args) {
-        final Relation<String, Hours> lang2Hours = Relation.of(new TreeMap<String, Set<Hours>>(), TreeSet.class);
+        final Relation<String, Hours> lang2Hours =
+                Relation.of(new TreeMap<String, Set<Hours>>(), TreeSet.class);
         final Factory factory = INFO.getCldrFactory();
         final FormatParser formatDateParser = new FormatParser();
         final LikelySubtags likely2Max = new LikelySubtags();
@@ -150,7 +150,8 @@ public class FindPreferredHours {
         // gather data per region
 
         Map<String, Relation<Character, String>> region2Preferred2locales = new TreeMap<>();
-        Relation<String, Character> region2Allowed = Relation.of(new TreeMap<String, Set<Character>>(), TreeSet.class);
+        Relation<String, Character> region2Allowed =
+                Relation.of(new TreeMap<String, Set<Character>>(), TreeSet.class);
         final LanguageTagParser ltp = new LanguageTagParser();
 
         for (Entry<String, Set<Hours>> localeAndHours : lang2Hours.keyValuesSet()) {
@@ -166,7 +167,8 @@ public class FindPreferredHours {
                 continue;
             }
             if (DIGITS.containsSome(region) && !region.equals("001")) {
-                System.out.println("*** Skipping multicountry region for " + locale + ", " + maxLocale);
+                System.out.println(
+                        "*** Skipping multicountry region for " + locale + ", " + maxLocale);
                 continue;
             }
             for (Hours hours : localeAndHours.getValue()) {
@@ -174,8 +176,12 @@ public class FindPreferredHours {
                 if (hours.type == DateTimePatternType.STOCK) {
                     Relation<Character, String> items = region2Preferred2locales.get(region);
                     if (items == null) {
-                        region2Preferred2locales.put(region,
-                            items = Relation.of(new TreeMap<Character, Set<String>>(), TreeSet.class));
+                        region2Preferred2locales.put(
+                                region,
+                                items =
+                                        Relation.of(
+                                                new TreeMap<Character, Set<String>>(),
+                                                TreeSet.class));
                     }
                     items.put(hours.variable, locale);
                 }
@@ -183,8 +189,8 @@ public class FindPreferredHours {
         }
 
         // now invert
-        Relation<PreferredAndAllowedHour, String> preferred2Region = Relation.of(
-            new TreeMap<PreferredAndAllowedHour, Set<String>>(), TreeSet.class);
+        Relation<PreferredAndAllowedHour, String> preferred2Region =
+                Relation.of(new TreeMap<PreferredAndAllowedHour, Set<String>>(), TreeSet.class);
         StringBuilder overrides = new StringBuilder("\n");
 
         for (Entry<String, Relation<Character, String>> e : region2Preferred2locales.entrySet()) {
@@ -207,8 +213,13 @@ public class FindPreferredHours {
                     for (Entry<Character, String> x : oldValues) {
                         preferredSet.remove(x.getKey(), x.getValue());
                     }
-                    overrides.append(region + " has multiple values. Overriding with CONFLICT_RESOLUTION to "
-                        + resolvedValue + " and discarded values " + oldValuesString + "\n");
+                    overrides.append(
+                            region
+                                    + " has multiple values. Overriding with CONFLICT_RESOLUTION to "
+                                    + resolvedValue
+                                    + " and discarded values "
+                                    + oldValuesString
+                                    + "\n");
                 }
             }
 
@@ -220,11 +231,13 @@ public class FindPreferredHours {
                 if (preferred == null) {
                     preferred = pref.getKey();
                 } else {
-                    overrides.append(region + " has multiple preferred values! " + preferredSet + "\n");
+                    overrides.append(
+                            region + " has multiple preferred values! " + preferredSet + "\n");
                 }
                 // else {
                 // if (!haveFirst) {
-                // System.out.print("*** Conflict in\t" + region + "\t" + ENGLISH.getName("territory", region) +
+                // System.out.print("*** Conflict in\t" + region + "\t" +
+                // ENGLISH.getName("territory", region) +
                 // "\twith\t");
                 // System.out.println(preferred + "\t" + locales);
                 // haveFirst = true;
@@ -249,14 +262,22 @@ public class FindPreferredHours {
                 tag += "*";
             }
 
-            System.out.println(tag
-                + "\t" + region
-                + "\t" + ENGLISH.getName("territory", region)
-                + "\t" + subcontinent
-                + "\t" + ENGLISH.getName("territory", subcontinent)
-                + "\t" + continent
-                + "\t" + ENGLISH.getName("territory", continent)
-                + "\t" + showInfo(preferredSet));
+            System.out.println(
+                    tag
+                            + "\t"
+                            + region
+                            + "\t"
+                            + ENGLISH.getName("territory", region)
+                            + "\t"
+                            + subcontinent
+                            + "\t"
+                            + ENGLISH.getName("territory", subcontinent)
+                            + "\t"
+                            + continent
+                            + "\t"
+                            + ENGLISH.getName("territory", continent)
+                            + "\t"
+                            + showInfo(preferredSet));
         }
 
         // now present
@@ -265,15 +286,18 @@ public class FindPreferredHours {
         for (Entry<PreferredAndAllowedHour, Set<String>> e : preferred2Region.keyValuesSet()) {
             PreferredAndAllowedHour preferredAndAllowedHour = e.getKey();
             Set<String> regions = e.getValue();
-            System.out.println("        <hours "
-                + "preferred=\""
-                + preferredAndAllowedHour.preferred
-                + "\""
-                + " allowed=\""
-                + Joiner.on(" ").join(preferredAndAllowedHour.allowed)
-                + "\""
-                + " regions=\"" + Joiner.on(" ").join(regions) + "\""
-                + "/>");
+            System.out.println(
+                    "        <hours "
+                            + "preferred=\""
+                            + preferredAndAllowedHour.preferred
+                            + "\""
+                            + " allowed=\""
+                            + Joiner.on(" ").join(preferredAndAllowedHour.allowed)
+                            + "\""
+                            + " regions=\""
+                            + Joiner.on(" ").join(regions)
+                            + "\""
+                            + "/>");
         }
         System.out.println("    </timeData>");
         System.out.println(overrides);
@@ -309,11 +333,15 @@ public class FindPreferredHours {
 
     private static boolean isOfficial(String locale, boolean isOfficial) {
         LanguageTagParser ltp = new LanguageTagParser().set(locale);
-        PopulationData data = INFO.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(
-            ltp.getLanguageScript(), ltp.getRegion());
+        PopulationData data =
+                INFO.getSupplementalDataInfo()
+                        .getLanguageAndTerritoryPopulationData(
+                                ltp.getLanguageScript(), ltp.getRegion());
         if (data == null) {
-            data = INFO.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(
-                ltp.getLanguage(), ltp.getRegion());
+            data =
+                    INFO.getSupplementalDataInfo()
+                            .getLanguageAndTerritoryPopulationData(
+                                    ltp.getLanguage(), ltp.getRegion());
         }
         if (data != null) {
             OfficialStatus status = data.getOfficialStatus();

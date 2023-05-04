@@ -4,7 +4,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
@@ -28,6 +27,7 @@ public class ListSurveyToolStatus {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -49,24 +49,33 @@ public class ListSurveyToolStatus {
         for (String locale : factory.getAvailable()) {
             if (locales.reset(locale).find()) {
                 CLDRFile cldrFile = factory.make(locale, true);
-                String testValue = cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/displayName");
+                String testValue =
+                        cldrFile.getStringValue(
+                                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/displayName");
                 Set<PathHeader> sorted = new TreeSet<>();
                 for (String path : cldrFile.fullIterable()) {
                     sorted.add(PathHeader.getFactory().fromPath(path));
                 }
                 for (PathHeader pathHeader : sorted) {
-                    // eg //ldml/units/unitLength[@type="long"]/unit[@type="duration-day-person"]/unitPattern[@count="one"][@case="accusative"]
+                    // eg
+                    // //ldml/units/unitLength[@type="long"]/unit[@type="duration-day-person"]/unitPattern[@count="one"][@case="accusative"]
                     final String path = pathHeader.getOriginalPath();
                     if (paths.reset(path).find()) {
                         String value = cldrFile.getStringValue(path);
                         String localeFound = cldrFile.getSourceLocaleID(path, status);
-                        System.out.println(locale
-                            + (locale.equals(localeFound) ? "" : "/" + localeFound)
-                            + "\t" + pathHeader
-                            + "\n\tvalue:\t" + value
-                            + "\n\tpath:\t" + path
-                            + (path.equals(status.pathWhereFound) ? "" : "\n\toPath:\t" + status.pathWhereFound)
-                            + "\n");
+                        System.out.println(
+                                locale
+                                        + (locale.equals(localeFound) ? "" : "/" + localeFound)
+                                        + "\t"
+                                        + pathHeader
+                                        + "\n\tvalue:\t"
+                                        + value
+                                        + "\n\tpath:\t"
+                                        + path
+                                        + (path.equals(status.pathWhereFound)
+                                                ? ""
+                                                : "\n\toPath:\t" + status.pathWhereFound)
+                                        + "\n");
                     }
                 }
             }

@@ -1,29 +1,31 @@
 package org.unicode.cldr.util;
 
-import java.util.EnumSet;
-
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
+import java.util.EnumSet;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 /**
- * Utility class for returning the plural category for a range of numbers, such as 1–5, so that appropriate messages can be chosen.
- * The rules for determining this value vary widely across locales.
+ * Utility class for returning the plural category for a range of numbers, such as 1–5, so that
+ * appropriate messages can be chosen. The rules for determining this value vary widely across
+ * locales.
+ *
  * @author markdavis
  */
 public final class PluralRanges implements Comparable<PluralRanges>, Freezable<PluralRanges> {
 
     /**
      * Internal class for mapping from two Count values to another.
+     *
      * @internal
      * @deprecated
      */
     @Deprecated
     public static final class Matrix implements Comparable<Matrix>, Cloneable {
         private byte[] data = new byte[Count.LENGTH * Count.LENGTH];
+
         {
             for (int i = 0; i < data.length; ++i) {
                 data[i] = -1;
@@ -32,16 +34,19 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
         /**
          * Internal method for setting.
+         *
          * @internal
          * @deprecated
          */
         @Deprecated
         public void set(Count start, Count end, Count result) {
-            data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
+            data[start.ordinal() * Count.LENGTH + end.ordinal()] =
+                    result == null ? (byte) -1 : (byte) result.ordinal();
         }
 
         /**
          * Internal method for setting; throws exception if already set.
+         *
          * @internal
          * @deprecated
          */
@@ -49,14 +54,22 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
         public void setIfNew(Count start, Count end, Count result) {
             byte old = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             if (old >= 0) {
-                throw new IllegalArgumentException("Previously set value for <" +
-                    start + ", " + end + ", " + Count.VALUES.get(old) + ">");
+                throw new IllegalArgumentException(
+                        "Previously set value for <"
+                                + start
+                                + ", "
+                                + end
+                                + ", "
+                                + Count.VALUES.get(old)
+                                + ">");
             }
-            data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
+            data[start.ordinal() * Count.LENGTH + end.ordinal()] =
+                    result == null ? (byte) -1 : (byte) result.ordinal();
         }
 
         /**
          * Internal method for getting.
+         *
          * @internal
          * @deprecated
          */
@@ -68,6 +81,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
         /**
          * Internal method to see if <*,end> values are all the same.
+         *
          * @internal
          * @deprecated
          */
@@ -92,6 +106,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
         /**
          * Internal method to see if <start,*> values are all the same.
+         *
          * @internal
          * @deprecated
          */
@@ -160,6 +175,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
     /**
      * Returns a
+     *
      * @return
      */
     public static PluralRanges getInstance(ULocale locale) {
@@ -168,6 +184,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
     /**
      * Internal method for building. If the start or end are null, it means everything of that type.
+     *
      * @param rangeStart
      * @param rangeEnd
      * @param result
@@ -202,6 +219,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
     /**
      * Internal method to show a range in XML format.
+     *
      * @param start
      * @param end
      * @param result
@@ -211,16 +229,24 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      */
     @Deprecated
     public static String showRange(Count start, Count end, Count result) {
-        String startEnd = "start=\"" + start + "\"" + Utility.repeat(" ", 5 - start.toString().length())
-            + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
+        String startEnd =
+                "start=\""
+                        + start
+                        + "\""
+                        + Utility.repeat(" ", 5 - start.toString().length())
+                        + " end=\""
+                        + end
+                        + "\""
+                        + Utility.repeat(" ", 5 - end.toString().length());
         return result == null
-            ? "<!--         " + startEnd + " result=? -->"
-            : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
+                ? "<!--         " + startEnd + " result=? -->"
+                : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
     }
 
     /**
-     * Returns the appropriate plural category for a range from start to end.
-     * If there is no available data, then 'other' is returned.
+     * Returns the appropriate plural category for a range from start to end. If there is no
+     * available data, then 'other' is returned.
+     *
      * @param start
      * @param end
      * @return
@@ -231,8 +257,9 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     }
 
     /**
-     * Returns the appropriate plural category for a range from start to end. If the combination does not
-     * explicitly occur in the data, returns null.
+     * Returns the appropriate plural category for a range from start to end. If the combination
+     * does not explicitly occur in the data, returns null.
+     *
      * @param start
      * @param end
      * @return
@@ -243,6 +270,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
     /**
      * Internal method to determines whether the Count was explicitly used in any add statement.
+     *
      * @param count
      * @return
      * @internal

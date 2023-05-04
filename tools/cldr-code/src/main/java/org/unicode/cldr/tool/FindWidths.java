@@ -1,11 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -14,8 +14,6 @@ import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.text.NumberFormat;
 
 public class FindWidths {
     private static final CLDRConfig testInfo = ToolConfig.getToolInstance();
@@ -54,8 +52,7 @@ public class FindWidths {
             PathHeader ph = phf.fromPath(path);
             PageId pageId = ph.getPageId();
             SectionId sectionId = ph.getSectionId();
-            if (pageId == PageId.Alphabetic_Information
-                || sectionId == SectionId.Special) {
+            if (pageId == PageId.Alphabetic_Information || sectionId == SectionId.Special) {
                 continue;
             }
             String value = english.getStringValue(path);
@@ -77,8 +74,7 @@ public class FindWidths {
                 }
                 PageId pageId = ph.getPageId();
                 SectionId sectionId = ph.getSectionId();
-                if (pageId == PageId.Alphabetic_Information
-                    || sectionId == SectionId.Special) {
+                if (pageId == PageId.Alphabetic_Information || sectionId == SectionId.Special) {
                     continue;
                 }
 
@@ -103,14 +99,24 @@ public class FindWidths {
             PathHeader path = entry.getKey();
             Data data = entry.getValue();
             double sizeIncrease = data.width / (double) data.englishWidth - 1;
-            System.out.println(++count
-                + "\t" + path
-                + "\t" + data.locale
-                + "\t«" + english.getStringValue(path.getOriginalPath()) + "»"
-                + "\t«" + data.value + "»"
-                + "\t+" + nf.format(sizeIncrease)
-                + "\t" + data.width
-                + "\t" + data.count);
+            System.out.println(
+                    ++count
+                            + "\t"
+                            + path
+                            + "\t"
+                            + data.locale
+                            + "\t«"
+                            + english.getStringValue(path.getOriginalPath())
+                            + "»"
+                            + "\t«"
+                            + data.value
+                            + "»"
+                            + "\t+"
+                            + nf.format(sizeIncrease)
+                            + "\t"
+                            + data.width
+                            + "\t"
+                            + data.count);
         }
     }
 }

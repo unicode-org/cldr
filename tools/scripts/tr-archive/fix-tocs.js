@@ -12,11 +12,11 @@ const contentsEnd = /^## .*$/; // end of contents: the next ##
 
 // ToC entries we don't want, for deletion
 const tocDelete = [
-    /^\* \[.*Unicode Technical Standard.*$/,
-    /^  \* \[_Summary_\].*$/,
-    /^  \* \[_Status_\].*$/,
-    /^\* \[Parts\].*$/,
-    /^\* \[Contents of.*$/
+    /^[ ]*\* \[.*Unicode Technical Standard.*$/,
+    /^[ ]*\* \[_Summary_\].*$/,
+    /^[ ]*\* \[_Status_\].*$/,
+    /^[ ]*\* \[Parts\].*$/,
+    /^[ ]*\* \[Contents of.*$/
 ];
 
 const gfmOpts = {
@@ -94,9 +94,20 @@ async function processFile(f) {
     if (i == lines.length) {
         throw Error(`in ${f}: ran out of lines looking for end of ToC`);
     }
+
+    const oldcopyright = /(Copyright\s*[©]?)\s*([0-9]{4,4})[–-—](?:[0-9]{4,4})\s*Unicode/;
+    const newyear = new Date().getFullYear(); // 2023, etc
+    const badlink = /(\()(http[s]?:\/\/[w\.]*unicode\.org\/reports\/tr35\/)?tr35([^\./]*)\.html/g;
+    const badlink2 = /(\()(http[s]?:\/\/[w\.]*unicode\.org\/reports\/tr35)[\/]?#/g;
+    const badlink3 = /\(http(?:s)?:\/\/(?:www\.)?unicode\.org\/reports\/tr35(?:\/)?\)/g;
+
     // Write out all remaining lines in the file.
     for (; i < lines.length; i++) {
-        out.push(lines[i]);
+        out.push(lines[i]
+            .replace(oldcopyright, `$1 $2–${newyear} Unicode`)
+            .replace(badlink, '$1tr35$3.md')
+            .replace(badlink2, '$1tr35.md#')
+            .replace(badlink3, '(tr35.md)'));
     }
 
     // Write the whole file to disk.

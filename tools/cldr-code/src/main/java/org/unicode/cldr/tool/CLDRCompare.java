@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -16,8 +15,12 @@ public class CLDRCompare {
     public static void main(String[] args) throws Exception {
         String filter = CldrUtility.getProperty("filter", ".*");
         Matcher matcher = PatternCache.get(filter).matcher("");
-        File oldVersion = new File(CldrUtility.getProperty("old", PathUtilities.getNormalizedPathString(CLDRPaths.COMMON_DIRECTORY
-    + "../../../common-cldr1.6")));
+        File oldVersion =
+                new File(
+                        CldrUtility.getProperty(
+                                "old",
+                                PathUtilities.getNormalizedPathString(
+                                        CLDRPaths.COMMON_DIRECTORY + "../../../common-cldr1.6")));
         if (!oldVersion.exists()) {
             throw new IllegalArgumentException("Directory not found");
         }
@@ -27,17 +30,29 @@ public class CLDRCompare {
         }
 
         printLine("Dir", "File", "Same", "New", "Deleted", "≠Value", "≠Path≠Value", "≠Path");
-        System.out.println("Directory" + "\t" + "File" + "\t" + "New" + "\t" + "Deleted" + "\t" + "SameValue" + "\t"
-            + "DifferentValue");
+        System.out.println(
+                "Directory"
+                        + "\t"
+                        + "File"
+                        + "\t"
+                        + "New"
+                        + "\t"
+                        + "Deleted"
+                        + "\t"
+                        + "SameValue"
+                        + "\t"
+                        + "DifferentValue");
 
         for (String subDir : newVersion.list()) {
             if (subDir.equals("CVS") || subDir.equals("posix") || subDir.equals("test")) continue;
 
-            final String newSubDir = PathUtilities.getNormalizedPathString(newVersion) + "/" + subDir;
+            final String newSubDir =
+                    PathUtilities.getNormalizedPathString(newVersion) + "/" + subDir;
             final File srcDir = new File(newSubDir);
             if (!srcDir.isDirectory()) continue;
 
-            final String oldSubDir = PathUtilities.getNormalizedPathString(oldVersion) + "/" + subDir;
+            final String oldSubDir =
+                    PathUtilities.getNormalizedPathString(oldVersion) + "/" + subDir;
 
             TreeSet<String> files = new TreeSet<>();
 
@@ -105,15 +120,43 @@ public class CLDRCompare {
                         }
                     }
                 }
-                printLine(subDir, file, sameCount, newCount, deletedCount, diffValueCount, diffBothCount,
-                    diffPathCount);
+                printLine(
+                        subDir,
+                        file,
+                        sameCount,
+                        newCount,
+                        deletedCount,
+                        diffValueCount,
+                        diffBothCount,
+                        diffPathCount);
             }
         }
     }
 
-    private static void printLine(String subDir, String file, Object sameCount, Object newCount, Object deletedCount,
-        Object diffValueCount, Object diffBothCount, Object diffPathCount) {
-        System.out.println(subDir + "\t" + file + "\t" + sameCount + "\t" + newCount + "\t" + deletedCount + "\t"
-            + diffValueCount + "\t" + diffPathCount + "\t" + diffBothCount);
+    private static void printLine(
+            String subDir,
+            String file,
+            Object sameCount,
+            Object newCount,
+            Object deletedCount,
+            Object diffValueCount,
+            Object diffBothCount,
+            Object diffPathCount) {
+        System.out.println(
+                subDir
+                        + "\t"
+                        + file
+                        + "\t"
+                        + sameCount
+                        + "\t"
+                        + newCount
+                        + "\t"
+                        + deletedCount
+                        + "\t"
+                        + diffValueCount
+                        + "\t"
+                        + diffPathCount
+                        + "\t"
+                        + diffBothCount);
     }
 }

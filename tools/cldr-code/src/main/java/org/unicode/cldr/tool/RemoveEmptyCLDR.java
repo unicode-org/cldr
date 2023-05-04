@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,15 +10,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.XMLFileReader;
-
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 
 public class RemoveEmptyCLDR {
 
@@ -25,27 +23,29 @@ public class RemoveEmptyCLDR {
     public static void main(String[] args) throws IOException {
 
         if (args.length == 0) {
-            args = new String[] { "annotations", "annotationsDerived" };
+            args = new String[] {"annotations", "annotationsDerived"};
         }
         Set<String> nonEmpty = new HashSet<>();
         BiMap<String, File> toDelete = HashBiMap.create();
         int counter = 0;
         // eg /Users/markdavis/Google Drive/workspace/Generated/vxml/common/annotations
-        for (String dirCommonSeed : Arrays.asList(CLDRPaths.SEED_DIRECTORY1, CLDRPaths.COMMON_DIRECTORY)) {
+        for (String dirCommonSeed :
+                Arrays.asList(CLDRPaths.SEED_DIRECTORY1, CLDRPaths.COMMON_DIRECTORY)) {
             System.out.println("Checking: " + dirCommonSeed);
             for (String dir : args) {
                 File dirFile = new File(dirCommonSeed + dir);
                 if (!dirFile.exists()) {
                     continue;
                 }
-                main: for (File f : dirFile.listFiles()) {
+                main:
+                for (File f : dirFile.listFiles()) {
                     List<Pair<String, String>> data = new ArrayList<>();
                     String normalizedPath = PathUtilities.getNormalizedPathString(f);
                     if (!normalizedPath.endsWith(".xml") || normalizedPath.endsWith("root.xml")) {
                         continue;
                     }
                     String name = f.getName();
-                    name = name.substring(0,name.length()-4); // remove .xml
+                    name = name.substring(0, name.length() - 4); // remove .xml
                     XMLFileReader.loadPathValues(normalizedPath, data, false);
                     for (Pair<String, String> item : data) {
                         if (item.getFirst().contains("/identity")) {
@@ -67,7 +67,8 @@ public class RemoveEmptyCLDR {
                 continue;
             }
             File file = entry.getValue();
-            System.out.println(++counter + ") Deleting: " + PathUtilities.getNormalizedPathString(file));
+            System.out.println(
+                    ++counter + ") Deleting: " + PathUtilities.getNormalizedPathString(file));
             if (!PREFLIGHT) {
                 file.delete();
             }

@@ -1,10 +1,19 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Objects;
+import com.ibm.icu.impl.locale.XCldrStub.Splitter;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.text.CompactDecimalFormat;
+import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ULocale;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -17,18 +26,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VerifyCompactNumbers;
 
-import com.google.common.base.Objects;
-import com.ibm.icu.impl.locale.XCldrStub.Splitter;
-import com.ibm.icu.impl.number.DecimalQuantity;
-import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.text.CompactDecimalFormat;
-import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.ULocale;
-
-public class TestCompactNumbers  extends TestFmwkPlus {
+public class TestCompactNumbers extends TestFmwkPlus {
     static final boolean DEBUG = false;
     private static StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
@@ -62,22 +60,47 @@ public class TestCompactNumbers  extends TestFmwkPlus {
         ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
         NumberFormat nf = builder.getNumberFormat(1);
 
-        CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-            debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.PLAIN, currencyCode);
+        CompactDecimalFormat cdf =
+                BuildIcuCompactDecimalFormat.build(
+                        cldrFile,
+                        debugCreationErrors,
+                        debugOriginals,
+                        CompactStyle.SHORT,
+                        locale2,
+                        CurrencyStyle.PLAIN,
+                        currencyCode);
 
-        Map<String, Map<String, String>> data = BuildIcuCompactDecimalFormat.buildCustomData(cldrFile, CompactStyle.SHORT, CurrencyStyle.PLAIN);
+        Map<String, Map<String, String>> data =
+                BuildIcuCompactDecimalFormat.buildCustomData(
+                        cldrFile, CompactStyle.SHORT, CurrencyStyle.PLAIN);
         if (DEBUG) {
             for (Entry<String, Map<String, String>> entry : data.entrySet()) {
                 System.out.println(entry);
             }
         }
 
-        CompactDecimalFormat cdfs = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-            debugOriginals, CompactStyle.LONG, locale2, CurrencyStyle.PLAIN, currencyCode);
-        CompactDecimalFormat cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-            debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.CURRENCY, currencyCode);
+        CompactDecimalFormat cdfs =
+                BuildIcuCompactDecimalFormat.build(
+                        cldrFile,
+                        debugCreationErrors,
+                        debugOriginals,
+                        CompactStyle.LONG,
+                        locale2,
+                        CurrencyStyle.PLAIN,
+                        currencyCode);
+        CompactDecimalFormat cdfCurr =
+                BuildIcuCompactDecimalFormat.build(
+                        cldrFile,
+                        debugCreationErrors,
+                        debugOriginals,
+                        CompactStyle.SHORT,
+                        locale2,
+                        CurrencyStyle.CURRENCY,
+                        currencyCode);
 
-        Set<Double> allSamples = VerifyCompactNumbers.collectSamplesAndSetFormats(currencyCode, locale, SDI, cdf, cdfs, cdfCurr);
+        Set<Double> allSamples =
+                VerifyCompactNumbers.collectSamplesAndSetFormats(
+                        currencyCode, locale, SDI, cdf, cdfs, cdfCurr);
 
         for (double source : allSamples) {
             if (false && source == 22000000 && locale.equals("cs")) {
@@ -88,20 +111,24 @@ public class TestCompactNumbers  extends TestFmwkPlus {
             String compactFormattedNumber = cdf == null ? "n/a" : cdf.format(source);
             String compactLongFormattedNumber = cdfs == null ? "n/a" : cdfs.format(source);
             String compactCurrFormattedNumber = cdfs == null ? "n/a" : cdfCurr.format(source);
-            if (DEBUG) System.out.println(source
-                + "\tnf:\t" + formattedNumber
-                + "\tcnf:\t" + compactFormattedNumber
-                + "\tclnf:\t" + compactLongFormattedNumber
-                + "\tccnf:\t" + compactCurrFormattedNumber
-                );
+            if (DEBUG)
+                System.out.println(
+                        source
+                                + "\tnf:\t"
+                                + formattedNumber
+                                + "\tcnf:\t"
+                                + compactFormattedNumber
+                                + "\tclnf:\t"
+                                + compactLongFormattedNumber
+                                + "\tccnf:\t"
+                                + compactCurrFormattedNumber);
         }
     }
 
-    /** Test case for VerifyCompactNumbers
-     * https://unicode-org.atlassian.net/browse/CLDR-15737
+    /**
+     * Test case for VerifyCompactNumbers https://unicode-org.atlassian.net/browse/CLDR-15737
      * https://unicode-org.atlassian.net/browse/CLDR-15762
-     * */
-
+     */
     public void TestVerifyCompactNumbers() {
         Set<String> debugCreationErrors = new LinkedHashSet<>();
         String[] debugOriginals = null;
@@ -131,7 +158,6 @@ public class TestCompactNumbers  extends TestFmwkPlus {
             double value = (double) row[2];
             String expected = row[3].toString();
 
-
             if (!locale.equals(oldLocale) || Objects.equal(currencyCode, oldCurrencyCode)) {
                 oldLocale = locale;
                 oldCurrencyCode = currencyCode;
@@ -142,9 +168,15 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                     compactStyle = CompactStyle.LONG;
                     currencyStyle = CurrencyStyle.PLAIN;
 
-                    cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-                        debugOriginals, compactStyle, ULocale.forLanguageTag(locale),
-                        currencyStyle, null);
+                    cdfCurr =
+                            BuildIcuCompactDecimalFormat.build(
+                                    cldrFile,
+                                    debugCreationErrors,
+                                    debugOriginals,
+                                    compactStyle,
+                                    ULocale.forLanguageTag(locale),
+                                    currencyStyle,
+                                    null);
 
                     // note: custom data looks good:
                     // 1000000={other=0 milionů, one=0 milion, few=0 miliony, many=0 milionu}
@@ -153,9 +185,15 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                     compactStyle = CompactStyle.SHORT;
                     currencyStyle = CurrencyStyle.CURRENCY;
 
-                    cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-                        debugOriginals, compactStyle, ULocale.forLanguageTag(locale),
-                        currencyStyle, currencyCode);
+                    cdfCurr =
+                            BuildIcuCompactDecimalFormat.build(
+                                    cldrFile,
+                                    debugCreationErrors,
+                                    debugOriginals,
+                                    compactStyle,
+                                    ULocale.forLanguageTag(locale),
+                                    currencyStyle,
+                                    currencyCode);
 
                     cdfCurr.setCurrency(Currency.getInstance(currencyCode));
                     int sigDigits = 3;
@@ -165,28 +203,34 @@ public class TestCompactNumbers  extends TestFmwkPlus {
             String actual = cdfCurr.format(value);
             if (!assertEquals("Formatted " + value, expected, actual)) {
                 if (DEBUG) {
-                PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(locale);
-                int v, f, e;
-                DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
-                Count count = rules.getCount(dq);
-                System.out.println("Locale: " + locale);
-                ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+                    PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(locale);
+                    int v, f, e;
+                    DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
+                    Count count = rules.getCount(dq);
+                    System.out.println("Locale: " + locale);
+                    ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
 
-                DecimalFormat decimalFormat = currencyStyle == CurrencyStyle.PLAIN
-                    ?  builder.getNumberFormat(1)
-                        : builder.getCurrencyFormat(currencyCode);
-                final String pattern = decimalFormat.toPattern();
+                    DecimalFormat decimalFormat =
+                            currencyStyle == CurrencyStyle.PLAIN
+                                    ? builder.getNumberFormat(1)
+                                    : builder.getCurrencyFormat(currencyCode);
+                    final String pattern = decimalFormat.toPattern();
 
-                System.out.println("Fallback pattern: " + pattern);
-                System.out.println("Plural Rules: ");
-                semiSplit.split(rules.getRules()).forEach(x -> System.out.println("\t" + x + ";"));
-                System.out.println("Plural sample result: " + dq + " => " + count);
+                    System.out.println("Fallback pattern: " + pattern);
+                    System.out.println("Plural Rules: ");
+                    semiSplit
+                            .split(rules.getRules())
+                            .forEach(x -> System.out.println("\t" + x + ";"));
+                    System.out.println("Plural sample result: " + dq + " => " + count);
 
-                Map<String, Map<String, String>> customData = BuildIcuCompactDecimalFormat.buildCustomData(cldrFile, compactStyle, currencyStyle);
-                customData.forEach((k, vv) -> System.out.println("\t" + k + "\t" + vv));
+                    Map<String, Map<String, String>> customData =
+                            BuildIcuCompactDecimalFormat.buildCustomData(
+                                    cldrFile, compactStyle, currencyStyle);
+                    customData.forEach((k, vv) -> System.out.println("\t" + k + "\t" + vv));
                 }
             }
         }
     }
+
     static final Splitter semiSplit = Splitter.on(';').trimResults();
 }

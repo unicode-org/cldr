@@ -43,18 +43,13 @@ public class POSIXVariant {
                 String field = buf.substring(0, equal_pos);
                 String field_value = buf.substring(equal_pos + 1);
 
-                if (field.equals("collation"))
-                    this.collation_type = field_value;
-                if (field.equals("currency"))
-                    this.currency = field_value;
-                if (field.equals("platform"))
-                    this.platform = field_value;
-                if (field.equals("yesno"))
-                    this.yesno = field_value;
+                if (field.equals("collation")) this.collation_type = field_value;
+                if (field.equals("currency")) this.currency = field_value;
+                if (field.equals("platform")) this.platform = field_value;
+                if (field.equals("yesno")) this.yesno = field_value;
             }
             buf = rest;
         }
-
     }
 
     public POSIXVariant() {

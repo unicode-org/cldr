@@ -1,36 +1,41 @@
 package org.unicode.cldr.tool;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
-
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
+import java.io.IOException;
+import java.io.PrintWriter;
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
 public class CompareHanTransliterators {
     public static void main(String[] args) throws IOException {
         XMLFileReader reader = new XMLFileReader();
         MyContentHandler handler = new MyContentHandler();
         reader.setHandler(handler);
-        reader.read(CLDRPaths.COMMON_DIRECTORY + "transforms/Han-Latin.xml",
-            XMLFileReader.CONTENT_HANDLER, false);
+        reader.read(
+                CLDRPaths.COMMON_DIRECTORY + "transforms/Han-Latin.xml",
+                XMLFileReader.CONTENT_HANDLER,
+                false);
         UnicodeMap<String> trunk = handler.map;
 
         handler.map = new UnicodeMap<>();
 
-        reader.read(CLDRPaths.LAST_RELEASE_DIRECTORY + "/common/transforms/Han-Latin.xml",
-            XMLFileReader.CONTENT_HANDLER, false);
+        reader.read(
+                CLDRPaths.LAST_RELEASE_DIRECTORY + "/common/transforms/Han-Latin.xml",
+                XMLFileReader.CONTENT_HANDLER,
+                false);
         UnicodeMap<String> old = handler.map;
 
         UnicodeSet merged = new UnicodeSet(trunk.keySet()).addAll(old.keySet());
-        PrintWriter out = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY, "han-transliterator-diff.txt");
+        PrintWriter out =
+                FileUtilities.openUTF8Writer(
+                        org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY,
+                        "han-transliterator-diff.txt");
         for (String s : merged) {
             String oldValue = old.get(s);
             if (oldValue == null) {

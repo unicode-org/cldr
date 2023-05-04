@@ -1,12 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
@@ -14,8 +14,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
-
-import com.ibm.icu.impl.Relation;
 
 public class ShowChildren {
 
@@ -27,7 +25,8 @@ public class ShowChildren {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
 
-        Relation<String, String> parent2children = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> parent2children =
+                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : locales) {
             String parent = getParentWithoutRegion(ltp, locale);
@@ -51,14 +50,18 @@ public class ShowChildren {
                 CLDRFile file = cldrFactory.make(child, false);
                 for (String path : file) {
                     if (path.startsWith("//ldml/identity")
-                        || path.endsWith("/alias")
-                        || path.endsWith("/commonlyUsed")) {
+                            || path.endsWith("/alias")
+                            || path.endsWith("/commonlyUsed")) {
                         continue;
                     }
                     Relation<String, String> value2locales = path2value2locales.get(path);
                     if (value2locales == null) {
-                        path2value2locales.put(path,
-                            value2locales = Relation.of(new LinkedHashMap<String, Set<String>>(), TreeSet.class));
+                        path2value2locales.put(
+                                path,
+                                value2locales =
+                                        Relation.of(
+                                                new LinkedHashMap<String, Set<String>>(),
+                                                TreeSet.class));
                     }
                     String parentValue = parentFile.getStringValue(path);
                     if (parentValue == null) {
@@ -80,8 +83,16 @@ public class ShowChildren {
                 String ppath = prettyPath.getPrettyPath(path, false);
                 Relation<String, String> value2locales = datum.getValue();
                 for (Entry<String, Set<String>> valueAndLocales : value2locales.keyValuesSet()) {
-                    System.out.println(parentName + "\t" + parent + "\t〈" + valueAndLocales.getKey() + "〉\t"
-                        + valueAndLocales.getValue() + "\t" + ppath);
+                    System.out.println(
+                            parentName
+                                    + "\t"
+                                    + parent
+                                    + "\t〈"
+                                    + valueAndLocales.getKey()
+                                    + "〉\t"
+                                    + valueAndLocales.getValue()
+                                    + "\t"
+                                    + ppath);
                 }
                 System.out.println();
             }
@@ -92,8 +103,10 @@ public class ShowChildren {
             System.out.println(parentName + "\t" + locale + "\t" + deviations.get(locale));
         }
 
-        System.out
-            .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
+        System.out.println(
+                "Done -- Elapsed time: "
+                        + ((System.currentTimeMillis() - startTime) / 60000.0)
+                        + " minutes");
     }
 
     private static String getParentWithoutRegion(LanguageTagParser ltp, String locale) {

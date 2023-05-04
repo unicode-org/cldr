@@ -1,17 +1,15 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
-
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Multimap;
 
 final class ExternalUnitConversionData {
     static final Pattern footnotes = Pattern.compile(" \\d+$");
@@ -19,17 +17,29 @@ final class ExternalUnitConversionData {
     static final Pattern temperature = Pattern.compile("\\((\\d+)(?:\\.(\\d+))? °([CF])\\)");
     static final Pattern addHyphens = Pattern.compile("[- ]+");
 
-    // first source is https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9
+    // first source is
+    // https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9
     public final String quantity;
     public final String source;
     public final String target;
     public final ConversionInfo info;
+    public final String from;
     public final String line;
 
-    public ExternalUnitConversionData(String quantity, String source, String target, Rational factor, String line, Multimap<String,String> changes) {
+    public ExternalUnitConversionData(
+            String quantity,
+            String source,
+            String target,
+            Rational factor,
+            String from,
+            String line,
+            Multimap<String, String> changes) {
         super();
         this.quantity = quantity;
 
+        if (source.contains("thermal")) {
+            int debug = 0;
+        }
 
         LinkedHashSet<String> sourceChanges = new LinkedHashSet<>();
         this.source = extractUnit(quantity, source, sourceChanges);
@@ -41,24 +51,22 @@ final class ExternalUnitConversionData {
 
         Rational offset = temperatureHack.get(this.source + "|" + this.target);
         this.info = new ConversionInfo(factor, offset == null ? Rational.ZERO : offset);
+        this.from = from;
         this.line = line;
     }
 
     // HACK for temperature
     /**
-        degree Celsius (°C) kelvin (K)  T/K = t/°C + 273.15
-        degree centigrade 15    degree Celsius (°C) t/°C ≈ t/deg. cent.
-        degree Fahrenheit (°F)  degree Celsius (°C) t/°C = (t/°F - 32)/1.8
-        degree Fahrenheit (°F)  kelvin (K)  T/K = (t/°F + 459.67)/1.8
-        degree Rankine (°R) kelvin (K)  T/K = (T/°R)/1.8
-        kelvin (K)  degree Celsius (°C) t/°C = T/K - 273.15
+     * degree Celsius (°C) kelvin (K) T/K = t/°C + 273.15 degree centigrade 15 degree Celsius (°C)
+     * t/°C ≈ t/deg. cent. degree Fahrenheit (°F) degree Celsius (°C) t/°C = (t/°F - 32)/1.8 degree
+     * Fahrenheit (°F) kelvin (K) T/K = (t/°F + 459.67)/1.8 degree Rankine (°R) kelvin (K) T/K =
+     * (T/°R)/1.8 kelvin (K) degree Celsius (°C) t/°C = T/K - 273.15
      */
-    static final Map<String,Rational> temperatureHack = ImmutableMap.of(
-        "fahrenheit|celsius", Rational.of("-32/1.8"),
-        "fahrenheit|kelvin", Rational.of("459.67/1.8"),
-        "celsius|kelvin", Rational.of("273.15")
-        );
-
+    static final Map<String, Rational> temperatureHack =
+            ImmutableMap.of(
+                    "fahrenheit|celsius", Rational.of("-32/1.8"),
+                    "fahrenheit|kelvin", Rational.of("459.67/1.8"),
+                    "celsius|kelvin", Rational.of("273.15"));
 
     private String extractUnit(String quantity, String source, Set<String> changes) {
         // drop footnotes
@@ -149,6 +157,8 @@ final class ExternalUnitConversionData {
             source = source.replace("second", "arc-second");
         }
         source = source.replace("British thermal unitth", "british thermal unit");
+        source = source.replace("British thermal unitIT", "british thermal unit it");
+        source = source.replace("calorieIT", "calorie it");
 
         source = replaceWhole(oldSource, source, changes);
 
@@ -166,7 +176,8 @@ final class ExternalUnitConversionData {
         return newSource;
     }
 
-    private String replace(Pattern pattern, String source, String replacement, Set<String> changes) {
+    private String replace(
+            Pattern pattern, String source, String replacement, Set<String> changes) {
         String newSource = pattern.matcher(source).replaceAll(replacement);
         if (!newSource.equals(source)) {
             changes.add(" ⟹ " + newSource);

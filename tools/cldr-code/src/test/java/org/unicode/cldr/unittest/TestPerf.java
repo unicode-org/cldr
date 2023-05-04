@@ -1,12 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.util.Output;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdData;
@@ -14,8 +14,6 @@ import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.util.Output;
 
 public class TestPerf extends TestFmwkPlus {
     public static void main(String[] args) {
@@ -32,11 +30,9 @@ public class TestPerf extends TestFmwkPlus {
 
     static {
         Set<String> testPaths_ = new HashSet<String>();
-        CLDRConfig.getInstance().getEnglish()
-            .forEach(testPaths_::add);
+        CLDRConfig.getInstance().getEnglish().forEach(testPaths_::add);
         testPaths = Collections.unmodifiableSet(testPaths_);
-        Set<String> sorted = new TreeSet<String>(
-            CLDRFile.getComparator(DtdType.ldml));
+        Set<String> sorted = new TreeSet<String>(CLDRFile.getComparator(DtdType.ldml));
         sorted.addAll(testPaths);
         sortedArray = sorted.toArray(new String[sorted.size()]);
 
@@ -47,8 +43,7 @@ public class TestPerf extends TestFmwkPlus {
             size += xpp.size();
             for (int i = 0; i < xpp.size(); ++i) {
                 elements.add(xpp.getElement(i));
-                for (Entry<String, String> attributeAndValue : xpp
-                    .getAttributes(i).entrySet()) {
+                for (Entry<String, String> attributeAndValue : xpp.getAttributes(i).entrySet()) {
                     String attribute = attributeAndValue.getKey();
                     String value = attributeAndValue.getValue();
                     if (attributes.add(attribute)) {
@@ -142,27 +137,26 @@ public class TestPerf extends TestFmwkPlus {
 
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
-        AttributeValueComparator avc = new AttributeValueComparator() {
-            @Override
-            public int compare(String element, String attribute, String value1,
-                String value2) {
-                Comparator<String> comp = CLDRFile.getAttributeValueComparator(
-                    element, attribute);
-                return comp.compare(value1, value2);
-            }
-        };
+        AttributeValueComparator avc =
+                new AttributeValueComparator() {
+                    @Override
+                    public int compare(
+                            String element, String attribute, String value1, String value2) {
+                        Comparator<String> comp =
+                                CLDRFile.getAttributeValueComparator(element, attribute);
+                        return comp.compare(value1, value2);
+                    }
+                };
         Comparator<String> comp = dtdData.getDtdComparator(avc);
 
         int iterations = 50;
         Output<Integer> failures = new Output<Integer>();
 
         // warmup
-        checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), 1,
-            failures);
-        assertRelation("CLDRFile.ldmlComparator-check", true, failures.value,
-            LEQ, 0);
-        double seconds = checkCost(sortedArray,
-            CLDRFile.getComparator(DtdType.ldml), iterations, failures);
+        checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), 1, failures);
+        assertRelation("CLDRFile.ldmlComparator-check", true, failures.value, LEQ, 0);
+        double seconds =
+                checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), iterations, failures);
         assertRelation("CLDRFile.ldmlComparator", true, seconds, LEQ, 0.1);
         // logln(title + "\tTime:\t" + timer.toString(iterations));
 
@@ -175,8 +169,11 @@ public class TestPerf extends TestFmwkPlus {
         assertRelation("DtdComparator", true, newSeconds, LEQ, seconds * .5);
     }
 
-    private double checkCost(String[] sortedArray, Comparator<String> comp,
-        int iterations, Output<Integer> failures2) {
+    private double checkCost(
+            String[] sortedArray,
+            Comparator<String> comp,
+            int iterations,
+            Output<Integer> failures2) {
         Timer timer = new Timer();
         int failures = 0;
         for (int i = 0; i < iterations; ++i) {
@@ -195,7 +192,5 @@ public class TestPerf extends TestFmwkPlus {
         return timer.getSeconds() / iterations;
     }
 
-    public void TestUnused() {
-
-    }
+    public void TestUnused() {}
 }

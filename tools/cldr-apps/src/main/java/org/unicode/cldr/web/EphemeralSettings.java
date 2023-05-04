@@ -1,6 +1,4 @@
-/**
- * Settings for non-logged-in-users - session scope, not persistent.
- */
+/** Settings for non-logged-in-users - session scope, not persistent. */
 package org.unicode.cldr.web;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -9,17 +7,13 @@ import java.util.concurrent.ConcurrentHashMap;
  * a UserSettings object that simply stores its settings in memory
  *
  * @author srl
- *
  */
 public class EphemeralSettings extends UserSettings {
 
     private ConcurrentHashMap<String, String> hash = new ConcurrentHashMap<>();
 
-    /**
-     *
-     */
-    public EphemeralSettings() {
-    }
+    /** */
+    public EphemeralSettings() {}
 
     /*
      * (non-Javadoc)
@@ -65,5 +59,4 @@ public class EphemeralSettings extends UserSettings {
             hash.put(name, value);
         }
     }
-
 }

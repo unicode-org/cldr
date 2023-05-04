@@ -1,5 +1,10 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +21,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
@@ -24,27 +28,25 @@ import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class JsonConverter {
 
     private static final String FILES = "el.*";
-    private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                          // //CldrUtility.MAIN_DIRECTORY;
-    private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
+    private static final String MAIN_DIRECTORY =
+            CLDRPaths.MAIN_DIRECTORY; // CldrUtility.SUPPLEMENTAL_DIRECTORY;
+    // //CldrUtility.MAIN_DIRECTORY;
+    private static final String OUT_DIRECTORY =
+            CLDRPaths.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
     private static boolean COMPACT = false;
-    static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<>(
-        Arrays.asList("type id key count".split("\\s")));
-    static final Set<String> EXTRA_DISTINGUISHING = new HashSet<>(
-        Arrays.asList("locales territory desired supported".split("\\s")));
-    static final Relation<String, String> mainInfo = ElementAttributeInfo.getInstance(DtdType.ldml)
-        .getElement2Attributes();
-    static final Relation<String, String> suppInfo = ElementAttributeInfo.getInstance(DtdType.supplementalData)
-        .getElement2Attributes();
+    static final Set<String> REPLACING_BASE =
+            !COMPACT
+                    ? Collections.EMPTY_SET
+                    : new HashSet<>(Arrays.asList("type id key count".split("\\s")));
+    static final Set<String> EXTRA_DISTINGUISHING =
+            new HashSet<>(Arrays.asList("locales territory desired supported".split("\\s")));
+    static final Relation<String, String> mainInfo =
+            ElementAttributeInfo.getInstance(DtdType.ldml).getElement2Attributes();
+    static final Relation<String, String> suppInfo =
+            ElementAttributeInfo.getInstance(DtdType.supplementalData).getElement2Attributes();
 
     public static void main(String[] args) throws IOException {
         final String subdirectory = new File(MAIN_DIRECTORY).getName();
@@ -57,14 +59,17 @@ public class JsonConverter {
         for (String locale : locales) {
             System.out.println("Converting:\t" + locale);
             final CLDRFile file = cldrFactory.make(locale, false);
-            Relation<String, String> element2Attributes = file.isNonInheriting() ? suppInfo : mainInfo;
+            Relation<String, String> element2Attributes =
+                    file.isNonInheriting() ? suppInfo : mainInfo;
             final Item main = new TableItem(null);
             DtdType dtdType = null;
-            for (Iterator<String> it = file.iterator("", file.getComparator()); it.hasNext();) {
+            for (Iterator<String> it = file.iterator("", file.getComparator()); it.hasNext(); ) {
                 final String xpath = it.next();
                 final String fullXpath = file.getFullXPath(xpath);
                 String value = file.getStringValue(xpath);
-                XPathParts oldParts = XPathParts.getFrozenInstance(fullXpath).cloneAsThawed(); // not frozen, rewrite can modify
+                XPathParts oldParts =
+                        XPathParts.getFrozenInstance(fullXpath)
+                                .cloneAsThawed(); // not frozen, rewrite can modify
                 if (dtdType == null) {
                     dtdType = DtdType.valueOf(parts.getElement(0));
                 }
@@ -84,20 +89,27 @@ public class JsonConverter {
                         }
                     }
                     if (i < size - 2) {
-                        current = current.makeSubItem(element,
-                            actualAttributeKeys.containsKey("_q") ? Item.Type.orderedItem : Item.Type.unorderedItem);
+                        current =
+                                current.makeSubItem(
+                                        element,
+                                        actualAttributeKeys.containsKey("_q")
+                                                ? Item.Type.orderedItem
+                                                : Item.Type.unorderedItem);
                     } else {
                         current.put(element, parts.getElement(i + 1));
                     }
                 }
             }
-            PrintWriter out = FileUtilities.openUTF8Writer(OUT_DIRECTORY + subdirectory, locale + ".json");
+            PrintWriter out =
+                    FileUtilities.openUTF8Writer(OUT_DIRECTORY + subdirectory, locale + ".json");
             main.print(out, 0);
             out.close();
         }
     }
 
-    static Relation<String, String> extraDistinguishing = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+    static Relation<String, String> extraDistinguishing =
+            Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+
     static {
         putAll(extraDistinguishing, "dayPeriodRule", "earlyMorning", "before", "from");
     }
@@ -106,28 +118,35 @@ public class JsonConverter {
         r.putAll(key, Arrays.asList(values));
     }
 
-    private static boolean isDistinguishing(DtdType dtdType, final String element, final String attribute) {
+    private static boolean isDistinguishing(
+            DtdType dtdType, final String element, final String attribute) {
         // <mapZone other="Afghanistan" territory="001" type="Asia/Kabul"/> result is the type!
-        // <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
-        // ugly: if there are values, then everything else is distinguishing, ow if there are attibutes, elements are
-        if (element.equals("deprecatedItems")) {
+        // <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND
+        // POLYTONI"/>
+        // ugly: if there are values, then everything else is distinguishing, ow if there are
+        // attibutes, elements are
+        if (element.equals("deprecatedItems")) {}
 
-        }
         Set<String> extras = extraDistinguishing.getAll(element);
         if (extras != null && extras.contains(attribute)) return true;
         if (EXTRA_DISTINGUISHING.contains(attribute)) return true;
         return CLDRFile.isDistinguishing(dtdType, element, attribute);
     }
 
-    private static void rewrite(DtdType dtdType, XPathParts parts, String value,
-        Relation<String, String> element2Attributes, XPathParts out) {
+    private static void rewrite(
+            DtdType dtdType,
+            XPathParts parts,
+            String value,
+            Relation<String, String> element2Attributes,
+            XPathParts out) {
         out.clear();
         int size = parts.size();
         for (int i = 1; i < size; ++i) {
             final String element = parts.getElement(i);
             out.addElement(element);
 
-            // turn a path into a revised path. All distinguished attributes (including those not currently on the
+            // turn a path into a revised path. All distinguished attributes (including those not
+            // currently on the
             // string)
             // get turned into extra element/element pairs, starting with _
             // all non-distinguishing attributes get turned into separate children
@@ -222,8 +241,15 @@ public class JsonConverter {
         public void add(String attribute, String attributeValue) {
             if (REPLACING_BASE.contains(attribute)) {
                 if (replacedBase) {
-                    System.out.println("ERROR: Two replacement types on same element!!\t" + oldBase + "," + base + ","
-                        + attribute + "," + attributeValue);
+                    System.out.println(
+                            "ERROR: Two replacement types on same element!!\t"
+                                    + oldBase
+                                    + ","
+                                    + base
+                                    + ","
+                                    + attribute
+                                    + ","
+                                    + attributeValue);
                 } else {
                     replacedBase = true;
                     base = attributeValue;
@@ -242,7 +268,7 @@ public class JsonConverter {
         }
     }
 
-    static abstract class Item {
+    abstract static class Item {
         protected Item parent;
 
         public Item(Item parent) {
@@ -252,7 +278,8 @@ public class JsonConverter {
         public abstract int size();
 
         enum Type {
-            unorderedItem, orderedItem
+            unorderedItem,
+            orderedItem
         }
 
         public abstract Appendable print(Appendable result, int i);
@@ -265,7 +292,8 @@ public class JsonConverter {
             return Utility.repeat("    ", i);
         }
 
-        public Appendable appendString(Appendable result, String string, int indent) throws IOException {
+        public Appendable appendString(Appendable result, String string, int indent)
+                throws IOException {
             result.append('"');
             for (int i = 0; i < string.length(); ++i) {
                 // http://www.json.org/
@@ -273,41 +301,41 @@ public class JsonConverter {
                 // uses UTF16
                 char ch = string.charAt(i);
                 switch (ch) {
-                case '\"':
-                    result.append("\\\"");
-                    break;
-                case '\\':
-                    result.append("\\\\");
-                    break;
-                case '/':
-                    result.append("\\/");
-                    break;
-                case '\b':
-                    result.append("\\b");
-                    break;
-                case '\f':
-                    result.append("\\f");
-                    break;
-                case '\n':
-                    if (indent < 0) {
-                        result.append("\\n");
-                    } else {
-                        result.append('\n').append(getIndent(indent));
-                    }
-                    break;
-                case '\r':
-                    result.append("\\r");
-                    break;
-                case '\t':
-                    result.append("\\t");
-                    break;
-                default:
-                    if (ch <= 0x1F || 0x7F <= ch && ch <= 0x9F) {
-                        result.append("\\u").append(Utility.hex(ch, 4));
-                    } else {
-                        result.append(ch);
-                    }
-                    break;
+                    case '\"':
+                        result.append("\\\"");
+                        break;
+                    case '\\':
+                        result.append("\\\\");
+                        break;
+                    case '/':
+                        result.append("\\/");
+                        break;
+                    case '\b':
+                        result.append("\\b");
+                        break;
+                    case '\f':
+                        result.append("\\f");
+                        break;
+                    case '\n':
+                        if (indent < 0) {
+                            result.append("\\n");
+                        } else {
+                            result.append('\n').append(getIndent(indent));
+                        }
+                        break;
+                    case '\r':
+                        result.append("\\r");
+                        break;
+                    case '\t':
+                        result.append("\\t");
+                        break;
+                    default:
+                        if (ch <= 0x1F || 0x7F <= ch && ch <= 0x9F) {
+                            result.append("\\u").append(Utility.hex(ch, 4));
+                        } else {
+                            result.append(ch);
+                        }
+                        break;
                 }
             }
             return result.append('"');
@@ -320,12 +348,12 @@ public class JsonConverter {
 
         protected Item create(Type ordered) {
             switch (ordered) {
-            case unorderedItem:
-                return new TableItem(this);
-            case orderedItem:
-                return new ArrayItem(this);
-            default:
-                throw new UnsupportedOperationException();
+                case unorderedItem:
+                    return new TableItem(this);
+                case orderedItem:
+                    return new ArrayItem(this);
+                default:
+                    throw new UnsupportedOperationException();
             }
         }
 
@@ -362,8 +390,15 @@ public class JsonConverter {
                         return;
                     }
                 }
-                throw new IllegalArgumentException("ERROR: Table already has object: " + element + ", " + old + ", "
-                    + value + ", " + getRoot().toString());
+                throw new IllegalArgumentException(
+                        "ERROR: Table already has object: "
+                                + element
+                                + ", "
+                                + old
+                                + ", "
+                                + value
+                                + ", "
+                                + getRoot().toString());
             }
             map.put(element, new StringItem(value));
         }

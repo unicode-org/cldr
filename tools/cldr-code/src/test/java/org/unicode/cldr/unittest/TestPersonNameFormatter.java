@@ -1,5 +1,19 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -16,7 +30,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -57,31 +70,18 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableCollection;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
-
-public class TestPersonNameFormatter extends TestFmwk{
+public class TestPersonNameFormatter extends TestFmwk {
 
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
-    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
+    final FallbackFormatter FALLBACK_FORMATTER =
+            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
     final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
-    final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
+    final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES =
+            PersonNameFormatter.loadSampleNames(ENGLISH);
     final Factory factory = CONFIG.getCldrFactory();
     final CLDRFile jaCldrFile = factory.make("ja", true);
     final CLDRFile thCldrFile = factory.make("th", true);
@@ -90,60 +90,109 @@ public class TestPersonNameFormatter extends TestFmwk{
         new TestPersonNameFormatter().run(args);
     }
 
-    private final NameObject sampleNameObject1 = SimpleNameObject.from(
-        "locale=fr, title=Dr., given=John, given2-initial=B., given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
-    private final NameObject sampleNameObject2 = SimpleNameObject.from(
-        "locale=fr, title=Dr., given=John, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
-    private final NameObject sampleNameObject3 = SimpleNameObject.from(
-        "locale=fr, title=Dr., given=John Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
-    private final NameObject sampleNameObject4 = SimpleNameObject.from(
-        "locale=ja, given=Shinzō, surname=Abe");
-    private final NameObject sampleNameObject5 = SimpleNameObject.from(
-        "locale=en, given=Mary, surname=Smith");
-    private final NameObject sampleNameObjectPrefixCore = SimpleNameObject.from(
-        "locale=en, given=Mary, surname-prefix=van der, surname-core=Beck");
+    private final NameObject sampleNameObject1 =
+            SimpleNameObject.from(
+                    "locale=fr, title=Dr., given=John, given2-initial=B., given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
+    private final NameObject sampleNameObject2 =
+            SimpleNameObject.from(
+                    "locale=fr, title=Dr., given=John, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
+    private final NameObject sampleNameObject3 =
+            SimpleNameObject.from(
+                    "locale=fr, title=Dr., given=John Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD");
+    private final NameObject sampleNameObject4 =
+            SimpleNameObject.from("locale=ja, given=Shinzō, surname=Abe");
+    private final NameObject sampleNameObject5 =
+            SimpleNameObject.from("locale=en, given=Mary, surname=Smith");
+    private final NameObject sampleNameObjectPrefixCore =
+            SimpleNameObject.from(
+                    "locale=en, given=Mary, surname-prefix=van der, surname-core=Beck");
 
-
-    private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
+    private void check(
+            PersonNameFormatter personNameFormatter,
+            NameObject nameObject,
+            String nameFormatParameters,
+            String expected) {
         FormatParameters nameFormatParameters1 = FormatParameters.from(nameFormatParameters);
         String actual = personNameFormatter.format(nameObject, nameFormatParameters1);
-        assertEquals("\n\t\t" + personNameFormatter + ";\n\t\t" + nameObject + ";\n\t\t" + nameFormatParameters1.toString(), expected, actual);
+        assertEquals(
+                "\n\t\t"
+                        + personNameFormatter
+                        + ";\n\t\t"
+                        + nameObject
+                        + ";\n\t\t"
+                        + nameFormatParameters1.toString(),
+                expected,
+                actual);
     }
 
-    /**
-     * TODO Mark TODO Peter flesh out and add more tests as the engine adds functionality
-     */
-
+    /** TODO Mark TODO Peter flesh out and add more tests as the engine adds functionality */
     public void TestBasic() {
 
-        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+        ImmutableMap<ULocale, Order> localeToOrder =
+                ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
         // TOOD Mark For each example in the spec, make a test case for it.
 
-        NamePatternData namePatternData = new NamePatternData(
-            localeToOrder,
-            "order=surnameFirst; length=short; usage=addressing; formality=formal", "{surname-allCaps} {given}",
-            "length=short; usage=referring; formality=formal", "{given-initial}{given2-initial}{surname-initial}",
-            "length=short; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
-            "length=medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
-            "length=medium; usage=addressing; formality=formal", "{given} {surname}",
-            "length=medium; usage=addressing; formality=formal", "{given} {surname}",
-            "order=givenFirst", "{title} {given} {given2} {surname} {surname2} {credentials}",
-            "order=surnameFirst", "{surname} {surname2} {title} {given} {given2} {credentials}",
-            "order=sorting", "{surname} {surname2}, {title} {given} {given2} {credentials}");
+        NamePatternData namePatternData =
+                new NamePatternData(
+                        localeToOrder,
+                        "order=surnameFirst; length=short; usage=addressing; formality=formal",
+                        "{surname-allCaps} {given}",
+                        "length=short; usage=referring; formality=formal",
+                        "{given-initial}{given2-initial}{surname-initial}",
+                        "length=short; usage=addressing; formality=formal",
+                        "{given} {given2-initial} {surname}",
+                        "length=medium; usage=addressing; formality=formal",
+                        "{given} {given2-initial} {surname}",
+                        "length=medium; usage=addressing; formality=formal",
+                        "{given} {surname}",
+                        "length=medium; usage=addressing; formality=formal",
+                        "{given} {surname}",
+                        "order=givenFirst",
+                        "{title} {given} {given2} {surname} {surname2} {credentials}",
+                        "order=surnameFirst",
+                        "{surname} {surname2} {title} {given} {given2} {credentials}",
+                        "order=sorting",
+                        "{surname} {surname2}, {title} {given} {given2} {credentials}");
 
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
+        PersonNameFormatter personNameFormatter =
+                new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
-        check(personNameFormatter, sampleNameObjectPrefixCore, "length=short; usage=addressing; formality=formal", "Mary van der Beck");
+        check(
+                personNameFormatter,
+                sampleNameObjectPrefixCore,
+                "length=short; usage=addressing; formality=formal",
+                "Mary van der Beck");
 
-        check(personNameFormatter, sampleNameObject1, "length=short; usage=addressing; formality=formal", "John B. Smith");
-        check(personNameFormatter, sampleNameObject2, "length=short; usage=addressing; formality=formal", "John Smith");
-        check(personNameFormatter, sampleNameObject1, "length=long; usage=addressing; formality=formal", "Dr. John Bob Smith Barnes Pascal MD");
-        check(personNameFormatter, sampleNameObject3, "length=short; usage=referring; formality=formal", "J* B*S*");
-        check(personNameFormatter, sampleNameObject4, "order=surnameFirst; length=short; usage=addressing; formality=formal", "ABE Shinzō");
+        check(
+                personNameFormatter,
+                sampleNameObject1,
+                "length=short; usage=addressing; formality=formal",
+                "John B. Smith");
+        check(
+                personNameFormatter,
+                sampleNameObject2,
+                "length=short; usage=addressing; formality=formal",
+                "John Smith");
+        check(
+                personNameFormatter,
+                sampleNameObject1,
+                "length=long; usage=addressing; formality=formal",
+                "Dr. John Bob Smith Barnes Pascal MD");
+        check(
+                personNameFormatter,
+                sampleNameObject3,
+                "length=short; usage=referring; formality=formal",
+                "J* B*S*");
+        check(
+                personNameFormatter,
+                sampleNameObject4,
+                "order=surnameFirst; length=short; usage=addressing; formality=formal",
+                "ABE Shinzō");
     }
 
-    String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
+    String HACK_INITIAL_FORMATTER =
+            "{0}॰"; // use "unusual" period to mark when we are using fallbacks
 
     public void TestNamePatternParserThrowsWhenInvalidPatterns() {
         final String[][] invalidPatterns = {
@@ -152,26 +201,33 @@ public class TestPersonNameFormatter extends TestFmwk{
             {"{}", "Empty field '{}' is not allowed : «{❌}»"},
             {"\\", "Invalid character: : «❌\\»"},
             {"blah {given", "Unmatched {: «blah {given❌»"},
-            {"blah {given\\}", "Unmatched {: «blah {given\\}❌»"},                           /* blah {given\} */
+            {"blah {given\\}", "Unmatched {: «blah {given\\}❌»"}, /* blah {given\} */
             {"blah {given} yadda {}", "Empty field '{}' is not allowed : «blah {given} yadda {❌}»"},
-            {"blah \\n", "Escaping character 'n' is not supported: «blah ❌\\n»"}                                  /* blah \n */
+            {"blah \\n", "Escaping character 'n' is not supported: «blah ❌\\n»"} /* blah \n */
         };
         for (final String[] pattern : invalidPatterns) {
-            assertThrows(String.format("Pattern '%s'", pattern[0]), () -> {
-                NamePattern.from(0, pattern[0]);
-            }, pattern[1]);
+            assertThrows(
+                    String.format("Pattern '%s'", pattern[0]),
+                    () -> {
+                        NamePattern.from(0, pattern[0]);
+                    },
+                    pattern[1]);
         }
     }
 
     public void TestNamePatternParserRountripsValidPattern() {
-        final String[] validPatterns = new String[] {
-            "{given} {given2-initial}. {surname}",
-            "no \\{fields\\} pattern",                  /* no \{fields\} pattern */
-            "{given} \\\\ {surname}"                    /* {given} \\ {surname} */
-        };
+        final String[] validPatterns =
+                new String[] {
+                    "{given} {given2-initial}. {surname}",
+                    "no \\{fields\\} pattern", /* no \{fields\} pattern */
+                    "{given} \\\\ {surname}" /* {given} \\ {surname} */
+                };
         for (final String pattern : validPatterns) {
             NamePattern namePattern = NamePattern.from(0, pattern);
-            assertEquals("Failed to roundtrip valid pattern", String.format("\"%s\"", pattern), namePattern.toString());
+            assertEquals(
+                    "Failed to roundtrip valid pattern",
+                    String.format("\"%s\"", pattern),
+                    namePattern.toString());
         }
     }
 
@@ -179,21 +235,30 @@ public class TestPersonNameFormatter extends TestFmwk{
         if (SHOW) {
             warnln(ENGLISH_NAME_FORMATTER.toString());
         } else {
-            warnln("To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
+            warnln(
+                    "To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
         }
 
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J.B.");
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "Dr. John Bob Smith Jr, MD");
+        check(
+                ENGLISH_NAME_FORMATTER,
+                sampleNameObject1,
+                "order=sorting; length=short",
+                "Smith, J.B.");
+        check(
+                ENGLISH_NAME_FORMATTER,
+                sampleNameObject1,
+                "length=long; usage=referring; formality=formal",
+                "Dr. John Bob Smith Jr, MD");
 
-//        checkFormatterData(ENGLISH_NAME_FORMATTER);
+        //        checkFormatterData(ENGLISH_NAME_FORMATTER);
     }
 
     public static final Joiner JOIN_SPACE = Joiner.on(' ');
 
-
     public void TestFields() {
         Set<String> items = new HashSet<>();
-        for (Set<? extends Enum<?>> set : Arrays.asList(Order.ALL, Length.ALL, Usage.ALL, Formality.ALL)) {
+        for (Set<? extends Enum<?>> set :
+                Arrays.asList(Order.ALL, Length.ALL, Usage.ALL, Formality.ALL)) {
             for (Enum<?> item : set) {
                 boolean added = items.add(item.toString());
                 assertTrue("value names are disjoint", added);
@@ -206,81 +271,105 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (FormatParameters item : FormatParameters.all()) {
             String label = item.toLabel();
             boolean added = items.add(item.toString());
-            assertTrue("label test\t"+ item + "\t" + label + "\t", added);
+            assertTrue("label test\t" + item + "\t" + label + "\t", added);
         }
 
-        FormatParameters testFormatParameters = new FormatParameters(Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
-        assertEquals("label test", "givenFirst-short-referring-formal",
-            testFormatParameters.toLabel());
+        FormatParameters testFormatParameters =
+                new FormatParameters(
+                        Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
+        assertEquals(
+                "label test", "givenFirst-short-referring-formal", testFormatParameters.toLabel());
 
         // test just one example for FormatParameters
-        FormatParameters test = new FormatParameters(Order.sorting, Length.medium, Usage.addressing, Formality.informal);
-        assertEquals("label test", "sorting-medium-addressing-informal",
-            test.toLabel());
+        FormatParameters test =
+                new FormatParameters(
+                        Order.sorting, Length.medium, Usage.addressing, Formality.informal);
+        assertEquals("label test", "sorting-medium-addressing-informal", test.toLabel());
     }
 
     public void TestLiteralTextElision() {
-        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+        ImmutableMap<ULocale, Order> localeToOrder =
+                ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
-        NamePatternData namePatternData = new NamePatternData(
-            localeToOrder,
-            "order=givenFirst", "1{title}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{credentials}6");
+        NamePatternData namePatternData =
+                new NamePatternData(
+                        localeToOrder,
+                        "order=givenFirst",
+                        "1{title}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{credentials}6");
 
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
+        PersonNameFormatter personNameFormatter =
+                new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
-        check(personNameFormatter,
-            SimpleNameObject.from(
-                "locale=en, title=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
-            "length=short; usage=addressing; formality=formal",
-            "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6MD6"
-            );
+        check(
+                personNameFormatter,
+                SimpleNameObject.from(
+                        "locale=en, title=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
+                "length=short; usage=addressing; formality=formal",
+                "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6MD6");
 
-        check(personNameFormatter,
-            SimpleNameObject.from(
-                "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
-            "length=short; usage=addressing; formality=formal",
-            "Bob3 4Smith4 5Barnes Pascal5 6MD6"
-            );
+        check(
+                personNameFormatter,
+                SimpleNameObject.from(
+                        "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
+                "length=short; usage=addressing; formality=formal",
+                "Bob3 4Smith4 5Barnes Pascal5 6MD6");
 
-        check(personNameFormatter,
-            SimpleNameObject.from(
-                "locale=en, title=Mr., given=John, given2= Bob, surname=Smith"),
-            "length=short; usage=addressing; formality=formal",
-            "1Mr.1 2John2 3Bob3 4Smith"
-            );
+        check(
+                personNameFormatter,
+                SimpleNameObject.from(
+                        "locale=en, title=Mr., given=John, given2= Bob, surname=Smith"),
+                "length=short; usage=addressing; formality=formal",
+                "1Mr.1 2John2 3Bob3 4Smith");
 
-        check(personNameFormatter,
-            SimpleNameObject.from(
-                "locale=en, title=Mr., surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
-            "length=short; usage=addressing; formality=formal",
-            "1Mr.1 4Smith4 5Barnes Pascal5 6MD6"
-            );
+        check(
+                personNameFormatter,
+                SimpleNameObject.from(
+                        "locale=en, title=Mr., surname=Smith, surname2= Barnes Pascal, generation=Jr, credentials=MD"),
+                "length=short; usage=addressing; formality=formal",
+                "1Mr.1 4Smith4 5Barnes Pascal5 6MD6");
 
-        check(personNameFormatter,
-            SimpleNameObject.from(
-                "locale=en, given=John, surname=Smith"),
-            "length=short; usage=addressing; formality=formal",
-            "John2 4Smith"
-            );
+        check(
+                personNameFormatter,
+                SimpleNameObject.from("locale=en, given=John, surname=Smith"),
+                "length=short; usage=addressing; formality=formal",
+                "John2 4Smith");
     }
 
     public void TestLiteralTextElisionNoSpaces() {
 
         // Also used to generate examples in the user guide
 
-        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+        ImmutableMap<ULocale, Order> localeToOrder =
+                ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
-        NamePatternData namePatternData2 = new NamePatternData(
-            localeToOrder,
-            "order=givenFirst",     "¹{title}₁²{given}₂³{given2}₃⁴{surname}₄⁵{surname2}₅⁶{credentials}₆",
-            "order=surnameFirst",   "¹{surname-allCaps}₁²{surname2}₂³{title}₃⁴{given}₄⁵{given2}₅⁶{credentials}₆",
-            "order=sorting",        "¹{surname}₁²{surname2},³{title}₃⁴{given}₄⁵{given2}₅⁶{credentials}₆");
+        NamePatternData namePatternData2 =
+                new NamePatternData(
+                        localeToOrder,
+                        "order=givenFirst",
+                        "¹{title}₁²{given}₂³{given2}₃⁴{surname}₄⁵{surname2}₅⁶{credentials}₆",
+                        "order=surnameFirst",
+                        "¹{surname-allCaps}₁²{surname2}₂³{title}₃⁴{given}₄⁵{given2}₅⁶{credentials}₆",
+                        "order=sorting",
+                        "¹{surname}₁²{surname2},³{title}₃⁴{given}₄⁵{given2}₅⁶{credentials}₆");
 
-        PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+        PersonNameFormatter personNameFormatter2 =
+                new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
 
-        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂³₃⁴Smith"); // TODO Rich, make ₁²Mary₂³₃⁴Smith₄ or we change desc.
-        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁²₃⁴Mary"); // similar
-        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁²₃⁴Mary"); //  TODO RICH should be ¹Smith,³₃⁴Mary₄
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=givenFirst",
+                "Mary₂³₃⁴Smith"); // TODO Rich, make ₁²Mary₂³₃⁴Smith₄ or we change desc.
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=surnameFirst",
+                "¹SMITH₁²₃⁴Mary"); // similar
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=sorting",
+                "¹Smith₁²₃⁴Mary"); //  TODO RICH should be ¹Smith,³₃⁴Mary₄
     }
 
     public void TestLiteralTextElisionSpaces() {
@@ -296,40 +385,58 @@ public class TestPersonNameFormatter extends TestFmwk{
             System.out.println("[" + patternNoSpaces.replace("}", "}[").replace("{", "]{") + "]");
         }
 
-        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+        ImmutableMap<ULocale, Order> localeToOrder =
+                ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
-        NamePatternData namePatternData2 = new NamePatternData(
-            localeToOrder,
-            "order=givenFirst",     "¹{title}₁ ²{given}₂ ³{given2}₃ ⁴{surname}₄ ⁵{surname2}₅ ⁶{credentials}₆",
-            "order=surnameFirst",   "¹{surname-allCaps}₁ ²{surname2}₂ ₃{title}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{credentials}₆",
-            "order=sorting",        "¹{surname}₁ ²{surname2}, ₃{title}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{credentials}₆");
+        NamePatternData namePatternData2 =
+                new NamePatternData(
+                        localeToOrder,
+                        "order=givenFirst",
+                        "¹{title}₁ ²{given}₂ ³{given2}₃ ⁴{surname}₄ ⁵{surname2}₅ ⁶{credentials}₆",
+                        "order=surnameFirst",
+                        "¹{surname-allCaps}₁ ²{surname2}₂ ₃{title}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{credentials}₆",
+                        "order=sorting",
+                        "¹{surname}₁ ²{surname2}, ₃{title}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{credentials}₆");
 
-        PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+        PersonNameFormatter personNameFormatter2 =
+                new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
 
-        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂ ⁴Smith"); // TODO Rich to make ²Mary₂ ⁴Smith₄ (or we change desc.
-        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁ ⁴Mary"); // similar
-        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁ ⁴Mary"); //  TODO RICH should be ¹Smith, ⁴Mary₄
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=givenFirst",
+                "Mary₂ ⁴Smith"); // TODO Rich to make ²Mary₂ ⁴Smith₄ (or we change desc.
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=surnameFirst",
+                "¹SMITH₁ ⁴Mary"); // similar
+        check(
+                personNameFormatter2,
+                sampleNameObject5,
+                "order=sorting",
+                "¹Smith₁ ⁴Mary"); //  TODO RICH should be ¹Smith, ⁴Mary₄
 
         // TODO Rich: The behavior is not quite what I describe in the guide.
-        // Example: ²{given}₂ means that ² and ₂ "belong to" Mary, so the results should have ²Mary₂.
+        // Example: ²{given}₂ means that ² and ₂ "belong to" Mary, so the results should have
+        // ²Mary₂.
         //  But the 2's are being removed except for very leading/trailing fields.
         //  So we need to decide whether the code needs to change or the description does.
         //  Same for no spaces: we should decide what the desired behavior is.
     }
 
-//    private <T> Set<T> removeFirst(Set<T> all) {
-//        Set<T> result = new LinkedHashSet<>(all);
-//        T first = all.iterator().next();
-//        result.remove(first);
-//        return result;
-//    }
+    //    private <T> Set<T> removeFirst(Set<T> all) {
+    //        Set<T> result = new LinkedHashSet<>(all);
+    //        T first = all.iterator().next();
+    //        result.remove(first);
+    //        return result;
+    //    }
 
     private void assertThrows(String subject, Runnable code, String expectedMessage) {
         try {
             code.run();
             fail(String.format("%s was supposed to throw an exception.", subject));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assertEquals(subject + " threw exception as expected", expectedMessage, e.getMessage());
         }
     }
@@ -344,13 +451,16 @@ public class TestPersonNameFormatter extends TestFmwk{
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
                 "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
-            },{
+            },
+            {
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
                 "〖<i>🟨 Native name and script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
-            },{
+            },
+            {
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
-            },{
+            },
+            {
                 "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
                 "〖ja = Japanese〗〖ko = Korean〗〖vi = Vietnamese〗〖yue = Cantonese〗〖zh = Chinese〗"
             }
@@ -373,7 +483,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         };
         ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);
 
-
         // next test that the example generator returns non-null for all expected cases
 
         for (String localeId : Arrays.asList("en")) {
@@ -385,17 +494,20 @@ public class TestPersonNameFormatter extends TestFmwk{
                     String value = ENGLISH.getStringValue(path);
                     String example = exampleGenerator2.getExampleHtml(path, value);
                     String actual = ExampleGenerator.simplify(example);
-                    switch(parts.getElement(2)) {
-                    case "initialPattern":
-                    case "sampleName":
-                        // expect null
-                        break;
-                    case "nameOrderLocales":
-                    case "personName":
-                        if (!assertNotNull("Locale " + localeId + " example for " + value, actual)) {
-                            example = exampleGenerator.getExampleHtml(path, value); // redo for debugging
-                        }
-                        break;
+                    switch (parts.getElement(2)) {
+                        case "initialPattern":
+                        case "sampleName":
+                            // expect null
+                            break;
+                        case "nameOrderLocales":
+                        case "personName":
+                            if (!assertNotNull(
+                                    "Locale " + localeId + " example for " + value, actual)) {
+                                example =
+                                        exampleGenerator.getExampleHtml(
+                                                path, value); // redo for debugging
+                            }
+                            break;
                     }
                 }
             }
@@ -413,12 +525,16 @@ public class TestPersonNameFormatter extends TestFmwk{
         return exampleGenerator;
     }
 
-    private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
+    private void checkExampleGenerator(
+            ExampleGenerator exampleGenerator, String path, String value, String expected) {
         final String example = exampleGenerator.getExampleHtml(path, value);
         String actual = ExampleGenerator.simplify(example);
         expected = stripForeignExample(expected);
         actual = stripForeignExample(actual);
-        if (!assertEquals(exampleGenerator.getCldrFile().getLocaleID() + " example for " + value, expected, actual)) {
+        if (!assertEquals(
+                exampleGenerator.getCldrFile().getLocaleID() + " example for " + value,
+                expected,
+                actual)) {
             int debug = 0;
         }
     }
@@ -431,8 +547,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestForeignNonSpacingNames() {
         Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(jaCldrFile);
         SimpleNameObject name = names.get(SampleType.foreignGS);
-        assertEquals("albert", "アルベルト", name.getBestValue(ModifiedField.from("given"), new HashSet<>()));
-        assertEquals("einstein", "アインシュタイン", name.getBestValue(ModifiedField.from("surname"), new HashSet<>()));
+        assertEquals(
+                "albert", "アルベルト", name.getBestValue(ModifiedField.from("given"), new HashSet<>()));
+        assertEquals(
+                "einstein",
+                "アインシュタイン",
+                name.getBestValue(ModifiedField.from("surname"), new HashSet<>()));
     }
 
     public void TestExampleDependencies() {
@@ -461,30 +581,38 @@ public class TestPersonNameFormatter extends TestFmwk{
         // First test the example for the regular value
 
         ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH);
-        String path = checkPath("//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
+        String path =
+                checkPath(
+                        "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
         String value2 = enWritable.getStringValue(path); // check that English is as expected
-        assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
+        assertEquals(
+                path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
+        String expected =
+                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
 
         // Then change one of the sample names to make sure it alters the example correctly
 
-        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]");
+        String namePath =
+                checkPath(
+                        "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]");
         String value3 = enWritable.getStringValue(namePath);
         assertEquals(namePath, "Irene", value3); // check that English is as expected
 
         enWritable.add(namePath, "IRENE2");
         exampleGenerator.updateCache(namePath);
 
-        String expectedIRENE =  "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
+        String expectedIRENE =
+                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
     }
 
     private String checkPath(String path) {
-        assertEquals("Path is in canonical form", XPathParts.getFrozenInstance(path).toString(), path);
+        assertEquals(
+                "Path is in canonical form", XPathParts.getFrozenInstance(path).toString(), path);
         return path;
     }
 
@@ -495,18 +623,28 @@ public class TestPersonNameFormatter extends TestFmwk{
         // Cycle through parameter combinations, check for exceptions even if locale has no data
 
         for (FormatParameters parameters : FormatParameters.all()) {
-            assertNotNull(SampleType.foreignFull + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.foreignFull), parameters));
-            assertNotNull(SampleType.nativeGGS + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.nativeGGS), parameters));
+            assertNotNull(
+                    SampleType.foreignFull + " + " + parameters.toLabel(),
+                    personNameFormatter.format(
+                            ENGLISH_SAMPLES.get(SampleType.foreignFull), parameters));
+            assertNotNull(
+                    SampleType.nativeGGS + " + " + parameters.toLabel(),
+                    personNameFormatter.format(
+                            ENGLISH_SAMPLES.get(SampleType.nativeGGS), parameters));
             Collection<NamePattern> nps = personNameFormatter.getBestMatchSet(parameters);
             if (sb != null) {
                 for (NamePattern np : nps) {
-                    sb.append(parameters.getOrder()
-                        + "\t" + parameters.getLength()
-                        + "\t" + parameters.getUsage()
-                        + "\t" + parameters.getFormality()
-                        + "\t" + np
-                        + "\n"
-                        );
+                    sb.append(
+                            parameters.getOrder()
+                                    + "\t"
+                                    + parameters.getLength()
+                                    + "\t"
+                                    + parameters.getUsage()
+                                    + "\t"
+                                    + parameters.getFormality()
+                                    + "\t"
+                                    + np
+                                    + "\n");
                 }
             }
         }
@@ -517,7 +655,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     // public void TestInvalidNameObjectThrows() {
     //    final String[][] invalidPatterns = {
-    //        {"given2-initial=B","Every field must have a completely modified value given2={[initial]=B}"}
+    //        {"given2-initial=B","Every field must have a completely modified value
+    // given2={[initial]=B}"}
     //    };
     //    for (final String[] pattern : invalidPatterns) {
     //        assertThrows("Invalid Name object: " + pattern,
@@ -527,27 +666,33 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestEnglishComma() {
         boolean messageShown = false;
-        for (Entry<FormatParameters, NamePattern> matcherAndPattern : ENGLISH_NAME_FORMATTER.getNamePatternData().getMatcherToPatterns().entries()) {
+        for (Entry<FormatParameters, NamePattern> matcherAndPattern :
+                ENGLISH_NAME_FORMATTER.getNamePatternData().getMatcherToPatterns().entries()) {
             FormatParameters parameterMatcher = matcherAndPattern.getKey();
             NamePattern namePattern = matcherAndPattern.getValue();
 
             Set<Field> fields = namePattern.getFields();
 
-            boolean givenAndSurname = (fields.contains(Field.given) || fields.contains(Field.given2))
-                && (fields.contains(Field.surname) || fields.contains(Field.surname2));
+            boolean givenAndSurname =
+                    (fields.contains(Field.given) || fields.contains(Field.given2))
+                            && (fields.contains(Field.surname) || fields.contains(Field.surname2));
 
-            boolean commaRequired = givenAndSurname
-                && parameterMatcher.matchesOrder(Order.sorting)
-                || fields.contains(Field.credentials)
-//                && !parameterMatcher.matchesUsage(Usage.monogram)
-                ;
+            boolean commaRequired =
+                    givenAndSurname && parameterMatcher.matchesOrder(Order.sorting)
+                            || fields.contains(Field.credentials)
+                    //                && !parameterMatcher.matchesUsage(Usage.monogram)
+                    ;
 
             boolean hasComma = namePattern.firstLiteralContaining(",") != null;
 
-            if (!assertEquals("Comma right?\t" + parameterMatcher + " ➡︎ " + namePattern + "\t", commaRequired, hasComma)) {
+            if (!assertEquals(
+                    "Comma right?\t" + parameterMatcher + " ➡︎ " + namePattern + "\t",
+                    commaRequired,
+                    hasComma)) {
                 if (!messageShown) {
-                    System.out.println("\t\tNOTE: In English, comma is required IFF the pattern has both given and surname, "
-                        + "and order has sorting, and usage is not monogram");
+                    System.out.println(
+                            "\t\tNOTE: In English, comma is required IFF the pattern has both given and surname, "
+                                    + "and order has sorting, and usage is not monogram");
                     messageShown = true;
                 }
             }
@@ -558,36 +703,51 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (SampleType sampleType : SampleType.ALL) {
             for (String modifiedField : ModifiedField.ALL_SAMPLES) {
                 Optionality optionality = sampleType.getOptionality(modifiedField);
-                Optionality expected = sampleType.getRequiredFields().contains(modifiedField) ? Optionality.required
-                    : sampleType.getAllFields().contains(modifiedField) ? Optionality.optional
-                        : Optionality.disallowed;
+                Optionality expected =
+                        sampleType.getRequiredFields().contains(modifiedField)
+                                ? Optionality.required
+                                : sampleType.getAllFields().contains(modifiedField)
+                                        ? Optionality.optional
+                                        : Optionality.disallowed;
                 assertEquals(sampleType + "/" + modifiedField, expected, optionality);
             }
         }
     }
 
     public void TestFallbackFormatter() {
-        FormatParameters testFormatParameters = new FormatParameters(Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
+        FormatParameters testFormatParameters =
+                new FormatParameters(
+                        Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
         final FallbackFormatter fallbackInfo = ENGLISH_NAME_FORMATTER.getFallbackInfo();
         for (Modifier m : Modifier.ALL) {
-            String actual = fallbackInfo.applyModifierFallbacks(testFormatParameters, ImmutableSet.of(m), "van Berk");
+            String actual =
+                    fallbackInfo.applyModifierFallbacks(
+                            testFormatParameters, ImmutableSet.of(m), "van Berk");
             String expected;
-            switch(m) {
-            case allCaps:
-                expected = "VAN BERK"; break;
-            case initial:
-                expected = "v.B."; break;
-            case initialCap:
-                expected = "Van Berk"; break;
-            case monogram:
-                expected = "v"; break;
-            case prefix:
-                expected = null; break;
-            case informal:
-                expected = "van Berk"; break;
-            case core:
-                expected = "van Berk"; break; // TODO fix core
-            default: throw new IllegalArgumentException("Need to add modifier test for " + m);
+            switch (m) {
+                case allCaps:
+                    expected = "VAN BERK";
+                    break;
+                case initial:
+                    expected = "v.B.";
+                    break;
+                case initialCap:
+                    expected = "Van Berk";
+                    break;
+                case monogram:
+                    expected = "v";
+                    break;
+                case prefix:
+                    expected = null;
+                    break;
+                case informal:
+                    expected = "van Berk";
+                    break;
+                case core:
+                    expected = "van Berk";
+                    break; // TODO fix core
+                default:
+                    throw new IllegalArgumentException("Need to add modifier test for " + m);
             }
             assertEquals(m.toString(), expected, actual);
         }
@@ -597,10 +757,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] expectedFailures = {
             {"allCaps", "initialCap", "Inconsistent modifiers: [allCaps, initialCap]"},
             {"initial", "monogram", "Inconsistent modifiers: [initial, monogram]"},
-            {"prefix", "core","Inconsistent modifiers: [core, prefix]"},
+            {"prefix", "core", "Inconsistent modifiers: [core, prefix]"},
         };
         for (Modifier first : Modifier.ALL) {
-            for (Modifier second: Modifier.ALL) {
+            for (Modifier second : Modifier.ALL) {
                 if (first.compareTo(second) > 0) {
                     continue;
                 }
@@ -609,9 +769,7 @@ public class TestPersonNameFormatter extends TestFmwk{
                     expected = "Duplicate modifiers: " + first;
                 }
                 for (String[] row : expectedFailures) {
-                    if (first ==  Modifier.valueOf(row[0])
-                        && second ==  Modifier.valueOf(row[1])
-                        ) {
+                    if (first == Modifier.valueOf(row[0]) && second == Modifier.valueOf(row[1])) {
                         expected = row[2];
                     }
                 }
@@ -626,12 +784,27 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestInconsistentNameValues() {
         String[][] expectedFailures = {
-            {"van", "Berg", "van Wolf", "-core value and -prefix value are inconsistent with plain value"},
+            {
+                "van",
+                "Berg",
+                "van Wolf",
+                "-core value and -prefix value are inconsistent with plain value"
+            },
             {"van", null, "van Berg", "cannot have -prefix without -core"},
             {"van", null, "van Wolf", "cannot have -prefix without -core"},
             {"van", null, null, "cannot have -prefix without -core"},
-            {null, "Berg", "van Berg", "There is no -prefix, but there is a -core and plain that are unequal"},
-            {null, "Berg", "van Wolf", "There is no -prefix, but there is a -core and plain that are unequal"},
+            {
+                null,
+                "Berg",
+                "van Berg",
+                "There is no -prefix, but there is a -core and plain that are unequal"
+            },
+            {
+                null,
+                "Berg",
+                "van Wolf",
+                "There is no -prefix, but there is a -core and plain that are unequal"
+            },
         };
 
         for (String prefix : Arrays.asList("van", null)) {
@@ -641,13 +814,20 @@ public class TestPersonNameFormatter extends TestFmwk{
                     String expected = null;
                     for (String[] row : expectedFailures) {
                         if (Objects.equal(prefix, row[0])
-                            && Objects.equal(core, row[1])
-                            && Objects.equal(plain, row[2])
-                            ) {
+                                && Objects.equal(core, row[1])
+                                && Objects.equal(plain, row[2])) {
                             expected = row[3];
                         }
                     }
-                    assertEquals("Name values consistent: title=" + prefix + ", core=" + core + ", plain=" + plain, expected, check);
+                    assertEquals(
+                            "Name values consistent: title="
+                                    + prefix
+                                    + ", core="
+                                    + core
+                                    + ", plain="
+                                    + plain,
+                            expected,
+                            check);
                 }
             }
         }
@@ -666,16 +846,24 @@ public class TestPersonNameFormatter extends TestFmwk{
             String expectedErrors = row[1];
             String expectedResults = row[2];
             resultSet.clear();
-            Set<String> errors = CheckPlaceHolders.checkForErrorsAndGetLocales(null, localeList, resultSet);
-            assertEquals("The error-returns match", expectedErrors, errors == null ? "" : Joiner.on(' ').join(errors));
+            Set<String> errors =
+                    CheckPlaceHolders.checkForErrorsAndGetLocales(null, localeList, resultSet);
+            assertEquals(
+                    "The error-returns match",
+                    expectedErrors,
+                    errors == null ? "" : Joiner.on(' ').join(errors));
             assertEquals("The results match", expectedResults, Joiner.on(' ').join(resultSet));
         }
     }
 
     static class CheckAccessorStub implements CheckAccessor {
-        public enum Resolution {resolvedAndUnresolved, onlyResolved}
-        final Map<String,String> resolvedMap = new TreeMap<>();
-        final Map<String,String> unresolvedMap = new TreeMap<>();
+        public enum Resolution {
+            resolvedAndUnresolved,
+            onlyResolved
+        }
+
+        final Map<String, String> resolvedMap = new TreeMap<>();
+        final Map<String, String> unresolvedMap = new TreeMap<>();
         private String localeID;
 
         public CheckAccessorStub(String localeID) {
@@ -722,7 +910,13 @@ public class TestPersonNameFormatter extends TestFmwk{
         @Override
         public String toString() {
             // TODO Auto-generated method stub
-            return "{locale=" + localeID + ", resolved: " + resolvedMap  + ", unresolved: " + unresolvedMap + "}";
+            return "{locale="
+                    + localeID
+                    + ", resolved: "
+                    + resolvedMap
+                    + ", unresolved: "
+                    + unresolvedMap
+                    + "}";
         }
     }
 
@@ -737,19 +931,30 @@ public class TestPersonNameFormatter extends TestFmwk{
         return returnValue.toString();
     }
 
-    final String initialSequencePattern = "//ldml/personNames/initialPattern[@type=\"initialSequence\"]";
+    final String initialSequencePattern =
+            "//ldml/personNames/initialPattern[@type=\"initialSequence\"]";
     final String initialPattern = "//ldml/personNames/initialPattern[@type=\"initial\"]";
 
-    /**
-     * Check for overlapping initial patterns
-     * */
+    /** Check for overlapping initial patterns */
     public void TestCheckInitials() {
         List<CheckStatus> results = new ArrayList<>();
         String[][] tests = {
             // initial, initialSequence, expected-error due to conflict between them
-            {"{0}.", "{0}.{1}.", "Error: The initialSequence pattern must not contain initial pattern literals: «.»"},
-            {"{0}:", "{0}.{1}:", "Error: The initialSequence pattern must not contain initial pattern literals: «:»"},
-            {"{0}:", "{0}.{1}.", "Warning: Non-space characters are discouraged in the initialSequence pattern: «..»"},
+            {
+                "{0}.",
+                "{0}.{1}.",
+                "Error: The initialSequence pattern must not contain initial pattern literals: «.»"
+            },
+            {
+                "{0}:",
+                "{0}.{1}:",
+                "Error: The initialSequence pattern must not contain initial pattern literals: «:»"
+            },
+            {
+                "{0}:",
+                "{0}.{1}.",
+                "Warning: Non-space characters are discouraged in the initialSequence pattern: «..»"
+            },
             {"{0}", "{0} {1}", ""},
             {"{0}", "{0}{1}", ""},
         };
@@ -759,12 +964,11 @@ public class TestPersonNameFormatter extends TestFmwk{
             String initial = row[0];
             String initialSequence = row[1];
             String expectedErrors = row[2];
-            CheckAccessorStub stub = new CheckAccessorStub("fr")
-                .put(initialPattern, initial)
-                ;
+            CheckAccessorStub stub = new CheckAccessorStub("fr").put(initialPattern, initial);
 
             results.clear();
-            CheckPlaceHolders.checkInitialPattern(stub, initialSequencePattern, initialSequence, results);
+            CheckPlaceHolders.checkInitialPattern(
+                    stub, initialSequencePattern, initialSequence, results);
             assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
         }
     }
@@ -797,8 +1001,14 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestCheckNameOrderLocales() {
         String[][] tests = {
-            // givenFirst-locales, surnameFirst-locales, givenFirstValueErrors, surnameFirstValueErrors
-            {"und fr", "fr", "Error: Locale codes can occur only once: fr", "Error: Locale codes can occur only once: fr"},
+            // givenFirst-locales, surnameFirst-locales, givenFirstValueErrors,
+            // surnameFirstValueErrors
+            {
+                "und fr",
+                "fr",
+                "Error: Locale codes can occur only once: fr",
+                "Error: Locale codes can occur only once: fr"
+            },
             {"und zzz", "fr", "Error: Invalid locales: zzz", ""},
             {"und $", "fr", "Error: Invalid locales: $", ""},
             {"und fr", "", "", ""},
@@ -811,26 +1021,34 @@ public class TestPersonNameFormatter extends TestFmwk{
             String surnameFirst = row[1];
             String expectedGivenErrors = row[2];
             String expectedSurnameErrors = row[3];
-            CheckAccessorStub stub = new CheckAccessorStub("fr")
-                .put(givenFirstPath, givenFirst)
-                .put(surnameFirstPath, surnameFirst)
-                ;
+            CheckAccessorStub stub =
+                    new CheckAccessorStub("fr")
+                            .put(givenFirstPath, givenFirst)
+                            .put(surnameFirstPath, surnameFirst);
             results.clear();
             CheckPlaceHolders.checkNameOrder(stub, givenFirstPath, givenFirst, results);
-            assertEquals(i + ") Matching error returns", expectedGivenErrors, joinCheckStatus(results));
+            assertEquals(
+                    i + ") Matching error returns", expectedGivenErrors, joinCheckStatus(results));
 
             results.clear();
             CheckPlaceHolders.checkNameOrder(stub, surnameFirstPath, surnameFirst, results);
-            assertEquals(i + ") Matching error returns", expectedSurnameErrors, joinCheckStatus(results));
+            assertEquals(
+                    i + ") Matching error returns",
+                    expectedSurnameErrors,
+                    joinCheckStatus(results));
         }
     }
 
-    final String sampleNamePath = "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given\"]";
+    final String sampleNamePath =
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given\"]";
 
     public void TestCheckSampleNames() {
         String[][] tests = {
             // sample-name-component, error
-            {LocaleNames.ZXX, "Error: Illegal name field; zxx is only appropriate for NameOrder locales"},
+            {
+                LocaleNames.ZXX,
+                "Error: Illegal name field; zxx is only appropriate for NameOrder locales"
+            },
             {"Fred", ""},
         };
         List<CheckStatus> results = new ArrayList<>();
@@ -840,42 +1058,49 @@ public class TestPersonNameFormatter extends TestFmwk{
             ++i;
             String sampleNameComponent = row[0];
             String expectedErrors = row[1];
-            CheckAccessorStub stub = new CheckAccessorStub("fr")
-                .put(sampleNamePath, sampleNameComponent)
-                ;
+            CheckAccessorStub stub =
+                    new CheckAccessorStub("fr").put(sampleNamePath, sampleNameComponent);
             results.clear();
             CheckPlaceHolders.checkSampleNames(stub, parts, sampleNameComponent, results);
             assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
         }
     }
 
-    final String sampleMonogramPath = "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern";
-    final String sampleNonMonogramPath = "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/namePattern";
+    final String sampleMonogramPath =
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern";
+    final String sampleNonMonogramPath =
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/namePattern";
 
     public void TestCheckPatterns() {
         String[][] tests = {
             // sample-pattern, errorWhenMonogram, errorWhenNonMonogram
-            {"{title} {given-monogram-allCaps}",
+            {
+                "{title} {given-monogram-allCaps}",
                 "Error: Disallowed when usage=monogram: {title…}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {given-allCaps-monogram}"
             },
-            {"{given-informal-initial}.",
+            {
+                "{given-informal-initial}.",
                 "Error: -monogram is required when usage=monogram, in {given-informal-initial}|Warning: “.” is discouraged when usage=monogram, in \"{given-informal-initial}.\"",
                 ""
             },
-            {"{surname-monogram}",
+            {
+                "{surname-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram}"
             },
-            {"{surname-core-monogram-allCaps}",
+            {
+                "{surname-core-monogram-allCaps}",
                 "",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-allCaps-monogram-core}"
             },
-            {"{surname-core-monogram}",
+            {
+                "{surname-core-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram-core}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram-core}"
             },
-            {"{given}.{surname}",
+            {
+                "{given}.{surname}",
                 "Error: -monogram is required when usage=monogram, in {given}|Warning: “.” is discouraged when usage=monogram, in \"{given}.{surname}\"|Error: -monogram is required when usage=monogram, in {surname}",
                 ""
             },
@@ -889,22 +1114,31 @@ public class TestPersonNameFormatter extends TestFmwk{
             String samplePattern = row[0];
             String expectedMonogramErrors = row[1];
             String expectedNonMonogramErrors = row.length < 3 ? row[1] : row[2];
-            CheckAccessorStub stub = new CheckAccessorStub("fr")
-                .put(sampleMonogramPath, samplePattern)
-                .put(sampleNonMonogramPath, samplePattern)
-                ;
+            CheckAccessorStub stub =
+                    new CheckAccessorStub("fr")
+                            .put(sampleMonogramPath, samplePattern)
+                            .put(sampleNonMonogramPath, samplePattern);
             results.clear();
-            CheckPlaceHolders.checkPersonNamePatterns(stub, sampleMonogramPath, monogramPathParts, samplePattern, results);
-            assertEquals(i + ") monogram, " + samplePattern, expectedMonogramErrors, joinCheckStatus(results));
+            CheckPlaceHolders.checkPersonNamePatterns(
+                    stub, sampleMonogramPath, monogramPathParts, samplePattern, results);
+            assertEquals(
+                    i + ") monogram, " + samplePattern,
+                    expectedMonogramErrors,
+                    joinCheckStatus(results));
             results.clear();
-            CheckPlaceHolders.checkPersonNamePatterns(stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
-            assertEquals(i + ") non-monogram, " + samplePattern, expectedNonMonogramErrors, joinCheckStatus(results));
+            CheckPlaceHolders.checkPersonNamePatterns(
+                    stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
+            assertEquals(
+                    i + ") non-monogram, " + samplePattern,
+                    expectedNonMonogramErrors,
+                    joinCheckStatus(results));
         }
     }
 
     public void TestAll() {
         for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
-            if (Level.MODERN != StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale)) {
+            if (Level.MODERN
+                    != StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale)) {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
@@ -913,24 +1147,38 @@ public class TestPersonNameFormatter extends TestFmwk{
                 continue;
             }
             PersonNameFormatter formatter = new PersonNameFormatter(cldrFile);
-            String initialPatternSequence = cldrFile.getStringValue("//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
+            String initialPatternSequence =
+                    cldrFile.getStringValue(
+                            "//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
             final String initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
 
             NamePatternData namePatternData = formatter.getNamePatternData();
             Set<NamePattern> seen = new HashSet<>();
-            final ImmutableCollection<Entry<FormatParameters, NamePattern>> entries = namePatternData.getMatcherToPatterns().entries();
+            final ImmutableCollection<Entry<FormatParameters, NamePattern>> entries =
+                    namePatternData.getMatcherToPatterns().entries();
             for (Entry<FormatParameters, NamePattern> entry2 : entries) {
                 NamePattern pattern = entry2.getValue();
                 if (!seen.contains(pattern)) {
                     seen.add(pattern);
-                    ArrayList<List<String>> failures = pattern.findInitialFailures(initialSeparator);
-                    failures.forEach(x -> errln(
-                        "Conflict with initial pattern:\t" + locale
-                        + "\t«" + initialPatternSequence + "»"
-                        + "\t{" + x.get(0) + "}"
-                        + "\t«" + x.get(1) + "»"
-                        + "\t{" + x.get(2) + "}"
-                        ));
+                    ArrayList<List<String>> failures =
+                            pattern.findInitialFailures(initialSeparator);
+                    failures.forEach(
+                            x ->
+                                    errln(
+                                            "Conflict with initial pattern:\t"
+                                                    + locale
+                                                    + "\t«"
+                                                    + initialPatternSequence
+                                                    + "»"
+                                                    + "\t{"
+                                                    + x.get(0)
+                                                    + "}"
+                                                    + "\t«"
+                                                    + x.get(1)
+                                                    + "»"
+                                                    + "\t{"
+                                                    + x.get(2)
+                                                    + "}"));
                 }
             }
             Multimap<String, FormatParameters> formattedToParameters = TreeMultimap.create();
@@ -945,46 +1193,74 @@ public class TestPersonNameFormatter extends TestFmwk{
                     String result = formatter.format(nameObject, parameters);
                     formattedToParameters.put(result, parameters);
                 }
-                for (Entry<String, Collection<FormatParameters>> entry2 : formattedToParameters.asMap().entrySet()) {
-                    final Set<String> shortSet = entry2.getValue().stream().map(x -> x.abbreviated()).collect(Collectors.toSet());
-                    logln("\t" + locale
-                        + "\t" + sampleType
-                        + "\t" + entry2.getKey()
-                        + "\t" + shortSet);
+                for (Entry<String, Collection<FormatParameters>> entry2 :
+                        formattedToParameters.asMap().entrySet()) {
+                    final Set<String> shortSet =
+                            entry2.getValue().stream()
+                                    .map(x -> x.abbreviated())
+                                    .collect(Collectors.toSet());
+                    logln(
+                            "\t"
+                                    + locale
+                                    + "\t"
+                                    + sampleType
+                                    + "\t"
+                                    + entry2.getKey()
+                                    + "\t"
+                                    + shortSet);
                 }
             }
         }
     }
 
     public void TestSupplementalConsistency() {
-        Multimap<Order, String> defaultOrderToString = CONFIG.getSupplementalDataInfo().getPersonNameOrder();
+        Multimap<Order, String> defaultOrderToString =
+                CONFIG.getSupplementalDataInfo().getPersonNameOrder();
         Multimap<Order, String> orderToString = TreeMultimap.create();
-        final Set<String> defaultSurnameFirst = ImmutableSet.copyOf(defaultOrderToString.get(Order.surnameFirst));
+        final Set<String> defaultSurnameFirst =
+                ImmutableSet.copyOf(defaultOrderToString.get(Order.surnameFirst));
         for (String locale : factory.getAvailableLanguages()) {
             CLDRFile cldrFile = factory.make(locale, false);
             getValues(cldrFile, locale, Order.givenFirst, orderToString);
-            List<String> surnameItems = getValues(cldrFile, locale, Order.surnameFirst, orderToString);
+            List<String> surnameItems =
+                    getValues(cldrFile, locale, Order.surnameFirst, orderToString);
             // Check that a locale doesn't list a non-surname.
             // Might not be an issue, but need to review and make an exception set if ok.
             if (!defaultSurnameFirst.containsAll(surnameItems))
                 warnln(defaultSurnameFirst + " ⊉ " + surnameItems);
         }
-        assertEquals(Order.givenFirst.toString(), Collections.singletonList("und"), defaultOrderToString.get(Order.givenFirst));
-        // If this test fails, it is usally an indication that a new surnameFirst locale has been added,
+        assertEquals(
+                Order.givenFirst.toString(),
+                Collections.singletonList("und"),
+                defaultOrderToString.get(Order.givenFirst));
+        // If this test fails, it is usally an indication that a new surnameFirst locale has been
+        // added,
         // but the supplemental data hasn't been updated.
-        assertEquals(Order.surnameFirst.toString(), orderToString.get(Order.surnameFirst), new TreeSet<>(defaultSurnameFirst));
+        assertEquals(
+                Order.surnameFirst.toString(),
+                orderToString.get(Order.surnameFirst),
+                new TreeSet<>(defaultSurnameFirst));
     }
 
     private static Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
 
-    public List<String> getValues(CLDRFile cldrFile, String locale, Order order, Multimap<Order, String> orderToString) {
-        String givenFirstLocales = cldrFile.getStringValue("//ldml/personNames/nameOrderLocales[@order=\""
-            + order
-            + "\"]");
+    public List<String> getValues(
+            CLDRFile cldrFile, String locale, Order order, Multimap<Order, String> orderToString) {
+        String givenFirstLocales =
+                cldrFile.getStringValue(
+                        "//ldml/personNames/nameOrderLocales[@order=\"" + order + "\"]");
         if (givenFirstLocales != null && !givenFirstLocales.equals("↑↑↑")) {
             List<String> locales = SPLIT_SPACE.splitToList(givenFirstLocales);
             orderToString.putAll(order, locales);
-            logln("Checking\t" + locale + "\t" + ENGLISH.getName(locale) + "\t" + order + "\t" + givenFirstLocales);
+            logln(
+                    "Checking\t"
+                            + locale
+                            + "\t"
+                            + ENGLISH.getName(locale)
+                            + "\t"
+                            + order
+                            + "\t"
+                            + givenFirstLocales);
             return locales;
         }
         return Collections.emptyList();
@@ -1008,24 +1284,29 @@ public class TestPersonNameFormatter extends TestFmwk{
             final String lang = ltp.set(max).getLanguage();
             final String script = ltp.set(max).getScript();
 
-            Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(factory.make(locale, true));
+            Map<SampleType, SimpleNameObject> names =
+                    PersonNameFormatter.loadSampleNames(factory.make(locale, true));
             if (names == null || names.isEmpty()) {
                 continue;
             }
 
             boolean isLatin = script.equals("Latn");
 
-
             // TODO use CLDR always (getTestingLatinScriptTransform doesn't)
-            Transliterator translit = isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
+            Transliterator translit =
+                    isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
 
             if (translit == null && !isLatin) {
                 missing.add(script);
             }
 
             // TODO only do this if the script is unicameral
-            Function<String, String> t = x -> x == null || translit == null ? null
-                : Transliterator.getInstance("title").transform(translit.transform(x));
+            Function<String, String> t =
+                    x ->
+                            x == null || translit == null
+                                    ? null
+                                    : Transliterator.getInstance("title")
+                                            .transform(translit.transform(x));
 
             if (verbose) {
                 System.out.println();
@@ -1037,16 +1318,22 @@ public class TestPersonNameFormatter extends TestFmwk{
                 String formatted = ENGLISH_NAME_FORMATTER.format(simpleNameObject, parameters);
                 String formattedWithTranslit = formatted;
                 if (t != null) {
-                    NameObject tno = new PersonNameFormatter.TransformingNameObject(simpleNameObject, t);
+                    NameObject tno =
+                            new PersonNameFormatter.TransformingNameObject(simpleNameObject, t);
                     formattedWithTranslit = ENGLISH_NAME_FORMATTER.format(tno, parameters);
                 }
                 if (verbose) {
-                    System.out.println(lang
-                        + "\t" + script
-                        + "\t" + sampleType
-                        + "\t" + formatted
-                        + (!formatted.equals(formattedWithTranslit) ? "\t➡︎\t" + formattedWithTranslit : "")
-                        );
+                    System.out.println(
+                            lang
+                                    + "\t"
+                                    + script
+                                    + "\t"
+                                    + sampleType
+                                    + "\t"
+                                    + formatted
+                                    + (!formatted.equals(formattedWithTranslit)
+                                            ? "\t➡︎\t" + formattedWithTranslit
+                                            : ""));
                 }
             }
         }
@@ -1054,13 +1341,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     /**
-     * Check that the ordering of the attribute values matches
-     * (a) the corresponding enum (or modified fields) and
-     * (b) the corresponding MATCH literals.
-     * */
+     * Check that the ordering of the attribute values matches (a) the corresponding enum (or
+     * modified fields) and (b) the corresponding MATCH literals.
+     */
     public void testAttributeValueOrder() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
-        //personName order="sorting" length="short" usage="referring" formality="formal
+        // personName order="sorting" length="short" usage="referring" formality="formal
         checkCompare(PersonNameFormatter.Order.ALL, dtdData, "personName", "order");
         checkCompare(PersonNameFormatter.Length.ALL, dtdData, "personName", "length");
         checkCompare(PersonNameFormatter.Usage.ALL, dtdData, "personName", "usage");
@@ -1071,9 +1357,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         checkCompare(PersonNameFormatter.ModifiedField.ALL_SAMPLES, dtdData, "nameField", "type");
     }
 
-    private <T extends Object> void checkCompare(Set<T> all, DtdData dtdData, String element, String attribute) {
-        final Comparator<String> attributeValueComparator = DtdData.getAttributeValueComparator(element, attribute);
-        String title = element+"@"+attribute;
+    private <T extends Object> void checkCompare(
+            Set<T> all, DtdData dtdData, String element, String attribute) {
+        final Comparator<String> attributeValueComparator =
+                DtdData.getAttributeValueComparator(element, attribute);
+        String title = element + "@" + attribute;
         compareItems("constant " + title, all, attributeValueComparator);
         Attribute attributeItem = dtdData.getAttribute(element, attribute);
         Set<String> literalMatches = attributeItem.getMatchLiterals();
@@ -1082,12 +1370,15 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
     }
 
-    public <T> void compareItems(String title, Set<T> all, final Comparator<String> attributeValueComparator) {
+    public <T> void compareItems(
+            String title, Set<T> all, final Comparator<String> attributeValueComparator) {
         String last = null;
         for (Object item : all) {
             String string = item.toString();
             if (last != null) {
-                assertTrue(title + ": " + last + " ⩻ " + string, attributeValueComparator.compare(last, string) < 0);
+                assertTrue(
+                        title + ": " + last + " ⩻ " + string,
+                        attributeValueComparator.compare(last, string) < 0);
             }
             last = string;
         }
@@ -1098,14 +1389,17 @@ public class TestPersonNameFormatter extends TestFmwk{
         PrintWriter pw = new PrintWriter(sw);
         thCldrFile.write(pw);
         final String wholeFile = sw.toString();
-        assertTrue("Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
+        assertTrue(
+                "Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
     }
 
     public void testInitials() {
-        String[][] tests = {{
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M.S.H.❭ ❬Watson❭〗〖❬B.W.H.R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.H.❭ ❬Stöber❭〗〖❬A.C.C.M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
-        }};
+        String[][] tests = {
+            {
+                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M.S.H.❭ ❬Watson❭〗〖❬B.W.H.R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.H.❭ ❬Stöber❭〗〖❬A.C.C.M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
+            }
+        };
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }
 
@@ -1119,17 +1413,28 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String value = cldrFile.getStringValue(path);
-                switch(parts.getElement(-1)) {
-                case "namePattern":
-                    if (!value.equals(CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check elsewhere
-                        Pair<FormatParameters, NamePattern> paramsAndPattern = PersonNameFormatter.fromPathValue(parts, value);
-                        NamePattern namePattern = paramsAndPattern.getSecond();
-                        Set<Field> fields = namePattern.getFields();
-                        if (!fields.contains(Field.given)) {
-                            System.out.println("No given\t" + locale + "\t" + path + "\t" + value + "\t" + fields);
+                switch (parts.getElement(-1)) {
+                    case "namePattern":
+                        if (!value.equals(
+                                CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check
+                            // elsewhere
+                            Pair<FormatParameters, NamePattern> paramsAndPattern =
+                                    PersonNameFormatter.fromPathValue(parts, value);
+                            NamePattern namePattern = paramsAndPattern.getSecond();
+                            Set<Field> fields = namePattern.getFields();
+                            if (!fields.contains(Field.given)) {
+                                System.out.println(
+                                        "No given\t"
+                                                + locale
+                                                + "\t"
+                                                + path
+                                                + "\t"
+                                                + value
+                                                + "\t"
+                                                + fields);
+                            }
                         }
-                    }
-                    break;
+                        break;
                 }
             }
         }
@@ -1147,41 +1452,53 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String value = cldrFile.getStringValue(path);
-                switch(parts.getElement(-1)) {
-                case "namePattern":
-                    if (!value.equals(CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check elsewhere
-                        Pair<FormatParameters, NamePattern> paramsAndPattern = PersonNameFormatter.fromPathValue(parts, value);
-                        FormatParameters formatParameters = paramsAndPattern.getFirst();
-                        if (!formatParameters.matchesUsage(Usage.monogram)) {
-                            continue;
-                        }
+                switch (parts.getElement(-1)) {
+                    case "namePattern":
+                        if (!value.equals(
+                                CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check
+                            // elsewhere
+                            Pair<FormatParameters, NamePattern> paramsAndPattern =
+                                    PersonNameFormatter.fromPathValue(parts, value);
+                            FormatParameters formatParameters = paramsAndPattern.getFirst();
+                            if (!formatParameters.matchesUsage(Usage.monogram)) {
+                                continue;
+                            }
 
-                        NamePattern namePattern = paramsAndPattern.getSecond();
-                        final int count = namePattern.getElementCount();
-                        b.setLength(0);
-                        boolean haveLiterals = false;
-                        boolean haveDeleteable = false;
+                            NamePattern namePattern = paramsAndPattern.getSecond();
+                            final int count = namePattern.getElementCount();
+                            b.setLength(0);
+                            boolean haveLiterals = false;
+                            boolean haveDeleteable = false;
 
-                        for (int i = 0; i < count; ++i) {
-                            ModifiedField modifiedField = namePattern.getModifiedField(i);
-                            String literal = namePattern.getLiteral(i);
-                            if (modifiedField != null) {
-                                if (modifiedField.getField() == Field.given) {
-                                    b.append("◆");
-                                } else {
-                                    b.append("◇");
-                                    haveDeleteable = true;
+                            for (int i = 0; i < count; ++i) {
+                                ModifiedField modifiedField = namePattern.getModifiedField(i);
+                                String literal = namePattern.getLiteral(i);
+                                if (modifiedField != null) {
+                                    if (modifiedField.getField() == Field.given) {
+                                        b.append("◆");
+                                    } else {
+                                        b.append("◇");
+                                        haveDeleteable = true;
+                                    }
+                                } else if (literal != null && !literal.isEmpty()) {
+                                    b.append(literal.replace(" ", "␣"));
+                                    haveLiterals = true;
                                 }
-                            } else if (literal != null && !literal.isEmpty()) {
-                                b.append(literal.replace(" ", "␣"));
-                                haveLiterals = true;
+                            }
+                            if (haveLiterals && haveDeleteable) {
+                                System.out.println(
+                                        "LiteralsInMononyms\t"
+                                                + locale
+                                                + "\t"
+                                                + path
+                                                + "\t"
+                                                + value
+                                                + "\t["
+                                                + b
+                                                + "]");
                             }
                         }
-                        if (haveLiterals && haveDeleteable) {
-                            System.out.println("LiteralsInMononyms\t" + locale + "\t" + path + "\t" + value + "\t[" + b + "]");
-                        }
-                    }
-                    break;
+                        break;
                 }
             }
         }
@@ -1196,7 +1513,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
         assertEquals("duplicates", "•Shinzō.Abe•", actual);
 
-       namePattern = NamePattern.from(0, "•{given}. {given2}. {surname}•");
+        namePattern = NamePattern.from(0, "•{given}. {given2}. {surname}•");
         actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
         assertEquals("duplicates", "•Shinzō. Abe•", actual);
 

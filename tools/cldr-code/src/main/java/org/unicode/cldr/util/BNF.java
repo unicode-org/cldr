@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,8 +14,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-
-import com.ibm.icu.text.UnicodeSet;
 
 public class BNF {
     private Map map = new HashMap();
@@ -66,8 +65,7 @@ public class BNF {
 
     public BNF addRules(String rules) {
         t.setSource(rules);
-        while (addRule()) {
-        }
+        while (addRule()) {}
         return this; // for chaining
     }
 
@@ -82,8 +80,7 @@ public class BNF {
             if (msg.length() != 0) msg = "Error: Missing definitions for: " + msg;
             String temp = showDiff(ruleSet, variables);
             if (temp.length() != 0) temp = "Warning: Defined but not used: " + temp;
-            if (msg.length() == 0)
-                msg = temp;
+            if (msg.length() == 0) msg = temp;
             else if (temp.length() != 0) {
                 msg = msg + "; " + temp;
             }
@@ -95,8 +92,7 @@ public class BNF {
             if (msg.length() != 0) msg = "Missing definitions for: " + msg;
             String temp = showDiff(ruleSet, variables);
             if (temp.length() != 0) temp = "Defined but not used: " + temp;
-            if (msg.length() == 0)
-                msg = temp;
+            if (msg.length() == 0) msg = temp;
             else if (temp.length() != 0) {
                 msg = msg + "; " + temp;
             }
@@ -140,13 +136,12 @@ public class BNF {
     }
 
     void error(String msg) {
-        throw new IllegalArgumentException(msg
-            + "\r\n" + t.toString());
+        throw new IllegalArgumentException(msg + "\r\n" + t.toString());
     }
 
     private boolean addRule() {
         int type = t.next();
-        //System.out.println(type + "t.getString " + t.getString());
+        // System.out.println(type + "t.getString " + t.getString());
         if (type == Tokenizer.DONE) {
             return false;
         }
@@ -193,37 +188,37 @@ public class BNF {
         int[] weights;
         int type = t.next();
         switch (type) {
-        case '@':
-            return new Pick.Quote(item);
-        case '~':
-            return new Pick.Morph(item);
-        case '?':
-            int weight = getWeight();
-            if (weight == NO_WEIGHT) weight = 50;
-            weights = new int[] { 100 - weight, weight };
-            return Pick.repeat(0, 1, weights, item);
-        case '*':
-            weights = getWeights();
-            return Pick.repeat(1, maxRepeat, weights, item);
-        case '+':
-            weights = getWeights();
-            return Pick.repeat(1, maxRepeat, weights, item);
-        case '{':
-            if (t.next() != Tokenizer.NUMBER) error("missing number");
-            int start = (int) t.getNumber();
-            int end = start;
-            type = t.next();
-            if (type == ',') {
-                end = maxRepeat;
+            case '@':
+                return new Pick.Quote(item);
+            case '~':
+                return new Pick.Morph(item);
+            case '?':
+                int weight = getWeight();
+                if (weight == NO_WEIGHT) weight = 50;
+                weights = new int[] {100 - weight, weight};
+                return Pick.repeat(0, 1, weights, item);
+            case '*':
+                weights = getWeights();
+                return Pick.repeat(1, maxRepeat, weights, item);
+            case '+':
+                weights = getWeights();
+                return Pick.repeat(1, maxRepeat, weights, item);
+            case '{':
+                if (t.next() != Tokenizer.NUMBER) error("missing number");
+                int start = (int) t.getNumber();
+                int end = start;
                 type = t.next();
-                if (type == Tokenizer.NUMBER) {
-                    end = (int) t.getNumber();
+                if (type == ',') {
+                    end = maxRepeat;
                     type = t.next();
+                    if (type == Tokenizer.NUMBER) {
+                        end = (int) t.getNumber();
+                        type = t.next();
+                    }
                 }
-            }
-            if (type != '}') error("missing }");
-            weights = getWeights();
-            return Pick.repeat(start, end, weights, item);
+                if (type != '}') error("missing }");
+                weights = getWeights();
+                return Pick.repeat(start, end, weights, item);
         }
         t.backup();
         return item;

@@ -1,5 +1,12 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -23,28 +29,20 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.UnicodeSet;
-
 public class TestPathsModule extends TestFmwk {
 
     public static void main(String[] args) {
         new TestPathsModule().run(args);
     }
 
-    private static final Matcher FILE_FILTER = PatternCache.get(
-        CldrUtility.getProperty("file", ".?")).matcher("");
-    private static final Matcher PATH_FILTER = PatternCache.get(
-        CldrUtility.getProperty("path", ".?")).matcher("");
-    private static final Matcher VALUE_FILTER = PatternCache.get(
-        CldrUtility.getProperty("value", ".?")).matcher("");
-    private static final Matcher TEST_FILTER = PatternCache.get(
-        CldrUtility.getProperty("test", ".?")).matcher("");
+    private static final Matcher FILE_FILTER =
+            PatternCache.get(CldrUtility.getProperty("file", ".?")).matcher("");
+    private static final Matcher PATH_FILTER =
+            PatternCache.get(CldrUtility.getProperty("path", ".?")).matcher("");
+    private static final Matcher VALUE_FILTER =
+            PatternCache.get(CldrUtility.getProperty("value", ".?")).matcher("");
+    private static final Matcher TEST_FILTER =
+            PatternCache.get(CldrUtility.getProperty("test", ".?")).matcher("");
 
     public void TestMain() throws IOException {
         Map<String, Exception> cantRead = new LinkedHashMap<String, Exception>();
@@ -53,7 +51,7 @@ public class TestPathsModule extends TestFmwk {
         tests.add(new GatherValueCharacters());
 
         // filter out the tests we don't want
-        for (Iterator<PathTest> it = tests.iterator(); it.hasNext();) {
+        for (Iterator<PathTest> it = tests.iterator(); it.hasNext(); ) {
             PathTest item = it.next();
             if (!TEST_FILTER.reset(item.getClass().getName()).find()) {
                 it.remove();
@@ -65,15 +63,14 @@ public class TestPathsModule extends TestFmwk {
         for (File file : dir.listFiles()) {
             String fullFileName = PathUtilities.getNormalizedPathString(file);
             String filename = file.getName();
-            if (filename.startsWith("#") || !filename.endsWith(".xml")
-                || !FILE_FILTER.reset(filename).find())
-                continue;
+            if (filename.startsWith("#")
+                    || !filename.endsWith(".xml")
+                    || !FILE_FILTER.reset(filename).find()) continue;
             String name = dir.getName() + "/" + file.getName();
             name = name.substring(0, name.length() - 4); // strip .xml
             MyHandler myHandler = new MyHandler(dir, filename, tests);
             try {
-                XMLFileReader reader = new XMLFileReader()
-                    .setHandler(myHandler);
+                XMLFileReader reader = new XMLFileReader().setHandler(myHandler);
                 reader.read(fullFileName, XMLFileReader.CONTENT_HANDLER, true);
             } catch (Exception e) {
                 cantRead.put(name, e);
@@ -82,8 +79,12 @@ public class TestPathsModule extends TestFmwk {
 
         for (String name : cantRead.keySet()) {
             Exception exception = cantRead.get(name);
-            errln(name + "\t" + exception.getMessage() + "\t"
-                + Arrays.asList(exception.getStackTrace()));
+            errln(
+                    name
+                            + "\t"
+                            + exception.getMessage()
+                            + "\t"
+                            + Arrays.asList(exception.getStackTrace()));
         }
         for (PathTest test : tests) {
             test.finish();
@@ -113,7 +114,6 @@ public class TestPathsModule extends TestFmwk {
                 test.test(fullParts, value);
             }
         }
-
     }
 
     private static class PathTest {
@@ -133,15 +133,12 @@ public class TestPathsModule extends TestFmwk {
             }
         }
 
-        public void finish() {
-
-        }
+        public void finish() {}
     }
 
-    private static final Normalizer2 nfkd = Normalizer2.getInstance(null,
-        "nfc", Normalizer2.Mode.DECOMPOSE);
-    private static final UnicodeSet nonspacing = new UnicodeSet(
-        "[[:Mn:][:Me:]]");
+    private static final Normalizer2 nfkd =
+            Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.DECOMPOSE);
+    private static final UnicodeSet nonspacing = new UnicodeSet("[[:Mn:][:Me:]]");
 
     private class GatherValueCharacters extends PathTest {
         UnicodeSet chars = new UnicodeSet();
@@ -156,13 +153,11 @@ public class TestPathsModule extends TestFmwk {
             }
             String draftValue = fullParts.findFirstAttributeValue("draft");
             if (draftValue != null) {
-                if (draftValue.equals("unconfirmed")
-                    || draftValue.equals("provisional")) {
+                if (draftValue.equals("unconfirmed") || draftValue.equals("provisional")) {
                     return;
                 }
             }
-            temp.clear().addAll(value).addAll(nfkd.normalize(value))
-                .retainAll(nonspacing);
+            temp.clear().addAll(value).addAll(nfkd.normalize(value)).retainAll(nonspacing);
             if (!chars.containsAll(temp)) {
                 chars.addAll(temp);
                 logln("Adding\t" + temp + "\t" + dir + "\t" + locale);
@@ -176,28 +171,30 @@ public class TestPathsModule extends TestFmwk {
     }
 
     private enum OrderedChildren {
-        all, some, none
+        all,
+        some,
+        none
     }
 
     /**
      * This test checks for the following:
+     *
      * <ul>
-     * <li>Non-distinguishing attributes must only be on leaf nodes</li>
-     * <li>If an element is ordered, then its children must be.</li>
+     *   <li>Non-distinguishing attributes must only be on leaf nodes
+     *   <li>If an element is ordered, then its children must be.
      * </ul>
-     * Note that a leaf node is a final one OR the last one before any ordered
-     * element.
+     *
+     * Note that a leaf node is a final one OR the last one before any ordered element.
      */
     private class DistinguishingText extends PathTest {
-        private Relation<R3<DtdType, String, String>, String> nonFinalNonDistingishing = Relation
-            .of(new TreeMap<R3<DtdType, String, String>, Set<String>>(),
-                TreeSet.class);
+        private Relation<R3<DtdType, String, String>, String> nonFinalNonDistingishing =
+                Relation.of(new TreeMap<R3<DtdType, String, String>, Set<String>>(), TreeSet.class);
 
-        private Relation<R2<DtdType, String>, String> illFormedOrder = Relation
-            .of(new TreeMap<R2<DtdType, String>, Set<String>>(),
-                TreeSet.class);
+        private Relation<R2<DtdType, String>, String> illFormedOrder =
+                Relation.of(new TreeMap<R2<DtdType, String>, Set<String>>(), TreeSet.class);
 
-        private Map<String, OrderedChildren> orderedChildrenStatus = new TreeMap<String, OrderedChildren>();
+        private Map<String, OrderedChildren> orderedChildrenStatus =
+                new TreeMap<String, OrderedChildren>();
 
         @Override
         public void test(XPathParts fullParts, String value) {
@@ -209,11 +206,9 @@ public class TestPathsModule extends TestFmwk {
                 String element = fullParts.getElement(i);
                 boolean leafElement = i == firstLeaf;
                 for (String attribute : fullParts.getAttributes(i).keySet()) {
-                    boolean distinguishing = CLDRFile.isDistinguishing(dtdType,
-                        element, attribute);
+                    boolean distinguishing = CLDRFile.isDistinguishing(dtdType, element, attribute);
                     if (!leafElement && !distinguishing) {
-                        R3<DtdType, String, String> row = Row.of(dtdType,
-                            element, attribute);
+                        R3<DtdType, String, String> row = Row.of(dtdType, element, attribute);
                         nonFinalNonDistingishing.put(row, locale);
                         // System.out.println("Non-Distinguishing, non-final:\t"
                         // + row);
@@ -223,8 +218,7 @@ public class TestPathsModule extends TestFmwk {
         }
 
         /**
-         * Get the first ordered element, AND make a number of consistency
-         * checks.
+         * Get the first ordered element, AND make a number of consistency checks.
          *
          * @param fullParts
          * @param size
@@ -239,20 +233,16 @@ public class TestPathsModule extends TestFmwk {
                 // check that all children have consistent ordering status
                 OrderedChildren status = orderedChildrenStatus.get(lastElement);
                 if (status == null) {
-                    orderedChildrenStatus.put(lastElement,
-                        hasq ? OrderedChildren.all : OrderedChildren.none);
+                    orderedChildrenStatus.put(
+                            lastElement, hasq ? OrderedChildren.all : OrderedChildren.none);
                 } else
                     switch (status) {
-                    case all:
-                        if (!hasq)
-                            orderedChildrenStatus.put(lastElement,
-                                OrderedChildren.some);
-                        break;
-                    case none:
-                        if (hasq)
-                            orderedChildrenStatus.put(lastElement,
-                                OrderedChildren.some);
-                        break;
+                        case all:
+                            if (!hasq) orderedChildrenStatus.put(lastElement, OrderedChildren.some);
+                            break;
+                        case none:
+                            if (hasq) orderedChildrenStatus.put(lastElement, OrderedChildren.some);
+                            break;
                     }
                 // find the first ordered element AND check that its children
                 // are all ordered
@@ -274,32 +264,32 @@ public class TestPathsModule extends TestFmwk {
         @Override
         public void finish() {
             super.finish();
-            for (R3<DtdType, String, String> item : nonFinalNonDistingishing
-                .keySet()) {
-                List<String> samples = new ArrayList<String>(
-                    nonFinalNonDistingishing.getAll(item));
-                if (samples.size() > 5)
-                    samples = samples.subList(0, 4);
-                errln(item.get0() + ": Attribute <" + item.get2()
-                    + "> in element <" + item.get1()
-                    + "> is not on leaf element and not distinguishing:\t"
-                    + samples);
+            for (R3<DtdType, String, String> item : nonFinalNonDistingishing.keySet()) {
+                List<String> samples = new ArrayList<String>(nonFinalNonDistingishing.getAll(item));
+                if (samples.size() > 5) samples = samples.subList(0, 4);
+                errln(
+                        item.get0()
+                                + ": Attribute <"
+                                + item.get2()
+                                + "> in element <"
+                                + item.get1()
+                                + "> is not on leaf element and not distinguishing:\t"
+                                + samples);
             }
             for (R2<DtdType, String> item : illFormedOrder.keySet()) {
-                List<String> samples = new ArrayList<String>(
-                    illFormedOrder.getAll(item));
+                List<String> samples = new ArrayList<String>(illFormedOrder.getAll(item));
                 if (samples.size() > 5) {
                     samples = samples.subList(0, 4);
                     samples.set(4, "...");
                 }
-                errln("Child of ordered element is not ordered:\t" + item
-                    + "\t" + samples);
+                errln("Child of ordered element is not ordered:\t" + item + "\t" + samples);
             }
             for (String element : orderedChildrenStatus.keySet()) {
                 OrderedChildren status = orderedChildrenStatus.get(element);
                 if (status == OrderedChildren.some) {
-                    errln("Brother of ordered element is not ordered items not consistent:\t"
-                        + element);
+                    errln(
+                            "Brother of ordered element is not ordered items not consistent:\t"
+                                    + element);
                 }
             }
         }

@@ -3,14 +3,13 @@ package org.unicode.cldr.draft.keyboard;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.io.IOException;
-import java.util.List;
-
 import com.google.common.base.Charsets;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Iterables;
 import com.google.common.io.Resources;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * An class which maps a hardware key code (the value that is sent from keyboard driver to the
@@ -34,11 +33,14 @@ public final class KeycodeMap {
         checkArgument(!csv.isEmpty());
         List<String> lines = LINE_SPLITTER.splitToList(csv);
         checkArgument(lines.get(0).equals("keycode,iso"), "Missing csv headers");
-        ImmutableSortedMap.Builder<Integer, IsoLayoutPosition> builder = ImmutableSortedMap.naturalOrder();
+        ImmutableSortedMap.Builder<Integer, IsoLayoutPosition> builder =
+                ImmutableSortedMap.naturalOrder();
         for (String line : Iterables.skip(lines, 1)) {
             // No fancy CSV parsing required since there are no strings.
             List<String> components = COMMA_SPLITTER.splitToList(line);
-            builder.put(Integer.valueOf(components.get(0)), IsoLayoutPosition.valueOf(components.get(1)));
+            builder.put(
+                    Integer.valueOf(components.get(0)),
+                    IsoLayoutPosition.valueOf(components.get(1)));
         }
         return new KeycodeMap(builder.build());
     }
@@ -46,8 +48,7 @@ public final class KeycodeMap {
     /** Retrieves the csv file relative to the class given. */
     public static KeycodeMap fromResource(Class<?> clazz, String fileName) {
         try {
-            String csv = Resources.toString(Resources.getResource(clazz, fileName),
-                Charsets.UTF_8);
+            String csv = Resources.toString(Resources.getResource(clazz, fileName), Charsets.UTF_8);
             return fromCsv(csv);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
@@ -59,8 +60,11 @@ public final class KeycodeMap {
     }
 
     public IsoLayoutPosition getIsoLayoutPosition(Integer keycode) {
-        return checkNotNull(keycodeToIsoLayout.get(keycode), "No keycode for %s [%s]", keycode,
-            keycodeToIsoLayout);
+        return checkNotNull(
+                keycodeToIsoLayout.get(keycode),
+                "No keycode for %s [%s]",
+                keycode,
+                keycodeToIsoLayout);
     }
 
     public ImmutableSortedMap<Integer, IsoLayoutPosition> keycodeToIsoLayout() {

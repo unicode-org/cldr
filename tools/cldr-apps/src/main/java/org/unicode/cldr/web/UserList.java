@@ -8,10 +8,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,14 +47,12 @@ public class UserList {
     private final WebContext ctx;
 
     /**
-     * Is the info only about me (the current user)?
-     * true for My Account; false for List Users or zoomed on other user
+     * Is the info only about me (the current user)? true for My Account; false for List Users or
+     * zoomed on other user
      */
     private final boolean isJustMe;
 
-    /**
-     * email address of the single user (me or zoomed); null for list of users
-     */
+    /** email address of the single user (me or zoomed); null for list of users */
     private String just;
 
     private String justOrg;
@@ -67,7 +63,12 @@ public class UserList {
 
     private EmailInfo emailInfo = null;
 
-    public UserList(HttpServletRequest request, HttpServletResponse response, CookieSession mySession, SurveyMain sm) throws IOException {
+    public UserList(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            CookieSession mySession,
+            SurveyMain sm)
+            throws IOException {
         this.request = request;
         this.me = mySession.user;
         this.sm = sm;
@@ -147,18 +148,24 @@ public class UserList {
                     handleOneRow(rs, shownUsers);
                 }
                 r.put("shownUsers", shownUsers);
-                if (!isJustMe && UserRegistry.userCanModifyUsers(me) && UserRegistry.userCanEmailUsers(me)) {
+                if (!isJustMe
+                        && UserRegistry.userCanModifyUsers(me)
+                        && UserRegistry.userCanEmailUsers(me)) {
                     int n = shownUsers.length();
                     if (n > 0) {
                         emailInfo.putStatus(n);
                     }
                 }
-                r.put("canSetInterestLocales", isJustMe && UserRegistry.userCanSetInterestLocales(me));
+                r.put(
+                        "canSetInterestLocales",
+                        isJustMe && UserRegistry.userCanSetInterestLocales(me));
                 r.put("canGetEmailList", (!isJustMe) && UserRegistry.userCanGetEmailList(me));
             }
         } catch (SQLException se) {
-            logger.log(java.util.logging.Level.WARNING,
-                "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se), se);
+            logger.log(
+                    java.util.logging.Level.WARNING,
+                    "Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),
+                    se);
             r.put("exception", DBUtils.unchainSqlException(se));
         } finally {
             DBUtils.close(conn, ps, rs);
@@ -173,15 +180,16 @@ public class UserList {
      * @throws SQLException
      * @throws JSONException
      */
-    private void handleOneRow(ResultSet rs, JSONArray shownUsers) throws SQLException, JSONException {
+    private void handleOneRow(ResultSet rs, JSONArray shownUsers)
+            throws SQLException, JSONException {
         int id = rs.getInt(1);
         int level = rs.getInt(2);
         if (level == UserRegistry.ANONYMOUS) {
             return;
         }
         if (!showLocked
-            && level >= UserRegistry.LOCKED
-            && just == null /* if only one user, show regardless of lock state. */) {
+                && level >= UserRegistry.LOCKED
+                && just == null /* if only one user, show regardless of lock state. */) {
             return;
         }
         UserSettings u = new UserSettings(id);
@@ -192,12 +200,12 @@ public class UserList {
     }
 
     /**
-     * Add information about the user to the json, and possibly handle actions
-     * specified in the request related to the user
+     * Add information about the user to the json, and possibly handle actions specified in the
+     * request related to the user
      *
-     * The combination of these two concerns -- add info and handle action -- is a
-     * legacy of precursors of this code that didn't use json or ajax; probably the
-     * concerns should be separated
+     * <p>The combination of these two concerns -- add info and handle action -- is a legacy of
+     * precursors of this code that didn't use json or ajax; probably the concerns should be
+     * separated
      *
      * @param shownUsers the destination JSONArray
      * @param u the UserSettings of the user in question
@@ -206,7 +214,8 @@ public class UserList {
     private void handleOneUser(JSONArray shownUsers, UserSettings u) throws JSONException {
         String action = getParam(u.tag);
         if (emailInfo.areSendingMail && (u.user.userlevel < UserRegistry.LOCKED)) {
-            MailSender.getInstance().queue(me.id, u.user.id, emailInfo.mailSubj, emailInfo.mailBody);
+            MailSender.getInstance()
+                    .queue(me.id, u.user.id, emailInfo.mailSubj, emailInfo.mailBody);
             action = "emailQueued";
             u.ua.put(action, "(queued)");
         }
@@ -228,14 +237,16 @@ public class UserList {
         } else if (action.equals(LIST_ACTION_SEND_PASSWORD)) {
             sendPassword(u);
         } else if (action.equals(LIST_ACTION_DELETE0)) {
-            u.ua.put(action, "Ensure that 'confirm delete' is chosen at right and click Do Action to delete");
+            u.ua.put(
+                    action,
+                    "Ensure that 'confirm delete' is chosen at right and click Do Action to delete");
         } else if ((UserRegistry.userCanDeleteUser(me, u.user.id, u.user.userlevel))
-            && (action.equals(LIST_ACTION_DELETE1))) {
+                && (action.equals(LIST_ACTION_DELETE1))) {
             String s = reg.delete(ctx, u.user.id, u.user.email);
             s += "<strong style='font-color: red'>Deleting...</strong><br>";
             u.ua.put(action, s);
         } else if ((UserRegistry.userCanModifyUser(me, u.user.id, u.user.userlevel))
-            && (action.equals(LIST_ACTION_SETLOCALES))) {
+                && (action.equals(LIST_ACTION_SETLOCALES))) {
             changeLocales(action, u);
         } else if (UserRegistry.userCanModifyUser(me, u.user.id, u.user.userlevel)) {
             changeOther(action, u);
@@ -252,8 +263,10 @@ public class UserList {
         String s = reg.setLocales(session, u.user, newLocales, false);
         u.user.locales = newLocales; // MODIFY
         if (u.session != null) {
-            s += "<br/><i>Logging out user session " + u.session.id
-                + " and deleting all unsaved changes</i>";
+            s +=
+                    "<br/><i>Logging out user session "
+                            + u.session.id
+                            + " and deleting all unsaved changes</i>";
             u.session.remove();
         }
         UserRegistry.User newThem = reg.getInfo(u.user.id);
@@ -272,12 +285,14 @@ public class UserList {
                 if ((just == null) && (level <= UserRegistry.TC)) {
                     s += "<b>Must be zoomed in on a user to promote them to TC</b>";
                 } else if (!reg.canSetUserLevel(me, u.user, level)) {
-                   s += "[Permission Denied]";
+                    s += "[Permission Denied]";
                 } else {
                     u.user.userlevel = level;
-                    s += "Set user level to "
-                        + UserRegistry.levelToStr(level) + ": "
-                        + reg.setUserLevel(me, u.user, level);
+                    s +=
+                            "Set user level to "
+                                    + UserRegistry.levelToStr(level)
+                                    + ": "
+                                    + reg.setUserLevel(me, u.user, level);
                     if (u.session != null) {
                         s += "<br/><i>Logging out user session " + u.session.id + "</i>";
                         u.session.remove();
@@ -308,13 +323,20 @@ public class UserList {
         if (u.user.locales == null) {
             u.user.locales = "";
         }
-        String s = "<label>Locales: (space separated) <input id='"
-            + LIST_ACTION_SETLOCALES + u.tag + "' name='"
-            + LIST_ACTION_SETLOCALES + u.tag
-            + "' value='" + u.user.locales + "'></label>"
-            + "<button onclick=\"{document.getElementById('"
-            + LIST_ACTION_SETLOCALES + u.tag
-            + "').value='*'; return false;}\" >All Locales</button>";
+        String s =
+                "<label>Locales: (space separated) <input id='"
+                        + LIST_ACTION_SETLOCALES
+                        + u.tag
+                        + "' name='"
+                        + LIST_ACTION_SETLOCALES
+                        + u.tag
+                        + "' value='"
+                        + u.user.locales
+                        + "'></label>"
+                        + "<button onclick=\"{document.getElementById('"
+                        + LIST_ACTION_SETLOCALES
+                        + u.tag
+                        + "').value='*'; return false;}\" >All Locales</button>";
         u.ua.put(action, s);
     }
 
@@ -337,7 +359,10 @@ public class UserList {
         }
         if (s0.equals(s1) && s0.length() > 0) {
             String s = "<h4>Change " + what + " to <tt class='codebox'>" + s0 + "</tt></h4>";
-            s += "<div class='fnotebox'>" + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0) + "</div>";
+            s +=
+                    "<div class='fnotebox'>"
+                            + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0)
+                            + "</div>";
             u.user = reg.getInfo(u.user.id);
             u.ua.put(action, s);
         } else {
@@ -357,10 +382,20 @@ public class UserList {
                 }
                 s += "</select>";
             } else {
-                s += "<label><b>New " + what + ":</b><input name='string0" + what
-                    + "' value='" + s0 + "'></label><br />\n";
-                s += "<label><b>New " + what + ":</b><input name='string1" + what
-                    + "'> (confirm)</label>\n";
+                s +=
+                        "<label><b>New "
+                                + what
+                                + ":</b><input name='string0"
+                                + what
+                                + "' value='"
+                                + s0
+                                + "'></label><br />\n";
+                s +=
+                        "<label><b>New "
+                                + what
+                                + ":</b><input name='string1"
+                                + what
+                                + "'> (confirm)</label>\n";
             }
             u.ua.put(action, s);
         }
@@ -372,60 +407,77 @@ public class UserList {
         String s1 = getParam("string1" + what);
         if (s0.equals(s1) && s0.length() > 0) {
             String s = "<h4>Change " + what + " to <tt class='codebox'>" + s0 + "</tt></h4>";
-            s += "<div class='fnotebox'>" + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0) + "</div>";
+            s +=
+                    "<div class='fnotebox'>"
+                            + reg.updateInfo(ctx, u.user.id, u.user.email, type, s0)
+                            + "</div>";
             u.ua.put(action, s);
         } else {
             String s = "<h4>Change " + what + "</h4>";
             if (s0.length() > 0) {
                 s += "<p class='ferrbox'>Both fields must match.</p>";
             }
-            s += "<p role='alert' style='font-size: 1.5em;'><em>PASSWORDS MAY BE VISIBLE AS PLAIN TEXT.";
+            s +=
+                    "<p role='alert' style='font-size: 1.5em;'><em>PASSWORDS MAY BE VISIBLE AS PLAIN TEXT.";
             s += " USE OF A RANDOM PASSWORD (as suggested) IS STRONGLY RECOMMENDED.</em></p>";
-            s += "<label><b>New " + what + ":</b><input type='password' name='string0" + what
-                + "' value='" + s0 + "'></label><br>";
-            s += "<label><b>New " + what + ":</b><input type='password' name='string1" + what
-                + "'> (confirm)</label>";
+            s +=
+                    "<label><b>New "
+                            + what
+                            + ":</b><input type='password' name='string0"
+                            + what
+                            + "' value='"
+                            + s0
+                            + "'></label><br>";
+            s +=
+                    "<label><b>New "
+                            + what
+                            + ":</b><input type='password' name='string1"
+                            + what
+                            + "'> (confirm)</label>";
             s += "<br /><br />";
-            s += "Suggested random password: <tt>" + UserRegistry.makePassword()
-                + "</tt> )";
+            s += "Suggested random password: <tt>" + UserRegistry.makePassword() + "</tt> )";
             u.ua.put(action, s);
         }
     }
 
     private void putShownUser(JSONArray shownUsers, UserSettings u) throws JSONException {
         User user = u.user;
-        String active = (u.session == null) ? "" : SurveyMain.timeDiff(u.session.getLastBrowserCallMillisSinceEpoch());
-        String seen = (user.last_connect == null) ? "" : SurveyMain.timeDiff(user.last_connect.getTime());
+        String active =
+                (u.session == null)
+                        ? ""
+                        : SurveyMain.timeDiff(u.session.getLastBrowserCallMillisSinceEpoch());
+        String seen =
+                (user.last_connect == null) ? "" : SurveyMain.timeDiff(user.last_connect.getTime());
         boolean havePermToChange = me.isAdminFor(user);
         boolean userCanDeleteUser = UserRegistry.userCanDeleteUser(me, user.id, user.userlevel);
         VoteResolver.Level level = VoteResolver.Level.fromSTLevel(user.userlevel);
-        shownUsers.put(new JSONObject()
-            .put("actions", u.ua)
-            .put("active", active)
-            .put("email", user.email)
-            .put("emailHash", user.getEmailHash())
-            .put("havePermToChange", havePermToChange)
-            .put("id", user.id)
-            .put("intlocs", user.intlocs)
-            .put("lastlogin", user.last_connect)
-            .put("locales", normalizeLocales(user.locales))
-            .put("name", user.name)
-            .put("org", user.org)
-            .put("seen", seen)
-            .put("userCanDeleteUser", userCanDeleteUser)
-            .put("userlevel", user.userlevel)
-            .put("userlevelName", level)
-            .put("votecount", level.getVotes(user.getOrganization()))
-            .put("voteCountMenu", level.getVoteCountMenu(user.getOrganization()))
-        );
+        shownUsers.put(
+                new JSONObject()
+                        .put("actions", u.ua)
+                        .put("active", active)
+                        .put("email", user.email)
+                        .put("emailHash", user.getEmailHash())
+                        .put("havePermToChange", havePermToChange)
+                        .put("id", user.id)
+                        .put("intlocs", user.intlocs)
+                        .put("lastlogin", user.last_connect)
+                        .put("locales", normalizeLocales(user.locales))
+                        .put("name", user.name)
+                        .put("org", user.org)
+                        .put("seen", seen)
+                        .put("userCanDeleteUser", userCanDeleteUser)
+                        .put("userlevel", user.userlevel)
+                        .put("userlevelName", level)
+                        .put("votecount", level.getVotes(user.getOrganization()))
+                        .put("voteCountMenu", level.getVoteCountMenu(user.getOrganization())));
     }
 
     /**
      * Normalize to be non-null and to use only spaces to separate multiple locales
      *
-     * The users table in the db is inconsistent in how lists of locales are formatted;
-     * some have spaces, some have commas, some have commas and spaces. The front end
-     * expects them to be separated only by single space characters.
+     * <p>The users table in the db is inconsistent in how lists of locales are formatted; some have
+     * spaces, some have commas, some have commas and spaces. The front end expects them to be
+     * separated only by single space characters.
      *
      * @param locales a string representing a set of locales
      * @return the normalized string
@@ -438,9 +490,7 @@ public class UserList {
         }
     }
 
-    /**
-     * Account settings for a particular user
-     */
+    /** Account settings for a particular user */
     private class UserSettings {
         UserRegistry.User user;
         String tag;
@@ -464,7 +514,7 @@ public class UserList {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     String key = entry.getKey();
                     String value = entry.getValue();
-                    j.put(key,  value);
+                    j.put(key, value);
                 }
             }
             return j.toString();
@@ -480,8 +530,13 @@ public class UserList {
             }
             if (DEBUG) {
                 if (map.containsKey(key)) {
-                    System.out.println("Warning: UserActions.put changed value for " +
-                        key + " from " + map.get(key) + " to " + value);
+                    System.out.println(
+                            "Warning: UserActions.put changed value for "
+                                    + key
+                                    + " from "
+                                    + map.get(key)
+                                    + " to "
+                                    + value);
                 }
             }
             map.put(key, value);
@@ -493,8 +548,7 @@ public class UserList {
      *
      * @param name the parameter name
      * @return true if the parameter is present
-     *
-     * same as ctx.hasField
+     *     <p>same as ctx.hasField
      */
     private boolean hasParam(String name) {
         return (request.getParameter(name) != null);
@@ -505,20 +559,18 @@ public class UserList {
      *
      * @param name the parameter name
      * @return the parameter value, or else ""
-     *
-     * often but not always the same as request.getParameter(name)
-     *
-     * ctx.field never (?) returns null; it includes decodeFieldString...
+     *     <p>often but not always the same as request.getParameter(name)
+     *     <p>ctx.field never (?) returns null; it includes decodeFieldString...
      */
     private String getParam(String name) {
         return ctx.field(name);
     }
 
     /**
-     * Information about the operation of composing and sending an email message
-     * to one or more users in the list
+     * Information about the operation of composing and sending an email message to one or more
+     * users in the list
      *
-     * Describes the whole operation, not specific to a particular recipient
+     * <p>Describes the whole operation, not specific to a particular recipient
      */
     private class EmailInfo {
         SurveyJSONWrapper r;
@@ -540,10 +592,12 @@ public class UserList {
                 if (getParam(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)) {
                     r.put("emailSendingMessage", true);
                     didConfirmMail = true;
-                    mailBody = "SurveyTool Message ---\n" + sendWhat
-                        + "\n--------\n\nSurvey Tool: " +
-                        CLDRConfig.getInstance().absoluteUrls().base() +
-                        "\n\n";
+                    mailBody =
+                            "SurveyTool Message ---\n"
+                                    + sendWhat
+                                    + "\n--------\n\nSurvey Tool: "
+                                    + CLDRConfig.getInstance().absoluteUrls().base()
+                                    + "\n\n";
                     mailSubj = "CLDR SurveyTool message from " + me.name;
                     if (!areSendingDisp) {
                         areSendingMail = true; // we are ready to go ahead and mail
@@ -568,7 +622,7 @@ public class UserList {
                 if (sendWhat.length() > 0) {
                     if (!didConfirmMail) {
                         if (!getParam(LIST_MAILUSER_CONFIRM).equals(LIST_MAILUSER_CONFIRM_CODE)
-                            && (getParam(LIST_MAILUSER_CONFIRM).length() > 0)) {
+                                && (getParam(LIST_MAILUSER_CONFIRM).length() > 0)) {
                             mismatch = true;
                         }
                     }

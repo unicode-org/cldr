@@ -1,5 +1,8 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -8,24 +11,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.ULocale;
-
 public class FormattedFileWriter extends java.io.Writer {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
-    public static final Collator COL = Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL);
-    //public static final PairComparator<String,String> PC = new PairComparator(COL, null);
+    public static final Collator COL =
+            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL);
+    // public static final PairComparator<String,String> PC = new PairComparator(COL, null);
     public static final ArrayComparator PC = new ArrayComparator(COL);
 
-    ///Comparator<Pair<>>
+    /// Comparator<Pair<>>
 
     public static class Anchors {
         boolean hasExplanations = false;
@@ -40,50 +39,59 @@ public class FormattedFileWriter extends java.io.Writer {
             <img class='chitImg' src='/consortium/aacimg/002C.png' alt='&#x002C;'></a>Mark Davis and Anne Gundelfinger
             </div>
              */
-            //StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS + "<table>" + Chart.LS); //
+            // StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS +
+            // "<table>" + Chart.LS); //
             StringBuffer contents = new StringBuffer("<div id='chits'>" + Chart.LS); //
             ArrayList<String[]> anchorList = new ArrayList<>(anchors); // flatten
             for (String[] item : anchorList) {
                 String title = item[0];
                 String fileName = item[1];
                 String explanation = item[2];
-                contents
-                .append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
+                contents.append(
+                        "\t<div class='chit'><a name='"
+                                + FileUtilities.anchorize(title)
+                                + "' href='"
+                                + fileName
+                                + "'>"
+                                + title
+                                + "</a></div>"
+                                + Chart.LS);
                 if (hasExplanations) {
                     contents.append("\t<div class='chit'>" + explanation + "</div>" + Chart.LS);
                 }
             }
-//            int columns = hasExplanations ? 2 : 4;
-//            int rows = 1 + (anchorList.size() - 1) / columns;
-//            String td = "<td class='plain' style='width:" + (100 / columns) + "%'>";
-//            for (int row = 0; row < rows; ++row) {
-//                contents.append("<tr>" + Chart.LS);
-//                for (int column = 0; column < columns; ++column) {
-//                    int index = column * rows + row;
-//                    String linkedTitle = "";
-//                    String explanation = "";
-//                    if (index < anchorList.size()) {
-//                        String[] item = anchorList.get(index);
-//                        String title = item[0];
-//                        String fileName = item[1];
-//                        explanation = item[2];
-//                        linkedTitle = "<a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a>";
-//                    }
-//                    contents.append(td + linkedTitle + "</td>" + Chart.LS);
-//                    if (hasExplanations) {
-//                        contents.append(td + explanation + "</td>" + Chart.LS);
-//                    }
-//                }
-//                contents.append("</tr>" + Chart.LS);
-//                td = "<td class='plain'>"; // only need width on first row
-//            }
+            //            int columns = hasExplanations ? 2 : 4;
+            //            int rows = 1 + (anchorList.size() - 1) / columns;
+            //            String td = "<td class='plain' style='width:" + (100 / columns) + "%'>";
+            //            for (int row = 0; row < rows; ++row) {
+            //                contents.append("<tr>" + Chart.LS);
+            //                for (int column = 0; column < columns; ++column) {
+            //                    int index = column * rows + row;
+            //                    String linkedTitle = "";
+            //                    String explanation = "";
+            //                    if (index < anchorList.size()) {
+            //                        String[] item = anchorList.get(index);
+            //                        String title = item[0];
+            //                        String fileName = item[1];
+            //                        explanation = item[2];
+            //                        linkedTitle = "<a name='" + FileUtilities.anchorize(title) +
+            // "' href='" + fileName + "'>" + title + "</a>";
+            //                    }
+            //                    contents.append(td + linkedTitle + "</td>" + Chart.LS);
+            //                    if (hasExplanations) {
+            //                        contents.append(td + explanation + "</td>" + Chart.LS);
+            //                    }
+            //                }
+            //                contents.append("</tr>" + Chart.LS);
+            //                td = "<td class='plain'>"; // only need width on first row
+            //            }
             contents.append("</div>" + Chart.LS);
             // contents.append("</table>" + Chart.LS + "</div>" + Chart.LS);
             return contents.toString();
         }
 
         public void add(String title, String fileName, String explanation) {
-            anchors.add(new String[] { title, fileName, explanation });
+            anchors.add(new String[] {title, fileName, explanation});
             if (explanation != null) {
                 hasExplanations = true;
             }
@@ -109,9 +117,11 @@ public class FormattedFileWriter extends java.io.Writer {
         return out;
     }
 
-    public FormattedFileWriter(String baseFileName, String title, String explanation, Anchors anchors)
-        throws IOException {
-        // we set up a bunch of variables, but we won't actually use them unless there is generate content. See close()
+    public FormattedFileWriter(
+            String baseFileName, String title, String explanation, Anchors anchors)
+            throws IOException {
+        // we set up a bunch of variables, but we won't actually use them unless there is generate
+        // content. See close()
         if (baseFileName == null) {
             baseFileName = FileUtilities.anchorize(title);
         }
@@ -157,36 +167,56 @@ public class FormattedFileWriter extends java.io.Writer {
             localeAnchors.add(title, targetFileName, null);
         }
         final String templateFileName = "chart-template.html";
-        String[] replacements = { "%header%", "",
-            "%title%", title,
-            "%index%", indexLink,
-            "%index-title%", indexTitle,
-            "%body%", contents };
+        String[] replacements = {
+            "%header%",
+            "",
+            "%title%",
+            title,
+            "%index%",
+            indexLink,
+            "%index-title%",
+            indexTitle,
+            "%body%",
+            contents,
+            "%analytics%",
+            Chart.AnalyticsID.CLDR.getScript()
+        };
         writeTargetWithReplacements(dir, targetFileName, templateFileName, replacements);
     }
 
-    public static void writeTargetWithReplacements(String targetdir, String targetFileName, final String templateFileName, String[] replacements)  {
+    public static void writeTargetWithReplacements(
+            String targetdir,
+            String targetFileName,
+            final String templateFileName,
+            String[] replacements) {
         try {
-            PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
+            PrintWriter pw2 =
+                    org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
             System.err.println("Writing: " + Paths.get(targetdir, targetFileName));
-            FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
+            FileUtilities.appendBufferedReader(
+                    ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
     }
 
-    public static void copyIncludeHtmls (String targetDirectory) {
+    public static void copyIncludeHtmls(String targetDirectory) {
         copyIncludeHtmls(targetDirectory, false);
     }
 
-    public static void copyIncludeHtmls (String targetDirectory, boolean addPrevVersion) {
+    public static void copyIncludeHtmls(String targetDirectory, boolean addPrevVersion) {
         String[] replacements = {
-            "%version%", ToolConstants.CHART_DISPLAY_VERSION + (addPrevVersion ? " – " + ToolConstants.PREV_CHART_VERSION_WITH0 : ""),
-            "%date%", CldrUtility.isoFormatDateOnly(new Date())
+            "%version%",
+            ToolConstants.CHART_DISPLAY_VERSION
+                    + (addPrevVersion ? " – " + ToolConstants.PREV_CHART_VERSION_WITH0 : ""),
+            "%date%",
+            CldrUtility.isoFormatDateOnly(new Date())
         };
-        writeTargetWithReplacements(targetDirectory, "include-date.html", "include-date.html", replacements);
-        writeTargetWithReplacements(targetDirectory, "include-version.html", "include-version.html", replacements);
+        writeTargetWithReplacements(
+                targetDirectory, "include-date.html", "include-date.html", replacements);
+        writeTargetWithReplacements(
+                targetDirectory, "include-version.html", "include-version.html", replacements);
     }
 
     private String getDateValue() {

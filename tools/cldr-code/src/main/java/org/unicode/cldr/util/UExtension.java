@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,15 +12,16 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.impl.Relation;
-
 public class UExtension {
-    static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo data =
+            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     static Pattern SEP = PatternCache.get("[-_]");
     static Pattern SPACE = PatternCache.get("\\s");
     static Pattern ALPHANUM = PatternCache.get("[0-9A-Za-z]{2,8}");
-    static Pattern CODEPOINTS = PatternCache.get("(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*");
+    static Pattern CODEPOINTS =
+            PatternCache.get(
+                    "(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*");
     static Relation<String, String> validKeyTypes = data.getBcp47Keys();
 
     private boolean validating = false;
@@ -62,13 +64,15 @@ public class UExtension {
 
         for (String subtag : SEP.split(source)) {
             if (!alphanum.reset(subtag).matches()) {
-                throw new IllegalArgumentException("Invalid subtag contents, must be [0-9 A-Z a-z]{2,8}: " + subtag);
+                throw new IllegalArgumentException(
+                        "Invalid subtag contents, must be [0-9 A-Z a-z]{2,8}: " + subtag);
             }
             subtag = subtag.toLowerCase(Locale.ENGLISH); // normalize
             if (subtag.length() == 2) { // key
                 if (list != null) { // check size of previous list
                     if (list.size() == 0 || !key.equals("vt") && list.size() > 1) {
-                        throw new IllegalArgumentException("Illegal number of subtypes for: " + key + "\t" + list);
+                        throw new IllegalArgumentException(
+                                "Illegal number of subtypes for: " + key + "\t" + list);
                     }
                 }
                 key = subtag;
@@ -87,7 +91,8 @@ public class UExtension {
             } else { // add subtype
                 if (key == null) {
                     if (validating) {
-                        throw new IllegalArgumentException("No attributes currently valid: " + subtag);
+                        throw new IllegalArgumentException(
+                                "No attributes currently valid: " + subtag);
                     }
                     attributes.add(subtag);
                     break;
@@ -95,10 +100,12 @@ public class UExtension {
                 if (validating) {
                     if (key.equals("vt")) {
                         if (!CODEPOINTS.matcher(subtag).matches()) {
-                            throw new IllegalArgumentException("Illegal subtypes: " + key + "-" + subtag);
+                            throw new IllegalArgumentException(
+                                    "Illegal subtypes: " + key + "-" + subtag);
                         }
                     } else if (!validSubtypes.contains(subtag)) {
-                        throw new IllegalArgumentException("Illegal subtypes: " + key + "-" + subtag);
+                        throw new IllegalArgumentException(
+                                "Illegal subtypes: " + key + "-" + subtag);
                     }
                 }
                 list.add(subtag);

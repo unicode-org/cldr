@@ -1,19 +1,17 @@
 package org.unicode.cldr.tool;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-
-import org.unicode.cldr.util.Annotations;
-import org.unicode.cldr.util.Annotations.AnnotationSet;
-import org.unicode.cldr.util.Counter;
-
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.Annotations.AnnotationSet;
+import org.unicode.cldr.util.Counter;
 
 public class MakeAnnotationHistogram {
     private static final Integer ZERO = 0;
@@ -81,7 +79,9 @@ public class MakeAnnotationHistogram {
         boundary.setText(name);
 
         int start = boundary.first();
-        for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
+        for (int end = boundary.next();
+                end != BreakIterator.DONE;
+                start = end, end = boundary.next()) {
             if (name.charAt(start) == ' ') {
                 continue;
             }

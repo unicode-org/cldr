@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -29,20 +29,17 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.util.Output;
-
 /**
- * Factory for filtering CLDRFiles by organization and replacing certain values.
- * Organization coverage data is in org/unicode/cldr/util/data/Locales.txt.
+ * Factory for filtering CLDRFiles by organization and replacing certain values. Organization
+ * coverage data is in org/unicode/cldr/util/data/Locales.txt.
  *
  * @author jchye
  */
 public class FilterFactory extends Factory {
-    /**
-     * Types of data modification supported.
-     */
+    /** Types of data modification supported. */
     private enum ModificationType {
-        xpath, value;
+        xpath,
+        value;
     }
 
     private Factory rawFactory;
@@ -54,12 +51,9 @@ public class FilterFactory extends Factory {
     /**
      * Creates a new Factory for filtering CLDRFiles.
      *
-     * @param rawFactory
-     *            the factory to be filtered
-     * @param organization
-     *            the organization that the filtering is catered towards
-     * @param modifyValues
-     *            true if certain values in the data should be modified or replaced
+     * @param rawFactory the factory to be filtered
+     * @param organization the organization that the filtering is catered towards
+     * @param modifyValues true if certain values in the data should be modified or replaced
      */
     private FilterFactory(Factory rawFactory, String organization, boolean modifyValues) {
         this.rawFactory = rawFactory;
@@ -68,7 +62,8 @@ public class FilterFactory extends Factory {
         this.modifyValues = modifyValues;
     }
 
-    public static FilterFactory load(Factory rawFactory, String organization, boolean usesAltValue) {
+    public static FilterFactory load(
+            Factory rawFactory, String organization, boolean usesAltValue) {
         FilterFactory filterFactory = new FilterFactory(rawFactory, organization, usesAltValue);
         filterFactory.loadModifiers("dataModifiers.txt");
         return filterFactory;
@@ -85,7 +80,8 @@ public class FilterFactory extends Factory {
     }
 
     @Override
-    protected CLDRFile handleMake(String localeID, boolean resolved, DraftStatus minimalDraftStatus) {
+    protected CLDRFile handleMake(
+            String localeID, boolean resolved, DraftStatus minimalDraftStatus) {
         if (resolved) {
             return new CLDRFile(makeResolvingSource(localeID, minimalDraftStatus));
         } else {
@@ -129,9 +125,10 @@ public class FilterFactory extends Factory {
     private void filterCoverage(CLDRFile rawFile) {
         if (organization == null) return;
 
-        int minLevel = StandardCodes.make()
-            .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
-            .getLevel();
+        int minLevel =
+                StandardCodes.make()
+                        .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
+                        .getLevel();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String xpath : rawFile) {
             // Locale metadata shouldn't be stripped.
@@ -144,6 +141,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Removes paths with duplicate values that can be found elsewhere in the file.
+     *
      * @param rawFile
      */
     private void removeRedundantPaths(CLDRFile rawFile) {
@@ -195,9 +193,7 @@ public class FilterFactory extends Factory {
         return rawFactory.getAvailable();
     }
 
-    /**
-     * Wrapper class for holding information about a value modification entry.
-     */
+    /** Wrapper class for holding information about a value modification entry. */
     private class ModifierEntry {
         String oldValue;
         String newValue;
@@ -210,8 +206,7 @@ public class FilterFactory extends Factory {
         }
 
         /**
-         * @param locale
-         *            the locale to be matched
+         * @param locale the locale to be matched
          * @return true if the locale matches the locale filter in this entry.
          */
         public boolean localeMatches(String locale) {
@@ -220,9 +215,7 @@ public class FilterFactory extends Factory {
         }
     }
 
-    /**
-     * Class for performing a specific type of data modification on a CLDRFile.
-     */
+    /** Class for performing a specific type of data modification on a CLDRFile. */
     private abstract class Modifier {
         protected List<ModifierEntry> entries = new ArrayList<>();
 
@@ -244,7 +237,6 @@ public class FilterFactory extends Factory {
         }
 
         /**
-         *
          * @param filter
          */
         public void addModifierEntry(ModifierEntry entry) {
@@ -256,9 +248,7 @@ public class FilterFactory extends Factory {
         }
     }
 
-    /**
-     * Maps the value of an XPath onto another XPath.
-     */
+    /** Maps the value of an XPath onto another XPath. */
     private class PathModifier extends Modifier {
         @Override
         public void modifyFile(CLDRFile file) {
@@ -282,9 +272,7 @@ public class FilterFactory extends Factory {
         }
     }
 
-    /**
-     * Replaces certain values with other values.
-     */
+    /** Replaces certain values with other values. */
     private class ValueModifier extends Modifier {
         @Override
         public void modifyFile(CLDRFile file) {
@@ -324,9 +312,7 @@ public class FilterFactory extends Factory {
         }
     }
 
-    /**
-     * Maps the value of XPaths onto other XPaths using regexes.
-     */
+    /** Maps the value of XPaths onto other XPaths using regexes. */
     private class PathRegexModifier extends Modifier {
         private RegexLookup<String> xpathLookup = new RegexLookup<>();
 
@@ -363,53 +349,55 @@ public class FilterFactory extends Factory {
         }
     }
 
-    /**
-     * Loads modifiers from a specified file.
-     */
+    /** Loads modifiers from a specified file. */
     private void loadModifiers(String filename) {
         if (!modifyValues) return;
         final Modifier pathModifier = new PathModifier();
         final Modifier pathRegexModifier = new PathRegexModifier();
         final Modifier valueModifier = new ValueModifier();
         RegexFileParser fileParser = new RegexFileParser();
-        fileParser.setLineParser(new RegexLineParser() {
-            @Override
-            public void parse(String line) {
-                String[] contents = line.split("\\s*+;\\s*+");
-                ModificationType filterType = ModificationType.valueOf(contents[0]);
-                String oldValue = contents[1];
-                String newValue = contents[2];
-                // Process remaining options.
-                Map<String, String> options = new HashMap<>();
-                for (int i = 3; i < contents.length; i++) {
-                    String rawLine = contents[i];
-                    int pos = rawLine.indexOf('=');
-                    if (pos < 0) {
-                        throw new IllegalArgumentException("Invalid option: " + rawLine);
-                    }
-                    String optionType = rawLine.substring(0, pos).trim();
-                    options.put(optionType, rawLine.substring(pos + 1).trim());
-                }
+        fileParser.setLineParser(
+                new RegexLineParser() {
+                    @Override
+                    public void parse(String line) {
+                        String[] contents = line.split("\\s*+;\\s*+");
+                        ModificationType filterType = ModificationType.valueOf(contents[0]);
+                        String oldValue = contents[1];
+                        String newValue = contents[2];
+                        // Process remaining options.
+                        Map<String, String> options = new HashMap<>();
+                        for (int i = 3; i < contents.length; i++) {
+                            String rawLine = contents[i];
+                            int pos = rawLine.indexOf('=');
+                            if (pos < 0) {
+                                throw new IllegalArgumentException("Invalid option: " + rawLine);
+                            }
+                            String optionType = rawLine.substring(0, pos).trim();
+                            options.put(optionType, rawLine.substring(pos + 1).trim());
+                        }
 
-                switch (filterType) {
-                case xpath:
-                    if (isValidXPath(oldValue)) {
-                        pathModifier.addModifierEntry(new ModifierEntry(oldValue, newValue, options));
-                    } else {
-                        pathRegexModifier.addModifierEntry(new ModifierEntry(fixXPathRegex(oldValue),
-                            newValue, options));
+                        switch (filterType) {
+                            case xpath:
+                                if (isValidXPath(oldValue)) {
+                                    pathModifier.addModifierEntry(
+                                            new ModifierEntry(oldValue, newValue, options));
+                                } else {
+                                    pathRegexModifier.addModifierEntry(
+                                            new ModifierEntry(
+                                                    fixXPathRegex(oldValue), newValue, options));
+                                }
+                                break;
+                            case value:
+                                String xpath = options.get("xpath");
+                                if (xpath != null && !isValidXPath(xpath)) {
+                                    options.put("xpath", fixXPathRegex(xpath));
+                                }
+                                valueModifier.addModifierEntry(
+                                        new ModifierEntry(oldValue, newValue, options));
+                                break;
+                        }
                     }
-                    break;
-                case value:
-                    String xpath = options.get("xpath");
-                    if (xpath != null && !isValidXPath(xpath)) {
-                        options.put("xpath", fixXPathRegex(xpath));
-                    }
-                    valueModifier.addModifierEntry(new ModifierEntry(oldValue, newValue, options));
-                    break;
-                }
-            }
-        });
+                });
         fileParser.parse(FilterFactory.class, filename);
         modifiers.add(pathModifier);
         modifiers.add(pathRegexModifier);
@@ -436,12 +424,24 @@ public class FilterFactory extends Factory {
         return '^' + path.replace("[@", "\\[@");
     }
 
-    private static final Options options = new Options(
-        "Filters CLDR XML files according to orgnizational coverage levels and an " +
-            "input file of replacement values/xpaths.")
-                //        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
-                .add("org", 'o', ".*", Organization.cldr.name(), "The organization that the filtering is for. If set, also removes duplicate paths.")
-                .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
+    private static final Options options =
+            new Options(
+                            "Filters CLDR XML files according to orgnizational coverage levels and an "
+                                    + "input file of replacement values/xpaths.")
+                    //        .add("org", 'o', ".*", "google", "The organization that the filtering
+                    // is for. If set, also removes duplicate paths.")
+                    .add(
+                            "org",
+                            'o',
+                            ".*",
+                            Organization.cldr.name(),
+                            "The organization that the filtering is for. If set, also removes duplicate paths.")
+                    .add(
+                            "locales",
+                            'l',
+                            ".*",
+                            ".*",
+                            "A regular expression indicating the locales to be filtered");
 
     /**
      * Run FilterFactory for a specific organization.
@@ -451,15 +451,16 @@ public class FilterFactory extends Factory {
      */
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
-        Factory rawFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, options.get("locales").getValue());
+        Factory rawFactory =
+                Factory.make(CLDRPaths.MAIN_DIRECTORY, options.get("locales").getValue());
         String org = options.get("org").getValue();
         FilterFactory filterFactory = FilterFactory.load(rawFactory, org, true);
         String outputDir = CLDRPaths.GEN_DIRECTORY + "/filter";
         for (String locale : rawFactory.getAvailable()) {
-            try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, locale + ".xml");) {
+            try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, locale + ".xml"); ) {
                 filterFactory.make(locale, false).write(out);
             }
-//            out.close();
+            //            out.close();
         }
     }
 }

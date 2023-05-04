@@ -3,7 +3,6 @@ package org.unicode.cldr.test;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 
@@ -12,10 +11,11 @@ public class CheckAlt extends CheckCLDR {
     Set<String> seenSoFar = new HashSet<>();
 
     // determine if we have an alt=...proposed
-    // if we have one, and there is not a non-proposed version -- in this same file, unaliased, there's a problem.
+    // if we have one, and there is not a non-proposed version -- in this same file, unaliased,
+    // there's a problem.
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Options options, List<CheckStatus> result) {
+    public CheckCLDR handleCheck(
+            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
         // quick checks
@@ -35,18 +35,21 @@ public class CheckAlt extends CheckCLDR {
         if (otherValue != null) {
             return this;
         }
-        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-            .setSubtype(Subtype.noUnproposedVariant)
-            .setCheckOnSubmit(false)
-            .setMessage("Proposed item but no unproposed variant", new Object[] {}));
+        result.add(
+                new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.noUnproposedVariant)
+                        .setCheckOnSubmit(false)
+                        .setMessage("Proposed item but no unproposed variant", new Object[] {}));
         seenSoFar.add(strippedPath);
 
         return this;
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-        List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         // Skip if the phase is not final testing
         if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {

@@ -1,5 +1,13 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.io.Files;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +23,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.AnnotationUtil;
@@ -33,15 +40,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableListMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.io.Files;
-import com.ibm.icu.util.Output;
-
 public class GenerateProductionData {
     private static boolean DEBUG = false;
     private static boolean VERBOSE = false;
@@ -57,50 +55,59 @@ public class GenerateProductionData {
     private static boolean INCLUDE_COMPREHENSIVE = false;
     private static boolean CONSTRAINED_RESTORATION = false;
 
-    private static final Set<String> NON_XML = ImmutableSet.of("dtd", "properties", "testData", "uca");
-    private static final Set<String> COPY_ANYWAY = ImmutableSet.of("casing", "collation"); // don't want to "clean up", makes format difficult to use
-    private static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static final Set<String> NON_XML =
+            ImmutableSet.of("dtd", "properties", "testData", "uca");
+    private static final Set<String> COPY_ANYWAY =
+            ImmutableSet.of(
+                    "casing",
+                    "collation"); // don't want to "clean up", makes format difficult to use
+    private static final SupplementalDataInfo SDI =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
 
     enum MyOptions {
-        sourceDirectory(new Params()
-            .setHelp("source common directory")
-            .setDefault(CLDRPaths.COMMON_DIRECTORY)
-            .setMatch(".*")),
-        destinationDirectory(new Params()
-            .setHelp("destination common directory")
-            .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
-            .setMatch(".*")),
-        logicalGroups(new Params()
-            .setHelp("add path/values for logical groups")
-            .setDefault("true")
-            .setMatch("true|false")),
-        time(new Params()
-            .setHelp("add path/values for stock date/time/datetime")
-            .setDefault("true")
-            .setMatch("true|false")),
-        Sideways(new Params()
-            .setHelp("add path/values for sideways inheritance")
-            .setDefault("true")
-            .setMatch("true|false")),
-        root(new Params()
-            .setHelp("add path/values for root and code-fallback")
-            .setDefault("true")
-            .setMatch("true|false")),
-        constrainedRestoration(new Params()
-            .setHelp("only add inherited paths that were in original file")
-            .setDefault("true")
-            .setMatch("true|false")),
-        includeComprehensive(new Params()
-            .setHelp("exclude comprehensive paths — otherwise just to modern level")
-            .setDefault("true")
-            .setMatch("true|false")),
-        verbose(new Params()
-            .setHelp("verbose debugging messages")),
-        Debug(new Params()
-            .setHelp("debug")),
-        fileMatch(new Params()
-            .setHelp("regex to match patterns")
-            .setMatch(".*")),
+        sourceDirectory(
+                new Params()
+                        .setHelp("source common directory")
+                        .setDefault(CLDRPaths.COMMON_DIRECTORY)
+                        .setMatch(".*")),
+        destinationDirectory(
+                new Params()
+                        .setHelp("destination common directory")
+                        .setDefault(CLDRPaths.STAGING_DIRECTORY + "production/common")
+                        .setMatch(".*")),
+        logicalGroups(
+                new Params()
+                        .setHelp("add path/values for logical groups")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        time(
+                new Params()
+                        .setHelp("add path/values for stock date/time/datetime")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        Sideways(
+                new Params()
+                        .setHelp("add path/values for sideways inheritance")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        root(
+                new Params()
+                        .setHelp("add path/values for root and code-fallback")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        constrainedRestoration(
+                new Params()
+                        .setHelp("only add inherited paths that were in original file")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        includeComprehensive(
+                new Params()
+                        .setHelp("exclude comprehensive paths — otherwise just to modern level")
+                        .setDefault("true")
+                        .setMatch("true|false")),
+        verbose(new Params().setHelp("verbose debugging messages")),
+        Debug(new Params().setHelp("debug")),
+        fileMatch(new Params().setHelp("regex to match patterns").setMatch(".*")),
         ;
 
         // BOILERPLATE TO COPY
@@ -111,6 +118,7 @@ public class GenerateProductionData {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -144,27 +152,33 @@ public class GenerateProductionData {
         ADD_ROOT = "true".equalsIgnoreCase(MyOptions.root.option.getValue());
 
         // constraints
-        INCLUDE_COMPREHENSIVE = "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
-        CONSTRAINED_RESTORATION = "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
+        INCLUDE_COMPREHENSIVE =
+                "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
+        CONSTRAINED_RESTORATION =
+                "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
 
         // get directories
 
         Arrays.asList(DtdType.values())
-            //.parallelStream()
-            //.unordered()
-            .forEach(type -> {
-            boolean isLdmlDtdType = type == DtdType.ldml;
+                // .parallelStream()
+                // .unordered()
+                .forEach(
+                        type -> {
+                            boolean isLdmlDtdType = type == DtdType.ldml;
 
-            // bit of a hack, using the ldmlICU — otherwise unused! — to get the nonXML files.
-            Set<String> directories = (type == DtdType.ldmlICU) ? NON_XML : type.directories;
+                            // bit of a hack, using the ldmlICU — otherwise unused! — to get the
+                            // nonXML files.
+                            Set<String> directories =
+                                    (type == DtdType.ldmlICU) ? NON_XML : type.directories;
 
-            for (String dir : directories) {
-                File sourceDir = new File(SOURCE_COMMON_DIR, dir);
-                File destinationDir = new File(DEST_COMMON_DIR, dir);
-                Stats stats = new Stats();
-                copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
-            }
-        });
+                            for (String dir : directories) {
+                                File sourceDir = new File(SOURCE_COMMON_DIR, dir);
+                                File destinationDir = new File(DEST_COMMON_DIR, dir);
+                                Stats stats = new Stats();
+                                copyFilesAndReturnIsEmpty(
+                                        sourceDir, destinationDir, null, isLdmlDtdType, stats);
+                            }
+                        });
     }
 
     private static class Stats {
@@ -172,19 +186,26 @@ public class GenerateProductionData {
         long removed;
         long retained;
         long remaining;
+
         Stats clear() {
             files = removed = retained = remaining = 0;
             return this;
         }
+
         @Override
         public String toString() {
-            return
-                "files=" + files
-                + (removed + retained + remaining == 0 ? ""
-                    : "; removed=" + removed
-                    + "; retained=" + retained
-                    + "; remaining=" + remaining);
+            return "files="
+                    + files
+                    + (removed + retained + remaining == 0
+                            ? ""
+                            : "; removed="
+                                    + removed
+                                    + "; retained="
+                                    + retained
+                                    + "; remaining="
+                                    + remaining);
         }
+
         public void showNonZero(String label) {
             if (removed + retained + remaining != 0) {
                 System.out.println(label + toString());
@@ -194,6 +215,7 @@ public class GenerateProductionData {
 
     /**
      * Copy files in directories, recursively.
+     *
      * @param sourceFile
      * @param destinationFile
      * @param factory
@@ -202,14 +224,18 @@ public class GenerateProductionData {
      * @param hasChildren
      * @return true if the file is an ldml file with empty content.
      */
-    private static boolean copyFilesAndReturnIsEmpty(File sourceFile, File destinationFile,
-        Factory factory, boolean isLdmlDtdType, final Stats stats) {
+    private static boolean copyFilesAndReturnIsEmpty(
+            File sourceFile,
+            File destinationFile,
+            Factory factory,
+            boolean isLdmlDtdType,
+            final Stats stats) {
         if (sourceFile.isDirectory()) {
 
             System.out.println(sourceFile + " => " + destinationFile);
             if (!destinationFile.mkdirs()) {
                 // if created, remove old contents
-                 Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
+                Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
             }
 
             Set<String> sorted = new TreeSet<>();
@@ -226,43 +252,57 @@ public class GenerateProductionData {
             }
             boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
             boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
-            boolean isAnnotationsDir = factory != null && sourceFile.getName().startsWith("annotations");
+            boolean isAnnotationsDir =
+                    factory != null && sourceFile.getName().startsWith("annotations");
 
             Set<String> emptyLocales = new HashSet<>();
             final Stats stats2 = new Stats();
             final Factory theFactory = factory;
             final boolean isLdmlDtdType2 = isLdmlDtdType;
             sorted
-                //.parallelStream()
-                .forEach(file -> {
-                    File sourceFile2 = new File(sourceFile, file);
-                    File destinationFile2 = new File(destinationFile, file);
-                    if (VERBOSE) System.out.println("\t" + file);
+                    // .parallelStream()
+                    .forEach(
+                    file -> {
+                        File sourceFile2 = new File(sourceFile, file);
+                        File destinationFile2 = new File(destinationFile, file);
+                        if (VERBOSE) System.out.println("\t" + file);
 
-                    // special step to just copy certain files like main/root.xml file
-                    Factory currFactory = theFactory;
-                    if (isMainDir) {
-                        if (file.equals("root.xml")) {
+                        // special step to just copy certain files like main/root.xml file
+                        Factory currFactory = theFactory;
+                        if (isMainDir) {
+                            if (file.equals("root.xml")) {
+                                currFactory = null;
+                            }
+                        } else if (isRbnfDir) {
                             currFactory = null;
                         }
-                    } else if (isRbnfDir) {
-                        currFactory = null;
-                    }
 
-                    // when the currFactory is null, we just copy files as-is
-                    boolean isEmpty = copyFilesAndReturnIsEmpty(sourceFile2, destinationFile2, currFactory, isLdmlDtdType2, stats2);
-                    if (isEmpty) { // only happens for ldml
-                        emptyLocales.add(file.substring(0,file.length()-4)); // remove .xml for localeId
-                    }
-                });
+                        // when the currFactory is null, we just copy files as-is
+                        boolean isEmpty =
+                                copyFilesAndReturnIsEmpty(
+                                        sourceFile2,
+                                        destinationFile2,
+                                        currFactory,
+                                        isLdmlDtdType2,
+                                        stats2);
+                        if (isEmpty) { // only happens for ldml
+                            emptyLocales.add(
+                                    file.substring(
+                                            0, file.length() - 4)); // remove .xml for localeId
+                        }
+                    });
             stats2.showNonZero("\tTOTAL:\t");
             // if there are empty ldml files, AND we aren't in /main/,
             // then remove any without children
             if (!emptyLocales.isEmpty() && !isMainDir) {
-                Set<String> childless = getChildless(emptyLocales, factory.getAvailable(), isAnnotationsDir);
+                Set<String> childless =
+                        getChildless(emptyLocales, factory.getAvailable(), isAnnotationsDir);
                 if (!childless.isEmpty()) {
-                    if (VERBOSE) System.out.println("\t" + destinationFile + "\tRemoving empty locales:" + childless);
-                    childless.stream().forEach(locale -> new File(destinationFile, locale + ".xml").delete());
+                    if (VERBOSE)
+                        System.out.println(
+                                "\t" + destinationFile + "\tRemoving empty locales:" + childless);
+                    childless.stream()
+                            .forEach(locale -> new File(destinationFile, locale + ".xml").delete());
                 }
             }
             return false;
@@ -271,7 +311,7 @@ public class GenerateProductionData {
             if (!file.endsWith(".xml")) {
                 return false;
             }
-            String localeId = file.substring(0, file.length()-4);
+            String localeId = file.substring(0, file.length() - 4);
             if (FILE_MATCH != null) {
                 if (!FILE_MATCH.reset(localeId).matches()) {
                     return false;
@@ -290,17 +330,18 @@ public class GenerateProductionData {
 
             boolean isArabicSpecial = localeId.equals("ar") || localeId.startsWith("ar_");
 
-            String debugPath = "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"]"; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
+            String debugPath =
+                    "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"]"; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
             boolean debugLocale = localeId.equals("pt");
 
-            ImmutableSet<String> sortedPaths = ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
+            ImmutableSet<String> sortedPaths =
+                    ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
 
             for (String xpath : sortedPaths) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
                 }
-                if (debugPath != null && debugLocale
-                    && xpath.startsWith(debugPath)) {
+                if (debugPath != null && debugLocale && xpath.startsWith(debugPath)) {
                     int debug = 0;
                 }
 
@@ -326,16 +367,25 @@ public class GenerateProductionData {
 
                 // Remove items that are the same as their bailey values.
                 // However, two optional parameters change what happens
-                // if ADD_SIDEWAYS is true, then we check for paths equal (condidtionally, see the method doc)
+                // if ADD_SIDEWAYS is true, then we check for paths equal (condidtionally, see the
+                // method doc)
                 // if ADD_ROOT is true, then we check for the found locale being root
 
-                String bailey = cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                String bailey =
+                        cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (value.equals(bailey)
-                    && (!ADD_SIDEWAYS
-                        || pathEqualsOrIsOkAltVariantOf(cldrFileResolved, xpath, pathWhereFound.value, localeId, localeWhereFound.value))
-                    && (!ADD_ROOT
-                        || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
-                            && !Objects.equals(XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
+                        && (!ADD_SIDEWAYS
+                                || pathEqualsOrIsOkAltVariantOf(
+                                        cldrFileResolved,
+                                        xpath,
+                                        pathWhereFound.value,
+                                        localeId,
+                                        localeWhereFound.value))
+                        && (!ADD_ROOT
+                                || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
+                                        && !Objects.equals(
+                                                XMLSource.CODE_FALLBACK_ID,
+                                                localeWhereFound.value)))) {
                     toRemove.add(xpath);
                     continue;
                 }
@@ -388,7 +438,6 @@ public class GenerateProductionData {
                 if (DEBUG) {
                     showIfNonZero(localeId, "removing", toRemove);
                     showIfNonZero(localeId, "retaining", toRetain);
-
                 }
                 if (CONSTRAINED_RESTORATION) {
                     toRetain.retainAll(toRemove); // only add paths that were there already
@@ -413,25 +462,31 @@ public class GenerateProductionData {
                 outCldrFile.removeAll(toRemove, false);
                 if (DEBUG) {
                     for (String xpath : toRemove) {
-                        System.out.println(localeId + ": removing: «"
-                            + cldrFileUnresolved.getStringValue(xpath)
-                            + "», " + xpath);
+                        System.out.println(
+                                localeId
+                                        + ": removing: «"
+                                        + cldrFileUnresolved.getStringValue(xpath)
+                                        + "», "
+                                        + xpath);
                     }
                 }
 
                 // now set any null values to bailey values if not present
                 for (String xpath : toRetain) {
-                    if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                    if (debugPath != null
+                            && localeId.equals(debugLocale)
+                            && xpath.equals(debugPath)) {
                         int debug = 0;
                     }
                     String value = cldrFileResolved.getStringValue(xpath);
                     if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                        throw new IllegalArgumentException(localeId + ": " + value + " in value for " + xpath);
+                        throw new IllegalArgumentException(
+                                localeId + ": " + value + " in value for " + xpath);
                     } else {
                         if (DEBUG) {
                             String oldValue = cldrFileUnresolved.getStringValue(xpath);
-                            System.out.println("Restoring: «" + oldValue + "» ⇒ «" + value
-                                + "»\t" + xpath);
+                            System.out.println(
+                                    "Restoring: «" + oldValue + "» ⇒ «" + value + "»\t" + xpath);
                         }
                         outCldrFile.add(xpath, value);
                     }
@@ -440,12 +495,15 @@ public class GenerateProductionData {
                 // double-check results
                 int count = 0;
                 for (String xpath : outCldrFile) {
-                    if (debugPath != null && localeId.equals(debugLocale) && xpath.equals(debugPath)) {
+                    if (debugPath != null
+                            && localeId.equals(debugLocale)
+                            && xpath.equals(debugPath)) {
                         int debug = 0;
                     }
                     String value = outCldrFile.getStringValue(xpath);
                     if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                        throw new IllegalArgumentException(localeId + ": " + value + " in value for " + xpath);
+                        throw new IllegalArgumentException(
+                                localeId + ": " + value + " in value for " + xpath);
                     }
                 }
 
@@ -455,14 +513,15 @@ public class GenerateProductionData {
                 stats.retained += toRetain.size();
                 stats.remaining += count;
             } catch (FileNotFoundException e) {
-                throw new UncheckedIOException("Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
+                throw new UncheckedIOException(
+                        "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
             }
             return !gotOne;
         } else {
             if (FILE_MATCH != null) {
                 String file = sourceFile.getName();
                 int dotPos = file.lastIndexOf('.');
-                String baseName = dotPos >= 0 ? file.substring(0, file.length()-dotPos) : file;
+                String baseName = dotPos >= 0 ? file.substring(0, file.length() - dotPos) : file;
                 if (!FILE_MATCH.reset(baseName).matches()) {
                     return false;
                 }
@@ -476,34 +535,55 @@ public class GenerateProductionData {
 
     private static void showIfNonZero(String localeId, String title, Set<String> toRemove) {
         if (toRemove.size() != 0) {
-            System.out.println(localeId + ": "
-                + title
-                + ": " + toRemove.size());
+            System.out.println(localeId + ": " + title + ": " + toRemove.size());
         }
     }
 
     /**
-     * Exceptions for generating production data, because the results would not pass CompareResolved.
+     * Exceptions for generating production data, because the results would not pass
+     * CompareResolved.
      */
-    static final Multimap<String, String> LOCALE_TO_PATH_EXCEPTIONS = ImmutableListMultimap.<String, String>builder()
-        .put("oc_ES", "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
-        .put("zh_Hant_MO",   "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
-        .put("zh_Hant_MO",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
-        .put("zh_Hant_HK",   "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
-        .put("zh_Hant_HK",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
-        .put("ru_BY",    "//ldml/numbers/currencies/currency[@type=\"RUR\"]/symbol[@alt=\"narrow\"]")
-        .put("oc_ES",    "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
-        .put("el_POLYTON",   "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
-        .put("be_TARASK",    "//ldml/localeDisplayNames/languages/language[@type=\"az\"][@alt=\"short\"]")
-        .build();
+    static final Multimap<String, String> LOCALE_TO_PATH_EXCEPTIONS =
+            ImmutableListMultimap.<String, String>builder()
+                    .put(
+                            "oc_ES",
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
+                    .put(
+                            "zh_Hant_MO",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
+                    .put(
+                            "zh_Hant_MO",
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+                    .put(
+                            "zh_Hant_HK",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"yue\"][@alt=\"menu\"]")
+                    .put(
+                            "zh_Hant_HK",
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+                    .put(
+                            "ru_BY",
+                            "//ldml/numbers/currencies/currency[@type=\"RUR\"]/symbol[@alt=\"narrow\"]")
+                    .put(
+                            "oc_ES",
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]")
+                    .put(
+                            "el_POLYTON",
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"CI\"][@alt=\"variant\"]")
+                    .put(
+                            "be_TARASK",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"az\"][@alt=\"short\"]")
+                    .build();
 
     /**
-     * Check if a path is equal, or if it is a suitable alt variant
-     * If it returns true, the value will be removed; false will retain it.
+     * Check if a path is equal, or if it is a suitable alt variant If it returns true, the value
+     * will be removed; false will retain it.
      */
-    private static boolean pathEqualsOrIsOkAltVariantOf(CLDRFile cldrFileResolved,
-        String desiredPath, String foundPath, String localeId, String foundLocaleId
-        ) {
+    private static boolean pathEqualsOrIsOkAltVariantOf(
+            CLDRFile cldrFileResolved,
+            String desiredPath,
+            String foundPath,
+            String localeId,
+            String foundLocaleId) {
         if (LOCALE_TO_PATH_EXCEPTIONS.containsEntry(localeId, desiredPath)) {
             return false;
         }
@@ -526,7 +606,8 @@ public class GenerateProductionData {
             // For now, we are using the LOCALE_TO_PATH_EXCEPTIONS.
             return true;
         }
-        if (!foundLocaleId.equals(localeId)) { // extra condition on alt values; has to be found in the same locale
+        if (!foundLocaleId.equals(
+                localeId)) { // extra condition on alt values; has to be found in the same locale
             return false;
         }
         if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
@@ -572,19 +653,23 @@ public class GenerateProductionData {
 
     private static boolean isDateTimePath(String xpath) {
         return xpath.startsWith("//ldml/dates/calendars/calendar")
-            && xpath.contains("FormatLength[@type=");
+                && xpath.contains("FormatLength[@type=");
     }
 
-    /** generate full dateTimePaths from any element
-    //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type=".*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
-    //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type=".*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
-    //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type=".*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+    /**
+     * generate full dateTimePaths from any element
+     * //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type=".*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type=".*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type=".*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
      */
     private static Set<String> dateTimePaths(String xpath) {
         LinkedHashSet<String> result = new LinkedHashSet<>();
-        String prefix = xpath.substring(0,xpath.indexOf(']') + 2); // get after ]/
+        String prefix = xpath.substring(0, xpath.indexOf(']') + 2); // get after ]/
         for (String type : Arrays.asList("date", "time", "dateTime")) {
-            String pattern = prefix + "$XFormats/$XFormatLength[@type=\"$Y\"]/$XFormat[@type=\"standard\"]/pattern[@type=\"standard\"]".replace("$X", type);
+            String pattern =
+                    prefix
+                            + "$XFormats/$XFormatLength[@type=\"$Y\"]/$XFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"
+                                    .replace("$X", type);
             for (String width : Arrays.asList("full", "long", "medium", "short")) {
                 result.add(pattern.replace("$Y", width));
             }
@@ -592,9 +677,10 @@ public class GenerateProductionData {
         return result;
     }
 
-    private static Set<String> getChildless(Set<String> emptyLocales, Set<String> available, boolean isAnnotationsDir) {
+    private static Set<String> getChildless(
+            Set<String> emptyLocales, Set<String> available, boolean isAnnotationsDir) {
         // first build the parent2child map
-        Multimap<String,String> parent2child = HashMultimap.create();
+        Multimap<String, String> parent2child = HashMultimap.create();
         for (String locale : available) {
             String parent = LocaleIDParser.getParent(locale);
             if (parent != null) {
@@ -620,15 +706,14 @@ public class GenerateProductionData {
 
     /**
      * Recursively checks that all children are empty (including that there are no children)
+     *
      * @param name
      * @param emptyLocales
      * @param parent2child
      * @return
      */
     private static boolean allChildrenAreEmpty(
-        String locale,
-        Set<String> emptyLocales,
-        Multimap<String, String> parent2child) {
+            String locale, Set<String> emptyLocales, Multimap<String, String> parent2child) {
 
         Collection<String> children = parent2child.get(locale);
         for (String child : children) {

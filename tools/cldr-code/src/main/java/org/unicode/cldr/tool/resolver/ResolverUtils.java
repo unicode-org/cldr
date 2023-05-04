@@ -7,7 +7,6 @@ package org.unicode.cldr.tool.resolver;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRFile;
 
 /**
@@ -17,25 +16,20 @@ import org.unicode.cldr.util.CLDRFile;
  */
 public class ResolverUtils {
     /**
-     * Output level from 0-5. 0 is nothing, 1 is errors, 2-3 is pretty sane, 5
-     * will flood your terminal.
+     * Output level from 0-5. 0 is nothing, 1 is errors, 2-3 is pretty sane, 5 will flood your
+     * terminal.
      */
     static int verbosity = 2;
 
-    /**
-     * This is a static class and should never be instantiated
-     */
-    private ResolverUtils() {
-    }
+    /** This is a static class and should never be instantiated */
+    private ResolverUtils() {}
 
     /**
-     * Get the set of paths with non-null values from a CLDR file (including all
-     * extra paths).
+     * Get the set of paths with non-null values from a CLDR file (including all extra paths).
      *
      * @param file the CLDRFile from which to extract paths
-     * @return a Set containing all the paths returned by
-     *         {@link CLDRFile#iterator()}, plus those from
-     *         {@link CLDRFile#getExtraPaths(java.util.Collection)}
+     * @return a Set containing all the paths returned by {@link CLDRFile#iterator()}, plus those
+     *     from {@link CLDRFile#getExtraPaths(java.util.Collection)}
      */
     public static Set<String> getAllPaths(CLDRFile file) {
         String locale = file.getLocaleID();
@@ -54,12 +48,10 @@ public class ResolverUtils {
     }
 
     /**
-     * Debugging method used to make null and empty strings more obvious in
-     * printouts
+     * Debugging method used to make null and empty strings more obvious in printouts
      *
      * @param str the string
-     * @return "[null]" if str==null, "[empty]" if str is the empty string, str
-     *         otherwise
+     * @return "[null]" if str==null, "[empty]" if str is the empty string, str otherwise
      */
     public static String strRep(String str) {
         if (str == null) {

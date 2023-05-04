@@ -762,6 +762,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             final String unicodeSet = new UnicodeSet(test[1]).toPattern(true); // normalize
             final String expectedDisplayForm = test[2];
             final String expectedRoundtrip = new UnicodeSet(test[3]).toPattern(true); // normalize
+
             String actualDisplayForm = daip.processForDisplay(path, unicodeSet);
             assertEquals(
                     ++count + ") unicodeSet to display, " + path,
@@ -771,6 +772,17 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             actualRoundtrip = new UnicodeSet(actualRoundtrip).toPattern(true); // normalize
             assertEquals(
                     count + ") display to unicodeSet, " + path, expectedRoundtrip, actualRoundtrip);
+
+            // Now we check that processInput can work on the display form.
+            // Just in case the ST calls it twice.
+
+            String doubleInputProcessing = daip.processInput(path, actualRoundtrip, excp);
+            doubleInputProcessing =
+                    new UnicodeSet(doubleInputProcessing).toPattern(true); // normalize
+            assertEquals(
+                    count + ") processInput twice, " + path,
+                    expectedRoundtrip,
+                    doubleInputProcessing);
         }
     }
 }

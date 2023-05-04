@@ -38,41 +38,40 @@ final class LocaleIds {
     //
     // The regex for unambiguously matching a valid locale ID (other than "root") for CLDR data is:
     private static final Pattern LOCALE_ID =
-        Pattern.compile("(?:[a-z]{2,3})"
-            + "(?:_(?:[A-Z][a-z]{3}))?"
-            + "(?:_(?:[A-Z]{2}|[0-9]{3}))?"
-            + "(?:_(?:[A-Za-z]{5,}|[0-9][A-Za-z0-9]{3}))?");
+            Pattern.compile(
+                    "(?:[a-z]{2,3})"
+                            + "(?:_(?:[A-Z][a-z]{3}))?"
+                            + "(?:_(?:[A-Z]{2}|[0-9]{3}))?"
+                            + "(?:_(?:[A-Za-z]{5,}|[0-9][A-Za-z0-9]{3}))?");
 
     /**
      * Checks whether the given ID is valid for CLDR use (including case). Locale IDs for use in
-     * CLDR APIs are a subset of all possible locale IDs and, unlike general locale IDs, they
-     * are case sensitive. The rules are:
+     * CLDR APIs are a subset of all possible locale IDs and, unlike general locale IDs, they are
+     * case sensitive. The rules are:
+     *
      * <ul>
-     *     <li>A locale ID is up to four subtags {@code
-     *         <language>(_<script>)?(_<region>)?(_<variant>)?}
-     *     <li>The allowed subtag separator is only ASCII underscore (not hyphen).
-     *     <li>The language subtag must exist (though it is permitted to be {@code "und"}).
-     *     <li>All other subtags are optional and are separated by a single underscore.
-     *     <li>Language subtag is lower-case, and is either 2 or 3 letters (i.e. "[a-z]{2,3}").
-     *     <li>Script subtag is mixed-case and must match {@code "[A-Z][a-z]{3}"}.
-     *     <li>Region subtag is upper-case and must match {@code "[A-Z]{2}} or {@code "[0-9]{3}"}.
-     *     <li>Variant subtag is upper- or lower-case and must match {@code "[A-Z]{5,}} or
-     *         {@code "[0-9][A-Z0-9]{3}"}.
-     *         Note: The EBNF at https://www.unicode.org/reports/tr35/#unicode_variant_subtag
-     *         allows either lettercase, and the data at common/validity/variant.xml user lower.
-     *         CLDR 40 has be_tarask, ca_ES_VALENCIA, en_US_POSIX.
-     *     <li>The special locale ID {@code "root"} is also permitted.
-     * <ul>
-     *
-     * <p>Note that this check does don't enforce validity in terms of checking for deprecated
-     * languages, regions or script, so things like {@code "sh_YU"} (deprecated language and/or
-     * region) are accepted.
-     *
-     * <p>Examples of valid locale IDs are {@code "en"}, {@code "zh_Hant"}, {@code "fr_CA"},
-     * {@code "sr_Latn_RS"} and {@code "ja_JP_TRADITIONAL"}.
-     *
-     * <p>Examples of invalid locale IDs are {@code ""}, {@code "en_"}, {@code "Latn"} and
-     * {@code "de__TRADITIONAL"}.
+     *   <li>A locale ID is up to four subtags {@code
+     *       <language>(_<script>)?(_<region>)?(_<variant>)?}
+     *   <li>The allowed subtag separator is only ASCII underscore (not hyphen).
+     *   <li>The language subtag must exist (though it is permitted to be {@code "und"}).
+     *   <li>All other subtags are optional and are separated by a single underscore.
+     *   <li>Language subtag is lower-case, and is either 2 or 3 letters (i.e. "[a-z]{2,3}").
+     *   <li>Script subtag is mixed-case and must match {@code "[A-Z][a-z]{3}"}.
+     *   <li>Region subtag is upper-case and must match {@code "[A-Z]{2}} or {@code "[0-9]{3}"}.
+     *   <li>Variant subtag is upper- or lower-case and must match {@code "[A-Z]{5,}} or {@code
+     *       "[0-9][A-Z0-9]{3}"}. Note: The EBNF at
+     *       https://www.unicode.org/reports/tr35/#unicode_variant_subtag allows either lettercase,
+     *       and the data at common/validity/variant.xml user lower. CLDR 40 has be_tarask,
+     *       ca_ES_VALENCIA, en_US_POSIX.
+     *   <li>The special locale ID {@code "root"} is also permitted.
+     *       <ul>
+     *         <p>Note that this check does don't enforce validity in terms of checking for
+     *         deprecated languages, regions or script, so things like {@code "sh_YU"} (deprecated
+     *         language and/or region) are accepted.
+     *         <p>Examples of valid locale IDs are {@code "en"}, {@code "zh_Hant"}, {@code "fr_CA"},
+     *         {@code "sr_Latn_RS"} and {@code "ja_JP_TRADITIONAL"}.
+     *         <p>Examples of invalid locale IDs are {@code ""}, {@code "en_"}, {@code "Latn"} and
+     *         {@code "de__TRADITIONAL"}.
      *
      * @param localeId the ID the check.
      * @throws IllegalArgumentException is the ID is invalid.
@@ -80,8 +79,9 @@ final class LocaleIds {
     public static void checkCldrLocaleId(String localeId) {
         // This check runs on a lot of locales, so make it as minimal as possible. If normalization
         // is ever needed, do it in a separate method.
-        checkArgument(LOCALE_ID.matcher(localeId).matches() || localeId.equals("root"),
-            "bad locale ID: %s", localeId);
+        checkArgument(
+                LOCALE_ID.matcher(localeId).matches() || localeId.equals("root"),
+                "bad locale ID: %s",
+                localeId);
     }
-
 }

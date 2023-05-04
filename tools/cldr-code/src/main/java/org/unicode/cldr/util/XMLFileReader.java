@@ -8,6 +8,9 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.base.Function;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +19,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -31,24 +33,21 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.google.common.base.Function;
-import com.ibm.icu.util.ICUException;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 /**
- * Convenience class to make reading XML data files easier. The main method is read();
- * This is meant for XML data files, so the contents of elements must either be all other elements, or
- * just text. It is thus not suitable for XML files with MIXED content;
- * all text content in a mixed element is discarded.
+ * Convenience class to make reading XML data files easier. The main method is read(); This is meant
+ * for XML data files, so the contents of elements must either be all other elements, or just text.
+ * It is thus not suitable for XML files with MIXED content; all text content in a mixed element is
+ * discarded.
  *
  * @author davis
  */
 public class XMLFileReader {
     static final boolean SHOW_ALL = false;
-    /**
-     * Handlers to use in read()
-     */
-    public static int CONTENT_HANDLER = 1, ERROR_HANDLER = 2, LEXICAL_HANDLER = 4, DECLARATION_HANDLER = 8;
+    /** Handlers to use in read() */
+    public static int CONTENT_HANDLER = 1,
+            ERROR_HANDLER = 2,
+            LEXICAL_HANDLER = 4,
+            DECLARATION_HANDLER = 8;
 
     private MyContentHandler DEFAULT_DECLHANDLER = new MyContentHandler();
     // TODO Add way to skip gathering value contents
@@ -56,23 +55,18 @@ public class XMLFileReader {
     private SimpleHandler simpleHandler;
 
     public static class SimpleHandler {
-        public void handlePathValue(String path, String value) {
-        }
+        public void handlePathValue(String path, String value) {}
 
-        public void handleComment(String path, String comment) {
-        }
+        public void handleComment(String path, String comment) {}
 
-        public void handleElementDecl(String name, String model) {
-        }
+        public void handleElementDecl(String name, String model) {}
 
-        public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
-        }
+        public void handleAttributeDecl(
+                String eName, String aName, String type, String mode, String value) {}
 
-        public void handleEndDtd() {
-        }
+        public void handleEndDtd() {}
 
-        public void handleStartDtd(String name, String publicId, String systemId) {
-        }
+        public void handleStartDtd(String name, String publicId, String systemId) {}
     }
 
     public XMLFileReader setHandler(SimpleHandler simpleHandler) {
@@ -83,17 +77,13 @@ public class XMLFileReader {
     /**
      * Read an XML file. The order of the elements matches what was in the file.
      *
-     * @param fileName
-     *            file to open
-     * @param handlers
-     *            a set of values for the handlers to use, eg CONTENT_HANDLER | ERROR_HANDLER
-     * @param validating
-     *            if a validating parse is requested
+     * @param fileName file to open
+     * @param handlers a set of values for the handlers to use, eg CONTENT_HANDLER | ERROR_HANDLER
+     * @param validating if a validating parse is requested
      * @return list of alternating values.
      */
     public XMLFileReader read(String fileName, int handlers, boolean validating) {
-        try (InputStream fis = new FileInputStream(fileName);
-            ) {
+        try (InputStream fis = new FileInputStream(fileName); ) {
             return read(fileName, new InputSource(fis), handlers, validating);
         } catch (IOException e) {
             File full = new File(fileName);
@@ -102,13 +92,14 @@ public class XMLFileReader {
                 fullName = full.getCanonicalPath();
             } catch (Exception IOException) {
             }
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullName).initCause(e);
+            throw (IllegalArgumentException)
+                    new IllegalArgumentException("Can't read " + fullName).initCause(e);
         }
     }
 
-
     /**
      * read from a CLDR resource
+     *
      * @param fileName
      * @param handlers
      * @param validating
@@ -126,6 +117,7 @@ public class XMLFileReader {
 
     /**
      * read from an arbitrary
+     *
      * @param fileName
      * @param handlers
      * @param validating
@@ -133,7 +125,8 @@ public class XMLFileReader {
      * @see CldrUtility#getInputStream(String)
      * @return
      */
-    public XMLFileReader read(String resName, Class<?> callingClass, int handlers, boolean validating) {
+    public XMLFileReader read(
+            String resName, Class<?> callingClass, int handlers, boolean validating) {
         try (InputStream inputStream = CldrUtility.getInputStream(callingClass, resName)) {
             return read(resName, new InputSource(inputStream), handlers, validating);
         } catch (IOException e) {
@@ -146,22 +139,38 @@ public class XMLFileReader {
         return this;
     }
 
-    public XMLFileReader read(String systemID, InputSource insrc, int handlers, boolean validating) {
+    public XMLFileReader read(
+            String systemID, InputSource insrc, int handlers, boolean validating) {
         read(systemID, insrc, handlers, validating, DEFAULT_DECLHANDLER.reset());
         return this;
     }
 
-    public static void read(String systemID, InputStream instr, int handlers, boolean validating, AllHandler allHandler) {
+    public static void read(
+            String systemID,
+            InputStream instr,
+            int handlers,
+            boolean validating,
+            AllHandler allHandler) {
         InputSource is = new InputSource(instr);
         read(systemID, is, handlers, validating, allHandler);
     }
 
-    public static void read(String systemID, Reader reader, int handlers, boolean validating, AllHandler allHandler) {
+    public static void read(
+            String systemID,
+            Reader reader,
+            int handlers,
+            boolean validating,
+            AllHandler allHandler) {
         InputSource is = new InputSource(reader);
         read(systemID, is, handlers, validating, allHandler);
     }
 
-    public static void read(String systemID, InputSource is, int handlers, boolean validating, AllHandler allHandler) {
+    public static void read(
+            String systemID,
+            InputSource is,
+            int handlers,
+            boolean validating,
+            AllHandler allHandler) {
         try {
             XMLReader xmlReader = createXMLReader(handlers, validating, allHandler);
             is.setSystemId(systemID);
@@ -170,14 +179,19 @@ public class XMLFileReader {
             } catch (AbortException e) {
             } // ok
         } catch (SAXParseException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + systemID + "\tline:\t"
-                + e.getLineNumber()).initCause(e);
+            throw (IllegalArgumentException)
+                    new IllegalArgumentException(
+                                    "Can't read " + systemID + "\tline:\t" + e.getLineNumber())
+                            .initCause(e);
         } catch (SAXException | IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + systemID).initCause(e);
+            throw (IllegalArgumentException)
+                    new IllegalArgumentException("Can't read " + systemID).initCause(e);
         }
     }
 
-    private static final XMLReader createXMLReader(int handlers, boolean validating, AllHandler allHandler) throws SAXNotRecognizedException, SAXNotSupportedException {
+    private static final XMLReader createXMLReader(
+            int handlers, boolean validating, AllHandler allHandler)
+            throws SAXNotRecognizedException, SAXNotSupportedException {
         XMLReader xmlReader = createXMLReader(validating);
         if ((handlers & CONTENT_HANDLER) != 0) {
             xmlReader.setContentHandler(allHandler);
@@ -194,14 +208,10 @@ public class XMLFileReader {
         return xmlReader;
     }
 
-    public interface AllHandler extends ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {
+    public interface AllHandler extends ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {}
 
-    }
-
-
-    /** Basis for handlers that provides for logging, with no actions on methods
-     */
-    static public class LoggingHandler implements AllHandler {
+    /** Basis for handlers that provides for logging, with no actions on methods */
+    public static class LoggingHandler implements AllHandler {
         @Override
         public void startDocument() throws SAXException {
             if (SHOW_ALL) Log.logln("startDocument");
@@ -213,13 +223,15 @@ public class XMLFileReader {
         }
 
         @Override
-        public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
-            throws SAXException {
+        public void startElement(
+                String namespaceURI, String localName, String qName, Attributes atts)
+                throws SAXException {
             if (SHOW_ALL) Log.logln("startElement");
         }
 
         @Override
-        public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+        public void endElement(String namespaceURI, String localName, String qName)
+                throws SAXException {
             if (SHOW_ALL) Log.logln("endElement");
         }
 
@@ -244,8 +256,9 @@ public class XMLFileReader {
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
+        public void attributeDecl(
+                String eName, String aName, String type, String mode, String value)
+                throws SAXException {
             if (SHOW_ALL) Log.logln("attributeDecl");
         }
 
@@ -265,34 +278,37 @@ public class XMLFileReader {
         }
 
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(String name, String publicId, String systemId)
+                throws SAXException {
             if (SHOW_ALL) Log.logln("Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
 
         public void notationDecl(String name, String publicId, String systemId) {
-            if (SHOW_ALL) Log.logln("notationDecl: " + name
-                + ", " + publicId
-                + ", " + systemId);
+            if (SHOW_ALL) Log.logln("notationDecl: " + name + ", " + publicId + ", " + systemId);
         }
 
         @Override
-        public void processingInstruction(String target, String data)
-            throws SAXException {
+        public void processingInstruction(String target, String data) throws SAXException {
             if (SHOW_ALL) Log.logln("processingInstruction: " + target + ", " + data);
         }
 
         @Override
-        public void skippedEntity(String name)
-            throws SAXException {
+        public void skippedEntity(String name) throws SAXException {
             if (SHOW_ALL) Log.logln("skippedEntity: " + name);
         }
 
-        public void unparsedEntityDecl(String name, String publicId,
-            String systemId, String notationName) {
-            if (SHOW_ALL) Log.logln("unparsedEntityDecl: " + name
-                + ", " + publicId
-                + ", " + systemId
-                + ", " + notationName);
+        public void unparsedEntityDecl(
+                String name, String publicId, String systemId, String notationName) {
+            if (SHOW_ALL)
+                Log.logln(
+                        "unparsedEntityDecl: "
+                                + name
+                                + ", "
+                                + publicId
+                                + ", "
+                                + systemId
+                                + ", "
+                                + notationName);
         }
 
         @Override
@@ -302,8 +318,7 @@ public class XMLFileReader {
 
         @Override
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
-            if (SHOW_ALL) Log.logln("startPrefixMapping prefix: " + prefix +
-                ", uri: " + uri);
+            if (SHOW_ALL) Log.logln("startPrefixMapping prefix: " + prefix + ", uri: " + uri);
         }
 
         @Override
@@ -363,7 +378,6 @@ public class XMLFileReader {
             if (SHOW_ALL) Log.logln("warning: " + showSAX(exception));
             throw exception;
         }
-
     }
 
     public class MyContentHandler extends LoggingHandler {
@@ -387,12 +401,17 @@ public class XMLFileReader {
         }
 
         @Override
-        public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
-            throws SAXException {
+        public void startElement(
+                String namespaceURI, String localName, String qName, Attributes atts)
+                throws SAXException {
             tempPath.setLength(0);
             tempPath.append(startElements.peek()).append('/').append(qName);
             for (int i = 0; i < atts.getLength(); ++i) {
-                tempPath.append("[@").append(atts.getQName(i)).append("=\"").append(atts.getValue(i).replace('"', '\'')).append("\"]");
+                tempPath.append("[@")
+                        .append(atts.getQName(i))
+                        .append("=\"")
+                        .append(atts.getValue(i).replace('"', '\''))
+                        .append("\"]");
             }
             startElements.push(tempPath.toString());
             chars.setLength(0); // clear garbage
@@ -400,7 +419,8 @@ public class XMLFileReader {
         }
 
         @Override
-        public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+        public void endElement(String namespaceURI, String localName, String qName)
+                throws SAXException {
             String startElement = startElements.pop();
             if (lastIsStart) {
                 // System.out.println(startElement + ":" + chars);
@@ -412,9 +432,14 @@ public class XMLFileReader {
 
         @Override
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
-            if (SHOW_ALL) Log.logln("startDTD name: " + name
-                + ", publicId: " + publicId
-                + ", systemId: " + systemId);
+            if (SHOW_ALL)
+                Log.logln(
+                        "startDTD name: "
+                                + name
+                                + ", publicId: "
+                                + publicId
+                                + ", systemId: "
+                                + systemId);
             simpleHandler.handleStartDtd(name, publicId, systemId);
         }
 
@@ -438,26 +463,28 @@ public class XMLFileReader {
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
+        public void attributeDecl(
+                String eName, String aName, String type, String mode, String value)
+                throws SAXException {
             simpleHandler.handleAttributeDecl(eName, aName, type, mode, value);
         }
-
     }
 
     static final class AbortException extends RuntimeException {
         private static final long serialVersionUID = 1L;
     }
 
-    /**
-     * Show a SAX exception in a readable form.
-     */
+    /** Show a SAX exception in a readable form. */
     public static String showSAX(SAXParseException exception) {
         return exception.getMessage()
-            + ";\t SystemID: " + exception.getSystemId()
-            + ";\t PublicID: " + exception.getPublicId()
-            + ";\t LineNumber: " + exception.getLineNumber()
-            + ";\t ColumnNumber: " + exception.getColumnNumber();
+                + ";\t SystemID: "
+                + exception.getSystemId()
+                + ";\t PublicID: "
+                + exception.getPublicId()
+                + ";\t LineNumber: "
+                + exception.getLineNumber()
+                + ";\t ColumnNumber: "
+                + exception.getColumnNumber();
     }
 
     public static XMLReader createXMLReader(boolean validating) {
@@ -476,16 +503,18 @@ public class XMLFileReader {
         XMLReader result = null;
         for (int i = 0; i < testList.length; ++i) {
             try {
-                result = (testList[i].length() != 0)
-                    ? XMLReaderFactory.createXMLReader(testList[i])
-                        : XMLReaderFactory.createXMLReader();
-                    result.setFeature("http://xml.org/sax/features/validation", validating);
-                    break;
+                result =
+                        (testList[i].length() != 0)
+                                ? XMLReaderFactory.createXMLReader(testList[i])
+                                : XMLReaderFactory.createXMLReader();
+                result.setFeature("http://xml.org/sax/features/validation", validating);
+                break;
             } catch (SAXException e1) {
             }
         }
         if (result == null)
-            throw new NoClassDefFoundError("No SAX parser is available, or unable to set validation correctly");
+            throw new NoClassDefFoundError(
+                    "No SAX parser is available, or unable to set validation correctly");
         return result;
     }
 
@@ -509,31 +538,36 @@ public class XMLFileReader {
         }
     }
 
-    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
+    public static List<Pair<String, String>> loadPathValues(
+            String filename, List<Pair<String, String>> data, boolean validating) {
         return loadPathValues(filename, data, validating, false);
     }
 
-    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full) {
+    public static List<Pair<String, String>> loadPathValues(
+            String filename, List<Pair<String, String>> data, boolean validating, boolean full) {
         return loadPathValues(filename, data, validating, full, null);
     }
 
-    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full,
-        Function<String, String> valueFilter) {
+    public static List<Pair<String, String>> loadPathValues(
+            String filename,
+            List<Pair<String, String>> data,
+            boolean validating,
+            boolean full,
+            Function<String, String> valueFilter) {
         try {
             new XMLFileReader()
-            .setHandler(new PathValueListHandler(data, full, valueFilter))
-            .read(filename, -1, validating);
+                    .setHandler(new PathValueListHandler(data, full, valueFilter))
+                    .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
             throw new ICUException(filename, e);
         }
     }
 
-    public static void processPathValues(String filename, boolean validating, SimpleHandler simpleHandler) {
+    public static void processPathValues(
+            String filename, boolean validating, SimpleHandler simpleHandler) {
         try {
-            new XMLFileReader()
-            .setHandler(simpleHandler)
-            .read(filename, -1, validating);
+            new XMLFileReader().setHandler(simpleHandler).read(filename, -1, validating);
         } catch (Exception e) {
             throw new ICUException(filename, e);
         }
@@ -544,7 +578,10 @@ public class XMLFileReader {
         boolean full;
         private Function<String, String> valueFilter;
 
-        public PathValueListHandler(List<Pair<String, String>> data, boolean full, Function<String, String> valueFilter) {
+        public PathValueListHandler(
+                List<Pair<String, String>> data,
+                boolean full,
+                Function<String, String> valueFilter) {
             super();
             this.data = data != null ? data : new ArrayList<>();
             this.full = full;

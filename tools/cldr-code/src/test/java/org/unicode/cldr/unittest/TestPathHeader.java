@@ -1,5 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +26,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
@@ -33,9 +41,9 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
-import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GenderValues;
+import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -60,16 +68,6 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-
 public class TestPathHeader extends TestFmwkPlus {
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
@@ -82,10 +80,8 @@ public class TestPathHeader extends TestFmwkPlus {
     static final CLDRConfig info = CLDRConfig.getInstance();
     static final Factory factory = info.getCommonAndSeedAndMainAndAnnotationsFactory();
     static final CLDRFile english = factory.make("en", true);
-    static final SupplementalDataInfo supplemental = info
-        .getSupplementalDataInfo();
-    static PathHeader.Factory pathHeaderFactory = PathHeader
-        .getFactory(english);
+    static final SupplementalDataInfo supplemental = info.getSupplementalDataInfo();
+    static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
 
     public void tempTestAnnotation() {
@@ -108,7 +104,9 @@ public class TestPathHeader extends TestFmwkPlus {
         assertRelation("pathheader", true, ph3, TestFmwkPlus.LEQ, ph2);
     }
 
-    static final String[] MIN_LOCALES = {"root", "en", "de", "ru", "ko"}; // choose locales with range of case/gender structures
+    static final String[] MIN_LOCALES = {
+        "root", "en", "de", "ru", "ko"
+    }; // choose locales with range of case/gender structures
 
     public void tempTestCompletenessLdmlDtd() {
         // List<String> failures = null;
@@ -157,17 +155,18 @@ public class TestPathHeader extends TestFmwkPlus {
         // List<String> failures = null;
         pathHeaderFactory2.clearCache();
         Multimap<PathHeader.PageId, PathHeader.SectionId> pageUniqueness = TreeMultimap.create();
-        Multimap<String, Pair<PathHeader.SectionId, PathHeader.PageId>> headerUniqueness = TreeMultimap.create();
+        Multimap<String, Pair<PathHeader.SectionId, PathHeader.PageId>> headerUniqueness =
+                TreeMultimap.create();
         Set<String> toTest;
         switch (getInclusion()) {
-        default:
-            toTest = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
-            break;
-        case 10:
-            toTest = factory.getAvailable();
-            break;
+            default:
+                toTest = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+                break;
+            case 10:
+                toTest = factory.getAvailable();
+                break;
         }
-        toTest = ImmutableSet.<String> builder().add("en").addAll(toTest).build();
+        toTest = ImmutableSet.<String>builder().add("en").addAll(toTest).build();
         Set<String> seenPaths = new HashSet<>();
         Set<String> localSeenPaths = new TreeSet<>();
         for (String locale : toTest) {
@@ -218,7 +217,9 @@ public class TestPathHeader extends TestFmwkPlus {
         if (missing.size() != 0) {
             for (String e : missing) {
                 if (e.contains("//ldml/")) {
-                    if (e.contains("//ldml/rbnf/") || e.contains("//ldml/segmentations/") || e.contains("//ldml/collations/")) {
+                    if (e.contains("//ldml/rbnf/")
+                            || e.contains("//ldml/segmentations/")
+                            || e.contains("//ldml/collations/")) {
                         continue;
                     }
                     logln("Path Regex never matched:\t" + e);
@@ -233,7 +234,8 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
 
-        for (Entry<String, Collection<Pair<SectionId, PageId>>> e : headerUniqueness.asMap().entrySet()) {
+        for (Entry<String, Collection<Pair<SectionId, PageId>>> e :
+                headerUniqueness.asMap().entrySet()) {
             Collection<Pair<SectionId, PageId>> values = e.getValue();
             if (values.size() != 1) {
                 warnln("Duplicate header in (section,page): " + CldrUtility.toString(e));
@@ -242,8 +244,10 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void Test6170() {
-        String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
-        String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
+        String p1 =
+                "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
+        String p2 =
+                "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
         PathHeader ph1 = pathHeaderFactory.fromPath(p1);
         PathHeader ph2 = pathHeaderFactory.fromPath(p2);
         int comp12 = ph1.compareTo(ph2);
@@ -252,17 +256,20 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestVariant() {
-        PathHeader p1 = pathHeaderFactory
-            .fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
-        PathHeader p2 = pathHeaderFactory
-            .fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"]");
+        PathHeader p1 =
+                pathHeaderFactory.fromPath(
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
+        PathHeader p2 =
+                pathHeaderFactory.fromPath(
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ug\"]");
         assertNotEquals("variants", p1, p2);
         assertNotEquals("variants", p1.toString(), p2.toString());
         // Code Lists Languages Arabic Script ug-variant
     }
 
     public void Test4587() {
-        String test = "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
+        String test =
+                "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
         PathHeader ph = pathHeaderFactory.fromPath(test);
         if (ph == null) {
             errln("Failure with " + test);
@@ -272,16 +279,16 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestMiscPatterns() {
-        String test = "//ldml/numbers/miscPatterns[@numberSystem=\"arab\"]/pattern[@type=\"atLeast\"]";
+        String test =
+                "//ldml/numbers/miscPatterns[@numberSystem=\"arab\"]/pattern[@type=\"atLeast\"]";
         PathHeader ph = pathHeaderFactory.fromPath(test);
         assertNotNull("MiscPatterns path not found", ph);
-        if (false)
-            System.out.println(english.getStringValue(test));
+        if (false) System.out.println(english.getStringValue(test));
     }
 
     public void TestPluralOrder() {
         Set<PathHeader> sorted = new TreeSet<>();
-        for (String locale : new String[] { "ru", "ar", "ja" }) {
+        for (String locale : new String[] {"ru", "ar", "ja"}) {
             sorted.clear();
             CLDRFile cldrFile = info.getCLDRFile(locale, true);
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
@@ -302,16 +309,20 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
-    static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
-    static final String APPEND_TIMEZONE_END = "/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
-    static final String BEFORE_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ms\"]";
-    static final String AFTER_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"d\"]/greatestDifference[@id=\"d\"]";
+    static final String APPEND_TIMEZONE =
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+    static final String APPEND_TIMEZONE_END =
+            "/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+    static final String BEFORE_PH =
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ms\"]";
+    static final String AFTER_PH =
+            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"d\"]/greatestDifference[@id=\"d\"]";
 
     public void TestAppendTimezone() {
         CLDRFile cldrFile = info.getEnglish();
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
-        assertEquals("appendItem:Timezone", Level.MODERATE,
-            coverageLevel.getLevel(APPEND_TIMEZONE));
+        assertEquals(
+                "appendItem:Timezone", Level.MODERATE, coverageLevel.getLevel(APPEND_TIMEZONE));
 
         PathHeader ph = pathHeaderFactory.fromPath(APPEND_TIMEZONE);
         assertEquals("appendItem:Timezone pathheader", "Timezone", ph.getCode());
@@ -321,31 +332,29 @@ public class TestPathHeader extends TestFmwkPlus {
         assertTrue(phBefore, LEQ, ph);
         assertTrue(ph, LEQ, phAfter);
 
-        PathDescription pathDescription = new PathDescription(supplemental,
-            english, null, null, PathDescription.ErrorHandling.CONTINUE);
-        String description = pathDescription.getDescription(APPEND_TIMEZONE,
-            "tempvalue", null);
-        assertTrue("appendItem:Timezone pathDescription",
-            description.contains("“Timezone”"));
+        PathDescription pathDescription =
+                new PathDescription(
+                        supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        String description = pathDescription.getDescription(APPEND_TIMEZONE, "tempvalue", null);
+        assertTrue("appendItem:Timezone pathDescription", description.contains("“Timezone”"));
 
-        PatternPlaceholders patternPlaceholders = PatternPlaceholders
-            .getInstance();
-        PlaceholderStatus status = patternPlaceholders
-            .getStatus(APPEND_TIMEZONE);
-        assertEquals("appendItem:Timezone placeholders",
-            PlaceholderStatus.REQUIRED, status);
+        PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
+        PlaceholderStatus status = patternPlaceholders.getStatus(APPEND_TIMEZONE);
+        assertEquals("appendItem:Timezone placeholders", PlaceholderStatus.REQUIRED, status);
 
-        Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders
-            .get(APPEND_TIMEZONE);
+        Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(APPEND_TIMEZONE);
         PlaceholderInfo placeholderInfo2 = placeholderInfo.get("{1}");
         if (assertNotNull("appendItem:Timezone placeholders", placeholderInfo2)) {
-            assertEquals("appendItem:Timezone placeholders",
-                "APPEND_FIELD_FORMAT", placeholderInfo2.name);
-            assertEquals("appendItem:Timezone placeholders", "Pacific Time",
-                placeholderInfo2.example);
+            assertEquals(
+                    "appendItem:Timezone placeholders",
+                    "APPEND_FIELD_FORMAT",
+                    placeholderInfo2.name);
+            assertEquals(
+                    "appendItem:Timezone placeholders", "Pacific Time", placeholderInfo2.example);
         }
         ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile);
-        String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
+        String example =
+                eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
         assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
     }
@@ -353,7 +362,7 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestOptional() {
         if (true) return;
         Map<PathHeader, String> sorted = new TreeMap<>();
-        for (String locale : new String[] { "af" }) {
+        for (String locale : new String[] {"af"}) {
             sorted.clear();
             CLDRFile cldrFile = info.getCLDRFile(locale, true);
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
@@ -372,10 +381,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     continue;
                 }
                 final SurveyToolStatus status = ph.getSurveyToolStatus();
-                sorted.put(
-                    ph,
-                    locale + "\t" + status + "\t" + ph + "\t"
-                        + ph.getOriginalPath());
+                sorted.put(ph, locale + "\t" + status + "\t" + ph + "\t" + ph.getOriginalPath());
             }
             Set<String> codes = new LinkedHashSet<>();
             PathHeader old = null;
@@ -387,8 +393,8 @@ public class TestPathHeader extends TestFmwkPlus {
                     line = v;
                     codes.add(p.getCode());
                 } else if (p.getSectionId() == old.getSectionId()
-                    && p.getPageId() == old.getPageId()
-                    && p.getHeader().equals(old.getHeader())) {
+                        && p.getPageId() == old.getPageId()
+                        && p.getHeader().equals(old.getHeader())) {
                     codes.add(p.getCode());
                 } else {
                     logln(line + "\t" + codes.toString());
@@ -403,14 +409,13 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestPluralCanonicals() {
-        Relation<String, String> data = Relation.of(
-            new LinkedHashMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> data =
+                Relation.of(new LinkedHashMap<String, Set<String>>(), TreeSet.class);
         for (String locale : factory.getAvailable()) {
             if (locale.contains("_")) {
                 continue;
             }
-            PluralInfo info = supplemental.getPlurals(PluralType.cardinal,
-                locale);
+            PluralInfo info = supplemental.getPlurals(PluralType.cardinal, locale);
             Set<String> keywords = info.getCanonicalKeywords();
             data.put(keywords.toString(), locale);
         }
@@ -466,24 +471,21 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("Deprecated path in English: " + path);
                 continue;
             }
-            Level level = supplemental.getCoverageLevel(path,
-                cldrFile.getLocaleID());
+            Level level = supplemental.getCoverageLevel(path, cldrFile.getLocaleID());
             PathHeader p = pathHeaderFactory.fromPath(path);
             SurveyToolStatus status = p.getSurveyToolStatus();
 
             boolean hideCoverage = level == Level.COMPREHENSIVE;
             boolean hidePathHeader = p.shouldHide();
             if (hidePathHeader != hideCoverage) {
-                String message = "PathHeader: " + status + ", Coverage: "
-                    + level + ": " + path;
+                String message = "PathHeader: " + status + ", Coverage: " + level + ": " + path;
                 if (hidePathHeader && !hideCoverage) {
                     errln(message);
                 } else if (!hidePathHeader && hideCoverage) {
                     logln(message);
                 }
             }
-            final R2<SectionId, PageId> key = Row.of(p.getSectionId(),
-                p.getPageId());
+            final R2<SectionId, PageId> key = Row.of(p.getSectionId(), p.getPageId());
             Counter<Level> counter = data.get(key);
             if (counter == null) {
                 data.put(key, counter = new Counter<>());
@@ -495,8 +497,7 @@ public class TestPathHeader extends TestFmwkPlus {
             b.append("\t" + level);
         }
         logln(b.toString());
-        for (Entry<R2<SectionId, PageId>, Counter<Level>> entry : data
-            .entrySet()) {
+        for (Entry<R2<SectionId, PageId>, Counter<Level>> entry : data.entrySet()) {
             b.setLength(0);
             b.append(entry.getKey().get0() + "\t" + entry.getKey().get1());
             Counter<Level> counter = entry.getValue();
@@ -516,28 +517,24 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> alreadySeen = new HashSet<>();
         check(localeId, true, uniqueness, alreadySeen);
         // check paths
-        for (Entry<SectionId, Set<PageId>> sectionAndPages : PathHeader.Factory
-            .getSectionIdsToPageIds().keyValuesSet()) {
+        for (Entry<SectionId, Set<PageId>> sectionAndPages :
+                PathHeader.Factory.getSectionIdsToPageIds().keyValuesSet()) {
             final SectionId section = sectionAndPages.getKey();
             if (section == SectionId.Supplemental || section == SectionId.BCP47) {
                 continue;
             }
             logln(section.toString());
             for (PageId page : sectionAndPages.getValue()) {
-                final Set<String> cachedPaths = PathHeader.Factory
-                    .getCachedPaths(section, page);
+                final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
                 if (cachedPaths == null) {
                     if (!badZonePages.contains(page) && page != PageId.Unknown) {
                         errln("Null pages for: " + section + "\t" + page);
                     }
-                } else if (section == SectionId.Special
-                    && page == PageId.Unknown) {
+                } else if (section == SectionId.Special && page == PageId.Unknown) {
                     // skip
-                } else if (section == SectionId.Timezones
-                    && page == PageId.UnknownT) {
+                } else if (section == SectionId.Timezones && page == PageId.UnknownT) {
                     // skip
-                } else if (section == SectionId.Misc
-                    && page == PageId.Transforms) {
+                } else if (section == SectionId.Misc && page == PageId.Transforms) {
                     // skip
                 } else {
 
@@ -547,8 +544,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     } else {
                         counter.clear();
                         for (String s : cachedPaths) {
-                            Level coverage = supplemental.getCoverageLevel(s,
-                                localeId);
+                            Level coverage = supplemental.getCoverageLevel(s, localeId);
                             counter.add(coverage, 1);
                         }
                         String countString = "";
@@ -602,8 +598,8 @@ public class TestPathHeader extends TestFmwkPlus {
         return pathHeaders;
     }
 
-    public void verifyContains(PageId pageId, Set<String> filePaths,
-        String substring, boolean contains) {
+    public void verifyContains(
+            PageId pageId, Set<String> filePaths, String substring, boolean contains) {
         String path;
         path = findOneContaining(allPaths(pageId, filePaths), substring);
         if (contains) {
@@ -617,8 +613,7 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
-    private String findOneContaining(Collection<String> allPaths,
-        String substring) {
+    private String findOneContaining(Collection<String> allPaths, String substring) {
         for (String path : allPaths) {
             if (path.contains(substring)) {
                 return path;
@@ -628,8 +623,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public Set<String> allPaths(PageId pageId, Set<String> filePaths) {
-        Set<String> result = PathHeader.Factory.getCachedPaths(
-            pageId.getSectionId(), pageId);
+        Set<String> result = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
         result.retainAll(filePaths);
         return result;
     }
@@ -638,7 +632,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Factory factory2 = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
         Set<String> source = factory2.getAvailable();
         for (String file : getFilesToTest(source, MIN_LOCALES)) {
-            CLDRFile nativeFile = factory2.make(file,true);
+            CLDRFile nativeFile = factory2.make(file, true);
             Map<PathHeader, String> headerToPath = new HashMap<>();
             Map<String, String> headerVisibleToPath = new HashMap<>();
             for (String path : nativeFile.fullIterable()) {
@@ -664,8 +658,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 if (old == null) {
                     headerVisibleToPath.put(visible, path);
                 } else if (!old.equals(path)) {
-                    errln("Collision with path " + visible + "\t" + old + "\t"
-                        + path);
+                    errln("Collision with path " + visible + "\t" + old + "\t" + path);
                 }
             }
         }
@@ -674,8 +667,8 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestStatus() {
         CLDRFile nativeFile = info.getEnglish();
         PathStarrer starrer = new PathStarrer();
-        EnumMap<SurveyToolStatus, Relation<String, String>> info2 = new EnumMap<>(
-            SurveyToolStatus.class);
+        EnumMap<SurveyToolStatus, Relation<String, String>> info2 =
+                new EnumMap<>(SurveyToolStatus.class);
         Set<String> nuked = new HashSet<>();
         Set<String> deprecatedStar = new HashSet<>();
 
@@ -685,9 +678,8 @@ public class TestPathHeader extends TestFmwkPlus {
             final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
 
             if (p.getSectionId() == SectionId.Special
-                && surveyToolStatus == SurveyToolStatus.READ_WRITE) {
-                errln("SurveyToolStatus should not be " + surveyToolStatus
-                    + ": " + p);
+                    && surveyToolStatus == SurveyToolStatus.READ_WRITE) {
+                errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
             String starred = starrer.set(path);
@@ -700,9 +692,13 @@ public class TestPathHeader extends TestFmwkPlus {
             boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml, path);
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    errln("Different from DtdData deprecated:\t"
-                        + isDeprecated + "\t" + surveyToolStatus + "\t"
-                        + path);
+                    errln(
+                            "Different from DtdData deprecated:\t"
+                                    + isDeprecated
+                                    + "\t"
+                                    + surveyToolStatus
+                                    + "\t"
+                                    + path);
                     deprecatedStar.add(starred);
                 }
             }
@@ -710,20 +706,16 @@ public class TestPathHeader extends TestFmwkPlus {
             Relation<String, String> data = info2.get(surveyToolStatus);
             if (data == null) {
                 info2.put(
-                    surveyToolStatus,
-                    data = Relation.of(new TreeMap<String, Set<String>>(),
-                        TreeSet.class));
+                        surveyToolStatus,
+                        data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
             data.put(starred, Joiner.on("|").join(attr));
         }
-        for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2
-            .entrySet()) {
+        for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();
-            for (Entry<String, Set<String>> item : entry.getValue()
-                .keyValuesSet()) {
+            for (Entry<String, Set<String>> item : entry.getValue().keyValuesSet()) {
                 final String starred = item.getKey();
-                if (status == SurveyToolStatus.READ_WRITE
-                    && !nuked.contains(starred)) {
+                if (status == SurveyToolStatus.READ_WRITE && !nuked.contains(starred)) {
                     continue;
                 }
                 logln(status + "\t" + starred + "\t" + item.getValue());
@@ -759,43 +751,53 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestPathDescriptionCompleteness() {
-        PathDescription pathDescription = new PathDescription(supplemental,
-            english, null, null, PathDescription.ErrorHandling.CONTINUE);
-        Matcher normal = PatternCache.get(
-            "https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
+        PathDescription pathDescription =
+                new PathDescription(
+                        supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        Matcher normal =
+                PatternCache.get("https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
         // https://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
         Set<String> alreadySeen = new HashSet<>();
         PathStarrer starrer = new PathStarrer();
 
-        checkPathDescriptionCompleteness(pathDescription, normal,
-            "//ldml/numbers/defaultNumberingSystem", alreadySeen, starrer);
+        checkPathDescriptionCompleteness(
+                pathDescription,
+                normal,
+                "//ldml/numbers/defaultNumberingSystem",
+                alreadySeen,
+                starrer);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             if (pathHeader.shouldHide()) {
                 continue;
             }
             String path = pathHeader.getOriginalPath();
-            checkPathDescriptionCompleteness(pathDescription, normal, path,
-                alreadySeen, starrer);
+            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen, starrer);
         }
     }
 
     public void checkPathDescriptionCompleteness(
-        PathDescription pathDescription, Matcher normal, String path,
-        Set<String> alreadySeen, PathStarrer starrer) {
+            PathDescription pathDescription,
+            Matcher normal,
+            String path,
+            Set<String> alreadySeen,
+            PathStarrer starrer) {
         String value = english.getStringValue(path);
-        String description = pathDescription.getDescription(path, value,
-            null);
+        String description = pathDescription.getDescription(path, value, null);
         String starred = starrer.set(path);
         if (alreadySeen.contains(starred)) {
             return;
         } else if (description == null) {
             errln("Path has no description:\t" + value + "\t" + path);
         } else if (!description.contains("https://")) {
-            errln("Description has no URL:\t" + description + "\t" + value
-                + "\t" + path);
+            errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
         } else if (!normal.reset(description).find()) {
-            errln("Description has generic URL, fix to be specific:\t"
-                + description + "\t" + value + "\t" + path);
+            errln(
+                    "Description has generic URL, fix to be specific:\t"
+                            + description
+                            + "\t"
+                            + value
+                            + "\t"
+                            + path);
         } else if (description == PathDescription.MISSING_DESCRIPTION) {
             errln("Fallback Description:\t" + value + "\t" + path);
         } else {
@@ -807,21 +809,25 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestTerritoryOrder() {
-        final Set<String> goodAvailableCodes = StandardCodes.make().getGoodAvailableCodes("territory");
-        Set<String> results = showContained("001", 0, new HashSet<>(
-            goodAvailableCodes));
+        final Set<String> goodAvailableCodes =
+                StandardCodes.make().getGoodAvailableCodes("territory");
+        Set<String> results = showContained("001", 0, new HashSet<>(goodAvailableCodes));
         results.remove("ZZ");
         results.removeAll(Iso3166Data.getRegionCodesNotForTranslation());
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);
             String cont = Containment.getContinent(territory);
-            errln("Missing\t" + getNameAndOrder(territory) + "\t"
-                + getNameAndOrder(sub) + "\t" + getNameAndOrder(cont));
+            errln(
+                    "Missing\t"
+                            + getNameAndOrder(territory)
+                            + "\t"
+                            + getNameAndOrder(sub)
+                            + "\t"
+                            + getNameAndOrder(cont));
         }
     }
 
-    private Set<String> showContained(String territory, int level,
-        Set<String> soFar) {
+    private Set<String> showContained(String territory, int level, Set<String> soFar) {
         if (!soFar.contains(territory)) {
             return soFar;
         }
@@ -831,8 +837,12 @@ public class TestPathHeader extends TestFmwkPlus {
             return soFar;
         }
         for (String containedItem : contained) {
-            logln(level + "\t" + getNameAndOrder(territory) + "\t"
-                + getNameAndOrder(containedItem));
+            logln(
+                    level
+                            + "\t"
+                            + getNameAndOrder(territory)
+                            + "\t"
+                            + getNameAndOrder(containedItem));
         }
         for (String containedItem : contained) {
             showContained(containedItem, level + 1, soFar);
@@ -841,9 +851,11 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     private String getNameAndOrder(String territory) {
-        return territory + "\t"
-            + english.getName(CLDRFile.TERRITORY_NAME, territory) + "\t"
-            + Containment.getOrder(territory);
+        return territory
+                + "\t"
+                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                + "\t"
+                + Containment.getOrder(territory);
     }
 
     public void TestZCompleteness() {
@@ -861,8 +873,11 @@ public class TestPathHeader extends TestFmwkPlus {
         logln("Count:\t" + count);
     }
 
-    public void check(String localeID, boolean resolved,
-        Map<String, PathHeader> uniqueness, Set<String> alreadySeen) {
+    public void check(
+            String localeID,
+            boolean resolved,
+            Map<String, PathHeader> uniqueness,
+            Set<String> alreadySeen) {
         CLDRFile nativeFile = info.getCLDRFile(localeID, resolved);
         int count = 0;
         for (String path : nativeFile) {
@@ -879,20 +894,22 @@ public class TestPathHeader extends TestFmwkPlus {
                 PathHeader old = uniqueness.get(visible);
                 if (pathHeader.getSectionId() == SectionId.Timezones) {
                     final PageId pageId = pathHeader.getPageId();
-                    if (badZonePages.contains(pageId)
-                        && !pathHeader.getCode().equals("Unknown")) {
+                    if (badZonePages.contains(pageId) && !pathHeader.getCode().equals("Unknown")) {
                         String msg = "Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path;
-                        if (!logKnownIssue("cldrbug:7802", "ICU/CLDR time zone data sync problem - " + msg)) {
-                            errln("Bad page ID:\t" + pageId + "\t" + pathHeader
-                                + "\t" + path);
+                        if (!logKnownIssue(
+                                "cldrbug:7802", "ICU/CLDR time zone data sync problem - " + msg)) {
+                            errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
                         }
                     }
                 }
                 if (old == null) {
                     if (pathHeader.getSection().equals("Special")) {
                         if (pathHeader.getSection().equals("Unknown")) {
-                            errln("PathHeader has fallback: " + visible + "\t"
-                                + pathHeader.getOriginalPath());
+                            errln(
+                                    "PathHeader has fallback: "
+                                            + visible
+                                            + "\t"
+                                            + pathHeader.getOriginalPath());
                             // } else {
                             // logln("Special:\t" + visible + "\t" +
                             // pathHeader.getOriginalPath());
@@ -901,13 +918,21 @@ public class TestPathHeader extends TestFmwkPlus {
                     uniqueness.put(visible, pathHeader);
                 } else if (!old.equals(pathHeader)) {
                     if (pathHeader.getSectionId() == SectionId.Special) {
-                        logln("Special PathHeader not unique: " + visible
-                            + "\t" + pathHeader.getOriginalPath() + "\t"
-                            + old.getOriginalPath());
+                        logln(
+                                "Special PathHeader not unique: "
+                                        + visible
+                                        + "\t"
+                                        + pathHeader.getOriginalPath()
+                                        + "\t"
+                                        + old.getOriginalPath());
                     } else {
-                        errln("PathHeader not unique: " + visible + "\t"
-                            + pathHeader.getOriginalPath() + "\t"
-                            + old.getOriginalPath());
+                        errln(
+                                "PathHeader not unique: "
+                                        + visible
+                                        + "\t"
+                                        + pathHeader.getOriginalPath()
+                                        + "\t"
+                                        + old.getOriginalPath());
                     }
                 }
             }
@@ -916,13 +941,11 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestContainment() {
-        Map<String, Map<String, String>> metazoneToRegionToZone = supplemental
-            .getMetazoneToRegionToZone();
-        Map<String, String> metazoneToContinent = supplemental
-            .getMetazoneToContinentMap();
+        Map<String, Map<String, String>> metazoneToRegionToZone =
+                supplemental.getMetazoneToRegionToZone();
+        Map<String, String> metazoneToContinent = supplemental.getMetazoneToContinentMap();
         for (String metazone : metazoneToRegionToZone.keySet()) {
-            Map<String, String> regionToZone = metazoneToRegionToZone
-                .get(metazone);
+            Map<String, String> regionToZone = metazoneToRegionToZone.get(metazone);
             String worldZone = regionToZone.get("001");
             String territory = Containment.getRegionFromZone(worldZone);
             if (territory == null) {
@@ -951,13 +974,12 @@ public class TestPathHeader extends TestFmwkPlus {
             if (isVerbose()) {
                 String name = english.getName(CLDRFile.TERRITORY_NAME, cont);
                 String name2 = english.getName(CLDRFile.TERRITORY_NAME, sub);
-                String name3 = english.getName(CLDRFile.TERRITORY_NAME,
-                    territory);
-                String name4 = english.getName(CLDRFile.TERRITORY_NAME,
-                    revision);
+                String name3 = english.getName(CLDRFile.TERRITORY_NAME, territory);
+                String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
 
-                logln(metazone + "\t" + continent + "\t" + name + "\t" + name2
-                    + "\t" + name3 + "\t" + order + "\t" + name4);
+                logln(
+                        metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3
+                                + "\t" + order + "\t" + name4);
             }
         }
     }
@@ -1019,9 +1041,14 @@ public class TestPathHeader extends TestFmwkPlus {
                 threeLevel.add("\t\t" + pathHeader.getHeader());
                 lastHeader = pathHeader.getHeader();
             }
-            logln(pathHeader + "\t" + coverageLevel2.getLevel(original) + "\t"
-                + english.getStringValue(pathHeader.getOriginalPath())
-                + "\t" + pathHeader.getOriginalPath());
+            logln(
+                    pathHeader
+                            + "\t"
+                            + coverageLevel2.getLevel(original)
+                            + "\t"
+                            + english.getStringValue(pathHeader.getOriginalPath())
+                            + "\t"
+                            + pathHeader.getOriginalPath());
         }
         if (collide.size() != 0) {
             errln("\nCollide:\t" + collide.size());
@@ -1041,28 +1068,35 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("\t" + item);
             }
         }
-        Counter<PathHeader.Factory.CounterData> counterData = pathHeaderFactory
-            .getInternalCounter();
+        Counter<PathHeader.Factory.CounterData> counterData =
+                pathHeaderFactory.getInternalCounter();
         logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
-            logln("\t" + counterData.getCount(item) + "\t" + item.get2() // externals
-            + "\t" + item.get3() + "\t" + item.get0() // internals
-            + "\t" + item.get1());
+            logln(
+                    "\t"
+                            + counterData.getCount(item)
+                            + "\t"
+                            + item.get2() // externals
+                            + "\t"
+                            + item.get3()
+                            + "\t"
+                            + item.get0() // internals
+                            + "\t"
+                            + item.get1());
         }
         logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
             logln(item);
         }
-        LinkedHashMap<String, Set<String>> sectionsToPages = org.unicode.cldr.util.PathHeader.Factory
-            .getSectionsToPages();
+        LinkedHashMap<String, Set<String>> sectionsToPages =
+                org.unicode.cldr.util.PathHeader.Factory.getSectionsToPages();
         logln("\nMenus:\t" + sectionsToPages.size());
         for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
             final String section = item.getKey();
             for (String page : item.getValue()) {
                 logln("\t" + section + "\t" + page);
                 int count = 0;
-                for (String path : pathHeaderFactory.filterCldr(section, page,
-                    english)) {
+                for (String path : pathHeaderFactory.filterCldr(section, page, english)) {
                     count += 1; // just count them.
                 }
                 logln("\t" + count);
@@ -1070,16 +1104,17 @@ public class TestPathHeader extends TestFmwkPlus {
         }
     }
 
-    public static final Set<String> GERMAN_UNIT_ORDER = ImmutableSet.of(
-        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]",
-        "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]",
-        "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]",
-        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]",
-        "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]",
-        "//ldml/units/unitLength[@type=\"narrrow\"]/unit[@type=\"volume-liter\"]",
-        "//ldml/numbers/minimalPairs/caseMinimalPairs",
-        "//ldml/numbers/minimalPairs/genderMinimalPairs"
-        );
+    public static final Set<String> GERMAN_UNIT_ORDER =
+            ImmutableSet.of(
+                    "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]",
+                    "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]",
+                    "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]",
+                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]",
+                    "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]",
+                    "//ldml/units/unitLength[@type=\"narrrow\"]/unit[@type=\"volume-liter\"]",
+                    "//ldml/numbers/minimalPairs/caseMinimalPairs",
+                    "//ldml/numbers/minimalPairs/genderMinimalPairs");
+
     public void TestOrder() {
         String[] paths = {
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"noon\"]",
@@ -1104,67 +1139,83 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
         String[] germanExpected = {
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/gender",  // Units    Volume  liter   long-gender
-
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/gender", // Units
+            //
+            // Volume
+            //  liter
+            //
+            // long-gender
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName", // Units    Volume  liter   long-displayName
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/displayName",    // Units    Volume  liter   short-displayName
-
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/perUnitPattern",  // Units    Volume  liter   long-per
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/displayName", // Units    Volume  liter   short-displayName
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/perUnitPattern", // Units    Volume  liter   long-per
             "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/perUnitPattern", // Units    Volume  liter   short-per
-
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]", // Units    Volume  liter   long-one-nominative
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]",   // Units    Volume  liter   long-one-accusative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]", // Units    Volume  liter   long-one-accusative
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]", // Units    Volume  liter   long-one-genitive
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"dative\"]",   // Units    Volume  liter   long-one-dative
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",   // Units    Volume  liter   long-other-nominative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"][@case=\"dative\"]", // Units    Volume  liter   long-one-dative
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]", // Units    Volume  liter   long-other-nominative
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]", // Units    Volume  liter   long-other-accusative
-            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]",   // Units    Volume  liter   long-other-genitive
+            "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"genitive\"]", // Units    Volume  liter   long-other-genitive
             "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"][@case=\"dative\"]", // Units    Volume  liter   long-other-dative
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]",    // Units    Volume  liter   short-one-nominative
-            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]",  // Units    Volume  liter   short-other-nominative
-
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"]",   // Units    Compound Units  power2  long-one-nominative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]",    // Units    Compound Units  power2  long-one-nominative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",  // Units    Compound Units  power2  long-one-nominative-dgender
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"one\"]", // Units    Volume  liter   short-one-nominative
+            "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"volume-liter\"]/unitPattern[@count=\"other\"]", // Units    Volume  liter   short-other-nominative
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"]", // Units    Compound Units  power2  long-one-nominative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"]", // Units    Compound Units  power2  long-one-nominative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", // Units    Compound Units  power2  long-one-nominative-dgender
             "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-one-accusative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]",  // Units    Compound Units  power2  long-one-accusative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"accusative\"]",    // Units    Compound Units  power2  long-one-accusative-dgender
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"genitive\"]",   // Units    Compound Units  power2  long-one-genitive-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"genitive\"]",    // Units    Compound Units  power2  long-one-genitive-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"genitive\"]",  // Units    Compound Units  power2  long-one-genitive-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-one-accusative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-one-accusative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-one-genitive-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-one-genitive-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-one-genitive-dgender
             "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"masculine\"][@case=\"dative\"]", // Units    Compound Units  power2  long-one-dative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"dative\"]",  // Units    Compound Units  power2  long-one-dative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"dative\"]",    // Units    Compound Units  power2  long-one-dative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"dative\"]", // Units    Compound Units  power2  long-one-dative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@case=\"dative\"]", // Units    Compound Units  power2  long-one-dative-dgender
             "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"]", // Units    Compound Units  power2  long-other-nominative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",  // Units    Compound Units  power2  long-other-nominative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",    // Units    Compound Units  power2  long-other-nominative-dgender
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"accusative\"]",   // Units    Compound Units  power2  long-other-accusative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"accusative\"]",    // Units    Compound Units  power2  long-other-accusative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"accusative\"]",  // Units    Compound Units  power2  long-other-accusative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]", // Units    Compound Units  power2  long-other-nominative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", // Units    Compound Units  power2  long-other-nominative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-other-accusative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-other-accusative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"accusative\"]", // Units    Compound Units  power2  long-other-accusative-dgender
             "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-other-genitive-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"genitive\"]",  // Units    Compound Units  power2  long-other-genitive-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"genitive\"]",    // Units    Compound Units  power2  long-other-genitive-dgender
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"dative\"]",   // Units    Compound Units  power2  long-other-dative-masculine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"dative\"]",    // Units    Compound Units  power2  long-other-dative-feminine
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"dative\"]",  // Units    Compound Units  power2  long-other-dative-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-other-genitive-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"genitive\"]", // Units    Compound Units  power2  long-other-genitive-dgender
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"masculine\"][@case=\"dative\"]", // Units    Compound Units  power2  long-other-dative-masculine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"dative\"]", // Units    Compound Units  power2  long-other-dative-feminine
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"dative\"]", // Units    Compound Units  power2  long-other-dative-dgender
             "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", // Units    Compound Units  power2  short-one-nominative-dgender
-            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",   // Units    Compound Units  power2  short-other-nominative-dgender
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]",    // Units    Compound Units  power2  narrow-one-nominative-dgender
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]",  // Units    Compound Units  power2  narrow-other-nominative-dgender
-
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]",   // Miscellaneous    Minimal Pairs   Case    nominative
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]",   // Miscellaneous    Minimal Pairs   Case    accusative
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", // Miscellaneous    Minimal Pairs   Case    genitive
-            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]",   // Miscellaneous    Minimal Pairs   Case    dative
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]",    // Miscellaneous    Minimal Pairs   Gender  masculine
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", // Miscellaneous    Minimal Pairs   Gender  feminine
-            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",   // Miscellaneous    Minimal Pairs   Gender  neuter
+            "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", // Units    Compound Units  power2  short-other-nominative-dgender
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"]", // Units    Compound Units  power2  narrow-one-nominative-dgender
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"]", // Units    Compound Units  power2  narrow-other-nominative-dgender
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"nominative\"]", // Miscellaneous
+            //  Minimal Pairs
+            //  Case
+            // nominative
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", // Miscellaneous
+            //  Minimal Pairs
+            //  Case
+            // accusative
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"genitive\"]", // Miscellaneous
+            // Minimal Pairs
+            // Case    genitive
+            "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"dative\"]", // Miscellaneous
+            // Minimal Pairs
+            // Case    dative
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]", // Miscellaneous    Minimal Pairs   Gender  masculine
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", // Miscellaneous
+            //    Minimal
+            // Pairs
+            // Gender
+            // feminine
+            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]", // Miscellaneous
+            //  Minimal Pairs
+            //  Gender  neuter
 
             // we don't care about order here.
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",  // Special  Suppress    compound-UnitPattern1-power2    long
-            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1",    // Special  Suppress    compound-UnitPattern1-power2    narrow
+            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", // Special  Suppress    compound-UnitPattern1-power2    long
+            "//ldml/units/unitLength[@type=\"narrow\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", // Special  Suppress    compound-UnitPattern1-power2    narrow
             "//ldml/units/unitLength[@type=\"short\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1", // Special  Suppress    compound-UnitPattern1-power2    short
-            };
+        };
 
         int germanExpectedIndex = 0;
         int errorCount = 0;
@@ -1175,24 +1226,31 @@ public class TestPathHeader extends TestFmwkPlus {
             if (!assertEquals(entry.toString(), 1, epaths.size())) {
                 ++errorCount;
             }
-            if (!assertEquals(++item + ") PathHeader order", germanExpected[germanExpectedIndex++], epaths.iterator().next())) {
+            if (!assertEquals(
+                    ++item + ") PathHeader order",
+                    germanExpected[germanExpectedIndex++],
+                    epaths.iterator().next())) {
                 ++errorCount;
             }
         }
         if (errorCount != 0) {
-            for (Entry<PathHeader, Collection<String>> entry : pathHeaderToPaths.asMap().entrySet()) {
+            for (Entry<PathHeader, Collection<String>> entry :
+                    pathHeaderToPaths.asMap().entrySet()) {
                 PathHeader ph = entry.getKey();
                 Collection<String> epaths = entry.getValue();
-                System.out.println("\"" + epaths.iterator().next().replace("\"", "\\\"") + "\",\t// " + ph);
+                System.out.println(
+                        "\"" + epaths.iterator().next().replace("\"", "\\\"") + "\",\t// " + ph);
             }
         }
     }
 
     public void Test8414() {
-        PathDescription pathDescription = new PathDescription(supplemental,
-            english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        PathDescription pathDescription =
+                new PathDescription(
+                        supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
 
-        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
+        String prefix =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"morning1\"]";
 
         final String path0 = prefix + "format" + suffix;
@@ -1222,19 +1280,23 @@ public class TestPathHeader extends TestFmwkPlus {
                 File dir2 = new File(COMMON_DIR + dir);
                 logln(dir2.getName());
                 for (String file : dir2.list()) {
-                    // don't need to restrict with getFilesToTest(Arrays.asList(dir2.list()), "root", "en")) {
+                    // don't need to restrict with getFilesToTest(Arrays.asList(dir2.list()),
+                    // "root", "en")) {
                     if (!file.endsWith(".xml")) {
                         continue;
                     }
                     if (DEBUG) warnln(" TestCompletenessNonLdmlDtd: " + dir + ", " + file);
                     logln(" \t" + file);
-                    for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
-                        dir2 + "/" + file, new ArrayList<Pair<String, String>>(), true)) {
+                    for (Pair<String, String> pathValue :
+                            XMLFileReader.loadPathValues(
+                                    dir2 + "/" + file,
+                                    new ArrayList<Pair<String, String>>(),
+                                    true)) {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
-//                        logln("\t\t" + path);
+                        //                        logln("\t\t" + path);
                         if (path.startsWith("//supplementalData/unitPreferenceData/unitPreferences")
-                            && path.contains("skeleton")) {
+                                && path.contains("skeleton")) {
                             int debug = 0;
                         }
                         pathChecker.checkPathHeader(dtdData, path);
@@ -1254,6 +1316,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> badHeaders = new TreeSet<>();
         Map<PathHeader, PathHeader> goodHeaders = new HashMap<>();
         Set<PathHeader> seenBad = new HashSet<>();
+
         {
             phf.clearCache();
         }
@@ -1280,7 +1343,8 @@ public class TestPathHeader extends TestFmwkPlus {
 
         public void checkSubpath(String path) {
             String message = ": Can't compute path header";
-            if (path.contentEquals("//supplementalData/grammaticalData/grammaticalFeatures[@targets=\"nominal\"][@locales=\"it\"]/grammaticalGender/_values") ) {
+            if (path.contentEquals(
+                    "//supplementalData/grammaticalData/grammaticalFeatures[@targets=\"nominal\"][@locales=\"it\"]/grammaticalGender/_values")) {
                 int debug = 0;
             }
             PathHeader ph = null;
@@ -1295,9 +1359,13 @@ public class TestPathHeader extends TestFmwkPlus {
                 if (ph.getPageId() != PageId.Unknown) {
                     PathHeader old = goodHeaders.put(ph, ph);
                     if (old != null && !path.equals(old.getOriginalPath())) {
-                        errln("Duplicate path header for: " + ph
-                            + "\n\t\t " + path
-                            + "\n\t\t≠" + old.getOriginalPath());
+                        errln(
+                                "Duplicate path header for: "
+                                        + ph
+                                        + "\n\t\t "
+                                        + path
+                                        + "\n\t\t≠"
+                                        + old.getOriginalPath());
                         seenBad.add(ph);
                     }
                     return;
@@ -1313,21 +1381,25 @@ public class TestPathHeader extends TestFmwkPlus {
             String star = starrer.set(path);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
-                System.out.println("\tNo match in PathHeader.txt for " + path
-                    + "\n\tYou get only one message for all paths matching " + star
-                    + "\n\tFor example, check to see if the field in PathHeader.txt is in PathHeader.PageId."
-                    + "\n\tIf not, either correct PathHeader.txt or add it to PageId"
-                    + "\n\tIf you have a value attribute, you will need extra _ characters. The value attribute will show at the end with prefixed _, eg [...]/_skeleton."
-                    + "If there can be a value for the path then that element will add _. "
-                    );
+                System.out.println(
+                        "\tNo match in PathHeader.txt for "
+                                + path
+                                + "\n\tYou get only one message for all paths matching "
+                                + star
+                                + "\n\tFor example, check to see if the field in PathHeader.txt is in PathHeader.PageId."
+                                + "\n\tIf not, either correct PathHeader.txt or add it to PageId"
+                                + "\n\tIf you have a value attribute, you will need extra _ characters. The value attribute will show at the end with prefixed _, eg [...]/_skeleton."
+                                + "If there can be a value for the path then that element will add _. ");
             }
         }
     }
 
     public void TestSupplementalItems() {
-        //      <weekOfPreference ordering="weekOfYear weekOfMonth" locales="am az bs cs cy da el et hi ky lt mk sk ta th"/>
+        //      <weekOfPreference ordering="weekOfYear weekOfMonth" locales="am az bs cs cy da el et
+        // hi ky lt mk sk ta th"/>
         // logln(pathHeaderFactory.getRegexInfo());
-        CLDRFile supplementalFile = CLDRConfig.getInstance().getSupplementalFactory().make("supplementalData", false);
+        CLDRFile supplementalFile =
+                CLDRConfig.getInstance().getSupplementalFactory().make("supplementalData", false);
         List<String> failures = new ArrayList<>();
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
         for (String test : With.in(supplementalFile.iterator("//supplementalData/weekData"))) {
@@ -1339,7 +1411,13 @@ public class TestPathHeader extends TestFmwkPlus {
                 final Collection<String> normalizedValue = entry.getValue();
                 PathHeader ph = pathHeaderFactory.fromPath(normalizedPath, failures);
                 if (ph == null || ph.getSectionId() == SectionId.Special) {
-                    errln("Failure with " + test + " => " + normalizedPath + " = " + normalizedValue);
+                    errln(
+                            "Failure with "
+                                    + test
+                                    + " => "
+                                    + normalizedPath
+                                    + " = "
+                                    + normalizedValue);
                 } else {
                     logln(ph + "\t" + test + " = " + normalizedValue);
                 }
@@ -1349,20 +1427,25 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void test10232() {
         String[][] tests = {
-            { "MMM", "Formats - Flexible - Date Formats" },
-            { "dMM", "Formats - Flexible - Date Formats" },
-            { "h", "Formats - Flexible - 12 Hour Time Formats" },
-            { "hm", "Formats - Flexible - 12 Hour Time Formats" },
-            { "Ehm", "Formats - Flexible - 12 Hour Time Formats" },
-            { "H", "Formats - Flexible - 24 Hour Time Formats" },
-            { "Hm", "Formats - Flexible - 24 Hour Time Formats" },
-            { "EHm", "Formats - Flexible - 24 Hour Time Formats" },
+            {"MMM", "Formats - Flexible - Date Formats"},
+            {"dMM", "Formats - Flexible - Date Formats"},
+            {"h", "Formats - Flexible - 12 Hour Time Formats"},
+            {"hm", "Formats - Flexible - 12 Hour Time Formats"},
+            {"Ehm", "Formats - Flexible - 12 Hour Time Formats"},
+            {"H", "Formats - Flexible - 24 Hour Time Formats"},
+            {"Hm", "Formats - Flexible - 24 Hour Time Formats"},
+            {"EHm", "Formats - Flexible - 24 Hour Time Formats"},
         };
         for (String[] test : tests) {
-            String path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
-                + test[0] + "\"]";
+            String path =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                            + test[0]
+                            + "\"]";
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
-            assertEquals("flexible formats", test[1] + "|" + test[0], pathHeader.getHeader() + "|" + pathHeader.getCode());
+            assertEquals(
+                    "flexible formats",
+                    test[1] + "|" + test[0],
+                    pathHeader.getHeader() + "|" + pathHeader.getCode());
         }
     }
 
@@ -1379,19 +1462,31 @@ public class TestPathHeader extends TestFmwkPlus {
         Counter<PageId> counterPageId = new Counter<>();
         Counter<PageId> counterPageIdAll = new Counter<>();
         for (String path : english) {
-            Level level = CLDRConfig.getInstance().getSupplementalDataInfo().getCoverageLevel(path, locale);
+            Level level =
+                    CLDRConfig.getInstance()
+                            .getSupplementalDataInfo()
+                            .getCoverageLevel(path, locale);
             PathHeader ph = phf.fromPath(path);
             if (level.compareTo(Level.MODERN) <= 0) {
                 counterPageId.add(ph.getPageId(), 1);
             }
             counterPageIdAll.add(ph.getPageId(), 1);
         }
-        Set<R2<Long, PageId>> entrySetSortedByCount = counterPageId.getEntrySetSortedByCount(false, null);
+        Set<R2<Long, PageId>> entrySetSortedByCount =
+                counterPageId.getEntrySetSortedByCount(false, null);
         for (R2<Long, PageId> sizeAndPageId : entrySetSortedByCount) {
             long size = sizeAndPageId.get0();
             PageId pageId = sizeAndPageId.get1();
-            if (!assertTrue(pageId.getSectionId() + "/" + pageId + " size (" + size
-                + ") < " + maxSize + "?", size < maxSize)) {
+            if (!assertTrue(
+                    pageId.getSectionId()
+                            + "/"
+                            + pageId
+                            + " size ("
+                            + size
+                            + ") < "
+                            + maxSize
+                            + "?",
+                    size < maxSize)) {
                 showTable = true;
             }
             // System.out.println(pageId + "\t" + size);
@@ -1399,14 +1494,26 @@ public class TestPathHeader extends TestFmwkPlus {
         if (showTable || isVerbose()) {
             for (R2<Long, PageId> sizeAndPageId : entrySetSortedByCount) {
                 PageId pageId = sizeAndPageId.get1();
-                System.out.println(pageId.getSectionId() + "\t" + pageId + "\t" + sizeAndPageId.get0() + "\t" + counterPageIdAll.get(pageId));
+                System.out.println(
+                        pageId.getSectionId()
+                                + "\t"
+                                + pageId
+                                + "\t"
+                                + sizeAndPageId.get0()
+                                + "\t"
+                                + counterPageIdAll.get(pageId));
             }
         }
     }
+
     public void TestCLDR_11454() {
         PathHeader.Factory phf = PathHeader.getFactory();
-        PathHeader century = phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]/displayName");
-        PathHeader decade =  phf.fromPath("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-decade\"]/displayName");
+        PathHeader century =
+                phf.fromPath(
+                        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]/displayName");
+        PathHeader decade =
+                phf.fromPath(
+                        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-decade\"]/displayName");
         assertEquals("Section", century.getSectionId(), decade.getSectionId());
         assertEquals("Page", century.getPageId(), decade.getPageId());
     }
@@ -1415,16 +1522,19 @@ public class TestPathHeader extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory();
         String[] desiredOrder = {
             "🧑‍⚕", "👨‍⚕", "👩‍⚕",
-            "🧑‍⚖", "👨‍⚖", "👩‍⚖"};
+            "🧑‍⚖", "👨‍⚖", "👩‍⚖"
+        };
         List<PathHeader> pathHeaders = new ArrayList<>();
         for (String emoji : desiredOrder) {
             String base = "//ldml/annotations/annotation[@cp=\"" + emoji + "\"]";
             pathHeaders.add(phf.fromPath(base + "[@type=\"tts\"]"));
             pathHeaders.add(phf.fromPath(base));
-            logln(emoji
-                + ": getEmojiMinorOrder="+ Emoji.getEmojiMinorOrder(Emoji.getMinorCategory(emoji))
-                + ", getEmojiToOrder="+ Emoji.getEmojiToOrder(emoji)
-                );
+            logln(
+                    emoji
+                            + ": getEmojiMinorOrder="
+                            + Emoji.getEmojiMinorOrder(Emoji.getMinorCategory(emoji))
+                            + ", getEmojiToOrder="
+                            + Emoji.getEmojiToOrder(emoji));
         }
         PathHeader lastItem = null;
         for (PathHeader item : pathHeaders) {
@@ -1466,8 +1576,10 @@ public class TestPathHeader extends TestFmwkPlus {
         List<GenderValues> genders = Arrays.asList(GrammarInfo.GenderValues.values()).subList(0, 3);
 
         for (Width width : widths) {
-            String path = "//ldml/units/unitLength[@type=\"" + width
-                + "\"]/unit[@type=\"length-meter\"]/displayName";
+            String path =
+                    "//ldml/units/unitLength[@type=\""
+                            + width
+                            + "\"]/unit[@type=\"length-meter\"]/displayName";
             expectedOrder.add(phf.fromPath(path));
         }
 
@@ -1477,10 +1589,13 @@ public class TestPathHeader extends TestFmwkPlus {
                     if (width != Width.LONG && gCase != CaseValues.nominative) {
                         break;
                     }
-                    String path = "//ldml/units/unitLength[@type=\"" + width
-                        + "\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"" + count
-                        + (gCase == CaseValues.nominative ? "" : "\"][@case=\"" + gCase)
-                        + "\"]";
+                    String path =
+                            "//ldml/units/unitLength[@type=\""
+                                    + width
+                                    + "\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\""
+                                    + count
+                                    + (gCase == CaseValues.nominative ? "" : "\"][@case=\"" + gCase)
+                                    + "\"]";
                     expectedOrder.add(phf.fromPath(path));
                 }
             }
@@ -1495,34 +1610,40 @@ public class TestPathHeader extends TestFmwkPlus {
                         if (width != Width.LONG && gGender != GenderValues.neuter) {
                             break;
                         }
-                        String path = "//ldml/units/unitLength[@type=\"" + width
-                            + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"" + count
-                            + (gGender == GenderValues.neuter ? "" : "\"][@gender=\"" + gGender)
-                            + (gCase == CaseValues.nominative ? "" : "\"][@case=\"" + gCase)
-                            + "\"]";
+                        String path =
+                                "//ldml/units/unitLength[@type=\""
+                                        + width
+                                        + "\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\""
+                                        + count
+                                        + (gGender == GenderValues.neuter
+                                                ? ""
+                                                : "\"][@gender=\"" + gGender)
+                                        + (gCase == CaseValues.nominative
+                                                ? ""
+                                                : "\"][@case=\"" + gCase)
+                                        + "\"]";
                         expectedOrder.add(phf.fromPath(path));
                     }
                 }
             }
         }
         for (Count count : Count.values()) {
-            String path = "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"" + count
-                + "\"]";
+            String path =
+                    "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"" + count + "\"]";
             expectedOrder.add(phf.fromPath(path));
         }
         for (Count count : Count.values()) {
-            String path = "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"" + count
-                + "\"]";
+            String path =
+                    "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"" + count + "\"]";
             expectedOrder.add(phf.fromPath(path));
         }
         for (GrammarInfo.CaseValues gCase : cases) {
-            String path = "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + gCase
-                + "\"]";
+            String path = "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"" + gCase + "\"]";
             expectedOrder.add(phf.fromPath(path));
         }
         for (GrammarInfo.GenderValues gGender : genders) {
-            String path = "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gGender
-                + "\"]";
+            String path =
+                    "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"" + gGender + "\"]";
             expectedOrder.add(phf.fromPath(path));
         }
 
@@ -1531,17 +1652,22 @@ public class TestPathHeader extends TestFmwkPlus {
         int errorCount = 0;
         for (PathHeader pathHeader : expectedOrder) {
             if (last != null) {
-                if (!assertTrue(++item + ")\t" + last + "\t<\t" + pathHeader, last.compareTo(pathHeader) < 0)) {
+                if (!assertTrue(
+                        ++item + ")\t" + last + "\t<\t" + pathHeader,
+                        last.compareTo(pathHeader) < 0)) {
                     errorCount++;
                     last.compareTo(pathHeader);
                 }
             }
             last = pathHeader;
-
         }
         if (errorCount != 0 || isVerbose()) {
             for (PathHeader pathHeader : expectedOrder) {
-                System.out.println("\"" + pathHeader.getOriginalPath().replace("\"", "\\\"") + "\",\t// " + pathHeader);
+                System.out.println(
+                        "\""
+                                + pathHeader.getOriginalPath().replace("\"", "\\\"")
+                                + "\",\t// "
+                                + pathHeader);
             }
         }
     }

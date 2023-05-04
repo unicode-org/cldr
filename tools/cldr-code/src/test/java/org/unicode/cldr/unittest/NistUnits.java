@@ -1,5 +1,15 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,38 +23,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 final class NistUnits {
     private static final boolean DEBUG = false;
 
-    final static Multimap<String,String> unitToQuantity;
-    final static Map<String, TargetInfo> derivedUnitToConversion;
-    final static List<ExternalUnitConversionData> externalConversionData;
-    final static Multimap<String, String> idChanges;
-    final static Set<String> skipping;
+    public static final String NIST_CONVERSIONS = "nistConversions";
+    public static final String NIST_DERIVED_UNITS = "nistDerivedUnits";
+
+    static final Multimap<String, String> unitToQuantity;
+    static final Map<String, TargetInfo> derivedUnitToConversion;
+    static final List<ExternalUnitConversionData> externalConversionData;
+    static final Multimap<String, String> idChanges;
+    static final Set<String> skipping;
 
     static final Splitter SPLIT_MIDDOT = Splitter.on('·').trimResults();
     static final Pattern flatExponent = Pattern.compile("([a-zA-Z]+)(-?[0-9]+)?");
     static final Splitter SPLIT_TABS = Splitter.on('\t').trimResults();
     static final Splitter SPLIT_COMMAS = Splitter.on(',').trimResults();
     static final Splitter SPLIT_PARENS = Splitter.on('(').trimResults();
-
 
     static {
         try {
@@ -57,31 +57,41 @@ final class NistUnits {
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
                         if (line.startsWith("#")
-                            || line.equals("To convert from\tto\tMultiply by")
-                            || line.startsWith("degree Fahrenheit hour square foot per British thermal unitth inch") // bad NIST data
-                            ) {
+                                || line.equals("To convert from\tto\tMultiply by")
+                                || line.startsWith(
+                                        "degree Fahrenheit hour square foot per British thermal unitth inch") // bad NIST data
+                        ) {
                             continue;
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
-                        switch(parts.size()) {
-                        case 1:
-                            quantity = parts.get(0);
-                            break;
-                        case 4:
-                            Rational factor = Rational.of((parts.get(2) + parts.get(3)).replace(" ", ""));
-                            ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, parts.get(0), parts.get(1), factor, line, _idChanges);
-                            _externalConversionData.add(data);
-                            break;
-                        default:
-                            _skipping.add(line);
+                        switch (parts.size()) {
+                            case 1:
+                                quantity = parts.get(0);
+                                break;
+                            case 4:
+                                Rational factor =
+                                        Rational.of((parts.get(2) + parts.get(3)).replace(" ", ""));
+                                ExternalUnitConversionData data =
+                                        new ExternalUnitConversionData(
+                                                quantity,
+                                                parts.get(0),
+                                                parts.get(1),
+                                                factor,
+                                                NIST_CONVERSIONS,
+                                                line,
+                                                _idChanges);
+                                _externalConversionData.add(data);
+                                break;
+                            default:
+                                _skipping.add(line);
                         }
                     }
                 }
             }
 
             Map<String, TargetInfo> unitToTargetInfo = new TreeMap<>();
-            Map<String,String> _symbolToUnit = new TreeMap<>();
-            Multimap<String,String> _unitToQuantity = TreeMultimap.create();
+            Map<String, String> _symbolToUnit = new TreeMap<>();
+            Multimap<String, String> _unitToQuantity = TreeMultimap.create();
             try (BufferedReader in = CldrUtility.getUTF8Data("external/nistBaseUnits.txt")) {
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
@@ -89,15 +99,15 @@ final class NistUnits {
                             continue;
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
-                        //#Base quantity  Name    Symbol
+                        // #Base quantity  Name    Symbol
                         String quantity2 = parts.get(0);
                         String name = parts.get(1);
                         String symbol = parts.get(2);
-                        switch(parts.size()) {
-                        case 3:
-                            _symbolToUnit.put(symbol, name);
-                            _unitToQuantity.put(name, quantity2);
-                            break;
+                        switch (parts.size()) {
+                            case 3:
+                                _symbolToUnit.put(symbol, name);
+                                _unitToQuantity.put(name, quantity2);
+                                break;
                         }
                     }
                 }
@@ -110,12 +120,19 @@ final class NistUnits {
                             continue;
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
-                        // #Quantity   Special Name    Special symbol  Expression in terms of other SI units   Expression in terms of SI base units
+                        // #Quantity   Special Name    Special symbol  Expression in terms of other
+                        // SI units   Expression in terms of SI base units
 
                         String quantity = parts.get(0);
-                        List<String> quantities = SPLIT_COMMAS.splitToList(quantity).stream()
-                            .map(x ->  SPLIT_PARENS.split(parts.get(0)).iterator().next())
-                            .collect(Collectors.toList());
+                        List<String> quantities =
+                                SPLIT_COMMAS.splitToList(quantity).stream()
+                                        .map(
+                                                x ->
+                                                        SPLIT_PARENS
+                                                                .split(parts.get(0))
+                                                                .iterator()
+                                                                .next())
+                                        .collect(Collectors.toList());
                         quantity = Joiner.on(", ").join(quantities);
 
                         String name = SPLIT_PARENS.split(parts.get(1)).iterator().next();
@@ -129,12 +146,25 @@ final class NistUnits {
                         _symbolToUnit.put(symbol, name);
                         _unitToQuantity.putAll(name, quantities);
 
-                        final String targetUnit = getUnitFromSymbols(expressionInBaseSymbols, _symbolToUnit);
-                        unitToTargetInfo.put(name, new TargetInfo(targetUnit, new ConversionInfo(Rational.ONE, Rational.ZERO), Collections.emptyMap()));
+                        final String targetUnit =
+                                getUnitFromSymbols(expressionInBaseSymbols, _symbolToUnit);
+                        unitToTargetInfo.put(
+                                name,
+                                new TargetInfo(
+                                        targetUnit,
+                                        new ConversionInfo(Rational.ONE, Rational.ZERO),
+                                        Collections.emptyMap()));
 
-                        ExternalUnitConversionData data = new ExternalUnitConversionData(quantity, name, targetUnit, Rational.ONE, line, _idChanges);
+                        ExternalUnitConversionData data =
+                                new ExternalUnitConversionData(
+                                        quantity, //
+                                        name, //
+                                        targetUnit, //
+                                        Rational.ONE, //
+                                        NIST_DERIVED_UNITS, //
+                                        line, //
+                                        _idChanges);
                         _externalConversionData.add(data);
-
                     }
                 }
             }
@@ -151,7 +181,8 @@ final class NistUnits {
         }
     }
 
-    public static String getUnitFromSymbols(String expressionInBaseSymbols, Map<String, String> symbolToUnit) {
+    public static String getUnitFromSymbols(
+            String expressionInBaseSymbols, Map<String, String> symbolToUnit) {
         String result;
         // handle the irregular formats
         if (expressionInBaseSymbols.equals("m/m")) {
@@ -173,11 +204,19 @@ final class NistUnits {
                 final String exponent = parts.group(2);
                 if (exponent != null) {
                     power = Integer.parseInt(exponent);
-                    switch(Math.abs(power)) {
-                    case 0: case 1: break;// skip
-                    case 2: pow = "square-"; break;
-                    case 3: pow = "cubic-"; break;
-                    default: pow = "pow" + Math.abs(power) + "-"; break;
+                    switch (Math.abs(power)) {
+                        case 0:
+                        case 1:
+                            break; // skip
+                        case 2:
+                            pow = "square-";
+                            break;
+                        case 3:
+                            pow = "cubic-";
+                            break;
+                        default:
+                            pow = "pow" + Math.abs(power) + "-";
+                            break;
                     }
                 }
                 StringBuilder target = power >= 0 ? numerator : denominator;
@@ -189,12 +228,13 @@ final class NistUnits {
                 }
                 target.append(unit);
             }
-            result = (numerator.length() == 0 ? "" : numerator)
-                + (denominator.length() == 0 ? "" :
-                    (numerator.length() == 0 ? "per-" : "-per-") + denominator);
+            result =
+                    (numerator.length() == 0 ? "" : numerator)
+                            + (denominator.length() == 0
+                                    ? ""
+                                    : (numerator.length() == 0 ? "per-" : "-per-") + denominator);
         }
         if (DEBUG) System.out.println(expressionInBaseSymbols + " => " + result);
         return result;
     }
-
 }

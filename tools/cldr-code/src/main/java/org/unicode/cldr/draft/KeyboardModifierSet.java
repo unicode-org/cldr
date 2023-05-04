@@ -7,42 +7,46 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.SetComparator;
 
 /**
- * A class which represents a particular modifier combination (or combinations
- * of combinations).
- * <p>
- * For example {@code alt+cmd?} gets transformed into a native format consisting of sets of ON modifiers. In this case
- * it would get transformed into {@code altL+cmd, altR+cmd, altL+altR+cmd, altL, altR, altL+altR} .
- * <p>
- * This definition can be expanded across multiple combinations. For example {@code optR+caps? cmd+shift} gets
- * transformed into {@code optR+caps, optR,
- * cmd+shiftL, cmd+shiftR, cmd+shiftL+shiftR} .
+ * A class which represents a particular modifier combination (or combinations of combinations).
+ *
+ * <p>For example {@code alt+cmd?} gets transformed into a native format consisting of sets of ON
+ * modifiers. In this case it would get transformed into {@code altL+cmd, altR+cmd, altL+altR+cmd,
+ * altL, altR, altL+altR} .
+ *
+ * <p>This definition can be expanded across multiple combinations. For example {@code optR+caps?
+ * cmd+shift} gets transformed into {@code optR+caps, optR, cmd+shiftL, cmd+shiftR,
+ * cmd+shiftL+shiftR} .
  *
  * <h1>Usage</h1>
- * <p>
- * There is a 1 to 1 relationship between a {@link KeyboardModifierSet} and a particular key map (a mapping from
- * physical keys to their output).
  *
- * <pre>
- * {@code
+ * <p>There is a 1 to 1 relationship between a {@link KeyboardModifierSet} and a particular key map
+ * (a mapping from physical keys to their output).
+ *
+ * <pre>{@code
  * // Create the set from the XML modifier=".." attribute
  * ModifierSet modifierSet = ModifierSet.parseSet(<modifier=".." value from XML>);
  * // Test if this set is active for a particular input combination provided by the keyboard
  * modifierSet.contains(<some combination to test>);
- * }
- * </pre>
+ * }</pre>
  *
  * @author rwainman@google.com (Raymond Wainman)
  */
 public class KeyboardModifierSet {
-    /**
-     * Enum of all possible modifier keys.
-     */
+    /** Enum of all possible modifier keys. */
     public enum Modifier {
-        cmd, ctrlL, ctrlR, caps, altL, altR, optL, optR, shiftL, shiftR;
+        cmd,
+        ctrlL,
+        ctrlR,
+        caps,
+        altL,
+        altR,
+        optL,
+        optR,
+        shiftL,
+        shiftR;
     }
 
     static final SetComparator<Modifier> SINGLETON_COMPARATOR = new SetComparator<>();
@@ -55,9 +59,8 @@ public class KeyboardModifierSet {
     /**
      * Private constructor. See factory {@link #parseSet} method.
      *
-     * @param variants
-     *            A set containing all possible variants of the combination
-     *            provided in the input string.
+     * @param variants A set containing all possible variants of the combination provided in the
+     *     input string.
      */
     private KeyboardModifierSet(String input, Set<EnumSet<Modifier>> variants) {
         this.input = input;
@@ -80,8 +83,7 @@ public class KeyboardModifierSet {
     /**
      * Determines if the given combination is valid within this set.
      *
-     * @param combination
-     *            A combination of Modifier elements.
+     * @param combination A combination of Modifier elements.
      * @return True if the combination is valid, false otherwise.
      */
     public boolean contains(EnumSet<Modifier> combination) {
@@ -108,24 +110,23 @@ public class KeyboardModifierSet {
     }
 
     /**
-     * Parse a set containing one or more modifier sets. Each modifier set is
-     * separated by a single space and modifiers within a modifier set are
-     * separated by a '+'. For example {@code "ctrl+opt?+caps?+shift? alt+caps+cmd?"} has two modifier sets,
-     * namely:
-     * <ul>
-     * <li>{@code "ctrl+opt?+caps?+shift?"}
-     * <li>{@code "alt+caps+cmd?"}
-     * </ul>
-     * <p>
-     * The '?' symbol appended to some modifiers indicates that this modifier is optional (it can be ON or OFF).
+     * Parse a set containing one or more modifier sets. Each modifier set is separated by a single
+     * space and modifiers within a modifier set are separated by a '+'. For example {@code
+     * "ctrl+opt?+caps?+shift? alt+caps+cmd?"} has two modifier sets, namely:
      *
-     * @param input
-     *            String representing the sets of modifier sets. This string
-     *            must match the format defined in the LDML Keyboard Standard.
-     * @return A {@link KeyboardModifierSet} containing all possible variants of
-     *         the specified combinations.
-     * @throws IllegalArgumentException
-     *             if the input string is incorrectly formatted.
+     * <ul>
+     *   <li>{@code "ctrl+opt?+caps?+shift?"}
+     *   <li>{@code "alt+caps+cmd?"}
+     * </ul>
+     *
+     * <p>The '?' symbol appended to some modifiers indicates that this modifier is optional (it can
+     * be ON or OFF).
+     *
+     * @param input String representing the sets of modifier sets. This string must match the format
+     *     defined in the LDML Keyboard Standard.
+     * @return A {@link KeyboardModifierSet} containing all possible variants of the specified
+     *     combinations.
+     * @throws IllegalArgumentException if the input string is incorrectly formatted.
      */
     public static KeyboardModifierSet parseSet(String input) {
         if (input == null) {
@@ -141,18 +142,16 @@ public class KeyboardModifierSet {
     }
 
     /**
-     * Parse a modifier set. The set typically looks something like {@code ctrl+opt?+caps?+shift?} or
-     * {@code alt+caps+cmd?} and return a set
-     * containing all possible variants for that particular modifier set.
-     * <p>
-     * For example {@code alt+caps+cmd?} gets expanded into {@code alt+caps+cmd?, alt+caps} .
+     * Parse a modifier set. The set typically looks something like {@code ctrl+opt?+caps?+shift?}
+     * or {@code alt+caps+cmd?} and return a set containing all possible variants for that
+     * particular modifier set.
      *
-     * @param input
-     *            The input string representing the modifiers. This String must
-     *            match the format defined in the LDML Keyboard Standard.
+     * <p>For example {@code alt+caps+cmd?} gets expanded into {@code alt+caps+cmd?, alt+caps} .
+     *
+     * @param input The input string representing the modifiers. This String must match the format
+     *     defined in the LDML Keyboard Standard.
      * @return {@link KeyboardModifierSet}.
-     * @throws IllegalArgumentException
-     *             if the input string is incorrectly formatted.
+     * @throws IllegalArgumentException if the input string is incorrectly formatted.
      */
     private static Set<EnumSet<Modifier>> parseSingleSet(String input) {
         if (input == null) {
@@ -166,7 +165,7 @@ public class KeyboardModifierSet {
 
         List<EnumSet<Modifier>> variants = new ArrayList<>();
         variants.add(EnumSet.noneOf(Modifier.class)); // Add an initial set
-                                                      // which is empty
+        // which is empty
 
         // Trivial case
         if (input.isEmpty()) {
@@ -242,13 +241,12 @@ public class KeyboardModifierSet {
         return new HashSet<>(variants);
     }
 
-    /**
-     * Enum of all parent modifier keys. Defines the relationships with their
-     * children.
-     */
+    /** Enum of all parent modifier keys. Defines the relationships with their children. */
     private enum ModifierParent {
-        ctrl(Modifier.ctrlL, Modifier.ctrlR), alt(Modifier.altL, Modifier.altR), opt(
-            Modifier.optL, Modifier.optR), shift(Modifier.shiftL, Modifier.shiftR);
+        ctrl(Modifier.ctrlL, Modifier.ctrlR),
+        alt(Modifier.altL, Modifier.altR),
+        opt(Modifier.optL, Modifier.optR),
+        shift(Modifier.shiftL, Modifier.shiftR);
 
         private final Modifier leftChild;
         private final Modifier rightChild;
@@ -261,8 +259,7 @@ public class KeyboardModifierSet {
         /**
          * Determines if the String passed in is a valid parent key.
          *
-         * @param modifier
-         *            The modifier string to verify.
+         * @param modifier The modifier string to verify.
          * @return True if it is a parent key, false otherwise.
          */
         private static boolean isParentModifier(String modifier) {

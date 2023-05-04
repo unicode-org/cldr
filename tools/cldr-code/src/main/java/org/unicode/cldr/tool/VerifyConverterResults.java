@@ -1,5 +1,10 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.TreeMultimap;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonStreamParser;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
@@ -12,7 +17,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
@@ -25,16 +29,10 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.TreeMultimap;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonStreamParser;
-
-/** Simple tool to help verify that CLDR data is getting transferred.
+/**
+ * Simple tool to help verify that CLDR data is getting transferred.
  *
  * @author markdavis
- *
  */
 public class VerifyConverterResults {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -44,7 +42,8 @@ public class VerifyConverterResults {
     enum SourceType {
         text,
         json,
-        rb}
+        rb
+    }
 
     public static void main(String[] args) {
         // TODO, make these arguments
@@ -56,67 +55,80 @@ public class VerifyConverterResults {
         String locale = "de";
         boolean isVerbose = false;
 
-
         String source;
         Matcher fileMatcher;
         Matcher parentMatcher = null;
-        switch(sourceType) {
-        case text:
-            source = textSource;
-            fileMatcher = Pattern.compile(locale + ".txt").matcher("");
-            break;
-        case json:
-            source = jsonSource;
-            fileMatcher = Pattern.compile(".*\\.json").matcher("");
-            parentMatcher = Pattern.compile(locale + "|cldr-core|supplemental").matcher("");
-            break;
-        default: throw new IllegalArgumentException("No code yet for " + sourceType);
+        switch (sourceType) {
+            case text:
+                source = textSource;
+                fileMatcher = Pattern.compile(locale + ".txt").matcher("");
+                break;
+            case json:
+                source = jsonSource;
+                fileMatcher = Pattern.compile(".*\\.json").matcher("");
+                parentMatcher = Pattern.compile(locale + "|cldr-core|supplemental").matcher("");
+                break;
+            default:
+                throw new IllegalArgumentException("No code yet for " + sourceType);
         }
 
-        Set<String> skipSupplementalFiles = ImmutableSet.of(
-            // purposely excluded from clients
-            "subdivisions.xml",
+        Set<String> skipSupplementalFiles =
+                ImmutableSet.of(
+                        // purposely excluded from clients
+                        "subdivisions.xml",
 
-            // internal to CLDR, not applicable for clients
-            "attributeValueValidity.xml", "coverageLevels.xml"
+                        // internal to CLDR, not applicable for clients
+                        "attributeValueValidity.xml",
+                        "coverageLevels.xml"
 
-            // the format changes so dramatically we can't compare
+                        // the format changes so dramatically we can't compare
 
-            );
+                        );
 
-        Set<String> converted = getConvertedData(sourceType, new File(source), fileMatcher, parentMatcher, new TreeSet<>());
+        Set<String> converted =
+                getConvertedData(
+                        sourceType, new File(source), fileMatcher, parentMatcher, new TreeSet<>());
         Set<String> excludeDraftStatus = ImmutableSet.of("unconfirmed", "provisional");
 
         // Now check that the data values in CLDR are contained
-        for (String dir : Iterables.concat(DtdType.ldml.directories, DtdType.supplementalData.directories)) {
-            switch(dir) {
+        for (String dir :
+                Iterables.concat(DtdType.ldml.directories, DtdType.supplementalData.directories)) {
+            switch (dir) {
+                case "annotationsDerived":
+                case "annotations":
+                    if (sourceType != SourceType.text) {
+                        break;
+                    }
+                    System.out.println(dir + "\t##SKIPPING\t" + "excluded from ICU");
+                    continue;
 
-            case "annotationsDerived": case "annotations":
-                if (sourceType != SourceType.text) {
-                    break;
-                }
-                System.out.println(dir + "\t##SKIPPING\t" + "excluded from ICU");
-                continue;
+                case "casing":
+                    System.out.println(
+                            dir
+                                    + "\t##SKIPPING\t"
+                                    + "internal to CLDR, not applicable for conversion");
+                    continue;
 
-            case "casing":
-                System.out.println(dir + "\t##SKIPPING\t" + "internal to CLDR, not applicable for conversion");
-                continue;
+                case "subdivisions":
+                    System.out.println(
+                            dir + "\t##SKIPPING\t" + "purposely excluded from conversion");
+                    continue;
 
-            case "subdivisions":
-                System.out.println(dir + "\t##SKIPPING\t" + "purposely excluded from conversion");
-                continue;
-
-            case "collation":
-            case "rbnf":
-            case "transforms":
-            case "segments":
-            case "validity":
-                System.out.println(dir + "\t##SKIPPING\t" + "format changes so dramatically we can't compare yet");
-                continue;
+                case "collation":
+                case "rbnf":
+                case "transforms":
+                case "segments":
+                case "validity":
+                    System.out.println(
+                            dir
+                                    + "\t##SKIPPING\t"
+                                    + "format changes so dramatically we can't compare yet");
+                    continue;
             }
 
             final boolean isSupplemental = DtdType.supplementalData.directories.contains(dir);
-            DtdData supplementalDtdData = isSupplemental ? DtdData.getInstance(DtdType.supplementalData) : null;
+            DtdData supplementalDtdData =
+                    isSupplemental ? DtdData.getInstance(DtdType.supplementalData) : null;
 
             Matcher cldrFileMatcher = Pattern.compile(locale + ".xml").matcher("");
 
@@ -135,7 +147,8 @@ public class VerifyConverterResults {
                     }
                 }
                 filedata.clear();
-                for (Pair<String, String> line : XMLFileReader.loadPathValues(child.toString(), new ArrayList<>(), false)) {
+                for (Pair<String, String> line :
+                        XMLFileReader.loadPathValues(child.toString(), new ArrayList<>(), false)) {
                     final String value = line.getSecond();
                     final String path = line.getFirst();
                     XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -144,7 +157,7 @@ public class VerifyConverterResults {
                         // doesn't need to be copied; up to client
                         continue;
                     } else if (path.startsWith("//supplementalData/metadata/suppress/attributes")
-                        || path.startsWith("//supplementalData/metadata/serialElements")) {
+                            || path.startsWith("//supplementalData/metadata/serialElements")) {
                         // internal to CLDR
                         continue;
                     }
@@ -154,8 +167,11 @@ public class VerifyConverterResults {
                     if (isSupplemental) {
                         for (int elementIndex = 0; elementIndex < parts.size(); ++elementIndex) {
                             String element = parts.getElement(elementIndex);
-                            for (Entry<String, String> attribute : parts.getAttributes(elementIndex).entrySet()) {
-                                if (AttributeStatus.value == supplementalDtdData.getAttributeStatus(element, attribute.getKey())) {
+                            for (Entry<String, String> attribute :
+                                    parts.getAttributes(elementIndex).entrySet()) {
+                                if (AttributeStatus.value
+                                        == supplementalDtdData.getAttributeStatus(
+                                                element, attribute.getKey())) {
                                     filedata.checkValue(dir, name, path, attribute.getValue());
                                 }
                             }
@@ -163,15 +179,19 @@ public class VerifyConverterResults {
                     }
                 }
                 filedata.print(isVerbose);
-                System.out.println(dir + "\t##Missing Paths #:\t" + (filedata.filedata.size() == 0? "NONE"
-                    : filedata.filedata.size()));
+                System.out.println(
+                        dir
+                                + "\t##Missing Paths #:\t"
+                                + (filedata.filedata.size() == 0
+                                        ? "NONE"
+                                        : filedata.filedata.size()));
             }
         }
     }
 
     static class FileData {
         Set<String> converted;
-        TreeMultimap<String, String> filedata =  TreeMultimap.create();
+        TreeMultimap<String, String> filedata = TreeMultimap.create();
         TreeMap<String, String> starredData = new TreeMap<>();
 
         public FileData(Set<String> converted) {
@@ -183,7 +203,8 @@ public class VerifyConverterResults {
             starredData.clear();
         }
 
-        public void checkValue(final String dir, final String name, final String path, String value) {
+        public void checkValue(
+                final String dir, final String name, final String path, String value) {
             if (value.isEmpty()) {
                 return;
             }
@@ -196,14 +217,20 @@ public class VerifyConverterResults {
         }
 
         void print(boolean isVerbose) {
-            final Set<Entry<String, String>> items = isVerbose ? filedata.entries() : starredData.entrySet();
+            final Set<Entry<String, String>> items =
+                    isVerbose ? filedata.entries() : starredData.entrySet();
             for (Entry<String, String> entry : items) {
                 System.out.println(entry.getKey() + "\t" + entry.getValue());
             }
         }
     }
 
-    private static Set<String> getConvertedData(SourceType sourceType, File target, Matcher fileMatcher, Matcher parentMatcher, Set<String> accummulatedValues) {
+    private static Set<String> getConvertedData(
+            SourceType sourceType,
+            File target,
+            Matcher fileMatcher,
+            Matcher parentMatcher,
+            Set<String> accummulatedValues) {
         if (target.isDirectory()) {
             for (File child : target.listFiles()) {
                 getConvertedData(sourceType, child, fileMatcher, parentMatcher, accummulatedValues);
@@ -223,23 +250,27 @@ public class VerifyConverterResults {
             if (ok) { // not directory, matches
                 int startCount = accummulatedValues.size();
                 switch (sourceType) {
-                case text:
-                    processText(target, accummulatedValues);
-                    break;
-                case json:
-                    processJson(target, accummulatedValues);
-                    break;
-                default:
-                    throw new IllegalArgumentException("No code yet for " + sourceType);
+                    case text:
+                        processText(target, accummulatedValues);
+                        break;
+                    case json:
+                        processJson(target, accummulatedValues);
+                        break;
+                    default:
+                        throw new IllegalArgumentException("No code yet for " + sourceType);
                 }
                 int endCount = accummulatedValues.size();
-                System.out.println("Processed Converted" + target + "; "
-                    + (startCount == endCount ? "NO CHANGE" : startCount + " => " + endCount));
+                System.out.println(
+                        "Processed Converted"
+                                + target
+                                + "; "
+                                + (startCount == endCount
+                                        ? "NO CHANGE"
+                                        : startCount + " => " + endCount));
             }
         }
         return accummulatedValues;
     }
-
 
     private static void processJson(File target, Set<String> accummulatedValues) {
         try (Reader reader = FileUtilities.openFile(target, Charset.forName("utf8"))) {

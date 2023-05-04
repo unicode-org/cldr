@@ -27,59 +27,46 @@ public class XPathAlt {
     @Path("/{localeId}/{hexId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Fetch alt values from locale and XPath Hex ID",
-        description = "Looks up the alt values that could be added for a specific XPath Hex ID."
-    )
+            summary = "Fetch alt values from locale and XPath Hex ID",
+            description =
+                    "Looks up the alt values that could be added for a specific XPath Hex ID.")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "404",
-                description = "XPath Hex ID not found",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = STError.class))
-            ),
-            @APIResponse(
-                responseCode = "200",
-                description = "Array of possible alt values",
-                content = @Content(
-                    mediaType = "application/json",
-                    schema = @Schema(implementation = AltSetResponse.class)
-                )
-            ),
-        }
-    )
+            value = {
+                @APIResponse(
+                        responseCode = "404",
+                        description = "XPath Hex ID not found",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Array of possible alt values",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = AltSetResponse.class))),
+            })
     public Response getAltByHex(
-        @Parameter(required = true, example = "aa", schema = @Schema(type = SchemaType.STRING)) @PathParam(
-            "localeId"
-        ) String localeId,
-        @Parameter(
-            required = true,
-            example = "6154e7673c3829ce",
-            schema = @Schema(type = SchemaType.STRING)
-        ) @PathParam("hexId") String hexId
-    ) {
+            @Parameter(required = true, example = "aa", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("localeId")
+                    String localeId,
+            @Parameter(
+                            required = true,
+                            example = "6154e7673c3829ce",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("hexId")
+                    String hexId) {
         CLDRLocale locale = CLDRLocale.getInstance(localeId);
         if (locale == null) {
-            return badLocale(localeId);
+            return STError.badLocale(localeId);
         }
-        String xpath = getXPathByHex(hexId);
+        final String xpath = sm.xpt.getByStringID(hexId);
         if (xpath == null) {
-            return badPath(hexId);
+            return STError.badPath(hexId);
         }
         Set<String> set = getSet(locale, xpath);
         return Response.ok(new AltSetResponse(hexId, set)).build();
-    }
-
-    private String getXPathByHex(String hexId) {
-        String xpath = null;
-        try {
-            xpath = sm.xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
-        return xpath;
     }
 
     @Schema(description = "Response for XPath alt set query")
@@ -102,23 +89,25 @@ public class XPathAlt {
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Add alt path", description = "Create a new alt path in the given locale")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "404",
-                description = "XPath Hex ID not found",
-                content = @Content(mediaType = "application/json", schema = @Schema(implementation = STError.class))
-            ),
-            @APIResponse(
-                responseCode = "200",
-                description = "Alt path was added",
-                content = @Content(
-                    mediaType = "application/json",
-                    schema = @Schema(implementation = AddAltPathRequest.class)
-                )
-            ),
-        }
-    )
-    public Response putByHex(@HeaderParam(Auth.SESSION_HEADER) String sessionString, AddAltPathRequest request) {
+            value = {
+                @APIResponse(
+                        responseCode = "404",
+                        description = "XPath Hex ID not found",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Alt path was added",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(implementation = AddAltPathRequest.class))),
+            })
+    public Response putByHex(
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString, AddAltPathRequest request) {
         CookieSession session;
         try {
             session = Auth.getSession(sessionString);
@@ -134,11 +123,11 @@ public class XPathAlt {
         }
         CLDRLocale locale = CLDRLocale.getInstance(request.localeId);
         if (locale == null) {
-            return badLocale(request.localeId);
+            return STError.badLocale(request.localeId);
         }
-        String xpath = getXPathByHex(request.hexId);
+        final String xpath = sm.xpt.getByStringID(request.hexId);
         if (xpath == null) {
-            return badPath(request.hexId);
+            return STError.badPath(request.hexId);
         }
         String alt = getFromSet(request.alt, locale, xpath);
         if (alt == null) {
@@ -152,7 +141,7 @@ public class XPathAlt {
         if (set == null || !set.contains(requestAlt)) {
             return null;
         }
-        for (String alt: set) {
+        for (String alt : set) {
             if (alt.equals(requestAlt)) {
                 // do not return requestAlt -- even though they're equal, alt differs from
                 // requestAlt in the eyes of Code scanning / CodeQL warning,
@@ -177,15 +166,16 @@ public class XPathAlt {
             if (cldrFile.isHere(newXpath)) { // compare STFactory.getPathsForFile()
                 return alreadyExists(newXpath);
             }
-            String newValue = null; // Abstain; CldrUtility.INHERITANCE_MARKER could give StatusAction.FORBID_NULL
-            Response r = VoteAPIHelper.handleVote(
-                locale.getBaseName(),
-                newXpath,
-                newValue,
-                1/* one vote */,
-                session,
-                false/* forbiddenIsOk */
-            );
+            String newValue = null; // Abstain; CldrUtility.INHERITANCE_MARKER could give
+            // StatusAction.FORBID_NULL
+            Response r =
+                    VoteAPIHelper.handleVote(
+                            locale.getBaseName(),
+                            newXpath,
+                            newValue,
+                            1 /* one vote */,
+                            session,
+                            false /* forbiddenIsOk */);
             int status = r.getStatus();
             if (status != 200) {
                 return badHandleVote(newXpath, status);
@@ -209,7 +199,9 @@ public class XPathAlt {
     }
 
     private Set<String> getSet(CLDRLocale locale, String xpath) {
-        DtdData dtdData = DtdData.getInstance(DtdType.fromPath(xpath), CLDRConfig.getInstance().getCldrBaseDirectory());
+        DtdData dtdData =
+                DtdData.getInstance(
+                        DtdType.fromPath(xpath), CLDRConfig.getInstance().getCldrBaseDirectory());
         XPathParts xpp = XPathParts.getFrozenInstance(xpath);
         String el = xpp.getElement(-1);
         DtdData.Element element = dtdData.getElementFromName().get(el);
@@ -221,7 +213,8 @@ public class XPathAlt {
         return set;
     }
 
-    private Set<String> removePathsAlreadyPresent(Set<String> origSet, CLDRLocale locale, String origXpath) {
+    private Set<String> removePathsAlreadyPresent(
+            Set<String> origSet, CLDRLocale locale, String origXpath) {
         CLDRFile cldrFile = getFile(locale);
         if (cldrFile == null) {
             return null;
@@ -242,45 +235,30 @@ public class XPathAlt {
         return sm.getSTFactory().make(locale.getBaseName(), true);
     }
 
-    private Response badLocale(String localeId) {
-        return Response
-            .status(Response.Status.NOT_FOUND)
-            .entity(new STError("Locale ID " + localeId + " not found"))
-            .build();
-    }
-
-    private Response badPath(String hexId) {
-        return Response
-            .status(Response.Status.NOT_FOUND)
-            .entity(new STError("XPath Hex ID " + hexId + " not found"))
-            .build();
-    }
-
     private Response noAlt(String hexId, String alt) {
-        return Response
-            .status(Response.Status.NOT_FOUND)
-            .entity(new STError("XPath Hex ID " + hexId + " alt value " + alt + " not found"))
-            .build();
+        return Response.status(Response.Status.NOT_FOUND)
+                .entity(new STError("XPath Hex ID " + hexId + " alt value " + alt + " not found"))
+                .build();
     }
 
     private Response badFile(CLDRLocale locale) {
-        return Response
-            .status(Response.Status.NOT_FOUND)
-            .entity(new STError("Cannot add alt path: null CLDRFile for locale " + locale.getBaseName()))
-            .build();
+        return Response.status(Response.Status.NOT_FOUND)
+                .entity(
+                        new STError(
+                                "Cannot add alt path: null CLDRFile for locale "
+                                        + locale.getBaseName()))
+                .build();
     }
 
     private Response alreadyExists(String newXpath) {
-        return Response
-            .status(Response.Status.NOT_ACCEPTABLE)
-            .entity(new STError("Alt path already exists: " + newXpath))
-            .build();
+        return Response.status(Response.Status.NOT_ACCEPTABLE)
+                .entity(new STError("Alt path already exists: " + newXpath))
+                .build();
     }
 
     private Response badHandleVote(String newXpath, int status) {
-        return Response
-            .status(status)
-            .entity(new STError("Cannot add alt path: handleVote failed for " + newXpath))
-            .build();
+        return Response.status(status)
+                .entity(new STError("Cannot add alt path: handleVote failed for " + newXpath))
+                .build();
     }
 }

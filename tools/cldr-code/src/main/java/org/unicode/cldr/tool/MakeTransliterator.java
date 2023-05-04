@@ -1,5 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,27 +21,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
-
 /**
- * Takes a list of mappings (tab delimited) from source to target and produces a
- * transliterator
+ * Takes a list of mappings (tab delimited) from source to target and produces a transliterator
  *
- * @author markdavis
- *         http://en.wikipedia.org/wiki/English_phonology
+ * @author markdavis http://en.wikipedia.org/wiki/English_phonology
  */
 public class MakeTransliterator {
     // DEBUGGING
@@ -55,7 +51,8 @@ public class MakeTransliterator {
 
     static Collator col = Collator.getInstance(ULocale.ROOT);
 
-    static String cldrDataDir = "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
+    static String cldrDataDir =
+            "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
 
     public static void main(String[] args) throws IOException {
         setTranslitDebug(true);
@@ -78,7 +75,8 @@ public class MakeTransliterator {
 
         Map<String, String> overrides = getOverrides();
 
-        String coreForeRules = createFromFile(cldrDataDir + "internal_baseEnglishToIpa.txt", null, null);
+        String coreForeRules =
+                createFromFile(cldrDataDir + "internal_baseEnglishToIpa.txt", null, null);
         coreBase = Transliterator.createFromRules("foo", coreForeRules, Transliterator.FORWARD);
         if (CHECK_BASE != null) {
             setTranslitDebug(true);
@@ -88,14 +86,16 @@ public class MakeTransliterator {
 
         if (CHECK_BUILT != null) {
             String foo = createFromFile(cldrDataDir + "en-IPA.txt", null, null);
-            Transliterator fooTrans = Transliterator.createFromRules("foo", foo, Transliterator.FORWARD);
+            Transliterator fooTrans =
+                    Transliterator.createFromRules("foo", foo, Transliterator.FORWARD);
 
             setTranslitDebug(true);
             System.out.println(fooTrans.transliterate(CHECK_BUILT));
             return;
         }
 
-        String coreBackRules = createFromFile(cldrDataDir + "internal_English-IPA-backwards.txt", null, null);
+        String coreBackRules =
+                createFromFile(cldrDataDir + "internal_English-IPA-backwards.txt", null, null);
         checkCoreReversibility(skippedOut, coreForeRules, coreBackRules);
         String coreRules = coreForeRules + coreBackRules;
         System.out.println(coreRules);
@@ -103,16 +103,17 @@ public class MakeTransliterator {
         // C:\DATA\GEN\mergedIPA2.txt
         // we have to have items in order. Longest forms need to come first, on both
         // sides.
-        Relation<String, Pair<String, Long>> store = Relation.of(new TreeMap<String, Set<Pair<String, Long>>>(MyComparator),
-            TreeSet.class);
+        Relation<String, Pair<String, Long>> store =
+                Relation.of(
+                        new TreeMap<String, Set<Pair<String, Long>>>(MyComparator), TreeSet.class);
 
         targetCharacters = new UnicodeSet();
         sourceCharacters = new UnicodeSet();
-        allowedSourceCharacters = new UnicodeSet(
-            "[[:Letter:]\u2019]").freeze();
-        allowedTargetCharacters = new UnicodeSet(
-            "[\u00E6 \u0251 b d\u00F0 e \u0259 \u025B f-i \u026A j-n \u014B o p r s \u0283 t u \u028A v w z \u0292 \u03B8]")
-                .freeze();
+        allowedSourceCharacters = new UnicodeSet("[[:Letter:]\u2019]").freeze();
+        allowedTargetCharacters =
+                new UnicodeSet(
+                                "[\u00E6 \u0251 b d\u00F0 e \u0259 \u025B f-i \u026A j-n \u014B o p r s \u0283 t u \u028A v w z \u0292 \u03B8]")
+                        .freeze();
         countSkipped = 0;
         totalFrequency = 0;
         skippedFrequency = 0;
@@ -121,8 +122,7 @@ public class MakeTransliterator {
         BufferedReader in = FileUtilities.openUTF8Reader("", sourceFile);
         while (true) {
             String line = in.readLine();
-            if (line == null)
-                break;
+            if (line == null) break;
             if (line.startsWith("\uFEFF")) {
                 line = line.substring(1);
             }
@@ -157,7 +157,7 @@ public class MakeTransliterator {
                 continue;
             }
 
-            //String bestTarget = null;
+            // String bestTarget = null;
 
             String override = overrides.get(source);
             String spelling = spellout.transliterate(source);
@@ -171,7 +171,8 @@ public class MakeTransliterator {
 
                 if (override != null) {
                     if (SHOW_OVERRIDES)
-                        System.out.println("Overriding\t" + source + " → ! " + target + " → " + override);
+                        System.out.println(
+                                "Overriding\t" + source + " → ! " + target + " → " + override);
                     if (override.length() != 0) {
                         if (TEST_STRING != null && source.equals(TEST_STRING)) {
                             setTranslitDebug(true);
@@ -200,15 +201,14 @@ public class MakeTransliterator {
                 target = fixBadIpa.transliterate(target);
 
                 if (target.equals(spelling)) {
-                    skippedOut.println(originalLine
-                        + "\tspellout");
+                    skippedOut.println(originalLine + "\tspellout");
                     countSkipped++;
                     continue;
                 }
 
                 if (!target.equals(oldTarget)) {
-                    skippedOut.println("\t### fixed IPA:\t" + source + "\t" + target
-                        + "\twas: " + oldTarget);
+                    skippedOut.println(
+                            "\t### fixed IPA:\t" + source + "\t" + target + "\twas: " + oldTarget);
                 }
 
                 addSourceTarget(skippedOut, source, target, originalLine, store);
@@ -221,7 +221,8 @@ public class MakeTransliterator {
             if (!store.containsKey(word)) {
                 String target = overrides.get(word);
                 if (target.length() != 0) {
-                    if (SHOW_OVERRIDES) System.out.println("New overrides:\t" + word + " → " + target);
+                    if (SHOW_OVERRIDES)
+                        System.out.println("New overrides:\t" + word + " → " + target);
                     addSourceTarget(skippedOut, word, target, "overrides", store);
                 }
             }
@@ -248,23 +249,30 @@ public class MakeTransliterator {
         long frequencyAdded = 0;
         long frequencySkipped = 0;
 
-        Transliterator base = Transliterator.createFromRules("foo", coreRules, Transliterator.FORWARD);
+        Transliterator base =
+                Transliterator.createFromRules("foo", coreRules, Transliterator.FORWARD);
         // build up the transliterator one length at a time.
         List<String> newRules = new ArrayList<>();
         StringBuilder buffer = new StringBuilder();
 
         int lastSourceLength = 1;
 
-        Relation<Long, String> count_failures = Relation.of(new TreeMap<Long, Set<String>>(), TreeSet.class);
+        Relation<Long, String> count_failures =
+                Relation.of(new TreeMap<Long, Set<String>>(), TreeSet.class);
 
-        sourceLoop: for (String source : store.keySet()) {
+        sourceLoop:
+        for (String source : store.keySet()) {
             if (TEST_STRING != null && source.equals(TEST_STRING)) {
                 System.out.println(source + "\t" + store.getAll(source));
             }
             countTotal++;
             // whenever the source changes in length, rebuild the transliterator
             if (source.length() != lastSourceLength && source.length() >= forceSeparateIfShorter) {
-                System.out.println("Building transliterator for length " + lastSourceLength + " : " + newRules.size());
+                System.out.println(
+                        "Building transliterator for length "
+                                + lastSourceLength
+                                + " : "
+                                + newRules.size());
                 System.out.flush();
                 skippedOut.flush();
                 String rules = buildRules(coreRules, newRules, buffer);
@@ -295,8 +303,13 @@ public class MakeTransliterator {
                 }
                 if (mostlyEqual(source, target, targetUsingCore)) {
                     // we have a match! skip this source
-                    skippedOut.println("# skipping " + source + " → " + target + " ; # close enough to "
-                        + targetUsingCore);
+                    skippedOut.println(
+                            "# skipping "
+                                    + source
+                                    + " → "
+                                    + target
+                                    + " ; # close enough to "
+                                    + targetUsingCore);
                     frequencySkipped += frequency;
                     continue sourceLoop;
                 }
@@ -309,14 +322,16 @@ public class MakeTransliterator {
             // if we get to here, we have a new rule.
             if (bestTarget != null) {
                 boolean forceSeparate = false;
-                if (source.length() < forceSeparateIfShorter || bestTarget.length() * 2 > source.length() * 3) {
+                if (source.length() < forceSeparateIfShorter
+                        || bestTarget.length() * 2 > source.length() * 3) {
                     forceSeparate = true;
                 } else {
                     String spelling = spellout.transliterate(source);
                     if (bestTarget.equals(spelling)) {
                         forceSeparate = true;
                     } else {
-                        // if it is likely that the word can have an extra letter added that changes the pronunciation
+                        // if it is likely that the word can have an extra letter added that changes
+                        // the pronunciation
                         // force it to be separate
                         if (source.endsWith("e")) {
                             forceSeparate = true;
@@ -332,18 +347,34 @@ public class MakeTransliterator {
                 }
                 // strange hack
                 String hackSource = source.startsWith("use") ? "'" + source + "'" : source;
-                newRules.add(hackSource + " → " + bestTarget + " ; # " + targetUsingCore
-                    + (targetUsingBaseCore.equals(targetUsingCore) ? "" : "\t\t" + targetUsingBaseCore)
-                    + CldrUtility.LINE_SEPARATOR);
-                skippedOut.println("# couldn't replace  " + source + " → " + bestTarget + " ; # " + targetUsingCore);
-                count_failures.put(-frequency, source + " → " + bestTarget + " ; # " + targetUsingCore);
+                newRules.add(
+                        hackSource
+                                + " → "
+                                + bestTarget
+                                + " ; # "
+                                + targetUsingCore
+                                + (targetUsingBaseCore.equals(targetUsingCore)
+                                        ? ""
+                                        : "\t\t" + targetUsingBaseCore)
+                                + CldrUtility.LINE_SEPARATOR);
+                skippedOut.println(
+                        "# couldn't replace  "
+                                + source
+                                + " → "
+                                + bestTarget
+                                + " ; # "
+                                + targetUsingCore);
+                count_failures.put(
+                        -frequency, source + " → " + bestTarget + " ; # " + targetUsingCore);
                 countAdded++;
                 frequencyAdded += frequency;
             }
         }
 
         String rules = buildRules(coreRules, newRules, buffer);
-        base = Transliterator.createFromRules("foo", rules, Transliterator.FORWARD); // verify that it builds
+        base =
+                Transliterator.createFromRules(
+                        "foo", rules, Transliterator.FORWARD); // verify that it builds
 
         PrintWriter out = FileUtilities.openUTF8Writer("", targetFile);
         out.println(rules);
@@ -406,29 +437,39 @@ public class MakeTransliterator {
         }
     }
 
-    private static void addSourceTarget(PrintWriter skippedOut, String source, String target, String originalLine,
-        Relation<String, Pair<String, Long>> store) {
+    private static void addSourceTarget(
+            PrintWriter skippedOut,
+            String source,
+            String target,
+            String originalLine,
+            Relation<String, Pair<String, Long>> store) {
         if (source.equals("teh")) {
             System.out.println("debug");
         }
         if (!allowedSourceCharacters.containsAll(source)) {
-            skippedOut.println(originalLine
-                + "\t# Strange source values:\t"
-                + source
-                + "\t"
-                + new UnicodeSet().addAll(source)
-                    .removeAll(allowedSourceCharacters).toPattern(false));
+            skippedOut.println(
+                    originalLine
+                            + "\t# Strange source values:\t"
+                            + source
+                            + "\t"
+                            + new UnicodeSet()
+                                    .addAll(source)
+                                    .removeAll(allowedSourceCharacters)
+                                    .toPattern(false));
             countSkipped++;
             skippedFrequency += frequency;
             return;
         }
         if (!allowedTargetCharacters.containsAll(target)) {
-            System.out.println(originalLine
-                + "\t# Strange target values:\t"
-                + target
-                + "\t"
-                + new UnicodeSet().addAll(target)
-                    .removeAll(allowedTargetCharacters).toPattern(false));
+            System.out.println(
+                    originalLine
+                            + "\t# Strange target values:\t"
+                            + target
+                            + "\t"
+                            + new UnicodeSet()
+                                    .addAll(target)
+                                    .removeAll(allowedTargetCharacters)
+                                    .toPattern(false));
             countSkipped++;
             skippedFrequency += frequency;
             return;
@@ -438,14 +479,17 @@ public class MakeTransliterator {
         targetCharacters.addAll(target);
         store.put(source, new Pair<>(target, frequency));
         totalFrequency += frequency;
-
     }
 
-    private static void checkCoreReversibility(PrintWriter skippedOut, String coreRules, String coreBackRules) {
-        Transliterator base = Transliterator.createFromRules("foo", coreRules, Transliterator.FORWARD);
-        Transliterator back = Transliterator.createFromRules("foo2", coreBackRules, Transliterator.REVERSE);
-        String[] tests = "bat bait bet beet bit bite bot boat but bute bout boot book boy pat bat vat fat mat tat dat thew father nat sat zoo ash asia gate cat late rate hate yet rang chat jet"
-            .split("\\s");
+    private static void checkCoreReversibility(
+            PrintWriter skippedOut, String coreRules, String coreBackRules) {
+        Transliterator base =
+                Transliterator.createFromRules("foo", coreRules, Transliterator.FORWARD);
+        Transliterator back =
+                Transliterator.createFromRules("foo2", coreBackRules, Transliterator.REVERSE);
+        String[] tests =
+                "bat bait bet beet bit bite bot boat but bute bout boot book boy pat bat vat fat mat tat dat thew father nat sat zoo ash asia gate cat late rate hate yet rang chat jet"
+                        .split("\\s");
         for (String test : tests) {
             String test2 = base.transliterate(test);
             String test3 = back.transliterate(test2);
@@ -454,17 +498,25 @@ public class MakeTransliterator {
         skippedOut.flush();
     }
 
-    private static String buildRules(String coreRules, List<String> newRules, StringBuilder buffer) {
+    private static String buildRules(
+            String coreRules, List<String> newRules, StringBuilder buffer) {
         // Transliterator base;
         // build backwards!!
         buffer.setLength(0);
         buffer.append(
-            "# Author: M Davis" + CldrUtility.LINE_SEPARATOR +
-                "# Email: mark.davis@icu-project.org" + CldrUtility.LINE_SEPARATOR +
-                "# Description: English to IPA" + CldrUtility.LINE_SEPARATOR +
-                // "$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " + Utility.LINE_SEPARATOR +
-                ":: lower(); " + CldrUtility.LINE_SEPARATOR +
-                "$x = [:^letter:] ;" + CldrUtility.LINE_SEPARATOR);
+                "# Author: M Davis"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "# Email: mark.davis@icu-project.org"
+                        + CldrUtility.LINE_SEPARATOR
+                        + "# Description: English to IPA"
+                        + CldrUtility.LINE_SEPARATOR
+                        +
+                        // "$nletter {([A-Z]+)} $nletter > &en-IPA/spellout($1) ; " +
+                        // Utility.LINE_SEPARATOR +
+                        ":: lower(); "
+                        + CldrUtility.LINE_SEPARATOR
+                        + "$x = [:^letter:] ;"
+                        + CldrUtility.LINE_SEPARATOR);
         for (int i = newRules.size() - 1; i >= 0; --i) {
             buffer.append(newRules.get(i));
         }
@@ -476,19 +528,21 @@ public class MakeTransliterator {
     }
 
     private static void showSet(UnicodeSet sourceCharacters) {
-        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceCharacters); it
-            .next();) {
-            System.out.println(com.ibm.icu.impl.Utility.hex(it.codepoint) + "\t("
-                + UTF16.valueOf(it.codepoint) + ")\t"
-                + UCharacter.getName(it.codepoint));
+        for (UnicodeSetIterator it = new UnicodeSetIterator(sourceCharacters); it.next(); ) {
+            System.out.println(
+                    com.ibm.icu.impl.Utility.hex(it.codepoint)
+                            + "\t("
+                            + UTF16.valueOf(it.codepoint)
+                            + ")\t"
+                            + UCharacter.getName(it.codepoint));
         }
     }
 
     public static UnicodeSet vowels = new UnicodeSet("[aeiou æ ɑ ə ɛ ɪ ʊ â î ô]").freeze();
     public static UnicodeSet short_vowels = new UnicodeSet("[ɑ æ ə ɛ ɪ ʊ]").freeze();
     /**
-     * Return true if the strings are essentially the same.
-     * Differences between schwas and short vowels are counted in certain cases
+     * Return true if the strings are essentially the same. Differences between schwas and short
+     * vowels are counted in certain cases
      *
      * @param targetDir
      * @param targetUsingCore
@@ -496,13 +550,12 @@ public class MakeTransliterator {
      * @return
      */
     static UnicodeSet targetChars = new UnicodeSet();
+
     static UnicodeSet targetCoreChars = new UnicodeSet();
     static UnicodeSet tempDiff = new UnicodeSet();
-    static Transliterator distinguishLongVowels = Transliterator.createFromRules("faa",
-        "ɑʊ > â ;" +
-            "ɑɪ > î ;" +
-            "oɪ > ô ;",
-        Transliterator.FORWARD);
+    static Transliterator distinguishLongVowels =
+            Transliterator.createFromRules(
+                    "faa", "ɑʊ > â ;" + "ɑɪ > î ;" + "oɪ > ô ;", Transliterator.FORWARD);
 
     private static int distance(String source, String target, String targetUsingCore) {
         if (target.equals(targetUsingCore)) return 0;
@@ -535,16 +588,18 @@ public class MakeTransliterator {
         return result;
     }
 
-    static final Transliterator skeletonize = Transliterator.createFromRules("faa",
-        "ɑʊ > âʊ ;" +
-            "ɑɪ > âi ;" +
-            "oɪ > oi ;" +
-            "ɑr > âr ;" +
-            "ær > er ;" +
-            "ɛr > er ;" +
-            "ɪr > ir ;" +
-            "ʊr > ur ;",
-        Transliterator.FORWARD);
+    static final Transliterator skeletonize =
+            Transliterator.createFromRules(
+                    "faa",
+                    "ɑʊ > âʊ ;"
+                            + "ɑɪ > âi ;"
+                            + "oɪ > oi ;"
+                            + "ɑr > âr ;"
+                            + "ær > er ;"
+                            + "ɛr > er ;"
+                            + "ɪr > ir ;"
+                            + "ʊr > ur ;",
+                    Transliterator.FORWARD);
 
     private static boolean mostlyEqual(String inSource, String inTarget, String inTargetUsingCore) {
 
@@ -559,7 +614,8 @@ public class MakeTransliterator {
             char cb = targetUsingCore.charAt(i);
             if (ca != cb) {
                 // disregard differences with short vowels
-                if (ca == 'ə' && short_vowels.contains(cb) || short_vowels.contains(ca) && cb == 'ə') {
+                if (ca == 'ə' && short_vowels.contains(cb)
+                        || short_vowels.contains(ca) && cb == 'ə') {
                     continue;
                 }
                 // ɛ")  && a.startsWith("ɪ")
@@ -572,73 +628,74 @@ public class MakeTransliterator {
         return true; // return diffCount == 0 ? true : diffCount < vowelCount;
     }
 
-    static Transliterator spellout = Transliterator.createFromRules("foo",
-        "a > e ;"
-            + "b > bi ;"
-            + "c > si ;"
-            + "d > di ;"
-            + "e > i ;"
-            + "f > ɛf ;"
-            + "g > dʒi ;"
-            + "h > etʃ ;"
-            + "i > ɑɪ ;"
-            + "j > dʒe ;"
-            + "k > ke ;"
-            + "l > ɛl ;"
-            + "m > ɛm ;"
-            + "n > ɛn ;"
-            + "o > o ;"
-            + "p > pi ;"
-            + "q > kwu ;"
-            + "r > ɑr ;"
-            + "s > ɛs ;"
-            + "t > ti ;"
-            + "u > ju ;"
-            + "v > vi ;"
-            + "w > dəbjə ;"
-            + "x > ɛks ;"
-            + "y > wɑɪ ;"
-            + "z > zi ;",
-        Transliterator.FORWARD);
+    static Transliterator spellout =
+            Transliterator.createFromRules(
+                    "foo",
+                    "a > e ;"
+                            + "b > bi ;"
+                            + "c > si ;"
+                            + "d > di ;"
+                            + "e > i ;"
+                            + "f > ɛf ;"
+                            + "g > dʒi ;"
+                            + "h > etʃ ;"
+                            + "i > ɑɪ ;"
+                            + "j > dʒe ;"
+                            + "k > ke ;"
+                            + "l > ɛl ;"
+                            + "m > ɛm ;"
+                            + "n > ɛn ;"
+                            + "o > o ;"
+                            + "p > pi ;"
+                            + "q > kwu ;"
+                            + "r > ɑr ;"
+                            + "s > ɛs ;"
+                            + "t > ti ;"
+                            + "u > ju ;"
+                            + "v > vi ;"
+                            + "w > dəbjə ;"
+                            + "x > ɛks ;"
+                            + "y > wɑɪ ;"
+                            + "z > zi ;",
+                    Transliterator.FORWARD);
 
-    /**
-     * Returns items sorted alphabetically, shortest first
-     */
-    static Comparator MyComparator = new Comparator() {
+    /** Returns items sorted alphabetically, shortest first */
+    static Comparator MyComparator =
+            new Comparator() {
 
-        @Override
-        public int compare(Object a, Object b) {
-            String as = (String) a;
-            String bs = (String) b;
-            if (as.length() < bs.length())
-                return -1;
-            if (as.length() > bs.length())
-                return 1;
-            int result = col.compare(as, bs);
-            if (result != 0) {
-                return result;
-            }
-            return as.compareTo(bs);
-        }
-
-    };
+                @Override
+                public int compare(Object a, Object b) {
+                    String as = (String) a;
+                    String bs = (String) b;
+                    if (as.length() < bs.length()) return -1;
+                    if (as.length() > bs.length()) return 1;
+                    int result = col.compare(as, bs);
+                    if (result != 0) {
+                        return result;
+                    }
+                    return as.compareTo(bs);
+                }
+            };
 
     // static String dataDir = "C:\\cvsdata\\unicode\\ucd\\unicodetools\\dictionary\\Data\\";
-// private static String getCoreTransliterator() throws IOException {
+    // private static String getCoreTransliterator() throws IOException {
     //
     // String accentRules = createFromFile(dataDir + "accentRules.txt", null, null);
     //
-    // Transliterator doAccentRules = Transliterator.createFromRules("foo", accentRules, Transliterator.FORWARD);
+    // Transliterator doAccentRules = Transliterator.createFromRules("foo", accentRules,
+    // Transliterator.FORWARD);
     //
     // String markedToIpa = createFromFile(dataDir + "IPARules.txt", doAccentRules, null);
     // System.out.println(markedToIpa);
-    // Transliterator doMarkedToIpa = Transliterator.createFromRules("foo", markedToIpa, Transliterator.FORWARD);
+    // Transliterator doMarkedToIpa = Transliterator.createFromRules("foo", markedToIpa,
+    // Transliterator.FORWARD);
     //
     // String trial = "ạ>æ";
     // String result = doMarkedToIpa.transliterate(trial);
     // System.out.println("****" + result);
     //
-    // String englishToIpaBase = createFromFile(dataDir + "reduceRules.txt", doAccentRules, doMarkedToIpa);
+    // String englishToIpaBase = createFromFile(dataDir + "reduceRules.txt", doAccentRules,
+    // doMarkedToIpa);
     //
     // System.out.println(englishToIpaBase);
     //
@@ -647,8 +704,8 @@ public class MakeTransliterator {
     // return englishToIpaBase;
     // }
 
-    public static String createFromFile(String fileName, Transliterator pretrans, Transliterator pretrans2)
-        throws IOException {
+    public static String createFromFile(
+            String fileName, Transliterator pretrans, Transliterator pretrans2) throws IOException {
         StringBuilder buffer = new StringBuilder();
         BufferedReader fli = FileUtilities.openUTF8Reader("", fileName);
         while (true) {
@@ -710,5 +767,4 @@ public class MakeTransliterator {
         }
         return result;
     }
-
 }

@@ -7,24 +7,22 @@ import static org.unicode.cldr.util.DtdData.AttributeStatus.distinguished;
 import static org.unicode.cldr.util.DtdData.AttributeStatus.value;
 import static org.unicode.cldr.util.DtdData.Mode.OPTIONAL;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-
 /**
- * Data types for non-locale based CLDR data. For the canonical specification for LDML data can
- * be found at <a href="https://unicode.org/reports/tr35">Unicode Locale Data Markup Language<\a>.
+ * Data types for non-locale based CLDR data. For the canonical specification for LDML data can be
+ * found at <a href="https://unicode.org/reports/tr35">Unicode Locale Data Markup Language<\a>.
  *
  * <p>This enum is largely a wrapper for functionality found in the underlying CLDR classes, but
  * repackaged for convenience and to minimize surface area (and to avoid anyone needing to import
@@ -48,7 +46,7 @@ public enum CldrDataType {
     LDML(DtdType.ldml, DtdType.ldmlICU);
 
     private static final ImmutableMap<String, CldrDataType> NAME_MAP =
-        Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
+            Arrays.stream(values()).collect(toImmutableMap(t -> t.mainType.name(), identity()));
 
     /**
      * Returns a CLDR data type given its XML name (the root element name in a CLDR path).
@@ -80,13 +78,11 @@ public enum CldrDataType {
         // called for each comparison. We assume getElementFromName() and getAttributesFromName()
         // are efficient, and if not we'll need to cache.
         this.elementComparator =
-            wrapToHandleUnknownNames(
-                dtd.getElementComparator(),
-                dtd.getElementFromName()::containsKey);
+                wrapToHandleUnknownNames(
+                        dtd.getElementComparator(), dtd.getElementFromName()::containsKey);
         this.attributeComparator =
-            wrapToHandleUnknownNames(
-                dtd.getAttributeComparator(),
-                dtd.getAttributesFromName()::containsKey);
+                wrapToHandleUnknownNames(
+                        dtd.getAttributeComparator(), dtd.getAttributesFromName()::containsKey);
     }
 
     String getLdmlName() {
@@ -98,14 +94,15 @@ public enum CldrDataType {
     }
 
     /**
-     * Returns all elements known for this DTD type in undefined order. This can include elements
-     * in external namespaces (e.g. "icu:xxx").
+     * Returns all elements known for this DTD type in undefined order. This can include elements in
+     * external namespaces (e.g. "icu:xxx").
      */
     Stream<Element> getElements() {
         Stream<Element> elements = elementsFrom(mainType);
         if (!extraTypes.isEmpty()) {
             elements =
-                Stream.concat(elements, extraTypes.stream().flatMap(CldrDataType::elementsFrom));
+                    Stream.concat(
+                            elements, extraTypes.stream().flatMap(CldrDataType::elementsFrom));
         }
         return elements;
     }
@@ -143,7 +140,7 @@ public enum CldrDataType {
     // * known DTD elements come before any unknown ones, and
     // * unknown element names can be sorted lexicographically using their qualified name.
     private static Comparator<String> wrapToHandleUnknownNames(
-        Comparator<String> compare, Predicate<String> isKnown) {
+            Comparator<String> compare, Predicate<String> isKnown) {
         // This code should only return "signum" values for ordering (i.e. {-1, 0, 1}).
         return (lname, rname) -> {
             if (isKnown.test(lname)) {
@@ -177,7 +174,7 @@ public enum CldrDataType {
         return true;
     }
 
-    /** Returns whether the specified attribute is a "value" attribute.  */
+    /** Returns whether the specified attribute is a "value" attribute. */
     boolean isValueAttribute(AttributeKey key) {
         return isValueAttribute(key.getElementName(), key.getAttributeName());
     }

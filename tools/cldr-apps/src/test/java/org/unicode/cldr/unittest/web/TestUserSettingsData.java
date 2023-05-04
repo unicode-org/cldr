@@ -1,16 +1,15 @@
 package org.unicode.cldr.unittest.web;
 
-import java.sql.SQLException;
-
-import org.unicode.cldr.web.UserSettings;
-import org.unicode.cldr.web.UserSettingsData;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.ElapsedTimer;
+import java.sql.SQLException;
+import org.unicode.cldr.web.UserSettings;
+import org.unicode.cldr.web.UserSettingsData;
 
 public class TestUserSettingsData extends TestFmwk {
 
     private void setupDB() {
+        if (TestAll.skipIfNoDb()) return;
         long start = System.currentTimeMillis();
         TestAll.setupTestDb();
         logln("Set up test DB: " + ElapsedTimer.elapsedTime(start));
@@ -29,7 +28,14 @@ public class TestUserSettingsData extends TestFmwk {
         String currentWinner = data.get(key, defaultValue);
 
         if (!expectString.equals(currentWinner)) {
-            errln("ERR:" + key + ": Expected '" + expectString + "':  got  '" + currentWinner + "'");
+            errln(
+                    "ERR:"
+                            + key
+                            + ": Expected '"
+                            + expectString
+                            + "':  got  '"
+                            + currentWinner
+                            + "'");
         } else {
             logln("ok :" + key + ":  got   expected '" + currentWinner + "'");
         }
@@ -38,7 +44,7 @@ public class TestUserSettingsData extends TestFmwk {
 
     public void TestSeparate() throws SQLException {
         {
-            if (TestAll.skipIfDerby(this)) return;
+            if (TestAll.skipIfNoDb()) return;
             setupDB();
             UserSettingsData d = getData();
 
@@ -62,5 +68,4 @@ public class TestUserSettingsData extends TestFmwk {
             expect("z", "aKey", "(default)", a);
         }
     }
-
 }

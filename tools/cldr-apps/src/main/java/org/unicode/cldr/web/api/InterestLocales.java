@@ -2,14 +2,12 @@ package org.unicode.cldr.web.api;
 
 import java.util.Map;
 import java.util.TreeMap;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -28,19 +26,25 @@ public class InterestLocales {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Set interest locales",
-        description = "Enables users to specify their locales of interest")
+            summary = "Set interest locales",
+            description = "Enables users to specify their locales of interest")
     @APIResponses(
-        value = {
-            @APIResponse(
-                responseCode = "200",
-                description = "Interest locales were set",
-                content = @Content(mediaType = "application/json",
-                    schema = @Schema(type = SchemaType.OBJECT,
-                        example = "{\n"
-                            + "  \"status\": \"OK\",\n"
-                            + "}\n"
-                            + ""))) })
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Interest locales were set",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        type = SchemaType.OBJECT,
+                                                        example =
+                                                                "{\n"
+                                                                        + "  \"status\": \"OK\",\n"
+                                                                        + "}\n"
+                                                                        + "")))
+            })
     public Response setIntLocs(IntLocsRequest request) {
         CookieSession.checkForExpiredSessions();
         if (request.sessionString == null || request.sessionString.isEmpty()) {

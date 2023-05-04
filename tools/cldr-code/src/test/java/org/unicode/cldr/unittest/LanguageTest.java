@@ -1,5 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
@@ -19,30 +23,21 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-
 public class LanguageTest extends TestFmwk {
     final CLDRConfig testInfo = CLDRConfig.getInstance();
-    final SupplementalDataInfo supplementalDataInfo = testInfo
-        .getSupplementalDataInfo();
-    final Map<String, String> likelyMap = supplementalDataInfo
-        .getLikelySubtags();
+    final SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
+    final Map<String, String> likelyMap = supplementalDataInfo.getLikelySubtags();
     final HashMap<String, String> language2likely = new HashMap<>();
     final HashMap<String, String> script2likely = new HashMap<>();
+
     {
         final HashMap<String, Map<Type, String>> language2script = new HashMap<>();
         final HashMap<String, Map<Type, String>> language2territory = new HashMap<>();
         final HashMap<String, Map<Type, String>> script2language = new HashMap<>();
         final HashMap<String, Map<Type, String>> script2territory = new HashMap<>();
         final HashSet<String> scriptSet = new HashSet<>();
-        for (String language : supplementalDataInfo
-            .getBasicLanguageDataLanguages()) {
-            for (BasicLanguageData basic : supplementalDataInfo
-                .getBasicLanguageData(language)) {
+        for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
+            for (BasicLanguageData basic : supplementalDataInfo.getBasicLanguageData(language)) {
                 Type type = basic.getType();
                 Set<String> scripts = basic.getScripts();
                 String script = null;
@@ -62,31 +57,31 @@ public class LanguageTest extends TestFmwk {
                 }
             }
         }
-        for (String language : supplementalDataInfo
-            .getBasicLanguageDataLanguages()) {
+        for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
             String bestScript = getBest(language2script, language, "Zzzz");
             String bestTerritory = getBest(language2territory, language, "ZZ");
-            language2likely.put(language, language + "_" + bestScript + "_"
-                + bestTerritory);
+            language2likely.put(language, language + "_" + bestScript + "_" + bestTerritory);
         }
         for (String script : scriptSet) {
             String bestLanguage = getBest(script2language, script, "und");
             String bestTerritory = getBest(script2territory, script, "ZZ");
-            script2likely.put(script, bestLanguage + "_" + script + "_"
-                + bestTerritory);
+            script2likely.put(script, bestLanguage + "_" + script + "_" + bestTerritory);
         }
     }
 
     public String getBest(
-        final HashMap<String, Map<Type, String>> language2script,
-        String language, String defaultValue) {
+            final HashMap<String, Map<Type, String>> language2script,
+            String language,
+            String defaultValue) {
         final Map<Type, String> bestMap = language2script.get(language);
-        return bestMap == null ? defaultValue : bestMap.values().iterator()
-            .next();
+        return bestMap == null ? defaultValue : bestMap.values().iterator().next();
     }
 
-    public void addMap(HashMap<String, Map<Type, String>> hashMap,
-        String language, final String script, Type type) {
+    public void addMap(
+            HashMap<String, Map<Type, String>> hashMap,
+            String language,
+            final String script,
+            Type type) {
         Map<Type, String> old = hashMap.get(language);
         if (old == null) {
             hashMap.put(language, old = new EnumMap<>(Type.class));
@@ -104,8 +99,7 @@ public class LanguageTest extends TestFmwk {
         Set<String> needTransfer = new LinkedHashSet<>();
         LanguageTagParser parser = new LanguageTagParser();
         Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap<>();
-        for (String language : supplementalDataInfo
-            .getLanguagesForTerritoriesPopulationData()) {
+        for (String language : supplementalDataInfo.getLanguagesForTerritoriesPopulationData()) {
             String script = parser.set(language).getScript();
             String base = parser.getLanguage();
             if (script.isEmpty()) {
@@ -115,8 +109,11 @@ public class LanguageTest extends TestFmwk {
                 } else {
                     final String data = language2likely.get(base);
                     if (data == null) {
-                        errln("Language without likely script:\t" + base + "\t"
-                            + getLanguageName(base));
+                        errln(
+                                "Language without likely script:\t"
+                                        + base
+                                        + "\t"
+                                        + getLanguageName(base));
                     } else {
                         needTransfer.add(language);
                     }
@@ -127,11 +124,11 @@ public class LanguageTest extends TestFmwk {
             if (c == null) {
                 scriptToLanguageCounter.put(script, c = new Counter2<>());
             }
-            for (String territory : supplementalDataInfo
-                .getTerritoriesForPopulationData(language)) {
-                PopulationData data = supplementalDataInfo
-                    .getLanguageAndTerritoryPopulationData(language,
-                        territory);
+            for (String territory :
+                    supplementalDataInfo.getTerritoriesForPopulationData(language)) {
+                PopulationData data =
+                        supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                                language, territory);
                 double lit = data.getLiteratePopulation();
                 c.add(base, lit);
             }
@@ -141,18 +138,23 @@ public class LanguageTest extends TestFmwk {
         }
         for (String script : scriptToLanguageCounter.keySet()) {
             Counter2<String> c = scriptToLanguageCounter.get(script);
-            String biggestLanguage = c.getKeysetSortedByCount(false).iterator()
-                .next();
-            logln(script + "\t" + getScriptName(script) + "\t"
-                + biggestLanguage + "\t" + getLanguageName(biggestLanguage)
-                + "\t" + c.getCount(biggestLanguage));
+            String biggestLanguage = c.getKeysetSortedByCount(false).iterator().next();
+            logln(
+                    script
+                            + "\t"
+                            + getScriptName(script)
+                            + "\t"
+                            + biggestLanguage
+                            + "\t"
+                            + getLanguageName(biggestLanguage)
+                            + "\t"
+                            + c.getCount(biggestLanguage));
         }
     }
 
     public void TestScriptsWithoutLanguage() {
         if (false)
-            throw new IllegalArgumentException(
-                "    Remove Kana => Ainu, Bopo, Latn => Afar");
+            throw new IllegalArgumentException("    Remove Kana => Ainu, Bopo, Latn => Afar");
         Set<String> needTransfer = new LinkedHashSet<>();
         Set<String> unicodeScripts = getUnicodeScripts();
         for (String script : unicodeScripts) {
@@ -161,8 +163,11 @@ public class LanguageTest extends TestFmwk {
                 final String data = script2likely.get(script);
                 if (data == null) {
                     if (!LikelySubtagsTest.KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)) {
-                        errln("Script without likely language:\t" + script + "\t"
-                            + getScriptName(script));
+                        errln(
+                                "Script without likely language:\t"
+                                        + script
+                                        + "\t"
+                                        + getScriptName(script));
                     }
                 } else {
                     needTransfer.add(script);
@@ -176,18 +181,32 @@ public class LanguageTest extends TestFmwk {
             final String tag = script2likely.get(script);
             LanguageTagParser parser = new LanguageTagParser().set(tag);
             String lang = parser.getLanguage();
-            logln(script + "\t" + getScriptName(script) + "\t" + lang + "\t"
-                + getLanguageName(lang) + "\t*");
+            logln(
+                    script
+                            + "\t"
+                            + getScriptName(script)
+                            + "\t"
+                            + lang
+                            + "\t"
+                            + getLanguageName(lang)
+                            + "\t*");
         }
-        String[][] special = { { "Hani", "zh" }, { "Hira", "ja" },
-            { "Kana", "ja" }, { "Hang", "ko" }, { "Bopo", "zh" }, };
+        String[][] special = {
+            {"Hani", "zh"}, {"Hira", "ja"}, {"Kana", "ja"}, {"Hang", "ko"}, {"Bopo", "zh"},
+        };
         for (String[] scriptLang : special) {
             String script = scriptLang[0];
             final String lang = scriptLang[1];
-            logln(script + "\t" + getScriptName(script) + "\t" + lang + "\t"
-                + getLanguageName(lang) + "\t*");
+            logln(
+                    script
+                            + "\t"
+                            + getScriptName(script)
+                            + "\t"
+                            + lang
+                            + "\t"
+                            + getLanguageName(lang)
+                            + "\t*");
         }
-
     }
 
     /*
@@ -195,21 +214,28 @@ public class LanguageTest extends TestFmwk {
      * Latin; Ethiopia }-->
      */
     public void addLine(String input, final String result) {
-        logln("Add?:\t<likelySubtag from=\"" + input + "\" to=\"" + result
-            + "\"/> <!--{ " + getLocaleName(input) + " } => { "
-            + getLocaleName(result) + " }-->");
+        logln(
+                "Add?:\t<likelySubtag from=\""
+                        + input
+                        + "\" to=\""
+                        + result
+                        + "\"/> <!--{ "
+                        + getLocaleName(input)
+                        + " } => { "
+                        + getLocaleName(result)
+                        + " }-->");
     }
 
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
-        return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser
-            .getLanguage()))
-            + "; "
-            + (parser.getScript().isEmpty() ? "?" : getScriptName(parser
-                .getScript()))
-            + "; "
-            + (parser.getRegion().isEmpty() ? "?" : testInfo.getEnglish()
-                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+        return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser.getLanguage()))
+                + "; "
+                + (parser.getScript().isEmpty() ? "?" : getScriptName(parser.getScript()))
+                + "; "
+                + (parser.getRegion().isEmpty()
+                        ? "?"
+                        : testInfo.getEnglish()
+                                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -218,8 +244,10 @@ public class LanguageTest extends TestFmwk {
         int max = UCharacter.getIntPropertyMaxValue(UProperty.SCRIPT);
         UnicodeSet temp = new UnicodeSet();
         for (int i = min; i <= max; ++i) {
-            if (i == UScript.UNKNOWN || i == UScript.COMMON
-                || i == UScript.INHERITED || i == UScript.BRAILLE) {
+            if (i == UScript.UNKNOWN
+                    || i == UScript.COMMON
+                    || i == UScript.INHERITED
+                    || i == UScript.BRAILLE) {
                 continue;
             }
             if (temp.applyIntPropertyValue(UProperty.SCRIPT, i).size() != 0) {
@@ -240,8 +268,7 @@ public class LanguageTest extends TestFmwk {
     public String getDescription(String type, String token) {
         try {
             StandardCodes.make();
-            String name = StandardCodes.getLStreg().get(type).get(token)
-                .get("Description");
+            String name = StandardCodes.getLStreg().get(type).get(token).get("Description");
             int pos = name.indexOf('▪');
             return pos < 0 ? name : name.substring(0, pos);
         } catch (Exception e) {

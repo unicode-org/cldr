@@ -10,6 +10,34 @@ on:
         required: false
 
 jobs:
+  formatter:
+    name: Formatter + Style checker
+    runs-on: ubuntu-latest
+    steps:
+      # since we have to checkout all branches, cache here
+      - name: Cache .git
+        uses: actions/cache@v3
+        with:
+          path: .git
+          key: git-${{ github.base_ref }}-${{ github.head_ref }}
+          restore-keys: |
+            git-${{ github.base_ref }}-${{ github.head_ref }}
+            git-${{ github.base_ref }}
+            git-
+      - name: Checkout CLDR
+        uses: actions/checkout@v3
+        with:
+          lfs: false
+          fetch-depth: 0  # fetch all branches so that Spotless can resolve `origin/main`
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Check Java style
+        run: mvn --file=tools/pom.xml spotless:check || (echo "Style checker failed. Formatting changes can be applied by 'mvn spotless:apply'" && exit 1)
   build:
     runs-on: ubuntu-latest
     steps:
@@ -46,6 +74,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             node-
+      - name: Cache webpack
+        uses: actions/cache@v3
+        with:
+          path: tools/cldr-apps/target/webpack_cache
+          key: ${{ runner.os }}-webpack-${{ hashFiles('tools/cldr-apps/package*') }}-${{ hashFiles('tools/cldr-apps/src/**') }}
+          restore-keys: |
+            ${{ runner.os }}-webpack-
+            webpack-
       - name: Lint GitHub Actions
         run: npx yaml-lint .github/workflows/*.yml
       - name: Build with Maven
@@ -124,7 +160,7 @@ jobs:
           name: cldr-code
           path: tools/cldr-code/target/
       - name: run CLDR console check
-        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
+        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''

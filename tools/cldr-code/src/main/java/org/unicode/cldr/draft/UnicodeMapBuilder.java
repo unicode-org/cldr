@@ -1,18 +1,17 @@
 package org.unicode.cldr.draft;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.util.PatternCache;
-
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.regex.Pattern;
+import org.unicode.cldr.util.PatternCache;
 
 public class UnicodeMapBuilder<T> {
     public enum Leniency {
-        allowChars, allowUnicodeSet
+        allowChars,
+        allowUnicodeSet
     }
 
     UnicodeMap<T> result;
@@ -22,8 +21,7 @@ public class UnicodeMapBuilder<T> {
 
     // Matcher semi = PatternCache.get("\\s+;\\s+").matcher("");
 
-    public UnicodeMapBuilder() {
-    }
+    public UnicodeMapBuilder() {}
 
     public UnicodeMapBuilder<T> setParser(Parser<T, String> parser) {
         this.parser = parser;
@@ -135,9 +133,9 @@ public class UnicodeMapBuilder<T> {
             }
             line = line.trim();
         } catch (final Exception e) {
-            throw new ICUUncheckedIOException("Line \"{" + originalLine + "}\",  \"{" + line + "}\"", e);
+            throw new ICUUncheckedIOException(
+                    "Line \"{" + originalLine + "}\",  \"{" + line + "}\"", e);
         }
         return line;
     }
-
 }

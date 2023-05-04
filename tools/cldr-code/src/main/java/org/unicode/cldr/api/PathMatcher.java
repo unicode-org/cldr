@@ -9,6 +9,8 @@ import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.collect.ImmutableMap.toImmutableMap;
 import static org.unicode.cldr.api.AttributeKey.keyOf;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,23 +20,23 @@ import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-
 /**
  * An immutable matcher for {@link CldrPath} instances.
  *
  * <p>A path matcher pattern looks like:
+ *
  * <ul>
- *     <li>{@code //ldml/path/prefix/element[@attribute="value"]}
- *     <li>{@code //ldml/path/prefix/element[@attribute=*]}
- *     <li>{@code //ldml/path/prefix/*[@attribute="value"]}
- *     <li>{@code //ldml/path/prefix/element[@foo=*]/*[@bar="value"]}
+ *   <li>{@code //ldml/path/prefix/element[@attribute="value"]}
+ *   <li>{@code //ldml/path/prefix/element[@attribute=*]}
+ *   <li>{@code //ldml/path/prefix/*[@attribute="value"]}
+ *   <li>{@code //ldml/path/prefix/element[@foo=*]/*[@bar="value"]}
  * </ul>
+ *
  * where element names and attribute values can be wildcards. No capturing of wildcard values is
  * done, and currently wildcards are limited to the entire field (element name, or attribute value).
  *
  * <h2>Matching an exact path</h2>
+ *
  * <pre>{@code
  * private static final PathMatcher ALIAS =
  *     PathMatcher.of("//supplementalData/likelySubtags/likelySubtag[@from=*][@to=*]");
@@ -47,6 +49,7 @@ import com.google.common.collect.ImmutableMap;
  * }</pre>
  *
  * <h2>Matching path prefixes and hierarchical matching</h2>
+ *
  * <pre>{@code
  * private static final PathMatcher KEY = PathMatcher.of("//ldmlBCP47/keyword/key[@name=\"ca\"]");
  * private static final PathMatcher TYPE = key.withSuffix("type[@name=*]");
@@ -85,17 +88,19 @@ public final class PathMatcher {
         this.parent = Optional.ofNullable(parent);
         this.elementMatchers = ImmutableList.copyOf(elementMatchers);
         this.totalElementCount =
-            elementMatchers.size() + (parent != null ? parent.totalElementCount : 0);
+                elementMatchers.size() + (parent != null ? parent.totalElementCount : 0);
     }
 
     /**
      * Extends this matcher by the given path pattern suffix.
      *
      * <p>For example if we define:
+     *
      * <pre>{@code
      * private static final PathMatcher COLLATIONS = PathMatcher.of("//ldml/collations");
      * private static final PathMatcher RULE = COLLATIONS.extendBy("collation/cr");
      * }</pre>
+     *
      * Then {@code RULE} would match paths like {@code "//ldml/collations/collation/cr"}.
      */
     public PathMatcher withSuffix(String pattern) {
@@ -103,8 +108,8 @@ public final class PathMatcher {
     }
 
     /**
-     * Returns whether this matcher fully matches the given path, including taking into account
-     * any parent matchers from which this matcher might have been extended.
+     * Returns whether this matcher fully matches the given path, including taking into account any
+     * parent matchers from which this matcher might have been extended.
      */
     public boolean matches(CldrPath path) {
         if (!locallyMatches(path)) {
@@ -121,10 +126,10 @@ public final class PathMatcher {
     }
 
     /**
-     * Returns whether this matcher matches a proper prefix of the given path, including taking
-     * into account any parent matchers from which this matcher might have been extended. Note that
-     * the matcher for {@code "//ldml/foo/bar"} is not considered a prefix match for the path
-     * {@code //ldml/foo/barbaz}, since partial matching of an element name is not allowed.
+     * Returns whether this matcher matches a proper prefix of the given path, including taking into
+     * account any parent matchers from which this matcher might have been extended. Note that the
+     * matcher for {@code "//ldml/foo/bar"} is not considered a prefix match for the path {@code
+     * //ldml/foo/barbaz}, since partial matching of an element name is not allowed.
      */
     public boolean matchesPrefixOf(CldrPath path) {
         if (path.getLength() < totalElementCount) {
@@ -137,8 +142,8 @@ public final class PathMatcher {
     }
 
     /**
-     * Returns whether this matcher matches the given path only in relation to the pattern
-     * used to generate this matcher. This method is useful for nested visitation via {@link
+     * Returns whether this matcher matches the given path only in relation to the pattern used to
+     * generate this matcher. This method is useful for nested visitation via {@link
      * org.unicode.cldr.api.CldrData.PrefixVisitor PrefixVisitor} when path prefixes are visited
      * before values.
      *
@@ -148,7 +153,7 @@ public final class PathMatcher {
      */
     public boolean locallyMatches(CldrPath path) {
         return (path.getLength() == totalElementCount)
-            && matchRegion(path, totalElementCount - elementMatchers.size());
+                && matchRegion(path, totalElementCount - elementMatchers.size());
     }
 
     private boolean matchRegion(CldrPath path, int offset) {
@@ -168,7 +173,7 @@ public final class PathMatcher {
             return true;
         }
         return matchForward(path.getParent(), matcherIndex - 1)
-            && elementMatchers.get(matcherIndex).test(path);
+                && elementMatchers.get(matcherIndex).test(path);
     }
 
     // --- Parsing of matcher path patterns ----
@@ -179,10 +184,9 @@ public final class PathMatcher {
     @SuppressWarnings("StringOperationCanBeSimplified")
     private static final String WILDCARD = new String("*");
 
-    private static final Pattern ELEMENT_START_REGEX =
-        Pattern.compile("(\\*|[-:\\w]+)(?:/|\\[|$)");
+    private static final Pattern ELEMENT_START_REGEX = Pattern.compile("(\\*|[-:\\w]+)(?:/|\\[|$)");
     private static final Pattern ATTRIBUTE_REGEX =
-        Pattern.compile("\\[@([-:\\w]+)=(?:\\*|\"([^\"]*)\")]");
+            Pattern.compile("\\[@([-:\\w]+)=(?:\\*|\"([^\"]*)\")]");
 
     // element := foo, foo[@bar="baz"], foo[@bar=*]
     // pathspec := element{/element}*
@@ -207,8 +211,7 @@ public final class PathMatcher {
             attributes = new LinkedHashMap<>();
             do {
                 m = ATTRIBUTE_REGEX.matcher(pattern).region(pos, pattern.length());
-                checkArgument(m.lookingAt(),
-                    "invalid path pattern (index=%s): %s", pos, pattern);
+                checkArgument(m.lookingAt(), "invalid path pattern (index=%s): %s", pos, pattern);
                 // Null if we matched the '*' wildcard.
                 String value = m.group(2);
                 attributes.put(m.group(1), value != null ? value : WILDCARD);
@@ -217,15 +220,15 @@ public final class PathMatcher {
         }
         // Wildcard matching is less efficient because attribute keys cannot be made in advance, so
         // since it's also very rare, we special case it.
-        Predicate<CldrPath> matcher = name.equals(WILDCARD)
-            ? new WildcardElementMatcher(attributes)::match
-            : new ElementMatcher(name, attributes)::match;
+        Predicate<CldrPath> matcher =
+                name.equals(WILDCARD)
+                        ? new WildcardElementMatcher(attributes)::match
+                        : new ElementMatcher(name, attributes)::match;
         specs.add(matcher);
         if (pos == pattern.length()) {
             return -1;
         }
-        checkState(pattern.charAt(pos) == '/',
-            "invalid path pattern (index=%s): %s", pos, pattern);
+        checkState(pattern.charAt(pos) == '/', "invalid path pattern (index=%s): %s", pos, pattern);
         return pos + 1;
     }
 
@@ -236,8 +239,11 @@ public final class PathMatcher {
 
         private ElementMatcher(String name, Map<String, String> attributes) {
             this.name = checkNotNull(name);
-            this.attributes = attributes.entrySet().stream()
-                .collect(toImmutableMap(e -> keyOf(name, e.getKey()), Map.Entry::getValue));
+            this.attributes =
+                    attributes.entrySet().stream()
+                            .collect(
+                                    toImmutableMap(
+                                            e -> keyOf(name, e.getKey()), Map.Entry::getValue));
         }
 
         @SuppressWarnings("StringEquality")

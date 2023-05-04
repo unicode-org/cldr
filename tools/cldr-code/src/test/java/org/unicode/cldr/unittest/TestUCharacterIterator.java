@@ -3,15 +3,12 @@ package org.unicode.cldr.unittest;
 import com.ibm.icu.text.UCharacterIterator;
 
 public class TestUCharacterIterator {
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 
     /**
      * Test class that traverses HTML.
      *
      * @author markdavis
-     *
      */
     static class Utf8Iterator extends UCharacterIterator {
         char[] buffer;
@@ -49,14 +46,12 @@ public class TestUCharacterIterator {
         }
 
         @Override
-        public void setIndex(int index) {
-        }
+        public void setIndex(int index) {}
 
         @Override
         public int getText(char[] fillIn, int offset) {
             // TODO Auto-generated method stub
             return 0;
         }
-
     }
 }

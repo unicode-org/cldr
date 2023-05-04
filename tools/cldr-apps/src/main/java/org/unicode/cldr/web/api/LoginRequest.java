@@ -8,9 +8,6 @@ public final class LoginRequest {
      * @return true if input incomplete
      */
     protected boolean isEmpty() {
-        return email == null ||
-            password == null ||
-            email.isEmpty() ||
-            password.isEmpty();
+        return email == null || password == null || email.isEmpty() || password.isEmpty();
     }
 }

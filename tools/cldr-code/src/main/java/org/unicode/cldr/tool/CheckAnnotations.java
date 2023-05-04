@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
@@ -11,7 +10,7 @@ public class CheckAnnotations {
     public static void main(String[] args) {
         AnnotationSet data = Annotations.getDataSet("en");
         CLDRConfig config = CLDRConfig.getInstance();
-        //UnicodeMap<Annotations> data2 = Annotations.getData("de");
+        // UnicodeMap<Annotations> data2 = Annotations.getData("de");
         Set<String> sorted = new TreeSet<>(config.getCollator());
 
         int i = 0;
@@ -28,7 +27,8 @@ public class CheckAnnotations {
                     }
                     continue;
                 }
-                System.out.println(++i + "\t" + key + "\t" + shortName + "\t" + data.getKeywords(key));
+                System.out.println(
+                        ++i + "\t" + key + "\t" + shortName + "\t" + data.getKeywords(key));
             }
         }
     }

@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
@@ -24,7 +23,8 @@ public class TestCheckWidths extends TestFmwkPlus {
     public void TestBasic() {
         CheckWidths x = new CheckWidths();
         XMLSource xmlSource = new DummyXMLSource();
-        final String path = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]";
+        final String path =
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]";
         final String value = "0 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         xmlSource.putValueAtDPath(path, value);
         xmlSource.setLocaleID(LocaleNames.UND);
@@ -32,8 +32,7 @@ public class TestCheckWidths extends TestFmwkPlus {
         Options options = new Options();
         List<CheckStatus> possibleErrors = new ArrayList<>();
         x.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        assertEquals("setCldrFileToCheck", Collections.EMPTY_LIST,
-            possibleErrors);
+        assertEquals("setCldrFileToCheck", Collections.EMPTY_LIST, possibleErrors);
         possibleErrors.clear();
         x.check(path, path, value, options, possibleErrors);
         if (assertNotEquals("path", Collections.EMPTY_LIST, possibleErrors)) {
@@ -57,7 +56,8 @@ public class TestCheckWidths extends TestFmwkPlus {
             String fullPath = english.getFullXPath(path);
             String value = english.getStringValue(path);
             x.check(path, fullPath, value, options, possibleErrors);
-            if (!assertEquals(path + " = " + value, Collections.emptyList(), possibleErrors) || isVerbose()) {
+            if (!assertEquals(path + " = " + value, Collections.emptyList(), possibleErrors)
+                    || isVerbose()) {
                 // for debug
                 double roughMax = unitWidthUtils.getRoughComponentMax(path);
                 System.out.println(path + "\t" + roughMax);

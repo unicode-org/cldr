@@ -36,7 +36,8 @@ public class XPPUtil {
         return xpp.getAttributeValue(-1, attribute);
     }
 
-    public static String getBasicAttributeValue(CLDRFile whichFile, String xpath, String attribute) {
+    public static String getBasicAttributeValue(
+            CLDRFile whichFile, String xpath, String attribute) {
         String fullPath = whichFile.getFullXPath(xpath);
         if (fullPath == null) {
             return null;
@@ -49,8 +50,7 @@ public class XPPUtil {
         XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
         for (int j = 1; j <= xpp.size(); j++) {
             String v = xpp.getAttributeValue(0 - j, attribute);
-            if (v != null)
-                return v;
+            if (v != null) return v;
         }
         return null;
     }

@@ -1,21 +1,18 @@
 /**
- *******************************************************************************
- * Copyright (C) 1996-2001, International Business Machines Corporation and    *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C)
+ * 1996-2001, International Business Machines Corporation and * others. All Rights Reserved. *
+ * ******************************************************************************
  *
- * $Source$
- * $Revision$
+ * <p>$Source$ $Revision$
  *
- *******************************************************************************
+ * <p>******************************************************************************
  */
-
 package org.unicode.cldr.util;
 
 import java.io.IOException;
 import java.io.Writer;
 
-final public class DualWriter extends Writer {
+public final class DualWriter extends Writer {
 
     private boolean autoflush;
     private Writer a;
@@ -41,9 +38,7 @@ final public class DualWriter extends Writer {
     }
 
     @Override
-    public void write(char cbuf[],
-        int off,
-        int len) throws IOException {
+    public void write(char cbuf[], int off, int len) throws IOException {
         a.write(cbuf, off, len);
         b.write(cbuf, off, len);
         if (autoflush) flush();

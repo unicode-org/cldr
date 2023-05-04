@@ -6,8 +6,8 @@
  */
 package org.unicode.cldr.test;
 
+import com.ibm.icu.util.TimeZone;
 import java.util.List;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -15,10 +15,9 @@ import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.util.TimeZone;
-
 public class CheckZones extends FactoryCheckCLDR {
-    // private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement();
+    // private final UnicodeSet commonAndInherited = new
+    // UnicodeSet(CheckExemplars.Allowed).complement();
     // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
 
     private TimezoneFormatter timezoneFormatter;
@@ -28,7 +27,8 @@ public class CheckZones extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         //        if (Phase.FINAL_TESTING == getPhase()) {
         //            setSkipTest(false); // ok
@@ -41,9 +41,12 @@ public class CheckZones extends FactoryCheckCLDR {
         try {
             timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
         } catch (RuntimeException e) {
-            possibleErrors.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.cannotCreateZoneFormatter)
-                .setMessage("Checking zones: " + e.getMessage()));
+            possibleErrors.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.cannotCreateZoneFormatter)
+                            .setMessage("Checking zones: " + e.getMessage()));
         }
         return this;
     }
@@ -53,55 +56,66 @@ public class CheckZones extends FactoryCheckCLDR {
     String previousTo = new String("present");
 
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Options options, List<CheckStatus> result) {
+    public CheckCLDR handleCheck(
+            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
-        if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
-            return this;
+        if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0) return this;
         if (timezoneFormatter == null) {
             if (true) return this;
             throw new InternalCldrException(
-                "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+                    "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
 
         String zone = parts.getAttributeValue(3, "type");
         String from;
-        if (parts.containsAttribute("from"))
-            from = parts.getAttributeValue(4, "from");
-        else
-            from = "1970-01-01";
+        if (parts.containsAttribute("from")) from = parts.getAttributeValue(4, "from");
+        else from = "1970-01-01";
         String to;
-        if (parts.containsAttribute("to"))
-            to = parts.getAttributeValue(4, "to");
-        else
-            to = "present";
+        if (parts.containsAttribute("to")) to = parts.getAttributeValue(4, "to");
+        else to = "present";
 
         if (zone.equals(previousZone)) {
             if (from.compareTo(previousTo) < 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.multipleMetazoneMappings)
-                    .setMessage("Multiple metazone mappings between {1} and {0}",
-                        new Object[] { previousTo, from }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.multipleMetazoneMappings)
+                                .setMessage(
+                                        "Multiple metazone mappings between {1} and {0}",
+                                        new Object[] {previousTo, from}));
             }
             if (from.compareTo(previousTo) > 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.noMetazoneMapping)
-                    .setMessage("No metazone mapping between {0} and {1}",
-                        new Object[] { previousTo, from }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.noMetazoneMapping)
+                                .setMessage(
+                                        "No metazone mapping between {0} and {1}",
+                                        new Object[] {previousTo, from}));
             }
         } else {
             if (previousFrom.compareTo("1970-01-01") != 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.noMetazoneMappingAfter1970)
-                    .setMessage("Zone {0} has no metazone mapping between 1970-01-01 and {1}",
-                        new Object[] { previousZone, previousFrom }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.noMetazoneMappingAfter1970)
+                                .setMessage(
+                                        "Zone {0} has no metazone mapping between 1970-01-01 and {1}",
+                                        new Object[] {previousZone, previousFrom}));
             }
             if (previousTo.compareTo("present") != 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.noMetazoneMappingBeforeNow)
-                    .setMessage("Zone {0} has no metazone mapping between {1} and present.",
-                        new Object[] { previousZone, previousTo }));
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.noMetazoneMappingBeforeNow)
+                                .setMessage(
+                                        "Zone {0} has no metazone mapping between {1} and present.",
+                                        new Object[] {previousZone, previousTo}));
             }
             previousFrom = from;
         }
@@ -134,10 +148,9 @@ public class CheckZones extends FactoryCheckCLDR {
                 }
                 boolean daylight = parts.containsElement("daylight");
                 int offset = tz.getRawOffset();
-                if (daylight)
-                    offset += tz.getDSTSavings();
-                String formatted = timezoneFormatter.getFormattedZone(id, pat,
-                    daylight, offset, true);
+                if (daylight) offset += tz.getDSTSavings();
+                String formatted =
+                        timezoneFormatter.getFormattedZone(id, pat, daylight, offset, true);
                 return formatted;
             }
         }
@@ -145,21 +158,25 @@ public class CheckZones extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR handleGetExamples(String path, String fullPath, String value,
-        Options options, List result) {
+    public CheckCLDR handleGetExamples(
+            String path, String fullPath, String value, Options options, List result) {
         if (path.indexOf("timeZoneNames") < 0) {
             return this;
         }
         if (timezoneFormatter == null) {
             throw new InternalCldrException(
-                "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+                    "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
         }
         String formatted = exampleTextForXpath(timezoneFormatter, path);
 
         if (formatted != null) {
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.exampleType)
-                .setMessage("Formatted value (if removed): \"{0}\"",
-                    new Object[] { formatted }));
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.exampleType)
+                            .setMessage(
+                                    "Formatted value (if removed): \"{0}\"",
+                                    new Object[] {formatted}));
         }
         return this;
     }

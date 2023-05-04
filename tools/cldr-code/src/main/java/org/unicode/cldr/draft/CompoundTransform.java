@@ -1,16 +1,14 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.text.StringTransform;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.ibm.icu.text.StringTransform;
 
 /**
  * Immutable class that does a compound transform
  *
  * @author markdavis
  */
-
 public class CompoundTransform implements StringTransform {
     private final List<StringTransform> transforms;
 

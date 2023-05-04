@@ -6,6 +6,9 @@
  */
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +23,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRFile;
@@ -31,22 +33,18 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UTF16;
-
 /**
  * Tool for applying modifications to the CLDR files. Use -h to see the options.
- * <p>
- * There are some environment variables that can be used with the program <br>
+ *
+ * <p>There are some environment variables that can be used with the program <br>
  * -DSHOW_FILES=<anything> shows all create/open of files.
  */
 public class VettingAdder {
 
     private Map<String, Set<String>> locale_files = new TreeMap<>();
     private Comparator<String> scomp = new UTF16.StringComparator();
-    private Set<Object[]> conflictSet = new TreeSet<Object[]>(
-        new ArrayComparator(new Comparator[] { scomp, scomp, scomp }));
+    private Set<Object[]> conflictSet =
+            new TreeSet<Object[]>(new ArrayComparator(new Comparator[] {scomp, scomp, scomp}));
 
     public VettingAdder(String sourceDirectory) throws IOException {
         addFiles(sourceDirectory);
@@ -101,12 +99,13 @@ public class VettingAdder {
         }
     }
 
-    static Comparator PathAndValueComparator = new Comparator() {
-        @Override
-        public int compare(Object o1, Object o2) {
-            return ((VettingInfo) o1).compareByPathAndValue((VettingInfo) o2);
-        }
-    };
+    static Comparator PathAndValueComparator =
+            new Comparator() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    return ((VettingInfo) o1).compareByPathAndValue((VettingInfo) o2);
+                }
+            };
 
     static class VettingInfoSet {
         private Map<String, List<VettingInfo>> path_vettingInfoList = new TreeMap<>();
@@ -135,12 +134,13 @@ public class VettingAdder {
         Set<String> s = locale_files.get(locale);
         Log.logln("Vetting Data for: " + locale);
         VettingInfoSet accum = new VettingInfoSet();
-        for (Iterator<String> it2 = s.iterator(); it2.hasNext();) {
+        for (Iterator<String> it2 = s.iterator(); it2.hasNext(); ) {
             String dir = it2.next() + File.separator;
             String fixedLocale = "fixed-" + locale + ".xml";
             fixXML(dir, locale + ".xml", dir, fixedLocale);
-            CLDRFile cldr = SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
-            for (Iterator<String> it3 = cldr.iterator(); it3.hasNext();) {
+            CLDRFile cldr =
+                    SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
+            for (Iterator<String> it3 = cldr.iterator(); it3.hasNext(); ) {
                 String path = it3.next();
                 String value = cldr.getStringValue(path);
                 String fullPath = cldr.getFullXPath(path);
@@ -157,7 +157,7 @@ public class VettingAdder {
         Set<VettingInfo> uniquePathAndValue = new TreeSet<VettingInfo>(PathAndValueComparator);
         CLDRFile cldrDelta = SimpleFactory.makeFile(locale);
         boolean gotOne = false;
-        for (Iterator<String> it2 = accum.iterator(); it2.hasNext();) {
+        for (Iterator<String> it2 = accum.iterator(); it2.hasNext(); ) {
             String path = it2.next();
             Collection<VettingInfo> c = accum.get(path);
             uniquePathAndValue.clear();
@@ -167,7 +167,7 @@ public class VettingAdder {
                 cldrDelta.add(vi.fullPath, vi.value);
                 gotOne = true;
             } else { // there is a conflict
-                conflictSet.add(new Object[] { locale, path, c });
+                conflictSet.add(new Object[] {locale, path, c});
             }
         }
         if (gotOne) {
@@ -181,20 +181,26 @@ public class VettingAdder {
     }
 
     public void showSources() {
-        for (Iterator<String> it = locale_files.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = locale_files.keySet().iterator(); it.hasNext(); ) {
             String key = it.next();
             Set<String> s = locale_files.get(key);
-            for (Iterator<String> it2 = s.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = s.iterator(); it2.hasNext(); ) {
                 Log.logln(key + " \t" + it2.next());
                 key = "";
             }
         }
     }
 
-    public void fixXML(String inputDir, String inputFile, String outputDir, String outputFile) throws IOException {
+    public void fixXML(String inputDir, String inputFile, String outputDir, String outputFile)
+            throws IOException {
         BufferedReader in = FileUtilities.openUTF8Reader(inputDir, inputFile);
         PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
-        int haveLanguages = 0, haveScripts = 0, haveTerritories = 0, haveVariants = 0, haveKeys = 0, haveTypes = 0;
+        int haveLanguages = 0,
+                haveScripts = 0,
+                haveTerritories = 0,
+                haveVariants = 0,
+                haveKeys = 0,
+                haveTypes = 0;
         int inLocaleDisplayNames = 0;
         while (true) {
             String line = in.readLine();
@@ -204,14 +210,14 @@ public class VettingAdder {
             if (inLocaleDisplayNames == 1) {
                 haveLanguages = fixItem(out, haveLanguages, trimmed, "<language ", "languages");
                 haveScripts = fixItem(out, haveScripts, trimmed, "<script ", "scripts");
-                haveTerritories = fixItem(out, haveTerritories, trimmed, "<territory ", "territories");
+                haveTerritories =
+                        fixItem(out, haveTerritories, trimmed, "<territory ", "territories");
                 haveVariants = fixItem(out, haveVariants, trimmed, "<variant ", "variants");
                 haveKeys = fixItem(out, haveKeys, trimmed, "<key ", "keys");
                 haveTypes = fixItem(out, haveTypes, trimmed, "<type ", "types");
             }
 
-            if (trimmed.startsWith("<localeDisplayNames"))
-                inLocaleDisplayNames = 1;
+            if (trimmed.startsWith("<localeDisplayNames")) inLocaleDisplayNames = 1;
             else if (trimmed.startsWith("</localeDisplayNames")) inLocaleDisplayNames = 2;
 
             out.println(line);
@@ -220,10 +226,9 @@ public class VettingAdder {
         out.close();
     }
 
-    /**
-     *
-     */
-    private int fixItem(PrintWriter out, int haveLanguages, String trimmed, String item, String fix) {
+    /** */
+    private int fixItem(
+            PrintWriter out, int haveLanguages, String trimmed, String item, String fix) {
         if (trimmed.startsWith(item)) {
             if (haveLanguages == 0) {
                 out.println("<" + fix + ">");
@@ -248,7 +253,6 @@ public class VettingAdder {
     /**
      * @param cldrFactory
      * @throws IOException
-     *
      */
     public void showFiles(Factory cldrFactory, String targetDir) throws IOException {
         english = cldrFactory.make("en", true);
@@ -262,7 +266,7 @@ public class VettingAdder {
         Log.logln("B. Intermediate Results");
         Log.logln("");
         Set<String> vettedLocales = keySet();
-        for (Iterator<String> it = vettedLocales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = vettedLocales.iterator(); it.hasNext(); ) {
             incorporateVetting(it.next(), targetDir);
         }
 
@@ -278,10 +282,10 @@ public class VettingAdder {
         Set<String> availableLocales = new TreeSet<>(cldrFactory.getAvailable());
         availableLocales.removeAll(vettedLocales);
 
-        for (Iterator<String> it = availableLocales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = availableLocales.iterator(); it.hasNext(); ) {
             String locale = it.next();
             CLDRFile cldr = cldrFactory.make(locale, false);
-            for (Iterator<String> it2 = cldr.iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = cldr.iterator(); it2.hasNext(); ) {
                 String path = it2.next();
                 String fullPath = cldr.getFullXPath(path);
                 if (fullPath.indexOf("[@draft=") >= 0) {
@@ -294,9 +298,7 @@ public class VettingAdder {
 
     CLDRFile english;
 
-    /**
-     *
-     */
+    /** */
     private void showConflicts(Factory cldrFactory) {
 
         Set<Object[]> s = getConflictSet();
@@ -306,7 +308,7 @@ public class VettingAdder {
         Set<String> emails = new LinkedHashSet<>();
         String[] pieces = new String[5];
 
-        for (Iterator<Object[]> it = s.iterator(); it.hasNext();) {
+        for (Iterator<Object[]> it = s.iterator(); it.hasNext(); ) {
             Object[] items = it.next();
             String entry = "";
             if (!lastLocale.equals(items[0])) {
@@ -317,15 +319,27 @@ public class VettingAdder {
             }
             String path = CLDRFile.getDistinguishingXPath((String) items[1], null);
             String current = cldr.getStringValue(path);
-            entry += "\tpath:\t" + path + Utility.LINE_SEPARATOR + "\tcurrent value:\t" + getValue(any_latin, current)
-                + Utility.LINE_SEPARATOR;
+            entry +=
+                    "\tpath:\t"
+                            + path
+                            + Utility.LINE_SEPARATOR
+                            + "\tcurrent value:\t"
+                            + getValue(any_latin, current)
+                            + Utility.LINE_SEPARATOR;
 
-            entry += "\tEnglish value:\t" + getValue(any_latin, english.getStringValue(path)) + Utility.LINE_SEPARATOR;
+            entry +=
+                    "\tEnglish value:\t"
+                            + getValue(any_latin, english.getStringValue(path))
+                            + Utility.LINE_SEPARATOR;
             Collection<VettingInfo> c = (Collection<VettingInfo>) items[2];
-            for (Iterator<VettingInfo> it2 = c.iterator(); it2.hasNext();) {
+            for (Iterator<VettingInfo> it2 = c.iterator(); it2.hasNext(); ) {
                 VettingInfo vi = it2.next();
-                entry += "\t\tvalue:\t" + getValue(any_latin, vi.value) + "\t source: " + vi.dir
-                    + Utility.LINE_SEPARATOR;
+                entry +=
+                        "\t\tvalue:\t"
+                                + getValue(any_latin, vi.value)
+                                + "\t source: "
+                                + vi.dir
+                                + Utility.LINE_SEPARATOR;
                 // get third field, that's the email
                 Utility.split(vi.dir, '\\', pieces);
                 emails.add(pieces[2]);
@@ -342,13 +356,11 @@ public class VettingAdder {
         showSet(emails);
     }
 
-    /**
-     *
-     */
+    /** */
     private void showSet(Set<String> emails) {
         if (emails.size() == 0) return;
         String result = "Emails:\t";
-        for (Iterator<String> it = emails.iterator(); it.hasNext();) {
+        for (Iterator<String> it = emails.iterator(); it.hasNext(); ) {
             result += it.next() + ", ";
         }
         result += "cldr@unicode.org";
@@ -356,18 +368,14 @@ public class VettingAdder {
         Log.logln(result);
     }
 
-    /**
-     *
-     */
+    /** */
     private String getValue(Transliterator some, String current) {
         if (current == null) current = "NULL";
         String other = some.transliterate(current);
         return "<" + current + ">" + (other.equals(current) ? "" : "\t[" + other + "]");
     }
 
-    /**
-     *
-     */
+    /** */
     private String stripAlt(String path) {
         XPathParts tempParts = XPathParts.getFrozenInstance(path);
         Map<String, String> x = tempParts.getAttributes(tempParts.size() - 1);

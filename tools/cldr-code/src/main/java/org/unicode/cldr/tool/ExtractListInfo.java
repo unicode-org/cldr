@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;

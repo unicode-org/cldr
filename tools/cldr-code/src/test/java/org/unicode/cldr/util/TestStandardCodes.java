@@ -12,18 +12,22 @@ public class TestStandardCodes {
     @ParameterizedTest(name = "{index}: getTargetCoverageLevel {0}")
     @CsvSource({
         // This test will be sensitive to changes in Locales.txt
-        "doi,BASIC",  // CLDR locale
-        "nn,MODERN",  // CLDR locale
+        "doi,BASIC", // CLDR locale
+        "nn,MODERN", // CLDR locale
         "hnj,MODERN", // Maximum coverage (hmong)
-        "br,MODERATE",  // Maximum (Breton)
-        "zxx,BASIC",  // "all others: BASIC"
+        "br,MODERATE", // Maximum (Breton)
+        "zxx,BASIC", // "all others: BASIC"
     })
     void testTargetCoverageLevel(final String locale, final String level) {
         assertNotNull(sc, "StandardCodes");
         final Level expectLevel = Level.fromString(level);
         final Level actualLevel = sc.getTargetCoverageLevel(locale);
-        assertEquals(expectLevel, actualLevel,
-            () -> String.format("Expected getTargetCoverageLevel(%s)=%s but was %s",
-                locale, expectLevel, actualLevel));
+        assertEquals(
+                expectLevel,
+                actualLevel,
+                () ->
+                        String.format(
+                                "Expected getTargetCoverageLevel(%s)=%s but was %s",
+                                locale, expectLevel, actualLevel));
     }
 }

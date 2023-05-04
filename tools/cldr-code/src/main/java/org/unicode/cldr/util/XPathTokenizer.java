@@ -6,8 +6,7 @@
  */
 /**
  * @author Ram Viswanadha
- *
- * This tool validates xml against DTD ... IE 6 does not do a good job
+ *     <p>This tool validates xml against DTD ... IE 6 does not do a good job
  */
 package org.unicode.cldr.util;
 
@@ -40,19 +39,19 @@ public class XPathTokenizer {
         int save = current;
         while (current < xpath.length) {
             switch (xpath[current]) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current++;
-                break;
-            case '/':
-                if (inquote == false) {
-                    retval = new String(xpath, save, (current - save));
-                    current++; // skip past the separator
-                    return retval;
-                }
-                // fall through
-            default:
-                current++;
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current++;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        retval = new String(xpath, save, (current - save));
+                        current++; // skip past the separator
+                        return retval;
+                    }
+                    // fall through
+                default:
+                    current++;
             }
         }
         if (current == xpath.length) {
@@ -69,20 +68,20 @@ public class XPathTokenizer {
         while (current > 0) {
             boolean inquote = false;
             switch (xpath.charAt(current)) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current--;
-                break;
-            case '/':
-                if (inquote == false) {
-                    if (current < length) {
-                        xpath.delete(current, length);
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current--;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        if (current < length) {
+                            xpath.delete(current, length);
+                        }
+                        return xpath;
                     }
-                    return xpath;
-                }
-                // fall through
-            default:
-                current--;
+                    // fall through
+                default:
+                    current--;
             }
         }
         return xpath;
@@ -94,30 +93,28 @@ public class XPathTokenizer {
         while (current > 0) {
             boolean inquote = false;
             switch (xpath.charAt(current)) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current--;
-                break;
-            case '/':
-                if (inquote == false) {
-                    if (current < length) {
-                        xpath.delete(current, length);
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current--;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        if (current < length) {
+                            xpath.delete(current, length);
+                        }
+                        return xpath;
                     }
-                    return xpath;
-                }
-                // fall through
-            default:
-                current--;
+                    // fall through
+                default:
+                    current--;
             }
         }
         return xpath;
     }
 
     /**
-     * This method will try to convert a relative xpath to absolute
-     * xpath.
-     * TODO: The method will only resolve relative tokens in the begining
-     * of the string. Try to handle embedded ".."
+     * This method will try to convert a relative xpath to absolute xpath. TODO: The method will
+     * only resolve relative tokens in the begining of the string. Try to handle embedded ".."
      *
      * @param xpath
      * @param fullPath

@@ -1,14 +1,11 @@
 package org.unicode.cldr.draft.keyboard.test;
 
-import org.unicode.cldr.draft.keyboard.KeyboardId;
-
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
+import org.unicode.cldr.draft.keyboard.KeyboardId;
 
-/**
- * Unit tests for {@link KeyboardId}.
- */
+/** Unit tests for {@link KeyboardId}. */
 public class KeyboardIdTest extends TestFmwk {
 
     public void testKeyboardId() {

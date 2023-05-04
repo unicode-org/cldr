@@ -2,8 +2,13 @@ package org.unicode.cldr.draft.keyboard.out;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.UCharacterIterator;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.Writer;
-
 import org.unicode.cldr.draft.keyboard.CharacterMap;
 import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
 import org.unicode.cldr.draft.keyboard.KeyMap;
@@ -14,13 +19,6 @@ import org.unicode.cldr.draft.keyboard.KeyboardSettings.TransformFailureSetting;
 import org.unicode.cldr.draft.keyboard.KeyboardSettings.TransformPartialSetting;
 import org.unicode.cldr.draft.keyboard.ModifierKeyCombinationSet;
 import org.unicode.cldr.draft.keyboard.Transform;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.UCharacterIterator;
-import com.ibm.icu.text.UnicodeSet;
 
 public final class KeyboardToXml {
     private final Keyboard keyboard;
@@ -52,9 +50,12 @@ public final class KeyboardToXml {
 
     private void addMetadata() {
         Platform platform = keyboard.keyboardId().platform();
-        ImmutableMap<String, String> versionAttributes = ImmutableMap.of(
-            "platform", VERSION_FORMAT.format(platform.version()),
-            "number", "$Revision$");
+        ImmutableMap<String, String> versionAttributes =
+                ImmutableMap.of(
+                        "platform",
+                        VERSION_FORMAT.format(platform.version()),
+                        "number",
+                        "$Revision$");
         xmlWriter.addElement("version", versionAttributes);
         // xmlWriter.addElement("generation", ImmutableMap.of("date", "$Date$"));
         xmlWriter.startElement("names");
@@ -70,13 +71,15 @@ public final class KeyboardToXml {
         }
         boolean hasTransform = keyboard.transforms().size() > 0;
         if (hasTransform
-            && platform.settings().transformFailureSetting() == TransformFailureSetting.OMIT) {
-            TransformFailureSetting transformFailure = platform.settings().transformFailureSetting();
+                && platform.settings().transformFailureSetting() == TransformFailureSetting.OMIT) {
+            TransformFailureSetting transformFailure =
+                    platform.settings().transformFailureSetting();
             settingsBuilder.put("transformFailure", transformFailure.toString());
         }
         if (hasTransform
-            && platform.settings().transformPartialSetting() == TransformPartialSetting.HIDE) {
-            TransformPartialSetting transformPartial = platform.settings().transformPartialSetting();
+                && platform.settings().transformPartialSetting() == TransformPartialSetting.HIDE) {
+            TransformPartialSetting transformPartial =
+                    platform.settings().transformPartialSetting();
             settingsBuilder.put("transformPartial", transformPartial.toString());
         }
         ImmutableMap<String, String> settingsAttributes = settingsBuilder.build();
@@ -114,7 +117,8 @@ public final class KeyboardToXml {
         }
     }
 
-    private static final UnicodeSet ESCAPED_CHARACTERS_NO_SPACE = new UnicodeSet("[[:di:][:c:][:M:][:whitespace:][\"]-[\\u0020]]").freeze();
+    private static final UnicodeSet ESCAPED_CHARACTERS_NO_SPACE =
+            new UnicodeSet("[[:di:][:c:][:M:][:whitespace:][\"]-[\\u0020]]").freeze();
 
     private String escapeOutput(String output) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -130,7 +134,8 @@ public final class KeyboardToXml {
         return stringBuilder.toString();
     }
 
-    private static final UnicodeSet ILLEGAL_COMMENT_CHARACTERS = new UnicodeSet("[[:di:][:c:][:whitespace:]]").freeze();
+    private static final UnicodeSet ILLEGAL_COMMENT_CHARACTERS =
+            new UnicodeSet("[[:di:][:c:][:whitespace:]]").freeze();
 
     private String buildReadabilityComment(CharacterMap characterMap, String escapedOutput) {
         StringBuilder comment = new StringBuilder();
@@ -143,8 +148,9 @@ public final class KeyboardToXml {
         // Base (Only if it is different than the english key and non-trivial).
         KeyMap baseMap = keyboard.baseMap();
         CharacterMap baseKey = baseMap.isoLayoutToCharacterMap().get(position);
-        if (baseKey != null && !baseKey.output().toUpperCase().equals(output.toUpperCase())
-            && !baseKey.output().toUpperCase().equals(position.englishKeyName())) {
+        if (baseKey != null
+                && !baseKey.output().toUpperCase().equals(output.toUpperCase())
+                && !baseKey.output().toUpperCase().equals(position.englishKeyName())) {
             comment.append("  base=");
             comment.append(baseKey.output());
         }
@@ -180,20 +186,21 @@ public final class KeyboardToXml {
         for (Transform transform : keyboard.transforms()) {
             String escapedSequence = escapeOutput(transform.sequence());
             String escapedOutput = escapeOutput(transform.output());
-            String comment = buildTransformReadabilityComment(transform, escapedSequence, escapedOutput);
-            xmlWriter.addElement("transform",
-                ImmutableMap.of("from", escapedSequence, "to", escapedOutput),
-                comment);
+            String comment =
+                    buildTransformReadabilityComment(transform, escapedSequence, escapedOutput);
+            xmlWriter.addElement(
+                    "transform",
+                    ImmutableMap.of("from", escapedSequence, "to", escapedOutput),
+                    comment);
         }
         xmlWriter.endElement();
-
     }
 
-    private String buildTransformReadabilityComment(Transform transform, String escapedSequence,
-        String escapedOutput) {
+    private String buildTransformReadabilityComment(
+            Transform transform, String escapedSequence, String escapedOutput) {
         if ((escapedSequence.contains("\\u{") || escapedOutput.contains("\\u{"))
-            && !ILLEGAL_COMMENT_CHARACTERS.containsSome(transform.sequence())
-            && !ILLEGAL_COMMENT_CHARACTERS.contains(transform.output())) {
+                && !ILLEGAL_COMMENT_CHARACTERS.containsSome(transform.sequence())
+                && !ILLEGAL_COMMENT_CHARACTERS.contains(transform.output())) {
             return transform.sequence() + " → " + transform.output();
         }
         return "";

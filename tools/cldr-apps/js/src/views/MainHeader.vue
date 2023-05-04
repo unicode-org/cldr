@@ -19,7 +19,8 @@
             v-bind:key="item.value"
             v-bind:value="item.value"
           >
-            {{ coverageLabel(item) }}
+            {{ item.label }}
+            <span v-if="item.value === this.orgCoverage"> (Default) </span>
           </option>
         </select>
       </li>
@@ -80,7 +81,7 @@ export default {
   data() {
     return {
       coverageLevel: null,
-      coverageMenu: null,
+      coverageMenu: [],
       coverageTitle: null,
       email: null,
       org: null,
@@ -94,41 +95,36 @@ export default {
     };
   },
 
-  created() {
+  mounted() {
     this.updateData();
   },
 
   methods: {
-    coverageLabel(item) {
-      if (item.value == this.orgCoverage) {
-        return cldrText.sub("coverage_auto_msg", {
-          surveyOrgCov: item.label,
-        });
-      }
-      return item.label;
-    },
     /**
      * Update the data, getting some data from other module(s).
      * This function is called both locally, to initialize, and from other module(s), to update.
      */
     updateData() {
-      let needUpdate = false;
       const orgCoverage = cldrCoverage.getSurveyOrgCov(
         cldrStatus.getCurrentLocale()
       );
       if (orgCoverage != this.orgCoverage) {
-        needUpdate = true;
         this.orgCoverage = orgCoverage;
       }
       const coverageMenu = cldrMenu.getCoverageMenu();
-      if (coverageMenu != this.coverageMenu) {
-        needUpdate = true;
-        this.coverageMenu = coverageMenu;
+      // this.coverageMenu is an array of refs, so don't just assign.
+      if (coverageMenu.length > this.coverageMenu.length) {
+        // remove all items
+        while (this.coverageMenu.length) {
+          this.coverageMenu.pop();
+        }
+        for (const item of coverageMenu) {
+          this.coverageMenu.push(item);
+        }
       }
       this.coverageTitle = cldrText.get("coverage_menu_desc");
       const coverageLevel = cldrCoverage.getSurveyUserCov() || "auto";
       if (coverageLevel != this.coverageLevel) {
-        needUpdate = true;
         this.coverageLevel = coverageLevel;
       }
       const user = cldrStatus.getSurveyUser();
@@ -155,9 +151,6 @@ export default {
         cldrStatus.getNewVersion() +
         " " +
         cldrStatus.getPhase();
-      if (needUpdate) {
-        this.$forceUpdate();
-      }
     },
 
     setCoverageLevel() {

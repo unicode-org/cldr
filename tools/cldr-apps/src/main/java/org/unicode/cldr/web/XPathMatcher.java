@@ -1,20 +1,14 @@
-/**
- * Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved.
- *
- */
+/** Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
 import java.util.regex.Pattern;
 
 /**
  * @author srl
- *
- *         Class to encapsulate matching an xpath.
+ *     <p>Class to encapsulate matching an xpath.
  */
 public abstract class XPathMatcher implements Comparable<XPathMatcher> {
-    /**
-     * XPathTable for use.
-     */
+    /** XPathTable for use. */
     protected XPathTable xpt = null;
 
     /**
@@ -64,10 +58,8 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
     /**
      * Is this xpath matched?
      *
-     * @param xpath
-     *            string to match
-     * @param xpid
-     *            ( may be XPathTable.NO_XPATH )
+     * @param xpath string to match
+     * @param xpid ( may be XPathTable.NO_XPATH )
      */
     public abstract boolean matches(String xpath, int xpid);
 
@@ -79,10 +71,8 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
      * @return a new matcher
      */
     public static XPathMatcher intersection(final XPathMatcher a, final XPathMatcher b) {
-        if (a == null)
-            return b;
-        if (b == null)
-            return a;
+        if (a == null) return b;
+        if (b == null) return a;
         return new XPathMatcher() {
             private final XPathMatcher left = a;
             private final XPathMatcher right = b;
@@ -107,10 +97,8 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
             public String getPrefix() {
                 String l = left.getPrefix();
                 String r = right.getPrefix();
-                if (l == null)
-                    return r;
-                if (r == null)
-                    return l;
+                if (l == null) return r;
+                if (r == null) return l;
                 if (l != null && l.equals(r)) {
                     return l;
                 } else {
@@ -128,15 +116,14 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
     /**
      * Create a new matcher that matches a regex-limited subset of a
      *
-     * @param pattern
-     *            regex pattern to use
+     * @param pattern regex pattern to use
      * @return
      */
     public static XPathMatcher regex(final XPathMatcher x, final Pattern pattern) {
-        if (pattern == null)
-            return x;
+        if (pattern == null) return x;
         return new XPathMatcher() {
-            private final String name = "/" + pattern.toString() + "/" + ((x == null) ? "" : "\u2229" + x.getName());
+            private final String name =
+                    "/" + pattern.toString() + "/" + ((x == null) ? "" : "\u2229" + x.getName());
 
             @Override
             public int getXPath() {
@@ -171,8 +158,8 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
     public static XPathMatcher getMatcherForString(String str) {
         if (str.contains(DataPage.CONTINENT_DIVIDER)) {
             // just return prefix
-            return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,
-                str.substring(0, str.indexOf(DataPage.CONTINENT_DIVIDER)));
+            return BaseAndPrefixMatcher.getInstance(
+                    XPathTable.NO_XPATH, str.substring(0, str.indexOf(DataPage.CONTINENT_DIVIDER)));
         } else {
             return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, str);
         }

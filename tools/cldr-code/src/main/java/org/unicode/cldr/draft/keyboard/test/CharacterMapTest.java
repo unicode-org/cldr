@@ -5,11 +5,10 @@ import static org.unicode.cldr.draft.keyboard.IsoLayoutPosition.B00;
 import static org.unicode.cldr.draft.keyboard.IsoLayoutPosition.B01;
 import static org.unicode.cldr.draft.keyboard.IsoLayoutPosition.B04;
 
-import org.unicode.cldr.draft.keyboard.CharacterMap;
-import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
-
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.draft.keyboard.CharacterMap;
+import org.unicode.cldr.draft.keyboard.IsoLayoutPosition;
 
 public class CharacterMapTest extends TestFmwk {
 
@@ -41,18 +40,18 @@ public class CharacterMapTest extends TestFmwk {
     }
 
     public void testEqualsTrue() {
-        CharacterMap characterMap1 = CharacterMap.of(IsoLayoutPosition.A01, "Output",
-            ImmutableList.of("A", "B"));
-        CharacterMap characterMap2 = CharacterMap.of(IsoLayoutPosition.A01, "Output",
-            ImmutableList.of("A", "B"));
+        CharacterMap characterMap1 =
+                CharacterMap.of(IsoLayoutPosition.A01, "Output", ImmutableList.of("A", "B"));
+        CharacterMap characterMap2 =
+                CharacterMap.of(IsoLayoutPosition.A01, "Output", ImmutableList.of("A", "B"));
 
         assertTrue("", characterMap1.equals(characterMap2));
         assertTrue("", characterMap1.hashCode() == characterMap2.hashCode());
     }
 
     public void testEqualsFalse() {
-        CharacterMap characterMap1 = CharacterMap.of(IsoLayoutPosition.A01, "Output",
-            ImmutableList.of("A", "B"));
+        CharacterMap characterMap1 =
+                CharacterMap.of(IsoLayoutPosition.A01, "Output", ImmutableList.of("A", "B"));
         CharacterMap characterMap2 = CharacterMap.of(IsoLayoutPosition.A01, "Output");
 
         assertFalse("", characterMap1.equals(characterMap2));

@@ -1,9 +1,17 @@
 package org.unicode.cldr.unittest;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.SearchIterator;
+import com.ibm.icu.text.StringCharacterIterator;
+import com.ibm.icu.text.StringSearch;
+import com.ibm.icu.util.ULocale;
 import java.text.CharacterIterator;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
@@ -14,16 +22,6 @@ import org.unicode.cldr.util.StateDictionary;
 import org.unicode.cldr.util.StateDictionaryBuilder;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.Utf8StringByteConverter;
-
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.SearchIterator;
-import com.ibm.icu.text.StringCharacterIterator;
-import com.ibm.icu.text.StringSearch;
-import com.ibm.icu.util.ULocale;
 
 public class TestReferenceStringSearch {
     /****************** SIMPLE TESTING ***************/
@@ -38,24 +36,27 @@ public class TestReferenceStringSearch {
         checkAgainstStringSearch();
     }
 
-    static final RuleBasedCollator TEST_COLLATOR = (RuleBasedCollator) Collator
-        .getInstance(ULocale.ENGLISH);
+    static final RuleBasedCollator TEST_COLLATOR =
+            (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+
     static {
         TEST_COLLATOR.setStrength(Collator.PRIMARY);
         TEST_COLLATOR.setAlternateHandlingShifted(true); // ignore puncuation
     }
 
-    static final BreakIterator TEST_BREAKER = BreakIterator
-        .getCharacterInstance();
+    static final BreakIterator TEST_BREAKER = BreakIterator.getCharacterInstance();
 
     private static void checkTestCases() {
-        String[][] testCases = { { "abc", "ABCABC" }, { "abc", "abc" },
-            { "e\u00DF", " ess e\u00DF ESS\u0300 " },
-            { "a!a", "b.a.a.a.b" },
-            { "\u03BA\u03B1\u03B9", "\u03BA\u03B1\u1FBE" }, };
+        String[][] testCases = {
+            {"abc", "ABCABC"},
+            {"abc", "abc"},
+            {"e\u00DF", " ess e\u00DF ESS\u0300 "},
+            {"a!a", "b.a.a.a.b"},
+            {"\u03BA\u03B1\u03B9", "\u03BA\u03B1\u1FBE"},
+        };
 
-        ReferenceStringSearch refSearch = new ReferenceStringSearch()
-            .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER);
+        ReferenceStringSearch refSearch =
+                new ReferenceStringSearch().setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER);
         ExtendedRange extendedRange = new ExtendedRange();
         Range range = new Range();
 
@@ -64,8 +65,7 @@ public class TestReferenceStringSearch {
             String target = testCases[i][1];
             refSearch.setKey(key).setTarget(target);
 
-            System.out.println("Raw Positions of '" + key + "' in '" + target
-                + "'");
+            System.out.println("Raw Positions of '" + key + "' in '" + target + "'");
             int count = 0;
             while (refSearch.searchForwards(extendedRange)) {
                 // System.out.println(extendedRange); // for the numeric offsets
@@ -75,8 +75,7 @@ public class TestReferenceStringSearch {
             System.out.println("  Count: " + count);
 
             refSearch.setNativeOffset(0);
-            System.out
-                .println("Positions of '" + key + "' in '" + target + "'");
+            System.out.println("Positions of '" + key + "' in '" + target + "'");
             count = 0;
             while (refSearch.searchForwards(range)) {
                 // System.out.println(range); // for the numeric offsets
@@ -95,29 +94,27 @@ public class TestReferenceStringSearch {
         Timer directTimer = new Timer();
 
         for (int count = 1; count <= maxCount; count *= 2) {
-            String bigText = Utility.repeat(
-                "The quick brown fox jumped over the L\u00E3zy dog. ",
-                count);
+            String bigText =
+                    Utility.repeat("The quick brown fox jumped over the L\u00E3zy dog. ", count);
             int[] icuPos = new int[count * 2];
             int[] newPos = new int[count * 2];
             int[] directPos = new int[count * 2];
 
             int oldCount = checkOld("lazy", bigText, icuPos, icuTimer);
             int newCount = checkNew("lazy", bigText, newPos, newTimer, icuTimer);
-            int directCount = checkNew("lazy", bigText, directPos, directTimer,
-                icuTimer);
+            int directCount = checkNew("lazy", bigText, directPos, directTimer, icuTimer);
 
             int diff = findDifference(icuPos, newPos, oldCount, newCount);
             if (diff >= 0) {
-                System.out.println("\tDifference at " + diff + ", "
-                    + icuPos[diff] + ", " + newPos[diff]);
+                System.out.println(
+                        "\tDifference at " + diff + ", " + icuPos[diff] + ", " + newPos[diff]);
             } else {
                 System.out.println("\tNo Difference in results: icu vs new");
             }
             diff = findDifference(icuPos, directPos, oldCount, directCount);
             if (diff >= 0) {
-                System.out.println("\tDifference at " + diff + ", "
-                    + icuPos[diff] + ", " + directPos[diff]);
+                System.out.println(
+                        "\tDifference at " + diff + ", " + icuPos[diff] + ", " + directPos[diff]);
             } else {
                 System.out.println("\tNo Difference in results: icu vs direct");
             }
@@ -127,15 +124,18 @@ public class TestReferenceStringSearch {
         }
     }
 
-    private static int checkNew(String key, String bigText, int[] newPos,
-        Timer newTimer, Timer icuTimer) {
+    private static int checkNew(
+            String key, String bigText, int[] newPos, Timer newTimer, Timer icuTimer) {
         int count;
 
         count = 0;
         Range range = new Range();
-        ReferenceStringSearch rss = new ReferenceStringSearch()
-            .setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER)
-            .setKey(key).setTarget(bigText);
+        ReferenceStringSearch rss =
+                new ReferenceStringSearch()
+                        .setCollator(TEST_COLLATOR)
+                        .setBreaker(TEST_BREAKER)
+                        .setKey(key)
+                        .setTarget(bigText);
 
         rss.searchForwards(range);
         newPos[count++] = range.start;
@@ -149,17 +149,16 @@ public class TestReferenceStringSearch {
         }
 
         newTimer.stop();
-        System.out.println("New: " + nf.format(count) + ", Time: "
-            + newTimer.toString(icuTimer));
+        System.out.println("New: " + nf.format(count) + ", Time: " + newTimer.toString(icuTimer));
 
         return count;
     }
 
-    static DirectStringSearch rss = new DirectStringSearch().setCollator(
-        TEST_COLLATOR).setBreaker(TEST_BREAKER);
+    static DirectStringSearch rss =
+            new DirectStringSearch().setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER);
 
-    private static int checkDirect(String key, String bigText, int[] newPos,
-        Timer newTimer, Timer icuTimer) {
+    private static int checkDirect(
+            String key, String bigText, int[] newPos, Timer newTimer, Timer icuTimer) {
         int count;
 
         count = 0;
@@ -178,8 +177,7 @@ public class TestReferenceStringSearch {
         }
 
         newTimer.stop();
-        System.out.println("New: " + nf.format(count) + ", Time: "
-            + newTimer.toString(icuTimer));
+        System.out.println("New: " + nf.format(count) + ", Time: " + newTimer.toString(icuTimer));
 
         return count;
     }
@@ -196,22 +194,24 @@ public class TestReferenceStringSearch {
         private int keyLength;
 
         public DirectStringSearch setCollator(RuleBasedCollator collation) {
-            Map<CharSequence, String> map = new TreeMap<CharSequence, String>(
-                Dictionary.CHAR_SEQUENCE_COMPARATOR);
+            Map<CharSequence, String> map =
+                    new TreeMap<CharSequence, String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
             new CollationMapMaker().generateCollatorFolding(collation, map);
             // for compactness, we'd use .setIntMapFactory(new
             // IntMap.CompactStringIntMapFactory())
-            dictionary = new StateDictionaryBuilder<String>().setByteConverter(
-                new Utf8StringByteConverter()).make(map);
+            dictionary =
+                    new StateDictionaryBuilder<String>()
+                            .setByteConverter(new Utf8StringByteConverter())
+                            .make(map);
             return this;
         }
 
         public boolean searchForwards(Range range) {
-            main: for (; textToSearchIn.hasCharAt(textPosition + keyLength - 1); ++textPosition) {
+            main:
+            for (; textToSearchIn.hasCharAt(textPosition + keyLength - 1); ++textPosition) {
                 // see if we match at position
                 for (int i = 0; i < keyLength; ++i) {
-                    if (key.charAt(i) != textToSearchIn
-                        .charAt(textPosition + i)) {
+                    if (key.charAt(i) != textToSearchIn.charAt(textPosition + i)) {
                         continue main;
                     }
                 }
@@ -223,8 +223,7 @@ public class TestReferenceStringSearch {
                 // !widestStart);
                 // if (position.start == -1) continue; // failed to find the
                 // right boundary
-                final int limit = textToSearchIn.toSourceOffset(textPosition
-                    + keyLength);
+                final int limit = textToSearchIn.toSourceOffset(textPosition + keyLength);
                 range.start = start;
                 range.limit = limit;
                 return true;
@@ -233,8 +232,7 @@ public class TestReferenceStringSearch {
         }
 
         public DirectStringSearch setTarget(String textToSearchIn) {
-            this.textToSearchIn = new DictionaryCharList<String>(dictionary,
-                textToSearchIn);
+            this.textToSearchIn = new DictionaryCharList<String>(dictionary, textToSearchIn);
             if (breaker != null) {
                 breaker.setText(textToSearchIn);
             }
@@ -491,13 +489,11 @@ public class TestReferenceStringSearch {
     // }
     // }
     //
-    private static int checkOld(String key, String bigText, int[] icuPos,
-        Timer icuTimer) {
+    private static int checkOld(String key, String bigText, int[] icuPos, Timer icuTimer) {
         int count = 0;
         long time;
         CharacterIterator ci = new StringCharacterIterator(bigText);
-        StringSearch foo = new StringSearch("lazy", ci, TEST_COLLATOR,
-            TEST_BREAKER);
+        StringSearch foo = new StringSearch("lazy", ci, TEST_COLLATOR, TEST_BREAKER);
 
         foo.next();
         icuPos[count++] = foo.getMatchStart();
@@ -511,15 +507,13 @@ public class TestReferenceStringSearch {
         }
 
         icuTimer.stop();
-        System.out.println("ICU: " + nf.format(count) + ", Time: "
-            + icuTimer.toString());
+        System.out.println("ICU: " + nf.format(count) + ", Time: " + icuTimer.toString());
         return count;
     }
 
     static NumberFormat nf = NumberFormat.getNumberInstance();
 
-    private static int findDifference(int[] icuPos, int[] newPos, int oldCount,
-        int newCount) {
+    private static int findDifference(int[] icuPos, int[] newPos, int oldCount, int newCount) {
         int count = Math.min(oldCount, newCount);
         for (int i = 0; i < count; ++i) {
             if (icuPos[i] != newPos[i]) {
@@ -531,5 +525,4 @@ public class TestReferenceStringSearch {
         }
         return -1;
     }
-
 }

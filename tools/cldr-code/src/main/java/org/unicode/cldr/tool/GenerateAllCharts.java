@@ -7,18 +7,21 @@ import org.unicode.cldr.util.VerifyCompactNumbers;
 import org.unicode.cldr.util.VerifyZones;
 
 /**
- * Use -DCHART_VERSION=38.1 (for example) to get a specific version
- * Plus options
- * -DCHART_STATUS=beta (default, uses trunk, calls it β)
- * -DCHART_STATUS=trunk (uses trunk, no β. Used at the end of the release, but before the final data is in cldr-archive)
- * -DCHART_STATUS=release (only uses the cldr-archive, no β)
- * @author markdavis
+ * Use -DCHART_VERSION=38.1 (for example) to get a specific version Plus options -DCHART_STATUS=beta
+ * (default, uses trunk, calls it β) -DCHART_STATUS=trunk (uses trunk, no β. Used at the end of the
+ * release, but before the final data is in cldr-archive) -DCHART_STATUS=release (only uses the
+ * cldr-archive, no β)
  *
+ * @author markdavis
  */
 public class GenerateAllCharts {
     public static void main(String[] args) throws Exception {
         FileCopier.copy(GenerateAllCharts.class, "index.css", CLDRPaths.CHART_DIRECTORY);
-        FileCopier.copy(GenerateAllCharts.class, "main-index.html", CLDRPaths.CHART_DIRECTORY, "index.html");
+        FileCopier.copy(
+                GenerateAllCharts.class,
+                "main-index.html",
+                CLDRPaths.CHART_DIRECTORY,
+                "index.html");
         FormattedFileWriter.copyIncludeHtmls(CLDRPaths.CHART_DIRECTORY);
 
         if (ToolConstants.CHART_VERSION.compareTo("37") >= 0) {
@@ -33,7 +36,7 @@ public class GenerateAllCharts {
         GenerateSidewaysView.main(args);
         ShowData.main(args);
 
-        //GenerateTransformCharts.main(args);
+        // GenerateTransformCharts.main(args);
         ChartDelta.main(args);
         ChartDelta.main(args, true); // churn
         ChartCollation.main(args);

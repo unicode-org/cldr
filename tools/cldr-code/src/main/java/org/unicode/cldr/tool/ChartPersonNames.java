@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.util.Set;
-
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -13,7 +12,8 @@ import org.unicode.cldr.util.FileCopier;
 public class ChartPersonNames extends Chart {
 
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
-    static final String MAIN_HEADER = "<p>These charts shows the sample person names for different locales, formatted according to the locale's pattern.</p>";
+    static final String MAIN_HEADER =
+            "<p>These charts shows the sample person names for different locales, formatted according to the locale's pattern.</p>";
     private static final boolean DEBUG = false;
     static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/personNames/";
 
@@ -60,7 +60,9 @@ public class ChartPersonNames extends Chart {
                 continue;
             }
             CLDRFile cldrFile = CLDR_FACTORY.make(locale, false);
-            String nameOrderGivenFirst = cldrFile.getStringValue("//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
+            String nameOrderGivenFirst =
+                    cldrFile.getStringValue(
+                            "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
             if (nameOrderGivenFirst == null) {
                 continue;
             }

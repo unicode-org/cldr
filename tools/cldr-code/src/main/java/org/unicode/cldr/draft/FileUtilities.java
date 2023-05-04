@@ -2,6 +2,7 @@ package org.unicode.cldr.draft;
 
 import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,16 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public final class FileUtilities {
     public static final boolean SHOW_FILES;
+
     static {
         boolean showFiles = false;
         try {
@@ -52,21 +51,19 @@ public final class FileUtilities {
         return openReader(file, "UTF-8");
     }
 
-    public static BufferedReader openReader(String dir, String filename, String encoding) throws IOException {
+    public static BufferedReader openReader(String dir, String filename, String encoding)
+            throws IOException {
         File file = dir.length() == 0 ? new File(filename) : new File(dir, filename);
         return openReader(file, encoding);
     }
 
-    private static BufferedReader openReader(File file, String encoding) throws UnsupportedEncodingException, FileNotFoundException {
+    private static BufferedReader openReader(File file, String encoding)
+            throws UnsupportedEncodingException, FileNotFoundException {
         if (SHOW_FILES && log != null) {
-            log.println("Opening File: "
-                + getNormalizedPathString(file));
+            log.println("Opening File: " + getNormalizedPathString(file));
         }
         return new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                encoding),
-            4 * 1024);
+                new InputStreamReader(new FileInputStream(file), encoding), 4 * 1024);
     }
 
     public static PrintWriter openUTF8Writer(String dir, String filename) throws IOException {
@@ -81,9 +78,10 @@ public final class FileUtilities {
         return openWriter(file, StandardCharsets.UTF_8);
     }
 
-    public static PrintWriter openWriter(File dir, String filename, Charset encoding) throws IOException {
+    public static PrintWriter openWriter(File dir, String filename, Charset encoding)
+            throws IOException {
         File file;
-        if (dir == null) {
+        if (dir == null || dir.getPath().isEmpty()) {
             file = new File(filename);
         } else {
             file = new File(dir, filename);
@@ -101,29 +99,27 @@ public final class FileUtilities {
             parent.mkdirs();
         }
         return new PrintWriter(
-            new BufferedWriter(
-                new OutputStreamWriter(
-                    new FileOutputStream(file),
-                    encoding),
-                4 * 1024));
+                new BufferedWriter(
+                        new OutputStreamWriter(new FileOutputStream(file), encoding), 4 * 1024));
     }
 
-    public static PrintWriter openWriter(String dir, String filename, String encoding) throws IOException {
+    public static PrintWriter openWriter(String dir, String filename, String encoding)
+            throws IOException {
         return openWriter(new File(dir), filename, Charset.forName(encoding));
     }
 
-    public static PrintWriter openWriter(String dir, String filename, Charset encoding) throws IOException {
+    public static PrintWriter openWriter(String dir, String filename, Charset encoding)
+            throws IOException {
         return openWriter(new File(dir), filename, encoding);
     }
 
-    public static abstract class SemiFileReader extends FileProcessor {
-        public final static Pattern SPLIT = PatternCache.get("\\s*;\\s*");
+    public abstract static class SemiFileReader extends FileProcessor {
+        public static final Pattern SPLIT = PatternCache.get("\\s*;\\s*");
 
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
 
         @Override
-        protected void handleEnd() {
-        }
+        protected void handleEnd() {}
 
         protected boolean isCodePoint() {
             return true;
@@ -156,8 +152,7 @@ public final class FileUtilities {
     public static class FileProcessor {
         private int lineCount;
 
-        protected void handleStart() {
-        }
+        protected void handleStart() {}
 
         /**
          * Return false to abort
@@ -170,15 +165,13 @@ public final class FileUtilities {
             return true;
         }
 
-        protected void handleEnd() {
-        }
+        protected void handleEnd() {}
 
         public int getLineCount() {
             return lineCount;
         }
 
-        public void handleComment(String line, int commentCharPosition) {
-        }
+        public void handleComment(String line, int commentCharPosition) {}
 
         public FileProcessor process(Class<?> classLocation, String fileName) {
             try {
@@ -187,13 +180,13 @@ public final class FileUtilities {
             } catch (Exception e) {
                 throw new ICUUncheckedIOException(lineCount + ":\t" + 0, e);
             }
-
         }
 
         public FileProcessor process(String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
+                InputStreamReader reader =
+                        new InputStreamReader(fileStream, StandardCharsets.UTF_8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -203,8 +196,10 @@ public final class FileUtilities {
 
         public FileProcessor process(String directory, String fileName) {
             try {
-                FileInputStream fileStream = new FileInputStream(directory + File.separator + fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, StandardCharsets.UTF_8);
+                FileInputStream fileStream =
+                        new FileInputStream(directory + File.separator + fileName);
+                InputStreamReader reader =
+                        new InputStreamReader(fileStream, StandardCharsets.UTF_8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -217,7 +212,7 @@ public final class FileUtilities {
             String line = null;
             lineCount = 1;
             try {
-                for (;; ++lineCount) {
+                for (; ; ++lineCount) {
                     line = in.readLine();
                     if (line == null) {
                         break;
@@ -248,7 +243,8 @@ public final class FileUtilities {
     }
 
     //
-    // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
+    // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName,
+    // SemiFileReader handler) {
     // return handler.process(classLocation, fileName);
     // }
     public static BufferedReader openFile(Class<?> class1, String file) {
@@ -283,20 +279,29 @@ public final class FileUtilities {
                 String relativeFileName = getRelativeFileName(class1, "../util/");
                 normalizedPath = getNormalizedPathString(relativeFileName);
             } catch (Exception e1) {
-                throw new ICUUncheckedIOException("Couldn't open file: " + file + "; relative to class: "
-                    + className, e);
+                throw new ICUUncheckedIOException(
+                        "Couldn't open file: " + file + "; relative to class: " + className, e);
             }
-            throw new ICUUncheckedIOException("Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: "
-                + className, e);
+            throw new ICUUncheckedIOException(
+                    "Couldn't open file "
+                            + file
+                            + "; in path "
+                            + normalizedPath
+                            + "; relative to class: "
+                            + className,
+                    e);
         }
     }
 
     public static BufferedReader openFile(String directory, String file, Charset charset) {
         try {
             if (directory.equals("")) {
-                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(file)), charset));
+                return new BufferedReader(
+                        new InputStreamReader(new FileInputStream(new File(file)), charset));
             } else {
-                return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
+                return new BufferedReader(
+                        new InputStreamReader(
+                                new FileInputStream(new File(directory, file)), charset));
             }
         } catch (FileNotFoundException e) {
             throw new ICUUncheckedIOException(e); // handle dang'd checked exception
@@ -330,26 +335,27 @@ public final class FileUtilities {
         for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries
             switch (ch) {
-            case '"':
-                inQuote = !inQuote;
-                // at start or end, that's enough
-                // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
-                if (inQuote && item.length() != 0) {
-                    item.append('"');
-                    inQuote = true;
-                }
-                break;
-            case ',':
-                if (!inQuote) {
-                    result.add(item.toString());
-                    item.setLength(0);
-                } else {
+                case '"':
+                    inQuote = !inQuote;
+                    // at start or end, that's enough
+                    // if get a quote when we are not in a quote, and not at start, then add it and
+                    // return to inQuote
+                    if (inQuote && item.length() != 0) {
+                        item.append('"');
+                        inQuote = true;
+                    }
+                    break;
+                case ',':
+                    if (!inQuote) {
+                        result.add(item.toString());
+                        item.setLength(0);
+                    } else {
+                        item.append(ch);
+                    }
+                    break;
+                default:
                     item.append(ch);
-                }
-                break;
-            default:
-                item.append(ch);
-                break;
+                    break;
             }
         }
         result.add(item.toString());
@@ -360,12 +366,17 @@ public final class FileUtilities {
         appendFile(class1, filename, StandardCharsets.UTF_8, null, out);
     }
 
-    public static void appendFile(Class<?> class1, String filename, String[] replacementList, PrintWriter out) {
+    public static void appendFile(
+            Class<?> class1, String filename, String[] replacementList, PrintWriter out) {
         appendFile(class1, filename, StandardCharsets.UTF_8, replacementList, out);
     }
 
-    public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
-        PrintWriter out) {
+    public static void appendFile(
+            Class<?> class1,
+            String filename,
+            Charset charset,
+            String[] replacementList,
+            PrintWriter out) {
         BufferedReader br = openFile(class1, filename, charset);
         try {
             try {
@@ -378,11 +389,14 @@ public final class FileUtilities {
         }
     }
 
-    public static void appendFile(String filename, String encoding, PrintWriter output) throws IOException {
+    public static void appendFile(String filename, String encoding, PrintWriter output)
+            throws IOException {
         appendFile(filename, encoding, output, null);
     }
 
-    public static void appendFile(String filename, String encoding, PrintWriter output, String[] replacementList) throws IOException {
+    public static void appendFile(
+            String filename, String encoding, PrintWriter output, String[] replacementList)
+            throws IOException {
         BufferedReader br = openReader("", filename, encoding);
         try {
             appendBufferedReader(br, output, replacementList);
@@ -391,8 +405,8 @@ public final class FileUtilities {
         }
     }
 
-    public static void appendBufferedReader(BufferedReader br,
-        PrintWriter output, String[] replacementList) throws IOException {
+    public static void appendBufferedReader(
+            BufferedReader br, PrintWriter output, String[] replacementList) throws IOException {
         while (true) {
             String line = br.readLine();
             if (line == null) break;
@@ -406,16 +420,15 @@ public final class FileUtilities {
         br.close();
     }
 
-    /**
-     * Replaces all occurrences of piece with replacement, and returns new String
-     */
+    /** Replaces all occurrences of piece with replacement, and returns new String */
     public static String replace(String source, String piece, String replacement) {
         if (source == null || source.length() < piece.length()) return source;
         int pos = 0;
         while (true) {
             pos = source.indexOf(piece, pos);
             if (pos < 0) return source;
-            source = source.substring(0, pos) + replacement + source.substring(pos + piece.length());
+            source =
+                    source.substring(0, pos) + replacement + source.substring(pos + piece.length());
             pos += replacement.length();
         }
     }
@@ -450,11 +463,17 @@ public final class FileUtilities {
         copyFile(class1, sourceFile, targetDirectory, sourceFile, null);
     }
 
-    public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName) {
+    public static void copyFile(
+            Class<?> class1, String sourceFile, String targetDirectory, String newName) {
         copyFile(class1, sourceFile, targetDirectory, newName, null);
     }
 
-    public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {
+    public static void copyFile(
+            Class<?> class1,
+            String sourceFile,
+            String targetDirectory,
+            String newName,
+            String[] replacementList) {
         try {
             PrintWriter out = openUTF8Writer(targetDirectory, newName);
             appendFile(class1, sourceFile, StandardCharsets.UTF_8, replacementList, out);
@@ -477,65 +496,50 @@ public final class FileUtilities {
     }
 
     /**
-     * Simple API to iterate over file lines. Example:
-     * for (String s : FileUtilities.in(directory,name)) {
-     * ...
-     * }
+     * Simple API to iterate over file lines. Example: for (String s :
+     * FileUtilities.in(directory,name)) { ... }
      *
      * @author markdavis
-     *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
         return With.in(new FileLines(openFile(class1, file, StandardCharsets.UTF_8)));
     }
 
     /**
-     * Simple API to iterate over file lines. Example:
-     * for (String s : FileUtilities.in(directory,name)) {
-     * ...
-     * }
+     * Simple API to iterate over file lines. Example: for (String s :
+     * FileUtilities.in(directory,name)) { ... }
      *
      * @author markdavis
-     *
      */
     public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
         return With.in(new FileLines(openFile(class1, file, charset)));
     }
 
     /**
-     * Simple API to iterate over file lines. Example:
-     * for (String s : FileUtilities.in(directory,name)) {
-     * ...
-     * }
+     * Simple API to iterate over file lines. Example: for (String s :
+     * FileUtilities.in(directory,name)) { ... }
      *
      * @author markdavis
-     *
      */
     public static Iterable<String> in(String directory, String file) {
         return With.in(new FileLines(openFile(directory, file, StandardCharsets.UTF_8)));
     }
 
     /**
-     * Simple API to iterate over file lines. Example:
-     * for (String s : FileUtilities.in(directory,name)) {
-     * ...
-     * }
+     * Simple API to iterate over file lines. Example: for (String s :
+     * FileUtilities.in(directory,name)) { ... }
      *
      * @author markdavis
-     *
      */
     public static Iterable<String> in(BufferedReader reader) {
         return With.in(new FileLines(reader));
     }
 
     /**
-     * Simple API to iterate over file lines. Example:
-     * for (String s : FileUtilities.in(directory,name)) {
-     * ...
-     * }
+     * Simple API to iterate over file lines. Example: for (String s :
+     * FileUtilities.in(directory,name)) { ... }
      *
      * @author markdavis
-     *
      */
     public static Iterable<String> in(String directory, String file, Charset charset) {
         return With.in(new FileLines(openFile(directory, file, charset)));
@@ -560,7 +564,6 @@ public final class FileUtilities {
                 throw new ICUUncheckedIOException(e); // handle dang'd checked exception
             }
         }
-
     }
 
     public static String cleanLine(String line) {
@@ -574,7 +577,7 @@ public final class FileUtilities {
         return line.trim();
     }
 
-    public final static Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
+    public static final Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
     private static final boolean SHOW_SKIP = false;
 
     public static String[] cleanSemiFields(String line) {

@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -12,7 +14,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Predicate;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -21,9 +22,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMap;
 
 public class TestCldrFactory extends TestFmwkPlus {
     private static final boolean DEBUG = false;
@@ -42,7 +40,10 @@ public class TestCldrFactory extends TestFmwkPlus {
             new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY)
         };
         Factory factory = SimpleFactory.make(paths, ".*");
-        List<File> enExpected = Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
+        List<File> enExpected =
+                Arrays.asList(
+                        new File(CLDRPaths.MAIN_DIRECTORY),
+                        new File(CLDRPaths.ANNOTATIONS_DIRECTORY));
 
         File[] dirs = factory.getSourceDirectories();
         assertEquals("", Arrays.asList(paths), Arrays.asList(dirs));
@@ -63,7 +64,9 @@ public class TestCldrFactory extends TestFmwkPlus {
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
         assertEquals("annotations only", Status.onlyAnnotations, checkAnnotations(enAnnotations));
 
-        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY)
+        };
         Factory factoryDouble = SimpleFactory.make(paths, ".*");
 
         CLDRFile enDouble = factoryDouble.make("en", false);
@@ -74,11 +77,17 @@ public class TestCldrFactory extends TestFmwkPlus {
         assertEquals("annotations only", Status.mixed, checkAnnotations(enDouble));
 
         assertEquals("en subset of enDouble", null, getUncontainedPath(enMain, enDouble));
-        assertEquals("enAnnotations subset of enDouble", null, getUncontainedPath(enAnnotations, enDouble));
+        assertEquals(
+                "enAnnotations subset of enDouble",
+                null,
+                getUncontainedPath(enAnnotations, enDouble));
     }
 
     enum Status {
-        none, onlyAnnotations, noAnnotations, mixed
+        none,
+        onlyAnnotations,
+        noAnnotations,
+        mixed
     }
 
     private Status checkAnnotations(CLDRFile cldrFile) {
@@ -88,19 +97,19 @@ public class TestCldrFactory extends TestFmwkPlus {
             boolean isAnnotation = xpath.startsWith("//ldml/annotation");
             if (isAnnotation) {
                 switch (status) {
-                case none:
-                    status = Status.onlyAnnotations;
-                    break;
-                case noAnnotations:
-                    return Status.mixed;
+                    case none:
+                        status = Status.onlyAnnotations;
+                        break;
+                    case noAnnotations:
+                        return Status.mixed;
                 }
             } else {
                 switch (status) {
-                case none:
-                    status = Status.noAnnotations;
-                    break;
-                case onlyAnnotations:
-                    return Status.mixed;
+                    case none:
+                        status = Status.noAnnotations;
+                        break;
+                    case onlyAnnotations:
+                        return Status.mixed;
                 }
             }
         }
@@ -109,6 +118,7 @@ public class TestCldrFactory extends TestFmwkPlus {
 
     /**
      * Returns first string that has a different value in superset than in subset.
+     *
      * @param subset
      * @param superset
      * @return
@@ -130,6 +140,7 @@ public class TestCldrFactory extends TestFmwkPlus {
 
     /**
      * Returns first string that has a different value in a than in b.
+     *
      * @param subset
      * @param superset
      * @return
@@ -162,7 +173,9 @@ public class TestCldrFactory extends TestFmwkPlus {
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile enAnnotations = factoryAnnotations.make("en", false);
 
-        File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
+        File[] paths = {
+            new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.ANNOTATIONS_DIRECTORY)
+        };
         Factory factoryDouble = SimpleFactory.make(paths, ".*");
         CLDRFile enDouble = factoryDouble.make("en", false);
 
@@ -172,7 +185,10 @@ public class TestCldrFactory extends TestFmwkPlus {
             System.out.println(temp);
         }
         CLDRFile enDoubleWithoutAnnotations = cldrFileFromString(temp);
-        assertEquals("enMain == enDoubleWithoutAnnotations", null, differentPathValue(enMain, enDoubleWithoutAnnotations));
+        assertEquals(
+                "enMain == enDoubleWithoutAnnotations",
+                null,
+                differentPathValue(enMain, enDoubleWithoutAnnotations));
 
         temp = cldrFileToString(enDouble, keepAnnotations);
         if (DEBUG) {
@@ -180,7 +196,10 @@ public class TestCldrFactory extends TestFmwkPlus {
             System.out.println(temp);
         }
         CLDRFile enDoubleWithAnnotations = cldrFileFromString(temp);
-        assertEquals("enAnnotations == enDoubleWithAnnotations", null, differentPathValue(enAnnotations, enDoubleWithAnnotations));
+        assertEquals(
+                "enAnnotations == enDoubleWithAnnotations",
+                null,
+                differentPathValue(enAnnotations, enDoubleWithAnnotations));
     }
 
     private CLDRFile cldrFileFromString(String string) {

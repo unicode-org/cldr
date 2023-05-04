@@ -9,14 +9,11 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.ZoneParser;
 
-/**
- * Simple program to generate the valid tzids for supplementalMetadata.xml
- */
+/** Simple program to generate the valid tzids for supplementalMetadata.xml */
 public class GenerateSupplementalZoneData {
 
     /**
@@ -46,10 +43,17 @@ public class GenerateSupplementalZoneData {
         }
 
         String sep = CldrUtility.LINE_SEPARATOR + "                ";
-        String broken = CldrUtility.breakLines(tzbuf, sep, PatternCache.get(
-            "((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""),
-            80);
-        System.out.println("            <variable id=\"$tzid\" type=\"choice\">" + broken
-            + CldrUtility.LINE_SEPARATOR + "            </variable>");
+        String broken =
+                CldrUtility.breakLines(
+                        tzbuf,
+                        sep,
+                        PatternCache.get("((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*")
+                                .matcher(""),
+                        80);
+        System.out.println(
+                "            <variable id=\"$tzid\" type=\"choice\">"
+                        + broken
+                        + CldrUtility.LINE_SEPARATOR
+                        + "            </variable>");
     }
 }

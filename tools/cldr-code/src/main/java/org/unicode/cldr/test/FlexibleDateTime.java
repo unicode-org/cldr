@@ -6,6 +6,11 @@
  */
 package org.unicode.cldr.test;
 
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,7 +24,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -27,17 +31,9 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
-
 /**
- * Test class for trying different approaches to flexible date/time.
- * Internal Use.
- * Once we figure out what approach to take, this should turn into the test file
- * for the data.
+ * Test class for trying different approaches to flexible date/time. Internal Use. Once we figure
+ * out what approach to take, this should turn into the test file for the data.
  */
 public class FlexibleDateTime {
     static final boolean DEBUG = false;
@@ -47,15 +43,16 @@ public class FlexibleDateTime {
     static final String SEPARATOR = CldrUtility.LINE_SEPARATOR + "\t";
 
     /**
-     * Test different ways of doing flexible date/times.
-     * Internal Use.
+     * Test different ways of doing flexible date/times. Internal Use.
      *
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         // if (false) { // just for testing simple cases
-        // DateTimePatternGenerator.DateTimeMatcher a = new DateTimePatternGenerator.DateTimeMatcher().set("HH:mm");
-        // DateTimePatternGenerator.DateTimeMatcher b = new DateTimePatternGenerator.DateTimeMatcher().set("kkmm");
+        // DateTimePatternGenerator.DateTimeMatcher a = new
+        // DateTimePatternGenerator.DateTimeMatcher().set("HH:mm");
+        // DateTimePatternGenerator.DateTimeMatcher b = new
+        // DateTimePatternGenerator.DateTimeMatcher().set("kkmm");
         // DistanceInfo missingFields = new DistanceInfo();
         // int distance = a.getDistance(b, -1, missingFields);
         // }
@@ -81,8 +78,13 @@ public class FlexibleDateTime {
 
     static class LocaleIDFixer {
         LocaleIDParser lip = new LocaleIDParser();
-        static final Set<String> mainLocales = new HashSet<>(
-            Arrays.asList(new String[] { "ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW" }));
+        static final Set<String> mainLocales =
+                new HashSet<>(
+                        Arrays.asList(
+                                new String[] {
+                                    "ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT",
+                                    "nl_NL", "pt_BR", "sv_SE", "zh_TW"
+                                }));
         DeprecatedCodeFixer dcf = new DeprecatedCodeFixer();
 
         Map<String, String> fixLocales(Collection<String> available, Map<String, String> result) {
@@ -126,10 +128,12 @@ public class FlexibleDateTime {
     static class DeprecatedCodeFixer {
         Map<String, String> languageAlias = new HashMap<>();
         Map<String, String> territoryAlias = new HashMap<>();
+
         {
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
+            for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/");
+                    it.hasNext(); ) {
                 String path = it.next();
                 XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
                 String type = parts.getAttributeValue(3, "type");
@@ -145,6 +149,7 @@ public class FlexibleDateTime {
             // special hack for OpenOffice
             territoryAlias.put("CB", "029");
         }
+
         LocaleIDParser lip = new LocaleIDParser();
 
         String fixLocale(String locale) {
@@ -219,7 +224,7 @@ public class FlexibleDateTime {
     // }
 
     public static void add(DateTimePatternGenerator generator, Collection<String> list) {
-        for (Iterator<String> it = list.iterator(); it.hasNext();) {
+        for (Iterator<String> it = list.iterator(); it.hasNext(); ) {
             generator.addPattern(it.next(), false, null);
         }
     }
@@ -234,7 +239,7 @@ public class FlexibleDateTime {
             source = source.replace('"', '\''); // fix quoting convention
             StringBuffer buffer = new StringBuffer();
             fp.set(source);
-            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext();) {
+            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext(); ) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
                     buffer.append(handleOODate(item.toString(), locale));
@@ -266,27 +271,19 @@ public class FlexibleDateTime {
                 if (string.startsWith("G")) string = string.replace('G', 'D');
             }
             // if (string.startsWith("M")) return string;
-            if (string.startsWith("A"))
-                string = string.replace('A', 'y'); // best we can do for now
-            else if (string.startsWith("Y") || string.startsWith("W") ||
-                string.equals("D") || string.equals("DD"))
-                string = string.toLowerCase();
-            else if (string.equals("DDD") || string.equals("NN"))
-                string = "EEE";
-            else if (string.equals("DDDD") || string.equals("NNN"))
-                string = "EEEE";
-            else if (string.equals("NNNN"))
-                return "EEEE, "; // RETURN WITHOUT TEST
-            else if (string.equals("G"))
-                string = "G"; // best we can do for now
-            else if (string.equals("GG"))
-                string = "G";
-            else if (string.equals("GGG"))
-                string = "G"; // best we can do for now
-            else if (string.equals("E"))
-                string = "y";
-            else if (string.equals("EE") || string.equals("R"))
-                string = "yy";
+            if (string.startsWith("A")) string = string.replace('A', 'y'); // best we can do for now
+            else if (string.startsWith("Y")
+                    || string.startsWith("W")
+                    || string.equals("D")
+                    || string.equals("DD")) string = string.toLowerCase();
+            else if (string.equals("DDD") || string.equals("NN")) string = "EEE";
+            else if (string.equals("DDDD") || string.equals("NNN")) string = "EEEE";
+            else if (string.equals("NNNN")) return "EEEE, "; // RETURN WITHOUT TEST
+            else if (string.equals("G")) string = "G"; // best we can do for now
+            else if (string.equals("GG")) string = "G";
+            else if (string.equals("GGG")) string = "G"; // best we can do for now
+            else if (string.equals("E")) string = "y";
+            else if (string.equals("EE") || string.equals("R")) string = "yy";
             else if (string.equals("RR")) string = "Gyy";
             // if (string.startsWith("Q")) string = string; // '\'' + string + '\'';
             // char c = string.charAt(0);
@@ -306,7 +303,7 @@ public class FlexibleDateTime {
             }
             StringBuffer buffer = new StringBuffer();
             fp.set(source);
-            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext();) {
+            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext(); ) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
                     buffer.append(handleOOTime(item.toString(), isAM >= 0));
@@ -320,23 +317,23 @@ public class FlexibleDateTime {
         private String handleOOTime(String string, boolean isAM) {
             char c = string.charAt(0);
             switch (c) {
-            case 'h':
-            case 'H':
-            case 't':
-            case 'T':
-            case 'u':
-            case 'U':
-                string = string.replace(c, isAM ? 'h' : 'H');
-                break;
-            case 'M':
-            case 'S':
-                string = string.toLowerCase();
-                break;
-            case '0':
-                string = string.replace('0', 'S');
-                break; // ought to be more sophisticated, but this should work for normal stuff.
-            // case 'a': case 's': case 'm': return string; // ok as is
-            // default: return "x"; // cause error
+                case 'h':
+                case 'H':
+                case 't':
+                case 'T':
+                case 'u':
+                case 'U':
+                    string = string.replace(c, isAM ? 'h' : 'H');
+                    break;
+                case 'M':
+                case 'S':
+                    string = string.toLowerCase();
+                    break;
+                case '0':
+                    string = string.replace('0', 'S');
+                    break; // ought to be more sophisticated, but this should work for normal stuff.
+                    // case 'a': case 's': case 'm': return string; // ok as is
+                    // default: return "x"; // cause error
             }
             if (!allowedDateTimeCharacters.containsAll(string)) {
                 throw new IllegalArgumentException("bad char in: " + string);
@@ -347,26 +344,27 @@ public class FlexibleDateTime {
 
     static Date TEST_DATE = new Date(104, 8, 13, 23, 58, 59);
 
-    static Comparator<Collection<String>> VariableFieldComparator = new Comparator<Collection<String>>() {
-        @Override
-        public int compare(Collection<String> a, Collection<String> b) {
-            if (a.size() != b.size()) {
-                if (a.size() < b.size()) return 1;
-                return -1;
-            }
-            Iterator<String> itb = b.iterator();
-            for (Iterator<String> ita = a.iterator(); ita.hasNext();) {
-                String aa = ita.next();
-                String bb = itb.next();
-                int result = -aa.compareTo(bb);
-                if (result != 0) return result;
-            }
-            return 0;
-        }
-    };
+    static Comparator<Collection<String>> VariableFieldComparator =
+            new Comparator<Collection<String>>() {
+                @Override
+                public int compare(Collection<String> a, Collection<String> b) {
+                    if (a.size() != b.size()) {
+                        if (a.size() < b.size()) return 1;
+                        return -1;
+                    }
+                    Iterator<String> itb = b.iterator();
+                    for (Iterator<String> ita = a.iterator(); ita.hasNext(); ) {
+                        String aa = ita.next();
+                        String bb = itb.next();
+                        int result = -aa.compareTo(bb);
+                        if (result != 0) return result;
+                    }
+                    return 0;
+                }
+            };
 
-    public static UnicodeSet allowedDateTimeCharacters = new UnicodeSet(
-        "[A a c D d E e F G g h H K k L m M q Q s S u v W w Y y z Z]");
+    public static UnicodeSet allowedDateTimeCharacters =
+            new UnicodeSet("[A a c D d E e F G g h H K k L m M q Q s S u v W w Y y z Z]");
 
     static Collection<String> getOOData(Factory cldrFactory, String locale) {
         List<String> result = new ArrayList<>();
@@ -393,8 +391,10 @@ public class FlexibleDateTime {
                         continue;
                     }
                     try {
-                        pattern = isDate ? ooConverter.convertOODate(pattern, locale)
-                            : ooConverter.convertOOTime(pattern, locale);
+                        pattern =
+                                isDate
+                                        ? ooConverter.convertOODate(pattern, locale)
+                                        : ooConverter.convertOOTime(pattern, locale);
                     } catch (RuntimeException e1) {
                         log.println(locale + "\tSkipping unknown char:\t" + xpath + "\t" + value);
                         continue;
@@ -402,7 +402,14 @@ public class FlexibleDateTime {
 
                     // System.out.println(xpath + "\t" + pattern);
                     if (SHOW2)
-                        System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
+                        System.out.print(
+                                "\t"
+                                        + (isDate ? "Date" : "Time")
+                                        + ": "
+                                        + oldPattern
+                                        + "\t"
+                                        + pattern
+                                        + "\t");
                     try {
                         SimpleDateFormat d = new SimpleDateFormat(pattern);
                         if (SHOW2) System.out.print(d.format(TEST_DATE));

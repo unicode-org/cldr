@@ -1,16 +1,14 @@
 package org.unicode.cldr.draft;
 
+import com.ibm.icu.text.UnicodeSet;
 import java.io.BufferedReader;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.UnicodeSetBuilder.MyActions;
 import org.unicode.cldr.util.PathUtilities;
-
-import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachineTest {
 
@@ -21,15 +19,16 @@ public class StateMachineTest {
     public static void main(String[] args) throws Exception {
         System.out.println(PathUtilities.getNormalizedPathString("."));
 
-        BufferedReader in = FileUtilities.openUTF8Reader("../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetBuilderTests.txt");
+        BufferedReader in =
+                FileUtilities.openUTF8Reader(
+                        "../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetBuilderTests.txt");
         // icu4c-trunk/source/common/rbbirpt.txt
         // "icu4c-trunk/source/i18n/regexcst.txt"
 
         List<String[]> testLines = new ArrayList<>();
         while (true) {
             String line = in.readLine();
-            if (line == null)
-                break;
+            if (line == null) break;
             int commentPos = line.indexOf('#');
             if (commentPos >= 0) {
                 line = line.substring(0, commentPos);
@@ -88,7 +87,8 @@ public class StateMachineTest {
         // }
         ParsePosition parsePosition = new ParsePosition(0);
         failureCount = 0;
-        main: for (String[] testLinePair : testLines) {
+        main:
+        for (String[] testLinePair : testLines) {
             String testLine = testLinePair[0];
             if (testLine.startsWith("@")) {
                 if (testLine.equals("@show")) {
@@ -106,8 +106,10 @@ public class StateMachineTest {
                 continue;
             }
             String expectedString = testLinePair[testLinePair.length > 1 ? 1 : 0];
-            UnicodeSet expected = expectedString.startsWith("[") || expectedString.startsWith("\\") ? new UnicodeSet(
-                expectedString) : null;
+            UnicodeSet expected =
+                    expectedString.startsWith("[") || expectedString.startsWith("\\")
+                            ? new UnicodeSet(expectedString)
+                            : null;
             System.out.println();
             System.out.println("Test: " + testLine);
             int i = 0;
@@ -128,8 +130,11 @@ public class StateMachineTest {
                 }
                 int j = parsePosition.getIndex();
                 if (j <= i) {
-                    System.out.println("ERROR: " + testLine.substring(0, parsePosition.getErrorIndex())
-                        + "$" + testLine.substring(parsePosition.getErrorIndex()));
+                    System.out.println(
+                            "ERROR: "
+                                    + testLine.substring(0, parsePosition.getErrorIndex())
+                                    + "$"
+                                    + testLine.substring(parsePosition.getErrorIndex()));
                     repeatCall(machine, parsePosition, testLine);
                     break;
                 }
@@ -144,8 +149,8 @@ public class StateMachineTest {
         System.out.println("TOTAL Failures: " + failureCount);
     }
 
-    private static void repeatCall(UnicodeSetBuilder machine, ParsePosition parsePosition,
-        String testLine) {
+    private static void repeatCall(
+            UnicodeSetBuilder machine, ParsePosition parsePosition, String testLine) {
         if (!SHOW_IF_ERROR) {
             return;
         }
@@ -159,8 +164,14 @@ public class StateMachineTest {
     }
 
     private static void showFailure(String testLine, String expectedString, String actualString) {
-        System.out.println("***\nFAILURE with: " + testLine + "\tExpected: " + expectedString
-            + "\tActual: " + actualString + "\n***");
+        System.out.println(
+                "***\nFAILURE with: "
+                        + testLine
+                        + "\tExpected: "
+                        + expectedString
+                        + "\tActual: "
+                        + actualString
+                        + "\n***");
         failureCount++;
     }
 }

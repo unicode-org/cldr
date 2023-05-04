@@ -2,8 +2,8 @@ package org.unicode.cldr.util;
 
 /**
  * Simple implementation around a base URL
- * @author srl
  *
+ * @author srl
  */
 public class StaticCLDRURLS extends CLDRURLS {
     private final String base;

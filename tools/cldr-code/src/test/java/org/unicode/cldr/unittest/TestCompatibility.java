@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -44,14 +43,26 @@ public class TestCompatibility extends TestFmwkPlus {
             try {
                 cldrFile = factory.make(language, false);
             } catch (Exception e) {
-                errln("Couldn't read " + language + ":\t" + e.getLocalizedMessage() + ", in " + getNormalizedPathString(file));
+                errln(
+                        "Couldn't read "
+                                + language
+                                + ":\t"
+                                + e.getLocalizedMessage()
+                                + ", in "
+                                + getNormalizedPathString(file));
                 continue;
             }
             try (StringWriter sw = new StringWriter();
-                PrintWriter pw = new PrintWriter(sw);) {
+                    PrintWriter pw = new PrintWriter(sw); ) {
                 cldrFile.write(pw);
             } catch (Exception e) {
-                errln("Couldn't write " + language + ":\t" + e.getLocalizedMessage() + ", in " + getNormalizedPathString(file));
+                errln(
+                        "Couldn't write "
+                                + language
+                                + ":\t"
+                                + e.getLocalizedMessage()
+                                + ", in "
+                                + getNormalizedPathString(file));
             }
         }
     }

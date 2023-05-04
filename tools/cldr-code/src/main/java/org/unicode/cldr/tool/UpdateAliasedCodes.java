@@ -1,14 +1,12 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.impl.Row.R2;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.impl.Row.R2;
 
 public class UpdateAliasedCodes {
     static CLDRConfig config = CLDRConfig.getInstance();
@@ -23,7 +21,15 @@ public class UpdateAliasedCodes {
             for (String repl : replacement.get0()) {
                 R2<List<String>, String> better = togood.get(repl);
                 if (better != null) {
-                    System.out.println("Supp.Metadata mapping bad: " + badCode + " => " + replacement + "; " + repl + " should be " + better);
+                    System.out.println(
+                            "Supp.Metadata mapping bad: "
+                                    + badCode
+                                    + " => "
+                                    + replacement
+                                    + "; "
+                                    + repl
+                                    + " should be "
+                                    + better);
                 }
             }
         }
@@ -69,9 +75,19 @@ public class UpdateAliasedCodes {
                 } else if (oldName.equals(name)) {
                     ok.put(code, name);
                 } else {
-                    System.out.println(locale + " Conflicting name "
-                        + "<old:«" + code + "»«" + name + "»>"
-                        + "<repl:«" + goodCode + "»«" + oldName + "»>");
+                    System.out.println(
+                            locale
+                                    + " Conflicting name "
+                                    + "<old:«"
+                                    + code
+                                    + "»«"
+                                    + name
+                                    + "»>"
+                                    + "<repl:«"
+                                    + goodCode
+                                    + "»«"
+                                    + oldName
+                                    + "»>");
                 }
             }
             System.out.println(locale + "\t" + fixed);

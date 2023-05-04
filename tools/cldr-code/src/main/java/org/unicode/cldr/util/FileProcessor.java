@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,15 +8,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class FileProcessor {
-    private final static boolean DEBUG = false;
+    private static final boolean DEBUG = false;
     private int lineCount;
     protected boolean doHash = true;
 
-    protected void handleStart() {
-    }
+    protected void handleStart() {}
 
     /**
      * Return false to abort
@@ -28,25 +26,30 @@ public class FileProcessor {
         return true;
     }
 
-    protected void handleEnd() {
-    }
+    protected void handleEnd() {}
 
     public int getLineCount() {
         return lineCount;
     }
 
-    public void handleComment(String line, int commentCharPosition) {
-    }
+    public void handleComment(String line, int commentCharPosition) {}
 
     public FileProcessor process(Class<?> classLocation, String fileName) {
         try {
-            if (DEBUG) System.err.println("# FileProcessor reading " + classLocation.getPackage().getName() + "/"+ fileName);
+            if (DEBUG)
+                System.err.println(
+                        "# FileProcessor reading "
+                                + classLocation.getPackage().getName()
+                                + "/"
+                                + fileName);
             BufferedReader in = FileReaders.openFile(classLocation, fileName);
             return process(in, fileName);
         } catch (Exception e) {
-            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0 + " - while reading" + fileName).initCause(e);
+            throw (RuntimeException)
+                    new IllegalArgumentException(
+                                    lineCount + ":\t" + 0 + " - while reading" + fileName)
+                            .initCause(e);
         }
-
     }
 
     public FileProcessor process(String fileName) {
@@ -56,7 +59,8 @@ public class FileProcessor {
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return process(bufferedReader, fileName);
         } catch (Exception e) {
-            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+            throw (RuntimeException)
+                    new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
         }
     }
 
@@ -67,7 +71,8 @@ public class FileProcessor {
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return process(bufferedReader, fileName);
         } catch (Exception e) {
-            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+            throw (RuntimeException)
+                    new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
         }
     }
 
@@ -76,7 +81,7 @@ public class FileProcessor {
         String line = null;
         lineCount = 1;
         try {
-            for (;; ++lineCount) {
+            for (; ; ++lineCount) {
                 line = in.readLine();
                 if (line == null) {
                     break;

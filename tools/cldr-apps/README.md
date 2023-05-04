@@ -95,7 +95,7 @@ CLDR_MAIL_DELAY_BATCH_ITEM=0
 ### Licenses
 
 - Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [unicode-license.txt](../../unicode-license.txt).
+a copy of which is included as [LICENSE](../../LICENSE).
 
 For more details, see the main [README.md](../../README.md).
 

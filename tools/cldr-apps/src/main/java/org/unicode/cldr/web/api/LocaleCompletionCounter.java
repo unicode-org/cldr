@@ -28,9 +28,8 @@ public class LocaleCompletionCounter {
         localeId = cldrLocale.toString();
         level = StandardCodes.make().getTargetCoverageLevel(localeId);
         final SurveyMain sm = CookieSession.sm;
-        final VettingViewer.UsersChoice<Organization> userVoteStatus = isBaseline
-            ? new VotelessUsersChoice()
-            : new STUsersChoice(sm);
+        final VettingViewer.UsersChoice<Organization> userVoteStatus =
+                isBaseline ? new VotelessUsersChoice() : new STUsersChoice(sm);
         vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, userVoteStatus);
         final EnumSet<NotificationCategory> set = VettingViewer.getLocaleCompletionCategories();
         args = new VettingParameters(set, cldrLocale, level);
@@ -47,7 +46,8 @@ public class LocaleCompletionCounter {
         logger.info("Starting " + desc);
         final ElapsedTimer et = new ElapsedTimer("Finishing " + desc);
         final LocaleCompletionData lcd = vv.generateLocaleCompletion(args);
-        final LocaleCompletion.LocaleCompletionResponse lcr = new LocaleCompletion.LocaleCompletionResponse(level, lcd);
+        final LocaleCompletion.LocaleCompletionResponse lcr =
+                new LocaleCompletion.LocaleCompletionResponse(level, lcd);
         if (!isBaseline) {
             lcr.setBaselineCount(LocaleCompletion.getBaselineCount(cldrLocale));
         }
@@ -56,6 +56,7 @@ public class LocaleCompletionCounter {
     }
 
     private String description() {
-        return String.format("LocaleCompletion for %s/%s %s", localeId, level, isBaseline ? "(Baseline)" : "");
+        return String.format(
+                "LocaleCompletion for %s/%s %s", localeId, level, isBaseline ? "(Baseline)" : "");
     }
 }

@@ -1,14 +1,13 @@
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.draft.FileUtilities;
-
 import java.util.*;
+import org.unicode.cldr.draft.FileUtilities;
 
 public class TranslationHints {
 
-    final static private String HINTS_FILE = "data/translation-hints/hints.txt";
+    private static final String HINTS_FILE = "data/translation-hints/hints.txt";
 
-    private static Map<String,String> xpathToHint = null;
+    private static Map<String, String> xpathToHint = null;
 
     public static String get(String xpath) {
         if (xpathToHint == null) {
@@ -27,7 +26,8 @@ public class TranslationHints {
             } else if (line.startsWith("PATH:")) {
                 final String xpath = line.substring(5).trim();
                 if (hint == null) {
-                    throw new RuntimeException("Bad file, must set HINT before PATH: " + HINTS_FILE);
+                    throw new RuntimeException(
+                            "Bad file, must set HINT before PATH: " + HINTS_FILE);
                 }
                 xpathToHint.put(xpath, hint);
             } else if (!line.isEmpty() && !line.startsWith("#")) {

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
 import org.json.JSONException;
 import org.unicode.cldr.util.XMLSource;
 
@@ -33,12 +32,13 @@ public class SurveyBulkClosePosts {
     /**
      * The number of threads to close; after doExecute, the number of threads actually closed
      *
-     * A "thread" is an initial post (not a reply), plus any posts that are replies to it
+     * <p>A "thread" is an initial post (not a reply), plus any posts that are replies to it
      */
     private int threadCount = 0;
 
     /**
-     * The number of posts (including replies) actually closed; only set after doExecute (for efficiency)
+     * The number of posts (including replies) actually closed; only set after doExecute (for
+     * efficiency)
      */
     private int postCount = 0;
 
@@ -89,10 +89,12 @@ public class SurveyBulkClosePosts {
     }
 
     private void prepareOpenRequestsDetailQuery() throws SQLException {
-        String sql = "SELECT id,loc,xpath,value"
-            + " FROM " + DBUtils.Table.FORUM_POSTS.toString()
-            + " WHERE is_open=TRUE"
-            + " AND type=?";
+        String sql =
+                "SELECT id,loc,xpath,value"
+                        + " FROM "
+                        + DBUtils.Table.FORUM_POSTS.toString()
+                        + " WHERE is_open=TRUE"
+                        + " AND type=?";
         ps = DBUtils.prepareForwardReadOnly(conn, sql);
         ps.setInt(1, SurveyForum.PostType.REQUEST.toInt());
     }

@@ -19,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -54,9 +53,7 @@ public class GenerateAttributeList {
         addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "transforms/");
     }
 
-    /**
-     *
-     */
+    /** */
     private void addFromStandardCodes() {
         StandardCodes sc = StandardCodes.make();
         addFromStandardCodes(sc, "language");
@@ -67,13 +64,11 @@ public class GenerateAttributeList {
         addFromStandardCodes(sc, "tzid");
     }
 
-    /**
-     *
-     */
+    /** */
     private void addFromStandardCodes(StandardCodes sc, String cat) {
         Collection<String> c = sc.getGoodAvailableCodes(cat);
         String target = cat.equals("tzid") ? "zone" : cat;
-        for (Iterator<String> it = c.iterator(); it.hasNext();) {
+        for (Iterator<String> it = c.iterator(); it.hasNext(); ) {
             String item = it.next();
             add(target, "type", item, true);
         }
@@ -81,7 +76,6 @@ public class GenerateAttributeList {
 
     /**
      * @throws IOException
-     *
      */
     private void addFromDTD(String filename) throws IOException {
         // StringBufferInputStream fis = new StringBufferInputStream(
@@ -140,15 +134,13 @@ public class GenerateAttributeList {
 
     void add(String element, String attribute, String attributeValue, boolean dtd) {
         // fiddle the fields
-        if (element.equals("generation") && attribute.equals("date"))
-            attributeValue = "[date]";
+        if (element.equals("generation") && attribute.equals("date")) attributeValue = "[date]";
         else if (element.equals("version") && attribute.equals("number"))
             attributeValue = "[revision]";
         else if (attribute.equals("draft")
-            || attribute.equals("validSubLocales")
-            || attribute.equals("standard")
-            || attribute.equals("references"))
-            element = "[common]";
+                || attribute.equals("validSubLocales")
+                || attribute.equals("standard")
+                || attribute.equals("references")) element = "[common]";
         else if (attribute.equals("alt")) {
             int pos = attributeValue.indexOf("proposed");
             if (pos == 0) return;
@@ -157,7 +149,8 @@ public class GenerateAttributeList {
         }
         // now add
         Map<String, Set<String>[]> attribute_valueSet = element_attribute_valueSet.get(element);
-        if (attribute_valueSet == null) element_attribute_valueSet.put(element, attribute_valueSet = new TreeMap<>());
+        if (attribute_valueSet == null)
+            element_attribute_valueSet.put(element, attribute_valueSet = new TreeMap<>());
         Set<String>[] valueSets = attribute_valueSet.get(attribute);
         if (valueSets == null) {
             Comparator<String> c = DtdData.getAttributeValueComparator(element, attribute);
@@ -169,20 +162,22 @@ public class GenerateAttributeList {
         try {
             valueSets[dtd ? 1 : 0].add(attributeValue);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Error with " + element
-                + ", " + attribute + ", " + attributeValue + ", " + dtd, e);
+            throw new IllegalArgumentException(
+                    "Error with " + element + ", " + attribute + ", " + attributeValue + ", " + dtd,
+                    e);
         }
     }
 
     void show(PrintWriter pw) {
         pw.println("<html><head>");
-        pw.println("<style>td,th { border-style: solid; border-width: 1; vertical-align: top }</style>");
+        pw.println(
+                "<style>td,th { border-style: solid; border-width: 1; vertical-align: top }</style>");
         pw.println("</head><body>");
-        pw.println("<p>Date: $" +
-            "Date$</p>");
+        pw.println("<p>Date: $" + "Date$</p>");
         pw.println("<p>Version: " + ToolConstants.CHART_DISPLAY_VERSION + "</p>");
         pw.println("<table>");
-        pw.println("<tr><th>Element</th><th>Attribute</th><th>Actual Attribute Values</th><th>Other DTD Attribute Values</th></tr>");
+        pw.println(
+                "<tr><th>Element</th><th>Attribute</th><th>Actual Attribute Values</th><th>Other DTD Attribute Values</th></tr>");
 
         // show those with no attributes
         /*
@@ -193,20 +188,26 @@ public class GenerateAttributeList {
          * pw.println("</td><td>{none}</td><td>{none}</td></tr>");
          */
 
-        for (Iterator<String> it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = element_attribute_valueSet.keySet().iterator(); it.hasNext(); ) {
             String element = it.next();
             Map<String, Set<String>[]> attribute_valueSet = element_attribute_valueSet.get(element);
             int size = attribute_valueSet.size();
             if (size == 0) continue;
             boolean first = true;
-            for (Iterator<String> it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = attribute_valueSet.keySet().iterator(); it2.hasNext(); ) {
                 String attribute = it2.next();
                 Set<String>[] valueSets = attribute_valueSet.get(attribute);
                 pw.print("<tr>");
                 if (first) {
                     first = false;
-                    pw.print("<td" + (size == 1 ? "" : " rowSpan='" + attribute_valueSet.size() + "'") + ">" + element
-                        + "</td>");
+                    pw.print(
+                            "<td"
+                                    + (size == 1
+                                            ? ""
+                                            : " rowSpan='" + attribute_valueSet.size() + "'")
+                                    + ">"
+                                    + element
+                                    + "</td>");
                 }
                 pw.print("<td>" + attribute + "</td><td>");
                 String defaultKey = element + "|" + attribute;
@@ -224,18 +225,14 @@ public class GenerateAttributeList {
         pw.println("</body></html>");
     }
 
-    /**
-     *
-     */
+    /** */
     private String toString(Collection<String> source, String defaultKey) {
         StringBuffer result = new StringBuffer();
         boolean first = true;
-        for (Iterator<String> it = source.iterator(); it.hasNext();) {
+        for (Iterator<String> it = source.iterator(); it.hasNext(); ) {
             String value = it.next();
-            if (first)
-                first = false;
-            else
-                result.append(", ");
+            if (first) first = false;
+            else result.append(", ");
             final boolean isDefault = value.equals(defaults.get(defaultKey));
             if (isDefault) {
                 result.append("<b>");
@@ -253,9 +250,11 @@ public class GenerateAttributeList {
         Matcher idmatcher = PatternCache.get("[a-zA-Z][-_a-zA-Z0-9]*").matcher("");
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
-            // System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+        public void attributeDecl(
+                String eName, String aName, String type, String mode, String value)
+                throws SAXException {
+            // System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode +
+            // "\t" + value);
             if (value != null) {
                 add(eName, aName, value, true);
                 defaults.put(eName + "|" + aName, value);
@@ -294,7 +293,8 @@ public class GenerateAttributeList {
          * @see org.xml.sax.ext.DeclHandler#externalEntityDecl(java.lang.String, java.lang.String, java.lang.String)
          */
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(String name, String publicId, String systemId)
+                throws SAXException {
             // TODO Auto-generated method stub
 
         }
@@ -407,7 +407,8 @@ public class GenerateAttributeList {
          * @see org.xml.sax.ContentHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
          */
         @Override
-        public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+        public void endElement(String namespaceURI, String localName, String qName)
+                throws SAXException {
             // TODO Auto-generated method stub
 
         }
@@ -419,8 +420,9 @@ public class GenerateAttributeList {
          * org.xml.sax.Attributes)
          */
         @Override
-        public void startElement(String namespaceURI, String localName, String qName, Attributes attributes)
-            throws SAXException {
+        public void startElement(
+                String namespaceURI, String localName, String qName, Attributes attributes)
+                throws SAXException {
             if (attributes == null) return;
             for (int i = 0; i < attributes.getLength(); ++i) {
                 String attribute = attributes.getQName(i);

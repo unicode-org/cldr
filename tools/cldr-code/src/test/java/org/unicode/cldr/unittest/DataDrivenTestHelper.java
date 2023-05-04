@@ -1,20 +1,18 @@
 package org.unicode.cldr.unittest;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import org.unicode.cldr.draft.FileUtilities;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import org.unicode.cldr.draft.FileUtilities;
 
-abstract public class DataDrivenTestHelper {
+public abstract class DataDrivenTestHelper {
 
     public static final List<String> DEBUG_LINE = Collections.singletonList("@debug");
     public static final Splitter SEMICOLON = Splitter.on(';').trimResults();
@@ -64,8 +62,7 @@ abstract public class DataDrivenTestHelper {
     }
 
     public DataDrivenTestHelper run(Class<?> classFileIsRelativeTo, String file) {
-        return load(classFileIsRelativeTo, file)
-            .test();
+        return load(classFileIsRelativeTo, file).test();
     }
 
     public boolean isTestLine(List<String> arguments) {
@@ -152,17 +149,26 @@ abstract public class DataDrivenTestHelper {
     }
 
     protected boolean assertEquals(String message, Object expected, Object actual) {
-        return framework.handleAssert(Objects.equal(expected, actual), message, stringFor(expected), stringFor(actual), null, false);
+        return framework.handleAssert(
+                Objects.equal(expected, actual),
+                message,
+                stringFor(expected),
+                stringFor(actual),
+                null,
+                false);
     }
 
     private final String stringFor(Object obj) {
-        return obj == null ? "null"
-            : obj instanceof String ? "\"" + obj + '"'
-                : obj instanceof Number ? String.valueOf(obj)
-                    : obj.getClass().getName() + "<" + obj + ">";
+        return obj == null
+                ? "null"
+                : obj instanceof String
+                        ? "\"" + obj + '"'
+                        : obj instanceof Number
+                                ? String.valueOf(obj)
+                                : obj.getClass().getName() + "<" + obj + ">";
     }
 
-    abstract public void handle(boolean breakpoint, String commentBase, List<String> arguments);
+    public abstract void handle(boolean breakpoint, String commentBase, List<String> arguments);
 
     public void handleParams(String comment, List<String> arguments) {
         throw new IllegalArgumentException("Unrecognized parameter: " + arguments);

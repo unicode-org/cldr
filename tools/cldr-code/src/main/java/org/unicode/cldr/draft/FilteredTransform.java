@@ -6,7 +6,6 @@ import com.ibm.icu.text.StringTransform;
  * Immutable filtered transform
  *
  * @author markdavis
- *
  */
 public abstract class FilteredTransform implements StringTransform {
     private final StringTransform transform;
@@ -34,11 +33,9 @@ public abstract class FilteredTransform implements StringTransform {
         return result.toString();
     }
 
-    abstract protected boolean getNextRegion(String text, int[] startEnd);
+    protected abstract boolean getNextRegion(String text, int[] startEnd);
 
-    /**
-     * Subclasses will modify
-     */
+    /** Subclasses will modify */
     @Override
     public String toString() {
         return transform.toString();

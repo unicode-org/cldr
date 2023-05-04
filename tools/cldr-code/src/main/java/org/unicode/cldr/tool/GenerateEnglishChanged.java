@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +14,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -20,30 +23,31 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.text.UnicodeSet;
-
 public class GenerateEnglishChanged {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final File TRUNK_DIRECTORY = new File(CLDRPaths.BASE_DIRECTORY);
-// TODO
-    private static final File RELEASE_DIRECTORY = new File(CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.LAST_RELEASE_VERSION + ".0" + "/");
-private static final boolean TRIAL = false;
+    // TODO
+    private static final File RELEASE_DIRECTORY =
+            new File(
+                    CLDRPaths.ARCHIVE_DIRECTORY
+                            + "cldr-"
+                            + ToolConstants.LAST_RELEASE_VERSION
+                            + ".0"
+                            + "/");
+    private static final boolean TRIAL = false;
 
     public static void main(String[] args) {
-        String[] base = { "common" };
-        File[] addStandardSubdirectories = CLDR_CONFIG.addStandardSubdirectories(
-            CLDR_CONFIG.fileArrayFromStringArray(
-                TRUNK_DIRECTORY, base));
+        String[] base = {"common"};
+        File[] addStandardSubdirectories =
+                CLDR_CONFIG.addStandardSubdirectories(
+                        CLDR_CONFIG.fileArrayFromStringArray(TRUNK_DIRECTORY, base));
 
         Factory factoryTrunk = SimpleFactory.make(addStandardSubdirectories, ".*");
         CLDRFile englishTrunk = factoryTrunk.make("en", true);
 
-        addStandardSubdirectories = CLDR_CONFIG.addStandardSubdirectories(
-            CLDR_CONFIG.fileArrayFromStringArray(
-                RELEASE_DIRECTORY, base));
+        addStandardSubdirectories =
+                CLDR_CONFIG.addStandardSubdirectories(
+                        CLDR_CONFIG.fileArrayFromStringArray(RELEASE_DIRECTORY, base));
 
         Factory factoryLastRelease = SimpleFactory.make(addStandardSubdirectories, ".*");
         CLDRFile englishLastRelease = factoryLastRelease.make("en", true);
@@ -56,7 +60,7 @@ private static final boolean TRIAL = false;
         starrer.setSubstitutionPattern(placeholder);
 
         Set<String> abbreviatedPaths = new LinkedHashSet<>();
-        Multimap<String,List<String>> pathsDiffer = LinkedHashMultimap.create();
+        Multimap<String, List<String>> pathsDiffer = LinkedHashMultimap.create();
         for (String path : paths) {
             String valueTrunk = englishTrunk.getStringValue(path);
             if (valueTrunk == null) { // new, handled otherwise
@@ -74,7 +78,7 @@ private static final boolean TRIAL = false;
                 abbreviatedPaths.add(abbrPath);
                 String starred = starrer.set(abbrPath);
                 pathsDiffer.put(starred, ImmutableList.copyOf(starrer.getAttributes()));
-                //System.out.println(path + " => " + abbrPath);
+                // System.out.println(path + " => " + abbrPath);
             }
         }
 
@@ -114,28 +118,33 @@ private static final boolean TRIAL = false;
                     for (String attrValue : attrValues) {
                         alphabet.addAll(attrValue);
                     }
-                    //System.out.println(alphabet.toPattern(false));
-                    String compressed = MinimizeRegex.compressWith(attrValues, alphabet);// (attrValues, alphabet);
-                    //String compressed = MinimizeRegex.simplePattern(attrValues);// (attrValues, alphabet);
+                    // System.out.println(alphabet.toPattern(false));
+                    String compressed =
+                            MinimizeRegex.compressWith(
+                                    attrValues, alphabet); // (attrValues, alphabet);
+                    // String compressed = MinimizeRegex.simplePattern(attrValues);// (attrValues,
+                    // alphabet);
                     path = path.replaceFirst(placeholder, "(" + compressed + ")");
                 }
                 multipath += "|" + path;
-
 
                 System.out.println(path);
             }
             multipath += ")";
             Pattern pathPattern = Pattern.compile(multipath);
         }
-        //System.out.println(compressed);
+        // System.out.println(compressed);
     }
 
-    static Matcher partToRemove = Pattern.compile("("
-        + "\\[@type=\"tts\"]"
-        + "|/listPatternPart\\[@type=\"[^\"]*\"]"
-        + "|/displayName"
-        + "|/unitPattern\\[@count=\"[^\"]*\"]"
-        + ")$").matcher("");
+    static Matcher partToRemove =
+            Pattern.compile(
+                            "("
+                                    + "\\[@type=\"tts\"]"
+                                    + "|/listPatternPart\\[@type=\"[^\"]*\"]"
+                                    + "|/displayName"
+                                    + "|/unitPattern\\[@count=\"[^\"]*\"]"
+                                    + ")$")
+                    .matcher("");
 
     private static String abbreviatePath(String path) {
         String result = partToRemove.reset(path).replaceAll("");

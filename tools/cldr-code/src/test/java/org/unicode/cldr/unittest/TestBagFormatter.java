@@ -8,6 +8,11 @@ package org.unicode.cldr.unittest;
 
 // TODO integrate this into the test framework
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.Collator;
@@ -16,17 +21,10 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.props.BagFormatter;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 import org.unicode.cldr.util.props.UnicodeProperty;
-
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
 
 // TODO change to use test framework
 public class TestBagFormatter {
@@ -64,7 +62,8 @@ public class TestBagFormatter {
                 Iterator it2 = values.iterator();
                 while (it2.hasNext()) {
                     String valueAlias = (String) it2.next();
-                    System.out.println("\t" + bf.join(valueAlias + "\t" + up.getValueAliases(valueAlias)));
+                    System.out.println(
+                            "\t" + bf.join(valueAlias + "\t" + up.getValueAliases(valueAlias)));
                 }
             }
         }
@@ -85,7 +84,7 @@ public class TestBagFormatter {
     public static void main(String[] args) throws Exception {
         System.out.println("Start");
         try {
-            //readCharacters();
+            // readCharacters();
             UnicodeProperty prop = ICUPropertyFactory.make().getProperty("Canonicalcombiningclass");
             prop.getAvailableValues();
 
@@ -111,24 +110,24 @@ public class TestBagFormatter {
             bf.showSetNames(FileUtilities.CONSOLE, us);
 
             if (true) return;
-            //showNames("Name", ".*MARK.*");
-            //showNames("NFD", "a.+");
-            //showNames("NFD", false);
-            //showNames("Lowercase_Mapping", false);
-            //TestUnicodePropertySource.test(true);
-            //showNames(".*\\ \\-.*");
+            // showNames("Name", ".*MARK.*");
+            // showNames("NFD", "a.+");
+            // showNames("NFD", false);
+            // showNames("Lowercase_Mapping", false);
+            // TestUnicodePropertySource.test(true);
+            // showNames(".*\\ \\-.*");
 
-            //checkHTML();
-            //testIsRTL();
+            // checkHTML();
+            // testIsRTL();
 
-            //TestTokenizer.test();
-            //RandomCollator.generate("collationTest.txt", null);
+            // TestTokenizer.test();
+            // RandomCollator.generate("collationTest.txt", null);
 
-            //TestPick.test();
-            //printRandoms();
-            //if (true) return;
-            //testLocales();
-            //if (true) return;
+            // TestPick.test();
+            // printRandoms();
+            // if (true) return;
+            // testLocales();
+            // if (true) return;
             /*
             TestCollator tc = new TestCollator();
             tc.test(RuleBasedCollator.getInstance(),1000);
@@ -144,7 +143,6 @@ public class TestBagFormatter {
         } finally {
             System.out.println("End");
         }
-
     }
 
     static void testLocales() throws IOException {
@@ -156,13 +154,9 @@ public class TestBagFormatter {
             String country = locales[i].getCountry();
             String dcountry = locales[i].getDisplayCountry();
             if (country.equals("")) continue;
-            s.add(""
-                + "\t" + dcountry
-                + "\t" + country
-                + "\t" + dlang
-                + "\t" + lang);
+            s.add("" + "\t" + dcountry + "\t" + country + "\t" + dlang + "\t" + lang);
         }
-        //CollectionFormatter cf = new CollectionFormatter();
+        // CollectionFormatter cf = new CollectionFormatter();
         PrintWriter pw = FileUtilities.openUTF8Writer("", "countries.txt");
         Iterator it = s.iterator();
         while (it.hasNext()) {
@@ -177,7 +171,7 @@ public class TestBagFormatter {
     /*    static final double LOG10 = Math.log(10);
     public static void useSignificantDigits(double value, int digits) {
         double log10 = Math.log(value)/LOG10; // log[e]
-        
+
     }*/
 
     static final UnicodeSet RTL = new UnicodeSet("[[:L:]&[[:bidi class=R:][:bidi class=AL:]]]");
@@ -186,8 +180,11 @@ public class TestBagFormatter {
         // in 2.8 we can use the exemplar characters, but for 2.6 we have to work around it
         int[] scripts = UScript.getCode(loc);
         return new UnicodeSet()
-            .applyIntPropertyValue(UProperty.SCRIPT, scripts == null ? UScript.LATIN : scripts[0])
-            .retainAll(RTL).size() != 0;
+                        .applyIntPropertyValue(
+                                UProperty.SCRIPT, scripts == null ? UScript.LATIN : scripts[0])
+                        .retainAll(RTL)
+                        .size()
+                != 0;
     }
 
     static void testIsRTL() {
@@ -202,20 +199,19 @@ public class TestBagFormatter {
         }
     }
 
-    static final Transliterator toHTML = Transliterator.createFromRules(
-        "any-html",
-        "'<' > '&lt;' ;" +
-            "'&' > '&amp;' ;" +
-            "'>' > '&gt;' ;" +
-            "'\"' > '&quot;' ; ",
-        Transliterator.FORWARD);
-    static final Transliterator fromHTML = Transliterator.createFromRules(
-        "html-any",
-        "'<' < '&'[lL][Tt]';' ;" +
-            "'&' < '&'[aA][mM][pP]';' ;" +
-            "'>' < '&'[gG][tT]';' ;" +
-            "'\"' < '&'[qQ][uU][oO][tT]';' ; ",
-        Transliterator.REVERSE);
+    static final Transliterator toHTML =
+            Transliterator.createFromRules(
+                    "any-html",
+                    "'<' > '&lt;' ;" + "'&' > '&amp;' ;" + "'>' > '&gt;' ;" + "'\"' > '&quot;' ; ",
+                    Transliterator.FORWARD);
+    static final Transliterator fromHTML =
+            Transliterator.createFromRules(
+                    "html-any",
+                    "'<' < '&'[lL][Tt]';' ;"
+                            + "'&' < '&'[aA][mM][pP]';' ;"
+                            + "'>' < '&'[gG][tT]';' ;"
+                            + "'\"' < '&'[qQ][uU][oO][tT]';' ; ",
+                    Transliterator.REVERSE);
 
     static void checkHTML() {
         String foo = "& n < b < \"ab\"";
@@ -234,7 +230,7 @@ public class TestBagFormatter {
             .getPropertySet(matches, null);
         System.out.println(bf.showSetNames(propAlias + " with " + matches, stuff));
     }
-    
+
     static void showNames(String propAlias, String pattern) {
         BagFormatter bf = new BagFormatter();
         UnicodeSet stuff;

@@ -20,8 +20,11 @@ public final class Keyboard {
     private final ImmutableSortedSet<Transform> transforms;
     private volatile KeyMap baseMap;
 
-    private Keyboard(KeyboardId keyboardId, ImmutableList<String> names,
-        ImmutableSortedSet<KeyMap> keyMaps, ImmutableSortedSet<Transform> transforms) {
+    private Keyboard(
+            KeyboardId keyboardId,
+            ImmutableList<String> names,
+            ImmutableSortedSet<KeyMap> keyMaps,
+            ImmutableSortedSet<Transform> transforms) {
         this.keyboardId = checkNotNull(keyboardId);
         this.names = checkNotNull(names);
         this.keyMaps = checkNotNull(keyMaps);
@@ -32,8 +35,11 @@ public final class Keyboard {
      * Creates a keyboard given an identifier, a list of platform given names, key maps and
      * transforms.
      */
-    public static Keyboard of(KeyboardId keyboardId, ImmutableList<String> names,
-        ImmutableSortedSet<KeyMap> keyMaps, ImmutableSortedSet<Transform> transforms) {
+    public static Keyboard of(
+            KeyboardId keyboardId,
+            ImmutableList<String> names,
+            ImmutableSortedSet<KeyMap> keyMaps,
+            ImmutableSortedSet<Transform> transforms) {
         return new Keyboard(keyboardId, names, keyMaps, transforms);
     }
 
@@ -73,8 +79,10 @@ public final class Keyboard {
         }
         if (o instanceof Keyboard) {
             Keyboard other = (Keyboard) o;
-            return keyboardId.equals(other.keyboardId) && names.equals(other.names)
-                && keyMaps.equals(other.keyMaps) && transforms.equals(other.transforms);
+            return keyboardId.equals(other.keyboardId)
+                    && names.equals(other.names)
+                    && keyMaps.equals(other.keyMaps)
+                    && transforms.equals(other.transforms);
         }
         return false;
     }
@@ -87,10 +95,10 @@ public final class Keyboard {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("keyboardIds", keyboardId)
-            .add("names", names)
-            .add("keyMaps", keyMaps)
-            .add("transforms", transforms)
-            .toString();
+                .add("keyboardIds", keyboardId)
+                .add("names", names)
+                .add("keyMaps", keyMaps)
+                .add("transforms", transforms)
+                .toString();
     }
 }

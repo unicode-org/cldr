@@ -1,10 +1,8 @@
 /**
- *******************************************************************************
- * Copyright (C) 2012 International Business Machines Corporation and          *
- * others. All Rights Reserved.                                                *
- *******************************************************************************
+ * ****************************************************************************** Copyright (C) 2012
+ * International Business Machines Corporation and * others. All Rights Reserved. *
+ * ******************************************************************************
  */
-
 package org.unicode.cldr.util;
 
 import java.util.Hashtable;
@@ -15,20 +13,18 @@ import java.util.function.Predicate;
 /**
  * Debugging utility.
  *
- * A StackTracker tracks which stack frame various objects were created from.
- * For example, call add() and remove() alongside some cache, and then StackTracker's toString() will
- * print out the stack frame of all adds() not balanced by remove().
+ * <p>A StackTracker tracks which stack frame various objects were created from. For example, call
+ * add() and remove() alongside some cache, and then StackTracker's toString() will print out the
+ * stack frame of all adds() not balanced by remove().
  *
- * Objects must be Comparable.
+ * <p>Objects must be Comparable.
  *
- * Example use is in the main() at the bottom. Outputs:
+ * <p>Example use is in the main() at the bottom. Outputs:
  *
- * "{StackTracker:
- * Held Obj #1/2: the
+ * <p>"{StackTracker: Held Obj #1/2: the
  * org.unicode.cldr.util.StackTracker.currentStack(StackTracker.java:92)
  * org.unicode.cldr.util.StackTracker.add(StackTracker.java:34)
- * org.unicode.cldr.util.StackTracker.main(StackTracker.java:118)
- * ...}"
+ * org.unicode.cldr.util.StackTracker.main(StackTracker.java:118) ...}"
  *
  * @author srl
  */
@@ -59,8 +55,7 @@ public class StackTracker implements Iterable<Object> {
      * internal - convert a stack to string
      *
      * @param stackTrace
-     * @param skip
-     *            start at this index (skip the top stuff)
+     * @param skip start at this index (skip the top stuff)
      * @return
      */
     public static String stackToString(StackTraceElement[] stackTrace, int skip) {
@@ -72,7 +67,8 @@ public class StackTracker implements Iterable<Object> {
     }
 
     /**
-     * Get this tracker as a string. Prints any leaked objects, and the stack frame of where they were constructed.
+     * Get this tracker as a string. Prints any leaked objects, and the stack frame of where they
+     * were constructed.
      */
     @Override
     public String toString() {
@@ -91,9 +87,7 @@ public class StackTracker implements Iterable<Object> {
         return sb.toString();
     }
 
-    /**
-     * Purges all held objects.
-     */
+    /** Purges all held objects. */
     public void clear() {
         stacks.clear();
     }
@@ -110,8 +104,7 @@ public class StackTracker implements Iterable<Object> {
     /**
      * Convenience function, gets the current element
      *
-     * @param stacks
-     *            to skip - 0 for immediate caller, 1, etc
+     * @param stacks to skip - 0 for immediate caller, 1, etc
      */
     public static StackTraceElement currentElement(int skip) {
         return Thread.currentThread().getStackTrace()[3 + skip];
@@ -119,16 +112,15 @@ public class StackTracker implements Iterable<Object> {
 
     /**
      * Return the 'calling' element, skipping
+     *
      * @param matchFirst matching predicate
-     * @return first matching stack. If none match, return currentElement(0)
-     * Example: to skip callers in my own class:
-     * currentElement(
-     *  (StackTraceElement s) ->
-     *    !s.getClassName().equals(MyClass.class.getName()));
+     * @return first matching stack. If none match, return currentElement(0) Example: to skip
+     *     callers in my own class: currentElement( (StackTraceElement s) ->
+     *     !s.getClassName().equals(MyClass.class.getName()));
      */
     public static StackTraceElement firstCallerMatching(Predicate<StackTraceElement> matchFirst) {
         final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
-        for (int i=3; i<stacks.length; i++) {
+        for (int i = 3; i < stacks.length; i++) {
             if (matchFirst.test(stacks[i])) {
                 return stacks[i];
             }
@@ -137,16 +129,13 @@ public class StackTracker implements Iterable<Object> {
     }
 
     /**
-     *
      * @return true if there are no held objects
      */
     public boolean isEmpty() {
         return stacks.isEmpty();
     }
 
-    /**
-     * Iterate over held objects.
-     */
+    /** Iterate over held objects. */
     @Override
     public Iterator<Object> iterator() {
         return stacks.keySet().iterator();
@@ -155,8 +144,7 @@ public class StackTracker implements Iterable<Object> {
     /**
      * Example use.
      *
-     * @param args
-     *            ignored
+     * @param args ignored
      */
     public static void main(String args[]) {
         StackTracker tracker = new StackTracker();

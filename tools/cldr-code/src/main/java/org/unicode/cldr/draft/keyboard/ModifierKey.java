@@ -15,21 +15,31 @@ import com.google.common.collect.Maps;
  * the behavior of the keyboard. For example, pressing the Shift key on most Latin keyboards
  * produces upper-case variants of the characters.
  *
- * <p>
- * It is important NOT to change the ordering of the declared enum members because this enumeration
- * is used for sorting purposes.
+ * <p>It is important NOT to change the ordering of the declared enum members because this
+ * enumeration is used for sorting purposes.
  */
 public enum ModifierKey {
-    COMMAND(Variant.NONE, "cmd"), CONTROL(Variant.PARENT, "ctrl"), CONTROL_LEFT(Variant.LEFT, "ctrl"), CONTROL_RIGHT(Variant.RIGHT, "ctrl"), ALT(Variant.PARENT,
-        "alt"), ALT_LEFT(Variant.LEFT, "alt"), ALT_RIGHT(Variant.RIGHT, "alt"), OPTION(Variant.PARENT, "opt"), OPTION_LEFT(Variant.LEFT, "opt"), OPTION_RIGHT(
-            Variant.RIGHT,
-            "opt"), CAPSLOCK(Variant.NONE, "caps"), SHIFT(Variant.PARENT, "shift"), SHIFT_LEFT(Variant.LEFT, "shift"), SHIFT_RIGHT(Variant.RIGHT, "shift");
+    COMMAND(Variant.NONE, "cmd"),
+    CONTROL(Variant.PARENT, "ctrl"),
+    CONTROL_LEFT(Variant.LEFT, "ctrl"),
+    CONTROL_RIGHT(Variant.RIGHT, "ctrl"),
+    ALT(Variant.PARENT, "alt"),
+    ALT_LEFT(Variant.LEFT, "alt"),
+    ALT_RIGHT(Variant.RIGHT, "alt"),
+    OPTION(Variant.PARENT, "opt"),
+    OPTION_LEFT(Variant.LEFT, "opt"),
+    OPTION_RIGHT(Variant.RIGHT, "opt"),
+    CAPSLOCK(Variant.NONE, "caps"),
+    SHIFT(Variant.PARENT, "shift"),
+    SHIFT_LEFT(Variant.LEFT, "shift"),
+    SHIFT_RIGHT(Variant.RIGHT, "shift");
 
     // Map of modifier key identifiers (obtained by calling toString()) to the modifier key itself.
-    private static final ImmutableMap<String, ModifierKey> STRING_TO_MODIFIER_KEY = Maps.uniqueIndex(
-        Lists.newArrayList(ModifierKey.values()), Functions.toStringFunction());
-    private static final ImmutableSet<ModifierKey> PARENTS = ImmutableSet.of(CONTROL, ALT, OPTION,
-        SHIFT);
+    private static final ImmutableMap<String, ModifierKey> STRING_TO_MODIFIER_KEY =
+            Maps.uniqueIndex(
+                    Lists.newArrayList(ModifierKey.values()), Functions.toStringFunction());
+    private static final ImmutableSet<ModifierKey> PARENTS =
+            ImmutableSet.of(CONTROL, ALT, OPTION, SHIFT);
     private static final ImmutableSet<ModifierKey> SINGLES = ImmutableSet.of(COMMAND, CAPSLOCK);
 
     private final Variant variant;
@@ -80,14 +90,16 @@ public enum ModifierKey {
     }
 
     /**
-     * Returns the children of this key. For example if this key is ctrl, return both ctrlL and ctrlR.
-     * If this is not a parent key, returns an empty list. The left key is always returned first.
+     * Returns the children of this key. For example if this key is ctrl, return both ctrlL and
+     * ctrlR. If this is not a parent key, returns an empty list. The left key is always returned
+     * first.
      */
     public ImmutableList<ModifierKey> children() {
         if (variant != Variant.PARENT) {
             return ImmutableList.of();
         }
-        return ImmutableList.of(fromString(keyType + Variant.LEFT), fromString(keyType + Variant.RIGHT));
+        return ImmutableList.of(
+                fromString(keyType + Variant.LEFT), fromString(keyType + Variant.RIGHT));
     }
 
     @Override
@@ -97,7 +109,10 @@ public enum ModifierKey {
 
     /** The variant of the key. */
     private static enum Variant {
-        PARENT(""), LEFT("L"), RIGHT("R"), NONE("");
+        PARENT(""),
+        LEFT("L"),
+        RIGHT("R"),
+        NONE("");
 
         final String value;
 
@@ -106,8 +121,8 @@ public enum ModifierKey {
         }
 
         /**
-         * Return the opposite variant. Only applicable to the left and right variants. Returns itself
-         * otherwise.
+         * Return the opposite variant. Only applicable to the left and right variants. Returns
+         * itself otherwise.
          */
         Variant opposite() {
             return this == LEFT ? RIGHT : this == RIGHT ? LEFT : this;

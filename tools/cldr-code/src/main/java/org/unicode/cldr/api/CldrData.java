@@ -3,18 +3,17 @@ package org.unicode.cldr.api;
 import java.util.function.Consumer;
 
 /**
- * An immutable, reusable CLDR data instance on which visitors can be accepted to process paths
- * and values, or for which values can be looked up by their corresponding distinguishing path.
+ * An immutable, reusable CLDR data instance on which visitors can be accepted to process paths and
+ * values, or for which values can be looked up by their corresponding distinguishing path.
  */
 public interface CldrData {
     /**
-     * Accepts the given visitor over all path/value pairs of this CLDR data instance. Note
-     * that value visitors only visit complete "leaf" paths which have associated values, and
-     * never see partial prefix paths.
+     * Accepts the given visitor over all path/value pairs of this CLDR data instance. Note that
+     * value visitors only visit complete "leaf" paths which have associated values, and never see
+     * partial prefix paths.
      *
-     * <p>Since a value visitor never sees partial path prefixes, a value visitor can never
-     * defer to a prefix visitor (since there's nothing "below" the paths that a value
-     * visitor visits).
+     * <p>Since a value visitor never sees partial path prefixes, a value visitor can never defer to
+     * a prefix visitor (since there's nothing "below" the paths that a value visitor visits).
      *
      * @param order the order in which visitation should occur.
      * @param visitor the visitor to process CLDR data.
@@ -22,17 +21,17 @@ public interface CldrData {
     void accept(PathOrder order, ValueVisitor visitor);
 
     /**
-     * Accepts the given visitor over all partial path prefixes of this CLDR data instance.
-     * Note that, on its own, this visitor will never see CDLR values, or even complete paths.
-     * It only sees the prefix paths under which values can exist.
+     * Accepts the given visitor over all partial path prefixes of this CLDR data instance. Note
+     * that, on its own, this visitor will never see CDLR values, or even complete paths. It only
+     * sees the prefix paths under which values can exist.
      *
      * <p>Typically an instance of a {@link PrefixVisitor} would by used to identify a specific
-     * sub-hierarchy of data based on the prefix path, and then defer to a {@link ValueVisitor
-     * value visitor} or another {@link PrefixVisitor prefix visitor} to handle it.
+     * sub-hierarchy of data based on the prefix path, and then defer to a {@link ValueVisitor value
+     * visitor} or another {@link PrefixVisitor prefix visitor} to handle it.
      *
      * <p>Since {@link PrefixVisitor} requires that paths are visited in at least {@link
-     * PathOrder#NESTED_GROUPING nested grouping} order, the actual order of visitation may be
-     * more strict than the specified value.
+     * PathOrder#NESTED_GROUPING nested grouping} order, the actual order of visitation may be more
+     * strict than the specified value.
      *
      * @param order the order in which visitation should occur.
      * @param visitor the visitor to process CLDR data.
@@ -73,14 +72,16 @@ public interface CldrData {
          * <p>This ordering is useful for constructing nested visitors over some subset of paths
          * (e.g. processing all paths with a certain prefix consecutively).
          *
-         * <p>For example, using {@code NESTED_GROUPING} the paths {@code //a/b/c/d},
-         * {@code //a/b/e/f}, {@code //a/x/y/z} could be ordered like any of the following:
+         * <p>For example, using {@code NESTED_GROUPING} the paths {@code //a/b/c/d}, {@code
+         * //a/b/e/f}, {@code //a/x/y/z} could be ordered like any of the following:
+         *
          * <ul>
-         * <li>{@code //a/b/c/d} &lt; {@code //a/b/e/f} &lt; {@code //a/x/y/z}
-         * <li>{@code //a/b/e/f} &lt; {@code //a/b/c/d} &lt; {@code //a/x/y/z}
-         * <li>{@code //a/x/y/z} &lt; {@code //a/b/c/d} &lt; {@code //a/b/e/f}
-         * <li>{@code //a/x/y/z} &lt; {@code //a/b/e/f} &lt; {@code //a/b/c/d}
+         *   <li>{@code //a/b/c/d} &lt; {@code //a/b/e/f} &lt; {@code //a/x/y/z}
+         *   <li>{@code //a/b/e/f} &lt; {@code //a/b/c/d} &lt; {@code //a/x/y/z}
+         *   <li>{@code //a/x/y/z} &lt; {@code //a/b/c/d} &lt; {@code //a/b/e/f}
+         *   <li>{@code //a/x/y/z} &lt; {@code //a/b/e/f} &lt; {@code //a/b/c/d}
          * </ul>
+         *
          * The only disallowed ordering here is one in which {@code //a/x/y/z} lies between the
          * other paths.
          */
@@ -118,8 +119,8 @@ public interface CldrData {
              * will be called for all the values below this point in the path hierarchy, and the
              * current visitor will be automatically restored once visitation is complete.
              *
-             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the
-             *                current path prefix.
+             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the current
+             *     path prefix.
              */
             default void install(ValueVisitor visitor) {
                 install(visitor, v -> {});
@@ -130,8 +131,8 @@ public interface CldrData {
              * will be called for all the values below this point in the path hierarchy, and the
              * current visitor will be automatically restored once visitation is complete.
              *
-             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the
-             *                current path prefix.
+             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the current
+             *     path prefix.
              * @param doneHandler a handler invoked just before the visitor is uninstalled.
              */
             <T extends ValueVisitor> void install(T visitor, Consumer<T> doneHandler);
@@ -141,8 +142,8 @@ public interface CldrData {
              * will be called for all the start/end events below this point in the path hierarchy,
              * and the current visitor will be automatically restored once visitation is complete.
              *
-             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the
-             *                current path prefix.
+             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the current
+             *     path prefix.
              */
             default void install(PrefixVisitor visitor) {
                 install(visitor, v -> {});
@@ -153,8 +154,8 @@ public interface CldrData {
              * will be called for all the start/end events below this point in the path hierarchy,
              * and the current visitor will be automatically restored once visitation is complete.
              *
-             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the
-             *                current path prefix.
+             * @param visitor a visitor to process the CLDR data sub-hierarchy rooted at the current
+             *     path prefix.
              * @param doneHandler a handler invoked just before the visitor is uninstalled.
              */
             <T extends PrefixVisitor> void install(T visitor, Consumer<T> doneHandler);
@@ -169,32 +170,32 @@ public interface CldrData {
          *
          * @param prefix a path prefix processed as part of some visitation over CLDR data.
          * @param context a mechanism for installing sub-hierarchy visitors rooted at this point in
-         *                the visitation.
+         *     the visitation.
          */
         default void visitPrefixStart(CldrPath prefix, Context context) {}
 
         /**
          * Callback method invoked to signal the end of some sub-hierarchy visitation. This method
-         * is invoked exactly once for each call to {@link #visitPrefixStart(CldrPath, Context)},
-         * in the opposite "stack" order with the same path prefix. This means that if this visitor
-         * installs a sub-visitor during a call to {@code visitPrefixStart()} then the next
-         * callback made to this visitor will be a call to {@code visitPrefixEnd()} with the same
-         * path prefix.
+         * is invoked exactly once for each call to {@link #visitPrefixStart(CldrPath, Context)}, in
+         * the opposite "stack" order with the same path prefix. This means that if this visitor
+         * installs a sub-visitor during a call to {@code visitPrefixStart()} then the next callback
+         * made to this visitor will be a call to {@code visitPrefixEnd()} with the same path
+         * prefix.
          *
          * <p>A typical implementation of this method would detect the end of some expected
          * sub-visitation and do post-processing on the data.
          *
          * @param prefix a path prefix corresponding to the end of some previously started
-         *               sub-hierarchy visitation.
+         *     sub-hierarchy visitation.
          */
         default void visitPrefixEnd(CldrPath prefix) {}
 
         /**
-         * Callback method invoked for each value encountered by this visitor. This is equivalent
-         * to the {@link ValueVisitor#visit(CldrValue)} method but is not normally needed for
-         * prefix visitors (which are expected to delegate to a separate ValueVisitor). This
-         * method is useful for implementing visitors with full coverage of all paths and values
-         * in the {@link CldrData} hierarchy.
+         * Callback method invoked for each value encountered by this visitor. This is equivalent to
+         * the {@link ValueVisitor#visit(CldrValue)} method but is not normally needed for prefix
+         * visitors (which are expected to delegate to a separate ValueVisitor). This method is
+         * useful for implementing visitors with full coverage of all paths and values in the {@link
+         * CldrData} hierarchy.
          */
         default void visitValue(CldrValue value) {}
     }

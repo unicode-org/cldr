@@ -1,5 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R5;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,7 +19,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -50,7 +54,6 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
@@ -64,20 +67,17 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.XMLSource;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R5;
-import com.ibm.icu.text.UnicodeSet;
-
 public class TestCheckCLDR extends TestFmwk {
 
-    private static final boolean SHOW_LIMITED = System.getProperty("TestCheckCLDR:SHOW_LIMITED") != null;
+    private static final boolean SHOW_LIMITED =
+            System.getProperty("TestCheckCLDR:SHOW_LIMITED") != null;
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();
-    private final Set<String> eightPointLocales = new TreeSet<>(
-        Arrays.asList("ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nl no pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant".split(" ")));
+    private final Set<String> eightPointLocales =
+            new TreeSet<>(
+                    Arrays.asList(
+                            "ar ca cs da de el es fi fr he hi hr hu id it ja ko lt lv nl no pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant"
+                                    .split(" ")));
 
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);
@@ -89,17 +89,20 @@ public class TestCheckCLDR extends TestFmwk {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
                 return new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                    .setMessage("An exception {0}, and a number {1}", e,
-                        1.5);
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                        .setMessage("An exception {0}, and a number {1}", e, 1.5);
             }
         }
 
         @Override
-        public CheckCLDR handleCheck(String path, String fullPath,
-            String value, Options options, List<CheckStatus> result) {
+        public CheckCLDR handleCheck(
+                String path,
+                String fullPath,
+                String value,
+                Options options,
+                List<CheckStatus> result) {
             return null;
         }
     }
@@ -114,25 +117,27 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public static void TestCheckConsistentCasing() {
-        CheckConsistentCasing c = new CheckConsistentCasing(
-            testInfo.getCldrFactory());
+        CheckConsistentCasing c = new CheckConsistentCasing(testInfo.getCldrFactory());
         Map<String, String> options = new LinkedHashMap<>();
         List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
         for (String path : english) {
-            c.check(path, english.getFullXPath(path),
-                english.getStringValue(path), options, possibleErrors);
+            c.check(
+                    path,
+                    english.getFullXPath(path),
+                    english.getStringValue(path),
+                    options,
+                    possibleErrors);
         }
     }
 
-    /**
-     * Test the TestCache and TestResultBundle objects
-     */
+    /** Test the TestCache and TestResultBundle objects */
     public void TestTestCache() {
         String localeString = "en";
         CLDRLocale locale = CLDRLocale.getInstance(localeString);
-        CheckCLDR.Options checkCldrOptions = new Options(locale, Phase.SUBMISSION, "default", "basic");
+        CheckCLDR.Options checkCldrOptions =
+                new Options(locale, Phase.SUBMISSION, "default", "basic");
         TestCache testCache = new TestCache();
         testCache.setFactory(testInfo.getCldrFactory(), ".*");
         TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
@@ -172,22 +177,26 @@ public class TestCheckCLDR extends TestFmwk {
          * On one occasion, smoketest had times 171.0 and 5.0.
          */
         if (deltaTime[1] > deltaTime[0] / 10) {
-            errln("TestResultBundle cache should yield more benefit: times " + deltaTime[0] +  " and " + deltaTime[1]);
+            errln(
+                    "TestResultBundle cache should yield more benefit: times "
+                            + deltaTime[0]
+                            + " and "
+                            + deltaTime[1]);
         }
     }
 
-    /**
-     * Test the "collisionless" error/warning messages.
-     */
+    /** Test the "collisionless" error/warning messages. */
+    public static final String INDIVIDUAL_TESTS =
+            ".*(CheckCasing|CheckCurrencies|CheckDates|CheckExemplars|CheckForCopy|CheckForExemplars|CheckMetazones|CheckNumbers)";
 
-    public static final String INDIVIDUAL_TESTS = ".*(CheckCasing|CheckCurrencies|CheckDates|CheckExemplars|CheckForCopy|CheckForExemplars|CheckMetazones|CheckNumbers)";
     static final Factory factory = testInfo.getCldrFactory();
     static final CLDRFile english = testInfo.getEnglish();
 
     private static final boolean DEBUG = true;
 
     static final Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
-    static final Factory cldrFactoryWithSeed = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+    static final Factory cldrFactoryWithSeed =
+            CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
 
     public void testPlaceholderSamples() {
         CLDRFile root = cldrFactory.make("root", true);
@@ -196,36 +205,119 @@ public class TestCheckCLDR extends TestFmwk {
             // test edge cases
             // locale, path, value, 0..n Subtype errors
             {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{0}", "missingPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "huh?{1}", "missingPlaceholders", "gapsInPlaceholderNumbers"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{2}", "extraPlaceholders"},
-            {"en", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern", "{0}huh?{1}{0}", "duplicatePlaceholders"},
-
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la e à droite.", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]", "Prenez la {0}e à droite."},
-
-            {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "jours", "missingPlaceholders"},
+            {
+                "en",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "huh?",
+                "missingPlaceholders"
+            },
+            {
+                "en",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "huh?{0}",
+                "missingPlaceholders"
+            },
+            {
+                "en",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "huh?{1}",
+                "missingPlaceholders",
+                "gapsInPlaceholderNumbers"
+            },
+            {
+                "en",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "{0}huh?{1}{2}",
+                "extraPlaceholders"
+            },
+            {
+                "en",
+                "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+                "{0}huh?{1}{0}",
+                "duplicatePlaceholders"
+            },
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]",
+                "Prenez la e à droite.",
+                "missingPlaceholders"
+            },
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]",
+                "Prenez la {0}e à droite."
+            },
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
+                "jours",
+                "missingPlaceholders"
+            },
             {"fr", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} jours"},
-
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "ci cath", "missingPlaceholders"},
+            {
+                "cy",
+                "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
+                "ci cath",
+                "missingPlaceholders"
+            },
             {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci"},
-            {"cy", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "{0} ci, {0} cath"},
-
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "biernik", "missingPlaceholders"},
-            {"pl", "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]", "{0} biernik"},
-
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin", "missingPlaceholders"},
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "la {0}"},
-
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "ساعة"},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{0} ساعة"},
-            {"ar", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]", "{1}{0} ساعة", "extraPlaceholders"},
-
+            {
+                "cy",
+                "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
+                "{0} ci, {0} cath"
+            },
+            {
+                "pl",
+                "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]",
+                "biernik",
+                "missingPlaceholders"
+            },
+            {
+                "pl",
+                "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"accusative\"]",
+                "{0} biernik"
+            },
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
+                "de genre féminin",
+                "missingPlaceholders"
+            },
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
+                "la {0}"
+            },
+            {
+                "ar",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]",
+                "ساعة"
+            },
+            {
+                "ar",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]",
+                "{0} ساعة"
+            },
+            {
+                "ar",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]",
+                "{1}{0} ساعة",
+                "extraPlaceholders"
+            },
             {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"one\"]", "שנה"},
             {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"two\"]", "שנתיים"},
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"many\"]", "שנה", "missingPlaceholders"},
-            {"he", "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]", "שנים", "missingPlaceholders"},
+            {
+                "he",
+                "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"many\"]",
+                "שנה",
+                "missingPlaceholders"
+            },
+            {
+                "he",
+                "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
+                "שנים",
+                "missingPlaceholders"
+            },
         };
         for (String[] row : tests) {
             String localeId = row[0];
@@ -240,7 +332,7 @@ public class TestCheckCLDR extends TestFmwk {
             Set<Subtype> actual = new TreeSet<>();
             for (CheckStatus item : possibleErrors) {
                 if (PatternPlaceholders.PLACEHOLDER_SUBTYPES.contains(item.getSubtype())) {
-                    actual .add(item.getSubtype());
+                    actual.add(item.getSubtype());
                 }
             }
             if (!assertEquals(Arrays.asList(row).toString(), expected, actual)) {
@@ -249,7 +341,12 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
-    public void checkPathValue(CLDRFile root, String localeId, String path, String value, List<CheckStatus> possibleErrors) {
+    public void checkPathValue(
+            CLDRFile root,
+            String localeId,
+            String path,
+            String value,
+            List<CheckStatus> possibleErrors) {
         XMLSource localeSource = new SimpleXMLSource(localeId);
         localeSource.putValueAtPath(path, value);
 
@@ -258,7 +355,7 @@ public class TestCheckCLDR extends TestFmwk {
         CheckForExemplars check = new CheckForExemplars(currFactory);
 
         Options options = new Options();
-        check.setCldrFileToCheck(cldrFile , options, possibleErrors);
+        check.setCldrFileToCheck(cldrFile, options, possibleErrors);
         check.handleCheck(path, path, value, options, possibleErrors);
     }
 
@@ -277,11 +374,11 @@ public class TestCheckCLDR extends TestFmwk {
         // patterns when given "?"
         //
         // For the following: traditional placeholders just have {0}, {1}, {2}, ...
-        // But personName namePattern placeHolders start with [a-z], then continue with [0-9a-zA-Z-]+
+        // But personName namePattern placeHolders start with [a-z], then continue with
+        // [0-9a-zA-Z-]+
         // They need to be distinguished from non-placeholder patterns using {} in UnicodeSets
         Matcher messagePlaceholder = CheckForExemplars.PLACEHOLDER.matcher("");
-        PatternPlaceholders patternPlaceholders = PatternPlaceholders
-            .getInstance();
+        PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
 
         CheckCLDR test = CheckCLDR.getCheckAll(factory, ".*");
         List<CheckStatus> possibleErrors = new ArrayList<>();
@@ -295,7 +392,8 @@ public class TestCheckCLDR extends TestFmwk {
             sorted.add(pathHeaderFactory.fromPath(path));
         }
         // test actual example with count=<digits>
-        final String testPath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"1\"]";
+        final String testPath =
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"1\"]";
         sorted.add(pathHeaderFactory.fromPath(testPath));
 
         for (PathHeader pathHeader : sorted) {
@@ -309,20 +407,31 @@ public class TestCheckCLDR extends TestFmwk {
             if (value == null) {
                 continue;
             }
-            boolean containsMessagePattern = messagePlaceholder.reset(value)
-                .find();
-            final Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders
-                .get(path);
-            final PlaceholderStatus placeholderStatus = patternPlaceholders
-                .getStatus(path);
+            boolean containsMessagePattern = messagePlaceholder.reset(value).find();
+            final Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(path);
+            final PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
             if (placeholderStatus == PlaceholderStatus.DISALLOWED) {
                 if (containsMessagePattern) {
-                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    errln(
+                            cldrFileToTest.getLocaleID()
+                                    + " Value ("
+                                    + value
+                                    + ") contains placeholder, but placeholder info = «"
+                                    + placeholderStatus
+                                    + "»\t"
+                                    + path);
                     continue;
                 }
             } else { // not disallowed
                 if (!containsMessagePattern) {
-                    errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") contains placeholder, but placeholder info = «" + placeholderStatus + "»\t" + path);
+                    errln(
+                            cldrFileToTest.getLocaleID()
+                                    + " Value ("
+                                    + value
+                                    + ") contains placeholder, but placeholder info = «"
+                                    + placeholderStatus
+                                    + "»\t"
+                                    + path);
                     continue;
                 }
                 // get the set of placeholders
@@ -332,12 +441,19 @@ public class TestCheckCLDR extends TestFmwk {
                 } while (messagePlaceholder.find());
 
                 if (!found.equals(placeholderInfo.keySet())) {
-                    if (placeholderStatus != PlaceholderStatus.LOCALE_DEPENDENT && placeholderStatus != PlaceholderStatus.OPTIONAL) {
-                        errln(cldrFileToTest.getLocaleID() + " Value (" + value + ") has different placeholders than placeholder info «" + placeholderInfo.keySet() + "»\t" + path);
+                    if (placeholderStatus != PlaceholderStatus.LOCALE_DEPENDENT
+                            && placeholderStatus != PlaceholderStatus.OPTIONAL) {
+                        errln(
+                                cldrFileToTest.getLocaleID()
+                                        + " Value ("
+                                        + value
+                                        + ") has different placeholders than placeholder info «"
+                                        + placeholderInfo.keySet()
+                                        + "»\t"
+                                        + path);
                     }
                 } else {
-                    logln("placeholder info = " + placeholderInfo + "\t"
-                        + path);
+                    logln("placeholder info = " + placeholderInfo + "\t" + path);
                 }
             }
         }
@@ -382,13 +498,13 @@ public class TestCheckCLDR extends TestFmwk {
         checkLocale(test, "ko", null, unique);
     }
 
-    public void checkLocale(CheckCLDR test, String localeID, String dummyValue,
-        Set<String> unique) {
+    public void checkLocale(
+            CheckCLDR test, String localeID, String dummyValue, Set<String> unique) {
         checkLocale(test, testInfo.getCLDRFile(localeID, false), dummyValue, unique);
     }
 
-    public void checkLocale(CheckCLDR test, CLDRFile nativeFile,
-        String dummyValue, Set<String> unique) {
+    public void checkLocale(
+            CheckCLDR test, CLDRFile nativeFile, String dummyValue, Set<String> unique) {
         String localeID = nativeFile.getLocaleID();
         List<CheckStatus> possibleErrors = new ArrayList<>();
         CheckCLDR.Options options = new CheckCLDR.Options();
@@ -412,17 +528,22 @@ public class TestCheckCLDR extends TestFmwk {
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
             // override.overridePath = path;
-            final String resolvedValue = dummyValue == null ? patched.getStringValueWithBailey(path)
-                : dummyValue;
-            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                options, result);
+            final String resolvedValue =
+                    dummyValue == null ? patched.getStringValueWithBailey(path) : dummyValue;
+            test.handleCheck(path, patched.getFullXPath(path), resolvedValue, options, result);
             if (result.size() != 0) {
                 for (CheckStatus item : result) {
-                    addExemplars(item, missingCurrencyExemplars,
-                        missingExemplars);
-                    final String mainMessage = StringId.getId(path) + "\t"
-                        + pathHeader + "\t" + english.getStringValue(path)
-                        + "\t" + item.getType() + "\t" + item.getSubtype();
+                    addExemplars(item, missingCurrencyExemplars, missingExemplars);
+                    final String mainMessage =
+                            StringId.getId(path)
+                                    + "\t"
+                                    + pathHeader
+                                    + "\t"
+                                    + english.getStringValue(path)
+                                    + "\t"
+                                    + item.getType()
+                                    + "\t"
+                                    + item.getSubtype();
                     if (unique != null) {
                         if (unique.contains(mainMessage)) {
                             continue;
@@ -430,28 +551,35 @@ public class TestCheckCLDR extends TestFmwk {
                             unique.add(mainMessage);
                         }
                     }
-                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                        + "\t" + item.getMessage() + "\t"
-                        + pathHeader.getOriginalPath());
+                    logln(
+                            localeID
+                                    + "\t"
+                                    + mainMessage
+                                    + "\t"
+                                    + resolvedValue
+                                    + "\t"
+                                    + item.getMessage()
+                                    + "\t"
+                                    + pathHeader.getOriginalPath());
                 }
             }
         }
         if (missingCurrencyExemplars.size() != 0) {
-            logln(localeID + "\tMissing Exemplars (Currency):\t"
-                + missingCurrencyExemplars.toPattern(false));
+            logln(
+                    localeID
+                            + "\tMissing Exemplars (Currency):\t"
+                            + missingCurrencyExemplars.toPattern(false));
         }
         if (missingExemplars.size() != 0) {
-            logln(localeID + "\tMissing Exemplars:\t"
-                + missingExemplars.toPattern(false));
+            logln(localeID + "\tMissing Exemplars:\t" + missingExemplars.toPattern(false));
         }
     }
 
-    void addExemplars(CheckStatus status, UnicodeSet missingCurrencyExemplars,
-        UnicodeSet missingExemplars) {
+    void addExemplars(
+            CheckStatus status, UnicodeSet missingCurrencyExemplars, UnicodeSet missingExemplars) {
         Object[] parameters = status.getParameters();
         if (parameters != null) {
-            if (parameters.length >= 1
-                && status.getCause().getClass() == CheckForExemplars.class) {
+            if (parameters.length >= 1 && status.getCause().getClass() == CheckForExemplars.class) {
                 try {
                     UnicodeSet set = new UnicodeSet(parameters[0].toString());
                     if (status.getMessage().contains("currency")) {
@@ -472,45 +600,42 @@ public class TestCheckCLDR extends TestFmwk {
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
         String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"mga\"]";
-        c.check(xpath, xpath, "Middle Irish (900-1200) ", options,
-            possibleErrors);
+        c.check(xpath, xpath, "Middle Irish (900-1200) ", options, possibleErrors);
         assertEquals("There should be an error", 1, possibleErrors.size());
 
         possibleErrors.clear();
         xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
-        c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options,
-            possibleErrors);
-        assertEquals("Currencies are allowed to have dates", 0,
-            possibleErrors.size());
+        c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
+        assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
     }
 
     /**
-     * Check that at least one path in a locale is outdated and one path is not. That may change each time.
-     * This needs to be a <locale,path> that is currently outdated (birth older than English's)
-     * if the test fails with "no failure message"
-     * run GenerateBirths (if you haven't done so)
-     * look at readable results in the log file in https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt
-     * (for the current version, not nec. 41.0)
-     * for a reasonable locale ( may change locale to something other than fr)
-     * find a path that is outdated.
-     * To work on both limited and full submissions, choose one with English = trunk
-     * Sometimes the English change is suppressed in a limited release if the change is small. Pick another in that case.
-     * check the data files to ensure that it is in fact outdated.
-     * change the path to that value
-     * the 3rd parameter is the message displayed to the user, or "" if not 'English Changed'
-     * So the first group of tests are for items that should not be outdated
-     * And the second group is ones that should be outdated.
+     * Check that at least one path in a locale is outdated and one path is not. That may change
+     * each time. This needs to be a <locale,path> that is currently outdated (birth older than
+     * English's) if the test fails with "no failure message" run GenerateBirths (if you haven't
+     * done so) look at readable results in the log file in
+     * https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt (for the current
+     * version, not nec. 41.0) for a reasonable locale ( may change locale to something other than
+     * fr) find a path that is outdated. To work on both limited and full submissions, choose one
+     * with English = trunk Sometimes the English change is suppressed in a limited release if the
+     * change is small. Pick another in that case. check the data files to ensure that it is in fact
+     * outdated. change the path to that value the 3rd parameter is the message displayed to the
+     * user, or "" if not 'English Changed' So the first group of tests are for items that should
+     * not be outdated And the second group is ones that should be outdated.
      */
     public void TestCheckNew() {
         // Not outdated
-        checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"en\"]",
-            "");
+        checkCheckNew("de", "//ldml/localeDisplayNames/languages/language[@type=\"en\"]", "");
 
         // Outdated
-        checkCheckNew("de", "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
-            "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
-        checkCheckNew("el", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"mass-grain\"]/displayName",
-            "In CLDR 40.0 the English value for this field changed from “grain” to “grains”, but the corresponding value for your locale didn't change.");
+        checkCheckNew(
+                "de",
+                "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
+                "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
+        checkCheckNew(
+                "el",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"mass-grain\"]/displayName",
+                "In CLDR 40.0 the English value for this field changed from “grain” to “grains”, but the corresponding value for your locale didn't change.");
     }
 
     public void checkCheckNew(String locale, String path, String expectedMessage) {
@@ -522,10 +647,7 @@ public class TestCheckCLDR extends TestFmwk {
         //
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
         if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
-            assertEquals(
-                title,
-                expectedMessage.isEmpty(),
-                !isOutdated);
+            assertEquals(title, expectedMessage.isEmpty(), !isOutdated);
         }
 
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
@@ -541,11 +663,7 @@ public class TestCheckCLDR extends TestFmwk {
             actualMessage = status.getMessage();
             break;
         }
-        assertEquals(
-            title,
-            expectedMessage,
-            actualMessage);
-
+        assertEquals(title, expectedMessage, actualMessage);
     }
 
     public void TestCheckNewRootFailure() {
@@ -559,11 +677,16 @@ public class TestCheckCLDR extends TestFmwk {
         for (Phase phase : Phase.values()) {
             options.put(Options.Option.phase.getKey(), phase.toString());
             String value = "E10-836";
-            // The following code used to check values of both "E10-836" and CldrUtility.INHERITANCE_MARKER="↑↑↑",
-            // but the latter does not make sense; "↑↑↑" will be followed up through its parent chain, either
-            // yielding a real value or the root value (but never "↑↑↑"). In regular CLDR data the root value will
-            // be like "E10-836" but in production data those root entreis are stripped and the root value will be
-            // null. Hence CheckNew.handleCheck only checks for entries like "E10-836", not "↑↑↑", and the test
+            // The following code used to check values of both "E10-836" and
+            // CldrUtility.INHERITANCE_MARKER="↑↑↑",
+            // but the latter does not make sense; "↑↑↑" will be followed up through its parent
+            // chain, either
+            // yielding a real value or the root value (but never "↑↑↑"). In regular CLDR data the
+            // root value will
+            // be like "E10-836" but in production data those root entreis are stripped and the root
+            // value will be
+            // null. Hence CheckNew.handleCheck only checks for entries like "E10-836", not "↑↑↑",
+            // and the test
             // should only check those as well.
             {
                 // make a fake locale, starting with real root
@@ -582,9 +705,9 @@ public class TestCheckCLDR extends TestFmwk {
                     if (status.getSubtype() == Subtype.valueMustBeOverridden) {
                         gotOne = true;
                         assertEquals(
-                            phase + " Error message check",
-                            "This value must be a real translation, NOT the name/keyword placeholder.",
-                            status.getMessage());
+                                phase + " Error message check",
+                                "This value must be a real translation, NOT the name/keyword placeholder.",
+                                status.getMessage());
                     }
                 }
                 if (!gotOne) {
@@ -603,10 +726,10 @@ public class TestCheckCLDR extends TestFmwk {
         return factory;
     }
 
-
     public void TestCheckDates() {
         CheckCLDR.setDisplayInformation(testInfo.getEnglish()); // just in case
-        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
+        String prefix =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String infix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
         String suffix = "\"]";
 
@@ -617,46 +740,103 @@ public class TestCheckCLDR extends TestFmwk {
         final String collidingValue = "foobar";
 
         // Selection has stricter collision rules, because is is used to select different messages.
-        // So two types with the same localization do collide unless they have exactly the same rules.
+        // So two types with the same localization do collide unless they have exactly the same
+        // rules.
 
         Object[][] tests = {
-            { "en" }, // set locale
+            {"en"}, // set locale
 
             // nothing collides with itself
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none },
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none },
-            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none },
-            { Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none },
-
-            { Type.format, DayPeriod.am, Type.format, DayPeriod.am, Subtype.none },
-            { Type.format, DayPeriod.pm, Type.format, DayPeriod.pm, Subtype.none },
-            { Type.format, DayPeriod.noon, Type.format, DayPeriod.noon, Subtype.none },
-            { Type.format, DayPeriod.midnight, Type.format, DayPeriod.midnight, Subtype.none },
-
-            { Type.selection, DayPeriod.night1, Type.selection, DayPeriod.night1, Subtype.none },
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.morning1, Subtype.none },
-            { Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.afternoon1, Subtype.none },
-            { Type.selection, DayPeriod.evening1, Type.selection, DayPeriod.evening1, Subtype.none },
-
-            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.am, Subtype.none },
-            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.pm, Subtype.none },
-            { Type.selection, DayPeriod.noon, Type.selection, DayPeriod.noon, Subtype.none },
-            { Type.selection, DayPeriod.midnight, Type.selection, DayPeriod.midnight, Subtype.none },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none},
+            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none},
+            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none},
+            {Type.format, DayPeriod.am, Type.format, DayPeriod.am, Subtype.none},
+            {Type.format, DayPeriod.pm, Type.format, DayPeriod.pm, Subtype.none},
+            {Type.format, DayPeriod.noon, Type.format, DayPeriod.noon, Subtype.none},
+            {Type.format, DayPeriod.midnight, Type.format, DayPeriod.midnight, Subtype.none},
+            {Type.selection, DayPeriod.night1, Type.selection, DayPeriod.night1, Subtype.none},
+            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.morning1, Subtype.none},
+            {
+                Type.selection,
+                DayPeriod.afternoon1,
+                Type.selection,
+                DayPeriod.afternoon1,
+                Subtype.none
+            },
+            {Type.selection, DayPeriod.evening1, Type.selection, DayPeriod.evening1, Subtype.none},
+            {Type.selection, DayPeriod.am, Type.selection, DayPeriod.am, Subtype.none},
+            {Type.selection, DayPeriod.pm, Type.selection, DayPeriod.pm, Subtype.none},
+            {Type.selection, DayPeriod.noon, Type.selection, DayPeriod.noon, Subtype.none},
+            {Type.selection, DayPeriod.midnight, Type.selection, DayPeriod.midnight, Subtype.none},
 
             // fixed classes always collide
-            { Type.format, DayPeriod.am, Type.format, DayPeriod.pm, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.am, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.am, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.pm, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.pm, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.noon, Type.format, DayPeriod.midnight, Subtype.dateSymbolCollision },
-
-            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.am, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.noon, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.pm, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.noon, Type.selection, DayPeriod.midnight, Subtype.dateSymbolCollision },
+            {Type.format, DayPeriod.am, Type.format, DayPeriod.pm, Subtype.dateSymbolCollision},
+            {Type.format, DayPeriod.am, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision},
+            {
+                Type.format,
+                DayPeriod.am,
+                Type.format,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
+            {Type.format, DayPeriod.pm, Type.format, DayPeriod.noon, Subtype.dateSymbolCollision},
+            {
+                Type.format,
+                DayPeriod.pm,
+                Type.format,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.format,
+                DayPeriod.noon,
+                Type.format,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.am,
+                Type.selection,
+                DayPeriod.pm,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.am,
+                Type.selection,
+                DayPeriod.noon,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.am,
+                Type.selection,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.pm,
+                Type.selection,
+                DayPeriod.noon,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.pm,
+                Type.selection,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.noon,
+                Type.selection,
+                DayPeriod.midnight,
+                Subtype.dateSymbolCollision
+            },
 
             // 00-06 night1
             // 06-12 morning1
@@ -676,32 +856,68 @@ public class TestCheckCLDR extends TestFmwk {
             // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
             // So we see if there is an overlap mod 12.
 
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none },
+            {
+                Type.format,
+                DayPeriod.night1,
+                Type.format,
+                DayPeriod.morning1,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.format,
+                DayPeriod.night1,
+                Type.format,
+                DayPeriod.afternoon1,
+                Subtype.dateSymbolCollision
+            },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
+            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {
+                Type.format,
+                DayPeriod.morning1,
+                Type.format,
+                DayPeriod.evening1,
+                Subtype.dateSymbolCollision
+            },
+            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none},
 
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none },
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision },
-
-            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none },
-
-            // Selection has stricter collision rules, because is is used to select different messages.
-            // So two types with the same localization do collide unless they have exactly the same rules.
+            // Selection has stricter collision rules, because is is used to select different
+            // messages.
+            // So two types with the same localization do collide unless they have exactly the same
+            // rules.
             // We use chr to test the "unless they have exactly the same rules" below.
 
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.night1, Subtype.dateSymbolCollision },
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
-
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none }, // morning1 and am is allowable
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.pm, Subtype.dateSymbolCollision },
-
-            { "fr" },
+            {
+                Type.selection,
+                DayPeriod.morning1,
+                Type.selection,
+                DayPeriod.night1,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection,
+                DayPeriod.morning1,
+                Type.selection,
+                DayPeriod.afternoon1,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none
+            }, // morning1 and am is allowable
+            {
+                Type.selection,
+                DayPeriod.morning1,
+                Type.selection,
+                DayPeriod.pm,
+                Subtype.dateSymbolCollision
+            },
+            {"fr"},
 
             // nothing collides with itself
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none },
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none },
-            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none },
-            { Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.night1, Subtype.none},
+            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.morning1, Subtype.none},
+            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.evening1, Type.format, DayPeriod.evening1, Subtype.none},
 
             // French has different rules
             // 00-04   night1
@@ -715,22 +931,37 @@ public class TestCheckCLDR extends TestFmwk {
             //  n  n  n  n  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  e  e  e
 
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.none },
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none },
-
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision },
-            { Type.format, DayPeriod.morning1, Type.format, DayPeriod.evening1, Subtype.dateSymbolCollision },
-
-            { Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none },
-
-            { "chr" },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.morning1, Subtype.none},
+            {
+                Type.format,
+                DayPeriod.night1,
+                Type.format,
+                DayPeriod.afternoon1,
+                Subtype.dateSymbolCollision
+            },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
+            {
+                Type.format,
+                DayPeriod.morning1,
+                Type.format,
+                DayPeriod.afternoon1,
+                Subtype.dateSymbolCollision
+            },
+            {
+                Type.format,
+                DayPeriod.morning1,
+                Type.format,
+                DayPeriod.evening1,
+                Subtype.dateSymbolCollision
+            },
+            {Type.format, DayPeriod.afternoon1, Type.format, DayPeriod.evening1, Subtype.none},
+            {"chr"},
             // Chr lets use test that same rules don't collide in selection
             // <dayPeriodRule type="morning1" from="0:00" before="12:00" />
             // <dayPeriodRule type="noon" at="12:00" />
             // <dayPeriodRule type="afternoon1" after="12:00" before="24:00" />
-            { Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none },
-            { Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.pm, Subtype.none },
+            {Type.selection, DayPeriod.morning1, Type.selection, DayPeriod.am, Subtype.none},
+            {Type.selection, DayPeriod.afternoon1, Type.selection, DayPeriod.pm, Subtype.none},
         };
         CLDRFile testFile = null;
         for (Object[] test : tests) {
@@ -767,24 +998,31 @@ public class TestCheckCLDR extends TestFmwk {
                 message = status.getMessage();
                 break;
             }
-            assertEquals(testFile.getLocaleID() + " " + type1 + "/" + period1 + " vs " + type2 + "/" + period2
-                + (message == null ? "" : " [" + message + "]"), expectedSubtype, actualSubtype);
+            assertEquals(
+                    testFile.getLocaleID()
+                            + " "
+                            + type1
+                            + "/"
+                            + period1
+                            + " vs "
+                            + type2
+                            + "/"
+                            + period2
+                            + (message == null ? "" : " [" + message + "]"),
+                    expectedSubtype,
+                    actualSubtype);
 
             testFile.remove(path1);
             testFile.remove(path2);
         }
     }
 
-    /**
-     * Should be some CLDR locales, plus a locale specially allowed in limited submission
-     */
+    /** Should be some CLDR locales, plus a locale specially allowed in limited submission */
     final List<String> localesForRowAction = ImmutableList.of("cs", "fr");
 
-    /**
-     * Needs adjustment for Limited Submission!
-     */
+    /** Needs adjustment for Limited Submission! */
     public void TestShowRowAction() {
-        Map<Key,Pair<Boolean,String>> actionToExamplePath = new TreeMap<>();
+        Map<Key, Pair<Boolean, String>> actionToExamplePath = new TreeMap<>();
         Counter<Key> counter = new Counter<>();
 
         for (String locale : localesForRowAction) {
@@ -800,7 +1038,8 @@ public class TestCheckCLDR extends TestFmwk {
             }
 
             for (Phase phase : Arrays.asList(Phase.SUBMISSION, Phase.VETTING)) {
-                for (CheckStatus.Type status : Arrays.asList(CheckStatus.warningType, CheckStatus.errorType)) {
+                for (CheckStatus.Type status :
+                        Arrays.asList(CheckStatus.warningType, CheckStatus.errorType)) {
                     dummyPathValueInfo.checkStatusType = status;
 
                     for (PathHeader ph : sorted) {
@@ -808,21 +1047,26 @@ public class TestCheckCLDR extends TestFmwk {
                         SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
                         dummyPathValueInfo.xpath = path;
                         dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
-                        StatusAction action = phase.getShowRowAction(
-                            dummyPathValueInfo,
-                            InputMethod.DIRECT,
-                            ph,
-                            dummyUserInfo);
+                        StatusAction action =
+                                phase.getShowRowAction(
+                                        dummyPathValueInfo, InputMethod.DIRECT, ph, dummyUserInfo);
 
                         if (ph.shouldHide()) {
-                            assertEquals("HIDE ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
+                            assertEquals(
+                                    "HIDE ==> FORBID_READONLY",
+                                    StatusAction.FORBID_READONLY,
+                                    action);
                         } else if (CheckCLDR.LIMITED_SUBMISSION) {
                             if (status == CheckStatus.Type.Error) {
                                 assertEquals("ERROR ==> ALLOW", StatusAction.ALLOW, action);
                             } else if (locale.equalsIgnoreCase("vo")) {
-                                assertEquals("vo ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
+                                assertEquals(
+                                        "vo ==> FORBID_READONLY",
+                                        StatusAction.FORBID_READONLY,
+                                        action);
                             } else if (dummyPathValueInfo.baselineValue == null) {
-                                if (!assertEquals("missing ==> ALLOW", StatusAction.ALLOW, action)) {
+                                if (!assertEquals(
+                                        "missing ==> ALLOW", StatusAction.ALLOW, action)) {
                                     warnln("\t\t" + locale + "\t" + ph);
                                 }
                             }
@@ -830,18 +1074,21 @@ public class TestCheckCLDR extends TestFmwk {
 
                         if (isVerbose()) {
                             Key key = new Key(locale, phase, status, surveyToolStatus, action);
-                            counter.add(key,1);
+                            counter.add(key, 1);
 
                             if (!actionToExamplePath.containsKey(key)) {
                                 // for debugging
                                 if (locale.equals("vo") && action == StatusAction.ALLOW) {
-                                    StatusAction action2 = phase.getShowRowAction(
-                                        dummyPathValueInfo,
-                                        InputMethod.DIRECT,
-                                        ph,
-                                        dummyUserInfo);
+                                    StatusAction action2 =
+                                            phase.getShowRowAction(
+                                                    dummyPathValueInfo,
+                                                    InputMethod.DIRECT,
+                                                    ph,
+                                                    dummyUserInfo);
                                 }
-                                actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.baselineValue != null, path));
+                                actionToExamplePath.put(
+                                        key,
+                                        Pair.of(dummyPathValueInfo.baselineValue != null, path));
                             }
                         }
                     }
@@ -850,7 +1097,13 @@ public class TestCheckCLDR extends TestFmwk {
         }
         if (isVerbose()) {
             for (Entry<Key, Pair<Boolean, String>> entry : actionToExamplePath.entrySet()) {
-                System.out.print("\n" + entry.getKey() + "\t" + entry.getValue().getFirst() + "\t" + entry.getValue().getSecond());
+                System.out.print(
+                        "\n"
+                                + entry.getKey()
+                                + "\t"
+                                + entry.getValue().getFirst()
+                                + "\t"
+                                + entry.getValue().getSecond());
             }
             System.out.println();
             for (R2<Long, Key> entry : counter.getEntrySetSortedByCount(false, null)) {
@@ -860,31 +1113,40 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     static class Key extends R5<Phase, CheckStatus.Type, SurveyToolStatus, StatusAction, String> {
-        public Key(String locale, Phase phase, CheckStatus.Type status, SurveyToolStatus stStatus, StatusAction action) {
+        public Key(
+                String locale,
+                Phase phase,
+                CheckStatus.Type status,
+                SurveyToolStatus stStatus,
+                StatusAction action) {
             super(phase, status, stStatus, action, locale);
         }
+
         @Override
         public String toString() {
-            return  get0() + "\t" + get1() + "\t" + get2() + "\t" + get3() + "\t" + get4();
+            return get0() + "\t" + get1() + "\t" + get2() + "\t" + get3() + "\t" + get4();
         }
     }
 
-//    private static CLDRURLS URLS = testInfo.urls();
+    //    private static CLDRURLS URLS = testInfo.urls();
 
-    private static final PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getEnglish());
+    private static final PathHeader.Factory pathHeaderFactory =
+            PathHeader.getFactory(testInfo.getEnglish());
 
-//    private static final CoverageInfo coverageInfo = new CoverageInfo(testInfo.getSupplementalDataInfo());
+    //    private static final CoverageInfo coverageInfo = new
+    // CoverageInfo(testInfo.getSupplementalDataInfo());
 
-    private static final VoterInfo dummyVoterInfo = new VoterInfo(Organization.cldr,
-        org.unicode.cldr.util.VoteResolver.Level.vetter,
-        "somename");
+    private static final VoterInfo dummyVoterInfo =
+            new VoterInfo(
+                    Organization.cldr, org.unicode.cldr.util.VoteResolver.Level.vetter, "somename");
 
-    private static final UserInfo dummyUserInfo = new UserInfo() {
-        @Override
-        public VoterInfo getVoterInfo() {
-            return dummyVoterInfo;
-        }
-    };
+    private static final UserInfo dummyUserInfo =
+            new UserInfo() {
+                @Override
+                public VoterInfo getVoterInfo() {
+                    return dummyVoterInfo;
+                }
+            };
 
     private static class DummyPathValueInfo implements PathValueInfo {
         private CLDRLocale locale;
@@ -892,65 +1154,73 @@ public class TestCheckCLDR extends TestFmwk {
         private String baselineValue;
         private CheckStatus.Type checkStatusType;
 
-        private CandidateInfo candidateInfo = new CandidateInfo() {
-            @Override
-            public String getValue() {
-                return null;
-            }
-            @Override
-            public Collection<UserInfo> getUsersVotingOn() {
-                throw new UnsupportedOperationException();
-            }
+        private CandidateInfo candidateInfo =
+                new CandidateInfo() {
+                    @Override
+                    public String getValue() {
+                        return null;
+                    }
 
-            @Override
-            public List<CheckStatus> getCheckStatusList() {
-                return checkStatusType == null ? Collections.emptyList()
-                    : Collections.singletonList(new CheckStatus().setMainType(checkStatusType));
-            }
+                    @Override
+                    public Collection<UserInfo> getUsersVotingOn() {
+                        throw new UnsupportedOperationException();
+                    }
 
-        };
+                    @Override
+                    public List<CheckStatus> getCheckStatusList() {
+                        return checkStatusType == null
+                                ? Collections.emptyList()
+                                : Collections.singletonList(
+                                        new CheckStatus().setMainType(checkStatusType));
+                    }
+                };
 
         @Override
         public Collection<? extends CandidateInfo> getValues() {
             throw new UnsupportedOperationException();
         }
+
         @Override
         public CandidateInfo getCurrentItem() {
             return candidateInfo;
         }
+
         @Override
         public String getBaselineValue() {
             return baselineValue;
         }
+
         @Override
         public Level getCoverageLevel() {
             return Level.MODERN;
         }
+
         @Override
         public boolean hadVotesSometimeThisRelease() {
             throw new UnsupportedOperationException();
         }
+
         @Override
         public CLDRLocale getLocale() {
             return locale;
         }
+
         @Override
         public String getXpath() {
             return xpath;
         }
     }
 
-    final Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+    final Set<String> cldrLocales =
+            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
     final Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
-    final Map<String, R2<List<String>, String>> langAliases = CLDRConfig.getInstance().getSupplementalDataInfo()
-        .getLocaleAliasInfo().get("language");
-    final Set<String> existingLocales = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
+    final Map<String, R2<List<String>, String>> langAliases =
+            CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
+    final Set<String> existingLocales =
+            CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
     final LikelySubtags likely = new LikelySubtags();
 
-    /**
-     * Simple check on locales and paths for limited submissions
-     */
-
+    /** Simple check on locales and paths for limited submissions */
     public void TestSubmissionLocales() {
 
         for (String locale : SubmissionLocales.ALLOW_ALL_PATHS_BASIC) {
@@ -962,7 +1232,9 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     /**
-     * Check that the locale is valid, that it is either in or out of allowed locales, and that the locale is not deprecated
+     * Check that the locale is valid, that it is either in or out of allowed locales, and that the
+     * locale is not deprecated
+     *
      * @param language
      * @param expectedInCLDRLocales
      */
@@ -971,7 +1243,8 @@ public class TestCheckCLDR extends TestFmwk {
         String language = ltp.getLanguage();
 
         Status status = validity.get(language);
-        assertTrue(language + " valid?", status == Status.regular); //  || status == Status.macroregion
+        assertTrue(
+                language + " valid?", status == Status.regular); //  || status == Status.macroregion
 
         final R2<List<String>, String> alias = langAliases.get(language);
         if (!assertNull(language + " language is not deprecated", alias)) {
@@ -979,7 +1252,8 @@ public class TestCheckCLDR extends TestFmwk {
         }
 
         // locale tests
-        if (!assertTrue(locale + " locale is in common or seed", existingLocales.contains(locale))) {
+        if (!assertTrue(
+                locale + " locale is in common or seed", existingLocales.contains(locale))) {
             return;
         }
         if (expectedInCLDRLocales) {
@@ -990,54 +1264,63 @@ public class TestCheckCLDR extends TestFmwk {
     final String UNIT_PATH = "//ldml/units/unitLength[@type=\"long\"]";
 
     enum LimitedStatus {
-        allowedUnitMissing, allowedUnitNotMissing, allowedOtherMissing, allowedOtherNotMissing, disallowed;
+        allowedUnitMissing,
+        allowedUnitNotMissing,
+        allowedOtherMissing,
+        allowedOtherNotMissing,
+        disallowed;
+
         static LimitedStatus of(boolean unit, boolean missing) {
-            if (unit && missing) { return allowedUnitMissing; }
-            else if (unit && !missing) { return allowedUnitNotMissing; }
-            else if (!unit && missing) { return allowedOtherMissing; }
-            else { return allowedOtherNotMissing; }
+            if (unit && missing) {
+                return allowedUnitMissing;
+            } else if (unit && !missing) {
+                return allowedUnitNotMissing;
+            } else if (!unit && missing) {
+                return allowedOtherMissing;
+            } else {
+                return allowedOtherNotMissing;
+            }
         }
     }
 
-    /**
-     * Depends on correct values in the above constants.
-     */
+    /** Depends on correct values in the above constants. */
     public void TestALLOWED_IN_LIMITED_PATHS() {
         if (!CheckCLDR.LIMITED_SUBMISSION) {
             return;
         }
 
         /**
-         * Note:  Constants moved from here to data driven test.
-         * 
-         * see org.unicode.cldr.test.TestSubmissionLocales
-         *                       and TestSubmissionLocales.csv
+         * Note: Constants moved from here to data driven test.
+         *
+         * <p>see org.unicode.cldr.test.TestSubmissionLocales and TestSubmissionLocales.csv
          */
-
         if (SHOW_LIMITED) {
             System.out.println();
             for (String locale : cldrFactoryWithSeed.getAvailable()) {
                 LanguageTagParser ltp = new LanguageTagParser();
                 if (!ltp.set(locale).getRegion().isEmpty()
-                    || !ltp.set(locale).getVariants().isEmpty()
-                    || locale.equals("root")) {
+                        || !ltp.set(locale).getVariants().isEmpty()
+                        || locale.equals("root")) {
                     continue;
                 }
                 CLDRFile cldrFile = cldrFactoryWithSeed.make(locale, false);
-                Level cldrLevel = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+                Level cldrLevel =
+                        StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
                 // patch until Rohingya is added
                 if (cldrLevel == Level.UNDETERMINED && locale.equals("rhg")) {
                     cldrLevel = Level.BASIC;
                 }
                 Counter<LimitedStatus> counter = new Counter<>();
                 for (String path : cldrFile.fullIterable()) {
-                    Level coverage = SupplementalDataInfo.getInstance().getCoverageLevel(path, locale);
+                    Level coverage =
+                            SupplementalDataInfo.getInstance().getCoverageLevel(path, locale);
                     if (coverage.compareTo(cldrLevel) > 0) {
                         continue;
                     }
                     String value = cldrFile.getStringValue(path);
                     boolean isMissing = value == null;
-                    boolean allowed = SubmissionLocales.allowEvenIfLimited(locale, path, false, isMissing);
+                    boolean allowed =
+                            SubmissionLocales.allowEvenIfLimited(locale, path, false, isMissing);
                     if (allowed) {
                         boolean isUnit = path.startsWith(UNIT_PATH);
                         counter.add(LimitedStatus.of(isUnit, isMissing), 1);
@@ -1062,8 +1345,12 @@ public class TestCheckCLDR extends TestFmwk {
         String[][] tests = {
             // test edge cases
             // locale, path, value, expected
-            {"fr", "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]", "de genre féminin",
-            "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."},
+            {
+                "fr",
+                "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
+                "de genre féminin",
+                "Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={GENDER}, e.g. “‹noun phrase in this gender›”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>."
+            },
         };
         for (String[] row : tests) {
             String localeId = row[0];
@@ -1071,7 +1358,7 @@ public class TestCheckCLDR extends TestFmwk {
             String value = row[2];
             String expected = row[3];
 
-            checkPathValue(root, localeId, path,value, possibleErrors);
+            checkPathValue(root, localeId, path, value, possibleErrors);
             for (CheckStatus error : possibleErrors) {
                 if (error.getSubtype() == Subtype.missingPlaceholders) {
                     assertEquals("message", expected, error.getMessage());
@@ -1079,6 +1366,7 @@ public class TestCheckCLDR extends TestFmwk {
             }
         }
     }
+
     public void Test14866() {
         final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
         String locale = "pl";
@@ -1090,7 +1378,8 @@ public class TestCheckCLDR extends TestFmwk {
         System.out.println("");
         Collection<PathHeader> pathHeaders = new TreeSet<>(); // new ArrayList(); //
         for (String path : pl.fullIterable()) {
-            if (path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]")) {
+            if (path.startsWith(
+                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-century\"]")) {
                 PathHeader pathHeader = PathHeader.getFactory().fromPath(path);
                 boolean added = pathHeaders.add(pathHeader);
             }
@@ -1103,15 +1392,25 @@ public class TestCheckCLDR extends TestFmwk {
             String localeFound = pl.getSourceLocaleID(path, status);
             Level level = supplementalDataInfo.getCoverageLevel(path, locale);
             logln(
-                "\n\t" + ++count  + " Locale:\t" + locale
-                + "\n\tLocaleFound:\t" + (locale.equals(localeFound) ? "«same»" : localeFound)
-                + "\n\tPathHeader:\t" + pathHeader
-                + "\n\tPath:    \t" + path
-                + "\n\tPathFound:\t" + (path.equals(status.pathWhereFound) ? "«same»" : status.pathWhereFound)
-                + "\n\tValue:\t" + value
-                + "\n\tLevel:\t" + level);
+                    "\n\t"
+                            + ++count
+                            + " Locale:\t"
+                            + locale
+                            + "\n\tLocaleFound:\t"
+                            + (locale.equals(localeFound) ? "«same»" : localeFound)
+                            + "\n\tPathHeader:\t"
+                            + pathHeader
+                            + "\n\tPath:    \t"
+                            + path
+                            + "\n\tPathFound:\t"
+                            + (path.equals(status.pathWhereFound)
+                                    ? "«same»"
+                                    : status.pathWhereFound)
+                            + "\n\tValue:\t"
+                            + value
+                            + "\n\tLevel:\t"
+                            + level);
         }
         assertEquals("right number of elements found", expectedCount, count);
     }
-
 }

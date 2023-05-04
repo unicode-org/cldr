@@ -9,13 +9,11 @@
 
 package org.unicode.cldr.posix;
 
-import java.io.PrintWriter;
-
-import org.unicode.cldr.util.CLDRFile;
-
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import java.io.PrintWriter;
+import org.unicode.cldr.util.CLDRFile;
 
 public class POSIX_LCCtype {
 
@@ -31,8 +29,9 @@ public class POSIX_LCCtype {
         UnicodeSetIterator it = new UnicodeSetIterator(ExemplarCharacters);
         while (it.next())
             if (it.codepoint != -1 && !chars.contains(it.codepoint)) {
-                System.out.println("WARNING: Target codeset does not contain exemplar character : " +
-                    POSIXUtilities.POSIXCharName(it.codepoint));
+                System.out.println(
+                        "WARNING: Target codeset does not contain exemplar character : "
+                                + POSIXUtilities.POSIXCharName(it.codepoint));
                 ExemplarError = true;
             }
 
@@ -42,7 +41,6 @@ public class POSIX_LCCtype {
         }
 
         this.chars = chars;
-
     }
 
     public void write(PrintWriter out) {
@@ -53,17 +51,21 @@ public class POSIX_LCCtype {
         out.println();
 
         String[][] types = {
-            { "upper", "[:Uppercase:]" },
-            { "lower", "[:Lowercase:]" },
-            { "alpha", "[[:Alphabetic:]-[[:Uppercase:][:Lowercase:]]]" },
-            { "space", "[:Whitespace:]" },
-            { "cntrl", "[:Control:]" },
-            { "graph", "[^[:Whitespace:][:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
-            { "print", "[^[:Control:][:Format:][:Surrogate:][:Unassigned:]]" },
-            { "punct", "[:Punctuation:]" },
-            { "digit", "[0-9]" },
-            { "xdigit", "[0-9 a-f A-F]" },
-            { "blank", "[[:Whitespace:]-[\\u000A-\\u000D \\u0085 [:Line_Separator:][:Paragraph_Separator:]]]" } };
+            {"upper", "[:Uppercase:]"},
+            {"lower", "[:Lowercase:]"},
+            {"alpha", "[[:Alphabetic:]-[[:Uppercase:][:Lowercase:]]]"},
+            {"space", "[:Whitespace:]"},
+            {"cntrl", "[:Control:]"},
+            {"graph", "[^[:Whitespace:][:Control:][:Format:][:Surrogate:][:Unassigned:]]"},
+            {"print", "[^[:Control:][:Format:][:Surrogate:][:Unassigned:]]"},
+            {"punct", "[:Punctuation:]"},
+            {"digit", "[0-9]"},
+            {"xdigit", "[0-9 a-f A-F]"},
+            {
+                "blank",
+                "[[:Whitespace:]-[\\u000A-\\u000D \\u0085 [:Line_Separator:][:Paragraph_Separator:]]]"
+            }
+        };
 
         // print character types, restricted to the charset
         int item, last;
@@ -85,16 +87,21 @@ public class POSIX_LCCtype {
         UnicodeSet lowers = new UnicodeSet(types[1][1]).retainAll(chars);
 
         UnicodeSet us = new UnicodeSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next(); ) {
             int upp = UCharacter.toUpperCase(it.codepoint);
-            if (upp != it.codepoint && chars.contains(upp) && lowers.contains(it.codepoint)) us.add(it.codepoint);
+            if (upp != it.codepoint && chars.contains(upp) && lowers.contains(it.codepoint))
+                us.add(it.codepoint);
         }
         item = 0;
         last = us.size() - 1;
         for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); ++item) {
             if (item == 0) out.print("toupper");
-            out.print("\t(" + POSIXUtilities.POSIXCharName(it.codepoint) + "," +
-                POSIXUtilities.POSIXCharName(UCharacter.toUpperCase(it.codepoint)) + ")");
+            out.print(
+                    "\t("
+                            + POSIXUtilities.POSIXCharName(it.codepoint)
+                            + ","
+                            + POSIXUtilities.POSIXCharName(UCharacter.toUpperCase(it.codepoint))
+                            + ")");
             if (item != last) out.print(";/");
             out.println("");
         }
@@ -104,16 +111,21 @@ public class POSIX_LCCtype {
 
         UnicodeSet uppers = new UnicodeSet(types[0][1]).retainAll(chars);
         us = new UnicodeSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next();) {
+        for (UnicodeSetIterator it = new UnicodeSetIterator(chars); it.next(); ) {
             int low = UCharacter.toLowerCase(it.codepoint);
-            if (low != it.codepoint && chars.contains(low) && uppers.contains(it.codepoint)) us.add(it.codepoint);
+            if (low != it.codepoint && chars.contains(low) && uppers.contains(it.codepoint))
+                us.add(it.codepoint);
         }
         item = 0;
         last = us.size() - 1;
         for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); ++item) {
             if (item == 0) out.print("tolower");
-            out.print("\t(" + POSIXUtilities.POSIXCharName(it.codepoint) + "," +
-                POSIXUtilities.POSIXCharName(UCharacter.toLowerCase(it.codepoint)) + ")");
+            out.print(
+                    "\t("
+                            + POSIXUtilities.POSIXCharName(it.codepoint)
+                            + ","
+                            + POSIXUtilities.POSIXCharName(UCharacter.toLowerCase(it.codepoint))
+                            + ")");
             if (item != last) out.print(";/");
             out.println("");
         }
@@ -123,5 +135,4 @@ public class POSIX_LCCtype {
         out.println();
         out.println();
     }
-
 }

@@ -1,12 +1,10 @@
 package org.unicode.cldr.draft;
 
-import java.util.Random;
-
-import org.unicode.cldr.util.Timer;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
+import java.util.Random;
+import org.unicode.cldr.util.Timer;
 
 public class GapStringTest extends TestFmwk {
 
@@ -25,43 +23,44 @@ public class GapStringTest extends TestFmwk {
             int randomPos = random.nextInt(b.length() + 1);
             String randomString;
             switch (random.nextInt(4)) {
-            case 0: // delete
-                int randomEnd = randomPos + random.nextInt(b.length() - randomPos + 1);
-                b.delete(randomPos, randomEnd);
-                a.delete(randomPos, randomEnd);
-                assertEqual(a, b);
-                break;
-            case 1: // insert
-                char randomChar = (char) ('a' + random.nextInt(26));
-                b.insert(randomPos, randomChar);
-                a.insert(randomPos, randomChar);
-                assertEqual(a, b);
-                break;
-            case 2: // insert string
-                randomString = getRandomString(RANDOM_STRING_LENGTH);
-                b.insert(randomPos, randomString);
-                a.insert(randomPos, randomString);
-                assertEqual(a, b);
-                break;
-            case 3: // insert char sequence (different code path)
-                StringBuffer randomStringBuffer = new StringBuffer(getRandomString(RANDOM_STRING_LENGTH));
-                b.insert(randomPos, randomStringBuffer);
-                a.insert(randomPos, randomStringBuffer);
-                assertEqual(a, b);
-                break;
-            case 4: // append string
-                randomString = getRandomString(RANDOM_STRING_LENGTH);
-                b.append(randomString);
-                a.append(randomString);
-                assertEqual(a, b);
-                break;
-
+                case 0: // delete
+                    int randomEnd = randomPos + random.nextInt(b.length() - randomPos + 1);
+                    b.delete(randomPos, randomEnd);
+                    a.delete(randomPos, randomEnd);
+                    assertEqual(a, b);
+                    break;
+                case 1: // insert
+                    char randomChar = (char) ('a' + random.nextInt(26));
+                    b.insert(randomPos, randomChar);
+                    a.insert(randomPos, randomChar);
+                    assertEqual(a, b);
+                    break;
+                case 2: // insert string
+                    randomString = getRandomString(RANDOM_STRING_LENGTH);
+                    b.insert(randomPos, randomString);
+                    a.insert(randomPos, randomString);
+                    assertEqual(a, b);
+                    break;
+                case 3: // insert char sequence (different code path)
+                    StringBuffer randomStringBuffer =
+                            new StringBuffer(getRandomString(RANDOM_STRING_LENGTH));
+                    b.insert(randomPos, randomStringBuffer);
+                    a.insert(randomPos, randomStringBuffer);
+                    assertEqual(a, b);
+                    break;
+                case 4: // append string
+                    randomString = getRandomString(RANDOM_STRING_LENGTH);
+                    b.append(randomString);
+                    a.append(randomString);
+                    assertEqual(a, b);
+                    break;
             }
         }
     }
 
     static DecimalFormat percent = (DecimalFormat) NumberFormat.getPercentInstance();
     private static Random random = new Random(0);
+
     static {
         percent.setMaximumFractionDigits(6);
         percent.setPositivePrefix("+");
@@ -80,7 +79,9 @@ public class GapStringTest extends TestFmwk {
     }
 
     enum TimingStyle {
-        fixed, randomStart, append
+        fixed,
+        randomStart,
+        append
     }
 
     private static void checkTime(TimingStyle timingStyle) {
@@ -99,20 +100,20 @@ public class GapStringTest extends TestFmwk {
         timer.start();
         for (int i = 0; i < ITERATIONS; ++i) {
             switch (timingStyle) {
-            case append:
-                a.append("!@#$%X");
-                break;
-            case randomStart:
-            case fixed:
-                int deletePos = 5;
-                int insertPos = 5;
-                if (timingStyle == TimingStyle.randomStart) {
-                    final int length = a.length() - 5;
-                    deletePos = (int) (length * randomStarts[i & 0xFF]);
-                    insertPos = (int) (length * randomInserts[i & 0xFF]);
-                }
-                a.delete(deletePos, deletePos + 5);
-                a.insert(insertPos, "!@#$%X");
+                case append:
+                    a.append("!@#$%X");
+                    break;
+                case randomStart:
+                case fixed:
+                    int deletePos = 5;
+                    int insertPos = 5;
+                    if (timingStyle == TimingStyle.randomStart) {
+                        final int length = a.length() - 5;
+                        deletePos = (int) (length * randomStarts[i & 0xFF]);
+                        insertPos = (int) (length * randomInserts[i & 0xFF]);
+                    }
+                    a.delete(deletePos, deletePos + 5);
+                    a.insert(insertPos, "!@#$%X");
             }
         }
         timer.stop();
@@ -121,26 +122,27 @@ public class GapStringTest extends TestFmwk {
         timer.start();
         for (int i = 0; i < ITERATIONS; ++i) {
             switch (timingStyle) {
-            case append:
-                b.append("!@#$%X");
-                break;
-            case randomStart:
-            case fixed:
-                int deletePos = 5;
-                int insertPos = 5;
-                if (timingStyle == TimingStyle.randomStart) {
-                    final int length = b.length() - 5;
-                    deletePos = (int) (length * randomStarts[i & 0xFF]);
-                    insertPos = (int) (length * randomInserts[i & 0xFF]);
-                }
-                b.delete(deletePos, deletePos + 5);
-                b.insert(insertPos, "!@#$%X");
+                case append:
+                    b.append("!@#$%X");
+                    break;
+                case randomStart:
+                case fixed:
+                    int deletePos = 5;
+                    int insertPos = 5;
+                    if (timingStyle == TimingStyle.randomStart) {
+                        final int length = b.length() - 5;
+                        deletePos = (int) (length * randomStarts[i & 0xFF]);
+                        insertPos = (int) (length * randomInserts[i & 0xFF]);
+                    }
+                    b.delete(deletePos, deletePos + 5);
+                    b.insert(insertPos, "!@#$%X");
             }
         }
         timer.stop();
         long builderDuration = timer.getDuration();
         assertEqual(a, b);
-        System.out.println("\tGap - Builder% =\t" + percent.format(gapDuration * 1.0 / builderDuration - 1.0));
+        System.out.println(
+                "\tGap - Builder% =\t" + percent.format(gapDuration * 1.0 / builderDuration - 1.0));
     }
 
     private static String getRandomString(int maxLength) {

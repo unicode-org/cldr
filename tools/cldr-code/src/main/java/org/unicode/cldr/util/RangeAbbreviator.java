@@ -67,7 +67,9 @@ public class RangeAbbreviator {
             }
             end1 = current1;
         }
-        return buffer.append(firstString.substring(0, end1)).append(separator).append(secondString.substring(start2))
-            .toString();
+        return buffer.append(firstString.substring(0, end1))
+                .append(separator)
+                .append(secondString.substring(start2))
+                .toString();
     }
 }

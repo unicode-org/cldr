@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +13,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -24,23 +24,22 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 /**
- * This class should be used to detect when a path should be included in the set
- * of outdated items, because the value in the locale has not changed since the
- * last time the English changed. For efficiency, it only keeps a record of
- * those values in trunk that are out of date.
- * <p>
- * That is, to get the set of outdated values, the caller should do the following:
+ * This class should be used to detect when a path should be included in the set of outdated items,
+ * because the value in the locale has not changed since the last time the English changed. For
+ * efficiency, it only keeps a record of those values in trunk that are out of date.
+ *
+ * <p>That is, to get the set of outdated values, the caller should do the following:
+ *
  * <ol>
- * <li>Test to see if the user has voted for a value for the path. If so, don't include.
- * <li>Test to see if the winning value for the path is different from the trunk value. If so, don't include.
- * <li>Test with isOutdated(path) to see if the trunk value was outdated. If not, don't include.
- * <li>Otherwise, include this path in the set of outdated items.
+ *   <li>Test to see if the user has voted for a value for the path. If so, don't include.
+ *   <li>Test to see if the winning value for the path is different from the trunk value. If so,
+ *       don't include.
+ *   <li>Test with isOutdated(path) to see if the trunk value was outdated. If not, don't include.
+ *   <li>Otherwise, include this path in the set of outdated items.
  * </ol>
- * <p>
- * To update the data file, use GenerateBirth.java.
+ *
+ * <p>To update the data file, use GenerateBirth.java.
  */
 public class OutdatedPaths {
     public static String FORMAT_KEY = "odp-1";
@@ -53,10 +52,11 @@ public class OutdatedPaths {
     private static final boolean DEBUG = CldrUtility.getProperty("OutdatedPathsDebug", false);
 
     private final Map<String, Set<Long>> localeToData = new HashMap<>();
-    private final Map<Long, Pair<CldrVersion,String>> pathToBirthNPrevious = new HashMap<>();
+    private final Map<Long, Pair<CldrVersion, String>> pathToBirthNPrevious = new HashMap<>();
 
     /**
-     * Creates a new OutdatedPaths, using the data file "outdated.data" in the same directory as this class.
+     * Creates a new OutdatedPaths, using the data file "outdated.data" in the same directory as
+     * this class.
      *
      * @param version
      */
@@ -84,7 +84,11 @@ public class OutdatedPaths {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             String key = dataIn.readUTF();
             if (!OutdatedPaths.FORMAT_KEY.equals(key)) {
-                throw new IllegalArgumentException("Mismatch in FORMAT_KEY: expected=" + OutdatedPaths.FORMAT_KEY + ", read=" + key);
+                throw new IllegalArgumentException(
+                        "Mismatch in FORMAT_KEY: expected="
+                                + OutdatedPaths.FORMAT_KEY
+                                + ", read="
+                                + key);
             }
             if (DEBUG) {
                 Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
@@ -115,13 +119,19 @@ public class OutdatedPaths {
         }
     }
 
-    public static void readBirthValues(String outdatedDirectory, Map<Long, PathHeader> id2header,
-        Map<Long, Pair<CldrVersion, String>> pathToBirthNPrevious2) {
+    public static void readBirthValues(
+            String outdatedDirectory,
+            Map<Long, PathHeader> id2header,
+            Map<Long, Pair<CldrVersion, String>> pathToBirthNPrevious2) {
         try {
             DataInputStream dataIn = openDataInput(outdatedDirectory, OUTDATED_ENGLISH_DATA);
             String key = dataIn.readUTF();
             if (!OutdatedPaths.FORMAT_KEY.equals(key)) {
-                throw new IllegalArgumentException("Mismatch in FORMAT_KEY: expected=" + OutdatedPaths.FORMAT_KEY + ", read=" + key);
+                throw new IllegalArgumentException(
+                        "Mismatch in FORMAT_KEY: expected="
+                                + OutdatedPaths.FORMAT_KEY
+                                + ", read="
+                                + key);
             }
 
             int size = dataIn.readInt();
@@ -134,10 +144,13 @@ public class OutdatedPaths {
                 CldrVersion birth = CldrVersion.from(dataIn.readUTF());
 
                 if (DEBUG) {
-                    System.out.println("en\t(" + previous + ")"
-                        + (id2header == null ? "" : "\t" + id2header.get(pathId)));
+                    System.out.println(
+                            "en\t("
+                                    + previous
+                                    + ")"
+                                    + (id2header == null ? "" : "\t" + id2header.get(pathId)));
                 }
-                pathToBirthNPrevious2.put(pathId, Pair.of(birth,previous).freeze());
+                pathToBirthNPrevious2.put(pathId, Pair.of(birth, previous).freeze());
             }
             String finalCheck = dataIn.readUTF();
             if (!finalCheck.equals("$END$")) {
@@ -161,19 +174,22 @@ public class OutdatedPaths {
         return result;
     }
 
-    private static DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
+    private static DataInputStream openDataInput(String directory, String filename)
+            throws FileNotFoundException {
         String dataFileName = filename;
-        InputStream fileInputStream = directory == null
-            ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName) :
-                //: new FileInputStream(new File(directory, dataFileName));
-                InputStreamFactory.createInputStream(new File(directory, dataFileName));
-            DataInputStream dataIn = new DataInputStream(fileInputStream);
-            return dataIn;
+        InputStream fileInputStream =
+                directory == null
+                        ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName)
+                        :
+                        // : new FileInputStream(new File(directory, dataFileName));
+                        InputStreamFactory.createInputStream(new File(directory, dataFileName));
+        DataInputStream dataIn = new DataInputStream(fileInputStream);
+        return dataIn;
     }
 
     /**
-     * Returns true if the value for the path is outdated in trunk. See class
-     * description for more info.
+     * Returns true if the value for the path is outdated in trunk. See class description for more
+     * info.
      *
      * @param distinguishedPath
      * @return true if the string is outdated
@@ -222,8 +238,8 @@ public class OutdatedPaths {
     }
 
     /**
-     * Returns true if the value for the path is outdated in trunk. See class
-     * description for more info.
+     * Returns true if the value for the path is outdated in trunk. See class description for more
+     * info.
      *
      * @param distinguishedPath
      * @return true if the string is outdated
@@ -240,18 +256,19 @@ public class OutdatedPaths {
         return value == null ? null : value.getFirst();
     }
 
-    static RegexLookup<Boolean> SKIP_PATHS = new RegexLookup<Boolean>()
-        .add("/exemplarCharacters", true)
-        .add("/references", true)
-        .add("/delimiters/[^/]*uotation", true)
-        .add("/posix", true)
-        .add("/pattern", true)
-        .add("/fields/field[^/]*/displayName", true)
-        .add("/dateFormatItem", true)
-        .add("/numbers/symbols", true)
-        .add("/fallback", true)
-        .add("/quarters", true)
-        .add("/months", true);
+    static RegexLookup<Boolean> SKIP_PATHS =
+            new RegexLookup<Boolean>()
+                    .add("/exemplarCharacters", true)
+                    .add("/references", true)
+                    .add("/delimiters/[^/]*uotation", true)
+                    .add("/posix", true)
+                    .add("/pattern", true)
+                    .add("/fields/field[^/]*/displayName", true)
+                    .add("/dateFormatItem", true)
+                    .add("/numbers/symbols", true)
+                    .add("/fallback", true)
+                    .add("/quarters", true)
+                    .add("/months", true);
 
     /**
      * Returns the number of outdated paths.

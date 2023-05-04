@@ -1,8 +1,7 @@
-/**
- *
- */
+/** */
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Iterator;
@@ -10,30 +9,27 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-//import java.util.Set;
+// import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.BNF;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
-//import org.unicode.cldr.util.StandardCodes;
+// import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Quoter;
-
-import com.ibm.icu.util.ULocale;
 
 /**
  * Tests language tags.
- * <p>
- * Internally, it generates a Regex Pattern for BCP 47 language tags, plus an ICU BNF pattern. The first is a regular
- * Java/Perl style pattern. The ICU BNF will general random strings that will match that regex.
- * <p>
- * Use -Dbnf=xxx for the source regex definition file, and -Dtest=yyy for the test file Example:
+ *
+ * <p>Internally, it generates a Regex Pattern for BCP 47 language tags, plus an ICU BNF pattern.
+ * The first is a regular Java/Perl style pattern. The ICU BNF will general random strings that will
+ * match that regex.
+ *
+ * <p>Use -Dbnf=xxx for the source regex definition file, and -Dtest=yyy for the test file Example:
  * -Dbnf=/Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/langtagRegex.txt
  *
  * @author markdavis
- *
  */
 class CheckLangTagBNF {
     private static final String LANGUAGE_TAG_TEST_FILE = CldrUtility.getProperty("test");
@@ -44,9 +40,17 @@ class CheckLangTagBNF {
     private Pattern pattern;
     private BNF bnf;
 
-    private static final String[] groupNames = { "whole", "lang", "script", "region", "variants", "extensions",
+    private static final String[] groupNames = {
+        "whole",
+        "lang",
+        "script",
+        "region",
+        "variants",
+        "extensions",
         "privateuse",
-        "legacy", "privateuse", "localeExtensions"
+        "legacy",
+        "privateuse",
+        "localeExtensions"
     };
 
     /**
@@ -63,7 +67,7 @@ class CheckLangTagBNF {
         StringBuffer definition = new StringBuffer();
         StringBuffer ruleBuffer = new StringBuffer();
         StringBuffer generationRuleBuffer = new StringBuffer();
-        for (int count = 1;; ++count) {
+        for (int count = 1; ; ++count) {
             String line = in.readLine();
             if (line == null) break;
             ruleBuffer.append(line).append(CldrUtility.LINE_SEPARATOR);
@@ -109,7 +113,8 @@ class CheckLangTagBNF {
         String resolved = result.replace("$root").replaceAll("[0-9]+%", "");
         System.out.println("Regex: " + resolved);
         rules = ruleBuffer.toString();
-        generationRules = generationRuleBuffer.toString().replaceAll("\\?:", "").replaceAll("\\(\\?i\\)", "");
+        generationRules =
+                generationRuleBuffer.toString().replaceAll("\\?:", "").replaceAll("\\(\\?i\\)", "");
         pattern = Pattern.compile(resolved, Pattern.COMMENTS);
         return this;
     }
@@ -136,10 +141,11 @@ class CheckLangTagBNF {
 
     public BNF getBnf() {
         if (bnf != null) return bnf;
-        bnf = new BNF(new Random(2), new Quoter.RuleQuoter())
-            .setMaxRepeat(5)
-            .addRules(generationRules)
-            .complete();
+        bnf =
+                new BNF(new Random(2), new Quoter.RuleQuoter())
+                        .setMaxRepeat(5)
+                        .addRules(generationRules)
+                        .complete();
         return bnf;
     }
 
@@ -156,9 +162,8 @@ class CheckLangTagBNF {
     }
 
     /**
-     * Tests a file for correctness.
-     * There are two special lines in the file: WELL-FORMED and ILL-FORMED,
-     * that signal the start of each section.
+     * Tests a file for correctness. There are two special lines in the file: WELL-FORMED and
+     * ILL-FORMED, that signal the start of each section.
      *
      * @param args
      * @throws IOException
@@ -180,9 +185,10 @@ class CheckLangTagBNF {
         System.out.println("ulocale.getScript " + loc2.getScript());
         System.out.println("ulocale.getCountry " + loc2.getCountry());
         System.out.println("ulocale.getVariant " + loc2.getVariant());
-        for (Iterator<String> it = loc2.getKeywords(); it.hasNext();) {
+        for (Iterator<String> it = loc2.getKeywords(); it.hasNext(); ) {
             String keyword = it.next();
-            System.out.println("\tulocale.getKeywords " + keyword + " = " + loc2.getKeywordValue(keyword));
+            System.out.println(
+                    "\tulocale.getKeywords " + keyword + " = " + loc2.getKeywordValue(keyword));
         }
 
         BNF bnf = bnfData.getBnf();
@@ -195,15 +201,17 @@ class CheckLangTagBNF {
             }
         }
 
-        // generate a bunch of ill-formed items. Try to favor ones that might actually cause problems.
+        // generate a bunch of ill-formed items. Try to favor ones that might actually cause
+        // problems.
         // TODO make all numeric and all alpha more common
         System.out.println("*** ILL-FORMED ***");
-        BNF invalidBNF = new BNF(new Random(0), new Quoter.RuleQuoter())
-            .setMaxRepeat(5)
-            .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
-            .addRules("$s = [-_] ;")
-            .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
-            .complete();
+        BNF invalidBNF =
+                new BNF(new Random(0), new Quoter.RuleQuoter())
+                        .setMaxRepeat(5)
+                        .addRules("$tag = ([A-Z a-z 0-9]{1,8} 50% 20% 10% 5% 5% 5% 5%);")
+                        .addRules("$s = [-_] ;")
+                        .addRules("$root = $tag ($s $tag){0,7} 10% 10% 10% 10% 10% 10% 10% 10% ; ")
+                        .complete();
 
         for (int i = 0; i < 100; ++i) {
             String trial = invalidBNF.next();
@@ -248,8 +256,12 @@ class CheckLangTagBNF {
                 ++errorCount;
             }
 
-            System.out.println("\tregex?\t" + matches
-                + (matches == expected ? "" : "\t EXPECTED: " + expected + " for\t" + test));
+            System.out.println(
+                    "\tregex?\t"
+                            + matches
+                            + (matches == expected
+                                    ? ""
+                                    : "\t EXPECTED: " + expected + " for\t" + test));
             if (matches) {
                 for (int j = 0; j <= regexLanguageTag.groupCount(); ++j) {
                     String g = regexLanguageTag.group(j);
@@ -284,12 +296,14 @@ class CheckLangTagBNF {
             }
 
             if (ltp.getLanguage().length() != 0)
-                System.out.println("\tlang:    \t" + ltp.getLanguage()
-                    + (ltp.isLegacy() ? " (legacy)" : ""));
+                System.out.println(
+                        "\tlang:    \t" + ltp.getLanguage() + (ltp.isLegacy() ? " (legacy)" : ""));
             if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
             if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
-            if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());
-            if (ltp.getExtensions().size() != 0) System.out.println("\textensions:\t" + ltp.getExtensions());
+            if (ltp.getVariants().size() != 0)
+                System.out.println("\tvariants:\t" + ltp.getVariants());
+            if (ltp.getExtensions().size() != 0)
+                System.out.println("\textensions:\t" + ltp.getExtensions());
             if (ltp.getLocaleExtensions().size() != 0)
                 System.out.println("\tlocale extensions:\t" + ltp.getLocaleExtensions());
             System.out.println("\tisValid?\t" + ltp.isValid());
@@ -304,9 +318,11 @@ class CheckLangTagBNF {
         String object2 = obj2.toString().replace('_', '-');
         if (!object1.equals(object2)) {
             if (object1.equalsIgnoreCase(object2)) {
-                System.out.println("$$$Case Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
+                System.out.println(
+                        "$$$Case Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
             } else {
-                System.out.println("###Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
+                System.out.println(
+                        "###Difference at " + message + "<" + obj1 + "> != <" + obj2 + ">");
             }
         }
     }

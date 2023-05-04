@@ -1,20 +1,17 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Splitter;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.PatternCache;
-
-import com.google.common.base.Splitter;
 
 /**
  * Factory for ObjectMatchers that are not tightly coupled
  *
  * @author ribnitz
- *
  */
 class ObjectMatcherFactory {
     /**
@@ -34,8 +31,7 @@ class ObjectMatcherFactory {
      * @param flags
      * @return
      */
-    public static Predicate<String> createRegexMatcher(String pattern,
-        int flags) {
+    public static Predicate<String> createRegexMatcher(String pattern, int flags) {
         return new RegexMatcher().set(pattern, flags);
     }
 
@@ -45,18 +41,15 @@ class ObjectMatcherFactory {
      * @param col
      * @return
      */
-    public static Predicate<String> createCollectionMatcher(
-        Collection<String> col) {
+    public static Predicate<String> createCollectionMatcher(Collection<String> col) {
         return new CollectionMatcher().set(col);
     }
 
-    public static Predicate<String> createOrMatcher(
-        Predicate<String> m1, Predicate<String> m2) {
+    public static Predicate<String> createOrMatcher(Predicate<String> m1, Predicate<String> m2) {
         return new OrMatcher().set(m1, m2);
     }
 
-    public static Predicate<String> createListMatcher(
-        Predicate<String> matcher) {
+    public static Predicate<String> createListMatcher(Predicate<String> matcher) {
         return new ListMatcher().set(matcher);
     }
 
@@ -70,8 +63,8 @@ class ObjectMatcherFactory {
     }
 
     /**
-     * Create a matcher based on the value accessible with key, in the map; if
-     * there is no key, use a DefaultingMatcher to return valueIfAbsent
+     * Create a matcher based on the value accessible with key, in the map; if there is no key, use
+     * a DefaultingMatcher to return valueIfAbsent
      *
      * @param m
      * @param key
@@ -79,8 +72,7 @@ class ObjectMatcherFactory {
      * @return
      */
     public static Predicate<String> createNullHandlingMatcher(
-        Map<String, ObjectMatcherFactory.MatcherPattern> m, String key,
-        boolean valueIfAbsent) {
+            Map<String, ObjectMatcherFactory.MatcherPattern> m, String key, boolean valueIfAbsent) {
         return new NullHandlingMatcher(m, key, valueIfAbsent);
     }
 
@@ -133,8 +125,7 @@ class ObjectMatcherFactory {
         private Predicate<String> a;
         private Predicate<String> b;
 
-        public Predicate<String> set(Predicate<String> a,
-            Predicate<String> b) {
+        public Predicate<String> set(Predicate<String> a, Predicate<String> b) {
             this.a = a;
             this.b = b;
             return this;
@@ -148,8 +139,7 @@ class ObjectMatcherFactory {
 
     private static class ListMatcher implements Predicate<String> {
         private Predicate<String> other;
-        private static final Splitter WHITESPACE_SPLITTER = Splitter
-            .on(PatternCache.get("\\s+"));
+        private static final Splitter WHITESPACE_SPLITTER = Splitter.on(PatternCache.get("\\s+"));
 
         public Predicate<String> set(Predicate<String> other) {
             this.other = other;
@@ -159,8 +149,7 @@ class ObjectMatcherFactory {
         @Override
         public boolean test(String value) {
             List<String> values = WHITESPACE_SPLITTER.splitToList(value.trim());
-            if (values.size() == 1 && values.get(0).length() == 0)
-                return true;
+            if (values.size() == 1 && values.get(0).length() == 0) return true;
             for (String toMatch : values) {
                 if (!other.test(toMatch)) {
                     return false;
@@ -188,18 +177,17 @@ class ObjectMatcherFactory {
         final Predicate<String> matcher;
 
         public NullHandlingMatcher(
-            Map<String, ObjectMatcherFactory.MatcherPattern> col,
-            String key, boolean defaultVal) {
+                Map<String, ObjectMatcherFactory.MatcherPattern> col,
+                String key,
+                boolean defaultVal) {
             ObjectMatcherFactory.MatcherPattern mpTemp = col.get(key);
-            matcher = mpTemp == null ? new DefaultingMatcher(defaultVal)
-                : mpTemp.matcher;
+            matcher = mpTemp == null ? new DefaultingMatcher(defaultVal) : mpTemp.matcher;
         }
 
         @Override
         public boolean test(String o) {
             return matcher.test(o);
         }
-
     }
 
     public static class MatcherPattern {
@@ -224,7 +212,5 @@ class ObjectMatcherFactory {
         public boolean test(String o) {
             return o.equals(value);
         }
-
     }
-
 }

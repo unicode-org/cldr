@@ -41,7 +41,7 @@ jobs:
         distribution: 'temurin'
     - name: Cache local Maven repository
       if: matrix.language == 'java'
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
@@ -49,7 +49,7 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Cache local npm repository
       if: matrix.language == 'javascript'
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

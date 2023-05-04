@@ -3,12 +3,6 @@ package org.unicode.cldr.draft.keyboard;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Set;
-
-import org.unicode.cldr.draft.keyboard.KeyboardId.Platform;
-
 import com.google.common.base.Charsets;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableCollection;
@@ -18,6 +12,10 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;
 import com.ibm.icu.util.ULocale;
+import java.io.IOException;
+import java.util.List;
+import java.util.Set;
+import org.unicode.cldr.draft.keyboard.KeyboardId.Platform;
 
 public final class KeyboardIdMap {
     private final ImmutableMultimap<String, KeyboardId> nameToKeyboardId;
@@ -43,7 +41,8 @@ public final class KeyboardIdMap {
         checkArgument(lines.get(0).equals("name,locale,attributes"), "Missing csv headers");
         ImmutableMultimap.Builder<String, KeyboardId> builder = ImmutableMultimap.builder();
         for (String line : Iterables.skip(lines, 1)) {
-            // The first element may be between quotes (if it includes a comma), if so parse it manually.
+            // The first element may be between quotes (if it includes a comma), if so parse it
+            // manually.
             String name;
             int closingQuote = line.startsWith("\"") ? line.indexOf("\"", 1) : 0;
             List<String> components = COMMA_SPLITTER.splitToList(line.substring(closingQuote));
@@ -53,7 +52,8 @@ public final class KeyboardIdMap {
                 name = components.get(0);
             }
             ULocale locale = ULocale.forLanguageTag(components.get(1));
-            ImmutableList<String> attributes = ImmutableList.copyOf(DASH_SPLITTER.splitToList(components.get(2)));
+            ImmutableList<String> attributes =
+                    ImmutableList.copyOf(DASH_SPLITTER.splitToList(components.get(2)));
             builder.put(name, KeyboardId.of(locale, platform, attributes));
         }
         return new KeyboardIdMap(builder.build());
@@ -62,8 +62,7 @@ public final class KeyboardIdMap {
     /** Retrieves the csv file relative to the class given. */
     public static KeyboardIdMap fromResource(Class<?> clazz, String fileName, Platform platform) {
         try {
-            String csv = Resources.toString(Resources.getResource(clazz, fileName),
-                Charsets.UTF_8);
+            String csv = Resources.toString(Resources.getResource(clazz, fileName), Charsets.UTF_8);
             return fromCsv(csv, platform);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);

@@ -3,11 +3,9 @@ package org.unicode.cldr.web.api;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.logging.Logger;
-
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -20,7 +18,6 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
-
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
@@ -31,7 +28,8 @@ import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
 import org.unicode.cldr.web.api.VoteAPI.VoteResponse;
 
 /**
- * Note: The functions in this class needed to be separated from VoteAPI because of static init problems.
+ * Note: The functions in this class needed to be separated from VoteAPI because of static init
+ * problems.
  */
 public class VoteAPIHelper {
     private static final boolean DEBUG_SERIALIZATION = false;
@@ -71,7 +69,8 @@ public class VoteAPIHelper {
         }
     }
 
-    static Response handleGetOneRow(String loc, String session, String xpstrid, Boolean getDashboard) {
+    static Response handleGetOneRow(
+            String loc, String session, String xpstrid, Boolean getDashboard) {
         ArgsForGet args = new ArgsForGet(loc, session);
         args.xpstrid = xpstrid;
         args.getDashboard = getDashboard;
@@ -120,10 +119,18 @@ public class VoteAPIHelper {
                 try {
                     pageId = PageId.valueOf(args.page);
                 } catch (IllegalArgumentException iae) {
-                    return Response.status(404).entity(new STError(ErrorCode.E_BAD_SECTION)).build();
+                    return Response.status(404)
+                            .entity(new STError(ErrorCode.E_BAD_SECTION))
+                            .build();
                 }
                 if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
-                    return new STError(ErrorCode.E_SPECIAL_SECTION, "Items not visible - page " + pageId + " section " + pageId.getSectionId()).build();
+                    return new STError(
+                                    ErrorCode.E_SPECIAL_SECTION,
+                                    "Items not visible - page "
+                                            + pageId
+                                            + " section "
+                                            + pageId.getSectionId())
+                            .build();
                 }
                 r.pageId = pageId.name();
             } else if (args.xpstrid != null && args.page == null) {
@@ -134,14 +141,18 @@ public class VoteAPIHelper {
                 matcher = XPathMatcher.getMatcherForString(xp); // single string
             } else {
                 // Should not get here.
-                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpstrid or page, but not both").build();
+                return new STError(
+                                ErrorCode.E_INTERNAL,
+                                "handleGetRows: need xpstrid or page, but not both")
+                        .build();
             }
             final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher);
             pageData.setUserForVotelist(mySession.user);
             r.page = new RowResponse.Page();
 
             // don't return default content
-            CLDRLocale dcParent = SupplementalDataInfo.getInstance().getBaseFromDefaultContent(locale);
+            CLDRLocale dcParent =
+                    SupplementalDataInfo.getInstance().getBaseFromDefaultContent(locale);
             if (dcParent != null) {
                 r.dcParent = dcParent.getBaseName();
                 r.page.nocontent = true;
@@ -156,7 +167,8 @@ public class VoteAPIHelper {
                 }
             }
             if (args.getDashboard) {
-                r.notifications = getOnePathDash(XPathTable.xpathToBaseXpath(xp), locale, mySession);
+                r.notifications =
+                        getOnePathDash(XPathTable.xpathToBaseXpath(xp), locale, mySession);
             }
             if (DEBUG_SERIALIZATION) {
                 debugSerialization(r, args);
@@ -164,7 +176,8 @@ public class VoteAPIHelper {
             return Response.ok(r).build();
         } catch (Throwable t) {
             t.printStackTrace();
-            SurveyLog.logException(logger, t, "Trying to load " + args.localeId + " / " + args.xpstrid);
+            SurveyLog.logException(
+                    logger, t, "Trying to load " + args.localeId + " / " + args.xpstrid);
             return new STError(t).build(); // 500
         }
     }
@@ -174,7 +187,8 @@ public class VoteAPIHelper {
             JsonbProvider.provider().create().build().toJson(r, new PrintWriter(System.out));
         } catch (Throwable t) {
             t.printStackTrace();
-            SurveyLog.logException(logger, t, "DEBUG_SERIALIZATION: " + args.localeId + " / " + args.xpstrid);
+            SurveyLog.logException(
+                    logger, t, "DEBUG_SERIALIZATION: " + args.localeId + " / " + args.xpstrid);
         }
     }
 
@@ -203,7 +217,8 @@ public class VoteAPIHelper {
         row.confirmStatus = r.getConfirmStatus();
         row.coverageValue = r.getCoverageValue();
         row.code = r.getCode();
-        row.dir = r.getDirectionality(); // should not be needed, but there are some override situations.
+        row.dir = r.getDirectionality(); // should not be needed, but there are some override
+        // situations.
         row.displayExample = r.getDisplayExample();
         row.displayName = r.getDisplayName();
         row.extraAttributes = r.getNonDistinguishingAttributes();
@@ -278,7 +293,8 @@ public class VoteAPIHelper {
         c.example = i.getExample();
         c.history = i.getHistory();
         c.isBaselineValue = i.isBaselineValue();
-        c.pClass = i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
+        c.pClass =
+                i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
         c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
@@ -297,7 +313,8 @@ public class VoteAPIHelper {
         return newTests;
     }
 
-    private static Map<String, VoteEntry> calculateVotes(Set<User> users, Map<User, Integer> overrides) {
+    private static Map<String, VoteEntry> calculateVotes(
+            Set<User> users, Map<User, Integer> overrides) {
         if (users == null) {
             return null;
         }
@@ -316,21 +333,34 @@ public class VoteAPIHelper {
         return votes;
     }
 
-    private static Dashboard.ReviewNotification[] getOnePathDash(String baseXp, CLDRLocale locale, CookieSession mySession) {
+    private static Dashboard.ReviewNotification[] getOnePathDash(
+            String baseXp, CLDRLocale locale, CookieSession mySession) {
         Level coverageLevel = Level.get(mySession.getEffectiveCoverageLevel(locale.toString()));
-        Dashboard.ReviewOutput ro = new Dashboard().get(locale, mySession.user, coverageLevel, baseXp);
+        Dashboard.ReviewOutput ro =
+                new Dashboard().get(locale, mySession.user, coverageLevel, baseXp);
         return ro.getNotifications();
     }
 
-    // forbiddenIsOk is true when called from VoteAPI for the main, original usage of this method; when true, it means
-    // that even if we get statusAction.isForbidden, we'll return an OK (200) response, with json.didVote false.
+    // forbiddenIsOk is true when called from VoteAPI for the main, original usage of this method;
+    // when true, it means
+    // that even if we get statusAction.isForbidden, we'll return an OK (200) response, with
+    // json.didVote false.
     //
-    // forbiddenIsOk is false when called from XPathAlt for the special purpose of adding a new path, so that
+    // forbiddenIsOk is false when called from XPathAlt for the special purpose of adding a new
+    // path, so that
     // XPathAlt will get something other than OK (200) in case of failure.
     //
-    // This method needs refactoring into smaller subroutines, with the lower-level details separated from
-    // the HTTP response concerns, so that VoteAPI and XPathAlt can share code without the awkwardness of forbiddenIsOk.
-    static Response handleVote(String loc, String xp, String value, int voteLevelChanged, final CookieSession mySession, boolean forbiddenIsOk) {
+    // This method needs refactoring into smaller subroutines, with the lower-level details
+    // separated from
+    // the HTTP response concerns, so that VoteAPI and XPathAlt can share code without the
+    // awkwardness of forbiddenIsOk.
+    static Response handleVote(
+            String loc,
+            String xp,
+            String value,
+            int voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk) {
         VoteResponse r = new VoteResponse();
         mySession.userDidAction();
         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -359,7 +389,8 @@ public class VoteAPIHelper {
                 DataPage page = DataPage.make(null, mySession, locale, xp, null);
                 page.setUserForVotelist(mySession.user);
                 DataRow dataRow = page.getDataRow(xp);
-                // First, calculate the status for showing (unless already set by normalizedToZeroLengthError)
+                // First, calculate the status for showing (unless already set by
+                // normalizedToZeroLengthError)
                 if (r.statusAction == null) {
                     r.statusAction = calculateShowRowAction(cldrFile, xp, val, dataRow);
                 }
@@ -367,18 +398,27 @@ public class VoteAPIHelper {
                 if (!r.statusAction.isForbidden()) {
                     CandidateInfo ci = calculateCandidateItem(result, val, dataRow);
                     // Now, recalculate the statusAction for accepting the new item
-                    r.statusAction = CLDRConfig.getInstance().getPhase()
-                        .getAcceptNewItemAction(ci, dataRow, CheckCLDR.InputMethod.DIRECT,
-                            stf.getPathHeader(xp), mySession.user);
+                    r.statusAction =
+                            CLDRConfig.getInstance()
+                                    .getPhase()
+                                    .getAcceptNewItemAction(
+                                            ci,
+                                            dataRow,
+                                            CheckCLDR.InputMethod.DIRECT,
+                                            stf.getPathHeader(xp),
+                                            mySession.user);
                     if (!r.statusAction.isForbidden()) {
                         try {
-                            final BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(locale);
+                            final BallotBox<UserRegistry.User> ballotBox =
+                                    stf.ballotBoxForLocale(locale);
                             Integer withVote = (voteLevelChanged == 0) ? null : voteLevelChanged;
-                            ballotBox.voteForValue(mySession.user, xp, val, withVote);
+                            ballotBox.voteForValueWithType(
+                                    mySession.user, xp, val, withVote, VoteType.DIRECT);
                             r.didVote = true;
                         } catch (VoteNotAcceptedException e) {
                             if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
-                                r.statusAction = CheckCLDR.StatusAction.FORBID_PERMANENT_WITHOUT_FORUM;
+                                r.statusAction =
+                                        CheckCLDR.StatusAction.FORBID_PERMANENT_WITHOUT_FORUM;
                             } else {
                                 throw (e);
                             }
@@ -391,10 +431,9 @@ public class VoteAPIHelper {
             }
         }
         if (!forbiddenIsOk && r.statusAction.isForbidden()) {
-            return Response
-                .status(Response.Status.NOT_ACCEPTABLE)
-                .entity(new STError("Status action is forbidden: " + r.statusAction))
-                .build();
+            return Response.status(Response.Status.NOT_ACCEPTABLE)
+                    .entity(new STError("Status action is forbidden: " + r.statusAction))
+                    .build();
         }
         return Response.ok(r).build();
     }
@@ -403,28 +442,40 @@ public class VoteAPIHelper {
         final String message = "DAIP returned a 0 length string";
         r.didNotSubmit = message;
         r.statusAction = CheckCLDR.StatusAction.FORBID_ERRORS;
-        String[] list = { message };
-        result.add(new CheckStatus().setMainType(CheckStatus.errorType)
-            .setSubtype(Subtype.internalError)
-            .setCause(new CheckCLDR() {
-                @Override
-                public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
-                                             List<CheckStatus> result) {
-                    return null;
-                }
-            })
-            .setMessage("Input Processor Error: {0}")
-            .setParameters(list));
+        String[] list = {message};
+        result.add(
+                new CheckStatus()
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.internalError)
+                        .setCause(
+                                new CheckCLDR() {
+                                    @Override
+                                    public CheckCLDR handleCheck(
+                                            String path,
+                                            String fullPath,
+                                            String value,
+                                            Options options,
+                                            List<CheckStatus> result) {
+                                        return null;
+                                    }
+                                })
+                        .setMessage("Input Processor Error: {0}")
+                        .setParameters(list));
     }
 
-    private static void runTests(TestResultBundle cc, String xp,
-                                 String val, final List<CheckStatus> result) {
+    private static void runTests(
+            TestResultBundle cc, String xp, String val, final List<CheckStatus> result) {
         if (val != null) {
             cc.check(xp, result, val);
         }
     }
 
-    private static String processValue(CLDRLocale locale, String xp, Exception[] exceptionList, final String origValue, CLDRFile cldrFile) {
+    private static String processValue(
+            CLDRLocale locale,
+            String xp,
+            Exception[] exceptionList,
+            final String origValue,
+            CLDRFile cldrFile) {
         String val;
         if (origValue != null && !origValue.isEmpty()) {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
@@ -433,7 +484,7 @@ public class VoteAPIHelper {
             }
             val = daip.processInput(xp, origValue, exceptionList);
             if (val.isEmpty()
-                && DtdData.getValueConstraint(xp) == DtdData.Element.ValueConstraint.nonempty) {
+                    && DtdData.getValueConstraint(xp) == DtdData.Element.ValueConstraint.nonempty) {
                 val = null; // the caller will recognize this as exceptional, not Abstain
             }
         } else {
@@ -442,35 +493,38 @@ public class VoteAPIHelper {
         return val;
     }
 
-    private static CandidateInfo calculateCandidateItem(final List<CheckStatus> result, final String candVal, DataRow dataRow) {
+    private static CandidateInfo calculateCandidateItem(
+            final List<CheckStatus> result, final String candVal, DataRow dataRow) {
         CandidateInfo ci;
         if (candVal == null) {
             ci = null; // abstention
         } else {
             ci = dataRow.getItem(candVal); // existing item?
             if (ci == null) { // no, new item
-                ci = new CandidateInfo() {
-                    @Override
-                    public String getValue() {
-                        return candVal;
-                    }
+                ci =
+                        new CandidateInfo() {
+                            @Override
+                            public String getValue() {
+                                return candVal;
+                            }
 
-                    @Override
-                    public Collection<UserInfo> getUsersVotingOn() {
-                        return Collections.emptyList(); // No users voting - yet.
-                    }
+                            @Override
+                            public Collection<UserInfo> getUsersVotingOn() {
+                                return Collections.emptyList(); // No users voting - yet.
+                            }
 
-                    @Override
-                    public List<CheckStatus> getCheckStatusList() {
-                        return result;
-                    }
-                };
+                            @Override
+                            public List<CheckStatus> getCheckStatusList() {
+                                return result;
+                            }
+                        };
             }
         }
         return ci;
     }
 
-    private static CheckCLDR.StatusAction calculateShowRowAction(CLDRFile cldrFile, String xp, String val, DataRow dataRow) {
+    private static CheckCLDR.StatusAction calculateShowRowAction(
+            CLDRFile cldrFile, String xp, String val, DataRow dataRow) {
         CheckCLDR.StatusAction showRowAction = dataRow.getStatusAction();
         if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
             if (dataRow.wouldInheritNull()) {
@@ -484,22 +538,45 @@ public class VoteAPIHelper {
         return showRowAction;
     }
 
-    private static void addDaipException(String loc, String xp, final List<CheckStatus> result, Exception[] exceptionList, String val, String origValue) {
+    private static void addDaipException(
+            String loc,
+            String xp,
+            final List<CheckStatus> result,
+            Exception[] exceptionList,
+            String val,
+            String origValue) {
         if (exceptionList[0] != null) {
-            result.add(new CheckStatus().setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.internalError)
-                .setCause(new CheckCLDR() {
+            result.add(
+                    new CheckStatus()
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.internalError)
+                            .setCause(
+                                    new CheckCLDR() {
 
-                    @Override
-                    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
-                        List<CheckStatus> result) {
-                        return null;
-                    }
-                })
-                .setMessage("Input Processor Exception: {0}")
-                .setParameters(exceptionList));
-            SurveyLog.logException(logger, exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
-                + "' (was '" + origValue + "')");
+                                        @Override
+                                        public CheckCLDR handleCheck(
+                                                String path,
+                                                String fullPath,
+                                                String value,
+                                                Options options,
+                                                List<CheckStatus> result) {
+                                            return null;
+                                        }
+                                    })
+                            .setMessage("Input Processor Exception: {0}")
+                            .setParameters(exceptionList));
+            SurveyLog.logException(
+                    logger,
+                    exceptionList[0],
+                    "DAIP, Processing "
+                            + loc
+                            + ":"
+                            + xp
+                            + "='"
+                            + val
+                            + "' (was '"
+                            + origValue
+                            + "')");
         }
     }
 }

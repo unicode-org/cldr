@@ -7,19 +7,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 
-/**
- * Implement a 'main' for the cldr-code jar.
- */
-@CLDRTool(alias = "main",
-    description = "The 'main' class invoked when java -jar or double-clicking the jar.",
-    hidden = "Hidden so as not to list itself",
-    url = CLDRURLS.TOOLSURL)
+/** Implement a 'main' for the cldr-code jar. */
+@CLDRTool(
+        alias = "main",
+        description = "The 'main' class invoked when java -jar or double-clicking the jar.",
+        hidden = "Hidden so as not to list itself",
+        url = CLDRURLS.TOOLSURL)
 class Main {
     private static final String CLASS_SUFFIX = ".class";
     private static final String MAIN = "main";
@@ -51,15 +49,17 @@ class Main {
     }
 
     public static void invoke(Class<?> c, final String[] args2)
-            throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+            throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException,
+                    InvocationTargetException {
         final Method main = getStaticMain(c);
-        if(main == null) {
+        if (main == null) {
             throw new NullPointerException("No static main() found in " + c.getSimpleName());
         }
         main.invoke(null, (Object) args2);
     }
 
-    public static Class<?> findMainClass(final String mainClass) throws IllegalArgumentException, IOException {
+    public static Class<?> findMainClass(final String mainClass)
+            throws IllegalArgumentException, IOException {
         Class<?> c = null;
         try {
             // This shortcut allows operation even out of a jar context.
@@ -77,19 +77,19 @@ class Main {
     }
 
     /**
-     * If CLDR_DIR is not set as a system property, try to set it.
-     * This does not invoke the CLDRConfig mechanism, and so would be ignored
-     * if run from (say) the SurveyTool environment.
+     * If CLDR_DIR is not set as a system property, try to set it. This does not invoke the
+     * CLDRConfig mechanism, and so would be ignored if run from (say) the SurveyTool environment.
      */
     public static void tryCurrentDirAsCldrDir() {
         try {
-            if(System.getProperty(CldrUtility.DIR_KEY) == null) {
-                if(new File("./common/main/root.xml").exists()) {
-                    System.err.println("Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
+            if (System.getProperty(CldrUtility.DIR_KEY) == null) {
+                if (new File("./common/main/root.xml").exists()) {
+                    System.err.println(
+                            "Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
                     System.setProperty(CldrUtility.DIR_KEY, ".");
                 }
             }
-        } catch(SecurityException t) {
+        } catch (SecurityException t) {
             // ignore
         }
     }
@@ -97,8 +97,10 @@ class Main {
     public static void printUsage() {
         System.out.println("Usage:  [ -l | [class|alias] args ...]");
         System.out.println("Example usage:");
-        System.out.println(" (java -jar cldr-code.jar ) -l          -- prints a list of ALL tool/util/test classes with a 'main()' function.");
-        System.out.println(" (java -jar cldr-code.jar ) org.unicode.cldr.util.XMLValidator  somefile.xml ...");
+        System.out.println(
+                " (java -jar cldr-code.jar ) -l          -- prints a list of ALL tool/util/test classes with a 'main()' function.");
+        System.out.println(
+                " (java -jar cldr-code.jar ) org.unicode.cldr.util.XMLValidator  somefile.xml ...");
         System.out.println(" (java -jar cldr-code.jar ) validate  somefile.xml ...");
         System.out.println("For more info: " + CLDRURLS.TOOLSURL);
         System.out.println("CLDRFile.GEN_VERSION=" + CLDRFile.GEN_VERSION);
@@ -108,12 +110,13 @@ class Main {
 
     /**
      * Print out classes
+     *
      * @param includeHidden
      */
     private static void listClasses(boolean includeHidden) throws IOException {
-        for(final ClassEntry e : getMainClassList()) {
-            if(!includeHidden && e.isHidden()) {
-                if(DEBUG) System.err.println("Skipping: " + e.fullName());
+        for (final ClassEntry e : getMainClassList()) {
+            if (!includeHidden && e.isHidden()) {
+                if (DEBUG) System.err.println("Skipping: " + e.fullName());
                 continue; // skip these
             }
             final CLDRTool annotation = e.getAnnotation();
@@ -135,24 +138,20 @@ class Main {
     }
 
     private static Class<?> findMainClass(String mainClass, Set<ClassEntry> mainClassList) {
-        for(final ClassEntry e : mainClassList) {
-            if (mainClass.equalsIgnoreCase(e.name()) ||
-                mainClass.equalsIgnoreCase(e.alias())) {
+        for (final ClassEntry e : mainClassList) {
+            if (mainClass.equalsIgnoreCase(e.name()) || mainClass.equalsIgnoreCase(e.alias())) {
                 return e.theClass; // match the classname
             }
         }
         return null;
     }
 
-    /**
-     * A candidate class with a main in it
-     */
+    /** A candidate class with a main in it */
     public static class ClassEntry implements Comparable<ClassEntry> {
         public Class<?> theClass;
         public CLDRTool annotation;
 
         @Override
-
         public int compareTo(ClassEntry o) {
             return theClass.getSimpleName().compareTo(o.theClass.getSimpleName());
         }
@@ -168,10 +167,12 @@ class Main {
 
         /**
          * is this class hidden from the usual list?
+         *
          * @return
          */
         public boolean isHidden() {
-            return (annotation == null ||            // no annotation
+            return (annotation == null
+                    || // no annotation
                     !annotation.hidden().isEmpty()); // hidden≠""
         }
 
@@ -180,7 +181,7 @@ class Main {
         }
 
         String alias() {
-            if( annotation != null) {
+            if (annotation != null) {
                 return annotation.alias();
             } else {
                 return "";
@@ -194,6 +195,7 @@ class Main {
 
     /**
      * Get a list of classes which have a static main
+     *
      * @throws IOException
      * @throws FileNotFoundException
      */
@@ -209,8 +211,8 @@ class Main {
             final String name = je.getName();
             if (inOuterClass(name)) {
                 final String className = filenameToClassName(name);
-                if(!isCldrClassName(className)) {
-                    if(DEBUG) {
+                if (!isCldrClassName(className)) {
+                    if (DEBUG) {
                         System.err.println("Skipping non-CLDR " + className);
                     }
                     continue; // skip non-CLDR things
@@ -248,8 +250,7 @@ class Main {
      * @return
      */
     public static String filenameToClassName(final String name) {
-        return name.substring(0, name.length() - (CLASS_SUFFIX.length()))
-            .replaceAll("/", ".");
+        return name.substring(0, name.length() - (CLASS_SUFFIX.length())).replaceAll("/", ".");
     }
 
     /**
@@ -257,24 +258,26 @@ class Main {
      * @return
      */
     public static boolean inOuterClass(final String name) {
-        return name.endsWith(CLASS_SUFFIX) &&
-            !name.contains("$");
+        return name.endsWith(CLASS_SUFFIX) && !name.contains("$");
     }
 
     /**
      * Fetch the whole jar as an input stream
+     *
      * @return
      * @throws IOException
      * @throws FileNotFoundException
      */
-    public static java.util.jar.JarInputStream getJarInputStream() throws IOException, FileNotFoundException {
+    public static java.util.jar.JarInputStream getJarInputStream()
+            throws IOException, FileNotFoundException {
         final java.net.URL url = Main.class.getProtectionDomain().getCodeSource().getLocation();
         if (!url.getPath().endsWith(".jar")) {
             System.out.println("(Not inside a .jar file - no listing available.)");
             return null;
         }
         if (DEBUG) System.out.println("Classes in " + url.getPath());
-        final java.util.jar.JarInputStream jis = new java.util.jar.JarInputStream(new java.io.FileInputStream(url.getPath()));
+        final java.util.jar.JarInputStream jis =
+                new java.util.jar.JarInputStream(new java.io.FileInputStream(url.getPath()));
         java.util.jar.JarEntry je = null;
         return jis;
     }

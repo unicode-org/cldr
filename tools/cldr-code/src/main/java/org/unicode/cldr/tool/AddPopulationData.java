@@ -1,5 +1,9 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.ListFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -11,33 +15,37 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 
-import com.ibm.icu.text.ListFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
-
 public class AddPopulationData {
     static boolean ADD_POP = CldrUtility.getProperty("ADD_POP", false);
     static boolean SHOW_ALTERNATE_NAMES = CldrUtility.getProperty("SHOW_ALTERNATE_NAMES", false);
 
     enum WBLine {
-        // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
+        // "Afghanistan","AFG","GNI, PPP (current international
+        // $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
-        // Country Name,Country Code,Series Name,Series Code,2000 [YR2000],2001 [YR2001],2002 [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008 [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020]
-        Country_Name, Country_Code, Series_Name, Series_Code,
+        // Country Name,Country Code,Series Name,Series Code,2000 [YR2000],2001 [YR2001],2002
+        // [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008
+        // [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014
+        // [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020
+        // [YR2020]
+        Country_Name,
+        Country_Code,
+        Series_Name,
+        Series_Code,
         Year("(\\d+)\\s*\\[YR(\\d+)\\]");
 
         final Pattern pattern;
+
         WBLine() {
             this.pattern = Pattern.compile(name().replaceAll("_", " "));
         }
+
         WBLine(final String regex) {
             this.pattern = Pattern.compile(regex);
         }
@@ -67,22 +75,29 @@ public class AddPopulationData {
         static ArrayList<Pair<WBLine, Integer>> parseHeader(final String[] pieces) {
             ArrayList<Pair<WBLine, Integer>> columnToTypeAndValue = null;
             columnToTypeAndValue = new ArrayList<>();
-            for (int i=0; i<pieces.length; i++) {
-                columnToTypeAndValue.add(i,WBLine.find(pieces[i]));
+            for (int i = 0; i < pieces.length; i++) {
+                columnToTypeAndValue.add(i, WBLine.find(pieces[i]));
             }
             return columnToTypeAndValue;
         }
     }
 
     enum FBLine {
-        Rank, Country, Value, Year;
+        Rank,
+        Country,
+        Value,
+        Year;
+
         String get(String[] pieces) {
             return pieces[ordinal()];
         }
     }
 
     enum FBLiteracy {
-        Rank, Country, Percent;
+        Rank,
+        Country,
+        Percent;
+
         String get(String[] pieces) {
             return pieces[ordinal()];
         }
@@ -107,14 +122,12 @@ public class AddPopulationData {
         private static Counter2<String> literacy = new Counter2<>();
     }
 
-    final static Set<String> missing = new TreeSet<String>();
+    static final Set<String> missing = new TreeSet<String>();
+
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Code"
-            + "\t" + "Name"
-            + "\t" + "Pop"
-            + "\t" + "GDP-PPP"
-            + "\t" + "UN Literacy");
+        System.out.println(
+                "Code" + "\t" + "Name" + "\t" + "Pop" + "\t" + "GDP-PPP" + "\t" + "UN Literacy");
 
         for (String country : StandardCodes.make().getGoodCountries()) {
             showCountryData(country);
@@ -125,7 +138,7 @@ public class AddPopulationData {
         outliers.addAll(factbook_gdp.keySet());
         outliers.addAll(worldbank_gdp.keySet());
         outliers.addAll(un_literacy.keySet());
-        for (Iterator<String> it = outliers.iterator(); it.hasNext();) {
+        for (Iterator<String> it = outliers.iterator(); it.hasNext(); ) {
             if (StandardCodes.isCountry(it.next())) {
                 it.remove();
             }
@@ -158,41 +171,51 @@ public class AddPopulationData {
                     System.out.println();
                 }
                 System.out.println(code + "; " + pieces[2] + "; " + pieces[1]);
-                // System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] +
+                // System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" +
+                // pieces[1] +
                 // "</territory> <!-- " + pieces[2] + " -->");
             }
         }
         if (!missing.isEmpty()) {
-            throw new RuntimeException("Could not load codes for: " +
-                ListFormat.getInstance(Locale.getDefault()).format(missing));
+            throw new RuntimeException(
+                    "Could not load codes for: "
+                            + ListFormat.getInstance(Locale.getDefault()).format(missing));
         }
     }
 
     private static void showCountryData(String country) {
         number.setMaximumFractionDigits(0);
-        System.out.println(country
-            + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
-            + "\t" + number.format(getPopulation(country))
-            + "\t" + number.format(getGdp(country))
-            + "\t" + percent.format(getLiteracy(country) / 100));
+        System.out.println(
+                country
+                        + "\t"
+                        + ULocale.getDisplayCountry("und-" + country, "en")
+                        + "\t"
+                        + number.format(getPopulation(country))
+                        + "\t"
+                        + number.format(getGdp(country))
+                        + "\t"
+                        + percent.format(getLiteracy(country) / 100));
     }
 
     public static Double getLiteracy(String country) {
-        return firstNonZero(factbook_literacy.getCount(country),
-            un_literacy.getCount(country),
-            CountryData.literacy.getCount(country));
+        return firstNonZero(
+                factbook_literacy.getCount(country),
+                un_literacy.getCount(country),
+                CountryData.literacy.getCount(country));
     }
 
     public static Double getGdp(String country) {
-        return firstNonZero(factbook_gdp.getCount(country),
-            worldbank_gdp.getCount(country),
-            CountryData.gdp.getCount(country));
+        return firstNonZero(
+                factbook_gdp.getCount(country),
+                worldbank_gdp.getCount(country),
+                CountryData.gdp.getCount(country));
     }
 
     public static Double getPopulation(String country) {
-        return firstNonZero(factbook_population.getCount(country),
-            worldbank_population.getCount(country),
-            CountryData.population.getCount(country));
+        return firstNonZero(
+                factbook_population.getCount(country),
+                worldbank_population.getCount(country),
+                CountryData.population.getCount(country));
     }
 
     private static Double firstNonZero(Double... items) {
@@ -215,65 +238,73 @@ public class AddPopulationData {
         for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries
             switch (ch) {
-            case '"':
-                inQuote = !inQuote;
-                // at start or end, that's enough
-                // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
-                if (inQuote && item.length() != 0) {
-                    item.append('"');
-                    inQuote = true;
-                }
-                break;
-            case ',':
-                if (!inQuote) {
-                    result.add(item.toString());
-                    item.setLength(0);
-                } else {
+                case '"':
+                    inQuote = !inQuote;
+                    // at start or end, that's enough
+                    // if get a quote when we are not in a quote, and not at start, then add it and
+                    // return to inQuote
+                    if (inQuote && item.length() != 0) {
+                        item.append('"');
+                        inQuote = true;
+                    }
+                    break;
+                case ',':
+                    if (!inQuote) {
+                        result.add(item.toString());
+                        item.setLength(0);
+                    } else {
+                        item.append(ch);
+                    }
+                    break;
+                default:
                     item.append(ch);
-                }
-                break;
-            default:
-                item.append(ch);
-                break;
+                    break;
             }
         }
         result.add(item.toString());
         return result.toArray(new String[result.size()]);
     }
 
-    private static void loadFactbookInfo(String filename, final Counter2<String> factbookGdp) throws IOException {
-        CldrUtility.handleFile(filename, new LineHandler() {
-            @Override
-            public boolean handle(String line) {
-                if (line.length() == 0 || line.startsWith("This tab") || line.startsWith("Rank")
-                    || line.startsWith(" This file")) {
-                    return false;
-                }
-                String[] pieces = line.split("\\s{2,}");
-                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces), true, missing);
-                if (code == null) {
-                    return false;
-                }
-                if (!StandardCodes.isCountry(code)) {
-                    if (ADD_POP) {
-                        System.out.println("Skipping factbook info for: " + code);
+    private static void loadFactbookInfo(String filename, final Counter2<String> factbookGdp)
+            throws IOException {
+        CldrUtility.handleFile(
+                filename,
+                new LineHandler() {
+                    @Override
+                    public boolean handle(String line) {
+                        if (line.length() == 0
+                                || line.startsWith("This tab")
+                                || line.startsWith("Rank")
+                                || line.startsWith(" This file")) {
+                            return false;
+                        }
+                        String[] pieces = line.split("\\s{2,}");
+                        String code =
+                                CountryCodeConverter.getCodeFromName(
+                                        FBLine.Country.get(pieces), true, missing);
+                        if (code == null) {
+                            return false;
+                        }
+                        if (!StandardCodes.isCountry(code)) {
+                            if (ADD_POP) {
+                                System.out.println("Skipping factbook info for: " + code);
+                            }
+                            return false;
+                        }
+                        code = code.toUpperCase(Locale.ENGLISH);
+                        String valueString = FBLine.Value.get(pieces).trim();
+                        if (valueString.startsWith("$")) {
+                            valueString = valueString.substring(1);
+                        }
+                        valueString = valueString.replace(",", "");
+                        double value = Double.parseDouble(valueString.trim());
+                        factbookGdp.add(code, value);
+                        if (ADD_POP) {
+                            System.out.println("Factbook gdp:\t" + code + "\t" + value);
+                        }
+                        return true;
                     }
-                    return false;
-                }
-                code = code.toUpperCase(Locale.ENGLISH);
-                String valueString = FBLine.Value.get(pieces).trim();
-                if (valueString.startsWith("$")) {
-                    valueString = valueString.substring(1);
-                }
-                valueString = valueString.replace(",", "");
-                double value = Double.parseDouble(valueString.trim());
-                factbookGdp.add(code, value);
-                if (ADD_POP) {
-                    System.out.println("Factbook gdp:\t" + code + "\t" + value);
-                }
-                return true;
-            }
-        });
+                });
     }
 
     static final NumberFormat dollars = NumberFormat.getCurrencyInstance(ULocale.US);
@@ -307,7 +338,9 @@ public class AddPopulationData {
                     Double otherPop = getPopulation(data);
                     Double otherGdp = getGdp(data);
                     Double myPop = getPopulation(code);
-                    if (myPop.doubleValue() == 0 || otherPop.doubleValue() == 0 || otherGdp.doubleValue() == 0) {
+                    if (myPop.doubleValue() == 0
+                            || otherPop.doubleValue() == 0
+                            || otherGdp.doubleValue() == 0) {
                         otherPop = getPopulation(data);
                         otherGdp = getPopulation(data);
                         myPop = getPopulation(code);
@@ -340,31 +373,35 @@ public class AddPopulationData {
 
     private static void loadFactbookLiteracy() throws IOException {
         final String filename = "external/factbook_literacy.txt";
-        CldrUtility.handleFile(filename, new LineHandler() {
-            @Override
-            public boolean handle(String line) {
-                String[] pieces = line.split("\\t");
-                String code = CountryCodeConverter.getCodeFromName(FBLiteracy.Country.get(pieces), true, missing);
-                if (code == null) {
-                    return false;
-                }
-                if (!StandardCodes.isCountry(code)) {
-                    if (ADD_POP) {
-                        System.out.println("Skipping factbook literacy for: " + code);
+        CldrUtility.handleFile(
+                filename,
+                new LineHandler() {
+                    @Override
+                    public boolean handle(String line) {
+                        String[] pieces = line.split("\\t");
+                        String code =
+                                CountryCodeConverter.getCodeFromName(
+                                        FBLiteracy.Country.get(pieces), true, missing);
+                        if (code == null) {
+                            return false;
+                        }
+                        if (!StandardCodes.isCountry(code)) {
+                            if (ADD_POP) {
+                                System.out.println("Skipping factbook literacy for: " + code);
+                            }
+                            return false;
+                        }
+                        code = code.toUpperCase(Locale.ENGLISH);
+                        String valueString = FBLiteracy.Percent.get(pieces).trim();
+                        double percent = Double.parseDouble(valueString);
+                        factbook_literacy.put(code, percent);
+                        if (ADD_POP) {
+                            System.out.println("Factbook literacy:\t" + code + "\t" + percent);
+                        }
+                        code = null;
+                        return true;
                     }
-                    return false;
-                }
-                code = code.toUpperCase(Locale.ENGLISH);
-                String valueString = FBLiteracy.Percent.get(pieces).trim();
-                double percent = Double.parseDouble(valueString);
-                factbook_literacy.put(code, percent);
-                if (ADD_POP) {
-                    System.out.println("Factbook literacy:\t" + code + "\t" + percent);
-                }
-                code = null;
-                return true;
-            }
-        });
+                });
     }
 
     private static void loadWorldBankInfo() throws IOException {
@@ -372,100 +409,112 @@ public class AddPopulationData {
 
         // List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
 
-        CldrUtility.handleFile(filename, new LineHandler() {
-            ArrayList<Pair<WBLine, Integer>> columnToTypeAndValue = null;
+        CldrUtility.handleFile(
+                filename,
+                new LineHandler() {
+                    ArrayList<Pair<WBLine, Integer>> columnToTypeAndValue = null;
 
-            @Override
-            public boolean handle(String line) {
-                String[] pieces = splitCommaSeparated(line);
-                if (columnToTypeAndValue == null) {
-                    columnToTypeAndValue = WBLine.parseHeader(pieces);
-                    return false;
-                }
-
-                final HashMap<Pair<WBLine, Integer>, String> lineAsHash = new HashMap<>();
-                for (int i=0; i<pieces.length; i++) {
-                    lineAsHash.put(columnToTypeAndValue.get(i), pieces[i]);
-                }
-                // String[] pieces = line.substring(1, line.length() - 2).split("\"\t\"");
-                final String seriesCode = lineAsHash.get(Pair.of(WBLine.Series_Code, 0));
-
-                // find the last year
-                String last = null;
-
-                for (int n=0; n<columnToTypeAndValue.size(); n++) {
-                    // assume the years are in ascending order
-                    Pair<WBLine, Integer> i = columnToTypeAndValue.get(n);
-                    if (i.getFirst() == WBLine.Year) {
-                        String current = pieces[n];
-                        if (current.length() != 0 && !current.equals(EMPTY)) {
-                            last = current;
+                    @Override
+                    public boolean handle(String line) {
+                        String[] pieces = splitCommaSeparated(line);
+                        if (columnToTypeAndValue == null) {
+                            columnToTypeAndValue = WBLine.parseHeader(pieces);
+                            return false;
                         }
+
+                        final HashMap<Pair<WBLine, Integer>, String> lineAsHash = new HashMap<>();
+                        for (int i = 0; i < pieces.length; i++) {
+                            lineAsHash.put(columnToTypeAndValue.get(i), pieces[i]);
+                        }
+                        // String[] pieces = line.substring(1, line.length() - 2).split("\"\t\"");
+                        final String seriesCode = lineAsHash.get(Pair.of(WBLine.Series_Code, 0));
+
+                        // find the last year
+                        String last = null;
+
+                        for (int n = 0; n < columnToTypeAndValue.size(); n++) {
+                            // assume the years are in ascending order
+                            Pair<WBLine, Integer> i = columnToTypeAndValue.get(n);
+                            if (i.getFirst() == WBLine.Year) {
+                                String current = pieces[n];
+                                if (current.length() != 0 && !current.equals(EMPTY)) {
+                                    last = current;
+                                }
+                            }
+                        }
+                        if (last == null) {
+                            return false;
+                        }
+                        final String countryName = lineAsHash.get(Pair.of(WBLine.Country_Name, 0));
+                        String country =
+                                CountryCodeConverter.getCodeFromName(countryName, true, missing);
+                        if (country == null) {
+                            return false;
+                        }
+                        if (!StandardCodes.isCountry(country)) {
+                            if (ADD_POP) {
+                                System.out.println("Skipping worldbank info for: " + country);
+                            }
+                            return false;
+                        }
+                        double value;
+                        try {
+                            value = Double.parseDouble(last);
+                        } catch (NumberFormatException e) {
+                            throw new IllegalArgumentException(
+                                    "File changed format: need to modify code");
+                        }
+                        if (seriesCode.equals(GCP)) {
+                            worldbank_gdp.add(country, value);
+                        } else if (seriesCode.equals(POP)) {
+                            worldbank_population.add(country, value);
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                        return true;
                     }
-                }
-                if (last == null) {
-                    return false;
-                }
-                final String countryName = lineAsHash.get(Pair.of(WBLine.Country_Name, 0));
-                String country = CountryCodeConverter.getCodeFromName(countryName, true, missing);
-                if (country == null) {
-                    return false;
-                }
-                if (!StandardCodes.isCountry(country)) {
-                    if (ADD_POP) {
-                        System.out.println("Skipping worldbank info for: " + country);
-                    }
-                    return false;
-                }
-                double value;
-                try {
-                    value = Double.parseDouble(last);
-                } catch (NumberFormatException e) {
-                    throw new IllegalArgumentException("File changed format: need to modify code");
-                }
-                if (seriesCode.equals(GCP)) {
-                    worldbank_gdp.add(country, value);
-                } else if (seriesCode.equals(POP)) {
-                    worldbank_population.add(country, value);
-                } else {
-                    throw new IllegalArgumentException();
-                }
-                return true;
-            }
-        });
+                });
     }
 
     private static void loadUnLiteracy() throws IOException {
-        CldrUtility.handleFile("external/un_literacy.csv", new CldrUtility.LineHandler() {
-            @Override
-            public boolean handle(String line) {
-                // Afghanistan,2000, ,28,43,13,,34,51,18
-                // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"         Youth (15-24) literacy rate",,,,
-                // ,,,Total,Men,Women,,Total,Men,Women
-                // "Albania",2008,,96,,97,,95,,99,,99,,99
-                String[] pieces = splitCommaSeparated(line);
-                if (pieces.length != 14 || pieces[1].length() == 0 || !DIGITS.containsAll(pieces[1])) {
-                    return false;
-                }
-                String code = CountryCodeConverter.getCodeFromName(pieces[0], true, missing);
-                if (code == null) {
-                    return false;
-                }
-                if (!StandardCodes.isCountry(code)) {
-                    if (ADD_POP) {
-                        System.out.println("Skipping UN info for: " + code);
+        CldrUtility.handleFile(
+                "external/un_literacy.csv",
+                new CldrUtility.LineHandler() {
+                    @Override
+                    public boolean handle(String line) {
+                        // Afghanistan,2000, ,28,43,13,,34,51,18
+                        // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"
+                        // Youth (15-24) literacy rate",,,,
+                        // ,,,Total,Men,Women,,Total,Men,Women
+                        // "Albania",2008,,96,,97,,95,,99,,99,,99
+                        String[] pieces = splitCommaSeparated(line);
+                        if (pieces.length != 14
+                                || pieces[1].length() == 0
+                                || !DIGITS.containsAll(pieces[1])) {
+                            return false;
+                        }
+                        String code =
+                                CountryCodeConverter.getCodeFromName(pieces[0], true, missing);
+                        if (code == null) {
+                            return false;
+                        }
+                        if (!StandardCodes.isCountry(code)) {
+                            if (ADD_POP) {
+                                System.out.println("Skipping UN info for: " + code);
+                            }
+                            return false;
+                        }
+                        String totalLiteracy = pieces[3];
+                        if (totalLiteracy.equals("�")
+                                || totalLiteracy.equals("…")
+                                || totalLiteracy.isEmpty()) {
+                            return true;
+                        }
+                        double percent = Double.parseDouble(totalLiteracy);
+                        un_literacy.add(code, percent);
+                        return true;
                     }
-                    return false;
-                }
-                String totalLiteracy = pieces[3];
-                if (totalLiteracy.equals("�") || totalLiteracy.equals("…") || totalLiteracy.isEmpty()) {
-                    return true;
-                }
-                double percent = Double.parseDouble(totalLiteracy);
-                un_literacy.add(code, percent);
-                return true;
-            }
-        });
+                });
     }
 
     static {
@@ -489,20 +538,34 @@ public class AddPopulationData {
                 double population = getPopulation(territory);
                 if (population == 0) {
                     // AX;Aland Islands;population;26,200;www.aland.ax
-                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory)
-                        + ";population;0;reason");
+                    myErrors.append(
+                            "\n"
+                                    + territory
+                                    + ";"
+                                    + sc.getData("territory", territory)
+                                    + ";population;0;reason");
                 }
                 if (gdp == 0) {
-                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";gdp-ppp;0;reason");
+                    myErrors.append(
+                            "\n"
+                                    + territory
+                                    + ";"
+                                    + sc.getData("territory", territory)
+                                    + ";gdp-ppp;0;reason");
                 }
                 if (literacy == 0) {
-                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";literacy;0;reason");
+                    myErrors.append(
+                            "\n"
+                                    + territory
+                                    + ";"
+                                    + sc.getData("territory", territory)
+                                    + ";literacy;0;reason");
                 }
             }
             if (myErrors.length() != 0) {
                 throw new IllegalArgumentException(
-                    "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
-                        + myErrors);
+                        "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
+                                + myErrors);
             }
         } catch (IOException e) {
         }

@@ -1,22 +1,16 @@
 package org.unicode.cldr.test;
 
-import java.io.IOException;
-import java.text.FieldPosition;
-import java.util.Date;
-
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.BasicTimeZone;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.TimeZoneRule;
 import com.ibm.icu.util.TimeZoneTransition;
+import java.io.IOException;
+import java.text.FieldPosition;
+import java.util.Date;
 
-/**
- * Verify that all zones in a metazone have the same behavior within the
- * specified period.
- *
- *
- */
+/** Verify that all zones in a metazone have the same behavior within the specified period. */
 public class PrintTransitions {
 
     public static void main(String[] args) throws IOException {
@@ -49,14 +43,24 @@ public class PrintTransitions {
                 TimeZoneRule to = tzt.getTo();
                 int fromOffset = (from.getRawOffset() + from.getDSTSavings()) / 3600000;
                 int fromMins = ((from.getRawOffset() + from.getDSTSavings()) % 3600000) / 60000;
-                if (fromMins < 0)
-                    fromMins *= -1;
+                if (fromMins < 0) fromMins *= -1;
                 int toOffset = (to.getRawOffset() + to.getDSTSavings()) / 3600000;
                 int toMins = ((to.getRawOffset() + to.getDSTSavings()) % 3600000) / 60000;
-                if (toMins < 0)
-                    toMins *= -1;
-                System.out.println(" from " + from.getName() + "[GMT" + fromOffset + ":" + fromMins + "] to "
-                    + to.getName() + "[GMT" + toOffset + ":" + toMins + "]");
+                if (toMins < 0) toMins *= -1;
+                System.out.println(
+                        " from "
+                                + from.getName()
+                                + "[GMT"
+                                + fromOffset
+                                + ":"
+                                + fromMins
+                                + "] to "
+                                + to.getName()
+                                + "[GMT"
+                                + toOffset
+                                + ":"
+                                + toMins
+                                + "]");
                 transitionCount++;
                 tzt = tz.getNextTransition(TransitionTime, false);
             }
@@ -65,12 +69,10 @@ public class PrintTransitions {
                 TimeZoneRule from = rules[0];
                 int fromOffset = (from.getRawOffset() + from.getDSTSavings()) / 3600000;
                 int fromMins = ((from.getRawOffset() + from.getDSTSavings()) % 3600000) / 60000;
-                if (fromMins < 0)
-                    fromMins *= -1;
+                if (fromMins < 0) fromMins *= -1;
                 System.out.println(from.getName() + "[GMT" + fromOffset + ":" + fromMins + "]");
             }
             i++;
         }
     }
-
 }

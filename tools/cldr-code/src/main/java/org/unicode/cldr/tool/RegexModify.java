@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Function;
+import com.google.common.collect.ImmutableMap;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
@@ -9,35 +11,30 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.RegexUtilities;
 
-import com.google.common.base.Function;
-import com.google.common.collect.ImmutableMap;
-
 public class RegexModify {
 
     enum MyOptions {
-        verbose(new Params()
-            .setHelp("verbose debugging messages")), sourceDirectory(new Params()
-                .setHelp("sourceDirectory")
-                .setDefault(CLDRPaths.COMMON_DIRECTORY)
-                .setMatch(".+")), targetDirectory(new Params()
-                    .setHelp("targetDirectory")
-                    .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
-                    .setMatch(".+")), fileRegex(new Params()
-                        .setHelp("filename regex")
-                        .setMatch(".*")
-                        .setDefault(".*\\.xml")), lineRegex(new Params()
-                            .setHelp("line regex")
-                            .setMatch(".*")), applyFunction(new Params()
-                                .setHelp("function name to apply")
-                                .setMatch(".*")),
-                                ;
+        verbose(new Params().setHelp("verbose debugging messages")),
+        sourceDirectory(
+                new Params()
+                        .setHelp("sourceDirectory")
+                        .setDefault(CLDRPaths.COMMON_DIRECTORY)
+                        .setMatch(".+")),
+        targetDirectory(
+                new Params()
+                        .setHelp("targetDirectory")
+                        .setDefault(CLDRPaths.GEN_DIRECTORY + "xmlModify")
+                        .setMatch(".+")),
+        fileRegex(new Params().setHelp("filename regex").setMatch(".*").setDefault(".*\\.xml")),
+        lineRegex(new Params().setHelp("line regex").setMatch(".*")),
+        applyFunction(new Params().setHelp("function name to apply").setMatch(".*")),
+        ;
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -47,6 +44,7 @@ public class RegexModify {
         }
 
         private static Options myOptions = new Options();
+
         static {
             for (MyOptions option : MyOptions.values()) {
                 myOptions.add(option, option.option);
@@ -70,9 +68,10 @@ public class RegexModify {
             if (!fileMatcher.reset(file).matches()) {
                 continue;
             }
-            try (
-                BufferedReader in = FileUtilities.openUTF8Reader(sourceDirectory.toString(), file);
-                PrintWriter out = FileUtilities.openUTF8Writer(targetDirectory.toString(), file)) {
+            try (BufferedReader in =
+                            FileUtilities.openUTF8Reader(sourceDirectory.toString(), file);
+                    PrintWriter out =
+                            FileUtilities.openUTF8Writer(targetDirectory.toString(), file)) {
                 f.clear();
                 for (String line : FileUtilities.in(in)) {
                     String newLine = f.apply(line);
@@ -85,25 +84,25 @@ public class RegexModify {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private static <T> T getFunction(Class class1, String applyFunction) {
         Map<String, Class<Function>> methods = getMethods(class1);
         Class result = methods.get(applyFunction);
         try {
             return (T) result.newInstance();
         } catch (Exception e) {
-            throw new IllegalArgumentException("-a value must be in " + methods.keySet()
-                + " but is “" + applyFunction + "”");
+            throw new IllegalArgumentException(
+                    "-a value must be in " + methods.keySet() + " but is “" + applyFunction + "”");
         }
     }
 
     @SuppressWarnings("rawtypes")
     private static Map<String, Class<Function>> getMethods(Class class1) {
         ImmutableMap.Builder<String, Class<Function>> result = ImmutableMap.builder();
-        //Set<Class<Function>> skipSet = new HashSet<>(Arrays.asList(skip));
+        // Set<Class<Function>> skipSet = new HashSet<>(Arrays.asList(skip));
         for (Class classMember : class1.getClasses()) {
             if ((Modifier.ABSTRACT & classMember.getModifiers()) != 0
-                || !Function.class.isAssignableFrom(classMember)) {
+                    || !Function.class.isAssignableFrom(classMember)) {
                 continue;
             }
 
@@ -113,7 +112,7 @@ public class RegexModify {
         return result.build();
     }
 
-    public static abstract class RegexFunction implements Function<String, String> {
+    public abstract static class RegexFunction implements Function<String, String> {
         protected Matcher lineMatcher;
         private int count;
 
@@ -158,7 +157,7 @@ public class RegexModify {
 
         @Override
         public String getPattern() {
-            //return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\".*)";
+            // return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\".*)";
             return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\" replacement=\")([^\"]+)(\".*)";
         }
 
@@ -166,8 +165,9 @@ public class RegexModify {
         public String fixLine() {
             String value = convertToCldr(lineMatcher.group(2));
             String value2 = convertToCldr(lineMatcher.group(4));
-            //return lineMatcher.replaceAll("$1"+value+"$3"); // TODO modify to be cleaner
-            return lineMatcher.replaceAll("$1" + value + "$3" + value2 + "$5"); // TODO modify to be cleaner
+            // return lineMatcher.replaceAll("$1"+value+"$3"); // TODO modify to be cleaner
+            return lineMatcher.replaceAll(
+                    "$1" + value + "$3" + value2 + "$5"); // TODO modify to be cleaner
         }
 
         private static boolean isRegionCode(String s) {
@@ -175,9 +175,9 @@ public class RegexModify {
         }
 
         private static String convertToCldr(String regionOrSubdivision) {
-            return isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
-                : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
+            return isRegionCode(regionOrSubdivision)
+                    ? regionOrSubdivision.toUpperCase(Locale.ROOT)
+                    : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
         }
-
     }
 }

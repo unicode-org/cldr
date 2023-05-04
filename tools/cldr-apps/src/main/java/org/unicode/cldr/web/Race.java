@@ -3,17 +3,15 @@
 package org.unicode.cldr.web;
 
 import java.util.Map;
-
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
- * This class represents a particular item that can be voted for, a single
- * "contest" if you will.
+ * This class represents a particular item that can be voted for, a single "contest" if you will.
  *
- * It is currently a wrapper on the BallotBox interface.
+ * <p>It is currently a wrapper on the BallotBox interface.
  */
 public class Race {
     BallotBox<User> ballotBox;
@@ -41,10 +39,8 @@ public class Race {
 
         @Override
         public boolean equals(Object other) {
-            if (other == this)
-                return true;
-            if (!(other instanceof Chad))
-                return false;
+            if (other == this) return true;
+            if (!(other instanceof Chad)) return false;
             return (compareTo((Chad) other) == 0);
         }
 
@@ -62,30 +58,31 @@ public class Race {
         }
     }
 
-    /**
-     * Get a map of xpath to score for this org.
-     */
+    /** Get a map of xpath to score for this org. */
     public Map<String, Long> getOrgToVotes(Organization org) {
         return resolver.getOrgToVotes(org);
     }
 
-    /**
-     * Get the baseline xpath
-     */
+    /** Get the baseline xpath */
     public String getBaselineValue() {
         return resolver.getBaselineValue();
     }
 
-    /**
-     * Get the baseline status
-     */
+    /** Get the baseline status */
     public org.unicode.cldr.util.VoteResolver.Status getBaselineStatus() {
         return resolver.getBaselineStatus();
     }
 
     public String resolverToString() {
-        return resolver.toString() + "\n" + "WinningXpath: " + resolver.getWinningValue() + "#" + resolver.getWinningValue()
-            + " " + resolver.getWinningStatus() + "\n";
+        return resolver.toString()
+                + "\n"
+                + "WinningXpath: "
+                + resolver.getWinningValue()
+                + "#"
+                + resolver.getWinningValue()
+                + " "
+                + resolver.getWinningStatus()
+                + "\n";
     }
 
     public String getOrgVote(Organization org) {

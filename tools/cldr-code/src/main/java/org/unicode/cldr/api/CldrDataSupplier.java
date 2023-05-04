@@ -5,6 +5,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
 import static org.unicode.cldr.api.CldrDataType.LDML;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -13,40 +17,35 @@ import java.nio.file.Path;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-
 import org.unicode.cldr.api.CldrData.PrefixVisitor;
 import org.unicode.cldr.api.CldrData.ValueVisitor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSetMultimap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-
 /**
  * The main API for accessing {@link CldrPath} and {@link CldrValue} instances for CLDR data. This
- * API abstracts the data sources, file names and other implementation details of CLDR to provide
- * a clean way to access CLDR data.
+ * API abstracts the data sources, file names and other implementation details of CLDR to provide a
+ * clean way to access CLDR data.
  *
  * <p>{@code CldrData} instances are obtained from an appropriate {@code CldrDataSupplier}, and
  * accept a {@link ValueVisitor} or {@link PrefixVisitor} to iterate over the data.
  *
  * <p>For example the following code prints every value (including its associated distinguishing
  * path) in the BCP-47 data in DTD order:
+ *
  * <pre>{@code
- *   CldrDataSupplier supplier = CldrDataSupplier.forFilesIn(rootDir);
- *   CldrData bcp47Data = supplier.getDataForType(CldrDataType.BCP47);
- *   bcp47Data.accept(PathOrder.DTD, System.out::println);
+ * CldrDataSupplier supplier = CldrDataSupplier.forFilesIn(rootDir);
+ * CldrData bcp47Data = supplier.getDataForType(CldrDataType.BCP47);
+ * bcp47Data.accept(PathOrder.DTD, System.out::println);
  * }</pre>
  *
  * <p>Note that while the paths of values visited in a single {@link CldrData} instance are unique,
  * there is nothing to prevent duplication between multiple data sources. This is particularly
  * important when considering "ordered" elements with a sort index, since it represents "encounter
- * order" and so any merging of values would have to track and rewrite sort indices carefully. It
- * is recommended that if multiple {@code CldrData} instances are to be processed, users ensure
- * that no path prefixes be shared between them. See also {@link CldrPath#getSortIndex()}.
+ * order" and so any merging of values would have to track and rewrite sort indices carefully. It is
+ * recommended that if multiple {@code CldrData} instances are to be processed, users ensure that no
+ * path prefixes be shared between them. See also {@link CldrPath#getSortIndex()}.
  *
  * <p>Note that because the distinguishing paths associated with a {@link CldrValue} are unique per
  * visitation, the special "version" path/value must be omitted (e.g. "//ldml/version") since it
@@ -79,8 +78,8 @@ public abstract class CldrDataSupplier {
     }
 
     /**
-     * Returns a supplier for CLDR data in the specified CLDR project root directory. This must be
-     * a directory which contains the standard CLDR {@code "common"} directory file hierarchy.
+     * Returns a supplier for CLDR data in the specified CLDR project root directory. This must be a
+     * directory which contains the standard CLDR {@code "common"} directory file hierarchy.
      *
      * @param cldrRootDir the root directory of a CLDR project containing the data to be read.
      * @return a supplier for CLDR data in the given path.
@@ -97,7 +96,7 @@ public abstract class CldrDataSupplier {
         // TODO: Extend the API to allow source roots to be specified (but not via directory name).
         Set<String> rootDirs = ImmutableSet.of("common");
         return new FileBasedDataSupplier(
-            createCldrDirectoryMap(cldrRootDir, rootDirs), CldrDraftStatus.UNCONFIRMED);
+                createCldrDirectoryMap(cldrRootDir, rootDirs), CldrDraftStatus.UNCONFIRMED);
     }
 
     /**
@@ -112,19 +111,19 @@ public abstract class CldrDataSupplier {
      * @return a data instance for the paths/values in the specified XML file.
      */
     public static CldrData forCldrFiles(
-        CldrDataType type, CldrDraftStatus draftStatus, Set<Path> xmlFiles) {
+            CldrDataType type, CldrDraftStatus draftStatus, Set<Path> xmlFiles) {
         return new XmlDataSource(type, ImmutableSet.copyOf(xmlFiles), draftStatus);
     }
 
     private static Multimap<CldrDataType, Path> createCldrDirectoryMap(
-        Path cldrRootDir, Set<String> rootDirs) {
+            Path cldrRootDir, Set<String> rootDirs) {
 
         LinkedHashMultimap<CldrDataType, Path> multimap = LinkedHashMultimap.create();
         for (CldrDataType type : CldrDataType.values()) {
             type.getSourceDirectories()
-                .flatMap(d -> rootDirs.stream().map(r -> cldrRootDir.resolve(r).resolve(d)))
-                .filter(Files::isDirectory)
-                .forEach(p -> multimap.put(type, p));
+                    .flatMap(d -> rootDirs.stream().map(r -> cldrRootDir.resolve(r).resolve(d)))
+                    .filter(Files::isDirectory)
+                    .forEach(p -> multimap.put(type, p));
         }
         return multimap;
     }
@@ -155,8 +154,8 @@ public abstract class CldrDataSupplier {
      *
      * <p>If {@code resolution} is set to {@link CldrResolution#RESOLVED RESOLVED} then values
      * inferred from parent locales and aliases will be produced by the supplier. Note that if an
-     * unsupported locale ID is given (i.e. one not in the set returned by
-     * {@link #getAvailableLocaleIds()}), then an empty data instance is returned.
+     * unsupported locale ID is given (i.e. one not in the set returned by {@link
+     * #getAvailableLocaleIds()}), then an empty data instance is returned.
      *
      * @param localeId the locale ID (e.g. "en_GB" or "root") for the returned data.
      * @param resolution whether to resolve CLDR values for the given locale ID according to the
@@ -167,8 +166,8 @@ public abstract class CldrDataSupplier {
     public abstract CldrData getDataForLocale(String localeId, CldrResolution resolution);
 
     /**
-     * Returns an unmodifiable set of available locale IDs that this supplier can provide. This
-     * need not be ordered.
+     * Returns an unmodifiable set of available locale IDs that this supplier can provide. This need
+     * not be ordered.
      *
      * @return the set of available locale IDs.
      */
@@ -192,7 +191,7 @@ public abstract class CldrDataSupplier {
         private Factory factory = null;
 
         private FileBasedDataSupplier(
-            Multimap<CldrDataType, Path> directoryMap, CldrDraftStatus draftStatus) {
+                Multimap<CldrDataType, Path> directoryMap, CldrDraftStatus draftStatus) {
             this.directoryMap = ImmutableSetMultimap.copyOf(directoryMap);
             this.draftStatus = checkNotNull(draftStatus);
         }
@@ -202,9 +201,11 @@ public abstract class CldrDataSupplier {
         private synchronized Factory getFactory() {
             if (factory == null) {
                 File[] dirArray =
-                    getDirectoriesForType(LDML).map(Path::toFile).toArray(File[]::new);
-                checkArgument(dirArray.length > 0,
-                    "no LDML directories exist: %s", directoryMap.get(LDML));
+                        getDirectoriesForType(LDML).map(Path::toFile).toArray(File[]::new);
+                checkArgument(
+                        dirArray.length > 0,
+                        "no LDML directories exist: %s",
+                        directoryMap.get(LDML));
                 factory = SimpleFactory.make(dirArray, ".*", draftStatus.getRawStatus());
             }
             return factory;
@@ -221,7 +222,7 @@ public abstract class CldrDataSupplier {
             Factory factory = getFactory();
             if (factory.getAvailable().contains(localeId)) {
                 return new CldrFileDataSource(
-                    factory.make(localeId, resolution == CldrResolution.RESOLVED));
+                        factory.make(localeId, resolution == CldrResolution.RESOLVED));
             }
             return NO_DATA;
         }
@@ -245,11 +246,14 @@ public abstract class CldrDataSupplier {
         }
 
         private ImmutableSet<Path> listXmlFilesForType(CldrDataType type) {
-            ImmutableSet<Path> xmlFiles = getDirectoriesForType(type)
-                .flatMap(FileBasedDataSupplier::listXmlFiles)
-                .collect(toImmutableSet());
-            checkArgument(!xmlFiles.isEmpty(),
-                "no XML files exist within directories: %s", directoryMap.get(type));
+            ImmutableSet<Path> xmlFiles =
+                    getDirectoriesForType(type)
+                            .flatMap(FileBasedDataSupplier::listXmlFiles)
+                            .collect(toImmutableSet());
+            checkArgument(
+                    !xmlFiles.isEmpty(),
+                    "no XML files exist within directories: %s",
+                    directoryMap.get(type));
             return xmlFiles;
         }
 
@@ -269,16 +273,20 @@ public abstract class CldrDataSupplier {
         }
 
         private static final Predicate<Path> IS_XML_FILE =
-            p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith(".xml");
+                p -> Files.isRegularFile(p) && p.getFileName().toString().endsWith(".xml");
     }
 
-    private static final CldrData NO_DATA = new CldrData() {
-        @Override public void accept(PathOrder order, ValueVisitor visitor) {}
+    private static final CldrData NO_DATA =
+            new CldrData() {
+                @Override
+                public void accept(PathOrder order, ValueVisitor visitor) {}
 
-        @Override public void accept(PathOrder order, PrefixVisitor visitor) {}
+                @Override
+                public void accept(PathOrder order, PrefixVisitor visitor) {}
 
-        @Override public CldrValue get(CldrPath path) {
-            return null;
-        }
-    };
+                @Override
+                public CldrValue get(CldrPath path) {
+                    return null;
+                }
+            };
 }

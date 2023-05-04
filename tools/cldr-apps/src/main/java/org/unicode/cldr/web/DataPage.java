@@ -565,9 +565,7 @@ public class DataPage {
             if (value == null) {
                 return null;
             }
-            if (VoteResolver.DROP_HARD_INHERITANCE
-                    && value.equals(inheritedValue)
-                    && !inheritsFromRootOrFallback()) {
+            if (VoteResolver.DROP_HARD_INHERITANCE && value.equals(inheritedValue)) {
                 value = CldrUtility.INHERITANCE_MARKER;
             }
             CandidateItem item = items.get(value);
@@ -585,15 +583,13 @@ public class DataPage {
             if (winningValue != null && winningValue.equals(value)) {
                 winningItem = item;
             }
-            if (baselineValue != null && baselineValue.equals(value)) {
+            if (baselineValue != null
+                    && (baselineValue.equals(value)
+                            || (CldrUtility.INHERITANCE_MARKER.equals(value)
+                                    && baselineValue.equals(inheritedValue)))) {
                 item.isBaselineValue = true;
             }
             return item;
-        }
-
-        private boolean inheritsFromRootOrFallback() {
-            String loc = inheritedLocale.getBaseName();
-            return XMLSource.ROOT_ID.equals(loc) || XMLSource.CODE_FALLBACK_ID.equals(loc);
         }
 
         /** Calculate the hash used for HTML forms for this DataRow. */
@@ -1914,10 +1910,6 @@ public class DataPage {
          * baselineValue, or because it has votes), then "add" it again here so that we have myItem and
          * will call setTests.
          *
-         * Also, if inherited value is from root or code-fallback, then we still need a candidate item that's
-         * non-inherited to avoid errors about inheriting from root/fallback, and to match the winning value
-         * which might be not be INHERITANCE_MARKER even though it matches the bailey value.
-         *
          * TODO: It would be better to consolidate where setTests is called for all items, to ensure
          * it's called once and only once for each item that needs it.
          */
@@ -1925,8 +1917,7 @@ public class DataPage {
         if (ourValue != null) {
             if (!VoteResolver.DROP_HARD_INHERITANCE
                     || !ourValue.equals(row.inheritedValue)
-                    || row.items.get(ourValue) != null
-                    || row.inheritsFromRootOrFallback()) {
+                    || row.items.get(ourValue) != null) {
                 myItem = row.addItem(ourValue, "our");
                 if (DEBUG) {
                     System.err.println(

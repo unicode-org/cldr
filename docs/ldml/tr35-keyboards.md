@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-|Version|43           |
+|Version|43.1         |
 |-------|-------------|
 |Editors|Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 

@@ -789,6 +789,7 @@ public class TestDtdData extends TestFmwk {
                         // || elementName.equals("row") && attribute.equals("keys")
                         || elementName.equals("vkey") && attribute.equals("iso")
                         || elementName.equals("display") && attribute.equals("to")
+                        || elementName.equals("display") && attribute.equals("id")
                         || elementName.equals("flicks") && attribute.equals("id")
                         || elementName.equals("flick") && attribute.equals("directions");
             case keyboardTest:

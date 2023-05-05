@@ -1475,4 +1475,32 @@ public class TestExampleGenerator extends TestFmwk {
             }
         }
     }
+
+    public void TestUnicodeSetExamples() {
+        String[][] tests = {
+            {
+                "de",
+                "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
+                "[\\u200B \\- . ๎ ็]",
+                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
+            },
+            {
+                "de",
+                "//ldml/characters/exemplarCharacters",
+                "[\\u200B a-z ๎ ็]",
+                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
+            },
+        };
+
+        for (String[] test : tests) {
+
+            final String locale = test[0];
+            final String path = test[1];
+            final String value = test[2];
+            final String expected = test[3];
+            ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+            String actual = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
+            assertEquals(locale + path + "=" + value, expected, actual);
+        }
+    }
 }

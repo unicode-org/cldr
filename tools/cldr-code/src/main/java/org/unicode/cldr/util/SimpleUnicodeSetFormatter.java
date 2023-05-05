@@ -40,15 +40,16 @@ import java.util.function.Function;
 public class SimpleUnicodeSetFormatter {
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
-    public static final Comparator<String> BASIC_COLLATOR;
+    public static final Comparator<String> BASIC_COLLATOR =
+            getCollatorIdenticalStrength(ULocale.ROOT);
 
     private static final int DEFAULT_MAX_DISALLOW_RANGES = 199;
 
-    static {
-        Collator temp = Collator.getInstance(ULocale.ROOT);
+    public static Comparator<String> getCollatorIdenticalStrength(ULocale locale) {
+        Collator temp = Collator.getInstance(locale);
         temp.setStrength(Collator.IDENTICAL);
         temp.freeze();
-        BASIC_COLLATOR = (Comparator<String>) (Comparator<?>) temp;
+        return (Comparator<String>) (Comparator<?>) temp;
     }
 
     private final Comparator<String> comparator;
@@ -164,24 +165,33 @@ public class SimpleUnicodeSetFormatter {
         for (String word : SPACE_SPLITTER.split(input)) {
             // parts between spaces can be single code points, or strings, or ranges of single code
             // points
+            // points
             int rangePos = word.indexOf(CodePointEscaper.RANGE_SYNTAX);
             if (rangePos < 0) {
                 result.add(unescape(word));
             } else {
                 int range2Pos = word.indexOf(CodePointEscaper.RANGE_SYNTAX, rangePos + 1);
-                if (range2Pos >= 0) {
-                    throw new IllegalArgumentException("Two range marks: " + word);
-                } else if (rangePos == 0 || rangePos == word.length() - 1) {
+                final String before = word.substring(0, rangePos);
+                final String after = word.substring(rangePos + 1);
+                if (rangePos == 0) {
                     throw new IllegalArgumentException(
-                            "A range mark must have characters on both sides: " + word);
+                            "Must have exactly one character before '➖': " + before + "❌➖" + after);
+                } else if (rangePos == word.length() - 1) {
+                    throw new IllegalArgumentException(
+                            "Must have exactly one character after '➖': " + before + "➖❌" + after);
+                } else if (range2Pos >= 0) {
+                    throw new IllegalArgumentException(
+                            "Must not have two '➖' characters: " + before + "➖❌" + after);
                 }
                 // get the code points on either side
-                int first = CharSequences.getSingleCodePoint(unescape(word.substring(0, rangePos)));
-                int second =
-                        CharSequences.getSingleCodePoint(unescape(word.substring(rangePos + 1)));
-                if (first == Integer.MAX_VALUE || second == Integer.MAX_VALUE) {
+                int first = CharSequences.getSingleCodePoint(unescape(before));
+                int second = CharSequences.getSingleCodePoint(unescape(after));
+                if (first == Integer.MAX_VALUE) {
                     throw new IllegalArgumentException(
-                            "A range mark must have single code points on both sides: " + word);
+                            "Must have exactly one character before '➖': " + before + "❌➖" + after);
+                } else if (second == Integer.MAX_VALUE) {
+                    throw new IllegalArgumentException(
+                            "Must have exactly one character after '➖': " + before + "➖❌" + after);
                 }
                 result.add(first, second);
             }
@@ -190,45 +200,45 @@ public class SimpleUnicodeSetFormatter {
     }
 
     /** Unescape a whole string. */
-    private CharSequence unescape(String word) {
+    public static CharSequence unescape(String word) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < word.length(); ) {
             int escapeStart = word.indexOf(CodePointEscaper.ESCAPE_START, i);
             if (escapeStart < 0) {
                 final String toAppend = i == 0 ? word : word.substring(i);
-                if (toAppend.indexOf(CodePointEscaper.ESCAPE_END) >= 0) {
+                final int endStart = toAppend.indexOf(CodePointEscaper.ESCAPE_END);
+                if (endStart >= 0) {
                     throw new IllegalArgumentException(
-                            "Escape end "
-                                    + CodePointEscaper.ESCAPE_END
-                                    + " without escape start "
+                            "Missing start escape "
                                     + CodePointEscaper.ESCAPE_START
                                     + ": "
-                                    + word);
+                                    + word.substring(0, endStart)
+                                    + "❌"
+                                    + word.substring(endStart));
                 }
+                // Otherwise we are done, the rest is unescaped.
                 result.append(toAppend);
                 break;
             }
+            // we have an escape start, so we append what is before that.
             final String toAppend = word.substring(i, escapeStart);
-            if (toAppend.indexOf(CodePointEscaper.ESCAPE_END) >= 0) {
+            // if we don't find an escape end
+            final int endStart = toAppend.indexOf(CodePointEscaper.ESCAPE_END);
+            if (endStart >= 0) {
                 throw new IllegalArgumentException(
-                        "Escape end "
-                                + CodePointEscaper.ESCAPE_END
-                                + " without escape start "
+                        "Missing start escape "
                                 + CodePointEscaper.ESCAPE_START
                                 + ": "
-                                + word);
+                                + toAppend.substring(0, endStart)
+                                + "❌"
+                                + toAppend.substring(endStart));
             }
             result.append(toAppend);
             int interiorStart = escapeStart + 1;
             int escapeEnd = word.indexOf(CodePointEscaper.ESCAPE_END, interiorStart);
             if (escapeEnd < 0) {
                 throw new IllegalArgumentException(
-                        "Escape start "
-                                + CodePointEscaper.ESCAPE_START
-                                + " without escape end "
-                                + CodePointEscaper.ESCAPE_END
-                                + ": "
-                                + word);
+                        "Missing end escape " + CodePointEscaper.ESCAPE_END + ": " + word + "❌");
             }
             result.appendCodePoint(
                     CodePointEscaper.fromAbbreviationOrHex(

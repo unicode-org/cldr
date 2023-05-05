@@ -724,49 +724,28 @@ public class DisplayAndInputProcessor {
     }
 
     private String displayUnicodeSet(String value) {
-        return pp.format(new UnicodeSet(value));
-        //                if (value.startsWith("[") && value.endsWith("]")) {
-        //                    value = value.substring(1, value.length() - 1);
-        //                }
-        //
-        //        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-        //        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-        // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
-        // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
-        // }
-        //        return value;
+        return pp.format(
+                new UnicodeSet(value)); // will throw exception if bad format, eg missing [...]
     }
 
     private String inputUnicodeSet(String path, String value) {
         UnicodeSet exemplar = null;
-        try {
-            exemplar = pp.parse(value);
-        } catch (Exception e) {
-            pp.parse(value); // for debugging
-            return value; // we can't throw an exception because clients won't expect it.
+        // hack, in case the input is called twice
+        value = value.trim();
+        if (value.startsWith("[") && value.endsWith("]")) {
+            try {
+                exemplar = new UnicodeSet(value);
+            } catch (Exception e2) {
+                // fall through
+            }
         }
-        if (false) {
-            // clean up the user's input.
-            // first, fix up the '['
-            value = value.trim();
-
-            // remove brackets and trim again before regex
-            if (value.startsWith("[")) {
-                value = value.substring(1);
+        if (exemplar == null) {
+            try {
+                exemplar = pp.parse(value);
+            } catch (Exception e) {
+                // can't parse at all
+                return value; // we can't throw an exception because clients won't expect it.
             }
-            if (value.endsWith("]") && (!value.endsWith("\\]") || value.endsWith("\\\\]"))) {
-                value = value.substring(0, value.length() - 1);
-            }
-            value = value.trim();
-
-            value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-            value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-            // re-add brackets.
-            value = "[" + value + "]";
-
-            exemplar = new UnicodeSet(value);
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
         //        if (parts.getElement(2).equals("parseLenients")) {

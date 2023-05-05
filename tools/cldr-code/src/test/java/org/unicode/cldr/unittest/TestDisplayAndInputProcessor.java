@@ -731,4 +731,58 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE,
                 roundTrip);
     }
+
+    public void TestUnicodeSetExamples() {
+        String[][] tests = {
+            // unicodeSet, displayForm, roundtrip
+            {
+                "//ldml/characters/exemplarCharacters",
+                "[a-c {def} \\u200B \\- . ๎ ็]",
+                "⦕ZWSP⦖ ๎ ็ - . a b c def",
+                "[a-c\u0E47\u0E4E\u200B{def}]",
+                // note: DAIP also adds break/nobreak alternates for
+                // hyphen, and removes some characters if exemplars
+            },
+            {
+                "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
+                "[a-c {def} \\u200B \\- . ๎ ็]",
+                "⦕ZWSP⦖ ๎ ็ - . a b c def",
+                "[\\-.a-c\u0E47\u0E4E\u200B\u2011{def}]",
+                // note: DAIP also adds break/nobreak alternates
+                // for hyphen, etc.
+            },
+        };
+        // Note, since processInput does a fixup for examplars, we account for that in the input.
+        // If we had just \u200B, then \u2011 gets added.
+        Exception[] excp = new Exception[1];
+        int count = 0;
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), true);
+        for (String[] test : tests) {
+            final String path = test[0];
+            final String unicodeSet = new UnicodeSet(test[1]).toPattern(true); // normalize
+            final String expectedDisplayForm = test[2];
+            final String expectedRoundtrip = new UnicodeSet(test[3]).toPattern(true); // normalize
+
+            String actualDisplayForm = daip.processForDisplay(path, unicodeSet);
+            assertEquals(
+                    ++count + ") unicodeSet to display, " + path,
+                    expectedDisplayForm,
+                    actualDisplayForm);
+            String actualRoundtrip = daip.processInput(path, expectedDisplayForm, excp);
+            actualRoundtrip = new UnicodeSet(actualRoundtrip).toPattern(true); // normalize
+            assertEquals(
+                    count + ") display to unicodeSet, " + path, expectedRoundtrip, actualRoundtrip);
+
+            // Now we check that processInput can work on the display form.
+            // Just in case the ST calls it twice.
+
+            String doubleInputProcessing = daip.processInput(path, actualRoundtrip, excp);
+            doubleInputProcessing =
+                    new UnicodeSet(doubleInputProcessing).toPattern(true); // normalize
+            assertEquals(
+                    count + ") processInput twice, " + path,
+                    expectedRoundtrip,
+                    doubleInputProcessing);
+        }
+    }
 }

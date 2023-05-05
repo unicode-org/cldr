@@ -122,11 +122,11 @@
 </template>
 
 <script>
-import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrPriorityItems from "../esm/cldrPriorityItems.js";
-import * as cldrReport from "../esm/cldrReport.js";
-import * as cldrTable from "../esm/cldrTable.js";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrPriorityItems from "../esm/cldrPriorityItems.mjs";
+import * as cldrReport from "../esm/cldrReport.mjs";
+import * as cldrTable from "../esm/cldrTable.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   data() {

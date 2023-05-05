@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { run } from "../esm/cldrGui.js";
+import { run } from "../esm/cldrGui.mjs";
 import { notification } from "ant-design-vue";
 
 export default {

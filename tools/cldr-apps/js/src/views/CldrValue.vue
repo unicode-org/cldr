@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 export default {
   computed: {
     myClass() {

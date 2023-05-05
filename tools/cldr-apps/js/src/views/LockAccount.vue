@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrText from "../esm/cldrText.js";
-import * as cldrUserLevels from "../esm/cldrUserLevels.js";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
+import * as cldrUserLevels from "../esm/cldrUserLevels.mjs";
 
 export default {
   data() {

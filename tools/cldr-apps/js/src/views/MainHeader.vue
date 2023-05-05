@@ -71,11 +71,11 @@
 </template>
 
 <script>
-import * as cldrCoverage from "../esm/cldrCoverage.js";
-import * as cldrMenu from "../esm/cldrMenu.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrText from "../esm/cldrText.js";
-import * as cldrVote from "../esm/cldrVote.js";
+import * as cldrCoverage from "../esm/cldrCoverage.mjs";
+import * as cldrMenu from "../esm/cldrMenu.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
+import * as cldrVote from "../esm/cldrVote.mjs";
 
 export default {
   data() {

@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 export default {
   data() {

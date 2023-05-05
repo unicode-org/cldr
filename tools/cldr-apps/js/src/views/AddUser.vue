@@ -133,13 +133,13 @@
 </template>
 
 <script>
-import * as cldrAccount from "../esm/cldrAccount.js";
-import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrOrganizations from "../esm/cldrOrganizations.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrText from "../esm/cldrText.js";
-import * as cldrUserLevels from "../esm/cldrUserLevels.js";
+import * as cldrAccount from "../esm/cldrAccount.mjs";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrOrganizations from "../esm/cldrOrganizations.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
+import * as cldrUserLevels from "../esm/cldrUserLevels.mjs";
 
 export default {
   data() {

@@ -52,7 +52,7 @@
 
 <script>
 import * as cldrInheritance from "../esm/cldrInheritance.mjs";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrText from "../esm/cldrText.mjs";
 import { ref } from "vue";
 import { notification } from "ant-design-vue";
 export default {

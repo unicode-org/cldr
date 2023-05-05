@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
 
 export default {
   data() {

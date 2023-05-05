@@ -41,8 +41,8 @@
 
 <script>
 import { notification } from "ant-design-vue";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import { run } from "../esm/cldrGui.js";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import { run } from "../esm/cldrGui.mjs";
 import { ref } from "vue";
 export default {
   setup() {

@@ -11,8 +11,8 @@ import "../../../cldr-code/src/main/resources/org/unicode/cldr/tool/reports.css"
 import "ant-design-vue/dist/antd.min.css";
 
 // local modules
-import { showPanel, createCldrApp } from "./cldrVueRouter.js";
-import { runGui } from "./runGui.js";
+import { showPanel, createCldrApp } from "./cldrVueRouter.mjs";
+import { runGui } from "./runGui.mjs";
 
 /**
  * TODO Does not belong here. CLDR-14193

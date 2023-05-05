@@ -169,7 +169,7 @@
 <script>
 import { notification } from "ant-design-vue";
 import { ref, reactive } from "vue";
-import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as setUtils from "../esm/setUtils.mjs";
 
 function errBox(message) {

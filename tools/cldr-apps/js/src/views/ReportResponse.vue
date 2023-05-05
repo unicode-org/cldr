@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import * as cldrClient from "../esm/cldrClient.js";
-import * as cldrReport from "../esm/cldrReport.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrTable from "../esm/cldrTable.js";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrClient from "../esm/cldrClient.mjs";
+import * as cldrReport from "../esm/cldrReport.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrTable from "../esm/cldrTable.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   props: [

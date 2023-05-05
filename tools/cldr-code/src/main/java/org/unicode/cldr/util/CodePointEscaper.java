@@ -74,9 +74,13 @@ public enum CodePointEscaper {
     }
 
     /** Characters that need escaping */
+    public static final UnicodeSet EMOJI_INVISIBLES =
+            new UnicodeSet("[\\uFE0F\\U000E0020-\\U000E007F]").freeze();
+
     public static final UnicodeSet FORCE_ESCAPE =
             new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]]")
                     .addAll(getNamedEscapes())
+                    .removeAll(EMOJI_INVISIBLES)
                     .freeze();
 
     public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
@@ -131,9 +135,14 @@ public enum CodePointEscaper {
         if (abbreviation != null) {
             return abbreviation.codePoint;
         }
-        int codePoint = Integer.parseInt(value.toString(), 16);
+        int codePoint;
+        try {
+            codePoint = Integer.parseInt(value.toString(), 16);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Not a named or hex escape: ⦕" + value + "❌⦖");
+        }
         if (codePoint < 0 || codePoint > 0x10FFFF) {
-            throw new IllegalArgumentException("Code point out of bounds: " + value);
+            throw new IllegalArgumentException("Illegal code point: ⦕" + value + "❌⦖");
         }
         return codePoint;
     }

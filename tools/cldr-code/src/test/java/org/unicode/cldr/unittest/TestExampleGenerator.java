@@ -1482,18 +1482,18 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖  ็ = U+0E47  ๎ = U+0E4E〗〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
             },
+            {"de", "//ldml/characters/exemplarCharacters", "a-z ⦕ZWSP⦖", null},
         };
 
         for (String[] test : tests) {
-
             final String locale = test[0];
             final String path = test[1];
             final String value = test[2];

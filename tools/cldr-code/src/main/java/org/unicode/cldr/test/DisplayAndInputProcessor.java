@@ -44,6 +44,7 @@ import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -232,6 +233,7 @@ public class DisplayAndInputProcessor {
             Transliterator.getInstance("Zawgyi-my");
 
     private SimpleUnicodeSetFormatter pp = new SimpleUnicodeSetFormatter(); // default collator
+    private UnicodeSetPrettyPrinter rawFormatter = new UnicodeSetPrettyPrinter(); // default
 
     private final CLDRLocale locale;
     private String scriptCode; // actual or default script code (not null after init)
@@ -266,7 +268,7 @@ public class DisplayAndInputProcessor {
                 try {
                     col = isb.getRuleBasedCollator();
                 } catch (Exception e) {
-                    col = Collator.getInstance(ULocale.ROOT);
+                    col = Collator.getInstance(locale.toULocale());
                 }
             } else {
                 col = Collator.getInstance(ULocale.ROOT);
@@ -277,14 +279,6 @@ public class DisplayAndInputProcessor {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
             pp = new SimpleUnicodeSetFormatter((Comparator) col);
-            //                new
-            // UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
-            //
-            // .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-            //                .setCompressRanges(true)
-            //                .setToQuote(new UnicodeSet(TO_QUOTE))
-            //                .setOrdering(col)
-            //                .setSpaceComparator(spaceCol);
         } else {
             pp = new SimpleUnicodeSetFormatter(); // default collator
         }
@@ -756,7 +750,7 @@ public class DisplayAndInputProcessor {
                 !path.contains("exemplarCharacters")
                         ? null
                         : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
-        value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
+        value = getCleanedUnicodeSet(exemplar, exemplarType);
         return value;
     }
 
@@ -1039,12 +1033,9 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE2 =
             PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public static String getCleanedUnicodeSet(
-            UnicodeSet exemplar,
-            SimpleUnicodeSetFormatter prettyPrinter,
-            ExemplarType exemplarType) {
+    public String getCleanedUnicodeSet(UnicodeSet exemplar, ExemplarType exemplarType) {
 
-        if (prettyPrinter == null) {
+        if (rawFormatter == null) {
             throw new IllegalArgumentException("Formatter must not be null");
         }
         if (exemplar == null) {
@@ -1098,29 +1089,7 @@ public class DisplayAndInputProcessor {
         if (exemplarType != null) {
             toAdd.removeAll(exemplarType.toRemove);
         }
-        value = toAdd.toPattern(false);
-
-        //        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
-        //            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
-        //            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
-        //            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly +
-        // ",\tadded\t" + newOnly);
-        //        }
-        //        String fixedExemplar = prettyPrinter.format(toAdd);
-        //        UnicodeSet doubleCheck = prettyPrinter.parse(fixedExemplar);
-        //        if (!toAdd.equals(doubleCheck)) {
-        //            System.out.println("fail")
-        //        }
-        //        else if (!value.equals(fixedExemplar)) { // put in this condition just for
-        // debugging
-        //            if (DEBUG_DAIP) {
-        //                System.out.println(TestMetadata.showDifference(
-        //                    With.codePoints(value),
-        //                    With.codePoints(fixedExemplar),
-        //                    "\n"));
-        //            }
-        //            value = fixedExemplar;
-        //        }
+        value = rawFormatter.format(toAdd);
         return value;
     }
 

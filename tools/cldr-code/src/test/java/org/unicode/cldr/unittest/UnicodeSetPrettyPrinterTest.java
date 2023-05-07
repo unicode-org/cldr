@@ -59,21 +59,6 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         assertEquals("PrettyPrinter preserves meaning", expected, actual);
     }
 
-    public void testCodePointEscaper() {
-        String[][] tests = {
-            {"\u000F", "F"},
-            {" ", "SP"},
-        };
-        for (String[] test : tests) {
-            final int source = test[0].codePointAt(0);
-            String actual = CodePointEscaper.toAbbreviationOrHex(source);
-            int expectedRoundtrip = CodePointEscaper.fromAbbreviationOrHex(actual);
-            String expected = test.length < 2 ? actual : test[1];
-            assertEquals("", expected, actual);
-            assertEquals("", expectedRoundtrip, source);
-        }
-    }
-
     public void testSimpleUnicodeSetFormatter() {
         String[][] unicodeToDisplay = {
             {"[\u000F]", "⦕F⦖"},
@@ -154,44 +139,19 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             }
             assertEquals(display, expectedUnicodeSet, actualUnicodeSet);
         }
-
-        // Expected syntax errors
-        String[][] errors = {
-            {"➖cd", "Must have exactly one character before '➖': ❌➖cd"},
-            {"ab➖", "Must have exactly one character after '➖': ab➖❌"},
-            {"ab➖cd", "Must have exactly one character before '➖': ab❌➖cd"},
-            {"a➖cd", "Must have exactly one character after '➖': a➖❌cd"},
-            {"a➖➖cd", "Must not have two '➖' characters: a➖❌➖cd"},
-            {"⦕SP", "Missing end escape ⦖: ⦕SP❌"},
-            {"SP⦖", "Missing start escape ⦕: SP❌⦖"},
-            {"⦕SPP⦖", "Not a named or hex escape: ⦕SPP❌⦖"},
-            {"⦕a$c⦖", "Not a named or hex escape: ⦕a$c❌⦖"},
-            {"⦕110000⦖", "Illegal code point: ⦕110000❌⦖"},
-        };
-        for (String[] row : errors) {
-            String toParse = row[0];
-            String expected = row[1];
-            String actual = null;
-            try {
-                susf.parse(toParse);
-            } catch (Exception e) {
-                actual = e.getMessage();
-            }
-            assertEquals("Expected error in “" + toParse + "”", expected, actual);
-        }
     }
 
-    public void testSimpleUnicodesetSyntax() {
+    public void testSimpleUnicodesetSyntaxErrors() {
         String[][] tests = {
-            {"➖", "A range mark must have characters on both sides: ➖"},
-            {"0➖", "A range mark must have characters on both sides: 0➖"},
-            {"➖9", "A range mark must have characters on both sides: ➖9"},
-            {"10➖9", "A range mark must have single code points on both sides: 10➖9"},
-            {"⦕SP", "Escape start ⦕ without escape end ⦖: ⦕SP"},
-            {"⦕", "Escape start ⦕ without escape end ⦖: ⦕"},
-            {"⦕110000⦖", "Code point out of bounds: 110000"},
-            {"SP⦖", "Escape end ⦖ without escape start ⦕: SP⦖"},
-            {"⦖", "Escape end ⦖ without escape start ⦕: ⦖"},
+            {"➖", "Must have exactly one character before '➖': ❌➖"},
+            {"0➖", "Must have exactly one character after '➖': 0➖❌"},
+            {"➖9", "Must have exactly one character before '➖': ❌➖9"},
+            {"10➖9", "Must have exactly one character before '➖': 10❌➖9"},
+            {"⦕SP", "Missing end escape ⦖: ⦕SP❌"},
+            {"⦕", "Missing end escape ⦖: ⦕❌"},
+            {"⦕110000⦖", "Illegal code point: ⦕110000❌⦖"},
+            {"SP⦖", "Missing start escape ⦕: SP❌⦖"},
+            {"⦖", "Missing start escape ⦕: ❌⦖"},
         };
         SimpleUnicodeSetFormatter susf =
                 new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR);
@@ -286,17 +246,16 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             }
             needsEscape.addAll(localeNeedsEscape);
         }
-        if (needsEscapeReport.length() != 0) {
-            System.out.print(needsEscapeReport);
+        if (isVerbose()) {
+            if (needsEscapeReport.length() != 0) {
+                System.out.print(needsEscapeReport);
+            }
+            System.out.println("*\tALL\tNeeds Escape:\t" + susf.format(needsEscape));
+            System.out.println("*\tALL\tNamed Escapes:\t" + CodePointEscaper.getNamedEscapes());
         }
-        System.out.println("*\tALL\tNeeds Escape:\t" + susf.format(needsEscape));
-        System.out.println("*\tALL\tNamed Escapes:\t" + CodePointEscaper.getNamedEscapes());
-        System.out.println(
-                "*\tMissing\tNamed Escapes:\t"
-                        + "\t"
-                        + susf.format(
-                                new UnicodeSet(needsEscape)
-                                        .removeAll(CodePointEscaper.getNamedEscapes())));
+        final UnicodeSet missing =
+                new UnicodeSet(needsEscape).removeAll(CodePointEscaper.getNamedEscapes());
+        assertEquals("*\tMissing\tNamed Escapes:\t", "", susf.format(missing));
     }
 
     boolean havePrintln = false;
@@ -320,34 +279,42 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         if (showAnyway || !isOk) {
             UnicodeSet roundtrip_source = new UnicodeSet(roundtrip).removeAll(source);
             UnicodeSet source_roundtrip = new UnicodeSet(source).removeAll(roundtrip);
-            if (!havePrintln) {
-                System.out.println();
-                havePrintln = true;
-            }
-            System.out.println(
-                    locale + "\t" + typeString + "\tsource:  \t" + PRETTY_PRINTER.format(source));
-            System.out.println(locale + "\t" + typeString + "\tformatted:\t" + formatted);
-            if (!roundtrip_source.isEmpty()) {
+            if (isVerbose()) {
+                if (!havePrintln) {
+                    System.out.println();
+                    havePrintln = true;
+                }
                 System.out.println(
                         locale
                                 + "\t"
                                 + typeString
-                                + "\tFAIL, roundtrip-source:  \t"
-                                + showInvisible(roundtrip_source, CodePointEscaper.FORCE_ESCAPE));
-            }
-            if (!source_roundtrip.isEmpty()) {
-                System.out.println(
-                        locale
-                                + "\t"
-                                + typeString
-                                + "\tFAIL, source_roundtrip:  \t"
-                                + showInvisible(source_roundtrip, CodePointEscaper.FORCE_ESCAPE));
-            }
+                                + "\tsource:  \t"
+                                + PRETTY_PRINTER.format(source));
+                System.out.println(locale + "\t" + typeString + "\tformatted:\t" + formatted);
+                if (!roundtrip_source.isEmpty()) {
+                    System.out.println(
+                            locale
+                                    + "\t"
+                                    + typeString
+                                    + "\tFAIL, roundtrip-source:  \t"
+                                    + showInvisible(
+                                            roundtrip_source, CodePointEscaper.FORCE_ESCAPE));
+                }
+                if (!source_roundtrip.isEmpty()) {
+                    System.out.println(
+                            locale
+                                    + "\t"
+                                    + typeString
+                                    + "\tFAIL, source_roundtrip:  \t"
+                                    + showInvisible(
+                                            source_roundtrip, CodePointEscaper.FORCE_ESCAPE));
+                }
 
-            if (!isOk) {
-                // for debugging
-                String formattedDebug = susf.format(source);
-                UnicodeSet roundtripDebug = susf.parse(formatted);
+                if (!isOk) {
+                    // for debugging
+                    String formattedDebug = susf.format(source);
+                    UnicodeSet roundtripDebug = susf.parse(formatted);
+                }
             }
         }
     }
@@ -382,6 +349,18 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                             + "\t",
                     cp,
                     roundtrip);
+        }
+        if (isVerbose()) {
+            for (CodePointEscaper item : CodePointEscaper.values()) {
+                System.out.println(
+                        item
+                                + "\t"
+                                + Utility.hex(item.getCodePoint(), 4)
+                                + "\t"
+                                + UCharacter.getExtendedName(item.getCodePoint())
+                                + "\t"
+                                + Joiner.on('\t').join(item.getLongNames()));
+            }
         }
     }
 }

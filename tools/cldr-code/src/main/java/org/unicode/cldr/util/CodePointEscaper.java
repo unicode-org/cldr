@@ -26,7 +26,7 @@ public enum CodePointEscaper {
     ZWJ(0x200D, "zero-width joiner"),
 
     ZWSP(0x200B, "word non-joiner", "zero-width space"),
-    ZWNBSP(0x2060, "word joiner (zero-width no-break space)"),
+    ZWNBSP(0x2060, "word joiner", "zero-width no-break space"),
 
     ALM(0x061C, "Arabic letter mark"),
     LRM(0x200E, "left-right mark"),

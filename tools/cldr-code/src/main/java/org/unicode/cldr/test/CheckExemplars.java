@@ -9,11 +9,13 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 import java.util.BitSet;
+import java.util.Comparator;
 import java.util.List;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
@@ -29,9 +31,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
     static final SupplementalDataInfo SUP = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     Collator col;
-    Collator spaceCol;
     boolean isRoot;
-    UnicodeSetPrettyPrinter prettyPrinter;
+    SimpleUnicodeSetFormatter displayFormatter;
+    UnicodeSetPrettyPrinter rawFormatter;
 
     static final UnicodeSet HangulSyllables =
             new UnicodeSet("[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]").freeze();
@@ -135,10 +137,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String locale = cldrFileToCheck.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
-        spaceCol = Collator.getInstance(new ULocale(locale));
-        spaceCol.setStrength(Collator.PRIMARY);
+        col.setStrength(Collator.IDENTICAL);
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
-        prettyPrinter =
+        displayFormatter = new SimpleUnicodeSetFormatter((Comparator) col);
+        rawFormatter =
                 new UnicodeSetPrettyPrinter()
                         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                         .setSpaceComparator(
@@ -188,7 +190,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             UnicodeSet mainSet =
                     getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
             if (type == ExemplarType.auxiliary) {
-                UnicodeSet auxiliarySet = new UnicodeSet(value);
+                UnicodeSet auxiliarySet = SimpleUnicodeSetFormatter.parseLenient(value);
 
                 UnicodeSet combined = new UnicodeSet(mainSet).addAll(auxiliarySet);
                 checkMixedScripts("main+auxiliary", combined, result);
@@ -224,7 +226,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 }
             } else if (type == ExemplarType.punctuation) {
                 // Check that the punctuation exemplar characters include quotation marks.
-                UnicodeSet punctuationSet = new UnicodeSet(value);
+                UnicodeSet punctuationSet = SimpleUnicodeSetFormatter.parseLenient(value);
                 UnicodeSet quoteSet = new UnicodeSet();
                 for (String element : QUOTE_ELEMENTS) {
                     quoteSet.add(
@@ -265,7 +267,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
                         new UnicodeSet(mainSet)
                                 .addAll(auxiliarySet)
                                 .closeOver(UnicodeSet.ADD_CASE_MAPPINGS);
-                UnicodeSet indexBadChars = new UnicodeSet(value).removeAll(mainAndAuxAllCase);
+                UnicodeSet indexBadChars =
+                        SimpleUnicodeSetFormatter.parseLenient(value).removeAll(mainAndAuxAllCase);
 
                 if (!indexBadChars.isEmpty()) {
                     CheckStatus message =
@@ -319,7 +322,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         try {
             XPathParts oparts = XPathParts.getFrozenInstance(path);
             // only thing we do is make sure that the sample is in the value
-            UnicodeSet us = new UnicodeSet(value);
+            UnicodeSet us = SimpleUnicodeSetFormatter.parseLenient(value);
             String sampleValue = oparts.getAttributeValue(-1, "sample");
             if (!us.contains(sampleValue)) {
                 CheckStatus message =
@@ -422,16 +425,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
         if (v == null) return;
         final UnicodeSet exemplar1;
         try {
-            exemplar1 = new UnicodeSet(v).freeze();
+            exemplar1 = SimpleUnicodeSetFormatter.parseLenient(v).freeze();
         } catch (Exception e) {
             result.add(
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.illegalExemplarSet)
-                            .setMessage(
-                                    "This field must be a set of the form [a b c-d ...]: {0}",
-                                    new Object[] {e.getMessage()}));
+                            .setMessage(e.getMessage()));
             return;
         }
 
@@ -441,7 +442,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
         // check that the formatting is correct
 
-        String fixedExemplar1 = prettyPrinter.format(exemplar1);
+        String fixedExemplar1 = rawFormatter.format(exemplar1);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
         if (!doubleCheck.equals(exemplar1)) {
             result.add(
@@ -476,7 +477,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             // after a first check, we check again in case we flattened
 
             if (remainder.size() != 0) {
-                fixedExemplar1 = prettyPrinter.format(exemplar1);
+                fixedExemplar1 = displayFormatter.format(exemplar1);
                 result.add(
                         new CheckStatus()
                                 .setCause(this)

@@ -759,7 +759,14 @@ public abstract class MatchValue implements Predicate<String> {
         final UnicodeSet uset;
 
         public UnicodeSpanMatchValue(String key) {
-            uset = new UnicodeSet(key);
+            UnicodeSet temp;
+            try {
+                temp = new UnicodeSet(key);
+            } catch (Exception e) {
+                temp = UnicodeSet.EMPTY;
+                int debug = 0;
+            }
+            uset = temp.freeze();
             sample = new StringBuilder().appendCodePoint(uset.getRangeStart(0)).toString();
         }
 

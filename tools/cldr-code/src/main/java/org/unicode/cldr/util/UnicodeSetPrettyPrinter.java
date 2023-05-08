@@ -20,7 +20,7 @@ import java.util.Comparator;
 import java.util.TreeSet;
 
 /** Provides more flexible formatting of UnicodeSet patterns. */
-public class UnicodeSetPrettyPrinter {
+public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     private static final StringComparator CODEPOINT_ORDER =
             new UTF16.StringComparator(true, false, 0);
     private static final UnicodeSet PATTERN_WHITESPACE =
@@ -123,6 +123,7 @@ public class UnicodeSetPrettyPrinter {
      * @param uset
      * @return formatted UnicodeSet
      */
+    @Override
     public String format(UnicodeSet uset) {
         first = true;
         UnicodeSet putAtEnd =
@@ -299,5 +300,10 @@ public class UnicodeSetPrettyPrinter {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+    }
+
+    @Override
+    public UnicodeSet parse(String formattedString) {
+        return new UnicodeSet(formattedString);
     }
 }

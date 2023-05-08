@@ -536,14 +536,22 @@ public class ExampleGenerator {
                     CodePointEscaper.FORCE_ESCAPE_WITH_NONSPACING);
     static final String LRM = "\u200E";
     static final UnicodeSet NEEDS_LRM = new UnicodeSet("[:BidiClass=R:]").freeze();
+    private static final boolean SHOW_NON_SPACING_IN_UNICODE_SET = false;
+
     /**
      * Add examples for UnicodeSets. First, show a hex format of non-spacing marks if there are any,
      * then show delta to the winning value if there are any.
      */
     private String handleUnicodeSet(XPathParts parts, String xpath, String value) {
         ArrayList<String> examples = new ArrayList<>();
-        final UnicodeSet valueSet = new UnicodeSet(value);
-        if (valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
+        UnicodeSet valueSet;
+        try {
+            valueSet = new UnicodeSet(value);
+        } catch (Exception e) {
+            return null;
+        }
+        if (SHOW_NON_SPACING_IN_UNICODE_SET
+                && valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
             StringBuilder result = new StringBuilder();
             for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.NON_SPACING)) {
                 result.append("  ").append(nsm);

@@ -2473,7 +2473,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (v == null) {
             return UnicodeSet.EMPTY;
         }
-        UnicodeSet result = new UnicodeSet(v);
+        UnicodeSet result = SimpleUnicodeSetFormatter.parseLenient(v);
         UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
         result.closeOver(UnicodeSet.CASE);
         result.removeAll(toNuke);

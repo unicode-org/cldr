@@ -37,7 +37,7 @@ import java.util.function.Function;
  *
  * @author markdavis
  */
-public class SimpleUnicodeSetFormatter {
+public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static final Comparator<String> BASIC_COLLATOR =
@@ -89,6 +89,28 @@ public class SimpleUnicodeSetFormatter {
         this(null, null, 255);
     }
 
+    static class Lazy {
+        static SimpleUnicodeSetFormatter SINGLETON = new SimpleUnicodeSetFormatter();
+
+        static SimpleUnicodeSetFormatter getSingleton() {
+            return SINGLETON;
+        }
+    }
+
+    public static SimpleUnicodeSetFormatter getDefault() {
+        return Lazy.getSingleton();
+    }
+
+    /** Parse as UnicodeSet if of the form […], else parse with default SimpleUnicodeSetFormatter */
+    public static UnicodeSet parseLenient(String source) {
+        if (source.startsWith("[") && source.endsWith("]")) {
+            return new UnicodeSet(source);
+        } else {
+            return getDefault().parse(source);
+        }
+    }
+
+    @Override
     public String format(UnicodeSet input) {
         final boolean allowRanges = input.size() >= maxDisallowRanges;
         StringBuilder result = new StringBuilder();
@@ -158,6 +180,7 @@ public class SimpleUnicodeSetFormatter {
 
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings();
 
+    @Override
     public UnicodeSet parse(String input) {
         UnicodeSet result = new UnicodeSet();
         // Note: could be optimized but probably not worth the effort

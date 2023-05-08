@@ -35,8 +35,8 @@
 
 <script>
 import { ref } from "vue";
-import * as cldrInfo from "../esm/cldrInfo.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrInfo from "../esm/cldrInfo.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 import InheritanceExplainer from "./InheritanceExplainer.vue";
 
 export default {

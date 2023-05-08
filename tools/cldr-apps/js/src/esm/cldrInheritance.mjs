@@ -1,8 +1,8 @@
 /*
  * cldrInheritance: encapsulate inheritance explainer.
  */
-import * as cldrAjax from "./cldrAjax.js";
-import * as cldrLoad from "./cldrLoad.js";
+import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrLoad from "./cldrLoad.mjs";
 /**
  * null, or promise to reason explanations
  */

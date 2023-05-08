@@ -26,7 +26,7 @@
 
 <script lang="js">
 import { ref } from "vue";
-import { SearchClient } from "../esm/cldrSearch.js";
+import { SearchClient } from "../esm/cldrSearch.mjs";
 import { notification } from "ant-design-vue";
 
 /**

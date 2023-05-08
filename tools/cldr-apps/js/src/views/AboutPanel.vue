@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   data() {

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import * as cldrProgress from "../esm/cldrProgress.js";
+import * as cldrProgress from "../esm/cldrProgress.mjs";
 
 export default {
   props: [],

@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import * as cldrAddAlt from "../esm/cldrAddAlt.js";
+import * as cldrAddAlt from "../esm/cldrAddAlt.mjs";
 
 export default {
   data() {

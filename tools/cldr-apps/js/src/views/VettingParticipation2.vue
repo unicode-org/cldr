@@ -15,8 +15,8 @@
 
 <script>
 import { ref } from "vue";
-import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as localesTxtGenerator from "../esm/localesTxtGenerator.mjs";
 
 export default {

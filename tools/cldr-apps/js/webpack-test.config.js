@@ -5,7 +5,7 @@ const { DefinePlugin } = require("webpack");
 module.exports = {
   entry: "./test/index.js",
   output: {
-    filename: "cldrTestBundle.js",
+    filename: "cldrTestBundle.mjs",
     path: path.resolve(__dirname, "test", "dist"),
     library: "cldrTestBundle",
     libraryTarget: "var",

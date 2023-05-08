@@ -4,11 +4,6 @@
 import * as cldrStatus from "./cldrStatus.mjs";
 
 /**
- * The zero-based index of 'Open topics' in the filters array
- */
-const OPEN_TOPICS_INDEX = 2;
-
-/**
  * An array of filter objects, each having a name and a boolean function
  */
 const filters = [
@@ -18,7 +13,12 @@ const filters = [
     func: passIfOpenRequestYouStarted,
     keepCount: true,
   },
-  { name: "Open topics", func: passIfOpen, keepCount: true },
+  {
+    name: "Open requests by others",
+    func: passIfOpenRequestByOther,
+    keepCount: true,
+  },
+  { name: "Open discussions", func: passIfOpenDiscuss, keepCount: true },
   { name: "All topics", func: passAll, keepCount: false },
 ];
 
@@ -54,8 +54,8 @@ function setUserId(userId) {
 /**
  * Get a popup menu from which the user can choose a filter, and set the reload function
  *
- * @param reloadFunction the reload function, for setting filterReload
- * @return the select element containing the menu
+ * @param {Function} reloadFunction the reload function, for setting filterReload
+ * @return {Node} the select element containing the menu
  */
 function createMenu(reloadFunction) {
   filterReload = reloadFunction;
@@ -92,9 +92,9 @@ function createMenu(reloadFunction) {
  *
  * Assume each post has post.threadId.
  *
- * @param threadHash an object mapping each threadId to an array of all the posts in that thread
- * @param applyFilter true if the currently menu-selected filter should be applied
- * @return the filtered array of threadId strings
+ * @param {Object} threadHash an object mapping each threadId to an array of all the posts in that thread
+ * @param {Boolean} applyFilter true if the currently menu-selected filter should be applied
+ * @return {Array} the filtered array of threadId strings
  */
 function getFilteredThreadIds(threadHash, applyFilter) {
   // Show this "exceptional" thread even if it doesn't pass the filter; if it matches the URL
@@ -120,8 +120,8 @@ function getFilteredThreadIds(threadHash, applyFilter) {
  * Update the filterCounts map by calculating all the filter counts
  * for filters with keepCount true
  *
- * @param threadHash an object mapping each threadId to an array of all the posts in that thread
- * @param countCurrentFilter the count for the current filter, already calculated
+ * @param {Object} threadHash an object mapping each threadId to an array of all the posts in that thread
+ * @param {Number} countCurrentFilter the count for the current filter, already calculated
  */
 function updateCounts(threadHash, countCurrentFilter) {
   clearCounts();
@@ -137,7 +137,6 @@ function updateCounts(threadHash, countCurrentFilter) {
       }
     }
   });
-  simplifyCounts();
 }
 
 /**
@@ -153,20 +152,6 @@ function clearCounts() {
 }
 
 /**
- * If the count for 'Open threads' is zero, simplify filterCounts, since then there is
- * no need to display counts for 'Needing action' (implies open) or 'Open requests by you'
- */
-function simplifyCounts() {
-  if (filterCounts[filters[OPEN_TOPICS_INDEX].name] === 0) {
-    for (let i = 0; i < filters.length; i++) {
-      if (i !== OPEN_TOPICS_INDEX && filters[i].keepCount) {
-        delete filterCounts[filters[i].name];
-      }
-    }
-  }
-}
-
-/**
  * Get an object mapping from certain filter names to the number
  * of threads currently passing those filters
  *
@@ -179,8 +164,8 @@ function getFilteredThreadCounts() {
 /**
  * Does the thread with the given array of posts pass the current filter?
  *
- * @param threadPosts the array of posts in the thread
- * @return true or false
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it passes, else false
  */
 function threadPasses(threadPosts) {
   return filters[filterIndex].func(threadPosts);
@@ -189,9 +174,9 @@ function threadPasses(threadPosts) {
 /**
  * Does the thread with the given array of posts pass the filter with the given index?
  *
- * @param threadPosts the array of posts in the thread
- * @param i the index
- * @return true or false
+ * @param {Array} threadPosts the array of posts in the thread
+ * @param {Number} i the index
+ * @return {Boolean} true if it passes, else false
  */
 function threadPassesI(threadPosts, i) {
   return filters[i].func(threadPosts);
@@ -202,90 +187,121 @@ function threadPassesI(threadPosts, i) {
 /**
  * Pass all threads
  *
- * @param threadPosts the array of posts in the thread (unused)
- * @return true
+ * @param {Array} threadPosts the array of posts in the thread (unused)
+ * @return {Boolean} true
  */
 function passAll(threadPosts) {
   return true;
 }
 
 /**
- * Is the thread with the given array of posts open?
- *
- * @param threadPosts the array of posts in the thread
- * @return true or false
- */
-function passIfOpen(threadPosts) {
-  const rootPost = getRootPost(threadPosts);
-  return rootPost && rootPost.open;
-}
-
-/**
  * Does the thread with the given array of posts need action?
  *
- * (Open request from others AND (I haven’t agreed or declined))
- * OR (open discuss-only thread AND I’m not the last poster)
+ * (Open request from others AND I haven’t agreed or declined)
+ * OR (open discuss-only from others thread AND I haven’t responded and/or there was a follow up that I need to respond to again)
+ * OR (request you declined, but the originator has added a follow up comment and not changed their vote)
  *
- * @param threadPosts the array of posts in the thread
- * @return true or false
+ * Note: "...and not changed their vote": if the originator changed their vote, the thread would be closed,
+ * so we can assume here that the originator has not changed their vote.
+ *
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it passes (needs action), else false
  */
 function passIfNeedingAction(threadPosts) {
   const rootPost = getRootPost(threadPosts);
-  if (!rootPost || !rootPost.open) {
+  if (!rootPost?.open) {
     return false;
   }
-  if (rootPost.postType === "Request") {
+  if (rootPost.postType === "Request" || rootPost.postType === "Discuss") {
     if (!rootPost.poster || rootPost.poster === filterUserId) {
-      return false;
+      return false; // not "from others"
     }
-    if (
-      threadPosts.some(
-        (post) =>
-          post.poster &&
-          post.poster === filterUserId &&
-          (post.postType === "Agree" || post.postType === "Decline")
-      )
-    ) {
-      return false;
-    }
-    return true;
-  } else if (rootPost.postType === "Discuss") {
-    const newestPost = threadPosts[0];
-    return newestPost.poster && newestPost.poster !== filterUserId;
+    return !hasYourUpToDateResponse(threadPosts);
   }
   return false;
 }
 
 /**
- * Is the thread with the given array of posts open and was it started by the current user?
+ * Is the thread with the given array of posts an open request started by the current user?
  *
- * @param threadPosts the array of posts in the thread
- * @return true or false
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true or false
  */
 function passIfOpenRequestYouStarted(threadPosts) {
-  return passIfOpen(threadPosts) && passIfRequestYouStarted(threadPosts);
-}
-
-/**
- * Was the thread with the given array of posts a "Request" post started by the current user?
- *
- * @param threadPosts the array of posts in the thread
- * @return true or false
- */
-function passIfRequestYouStarted(threadPosts) {
   const rootPost = getRootPost(threadPosts);
   return (
-    rootPost &&
+    rootPost?.open &&
     rootPost.poster === filterUserId &&
     rootPost.postType === "Request"
   );
 }
 
 /**
+ * Is the thread open and of type "Request", started by other than the current user?
+ *
+ * Open Requests By Others should include all open Requests regardless of whether they need action
+ * from you or not, and regardless of whether you have replied or not
+ *
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it passes, else false
+ */
+function passIfOpenRequestByOther(threadPosts) {
+  const rootPost = getRootPost(threadPosts);
+  if (!rootPost.poster || rootPost.poster === filterUserId) {
+    return false; // not "by other"
+  }
+  return rootPost?.open && rootPost.postType === "Request";
+}
+
+/**
+ * Is the thread open and of type "Discuss"?
+ *
+ * Open Discussions should include all Open forum threads of type "Discuss"".
+ *
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it passes, else false
+ */
+function passIfOpenDiscuss(threadPosts) {
+  const rootPost = getRootPost(threadPosts);
+  return rootPost?.open && rootPost.postType === "Discuss";
+}
+
+/**
+ * Does this thread include any responding (non-initial) posts by the current user,
+ * which are up-to-date in the sense that the originator has not made a more recent post?
+ *
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it has this user's up-to-date response, else false
+ */
+function hasYourUpToDateResponse(threadPosts) {
+  const rootPost = getRootPost(threadPosts);
+  const originator = rootPost.poster;
+  /*
+   * Go through the posts in reverse chronological order, i.e., most recent first.
+   * The threadPosts array is already sorted with most recent first.
+   *
+   * If the order didn't matter, something like this with threadPosts.some (for future reference)
+   * might be more efficient than a "for" loop:
+   * function hasYourResponse(threadPosts) {
+   *   return threadPosts.some((post) => post.poster && post.poster === filterUserId && post.parent !== -1);
+   * }
+   */
+  for (let post of threadPosts) {
+    if (post.poster === filterUserId) {
+      return true;
+    }
+    if (post.poster === originator) {
+      return false;
+    }
+  }
+  return false;
+}
+
+/**
  * Get the root (original) post in the thread, i.e., the last one in the array
  *
- * @param threadPosts the array of posts in the thread
- * @return the root post, or null if not found
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Object} the root post, or null if not found
  */
 function getRootPost(threadPosts) {
   /*

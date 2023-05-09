@@ -8,6 +8,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForumFilter from "./cldrForumFilter.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
+import * as cldrForumType from "./cldrForumType.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
@@ -115,9 +116,6 @@ function loadForum(locale, userId, forumMessage, params) {
     });
   };
   const loadHandler = function (json) {
-    // set up the 'right sidebar'
-    const message = cldrText.get(params.name + "Guidance");
-    cldrInfo.showMessage(message);
     const ourDiv = document.createElement("div");
     if (json.err) {
       loadBad(ourDiv, json);
@@ -155,7 +153,7 @@ function loadOk(ourDiv, json, userId, forumMessage) {
   setUserCanPost(true);
 
   ourDiv.appendChild(forumCreateChunk(forumMessage, "h4", ""));
-
+  ourDiv.appendChild(forumCreateChunk(cldrText.get("forumGuidance"), "p", ""));
   const filterMenu = cldrForumFilter.createMenu(cldrLoad.reloadV);
   const summaryDiv = document.createElement("div");
   summaryDiv.innerHTML = "";
@@ -319,20 +317,16 @@ function makePostSubject(isReply, rootPost, subjectParam) {
  * @return the string
  */
 function prefillPostText(postType, value) {
-  if (postType === "Close") {
-    return "I'm closing this thread";
-  } else if (postType === "Request") {
+  if (postType === cldrForumType.CLOSE) {
+    return cldrText.get("forum_prefill_close");
+  } else if (postType === cldrForumType.REQUEST) {
     if (value) {
-      return "Please consider voting for “" + value + "”. My reasons are:\n";
+      return cldrText.sub("forum_prefill_request", [value]);
     }
-  } else if (postType === "Agree") {
-    return "I agree. I am changing my vote to the requested “" + value + "”";
-  } else if (postType === "Decline") {
-    return (
-      "I decline changing my vote to the requested “" +
-      value +
-      "”. My reasons are:\n"
-    );
+  } else if (postType === cldrForumType.AGREE) {
+    return cldrText.sub("forum_prefill_agree", [value]);
+  } else if (postType === cldrForumType.DECLINE) {
+    return cldrText.sub("forum_prefill_decline", [value]);
   }
   return "";
 }
@@ -512,7 +506,7 @@ function parseContent(posts, context) {
         addThreadSubjectSpan(topicInfo, rootPost);
       }
       if (opts.createDomElements) {
-        if (rootPost.postType === "Request" && rootPost.value) {
+        if (rootPost.postType === cldrForumType.REQUEST && rootPost.value) {
           const requestInfo = forumCreateChunk(
             "Requesting “" + rootPost.value + "”",
             "h4",
@@ -884,8 +878,8 @@ function makeOneNewPostButton(
     : "addPostButton forumNewButton btn btn-default btn-sm";
 
   const newButton = forumCreateChunk(label, "button", buttonClass);
-  // a "new post" button has type "Request" or "Discuss"
-  if (postType === "Request" && value === null) {
+  // a "new post" button has type cldrForumType.REQUEST or cldrForumType.DISCUSS
+  if (postType === cldrForumType.REQUEST && value === null) {
     newButton.disabled = true;
   } else {
     cldrDom.listenFor(newButton, "click", function (e) {
@@ -959,18 +953,21 @@ function getPostTypeOptions(isReply, rootPost, value) {
       /*
        * Show Request button even if value is null. It will be visible but disabled if value is null.
        */
-      options["Request"] = "Request";
+      options[cldrForumType.REQUEST] = cldrForumType.REQUEST;
     }
     if (canAgreeOrDecline(value, isReply, rootPost)) {
-      options["Agree"] = "Agree";
-      options["Decline"] = "Decline";
+      options[cldrForumType.AGREE] = cldrForumType.AGREE;
+      options[cldrForumType.DECLINE] = cldrForumType.DECLINE;
     }
     if (isReply || userIsTC()) {
       // only TC can initiate Discuss; others can reply
-      options["Discuss"] = makePostTypeLabel("Discuss", isReply);
+      options[cldrForumType.DISCUSS] = makePostTypeLabel(
+        cldrForumType.DISCUSS,
+        isReply
+      );
     }
     if (userCanClose(isReply, rootPost)) {
-      options["Close"] = "Close";
+      options[cldrForumType.CLOSE] = cldrForumType.CLOSE;
     }
   }
   return options;
@@ -982,7 +979,7 @@ function canAgreeOrDecline(value, isReply, rootPost) {
     value &&
     isReply &&
     rootPost &&
-    rootPost.postType === "Request" &&
+    rootPost.postType === cldrForumType.REQUEST &&
     !userIsPoster(rootPost)
   ) {
     return true;
@@ -999,8 +996,8 @@ function canAgreeOrDecline(value, isReply, rootPost) {
  * @return the label
  */
 function makePostTypeLabel(postType, isReply) {
-  if (postType === "Discuss" && isReply) {
-    return "Comment";
+  if (postType === cldrForumType.DISCUSS && isReply) {
+    return cldrForumType.COMMENT;
   }
   return postType;
 }

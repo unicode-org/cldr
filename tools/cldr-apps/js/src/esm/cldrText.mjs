@@ -327,7 +327,12 @@ const strings = {
   forum_reply: "Reply",
   forum_msg: "Showing posts for ${forum} and all sublocales.",
   forumGuidance:
-    "This is the Forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
+    "This page will not reload automatically when new posts come in. You can use your browser's Refresh button to load new posts.",
+  forum_prefill_agree: "I agree. I am changing my vote to the requested “${0}”",
+  forum_prefill_close: "I'm closing this thread",
+  forum_prefill_decline:
+    "I decline changing my vote to the requested “${0}”. My reasons are:\n",
+  forum_prefill_request: "Please consider voting for “${0}”. My reasons are:\n",
   forum_remember_vote:
     "⚠️ Please remember to vote – submitting a forum post does NOT cause any actual vote to be made.",
 

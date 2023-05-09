@@ -12,10 +12,9 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
-import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +24,10 @@ import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
@@ -37,19 +39,8 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static final UnicodeSet TO_QUOTE =
             new UnicodeSet("[[:z:][:me:][:mn:][:di:][:c:]-[\u0020]]");
 
-    private final Collator ROOT_COLLATOR = Collator.getInstance(Locale.ENGLISH);
-
-    Collator spaceComp = Collator.getInstance(Locale.ENGLISH);
-
-    {
-        spaceComp.setStrength(Collator.PRIMARY);
-    }
-
     final UnicodeSetPrettyPrinter PRETTY_PRINTER =
-            new UnicodeSetPrettyPrinter()
-                    .setOrdering(ROOT_COLLATOR)
-                    .setSpaceComparator(spaceComp)
-                    .setToQuote(TO_QUOTE);
+            UnicodeSetPrettyPrinter.fromIcuLocale(ULocale.ENGLISH.toString()).setToQuote(TO_QUOTE);
 
     public void TestBasicUnicodeSet() {
         UnicodeSet expected = new UnicodeSet("[:L:]");
@@ -103,10 +94,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         int count = 0;
         for (String[] test : unicodeToDisplay) {
             if ("LOCALE".equals(test[0])) {
-                susf =
-                        new SimpleUnicodeSetFormatter(
-                                SimpleUnicodeSetFormatter.getCollatorIdenticalStrength(
-                                        new ULocale(test[1])));
+                susf = SimpleUnicodeSetFormatter.fromIcuLocale(test[1]);
                 continue;
             }
             final UnicodeSet source = new UnicodeSet(test[0]);
@@ -201,8 +189,15 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
         UnicodeSet needsEscape = new UnicodeSet();
         UnicodeSet localeNeedsEscape = new UnicodeSet();
+        boolean longTest = getInclusion() > 5;
+        Set<String> testLocales =
+                longTest
+                        ? cldrFactory.getAvailableLanguages()
+                        : StandardCodes.make()
+                                .getLocaleCoverageLocales(
+                                        Organization.cldr, Collections.singleton(Level.MODERN));
 
-        for (String locale : cldrFactory.getAvailableLanguages()) {
+        for (String locale : testLocales) {
             localeNeedsEscape.clear();
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             boolean showAnyway = matchLocale == null ? false : matchLocale.reset(locale).matches();
@@ -255,6 +250,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         }
         final UnicodeSet missing =
                 new UnicodeSet(needsEscape).removeAll(CodePointEscaper.getNamedEscapes());
+        if (logKnownIssue("CLDR-16627", "remove FFFF when the ticket closes")) {
+            missing.remove(0xFFFF);
+        }
         assertEquals("*\tMissing\tNamed Escapes:\t", "", susf.format(missing));
     }
 

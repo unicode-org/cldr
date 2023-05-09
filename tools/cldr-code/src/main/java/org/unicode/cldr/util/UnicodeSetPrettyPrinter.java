@@ -8,12 +8,14 @@ package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.FieldPosition;
 import java.util.Comparator;
@@ -42,6 +44,38 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
 
     private Comparator<String> ordering;
     private Comparator<String> spaceComp;
+
+    /** Make from root collator obtained from ICU */
+    public static final UnicodeSetPrettyPrinter ROOT_ICU =
+            from(
+                    (Comparator) Collator.getInstance(ULocale.ROOT).freeze(),
+                    (Comparator)
+                            Collator.getInstance(ULocale.ROOT)
+                                    .setStrength2(Collator.PRIMARY)
+                                    .freeze());
+
+    /** Make from ICU Locale */
+    public static UnicodeSetPrettyPrinter fromIcuLocale(String localeId) {
+        Collator col = ComparatorUtilities.getIcuCollator(localeId, Collator.IDENTICAL).freeze();
+        Collator spaceCol = col.cloneAsThawed().setStrength2(Collator.PRIMARY).freeze();
+        return from((Comparator) col, (Comparator) spaceCol);
+    }
+
+    /** Make from CLDR Locale */
+    public static UnicodeSetPrettyPrinter fromCldrLocale(String localeId) {
+        Collator col = ComparatorUtilities.getCldrCollator(localeId, Collator.IDENTICAL).freeze();
+        Collator spaceCol = col.cloneAsThawed().setStrength2(Collator.PRIMARY).freeze();
+        return from((Comparator) col, (Comparator) spaceCol);
+    }
+
+    /** Utility for creating UnicodeSetPrettyPrinter */
+    public static UnicodeSetPrettyPrinter from(
+            Comparator<String> col, Comparator<String> spaceCol) {
+        return new UnicodeSetPrettyPrinter()
+                .setOrdering(col)
+                .setSpaceComparator(spaceCol)
+                .setCompressRanges(false);
+    }
 
     public UnicodeSetPrettyPrinter() {}
 

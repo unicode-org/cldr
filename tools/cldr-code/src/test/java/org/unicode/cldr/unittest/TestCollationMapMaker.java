@@ -49,10 +49,7 @@ public class TestCollationMapMaker {
         inverse.addAllInverted(mapping);
         UnicodeSet unicodeSet = new UnicodeSet();
         UnicodeSetPrettyPrinter pretty =
-                new UnicodeSetPrettyPrinter()
-                        .setOrdering(Collator.getInstance(ULocale.ROOT))
-                        .setSpaceComparator(
-                                Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY));
+                UnicodeSetPrettyPrinter.fromIcuLocale(ULocale.ROOT.toString());
         for (String target : inverse.keySet()) {
             unicodeSet.clear();
             unicodeSet.addAll(inverse.getAll(target));

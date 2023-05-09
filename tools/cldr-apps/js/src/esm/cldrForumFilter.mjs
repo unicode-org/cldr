@@ -1,6 +1,7 @@
 /*
  * cldrForumFilter: encapsulate filtering of forum threads.
  */
+import * as cldrForumType from "./cldrForumType.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
 /**
@@ -212,7 +213,10 @@ function passIfNeedingAction(threadPosts) {
   if (!rootPost?.open) {
     return false;
   }
-  if (rootPost.postType === "Request" || rootPost.postType === "Discuss") {
+  if (
+    rootPost.postType === cldrForumType.REQUEST ||
+    rootPost.postType === cldrForumType.DISCUSS
+  ) {
     if (!rootPost.poster || rootPost.poster === filterUserId) {
       return false; // not "from others"
     }
@@ -232,12 +236,12 @@ function passIfOpenRequestYouStarted(threadPosts) {
   return (
     rootPost?.open &&
     rootPost.poster === filterUserId &&
-    rootPost.postType === "Request"
+    rootPost.postType === cldrForumType.REQUEST
   );
 }
 
 /**
- * Is the thread open and of type "Request", started by other than the current user?
+ * Is the thread open and of type cldrForumType.REQUEST, started by other than the current user?
  *
  * Open Requests By Others should include all open Requests regardless of whether they need action
  * from you or not, and regardless of whether you have replied or not
@@ -250,20 +254,20 @@ function passIfOpenRequestByOther(threadPosts) {
   if (!rootPost.poster || rootPost.poster === filterUserId) {
     return false; // not "by other"
   }
-  return rootPost?.open && rootPost.postType === "Request";
+  return rootPost?.open && rootPost.postType === cldrForumType.REQUEST;
 }
 
 /**
- * Is the thread open and of type "Discuss"?
+ * Is the thread open and of type cldrForumType.DISCUSS?
  *
- * Open Discussions should include all Open forum threads of type "Discuss"".
+ * Open Discussions should include all Open forum threads of type cldrForumType.DISCUSS".
  *
  * @param {Array} threadPosts the array of posts in the thread
  * @return {Boolean} true if it passes, else false
  */
 function passIfOpenDiscuss(threadPosts) {
   const rootPost = getRootPost(threadPosts);
-  return rootPost?.open && rootPost.postType === "Discuss";
+  return rootPost?.open && rootPost.postType === cldrForumType.DISCUSS;
 }
 
 /**

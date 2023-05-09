@@ -2,11 +2,39 @@
  * cldrStatus: encapsulate data defining the current status of SurveyTool.
  */
 import * as cldrGui from "./cldrGui.mjs";
+import { ref } from "vue";
+
+const refs = {
+  currentLocale: ref(null),
+  currentId: ref(null),
+};
+
+/**
+ * Update a ref-backed value.
+ * @param {String} k which ref to set
+ * @param {String} v value
+ */
+function setRef(k, v) {
+  if (v !== "") {
+    refs[k].value = v;
+  } else {
+    // map "" to null
+    refs[k].value = null;
+  }
+}
 
 /**
  * Target for status change events
  */
 const statusTarget = new EventTarget();
+
+/**
+ * Encapsulate access to the statusTarget object
+ * @returns status target
+ */
+function getStatusTarget() {
+  return statusTarget;
+}
 
 /**
  * Re-export addEventListener as 'on'
@@ -15,7 +43,13 @@ const statusTarget = new EventTarget();
  * - sessionId:  session ID changed
  * - surveyUser: survey user changed
  */
-const on = statusTarget.addEventListener.bind(statusTarget);
+function on(type, callback) {
+  getStatusTarget().addEventListener(type, callback);
+}
+
+function dispatchEvent(type) {
+  return getStatusTarget().dispatchEvent(type);
+}
 
 function updateAll(status) {
   if (status.contextPath) {
@@ -125,6 +159,8 @@ function setCurrentId(id) {
     id = id.toString();
     currentId = idIsAllowed(id) ? id : "";
   }
+  dispatchEvent(new Event("id"));
+  setRef("currentId", currentId);
 }
 
 function idIsAllowed(id) {
@@ -188,6 +224,8 @@ function getCurrentLocale() {
 
 function setCurrentLocale(loc) {
   currentLocale = loc;
+  dispatchEvent(new Event("locale"));
+  setRef("currentLocale", loc);
 }
 
 /**
@@ -280,7 +318,7 @@ function getSessionId() {
 function setSessionId(i) {
   if (i !== sessionId) {
     sessionId = i;
-    statusTarget.dispatchEvent(new Event("sessionId"));
+    dispatchEvent(new Event("sessionId"));
   }
 }
 
@@ -310,7 +348,7 @@ function setSurveyUser(u) {
   if (surveyUser !== u) {
     surveyUser = u;
     cldrGui.updateWithStatus();
-    statusTarget.dispatchEvent(new Event("surveyUser"));
+    dispatchEvent(new Event("surveyUser"));
   }
 }
 
@@ -437,12 +475,13 @@ export {
   getSessionId,
   getSessionMessage,
   getSpecialHeader,
-  getSurvUrl,
   getSurveyUser,
+  getSurvUrl,
   isDisconnected,
   isVisitor,
   logoIcon,
   on,
+  refs,
   runningStampChanged,
   setAutoImportBusy,
   setContextPath,

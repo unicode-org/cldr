@@ -2,7 +2,6 @@
 import { createApp } from "vue";
 import { notification } from "ant-design-vue";
 import { specialToComponent } from "./specialToComponentMap.mjs";
-import { getCldrOpts } from "./getCldrOpts.mjs";
 import { setupComponents } from "./setupComponents.mjs";
 
 /**
@@ -31,7 +30,6 @@ function showPanel(type, el, opts) {
  * Create the specified Vue app, and register components on it
  * @param {Component} component Vue component to mount
  * @param {String} specialPage name of special page as $specialPage
- * @param {Object} cldrOpts data to pass through as $cldrOpts
  * @param {Object} extraProps data to pass through as global properties
  * @returns {App} the App object
  */
@@ -39,7 +37,6 @@ function createCldrApp(component, specialPage, extraProps) {
   const app = createApp(component, extraProps || {});
 
   // These are available on all components.
-  app.config.globalProperties.$cldrOpts = getCldrOpts();
   app.config.globalProperties.$specialPage = specialPage || null;
 
   // Setup err handling
@@ -64,7 +61,6 @@ function createCldrApp(component, specialPage, extraProps) {
  * @param {Component} component Vue component to mount
  * @param {Element|String} el Element or String selector
  * @param {String} specialPage name of special page as $specialPage
- * @param {Object} cldrOpts data to pass through as $cldrOpts
  * @param {Object} extraProps data to pass through as global properties
  * @returns {App} the App object
  */

@@ -33,6 +33,7 @@
 
 <script>
 import CldrRow from "./CldrRow.vue";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 export default {
   components: {
@@ -55,7 +56,7 @@ export default {
     }
     fetch(theUrl, {
       headers: {
-        "X-SurveyTool-Session": this.$cldrOpts.sessionId,
+        "X-SurveyTool-Session": cldrStatus.getSessionId(),
       },
     })
       .then((r) => r.json())

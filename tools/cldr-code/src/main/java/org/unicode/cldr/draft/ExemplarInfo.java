@@ -45,8 +45,6 @@ public class ExemplarInfo {
                                             + "[:dt=Canonical:]]")
                             .freeze());
 
-    private static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter();
-
     private static Map<String, ExemplarInfo> languageToExemplars = new TreeMap<>();
     private static UnicodeSet az = new UnicodeSet("[a-z]").freeze();
 
@@ -197,7 +195,7 @@ public class ExemplarInfo {
                     "WARNING "
                             + locale
                             + " Aux+Main inconsistent on a-z:\t"
-                            + pp.format(auxiliary1));
+                            + UnicodeSetPrettyPrinter.ROOT_ICU.format(auxiliary1));
         }
         auxiliary1.addAll(az);
         auxiliariesX = ExemplarInfo.flatten(auxiliary1, locale).addAll(IGNORE).freeze();

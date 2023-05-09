@@ -261,15 +261,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;
-        prettyPrint =
-                new UnicodeSetPrettyPrinter()
-                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                        .setSpaceComparator(
-                                col != null
-                                        ? col
-                                        : Collator.getInstance(ULocale.ROOT)
-                                                .setStrength2(Collator.PRIMARY))
-                        .setCompressRanges(true);
+        prettyPrint = UnicodeSetPrettyPrinter.ROOT_ICU;
         return this;
     }
 

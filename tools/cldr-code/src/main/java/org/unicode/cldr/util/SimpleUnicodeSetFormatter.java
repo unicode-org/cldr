@@ -41,16 +41,9 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static final Comparator<String> BASIC_COLLATOR =
-            getCollatorIdenticalStrength(ULocale.ROOT);
+            (Comparator) ComparatorUtilities.getIcuCollator(ULocale.ROOT, Collator.IDENTICAL);
 
     private static final int DEFAULT_MAX_DISALLOW_RANGES = 199;
-
-    public static Comparator<String> getCollatorIdenticalStrength(ULocale locale) {
-        Collator temp = Collator.getInstance(locale);
-        temp.setStrength(Collator.IDENTICAL);
-        temp.freeze();
-        return (Comparator<String>) (Comparator<?>) temp;
-    }
 
     private final Comparator<String> comparator;
     private final UnicodeSet forceHex;
@@ -71,10 +64,16 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public SimpleUnicodeSetFormatter(
             Comparator<String> col, UnicodeSet forceHex, int maxDisallowRanges) {
         // collate, but preserve non-equivalents
-        this.comparator =
-                new MultiComparator(col == null ? BASIC_COLLATOR : col, codepointComparator);
+        this.comparator = ComparatorUtilities.wrapForCodePoints(col);
         this.forceHex = forceHex == null ? CodePointEscaper.FORCE_ESCAPE : forceHex.freeze();
         this.maxDisallowRanges = maxDisallowRanges;
+    }
+
+    public static SimpleUnicodeSetFormatter fromIcuLocale(String localeId) {
+        return new SimpleUnicodeSetFormatter(
+                (Comparator) ComparatorUtilities.getIcuCollator(localeId, Collator.IDENTICAL),
+                null,
+                255);
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {
@@ -86,7 +85,10 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     }
 
     public SimpleUnicodeSetFormatter() {
-        this(null, null, 255);
+        this(
+                (Comparator) ComparatorUtilities.getIcuCollator(ULocale.ROOT, Collator.IDENTICAL),
+                null,
+                255);
     }
 
     static class Lazy {

@@ -14,6 +14,7 @@ import java.util.List;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.ComparatorUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -136,19 +137,12 @@ public class CheckExemplars extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String locale = cldrFileToCheck.getLocaleID();
-        col = Collator.getInstance(new ULocale(locale));
-        col.setStrength(Collator.IDENTICAL);
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
+        col = ComparatorUtilities.getIcuCollator(new ULocale(locale), Collator.IDENTICAL);
+        Collator spaceCol =
+                ComparatorUtilities.getIcuCollator(new ULocale(locale), Collator.PRIMARY);
         displayFormatter = new SimpleUnicodeSetFormatter((Comparator) col);
-        rawFormatter =
-                new UnicodeSetPrettyPrinter()
-                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                        .setSpaceComparator(
-                                col != null
-                                        ? col
-                                        : Collator.getInstance(ULocale.ROOT)
-                                                .setStrength2(Collator.PRIMARY))
-                        .setCompressRanges(true);
+        rawFormatter = UnicodeSetPrettyPrinter.from((Comparator) col, (Comparator) spaceCol);
 
         // check for auxiliary anyway
         if (!SUPPRESS_AUX_EMPTY_CHECK) {
@@ -201,19 +195,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                     .retainAll(auxiliarySet)
                                     .removeAll(HangulSyllables);
                     if (overlap.size() != 0) {
-                        String fixedExemplar1 =
-                                new UnicodeSetPrettyPrinter()
-                                        .setOrdering(
-                                                col != null
-                                                        ? col
-                                                        : Collator.getInstance(ULocale.ROOT))
-                                        .setSpaceComparator(
-                                                col != null
-                                                        ? col
-                                                        : Collator.getInstance(ULocale.ROOT)
-                                                                .setStrength2(Collator.PRIMARY))
-                                        .setCompressRanges(true)
-                                        .format(overlap);
+                        String fixedExemplar1 = rawFormatter.format(overlap);
                         result.add(
                                 new CheckStatus()
                                         .setCause(this)

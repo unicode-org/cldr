@@ -623,10 +623,7 @@ public class ShowKeyboards {
     }
 
     static UnicodeSetPrettyPrinter prettyPrinter =
-            new UnicodeSetPrettyPrinter()
-                    .setOrdering(Collator.getInstance(ULocale.ROOT))
-                    .setSpaceComparator(
-                            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY));
+            UnicodeSetPrettyPrinter.fromIcuLocale(ULocale.ROOT.toString());
 
     public static String safeUnicodeSet(UnicodeSet unicodeSet) {
         return TransliteratorUtilities.toHTML.transform(prettyPrinter.format(unicodeSet));

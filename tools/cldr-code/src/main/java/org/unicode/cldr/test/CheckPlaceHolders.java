@@ -83,6 +83,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 case "initialPattern":
                     checkInitialPattern(this, path, value, result);
                     break; // skip to rest of handleCheck
+                case "nativeSpaceReplacement":
                 case "foreignSpaceReplacement":
                     checkForeignSpaceReplacement(this, value, result);
                     return this;

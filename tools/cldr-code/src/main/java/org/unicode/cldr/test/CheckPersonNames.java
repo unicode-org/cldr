@@ -72,6 +72,9 @@ public class CheckPersonNames extends CheckCLDR {
         }
     }
 
+    static final UnicodeSet nativeSpaceReplacementValues = new UnicodeSet("[{}\\ ]").freeze();
+    static final UnicodeSet foreignSpaceReplacementValues = new UnicodeSet("[\\ ・·]").freeze();
+
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
@@ -100,8 +103,19 @@ public class CheckPersonNames extends CheckCLDR {
                 }
 
                 break;
+            case "nativeSpaceReplacement":
+                if (!nativeSpaceReplacementValues.contains(value)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.illegalCharactersInPattern)
+                                    .setMessage(
+                                            "NativeSpaceReplacement must be space if script requires spaces, and empty otherwise."));
+                }
+                break;
             case "foreignSpaceReplacement":
-                if (spacesNeededInNames && !" ".equals(value)) {
+                if (!foreignSpaceReplacementValues.contains(value)) {
                     result.add(
                             new CheckStatus()
                                     .setCause(this)

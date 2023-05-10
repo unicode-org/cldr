@@ -934,6 +934,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement[@xml:space='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement[@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement"/>
+		<coverageLevel value="modern" match="personNames/nativeSpaceReplacement[@xml:space='%anyAttribute'][@alt='%anyAttribute']"/>
+		<coverageLevel value="modern" match="personNames/nativeSpaceReplacement[@xml:space='%anyAttribute']"/>
+		<coverageLevel value="modern" match="personNames/nativeSpaceReplacement[@alt='%anyAttribute']"/>
+		<coverageLevel value="modern" match="personNames/nativeSpaceReplacement"/>
 		<coverageLevel value="modern" match="personNames/initialPattern[@type='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/initialPattern[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/personName[@order='%anyAttribute'][@length='%anyAttribute'][@usage='%anyAttribute'][@formality='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>

@@ -292,10 +292,16 @@
 
 //ldml/personNames/nameOrderLocales[@order=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(NameOrder) ; $1-$2
 //ldml/personNames/nameOrderLocales[@order=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(NameOrder) ; $1
+
 //ldml/personNames/foreignSpaceReplacement[@xml:space=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement-$2
 //ldml/personNames/foreignSpaceReplacement[@xml:space=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement
 //ldml/personNames/foreignSpaceReplacement[@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement-$1
 //ldml/personNames/foreignSpaceReplacement   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement
+//ldml/personNames/nativeSpaceReplacement[@xml:space=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement-$2
+//ldml/personNames/nativeSpaceReplacement[@xml:space=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement
+//ldml/personNames/nativeSpaceReplacement[@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement-$1
+//ldml/personNames/nativeSpaceReplacement   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement
+
 //ldml/personNames/initialPattern[@type=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1-$2
 //ldml/personNames/initialPattern[@type=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1
 //ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$2) ; &personNameOrder($3-$4-$5)

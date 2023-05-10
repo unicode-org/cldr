@@ -58,6 +58,8 @@ public class DisplayAndInputProcessor {
     public static final String NOL_START_PATH = "//ldml/personNames/nameOrderLocales";
 
     public static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
+    public static final String NSR_START_PATH = "//ldml/personNames/nativeSpaceReplacement";
+
     public static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
     private static final boolean FIX_YEARS = true;
@@ -377,7 +379,9 @@ public class DisplayAndInputProcessor {
         }
         // Fix up possibly empty field
         if (value.isEmpty()
-                && (path.startsWith(FSR_START_PATH) || path.startsWith(NOL_START_PATH))) {
+                && (path.startsWith(FSR_START_PATH)
+                        || path.startsWith(NSR_START_PATH)
+                        || path.startsWith(NOL_START_PATH))) {
             value = EMPTY_ELEMENT_VALUE;
         }
         return value;
@@ -459,6 +463,7 @@ public class DisplayAndInputProcessor {
         // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
         if (!path.contains("/insertBetween")
                 && !path.contains("/foreignSpaceReplacement")
+                && !path.contains("/nativeSpaceReplacement")
                 && !path.contains("[@xml:space=\"preserve\"]")
                 && !isUnicodeSet) {
             value = value.trim();

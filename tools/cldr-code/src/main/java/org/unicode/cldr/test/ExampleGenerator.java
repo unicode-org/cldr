@@ -625,6 +625,7 @@ public class ExampleGenerator {
                     "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
                     "//ldml/personNames/initialPattern[@type=\"*\"]",
                     "//ldml/personNames/foreignSpaceReplacement",
+                    "//ldml/personNames/nativeSpaceReplacement",
                     "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern");
 
     private static final Function<String, String> BACKGROUND_TRANSFORM =

@@ -789,5 +789,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/foreignSpaceReplacement",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/personNames/nativeSpaceReplacement",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
                     .build();
 }

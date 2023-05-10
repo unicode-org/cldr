@@ -141,7 +141,7 @@ export default {
         await this.client.apis.voting.updateReport(
           {
             user: user.id,
-            locale: this.$cldrOpts.locale,
+            locale: cldrStatus.getCurrentLocale(),
             report: this.report,
           },
           {
@@ -171,11 +171,11 @@ export default {
         // get MY vote
         const resp = this.client.apis.voting.getReport({
           user: user.id,
-          locale: this.$cldrOpts.locale,
+          locale: cldrStatus.getCurrentLocale(),
         });
         // get the overall status for this locale
         const reportLocaleStatusResponse = cldrReport.getOneReportLocaleStatus(
-          this.$cldrOpts.locale,
+          cldrStatus.getCurrentLocale(),
           this.report
         );
 

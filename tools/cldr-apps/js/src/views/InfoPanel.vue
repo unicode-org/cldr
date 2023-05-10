@@ -20,6 +20,7 @@
         </a-button>
         <span class="i-am-info-panel">Info Panel</span>
         <a-button
+          v-if="locale && id"
           shape="circle"
           class="cldr-nav-btn"
           title="Explain"
@@ -44,6 +45,8 @@ export default {
     let inheritanceExplainer = ref(null);
     return {
       inheritanceExplainer,
+      locale: cldrStatus.refs.currentLocale,
+      id: cldrStatus.refs.currentId,
     };
   },
   components: {

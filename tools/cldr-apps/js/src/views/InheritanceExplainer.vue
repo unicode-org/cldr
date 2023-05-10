@@ -30,17 +30,20 @@
             <span class="reason" v-if="showReason">{{
               getReason(reason, attribute)
             }}</span>
-            <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
+            <!-- show the Go button, only if we have locale AND xpath. Hide if we're already there.  -->
             <a-button
               size="small"
               shape="round"
-              v-if="locale && xpath"
+              v-if="
+                locale &&
+                xpath &&
+                (locale != currentLocale || xpath != currentId)
+              "
               @click="go(locale, xpath)"
               >Jump</a-button
             >
           </p>
           <!-- only show on change -->
-          <!-- <b v-if="locale" v-bind:title="Locale ID">{{ locale }}</b> -->
           <div v-if="newXpath" class="xpath">
             {{ xpathFull }}
           </div>
@@ -52,6 +55,7 @@
 
 <script>
 import * as cldrInheritance from "../esm/cldrInheritance.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 import { ref } from "vue";
 import { notification } from "ant-design-vue";
@@ -63,12 +67,15 @@ export default {
     let itemXpath = ref("");
     let inheritance = ref(null);
     let reasons = ref(null);
+    const { currentLocale, currentId } = cldrStatus.refs;
     return {
       visible,
       itemLocale,
       itemXpath,
       inheritance,
       reasons,
+      currentLocale,
+      currentId,
     };
   },
   methods: {
@@ -80,14 +87,10 @@ export default {
       this.itemLocale = locale;
       this.itemXpath = xpath;
       if (!locale || !xpath) {
-        // Not the best UX, but we don't have an easy way
-        // to track whether the locale is set or not without
-        // registering a callback, which seems heavyweight for
-        // this feature. Ideally, we would gray out this button
-        // if inappropriate.
+        // Shouldn't get here unless the caller made an error.
         notification.info({
           description:
-            "Please click on an item first, and then clicking this button.",
+            "Please click on an item first, and then click this button.",
           message: "Inheritance Explainer",
           placement: "topLeft",
         });

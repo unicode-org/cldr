@@ -23,6 +23,7 @@ public enum Organization {
     bhutan("Bhutan DDC"),
     breton("Office of Breton Lang"),
     cherokee("Cherokee Nation"),
+    choctaw("Choctaw Nation"),
     cldr("Cldr"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),

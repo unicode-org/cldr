@@ -11,7 +11,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
@@ -25,7 +24,6 @@ public class CheckPersonNames extends CheckCLDR {
     String initialSeparator = " ";
 
     private UnicodeSet allowedCharacters;
-    private boolean spacesNeededInNames;
 
     static final UnicodeSet BASE_ALLOWED =
             new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}-\\p{N}-[❮❯∅<>∅0]]").freeze();
@@ -45,10 +43,6 @@ public class CheckPersonNames extends CheckCLDR {
         String script = new LikelySubtags().getLikelyScript(localeId);
         allowedCharacters =
                 new UnicodeSet(BASE_ALLOWED).addAll(getUnicodeSetForScript(script)).freeze();
-        spacesNeededInNames =
-                !PersonNameFormatter.LocaleSpacingData.getInstance()
-                        .getScriptsNotNeedingSpacesInNames()
-                        .contains(script);
 
         String initialPatternSequence =
                 cldrFileToCheck.getStringValue(

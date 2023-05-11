@@ -63,6 +63,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             DtdType.ldml,
                             "nameOrderLocales",
                             "foreignSpaceReplacement",
+                            "nativeSpaceReplacement",
                             "language",
                             "script",
                             "region",

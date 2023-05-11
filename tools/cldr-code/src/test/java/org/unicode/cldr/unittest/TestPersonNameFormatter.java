@@ -1391,6 +1391,7 @@ public class TestPersonNameFormatter extends TestFmwk {
         final String wholeFile = sw.toString();
         assertTrue(
                 "Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
+        assertTrue("Contains nativeSpaceReplacement", wholeFile.contains("nativeSpaceReplacement"));
     }
 
     public void testInitials() {

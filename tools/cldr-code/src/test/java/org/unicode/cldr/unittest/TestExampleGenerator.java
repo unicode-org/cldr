@@ -191,10 +191,12 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"]", // TODO
-                    // CLDR-15384
-                    "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]", // TODO
-                    // CLDR-15384
+                    "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]",
                     "//ldml/personNames/foreignSpaceReplacement", // TODO CLDR-15384
+                    "//ldml/personNames/nativeSpaceReplacement[@xml:space=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+                    "//ldml/personNames/nativeSpaceReplacement[@xml:space=\"([^\"]*+)\"]", // TODO
+                    "//ldml/personNames/nativeSpaceReplacement[@alt=\"([^\"]*+)\"]",
+                    "//ldml/personNames/nativeSpaceReplacement", // TODO CLDR-15384
                     "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // TODO CLDR-15384

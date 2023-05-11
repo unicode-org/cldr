@@ -11,14 +11,12 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
@@ -46,9 +44,6 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
@@ -1760,35 +1755,6 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
-    public static final class LocaleSpacingData {
-        public static LocaleSpacingData getInstance() {
-            return LocaleSpacingData.SINGLETON;
-        }
-
-        static LocaleSpacingData SINGLETON = new LocaleSpacingData();
-        private final Set<String> LOCALES_NOT_NEEDING_SPACES;
-
-        LocaleSpacingData() {
-            Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
-            Set<String> EXCLUSIONS = ImmutableSet.of("Thai");
-            _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
-            for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
-                Info info = ScriptMetadata.getInfo(i);
-                if (info != null && info.lbLetters == Trinary.YES) {
-                    final String script = UScript.getShortName(i);
-                    if (!EXCLUSIONS.contains(script)) {
-                        _LOCALE_NOT_NEEDING_SPACES.add(script);
-                    }
-                }
-            }
-            LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
-        }
-
-        public Set<String> getScriptsNotNeedingSpacesInNames() {
-            return LOCALES_NOT_NEEDING_SPACES;
-        }
-    }
-
     /**
      * Create a formatter from a CLDR file.
      *
@@ -1801,13 +1767,7 @@ public class PersonNameFormatter {
         String initialPattern = null;
         String initialSequencePattern = null;
         String foreignSpaceReplacement = " ";
-        String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
-        String nativeSpaceReplacement =
-                LocaleSpacingData.getInstance()
-                                .getScriptsNotNeedingSpacesInNames()
-                                .contains(formattingScript)
-                        ? ""
-                        : " ";
+        String nativeSpaceReplacement = " ";
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1989,34 +1949,6 @@ public class PersonNameFormatter {
             myLocale = new ULocale(parentLocaleString);
         }
         return null;
-    }
-
-    /** Special data for vetters, to how what foreign names would format */
-    private static final Map<String, SimpleNameObject> FOREIGN_NAME_FOR_NON_SPACING;
-
-    static {
-        // code     given   surname
-        final String[][] specials = {
-            {"th", "อัลเบิร์ต", "ไอน์สไตน์"},
-            {"my", "အဲလ်ဘတ်", "အိုင်းစတိုင်း"},
-            {"km", "អាល់បឺត", "អែងស្តែង"},
-            {"ko", "알베르트", "아인슈타인"},
-            {"ja", "アルベルト", "アインシュタイン"},
-            {"zh", "阿尔伯特", "爱因斯坦"}
-        };
-        Map<String, SimpleNameObject> temp = Maps.newLinkedHashMap();
-        for (String[] row : specials) {
-            temp.put(row[0], specialNameOf(row));
-        }
-        FOREIGN_NAME_FOR_NON_SPACING = ImmutableMap.copyOf(temp);
-    }
-
-    private static SimpleNameObject specialNameOf(String[] row) {
-        return new SimpleNameObject(
-                new ULocale("de_CH"),
-                ImmutableMap.of(
-                        ModifiedField.from("given"), row[1],
-                        ModifiedField.from("surname"), row[2]));
     }
 
     /**

@@ -858,6 +858,7 @@ public class TestDtdData extends TestFmwk {
         String[][] tests = {
             {"//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]", "any"},
             {"//ldml/personNames/foreignSpaceReplacement", "any"},
+            {"//ldml/personNames/nativeSpaceReplacement", "any"},
             {"//ldml/personNames/initialPattern[@type=\"initial\"]", "nonempty"},
         };
         for (String[] test : tests) {

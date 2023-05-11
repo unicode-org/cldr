@@ -12,8 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-import org.unicode.cldr.test.CheckCLDR;
-
 import com.ibm.icu.text.Transliterator;
 
 /**
@@ -24,10 +22,14 @@ import com.ibm.icu.text.Transliterator;
 public class PrettyPath {
     private Transliterator prettyPathZoneTransform;
     {
-        prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
+        prettyPathZoneTransform =
+                TransliteratorUtilities.getTransliteratorFromFile(
+                        "prettyPathZone", "prettyPathZone.txt");
         Transliterator.registerInstance(prettyPathZoneTransform);
     }
-    private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
+
+    private Transliterator prettyPathTransform =
+            TransliteratorUtilities.getTransliteratorFromFile("ID", "prettyPath.txt");
 
     private Map<String, String> prettyPath_path = new HashMap<>();
     private Map<String, String> path_prettyPath_sortable = new HashMap<>();

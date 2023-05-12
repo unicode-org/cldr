@@ -733,7 +733,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
                 // The alt="ascii" time patterns are hopefully short-lived. We do not survey
-                // for them, they can be generated mechanically from the non-alt patterns. CLDR-16606
+                // for them, they can be generated mechanically from the non-alt patterns.
+                // CLDR-16606
                 if (path.contains("[@alt=\"ascii\"]")) {
                     continue;
                 }

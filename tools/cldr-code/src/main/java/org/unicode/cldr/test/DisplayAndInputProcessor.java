@@ -1236,7 +1236,7 @@ public class DisplayAndInputProcessor {
         if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek"))
                 && HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
-            String spaceReplace = path.contains("ascii")? "$1\u0020$3": "$1\u202F$3";
+            String spaceReplace = path.contains("ascii") ? "$1\u0020$3" : "$1\u202F$3";
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
                 value = AMPM_SPACE_BEFORE.matcher(value).replaceAll(spaceReplace);
             }

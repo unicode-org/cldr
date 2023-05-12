@@ -177,11 +177,13 @@
   <!-- @TECHPREVIEW -->
   <xs:element name="display">
     <xs:complexType>
-      <xs:attribute name="to" use="required"/>
+      <xs:attribute name="id"/>
+      <xs:attribute name="to"/>
       <xs:attribute name="display" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
   <!-- @MATCH:any -->
   <!-- @ALLOWS_UESC -->
   <!-- @MATCH:any -->
@@ -319,8 +321,8 @@
     </xs:complexType>
   </xs:element>
   <!-- @TECHPREVIEW -->
-  <!-- @MATCH:any -->
-  <!-- @MATCH:any -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <!-- @MATCH:regex/(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*) -->
   <xs:element name="row">
     <xs:complexType>
       <xs:attribute name="keys" use="required" type="xs:NMTOKENS"/>

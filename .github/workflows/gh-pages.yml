@@ -32,6 +32,8 @@ jobs:
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
+      - name: Run Kbd Charts
+        run: 'cd docs/charts/keyboard && npm ci && npm run build'
       - name: 'Run TR link extractor (experimental)'
         # Note: see CLDR-16526 for making this an error
         run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'

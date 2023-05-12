@@ -86,3 +86,5 @@ jobs:
           -DCLDR_GITHUB_ANNOTATIONS=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Kbd Charts
+        run: 'cd docs/charts/keyboard && npm ci && npm run build'

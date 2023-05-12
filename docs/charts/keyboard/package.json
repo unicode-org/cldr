@@ -1,0 +1,22 @@
+{
+  "name": "@unicode-org/keyboard-charts",
+  "version": "1.0.0",
+  "description": "Keyboard Charts app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx serve static",
+    "build": "node build.mjs"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srl295@gmail.com>",
+  "license": "Unicode-DFS-2016",
+  "bugs": {
+    "url": "https://github.com/unicode-org/cldr/issues"
+  },
+  "homepage": "https://github.com/unicode-org/cldr#readme",
+  "private": true,
+  "dependencies": {
+    "fast-xml-parser": "^4.2.2"
+  }
+}

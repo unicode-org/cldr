@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>CLDR Proposed Keyboard Browser</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./keyboard-chart.js"></script>
+    <script src="./data/keyboard-data.js"></script>
+    <link href="./keyboard-chart.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>CLDR LDML 3.0 Keyboard Charts</h1>
+      <a href="https://cldr.unicode.org/index/keyboard-workgroup"
+        >CLDR Keyboard Workgroup</a
+      >
+      <hr />
+      <i
+        >Note: This is a very preliminary chart. For feedback on this chart or
+        contents, see
+        <a href="https://unicode-org.atlassian.net/browse/CLDR-16601"
+          >https://unicode-org.atlassian.net/browse/CLDR-16601</a
+        ></i
+      >
+      <!-- {{ message }} -->
+      <hr />
+      <div>
+        <span v-for="file of files" :key="file">
+          <a :href="'#'+file">{{file}}</a> |
+        </span>
+      </div>
+      <hr />
+      <ol>
+        <li v-for="file of files" :key="file">
+          <h2 :id="file"><code>{{file}}</code></h2>
+          <ul>
+            <li v-for="layers of getLayers(file)">
+              <h3 v-if="layers.form">Form: {{ layers.form }}</h3>
+              <h3 v-if="layers.id">ID: {{ layers.id }}</h3>
+              <h4 v-if="layers.minDeviceWidth">
+                minDeviceWidth: {{ layers.minDeviceWidth }}mm
+              </h4>
+              <ul>
+                <li v-for="layer of layers.layer">
+                  <h4 v-if="layer.modifier">Modifier: {{ layer.modifier }}</h4>
+                  <h4 v-if="layer.id">{{ layer.id }}</h4>
+                  <ol>
+                    <div class="row" v-for="row of layer.row">
+                      <span
+                        :title="key.id"
+                        :class="getKeyClass(key)"
+                        v-for="key of row.keys"
+                      >
+                        {{key.to}}
+                        <b title="Switch" v-if="key.switch">☞ {{key.switch}}</b>
+                      </span>
+                    </div>
+                  </ol>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <hr />
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {};
+        },
+        computed: {
+          files() {
+            return getIds();
+          },
+        },
+        methods: {
+          getLayers(id) {
+            return getKeyboardLayers(id);
+          },
+          getKeys(id) {
+            return getKeyboardKeys(id);
+          },
+          getKeyClass(key) {
+            if (key.gap) {
+              return "gap-key key";
+            } else if (key.to) {
+              return "to-key key";
+            } else if (key.switch) {
+              return "switch-key key";
+            } else {
+              return "key";
+            }
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

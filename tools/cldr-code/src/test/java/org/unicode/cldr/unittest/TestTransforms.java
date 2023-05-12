@@ -47,6 +47,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -58,6 +59,84 @@ public class TestTransforms extends TestFmwkPlus {
 
     public static void main(String[] args) {
         new TestTransforms().run(args);
+    }
+
+    public void checkSimpleRoundTrip(Transliterator ab, Transliterator ba, UnicodeSet itemsToSkip) {
+        UnicodeSet aSource = getSourceUnicodeSet(ab).removeAll(itemsToSkip);
+        UnicodeSet missingSingles = new UnicodeSet();
+        for (String a : aSource) {
+            String b = ab.transform(a);
+            String roundtrip = ba.transform(b);
+            if (!assertEquals(a + "↔︎" + b, a, roundtrip)) {
+                missingSingles.add(a);
+            }
+        }
+        logln("Missing singles: " + missingSingles);
+        aSource = new UnicodeSet(aSource).removeAll(missingSingles).freeze();
+        for (String x : aSource) {
+            for (String y : aSource) {
+                String a = x + y;
+                String b = ab.transform(a);
+                String roundtrip = ba.transform(b);
+                assertEquals(a + "↔︎" + b, a, roundtrip);
+            }
+        }
+    }
+
+    public UnicodeSet getSourceUnicodeSet(Transliterator ab) {
+        for (Transliterator element : ab.getElements()) {
+            if (element instanceof RuleBasedTransliterator) {
+                RuleBasedTransliterator rbtrans = (RuleBasedTransliterator) element;
+                UnicodeSet result = rbtrans.getSourceSet();
+                result = getClosure(result);
+                logln("\n" + ab.getID() + "\t" + result.toPattern(false));
+                return result;
+            }
+        }
+        return UnicodeSet.EMPTY;
+    }
+
+    static final Normalizer2 NFD = Normalizer2.getNFDInstance();
+    static final UnicodeSet changesUnderNFD = new UnicodeSet("\\p{nfdqc=no}").freeze();
+
+    UnicodeSet getClosure(UnicodeSet source) {
+        UnicodeSet full = new UnicodeSet(source);
+        for (String s : changesUnderNFD) {
+            String normalized = NFD.normalize(s);
+            if (source.contains(normalized.codePointAt(0))) {
+                full.add(s);
+            }
+        }
+        return full;
+    }
+
+    public void TestCyrillicLatin() {
+        // this method only works for 'leaf' rule-based translators
+        register();
+        Transliterator cyrillic_latin = Transliterator.getInstance("Cyrillic-Latin");
+        Transliterator latin_cyrillic = cyrillic_latin.getInverse();
+        checkSimpleRoundTrip(cyrillic_latin, latin_cyrillic, new UnicodeSet("[ӧӦ ӱӰӯӮ\\p{M}]"));
+        String[][] tests = {
+            {"х", "kh"},
+            {"Ха", "Kha"},
+            {"Х", "KH"},
+            {"кһ", "k‧h"},
+            {"Кһа", "K‧ha"},
+            {"КҺ", "K‧H"},
+            {"к", "k"},
+            {"К", "K"},
+            {"һ", "h"},
+            {"Һ", "H"},
+        };
+        int count = 0;
+        for (String[] test : tests) {
+            String cyrillic = test[0];
+            String latin = test[1];
+            String fromCyrillic = cyrillic_latin.transform(cyrillic);
+            assertEquals(++count + ") Cyrillic-Latin(" + cyrillic + ")", latin, fromCyrillic);
+            String fromLatin = latin_cyrillic.transform(cyrillic);
+            assertEquals(count + ") Latin-Cyrillic(" + cyrillic + ")", cyrillic, fromLatin);
+        }
     }
 
     public void TestUzbek() {

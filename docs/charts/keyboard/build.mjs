@@ -5,10 +5,11 @@ import * as path from "node:path";
 import { XMLParser } from "fast-xml-parser";
 
 const KEYBOARD_PATH = "../../../keyboards/3.0";
+const IMPORT_PATH = "../../../keyboards/import";
 const DATA_PATH = "static/data";
 
-async function xmlList() {
-  const dir = await fs.opendir(KEYBOARD_PATH);
+async function xmlList(basepath) {
+  const dir = await fs.opendir(basepath);
   const xmls = [];
   for await (const ent of dir) {
     if (!ent.isFile() || !/\.xml$/.test(ent.name)) {
@@ -62,14 +63,15 @@ async function readFile(path) {
 }
 
 async function main() {
-  const xmls = await xmlList();
-  const allData = {};
-  for (const fn of xmls) {
-    const fp = path.join(KEYBOARD_PATH, fn);
-    const data = await readFile(fp);
-    const parsed = parseXml(data);
-    allData[fn] = parsed;
-  }
+  const xmls = await xmlList(KEYBOARD_PATH);
+  const keyboards = await packXmls(KEYBOARD_PATH, xmls);
+  const importFiles = await xmlList(IMPORT_PATH);
+  const imports = await packXmls(IMPORT_PATH, importFiles);
+
+  const allData = {
+    keyboards,
+    imports,
+  };
 
   const outPath = path.join(DATA_PATH, "keyboard-data.json");
   const outJsPath = path.join(DATA_PATH, "keyboard-data.js");
@@ -77,7 +79,7 @@ async function main() {
   const json = JSON.stringify(allData, null, " "); // indent, in case we need to read it
   await fs.writeFile(outPath, json, "utf-8");
   await fs.writeFile(outJsPath, `const _KeyboardData = \n` + json);
-  return { xmls, outPath, outJsPath };
+  return { xmls, importFiles, outPath, outJsPath };
 }
 
 main().then(
@@ -87,3 +89,14 @@ main().then(
     process.exitCode = 1;
   }
 );
+
+async function packXmls(basepath, xmls) {
+  const allData = {};
+  for (const fn of xmls) {
+    const fp = path.join(basepath, fn);
+    const data = await readFile(fp);
+    const parsed = parseXml(data);
+    allData[fn] = parsed;
+  }
+  return allData;
+}

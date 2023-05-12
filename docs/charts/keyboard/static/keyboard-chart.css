@@ -5,9 +5,20 @@
 .key {
     border: 1px solid gray;
     padding: 0.25em;
-    background-color: beige;
     margin-right: 0.5em;
     height: 2em;
     display: table-cell;
     font-size: small;
+}
+
+.gap-key {
+    background-color: gray;
+}
+
+.to-key {
+    background-color: beige;
+}
+
+.switch-key {
+    background-color: lime;
 }

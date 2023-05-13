@@ -168,7 +168,8 @@ public class DataPage {
                     return null;
                 }
                 try {
-                    return getProcessor().processForDisplay(xpath, rawValue);
+                    return DisplayAndInputProcessorFactory.make(locale)
+                            .processForDisplay(xpath, rawValue);
                 } catch (Throwable t) {
                     String msg = "getProcessedValue, while processing " + xpath + ":" + rawValue;
                     logger.log(java.util.logging.Level.FINE, msg, t);
@@ -532,7 +533,7 @@ public class DataPage {
             baselineStatus = resolver.getBaselineStatus();
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
-            displayName = getProcessor().processForDisplay(xpath, rawEnglish);
+            displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
         }
 
         /**
@@ -796,7 +797,10 @@ public class DataPage {
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
                     }
                 }
-                inheritedDisplayValue = getProcessor().processForDisplay(xpath, inheritedValue);
+                // Note: the inherited value uses the child locale
+                inheritedDisplayValue =
+                        DisplayAndInputProcessorFactory.make(locale)
+                                .processForDisplay(xpath, inheritedValue);
             }
             if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {
                 if (TRACE_TIME) {
@@ -1002,7 +1006,9 @@ public class DataPage {
                      * en dash, as in "E10–520", when SurveyAjax.processRequest calls processInput.
                      * Call processInput here as well, so that isUnvotableRoot can match correctly.
                      */
-                    unvotableRootValue = getProcessor().processInput(xpath, rootValue, null);
+                    unvotableRootValue =
+                            DisplayAndInputProcessorFactory.make(locale)
+                                    .processInput(xpath, rootValue, null);
                     addItem(unvotableRootValue, "root-annotation");
                 }
             }
@@ -1965,7 +1971,7 @@ public class DataPage {
      * @return the processor
      *     <p>Called by getProcessedValue
      */
-    private DisplayAndInputProcessor getProcessor() {
+    private DisplayAndInputProcessor getBaselineProcessor() {
         if (processor == null) {
             processor = new DisplayAndInputProcessor(SurveyMain.TRANS_HINT_LOCALE, false);
         }

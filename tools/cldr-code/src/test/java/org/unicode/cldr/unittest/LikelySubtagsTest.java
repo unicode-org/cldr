@@ -19,10 +19,12 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -308,6 +310,8 @@ public class LikelySubtagsTest extends TestFmwk {
     public void TestMissingInfoForLanguage() {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
+        CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
+
         for (String language : CLDRConfig.getInstance().getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
                 continue;
@@ -321,6 +325,15 @@ public class LikelySubtagsTest extends TestFmwk {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
+                Level covLevel = ccl.getEffectiveCoverageLevel(language);
+                if (covLevel == null || !covLevel.isAtLeast(Level.BASIC)) {
+                    // https://unicode-org.atlassian.net/browse/CLDR-15663
+                    if (logKnownIssue(
+                            "CLDR-15663",
+                            "English translation should not be required for sub-basic language name")) {
+                        continue; // skip error
+                    }
+                }
                 errln("Missing English translation for: " + language);
             }
         }

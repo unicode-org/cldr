@@ -194,6 +194,8 @@ public class GenerateMaximalLocales {
                         {"ff_Adlm", "ff_Adlm_GN"},
                         {"ia", "ia_Latn_001"},
                         {"ia_Latn", "ia_Latn_001"},
+                        {"ie", "ie_Latn_001"},
+                        {"ie_Latn", "ie_Latn_001"},
                         {"io", "io_Latn_001"},
                         {"io_Latn", "io_Latn_001"},
                         {"jbo", "jbo_Latn_001"},

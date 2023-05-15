@@ -1,0 +1,11 @@
+# Format is 
+#    locale-regex ; path-regex ; value-regex
+# Where a field is missing, it matches all values
+# The match uses 'looking at', equivalent to starting with ^ — so don't start with that
+# If you need to match to the end, follow with $
+# For the path, [@ is automatically escaped
+
+# The following will match anything starting with graphics-dot, thus include graphics-dot-per-centimeter, etc.
+ ; //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot
+
+# The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included

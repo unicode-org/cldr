@@ -939,6 +939,8 @@
 
 
 
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -4984,7 +4986,12 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Rich Gillam for work on Person Names.</li>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
-</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 68</strong></p><ul>
+</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 43</strong></p><ul>
+<li><a href="tr35-personNames.html#Contents">Person Names</a><ul>
+<li>Fixed a problem in <a href="tr35-personNames.html#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>, where the full formatting locale wasn't being set correctly when the name object has a locale whose script is incompatibility with name script.</li>
+</ul>
+</li>
+</ul><p><strong>Differences from LDML Version 42</strong></p><ul>
 <li>Removed numbering from sections, to allow for more flexible reorganization of the specification in the future</li>
 <li><a href="tr35-personNames.html#Contents">Person Names</a><ul>
 <li>Brought Person Name Formatting out of tech preview</li>

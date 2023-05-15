@@ -323,6 +323,11 @@
 
 
 
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -846,7 +851,17 @@ This is a stable document and may be used as reference material or cited as a no
 </ol><p>Construct the <strong>name locale</strong> in the following way:</p><ol>
 <li>If the PersonName object can provide a name locale, return a locale formed from it by replacing its script by the name script.</li>
 <li>Otherwise, return the locale formed from the name base language plus name script.</li>
-</ol><h3 id="derive-the-formatting-locale">Derive the formatting locale</h3><p>Let the <strong>full formatting locale</strong> be the maximal likely locale for the formatter's locale. The <strong>formatting base language</strong> is the base language (first subtag) of the full formatting locale, and the <strong>formatting script</strong> is the script code of the full formatting locale.</p><h4 id="switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</h4><p>A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to <em>match</em> when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.</p><p>If the <strong>name script</strong> doesn't match the <strong>formatting script</strong>, then the name is formatted with the name locale, <em><strong>not</strong></em> the originally requested formatting locale. For example, when a Hindi formatter (hi-Deva) is called upon to format a name with the Ukrainian (Cyrillic) locale (uk-Cyrl), under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name.</p><h3 id="derive-the-name-order">Derive the name order</h3><p>A PersonName object’s fields are used to derive an order, as follows:</p><ol>
+</ol><h3 id="derive-the-formatting-locale">Derive the formatting locale</h3><p>Let the <strong>full formatting locale</strong> be the maximal likely locale for the formatter's locale. The <strong>formatting base language</strong> is the base language (first subtag) of the full formatting locale, and the <strong>formatting script</strong> is the script code of the full formatting locale.</p><h4 id="switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</h4><p>A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to <em>match</em> when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.</p><p>If the <strong>name script</strong> doesn't match the <strong>formatting script</strong>:</p><ol>
+<li>If the name locale has name formatting data, then set the formatting locale to the name locale. </li>
+<li>Otherwise, set the formatting locale to the maximal likely locale for the the locale formed from und, plus the name script plus the region of the nameLocale.</li>
+</ol><p>For example, when a Hindi (Devanagari) formatter is called upon to format a name object that has the locale Ukrainian (Cyrillic):</p><ul>
+<li>If the name is written with Cyrillic letters, under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name.&nbsp;</li>
+<li>If the name is written in Greek letters, then under the covers a Greek (Greek-script) formatter should be instantiated and used to format.</li>
+</ul><p>To determine whether there is name formatting data for a locale, get the values for each of the following paths.
+If at least one of them doesn’t inherit their value from root, then the locale has name formatting data.</p><ul>
+<li>//ldml/personNames/nameOrderLocales[@order="givenFirst"]</li>
+<li>//ldml/personNames/nameOrderLocales[@order="surnameFirst"]</li>
+</ul><h3 id="derive-the-name-order">Derive the name order</h3><p>A PersonName object’s fields are used to derive an order, as follows:</p><ol>
 <li>If the calling API requests sorting order, that is used.</li>
 <li>Otherwise, if the PersonName object to be formatted has a <code>preferredOrder</code> field, then return that field’s value</li>
 <li>Otherwise, use the nameOrderLocales elements to find the best match for the name locale, as follows.<ol>

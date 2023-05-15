@@ -57,6 +57,7 @@ import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.DowngradePaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
@@ -2945,6 +2946,32 @@ public class CLDRModify {
                                 handlePath(path);
                             }
                         }
+                    }
+                });
+
+        fixList.add(
+                'D',
+                "Downgrade paths",
+                new CLDRFilter() {
+                    @Override
+                    public void handlePath(String xpath) {
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        if (!DowngradePaths.lookingAt(getLocaleID(), xpath, value)) {
+                            return;
+                        }
+                        String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                        XPathParts fullParts = XPathParts.getFrozenInstance(fullPath);
+                        String oldDraft = fullParts.getAttributeValue(-1, "draft");
+                        if (oldDraft != null) {
+                            DraftStatus oldDraftEnum = DraftStatus.forString(oldDraft);
+                            if (oldDraftEnum == DraftStatus.provisional
+                                    || oldDraftEnum == DraftStatus.unconfirmed) {
+                                return;
+                            }
+                        }
+                        fullParts = fullParts.cloneAsThawed();
+                        fullParts.setAttribute(-1, "draft", "provisional");
+                        replace(fullPath, fullParts.toString(), value, "Downgrade to provisional");
                     }
                 });
     }

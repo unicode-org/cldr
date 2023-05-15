@@ -106,9 +106,9 @@ public class DisplayAndInputProcessor {
                             + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*)");
 
     private static final Pattern AMPM_SPACE_BEFORE =
-            PatternCache.get("([Khms])([ \\u00A0]+)(a+)"); // time, space, a+
+            PatternCache.get("([Khms])([ \\u00A0\\u202F]+)(a+)"); // time, space, a+
     private static final Pattern AMPM_SPACE_AFTER =
-            PatternCache.get("(a+)([ \\u00A0]+)([Kh])"); // a+, space, hour
+            PatternCache.get("(a+)([ \\u00A0\\u202F]+)([Kh])"); // a+, space, hour
 
     // Pattern to match against paths that might have date formats with y
     private static final Pattern YEAR_FORMAT_XPATHS =
@@ -1236,12 +1236,13 @@ public class DisplayAndInputProcessor {
         if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek"))
                 && HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
+            String spaceReplace = path.contains("ascii") ? "$1\u0020$3" : "$1\u202F$3";
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
-                value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202F$3");
+                value = AMPM_SPACE_BEFORE.matcher(value).replaceAll(spaceReplace);
             }
             test = AMPM_SPACE_AFTER.matcher(value).replaceAll("$2$3"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
-                value = AMPM_SPACE_AFTER.matcher(value).replaceAll("$1\u202F$3");
+                value = AMPM_SPACE_AFTER.matcher(value).replaceAll(spaceReplace);
             }
         }
         if (scriptCode.equals("Cyrl") && YEAR_FORMAT_XPATHS.matcher(path).matches()) {

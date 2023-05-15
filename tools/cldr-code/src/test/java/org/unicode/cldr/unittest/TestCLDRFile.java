@@ -391,6 +391,7 @@ public class TestCLDRFile extends TestFmwk {
             if (path.startsWith("//ldml/localeDisplayNames/")
                     || path.contains("[@alt=\"accounting\"]")
                     || path.contains("[@alt=\"alphaNextToNumber\"]") // CLDR-14336
+                    || path.contains("[@alt=\"ascii\"]") // CLDR-16606
                     || path.contains("[@alt=\"noCurrency\"]") // CLDR-14336
                     || path.startsWith("//ldml/personNames/") // CLDR-15384
             ) {

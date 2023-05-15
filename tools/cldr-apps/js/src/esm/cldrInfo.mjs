@@ -521,7 +521,7 @@ function updateRowVoteInfo(tr, theRow) {
     } else {
       cldrVote.appendItem(
         valdiv,
-        value,
+        item.value, // get display value not raw
         value === theRow.winningValue ? "winner" : "value"
       );
     }

@@ -1721,7 +1721,7 @@ public class SurveyAjax extends HttpServlet {
 
         Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
 
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
+        DisplayAndInputProcessor daip = DisplayAndInputProcessorFactory.make(locale);
         Exception[] exceptionList = new Exception[1];
         for (Map<String, Object> m : rows) {
             String value = m.get("value").toString();
@@ -2607,7 +2607,7 @@ public class SurveyAjax extends HttpServlet {
         out.write("</tr>\n");
         out.write("</thead>\n");
 
-        DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc, false);
+        DisplayAndInputProcessor processor = DisplayAndInputProcessorFactory.make(loc);
         BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(loc);
 
         int r = 0;

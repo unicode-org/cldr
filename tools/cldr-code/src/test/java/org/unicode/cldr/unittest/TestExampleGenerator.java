@@ -1486,15 +1486,15 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰ZWSP❱ ๎ ็〗〖‎➖ /〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖‎➕ ⦕ZWSP⦖ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ❰ZWSP❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❬internal: ❭[a-z็๎​]〗"
             },
-            {"de", "//ldml/characters/exemplarCharacters", "a-z ⦕ZWSP⦖", null},
+            {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
         };
 
         for (String[] test : tests) {

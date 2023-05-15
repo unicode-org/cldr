@@ -21,7 +21,7 @@ import java.util.function.Function;
  *
  * <ul>
  *   <li>➖ a range, but if between two code points
- *   <li>⦕ start of hex or named escape, but only if followed by [A-Fa-f0-9]+ ⦖
+ *   <li>❰ start of hex or named escape, but only if followed by [A-Fa-f0-9]+ ❱
  * </ul>
  *
  * <b>EBNF</b><br>
@@ -29,11 +29,11 @@ import java.util.function.Function;
  * item = string | range | codePoint<br>
  * string = codePoint+<br>
  * range = codePoint "➖" codePoint<br>
- * codepoint = literal // excludes " ", "⦕", "⦖"<br>
- * codepoint = "⦕" (namedEscape | hex) "⦖"<br>
+ * codepoint = literal // excludes " ", "❰", "❱"<br>
+ * codepoint = "❰" (namedEscape | hex) "❱"<br>
  * namedEscape = [A-Fa-f0-9]+ // as per CodePointEscape<br>
  * hex = [A-Fa-f0-9]{2,6} // must be valid code point 0x0..0x10FFFF<br>
- * ⦕ was chosen to be avoid special use of \\u or \x<br>
+ * ❰ was chosen to be avoid special use of \\u or \x<br>
  *
  * @author markdavis
  */

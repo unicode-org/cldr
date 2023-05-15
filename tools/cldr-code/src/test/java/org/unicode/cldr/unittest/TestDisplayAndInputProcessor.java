@@ -738,7 +738,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/exemplarCharacters",
                 "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "⦕ZWSP⦖ ๎ ็ - . a b c def å",
+                "❰ZWSP❱ ๎ ็ - . a b c def å",
                 "[\\u200B ๎ ็ a b c {def} å]",
                 // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
@@ -746,7 +746,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "⦕ZWSP⦖ ๎ ็ - . a b c def å",
+                "❰ZWSP❱ ๎ ็ - . a b c def å",
                 "[\\u200B ๎ ็ \\- ‑ . a b c {def} å]",
                 // note: DAIP also adds break/nobreak alternates
                 // for hyphen, etc.

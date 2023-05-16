@@ -48,8 +48,8 @@ public enum CodePointEscaper {
     KIAA(0x17B5, "Khmer inherent aa"),
 
     RANGE('➖', "range syntax mark", "heavy minus sign"),
-    ESCS('⦕', "escape start", "double open paren angle"),
-    ESCE('⦖', "escape end", "double close paren angle");
+    ESCS('❰', "escape start", "double open paren angle"),
+    ESCE('❱', "escape end", "double close paren angle");
 
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
@@ -139,10 +139,10 @@ public enum CodePointEscaper {
         try {
             codePoint = Integer.parseInt(value.toString(), 16);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Not a named or hex escape: ⦕" + value + "❌⦖");
+            throw new IllegalArgumentException("Not a named or hex escape: ❰" + value + "❌❱");
         }
         if (codePoint < 0 || codePoint > 0x10FFFF) {
-            throw new IllegalArgumentException("Illegal code point: ⦕" + value + "❌⦖");
+            throw new IllegalArgumentException("Illegal code point: ❰" + value + "❌❱");
         }
         return codePoint;
     }

@@ -64,6 +64,7 @@ public enum Organization {
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
     wod_nko("WOD N’ko", "World Organization for the Development of N’ko", "WODN"),
+    wsci_wg("WSC+I WG", "Western Swampy Cree+Internet Working Group"),
     yahoo("Yahoo"),
     ;
 

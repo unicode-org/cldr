@@ -209,7 +209,7 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 **Core keys:** also known as “alpha” block. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal keyset for a language as seen on mobile phone keyboards.
 Distinguished from the **frame keys**.
 
-**Dead keys:** These are keys which do not emit normal characters by themselves.  They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many latin keyboards hitting the `^` dead-key followed by the `e` key produces `ê`. The `^` by itself may be invisible or presented in a special way by the platform.
+**Dead keys:** These are keys which do not emit normal characters by themselves.  They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many Latin keyboards hitting the `^` dead-key followed by the `e` key produces `ê`. The `^` by itself may be invisible or presented in a special way by the platform.
 
 **Frame keys:** These are keys which do not emit characters and are outside of the area of the **core keys**. These keys include both **modifier** keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, emoji keys.
 
@@ -663,7 +663,7 @@ There is only a single `<keys>` element in each layout.
 
 ### <a name="Element_key" href="#Element_key">Element: key</a>
 
-This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referened by the `keys=` attribute of the [`row` element](#Element_row).
+This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referenced by the `keys=` attribute of the [`row` element](#Element_row).
 
 **Syntax**
 
@@ -967,7 +967,7 @@ _Attribute:_ `path` (required)
 
 **Note:** The DOCTYPE and root element, here `transforms`, is the same as
 the _parent_ of the `<import/>` element. It is an error to import an XML file
-whois root element is different than the parent element of the `<import/>` element.
+whose root element is different than the parent element of the `<import/>` element.
 
 After loading, the above example will be the equivalent of the following.
 
@@ -1695,9 +1695,9 @@ Matches are processed against the "input context", a temporary buffer containing
 
 The input context may contain, besides regular text, any [Markers](#markers) as a result of keys or transforms, since the insertion point was moved.
 
-Using regular expression terminology, matches are done as if there was an implicit `$` (match end of buffer) at the end of each pattern. In otherwords, `<transform from="ke" …>` will not match an input context ending with `…keyboard`, but it will match the last two codepoints of an input context ending with `…awake`.
+Using regular expression terminology, matches are done as if there was an implicit `$` (match end of buffer) at the end of each pattern. In other words, `<transform from="ke" …>` will not match an input context ending with `…keyboard`, but it will match the last two codepoints of an input context ending with `…awake`.
 
-All of the `transform` elements in a `transformGroup` are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the **next** `transformGroup`. If none of the `tranform` elements match, processing proceeds without modification to the buffer to the **next** `transformGroup`.
+All of the `transform` elements in a `transformGroup` are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the **next** `transformGroup`. If none of the `transform` elements match, processing proceeds without modification to the buffer to the **next** `transformGroup`.
 
 **Syntax**
 

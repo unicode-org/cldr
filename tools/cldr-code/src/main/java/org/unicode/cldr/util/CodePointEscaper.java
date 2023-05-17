@@ -147,7 +147,12 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
-    /** Returns a code point from the escaped form */
+    /** Returns the escaped form from the code point for this enum */
+    public String codePointToEscaped() {
+        return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
+    }
+
+    /** Returns a code point from the escaped form <b>of a single code point</b> */
     public static int escapedToCodePoint(String value) {
         if (value.codePointAt(0) != CodePointEscaper.ESCAPE_START
                 || value.codePointAt(value.length() - 1) != CodePointEscaper.ESCAPE_END) {
@@ -165,9 +170,46 @@ public enum CodePointEscaper {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
     }
 
-    /** Returns the escaped form from a code point */
-    public String codePointToEscaped() {
-        return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
+    /** Returns the escaped form from a string */
+    public static String toEscaped(String unescaped) {
+        return toEscaped(unescaped, FORCE_ESCAPE);
+    }
+
+    /** Returns the escaped form from a string */
+    public static String toEscaped(String unescaped, UnicodeSet toEscape) {
+        StringBuilder result = new StringBuilder();
+        unescaped
+                .codePoints()
+                .forEach(
+                        cp -> {
+                            if (!toEscape.contains(cp)) {
+                                result.appendCodePoint(cp);
+                            } else {
+                                result.append(codePointToEscaped(cp));
+                            }
+                        });
+        return result.toString();
+    }
+    /** Return unescaped string */
+    public static String toUnescaped(String value) {
+        StringBuilder result = null;
+        int donePart = 0;
+        int found = value.indexOf(ESCAPE_START);
+        while (found >= 0) {
+            int foundEnd = value.indexOf(ESCAPE_END, found);
+            if (foundEnd < 0) {
+                throw new IllegalArgumentException(
+                        "Malformed escaped string, missing: " + ESCAPE_END);
+            }
+            if (result == null) {
+                result = new StringBuilder();
+            }
+            result.append(value, donePart, found);
+            donePart = ++foundEnd;
+            result.appendCodePoint(escapedToCodePoint(value.substring(found, foundEnd)));
+            found = value.indexOf(ESCAPE_START, foundEnd);
+        }
+        return donePart == 0 ? value : result.append(value, donePart, value.length()).toString();
     }
 
     public static String toExample(int codePoint) {

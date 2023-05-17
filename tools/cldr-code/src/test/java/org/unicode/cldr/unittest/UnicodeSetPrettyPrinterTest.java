@@ -362,4 +362,24 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             warnln("Use -v to see list of escapes");
         }
     }
+
+    public void TestStringEscaper() {
+        String[][] tests = {
+            {"xyz", "xyz"},
+            {null, "❰WNJ❱xyz❰47❱", "\u200BxyzG"},
+            {"\u200Bxyz\u200B", "❰WNJ❱xyz❰WNJ❱"},
+            {"A\u200B\u00ADB", "A❰WNJ❱❰SHY❱B"},
+        };
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String expectedRoundtrip = test.length < 3 ? test[0] : test[2];
+            if (source != null) {
+                String actual = CodePointEscaper.toEscaped(source);
+                assertEquals(source, expected, actual);
+            }
+            String actualRoundtrip = CodePointEscaper.toUnescaped(expected);
+            assertEquals(expected, expectedRoundtrip, actualRoundtrip);
+        }
+    }
 }

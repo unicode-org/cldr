@@ -306,8 +306,8 @@
 
 //ldml/personNames/initialPattern[@type=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1-$2
 //ldml/personNames/initialPattern[@type=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1
-//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$2) ; &personNameOrder($3-$4-$5)
-//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$2) ; &personNameOrder($3-$4)
+//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$3) ; &personNameOrder($1-$2-$3-$4-$5)
+//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$3) ; &personNameOrder($1-$2-$3-$4)
 //ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"][@alt=\"%A\"]        ; Misc ; Person Name Formats ; &personNameSection(SampleName:$1) ; &sampleNameOrder($2-$3)
 //ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"]        ; Misc ; Person Name Formats ;  &personNameSection(SampleName:$1) ; &sampleNameOrder($2)
 

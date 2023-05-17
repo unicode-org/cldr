@@ -66,14 +66,14 @@ jobs:
         with:
           name: cldr-apps-server
           path: tools/cldr-apps/target/cldr-apps.zip
-      - name: Tag Production Commit
-        uses: simpleactions/create-tag@d5c32a2d86b1f96142bbe1ebe8b3b62b0a0587ff
-        with:
-          sha: ${{ github.event.inputs.git-ref }}
-          tag: "${{ steps.tagname.outputs.tag }}"
-          message: "Deployed via GitHub by @${{ github.actor }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ #     - name: Tag Production Commit
+ #       uses: simpleactions/create-tag@d5c32a2d86b1f96142bbe1ebe8b3b62b0a0587ff
+  #      with:
+   #       sha: ${{ github.event.inputs.git-ref }}
+   #       tag: "${{ steps.tagname.outputs.tag }}"
+  #        message: "Deployed via GitHub by @${{ github.actor }}"
+ #       env:
+ #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   deploy:
     name: Deploy to Production
     needs:

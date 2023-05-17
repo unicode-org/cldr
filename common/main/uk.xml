@@ -15212,7 +15212,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{title} {surname} {surname2} {given-initial} {given2-initial} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{surname-initial} {surname2-initial}{given-informal}</namePattern>
+			<namePattern>{surname-initial} {surname2-initial} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
 			<namePattern>{surname-monogram-allCaps}{surname2-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>

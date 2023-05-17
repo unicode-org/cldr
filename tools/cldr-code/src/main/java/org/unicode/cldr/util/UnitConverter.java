@@ -53,7 +53,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
     public static final Set<String> UNTRANSLATED_UNIT_NAMES =
-            ImmutableSet.of("portion", "ofglucose", "100-kilometer", "ofhg", "beaufort");
+            ImmutableSet.of("portion", "ofglucose", "100-kilometer", "ofhg");
 
     public static final Set<String> HACK_SKIP_UNIT_NAMES =
             ImmutableSet.of(

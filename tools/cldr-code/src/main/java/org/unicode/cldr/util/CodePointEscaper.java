@@ -1,14 +1,16 @@
 package org.unicode.cldr.util;
 
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
-import java.util.Set;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
- * hex.
+ * hex. Typicaly To test whether a string could have escapes, use either:
+ *
+ * <ul>
+ *   <li>
  */
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
@@ -17,26 +19,41 @@ public enum CodePointEscaper {
     LF(0xA, "line feed"),
     CR(0xD, "carriage return"),
     SP(0x20, "space", "ASCII space"),
-    NBSP(0xA0, "no-break space"),
+    NSP(0x2009, "narrow/thin space", "Also known as ‘thin space’"),
+    NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
 
-    NSP(0x2009, "narrow space", "thin space"),
-    NNBSP(0x202F, "narrow no-break space", "thin no-break space"),
+    NNBSP(0x202F, "narrow/thin no-break space", "Same as narrow space, but doesn’t line wrap."),
 
-    ZWNJ(0x200C, "zero-width non-joiner"),
-    ZWJ(0x200D, "zero-width joiner"),
+    WNJ(
+            0x200B,
+            "allow line wrap after, aka ZWSP",
+            "Invisible character allowing a line-wrap afterwards. Also known as ‘ZWSP’."),
+    WJ(
+            0x2060,
+            "prevent line wrap",
+            "Keeps adjacent characters from line-wrapping. Also known as ‘word-joiner’."),
+    SHY(
+            0x00AD,
+            "soft hyphen",
+            "Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages."),
 
-    ZWSP(0x200B, "word non-joiner", "zero-width space"),
-    ZWNBSP(0x2060, "word joiner", "zero-width no-break space"),
+    ZWNJ(0x200C, "cursive non-joiner", "Breaks cursive connections, where possible."),
+    ZWJ(0x200D, "cursive joiner", "Forces cursive connections, if possible."),
 
-    ALM(0x061C, "Arabic letter mark"),
-    LRM(0x200E, "left-right mark"),
-    RLM(0x200F, "right-left mark"),
+    ALM(
+            0x061C,
+            "Arabic letter mark",
+            "For BIDI, invisible character that behaves like Arabic letter."),
+    LRM(
+            0x200E,
+            "left-right mark",
+            "For BIDI, invisible character that behaves like Hebrew letter."),
+    RLM(0x200F, "right-left mark", "For BIDI, invisible character that behaves like Latin letter."),
 
     LRO(0x202D, "left-right override"),
     RLO(0x202E, "right-left override"),
     PDF(0x202C, "end override"),
 
-    SHY(0x00AD, "soft hyphen"),
     BOM(0xFEFF, "byte-order mark"),
 
     ANS(0x0600, "Arabic number sign"),
@@ -48,8 +65,8 @@ public enum CodePointEscaper {
     KIAA(0x17B5, "Khmer inherent aa"),
 
     RANGE('➖', "range syntax mark", "heavy minus sign"),
-    ESCS('❰', "escape start", "double open paren angle"),
-    ESCE('❱', "escape end", "double close paren angle");
+    ESCS('❰', "escape start", "heavy open angle bracket"),
+    ESCE('❱', "escape end", "heavy close angle bracket");
 
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
@@ -89,11 +106,19 @@ public enum CodePointEscaper {
             new UnicodeSet(FORCE_ESCAPE).addAll(NON_SPACING).freeze();
 
     private final int codePoint;
-    private final Set<String> longNames;
+    private final String shortName;
+    private final String description;
 
-    private CodePointEscaper(int codePoint, String... longNames) {
+    private CodePointEscaper(int codePoint, String shortName) {
         this.codePoint = codePoint;
-        this.longNames = ImmutableSet.copyOf(longNames);
+        this.shortName = shortName;
+        this.description = "";
+    }
+
+    private CodePointEscaper(int codePoint, String shortName, String description) {
+        this.codePoint = codePoint;
+        this.shortName = shortName;
+        this.description = description;
     }
 
     public static final UnicodeSet getNamedEscapes() {
@@ -104,36 +129,68 @@ public enum CodePointEscaper {
      * Return long names for this character. The set is immutable and ordered, with the first name
      * being the most user-friendly.
      */
-    public Set<String> getLongNames() {
-        return longNames;
+    public String getShortName() {
+        return shortName;
     }
+
+    /**
+     * Return a longer description, if available; otherwise ""
+     *
+     * @return
+     */
+    public String getDescription() {
+        return description;
+    }
+
     /** Return the code point for this character. */
     public int getCodePoint() {
         return codePoint;
     }
 
-    /**
-     * Return an Abbreviation for a string (or CharSequence), or null if not found. Handles lower
-     * and uppercase input.
-     */
-    public static CodePointEscaper fromString(CharSequence source) {
-        try {
-            return valueOf(source.toString().toUpperCase(Locale.ROOT));
-        } catch (Exception e) {
-            return null;
+    /** Returns a code point from the escaped form */
+    public static int escapedToCodePoint(String value) {
+        if (value.codePointAt(0) != CodePointEscaper.ESCAPE_START
+                || value.codePointAt(value.length() - 1) != CodePointEscaper.ESCAPE_END) {
+            throw new IllegalArgumentException(
+                    "Must be of the form "
+                            + CodePointEscaper.ESCAPE_START
+                            + "…"
+                            + CodePointEscaper.ESCAPE_END);
+        }
+        return rawEscapedToCodePoint(value.substring(1, value.length() - 1));
+    }
+
+    /** Returns the escaped form from a code point */
+    public static String codePointToEscaped(int codePoint) {
+        return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
+    }
+
+    /** Returns the escaped form from a code point */
+    public String codePointToEscaped() {
+        return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
+    }
+
+    public static String toExample(int codePoint) {
+        CodePointEscaper cpe = _fromCodePoint.get(codePoint);
+        if (cpe == null) { // hex
+            return codePointToEscaped(codePoint)
+                    + " "
+                    + UCharacter.getName(codePoint).toLowerCase();
+        } else {
+            return CodePointEscaper.codePointToEscaped(cpe.codePoint)
+                    + " "
+                    + cpe.shortName; // TODO show hover with cpe.description
         }
     }
 
-    /** Returns an Abbreviation for a codePoint, or null if not found. */
-    public static CodePointEscaper fromCodePoint(int codePoint) {
-        return _fromCodePoint.get(codePoint);
-    }
-
-    /** Returns a codepoint from an abbreviation string or hex string. */
-    public static int fromAbbreviationOrHex(CharSequence value) {
-        CodePointEscaper abbreviation = CodePointEscaper.fromString(value.toString());
-        if (abbreviation != null) {
-            return abbreviation.codePoint;
+    /**
+     * Returns a code point from an abbreviation string or hex string <b>without the escape
+     * brackets</b>
+     */
+    public static int rawEscapedToCodePoint(CharSequence value) {
+        try {
+            return valueOf(value.toString().toUpperCase(Locale.ROOT)).codePoint;
+        } catch (Exception e) {
         }
         int codePoint;
         try {
@@ -147,9 +204,12 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
-    /** Returns an abbreviation string or hex string from a code point. */
-    public static String toAbbreviationOrHex(int codePoint) {
-        CodePointEscaper result = CodePointEscaper.fromCodePoint(codePoint);
+    /**
+     * Returns an abbreviation string or hex string <b>without the escape brackets</b> from a code
+     * point.
+     */
+    public static String rawCodePointToEscaped(int codePoint) {
+        CodePointEscaper result = CodePointEscaper._fromCodePoint.get(codePoint);
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();

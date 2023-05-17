@@ -173,9 +173,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
         if (!forceHex.contains(cp)) {
             ap.appendCodePoint(cp);
         } else {
-            ap.append(CodePointEscaper.ESCAPE_START)
-                    .append(CodePointEscaper.toAbbreviationOrHex(cp))
-                    .append(CodePointEscaper.ESCAPE_END);
+            ap.append(CodePointEscaper.codePointToEscaped(cp));
         }
         return ap;
     }
@@ -266,7 +264,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
                         "Missing end escape " + CodePointEscaper.ESCAPE_END + ": " + word + "❌");
             }
             result.appendCodePoint(
-                    CodePointEscaper.fromAbbreviationOrHex(
+                    CodePointEscaper.rawEscapedToCodePoint(
                             word.substring(interiorStart, escapeEnd)));
             i = escapeEnd + 1;
         }

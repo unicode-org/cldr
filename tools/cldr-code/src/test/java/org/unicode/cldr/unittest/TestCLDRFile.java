@@ -397,9 +397,7 @@ public class TestCLDRFile extends TestFmwk {
             ) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
-                if (!path.contains("speed-beaufort")) {
-                    errln("+" + engName + ", -" + locales + "\t" + path);
-                }
+                errln("+" + engName + ", -" + locales + "\t" + path);
             }
         }
         for (Entry<String, Set<String>> entry : extraPathsToLocales.keyValuesSet()) {

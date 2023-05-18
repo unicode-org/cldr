@@ -793,5 +793,21 @@ public class ExampleDependencies {
                             "//ldml/personNames/nativeSpaceReplacement",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/personNames/nativeSpaceReplacement",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
+
+                    // For UnicodeSet examples, need to clear this path's value if the winning value
+                    // changes
+                    .putAll(
+                            "//ldml/characters/exemplarCharacters",
+                            "//ldml/characters/exemplarCharacters")
+                    .putAll(
+                            "//ldml/characters/exemplarCharacters[@type=\"*\"]",
+                            "//ldml/characters/exemplarCharacters[@type=\"*\"]")
+                    .putAll(
+                            "//ldml/characters/parseLenients[@scope=\"*\"][@level=\"*\"]/parseLenient[@sample=\"*\"]",
+                            "//ldml/characters/parseLenients[@scope=\"*\"][@level=\"*\"]/parseLenient[@sample=\"*\"]")
                     .build();
 }

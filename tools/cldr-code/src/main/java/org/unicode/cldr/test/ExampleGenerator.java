@@ -536,7 +536,7 @@ public class ExampleGenerator {
                     CodePointEscaper.FORCE_ESCAPE_WITH_NONSPACING);
     static final String LRM = "\u200E";
     static final UnicodeSet NEEDS_LRM = new UnicodeSet("[:BidiClass=R:]").freeze();
-    private static final boolean SHOW_NON_SPACING_IN_UNICODE_SET = false;
+    private static final boolean SHOW_NON_SPACING_IN_UNICODE_SET = true;
 
     /**
      * Add examples for UnicodeSets. First, show a hex format of non-spacing marks if there are any,
@@ -550,15 +550,6 @@ public class ExampleGenerator {
         } catch (Exception e) {
             return null;
         }
-        if (SHOW_NON_SPACING_IN_UNICODE_SET
-                && valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
-            StringBuilder result = new StringBuilder();
-            for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.NON_SPACING)) {
-                result.append("  ").append(nsm);
-                result.append(" = U+" + Utility.hex(nsm.codePointAt(0)));
-            }
-            examples.add(result.toString());
-        }
         String winningValue = cldrFile.getWinningValue(xpath);
         if (!winningValue.equals(value)) {
             // show delta
@@ -570,6 +561,12 @@ public class ExampleGenerator {
             }
             if (!winning_minus_value.isEmpty()) {
                 examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
+            }
+        }
+        if (SHOW_NON_SPACING_IN_UNICODE_SET
+                && valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
+            for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.FORCE_ESCAPE)) {
+                examples.add(CodePointEscaper.toExample(nsm.codePointAt(0)));
             }
         }
         examples.add(setBackground("internal: ") + valueSet.toPattern(false)); // internal format

@@ -250,9 +250,6 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         }
         final UnicodeSet missing =
                 new UnicodeSet(needsEscape).removeAll(CodePointEscaper.getNamedEscapes());
-        if (logKnownIssue("CLDR-16627", "remove FFFF when the ticket closes")) {
-            missing.remove(0xFFFF);
-        }
         assertEquals("*\tMissing\tNamed Escapes:\t", "", susf.format(missing));
     }
 
@@ -333,32 +330,56 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         collection.add(new StringBuilder().appendCodePoint(0x10FFFF).toString());
         for (String item : collection) {
             final int cp = item.codePointAt(0);
-            String display = CodePointEscaper.toAbbreviationOrHex(cp);
-            int roundtrip = CodePointEscaper.fromAbbreviationOrHex(display);
+            String display = CodePointEscaper.codePointToEscaped(cp);
+            int roundtrip = CodePointEscaper.escapedToCodePoint(display);
             assertEquals(
                     "\tU+"
                             + Utility.hex(cp, 4)
                             + " "
                             + UCharacter.getExtendedName(cp)
                             + " ⇒ "
-                            + CodePointEscaper.ESCAPE_START
                             + display
-                            + CodePointEscaper.ESCAPE_END
                             + "\t",
                     cp,
                     roundtrip);
         }
         if (isVerbose()) {
+            System.out.println("Abbr.\tCode Point\tName");
             for (CodePointEscaper item : CodePointEscaper.values()) {
                 System.out.println(
-                        item
-                                + "\t"
+                        item.codePointToEscaped()
+                                + "\tU+"
                                 + Utility.hex(item.getCodePoint(), 4)
                                 + "\t"
-                                + UCharacter.getExtendedName(item.getCodePoint())
-                                + "\t"
-                                + Joiner.on('\t').join(item.getLongNames()));
+                                + item.getShortName());
             }
+            System.out.println(
+                    CodePointEscaper.ESCAPE_START
+                            + "…"
+                            + CodePointEscaper.ESCAPE_END
+                            + "\tU+…\tOther; … = hex notation");
+        } else {
+            warnln("Use -v to see list of escapes");
+        }
+    }
+
+    public void TestStringEscaper() {
+        String[][] tests = {
+            {"xyz", "xyz"},
+            {null, "❰WNJ❱xyz❰47❱", "\u200BxyzG"},
+            {"\u200Bxyz\u200B", "❰WNJ❱xyz❰WNJ❱"},
+            {"A\u200B\u00ADB", "A❰WNJ❱❰SHY❱B"},
+        };
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String expectedRoundtrip = test.length < 3 ? test[0] : test[2];
+            if (source != null) {
+                String actual = CodePointEscaper.toEscaped(source);
+                assertEquals(source, expected, actual);
+            }
+            String actualRoundtrip = CodePointEscaper.toUnescaped(expected);
+            assertEquals(expected, expectedRoundtrip, actualRoundtrip);
         }
     }
 }

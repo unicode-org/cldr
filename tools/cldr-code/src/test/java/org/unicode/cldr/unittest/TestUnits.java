@@ -112,6 +112,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestUnits extends TestFmwk {
+
     /** Flags to emit debugging information */
     private static final boolean SHOW_UNIT_ORDER = getFlag("TestUnits:SHOW_UNIT_ORDER");
 
@@ -2240,7 +2241,7 @@ public class TestUnits extends TestFmwk {
                 Collections.emptySet(),
                 simpleUnitsRemoveAllValidity)) {
             for (String s : simpleUnitsRemoveAllValidity) {
-                System.out.println(converter.getLongId(s));
+                System.out.println(s);
             }
         }
 
@@ -2327,7 +2328,7 @@ public class TestUnits extends TestFmwk {
 
         assertSameCollections(
                 "comparatorUnitIds (DtdData)",
-                "valid regular",
+                "valid regular&deprecated",
                 comparatorUnitIds,
                 validAndDeprecatedLongUnitIds);
 

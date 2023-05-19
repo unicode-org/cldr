@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
+import java.util.Collection;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -79,6 +80,32 @@ public class Units {
         CORE_TO_TYPE = ImmutableMap.copyOf(coreToType);
         TYPE_TO_CORE = ImmutableMultimap.copyOf(typeToCore);
         LONG_TO_SHORT = ImmutableBiMap.copyOf(longToShort);
+    }
+
+    public static class TypeAndCore {
+        public String type;
+        public String core;
+    }
+    /**
+     * Returns the type and core for a unit, be it long or short
+     *
+     * @param longOrShortUnit
+     * @param core
+     * @return
+     * @return
+     */
+    public static TypeAndCore splitUnit(String longOrShortUnit, TypeAndCore typeAndCore) {
+        int dashPos = longOrShortUnit.indexOf('-');
+        String unitType = longOrShortUnit.substring(0, dashPos);
+        Collection<String> cores = TYPE_TO_CORE.get(unitType);
+        if (cores.isEmpty()) { // short unit
+            typeAndCore.type = CORE_TO_TYPE.get(longOrShortUnit);
+            typeAndCore.core = longOrShortUnit;
+        } else {
+            typeAndCore.type = unitType;
+            typeAndCore.core = longOrShortUnit.substring(dashPos + 1);
+        }
+        return typeAndCore;
     }
 
     public static String getShort(String longUnit) {

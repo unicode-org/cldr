@@ -44,6 +44,17 @@ function addSessionHeader(init) {
   return init;
 }
 
+function makePostData(data) {
+  return {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+}
+
 function handleFetchErrors(response) {
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -245,6 +256,7 @@ export {
   doFetch,
   handleFetchErrors,
   makeApiUrl,
+  makePostData,
   makeUrl,
   mediumTimeout,
   sendXhr,

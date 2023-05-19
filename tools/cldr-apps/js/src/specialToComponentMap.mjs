@@ -1,4 +1,5 @@
 import AboutPanel from "./views/AboutPanel.vue";
+import AnnouncePanel from "./views/AnnouncePanel.vue";
 import AddUser from "./views/AddUser.vue";
 import AutoImport from "./views/AutoImport.vue";
 import GeneralInfo from "./views/GeneralInfo.vue";
@@ -17,6 +18,7 @@ import WaitingPanel from "./views/WaitingPanel.vue";
  */
 const specialToComponentMap = {
   about: AboutPanel,
+  announcements: AnnouncePanel,
   add_user: AddUser,
   auto_import: AutoImport,
   general: GeneralInfo,

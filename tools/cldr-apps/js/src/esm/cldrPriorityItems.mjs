@@ -137,14 +137,9 @@ function createSnapshot(summarizeAllLocales) {
 
 function requestSummary(summaryArgs) {
   latestArgs = summaryArgs;
+  const init = cldrAjax.makePostData(summaryArgs);
   cldrAjax
-    .doFetch(SUMMARY_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(summaryArgs),
-    })
+    .doFetch(SUMMARY_URL, init)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(setSummaryData)

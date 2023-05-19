@@ -1497,6 +1497,8 @@ public class DBUtils {
          *
          * Other constants here have default constructor equivalent to (true, true).
          */
+        ANNOUNCE,
+        ANNOUNCE_READ,
         DASH_HIDE(false, false),
         FORUM_POSTS(false, false),
         FORUM_TYPES(false, false),
@@ -1508,8 +1510,7 @@ public class DBUtils {
         VOTE_FLAGGED,
         VOTE_REPORTS,
         VOTE_VALUE_ALT,
-        VOTE_VALUE,
-        ;
+        VOTE_VALUE;
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.

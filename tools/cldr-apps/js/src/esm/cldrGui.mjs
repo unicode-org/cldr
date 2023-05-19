@@ -1,6 +1,7 @@
 /*
  * cldrGui: encapsulate GUI functions for Survey Tool
  */
+import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDrag from "./cldrDrag.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
@@ -71,36 +72,36 @@ async function ensureSession() {
     return; // the session was already set
   }
   scheduleLoadingWithSessionId();
-
   if (GUI_DEBUG) {
     console.log("cldrGui.ensureSession making login request");
   }
-  // see if we can get a session
-  const response = await fetch(`api/auth/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({}), // no email/password
-  });
-  if (response.ok) {
-    // TODO: address VS Code warning "'await' has no effect on the type of this expression"
-    // for the second "await" in the next line
-    const logintoken = await (await response).json();
-    if (logintoken.sessionId) {
-      // logged in OK.
-      cldrStatus.setSessionId(logintoken.sessionId);
-      if (GUI_DEBUG) {
-        console.log(
-          "cldrGui.ensureSession login response.ok; logintoken.sessionId = " +
-            logintoken.sessionId
-        );
-      }
+  const url = "api/auth/login";
+  const init = cldrAjax.makePostData({}); // no email/password
+  return await cldrAjax
+    .doFetch(url, init)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(loginCallback)
+    .catch(loginFailure);
+}
+
+function loginCallback(logintoken) {
+  if (logintoken.sessionId) {
+    // logged in OK.
+    cldrStatus.setSessionId(logintoken.sessionId);
+    if (GUI_DEBUG) {
+      console.log(
+        "cldrGui.ensureSession login response.ok; logintoken.sessionId = " +
+          logintoken.sessionId
+      );
     }
   } else {
-    throw Error("SurveyTool did not create a session. Try back later.");
+    loginFailure();
   }
+}
+
+function loginFailure() {
+  throw new Error("SurveyTool did not create a session. Try back later.");
 }
 
 function haveSession() {

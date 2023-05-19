@@ -64,6 +64,7 @@
       <li class="section-header">Forum</li>
       <li>
         <ul>
+          <li><a href="#announcements///">Announcements</a></li>
           <li>
             <a href="#flagged///"
               ><img

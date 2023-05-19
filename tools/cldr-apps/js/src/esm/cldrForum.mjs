@@ -9,7 +9,6 @@ import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForumFilter from "./cldrForumFilter.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrForumType from "./cldrForumType.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";

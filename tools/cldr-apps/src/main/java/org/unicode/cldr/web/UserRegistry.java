@@ -349,7 +349,7 @@ public class UserRegistry {
          * <p>Generally this is the intersection of the user's set and the organization's set,
          * except for users who can vote in non-org locales, for whom it is simply the user's set
          */
-        private LocaleSet getAuthorizedLocaleSet() {
+        public LocaleSet getAuthorizedLocaleSet() {
             if (authorizedLocaleSet == null) {
                 LocaleSet orgLocales =
                         canVoteInNonOrgLocales() ? null : getOrganization().getCoveredLocales();

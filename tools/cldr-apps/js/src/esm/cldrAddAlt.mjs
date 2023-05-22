@@ -52,18 +52,12 @@ async function addChosenAlt(xpstrid, alt, callbackFunction) {
     return;
   }
   const url = cldrAjax.makeApiUrl("xpath/alt", null);
-  const init = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      alt: alt,
-      localeId: localeId,
-      hexId: xpstrid,
-    }),
+  const data = {
+    alt: alt,
+    localeId: localeId,
+    hexId: xpstrid,
   };
+  const init = cldrAjax.makePostData(data);
   try {
     const response = await cldrAjax.doFetch(url, init);
     if (response.ok) {

@@ -27,6 +27,7 @@ import {
   Radio,
   Spin,
   Steps,
+  Textarea,
   Tooltip,
   Timeline,
 } from "ant-design-vue";
@@ -61,6 +62,7 @@ function setupComponents(app) {
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);
+  app.component("a-textarea", Textarea);
   app.component("a-timeline-item", Timeline.Item);
   app.component("a-timeline", Timeline);
   app.component("a-tooltip", Tooltip);

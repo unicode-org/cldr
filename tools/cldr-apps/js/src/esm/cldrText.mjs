@@ -446,6 +446,7 @@ const strings = {
   report_missing: "Missing",
 
   special_about: "About Survey Tool",
+  special_announcements: "Announcements",
   special_account: "Account Settings",
   special_admin: "Admin Panel",
   special_add_user: "Add a Survey Tool user",

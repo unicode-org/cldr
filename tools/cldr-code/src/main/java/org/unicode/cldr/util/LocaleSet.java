@@ -1,11 +1,12 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.Sets;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class LocaleSet {
 
-    private Set<CLDRLocale> set = new TreeSet<>();
+    private final Set<CLDRLocale> set = new TreeSet<>();
     private boolean isAllLocales = false;
 
     public LocaleSet() {}
@@ -37,10 +38,7 @@ public class LocaleSet {
             return true;
         }
         final CLDRLocale parent = locale.getParent();
-        if (parent != null && set.contains(parent)) {
-            return true;
-        }
-        return false;
+        return parent != null && set.contains(parent);
     }
 
     @Override
@@ -72,5 +70,15 @@ public class LocaleSet {
             throw new IllegalArgumentException("Do not call getSet if isAllLocales");
         }
         return set;
+    }
+
+    public boolean intersectionNonEmpty(LocaleSet otherSet) {
+        if (isEmpty() || otherSet.isEmpty()) {
+            return false;
+        }
+        if (isAllLocales || otherSet.isAllLocales) {
+            return true;
+        }
+        return !Sets.intersection(getSet(), otherSet.getSet()).isEmpty();
     }
 }

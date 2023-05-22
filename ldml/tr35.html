@@ -3143,7 +3143,8 @@ always be a value that exists in root. So you can not have the following in root
 <span class="hljs-tag">&lt;<span class="hljs-name">likelySubtag</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"zh_Hant"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"zh_Hant_TW"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">likelySubtag</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"zh_MO"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"zh_Hant_MO"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">likelySubtag</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"zh_TW"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"zh_Hant_TW"</span> /&gt;</span>
-</code></pre><p>So looking up "zh_TW" returns "zh_Hant_TW", while looking up "zh" returns "zh_Hans_CN".</p><p>In more detail, the data is designed to be used in the following operations.</p><p>Note that as of CLDR v24, any field present in the 'from' field is also present in the 'to' field, so an input field will not change in "Add Likely Subtags" operation. The data and operations can also be used with language tags using [<a href="#BCP47">BCP47</a>] syntax, with the appropriate changes. In addition, certain common 'denormalized' language subtags such as 'iw' (for 'he') may occur in both the 'from' and 'to' fields. This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</p><p>An implementation may choose to exclude language tags with the language subtag "und" from the following operation. In such a case, only the canonicalization is done. An implementation can declare that it is doing the exclusion, or can take a parameter that controls whether or not to do it.</p><p><em><strong>Add Likely Subtags:</strong></em> <em>Given a source locale X, to return a locale Y where the empty subtags have been filled in by the most likely subtags.</em> This is written as X ⇒ Y ("X maximizes to Y").</p><p>A subtag is called <em>empty</em> if it is a missing script or region subtag, or it is a base language subtag with the value "und". In the description below, a subscript on a subtag <em>x</em> indicates which tag it is from: <em>xs</em> is in the source, <em>xm</em> is in a match, and <em>xr</em> is in the final result.</p><p>This operation is performed in the following way.</p><ol>
+</code></pre><p>So looking up "zh_TW" returns "zh_Hant_TW", while looking up "zh" returns "zh_Hans_CN".</p><p>In more detail, the data is designed to be used in the following operations.
+Like other CLDR operations, these operations can also be used with language tags having [<a href="#BCP47">BCP47</a>] syntax, with the appropriate changes to the data.</p><p>An implementation may choose to exclude language tags with the language subtag "und" from the following operation. In such a case, only the canonicalization is done. An implementation can declare that it is doing the exclusion, or can take a parameter that controls whether or not to do it.</p><p><em><strong>Add Likely Subtags:</strong></em> <em>Given a source locale X, to return a locale Y where the empty subtags have been filled in by the most likely subtags.</em> This is written as X ⇒ Y ("X maximizes to Y").</p><p>A subtag is called <em>empty</em> if it is a missing script or region subtag, or it is a base language subtag with the value "und". In the description below, a subscript on a subtag <em>x</em> indicates which tag it is from: <em>xs</em> is in the source, <em>xm</em> is in a match, and <em>xr</em> is in the final result.</p><p>This operation is performed in the following way.</p><ol>
 <li><strong>Canonicalize.</strong><ol>
 <li>Make sure the input locale is in canonical form: uses the right separator, and has the right casing.</li>
 <li>Replace any deprecated subtags with their canonical values using the <code>&lt;alias&gt;</code> data in supplemental metadata. Use the first value in the replacement list, if it exists. Language tag replacements may have multiple parts, such as "sh" ➞ "sr_Latn" or "mo" ➞ "ro_MD". In such a case, the original script and/or region are retained if there is one. Thus "sh_Arab_AQ" ➞ "sr_Arab_AQ", not "sr_Latn_AQ".</li>
@@ -3167,7 +3168,7 @@ always be a value that exists in root. So you can not have the following in root
 </ol>
 </li>
 <li>Otherwise there is a match = <em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em></li>
-<li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty, and x<sub>m</sub> otherwise.</li>
+<li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty or x<sub>s</sub> is a macroregion, and x<sub>m</sub> otherwise.</li>
 <li>Return the language tag composed of <em>language<sub>r</sub>_script<sub>r</sub>_region<sub>r</sub></em> + variants + extensions.</li>
 </ol>
 </li>
@@ -3176,11 +3177,17 @@ always be a value that exists in root. So you can not have the following in root
 <li>Normalize to zh_SG.</li>
 <li>Look up in table. No match.</li>
 <li>Look up zh, and get the match (zh_Hans_CN). Substitute SG, and return zh_Hans_SG.</li>
-</ul><p>To find the most likely language for a country, or language for a script, use "und" as the language subtag. For example, looking up "und_TW" returns zh_Hant_TW.</p><p>A goal of the algorithm is that if X ⇒ Y, and X' results from replacing an empty subtag in X by the corresponding subtag in Y, then X' ⇒ Y. For example, if und_AF ⇒ fa_Arab_AF, then:</p><ul>
+</ul><p>To find the most likely language for a country, or language for a script, use "und" as the language subtag. For example, looking up "und_TW" returns zh_Hant_TW.</p><p>A general goal of the algorithm is that non-empty field present in the 'from' field is also present in the 'to' field, so a non-empty input field will not change in "Add Likely Subtags" operation.
+That is, when X ⇒ Y, and X' results from replacing an empty subtag in X by the corresponding subtag in Y, then X' ⇒ Y.
+For example, if und_AF ⇒ fa_Arab_AF, then:</p><ul>
 <li>fa_Arab_AF ⇒ fa_Arab_AF</li>
 <li>und_Arab_AF ⇒ fa_Arab_AF</li>
 <li>fa_AF ⇒ fa_Arab_AF</li>
-</ul><p>There are a small number of exceptions to this goal in the current data, where X ∈ {und_Bopo, und_Brai, und_Cakm, und_Limb, und_Shaw}.</p><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags:</strong> Given a locale, remove any fields that Add Likely Subtags would add.</em></p><p>The reverse operation removes fields that would be added by the first operation.</p><ol>
+</ul><p>There are a few exceptions to this goal:</p><ul>
+<li>A 'denormalized' subtag changes to the normalized form, except for certain denormalized language subtags such as 'iw' (for 'he' = Hebrew) which may occur in both the 'from' and 'to' fields of the data.
+This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</li>
+<li>A macroregion (such as West Africa = 011) may change to a specific country (Nigeria = NG).</li>
+</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags:</strong> Given a locale, remove any fields that Add Likely Subtags would add.</em></p><p>The reverse operation removes fields that would be added by the first operation.</p><ol>
 <li>First get max = AddLikelySubtags(inputLocale). If an error is signaled, return it.</li>
 <li>Remove the variants from max.</li>
 <li>Get the components of the max (<em>languagemax</em>, <em>scriptmax</em>, <em>regionmax</em>).</li>

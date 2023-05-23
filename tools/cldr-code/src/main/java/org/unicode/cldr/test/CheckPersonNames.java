@@ -11,6 +11,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
@@ -19,11 +22,12 @@ public class CheckPersonNames extends CheckCLDR {
 
     static final String MISSING = CldrUtility.NO_INHERITANCE_MARKER;
 
-    boolean isRoot = false;
-    boolean hasRootParent = false;
-    String initialSeparator = " ";
+    private boolean isRoot = false;
+    private boolean hasRootParent = false;
+    private String initialSeparator = " ";
 
     private UnicodeSet allowedCharacters;
+    private boolean emptyNativeSpaceReplacement;
 
     static final UnicodeSet BASE_ALLOWED =
             new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}-\\p{N}-[❮❯∅<>∅0]]").freeze();
@@ -49,6 +53,10 @@ public class CheckPersonNames extends CheckCLDR {
                         "//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
         initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
         //
+        emptyNativeSpaceReplacement =
+                cldrFileToCheck
+                        .getStringValue("//ldml/personNames/nativeSpaceReplacement")
+                        .isEmpty();
         return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
 
@@ -80,6 +88,7 @@ public class CheckPersonNames extends CheckCLDR {
         switch (parts.getElement(2)) {
             case "personName":
                 NamePattern namePattern = NamePattern.from(0, value);
+                checkAdjacentFields(namePattern, result);
                 ArrayList<List<String>> failures =
                         namePattern.findInitialFailures(initialSeparator);
                 for (List<String> row : failures) {
@@ -202,5 +211,44 @@ public class CheckPersonNames extends CheckCLDR {
                 break;
         }
         return this;
+    }
+
+    private void checkAdjacentFields(NamePattern namePattern, List<CheckStatus> result) {
+        ModifiedField lastModifiedField = null;
+        for (int i = 0; i < namePattern.getElementCount(); ++i) {
+            ModifiedField modifiedField = namePattern.getModifiedField(i);
+            if (modifiedField == null) { // literal
+                lastModifiedField = null;
+            } else if (lastModifiedField != null) { // we have two adjacent fields
+                // adjacent monograms are ok
+                if (lastModifiedField.getModifiers().contains(Modifier.monogram)
+                        && modifiedField.getModifiers().contains(Modifier.monogram)) {
+                    continue;
+                }
+                // no gap after initials is ok (the check for consistency with the initials pattern
+                // is elsewhere)
+                if (lastModifiedField.getModifiers().contains(Modifier.initial)
+                        || lastModifiedField.getModifiers().contains(Modifier.initialCap)) {
+                    continue;
+                }
+
+                // no gap before title is ok, for locales with no spaces
+                if (modifiedField.getField() == Field.title && emptyNativeSpaceReplacement) {
+                    continue;
+                }
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(
+                                        emptyNativeSpaceReplacement
+                                                ? CheckStatus.warningType
+                                                : CheckStatus.errorType)
+                                .setSubtype(Subtype.missingSpaceBetweenNameFields)
+                                .setMessage(
+                                        "Normally there should be a space or punctuation between name fields: '{'{0}'}{'{1}'}'",
+                                        lastModifiedField, modifiedField));
+            }
+            lastModifiedField = modifiedField;
+        }
     }
 }

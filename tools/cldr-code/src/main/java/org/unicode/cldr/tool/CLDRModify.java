@@ -71,6 +71,7 @@ import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathChecker;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -306,9 +307,9 @@ public class CLDRModify {
                     + XPathParts.NEWLINE
                     + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
                     + XPathParts.NEWLINE
-                    + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-                    + XPathParts.NEWLINE
                     + "-R\t retain unchanged files"
+                    + XPathParts.NEWLINE
+                    + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
                     + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 =
@@ -2379,16 +2380,29 @@ public class CLDRModify {
                         myReader.process(CLDRModify.class, configFileName);
                     }
 
+                    static final String DEBUG_PATH =
+                            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern";
+
                     @Override
                     public void handlePath(String xpath) {
                         // slow method; could optimize
+                        if (DEBUG_PATH != null && DEBUG_PATH.equals(xpath)) {
+                            System.out.println(xpath);
+                        }
                         for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
                             ConfigMatch pathMatch = entry.get(ConfigKeys.path);
                             if (pathMatch != null && !pathMatch.matches(xpath)) {
+                                if (DEBUG_PATH != null
+                                        && pathMatch != null
+                                        && pathMatch.regexMatch != null) {
+                                    System.out.println(
+                                            RegexUtilities.showMismatch(
+                                                    pathMatch.regexMatch, xpath));
+                                }
                                 continue;
                             }
                             ConfigMatch valueMatch = entry.get(ConfigKeys.value);
-                            String value = cldrFileToFilter.getStringValue(xpath);
+                            final String value = cldrFileToFilter.getStringValue(xpath);
                             if (valueMatch != null && !valueMatch.matches(value)) {
                                 continue;
                             }

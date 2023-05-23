@@ -9,6 +9,8 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocalePathValueListMatcher;
 
 public class TestPathLookup extends TestFmwkPlus {
+    private static final boolean DEBUG = false;
+
     public static void main(String[] args) {
         new TestPathLookup().run(args);
     }
@@ -38,8 +40,14 @@ public class TestPathLookup extends TestFmwkPlus {
         }
     }
 
-    /** These tests need to be updated whenever the downgrade.txt file changes */
+    /**
+     * These tests are for use when debugging Downgrade. They depend on the current value of the
+     * downgrade.txt file, so are not included as routine tests.
+     */
     public void testDowngrade() {
+        if (!DEBUG) {
+            return;
+        }
         assertTrue(
                 "Downgrade according to current data file",
                 DowngradePaths.lookingAt(

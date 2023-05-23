@@ -9,3 +9,85 @@
  ; //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot
 
 # The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included
+
+# CLDR-16228 Add the paths where spaces changed in cjk+ person names
+
+ja 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="informal"]/namePattern 
+		
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+		
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+		
+yue_Hans 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+yue_Hans 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+		
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+		
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 

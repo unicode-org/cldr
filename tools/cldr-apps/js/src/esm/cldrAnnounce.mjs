@@ -5,18 +5,50 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
+let thePosts = null;
+
+let callbackSetData = null;
+let callbackSetUnread = null;
+
+async function getUnreadCount(setUnreadCount) {
+  callbackSetUnread = setUnreadCount;
+  await refresh(callbackSetData);
+}
+
 async function refresh(viewCallbackSetData) {
   if (!cldrStatus.getSurveyUser()) {
-    viewCallbackSetData(null);
+    if (viewCallbackSetData) {
+      viewCallbackSetData(null);
+    }
     return;
   }
+  callbackSetData = viewCallbackSetData;
   const url = cldrAjax.makeApiUrl("announce", null);
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
-    .then(viewCallbackSetData)
+    .then(setPosts)
     .catch((e) => console.error(e));
+}
+
+function setPosts(json) {
+  thePosts = json;
+  if (callbackSetData) {
+    callbackSetData(thePosts);
+  }
+  if (callbackSetUnread) {
+    let totalCount = thePosts.announcements?.length || 0;
+    let checkedCount = 0;
+    for (let announcement of thePosts.announcements) {
+      if (announcement.checked) {
+        ++checkedCount;
+      }
+    }
+    const unreadCount = totalCount - checkedCount;
+    callbackSetUnread(unreadCount);
+  }
+  return thePosts;
 }
 
 function canAnnounce() {
@@ -39,6 +71,7 @@ async function compose(formState, viewCallbackComposeResult) {
 }
 
 async function saveCheckmark(checked, announcement) {
+  window.setTimeout(refreshCount, 1000);
   const init = cldrAjax.makePostData({
     id: announcement.id,
     checked: Boolean(checked),
@@ -51,4 +84,34 @@ async function saveCheckmark(checked, announcement) {
     .catch((e) => console.error(e));
 }
 
-export { canAnnounce, canChooseAllOrgs, compose, refresh, saveCheckmark };
+function refreshCount() {
+  if (callbackSetUnread) {
+    getUnreadCount(callbackSetUnread); // update Main menu icon
+  }
+}
+
+async function combineAndValidateLocales(locs, validateLocCallback) {
+  await cldrAjax
+    .doFetch(
+      "./api/locales/combine-variants?" +
+        new URLSearchParams({
+          locs: locs,
+        })
+    )
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(({ messages, normalized }) => {
+      validateLocCallback(normalized, messages);
+    })
+    .catch((e) => console.error(`Error: ${e} validating locales`));
+}
+
+export {
+  canAnnounce,
+  canChooseAllOrgs,
+  compose,
+  getUnreadCount,
+  refresh,
+  saveCheckmark,
+  combineAndValidateLocales,
+};

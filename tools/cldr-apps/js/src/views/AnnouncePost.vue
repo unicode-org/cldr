@@ -13,9 +13,7 @@
         To: {{ announcement.audience }} •
         {{ announcement.orgsAll ? "All organizations" : "Your organization" }} •
         {{
-          announcement.locales
-            ? "Locale(s): " + announcement.locales
-            : "All locales"
+          announcement.locs ? "Locale(s): " + announcement.locs : "All locales"
         }}
       </section>
       <section class="announcementSubject">

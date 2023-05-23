@@ -81,4 +81,25 @@ public class LocaleSet {
         }
         return !Sets.intersection(getSet(), otherSet.getSet()).isEmpty();
     }
+
+    /**
+     * Given a set that may include regional variants (sublocales) for the same language, return a
+     * set in which such sublocales have been combined under the main language name. For example,
+     * given "aa fr_BE fr_CA zh", return "aa fr zh"
+     *
+     * <p>This method is intended to combined regional variants in the same way they are combined
+     * for SurveyForum.java.
+     *
+     * @return the set in which regional variants have been combined
+     */
+    public LocaleSet combineRegionalVariants() {
+        if (isAllLocales || isEmpty()) {
+            return this;
+        }
+        Set<String> languageSet = new TreeSet<>();
+        for (CLDRLocale locale : getSet()) {
+            languageSet.add(locale.getLanguage());
+        }
+        return new LocaleSet(languageSet);
+    }
 }

@@ -11,6 +11,8 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.LocaleNormalizer;
+import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -181,6 +183,7 @@ public class Announcements {
         }
         final AnnouncementSubmissionResponse response = new AnnouncementSubmissionResponse();
         try {
+            request.normalize();
             AnnouncementData.submit(request, response, session.user);
         } catch (SurveyException e) {
             throw new RuntimeException(e);
@@ -215,6 +218,15 @@ public class Announcements {
 
         public boolean isValid() {
             return validAudiences.contains(audience) && validOrgs.contains(orgs);
+        }
+
+        public void normalize() {
+            if (locs != null) {
+                String normalized = LocaleNormalizer.normalizeQuietly(locs);
+                LocaleSet locSet = LocaleNormalizer.setFromStringQuietly(normalized, null);
+                LocaleSet langSet = locSet.combineRegionalVariants();
+                locs = langSet.toString();
+            }
         }
     }
 

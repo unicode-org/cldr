@@ -3,7 +3,13 @@
     <ul>
       <li>{{ stVersionPhase }}</li>
       <li>
-        <a href="#menu///"><span class="main-menu-icon">☰</span> Menu</a>
+        <a href="#menu///"><span class="main-menu-icon">☰</span></a>
+      </li>
+      <li v-if="unreadAnnouncementCount">
+        <a href="#announcements///" v-bind:title="announcementsTitle"
+          ><span class="attention-icon">🎈</span>
+          {{ unreadAnnouncementCount }}</a
+        >
       </li>
       <li v-if="coverageLevel">
         <label for="coverageLevel">Coverage:</label>
@@ -71,6 +77,7 @@
 </template>
 
 <script>
+import * as cldrAnnounce from "../esm/cldrAnnounce.mjs";
 import * as cldrCoverage from "../esm/cldrCoverage.mjs";
 import * as cldrMenu from "../esm/cldrMenu.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
@@ -80,6 +87,7 @@ import * as cldrVote from "../esm/cldrVote.mjs";
 export default {
   data() {
     return {
+      announcementsTitle: null,
       coverageLevel: null,
       coverageMenu: [],
       coverageTitle: null,
@@ -89,6 +97,7 @@ export default {
       sessionMessage: null,
       specialHeader: null,
       stVersionPhase: null,
+      unreadAnnouncementCount: 0,
       userName: null,
       voteCountMenu: null,
       voteLevelChanged: 0,
@@ -151,6 +160,7 @@ export default {
         cldrStatus.getNewVersion() +
         " " +
         cldrStatus.getPhase();
+      cldrAnnounce.getUnreadCount(this.setUnreadCount);
     },
 
     setCoverageLevel() {
@@ -159,6 +169,13 @@ export default {
 
     setVoteLevel() {
       cldrVote.setVoteLevelChanged(this.voteLevelChanged);
+    },
+
+    setUnreadCount(n) {
+      this.unreadAnnouncementCount = n;
+      this.announcementsTitle = n
+        ? "You have " + n + " unread announcement(s)"
+        : "";
     },
   },
 };
@@ -212,6 +229,27 @@ label {
 
 .main-menu:hover {
   background-color: white;
+}
+
+.attention-icon {
+  width: 2rem;
+  margin-top: -1em;
+  margin-bottom: -1em;
+  display: inline-block;
+  vertical-align: -15%;
+  animation-name: announcements;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes announcements {
+  from {
+    font-size: 1em;
+  }
+  to {
+    font-size: 2em;
+  }
 }
 
 #st-special-header {

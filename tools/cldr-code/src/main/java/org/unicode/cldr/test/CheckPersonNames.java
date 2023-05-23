@@ -25,6 +25,16 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
 public class CheckPersonNames extends CheckCLDR {
 
+    private static final String LengthValues =
+            Joiner.on(", ")
+                    .join(Length.ALL.stream().map(x -> x.toString()).collect(Collectors.toList()));
+    private static final String FormalityValues =
+            Joiner.on(", ")
+                    .join(
+                            Formality.ALL.stream()
+                                    .map(x -> x.toString())
+                                    .collect(Collectors.toList()));
+
     static final String MISSING = CldrUtility.NO_INHERITANCE_MARKER;
 
     private boolean isRoot = false;
@@ -90,7 +100,6 @@ public class CheckPersonNames extends CheckCLDR {
         }
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
-        System.out.println(path);
         switch (parts.getElement(2)) {
             default:
                 int debug = 0;
@@ -138,21 +147,15 @@ public class CheckPersonNames extends CheckCLDR {
                 }
                 break;
             case "parameterDefault":
-                List<String> okValues = null;
+                String okValues = null;
                 try {
-                    switch (parts.getAttributeValue(-1, "setting")) {
+                    switch (parts.getAttributeValue(-1, "parameter")) {
                         case "length":
-                            okValues =
-                                    Length.ALL.stream()
-                                            .map(x -> x.toString())
-                                            .collect(Collectors.toList());
+                            okValues = LengthValues;
                             PersonNameFormatter.Length.valueOf(value);
                             break;
                         case "formality":
-                            okValues =
-                                    Formality.ALL.stream()
-                                            .map(x -> x.toString())
-                                            .collect(Collectors.toList());
+                            okValues = FormalityValues;
                             PersonNameFormatter.Formality.valueOf(value);
                             break;
                     }
@@ -162,9 +165,7 @@ public class CheckPersonNames extends CheckCLDR {
                                     .setCause(this)
                                     .setMainType(CheckStatus.errorType)
                                     .setSubtype(Subtype.illegalParameterValue)
-                                    .setMessage(
-                                            "Valid values are: {0}",
-                                            Joiner.on(", ").join(okValues)));
+                                    .setMessage("Valid values are: {0}", okValues));
                 }
                 break;
             case "sampleName":

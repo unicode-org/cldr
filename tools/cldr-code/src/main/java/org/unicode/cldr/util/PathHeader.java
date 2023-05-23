@@ -2055,6 +2055,11 @@ public class PathHeader implements Comparable<PathHeader> {
                                 order = 0;
                                 return "NameOrder for Locales";
                             }
+                            if (source.equals("Parameters")) {
+                                order = 4;
+                                return "Default Parameters";
+                            }
+
                             if (source.equals("AuxiliaryItems")) {
                                 order = 10;
                                 return source;

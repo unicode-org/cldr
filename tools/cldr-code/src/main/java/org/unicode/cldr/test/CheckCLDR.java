@@ -810,7 +810,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             badSamplePersonName,
             missingLanguage,
             namePlaceholderProblem,
-            missingSpaceBetweenNameFields;
+            missingSpaceBetweenNameFields,
+            illegalParameterValue;
 
             @Override
             public String toString() {

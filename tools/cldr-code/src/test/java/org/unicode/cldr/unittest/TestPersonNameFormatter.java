@@ -77,7 +77,7 @@ public class TestPersonNameFormatter extends TestFmwk {
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     final FallbackFormatter FALLBACK_FORMATTER =
-            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
+            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, null, false);
     final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES =

@@ -1,9 +1,11 @@
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -11,7 +13,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
@@ -85,7 +90,11 @@ public class CheckPersonNames extends CheckCLDR {
         }
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
+        System.out.println(path);
         switch (parts.getElement(2)) {
+            default:
+                int debug = 0;
+                break;
             case "personName":
                 NamePattern namePattern = NamePattern.from(0, value);
                 checkAdjacentFields(namePattern, result);
@@ -126,6 +135,36 @@ public class CheckPersonNames extends CheckCLDR {
                                     .setSubtype(Subtype.illegalCharactersInPattern)
                                     .setMessage(
                                             "ForeignSpaceReplacement must be space if script requires spaces."));
+                }
+                break;
+            case "parameterDefault":
+                List<String> okValues = null;
+                try {
+                    switch (parts.getAttributeValue(-1, "setting")) {
+                        case "length":
+                            okValues =
+                                    Length.ALL.stream()
+                                            .map(x -> x.toString())
+                                            .collect(Collectors.toList());
+                            PersonNameFormatter.Length.valueOf(value);
+                            break;
+                        case "formality":
+                            okValues =
+                                    Formality.ALL.stream()
+                                            .map(x -> x.toString())
+                                            .collect(Collectors.toList());
+                            PersonNameFormatter.Formality.valueOf(value);
+                            break;
+                    }
+                } catch (Exception e) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.illegalParameterValue)
+                                    .setMessage(
+                                            "Valid values are: {0}",
+                                            Joiner.on(", ").join(okValues)));
                 }
                 break;
             case "sampleName":

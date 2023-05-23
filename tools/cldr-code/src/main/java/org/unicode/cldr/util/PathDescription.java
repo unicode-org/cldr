@@ -462,6 +462,11 @@ public class PathDescription {
                     + "Person name order for locales. If there are none with a particular direction, insert ❮EMPTY❯. For more information, please see "
                     + CLDRURLS.PERSON_NAME_FORMATS
                     + ".\n"
+                    + "^//ldml/personNames/parameterDefault\\[@parameter=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "Person name default parameters. Make the appropriate formality and length settings for your locale. For more information, please see "
+                    + CLDRURLS.PERSON_NAME_FORMATS
+                    + ".\n"
                     + "^//ldml/personNames/foreignSpaceReplacement"
                     + RegexLookup.SEPARATOR
                     + "For foreign personal names displayed in your locale, any special character that replaces a space (defaults to regular space). If spaces are to be removed, insert ❮EMPTY❯. For more information, please see "

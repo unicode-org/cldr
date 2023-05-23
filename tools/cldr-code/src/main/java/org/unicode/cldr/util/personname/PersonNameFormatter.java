@@ -530,6 +530,7 @@ public class PersonNameFormatter {
         }
 
         private final boolean uppercaseSurnameIfSurnameFirst;
+        private final Map<String, Enum> parameterDefaults;
 
         public FallbackFormatter(
                 ULocale uLocale,
@@ -537,6 +538,7 @@ public class PersonNameFormatter {
                 String initialSequencePattern,
                 String foreignSpaceReplacement,
                 String nativeSpaceReplacement,
+                Map<String, Enum> parameterDefaults,
                 boolean uppercaseSurnameIfSurnameFirst) {
             formatterLocale = uLocale;
             LanguageTagParser ltp = new LanguageTagParser().set(uLocale.toString());
@@ -551,6 +553,10 @@ public class PersonNameFormatter {
             this.uppercaseSurnameIfSurnameFirst = uppercaseSurnameIfSurnameFirst;
             this.nativeSpaceReplacement =
                     nativeSpaceReplacement == null ? " " : nativeSpaceReplacement;
+            this.parameterDefaults =
+                    parameterDefaults == null
+                            ? Collections.emptyMap()
+                            : ImmutableMap.copyOf(parameterDefaults);
         }
 
         /**
@@ -1768,6 +1774,7 @@ public class PersonNameFormatter {
         String initialSequencePattern = null;
         String foreignSpaceReplacement = " ";
         String nativeSpaceReplacement = " ";
+        Map<String, Enum> parameterDefaults = new TreeMap<>();
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1815,6 +1822,19 @@ public class PersonNameFormatter {
                     case "sampleName":
                         // skip
                         break;
+                    case "parameterDefault":
+                        final String setting = parts.getAttributeValue(-1, "parameter");
+                        Enum parameterDefault = null;
+                        switch (setting) {
+                            case "length":
+                                parameterDefault = Length.valueOf(value);
+                                break;
+                            case "formality":
+                                parameterDefault = Formality.valueOf(value);
+                                break;
+                        }
+                        parameterDefaults.put(setting, parameterDefault);
+                        break;
                     default:
                         throw new IllegalArgumentException("Unexpected path: " + path);
                 }
@@ -1834,6 +1854,7 @@ public class PersonNameFormatter {
                         initialSequencePattern,
                         foreignSpaceReplacement,
                         nativeSpaceReplacement,
+                        parameterDefaults,
                         false);
     }
 

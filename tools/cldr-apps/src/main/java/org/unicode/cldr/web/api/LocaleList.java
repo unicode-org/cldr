@@ -16,6 +16,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.LocaleNormalizer;
+import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 
 @Path("/locales")
@@ -87,8 +88,43 @@ public class LocaleList {
         }
 
         final LocaleNormalizerResponse r = new LocaleNormalizerResponse(ln, normalized);
+        return Response.ok().entity(r).build();
+    }
 
-        // return Response.ok(what).type(MediaType.APPLICATION_JSON_TYPE).build();
+    @Path("/combine-variants")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Combine regional variants and normalize a list of Locales",
+            description = "Return a combined/normalized list of locales")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description =
+                                "Combined/normalized response; e.g., given zh fr_BE fr_CA, return fr zh",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                LocaleNormalizerResponse.class))),
+            })
+    public Response combineRegionalVariants(
+            @Parameter(
+                            description = "Space-separated list of locales",
+                            required = true,
+                            example = "zh fr_BE fr_CA",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @QueryParam("locs")
+                    String locs) {
+        LocaleNormalizer ln = new LocaleNormalizer();
+        String normalized = ln.normalize(locs);
+        LocaleSet locSet = LocaleNormalizer.setFromStringQuietly(normalized, null);
+        LocaleSet langSet = locSet.combineRegionalVariants();
+        String combinedNormalized = langSet.toString();
+        final LocaleNormalizerResponse r = new LocaleNormalizerResponse(ln, combinedNormalized);
         return Response.ok().entity(r).build();
     }
 }

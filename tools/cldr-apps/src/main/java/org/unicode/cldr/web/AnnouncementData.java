@@ -247,6 +247,9 @@ public class AnnouncementData {
             Announcements.CheckReadResponse response,
             UserRegistry.User user) {
         makeSureDbSetup();
+        if (checked == getChecked(announcementId, user.id)) {
+            return; // nothing needs to be done
+        }
         response.ok =
                 checked
                         ? addCheckRow(announcementId, user.id)
@@ -394,9 +397,9 @@ public class AnnouncementData {
                         + DBUtils.Table.ANNOUNCE_READ
                         + " ( "
                         + " announce_id INT NOT NULL "
-                        + DBUtils.DB_SQL_IDENTITY
                         + ", "
                         + " user_id INT NOT NULL "
+                        + ", PRIMARY KEY (announce_id,user_id)"
                         + " )";
         try {
             Statement s = conn.createStatement();
@@ -421,8 +424,8 @@ public class AnnouncementData {
             this.userLevel = user.getLevel();
             userHasAllLocales = userLevel.isManagerOrStronger();
             if (!userHasAllLocales) {
-                this.intLoc = user.getInterestLocales();
-                this.authLoc = user.getAuthorizedLocaleSet();
+                this.intLoc = user.getInterestLocales().combineRegionalVariants();
+                this.authLoc = user.getAuthorizedLocaleSet().combineRegionalVariants();
             }
         }
 
@@ -454,7 +457,7 @@ public class AnnouncementData {
             if (userHasAllLocales || locs == null || locs.isEmpty()) {
                 return true;
             }
-            locs = LocaleNormalizer.normalizeQuietly(locs);
+            // assume locs (from the announcement) is already normalized and combined by language
             LocaleSet set = LocaleNormalizer.setFromStringQuietly(locs, null);
             return set.intersectionNonEmpty(intLoc) || set.intersectionNonEmpty(authLoc);
         }

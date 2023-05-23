@@ -43,6 +43,7 @@
       <a-input
         v-model:value="formState.locs"
         placeholder="Optional list of locales (like: aa fr zh) (fr implies fr_CA/etc.) (empty for all locales)"
+        @blur="validateLocales()"
       />
     </a-form-item>
     <a-form-item
@@ -81,6 +82,7 @@
 </template>
 
 <script>
+import * as cldrAnnounce from "../esm/cldrAnnounce.mjs";
 import { defineComponent, reactive } from "vue";
 
 export default defineComponent({
@@ -164,10 +166,25 @@ export default defineComponent({
     },
 
     describeLocs() {
-      // TODO: api/locales/normalize -- see validateLocales in AddUser.vue
       return this.formState.locs === "" || this.formState.locs === "*"
         ? "all locales"
         : "the following locale(s): " + this.formState.locs;
+    },
+
+    validateLocales() {
+      cldrAnnounce.combineAndValidateLocales(
+        this.formState.locs,
+        this.updateValidatedLocales
+      );
+    },
+
+    updateValidatedLocales(locs, messages) {
+      this.formState.locs = locs;
+      if (messages) {
+        for (let key of Object.keys(messages)) {
+          console.log("Validating locales: " + key + " -- " + messages[key]);
+        }
+      }
     },
   },
 });

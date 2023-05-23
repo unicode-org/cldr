@@ -20,10 +20,7 @@ import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -39,6 +36,11 @@ public class SurveyForum {
 
     private static final String DB_FORA = "sf_fora"; // forum name -> id
 
+    // TODO: Remove DB_LOC2FORUM (sf_loc2forum) -- a table that's created or recreated every time on
+    // start-up, but is never read -- at least the name is private to SurveyForum and SurveyForm
+    // only writes it, never reads it. Searching for "sf_loc2forum" in IntelliJ, it is not found
+    // anywhere else. Also remove reloadLocales.
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
     private static final String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
 
     private static final String F_FORUM = "forum";
@@ -88,7 +90,7 @@ public class SurveyForum {
 
     private synchronized int getForumNumber(CLDRLocale locale) {
         String forum = localeToForum(locale);
-        if (forum.length() == 0) {
+        if (forum.length() == 0 || LocaleNames.ROOT.equals(forum)) {
             return NO_FORUM; // all forums
         }
         // make sure it is a valid src!
@@ -674,12 +676,32 @@ public class SurveyForum {
                 "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
     }
 
-    private static String localeToForum(ULocale locale) {
+    // TODO: remove this function, see localeToForum.
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
+    private static String uLocaleToForum(ULocale locale) {
         return locale.getLanguage();
     }
 
     private static String localeToForum(CLDRLocale locale) {
-        return localeToForum(locale.toULocale());
+        // TODO: for encapsulation (and efficiency?) call locale.getLanguage() instead of
+        // locale.toULocale().getLanguage(). That is, call
+        // org.unicode.cldr.util.CLDRLocale.getLanguage instead of
+        // com.ibm.icu.util.ULocale.getLanguage.
+        // As of 2023-05-23, the results are the same, for all sets
+        // returned by SurveyMain.getLocalesSet(), with the single exception of "root",
+        // for which ULocale.getLanguage returns empty string instead of "root".
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
+        // if (LocaleNames.ROOT.equals(locale.getBaseName())) {
+        //    return "";
+        // } else {
+        //    String test1 = locale.getLanguage();
+        //    String test2 = locale.toULocale().getLanguage();
+        //    if (!test1.equals(test2)) { // this does not happen
+        //        throw new RuntimeException("localeToForum: " + locale + " " + test1 + " " +
+        // test2);
+        //    }
+        // }
+        return uLocaleToForum(locale.toULocale());
     }
 
     /**

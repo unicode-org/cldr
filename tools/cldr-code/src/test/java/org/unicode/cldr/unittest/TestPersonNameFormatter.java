@@ -34,6 +34,7 @@ import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckPersonNames;
 import org.unicode.cldr.test.CheckPlaceHolders;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -1521,5 +1522,46 @@ public class TestPersonNameFormatter extends TestFmwk {
         namePattern = NamePattern.from(0, "•{given} {given2} {surname}•");
         actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
         assertEquals("duplicates", "•Shinzō Abe•", actual);
+    }
+
+    public void testCheckPersonNamesDefault() {
+        String[][] tests = {
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "formal", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "informal", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                "foo",
+                "Error: Valid values are: formal, informal"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                null,
+                "Error: Valid values are: formal, informal"
+            },
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "long", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "medium", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "short", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                "foo",
+                "Error: Valid values are: long, medium, short"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                null,
+                "Error: Valid values are: long, medium, short"
+            },
+        };
+        for (String[] test : tests) {
+            String path = test[0];
+            String value = test[1];
+            String expected = test[2];
+            List<CheckStatus> statusList = new ArrayList<>();
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            CheckPersonNames.checkParameterDefault(
+                    new CheckPersonNames(), value, statusList, parts);
+            String flattened = Joiner.on("|").join(statusList);
+            assertEquals(path + "=" + value, expected, flattened);
+        }
     }
 }

@@ -40,7 +40,7 @@ public class ToolConstants {
                             .map(x -> VersionInfo.getInstance(x))
                             .collect(Collectors.toList()));
 
-    public static final String DEV_VERSION = "43";
+    public static final String DEV_VERSION = "44";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET =

@@ -1,9 +1,11 @@
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -20,10 +22,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
-
-import com.google.common.base.Joiner;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.UnicodeSet;
 
 public class CheckPersonNames extends CheckCLDR {
 
@@ -149,26 +147,7 @@ public class CheckPersonNames extends CheckCLDR {
                 }
                 break;
             case "parameterDefault":
-                String okValues = null;
-                try {
-                    switch (parts.getAttributeValue(-1, "parameter")) {
-                        case "length":
-                            okValues = LengthValues;
-                            PersonNameFormatter.Length.from(value);
-                            break;
-                        case "formality":
-                            okValues = FormalityValues;
-                            PersonNameFormatter.Formality.from(value);
-                            break;
-                    }
-                } catch (Exception e) {
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.illegalParameterValue)
-                                    .setMessage("Valid values are: {0}", okValues));
-                }
+                checkParameterDefault(this, value, result, parts);
                 break;
             case "sampleName":
                 if (value == null) {
@@ -291,6 +270,34 @@ public class CheckPersonNames extends CheckCLDR {
                                         lastModifiedField, modifiedField));
             }
             lastModifiedField = modifiedField;
+        }
+    }
+
+    public static void checkParameterDefault(
+            CheckCLDR checkCldr, String value, List<CheckStatus> result, XPathParts parts) {
+        String okValues = null;
+        boolean succeed = false;
+        try {
+            switch (parts.getAttributeValue(-1, "parameter")) {
+                case "length":
+                    okValues = LengthValues;
+                    PersonNameFormatter.Length.from(value);
+                    break;
+                case "formality":
+                    okValues = FormalityValues;
+                    PersonNameFormatter.Formality.from(value);
+                    break;
+            }
+            succeed = true;
+        } catch (Exception e) {
+        }
+        if (value == null || !succeed) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(checkCldr)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalParameterValue)
+                            .setMessage("Valid values are: {0}", okValues));
         }
     }
 }

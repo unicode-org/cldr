@@ -930,6 +930,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel value="modern" match="personNames/nameOrderLocales[@order='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/nameOrderLocales[@order='%anyAttribute']"/>
+		<coverageLevel value="modern" match="personNames/parameterDefault[@parameter='%anyAttribute'][@alt='%anyAttribute']"/>
+		<coverageLevel value="modern" match="personNames/parameterDefault[@parameter='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement[@xml:space='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement[@xml:space='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/foreignSpaceReplacement[@alt='%anyAttribute']"/>

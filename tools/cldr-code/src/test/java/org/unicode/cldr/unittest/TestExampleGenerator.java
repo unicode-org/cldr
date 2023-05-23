@@ -201,7 +201,9 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
-                    "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // TODO CLDR-15384
+                    "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
+                    "//ldml/personNames/parameterDefault[@parameter=\"([^\"]*+)\"]" // TODO
+                    // CLDR-15384
                     );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 

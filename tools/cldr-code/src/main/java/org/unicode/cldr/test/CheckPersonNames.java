@@ -1,9 +1,11 @@
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -11,7 +13,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
@@ -19,6 +24,16 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
 public class CheckPersonNames extends CheckCLDR {
+
+    private static final String LengthValues =
+            Joiner.on(", ")
+                    .join(Length.ALL.stream().map(x -> x.toString()).collect(Collectors.toList()));
+    private static final String FormalityValues =
+            Joiner.on(", ")
+                    .join(
+                            Formality.ALL.stream()
+                                    .map(x -> x.toString())
+                                    .collect(Collectors.toList()));
 
     static final String MISSING = CldrUtility.NO_INHERITANCE_MARKER;
 
@@ -86,6 +101,9 @@ public class CheckPersonNames extends CheckCLDR {
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch (parts.getElement(2)) {
+            default:
+                int debug = 0;
+                break;
             case "personName":
                 NamePattern namePattern = NamePattern.from(0, value);
                 checkAdjacentFields(namePattern, result);
@@ -127,6 +145,9 @@ public class CheckPersonNames extends CheckCLDR {
                                     .setMessage(
                                             "ForeignSpaceReplacement must be space if script requires spaces."));
                 }
+                break;
+            case "parameterDefault":
+                checkParameterDefault(this, value, result, parts);
                 break;
             case "sampleName":
                 if (value == null) {
@@ -249,6 +270,34 @@ public class CheckPersonNames extends CheckCLDR {
                                         lastModifiedField, modifiedField));
             }
             lastModifiedField = modifiedField;
+        }
+    }
+
+    public static void checkParameterDefault(
+            CheckCLDR checkCldr, String value, List<CheckStatus> result, XPathParts parts) {
+        String okValues = null;
+        boolean succeed = false;
+        try {
+            switch (parts.getAttributeValue(-1, "parameter")) {
+                case "length":
+                    okValues = LengthValues;
+                    PersonNameFormatter.Length.from(value);
+                    break;
+                case "formality":
+                    okValues = FormalityValues;
+                    PersonNameFormatter.Formality.from(value);
+                    break;
+            }
+            succeed = true;
+        } catch (Exception e) {
+        }
+        if (value == null || !succeed) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(checkCldr)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalParameterValue)
+                            .setMessage("Valid values are: {0}", okValues));
         }
     }
 }

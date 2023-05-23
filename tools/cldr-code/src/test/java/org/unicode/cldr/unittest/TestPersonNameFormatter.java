@@ -34,6 +34,7 @@ import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckPersonNames;
 import org.unicode.cldr.test.CheckPlaceHolders;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -77,7 +78,7 @@ public class TestPersonNameFormatter extends TestFmwk {
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     final FallbackFormatter FALLBACK_FORMATTER =
-            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
+            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, null, false);
     final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES =
@@ -1521,5 +1522,46 @@ public class TestPersonNameFormatter extends TestFmwk {
         namePattern = NamePattern.from(0, "•{given} {given2} {surname}•");
         actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
         assertEquals("duplicates", "•Shinzō Abe•", actual);
+    }
+
+    public void testCheckPersonNamesDefault() {
+        String[][] tests = {
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "formal", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "informal", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                "foo",
+                "Error: Valid values are: formal, informal"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                null,
+                "Error: Valid values are: formal, informal"
+            },
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "long", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "medium", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "short", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                "foo",
+                "Error: Valid values are: long, medium, short"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                null,
+                "Error: Valid values are: long, medium, short"
+            },
+        };
+        for (String[] test : tests) {
+            String path = test[0];
+            String value = test[1];
+            String expected = test[2];
+            List<CheckStatus> statusList = new ArrayList<>();
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            CheckPersonNames.checkParameterDefault(
+                    new CheckPersonNames(), value, statusList, parts);
+            String flattened = Joiner.on("|").join(statusList);
+            assertEquals(path + "=" + value, expected, flattened);
+        }
     }
 }

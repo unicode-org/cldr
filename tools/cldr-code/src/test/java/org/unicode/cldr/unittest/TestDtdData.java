@@ -595,6 +595,7 @@ public class TestDtdData extends TestFmwk {
                                         || attribute.equals("length")
                                         || attribute.equals("usage")
                                         || attribute.equals("formality")))
+                        || (elementName.equals("parameterDefault") && attribute.equals("parameter"))
                         || (elementName.equals("sampleName") && attribute.equals("item"))
                         || (elementName.equals("nameField") && attribute.equals("type"));
 

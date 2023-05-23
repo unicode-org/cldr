@@ -1,11 +1,9 @@
 package org.unicode.cldr.test;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -22,6 +20,10 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
+
+import com.google.common.base.Joiner;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
 
 public class CheckPersonNames extends CheckCLDR {
 
@@ -152,11 +154,11 @@ public class CheckPersonNames extends CheckCLDR {
                     switch (parts.getAttributeValue(-1, "parameter")) {
                         case "length":
                             okValues = LengthValues;
-                            PersonNameFormatter.Length.valueOf(value);
+                            PersonNameFormatter.Length.from(value);
                             break;
                         case "formality":
                             okValues = FormalityValues;
-                            PersonNameFormatter.Formality.valueOf(value);
+                            PersonNameFormatter.Formality.from(value);
                             break;
                     }
                 } catch (Exception e) {

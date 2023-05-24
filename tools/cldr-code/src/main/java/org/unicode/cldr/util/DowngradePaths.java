@@ -1,15 +1,9 @@
 package org.unicode.cldr.util;
 
-import java.nio.file.Paths;
-import org.unicode.cldr.draft.FileUtilities;
-
 public class DowngradePaths {
 
     static LocalePathValueListMatcher data =
-            LocalePathValueListMatcher.load(
-                    Paths.get(
-                            FileUtilities.getRelativeFileName(
-                                    DowngradePaths.class, "downgrade.txt")));
+            LocalePathValueListMatcher.load(CldrUtility.getUTF8Data("downgrade.txt").lines());
 
     public static boolean lookingAt(String locale, String path, String value) {
         return data.lookingAt(locale, path, value);

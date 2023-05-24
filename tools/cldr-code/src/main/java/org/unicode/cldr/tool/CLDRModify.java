@@ -849,7 +849,7 @@ public class CLDRModify {
             } else if (oldValueNewPath.equals(newValue)) {
                 showAction(
                         reason,
-                        "Redundant Value",
+                        "Unchanged Value",
                         oldValueOldPath,
                         oldValueNewPath,
                         newValue,
@@ -2967,8 +2967,25 @@ public class CLDRModify {
                 'D',
                 "Downgrade paths",
                 new CLDRFilter() {
+
+                    boolean skipLocale = false;
+
+                    @Override
+                    public void handleStart() {
+                        // TODO Auto-generated method stub
+                        super.handleSetup();
+                        String locale = getLocaleID();
+                        skipLocale =
+                                locale.equals("en")
+                                        || locale.equals("root")
+                                        || !DowngradePaths.lookingAt(locale);
+                    }
+
                     @Override
                     public void handlePath(String xpath) {
+                        if (skipLocale) { // fast path
+                            return;
+                        }
                         String value = cldrFileToFilter.getStringValue(xpath);
                         if (!DowngradePaths.lookingAt(getLocaleID(), xpath, value)) {
                             return;

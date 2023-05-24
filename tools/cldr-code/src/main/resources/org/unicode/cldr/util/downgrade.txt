@@ -5,8 +5,10 @@
 # If you need to match to the end, follow with $
 # For the path, [@ is automatically escaped
 
+# Require review of a few units with aliases in root
 # The following will match anything starting with graphics-dot, thus include graphics-dot-per-centimeter, etc.
- ; //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot
+ ; //ldml/units/unitLength[@type="[^"]*"]/unit[@type="graphics-dot
+ ; //ldml/units/unitLength[@type="[^"]*"]/unit[@type="energy-foodcalorie
 
 # The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included
 

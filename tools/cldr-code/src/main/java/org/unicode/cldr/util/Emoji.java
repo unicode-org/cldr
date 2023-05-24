@@ -134,7 +134,9 @@ public class Emoji {
             String comment = it.next();
             // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes
             int spacePos = comment.indexOf(' ');
-            spacePos = comment.indexOf(' ', spacePos + 1); // get second space
+            // The format changed in v15.1, so there is no version number.
+            // Thus the following is commented out:
+            // spacePos = comment.indexOf(' ', spacePos + 1); // get second space
             String name = comment.substring(spacePos + 1).trim();
             toName.put(original, name);
 

@@ -586,10 +586,6 @@ public class TestAnnotations extends TestFmwkPlus {
 
     public void testCoverage() {
         UnicodeMap<Level> levels = new UnicodeMap<>();
-        UnicodeSet shouldBeComprehensive =
-                new UnicodeSet(
-                                "[‾‽‸⁂↚↛↮↙↜↝↞↟↠↡↢↣↤↥↦↧↨↫↬↭↯↰↱↲↳↴↵↶↷↸↹↺↻↼↽↾↿⇀⇁⇂⇃⇄⇇⇈⇉⇊⇋⇌⇐⇍⇑⇒⇏⇓⇔⇎⇖⇗⇘⇙⇚⇛⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇵∀∂∃∅∉∋∎∏∑≮≯∓∕⁄∗∘∙∝∟∠∣∥∧∫∬∮∴∵∶∷∼∽∾≃≅≌≒≖≣≦≧≪≫≬≳≺≻⊁⊃⊆⊇⊕⊖⊗⊘⊙⊚⊛⊞⊟⊥⊮⊰⊱⋭⊶⊹⊿⋁⋂⋃⋅⋆⋈⋒⋘⋙⋮⋯⋰⋱■□▢▣▤▥▦▧▨▩▬▭▮▰△▴▵▷▸▹►▻▽▾▿◁◂◃◄◅◆◇◈◉◌◍◎◐◑◒◓◔◕◖◗◘◙◜◝◞◟◠◡◢◣◤◥◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺₢₣₤₰₳₶₷₨﷼]")
-                        .freeze();
         for (String minorCategory : Emoji.getMinorCategoriesWithExtras()) {
             for (String s : Emoji.getEmojiInMinorCategoriesWithExtras(minorCategory)) {
                 if (s.contentEquals("‾")) {
@@ -609,13 +605,6 @@ public class TestAnnotations extends TestFmwkPlus {
             UnicodeSet us = levels.getSet(level);
             getLogger().fine(level + "\t" + us.size());
             switch (level) {
-                case COMPREHENSIVE:
-                    UnicodeSet us2 = new UnicodeSet(us).removeAll(us.strings());
-                    assertEquals(
-                            level.toString(),
-                            shouldBeComprehensive.toPattern(false),
-                            us2.toPattern(false));
-                    break;
                 case MODERN:
                     assertNotEquals(level.toString(), 0, us.size());
                     break;

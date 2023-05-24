@@ -175,7 +175,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-ofhg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
-		<coverageVariable key="%modernEmoji" value="[^‸‽‾⁂⁄₢-₤₨₰₳₶₷↙-↨↫-⇄⇇-⇔⇖-⇪⇵∀∂∃∅∉∋∎∏∑∓∕∗-∙∝∟∠∣∥∧∫∬∮∴-∷∼-∾≃≅≌≒≖≣≦≧≪-≬≮≯≳≺≻⊁⊃⊆⊇⊕-⊛⊞⊟⊥⊮⊰⊱⊶⊹⊿⋁-⋃⋅⋆⋈⋒⋘⋙⋭-⋱■-▩▬-▮▰△-▵▷-▻▽-▿◁-◉◌-◎◐-◙◜-◦◳◷◻◽◿⨧⨯⨼⩣⩽⪍⪚⪺﷼]"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
 
 		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>
@@ -947,8 +946,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute']"/>
 
-		<coverageLevel value="modern" match="annotations/annotation[@cp='%modernEmoji'][@type='%anyAttribute']"/>
-		<coverageLevel value="modern" match="annotations/annotation[@cp='%modernEmoji']"/>
+		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute'][@type='%anyAttribute']"/>
+		<coverageLevel value="modern" match="annotations/annotation[@cp='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/subdivisions/subdivision[@type='%anyAttribute']"/>
 
 		<coverageLevel value="modern" match="numbers/minimalPairs/caseMinimalPairs[@case='%anyAlphaNum']"/>
@@ -957,7 +956,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!-- pathMatch entries are used with focussed organizations in Locales.txt -->
 		<pathMatch id="characterLabel1" match="characterLabels/characterLabelPattern[@type='%anyAttribute']"/>
 		<pathMatch id="characterLabel2" match="characterLabels/characterLabelPattern[@type='%anyAttribute'][@count='%allPlurals']"/>
-		<pathMatch id="annotations1" match="annotations/annotation[@cp='%modernEmoji'][@type='%anyAttribute']"/>
-		<pathMatch id="annotations2" match="annotations/annotation[@cp='%modernEmoji']"/>
+		<pathMatch id="annotations1" match="annotations/annotation[@cp='%anyAttribute'][@type='%anyAttribute']"/>
+		<pathMatch id="annotations2" match="annotations/annotation[@cp='%anyAttribute']"/>
 	</coverageLevels>
 </supplementalData>

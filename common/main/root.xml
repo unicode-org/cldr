@@ -5101,7 +5101,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<alias source="locale" path="../unit[@type='energy-kilocalorie']" draft="provisional"/>
+				<alias source="locale" path="../unit[@type='energy-kilocalorie']"/>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -5176,13 +5176,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<alias source="locale" path="../unit[@type='graphics-pixel-per-centimeter']" draft="provisional"/>
+				<alias source="locale" path="../unit[@type='graphics-pixel-per-centimeter']"/>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<alias source="locale" path="../unit[@type='graphics-pixel-per-inch']" draft="provisional"/>
+				<alias source="locale" path="../unit[@type='graphics-pixel-per-inch']"/>
 			</unit>
 			<unit type="graphics-dot">
-				<alias source="locale" path="../unit[@type='graphics-pixel']" draft="provisional"/>
+				<alias source="locale" path="../unit[@type='graphics-pixel']"/>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -5841,8 +5841,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<personNames>
 		<nameOrderLocales order="givenFirst">und</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
-		<parameterDefault parameter="formality">formal</parameterDefault>
 		<parameterDefault parameter="length">medium</parameterDefault>
+		<parameterDefault parameter="formality">formal</parameterDefault>		
 		<nativeSpaceReplacement xml:space="preserve"> </nativeSpaceReplacement>
 		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>

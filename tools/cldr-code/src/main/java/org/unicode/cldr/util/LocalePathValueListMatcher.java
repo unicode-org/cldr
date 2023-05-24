@@ -107,7 +107,14 @@ public class LocalePathValueListMatcher {
         }
         final List<String> lineList = SPLIT_SEMI_COLON.splitToList(line);
         if (lineList.size() < 2) {
-            return;
+            throw new IllegalArgumentException(
+                    "Match lines must have at least locale ; path: «" + line + "»");
+        }
+        if (lineList.size() > 3) {
+            throw new IllegalArgumentException(
+                    "Match lines must have a maximum of 3 fields (locale; path; value): «"
+                            + line
+                            + "»");
         }
         _matchData.add(new LocalePathValueMatcher(lineList));
     }

@@ -37,7 +37,8 @@ public class AnnouncementData {
             }
         } catch (SQLException se) {
             String complaint =
-                    "Error getting announcments from database - " + DBUtils.unchainSqlException(se);
+                    "Error getting announcements from database - "
+                            + DBUtils.unchainSqlException(se);
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
@@ -136,9 +137,25 @@ public class AnnouncementData {
         if (recipients.size() == 0) {
             return;
         }
-        String subject = "CLDR announcement: " + request.subject;
+        String subject = "CLDR Survey Tool announcement: " + request.subject;
         String body =
-                "There is a new announcement in the Survey Tool. Do not reply to this message, instead go to the Survey Tool";
+                "From: "
+                        + poster.name
+                        + "\n"
+                        + "To: "
+                        + request.audience
+                        + "\n"
+                        + "Organization(s): "
+                        + request.orgs
+                        + "\n"
+                        + "Locale(s): "
+                        + request.locs
+                        + "\n"
+                        + request.body
+                        + "\n\n"
+                        + "Do not reply to this message, instead please go to the Survey Tool.\n\n"
+                        + "https://st.unicode.org";
+
         MailSender mailSender = MailSender.getInstance();
         for (int recipient : recipients) {
             mailSender.queue(poster.id, recipient, subject, body);
@@ -317,11 +334,11 @@ public class AnnouncementData {
         return true;
     }
 
-    private static void makeSureDbSetup() {
+    private static synchronized void makeSureDbSetup() {
         if (!dbIsSetUp) {
-            dbIsSetUp = true;
             try {
                 setupDB();
+                dbIsSetUp = true;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -406,7 +423,6 @@ public class AnnouncementData {
             s.execute(sql);
             s.close();
             conn.commit();
-
         } catch (SQLException se) {
             System.err.println("Last SQL run: " + sql);
             throw se;

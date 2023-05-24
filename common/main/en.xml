@@ -6654,9 +6654,9 @@ annotations.
 				<unitPattern count="other">{0} calories</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Calories</displayName>
-				<unitPattern count="one">{0} Calorie</unitPattern>
-				<unitPattern count="other">{0} Calories</unitPattern>
+				<displayName draft="provisional">Calories</displayName>
+				<unitPattern count="one" draft="provisional">{0} Calorie</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Calories</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojoules</displayName>
@@ -6749,19 +6749,19 @@ annotations.
 				<unitPattern count="other">{0} pixels per inch</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dots per centimeter</displayName>
-				<unitPattern count="one">{0} dot per centimeter</unitPattern>
-				<unitPattern count="other">{0} dots per centimeter</unitPattern>
+				<displayName draft="provisional">dots per centimeter</displayName>
+				<unitPattern count="one" draft="provisional">{0} dot per centimeter</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dots per centimeter</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dots per inch</displayName>
-				<unitPattern count="one">{0} dot per inch</unitPattern>
-				<unitPattern count="other">{0} dots per inch</unitPattern>
+				<displayName draft="provisional">dots per inch</displayName>
+				<unitPattern count="one" draft="provisional">{0} dot per inch</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dots per inch</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dots</displayName>
-				<unitPattern count="one">{0} dot</unitPattern>
-				<unitPattern count="other">{0} dots</unitPattern>
+				<displayName draft="provisional">dots</displayName>
+				<unitPattern count="one" draft="provisional">{0} dot</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dots</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>earth radius</displayName>
@@ -7612,9 +7612,9 @@ annotations.
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="one">{0} Cal</unitPattern>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<displayName draft="provisional">Cal</displayName>
+				<unitPattern count="one" draft="provisional">{0} Cal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojoule</displayName>
@@ -7707,14 +7707,14 @@ annotations.
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0} dpcm</unitPattern>
-				<unitPattern count="other">{0} dpcm</unitPattern>
+				<displayName draft="provisional">dpcm</displayName>
+				<unitPattern count="one" draft="provisional">{0} dpcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="one">{0} dpi</unitPattern>
-				<unitPattern count="other">{0} dpi</unitPattern>
+				<displayName draft="provisional">dpi</displayName>
+				<unitPattern count="one" draft="provisional">{0} dpi</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dpi</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
@@ -8489,9 +8489,9 @@ annotations.
 				<unitPattern count="other">{0}cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="one">{0}Cal</unitPattern>
-				<unitPattern count="other">{0}Cal</unitPattern>
+				<displayName draft="provisional">Cal</displayName>
+				<unitPattern count="one" draft="provisional">{0}Cal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -8584,19 +8584,19 @@ annotations.
 				<unitPattern count="other">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0}dpcm</unitPattern>
-				<unitPattern count="other">{0}dpcm</unitPattern>
+				<displayName draft="provisional">dpcm</displayName>
+				<unitPattern count="one" draft="provisional">{0}dpcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="one">{0}dpi</unitPattern>
-				<unitPattern count="other">{0}dpi</unitPattern>
+				<displayName draft="provisional">dpi</displayName>
+				<unitPattern count="one" draft="provisional">{0}dpi</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dot</displayName>
-				<unitPattern count="one">{0}dot</unitPattern>
-				<unitPattern count="other">{0}dot</unitPattern>
+				<displayName draft="provisional">dot</displayName>
+				<unitPattern count="one" draft="provisional">{0}dot</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}dot</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -9338,9 +9338,8 @@ annotations.
 	<personNames>
 		<nameOrderLocales order="givenFirst">und en</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<parameterDefault parameter="formality">informal</parameterDefault>
 		<parameterDefault parameter="length">medium</parameterDefault>
-		<parameterDefault parameter="formality">informal</parameterDefault>		
-		
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0}{1}</initialPattern>

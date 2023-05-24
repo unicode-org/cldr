@@ -8988,8 +8988,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 卡路里</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>卡路里</displayName>
-				<unitPattern count="other">{0} 大卡</unitPattern>
+				<displayName draft="provisional">卡路里</displayName>
+				<unitPattern count="other" draft="provisional">{0} 大卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦耳</displayName>
@@ -9064,16 +9064,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 像素/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>每厘米点数</displayName>
-				<unitPattern count="other">{0} 点/厘米</unitPattern>
+				<displayName draft="provisional">每厘米点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/厘米</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>每吋点数</displayName>
-				<unitPattern count="other">{0} 点/吋</unitPattern>
+				<displayName draft="provisional">每吋点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>圆点</displayName>
-				<unitPattern count="other">{0} 个圆点</unitPattern>
+				<displayName draft="provisional">圆点</displayName>
+				<unitPattern count="other" draft="provisional">{0} 个圆点</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半径</displayName>
@@ -9854,8 +9854,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 卡</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>大卡</displayName>
-				<unitPattern count="other">{0} 大卡</unitPattern>
+				<displayName draft="provisional">大卡</displayName>
+				<unitPattern count="other" draft="provisional">{0} 大卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦耳</displayName>
@@ -9930,16 +9930,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 像素/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>每厘米点数</displayName>
-				<unitPattern count="other">{0} 点/厘米</unitPattern>
+				<displayName draft="provisional">每厘米点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/厘米</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>每吋点数</displayName>
-				<unitPattern count="other">{0} 点/吋</unitPattern>
+				<displayName draft="provisional">每吋点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>圆点</displayName>
-				<unitPattern count="other">{0} 个圆点</unitPattern>
+				<displayName draft="provisional">圆点</displayName>
+				<unitPattern count="other" draft="provisional">{0} 个圆点</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半径</displayName>
@@ -10720,8 +10720,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 卡</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>大卡</displayName>
-				<unitPattern count="other">{0} 大卡</unitPattern>
+				<displayName draft="provisional">大卡</displayName>
+				<unitPattern count="other" draft="provisional">{0} 大卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦耳</displayName>
@@ -10796,16 +10796,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 像素/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>每厘米点数</displayName>
-				<unitPattern count="other">{0} 点/厘米</unitPattern>
+				<displayName draft="provisional">每厘米点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/厘米</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>每吋点数</displayName>
-				<unitPattern count="other">{0} 点/吋</unitPattern>
+				<displayName draft="provisional">每吋点数</displayName>
+				<unitPattern count="other" draft="provisional">{0} 点/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>圆点</displayName>
-				<unitPattern count="other">{0} 个圆点</unitPattern>
+				<displayName draft="provisional">圆点</displayName>
+				<unitPattern count="other" draft="provisional">{0} 个圆点</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半径</displayName>
@@ -11483,58 +11483,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">{0}</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname} {given} {credentials} {given2}</namePattern>
@@ -11546,13 +11546,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname} {given} {credentials} {given2-initial}</namePattern>
@@ -11564,13 +11564,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram}</namePattern>
+			<namePattern draft="provisional">{surname-monogram}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram}</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname} {given} {given2-initial}</namePattern>
@@ -11582,13 +11582,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="provisional">{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{given-informal}</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname} {given} {credentials} {given2}</namePattern>
@@ -11632,27 +11632,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="credentials">太平绅士</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
-			<nameField type="given">凯晴</nameField>
+			<nameField type="given" draft="provisional">凯晴</nameField>
 		</sampleName>
 		<sampleName item="foreignGS">
-			<nameField type="given">永翘</nameField>
-			<nameField type="surname">黄</nameField>
+			<nameField type="given" draft="provisional">永翘</nameField>
+			<nameField type="surname" draft="provisional">黄</nameField>
 		</sampleName>
 		<sampleName item="foreignGGS">
-			<nameField type="given">永强</nameField>
-			<nameField type="given2">德安</nameField>
-			<nameField type="surname">吴</nameField>
+			<nameField type="given" draft="provisional">永强</nameField>
+			<nameField type="given2" draft="provisional">德安</nameField>
+			<nameField type="surname" draft="provisional">吴</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title">先生</nameField>
-			<nameField type="given">大文</nameField>
-			<nameField type="given-informal">小二</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname-prefix">↑↑↑</nameField>
-			<nameField type="surname-core">↑↑↑</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="generation">小</nameField>
-			<nameField type="credentials">博士</nameField>
+			<nameField type="title" draft="provisional">先生</nameField>
+			<nameField type="given" draft="provisional">大文</nameField>
+			<nameField type="given-informal" draft="provisional">小二</nameField>
+			<nameField type="given2" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
+			<nameField type="generation" draft="provisional">小</nameField>
+			<nameField type="credentials" draft="provisional">博士</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

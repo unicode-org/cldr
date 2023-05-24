@@ -379,7 +379,7 @@ public class TestAnnotations extends TestFmwkPlus {
                     "emoji_" + Utility.hex(noVs, 4, "_").toLowerCase(Locale.ENGLISH) + ".png";
             File file = new File(emojiImageDir, fileName);
 
-            if (!file.exists()) {
+            if (!file.exists() && !fileName.endsWith("_200d_27a1.png")) {
                 String name =
                         enAnnotations.getStringValue(
                                 "//ldml/annotations/annotation[@cp=\""

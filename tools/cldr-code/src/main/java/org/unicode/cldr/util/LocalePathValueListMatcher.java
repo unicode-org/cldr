@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 public class LocalePathValueListMatcher {
 
-    private static final Splitter SPLIT_SEMI_COLON = Splitter.on(';');
+    private static final Splitter SPLIT_SEMI_COLON = Splitter.on(';').trimResults();
 
     public static class LocalePathValueMatcher {
         final Pattern localePattern;
@@ -41,9 +41,21 @@ public class LocalePathValueListMatcher {
                     && (valuePattern == null || valuePattern.matcher(value).lookingAt());
         }
 
+        /**
+         * Just test the locale, to see if we need to bother looking at its path/values
+         *
+         * @param locale
+         * @param path
+         * @param value
+         * @return
+         */
+        public boolean lookingAt(String locale) {
+            return (localePattern == null || localePattern.matcher(locale).lookingAt());
+        }
+
         @Override
         public String toString() {
-            return String.format("%s\t%s\t%s", localePattern, pathPattern, valuePattern);
+            return String.format("%s\t;\t%s\t%;\ts", localePattern, pathPattern, valuePattern);
         }
     }
 
@@ -70,20 +82,40 @@ public class LocalePathValueListMatcher {
 
     public boolean lookingAt(String locale, String path, String value) {
         for (LocalePathValueListMatcher.LocalePathValueMatcher lpv : matchData) {
-            if (!lpv.lookingAt(locale, path, value)) {
-                return false;
+            if (lpv.lookingAt(locale, path, value)) {
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    /** Just test the locale, to see if we need to bother */
+    public boolean lookingAt(String locale) {
+        for (LocalePathValueListMatcher.LocalePathValueMatcher lpv : matchData) {
+            if (lpv.lookingAt(locale)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void load(
             String line, List<LocalePathValueListMatcher.LocalePathValueMatcher> _matchData) {
         line = line.trim();
-        if (line.startsWith("#")) {
+        if (line.startsWith("#") || line.isEmpty()) {
             return;
         }
-        _matchData.add(
-                new LocalePathValueMatcher(SPLIT_SEMI_COLON.trimResults().splitToList(line)));
+        final List<String> lineList = SPLIT_SEMI_COLON.splitToList(line);
+        if (lineList.size() < 2) {
+            throw new IllegalArgumentException(
+                    "Match lines must have at least locale ; path: «" + line + "»");
+        }
+        if (lineList.size() > 3) {
+            throw new IllegalArgumentException(
+                    "Match lines must have a maximum of 3 fields (locale; path; value): «"
+                            + line
+                            + "»");
+        }
+        _matchData.add(new LocalePathValueMatcher(lineList));
     }
 }

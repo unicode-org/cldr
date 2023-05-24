@@ -21,7 +21,11 @@ public class TestPathLookup extends TestFmwkPlus {
     public void testLocalePathValueListMatcher() {
         LocalePathValueListMatcher matcher =
                 LocalePathValueListMatcher.load(
-                        Arrays.asList("f.* ; //ldml/units/unitLength[@type=\"long\"]/foobar ; k.*")
+                        Arrays.asList(
+                                " ", // purposeful blank line
+                                "# de ; //ldml/units/unitLength[@type=\"long\"]/junk ; k.*",
+                                " ; //ldml/units/unitLength[@type=\"long\"]/junk ",
+                                "f.* ; //ldml/units/unitLength[@type=\"long\"]/foobar ; k.*")
                                 .stream());
 
         String[][] tests = {
@@ -29,6 +33,7 @@ public class TestPathLookup extends TestFmwkPlus {
             {"de", "//ldml/units/unitLength[@type=\"long\"]/foobar", "kg", "false"},
             {"fr", "//ldml/units/unitLength[@type=\"long\"]/foobar", "meter", "false"},
             {"fr", "//ldml/units/unitLength[@type=\"long\"]/fii", "kg", "false"},
+            {"de", "//ldml/units/unitLength[@type=\"long\"]/junk", "kg", "true"},
         };
         for (String[] test : tests) {
             String locale = test[0];
@@ -38,6 +43,34 @@ public class TestPathLookup extends TestFmwkPlus {
             boolean actual = matcher.lookingAt(locale, path, value);
             assertEquals(Joiner.on(" , ").join(test), expected, actual);
         }
+    }
+
+    public void testLocalePathValueListMatcherSyntax() {
+
+        String[][] tests = {
+            {"", "ok"},
+            {"#", "ok"},
+            {"fr( ; ", "Unclosed group near index 3\nfr("},
+            {"fr", "Match lines must have at least locale ; path: «fr»"},
+            {
+                "fr; path ; value ; too-long",
+                "Match lines must have a maximum of 3 fields (locale; path; value): «fr; path ; value ; too-long»"
+            },
+        };
+        for (String[] test : tests) {
+            String line = test[0];
+            String expected = test[1];
+            String actual = "ok";
+            try {
+                LocalePathValueListMatcher matcher =
+                        LocalePathValueListMatcher.load(Arrays.asList(line).stream());
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals(line, expected, actual);
+        }
+        // check for bad syntax
+
     }
 
     /**

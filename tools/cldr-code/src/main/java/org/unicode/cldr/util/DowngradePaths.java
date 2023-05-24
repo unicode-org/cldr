@@ -14,4 +14,8 @@ public class DowngradePaths {
     public static boolean lookingAt(String locale, String path, String value) {
         return data.lookingAt(locale, path, value);
     }
+
+    public static boolean lookingAt(String locale) {
+        return data.lookingAt(locale);
+    }
 }

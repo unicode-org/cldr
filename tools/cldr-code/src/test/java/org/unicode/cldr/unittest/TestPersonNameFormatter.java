@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import static org.unicode.cldr.util.personname.PersonNameFormatter.Modifier.retain;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
@@ -70,8 +72,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
-
-import static org.unicode.cldr.util.personname.PersonNameFormatter.Modifier.retain;
 
 public class TestPersonNameFormatter extends TestFmwk {
 

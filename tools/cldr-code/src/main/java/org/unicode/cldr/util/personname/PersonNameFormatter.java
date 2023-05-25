@@ -637,7 +637,8 @@ public class PersonNameFormatter {
                 switch (modifier) {
                     case initial:
                         boolean retainPunctuation = remainingModifers.contains(Modifier.retain);
-                        bestValue = formatInitial(bestValue, nameFormatParameters, retainPunctuation);
+                        bestValue =
+                                formatInitial(bestValue, nameFormatParameters, retainPunctuation);
                         break;
                     case retain:
                         // do nothing-- this is handled by "initial" above
@@ -681,7 +682,10 @@ public class PersonNameFormatter {
                     : bestValue;
         }
 
-        public String formatInitial(String bestValue, FormatParameters nameFormatParameters, boolean retainPunctuation) {
+        public String formatInitial(
+                String bestValue,
+                FormatParameters nameFormatParameters,
+                boolean retainPunctuation) {
             // It is probably unusual to have multiple name fields, so this could be optimized for
             // the simpler case.
 
@@ -696,7 +700,7 @@ public class PersonNameFormatter {
                 String part = bestValue.substring(lastBound, curBound);
                 if (Character.isLetter(part.codePointAt(0))) {
                     String partFirst = getFirstGrapheme(part);
-                    String partFormatted = initialFormatter.format(new String[] { partFirst } );
+                    String partFormatted = initialFormatter.format(new String[] {partFirst});
                     if (separator != null) {
                         if (result == null) {
                             result = "";
@@ -705,7 +709,9 @@ public class PersonNameFormatter {
                     } else if (result == null) {
                         result = partFormatted;
                     } else {
-                        result = initialSequenceFormatter.format(new String[] { result, partFormatted } );
+                        result =
+                                initialSequenceFormatter.format(
+                                        new String[] {result, partFormatted});
                     }
                 } else if (retainPunctuation && !Character.isWhitespace(part.codePointAt(0))) {
                     if (separator == null) {

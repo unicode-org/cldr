@@ -12,6 +12,10 @@
 
 # The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included
 
+# CLDR-16534 Downgrade paths for renaming Islamic Calendar to Hijri Calendar
+
+	;	 //ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic
+
 # CLDR-16228 Add the paths where spaces changed in cjk+ person names
 # CLDR-16568 Require checking of questionable PNF data
 

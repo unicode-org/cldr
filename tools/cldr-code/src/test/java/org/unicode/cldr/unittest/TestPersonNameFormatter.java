@@ -741,12 +741,18 @@ public class TestPersonNameFormatter extends TestFmwk {
                 case prefix:
                     expected = null;
                     break;
-                case informal:
-                    expected = "van Berk";
-                    break;
                 case core:
                     expected = "van Berk";
                     break; // TODO fix core
+                case vocative:
+                    expected = "van Berkᵛ"; // artificial fallback for CLDR vetters
+                    break;
+                case genitive:
+                    expected = "van Berkᵍ"; // artificial fallback for CLDR vetters
+                    break;
+                case informal:
+                    expected = "van Berk"; // no fallback change
+                    break;
                 default:
                     throw new IllegalArgumentException("Need to add modifier test for " + m);
             }
@@ -866,9 +872,15 @@ public class TestPersonNameFormatter extends TestFmwk {
         final Map<String, String> resolvedMap = new TreeMap<>();
         final Map<String, String> unresolvedMap = new TreeMap<>();
         private String localeID;
+        private Set<Modifier> allowedModifiers;
 
         public CheckAccessorStub(String localeID) {
             this.localeID = localeID;
+            this.allowedModifiers = Modifier.getAllowedModifiers(localeID);
+        }
+
+        public Set<Modifier> getAllowedModifiers() {
+            return allowedModifiers;
         }
 
         public CheckAccessorStub put(String path, String value) {
@@ -1074,35 +1086,62 @@ public class TestPersonNameFormatter extends TestFmwk {
 
     public void TestCheckPatterns() {
         String[][] tests = {
-            // sample-pattern, errorWhenMonogram, errorWhenNonMonogram
+            // Format:
+            // sample-pattern,
+            // errorWhenMonogram,
+            // errorWhenNonMonogram
             {
+                "fr",
                 "{title} {given-monogram-allCaps}",
                 "Error: Disallowed when usage=monogram: {title…}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {given-allCaps-monogram}"
             },
             {
+                "fr",
                 "{given-informal-initial}.",
                 "Error: -monogram is required when usage=monogram, in {given-informal-initial}|Warning: “.” is discouraged when usage=monogram, in \"{given-informal-initial}.\"",
                 ""
             },
             {
+                "fr",
                 "{surname-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram}"
             },
             {
+                "fr",
                 "{surname-core-monogram-allCaps}",
                 "",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-allCaps-monogram-core}"
             },
             {
+                "fr",
                 "{surname-core-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram-core}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram-core}"
             },
             {
+                "fr",
                 "{given}.{surname}",
                 "Error: -monogram is required when usage=monogram, in {given}|Warning: “.” is discouraged when usage=monogram, in \"{given}.{surname}\"|Error: -monogram is required when usage=monogram, in {surname}",
+                ""
+            },
+            {
+                "fr",
+                "{given-foo}",
+                "Error: Invalid placeholder in value: «{given-foo}»",
+                "Error: Invalid placeholder in value: «{given-foo}»"
+            },
+            {
+                "fr", // French does not have vocative
+                "{given-vocative}",
+                "Error: Illegal grammatical case modifiers for fr: [vocative]; see <a href='http://cldr.unicode.org/translation/error-codes#invalidPlaceHolder'  target='cldr_error_codes'>invalid place holder</a>.|Error: -monogram is required when usage=monogram, in {given-vocative}",
+                "Error: Illegal grammatical case modifiers for fr: [vocative]; see <a href='http://cldr.unicode.org/translation/error-codes#invalidPlaceHolder'  target='cldr_error_codes'>invalid place holder</a>."
+            },
+            {
+                "ru", // Russian has vocative
+                "{given-vocative}",
+                "Error: -monogram is required when usage=monogram, in {given-vocative}",
                 ""
             },
         };
@@ -1111,24 +1150,38 @@ public class TestPersonNameFormatter extends TestFmwk {
         XPathParts nonMonogramPathParts = XPathParts.getFrozenInstance(sampleNonMonogramPath);
         int i = 0;
         for (String[] row : tests) {
+
             ++i;
-            String samplePattern = row[0];
-            String expectedMonogramErrors = row[1];
-            String expectedNonMonogramErrors = row.length < 3 ? row[1] : row[2];
+            final String locale = row[0];
+            String samplePattern = row[1];
+            String expectedMonogramErrors = row[2];
+            String expectedNonMonogramErrors = row.length < 4 ? row[2] : row[3];
             CheckAccessorStub stub =
-                    new CheckAccessorStub("fr")
+                    new CheckAccessorStub(locale)
                             .put(sampleMonogramPath, samplePattern)
                             .put(sampleNonMonogramPath, samplePattern);
             results.clear();
             CheckPlaceHolders.checkPersonNamePatterns(
-                    stub, sampleMonogramPath, monogramPathParts, samplePattern, results);
+                    stub,
+                    stub.getAllowedModifiers(),
+                    locale,
+                    sampleMonogramPath,
+                    monogramPathParts,
+                    samplePattern,
+                    results);
             assertEquals(
                     i + ") monogram, " + samplePattern,
                     expectedMonogramErrors,
                     joinCheckStatus(results));
             results.clear();
             CheckPlaceHolders.checkPersonNamePatterns(
-                    stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
+                    stub,
+                    stub.getAllowedModifiers(),
+                    locale,
+                    sampleNonMonogramPath,
+                    nonMonogramPathParts,
+                    samplePattern,
+                    results);
             assertEquals(
                     i + ") non-monogram, " + samplePattern,
                     expectedNonMonogramErrors,

@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Pair;
@@ -68,6 +69,16 @@ public class CheckPlaceHolders extends CheckCLDR {
     private static final ImmutableSet<Modifier> CORE_AND_PREFIX =
             ImmutableSet.of(Modifier.prefix, Modifier.core);
 
+    private Set<Modifier> allowedModifiers = null;
+
+    @Override
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        allowedModifiers = Modifier.getAllowedModifiers(cldrFileToCheck.getLocaleID());
+        return this;
+    }
+
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
@@ -94,7 +105,8 @@ public class CheckPlaceHolders extends CheckCLDR {
                     checkSampleNames(this, parts, value, result);
                     return this;
                 case "personName":
-                    checkPersonNamePatterns(this, path, parts, value, result);
+                    checkPersonNamePatterns(
+                            this, allowedModifiers, getLocaleID(), path, parts, value, result);
                     return this;
             }
             // done with person names
@@ -313,9 +325,32 @@ public class CheckPlaceHolders extends CheckCLDR {
      * Verify the that personName patterns are clean.
      *
      * @param path TODO
+     * @deprecated Use {@link
+     *     #checkPersonNamePatterns(CheckAccessor,Set<Modifier>,String,String,XPathParts,String,List<CheckStatus>)}
+     *     instead
+     */
+    @Deprecated
+    public static void checkPersonNamePatterns(
+            CheckAccessor checkAccessor,
+            Set<Modifier> allowedModifiers,
+            String path,
+            XPathParts pathParts,
+            String value,
+            List<CheckStatus> result) {
+        checkPersonNamePatterns(
+                checkAccessor, allowedModifiers, "fr", path, pathParts, value, result);
+    }
+
+    /**
+     * Verify the that personName patterns are clean.
+     *
+     * @param locale TODO
+     * @param path TODO
      */
     public static void checkPersonNamePatterns(
             CheckAccessor checkAccessor,
+            Set<Modifier> allowedModifiers,
+            String locale,
             String path,
             XPathParts pathParts,
             String value,
@@ -333,7 +368,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                             .setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.invalidPlaceHolder)
-                            .setMessage("Invalid placeholder in value: \"" + value + "\""));
+                            .setMessage("Invalid placeholder in value: «" + value + "»"));
             return; // fatal error, don't bother with others
         }
 
@@ -386,6 +421,16 @@ public class CheckPlaceHolders extends CheckCLDR {
                 lastModifiedField = modifiedField;
                 Set<Modifier> modifiers = modifiedField.getModifiers();
                 Field field = modifiedField.getField();
+                if (!allowedModifiers.containsAll(modifiers)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(checkAccessor)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.invalidPlaceHolder)
+                                    .setMessage(
+                                            "Illegal grammatical case modifiers for {0}: {1}",
+                                            locale, Sets.difference(modifiers, allowedModifiers)));
+                }
                 switch (field) {
                     case title:
                     case credentials:
@@ -586,9 +631,9 @@ public class CheckPlaceHolders extends CheckCLDR {
                                     .setMainType(CheckStatus.errorType)
                                     .setSubtype(Subtype.invalidPlaceHolder)
                                     .setMessage(
-                                            "Invalid placeholder (missing terminator) in value \""
+                                            "Invalid placeholder (missing terminator) in value «"
                                                     + value
-                                                    + "\""));
+                                                    + "»"));
                 } else {
                     String placeHolderString =
                             value.substring(startPlaceHolder + 1, endPlaceHolder);

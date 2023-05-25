@@ -153,7 +153,8 @@ public class PersonNameFormatter {
         monogram,
         prefix,
         core,
-        ;
+        vocative,
+        genitive;
         public static final Set<Modifier> INITIALS = ImmutableSet.of(initialCap, initial);
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
@@ -170,6 +171,12 @@ public class PersonNameFormatter {
                 };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
         public static final Set<Modifier> EMPTY = ImmutableSet.of();
+        public static final Set<String> ALL_STRINGS =
+                ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableSet());
+
+        public static final Set<Modifier> GRAMMAR = ImmutableSet.of(vocative, genitive);
+        public static final Set<Modifier> ALL_BUT_GRAMMAR =
+                ImmutableSet.copyOf(Sets.difference(ALL, ImmutableSet.of(vocative, genitive)));
 
         static final Set<Set<Modifier>> INCONSISTENT_SETS =
                 ImmutableSet.of(
@@ -214,6 +221,12 @@ public class PersonNameFormatter {
                                     ? errorMessage1
                                     : errorMessage1 + "; " + errorMessage1;
             return ImmutableSet.copyOf(modifiers);
+        }
+
+        public static Set<Modifier> extractFrom(Collection<String> possibleModifiers) {
+            return Modifier.GRAMMAR.stream()
+                    .filter(x -> possibleModifiers.contains(x.toString()))
+                    .collect(Collectors.toUnmodifiableSet());
         }
 
         /**

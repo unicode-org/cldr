@@ -22,6 +22,11 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Pair;
@@ -67,6 +72,27 @@ public class CheckPlaceHolders extends CheckCLDR {
     private static final ImmutableSet<Modifier> SINGLE_PREFIX = ImmutableSet.of(Modifier.prefix);
     private static final ImmutableSet<Modifier> CORE_AND_PREFIX =
             ImmutableSet.of(Modifier.prefix, Modifier.core);
+
+    private Set<Modifier> allowedModifiers;
+
+    @Override
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        GrammarInfo grammarInfo =
+                CLDRConfig.getInstance()
+                        .getSupplementalDataInfo()
+                        .getGrammarInfo(cldrFileToCheck.getLocaleID());
+        allowedModifiers =
+                grammarInfo == null
+                        ? Modifier.ALL
+                        : Modifier.extractFrom(
+                                grammarInfo.get(
+                                        GrammaticalTarget.nominal,
+                                        GrammaticalFeature.grammaticalCase,
+                                        GrammaticalScope.personNames));
+        return this;
+    }
 
     @Override
     public CheckCLDR handleCheck(
@@ -386,6 +412,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 lastModifiedField = modifiedField;
                 Set<Modifier> modifiers = modifiedField.getModifiers();
                 Field field = modifiedField.getField();
+                checkGrammar(modifiers, result);
                 switch (field) {
                     case title:
                     case credentials:
@@ -569,6 +596,10 @@ public class CheckPlaceHolders extends CheckCLDR {
                 }
             }
         }
+    }
+
+    private void checkGrammar(Set<Modifier> modifiers, List<CheckStatus> result) {
+        if (!allowedGrammarModifiers.contains()) {}
     }
 
     /** Check that {\d+} placeholders are ok; no unterminated, only digits */

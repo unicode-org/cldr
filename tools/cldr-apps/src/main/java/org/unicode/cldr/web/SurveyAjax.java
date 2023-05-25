@@ -643,6 +643,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
+                        CookieSession.sm.getSTFactory().setupDB();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
                         String confirmList = request.getParameter("confirmList");
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
@@ -1873,7 +1874,7 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param newVotesTable
      * @param locale
-     * @param id
+     * @param id the user ID
      * @return the array of maps
      * @throws SQLException
      * @throws IOException
@@ -1958,7 +1959,23 @@ public class SurveyAjax extends HttpServlet {
             args[i] = locale; // one for each locale=? in the query
             args[i + 1] = id; // one for each submitter=? in the query
         }
-        return DBUtils.queryToArrayAssoc(sql, args);
+        Map<String, Object>[] rows = DBUtils.queryToArrayAssoc(sql, args);
+        return filterDowngradePaths(rows);
+    }
+
+    private static Map<String, Object>[] filterDowngradePaths(Map<String, Object>[] rows) {
+        ArrayList<Map<String, Object>> al = new ArrayList<>();
+        for (Map<String, Object> m : rows) {
+            int xp = (Integer) m.get("xpath");
+            Object obj = m.get("value");
+            String value = (obj == null) ? null : obj.toString();
+            String xpathString = CookieSession.sm.xpt.getById(xp);
+            String loc = m.get("locale").toString();
+            if (!DowngradePaths.lookingAt(loc, xpathString, value)) {
+                al.add(m);
+            }
+        }
+        return al.toArray(new Map[0]);
     }
 
     /**
@@ -1992,7 +2009,7 @@ public class SurveyAjax extends HttpServlet {
             return;
         }
         alreadyAutoImportedVotes(user.id, "set");
-
+        CookieSession.sm.getSTFactory().setupDB();
         final String newVotesTable =
                 DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or
         // "cldr_vote_value_34_beta"
@@ -2140,7 +2157,8 @@ public class SurveyAjax extends HttpServlet {
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
             String loc = m.get("locale").toString();
-            if (skipLocForImportingVotes(loc)) {
+            if (skipLocForImportingVotes(loc)
+                    || DowngradePaths.lookingAt(loc, xpathString, value)) {
                 continue;
             }
             CLDRLocale locale = CLDRLocale.getInstance(loc);

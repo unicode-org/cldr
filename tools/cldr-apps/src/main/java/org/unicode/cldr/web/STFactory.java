@@ -1861,7 +1861,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         + " WHERE locale = ?");
     }
 
-    private synchronized void setupDB() {
+    public synchronized void setupDB() {
         if (dbIsSetup) return;
         dbIsSetup = true; // don't thrash.
         String sql = "(none)"; // this points to

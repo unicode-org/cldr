@@ -526,6 +526,10 @@ Cldr    ; sa ; basic ; Sanskrit
 Cldr    ; doi ; basic ; Dogri
 #Cldr    ; nv ; basic ; Navajo
 
+#Cldr other (from Microsoft)
+Cldr  ;	qu	;	moderate	;	Quechua
+Cldr  ; sr_BA ; modern  ; Serbian (Cyrillic, Bosnia & Herzegovina)
+
 #Cldr other (high coverage locales)
 
 Cldr  ; hsb ; modern ; Upper Sorbian
@@ -625,27 +629,29 @@ Microsoft	;	en_AU	;	modern	;	English (Australia)
 Microsoft	;	en_CA	;	modern	;	English (Canada)
 Microsoft	;	en_GB	;	modern	;	English (UK)
 Microsoft	;	en_IN	;	modern	;	English (India)
-Microsoft	;	es_419	;	modern	;   English (LA America) # added explicitly (was implicit before; parent of es_MX)
+Microsoft	;	es	;	modern	;	Spanish (Spain)
+Microsoft	;	es_419	;	modern	;   Spanish (Latam)
 Microsoft	;	es_MX	;	modern	;	Spanish (Mexico)
 Microsoft	;	es_US	;	modern	;	Spanish (US)
-Microsoft	;	fr_CA	;	modern	;	French (Canada)
-Microsoft	;	es	;	modern	;	Spanish
 Microsoft	;	et	;	modern	;	Estonian
 Microsoft	;	eu	;	modern	;	Basque
 Microsoft	;	fa	;	modern	;	Persian
 Microsoft	;	fi	;	modern	;	Finnish
 Microsoft	;	fil	;	modern	;	Filipino
 Microsoft	;	fr	;	modern	;	French
+Microsoft	;	fr_CA	;	modern	;	French (Canada)
 Microsoft	;	ga	;	modern	;	Irish
 Microsoft	;	gd	;	modern	;	Scottish Gaelic
 Microsoft	;	gl	;	modern	;	Galician
 Microsoft	;	gu	;	modern	;	Gujarati
+Microsoft ; ha  ; basic   ; Hausa
 Microsoft	;	he	;	modern	;	Hebrew
 Microsoft	;	hi	;	modern	;	Hindi
 Microsoft	;	hr	;	modern	;	Croatian
 Microsoft	;	hu	;	modern	;	Hungarian
 Microsoft	;	hy	;	modern	;	Armenian
 Microsoft	;	id	;	modern	;	Indonesian
+Microsoft ; ig  ; basic   ; Igbo
 Microsoft	;	is	;	modern	;	Icelandic
 Microsoft	;	it	;	modern	;	Italian
 Microsoft	;	ja	;	modern	;	Japanese
@@ -659,6 +665,7 @@ Microsoft	;	ky	;	modern	;	Kyrgyz
 Microsoft	;	lo	;	modern	;	Lao
 Microsoft	;	lt	;	modern	;	Lithuanian
 Microsoft	;	lv	;	modern	;	Latvian
+Microsoft	;	mi	;	basic	;	Māori
 Microsoft	;	mk	;	modern	;	Macedonian
 Microsoft	;	ml	;	modern	;	Malayalam
 Microsoft	;	mn	;	modern	;	Mongolian
@@ -666,14 +673,15 @@ Microsoft	;	mr	;	modern	;	Marathi
 Microsoft	;	ms	;	modern	;	Malay
 Microsoft	;	ne	;	modern	;	Nepali
 Microsoft	;	nl	;	modern	;	Dutch
-Microsoft	;	no	;	modern	;	Norwegian
+Microsoft	;	no	;	modern	;	Norwegian, Bokmål (Norway)
+Microsoft ; nn  ; moderate  ; Norwegian, Nynorsk (Norway)
 Microsoft	;	or	;	modern	;	Odia
 Microsoft	;	pa	;	modern	;	Punjabi
 Microsoft	;	pl	;	modern	;	Polish
 Microsoft	;	ps	;	modern	;	Pashto
 Microsoft	;	pt	;	modern	;	Portuguese (Brazil)
 Microsoft	;	pt_PT	;	modern	;	Portuguese (Portugal)
-Microsoft	;	qu	;	modern	;	Quechua
+Microsoft	;	qu	;	moderate	;	Quechua
 Microsoft	;	ro	;	modern	;	Romanian
 Microsoft	;	ru	;	modern	;	Russian
 Microsoft	;	sd	;	modern	;	Sindhi
@@ -682,30 +690,27 @@ Microsoft	;	sk	;	modern	;	Slovak
 Microsoft	;	sl	;	modern	;	Slovenian
 Microsoft	;	sq	;	modern	;	Albanian
 Microsoft	;	sr	;	modern	;	Serbian
+Microsoft ; sr_BA ; modern  ; Serbian (Cyrillic, Bosnia & Herzegovina)
 Microsoft	;	sv	;	modern	;	Swedish
 Microsoft	;	sw	;	modern	;	Swahili
 Microsoft	;	ta	;	modern	;	Tamil
 Microsoft	;	te	;	modern	;	Telugu
+Microsoft	;	tg	;	basic	;	Tajik
 Microsoft	;	th	;	modern	;	Thai
+Microsoft	;	ti	;	modern	;	Tigrinya
+Microsoft	;	tk	;	modern	;	Turkmen
 Microsoft	;	tr	;	modern	;	Turkish
+Microsoft	;	tt	;	basic	;	Tatar
 Microsoft	;	uk	;	modern	;	Ukrainian
 Microsoft	;	ur	;	modern	;	Urdu
 Microsoft	;	uz	;	modern	;	Uzbek
 Microsoft	;	vi	;	modern	;	Vietnamese
+Microsoft	;	wo	;	basic	;	Wolof
+Microsoft	;	yo	;	basic	;	Yoruba
 Microsoft	;	zh	;	modern	;	Chinese (Simplified)
 Microsoft	;	zh_Hant	;	modern	;	Chinese (Traditional)
 Microsoft	;	zh_Hant_HK	;	modern	;	Chinese (Traditional, Hong Kong)
-Microsoft	;	zu	;	modern	;	Zulu
-Microsoft	;	ig	;	basic	;	Igbo
-Microsoft	;	nn	;	moderate	;	Norwegian Nynorsk
-Microsoft	;	tk	;	modern	;	Turkmen
-Microsoft	;	ha	;	basic	;	Hausa
-Microsoft	;	mi	;	basic	;	Māori
-Microsoft	;	ti	;	basic	;	Tigrinya
-Microsoft	;	tg	;	basic	;	Tajik
-Microsoft	;	tt	;	basic	;	Tatar
-Microsoft	;	wo	;	basic	;	Wolof
-Microsoft	;	yo	;	basic	;	Yoruba
+Microsoft	;	zu  ;	modern	;	Zulu
 Microsoft ; * ; moderate ; All Others, provisionally
 
 Pakistan	;	ur	;	modern	;	Urdu

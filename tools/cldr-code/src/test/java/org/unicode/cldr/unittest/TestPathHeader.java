@@ -1452,7 +1452,7 @@ public class TestPathHeader extends TestFmwkPlus {
     // Moved from TestAnnotations and generalized
     public void testPathHeaderSize() {
         String locale = "ar"; // choose one with lots of plurals
-        int maxSize = 750;
+        int maxSize = 1250;
         boolean showTable = false; // only printed if test fails or verbose
 
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();

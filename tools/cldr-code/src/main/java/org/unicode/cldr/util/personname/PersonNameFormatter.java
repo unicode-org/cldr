@@ -46,9 +46,14 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
@@ -153,7 +158,8 @@ public class PersonNameFormatter {
         monogram,
         prefix,
         core,
-        ;
+        vocative,
+        genitive;
         public static final Set<Modifier> INITIALS = ImmutableSet.of(initialCap, initial);
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
@@ -170,6 +176,12 @@ public class PersonNameFormatter {
                 };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
         public static final Set<Modifier> EMPTY = ImmutableSet.of();
+        public static final Set<String> ALL_STRINGS =
+                ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableSet());
+
+        public static final Set<Modifier> GRAMMAR = ImmutableSet.of(vocative, genitive);
+        public static final Set<Modifier> NON_GRAMMAR =
+                ImmutableSet.copyOf(Sets.difference(ALL, ImmutableSet.of(vocative, genitive)));
 
         static final Set<Set<Modifier>> INCONSISTENT_SETS =
                 ImmutableSet.of(
@@ -217,6 +229,21 @@ public class PersonNameFormatter {
         }
 
         /**
+         * Extracts grammar modifiers and adds to non-grammar modifiers
+         *
+         * @param allGrammarForLocale
+         * @return
+         */
+        public static Set<Modifier> extractFrom(Collection<String> allGrammarForLocale) {
+            return ImmutableSet.copyOf(
+                    Sets.union(
+                            Modifier.NON_GRAMMAR,
+                            Modifier.GRAMMAR.stream()
+                                    .filter(x -> allGrammarForLocale.contains(x.toString()))
+                                    .collect(Collectors.toSet())));
+        }
+
+        /**
          * Verifies that the prefix, core, and plain values are consistent. Returns null if ok,
          * otherwise error message.
          */
@@ -242,6 +269,18 @@ public class PersonNameFormatter {
                         "There is no -prefix, but there is a -core and plain that are unequal";
             }
             return errorMessage2;
+        }
+
+        public static Set<Modifier> getAllowedModifiers(String locale) {
+            GrammarInfo grammarInfo =
+                    CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(locale);
+            return grammarInfo == null
+                    ? Modifier.ALL
+                    : Modifier.extractFrom(
+                            grammarInfo.get(
+                                    GrammaticalTarget.nominal,
+                                    GrammaticalFeature.grammaticalCase,
+                                    GrammaticalScope.personNames));
         }
     }
 
@@ -615,6 +654,16 @@ public class PersonNameFormatter {
                     case core:
                     case informal:
                         // no option, just fall back
+                        break;
+                        // WARNING The following fallbacks are ONLY for the examples in CLDR, not
+                        // for production software
+                    case genitive:
+                        bestValue = bestValue + "ᵍ";
+                        break;
+                    case vocative:
+                        bestValue = bestValue + "ᵛ";
+                        break;
+                    default:
                         break;
                 }
             }

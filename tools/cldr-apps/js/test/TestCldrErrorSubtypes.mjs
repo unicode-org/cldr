@@ -27,7 +27,7 @@ describe("cldrErrorSubtypes.getHtml", function () {
       {
         names: ["displayCollision"],
         strings: ["display collision"],
-        url: "https://cldr.unicode.org/translation/unique-translations",
+        url: "https://cldr.unicode.org/translation/characters/short-names-and-keywords#h.4a8wthj27m74",
         status: 200,
       },
     ],

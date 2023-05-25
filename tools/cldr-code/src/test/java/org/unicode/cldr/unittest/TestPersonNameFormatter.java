@@ -71,6 +71,8 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
+import static org.unicode.cldr.util.personname.PersonNameFormatter.Modifier.retain;
+
 public class TestPersonNameFormatter extends TestFmwk {
 
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
@@ -731,6 +733,10 @@ public class TestPersonNameFormatter extends TestFmwk {
                     break;
                 case initial:
                     expected = "v.B.";
+                    break;
+                case retain:
+                    // "retain" is a no-op except when used in conjunction with "initial"
+                    expected = "van Berk";
                     break;
                 case initialCap:
                     expected = "Van Berk";
@@ -1616,5 +1622,28 @@ public class TestPersonNameFormatter extends TestFmwk {
             String flattened = Joiner.on("|").join(statusList);
             assertEquals(path + "=" + value, expected, flattened);
         }
+    }
+
+    public void TestRetainModifier() {
+        NameObject testName =
+                SimpleNameObject.from("locale=fr, given=Jean-Michel, surname=Basquiat");
+        FallbackFormatter fallbackFormatter =
+                new FallbackFormatter(ULocale.ENGLISH, "{0}.", "{0} {1}", null, null, null, false);
+
+        FormatParameters parameters = FormatParameters.from("length=medium; formality=formal");
+        NamePattern namePattern;
+        String actual;
+
+        namePattern = NamePattern.from(0, "{given} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("Sanity check", "Jean-Michel Basquiat", actual);
+
+        namePattern = NamePattern.from(0, "{given-initial} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("given-initial", "J. M. Basquiat", actual);
+
+        namePattern = NamePattern.from(0, "{given-initial-retain} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("given-initial-retain", "J.-M. Basquiat", actual);
     }
 }

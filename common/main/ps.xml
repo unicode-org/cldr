@@ -6600,9 +6600,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} کيلريز</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>کيلريز</displayName>
-				<unitPattern count="one">{0} کيلري</unitPattern>
-				<unitPattern count="other">{0} کيلريز</unitPattern>
+				<displayName draft="provisional">کيلريز</displayName>
+				<unitPattern count="one" draft="provisional">{0} کيلري</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} کيلريز</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>کيلو جولز</displayName>
@@ -6695,19 +6695,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0} ppcm</unitPattern>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName draft="provisional">dpcm</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppi</displayName>
-				<unitPattern count="one">{0} ppi</unitPattern>
-				<unitPattern count="other">{0} ppi</unitPattern>
+				<displayName draft="provisional">ppi</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppi</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>px</displayName>
-				<unitPattern count="one">{0} px</unitPattern>
-				<unitPattern count="other">{0} px</unitPattern>
+				<displayName draft="provisional">px</displayName>
+				<unitPattern count="one" draft="provisional">{0} px</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>
@@ -7651,9 +7651,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>Cal</displayName>
-				<unitPattern count="one">{0} Cal</unitPattern>
-				<unitPattern count="other">{0} Cal</unitPattern>
+				<displayName draft="provisional">Cal</displayName>
+				<unitPattern count="one" draft="provisional">{0} Cal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>کيلو جول</displayName>
@@ -7746,19 +7746,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="one">{0} ppcm</unitPattern>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName draft="provisional">dpcm</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppi</displayName>
-				<unitPattern count="one">{0} ppi</unitPattern>
-				<unitPattern count="other">{0} ppi</unitPattern>
+				<displayName draft="provisional">ppi</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppi</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>px</displayName>
-				<unitPattern count="one">{0} px</unitPattern>
-				<unitPattern count="other">{0} px</unitPattern>
+				<displayName draft="provisional">px</displayName>
+				<unitPattern count="one" draft="provisional">{0} px</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} px</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -8949,153 +8949,153 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{given-monogram-allCaps}.{given2-monogram-allCaps}.{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern>{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">{surname-monogram-allCaps}.{given-monogram-allCaps}.{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given">سنباد</nameField>
+			<nameField type="given" draft="provisional">سنباد</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given">ارین</nameField>
-			<nameField type="surname">اډلر</nameField>
+			<nameField type="given" draft="provisional">ارین</nameField>
+			<nameField type="surname" draft="provisional">اډلر</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given">جان</nameField>
-			<nameField type="given2">همیش</nameField>
-			<nameField type="surname">واټسن</nameField>
+			<nameField type="given" draft="provisional">جان</nameField>
+			<nameField type="given2" draft="provisional">همیش</nameField>
+			<nameField type="surname" draft="provisional">واټسن</nameField>
 		</sampleName>
 		<sampleName item="nativeFull">
-			<nameField type="title">ښاغلی.</nameField>
-			<nameField type="given">برټرام ولبرفورس</nameField>
-			<nameField type="given-informal">برټي</nameField>
-			<nameField type="given2">هنري رابرټ</nameField>
-			<nameField type="surname-prefix">∅∅∅</nameField>
-			<nameField type="surname-core">ووسټر</nameField>
-			<nameField type="surname2">∅∅∅</nameField>
-			<nameField type="generation">نسل</nameField>
-			<nameField type="credentials">ایم پی</nameField>
+			<nameField type="title" draft="provisional">ښاغلی.</nameField>
+			<nameField type="given" draft="provisional">برټرام ولبرفورس</nameField>
+			<nameField type="given-informal" draft="provisional">برټي</nameField>
+			<nameField type="given2" draft="provisional">هنري رابرټ</nameField>
+			<nameField type="surname-prefix" draft="provisional">∅∅∅</nameField>
+			<nameField type="surname-core" draft="provisional">ووسټر</nameField>
+			<nameField type="surname2" draft="provisional">∅∅∅</nameField>
+			<nameField type="generation" draft="provisional">نسل</nameField>
+			<nameField type="credentials" draft="provisional">ایم پی</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
 			<nameField type="given">سنباد</nameField>

@@ -155,6 +155,7 @@ public class PersonNameFormatter {
         allCaps,
         initialCap,
         initial,
+        retain,
         monogram,
         prefix,
         core,
@@ -559,6 +560,7 @@ public class PersonNameFormatter {
         private final String formatterLanguage;
         private final String formatterScript;
         private final BreakIterator characterBreakIterator;
+        private final BreakIterator wordBreakIterator;
         private final MessageFormat initialFormatter;
         private final MessageFormat initialSequenceFormatter;
         private final String foreignSpaceReplacement;
@@ -585,6 +587,7 @@ public class PersonNameFormatter {
             formatterLanguage = ltp.getLanguage();
             formatterScript = ltp.getScript();
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
+            wordBreakIterator = BreakIterator.getWordInstance();
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
             this.foreignSpaceReplacement =
@@ -633,7 +636,12 @@ public class PersonNameFormatter {
             for (Modifier modifier : remainingModifers) {
                 switch (modifier) {
                     case initial:
-                        bestValue = formatInitial(bestValue, nameFormatParameters);
+                        boolean retainPunctuation = remainingModifers.contains(Modifier.retain);
+                        bestValue =
+                                formatInitial(bestValue, nameFormatParameters, retainPunctuation);
+                        break;
+                    case retain:
+                        // do nothing-- this is handled by "initial" above
                         break;
                     case monogram:
                         bestValue = formatMonogram(bestValue, nameFormatParameters);
@@ -674,21 +682,46 @@ public class PersonNameFormatter {
                     : bestValue;
         }
 
-        public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
+        public String formatInitial(
+                String bestValue,
+                FormatParameters nameFormatParameters,
+                boolean retainPunctuation) {
             // It is probably unusual to have multiple name fields, so this could be optimized for
             // the simpler case.
 
             // Employ both the initialFormatter and initialSequenceFormatter
 
             String result = null;
-            for (String part : SPLIT_SPACE.split(bestValue)) {
-                String partFirst = getFirstGrapheme(part);
-                bestValue = initialFormatter.format(new String[] {partFirst});
-                if (result == null) {
-                    result = bestValue;
-                } else {
-                    result = initialSequenceFormatter.format(new String[] {result, bestValue});
+            String separator = null;
+            wordBreakIterator.setText(bestValue);
+            int lastBound = wordBreakIterator.first();
+            int curBound = wordBreakIterator.next();
+            while (curBound != BreakIterator.DONE) {
+                String part = bestValue.substring(lastBound, curBound);
+                if (Character.isLetter(part.codePointAt(0))) {
+                    String partFirst = getFirstGrapheme(part);
+                    String partFormatted = initialFormatter.format(new String[] {partFirst});
+                    if (separator != null) {
+                        if (result == null) {
+                            result = "";
+                        }
+                        result = result + separator + partFormatted;
+                    } else if (result == null) {
+                        result = partFormatted;
+                    } else {
+                        result =
+                                initialSequenceFormatter.format(
+                                        new String[] {result, partFormatted});
+                    }
+                } else if (retainPunctuation && !Character.isWhitespace(part.codePointAt(0))) {
+                    if (separator == null) {
+                        separator = part;
+                    } else {
+                        separator = separator + part;
+                    }
                 }
+                lastBound = curBound;
+                curBound = wordBreakIterator.next();
             }
             return result;
         }

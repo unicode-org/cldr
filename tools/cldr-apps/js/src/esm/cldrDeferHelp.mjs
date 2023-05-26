@@ -49,6 +49,10 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
 }
 
 function linkifyHttpsUrls(text) {
+  // TODO: obviate this method; reference: https://unicode-org.atlassian.net/browse/CLDR-15708
+  if (text.includes("href")) {
+    return text; // if it's already linkified, don't mess it up
+  }
   const regex = /\b(https:\/\/\S+)/g;
   const s = text.replace(regex, "<a target='_blank' href='$1'>$1</a>");
   // In principle, a URL can end in a period;

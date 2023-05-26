@@ -142,12 +142,16 @@ const strings = {
   admin_users_action_kick_desc: "Logout this user",
 
   // pClass ( see DataPage.java)
-  pClass_winner: "This item is currently winning.",
-  pClass_alias: "This item is aliased from another location.",
-  pClass_fallback_code: "This item is an untranslated code.",
-  pClass_fallback_root: "This item is inherited from the root locale.",
-  pClass_loser: "This item is currently losing.",
-  pClass_fallback: "This item is inherited.",
+  item_description_winner: "This item is currently winning.",
+  item_description_alias_same_locale:
+    "This item is inherited from another field in this locale.",
+  item_description_alias_diff_locale:
+    "This item is inherited from another field in the ${0} locale.",
+  item_description_fallback_code: "This item is an untranslated code.",
+  item_description_fallback_root:
+    "This item is inherited from the root locale.",
+  item_description_loser: "This item is currently losing.",
+  item_description_fallback: "This item is inherited from the ${0} locale.",
   pClassExplain_desc: "This area shows the item's status.",
   followAlias: "Jump to Original ⇒",
   noFollowAlias: "This item is constructed from other values.",

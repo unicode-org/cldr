@@ -2,35 +2,35 @@
   <div>
     <section id="InfoPanelSection">
       <header class="sidebyside-column-top">
-        <a-button
-          shape="circle"
+        <button
           class="cldr-nav-btn info-panel-closebox"
-          title="Close"
+          title="Close the Info Panel"
           @click="closeInfoPanel"
         >
           ✕
-        </a-button>
-        <a-button
-          shape="circle"
+        </button>
+        <button
           class="cldr-nav-btn"
-          title="Reload"
+          title="Reload the Info Panel"
           @click="reloadInfoPanel"
         >
           ↻
-        </a-button>
+        </button>
         <span class="i-am-info-panel">Info Panel</span>
-        <a-button
-          v-if="locale && id"
-          shape="circle"
-          class="cldr-nav-btn"
-          title="Explain"
-          @click="explain"
-        >
-          ↑
-        </a-button>
+        <span class="explainer">
+          <a-button
+            v-if="locale && id"
+            shape="circle"
+            class="cldr-nav-btn"
+            title="Explain inheritance for this item"
+            @click="explain"
+          >
+            ↑
+          </a-button>
+          <InheritanceExplainer ref="inheritanceExplainer" />
+        </span>
       </header>
     </section>
-    <InheritanceExplainer ref="inheritanceExplainer" />
   </div>
 </template>
 
@@ -99,5 +99,10 @@ header {
   font-weight: bold;
   margin-right: 1ex;
   flex-grow: 1;
+}
+
+.explainer {
+  margin-left: auto !important;
+  margin-right: 1ex;
 }
 </style>

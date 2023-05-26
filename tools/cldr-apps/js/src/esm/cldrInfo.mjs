@@ -795,16 +795,9 @@ function showItemInfoFn(theRow, item) {
     td.appendChild(h3);
 
     if (item.value) {
-      /*
-       * Strings produced here, used as keys for cldrText.sub(), may include:
-       *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
-       *  See getPClass in DataPage.java.
-       *
-       *  TODO: why not show stars, etc., here?
-       */
       h3.appendChild(
         cldrDom.createChunk(
-          cldrText.sub("pClass_" + item.pClass, item),
+          getItemDescription(item.pClass, theRow.inheritedLocale),
           "p",
           "pClassExplain"
         )
@@ -828,6 +821,28 @@ function showItemInfoFn(theRow, item) {
       cldrTable.appendExample(td, item.example);
     }
   }; // end function(td)
+}
+
+function getItemDescription(itemClass, inheritedLocale) {
+  /*
+   * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
+   *  See getPClass in DataPage.java.*
+   */
+  if (itemClass === "fallback") {
+    const locName = cldrLoad.getLocaleName(inheritedLocale);
+    return cldrText.sub("item_description_fallback", [locName]);
+  } else if (itemClass === "alias") {
+    if (inheritedLocale === cldrStatus.getCurrentLocale()) {
+      return cldrText.get("item_description_alias_same_locale");
+    } else {
+      const locName = cldrLoad.getLocaleName(inheritedLocale);
+      return cldrText.sub("item_description_alias_diff_locale", [locName]);
+    }
+  } else {
+    // Strings produced here, used as keys for cldrText.get(), may include:
+    // "item_description_winner", "item_description_fallback_code", "item_description_fallback_root", "item_description_loser".
+    return cldrText.get("item_description_" + itemClass);
+  }
 }
 
 /**

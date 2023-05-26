@@ -30,18 +30,19 @@
             <span class="reason" v-if="showReason">{{
               getReason(reason, attribute)
             }}</span>
-            <!-- show the Go button, only if we have locale AND xpath. Hide if we're already there.  -->
-            <a-button
-              size="small"
-              shape="round"
+            &nbsp;
+            <!-- show the Jump button, only if we have locale AND xpath. Hide if we're already there.  -->
+            <button
+              class="cldr-nav-btn"
               v-if="
                 locale &&
                 xpath &&
                 (locale != currentLocale || xpath != currentId)
               "
               @click="go(locale, xpath)"
-              >Jump</a-button
             >
+              Jump
+            </button>
           </p>
           <!-- only show on change -->
           <div v-if="newXpath" class="xpath">
@@ -49,6 +50,13 @@
           </div>
         </a-timeline-item>
       </a-timeline>
+      <button
+        class="cldr-nav-btn"
+        title="Close the Inheritance Explainer"
+        @click="closeInheritanceExplainer"
+      >
+        Close
+      </button>
     </template>
   </a-popover>
 </template>
@@ -143,6 +151,9 @@ export default {
     getReason(reason, attribute) {
       const r = this.reasons[reason].description || reason;
       return cldrText.subTemplate(r, { attribute });
+    },
+    closeInheritanceExplainer() {
+      this.visible = false;
     },
   },
 };

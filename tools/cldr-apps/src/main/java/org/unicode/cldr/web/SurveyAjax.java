@@ -1898,7 +1898,7 @@ public class SurveyAjax extends HttpServlet {
         while (--ver >= oldestVersionForImportingVotes) {
             String oldVotesTable =
                     DBUtils.Table.VOTE_VALUE
-                            .forVersion(Integer.valueOf(newVer).toString(), false)
+                            .forVersion(Integer.valueOf(ver).toString(), false)
                             .toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 if (!sql.isEmpty()) {
@@ -1960,18 +1960,18 @@ public class SurveyAjax extends HttpServlet {
             args[i + 1] = id; // one for each submitter=? in the query
         }
         Map<String, Object>[] rows = DBUtils.queryToArrayAssoc(sql, args);
-        return filterDowngradePaths(rows);
+        return filterDowngradePaths(rows, locale.getBaseName());
     }
 
-    private static Map<String, Object>[] filterDowngradePaths(Map<String, Object>[] rows) {
+    private static Map<String, Object>[] filterDowngradePaths(
+            Map<String, Object>[] rows, String localeId) {
         ArrayList<Map<String, Object>> al = new ArrayList<>();
         for (Map<String, Object> m : rows) {
             int xp = (Integer) m.get("xpath");
             Object obj = m.get("value");
             String value = (obj == null) ? null : obj.toString();
             String xpathString = CookieSession.sm.xpt.getById(xp);
-            String loc = m.get("locale").toString();
-            if (!DowngradePaths.lookingAt(loc, xpathString, value)) {
+            if (!DowngradePaths.lookingAt(localeId, xpathString, value)) {
                 al.add(m);
             }
         }

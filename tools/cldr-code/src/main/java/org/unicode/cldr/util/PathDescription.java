@@ -8,13 +8,11 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 
 public class PathDescription {
     /** Remember to quote any [ character! */
@@ -371,6 +369,11 @@ public class PathDescription {
                     + RegexLookup.SEPARATOR
                     + "[ICU Syntax] Special pattern used to compose plural for {1} forms of “{2}”. Note: before translating, be sure to read "
                     + CLDRURLS.PLURALS_HELP
+                    + ".\n"
+                    + "^//ldml/units/unitLength\\[@type=\"([^\"]*)\"]/unit\\[@type=\"([^\"]*)\"]/gender"
+                    + RegexLookup.SEPARATOR
+                    + "Gender ({1} form) for “{2}”. Note: before translating, be sure to read "
+                    + CLDRURLS.GRAMMATICAL_INFLECTION
                     + ".\n"
                     + "^//ldml/units/unitLength\\[@type=\"([^\"]*)\"]/unit\\[@type=\"([^\"]*)\"]/perUnitPattern"
                     + RegexLookup.SEPARATOR
@@ -873,7 +876,6 @@ public class PathDescription {
     // used on instance
 
     private final Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
-    private String starredPathOutput;
     private final Output<String[]> pathArguments = new Output<>();
     private final EnumSet<Status> status = EnumSet.noneOf(Status.class);
 
@@ -891,10 +893,6 @@ public class PathDescription {
         this.starredPaths = starredPaths == null ? new HashMap<>() : starredPaths;
         allMetazones = supplementalDataInfo.getAllMetazones();
         this.errorHandling = errorHandling;
-    }
-
-    public String getStarredPathOutput() {
-        return starredPathOutput;
     }
 
     public EnumSet<Status> getStatus() {
@@ -1025,32 +1023,6 @@ public class PathDescription {
         return description;
     }
 
-    /**
-     * Creates an escaped HTML string of placeholder information.
-     *
-     * @param path the xpath to specify placeholder information for
-     * @return a HTML string, or an empty string if there was no placeholder information
-     */
-    public String getPlaceholderDescription(String path) {
-        Map<String, PlaceholderInfo> placeholders = PatternPlaceholders.getInstance().get(path);
-        if (placeholders != null && placeholders.size() > 0) {
-            StringBuilder buffer = new StringBuilder();
-            buffer.append("<table>");
-            buffer.append("<tr><th>Placeholder</th><th>Meaning</th><th>Example</th></tr>");
-            for (Entry<String, PlaceholderInfo> entry : placeholders.entrySet()) {
-                PlaceholderInfo info = entry.getValue();
-                buffer.append("<tr>");
-                buffer.append("<td>").append(entry.getKey()).append("</td>");
-                buffer.append("<td>").append(info.name).append("</td>");
-                buffer.append("<td>").append(info.example).append("</td>");
-                buffer.append("</tr>");
-            }
-            buffer.append("</table>");
-            return buffer.toString();
-        }
-        return "";
-    }
-
     private static boolean isRootCode(
             String code, Set<String> allMetazones, String type, boolean isMetazone) {
         Set<String> codes =
@@ -1083,7 +1055,6 @@ public class PathDescription {
         }
         starredPath.append(path.substring(lastEnd));
         String starredPathString = starredPath.toString().intern();
-        starredPathOutput = starredPathString;
 
         List<Set<String>> attributeList =
                 starredPaths.computeIfAbsent(starredPathString, k -> new ArrayList<>());

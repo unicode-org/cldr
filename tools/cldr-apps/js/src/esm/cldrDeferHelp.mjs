@@ -8,6 +8,9 @@ const abstractLang = "en";
 const USELESS_IN_INFO_PANEL = "see info panel";
 
 function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
+  if (helpHtml) {
+    helpHtml = linkifyHttpsUrls(helpHtml);
+  }
   // Always have help (if available).
   const theHelp = $("<div/>", {
     class: "alert alert-info fix-popover-help",
@@ -43,6 +46,16 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
   }
 
   $(fragment).append(theHelp);
+}
+
+function linkifyHttpsUrls(text) {
+  const regex = /\b(https:\/\/\S+)/g;
+  const s = text.replace(regex, "<a target='_blank' href='$1'>$1</a>");
+  // In principle, a URL can end in a period;
+  // in practice, a final period in PathDescription.java is not part of the URL
+  const periodQuoteEndBracketRegex = /\.'>/g;
+  const quoteEndBracket = "'>";
+  return s.replace(periodQuoteEndBracketRegex, quoteEndBracket);
 }
 
 function subloadAbstract(resource) {

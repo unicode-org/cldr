@@ -853,8 +853,22 @@ public class DataPage {
                 String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
                 if (ourVote != null) {
                     CandidateItem voteItem = items.get(ourVote);
+                    if (voteItem == null) {
+                        // inherited value matches inheritance marker and vice-versa
+                        if (ourVote.equals(inheritedValue)) {
+                            voteItem = items.get(CldrUtility.INHERITANCE_MARKER);
+                        } else if (ourVote.equals(CldrUtility.INHERITANCE_MARKER)) {
+                            voteItem = items.get(inheritedValue);
+                        }
+                    }
                     if (voteItem != null) {
                         voteVhash = voteItem.getValueHash();
+                    } else {
+                        logger.severe(
+                                "Found ourVote = "
+                                        + ourVote
+                                        + " but did not find voteItem for xpath = "
+                                        + xpath);
                     }
                 }
             }

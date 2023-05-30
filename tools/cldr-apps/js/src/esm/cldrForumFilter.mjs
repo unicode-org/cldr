@@ -20,6 +20,11 @@ const filters = [
     keepCount: true,
   },
   { name: "Open discussions", func: passIfOpenDiscuss, keepCount: true },
+  {
+    name: "Open topics without responses",
+    func: passIfOpenWithoutResponse,
+    keepCount: true,
+  },
   { name: "All topics", func: passAll, keepCount: false },
 ];
 
@@ -315,6 +320,17 @@ function getRootPost(threadPosts) {
     return null;
   }
   return threadPosts[threadPosts.length - 1];
+}
+
+/**
+ * Is the thread with the given array of posts open, and without any responses?
+ *
+ * @param {Array} threadPosts the array of posts in the thread
+ * @return {Boolean} true if it passes (open and without responses), else false
+ */
+function passIfOpenWithoutResponse(threadPosts) {
+  const rootPost = getRootPost(threadPosts);
+  return rootPost?.open && threadPosts.length === 1;
 }
 
 export { createMenu, getFilteredThreadCounts, getFilteredThreadIds, setUserId };

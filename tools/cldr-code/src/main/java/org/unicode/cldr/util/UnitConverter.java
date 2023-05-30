@@ -1658,15 +1658,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public Rational convert(
-            Rational sourceValue,
-            String sourceUnit,
+            final Rational sourceValue,
+            final String sourceUnitIn,
             final String targetUnit,
             boolean showYourWork) {
         if (showYourWork) {
             System.out.println(
-                    showRational("\nconvert:\t", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
+                    showRational("\nconvert:\t", sourceValue, sourceUnitIn) + " ⟹ " + targetUnit);
         }
-        sourceUnit = fixDenormalized(sourceUnit);
+        final String sourceUnit = fixDenormalized(sourceUnitIn);
         Output<String> sourceBase = new Output<>();
         Output<String> targetBase = new Output<>();
         ConversionInfo sourceConversionInfo = parseUnitId(sourceUnit, sourceBase, showYourWork);

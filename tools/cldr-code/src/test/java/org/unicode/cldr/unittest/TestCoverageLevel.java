@@ -512,7 +512,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "oj|osa|ota|"
                                 + "pal|pap|pcd|pd[ct]|peo|pfl|phn|pi|pms|pnt|pon|pro|"
                                 + "qug|"
-                                + "raj|rgn|rif|rom|rtm|ru[eg]|"
+                                + "ra[jpr]|rgn|rif|rom|rtm|ru[eg]|"
                                 + "sa[msz]|sbp|sd[ch]|se[eil]|sg[as]|shu?|sid|sl[iy]|sog|srr|stq|su[sx]|syc|szl|"
                                 + "tcy|ter|tiv|tk[lr]|tl[iy]?|tmh|tog|tpi|tru|ts[di]|ttt|tw|"
                                 + "uga|"
@@ -527,7 +527,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "cho|li|moh|nso|sw_CD|srn|lad|ve|gaa|pam|ale|sma|sba|lua|kha|sc|nv|men|cv|quc|pap|bla|"
                                 + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
                                 + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
-                                + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
+                                + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|bug|ban|xal|oc|alt|nia|myv|ain|krl|ay|"
                                 + "syr|kv|umb|cu|prg|vo|"
                                 + "atj|blt|clc|crg|crj|crk|crl|crm|crr|csw|cwd|hax|hdn|hnj|hur|ike|ikt|"
                                 + "kwk|lil|moe|ojb|ojc|ojg|ojs|ojw|oka|pqm|slh|str|tce|tgx|tht|trw|ttm)");

@@ -16,7 +16,7 @@ public class CheckUnit {
             CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private enum MyOptions {
-        rational(new Params().setHelp("value, as rational").setMatch(".+")),
+        rational(new Params().setHelp("value, as rational").setMatch(".+").setDefault("1")),
         from(new Params().setHelp("source unit").setMatch(".+")),
         to(new Params().setHelp("target as unit").setMatch(".+")),
         verbose(new Params().setHelp("verbose debugging messages")),
@@ -44,17 +44,43 @@ public class CheckUnit {
 
     public static void main(String[] args) {
         MyOptions.parse(args);
+        boolean verbose = MyOptions.verbose.option.doesOccur();
         UnitConverter uc = SDI.getUnitConverter();
         String rationalString = MyOptions.rational.option.getValue();
         String fromString = MyOptions.from.option.getValue();
         Rational rational = uc.parseRational(rationalString);
         Output<String> metricUnit = new Output<>();
-        ConversionInfo convInfo = uc.parseUnitId(fromString, metricUnit, false);
+        ConversionInfo convInfo = uc.parseUnitId(fromString, metricUnit, verbose);
+        if (convInfo == null) {
+            System.out.println("Can't parse unit: " + fromString);
+            uc.parseUnitId(fromString, metricUnit, true);
+            return;
+        }
         Rational toValue = convInfo.convert(rational);
-        System.out.println(toValue.toString(FormatStyle.simple) + "\t" + metricUnit);
+        String reducedUnit = uc.getReducedUnit(metricUnit.value);
+        String standardUnit = uc.getStandardUnit(metricUnit.value);
+        System.out.println(
+                toValue.toString(FormatStyle.simple)
+                        + "\t"
+                        + metricUnit
+                        + (reducedUnit.equals(metricUnit.value) ? "" : "\t≡ " + reducedUnit)
+                        + (standardUnit.equals(metricUnit.value) ? "" : "\t≡ " + standardUnit));
         if (MyOptions.to.option.doesOccur()) {
             String toString = MyOptions.to.option.getValue();
-            Rational newRational = uc.convert(rational, fromString, toString, false);
+            convInfo = uc.parseUnitId(toString, metricUnit, verbose);
+            if (convInfo == null) {
+                System.out.println("Can't parse unit: " + toString);
+                uc.parseUnitId(toString, metricUnit, true);
+                return;
+            }
+
+            Rational newRational = uc.convert(rational, fromString, toString, verbose);
+            if (newRational.equals(Rational.NaN)) {
+                System.out.println(
+                        "Can't convert between units: " + fromString + " to " + toString);
+                uc.convert(rational, fromString, toString, true);
+                return;
+            }
             System.out.println(
                     newRational.toString(FormatStyle.simple)
                             + "\t"

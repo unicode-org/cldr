@@ -1826,7 +1826,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "magnetic-weber",
                                         "temperature-rankine",
                                         "duration-fortnight",
-                                        "mass-slug"))
+                                        "mass-slug",
+                                        "pressure-gasoline-equivalent"))
                         .freeze();
     }
 

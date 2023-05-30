@@ -619,8 +619,27 @@ public class UnitConverter implements Freezable<UnitConverter> {
             UnitId mUnit = createUnitId(metricUnit.value);
             mUnit = mUnit.resolve();
             result = sourceToStandard.get(mUnit.toString());
+            if (result == null) {
+                mUnit = mUnit.getReciprocal();
+                result = sourceToStandard.get(mUnit.toString());
+                if (result != null) {
+                    result = "per-" + result;
+                }
+            }
         }
         return result == null ? metricUnit.value : result;
+    }
+
+    /**
+     * Reduces a unit, eg square-meter-per-meter-second ==> meter-per-second
+     *
+     * @param unit
+     * @return
+     */
+    public String getReducedUnit(String unit) {
+        UnitId mUnit = createUnitId(unit);
+        mUnit = mUnit.resolve();
+        return mUnit.toString();
     }
 
     public String getSpecialBaseUnit(String quantity, Set<UnitSystem> unitSystem) {
@@ -809,14 +828,24 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public Map<String, Integer> numUnitsToPowers;
         public Map<String, Integer> denUnitsToPowers;
         public EntrySetComparator<String, Integer> entrySetComparator;
+        public final Comparator<String> comparator;
         private boolean frozen = false;
 
         private UnitId(Comparator<String> comparator) {
+            this.comparator = comparator;
             numUnitsToPowers = new TreeMap<>(comparator);
             denUnitsToPowers = new TreeMap<>(comparator);
             entrySetComparator =
                     new EntrySetComparator<String, Integer>(comparator, Comparator.naturalOrder());
         } //
+
+        public UnitId getReciprocal() {
+            UnitId result = new UnitId(comparator);
+            result.entrySetComparator = entrySetComparator;
+            result.numUnitsToPowers = denUnitsToPowers;
+            result.denUnitsToPowers = numUnitsToPowers;
+            return result;
+        }
 
         private UnitId add(
                 Multimap<String, Continuation> continuations,
@@ -1622,10 +1651,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public String reciprocalOf(String value) {
-        // quick version, input guarantteed to be normalized
+        // quick version, input guaranteed to be normalized, if original is
+        if (value.startsWith("per-")) {
+            return value.substring(4);
+        }
         int index = value.indexOf("-per-");
         if (index < 0) {
-            return null;
+            return "per-" + value;
         }
         return value.substring(index + 5) + "-per-" + value.substring(0, index);
     }
@@ -1658,15 +1690,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public Rational convert(
-            Rational sourceValue,
-            String sourceUnit,
+            final Rational sourceValue,
+            final String sourceUnitIn,
             final String targetUnit,
             boolean showYourWork) {
         if (showYourWork) {
             System.out.println(
-                    showRational("\nconvert:\t", sourceValue, sourceUnit) + " ⟹ " + targetUnit);
+                    showRational("\nconvert:\t", sourceValue, sourceUnitIn) + " ⟹ " + targetUnit);
         }
-        sourceUnit = fixDenormalized(sourceUnit);
+        final String sourceUnit = fixDenormalized(sourceUnitIn);
         Output<String> sourceBase = new Output<>();
         Output<String> targetBase = new Output<>();
         ConversionInfo sourceConversionInfo = parseUnitId(sourceUnit, sourceBase, showYourWork);

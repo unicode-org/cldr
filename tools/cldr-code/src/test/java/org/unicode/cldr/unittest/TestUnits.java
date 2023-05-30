@@ -2311,11 +2311,13 @@ public class TestUnits extends TestFmwk {
         final Set<String> longUntranslatedUnitIds =
                 converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
 
+        ImmutableSet<String> onlyEnglish = ImmutableSet.of("pressure-gasoline-equivalent");
         assertSameCollections(
                 "root unit IDs",
                 "English",
                 unitLongIdsRoot,
-                Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds));
+                Sets.difference(
+                        Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds), onlyEnglish));
 
         final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
         final Set<String> validLongUnitIdsMinusOddballs =

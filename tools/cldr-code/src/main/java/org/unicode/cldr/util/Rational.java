@@ -56,13 +56,25 @@ public final class Rational implements Comparable<Rational> {
 
     public static class RationalParser implements Freezable<RationalParser> {
 
-        public static RationalParser BASIC = new RationalParser().freeze();
+        public static final RationalParser BASIC = new RationalParser().freeze();
 
-        private static Splitter slashSplitter = Splitter.on('/').trimResults();
-        private static Splitter starSplitter = Splitter.on('*').trimResults();
+        private static final Splitter slashSplitter = Splitter.on('/').trimResults();
+        private static final Splitter starSplitter = Splitter.on('*').trimResults();
 
-        private Map<String, Rational> constants = new LinkedHashMap<>();
-        private Map<String, String> constantStatus = new LinkedHashMap<>();
+        private Map<String, Rational> constants;
+        private Map<String, String> constantStatus;
+
+        public RationalParser() {
+            constants = new LinkedHashMap<>();
+            constantStatus = new LinkedHashMap<>();
+        }
+
+        public RationalParser(
+                Map<String, Rational> constants2, Map<String, String> constantStatus2) {
+            frozen = false;
+            constants = new LinkedHashMap<>(constants2);
+            constantStatus = new LinkedHashMap<>(constantStatus2);
+        }
 
         public RationalParser addConstant(String id, String value, String status) {
             if (constants.put(id, parse(value)) != null) {
@@ -171,7 +183,7 @@ public final class Rational implements Comparable<Rational> {
 
         @Override
         public RationalParser cloneAsThawed() {
-            throw new UnsupportedOperationException();
+            return new RationalParser(constants, constantStatus);
         }
 
         public Map<String, Rational> getConstants() {

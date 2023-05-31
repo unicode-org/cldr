@@ -86,7 +86,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST territory type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/region-->
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/short, variant-->
+    <!--@MATCH:literal/short, variant, biot, chagos-->
 <!ATTLIST territory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->

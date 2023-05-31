@@ -373,22 +373,6 @@ function updateRowVoteInfo(tr, theRow) {
   const vr = theRow.votingResults;
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
-
-  //add the 'explain' icon
-  const showTranscriptIcon = cldrDom.createChunk(
-    "",
-    "i",
-    "glyphicon glyphicon-info-sign show-transcript"
-  );
-  showTranscriptIcon.setAttribute("title", cldrText.get("transcript_flyover"));
-  const showTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
-  showTranscriptLink.setAttribute(
-    "href",
-    "javascript:window.cldrBundle.toggleTranscript()"
-  );
-  showTranscriptLink.appendChild(showTranscriptIcon);
-  tr.voteDiv.appendChild(showTranscriptLink);
-
   const surveyUser = cldrStatus.getSurveyUser();
   if (theRow.voteVhash && theRow.voteVhash !== "" && surveyUser) {
     const voteForItem = theRow.items[theRow.voteVhash];
@@ -573,6 +557,7 @@ function updateRowVoteInfo(tr, theRow) {
     tr.voteDiv.appendChild(valdiv);
     tr.voteDiv.appendChild(vdiv);
   }
+  tr.voteDiv.appendChild(makeVoteExplainerDiv(theRow.voteTranscript));
   if (vr.valueIsLocked) {
     tr.voteDiv.appendChild(
       cldrDom.createChunk(
@@ -589,38 +574,43 @@ function updateRowVoteInfo(tr, theRow) {
       cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
     );
   }
-  if (theRow.voteTranscript) {
+}
+
+function makeVoteExplainerDiv(voteTranscript) {
+  const voteExplainerDiv = document.createElement("div");
+  const showTranscriptIcon = cldrDom.createChunk(
+    "",
+    "i",
+    "glyphicon glyphicon-info-sign show-transcript"
+  );
+  showTranscriptIcon.setAttribute("title", cldrText.get("transcript_flyover"));
+  const showTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
+  showTranscriptLink.setAttribute(
+    "href",
+    "javascript:window.cldrBundle.toggleTranscript()"
+  );
+  showTranscriptLink.appendChild(showTranscriptIcon);
+  voteExplainerDiv.appendChild(showTranscriptLink);
+  if (voteTranscript) {
     const transcriptBox = cldrDom.createChunk(
       "",
       "div",
       "transcript-container"
     );
-    const hideTranscriptIcon = cldrDom.createChunk(
-      "",
-      "i",
-      "glyphicon glyphicon-remove-sign show-transcript"
-    );
-    const hideTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
-    hideTranscriptLink.setAttribute(
-      "href",
-      "javascript:window.cldrBundle.toggleTranscript()"
-    );
-    hideTranscriptLink.appendChild(hideTranscriptIcon);
-    transcriptBox.appendChild(hideTranscriptLink);
     const transcriptText = cldrDom.createChunk(
-      theRow.voteTranscript,
+      voteTranscript,
       "pre",
       "transcript-text"
     );
     transcriptBox.appendChild(transcriptText);
-    const transcriptNote = cldrDom.createChunk(
-      cldrText.get("transcript_note"),
-      "p",
-      "alert alert-warning"
-    );
+    const transcriptNote = document.createElement("p");
+    transcriptNote.className = "alert alert-warning";
+    transcriptNote.innerHTML = cldrText.get("transcript_note");
     transcriptBox.appendChild(transcriptNote);
-    tr.voteDiv.appendChild(transcriptBox);
+    voteExplainerDiv.appendChild(transcriptBox);
+    voteExplainerDiv.appendChild(document.createElement("br"));
   }
+  return voteExplainerDiv;
 }
 
 /**

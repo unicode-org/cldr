@@ -555,7 +555,7 @@ const strings = {
 
   transcript_flyover: "Explain vote counts",
   transcript_note:
-    "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to https://unicode-org.atlassian.net/browse/CLDR-14943",
+    "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to <a href='https://unicode-org.atlassian.net/browse/CLDR-14943'>CLDR-14943</a>",
 
   empty_comparison_cell_hint: "not available in English; see the Info Panel",
 };

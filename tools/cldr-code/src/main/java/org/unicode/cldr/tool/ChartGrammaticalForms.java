@@ -187,7 +187,7 @@ public class ChartGrammaticalForms extends Chart {
                 if (multiline) {
                     for (GrammaticalScope usage : GrammaticalScope.values()) {
                         values = scopeToValues.get(usage);
-                        if (values.isEmpty()) {
+                        if (values == null || values.isEmpty()) {
                             continue;
                         }
                         sortedValues.clear();

@@ -21,7 +21,11 @@ import java.text.FieldPosition;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-/** Provides more flexible formatting of UnicodeSet patterns. */
+/**
+ * Provides more flexible formatting of UnicodeSet patterns. <br>
+ * Used in the XML for UnicodeSets. <br>
+ * For the Survey Tool, should use SimpleUnicodeSetFormatter.java
+ */
 public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     private static final StringComparator CODEPOINT_ORDER =
             new UTF16.StringComparator(true, false, 0);

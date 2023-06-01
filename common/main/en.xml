@@ -1069,8 +1069,8 @@ annotations.
 			<territory type="IM">Isle of Man</territory>
 			<territory type="IN">India</territory>
 			<territory type="IO">British Indian Ocean Territory</territory>
-			<territory type="IO" alt='biot'>British Indian Ocean Territory</territory>
-			<territory type="IO" alt='chagos'>Chagos Archipelago</territory>
+			<territory type="IO" alt="biot">British Indian Ocean Territory</territory>
+			<territory type="IO" alt="chagos">Chagos Archipelago</territory>
 			<territory type="IQ">Iraq</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Iceland</territory>
@@ -7044,11 +7044,6 @@ annotations.
 				<unitPattern count="one">{0} pascal</unitPattern>
 				<unitPattern count="other">{0} pascals</unitPattern>
 			</unit>
-			<unit type="pressure-gasoline-equivalent">
-				<displayName>of gasoline equivalent</displayName>
-				<unitPattern count="one">{0} of gasoline equivalent</unitPattern>
-				<unitPattern count="other">{0} of gasoline equivalent</unitPattern>
-			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hectopascals</displayName>
 				<unitPattern count="one">{0} hectopascal</unitPattern>
@@ -7293,6 +7288,11 @@ annotations.
 				<displayName>Imp. quarts</displayName>
 				<unitPattern count="one">{0} Imp. quart</unitPattern>
 				<unitPattern count="other">{0} Imp. quarts</unitPattern>
+			</unit>
+			<unit type="pressure-gasoline-equivalent">
+				<displayName>of gasoline equivalent</displayName>
+				<unitPattern count="one">{0} of gasoline equivalent</unitPattern>
+				<unitPattern count="other">{0} of gasoline equivalent</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cardinal direction</displayName>
@@ -7987,11 +7987,6 @@ annotations.
 				<unitPattern count="one">{0} Pa</unitPattern>
 				<unitPattern count="other">{0} Pa</unitPattern>
 			</unit>
-			<unit type="pressure-gasoline-equivalent">
-				<displayName>gas-equiv</displayName>
-				<unitPattern count="one">{0} gas-equiv</unitPattern>
-				<unitPattern count="other">{0} gas-equiv</unitPattern>
-			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
@@ -8192,6 +8187,11 @@ annotations.
 				<displayName>barrel</displayName>
 				<unitPattern count="one">{0} bbl</unitPattern>
 				<unitPattern count="other">{0} bbl</unitPattern>
+			</unit>
+			<unit type="pressure-gasoline-equivalent">
+				<displayName>gas-equiv</displayName>
+				<unitPattern count="one">{0} gas-equiv</unitPattern>
+				<unitPattern count="other">{0} gas-equiv</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>
@@ -8885,11 +8885,6 @@ annotations.
 				<unitPattern count="one">{0}Pa</unitPattern>
 				<unitPattern count="other">{0}Pa</unitPattern>
 			</unit>
-			<unit type="pressure-gasoline-equivalent">
-				<displayName>gas-equiv</displayName>
-				<unitPattern count="one">{0}gas-equiv</unitPattern>
-				<unitPattern count="other">{0}gas-equiv</unitPattern>
-			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName>hPa</displayName>
 				<unitPattern count="one">{0}hPa</unitPattern>
@@ -9129,6 +9124,11 @@ annotations.
 				<displayName>qt Imp</displayName>
 				<unitPattern count="one">{0}qt-Imp.</unitPattern>
 				<unitPattern count="other">{0}qt-Imp.</unitPattern>
+			</unit>
+			<unit type="pressure-gasoline-equivalent">
+				<displayName>gas-equiv</displayName>
+				<unitPattern count="one">{0}gas-equiv</unitPattern>
+				<unitPattern count="other">{0}gas-equiv</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>

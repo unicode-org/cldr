@@ -12,6 +12,10 @@
 
 # The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included
 
+# CLDR-16146 Downgrade main path for BIOT
+
+	;	 //ldml/localeDisplayNames/territories/territory[@type="IO"]
+ 
 # CLDR-16534 Downgrade paths for renaming Islamic Calendar to Hijri Calendar
 
 	;	 //ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic

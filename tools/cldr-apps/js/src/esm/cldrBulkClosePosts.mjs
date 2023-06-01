@@ -2,7 +2,6 @@
  * cldrBulkClosePosts: Survey Tool feature for bulk-closing forum posts
  */
 import * as cldrAjax from "./cldrAjax.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -15,7 +14,6 @@ let contentDiv = null;
  * Fetch the Bulk Close Posts data from the server, and "load" it
  */
 function load() {
-  cldrInfo.showMessage(cldrText.get("bulk_close_postsGuidance"));
   const url = getBulkClosePostsUrl();
   const xhrArgs = {
     url: url,
@@ -107,6 +105,7 @@ function getBulkClosePostsUrl() {
  */
 function makeHtmlFromJson(json) {
   let html = "<div>\n";
+  html += "<p><i>" + cldrText.get("bulk_close_postsGuidance") + "</i></p>";
   if (
     typeof json.threadCount === "undefined" ||
     typeof json.status === "undefined" ||

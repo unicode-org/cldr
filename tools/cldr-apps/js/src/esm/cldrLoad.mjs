@@ -804,9 +804,11 @@ function loadAllRowsFromJson(json, theDiv) {
     const surveyCurrentId = cldrStatus.getCurrentId();
     const surveyCurrentPage = cldrStatus.getCurrentPage();
     const surveyCurrentLocale = cldrStatus.getCurrentLocale();
-    cldrInfo.showMessage(
-      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`
-    );
+    notification.error({
+      message: "Error loading data",
+      description: `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`,
+      duration: 0,
+    });
     cldrStatus.setCurrentSection("");
     let msg = "";
     if (json.code) {

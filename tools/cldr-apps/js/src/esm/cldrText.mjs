@@ -398,7 +398,6 @@ const strings = {
   vsStop: "Stop",
   vsContent_initial: "Click Recalculate to calculate the summary",
 
-  forum_participationGuidance: "This is the Forum Participation page.",
   forum_participation_TOTAL: "Posts in this release",
   forum_participation_ORG: "Posts by my org.",
   forum_participation_REQUEST: "Open Requests",

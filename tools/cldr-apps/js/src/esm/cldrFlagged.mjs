@@ -3,7 +3,6 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCsvFromTable from "./cldrCsvFromTable.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -18,7 +17,6 @@ const flaggedCsvId = "flaggedCsv";
  * Fetch the Flagged Items data from the server, and "load" it
  */
 function load() {
-  cldrInfo.showMessage(cldrText.get("flaggedGuidance"));
   const xhrArgs = {
     url: getFlaggedUrl(),
     handleAs: "json",
@@ -54,6 +52,9 @@ function errorHandler(err) {
 }
 
 function populateFromJson(div, json) {
+  const guidance = document.createElement("p");
+  guidance.innerHTML = "<i>" + cldrText.get("flaggedGuidance") + "</i>";
+  div.appendChild(guidance);
   const header = json.flagged.header;
   const rows = json.flagged.data;
   let lastLocale = undefined;

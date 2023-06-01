@@ -490,9 +490,7 @@ function appendItem(div, value, pClass) {
   var text = document.createTextNode(value);
   var span = document.createElement("span");
   span.appendChild(text);
-  if (!value) {
-    span.className = "selected";
-  } else if (pClass) {
+  if (pClass) {
     span.className = pClass;
   } else {
     span.className = "value";

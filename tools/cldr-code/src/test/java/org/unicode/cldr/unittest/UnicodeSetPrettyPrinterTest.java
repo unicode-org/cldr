@@ -43,11 +43,29 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             UnicodeSetPrettyPrinter.fromIcuLocale(ULocale.ENGLISH.toString()).setToQuote(TO_QUOTE);
 
     public void TestBasicUnicodeSet() {
-        UnicodeSet expected = new UnicodeSet("[:L:]");
-        String formatted = PRETTY_PRINTER.format(expected);
-        logln(formatted);
-        UnicodeSet actual = new UnicodeSet(formatted);
-        assertEquals("PrettyPrinter preserves meaning", expected, actual);
+        String[] tests = {
+            "[:L:]",
+            "[\\x{10FFF0}-\\x{10FFFF}]",
+            "[\\x{10FFFE}-\\x{10FFFF}]",
+            "[\\x{10FFF0} \\x{10FFFF}]",
+        };
+        for (String test : tests) {
+            UnicodeSet expected = new UnicodeSet(test);
+            String formatted = PRETTY_PRINTER.format(expected);
+            logln(formatted);
+            UnicodeSet actual = new UnicodeSet(formatted);
+            assertEquals("PrettyPrinter preserves meaning", expected, actual);
+        }
+
+        String[] testsException = {"[\\x{110000}]"};
+        for (String test : testsException) {
+            try {
+                new UnicodeSet(test);
+            } catch (Exception e) {
+                continue;
+            }
+            errln("Should cause exception: " + test);
+        }
     }
 
     public void testSimpleUnicodeSetFormatter() {

@@ -190,7 +190,7 @@ public class DisplayAndInputProcessor {
             new HashSet<>(
                     Arrays.asList(
                             "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
-                            "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+                            "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {

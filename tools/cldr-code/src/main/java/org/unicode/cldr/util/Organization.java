@@ -44,6 +44,7 @@ public enum Organization {
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
+    mikmaw_kinamatnewey("Mi'kmaw Kina'matnewey"),
     mozilla("Mozilla"),
     netflix("Netflix"),
     nyiakeng_puachue_hmong("Nyiakeng Puachue Hmong"),

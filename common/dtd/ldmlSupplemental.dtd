@@ -1251,7 +1251,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST coverageLevel inTerritory CDATA #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST coverageLevel value CDATA #REQUIRED >
-    <!--@MATCH:literal/basic, core, minimal, moderate, modern, posix-->
+    <!--@MATCH:literal/basic, comprehensive, core, minimal, moderate, modern, posix-->
     <!--@VALUE-->
 <!ATTLIST coverageLevel match CDATA #REQUIRED >
     <!--@MATCH:any-->

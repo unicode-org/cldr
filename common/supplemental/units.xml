@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <unitIdComponents>
     	<unitIdComponent type="prefix" values="arc british dessert fluid light nautical xxx x curr"/>
-		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit it us equivalent"/>
+		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit it us equivalent cloth length jp"/>
 		<unitIdComponent type="power" values="square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow9 pow10 pow11 pow12 pow13 pow14 pow15"/>
 		<unitIdComponent type="and" values="and"/>
 		<unitIdComponent type="per" values="per"/>
@@ -28,6 +28,10 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitConstant constant="speed_of_light_meters_per_second" value="299792458"/>
         <unitConstant constant="sec_per_julian_year" value="31557600"/>
         <unitConstant constant="meters_per_AU" value="149597870700" description="https://www.iau.org/public/themes/measuring/"/> 
+        
+        <unitConstant constant="sho_to_m3" value="2401/1331*1000" description="https://en.wikipedia.org/wiki/Japanese_units_of_measurement"/>
+        <unitConstant constant="tsubo_to_m2" value="400/121" description="https://en.wikipedia.org/wiki/Japanese_units_of_measurement"/>
+        <unitConstant constant="shaku_to_m" value="4/121" description="https://en.wikipedia.org/wiki/Japanese_units_of_measurement"/>
         
         <unitConstant constant="gravity" value="9.80665"/>
         <unitConstant constant="PI" value="411557987 / 131002976" status='approximate'/>
@@ -322,6 +326,26 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- concentration-mass -->
         <convertUnit source='ofglucose' baseUnit='item-per-kilogram' factor='1000*item_per_mole/glucose_molar_mass'/>
+        
+        <!-- japanese additions -->
+        <convertUnit source='rin' baseUnit='meter' factor='shaku_to_m/1000' systems="jpsystem"/>
+		<convertUnit source='sun' baseUnit='meter' factor='shaku_to_m/10' systems="jpsystem"/>
+		<convertUnit source='shaku-length' baseUnit='meter' factor='shaku_to_m' systems="jpsystem"/>
+		<convertUnit source='shaku-cloth' baseUnit='meter' factor='shaku_to_m*5/4' systems="jpsystem"/>
+		<convertUnit source='ken' baseUnit='meter' factor='shaku_to_m*6' systems="jpsystem"/>
+		<convertUnit source='jo-jp' baseUnit='meter' factor='shaku_to_m*10' systems="jpsystem"/>
+		<convertUnit source='ri-jp' baseUnit='meter' factor='shaku_to_m*12960' systems="jpsystem"/>
+		<convertUnit source='bu-jp' baseUnit='square-meter' factor='tsubo_to_m2*1' systems="jpsystem"/>
+		<convertUnit source='se-jp' baseUnit='square-meter' factor='tsubo_to_m2*30' systems="jpsystem"/>
+		<convertUnit source='cho' baseUnit='square-meter' factor='tsubo_to_m2*3000' systems="jpsystem"/>
+		<convertUnit source='kosaji' baseUnit='cubic-meter' factor='1*5*0.000001' systems="jpsystem"/>
+		<convertUnit source='osaji' baseUnit='cubic-meter' factor='1*15*0.000001' systems="jpsystem"/>
+		<convertUnit source='cup-jp' baseUnit='cubic-meter' factor='1*100*0.000001' systems="jpsystem"/>
+		<convertUnit source='shaku' baseUnit='cubic-meter' factor='sho_to_m3/100' systems="jpsystem"/>
+		<convertUnit source='sai' baseUnit='cubic-meter' factor='sho_to_m3/1000' systems="jpsystem"/>
+		<convertUnit source='to-jp' baseUnit='cubic-meter' factor='sho_to_m3*10' systems="jpsystem"/>
+		<convertUnit source='koku' baseUnit='cubic-meter' factor='sho_to_m3*100' systems="jpsystem"/>
+		<convertUnit source='fun' baseUnit='kilogram' factor='1*3/8000' systems="jpsystem"/>
         
     </convertUnits>
     <unitPreferenceData draft="contributed">

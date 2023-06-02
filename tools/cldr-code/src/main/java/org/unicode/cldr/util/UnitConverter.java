@@ -1596,6 +1596,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         metric,
         ussystem,
         uksystem,
+        jpsystem,
         other;
 
         public static final Set<UnitSystem> SiOrMetric =

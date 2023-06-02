@@ -119,6 +119,8 @@ public class TestUnits extends TestFmwk {
     private static final boolean SHOW_UNIT_CATEGORY = getFlag("TestUnits:SHOW_UNIT_CATEGORY");
     private static final boolean SHOW_COMPOSE = getFlag("TestUnits:SHOW_COMPOSE");
     private static final boolean SHOW_DATA = getFlag("TestUnits:SHOW_DATA");
+    private static final boolean SHOW_MISSING_TEST_DATA =
+            getFlag("TestUnits:SHOW_MISSING_TEST_DATA");
 
     /** Flags for reformatting data file */
     private static final boolean SHOW_PREFS = getFlag("TestUnits:SHOW_PREFS");
@@ -935,7 +937,18 @@ public class TestUnits extends TestFmwk {
 
     static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
     static final Set<String> STILL_RECOGNIZED_SIMPLES =
-            ImmutableSet.of("em", "g-force", "therm-us", "british-thermal-unit-it", "calorie-it");
+            ImmutableSet.of(
+                    "em",
+                    "g-force",
+                    "therm-us",
+                    "british-thermal-unit-it",
+                    "calorie-it",
+                    "bu-jp",
+                    "jo-jp",
+                    "ri-jp",
+                    "se-jp",
+                    "to-jp",
+                    "cup-jp");
 
     public void TestOrder() {
         if (SHOW_UNIT_ORDER) System.out.println();
@@ -2013,7 +2026,7 @@ public class TestUnits extends TestFmwk {
         for (String remainingUnit : remainingCldrUnits) {
             final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
             if (!targetInfo.target.contentEquals(remainingUnit)) {
-                if (SHOW_DATA) {
+                if (SHOW_MISSING_TEST_DATA) {
                     printlnIfZero(unitsWithoutExternalCheck);
                     System.out.println(
                             "Not tested against external data\t"
@@ -2024,10 +2037,10 @@ public class TestUnits extends TestFmwk {
                 unitsWithoutExternalCheck++;
             }
         }
-        if (unitsWithoutExternalCheck != 0 && !SHOW_DATA) {
+        if (unitsWithoutExternalCheck != 0 && !SHOW_MISSING_TEST_DATA) {
             warnln(
                     unitsWithoutExternalCheck
-                            + " units without external data verification.  Use -DTestUnits:SHOW_DATA for details.");
+                            + " units without external data verification.  Use -DTestUnits:SHOW_MISSING_TEST_DATA for details.");
         }
 
         boolean showDiagnostics = false;

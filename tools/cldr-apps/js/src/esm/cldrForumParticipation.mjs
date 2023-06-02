@@ -3,7 +3,6 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCsvFromTable from "./cldrCsvFromTable.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -19,8 +18,6 @@ const fileName = "participation.csv";
  * Called as special.load
  */
 function load() {
-  cldrInfo.showMessage(cldrText.get("forum_participationGuidance"));
-
   const url = getForumParticipationUrl();
   const xhrArgs = {
     url: url,
@@ -50,7 +47,7 @@ function loadHandler(json) {
 }
 
 function errorHandler(err) {
-  cldrRetry.handleDisconnect(err, json, "", "Loading forum participation data");
+  cldrRetry.handleDisconnect(err, null, "", "Loading forum participation data");
 }
 
 /**

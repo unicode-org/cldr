@@ -2,9 +2,8 @@
  * cldrListEmails: encapsulate "List email addresses of participating users"
  */
 import * as cldrAjax from "./cldrAjax.mjs";
-import * as cldrDom from "./cldrDom.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
@@ -23,7 +22,6 @@ const gotNone = "<p>No data, or no users participated.</p>";
  * Called as special.load
  */
 function load() {
-  cldrInfo.showMessage(help + cldrStatus.getNewVersion());
   const xhrArgs = {
     url: getAjaxUrl(),
     handleAs: "json",
@@ -48,11 +46,12 @@ function loadHandler(json) {
 }
 
 function errorHandler(err) {
-  cldrRetry.handleDisconnect(err, json, "", "Loading email data");
+  cldrRetry.handleDisconnect(err, null, "", "Loading email data");
 }
 
 function getHtml(json) {
   let html = header;
+  html += "<p><i>" + help + cldrStatus.getNewVersion() + "</i></p>";
   if (!json.participating_users) {
     html += gotNone;
   } else {

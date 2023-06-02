@@ -134,8 +134,6 @@ let nf = null; // Intl.NumberFormat initialized later
  * Called as special.load
  */
 function load() {
-  cldrInfo.showMessage(cldrText.get("vetting_participationGuidance"));
-
   const url = getAjaxUrl();
   const xhrArgs = {
     url: url,
@@ -318,6 +316,11 @@ function loadVettingParticipation(json, ourDiv) {
   const div = $(ourDiv);
 
   // Front matter
+  div.append(
+    $("<p/>", {
+      text: cldrText.get("vetting_participationGuidance"),
+    })
+  );
   div.append($("<h3>Locales and Vetting Participation</h3>"));
   div.append(
     $("<p/>", {

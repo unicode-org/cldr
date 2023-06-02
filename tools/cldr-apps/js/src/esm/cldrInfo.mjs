@@ -47,12 +47,8 @@ function initialize(cid, nid, bclass) {
 
 function insertWidget() {
   try {
-    const fragment = document.createDocumentFragment();
-    createCldrApp(InfoPanel).mount(fragment); // returns App object "wrapper", currently not saved
     const containerEl = document.getElementById(containerId);
-    const vueEl = document.createElement("section");
-    containerEl.appendChild(vueEl);
-    vueEl.replaceWith(fragment);
+    insertVueElement(containerEl);
     insertLegacyElement(containerEl);
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
@@ -62,6 +58,14 @@ function insertWidget() {
       duration: 0,
     });
   }
+}
+
+function insertVueElement(containerEl) {
+  const fragment = document.createDocumentFragment();
+  createCldrApp(InfoPanel).mount(fragment); // returns App object "wrapper", currently not saved
+  const vueEl = document.createElement("section");
+  containerEl.appendChild(vueEl);
+  vueEl.replaceWith(fragment);
 }
 
 /**
@@ -78,6 +82,10 @@ function insertLegacyElement(containerEl) {
   nonVueEl.className = "sidebyside-scrollable";
   nonVueEl.id = "itemInfo";
   containerEl.appendChild(nonVueEl);
+  // TODO: here, create divs inside itemInfo, each containing a part of the Info Panel
+  // which may be either a legacy div or a Vue component; never destroy these
+  // divs wholesale by calling removeAllChildNodes on itemInfo.
+  // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
 }
 
 function openPanel() {
@@ -123,6 +131,9 @@ function setPanelAndNeighborStyles() {
  * and the Info Panel visibility state corresponds to the Page table view.
  *
  * Call this after setting panelVisible to true/false.
+ *
+ * TODO: simplify this and related code now that the Info Panel is no longer used
+ * for "special" pages. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
  */
 function rememberPanelVisibilityIfPageView() {
   if (!cldrStatus.getCurrentSpecial()) {
@@ -150,6 +161,22 @@ function updateOpenPanelButtons() {
  * @param {Node} theObj to listen to, a.k.a. "hideIfLast"
  * @param {Function} fn the draw function
  */
+// TODO: simplify this and related code to enable a cleaner and better organized
+// appearance using modern components. The fn parameter (a.k.a. showFn) shouldn't
+// need to be preconstructed for each item in each row, attached to DOM elements,
+// and passed around as a parameter in such a complicated way.
+// Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
+// Currently this method is called as follows:
+// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
+// cldrTable.mjs:    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
+// cldrTable.mjs:    cldrInfo.listen(xpathStr, tr, cell, null);
+// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, null);
+// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, cell.showFn);
+// cldrTable.mjs:    cldrInfo.listen(null, tr, cell);
+// cldrTable.mjs:    cldrInfo.listen(historyText, tr, historyTag, null);
+// cldrTable.mjs:    cldrInfo.listen(null, tr, div, td.showFn);
+// cldrTable.mjs:    cldrInfo.listen(null, tr, noCell);
+// cldrVote.mjs:     cldrInfo.listen(null, tr, ourDiv, ourShowFn);
 function listen(str, tr, theObj, fn) {
   cldrDom.listenFor(theObj, "click", function (e) {
     if (panelShouldBeShown()) {
@@ -160,18 +187,30 @@ function listen(str, tr, theObj, fn) {
   });
 }
 
+// This method is now only used for getGuidanceMessage, for the Page table
+// before any row has been selected. Avoid using it for anything else.
+// cldrLoad.mjs: cldrInfo.showMessage(getGuidanceMessage(json.canModify));
 function showMessage(str) {
   if (panelShouldBeShown()) {
     show(str, null, null, null);
   }
 }
 
+// Called twice by cldrForumPanel.mjs and twice by cldrVote.mjs, always with
+// an error message. TODO: use another mechanism such as notifications.error(),
+// to reduce dependencies on legacy code and to facilitate improvement.
+// Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
 function showWithRow(str, tr) {
   if (panelShouldBeShown()) {
     show(str, tr, null, null);
   }
 }
 
+// TODO: simplify, similar problems to cldrInfo.listen. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
+// Currently called as follows:
+// cldrLoad.mjs:    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
+// cldrTable.mjs:   cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+// cldrVote.mjs:    cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
 function showRowObjFunc(tr, hideIfLast, fn) {
   if (panelShouldBeShown()) {
     show(null, tr, hideIfLast, fn);
@@ -184,12 +223,11 @@ function showRowObjFunc(tr, hideIfLast, fn) {
  * @returns true if the Info Panel should be shown, else false
  *
  * This is only called when one of the show... functions is called.
- * In all special views, return true (if the special never calls us, the panel
- * will remain hidden).
- * In the Page view (not special), rely on the setting of panelVisibleForPageView.
+ *
+ * Rely on the setting of panelVisibleForPageView.
  */
 function panelShouldBeShown() {
-  return panelVisibleForPageView || Boolean(cldrStatus.getCurrentSpecial());
+  return panelVisibleForPageView;
 }
 
 /**
@@ -199,8 +237,9 @@ function panelShouldBeShown() {
  *
  * @param {String} str the string to show at the top
  * @param {Node} tr the <TR> of the row
- * @param {Object} hideIfLast mysterious parameter
- * @param {Function} fn the draw function
+ * @param {Object} hideIfLast mysterious parameter, a.k.a. theObj
+ * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrInfo.showItemInfoFn,
+ *                      sometimes ourShowFn in cldrVote.showProposedItem
  */
 function show(str, tr, hideIfLast, fn) {
   openPanel();
@@ -209,18 +248,23 @@ function show(str, tr, hideIfLast, fn) {
     unShow = null;
   }
 
-  if (tr && tr.sethash) {
+  if (tr?.sethash) {
     cldrLoad.updateCurrentId(tr.sethash);
   }
   setLastShown(hideIfLast);
 
   /*
-   * This is the temporary fragment used for the
-   * "info panel" contents.
+   * This is the temporary fragment used for the Info Panel contents.
+   *
+   * TODO: instead of constructing this monolithic fragment and replacing the Info Panel
+   * contents all at the same time (destroying the previous contents with removeAllChildNodes),
+   * the Info Panel should be structured as a set of divs that can be updated independently, some divs
+   * constructed with legacy code, and other divs containing Vue components. Gradually replace all
+   * legacy divs with Vue components. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
    */
-  var fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
 
-  if (tr && tr.theRow) {
+  if (tr?.theRow) {
     const { theRow } = tr;
     const {
       helpHtml,
@@ -243,41 +287,42 @@ function show(str, tr, hideIfLast, fn) {
   }
 
   if (str) {
-    // If a simple string, clone the string
-    var div2 = document.createElement("div");
-    div2.innerHTML = str;
-    fragment.appendChild(div2);
+    const div = document.createElement("div");
+    div.innerHTML = str;
+    fragment.appendChild(div);
   }
   // If a generator fn (common case), call it.
   if (fn) {
     unShow = fn(fragment);
   }
 
-  var theVoteinfo = null;
-  if (tr && tr.voteDiv) {
-    theVoteinfo = tr.voteDiv;
+  if (tr?.voteDiv) {
+    fragment.appendChild(tr.voteDiv.cloneNode(true));
   }
-  if (theVoteinfo) {
-    fragment.appendChild(theVoteinfo.cloneNode(true));
-  }
-  if (tr && tr.ticketLink) {
+  if (tr?.ticketLink) {
     fragment.appendChild(tr.ticketLink.cloneNode(true));
   }
   if (tr) {
+    // TODO: Put a blank line around the sublocale menu, and give it a label. In context:
+    // Changes to this item require 20 votes.
+    // Regional Variants for German
+    // [ Germany (= German) ]
+    // Flag for Review (moved up)
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
     cldrSideways.loadMenu(fragment, tr.xpstrid); // regional variants (sibling locales)
   }
   if (tr?.theRow && !cldrStatus.isVisitor()) {
     cldrForumPanel.loadInfo(fragment, tr, tr.theRow);
   }
-  if (tr && tr.theRow && tr.theRow.xpath) {
+  if (tr?.theRow?.xpath) {
     fragment.appendChild(
       cldrDom.clickToSelect(
         cldrDom.createChunk(tr.theRow.xpath, "div", "xpath")
       )
     );
   }
-  const pucontent = document.getElementById("itemInfo");
-  if (!pucontent) {
+  const itemInfoElement = document.getElementById("itemInfo");
+  if (!itemInfoElement) {
     console.log("itemInfo not found in show!");
     return;
   }
@@ -285,21 +330,23 @@ function show(str, tr, hideIfLast, fn) {
   // Now, copy or append the 'fragment' to the
   // appropriate spot. This depends on how we were called.
   if (tr) {
-    cldrDom.removeAllChildNodes(pucontent);
-    pucontent.appendChild(fragment);
+    cldrDom.removeAllChildNodes(itemInfoElement);
+    itemInfoElement.appendChild(fragment);
   } else {
     // show, for example, dataPageInitialGuidance in Info Panel
-    var clone = fragment.cloneNode(true);
-    cldrDom.removeAllChildNodes(pucontent);
-    pucontent.appendChild(clone);
+    const clone = fragment.cloneNode(true);
+    cldrDom.removeAllChildNodes(itemInfoElement);
+    itemInfoElement.appendChild(clone);
   }
-  fragment = null;
+  addVoterInfoHover();
+}
 
+function addVoterInfoHover() {
   // for the voter
   $(".voteInfo_voterInfo").hover(
     function () {
-      var email = $(this).data("email").replace(" (at) ", "@");
-      if (email !== "") {
+      const email = $(this).data("email").replace(" (at) ", "@");
+      if (email) {
         $(this).html(
           '<a href="mailto:' +
             email +
@@ -412,6 +459,10 @@ function updateRowVoteInfo(tr, theRow) {
     }
   }
   if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
+    // TODO: display this message and the actual "Flag for Review" button in the same place; see forumNewPostFlagButton.
+    // Change to: ⚐ [for committee approval|Ask]
+    // and don't show unless it can be, of course.
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
     cldrSurvey.addIcon(tr.voteDiv, "i-flag-d");
     tr.voteDiv.appendChild(
       cldrDom.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
@@ -766,11 +817,15 @@ function createVoter(v) {
 /**
  * Return a function that will show info for the given item in the Info Panel.
  *
- * @param theRow the data row
- * @param item the candidate item
+ * @param {Object} theRow the data row
+ * @param {JSON} item JSON of the specific candidate item we are adding
  * @returns the function
  *
- * Called only by cldrTable.addVitem.
+ * Called only by cldrTable.addVitem, as follows:
+ *
+ *   td.showFn = item.showFn = cldrInfo.showItemInfoFn(theRow, item);
+ *   ...
+ *   cldrInfo.listen(null, tr, div, td.showFn);
  */
 function showItemInfoFn(theRow, item) {
   return function (td) {
@@ -780,6 +835,9 @@ function showItemInfoFn(theRow, item) {
       displayValue = theRow.inheritedDisplayValue;
     }
 
+    // TODO: display the value as "Value: ...", and display the pClass message
+    // (e.g., "This item is inherited...") on the following line.
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
     cldrVote.appendItem(h3, displayValue, item.pClass);
     h3.className = "span";
     td.appendChild(h3);
@@ -808,6 +866,8 @@ function showItemInfoFn(theRow, item) {
     }
 
     if (item.example) {
+      // TODO: add a label "Example:" above the example
+      // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
       cldrTable.appendExample(td, item.example);
     }
   }; // end function(td)

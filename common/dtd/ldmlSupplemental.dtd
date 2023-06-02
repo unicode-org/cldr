@@ -432,7 +432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->
 <!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/ussystem, uksystem, metric, si, other-->
+    <!--@MATCH:set/literal/ussystem, uksystem, jpsystem, metric, si, other-->
     <!--@VALUE-->
 <!ATTLIST convertUnit description CDATA #IMPLIED >
     <!--@METADATA-->

@@ -1442,8 +1442,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     // TODO change to TRIE if the performance isn't good enough, or restructure with regex
+    // https://www.nist.gov/pml/owm/metric-si-prefixes
     public static final ImmutableMap<String, Integer> PREFIX_POWERS =
             ImmutableMap.<String, Integer>builder()
+                    .put("quecto", -30)
+                    .put("ronto", -27)
                     .put("yocto", -24)
                     .put("zepto", -21)
                     .put("atto", -18)
@@ -1464,6 +1467,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     .put("exa", 18)
                     .put("zetta", 21)
                     .put("yotta", 24)
+                    .put("ronna", 27)
+                    .put("quetta", 30)
                     .build();
 
     public static final ImmutableMap<String, Rational> PREFIXES;

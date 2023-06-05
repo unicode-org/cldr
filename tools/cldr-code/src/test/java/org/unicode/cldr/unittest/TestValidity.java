@@ -2,12 +2,14 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,9 +24,18 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.Units;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 public class TestValidity extends TestFmwkPlus {
@@ -312,117 +323,58 @@ public class TestValidity extends TestFmwkPlus {
         }
     }
 
-    public void TestUnits() {
+    public void TestValidityUniqueness() {
         Splitter HYPHEN_SPLITTER = Splitter.on('-');
         UnicodeSet allowed = new UnicodeSet("[a-z0-9A-Z]").freeze();
         Validity validity = Validity.getInstance();
-        Map<String, String> shortened =
-                ImmutableMap.<String, String>builder()
-                        .put("acceleration", "accel")
-                        .put("revolution", "revol")
-                        .put("centimeter", "cmeter")
-                        .put("kilometer", "kmeter")
-                        .put("milligram", "mgram")
-                        .put("deciliter", "dliter")
-                        .put("millimole", "mmole")
-                        .put("consumption", "consumpt")
-                        .put("100kilometers", "100km")
-                        .put("microsecond", "microsec")
-                        .put("millisecond", "millisec")
-                        .put("nanosecond", "nanosec")
-                        .put("milliampere", "milliamp")
-                        .put("foodcalorie", "foodcal")
-                        .put("kilocalorie", "kilocal")
-                        .put("kilojoule", "kjoule")
-                        .put("frequency", "freq")
-                        .put("gigahertz", "gigahertz")
-                        .put("kilohertz", "khertz")
-                        .put("megahertz", "megahertz")
-                        .put("astronomical", "astro")
-                        .put("decimeter", "dmeter")
-                        .put("micrometer", "micmeter")
-                        .put("scandinavian", "scand")
-                        .put("millimeter", "mmeter")
-                        .put("nanometer", "nanomete")
-                        .put("picometer", "pmeter")
-                        .put("microgram", "migram")
-                        .put("horsepower", "horsep")
-                        .put("milliwatt", "mwatt")
-                        .put("hectopascal", "hpascal")
-                        .put("temperature", "temp")
-                        .put("fahrenheit", "fahren")
-                        .put("centiliter", "cliter")
-                        .put("hectoliter", "hliter")
-                        .put("megaliter", "megliter")
-                        .put("milliliter", "mliter")
-                        .put("tablespoon", "tblspoon")
-                        .build();
-
         for (Entry<LstrType, Map<Status, Set<String>>> e1 : validity.getData().entrySet()) {
-            LstrType lstrType = e1.getKey();
+            final LstrType lstrType = e1.getKey();
+            final boolean lstrTypeUnit = lstrType == LstrType.unit;
+
+            // Try truncating every key to 8 letters, to ensure that it is unique
+
+            Multimap<String, String> truncatedToFull = TreeMultimap.create();
             for (Entry<Status, Set<String>> e2 : e1.getValue().entrySet()) {
-                Status status = e2.getKey();
+                final Status status = e2.getKey();
+                final boolean statusDeprecated = status != Status.deprecated;
                 for (String codeLong : e2.getValue()) {
                     String code = codeLong;
-                    if (lstrType == LstrType.unit) {
-                        Units.getShort(codeLong);
-                        if (code == null) {
-                            errln("No short form of " + codeLong);
+                    String shortCode = code;
+                    if (lstrTypeUnit) {
+                        shortCode = Units.getShort(codeLong);
+                        if (shortCode == null) {
+                            if (statusDeprecated) {
+                                errln("No short form of " + codeLong);
+                            }
                             continue;
                         }
                     }
-                    StringBuilder fixed = new StringBuilder();
                     for (String subcode : HYPHEN_SPLITTER.split(code)) {
-                        if (fixed.length() > 0) {
-                            fixed.append('-');
-                        }
+                        truncatedToFull.put(
+                                subcode.length() <= 8 ? subcode : subcode.substring(0, 8), subcode);
                         if (!allowed.containsAll(subcode)) {
                             errln("subcode has illegal character: " + subcode + ", in " + code);
-                        } else if (subcode.length() > 8) {
-                            fixed.append(shorten(subcode, shortened));
-                        } else {
-                            fixed.append(subcode);
                         }
-                    }
-                    String fixedCode = fixed.toString();
-                    if (!fixedCode.equals(code)) {
-                        warnln(
-                                "code has overlong subcode: "
-                                        + code
-                                        + " should have short alias in bcp47 "
-                                        + fixedCode);
                     }
                 }
             }
-        }
 
-        if (DEBUG) {
-            for (Entry<String, String> e : shortened.entrySet()) {
-                System.out.println('"' + e.getKey() + "\", \"" + e.getValue() + "\",");
-            }
+            checkTruncationStatus(truncatedToFull);
         }
     }
 
-    private String shorten(String subcode, Map<String, String> shortened) {
-        String result = shortened.get(subcode);
-        if (result != null) return result;
-
-        switch (subcode) {
-            case "temperature":
-                result = "temp";
-                break;
-            case "acceleration":
-                result = "accel";
-                break;
-            case "frequency":
-                result = "freq";
-                break;
-            default:
-                result = subcode.substring(0, 8);
-                break;
+    public void checkTruncationStatus(Multimap<String, String> truncatedToFull) {
+        for (Entry<String, Collection<String>> entry : truncatedToFull.asMap().entrySet()) {
+            final String truncated = entry.getKey();
+            final Collection<String> longForms = entry.getValue();
+            if (longForms.size() > 1) {
+                errln("Ambiguous subkey: " + entry);
+            } else if (isVerbose()) {
+                if (!longForms.contains(truncated)) {
+                    logln(entry.toString());
+                }
+            }
         }
-        // shortened.put(subcode, result);
-        return result;
     }
 
     public void TestLanguageTagParser() {
@@ -685,5 +637,35 @@ public class TestValidity extends TestFmwkPlus {
             }
         }
         return diff;
+    }
+
+    final Set<LstrType> EXPECTED_NULL =
+            ImmutableSet.of(
+                    LstrType.extlang,
+                    LstrType.legacy,
+                    LstrType.redundant,
+                    LstrType.usage,
+                    LstrType.zone);
+    final Set<LstrType> EXPECTED_UNSORTED = ImmutableSet.of(LstrType.unit);
+
+    public void testOrder() {
+        for (LstrType type : LstrType.values()) {
+            Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
+            assertEquals(type + " is null", EXPECTED_NULL.contains(type), statusToCodes == null);
+            if (statusToCodes == null) {
+                continue;
+            }
+            for (Entry<Status, Set<String>> entry : statusToCodes.entrySet()) {
+                Status status = entry.getKey();
+                Set<String> codes = entry.getValue();
+                List<String> list = new ArrayList<>(codes);
+                List<String> sorted = new ArrayList<>(new TreeSet<>(codes));
+                boolean isSorted = list.equals(sorted);
+                assertEquals(
+                        type + ":" + status + " is sorted",
+                        EXPECTED_UNSORTED.contains(type),
+                        !isSorted);
+            }
+        }
     }
 }

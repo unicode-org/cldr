@@ -3738,4 +3738,60 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
+
+    public static final Set<String> TRUNCATION_EXCEPTIONS = ImmutableSet.of("sievert", "gray");
+
+    /** Every subtag must be unique to 8 letters. We also check combinations with prefixes */
+    public void testTruncation() {
+        UnitConverter uc = SDI.getUnitConverter();
+        Multimap<String, String> truncatedToFull = TreeMultimap.create();
+        Set<String> unitsToTest = Sets.union(uc.baseUnits(), uc.getSimpleUnits());
+
+        for (String unit : unitsToTest) {
+            if (TRUNCATION_EXCEPTIONS.contains(unit)) {
+                continue;
+            }
+            addTruncation(unit, truncatedToFull);
+            // also check for adding prefixes
+            Collection<UnitSystem> systems = uc.getSystemsEnum(unit);
+            if (systems.contains(UnitSystem.si)
+                    || UnitConverter.METRIC_TAKING_PREFIXES.contains(unit)) {
+                // get without prefix
+                for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
+                    if (unit.startsWith(prefixPower)) {
+                        unit = unit.substring(prefixPower.length());
+                        break;
+                    }
+                }
+                for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
+                    addTruncation(prefixPower + unit, truncatedToFull);
+                }
+            } else if (systems.contains(UnitSystem.metric)) {
+                logln("Skipping application of prefixes to: " + unit);
+            }
+        }
+        checkTruncationStatus(truncatedToFull);
+    }
+
+    static Splitter HYPHEN_SPLITTER = Splitter.on('-');
+
+    private void addTruncation(String unit, Multimap<String, String> truncatedToFull) {
+        for (String subcode : HYPHEN_SPLITTER.split(unit)) {
+            truncatedToFull.put(subcode.length() <= 8 ? subcode : subcode.substring(0, 8), subcode);
+        }
+    }
+
+    public void checkTruncationStatus(Multimap<String, String> truncatedToFull) {
+        for (Entry<String, Collection<String>> entry : truncatedToFull.asMap().entrySet()) {
+            final String truncated = entry.getKey();
+            final Collection<String> longForms = entry.getValue();
+            if (longForms.size() > 1) {
+                errln("Ambiguous bcp47 format: " + entry);
+            } else if (isVerbose()) {
+                if (!longForms.contains(truncated)) {
+                    logln(entry.toString());
+                }
+            }
+        }
+    }
 }

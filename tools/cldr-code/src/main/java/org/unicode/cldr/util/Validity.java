@@ -4,12 +4,12 @@ import com.google.common.base.Splitter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 
@@ -74,7 +74,7 @@ public class Validity {
             }
             Map<String, Status> subCodeToStatus = codeToStatus.get(type);
             if (subCodeToStatus == null) {
-                codeToStatus.put(type, subCodeToStatus = new TreeMap<>());
+                codeToStatus.put(type, subCodeToStatus = new LinkedHashMap<>());
             }
 
             XMLFileReader.loadPathValues(basePath + file, lineData, true);

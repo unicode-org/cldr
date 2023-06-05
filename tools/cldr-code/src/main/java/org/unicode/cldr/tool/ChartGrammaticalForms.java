@@ -187,7 +187,7 @@ public class ChartGrammaticalForms extends Chart {
                 if (multiline) {
                     for (GrammaticalScope usage : GrammaticalScope.values()) {
                         values = scopeToValues.get(usage);
-                        if (values.isEmpty()) {
+                        if (values == null || values.isEmpty()) {
                             continue;
                         }
                         sortedValues.clear();
@@ -966,12 +966,16 @@ public class ChartGrammaticalForms extends Chart {
             Rational bestFactor = null;
             Rational inputBoundary = Rational.of(2).multiply(info.factor);
             for (Entry<Rational, String> entry : factorToUnit.entrySet()) {
+                final String possibleUnit = entry.getValue();
+                if (possibleUnit.equals("cup-jp")) {
+                    continue; // skip odd unit
+                }
                 final Rational currentFactor = entry.getKey();
                 if (bestUnit != null && currentFactor.compareTo(inputBoundary) >= 0) {
                     break;
                 }
                 bestFactor = currentFactor;
-                bestUnit = entry.getValue();
+                bestUnit = possibleUnit;
             }
             bestFactor = info.factor.divide(bestFactor); // scale for bestUnit
             if (!bestFactor.equals(Rational.ONE) || !shortUnit.equals(bestUnit)) {

@@ -17,6 +17,7 @@ public enum Organization {
     afghan_csa("Afghan CSA"),
     afghan_mcit("Afghan MCIT"),
     afrigen("Afrigen"),
+    anii("Anii Research Group"),
     apple("Apple"),
     bangladesh("Bangladesh", "Bangladesh Computer Council"),
     bangor_univ("Bangor Univ."),

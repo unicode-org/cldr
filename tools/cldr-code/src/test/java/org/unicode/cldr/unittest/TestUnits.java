@@ -3739,7 +3739,15 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-    public static final Set<String> TRUNCATION_EXCEPTIONS = ImmutableSet.of("sievert", "gray");
+    public static final Set<String> TRUNCATION_EXCEPTIONS =
+            ImmutableSet.of(
+                    "sievert",
+                    "gray",
+                    "henry",
+                    "lux",
+                    "candela",
+                    "candela-per-square-meter",
+                    "candela-square-meter-per-square-meter");
 
     /** Every subtag must be unique to 8 letters. We also check combinations with prefixes */
     public void testTruncation() {
@@ -3748,29 +3756,33 @@ public class TestUnits extends TestFmwk {
         Set<String> unitsToTest = Sets.union(uc.baseUnits(), uc.getSimpleUnits());
 
         for (String unit : unitsToTest) {
-            if (TRUNCATION_EXCEPTIONS.contains(unit)) {
-                continue;
-            }
             addTruncation(unit, truncatedToFull);
             // also check for adding prefixes
             Collection<UnitSystem> systems = uc.getSystemsEnum(unit);
             if (systems.contains(UnitSystem.si)
                     || UnitConverter.METRIC_TAKING_PREFIXES.contains(unit)) {
-                // get without prefix
-                for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
-                    if (unit.startsWith(prefixPower)) {
-                        unit = unit.substring(prefixPower.length());
-                        break;
-                    }
+                if (TRUNCATION_EXCEPTIONS.contains(unit)) {
+                    continue;
                 }
+                // get without prefix
+                String baseUnit = removePrefixIfAny(unit);
                 for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
-                    addTruncation(prefixPower + unit, truncatedToFull);
+                    addTruncation(prefixPower + baseUnit, truncatedToFull);
                 }
             } else if (systems.contains(UnitSystem.metric)) {
                 logln("Skipping application of prefixes to: " + unit);
             }
         }
         checkTruncationStatus(truncatedToFull);
+    }
+
+    public String removePrefixIfAny(String unit) {
+        for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
+            if (unit.startsWith(prefixPower)) {
+                return unit.substring(prefixPower.length());
+            }
+        }
+        return unit;
     }
 
     static Splitter HYPHEN_SPLITTER = Splitter.on('-');

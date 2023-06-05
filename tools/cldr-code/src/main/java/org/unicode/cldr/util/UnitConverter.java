@@ -1483,7 +1483,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public static final Set<String> METRIC_TAKING_PREFIXES =
             ImmutableSet.of(
-                    "bit", "byte", "liter", "tonne", "degree", "celcius", "kelvin", "calorie",
+                    "bit", "byte", "liter", "tonne", "degree", "celsius", "kelvin", "calorie",
                     "bar");
     public static final Set<String> METRIC_TAKING_BINARY_PREFIXES = ImmutableSet.of("bit", "byte");
 

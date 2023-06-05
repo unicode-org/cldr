@@ -1481,6 +1481,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
         PREFIXES = ImmutableMap.copyOf(temp);
     }
 
+    public static final Set<String> METRIC_TAKING_PREFIXES =
+            ImmutableSet.of(
+                    "bit", "byte", "liter", "tonne", "degree", "celsius", "kelvin", "calorie",
+                    "bar");
+    public static final Set<String> METRIC_TAKING_BINARY_PREFIXES = ImmutableSet.of("bit", "byte");
+
     static final Set<String> SKIP_PREFIX =
             ImmutableSet.of("millimeter-ofhg", "kilogram", "kilogram-force");
 
@@ -1489,7 +1495,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
      * If there is no prefix, return the unit and ONE. If there is a prefix return the unit (with
      * prefix stripped) and the prefix factor
      */
-    private static <V> String stripPrefixCommon(
+    public static <V> String stripPrefixCommon(
             String unit, Output<V> deprefix, Map<String, V> unitMap) {
         if (SKIP_PREFIX.contains(unit)) {
             return unit;
@@ -1596,6 +1602,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         metric,
         ussystem,
         uksystem,
+        jpsystem,
         other;
 
         public static final Set<UnitSystem> SiOrMetric =

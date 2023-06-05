@@ -1827,7 +1827,25 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "temperature-rankine",
                                         "duration-fortnight",
                                         "mass-slug",
-                                        "pressure-gasoline-equivalent"))
+                                        "pressure-gasoline-equivalent",
+                                        "length-rin",
+                                        "length-sun",
+                                        "length-shaku-length",
+                                        "length-shaku-cloth",
+                                        "length-ken",
+                                        "length-jo-jp",
+                                        "length-ri-jp",
+                                        "area-bu-jp",
+                                        "area-se-jp",
+                                        "area-cho",
+                                        "volume-kosaji",
+                                        "volume-osaji",
+                                        "volume-cup-jp",
+                                        "volume-shaku",
+                                        "volume-sai",
+                                        "volume-to-jp",
+                                        "volume-koku",
+                                        "mass-fun"))
                         .freeze();
     }
 

@@ -119,6 +119,8 @@ public class TestUnits extends TestFmwk {
     private static final boolean SHOW_UNIT_CATEGORY = getFlag("TestUnits:SHOW_UNIT_CATEGORY");
     private static final boolean SHOW_COMPOSE = getFlag("TestUnits:SHOW_COMPOSE");
     private static final boolean SHOW_DATA = getFlag("TestUnits:SHOW_DATA");
+    private static final boolean SHOW_MISSING_TEST_DATA =
+            getFlag("TestUnits:SHOW_MISSING_TEST_DATA");
 
     /** Flags for reformatting data file */
     private static final boolean SHOW_PREFS = getFlag("TestUnits:SHOW_PREFS");
@@ -935,7 +937,18 @@ public class TestUnits extends TestFmwk {
 
     static final UnicodeSet ALLOWED_IN_COMPONENT = new UnicodeSet("[a-z0-9]").freeze();
     static final Set<String> STILL_RECOGNIZED_SIMPLES =
-            ImmutableSet.of("em", "g-force", "therm-us", "british-thermal-unit-it", "calorie-it");
+            ImmutableSet.of(
+                    "em",
+                    "g-force",
+                    "therm-us",
+                    "british-thermal-unit-it",
+                    "calorie-it",
+                    "bu-jp",
+                    "jo-jp",
+                    "ri-jp",
+                    "se-jp",
+                    "to-jp",
+                    "cup-jp");
 
     public void TestOrder() {
         if (SHOW_UNIT_ORDER) System.out.println();
@@ -2013,7 +2026,7 @@ public class TestUnits extends TestFmwk {
         for (String remainingUnit : remainingCldrUnits) {
             final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
             if (!targetInfo.target.contentEquals(remainingUnit)) {
-                if (SHOW_DATA) {
+                if (SHOW_MISSING_TEST_DATA) {
                     printlnIfZero(unitsWithoutExternalCheck);
                     System.out.println(
                             "Not tested against external data\t"
@@ -2024,10 +2037,10 @@ public class TestUnits extends TestFmwk {
                 unitsWithoutExternalCheck++;
             }
         }
-        if (unitsWithoutExternalCheck != 0 && !SHOW_DATA) {
+        if (unitsWithoutExternalCheck != 0 && !SHOW_MISSING_TEST_DATA) {
             warnln(
                     unitsWithoutExternalCheck
-                            + " units without external data verification.  Use -DTestUnits:SHOW_DATA for details.");
+                            + " units without external data verification.  Use -DTestUnits:SHOW_MISSING_TEST_DATA for details.");
         }
 
         boolean showDiagnostics = false;
@@ -3721,6 +3734,74 @@ public class TestUnits extends TestFmwk {
                         continuationSegment,
                         upSegment)) {
                     break; // stop at first difference
+                }
+            }
+        }
+    }
+
+    public static final Set<String> TRUNCATION_EXCEPTIONS =
+            ImmutableSet.of(
+                    "sievert",
+                    "gray",
+                    "henry",
+                    "lux",
+                    "candela",
+                    "candela-per-square-meter",
+                    "candela-square-meter-per-square-meter");
+
+    /** Every subtag must be unique to 8 letters. We also check combinations with prefixes */
+    public void testTruncation() {
+        UnitConverter uc = SDI.getUnitConverter();
+        Multimap<String, String> truncatedToFull = TreeMultimap.create();
+        Set<String> unitsToTest = Sets.union(uc.baseUnits(), uc.getSimpleUnits());
+
+        for (String unit : unitsToTest) {
+            addTruncation(unit, truncatedToFull);
+            // also check for adding prefixes
+            Collection<UnitSystem> systems = uc.getSystemsEnum(unit);
+            if (systems.contains(UnitSystem.si)
+                    || UnitConverter.METRIC_TAKING_PREFIXES.contains(unit)) {
+                if (TRUNCATION_EXCEPTIONS.contains(unit)) {
+                    continue;
+                }
+                // get without prefix
+                String baseUnit = removePrefixIfAny(unit);
+                for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
+                    addTruncation(prefixPower + baseUnit, truncatedToFull);
+                }
+            } else if (systems.contains(UnitSystem.metric)) {
+                logln("Skipping application of prefixes to: " + unit);
+            }
+        }
+        checkTruncationStatus(truncatedToFull);
+    }
+
+    public String removePrefixIfAny(String unit) {
+        for (String prefixPower : UnitConverter.PREFIXES.keySet()) {
+            if (unit.startsWith(prefixPower)) {
+                return unit.substring(prefixPower.length());
+            }
+        }
+        return unit;
+    }
+
+    static Splitter HYPHEN_SPLITTER = Splitter.on('-');
+
+    private void addTruncation(String unit, Multimap<String, String> truncatedToFull) {
+        for (String subcode : HYPHEN_SPLITTER.split(unit)) {
+            truncatedToFull.put(subcode.length() <= 8 ? subcode : subcode.substring(0, 8), subcode);
+        }
+    }
+
+    public void checkTruncationStatus(Multimap<String, String> truncatedToFull) {
+        for (Entry<String, Collection<String>> entry : truncatedToFull.asMap().entrySet()) {
+            final String truncated = entry.getKey();
+            final Collection<String> longForms = entry.getValue();
+            if (longForms.size() > 1) {
+                errln("Ambiguous bcp47 format: " + entry);
+            } else if (isVerbose()) {
+                if (!longForms.contains(truncated)) {
+                    logln(entry.toString());
                 }
             }
         }

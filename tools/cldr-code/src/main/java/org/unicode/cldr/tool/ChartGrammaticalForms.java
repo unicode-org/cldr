@@ -63,6 +63,7 @@ import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.XPathParts;
 
+/** Chart the grammatical forms, with unit examples */
 public class ChartGrammaticalForms extends Chart {
 
     private static final String FORMATTED_SAMPLE = "Formatted Sample";

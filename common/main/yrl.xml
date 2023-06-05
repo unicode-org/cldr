@@ -1225,11 +1225,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</contextTransformUsage>
 	</contextTransforms>
 	<characters>
-		<exemplarCharacters>[a ã b d e ẽ g i ĩ k m n p r s t u ũ w x y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[ª á à ă â å ä ā æ c ç é è ĕ ê ë ē f h í ì ĭ î ï ī j l ñ o º ó ò ŏ ô ö õ ø ō œ q ú ù ŭ û ü ū v ÿ ỹ z]</exemplarCharacters>
+		<exemplarCharacters>[aã b d eẽ g iĩ k m n p r s t uũ w x y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ªáàăâåäā æ cç éèĕêëē f h íìĭîïī j l ñ oºóòŏôöõøō œ q úùŭûüū v ÿỹ z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B D E G I K M N P R S T U W X Y]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ¡ ? ¿ . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] § @ * / \\ \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ¡ ? ¿ . … '‘’ &quot;“” « » ( ) \[ \] § @ * / \\ \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}… {1}</ellipsis>
@@ -1238,23 +1238,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
-			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\- ‑ . /]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\: ∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
-			<parseLenient sample="$" draft="contributed">[\$﹩＄]</parseLenient>
-			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
-			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.．․﹒ 。｡︒]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$＄﹩]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£ ₤]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₹ ₨ {Rp} {Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
-			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
-			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\-－﹣ ‑ ‒ −⁻₋ ➖]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ، ٫ 、﹑､︑]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+＋﬩﹢⁺₊ ➕]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
-			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ٫]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.．․﹒ ｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,7 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a {a\u0320} b d e {e\u0320} f g h i {i\u0320} k l m n o {o\u0320} {ȏu} {ȏ\u035Fu} p s t u {u\u0320} w y]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a{a̠} b d e{e̠} f g h i{i̠} k l m n o{o̠} {ȏu}{ȏ͟u} p s t u{u̠} w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c j q r v x z]</exemplarCharacters>
 	</characters>
 </ldml>

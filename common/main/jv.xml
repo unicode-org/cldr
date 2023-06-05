@@ -936,9 +936,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a â å b c d e é è ê g h i ì j k l m n o ò p r s t u ù w y]</exemplarCharacters>
+		<exemplarCharacters>[aâå b c d eéèê g h iì j k l m n oò p r s t uù w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[f q v x z]</exemplarCharacters>
-		<exemplarCharacters type="index">[A Â Å B C D E É È Ê G H I Ì J K L M N O Ò P R S T U Ù W Y]</exemplarCharacters>
+		<exemplarCharacters type="index">[AÂÅ B C D EÉÈÊ G H IÌ J K L M N OÒ P R S T UÙ W Y]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
@@ -950,21 +950,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample=":" draft="contributed">[\:∶]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\: ∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
 			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="$" draft="contributed">[\$﹩＄]</parseLenient>
-			<parseLenient sample="£" draft="contributed">[£₤]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$＄﹩]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£ ₤]</parseLenient>
 			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\-‒⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\-－﹣ ‑ ‒ −⁻₋ ➖]</parseLenient>
 			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
 		</parseLenients>

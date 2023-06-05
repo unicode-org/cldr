@@ -1507,7 +1507,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ /〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",

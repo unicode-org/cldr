@@ -1083,7 +1083,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[\U0001E944\U0001E945\U0001E946 𞤢 𞤣 𞤤 𞤥 𞤦 𞤧 𞤨 𞤩 𞤪 𞤫 𞤬 𞤭 𞤮 𞤯 𞤰 𞤱 𞤲 𞤳 𞤴 𞤵 𞤶 𞤷 𞤸 𞤹 𞤺 𞤻 𞤼 𞤽 𞥋]</exemplarCharacters>
+		<exemplarCharacters>[𞥄 𞥅 𞥆 𞤢 𞤣 𞤤 𞤥 𞤦 𞤧 𞤨 𞤩 𞤪 𞤫 𞤬 𞤭 𞤮 𞤯 𞤰 𞤱 𞤲 𞤳 𞤴 𞤵 𞤶 𞤷 𞤸 𞤹 𞤺 𞤻 𞤼 𞤽 𞥋]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[𞤾 𞤿 𞥀 𞥁 𞥂 𞥃]</exemplarCharacters>
 		<exemplarCharacters type="index">[𞤀 𞤛]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="contributed">[𞥐 𞥑 𞥒 𞥓 𞥔 𞥕 𞥖 𞥗 𞥘 𞥙]</exemplarCharacters>
@@ -1096,28 +1096,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>؟</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\--/]</parseLenient>
-			<parseLenient sample=":" draft="contributed">[\:∶︓﹕：]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\- ‑ . /]</parseLenient>
+			<parseLenient sample=":" draft="contributed">[\:：﹕︓ ∶]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">[.․。︒﹒．｡]</parseLenient>
-			<parseLenient sample="’" draft="contributed">['ʼ՚᾽᾿’＇]</parseLenient>
-			<parseLenient sample="%" draft="contributed">[%٪﹪％]</parseLenient>
-			<parseLenient sample="‰" draft="contributed">[؉‰]</parseLenient>
-			<parseLenient sample="$" draft="contributed">[\$﹩＄]</parseLenient>
-			<parseLenient sample="£" draft="contributed">[£₤￡]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.．․﹒ 。｡︒]</parseLenient>
+			<parseLenient sample="’" draft="contributed">['＇’ ՚ ᾽᾿ ʼ]</parseLenient>
+			<parseLenient sample="%" draft="contributed">[%％﹪ ٪]</parseLenient>
+			<parseLenient sample="‰" draft="contributed">[‰ ؉]</parseLenient>
+			<parseLenient sample="$" draft="contributed">[\$＄﹩]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥" draft="contributed">[¥￥]</parseLenient>
 			<parseLenient sample="₩" draft="contributed">[₩￦]</parseLenient>
-			<parseLenient sample="₹" draft="contributed">[₨₹{Rp}{Rs}]</parseLenient>
+			<parseLenient sample="₹" draft="contributed">[₹ ₨ {Rp} {Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">[\-‐‒–⁻₋−➖﹣－]</parseLenient>
-			<parseLenient sample="," draft="contributed">[,،٫、︐︑﹐﹑，､]</parseLenient>
-			<parseLenient sample="+" draft="contributed">[+⁺₊➕﬩﹢＋]</parseLenient>
+			<parseLenient sample="-" draft="contributed">[\-－﹣ ‐‑ ‒ – −⁻₋ ➖]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ، ٫ 、﹑､︑]</parseLenient>
+			<parseLenient sample="+" draft="contributed">[+＋﬩﹢⁺₊ ➕]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">[,٫︐﹐，]</parseLenient>
-			<parseLenient sample="." draft="contributed">[.․﹒．｡]</parseLenient>
+			<parseLenient sample="," draft="contributed">[,，﹐︐ ٫]</parseLenient>
+			<parseLenient sample="." draft="contributed">[.．․﹒ ｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -736,6 +736,11 @@ annotations.
 		<annotation cp="😂" type="tts">face with tears of joy</annotation>
 		<annotation cp="🙂">face | slightly smiling face | smile</annotation>
 		<annotation cp="🙂" type="tts">slightly smiling face</annotation>
+		<annotation cp="🙂‍↕">head shaking vertically | nod, yes</annotation> <!-- 1F642 200D 2195 -->
+		<annotation cp="🙂‍↕" type="tts">head shaking vertically</annotation>
+		<!-- Generated lines from Emoji Data v15.1, using GenerateCldrData.java -->
+		<annotation cp="🙂‍↔">head shaking horizontally | no, shake</annotation> <!-- 1F642 200D 2194 -->
+		<annotation cp="🙂‍↔" type="tts">head shaking horizontally</annotation>
 		<annotation cp="🙃">face | upside-down</annotation>
 		<annotation cp="🙃" type="tts">upside-down face</annotation>
 		<!-- Generated lines from Emoji Data v14, using GenerateCldrData.java -->
@@ -1186,6 +1191,14 @@ annotations.
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond-haired person | hair | person: blond hair</annotation>
 		<annotation cp="👱" type="tts">person: blond hair</annotation>
+		<annotation cp="🧑‍🧒">family: adult, child</annotation> <!-- 1F9D1 200D 1F9D2 -->
+		<annotation cp="🧑‍🧒" type="tts">family: adult, child</annotation>
+		<annotation cp="🧑‍🧒‍🧒">family: adult, child, child</annotation> <!-- 1F9D1 200D 1F9D2 200D 1F9D2 -->
+		<annotation cp="🧑‍🧒‍🧒" type="tts">family: adult, child, child</annotation>
+		<annotation cp="🧑‍🧑‍🧒">family: adult, adult, child</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2 -->
+		<annotation cp="🧑‍🧑‍🧒" type="tts">family: adult, adult, child</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">family: adult, adult, child, child</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2 200D 1F9D2 -->
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">family: adult, adult, child, child</annotation>
 		<annotation cp="👨">adult | man</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">beard | person | person: beard</annotation>
@@ -1437,7 +1450,7 @@ annotations.
 		<annotation cp="🎅" type="tts">Santa Claus</annotation>
 		<annotation cp="🤶">celebration | Christmas | claus | mother | Mrs. | Mrs. Claus</annotation>
 		<annotation cp="🤶" type="tts">Mrs. Claus</annotation>
-		<annotation cp="🧑‍🎄">claus | christmas | mx claus</annotation> <!-- 1F9D1 200D 1F384 -->
+		<annotation cp="🧑‍🎄">christmas | claus | mx claus</annotation> <!-- 1F9D1 200D 1F384 -->
 		<annotation cp="🧑‍🎄" type="tts">mx claus</annotation>
 		<annotation cp="🦸">good | hero | heroine | superhero | superpower</annotation>
 		<annotation cp="🦸" type="tts">superhero</annotation>
@@ -1847,6 +1860,8 @@ annotations.
 		<annotation cp="🐥" type="tts">front-facing baby chick</annotation>
 		<annotation cp="🐦">bird</annotation>
 		<annotation cp="🐦" type="tts">bird</annotation>
+		<annotation cp="🐦‍🔥">fantasy, firebird, rebirth, reincarnation | phoenix</annotation> <!-- 1F426 200D 1F525 -->
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">bird | penguin</annotation>
 		<annotation cp="🐧" type="tts">penguin</annotation>
 		<annotation cp="🕊">bird | dove | fly | peace</annotation>
@@ -2005,6 +2020,8 @@ annotations.
 		<annotation cp="🪺" type="tts">nest with eggs</annotation>
 		<annotation cp="🍄">mushroom | toadstool</annotation>
 		<annotation cp="🍄" type="tts">mushroom</annotation>
+		<annotation cp="🍄‍🟫">brown mushroom | food, fungus, nature, vegetable</annotation> <!-- 1F344 200D 1F7EB -->
+		<annotation cp="🍄‍🟫" type="tts">brown mushroom</annotation>
 		<annotation cp="🍇">fruit | grape | grapes</annotation>
 		<annotation cp="🍇" type="tts">grapes</annotation>
 		<annotation cp="🍈">fruit | melon</annotation>
@@ -2015,6 +2032,8 @@ annotations.
 		<annotation cp="🍊" type="tts">tangerine</annotation>
 		<annotation cp="🍋">citrus | fruit | lemon</annotation>
 		<annotation cp="🍋" type="tts">lemon</annotation>
+		<annotation cp="🍋‍🟩">citrus, fruit, tropical | lime</annotation> <!-- 1F34B 200D 1F7E9 -->
+		<annotation cp="🍋‍🟩" type="tts">lime</annotation>
 		<annotation cp="🍌">banana | fruit</annotation>
 		<annotation cp="🍌" type="tts">banana</annotation>
 		<annotation cp="🍍">fruit | pineapple</annotation>
@@ -3295,6 +3314,8 @@ annotations.
 		<annotation cp="🔗" type="tts">link</annotation>
 		<annotation cp="⛓">chain | chains</annotation>
 		<annotation cp="⛓" type="tts">chains</annotation>
+		<annotation cp="⛓‍💥">break, breaking, chain, cuffs, freedom | broken chain</annotation> <!-- 26D3 200D 1F4A5 -->
+		<annotation cp="⛓‍💥" type="tts">broken chain</annotation>
 		<annotation cp="🪝">catch | crook | curve | ensnare | hook | selling point</annotation>
 		<annotation cp="🪝" type="tts">hook</annotation>
 		<annotation cp="🧰">chest | mechanic | tool | toolbox</annotation>
@@ -3886,26 +3907,5 @@ annotations.
 		<annotation cp="³" type="tts">superscript three</annotation>
 		<annotation cp="µ">measure | micro sign</annotation>
 		<annotation cp="µ" type="tts">micro sign</annotation>
-		<!-- Generated lines from Emoji Data v15.1, using GenerateCldrData.java-->
-		<annotation cp="🙂‍↔">no, shake</annotation> 	<!-- 1F642 200D 2194 -->
-		<annotation cp="🙂‍↔" type="tts">head shaking horizontally</annotation>
-		<annotation cp="🙂‍↕">nod, yes</annotation> 	<!-- 1F642 200D 2195 -->
-		<annotation cp="🙂‍↕" type="tts">head shaking vertically</annotation>
-		<annotation cp="🧑‍🧑‍🧒">family: adult, adult, child</annotation> 	<!-- 1F9D1 200D 1F9D1 200D 1F9D2 -->
-		<annotation cp="🧑‍🧑‍🧒" type="tts">family: adult, adult, child</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">family: adult, adult, child, child</annotation> 	<!-- 1F9D1 200D 1F9D1 200D 1F9D2 200D 1F9D2 -->
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">family: adult, adult, child, child</annotation>
-		<annotation cp="🧑‍🧒">family: adult, child</annotation> 	<!-- 1F9D1 200D 1F9D2 -->
-		<annotation cp="🧑‍🧒" type="tts">family: adult, child</annotation>
-		<annotation cp="🧑‍🧒‍🧒">family: adult, child, child</annotation> 	<!-- 1F9D1 200D 1F9D2 200D 1F9D2 -->
-		<annotation cp="🧑‍🧒‍🧒" type="tts">family: adult, child, child</annotation>
-		<annotation cp="🐦‍🔥">fantasy, firebird, rebirth, reincarnation</annotation> 	<!-- 1F426 200D 1F525 -->
-		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
-		<annotation cp="🍋‍🟩">citrus, fruit, tropical</annotation> 	<!-- 1F34B 200D 1F7E9 -->
-		<annotation cp="🍋‍🟩" type="tts">lime</annotation>
-		<annotation cp="🍄‍🟫">food, fungus, nature, vegetable</annotation> 	<!-- 1F344 200D 1F7EB -->
-		<annotation cp="🍄‍🟫" type="tts">brown mushroom</annotation>
-		<annotation cp="⛓‍💥">break, breaking, chain, cuffs, freedom</annotation> 	<!-- 26D3 200D 1F4A5 -->
-		<annotation cp="⛓‍💥" type="tts">broken chain</annotation>
 	</annotations>
 </ldml>

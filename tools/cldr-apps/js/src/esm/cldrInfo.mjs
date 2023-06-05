@@ -22,12 +22,20 @@ let containerId = null;
 let neighborId = null;
 let buttonClass = null;
 
-// Start with panel closed; it will get opened when a Page is chosen
+let panelInitialized = false;
 let panelVisible = false;
-let panelVisibleForPageView = true;
 
 let unShow = null;
 let lastShown = null;
+
+const ITEM_INFO_ID = "itemInfo"; // must match redesign.css
+const ITEM_INFO_CLASS = "sidebyside-scrollable"; // must match redesign.css, cldrGui.mjs, DashboardWidget.vue
+
+const HELP_HTML_ID = "info-panel-help";
+const PLACEHOLDER_HELP_ID = "info-panel-placeholder";
+const INFO_MESSAGE_ID = "info-panel-message";
+const SELECTED_ITEM_ID = "info-panel-selected";
+const INFO_REMAINDER_ID = "info-panel-remainder";
 
 /**
  * Initialize the Info Panel
@@ -71,21 +79,34 @@ function insertVueElement(containerEl) {
 /**
  * Create an element to display the Info Panel contents.
  *
- * For compatibility with legacy Survey Tool code, this is not a Vue component.
+ * For compatibility with legacy Survey Tool code, this is not a Vue component, although it
+ * may contain some Vue components.
+ *
  * The legacy code involving showRowObjFunc, etc., does extensive direct DOM manipulation.
+ *
+ * Create divs inside the element whose id is ITEM_INFO_ID, each containing a part of the Info Panel
+ * which may be either a legacy div or a Vue component.
+ *
  * Ideally, eventually Vue components will be used for the entire Info Panel.
  *
  * @param {Element} containerEl the element whose new child will be created
  */
 function insertLegacyElement(containerEl) {
-  const nonVueEl = document.createElement("section");
-  nonVueEl.className = "sidebyside-scrollable";
-  nonVueEl.id = "itemInfo";
-  containerEl.appendChild(nonVueEl);
-  // TODO: here, create divs inside itemInfo, each containing a part of the Info Panel
-  // which may be either a legacy div or a Vue component; never destroy these
-  // divs wholesale by calling removeAllChildNodes on itemInfo.
-  // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
+  const el = document.createElement("section");
+  el.className = ITEM_INFO_CLASS;
+  el.id = ITEM_INFO_ID;
+  containerEl.appendChild(el);
+  appendDiv(el, HELP_HTML_ID);
+  appendDiv(el, PLACEHOLDER_HELP_ID);
+  appendDiv(el, INFO_MESSAGE_ID);
+  appendDiv(el, SELECTED_ITEM_ID);
+  appendDiv(el, INFO_REMAINDER_ID);
+}
+
+function appendDiv(el, id) {
+  const div = document.createElement("div");
+  div.id = id;
+  el.appendChild(div);
 }
 
 function openPanel() {
@@ -104,7 +125,6 @@ function closePanel() {
 
 function openOrClosePanel() {
   setPanelAndNeighborStyles();
-  rememberPanelVisibilityIfPageView();
   updateOpenPanelButtons();
 }
 
@@ -120,24 +140,6 @@ function setPanelAndNeighborStyles() {
       main.style.width = "100%";
       info.style.display = "none";
     }
-  }
-}
-
-/**
- * Remember whether the Info Panel should be visible when the
- * Page table is displayed (rather than a "special").
- *
- * If there is no current "special", the main Page table view is visible,
- * and the Info Panel visibility state corresponds to the Page table view.
- *
- * Call this after setting panelVisible to true/false.
- *
- * TODO: simplify this and related code now that the Info Panel is no longer used
- * for "special" pages. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
- */
-function rememberPanelVisibilityIfPageView() {
-  if (!cldrStatus.getCurrentSpecial()) {
-    panelVisibleForPageView = panelVisible;
   }
 }
 
@@ -220,14 +222,18 @@ function showRowObjFunc(tr, hideIfLast, fn) {
 /**
  * Should the Info Panel be shown?
  *
+ * Default is true when called the first time.
+ * Subsequently, remember whether the user has left it open or closed.
+ *
  * @returns true if the Info Panel should be shown, else false
- *
- * This is only called when one of the show... functions is called.
- *
- * Rely on the setting of panelVisibleForPageView.
  */
 function panelShouldBeShown() {
-  return panelVisibleForPageView;
+  if (!panelInitialized) {
+    panelInitialized = true;
+    // Leave panelVisible = false until openPanel makes it true.
+    return true;
+  }
+  return panelVisible;
 }
 
 /**
@@ -247,55 +253,83 @@ function show(str, tr, hideIfLast, fn) {
     unShow();
     unShow = null;
   }
-
   if (tr?.sethash) {
     cldrLoad.updateCurrentId(tr.sethash);
   }
   setLastShown(hideIfLast);
-
-  /*
-   * This is the temporary fragment used for the Info Panel contents.
-   *
-   * TODO: instead of constructing this monolithic fragment and replacing the Info Panel
-   * contents all at the same time (destroying the previous contents with removeAllChildNodes),
-   * the Info Panel should be structured as a set of divs that can be updated independently, some divs
-   * constructed with legacy code, and other divs containing Vue components. Gradually replace all
-   * legacy divs with Vue components. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-   */
-  const fragment = document.createDocumentFragment();
-
   if (tr?.theRow) {
-    const { theRow } = tr;
-    const {
-      helpHtml,
-      rdf,
-      placeholderStatus,
-      placeholderInfo,
-      translationHint,
-    } = theRow;
+    addDeferredHelp(tr.theRow);
+    addPlaceholderHelp(tr.theRow);
+  }
+  addInfoMessage(str);
+  addRemainder(tr, fn);
+  addVoterInfoHover();
+}
+
+function addDeferredHelp(theRow) {
+  const el = document.getElementById(HELP_HTML_ID);
+  if (el) {
+    const { helpHtml, rdf, translationHint } = theRow;
     if (helpHtml || rdf || translationHint) {
+      const fragment = document.createDocumentFragment();
       cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf, translationHint);
+      if (el.firstChild) {
+        el.firstChild.replaceWith(fragment);
+      } else {
+        el.appendChild(fragment);
+      }
+    } else {
+      cldrDom.removeAllChildNodes(el);
     }
+  }
+}
+
+function addPlaceholderHelp(theRow) {
+  const el = document.getElementById(PLACEHOLDER_HELP_ID);
+  if (el) {
+    const { placeholderStatus, placeholderInfo } = theRow;
     if (placeholderStatus !== "DISALLOWED") {
-      // Hide the placeholder status if DISALLOWED
+      const fragment = document.createDocumentFragment();
       cldrDeferHelp.addPlaceholderHelp(
         fragment,
         placeholderStatus,
         placeholderInfo
       );
+      if (el.firstChild) {
+        el.firstChild.replaceWith(fragment);
+      } else {
+        el.appendChild(fragment);
+      }
+    } else {
+      cldrDom.removeAllChildNodes(el);
     }
   }
+}
 
-  if (str) {
-    const div = document.createElement("div");
-    div.innerHTML = str;
-    fragment.appendChild(div);
+function addInfoMessage(html) {
+  const el = document.getElementById(INFO_MESSAGE_ID);
+  if (el) {
+    if (html) {
+      const div = document.createElement("div");
+      div.innerHTML = html;
+      if (el.firstChild) {
+        el.firstChild.replaceWith(div);
+      } else {
+        el.appendChild(div);
+      }
+    } else {
+      cldrDom.removeAllChildNodes(el);
+    }
   }
+}
+
+function addRemainder(tr, fn) {
+  const fragment = document.createDocumentFragment();
+
   // If a generator fn (common case), call it.
   if (fn) {
     unShow = fn(fragment);
   }
-
   if (tr?.voteDiv) {
     fragment.appendChild(tr.voteDiv.cloneNode(true));
   }
@@ -321,28 +355,26 @@ function show(str, tr, hideIfLast, fn) {
       )
     );
   }
-  const itemInfoElement = document.getElementById("itemInfo");
-  if (!itemInfoElement) {
-    console.log("itemInfo not found in show!");
+  const remainderElement = document.getElementById(INFO_REMAINDER_ID);
+  if (!remainderElement) {
+    console.log("remainderElement not found in show!");
     return;
   }
 
   // Now, copy or append the 'fragment' to the
   // appropriate spot. This depends on how we were called.
   if (tr) {
-    cldrDom.removeAllChildNodes(itemInfoElement);
-    itemInfoElement.appendChild(fragment);
+    cldrDom.removeAllChildNodes(remainderElement);
+    remainderElement.appendChild(fragment);
   } else {
     // show, for example, dataPageInitialGuidance in Info Panel
     const clone = fragment.cloneNode(true);
-    cldrDom.removeAllChildNodes(itemInfoElement);
-    itemInfoElement.appendChild(clone);
+    cldrDom.removeAllChildNodes(remainderElement);
+    remainderElement.appendChild(clone);
   }
-  addVoterInfoHover();
 }
 
 function addVoterInfoHover() {
-  // for the voter
   $(".voteInfo_voterInfo").hover(
     function () {
       const email = $(this).data("email").replace(" (at) ", "@");

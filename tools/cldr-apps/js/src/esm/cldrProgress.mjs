@@ -6,6 +6,7 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrGui from "./cldrGui.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -13,8 +14,6 @@ import * as cldrText from "./cldrText.mjs";
 import ProgressMeters from "../views/ProgressMeters.vue";
 
 import { createCldrApp } from "../cldrVueRouter.mjs";
-
-import { notification } from "ant-design-vue";
 
 let progressWrapper = null;
 
@@ -123,11 +122,11 @@ function insertWidget(spanId) {
     console.error(
       "Error loading ProgressMeters vue " + e.message + " / " + e.name
     );
-    notification.error({
-      message: `${e.name} while loading ProgressMeters.vue`,
-      description: `${e.message}`,
-      duration: 0,
-    });
+    cldrNotify.error(
+      `${e.name} while loading ProgressMeters.vue`,
+      e.message,
+      cldrNotify.NO_TIMEOUT
+    );
   }
 }
 
@@ -396,7 +395,7 @@ function reallyFetchLocaleData(locale) {
     .then((response) => {
       if (!response.ok) {
         progressWrapper.setHidden(true);
-        throw Error(response.statusText);
+        throw new Error(response.statusText);
       }
       return response;
     })

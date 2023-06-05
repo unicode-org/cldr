@@ -6,6 +6,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSideways from "./cldrSideways.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -60,11 +61,11 @@ function insertWidget() {
     insertLegacyElement(containerEl);
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
-    notification.error({
-      message: `${e.name} while loading InfoPanel.vue`,
-      description: `${e.message}`,
-      duration: 0,
-    });
+    cldrNotify.error(
+      `${e.name} while loading InfoPanel.vue`,
+      e.message,
+      cldrNotify.NO_TIMEOUT
+    );
   }
 }
 
@@ -195,16 +196,6 @@ function listen(str, tr, theObj, fn) {
 function showMessage(str) {
   if (panelShouldBeShown()) {
     show(str, null, null, null);
-  }
-}
-
-// Called twice by cldrForumPanel.mjs and twice by cldrVote.mjs, always with
-// an error message. TODO: use another mechanism such as notifications.error(),
-// to reduce dependencies on legacy code and to facilitate improvement.
-// Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-function showWithRow(str, tr) {
-  if (panelShouldBeShown()) {
-    show(str, tr, null, null);
   }
 }
 
@@ -999,6 +990,5 @@ export {
   showItemInfoFn,
   showMessage,
   showRowObjFunc,
-  showWithRow,
   updateRowVoteInfo,
 };

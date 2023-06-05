@@ -60,7 +60,7 @@ function generateLocalesTxt(data, outFunction) {
         // validate org mapping
         const orgLower = orgMogrify(org2);
         if (!allOrgs[orgLower]) {
-          throw Error(`${ver} has unknown org ${org2}`);
+          throw new Error(`${ver} has unknown org ${org2}`);
         }
 
         if (org !== orgLower) {

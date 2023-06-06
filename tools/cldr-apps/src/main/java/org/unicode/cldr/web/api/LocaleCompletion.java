@@ -88,6 +88,9 @@ public class LocaleCompletion {
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
+        if (localeId == null || localeId.isBlank() || localeId.equals("USER")) {
+            return STError.badLocale(localeId); // 404
+        }
         CLDRLocale cldrLocale = CLDRLocale.getInstance(localeId);
         return Response.ok(getLocaleCompletion(cldrLocale)).build();
     }

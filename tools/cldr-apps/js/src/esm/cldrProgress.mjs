@@ -366,7 +366,7 @@ function fetchLocaleData(unlessLoaded) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();
-  if (!locale) {
+  if (!locale || locale === "USER") {
     return; // no locale
   }
   if (

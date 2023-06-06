@@ -11,7 +11,7 @@
       </section>
       <section class="announcementToFrom">
         To: {{ announcement.audience }} •
-        {{ announcement.orgsAll ? "All organizations" : "Your organization" }} •
+        {{ "Organization(s): " + announcement.orgs }} •
         {{
           announcement.locs ? "Locale(s): " + announcement.locs : "All locales"
         }}

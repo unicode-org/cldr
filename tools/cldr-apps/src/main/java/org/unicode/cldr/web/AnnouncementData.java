@@ -138,6 +138,7 @@ public class AnnouncementData {
             return;
         }
         String subject = "CLDR Survey Tool announcement: " + request.subject;
+        String locs = (request.locs == null || request.locs.isEmpty()) ? "All" : request.locs;
         String body =
                 "From: "
                         + poster.name
@@ -149,8 +150,8 @@ public class AnnouncementData {
                         + request.orgs
                         + "\n"
                         + "Locale(s): "
-                        + request.locs
-                        + "\n"
+                        + locs
+                        + "\n\n"
                         + request.body
                         + "\n\n"
                         + "Do not reply to this message, instead please go to the Survey Tool.\n\n"

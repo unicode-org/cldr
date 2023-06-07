@@ -393,7 +393,8 @@ public class TestCLDRFile extends TestFmwk {
                     || path.contains("[@alt=\"alphaNextToNumber\"]") // CLDR-14336
                     || path.contains("[@alt=\"noCurrency\"]") // CLDR-14336
                     || path.startsWith("//ldml/personNames/") // CLDR-15384
-            ) {
+                    || path.startsWith("//ldml/typographicNames/styleName")
+                    || path.startsWith("//ldml/units")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
                 if (!path.contains("speed-beaufort")) {

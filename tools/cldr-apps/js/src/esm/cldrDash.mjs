@@ -170,7 +170,7 @@ function getSinglePathFromUpdate(json) {
       return row.xpstrid;
     }
   }
-  throw "Missing path in getSinglePathFromUpdate";
+  throw new Error("Missing path in getSinglePathFromUpdate");
 }
 
 function updateEntry(updater, category) {

@@ -8,6 +8,7 @@ import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -16,8 +17,6 @@ import DashboardWidget from "../views/DashboardWidget.vue";
 import MainHeader from "../views/MainHeader.vue";
 
 import { createCldrApp } from "../cldrVueRouter.mjs";
-
-import { notification } from "ant-design-vue";
 
 const GUI_DEBUG = true;
 
@@ -147,11 +146,11 @@ function insertHeader() {
     console.error(
       "Error mounting main header vue " + e.message + " / " + e.name
     );
-    notification.error({
-      message: `${e.name} while loading MainHeader.vue`,
-      description: `${e.message}`,
-      duration: 0,
-    });
+    cldrNotify.error(
+      `${e.name} while loading MainHeader.vue`,
+      e.message,
+      cldrNotify.NO_TIMEOUT
+    );
   }
 }
 

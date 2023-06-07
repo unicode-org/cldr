@@ -6,7 +6,7 @@ import * as cldrCache from "./cldrCache.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -161,12 +161,11 @@ function updatePosts(tr) {
 
   function errorHandler(err) {
     console.log("Error in updatePosts: " + err);
-    const message =
-      cldrStatus.stopIcon() +
-      " Couldn't load forum post for this row- please refresh the page. <br>Error: " +
-      err +
-      "</td>";
-    cldrInfo.showWithRow(message, tr);
+    cldrNotify.error(
+      "Error updating posts, please refresh the page",
+      err,
+      cldrNotify.NO_TIMEOUT
+    );
     cldrRetry.handleDisconnect("Could not load for updatePosts:" + err, null);
   }
 
@@ -187,9 +186,7 @@ function updatePosts(tr) {
     } catch (e) {
       console.log("Error in ajax forum read ", e.message);
       console.log(" response: " + json);
-      const message =
-        cldrStatus.stopIcon() + " exception in ajax forum read: " + e.message;
-      cldrInfo.showWithRow(message, tr);
+      cldrNotify.error("Forum error", e.message, cldrNotify.NO_TIMEOUT);
     }
   }
 

@@ -23,6 +23,7 @@ import { LocaleMap } from "./cldrLocaleMap.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrMail from "./cldrMail.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrOldVotes from "./cldrOldVotes.mjs";
 import * as cldrRecentActivity from "./cldrRecentActivity.mjs";
 import * as cldrReport from "./cldrReport.mjs";
@@ -33,7 +34,6 @@ import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrVettingParticipation from "./cldrVettingParticipation.mjs";
 import { isVueSpecial } from "../specialToComponentMap.mjs";
-import { notification } from "ant-design-vue";
 import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
@@ -347,11 +347,11 @@ function goToRowId(curId) {
   if (!xtr) {
     if (CLDR_LOAD_DEBUG) {
       console.log("Warning could not load id " + rowId + " does not exist");
-      notification.warning({
-        message: "Could not load XPath",
-        description: `The XPath ID ${curId} does not exist.`,
-        duration: 8,
-      });
+      cldrNotify.warning(
+        "Could not load XPath",
+        `The XPath ID ${curId} does not exist.`,
+        cldrNotify.MEDIUM_DURATION
+      );
     }
     updateCurrentId(null);
   } else {
@@ -676,11 +676,7 @@ function handleMissingSpecial(curSpecial) {
       `Return to the SurveyTool`
     ),
   ]);
-  notification.warning({
-    message: "Page not found",
-    description,
-    duration: 0,
-  });
+  cldrNotify.warning("Page not found", description, cldrNotify.NO_TIMEOUT);
 }
 
 /**
@@ -804,11 +800,11 @@ function loadAllRowsFromJson(json, theDiv) {
     const surveyCurrentId = cldrStatus.getCurrentId();
     const surveyCurrentPage = cldrStatus.getCurrentPage();
     const surveyCurrentLocale = cldrStatus.getCurrentLocale();
-    notification.error({
-      message: "Error loading data",
-      description: `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`,
-      duration: 0,
-    });
+    cldrNotify.error(
+      "Error loading data",
+      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`,
+      cldrNotify.NO_TIMEOUT
+    );
     cldrStatus.setCurrentSection("");
     let msg = "";
     if (json.code) {
@@ -915,11 +911,11 @@ function myLoad(url, message, handler, postData, headers) {
   console.log("MyLoad: " + url + " for " + message);
   const errorHandler = function (err, request) {
     console.log("Error: " + err);
-    notification.error({
-      message: `Could not fetch ${message}`,
-      description: `Error: ${err.toString()}`,
-      duration: 8,
-    });
+    cldrNotify.error(
+      `Could not fetch ${message}`,
+      `Error: ${err.toString()}`,
+      cldrNotify.MEDIUM_DURATION
+    );
     handler(null);
   };
   const loadHandler = function (json) {

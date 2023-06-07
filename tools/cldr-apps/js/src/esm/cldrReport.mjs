@@ -99,7 +99,7 @@ async function fetchAllReports() {
  */
 async function getOneLocaleStatus(locale) {
   if (locale === "-") {
-    throw Error(
+    throw new Error(
       "Please call client.apis.voting.getReportLocaleStatus() directly with the “-” parameter."
     );
   }
@@ -108,7 +108,7 @@ async function getOneLocaleStatus(locale) {
     locale,
   });
   if (obj.locales.length !== 1) {
-    throw Error(
+    throw new Error(
       `getOneLocaleStatus(${locale}) expected an array of one item but got ${obj.locales.length}`
     );
   }

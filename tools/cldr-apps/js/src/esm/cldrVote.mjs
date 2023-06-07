@@ -6,6 +6,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -339,30 +340,25 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       if (tr.myProposal) tr.myProposal.style.display = "none";
     }
     if (ourItem || (replaceErrors && value === "") /* Abstain */) {
-      let str = cldrText.sub(
+      const message = cldrText.sub(
         "StatusAction_msg",
         [cldrText.get("StatusAction_" + json.statusAction)],
         "p",
         ""
       );
-      var str2 = cldrText.sub(
+      const description = cldrText.sub(
         "StatusAction_popupmsg",
         [cldrText.get("StatusAction_" + json.statusAction), theRow.code],
         "p",
         ""
       );
-      // show in modal popup (ouch!)
-      alert(str2);
-
-      // show this message in a sidebar also
-      const message = cldrStatus.stopIcon() + str;
-      cldrInfo.showWithRow(message, tr);
+      cldrNotify.error(message, description, cldrNotify.NO_TIMEOUT);
     }
     return;
   } else if (json && json.didNotSubmit) {
     ourDiv.className = "d-item-err";
-    const message = "Did not submit this value: " + json.didNotSubmit;
-    cldrInfo.showWithRow(message, tr);
+    const description = "Did not submit this value: " + json.didNotSubmit;
+    cldrNotify.error("Not submitted", description, cldrNotify.NO_TIMEOUT);
     return;
   } else {
     setDivClass(ourDiv, testKind);

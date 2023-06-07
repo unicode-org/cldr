@@ -5,9 +5,8 @@ import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrText from "./cldrText.mjs";
-
-import { notification } from "ant-design-vue";
 
 const TEST_DANGER = false && cldrStatus.getIsUnofficial(); // false for production, true only when testing
 
@@ -27,11 +26,11 @@ function resetIfLongSinceAction(millisSinceAction) {
         cldrLoad.handleCoverageChanged();
         cldrGui.updateWithStatus();
         cldrGui.updateWidgetsWithCoverage();
-        notification.open({
-          message: cldrText.get("coverage_reset_msg"),
-          description: cldrText.get("coverage_reset_desc"),
-          duration: 10,
-        });
+        cldrNotify.open(
+          cldrText.get("coverage_reset_msg"),
+          cldrText.get("coverage_reset_desc"),
+          cldrNotify.MEDIUM_DURATION
+        );
       }
     }
   }

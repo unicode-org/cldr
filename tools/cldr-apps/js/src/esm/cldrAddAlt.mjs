@@ -3,13 +3,12 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
 import AddAlt from "../views/AddAlt.vue";
 
 import { createCldrApp } from "../cldrVueRouter.mjs";
-
-import { notification } from "ant-design-vue";
 
 function addButton(containerEl, xpstrid) {
   try {
@@ -21,11 +20,11 @@ function addButton(containerEl, xpstrid) {
     addAltWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error("Error loading Add Alt vue " + e.message + " / " + e.name);
-    notification.open({
-      message: `${e.name} while loading AddAlt.vue`,
-      description: `${e.message}`,
-      duration: 0,
-    });
+    cldrNotify.open(
+      `${e.name} while loading AddAlt.vue`,
+      e.message,
+      cldrNotify.NO_TIMEOUT
+    );
   }
 }
 

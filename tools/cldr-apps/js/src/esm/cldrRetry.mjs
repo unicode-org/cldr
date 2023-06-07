@@ -2,7 +2,6 @@
  * cldrRetry: encapsulate notification (errors, etc.) functions for Survey Tool
  */
 import * as cldrEvent from "./cldrEvent.mjs";
-import * as cldrGenericVue from "./cldrGenericVue.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";

@@ -71,4 +71,16 @@ function error(message, description, duration) {
   });
 }
 
-export { NO_TIMEOUT, MEDIUM_DURATION, error, open, warning };
+/**
+ * Display an error notification, and when the user closes it, call the callback function
+ */
+function errorWithCallback(message, description, callback) {
+  notification.error({
+    message: message,
+    description: description,
+    duration: NO_TIMEOUT,
+    onClose: callback,
+  });
+}
+
+export { NO_TIMEOUT, MEDIUM_DURATION, error, errorWithCallback, open, warning };

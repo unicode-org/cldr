@@ -28,8 +28,7 @@ function resetIfLongSinceAction(millisSinceAction) {
         cldrGui.updateWidgetsWithCoverage();
         cldrNotify.open(
           cldrText.get("coverage_reset_msg"),
-          cldrText.get("coverage_reset_desc"),
-          cldrNotify.MEDIUM_DURATION
+          cldrText.get("coverage_reset_desc")
         );
       }
     }

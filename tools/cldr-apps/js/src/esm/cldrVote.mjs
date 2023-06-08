@@ -356,13 +356,13 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
         "p",
         ""
       );
-      cldrNotify.error(message, description, cldrNotify.NO_TIMEOUT);
+      cldrNotify.error(message, description);
     }
     return;
   } else if (json && json.didNotSubmit) {
     ourDiv.className = "d-item-err";
     const description = "Did not submit this value: " + json.didNotSubmit;
-    cldrNotify.error("Not submitted", description, cldrNotify.NO_TIMEOUT);
+    cldrNotify.error("Not submitted", description);
     return;
   } else {
     setDivClass(ourDiv, testKind);

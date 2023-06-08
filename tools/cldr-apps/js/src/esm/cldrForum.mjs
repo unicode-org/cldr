@@ -429,9 +429,9 @@ function loadHandlerForSubmit(data) {
     const postModal = $("#post-modal");
     postModal.modal("hide");
     if (cldrStatus.getCurrentSpecial() === "forum") {
-      cldrLoad.reloadV();
+      cldrLoad.reloadV(); // main Forum page
     } else {
-      cldrForumPanel.updatePosts(null);
+      cldrForumPanel.updatePosts(null); // Info Panel
     }
   } else {
     const post = $(".post").first();

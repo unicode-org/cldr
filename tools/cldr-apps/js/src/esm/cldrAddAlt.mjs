@@ -20,11 +20,7 @@ function addButton(containerEl, xpstrid) {
     addAltWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error("Error loading Add Alt vue " + e.message + " / " + e.name);
-    cldrNotify.open(
-      `${e.name} while loading AddAlt.vue`,
-      e.message,
-      cldrNotify.NO_TIMEOUT
-    );
+    cldrNotify.exception(e, "while loading AddAlt.vue");
   }
 }
 

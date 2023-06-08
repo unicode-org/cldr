@@ -7,7 +7,6 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
-import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
@@ -139,12 +138,13 @@ function havePosts(nrPosts, div, tr, loader2) {
  *
  * @param {Node} tr the table-row element with which the forum posts are associated,
  *		and whose info is shown in the Info Panel; or null, to get the
- *		tr from surveyCurrentId
+ *		tr from cldrStatus.getCurrentId
  */
 function updatePosts(tr) {
   if (!tr) {
-    if (cldrStatus.getCurrentId() !== "") {
-      const rowId = cldrTable.makeRowId(cldrStatus.getCurrentId());
+    const id = cldrStatus.getCurrentId();
+    if (id) {
+      const rowId = cldrTable.makeRowId(id);
       tr = document.getElementById(rowId);
     } else {
       /*
@@ -161,17 +161,14 @@ function updatePosts(tr) {
 
   function errorHandler(err) {
     console.log("Error in updatePosts: " + err);
-    cldrNotify.error(
-      "Error updating posts, please refresh the page",
-      err,
-      cldrNotify.NO_TIMEOUT
-    );
-    cldrRetry.handleDisconnect("Could not load for updatePosts:" + err, null);
+    cldrNotify.error("Error updating posts, please refresh the page", err);
   }
 
   function loadHandler(json) {
+    // Note: the reason for try/catch here isn't clear. There's no obvious reason why this
+    // particular block of code would be more likely to throw an exception than any other block.
     try {
-      if (json && json.ret && json.ret.length > 0) {
+      if (json?.ret?.length > 0) {
         const posts = json.ret;
         forumCache.set(makeCacheKey(theRow.xpstrid), posts);
         const content = getForumContent(posts, theRow.xpstrid);
@@ -186,7 +183,7 @@ function updatePosts(tr) {
     } catch (e) {
       console.log("Error in ajax forum read ", e.message);
       console.log(" response: " + json);
-      cldrNotify.error("Forum error", e.message, cldrNotify.NO_TIMEOUT);
+      cldrNotify.exception(e, "while reading Forum");
     }
   }
 

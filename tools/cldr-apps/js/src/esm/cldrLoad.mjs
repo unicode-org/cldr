@@ -346,11 +346,8 @@ function goToRowId(curId) {
   const xtr = document.getElementById(rowId);
   if (!xtr) {
     if (CLDR_LOAD_DEBUG) {
-      console.log("Warning could not load id " + rowId + " does not exist");
-      cldrNotify.warning(
-        "Could not load XPath",
-        `The XPath ID ${curId} does not exist.`,
-        cldrNotify.MEDIUM_DURATION
+      console.log(
+        "Warning: could not load rowId = " + rowId + "; curId = " + curId
       );
     }
     updateCurrentId(null);
@@ -676,7 +673,7 @@ function handleMissingSpecial(curSpecial) {
       `Return to the SurveyTool`
     ),
   ]);
-  cldrNotify.warning("Page not found", description, cldrNotify.NO_TIMEOUT);
+  cldrNotify.error("Page not found", description);
 }
 
 /**
@@ -802,8 +799,7 @@ function loadAllRowsFromJson(json, theDiv) {
     const surveyCurrentLocale = cldrStatus.getCurrentLocale();
     cldrNotify.error(
       "Error loading data",
-      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`,
-      cldrNotify.NO_TIMEOUT
+      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`
     );
     cldrStatus.setCurrentSection("");
     let msg = "";
@@ -911,11 +907,7 @@ function myLoad(url, message, handler, postData, headers) {
   console.log("MyLoad: " + url + " for " + message);
   const errorHandler = function (err, request) {
     console.log("Error: " + err);
-    cldrNotify.error(
-      `Could not fetch ${message}`,
-      `Error: ${err.toString()}`,
-      cldrNotify.MEDIUM_DURATION
-    );
+    cldrNotify.error(`Could not fetch ${message}`, `Error: ${err.toString()}`);
     handler(null);
   };
   const loadHandler = function (json) {

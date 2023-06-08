@@ -25,7 +25,7 @@
             title="Explain inheritance for this item"
             @click="explain"
           >
-            ↑
+            ↓
           </a-button>
           <InheritanceExplainer ref="inheritanceExplainer" />
         </span>

@@ -226,13 +226,17 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
      */
     tr.className = originalTrClassName;
     oneLessPendingVote();
+    // The err parameter is a string composed by cldrAjax.makeErrorMessage (legacy code),
+    // not user-friendly, still possibly useful for debugging if this actually occurs.
     console.log("Error: " + err);
-    cldrRetry.handleDisconnect("Error: " + err, null);
-    theRow.className = "ferrbox";
-    theRow.innerHTML =
-      "Error while  loading: <div style='border: 1px solid red;'>" +
-      err +
-      "</div>";
+    // To close the input pop-up window with minimal changes to this legacy code, call
+    // cldrLoad.reloadV when the user closes the notification. Postpone a better solution
+    // until cldrVote is modernized.
+    cldrNotify.errorWithCallback(
+      "Error submitting a vote",
+      err,
+      cldrLoad.reloadV
+    );
     myUnDefer();
   };
   const xhrArgs = {

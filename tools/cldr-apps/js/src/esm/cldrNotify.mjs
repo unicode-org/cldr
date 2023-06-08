@@ -18,26 +18,26 @@
 import { notification } from "ant-design-vue";
 
 /**
- * Callers should use one of these constants rather than a literal number.
- *
- * Note: possibly it would be better (more consistent) to enforce NO_TIMEOUT for errors, and MEDIUM_DURATION
- * for warnings and general notifications.
+ * For warnings and general notifications, automatically close after this many seconds
  */
-const NO_TIMEOUT = 0; // stay open until dismissed by the user
-const MEDIUM_DURATION = 8; // automatically close after this many seconds
+const MEDIUM_DURATION = 8;
+
+/**
+ * For errors and exceptions, stay open until dismissed by the user
+ */
+const NO_TIMEOUT = 0;
 
 /**
  * Display a general notification
  *
  * @param {String} message the title, displayed at the top
  * @param {String} description the more detailed description
- * @param {Number} duration how many seconds to display, or NO_TIMEOUT
  */
-function open(message, description, duration) {
+function open(message, description) {
   notification.open({
     message: message,
     description: description,
-    duration: duration,
+    duration: MEDIUM_DURATION,
   });
 }
 
@@ -46,28 +46,26 @@ function open(message, description, duration) {
  *
  * @param {String} message the title, displayed at the top
  * @param {String} description the more detailed description
- * @param {Number} duration how many seconds to display, or NO_TIMEOUT
  */
-function warning(message, description, duration) {
+function warning(message, description) {
   notification.warning({
     message: message,
     description: description,
-    duration: duration,
+    duration: MEDIUM_DURATION,
   });
 }
 
 /**
- * Display an error notification
+ * Display an error notification, with no timeout
  *
  * @param {String} message the title, displayed at the top
  * @param {String} description the more detailed description
- * @param {Number} duration how many seconds to display, or NO_TIMEOUT
  */
-function error(message, description, duration) {
+function error(message, description) {
   notification.error({
     message: message,
     description: description,
-    duration: duration,
+    duration: NO_TIMEOUT,
   });
 }
 
@@ -83,4 +81,18 @@ function errorWithCallback(message, description, callback) {
   });
 }
 
-export { NO_TIMEOUT, MEDIUM_DURATION, error, errorWithCallback, open, warning };
+/**
+ * Display an error notification for an exception
+ *
+ * @param {Object} e the Error that was thrown and caught
+ * @param {String} context a description of where it was caught
+ */
+function exception(e, context) {
+  notification.error({
+    message: e.name + " " + context,
+    description: e.message,
+    duration: NO_TIMEOUT,
+  });
+}
+
+export { error, errorWithCallback, exception, open, warning };

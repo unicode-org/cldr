@@ -122,11 +122,7 @@ function insertWidget(spanId) {
     console.error(
       "Error loading ProgressMeters vue " + e.message + " / " + e.name
     );
-    cldrNotify.error(
-      `${e.name} while loading ProgressMeters.vue`,
-      e.message,
-      cldrNotify.NO_TIMEOUT
-    );
+    cldrNotify.exception(e, "while loading ProgressMeters.vue");
   }
 }
 

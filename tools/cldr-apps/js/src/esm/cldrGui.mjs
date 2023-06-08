@@ -146,11 +146,7 @@ function insertHeader() {
     console.error(
       "Error mounting main header vue " + e.message + " / " + e.name
     );
-    cldrNotify.error(
-      `${e.name} while loading MainHeader.vue`,
-      e.message,
-      cldrNotify.NO_TIMEOUT
-    );
+    cldrNotify.exception(e, "while loading MainHeader.vue");
   }
 }
 

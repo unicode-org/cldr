@@ -61,11 +61,7 @@ function insertWidget() {
     insertLegacyElement(containerEl);
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
-    cldrNotify.error(
-      `${e.name} while loading InfoPanel.vue`,
-      e.message,
-      cldrNotify.NO_TIMEOUT
-    );
+    cldrNotify.exception(e, "while loading InfoPanel.vue");
   }
 }
 

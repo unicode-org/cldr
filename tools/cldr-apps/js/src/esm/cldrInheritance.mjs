@@ -35,7 +35,10 @@ async function explainInheritance(itemLocale, itemXpath) {
   let lastLocale = null;
   let lastPath = null;
   for (let i = 0; i < items.length; i++) {
-    const { locale, xpath, reason } = items[i];
+    const { locale, xpath, reason, hidden } = items[i];
+    if (hidden) {
+      items[i].hidden = true;
+    }
     if (reason !== "none") {
       // hide 'none'
       items[i].showReason = true;

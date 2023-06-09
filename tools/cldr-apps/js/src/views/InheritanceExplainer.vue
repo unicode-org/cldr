@@ -18,6 +18,7 @@
             showReason,
             xpath,
             xpathFull,
+            hidden,
           } in inheritance"
           v-bind:color="colorForReason(reason)"
         >
@@ -35,6 +36,7 @@
             <button
               class="cldr-nav-btn"
               v-if="
+                !hidden &&
                 locale &&
                 xpath &&
                 (locale != currentLocale || xpath != currentId)
@@ -45,7 +47,7 @@
             </button>
           </p>
           <!-- only show on change -->
-          <div v-if="newXpath" class="xpath">
+          <div v-if="newXpath" :class="xpathClass(hidden)">
             {{ xpathFull }}
           </div>
         </a-timeline-item>
@@ -87,6 +89,13 @@ export default {
     };
   },
   methods: {
+    xpathClass(hidden) {
+      if (hidden) {
+        return "xpath xpath-hidden";
+      } else {
+        return "xpath";
+      }
+    },
     explain(locale, xpath) {
       // clear this first in case something happens
       this.visible = false;
@@ -162,6 +171,10 @@ export default {
 <style scoped>
 .xpath {
   font-size: smaller;
+}
+
+.xpath-hidden {
+  opacity: 0.4;
 }
 
 .locale {

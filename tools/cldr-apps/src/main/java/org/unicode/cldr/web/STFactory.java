@@ -2362,4 +2362,34 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 .forVersion(SurveyMain.getLastVoteVersion(), false)
                 .toString();
     }
+
+    /** Somewhat expensive operation. Query whether an XPath is visible. */
+    public boolean isVisibleInSurveyTool(String locale, String x) {
+        return isVisibleInSurveyTool(
+                CLDRLocale.getInstance(locale), CLDRFile.getDistinguishingXPath(x, null));
+    }
+
+    /** Somewhat expensive operation. Query whether an XPath is visible. */
+    public boolean isVisibleInSurveyTool(CLDRLocale l, String dPath) {
+        // see also {@link #isValidSurveyToolVote}
+        if (!getAvailableCLDRLocales().contains(l)) {
+            return false; // bad locale ID
+        }
+
+        PathHeader ph = getPathHeader(dPath);
+        if (ph == null) return false; // out of scope
+        if (ph.shouldHide()) return false; // PH says hide it
+
+        if (sm.getSupplementalDataInfo().getCoverageValue(dPath, l.getBaseName())
+                > org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) {
+            return false; // out of coverage
+        }
+
+        if (!get(l).getPathsForFile().contains(dPath)) {
+            return false; // not in file paths.
+            // Note: Not sure why it wasn't caught before!
+        }
+
+        return true; // OK.
+    }
 }

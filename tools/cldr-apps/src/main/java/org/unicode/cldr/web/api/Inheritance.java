@@ -23,6 +23,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LocaleInheritanceInfo;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.STFactory;
 
 @Path("/xpath/inheritance")
 @Tag(name = "xpath", description = "APIs for XPath info")
@@ -122,38 +124,45 @@ public class Inheritance {
         return Response.ok(new InheritanceResponse(paths)).build();
     }
 
-    private String getXPathByHex(String hexId) {
-        String xpath = null;
-        try {
-            xpath = sm.xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
-        return xpath;
-    }
-
     /** Streamable version of {@link LocaleInheritanceInfo} */
     public static final class LocaleInheritance {
+        @Schema(description = "xpath stringid to item")
         public String xpath;
+
+        @Schema(description = "locale of item if present")
         public String locale;
+
+        @Schema(description = "xpath full of item")
         public String xpathFull;
+
+        @Schema(description = "which attribute was implicated in a change")
         public String attribute;
+
+        @Schema(description = "reason for the entry")
         public LocaleInheritanceInfo.Reason reason;
 
-        public LocaleInheritance(LocaleInheritanceInfo info) {
+        @Schema(description = "true if not shown in the SurveyTool")
+        public boolean hidden = false;
+
+        public LocaleInheritance(LocaleInheritanceInfo info, final STFactory stf) {
             this.reason = info.getReason();
             this.locale = info.getLocale();
             this.attribute = info.getAttribute();
             final String x = info.getPath();
             if (x != null) {
                 this.xpath = StringId.getHexId(x);
+                CookieSession.sm.xpt.getByXpath(x); // make sure it's in the XPT!
             } else {
                 this.xpath = null;
             }
             this.xpathFull = x;
+            if (this.locale != null && !this.locale.isEmpty() && this.xpath != null) {
+                // Fairly complex to answer this.
+                this.hidden = !stf.isVisibleInSurveyTool(this.locale, x);
+            } else {
+                // without a locale or xpath, must be hidden
+                this.hidden = true;
+            }
         }
     }
 
@@ -163,9 +172,10 @@ public class Inheritance {
         public final LocaleInheritance[] items;
 
         public InheritanceResponse(List<LocaleInheritanceInfo> list) {
+            final STFactory stf = CookieSession.sm.getSTFactory();
             items =
                     list.stream()
-                            .map(i -> new LocaleInheritance(i))
+                            .map(i -> new LocaleInheritance(i, stf))
                             .collect(Collectors.toList())
                             .toArray(new LocaleInheritance[list.size()]);
         }

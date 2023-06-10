@@ -8,7 +8,7 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
-import * as cldrVueRouter from "../cldrVueRouter.mjs";
+import * as cldrVue from "./cldrVue.mjs";
 import * as cldrXlsx from "./cldrXlsx.mjs";
 import ReportResponse from "../views/ReportResponse.vue";
 import * as XLSX from "xlsx";
@@ -21,7 +21,7 @@ function reportLoadHandler(html, report) {
   const frag = window.document.createDocumentFragment();
   const div = window.document.createElement("div");
   frag.appendChild(div);
-  const rr = cldrVueRouter.createCldrApp(ReportResponse, "n/a", { report });
+  const rr = cldrVue.create(ReportResponse, "n/a", { report });
 
   frag.appendChild(cldrDom.construct(html)); // add the rest of the report
   cldrLoad.flipToOtherDiv(frag);

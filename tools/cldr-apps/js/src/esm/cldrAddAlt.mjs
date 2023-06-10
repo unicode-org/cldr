@@ -5,22 +5,17 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
+import * as cldrVue from "./cldrVue.mjs";
 
 import AddAlt from "../views/AddAlt.vue";
 
-import { createCldrApp } from "../cldrVueRouter.mjs";
-
 function addButton(containerEl, xpstrid) {
   try {
-    const fragment = document.createDocumentFragment();
-    const addAltWrapper = createCldrApp(AddAlt).mount(fragment);
-    const vueEl = document.createElement("section");
-    containerEl.appendChild(vueEl);
-    vueEl.replaceWith(fragment);
+    const addAltWrapper = cldrVue.mount(AddAlt, containerEl);
     addAltWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error("Error loading Add Alt vue " + e.message + " / " + e.name);
-    cldrNotify.exception(e, "while loading AddAlt.vue");
+    cldrNotify.exception(e, "while loading AddAlt");
   }
 }
 

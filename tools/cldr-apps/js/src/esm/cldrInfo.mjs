@@ -14,10 +14,10 @@ import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrUserLevels from "./cldrUserLevels.mjs";
 import * as cldrVote from "./cldrVote.mjs";
+import * as cldrVue from "./cldrVue.mjs";
 
 import InfoPanel from "../views/InfoPanel.vue";
-
-import { createCldrApp } from "../cldrVueRouter.mjs";
+import InfoSelectedItem from "../views/InfoSelectedItem.vue";
 
 let containerId = null;
 let neighborId = null;
@@ -28,6 +28,8 @@ let panelVisible = false;
 
 let unShow = null;
 let lastShown = null;
+
+let selectedItemWrapper = null;
 
 const ITEM_INFO_ID = "itemInfo"; // must match redesign.css
 const ITEM_INFO_CLASS = "sidebyside-scrollable"; // must match redesign.css, cldrGui.mjs, DashboardWidget.vue
@@ -57,20 +59,14 @@ function initialize(cid, nid, bclass) {
 function insertWidget() {
   try {
     const containerEl = document.getElementById(containerId);
-    insertVueElement(containerEl);
+    cldrVue.mountAsFirstChild(InfoPanel, containerEl);
     insertLegacyElement(containerEl);
+    const selectedItemEl = document.getElementById(SELECTED_ITEM_ID);
+    selectedItemWrapper = cldrVue.mount(InfoSelectedItem, selectedItemEl);
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
-    cldrNotify.exception(e, "while loading InfoPanel.vue");
+    cldrNotify.exception(e, "while loading InfoPanel");
   }
-}
-
-function insertVueElement(containerEl) {
-  const fragment = document.createDocumentFragment();
-  createCldrApp(InfoPanel).mount(fragment); // returns App object "wrapper", currently not saved
-  const vueEl = document.createElement("section");
-  containerEl.appendChild(vueEl);
-  vueEl.replaceWith(fragment);
 }
 
 /**
@@ -250,6 +246,7 @@ function show(str, tr, hideIfLast, fn) {
   }
   addInfoMessage(str);
   addRemainder(tr, fn);
+  addSelectedItem(tr?.theRow); // after addRemainder calls fn to set theRow.selectedItem
   addVoterInfoHover();
 }
 
@@ -308,6 +305,98 @@ function addInfoMessage(html) {
       cldrDom.removeAllChildNodes(el);
     }
   }
+}
+
+function addSelectedItem(theRow) {
+  if (!selectedItemWrapper) {
+    return;
+  }
+  const item = theRow?.selectedItem;
+
+  const { displayValue, valueClass } = getValueAndClass(theRow, item);
+  selectedItemWrapper.setValueAndClass(displayValue, valueClass);
+
+  const { language, direction } = getLanguageAndDirection();
+  selectedItemWrapper.setLanguageAndDirection(language, direction);
+
+  const description = getItemDescription(item?.pClass, theRow?.inheritedLocale);
+  selectedItemWrapper.setDescription(description);
+
+  const { linkUrl, linkText } = getLinkUrlAndText(theRow, item);
+  selectedItemWrapper.setLink(linkUrl, linkText);
+
+  const testHtml = item?.tests
+    ? cldrSurvey.testsToHtml(item.tests)
+    : "<i>no tests</i>";
+  selectedItemWrapper.setTestHtml(testHtml);
+
+  selectedItemWrapper.setExampleHtml(item?.example);
+}
+
+function getValueAndClass(theRow, item) {
+  let displayValue =
+    item?.value === cldrSurvey.INHERITANCE_MARKER
+      ? theRow?.inheritedDisplayValue
+      : item?.value;
+  if (!displayValue) {
+    displayValue = ""; // not "undefined"
+  }
+  const valueClass = item?.pClass || "value";
+  return { displayValue, valueClass };
+}
+
+function getLanguageAndDirection() {
+  const loc = cldrStatus.getCurrentLocale();
+  const locMap = loc ? cldrLoad.getTheLocaleMap() : null;
+  const locInfo = locMap ? locMap.getLocaleInfo(loc) : null;
+  const language = locInfo?.bcp47 || "";
+  const direction = locInfo?.dir || "";
+  return { language, direction };
+}
+
+/**
+ * Add a link in the Info Panel for "Jump to Original" (cldrText.get('followAlias')),
+ * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
+ *
+ * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
+ * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
+ * by checkRowConsistency.
+ *
+ * An alternative would be for the server to send the link, instead of inheritedLocale
+ * and inheritedXpid, to the client, avoiding the need for the client to know so much,
+ * including the need to replace 'code-fallback' with 'root' or when to use cldrStatus.getCurrentLocale()
+ * in place of inheritedLocale or use xpstrid in place of inheritedXpid.
+ *
+ * @param {Object} theRow the row
+ * @param {Object} item the candidate item
+ */
+function getLinkUrlAndText(theRow, item) {
+  let linkUrl = null;
+  let linkText = null;
+  if (
+    item?.value === cldrSurvey.INHERITANCE_MARKER &&
+    (theRow?.inheritedLocale || theRow?.inheritedXpid)
+  ) {
+    let loc = theRow.inheritedLocale;
+    let xpstrid = theRow.inheritedXpid || theRow.xpstrid;
+    if (!loc) {
+      loc = cldrStatus.getCurrentLocale();
+    } else if (loc === "code-fallback") {
+      /*
+       * Never use 'code-fallback' in the link, use 'root' instead.
+       * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
+       */
+      loc = "root";
+    }
+    if (xpstrid === theRow.xpstrid && loc === cldrStatus.getCurrentLocale()) {
+      // following the alias would come back to the current item; no link
+      linkText = cldrText.get("noFollowAlias");
+    } else {
+      linkText = cldrText.get("followAlias");
+      linkUrl = "#/" + loc + "//" + xpstrid;
+    }
+  }
+  return { linkUrl, linkText };
 }
 
 function addRemainder(tr, fn) {
@@ -848,48 +937,8 @@ function createVoter(v) {
  */
 function showItemInfoFn(theRow, item) {
   return function (td) {
-    var h3 = document.createElement("div");
-    var displayValue = item.value;
-    if (item.value === cldrSurvey.INHERITANCE_MARKER) {
-      displayValue = theRow.inheritedDisplayValue;
-    }
-
-    // TODO: display the value as "Value: ...", and display the pClass message
-    // (e.g., "This item is inherited...") on the following line.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-    cldrVote.appendItem(h3, displayValue, item.pClass);
-    h3.className = "span";
-    td.appendChild(h3);
-
-    if (item.value) {
-      h3.appendChild(
-        cldrDom.createChunk(
-          getItemDescription(item.pClass, theRow.inheritedLocale),
-          "p",
-          "pClassExplain"
-        )
-      );
-    }
-
-    if (item.value === cldrSurvey.INHERITANCE_MARKER) {
-      addJumpToOriginal(theRow, h3);
-    }
-
-    var newDiv = document.createElement("div");
-    td.appendChild(newDiv);
-
-    if (item.tests) {
-      newDiv.innerHTML = cldrSurvey.testsToHtml(item.tests);
-    } else {
-      newDiv.innerHTML = "<i>no tests</i>";
-    }
-
-    if (item.example) {
-      // TODO: add a label "Example:" above the example
-      // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-      cldrTable.appendExample(td, item.example);
-    }
-  }; // end function(td)
+    theRow.selectedItem = item;
+  };
 }
 
 function getItemDescription(itemClass, inheritedLocale) {
@@ -911,62 +960,6 @@ function getItemDescription(itemClass, inheritedLocale) {
     // Strings produced here, used as keys for cldrText.get(), may include:
     // "item_description_winner", "item_description_fallback_code", "item_description_fallback_root", "item_description_loser".
     return cldrText.get("item_description_" + itemClass);
-  }
-}
-
-/**
- * Add a link in the Info Panel for "Jump to Original" (cldrText.get('followAlias')),
- * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
- *
- * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
- * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
- * by checkRowConsistency.
- *
- * This is currently (2018-12-01) the only place inheritedLocale or inheritedXpid is used on the client.
- * An alternative would be for the server to send the link (clickyLink.href), instead of inheritedLocale
- * and inheritedXpid, to the client, avoiding the need for the client to know so much, including the need
- * to replace 'code-fallback' with 'root' or when to use cldrStatus.getCurrentLocale() in place of inheritedLocale
- * or use xpstrid in place of inheritedXpid.
- *
- * @param theRow the row
- * @param el the element to which to append the link
- */
-function addJumpToOriginal(theRow, el) {
-  if (theRow.inheritedLocale || theRow.inheritedXpid) {
-    var loc = theRow.inheritedLocale;
-    var xpstrid = theRow.inheritedXpid || theRow.xpstrid;
-    if (!loc) {
-      loc = cldrStatus.getCurrentLocale();
-    } else if (loc === "code-fallback") {
-      /*
-       * Never use 'code-fallback' in the link, use 'root' instead.
-       * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
-       * Reference: https://unicode.org/cldr/trac/ticket/11622
-       */
-      loc = "root";
-    }
-    if (
-      xpstrid === theRow.xpstrid && // current hash
-      loc === cldrStatus.getCurrentLocale()
-    ) {
-      // current locale
-      // i.e., following the alias would come back to the current item
-      el.appendChild(
-        cldrDom.createChunk(
-          cldrText.get("noFollowAlias"),
-          "span",
-          "followAlias"
-        )
-      );
-    } else {
-      var clickyLink = cldrDom.createChunk(
-        cldrText.get("followAlias"),
-        "a",
-        "followAlias"
-      );
-      clickyLink.href = "#/" + loc + "//" + xpstrid;
-      el.appendChild(clickyLink);
-    }
   }
 }
 

@@ -141,6 +141,9 @@ const strings = {
   admin_users_action_kick: "Kick",
   admin_users_action_kick_desc: "Logout this user",
 
+  info_panel_selected:
+    "Description of the currently selected candidate item, including any errors, warnings, or examples",
+
   // pClass ( see DataPage.java)
   item_description_winner: "This item is currently winning.",
   item_description_alias_same_locale:

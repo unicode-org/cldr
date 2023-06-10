@@ -12,11 +12,10 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrVue from "./cldrVue.mjs";
 
 import DashboardWidget from "../views/DashboardWidget.vue";
 import MainHeader from "../views/MainHeader.vue";
-
-import { createCldrApp } from "../cldrVueRouter.mjs";
 
 const GUI_DEBUG = true;
 
@@ -136,17 +135,13 @@ function completeStartupWithSession() {
  */
 function insertHeader() {
   try {
-    const fragment = document.createDocumentFragment();
-    mainHeaderWrapper = createCldrApp(MainHeader).mount(fragment);
-    const el = document.createElement("header");
     const gui = document.getElementById(runGuiId);
-    gui.insertBefore(el, gui.firstChild);
-    el.parentNode.replaceChild(fragment, el);
+    mainHeaderWrapper = cldrVue.mountAsFirstChild(MainHeader, gui);
   } catch (e) {
     console.error(
       "Error mounting main header vue " + e.message + " / " + e.name
     );
-    cldrNotify.exception(e, "while loading MainHeader.vue");
+    cldrNotify.exception(e, "while loading MainHeader");
   }
 }
 
@@ -434,13 +429,12 @@ function insertDashboard() {
       // already created/inserted but invisible
       dashboardWidgetWrapper.reopen();
     } else {
-      const fragment = document.createDocumentFragment();
-      dashboardWidgetWrapper = createCldrApp(DashboardWidget).mount(fragment);
-      const d = document.getElementById("DashboardSection");
-      d.replaceWith(fragment);
+      const el = document.getElementById("DashboardSection");
+      dashboardWidgetWrapper = cldrVue.mountReplace(DashboardWidget, el);
     }
     showDashboard();
   } catch (e) {
+    cldrNotify.exception(e, "loading Dashboard");
     console.error("Error mounting dashboard vue " + e.message + " / " + e.name);
   }
 }

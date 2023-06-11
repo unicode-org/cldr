@@ -89,7 +89,7 @@ function errorWithCallback(message, description, callback) {
  */
 function exception(e, context) {
   notification.error({
-    message: e.name + " " + context,
+    message: "Internal error: " + e.name + " " + context,
     description: e.message,
     duration: NO_TIMEOUT,
   });

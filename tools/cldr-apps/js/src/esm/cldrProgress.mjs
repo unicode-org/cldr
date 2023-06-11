@@ -10,10 +10,9 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
+import * as cldrVue from "./cldrVue.mjs";
 
 import ProgressMeters from "../views/ProgressMeters.vue";
-
-import { createCldrApp } from "../cldrVueRouter.mjs";
 
 let progressWrapper = null;
 
@@ -110,19 +109,17 @@ class MeterData {
 /**
  * Create the ProgressMeters component
  *
- * @param spanId the id of the element that will contain the new component
+ * @param spanId the id of the element that will be replaced by the new component
  */
 function insertWidget(spanId) {
   try {
-    const fragment = document.createDocumentFragment();
-    progressWrapper = createCldrApp(ProgressMeters).mount(fragment);
     const el = document.getElementById(spanId);
-    el.replaceWith(fragment);
+    progressWrapper = cldrVue.mountReplace(ProgressMeters, el);
   } catch (e) {
     console.error(
       "Error loading ProgressMeters vue " + e.message + " / " + e.name
     );
-    cldrNotify.exception(e, "while loading ProgressMeters.vue");
+    cldrNotify.exception(e, "while loading ProgressMeters");
   }
 }
 

@@ -33,7 +33,8 @@ import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrVettingParticipation from "./cldrVettingParticipation.mjs";
-import { isVueSpecial } from "../specialToComponentMap.mjs";
+import * as cldrVueMap from "./cldrVueMap.mjs";
+
 import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
@@ -703,8 +704,8 @@ function getSpecial(str) {
   if (!str) {
     return null;
   }
-  if (isVueSpecial(str)) {
-    return cldrGenericVue; // see specialToComponentMap.js
+  if (cldrVueMap.isVueSpecial(str)) {
+    return cldrGenericVue; // see cldrVueMap.specialToComponent
   }
   if (isReport(str)) {
     return cldrReport; // handle these as one.
@@ -780,11 +781,7 @@ function loadAllRows(itemLoadInfo, theDiv) {
     .catch((err) => {
       console.error(err);
       isLoading = false;
-      cldrSurvey.showLoader(cldrText.get("loading2"));
-      flipper.flipTo(
-        pages.other,
-        cldrDom.createChunk(`Error ${err} loading rows.`, "p", "ferrbox")
-      );
+      cldrNotify.exception(err, "loading rows");
     });
 }
 

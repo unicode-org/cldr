@@ -4,14 +4,14 @@ import { App } from "vue";
  * This file lists all of the components which are automatically available to
  * CLDR .vue templates.
  *
- * See ./index.js for css imports.
+ * See ../index.js for css imports.
  */
 
 // local components
-import CldrValue from "./views/CldrValue.vue";
-import LoginButton from "./views/LoginButton.vue";
-import ReportResponse from "./views/ReportResponse.vue";
-import SearchButton from "./views/SearchButton.vue";
+import CldrValue from "../views/CldrValue.vue";
+import LoginButton from "../views/LoginButton.vue";
+import ReportResponse from "../views/ReportResponse.vue";
+import SearchButton from "../views/SearchButton.vue";
 
 // 3rd party component(s)
 
@@ -31,14 +31,14 @@ import {
   Tooltip,
   Timeline,
 } from "ant-design-vue";
-// Note: 'notification' is a function and is imported as a function in cldrVueRouter,
+// Note: 'notification' is a function and is imported as a function in cldrVue.mjs,
 // or within a specific app.
 
 /**
  * add any Vue components needed here.
  * @param {App} app
  */
-function setupComponents(app) {
+function setup(app) {
   // example:
   // app.component('SomeComponent', SomeComponent)
   // Keep this list sorted
@@ -72,4 +72,4 @@ function setupComponents(app) {
   app.component("cldr-value", CldrValue);
 }
 
-export { setupComponents };
+export { setup };

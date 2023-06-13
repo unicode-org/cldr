@@ -108,7 +108,7 @@ The LDML specification is divided into the following parts:
     * [Replacement syntax](#replacement-syntax)
   * [Element: reorder](#Element_reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
-  * [Element: transform final](#Element_final)
+    * [Example Post-reorder transforms](#example-post-reorder-transforms)
   * [transform type="backspace"](#Element_backspaces)
 * [Invariants](#Invariants)
 * [Keyboard IDs](#Keyboard_IDs)
@@ -2179,28 +2179,42 @@ A particular Myanmar keyboard layout can have these `reorder` elements:
 
 The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u1084`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
-* * *
+#### Example Post-reorder transforms
 
-### <a name="Element_final" href="#Element_final">Element: transform final</a>
+It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional `<transformGroup>` element after the reorders.
 
-The final transform is applied after the reorder transform. It executes in a similar way to the simple transform with the settings ignored, as if there were no settings in the `<settings>` element.
-
-**Example**
-
-This is an example from Khmer where split vowels are combined after reordering.
+First, a partial example from Khmer where split vowels are combined after reordering.
 
 ```xml
-<transforms type="final">
+…
+<transformGroup>
+    <reorder … />
+    <reorder … />
+    <reorder … />
+    …
+</transformGroup>
+<transformGroup>
     <transform from="\u17C1\u17B8" to="\u17BE" />
     <transform from="\u17C1\u17B6" to="\u17C4" />
-</transforms>
+</transformGroup>
 ```
 
-Another example allows a keyboard implementation to alert or stop people typing two lower vowels in a Burmese cluster:
+Another partial example allows a keyboard implementation to prevent people typing two lower vowels in a Burmese cluster:
 
 ```xml
-<transform from="[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]" error="fail" />
+…
+<transformGroup>
+    <reorder … />
+    <reorder … />
+    <reorder … />
+    …
+</transformGroup>
+<transformGroup>
+    <transform from="[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]"  />
+</transformGroup>
 ```
+
+* * *
 
 ### <a name="Element_backspaces" href="#Element_backspaces">transform type="backspace"</a>
 

@@ -206,6 +206,9 @@ public class VoteAPI {
 
             @Schema(description = "prose description of voting outcome")
             public String voteTranscript;
+
+            @Schema(description = "True if candidates are fixed (disable plus).", example = "false")
+            public boolean fixedCandidates;
         }
 
         public static final class Page {

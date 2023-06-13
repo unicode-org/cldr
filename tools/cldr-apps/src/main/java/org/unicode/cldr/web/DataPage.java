@@ -29,6 +29,9 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -505,6 +508,9 @@ public class DataPage {
         /** The voting transcript, set by the DataRow constructor */
         private final String voteTranscript;
 
+        /** Are there fixed candidates (i.e. plus is prohibited) */
+        private boolean haveFixedCandidates = false;
+
         public String getVoteTranscript() {
             return voteTranscript;
         }
@@ -534,6 +540,33 @@ public class DataPage {
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
             displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+            addFixedCandidates();
+        }
+
+        /** check to see if there are any 'fixed' values, i.e. no freeform input is allowed. */
+        public void addFixedCandidates() {
+            Collection<String> candidates = getFixedCandidates();
+            // Could have other XPaths here
+
+            if (candidates == null || candidates.isEmpty()) {
+                return;
+            }
+            haveFixedCandidates = true;
+            for (final String candidate : candidates) {
+                addItem(candidate, "fixed");
+            }
+        }
+
+        private Collection<String> getFixedCandidates() {
+            if (PatternCache.get("^//ldml/units/unitLength.*/unit.*/gender")
+                    .matcher(xpath)
+                    .matches()) {
+                return grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalGender,
+                        GrammaticalScope.units);
+            }
+            return Collections.emptySet();
         }
 
         /**
@@ -1058,6 +1091,10 @@ public class DataPage {
         public String getTranslationHint() {
             return TranslationHints.get(xpath);
         }
+
+        public boolean fixedCandidates() {
+            return haveFixedCandidates;
+        }
     }
 
     /*
@@ -1373,6 +1410,8 @@ public class DataPage {
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
+    private GrammarInfo grammarInfo;
+
     DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
@@ -1387,6 +1426,7 @@ public class DataPage {
                             .format(Calendar.getInstance().getTime());
             System.out.println("🌴 Created new DataPage for loc " + loc + " at " + creationTime);
         }
+        grammarInfo = sm.getSupplementalDataInfo().getGrammarInfo(locale.getBaseName());
     }
 
     /**

@@ -839,7 +839,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
   cldrDom.removeAllChildNodes(cell); // other
   cldrSurvey.setLang(cell);
 
-  if (tr.canModify) {
+  if (tr.canModify && !tr.theRow.fixedCandidates) {
     formAdd.role = "form";
     formAdd.className = "form-inline";
     const buttonAdd = document.createElement("div");

@@ -118,11 +118,11 @@ public class CheckPersonNamesTest {
                                         fieldPart -> {
                                             if (nameField == null) { // handle first one specially
                                                 nameField =
-                                                        NameField.valueOf(
+                                                        NameField.from(
                                                                 fieldPart.toUpperCase(Locale.ROOT));
                                             } else {
                                                 modifiers.add(
-                                                        FieldModifier.valueOf(
+                                                        FieldModifier.from(
                                                                 fieldPart.toUpperCase(
                                                                         Locale.ROOT)));
                                             }
@@ -150,9 +150,9 @@ public class CheckPersonNamesTest {
                             orderOption = DisplayOrder.DEFAULT;
                     }
 
-                    Length length = Length.valueOf(fields.next().toUpperCase(Locale.ROOT));
-                    Usage usage = Usage.valueOf(fields.next().toUpperCase(Locale.ROOT));
-                    Formality formality = Formality.valueOf(fields.next().toUpperCase(Locale.ROOT));
+                    Length length = Length.from(fields.next().toUpperCase(Locale.ROOT));
+                    Usage usage = Usage.from(fields.next().toUpperCase(Locale.ROOT));
+                    Formality formality = Formality.from(fields.next().toUpperCase(Locale.ROOT));
 
                     PersonNameFormatter formatter =
                             PersonNameFormatter.builder()

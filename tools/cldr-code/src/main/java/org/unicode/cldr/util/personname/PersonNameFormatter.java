@@ -1,5 +1,41 @@
 package org.unicode.cldr.util.personname;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Comparators;
@@ -25,40 +61,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.function.Function;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.ChainedMap;
-import org.unicode.cldr.util.ChainedMap.M3;
-import org.unicode.cldr.util.GrammarInfo;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
 
 /**
  * Rough sketch for now TODO Mark Make classes/methods private that don't need to be public TODO
@@ -1381,16 +1383,16 @@ public class PersonNameFormatter {
                 final String value = parts.get(1);
                 switch (key) {
                     case "order":
-                        order = Order.valueOf(value);
+                        order = Order.from(value);
                         break;
                     case "length":
                         length = Length.from(value);
                         break;
                     case "usage":
-                        usage = Usage.valueOf(value);
+                        usage = Usage.from(value);
                         break;
                     case "formality":
-                        formality = Formality.valueOf(value);
+                        formality = Formality.from(value);
                         break;
                 }
             }
@@ -1891,7 +1893,7 @@ public class PersonNameFormatter {
                         // ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of
                         // locales
                         for (String locale : SPLIT_SPACE.split(value)) {
-                            Order order = Order.valueOf(parts.getAttributeValue(-1, "order"));
+                            Order order = Order.from(parts.getAttributeValue(-1, "order"));
                             _localeToOrder.put(new ULocale(locale), order);
                         }
                         break;
@@ -1909,10 +1911,10 @@ public class PersonNameFormatter {
                         Enum parameterDefault = null;
                         switch (setting) {
                             case "length":
-                                parameterDefault = Length.valueOf(value);
+                                parameterDefault = Length.from(value);
                                 break;
                             case "formality":
-                                parameterDefault = Formality.valueOf(value);
+                                parameterDefault = Formality.from(value);
                                 break;
                         }
                         parameterDefaults.put(setting, parameterDefault);

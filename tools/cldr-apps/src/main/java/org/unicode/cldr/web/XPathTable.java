@@ -198,8 +198,13 @@ public class XPathTable {
         for (String xpath : source) {
             unloadedXpaths.add(xpath);
         }
+        // remove all already-loaded
         unloadedXpaths.removeAll(stringToId.keySet());
 
+        if (unloadedXpaths.isEmpty()) {
+            // nothing to load
+            return;
+        }
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {

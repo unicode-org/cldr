@@ -351,7 +351,23 @@ public class DBUtils {
         return getInstance().tableExists(table);
     }
 
+    private static final ConcurrentHashMap<String, Boolean> existenceCache =
+            new ConcurrentHashMap<String, Boolean>();
+
     public boolean tableExists(String table) {
+        // once exists, return true
+        // if false, try again.
+        boolean cachedValue = existenceCache.getOrDefault(table, false);
+        if (cachedValue) return cachedValue;
+        cachedValue = _tableExists(table);
+        if (cachedValue) {
+            existenceCache.put(table, cachedValue);
+        }
+
+        return cachedValue;
+    }
+
+    private boolean _tableExists(String table) {
         if (db_Derby) return hasTableDerby(table);
 
         String canonName = canonTableName(table);

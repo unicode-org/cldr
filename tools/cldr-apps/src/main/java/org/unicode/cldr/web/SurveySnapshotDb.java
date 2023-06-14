@@ -75,11 +75,11 @@ public class SurveySnapshotDb implements SurveySnapshot {
     }
 
     private boolean ensureTableExists() {
+        String tableName = DBUtils.Table.SUMMARY_SNAPSHOTS.toString();
+        if (DBUtils.hasTable(tableName)) {
+            return true;
+        }
         try (Connection conn = DBUtils.getInstance().getAConnection()) {
-            String tableName = DBUtils.Table.SUMMARY_SNAPSHOTS.toString();
-            if (DBUtils.hasTable(tableName)) {
-                return true;
-            }
             Statement s = conn.createStatement();
             /*
              * Two columns: stamp = a timestamp like 2022-01-18T12:34:56.789Z;

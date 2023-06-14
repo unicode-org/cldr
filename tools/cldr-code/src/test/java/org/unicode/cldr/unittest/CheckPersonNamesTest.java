@@ -1,18 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Set;
-
-import org.unicode.cldr.util.CLDRPaths;
-
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.AbstractTestLog;
 import com.ibm.icu.text.PersonName.FieldModifier;
@@ -25,6 +12,17 @@ import com.ibm.icu.text.PersonNameFormatter.Usage;
 import com.ibm.icu.text.SimplePersonName;
 import com.ibm.icu.text.SimplePersonName.Builder;
 import com.ibm.icu.util.ULocale;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.Set;
+import org.unicode.cldr.util.CLDRPaths;
 
 public class CheckPersonNamesTest {
     /**

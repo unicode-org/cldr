@@ -1439,7 +1439,7 @@ public class SupplementalDataInfo {
 
         private boolean handlePersonNamesDefaults(String value, XPathParts parts) {
             personNameOrder.putAll(
-                    Order.valueOf(parts.getAttributeValue(-1, "order")), split_space.split(value));
+                    Order.from(parts.getAttributeValue(-1, "order")), split_space.split(value));
             return true;
         }
 

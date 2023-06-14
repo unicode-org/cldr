@@ -1381,16 +1381,16 @@ public class PersonNameFormatter {
                 final String value = parts.get(1);
                 switch (key) {
                     case "order":
-                        order = Order.valueOf(value);
+                        order = Order.from(value);
                         break;
                     case "length":
                         length = Length.from(value);
                         break;
                     case "usage":
-                        usage = Usage.valueOf(value);
+                        usage = Usage.from(value);
                         break;
                     case "formality":
-                        formality = Formality.valueOf(value);
+                        formality = Formality.from(value);
                         break;
                 }
             }
@@ -1891,7 +1891,7 @@ public class PersonNameFormatter {
                         // ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of
                         // locales
                         for (String locale : SPLIT_SPACE.split(value)) {
-                            Order order = Order.valueOf(parts.getAttributeValue(-1, "order"));
+                            Order order = Order.from(parts.getAttributeValue(-1, "order"));
                             _localeToOrder.put(new ULocale(locale), order);
                         }
                         break;
@@ -1909,10 +1909,10 @@ public class PersonNameFormatter {
                         Enum parameterDefault = null;
                         switch (setting) {
                             case "length":
-                                parameterDefault = Length.valueOf(value);
+                                parameterDefault = Length.from(value);
                                 break;
                             case "formality":
-                                parameterDefault = Formality.valueOf(value);
+                                parameterDefault = Formality.from(value);
                                 break;
                         }
                         parameterDefaults.put(setting, parameterDefault);

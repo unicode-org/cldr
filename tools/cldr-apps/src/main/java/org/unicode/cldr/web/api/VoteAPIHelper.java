@@ -15,7 +15,6 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
@@ -245,6 +244,7 @@ public class VoteAPIHelper {
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);
+        row.fixedCandidates = r.fixedCandidates();
         return row;
     }
 

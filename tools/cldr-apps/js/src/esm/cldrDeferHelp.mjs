@@ -1,6 +1,7 @@
 /*
  * cldrDeferHelp: encapsulate code related to showing language descriptions in the Info Panel
  */
+import { marked } from "./cldrMarked.mjs";
 const defaultEndpoint = "https://dbpedia.org/sparql/";
 const format = "JSON";
 const abstractLang = "en";
@@ -9,7 +10,7 @@ const USELESS_IN_INFO_PANEL = "see info panel";
 
 function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
   if (helpHtml) {
-    helpHtml = linkifyHttpsUrls(helpHtml);
+    helpHtml = marked(helpHtml);
   }
   // Always have help (if available).
   const theHelp = $("<div/>", {
@@ -46,20 +47,6 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
   }
 
   $(fragment).append(theHelp);
-}
-
-function linkifyHttpsUrls(text) {
-  // TODO: obviate this method; reference: https://unicode-org.atlassian.net/browse/CLDR-15708
-  if (text.includes("href")) {
-    return text; // if it's already linkified, don't mess it up
-  }
-  const regex = /\b(https:\/\/\S+)/g;
-  const s = text.replace(regex, "<a target='_blank' href='$1'>$1</a>");
-  // In principle, a URL can end in a period;
-  // in practice, a final period in PathDescription.java is not part of the URL
-  const periodQuoteEndBracketRegex = /\.'>/g;
-  const quoteEndBracket = "'>";
-  return s.replace(periodQuoteEndBracketRegex, quoteEndBracket);
 }
 
 function subloadAbstract(resource) {

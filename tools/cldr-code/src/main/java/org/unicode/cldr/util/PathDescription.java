@@ -143,9 +143,9 @@ public class PathDescription {
                     + ".\n"
                     + "^//ldml/characters/exemplarCharacters$"
                     + RegexLookup.SEPARATOR
-                    + "Defines the set of characters used in your language. You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read "
-                    + CLDRURLS.EXEMPLAR_CHARACTERS
-                    + ".\n"
+                    + String.format(
+                            "Defines the set of characters used in your language. _You may not edit or vote on this item at this time._ Before filing any tickets to request changes, be sure to read [exemplars](%s).\n",
+                            CLDRURLS.EXEMPLAR_CHARACTERS)
                     + "^//ldml/characters/exemplarCharacters\\[@type=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
                     + "Defines the set of characters used in your language for the “{1}” category.  You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read "

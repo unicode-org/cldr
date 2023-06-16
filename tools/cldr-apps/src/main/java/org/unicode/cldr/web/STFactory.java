@@ -1,15 +1,14 @@
 /** */
 package org.unicode.cldr.web;
 
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.IOException;
-import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +18,7 @@ import java.sql.Timestamp;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
@@ -583,6 +583,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private XMLSource resolvedXmlsource = null;
 
         PerLocaleData(CLDRLocale locale) {
+            logger.info("new: " + locale);
             this.locale = locale;
             readonly = isReadOnlyLocale(locale);
             diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
@@ -590,10 +591,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile);
             stamp = mintLocaleStamp(locale);
-        }
 
-        public boolean isEmpty() {
-            return xpathToData.isEmpty();
+            // construct the unresolved source here.
+            if (!readonly) {
+                xmlsource = constructDataBackedSource();
+                setUnresolvedFile(xmlsource);
+            } else {
+                xmlsource = null;
+                setUnresolvedFile(diskData);
+            }
         }
 
         /**
@@ -814,27 +820,31 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        public synchronized CLDRFile getFile(boolean resolved) {
+        public CLDRFile getFile(boolean resolved) {
             if (resolved) {
-                if (rFile == null) {
-                    if (getSupplementalDirectory() == null)
-                        throw new InternalError("getSupplementalDirectory() == null!");
-                    rFile =
-                            new CLDRFile(makeSource(true))
-                                    .setSupplementalDirectory(getSupplementalDirectory());
-                    rFile.getSupplementalDirectory();
+                if (rFile != null) {
+                    return rFile;
+                }
+                if (getSupplementalDirectory() == null)
+                    throw new InternalError("getSupplementalDirectory() == null!");
+                synchronized (this) {
+                    if (rFile == null) {
+                        rFile =
+                                new CLDRFile(makeSource(true))
+                                        .setSupplementalDirectory(getSupplementalDirectory());
+                        rFile.getSupplementalDirectory();
+                    }
                 }
                 return rFile;
             } else {
-                if (file == null) {
-                    if (getSupplementalDirectory() == null)
-                        throw new InternalError("getSupplementalDirectory() == null!");
-                    file =
-                            new CLDRFile(makeSource(false))
-                                    .setSupplementalDirectory(getSupplementalDirectory());
-                }
                 return file;
             }
+        }
+
+        private void setUnresolvedFile(XMLSource source) {
+            if (getSupplementalDirectory() == null)
+                throw new InternalError("getSupplementalDirectory() == null!");
+            file = new CLDRFile(xmlsource).setSupplementalDirectory(getSupplementalDirectory());
         }
 
         /**
@@ -994,18 +1004,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 return resolvedXmlsource;
             } else {
-                if (readonly) {
-                    return diskData;
-                } else {
-                    if (xmlsource == null) {
-                        xmlsource = new DataBackedSource(this);
-                        loadVoteValues(xmlsource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
-                        stamp.next();
-                        xmlsource.addListener(gTestCache);
-                    }
-                    return xmlsource;
-                }
+                return xmlsource;
             }
+        }
+
+        /** Called only by PerLocaleData constructor, which is only called by STFactory.get() */
+        private DataBackedSource constructDataBackedSource() {
+            DataBackedSource s = new DataBackedSource(this);
+            loadVoteValues(xmlsource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
+            stamp.next();
+            s.addListener(gTestCache);
+            return s;
         }
 
         /**
@@ -1051,7 +1060,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public synchronized void voteForValueWithType(
+        public void voteForValueWithType(
                 User user,
                 String distinguishingXpath,
                 String value,
@@ -1114,23 +1123,31 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
 
+            // call this outside of the lock to make sure the file is loaded
+            getFile(true);
+
             String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
 
-            if (!readonly) {
-                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId, voteType);
-            } else {
+            // sanity check, should have been caught before
+            if (readonly) {
                 readonly();
+                return;
             }
 
-            internalSetVoteForValue(
-                    user, distinguishingXpath, value, withVote, new Date(), voteType);
+            // small critical section for actual vote
+            synchronized (this) {
+                saveVoteToDb(user, distinguishingXpath, value, withVote, xpathId, voteType);
 
-            if (withVote != null && withVote == VoteResolver.Level.PERMANENT_VOTES) {
-                doPermanentVote(distinguishingXpath, xpathId, value);
+                internalSetVoteForValue(
+                        user, distinguishingXpath, value, withVote, new Date(), voteType);
+
+                if (withVote != null && withVote == VoteResolver.Level.PERMANENT_VOTES) {
+                    doPermanentVote(distinguishingXpath, xpathId, value);
+                }
+
+                xmlsource.setValueFromResolver(
+                        distinguishingXpath, null, VoteLoadingContext.SINGLE_VOTE);
             }
-
-            xmlsource.setValueFromResolver(
-                    distinguishingXpath, null, VoteLoadingContext.SINGLE_VOTE);
 
             String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {
@@ -1627,8 +1644,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         StringBuilder sb = new StringBuilder(super.toString());
         sb.append("-cache:");
         int good = 0;
-        for (Entry<CLDRLocale, Reference<PerLocaleData>> e : locales.entrySet()) {
-            if (e.getValue().get() != null) {
+        for (Entry<CLDRLocale, PerLocaleData> e : locales.asMap().entrySet()) {
+            if (e.getValue() != null) {
                 good++;
             }
         }
@@ -1650,10 +1667,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     /** Per locale map */
-    private final Map<CLDRLocale, Reference<PerLocaleData>> locales = new HashMap<>();
+    private final LoadingCache<CLDRLocale, PerLocaleData> locales =
+            CacheBuilder.newBuilder()
+                    .concurrencyLevel(5)
+                    .build(
+                            new CacheLoader<CLDRLocale, PerLocaleData>() {
 
-    private final Cache<CLDRLocale, PerLocaleData> rLocales =
-            CacheBuilder.newBuilder().softValues().build();
+                                @Override
+                                public PerLocaleData load(CLDRLocale key) throws Exception {
+                                    if (!getAvailableCLDRLocales().contains(key)) {
+                                        return null; // not available
+                                    }
+                                    return new PerLocaleData(key);
+                                }
+                            });
 
     private final Map<CLDRLocale, MutableStamp> localeStamps =
             new ConcurrentHashMap<>(SurveyMain.getLocales().length);
@@ -1689,29 +1716,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @param locale
      * @return
      */
-    private synchronized PerLocaleData get(CLDRLocale locale) {
-        PerLocaleData pld = rLocales.getIfPresent(locale);
-        if (pld == null) {
-            Reference<PerLocaleData> ref = locales.get(locale);
-            if (ref != null) {
-                SurveyLog.debug("STFactory: " + locale + " was not in LRUMap.");
-                pld = ref.get();
-                if (pld == null) {
-                    SurveyLog.debug("STFactory: " + locale + " was GC'ed." + SurveyMain.freeMem());
-                    ref.clear();
-                }
-            }
-            if (pld == null) {
-                pld = new PerLocaleData(locale);
-                rLocales.put(locale, pld);
-                locales.put(locale, (new SoftReference<>(pld)));
-                // update the locale display name cache.
-                OutputFileManager.updateLocaleDisplayName(pld.getFile(true), locale);
-            } else {
-                rLocales.put(locale, pld); // keep it in the lru
-            }
+    private PerLocaleData get(CLDRLocale locale) {
+        try {
+            return locales.get(locale);
+        } catch (ExecutionException e) {
+            SurveyLog.logException(logger, e, "get(" + locale + ")");
+            e.printStackTrace();
+            SurveyMain.busted("get(" + locale + ")", e);
+            throw new RuntimeException("get(" + locale + ") failed", e); // busted
         }
-        return pld;
     }
 
     private PerLocaleData get(String locale) {

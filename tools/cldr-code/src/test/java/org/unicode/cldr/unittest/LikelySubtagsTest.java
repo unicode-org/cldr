@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -533,7 +534,7 @@ public class LikelySubtagsTest extends TestFmwk {
         Set<String> problemScripts = new LinkedHashSet<>();
         for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
             String script = entry.getKey();
-            UnicodeSet flattened = flatten(entry.getValue());
+            UnicodeSet flattened = CldrUtility.flatten(entry.getValue());
             if (!assertEquals(
                     script,
                     flattened.toPattern(false),
@@ -546,73 +547,5 @@ public class LikelySubtagsTest extends TestFmwk {
                     "Adjust the data in scriptToExemplars.txt to be the expected value for:"
                             + problemScripts);
         }
-    }
-    //
-    //    /**
-    //     * Tests the method for getting all the exemplars for a script. That file is hard-coded
-    // for
-    //     * speed, and may need updating if a new character is added.
-    //     */
-    //    public void testGetExemplarsForScript() {
-    //        // System.out.println(flatten(new UnicodeSet("[ad{ad}{bcd}{bc}]")));
-    //        Factory factory = CLDRConfig.getInstance().getCldrFactory();
-    //        LanguageTagParser ltp = new LanguageTagParser();
-    //        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
-    //        for (String locale : factory.getAvailable()) {
-    //            if ("root".equals(locale)) {
-    //                continue;
-    //            }
-    //            CLDRFile cldrFile = factory.make(locale, true);
-    //            UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main,
-    // WinningChoice.WINNING);
-    //            UnicodeSet aux =
-    //                    cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
-    //            String ltpScript = ltp.set(locale).getResolvedScript();
-    //            UnicodeSet uset = scriptToExemplars.get(ltpScript);
-    //            if (uset == null) {
-    //                scriptToExemplars.put(ltpScript, uset = new UnicodeSet());
-    //            }
-    //            uset.addAll(main);
-    //            uset.addAll(aux);
-    //        }
-    //        for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
-    //            String script = entry.getKey();
-    //            UnicodeSet flattened = flatten(entry.getValue());
-    //            if (!assertEquals(
-    //                    script,
-    //                    flattened.toPattern(false),
-    //                    ScriptToExemplars.getExemplars(script).toPattern(false))) {
-    //                System.out.println(
-    //                        "Adjust the data in scriptToExemplars.txt for "
-    //                                + script
-    //                                + " to be the expected value");
-    //            }
-    //        }
-    //    }
-
-    /**
-     * For each string S in the UnicodeSet U, remove S if it U "doesn't need it" for testing
-     * containsAll. That is, U.containsAll matches the same set of strings with or without S. For
-     * example [ad{ad}{bcd}{bc}] flattens to [ad{bc}]
-     *
-     * @param value, which is modified if it is not freezable
-     * @return resulting value
-     */
-    private UnicodeSet flatten(UnicodeSet value) {
-        Set<String> strings = ImmutableSet.copyOf(value.strings());
-        HashSet<String> toAdd = new HashSet<>();
-        if (value.isFrozen()) {
-            value = new UnicodeSet(value);
-        }
-        for (String s : strings) {
-            value.remove(s);
-            if (!value.containsAll(s)) {
-                toAdd.add(s);
-            }
-            value.add(s);
-        }
-        value.removeAll(strings);
-        value.addAll(toAdd);
-        return value;
     }
 }

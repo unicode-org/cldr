@@ -69,11 +69,13 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
         this.maxDisallowRanges = maxDisallowRanges;
     }
 
+    static final int DEFAULT_MAX = 1024;
+
     public static SimpleUnicodeSetFormatter fromIcuLocale(String localeId) {
         return new SimpleUnicodeSetFormatter(
                 (Comparator) ComparatorUtilities.getIcuCollator(localeId, Collator.IDENTICAL),
                 null,
-                255);
+                DEFAULT_MAX);
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {
@@ -81,14 +83,14 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col) {
-        this(col, null, 255);
+        this(col, null, DEFAULT_MAX);
     }
 
     public SimpleUnicodeSetFormatter() {
         this(
                 (Comparator) ComparatorUtilities.getIcuCollator(ULocale.ROOT, Collator.IDENTICAL),
                 null,
-                255);
+                DEFAULT_MAX);
     }
 
     static class Lazy {
@@ -114,7 +116,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
 
     @Override
     public String format(UnicodeSet input) {
-        final boolean allowRanges = input.size() <= maxDisallowRanges;
+        final boolean allowRanges = input.size() > maxDisallowRanges;
         StringBuilder result = new StringBuilder();
         Collection<String> sorted =
                 input.addAllTo(allowRanges ? new ArrayList<>() : new TreeSet<>(comparator));

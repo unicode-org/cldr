@@ -1504,6 +1504,12 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnicodeSetExamples() {
         String[][] tests = {
             {
+                "hi",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[ॄ‌‍]",
+                "〖‎⁉️ ॑ ॒ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॠ ॡ ॻ ॼ ड़ ॾ ॿ ऱ ॢ ॣ〗〖❰ZWNJ❱ cursive non-joiner〗〖❰ZWJ❱ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+            },
+            {
                 "hu",
                 "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
                 "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
@@ -1513,13 +1519,13 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ็ ๎ ❰WNJ❱〗〖‎➖ / ‑〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖‎➕ ็ ๎ ❰WNJ❱〗〖‎➖ ß ä ö ü〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
             },
             {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
         };

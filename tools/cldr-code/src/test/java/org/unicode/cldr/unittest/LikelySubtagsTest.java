@@ -9,6 +9,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -448,17 +449,31 @@ public class LikelySubtagsTest extends TestFmwk {
         return "{\"und_" + script + "\", \"" + langScript + originCountry + "\"},";
     }
 
-    public void testGetScript() {
+    /**
+     * Test two issues:
+     *
+     * <ul>
+     *   <li>That the script of the locale's examplars matches the script derived from the locale's
+     *       identifier.
+     *   <li>That the union of the exemplar sets (main+aux) for all locales with the script matches
+     *       what is in ltp.getResolvedScript()
+     * </ul>
+     *
+     * Written as one test, to avoid the overhead of iterating over all locales twice.
+     */
+    public void testGetResolvedScriptVsExemplars() {
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         LanguageTagParser ltp = new LanguageTagParser();
+        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
+
         for (String locale : factory.getAvailable()) {
             if ("root".equals(locale)) {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
-            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING, 0);
+            UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main, WinningChoice.WINNING);
             UnicodeSet aux =
-                    cldrFile.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING, 0);
+                    cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
             String script = null;
             int uScript = 0;
             for (String s : main) {
@@ -501,29 +516,11 @@ public class LikelySubtagsTest extends TestFmwk {
                     }
             }
             if (!assertEquals(locale, script, ltpScript)) {
-                ltp.getResolvedScript();
+                ltp.getResolvedScript(); // for debugging
             }
-        }
-    }
 
-    /**
-     * Tests the method for getting all the exemplars for a script. That file is hard-coded for
-     * speed, and may need updating if a new character is added.
-     */
-    public void testGetExemplarsForScript() {
-        // System.out.println(flatten(new UnicodeSet("[ad{ad}{bcd}{bc}]")));
-        Factory factory = CLDRConfig.getInstance().getCldrFactory();
-        LanguageTagParser ltp = new LanguageTagParser();
-        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
-        for (String locale : factory.getAvailable()) {
-            if ("root".equals(locale)) {
-                continue;
-            }
-            CLDRFile cldrFile = factory.make(locale, true);
-            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING, 0);
-            UnicodeSet aux =
-                    cldrFile.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING, 0);
-            String ltpScript = ltp.set(locale).getResolvedScript();
+            // add to map for ScriptToExemplars.getExemplars test
+
             UnicodeSet uset = scriptToExemplars.get(ltpScript);
             if (uset == null) {
                 scriptToExemplars.put(ltpScript, uset = new UnicodeSet());
@@ -531,6 +528,9 @@ public class LikelySubtagsTest extends TestFmwk {
             uset.addAll(main);
             uset.addAll(aux);
         }
+
+        // now check that ScriptToExemplars.getExemplars matches the data
+        Set<String> problemScripts = new LinkedHashSet<>();
         for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
             String script = entry.getKey();
             UnicodeSet flattened = flatten(entry.getValue());
@@ -538,21 +538,65 @@ public class LikelySubtagsTest extends TestFmwk {
                     script,
                     flattened.toPattern(false),
                     ScriptToExemplars.getExemplars(script).toPattern(false))) {
-                System.out.println(
-                        "Adjust the data in scriptToExemplars.txt for "
-                                + script
-                                + " to be the expected value");
+                problemScripts.add(script);
             }
         }
+        if (!problemScripts.isEmpty()) {
+            warnln(
+                    "Adjust the data in scriptToExemplars.txt to be the expected value for:"
+                            + problemScripts);
+        }
     }
+    //
+    //    /**
+    //     * Tests the method for getting all the exemplars for a script. That file is hard-coded
+    // for
+    //     * speed, and may need updating if a new character is added.
+    //     */
+    //    public void testGetExemplarsForScript() {
+    //        // System.out.println(flatten(new UnicodeSet("[ad{ad}{bcd}{bc}]")));
+    //        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+    //        LanguageTagParser ltp = new LanguageTagParser();
+    //        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
+    //        for (String locale : factory.getAvailable()) {
+    //            if ("root".equals(locale)) {
+    //                continue;
+    //            }
+    //            CLDRFile cldrFile = factory.make(locale, true);
+    //            UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main,
+    // WinningChoice.WINNING);
+    //            UnicodeSet aux =
+    //                    cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
+    //            String ltpScript = ltp.set(locale).getResolvedScript();
+    //            UnicodeSet uset = scriptToExemplars.get(ltpScript);
+    //            if (uset == null) {
+    //                scriptToExemplars.put(ltpScript, uset = new UnicodeSet());
+    //            }
+    //            uset.addAll(main);
+    //            uset.addAll(aux);
+    //        }
+    //        for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
+    //            String script = entry.getKey();
+    //            UnicodeSet flattened = flatten(entry.getValue());
+    //            if (!assertEquals(
+    //                    script,
+    //                    flattened.toPattern(false),
+    //                    ScriptToExemplars.getExemplars(script).toPattern(false))) {
+    //                System.out.println(
+    //                        "Adjust the data in scriptToExemplars.txt for "
+    //                                + script
+    //                                + " to be the expected value");
+    //            }
+    //        }
+    //    }
 
     /**
      * For each string S in the UnicodeSet U, remove S if it U "doesn't need it" for testing
      * containsAll. That is, U.containsAll matches the same set of strings with or without S. For
      * example [ad{ad}{bcd}{bc}] flattens to [ad{bc}]
      *
-     * @param value which is modified if it is freezable
-     * @return
+     * @param value, which is modified if it is not freezable
+     * @return resulting value
      */
     private UnicodeSet flatten(UnicodeSet value) {
         Set<String> strings = ImmutableSet.copyOf(value.strings());

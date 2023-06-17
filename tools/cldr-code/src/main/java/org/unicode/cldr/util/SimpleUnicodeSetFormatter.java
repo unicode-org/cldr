@@ -114,7 +114,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
 
     @Override
     public String format(UnicodeSet input) {
-        final boolean allowRanges = input.size() >= maxDisallowRanges;
+        final boolean allowRanges = input.size() <= maxDisallowRanges;
         StringBuilder result = new StringBuilder();
         Collection<String> sorted =
                 input.addAllTo(allowRanges ? new ArrayList<>() : new TreeSet<>(comparator));

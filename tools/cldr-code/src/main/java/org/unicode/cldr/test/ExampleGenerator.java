@@ -51,6 +51,8 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
@@ -68,6 +70,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -562,6 +565,17 @@ public class ExampleGenerator {
             }
             if (!winning_minus_value.isEmpty()) {
                 examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
+            }
+        }
+        if (parts.containsAttributeValue("type", "auxiliary")) {
+            LanguageTagParser ltp = new LanguageTagParser();
+            String ltpScript = ltp.set(cldrFile.getLocaleID()).getResolvedScript();
+            UnicodeSet exemplars = ScriptToExemplars.getExemplars(ltpScript);
+            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            UnicodeSet mainAndAux = new UnicodeSet(main).addAll(valueSet);
+            if (!mainAndAux.containsAll(exemplars)) {
+                examples.add(
+                        LRM + "⁉️ " + SUSF.format(new UnicodeSet(exemplars).removeAll(mainAndAux)));
             }
         }
         if (SHOW_NON_SPACING_IN_UNICODE_SET

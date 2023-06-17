@@ -1504,6 +1504,12 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnicodeSetExamples() {
         String[][] tests = {
             {
+                "hu",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
+                "〖‎⁉️ Q W➖Y ª · º À Â➖È Ê➖Ì Î➖Ò Ô Õ Ø Ù Û Ý➖ß ð õ ý þ Ā Ă Ą➖Ē Ĕ Ė➖Ī Ĭ Į➖ň Ŋ➖Ō Ŏ Œ Ŕ➖Ū Ŭ Ů ů Ų➖ſ Ɓ Ɔ Ɖ Ɗ Ǝ➖ƒ Ɣ Ɩ➖ƙ Ɲ Ơ ơ Ư➖ƴ Ʒ ǀ➖ǃ Ǎ➖ǔ ǝ Ǥ➖ǫ Ǯ ǯ Ǵ ǵ Ǹ ǹ Ǿ ǿ Ș➖ț Ȟ ȟ Ʉ ɑ ɓ ɔ ɖ ɗ ə ɛ ɣ ɨ ɩ ɲ ʉ➖ʋ ʒ ʔ ʣ ʦ ʰ ʷ ʻ ʼ ˀ ᵉ ᵍ ᵘ Ḃ ḃ Ḋ➖ḓ Ḟ ḟ Ḥ ḥ Ḵ➖ḷ Ḻ➖ṁ Ṅ➖ṋ Ṗ ṗ Ṛ ṛ Ṟ➖ṣ Ṫ➖ṱ Ṽ ṽ Ẁ➖ẅ Ẓ ẓ Ạ➖ỹ ⁿ Ɑ Ꞌ ꞌ a: aː a̧ a̱ a᷆ a᷇ ch’ e: eː e̱ e᷆ e᷇ g̃ g̱ i: iː i̇̀ i̇́ i̇̃ i̧ i̱ i᷆ i᷇ j̃ j̇̃ k’ l̃ l̥ m̀ m̃ m̄ m̐ n̄ n̈ o: oː o̱ o᷆ o᷇ r̃ r̥ r̥̄ ts’ tł’ t’ uː u̧ u᷆ u᷇ y̱ z̧ à: àː á: áː á̱ è: èː é: éː ì: ìː í: íj́ íː í̱ ò: òː ó: óː ó̱ ùː úː ą́ ą̃ ė́ ė̃ ę́ ę̃ į́ į̃ į̇́ į̇̃ ŋ̀ ŋ́ ŋ̄ ū́ ū̃ ų́ ų̃ ǝ̀ ǝ́ ǝ̂ ǝ̄ ǝ̌ ǫ́ ɔ̀ ɔ́ ɔ̂ ɔ̃ ɔ̄ ɔ̈ ɔ̌ ɔ̧ ɔ̱ ɔ᷆ ɔ᷇ ə̀ ə́ ə̂ ə̄ ə̌ ɛ̀ ɛ́ ɛ̂ ɛ̃ ɛ̄ ɛ̈ ɛ̌ ɛ̧ ɛ̱ ɛ̱̈ ɛ᷆ ɛ᷇ ɨ̀ ɨ́ ɨ̂ ɨ̄ ɨ̌ ɩ̀ ɩ́ ɩ̂ ʉ̀ ʉ́ ʉ̂ ʉ̄ ʉ̈ ʉ̌ ʊ̀ ʊ́ ʊ̂ ẹ̀ ẹ́ ị̀ ị́ ọ̀ ọ́ ọ̌ ụ̀ ụ́〗〖❬internal: ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
+            },
+            {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
@@ -1524,7 +1530,9 @@ public class TestExampleGenerator extends TestFmwk {
             final String value = test[2];
             final String expected = test[3];
             ExampleGenerator exampleGenerator = getExampleGenerator(locale);
-            String actual = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
+            String actual =
+                    ExampleGenerator.simplify( //
+                            exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
         }
     }

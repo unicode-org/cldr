@@ -19,12 +19,16 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -442,5 +446,129 @@ public class LikelySubtagsTest extends TestFmwk {
 
     public String showOverride(String script, String originCountry, String langScript) {
         return "{\"und_" + script + "\", \"" + langScript + originCountry + "\"},";
+    }
+
+    public void testGetScript() {
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String locale : factory.getAvailable()) {
+            if ("root".equals(locale)) {
+                continue;
+            }
+            CLDRFile cldrFile = factory.make(locale, true);
+            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING, 0);
+            UnicodeSet aux =
+                    cldrFile.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING, 0);
+            String script = null;
+            int uScript = 0;
+            for (String s : main) {
+                uScript = UScript.getScript(s.codePointAt(0));
+                if (uScript > UScript.INHERITED) {
+                    script = UScript.getShortName(uScript);
+                    break;
+                }
+            }
+            if (script == null) {
+                errln("No script for " + locale);
+                continue;
+            }
+            String ltpScript = ltp.set(locale).getResolvedScript();
+            switch (uScript) {
+                case UScript.HAN:
+                    switch (ltp.getLanguage()) {
+                        case "ja":
+                            script = "Jpan";
+                            break;
+                        case "yue":
+                            script = ltp.getScript();
+                            if (script.isEmpty()) {
+                                script = "Hant";
+                            }
+                            break;
+                        case "zh":
+                            script = ltp.getScript();
+                            if (script.isEmpty()) {
+                                script = "Hans";
+                            }
+                            break;
+                    }
+                    break;
+                case UScript.HANGUL:
+                    switch (ltp.getLanguage()) {
+                        case "ko":
+                            script = "Kore";
+                            break;
+                    }
+            }
+            if (!assertEquals(locale, script, ltpScript)) {
+                ltp.getResolvedScript();
+            }
+        }
+    }
+
+    /**
+     * Tests the method for getting all the exemplars for a script. That file is hard-coded for
+     * speed, and may need updating if a new character is added.
+     */
+    public void testGetExemplarsForScript() {
+        // System.out.println(flatten(new UnicodeSet("[ad{ad}{bcd}{bc}]")));
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        LanguageTagParser ltp = new LanguageTagParser();
+        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
+        for (String locale : factory.getAvailable()) {
+            if ("root".equals(locale)) {
+                continue;
+            }
+            CLDRFile cldrFile = factory.make(locale, true);
+            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING, 0);
+            UnicodeSet aux =
+                    cldrFile.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING, 0);
+            String ltpScript = ltp.set(locale).getResolvedScript();
+            UnicodeSet uset = scriptToExemplars.get(ltpScript);
+            if (uset == null) {
+                scriptToExemplars.put(ltpScript, uset = new UnicodeSet());
+            }
+            uset.addAll(main);
+            uset.addAll(aux);
+        }
+        for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
+            String script = entry.getKey();
+            UnicodeSet flattened = flatten(entry.getValue());
+            if (!assertEquals(
+                    script,
+                    flattened.toPattern(false),
+                    ScriptToExemplars.getExemplars(script).toPattern(false))) {
+                System.out.println(
+                        "Adjust the data in scriptToExemplars.txt for "
+                                + script
+                                + " to be the expected value");
+            }
+        }
+    }
+
+    /**
+     * For each string S in the UnicodeSet U, remove S if it U "doesn't need it" for testing
+     * containsAll. That is, U.containsAll matches the same set of strings with or without S. For
+     * example [ad{ad}{bcd}{bc}] flattens to [ad{bc}]
+     *
+     * @param value which is modified if it is freezable
+     * @return
+     */
+    private UnicodeSet flatten(UnicodeSet value) {
+        Set<String> strings = ImmutableSet.copyOf(value.strings());
+        HashSet<String> toAdd = new HashSet<>();
+        if (value.isFrozen()) {
+            value = new UnicodeSet(value);
+        }
+        for (String s : strings) {
+            value.remove(s);
+            if (!value.containsAll(s)) {
+                toAdd.add(s);
+            }
+            value.add(s);
+        }
+        value.removeAll(strings);
+        value.addAll(toAdd);
+        return value;
     }
 }

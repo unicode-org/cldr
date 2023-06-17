@@ -920,4 +920,17 @@ public class LanguageTagParser {
             }
         }
     }
+    /**
+     * Return the script of the locale (without creating a CLDRFile). Note that for ja, the script
+     * is Jpan; for ko, Kore; and zh/yue, either Hant or Hans. <br>
+     * TODO optimize if needed
+     */
+    public String getResolvedScript() {
+        if (!script.isEmpty()) {
+            return script;
+        }
+        LanguageTagParser ltp2 = new LanguageTagParser().set(toLSR());
+        new LikelySubtags().maximize(ltp2);
+        return ltp2.script;
+    }
 }

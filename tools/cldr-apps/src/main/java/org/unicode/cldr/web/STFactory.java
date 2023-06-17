@@ -6,7 +6,6 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,19 +14,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.util.*;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
-import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.util.VoteType;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
@@ -40,7 +57,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Q: Do we want different loggers for the multiplicity of inner classes? */
     static final Logger logger = SurveyLog.forClass(STFactory.class);
 
-    private enum VoteLoadingContext {
+    enum VoteLoadingContext {
         /**
          * The ordinary context when loadVoteValues is called by makeSource, such as when displaying
          * the main vetting view in Survey Tool
@@ -59,292 +76,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         SINGLE_VOTE,
     }
 
-    /**
-     * This class tracks the expected maximum size of strings in the locale.
-     *
-     * @author srl
-     */
-    public static class LocaleMaxSizer {
-        public static final int EXEMPLAR_CHARACTERS_MAX = 8192;
-
-        public static final String EXEMPLAR_CHARACTERS = "//ldml/characters/exemplarCharacters";
-
-        Map<CLDRLocale, Map<String, Integer>> sizeExceptions;
-
-        TreeMap<String, Integer> exemplars_prefix = new TreeMap<>();
-        Set<CLDRLocale> exemplars_set = new TreeSet<>();
-
-        /** Construct a new sizer. */
-        public LocaleMaxSizer() {
-            // set up the map
-            sizeExceptions = new TreeMap<>();
-            exemplars_prefix.put(EXEMPLAR_CHARACTERS, EXEMPLAR_CHARACTERS_MAX);
-            String[] locs = {"ja", "ko", "zh", "zh_Hant" /*because of cross-script inheritance*/};
-            for (String loc : locs) {
-                exemplars_set.add(CLDRLocale.getInstance(loc));
-            }
-        }
-
-        /**
-         * It's expected that this is called with EVERY locale, so we do not recurse into parents.
-         *
-         * @param l
-         */
-        public void add(CLDRLocale l) {
-            if (l == null) return; // attempt to add null
-            CLDRLocale hnr = l.getHighestNonrootParent();
-            if (hnr == null) return; // Exit if l is root
-            if (exemplars_set.contains(hnr)) { // are we a child of ja, ko, zh?
-                sizeExceptions.put(l, exemplars_prefix);
-            }
-        }
-
-        /**
-         * For the specified locale, what is the expected string size?
-         *
-         * @param locale
-         * @param xpath
-         * @return
-         */
-        public int getSize(CLDRLocale locale, String xpath) {
-            Map<String, Integer> prefixes = sizeExceptions.get(locale);
-            if (prefixes != null) {
-                for (Map.Entry<String, Integer> e : prefixes.entrySet()) {
-                    if (xpath.startsWith(e.getKey())) {
-                        return e.getValue();
-                    }
-                }
-            }
-            return MAX_VAL_LEN;
-        }
-
-        /** The max string length accepted of any value. */
-        public static final int MAX_VAL_LEN = 4096;
-    }
-
     /** Names of some columns in DBUtils.Table.VOTE_VALUE */
     private static final String VOTE_OVERRIDE = "vote_override";
 
     private static final String VOTE_TYPE = "vote_type";
-
-    private class DataBackedSource extends DelegateXMLSource {
-        PerLocaleData ballotBox;
-
-        private DataBackedSource(PerLocaleData makeFrom) {
-            super(makeFrom.diskData.cloneAsThawed());
-            ballotBox = makeFrom;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see com.ibm.icu.util.Freezable#freeze()
-         */
-        @Override
-        public XMLSource freeze() {
-            readonly();
-            return null;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
-         */
-        @Override
-        public String getFullPathAtDPath(String path) {
-            // Map<User,String> m = ballotBox.peekXpathToVotes(path);
-            // if(m==null || m.isEmpty()) {
-            // return aliasOf.getFullPathAtDPath(path);
-            // } else {
-            // logger.warning("Note: DBS.getFullPathAtDPath() todo!!");
-            // TODO: show losing values
-            return delegate.getFullPathAtDPath(path);
-            // }
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
-         */
-        @Override
-        public String getValueAtDPath(String path) {
-            return delegate.getValueAtDPath(path);
-        }
-
-        @Override
-        public Date getChangeDateAtDPath(String path) {
-            return ballotBox.getLastModDate(path);
-        }
-
-        /**
-         * Set the value for the given path for this DataBackedSource, using the given VoteResolver.
-         * This is the bottleneck for processing values.
-         *
-         * @param path the xpath
-         * @param resolver the VoteResolver (for recycling), or null
-         * @param voteLoadingContext the VoteLoadingContext
-         * @return the VoteResolver
-         */
-        private VoteResolver<String> setValueFromResolver(
-                String path, VoteResolver<String> resolver, VoteLoadingContext voteLoadingContext) {
-            PerLocaleData.PerXPathData xpd = ballotBox.peekXpathData(path);
-            String value;
-            String fullPath;
-            /*
-             * If there are no votes, it may be more efficient (or anyway expected) to skip vote resolution
-             * and use diskData instead. This has far-reaching effects and should be better documented.
-             * When and how does it change the outcome and/or performance?
-             * Currently only skip for VoteLoadingContext.ORDINARY_LOAD_VOTES with null/empty xpd.
-             *
-             * Do not skip vote resolution if VoteLoadingContext.SINGLE_VOTE, even for empty xpd. Otherwise an Abstain can
-             * result in "no votes", "skip vote resolution", failure to get the right winning value, possibly inherited.
-             *
-             * Do not skip vote resolution if VoteLoadingContext.VXML_GENERATION, even for empty xpd. We may need to call
-             * getWinningValue for vote resolution for a larger set of paths to get baseline, etc.
-             */
-            if (voteLoadingContext == VoteLoadingContext.ORDINARY_LOAD_VOTES
-                    && (xpd == null || xpd.isEmpty())) {
-                /*
-                 * Skip vote resolution
-                 */
-                value = ballotBox.diskData.getValueAtDPath(path);
-                fullPath = ballotBox.diskData.getFullPathAtDPath(path);
-            } else {
-                resolver = ballotBox.getResolver(xpd, path, resolver);
-                value = resolver.getWinningValue();
-                fullPath = getFullPathWithResolver(path, resolver);
-            }
-            delegate.removeValueAtDPath(path);
-            if (value != null) {
-                delegate.putValueAtPath(fullPath, value);
-            }
-            return resolver;
-        }
-
-        private String getFullPathWithResolver(String path, VoteResolver<String> resolver) {
-            String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
-            if (diskFullPath == null) {
-                /*
-                 * If the disk didn't have a full path, just use the inbound path.
-                 */
-                diskFullPath = path;
-            }
-            /*
-             * Remove JUST draft alt proposed. Leave 'numbers=' etc.
-             */
-            String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath);
-            Status win = resolver.getWinningStatus();
-            /*
-             * Catch Status.missing, or it will trigger an exception in draftStatusFromWinningStatus
-             * since there is no "missing" in DraftStatus.
-             * This may happen especially for VoteLoadingContext.VXML_GENERATION.
-             *
-             * Status.missing can also occur for VoteLoadingContext.SINGLE_VOTE, when a user abstains
-             * after submitting a new value. Then, delegate.removeValueAtDPath and/or delegate.putValueAtPath
-             * is required to clear out the submitted value; then possibly res = inheritance marker
-             */
-            if (win == Status.missing || win == Status.approved) {
-                return baseXPath;
-            } else {
-                DraftStatus draftStatus = draftStatusFromWinningStatus(win);
-                return baseXPath + "[@draft=\"" + draftStatus.toString() + "\"]";
-            }
-        }
-
-        /**
-         * Map the given VoteResolver.Status to a CLDRFile.DraftStatus
-         *
-         * @param win the VoteResolver.Status (winning status)
-         * @return the DraftStatus
-         *     <p>As a rule, the name of each VoteResolver.Status is also the name of a DraftStatus.
-         *     Any exceptions to that rule should be handled explicitly in this function. However,
-         *     VoteResolver.Status.missing is currently NOT handled and will cause an exception to
-         *     be logged. The caller should check for VoteResolver.Status.missing and avoid calling
-         *     this function with it.
-         *     <p>References: https://unicode.org/cldr/trac/ticket/11721
-         *     https://unicode.org/cldr/trac/ticket/11766 https://unicode.org/cldr/trac/ticket/11103
-         */
-        private DraftStatus draftStatusFromWinningStatus(VoteResolver.Status win) {
-            try {
-                return DraftStatus.forString(win.toString());
-            } catch (IllegalArgumentException e) {
-                SurveyLog.logException(
-                        logger, e, "Exception in draftStatusFromWinningStatus of " + win);
-                return DraftStatus.unconfirmed;
-            }
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see org.unicode.cldr.util.XMLSource#getXpathComments()
-         */
-        @Override
-        public Comments getXpathComments() {
-            return delegate.getXpathComments();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see org.unicode.cldr.util.XMLSource#iterator()
-         */
-        @Override
-        public Iterator<String> iterator() {
-            return delegate.iterator();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String,
-         * java.lang.String)
-         */
-        @Override
-        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String,
-         * java.lang.String)
-         */
-        @Override
-        public void putValueAtDPath(String distinguishingXPath, String value) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
-         */
-        @Override
-        public void removeValueAtDPath(String distinguishingXPath) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr
-         * .util.XPathParts.Comments)
-         */
-        @Override
-        public void setXpathComments(Comments comments) {
-            readonly();
-        }
-    }
 
     /**
      * the STFactory maintains exactly one instance of this class per locale it is working with. It
@@ -352,26 +87,34 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      *
      * @author srl
      */
-    private final class PerLocaleData implements Comparable<PerLocaleData>, BallotBox<User> {
-        private CLDRFile file = null, rFile = null;
+    public final class PerLocaleData implements Comparable<PerLocaleData>, BallotBox<User> {
+        /** Locale of this PLD */
         private final CLDRLocale locale;
+        /** For readonly locales, there's no DB */
         private final boolean readonly;
+        /** Stamp that tracks if this locale has been modified (by a vote) */
         private final MutableStamp stamp;
-
-        /** The held XMLSource. */
-        private DataBackedSource xmlsource = null;
-        /** The on-disk data. May be == to xmlsource for readonly data. */
+        /** unresolved XMLSource for on-disk data. */
         private final XMLSource diskData;
-
+        /** resolved CLDRFile backed by disk data */
         private final CLDRFile diskFile;
+        /** unresolved XMLSource backed by the DB, or null for readonly */
+        private final BallotBoxXMLSource<User> dataBackedSource;
+        /** unresolved XMLSource: == dataBackedSource, or for readonly == diskData */
+        private final XMLSource xmlsource;
+        /** Unresolved CLDRFile backed by {@link #xmlsource} */
+        private final CLDRFile file;
+        /** Resolved CLDRFile backed by {@link #xmlsource} */
+        private final CLDRFile rFile;
+        /** List of all XPaths present */
+        private Set<String> pathsForFile;
+        /** which XPaths had votes? */
+        BitSet votesSometimeThisRelease = null;
+        /** Voting information for each XPath */
+        private final Map<String, PerXPathData> xpathToData = new HashMap<>();
 
-        /**
-         * Per-xpath data. There's one of these per xpath- voting data, etc. Does not contain the
-         * actual xpath, at least for now.
-         *
-         * @author srl
-         */
-        private final class PerXPathData {
+        /** Per-xpath data. There's one of these per xpath- voting data, etc. */
+        final class PerXPathData {
             /**
              * Per (voting) user data. For each xpath, there's one of these per user that is voting.
              *
@@ -404,9 +147,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
 
                 /**
-                 * Has this user overridden their vote? Integer or null.
-                 *
-                 * @return
+                 * Has this user overridden their vote? Integer with override strength, null for no
+                 * override
                  */
                 public Integer getOverride() {
                     return override;
@@ -578,12 +320,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        private final Map<String, PerXPathData> xpathToData = new HashMap<>();
-
-        private XMLSource resolvedXmlsource = null;
-
+        /**
+         * Constructor is called from the 'locales' cache, and in turn by STFactory.get() All parent
+         * locales have already been initialized.
+         *
+         * <p>It's important that handleMake() not be called from this constructor, as that will
+         * cause reentrancy.
+         *
+         * <p>The task before us is to initialize all XMLSources and CLDRFiles needed.
+         *
+         * @param locale
+         */
         PerLocaleData(CLDRLocale locale) {
-            logger.info("new: " + locale);
+            logger.info("Load: " + locale);
             this.locale = locale;
             readonly = isReadOnlyLocale(locale);
             diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
@@ -592,13 +341,42 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             pathsForFile = phf.pathsForFile(diskFile);
             stamp = mintLocaleStamp(locale);
 
-            // construct the unresolved source here.
-            if (!readonly) {
-                xmlsource = constructDataBackedSource();
-                setUnresolvedFile(xmlsource);
+            if (readonly) {
+                rFile = diskFile;
+                xmlsource = diskData;
+
+                // null for readonly
+                dataBackedSource = null;
             } else {
-                xmlsource = null;
-                setUnresolvedFile(diskData);
+                xmlsource =
+                        dataBackedSource =
+                                new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
+                loadVoteValues(dataBackedSource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
+                stamp.next();
+                dataBackedSource.addListener(gTestCache);
+                XMLSource resolvedXmlsource = makeResolvingSource();
+                rFile =
+                        new CLDRFile(resolvedXmlsource)
+                                .setSupplementalDirectory(getSupplementalDirectory());
+            }
+            file = new CLDRFile(xmlsource).setSupplementalDirectory(getSupplementalDirectory());
+        }
+
+        /** Create a new ResolvingSource for this PLD and all parents */
+        private XMLSource makeResolvingSource() {
+            List<XMLSource> sourceList = new ArrayList<>();
+            // add this and parents
+            addXMLSources(sourceList);
+            return new XMLSource.ResolvingSource(sourceList);
+        }
+
+        void addXMLSources(List<XMLSource> sourceList) {
+            logger.info("addXMLSources: " + locale);
+            sourceList.add(xmlsource); // DB or disk file
+            CLDRLocale parent = locale.getParent();
+            // recurse with parents
+            if (parent != null) {
+                get(parent).addXMLSources(sourceList);
             }
         }
 
@@ -649,7 +427,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          *     and by PerLocaleData.makeVettedSource (with VoteLoadingContext.VXML_GENERATION).
          */
         private void loadVoteValues(
-                DataBackedSource targetXmlSource, VoteLoadingContext voteLoadingContext) {
+                BallotBoxXMLSource<User> targetXmlSource, VoteLoadingContext voteLoadingContext) {
             VoteResolver<String> resolver = null; // save recalculating this.
             ElapsedTimer et =
                     (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
@@ -791,8 +569,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             for (String xp : xpathSet) {
                 try {
                     resolver =
-                            targetXmlSource.setValueFromResolver(xp, resolver, voteLoadingContext);
+                            targetXmlSource.setValueFromResolver(
+                                    xp, resolver, voteLoadingContext, peekXpathData(xp));
                 } catch (Exception e) {
+                    e.printStackTrace();
                     SurveyLog.logException(logger, e, "In setValueFromResolver, xp = " + xp);
                 }
                 j++;
@@ -821,30 +601,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         public CLDRFile getFile(boolean resolved) {
-            if (resolved) {
-                if (rFile != null) {
-                    return rFile;
-                }
-                if (getSupplementalDirectory() == null)
-                    throw new InternalError("getSupplementalDirectory() == null!");
-                synchronized (this) {
-                    if (rFile == null) {
-                        rFile =
-                                new CLDRFile(makeSource(true))
-                                        .setSupplementalDirectory(getSupplementalDirectory());
-                        rFile.getSupplementalDirectory();
-                    }
-                }
-                return rFile;
-            } else {
-                return file;
-            }
-        }
-
-        private void setUnresolvedFile(XMLSource source) {
-            if (getSupplementalDirectory() == null)
-                throw new InternalError("getSupplementalDirectory() == null!");
-            file = new CLDRFile(xmlsource).setSupplementalDirectory(getSupplementalDirectory());
+            return (resolved) ? rFile : file;
         }
 
         /**
@@ -896,6 +653,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return r;
         }
 
+        /**
+         * called by getResolver()
+         *
+         * @param perXPathData
+         * @param path
+         * @param r
+         * @return
+         */
         public VoteResolver<String> getResolver(
                 PerXPathData perXPathData, String path, VoteResolver<String> r) {
             try {
@@ -916,6 +681,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public VoteResolver<String> getResolver(String path) {
             return getResolver(peekXpathData(path), path, null);
+        }
+
+        @Override
+        public VoteResolver<String> getResolver(String path, VoteResolver<String> r) {
+            return getResolver(peekXpathData(path), path, r);
         }
 
         @Override
@@ -996,27 +766,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
-        private synchronized XMLSource makeSource(boolean resolved) {
-            if (resolved) {
-                if (resolvedXmlsource == null) {
-                    resolvedXmlsource =
-                            makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
-                }
-                return resolvedXmlsource;
-            } else {
-                return xmlsource;
-            }
-        }
-
-        /** Called only by PerLocaleData constructor, which is only called by STFactory.get() */
-        private DataBackedSource constructDataBackedSource() {
-            DataBackedSource s = new DataBackedSource(this);
-            loadVoteValues(xmlsource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
-            stamp.next();
-            s.addListener(gTestCache);
-            return s;
-        }
-
         /**
          * Make a vetted source for this PerLocaleData, suitable for producing vxml with
          * vote-resolution done on more paths.
@@ -1026,7 +775,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @return the DataBackedSource (NOT the same as PerLocaleData.xmlsource)
          */
         private synchronized XMLSource makeVettedSource() {
-            DataBackedSource vxmlSource = new DataBackedSource(this);
+            BallotBoxXMLSource<User> vxmlSource =
+                    new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
             if (!readonly) {
                 loadVoteValues(vxmlSource, VoteLoadingContext.VXML_GENERATION);
             }
@@ -1123,10 +873,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
 
-            // call this outside of the lock to make sure the file is loaded
-            getFile(true);
-
-            String oldVal = xmlsource.getValueAtDPath(distinguishingXpath);
+            String oldVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
 
             // sanity check, should have been caught before
             if (readonly) {
@@ -1145,13 +892,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     doPermanentVote(distinguishingXpath, xpathId, value);
                 }
 
-                xmlsource.setValueFromResolver(
-                        distinguishingXpath, null, VoteLoadingContext.SINGLE_VOTE);
+                dataBackedSource.setValueFromResolver(
+                        distinguishingXpath,
+                        null,
+                        VoteLoadingContext.SINGLE_VOTE,
+                        peekXpathData(distinguishingXpath));
             }
 
-            String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
+            String newVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {
-                xmlsource.notifyListeners(distinguishingXpath);
+                dataBackedSource.notifyListeners(distinguishingXpath);
             }
         }
 
@@ -1221,7 +971,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 final int xpathId,
                 VoteType voteType) {
             boolean didClearFlag = false;
-            makeSource(false);
             ElapsedTimer et =
                     !SurveyLog.DEBUG
                             ? null
@@ -1413,10 +1162,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return pathsForFile;
         }
 
-        private Set<String> pathsForFile;
-
-        BitSet votesSometimeThisRelease = null;
-
         @Override
         public boolean hadVotesSometimeThisRelease(int xpath) {
             if (votesSometimeThisRelease != null) {
@@ -1445,133 +1190,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 return xpd.getLastModDate();
             }
         }
-    }
 
-    /**
-     * @author srl
-     */
-    public class DelegateXMLSource extends XMLSource {
-        protected XMLSource delegate;
-
-        public DelegateXMLSource(CLDRLocale locale) {
-            setLocaleID(locale.getBaseName());
-
-            delegate = sm.getDiskFactory().makeSource(locale.getBaseName());
-        }
-
-        public DelegateXMLSource(XMLSource source) {
-            setLocaleID(source.getLocaleID());
-            delegate = source;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see com.ibm.icu.util.Freezable#freeze()
-         */
-        @Override
-        public XMLSource freeze() {
-            readonly();
-            return null;
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
-         */
-        @Override
-        public String getFullPathAtDPath(String path) {
-            return delegate.getFullPathAtDPath(path);
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
-         */
-        @Override
-        public String getValueAtDPath(String path) {
-            return delegate.getValueAtDPath(path);
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see org.unicode.cldr.util.XMLSource#getXpathComments()
-         */
-        @Override
-        public Comments getXpathComments() {
-            return delegate.getXpathComments();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see org.unicode.cldr.util.XMLSource#iterator()
-         */
-        @Override
-        public Iterator<String> iterator() {
-            return delegate.iterator();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String,
-         * java.lang.String)
-         */
-        @Override
-        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String,
-         * java.lang.String)
-         */
-        @Override
-        public void putValueAtDPath(String distinguishingXPath, String value) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
-         */
-        @Override
-        public void removeValueAtDPath(String distinguishingXPath) {
-            readonly();
-        }
-
-        /*
-         * (non-Javadoc)
-         *
-         * @see
-         * org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr
-         * .util.XPathParts.Comments)
-         */
-        @Override
-        public void setXpathComments(Comments comments) {
-            readonly();
-        }
-
-        @Override
-        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
-            delegate.getPathsWithValue(valueToMatch, pathPrefix, result);
-        }
-
-        @Override
-        public VersionInfo getDtdVersionInfo() {
-            return delegate.getDtdVersionInfo();
+        public XMLSource getSource() {
+            return xmlsource;
         }
     }
 
@@ -1626,6 +1247,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try (CLDRProgressTask progress = sm.openProgress("STFactory")) {
             progress.update("setup supplemental data");
             setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
+            if (getSupplementalDirectory() == null) {
+                throw new NullPointerException("getSupplementalDirectory() == null!");
+            }
 
             progress.update("setup test cache");
             gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*");
@@ -1669,7 +1293,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Per locale map */
     private final LoadingCache<CLDRLocale, PerLocaleData> locales =
             CacheBuilder.newBuilder()
+                    .softValues()
+                    .expireAfterAccess(Duration.ofMinutes(1))
                     .concurrencyLevel(5)
+                    .removalListener(
+                            notification ->
+                                    logger.info(() -> "PLD removed: " + notification.getKey()))
                     .build(
                             new CacheLoader<CLDRLocale, PerLocaleData>() {
 
@@ -1716,7 +1345,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @param locale
      * @return
      */
-    private PerLocaleData get(CLDRLocale locale) {
+    public PerLocaleData get(CLDRLocale locale) {
+        // Make sure the parent data is loaded. Yes, this recurses.
+        CLDRLocale parent = locale.getParent();
+        if (parent != null) {
+            get(parent);
+        }
+
+        // now load the actual locale
         try {
             return locales.get(locale);
         } catch (ExecutionException e) {
@@ -1806,16 +1442,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     public CLDRFile make(String loc) {
-        return make(loc, true /* resolved */);
+        return make(loc, true);
     }
 
     public CLDRFile make(CLDRLocale loc, boolean resolved) {
         return make(loc.getBaseName(), resolved);
-    }
-
-    public XMLSource makeSource(String localeID, boolean resolved) {
-        if (localeID == null) return null; // ?!
-        return get(localeID).makeSource(resolved);
     }
 
     /**

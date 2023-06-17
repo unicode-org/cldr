@@ -116,6 +116,15 @@ public interface BallotBox<T> {
     VoteResolver<String> getResolver(String path);
 
     /**
+     * Get the vote resolver for this path.
+     *
+     * @param path
+     * @param r resolver to reuse (must be from a prior call)
+     * @return
+     */
+    VoteResolver<String> getResolver(String path, VoteResolver<String> r);
+
+    /**
      * Whether the user voted at all. Returns false if user voted for null (no opinion).
      *
      * @param myUser

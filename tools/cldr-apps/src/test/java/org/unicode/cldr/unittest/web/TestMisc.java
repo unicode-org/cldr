@@ -4,7 +4,7 @@ package org.unicode.cldr.unittest.web;
 import com.ibm.icu.dev.test.TestFmwk;
 import java.util.Set;
 import org.unicode.cldr.util.*;
-import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.LocaleMaxSizer;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.WebContext;
 
@@ -18,7 +18,7 @@ public class TestMisc extends TestFmwk {
 
     public void TestLocaleMaxSizer() {
         logln("Creating new sizer..");
-        STFactory.LocaleMaxSizer lms = new STFactory.LocaleMaxSizer();
+        LocaleMaxSizer lms = new LocaleMaxSizer();
 
         Factory f = CLDRConfig.getInstance().getCldrFactory();
         logln("Populating sizer..");
@@ -27,18 +27,18 @@ public class TestMisc extends TestFmwk {
         }
 
         final String TESTCASES[] = {
-            "root", "//foo/bar", Integer.toString(STFactory.LocaleMaxSizer.MAX_VAL_LEN),
-            "zh", "//foo/bar", Integer.toString(STFactory.LocaleMaxSizer.MAX_VAL_LEN),
+            "root", "//foo/bar", Integer.toString(LocaleMaxSizer.MAX_VAL_LEN),
+            "zh", "//foo/bar", Integer.toString(LocaleMaxSizer.MAX_VAL_LEN),
             "zh", "//ldml/characters/exemplarCharacters",
-                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+                    Integer.toString(LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
             "zh_Hans_CN", "//ldml/characters/exemplarCharacters",
-                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+                    Integer.toString(LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
             "zh_Hans_CN", "//ldml/characters/exemplarCharacters",
-                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+                    Integer.toString(LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
             "zh_Hant", "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
-                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+                    Integer.toString(LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
             "zh_Hant_HK", "//ldml/characters/exemplarCharacters",
-                    Integer.toString(STFactory.LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
+                    Integer.toString(LocaleMaxSizer.EXEMPLAR_CHARACTERS_MAX),
         };
 
         for (int i = 0; i < TESTCASES.length; i += 3) {

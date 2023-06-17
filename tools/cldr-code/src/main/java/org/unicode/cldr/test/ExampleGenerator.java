@@ -575,7 +575,9 @@ public class ExampleGenerator {
             UnicodeSet mainAndAux = new UnicodeSet(main).addAll(valueSet);
             if (!mainAndAux.containsAll(exemplars)) {
                 examples.add(
-                        LRM + "⁉️ " + SUSF.format(new UnicodeSet(exemplars).removeAll(mainAndAux)));
+                        LRM
+                                + "🔬️ "
+                                + SUSF.format(new UnicodeSet(exemplars).removeAll(mainAndAux)));
             }
         }
         if (SHOW_NON_SPACING_IN_UNICODE_SET

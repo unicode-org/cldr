@@ -9,7 +9,7 @@ describe("cldrDash.setData", function () {
 
   it("should have test data", function () {
     /*
-     * dashJson is defined in dash_data.js
+     * dashJson is defined in dash_data.mjs
      */
     json = dashJson;
     assert(json, "Test data is defined");
@@ -25,19 +25,21 @@ describe("cldrDash.updatePath", function () {
     json1 = null,
     json2 = null;
 
-  it("should have test data", function () {
+  it("should have valid test data", function () {
     /*
-     * dashUpdateJson1 and dashUpdateJson2 are defined in dash_data.js
+     * dashUpdateJson1 and dashUpdateJson2 are defined in dash_data.mjs
      */
     json0 = dashJson;
     json1 = dashUpdateJson1;
     json2 = dashUpdateJson2;
     assert(json0 && json1 && json2, "Test data is defined");
+    assert(json1.xpstrid && json2.xpstrid, "Update data must include xpstrid");
   });
 
   it("should add entries", function () {
     // json0 has 1 entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     // json1 has 3 entries for 710b6e70773e5764
+
     // the resulting data should have 3 entries for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     const data = cldrDash.updatePath(json0, json1);
     assert.strictEqual(countEntriesForPath(data, "710b6e70773e5764"), 3);

@@ -1,5 +1,5 @@
 // This is based on an actual response returned for a dashboard request.
-let dashJson =
+const dashJson =
 {
   "hidden": {
     "asciiCharactersNotInMainOrAuxiliaryExemplars": [
@@ -322,8 +322,9 @@ let dashJson =
 // This is based on an actual response returned for a WHAT_GETROW request with dashboard true.
 // Some irrelevant parts of the data were removed.
 // The data is specific to a single path, with three notification categories.
-let dashUpdateJson1 =
+const dashUpdateJson1 =
 {
+  "xpstrid": "710b6e70773e5764",
   "page": {
     "rows": {
       "_xctnmb": {
@@ -402,9 +403,9 @@ let dashUpdateJson1 =
 }
 
 // This getrow data is specific to a single path, with zero notification categories.
-// Since notifications is empty, we need to get xpstrid from page.rows...xpstrid
-let dashUpdateJson2 =
+const dashUpdateJson2 =
 {
+  "xpstrid": "710b6e70773e5764",
   "page": {
     "rows": {
       "_xctnmb": {

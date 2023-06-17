@@ -2,7 +2,7 @@ package org.unicode.cldr.util;
 
 public class DowngradePaths {
 
-    static LocalePathValueListMatcher data =
+    private static LocalePathValueListMatcher data =
             LocalePathValueListMatcher.load(CldrUtility.getUTF8Data("downgrade.txt").lines());
 
     public static boolean lookingAt(String locale, String path, String value) {

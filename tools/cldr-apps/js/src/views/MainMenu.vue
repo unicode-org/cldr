@@ -61,6 +61,13 @@
       <li v-if="accountLocked" class="emphatic">
         LOCKED: Note: your account is currently locked
       </li>
+      <li v-if="isAdmin">
+        <ul>
+          <li>
+            <a href="#downgraded///">Votes for downgraded paths</a>
+          </li>
+        </ul>
+      </li>
       <li class="section-header">Forum</li>
       <li>
         <ul>

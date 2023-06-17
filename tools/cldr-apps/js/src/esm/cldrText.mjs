@@ -4,6 +4,23 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  downgradedDeletionSuccessHeader: "Success",
+  downgradedDeletionSuccessDetail:
+    "The imported votes for downgraded paths were successfully deleted",
+  downgradedPleaseLogIn: "To view, please log in as Admin.",
+  downgradedPathsExist:
+    "Votes for downgraded paths exist with the following type(s) of vote:",
+  downgradedHeaderVoteType: "Vote Type",
+  downgradedHeaderImported: "Imported",
+  downgradedHeaderCount: "Count",
+  downgradedTotal: "Total",
+  downgradedTotalImported: "Total imported",
+  downgradedNote:
+    "Note: only vote types with “true” in the “Imported” column can be deleted by this utility. If other types are shown, they are for informational purposes only.",
+  downgradedCurrentlyNone:
+    "There are currently no imported votes for downgraded paths 🎉",
+  downgradedDeleteAll: "Delete all imported votes for downgraded paths!",
+
   git_commit_url_prefix: "https://github.com/unicode-org/cldr/commit/",
   git_compare_url_prefix: "https://github.com/unicode-org/cldr/compare/",
   git_compare_url_main: "main",
@@ -461,6 +478,7 @@ const strings = {
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",
   special_dashboard: "Dashboard",
+  special_downgraded: "Votes for Downgraded Paths",
   special_error_subtypes: "Error Subtypes",
   special_flagged: "Flagged Items",
   special_forum: "Forum Posts",

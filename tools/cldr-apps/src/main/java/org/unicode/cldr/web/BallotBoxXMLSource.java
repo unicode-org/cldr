@@ -83,7 +83,7 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
     }
 
     private String getFullPathWithResolver(String path, VoteResolver<String> resolver) {
-        String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
+        String diskFullPath = diskData.getFullPathAtDPath(path);
         if (diskFullPath == null) {
             /*
              * If the disk didn't have a full path, just use the inbound path.

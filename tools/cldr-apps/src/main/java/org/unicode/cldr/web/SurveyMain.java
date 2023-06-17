@@ -88,7 +88,6 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.web.api.Summary;
@@ -2512,22 +2511,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
 
-        public void internalClose() {
-        }
+        public void internalClose() {}
 
         public boolean isClosed() {
-            return(use == 0);
+            return (use == 0);
         }
 
         public UserLocaleStuff(CLDRLocale locale) {
             synchronized (allUserLocaleStuffs) {
                 allUserLocaleStuffs.add(this);
             }
-
         }
 
-        public void clear() {
-        }
+        public void clear() {}
     }
 
     /**

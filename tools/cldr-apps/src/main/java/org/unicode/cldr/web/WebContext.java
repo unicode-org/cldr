@@ -29,7 +29,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -1215,10 +1214,6 @@ public class WebContext implements Cloneable, Appendable {
         if (uf != null) {
             uf.close();
         }
-    }
-
-    public CLDRFile getCLDRFile() {
-        return getUserFile().cldrfile;
     }
 
     public void no_js_warning() {

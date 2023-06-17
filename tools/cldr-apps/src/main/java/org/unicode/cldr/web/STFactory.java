@@ -635,8 +635,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             r.setBaseline(currentValue, currentStatus);
             r.add(currentValue);
 
-            CLDRFile cf = make(locale, true);
-            r.setBaileyValue(cf.getBaileyValue(path, null, null));
+            /** Note that rFile may not have all votes filled in yet as we're in startup phase */
+            final CLDRFile baseFile = (rFile != null) ? rFile : diskFile;
+            r.setBaileyValue(baseFile.getBaileyValue(path, null, null));
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {

@@ -179,7 +179,10 @@ public class LocaleCompletion {
         // we need an XML Source to receive notification.
         // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
         // whenever a vote happens.
-        stFactory.get(cldrLocale).getSource().addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
+        stFactory
+                .get(cldrLocale)
+                .getSource()
+                .addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
         return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
     }
 

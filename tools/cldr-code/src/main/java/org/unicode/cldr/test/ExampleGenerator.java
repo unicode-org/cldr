@@ -581,7 +581,7 @@ public class ExampleGenerator {
             }
         }
         if (SHOW_NON_SPACING_IN_UNICODE_SET
-                && valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
+                && valueSet.containsSome(CodePointEscaper.FORCE_ESCAPE)) {
             for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.FORCE_ESCAPE)) {
                 examples.add(CodePointEscaper.toExample(nsm.codePointAt(0)));
             }

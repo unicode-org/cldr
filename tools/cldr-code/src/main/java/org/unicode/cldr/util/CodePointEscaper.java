@@ -212,15 +212,17 @@ public enum CodePointEscaper {
         return donePart == 0 ? value : result.append(value, donePart, value.length()).toString();
     }
 
+    private static final String HAS_NAME = " ≡ ";
+
     public static String toExample(int codePoint) {
         CodePointEscaper cpe = _fromCodePoint.get(codePoint);
         if (cpe == null) { // hex
             return codePointToEscaped(codePoint)
-                    + " "
+                    + HAS_NAME
                     + UCharacter.getName(codePoint).toLowerCase();
         } else {
             return CodePointEscaper.codePointToEscaped(cpe.codePoint)
-                    + " "
+                    + HAS_NAME
                     + cpe.shortName; // TODO show hover with cpe.description
         }
     }

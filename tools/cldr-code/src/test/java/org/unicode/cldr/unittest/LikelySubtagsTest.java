@@ -1,13 +1,17 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -37,6 +41,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 public class LikelySubtagsTest extends TestFmwk {
 
     private boolean DEBUG = false;
+    private static boolean SHOW_EXEMPLARS = System.getProperty("SHOW_EXEMPLARS") != null;
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
             CLDRConfig.getInstance().getSupplementalDataInfo();
     static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
@@ -465,16 +470,22 @@ public class LikelySubtagsTest extends TestFmwk {
     public void testGetResolvedScriptVsExemplars() {
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         LanguageTagParser ltp = new LanguageTagParser();
-        Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
-
+        // Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
+        Multimap<String, UnicodeSet> scriptToMains = TreeMultimap.create();
+        Multimap<String, UnicodeSet> scriptToAuxes = TreeMultimap.create();
+        UnicodeSet collectedBad = new UnicodeSet();
         for (String locale : factory.getAvailable()) {
             if ("root".equals(locale)) {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
             UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            checkSet("main", locale, main, collectedBad);
+            main = CldrUtility.flatten(main);
             UnicodeSet aux =
                     cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
+            checkSet("aux", locale, aux, collectedBad);
+            aux = CldrUtility.flatten(aux);
             String script = null;
             int uScript = 0;
             for (String s : main) {
@@ -519,22 +530,50 @@ public class LikelySubtagsTest extends TestFmwk {
             if (!assertEquals(locale, script, ltpScript)) {
                 ltp.getResolvedScript(); // for debugging
             }
-
-            // add to map for ScriptToExemplars.getExemplars test
-
-            UnicodeSet uset = scriptToExemplars.get(ltpScript);
-            if (uset == null) {
-                scriptToExemplars.put(ltpScript, uset = new UnicodeSet());
+            scriptToMains.put(ltpScript, main.freeze());
+            if (!aux.isEmpty()) {
+                scriptToAuxes.put(ltpScript, aux.freeze());
             }
-            uset.addAll(main);
-            uset.addAll(aux);
+        }
+
+        if (!collectedBad.isEmpty()) {
+            warnln(
+                    "Locales have "
+                            + collectedBad.size()
+                            + " unexpected characters in main and/or aux:\t"
+                            + collectedBad.toPattern(false));
         }
 
         // now check that ScriptToExemplars.getExemplars matches the data
+
         Set<String> problemScripts = new LinkedHashSet<>();
-        for (Entry<String, UnicodeSet> entry : scriptToExemplars.entrySet()) {
+        Map<String, UnicodeSet> expected = new TreeMap<>();
+        for (Entry<String, Collection<UnicodeSet>> entry : scriptToMains.asMap().entrySet()) {
             String script = entry.getKey();
-            UnicodeSet flattened = CldrUtility.flatten(entry.getValue());
+            Collection<UnicodeSet> mains = entry.getValue();
+            Collection<UnicodeSet> auxes = scriptToAuxes.get(script);
+
+            UnicodeSet flattened;
+            if (mains.size() <= 1 && auxes.size() <= 1) {
+                continue;
+            } else {
+                UnicodeMap<Integer> counts = new UnicodeMap<>();
+                getCounts(mains, counts);
+                flattened = getUncommon(counts, mains.size());
+                if (counts.size() < 32) {
+                    getCounts(auxes, counts);
+                    flattened = getUncommon(counts, mains.size());
+                }
+            }
+            expected.put(script, flattened.freeze());
+        }
+        for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
+            String script = entry.getKey();
+            UnicodeSet flattened = entry.getValue();
+
+            // now compare to what we get from the cached file, to make sure the latter is up to
+            // date
+
             if (!assertEquals(
                     script,
                     flattened.toPattern(false),
@@ -542,10 +581,80 @@ public class LikelySubtagsTest extends TestFmwk {
                 problemScripts.add(script);
             }
         }
+
         if (!problemScripts.isEmpty()) {
             warnln(
-                    "Adjust the data in scriptToExemplars.txt to be the expected value for:"
+                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to get a fresh copy, or reset to expected value for: "
                             + problemScripts);
+            if (SHOW_EXEMPLARS) {
+                for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
+                    String script = entry.getKey();
+                    UnicodeSet flattened = entry.getValue();
+                    if (!flattened.isEmpty()) {
+                        System.out.println(
+                                script
+                                        + " ;\t"
+                                        + flattened.size()
+                                        + " ;\t"
+                                        + flattened.toPattern(false));
+                    }
+                }
+            }
+        }
+    }
+
+    static final UnicodeSet MAIN_AUX_EXPECTED = new UnicodeSet("[\\p{L}\\p{M}\\p{Cf}·]").freeze();
+
+    private void checkSet(String title, String locale, UnicodeSet main, UnicodeSet collected) {
+        if (SHOW_EXEMPLARS) {
+            UnicodeSet bad = new UnicodeSet();
+            for (String s : main) {
+                if (!MAIN_AUX_EXPECTED.containsAll(s)) {
+                    s.codePoints()
+                            .forEach(
+                                    x -> {
+                                        if (!MAIN_AUX_EXPECTED.contains(x)) {
+                                            bad.add(x);
+                                        }
+                                    });
+                }
+            }
+            if (!bad.isEmpty()) {
+                warnln(
+                        "\t"
+                                + title
+                                + "\tLocale\t"
+                                + locale
+                                + "\thas "
+                                + bad.size()
+                                + " unexpected exemplar characters:\t"
+                                + bad.toPattern(false));
+                collected.addAll(bad);
+            }
+        }
+    }
+
+    /** Remove items with a count equal to size */
+    private UnicodeSet getUncommon(UnicodeMap<Integer> counts, int size) {
+        for (String s : counts.keySet().freeze()) {
+            int count = counts.get(s);
+            if (count == size) {
+                counts.remove(s);
+            }
+        }
+        return counts.keySet();
+    }
+
+    private void getCounts(Collection<UnicodeSet> usets, UnicodeMap<Integer> counts) {
+        for (UnicodeSet uset : usets) {
+            for (String s : uset) {
+                Integer old = counts.get(s);
+                if (old == null) {
+                    counts.put(s, 1);
+                } else {
+                    counts.put(s, old + 1);
+                }
+            }
         }
     }
 }

@@ -137,14 +137,7 @@ public class VoteAPIHelper {
                 if (xp == null) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_XPATH)).build();
                 }
-                // TODO: only return data for the single row the front end requested!
-                // This matcher can match "alt" paths related to the given path, so for example,
-                // if the requested path is
-                // //ldml/localeDisplayNames/territories/territory[@type="FK"]
-                // then currently we return not only data for that path, but also
-                // for //ldml/localeDisplayNames/territories/territory[@type="FK"][@alt="variant"]
-                // Reference: https://unicode-org.atlassian.net/browse/CLDR-16766
-                matcher = XPathMatcher.getMatcherForString(xp); // single string
+                matcher = XPathMatcher.exactMatcherForString(xp);
             } else {
                 // Should not get here.
                 return new STError(

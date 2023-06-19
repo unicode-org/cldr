@@ -236,9 +236,7 @@ public class VoteAPI {
 
         /**
          * If the request was for a single row only, include the hex xpath ID for that row here in
-         * the response. Note that the current implementation may return multiple rows in the page,
-         * even if only a single row was requested, due to usage of
-         * XPathMatcher.getMatcherForString.
+         * the response.
          */
         public String xpstrid = null;
 

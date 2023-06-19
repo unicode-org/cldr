@@ -29,9 +29,11 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
@@ -367,11 +369,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             List<XMLSource> sourceList = new ArrayList<>();
             // add this and parents
             addXMLSources(sourceList);
+            logger.finest(
+                    () ->
+                            "makeResolvingSource() sourceList: "
+                                    + sourceList.stream()
+                                            .map(l -> l.getLocaleID())
+                                            .collect(Collectors.joining("»")));
             return new XMLSource.ResolvingSource(sourceList);
         }
 
         void addXMLSources(List<XMLSource> sourceList) {
-            logger.info("addXMLSources: " + locale);
             sourceList.add(xmlsource); // DB or disk file
             CLDRLocale parent = locale.getParent();
             // recurse with parents
@@ -1291,15 +1298,29 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return get(locale);
     }
 
+    // Note:  not static, so that CLDRConfig.getInstance() is deferred.
+
+    /** Config: # of hours before a locale is expired from the cache */
+    private final int CLDR_LOCALE_CACHE_HOURS =
+            CLDRConfig.getInstance().getProperty("CLDR_LOCALE_EXPIRE_HOURS", 12);
+    /** Config: Max # of concurrent locales/sublocales in teh cache */
+    private final int CLDR_LOCALE_CACHE_MAX =
+            CLDRConfig.getInstance().getProperty("CLDR_LOCALE_CACHE_MAX", 100);
+
     /** Per locale map */
     private final LoadingCache<CLDRLocale, PerLocaleData> locales =
             CacheBuilder.newBuilder()
                     .softValues()
-                    .expireAfterAccess(Duration.ofMinutes(1))
-                    .concurrencyLevel(5)
+                    .expireAfterAccess(Duration.ofHours(CLDR_LOCALE_CACHE_HOURS))
+                    .maximumSize(CLDR_LOCALE_CACHE_MAX)
                     .removalListener(
                             notification ->
-                                    logger.info(() -> "PLD removed: " + notification.getKey()))
+                                    logger.info(
+                                            () ->
+                                                    "Locale expired: "
+                                                            + notification.getKey()
+                                                            + " due to "
+                                                            + notification.getCause()))
                     .build(
                             new CacheLoader<CLDRLocale, PerLocaleData>() {
 
@@ -1347,9 +1368,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      */
     public PerLocaleData get(CLDRLocale locale) {
-        // Make sure the parent data is loaded. Yes, this recurses.
+        // Make sure the parent data is loaded and accessed. Yes, this recurses.
         CLDRLocale parent = locale.getParent();
         if (parent != null) {
+            // Parent must be loaded first.
+            // Also, this makes sure that the parent is re-accessed (kept in cache)
             get(parent);
         }
 

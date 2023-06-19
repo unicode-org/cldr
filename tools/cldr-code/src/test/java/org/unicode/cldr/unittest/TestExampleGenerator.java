@@ -1507,7 +1507,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "hi",
                 "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
                 "[ॄ‌‍]",
-                "〖‎🔬️ ॑ ॒ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॠ ॡ क्ष ॻ ज्ञ ॼ ड़ ॾ त्र ॿ ऱ श्र ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+                "〖‎🔬️ ॑ ॒ ॠ ॡ क्ष ॻ ज्ञ ॼ ड़ ॾ त्र ॿ ऱ श्र ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
             },
             {
                 "hu",

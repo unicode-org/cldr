@@ -480,12 +480,10 @@ public class LikelySubtagsTest extends TestFmwk {
             }
             CLDRFile cldrFile = factory.make(locale, true);
             UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main, WinningChoice.WINNING);
-            checkSet("main", locale, main, collectedBad);
-            main = CldrUtility.flatten(main);
+            main = checkSet("main", locale, main, collectedBad);
             UnicodeSet aux =
                     cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
-            checkSet("aux", locale, aux, collectedBad);
-            aux = CldrUtility.flatten(aux);
+            aux = checkSet("aux", locale, aux, collectedBad);
             String script = null;
             int uScript = 0;
             for (String s : main) {
@@ -605,21 +603,22 @@ public class LikelySubtagsTest extends TestFmwk {
 
     static final UnicodeSet MAIN_AUX_EXPECTED = new UnicodeSet("[\\p{L}\\p{M}\\p{Cf}·]").freeze();
 
-    private void checkSet(String title, String locale, UnicodeSet main, UnicodeSet collected) {
-        if (SHOW_EXEMPLARS) {
-            UnicodeSet bad = new UnicodeSet();
-            for (String s : main) {
-                if (!MAIN_AUX_EXPECTED.containsAll(s)) {
-                    s.codePoints()
-                            .forEach(
-                                    x -> {
-                                        if (!MAIN_AUX_EXPECTED.contains(x)) {
-                                            bad.add(x);
-                                        }
-                                    });
-                }
+    private UnicodeSet checkSet(
+            String title, String locale, UnicodeSet main, UnicodeSet collected) {
+        UnicodeSet bad = new UnicodeSet();
+        for (String s : main) {
+            if (!MAIN_AUX_EXPECTED.containsAll(s)) {
+                s.codePoints()
+                        .forEach(
+                                x -> {
+                                    if (!MAIN_AUX_EXPECTED.contains(x)) {
+                                        bad.add(x);
+                                    }
+                                });
             }
-            if (!bad.isEmpty()) {
+        }
+        if (!bad.isEmpty()) {
+            if (SHOW_EXEMPLARS) {
                 warnln(
                         "\t"
                                 + title
@@ -632,6 +631,7 @@ public class LikelySubtagsTest extends TestFmwk {
                 collected.addAll(bad);
             }
         }
+        return CldrUtility.flatten(new UnicodeSet(main).removeAll(bad));
     }
 
     /** Remove items with a count equal to size */

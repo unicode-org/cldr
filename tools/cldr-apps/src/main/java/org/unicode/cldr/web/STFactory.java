@@ -661,6 +661,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return r;
         }
 
+        @Override
+        public VoteResolver<String> getResolver(String path) {
+            return getResolver(peekXpathData(path), path, null);
+        }
+
         /**
          * called by getResolver()
          *
@@ -684,11 +689,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
             return r;
-        }
-
-        @Override
-        public VoteResolver<String> getResolver(String path) {
-            return getResolver(peekXpathData(path), path, null);
         }
 
         @Override

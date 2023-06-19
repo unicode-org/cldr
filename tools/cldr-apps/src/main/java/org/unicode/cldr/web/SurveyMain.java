@@ -2522,8 +2522,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 allUserLocaleStuffs.add(this);
             }
         }
-
-        public void clear() {}
     }
 
     /**

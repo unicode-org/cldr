@@ -2,6 +2,7 @@
  * cldrDash: encapsulate dashboard data.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -139,17 +140,24 @@ function updatePath(data, json) {
         addEntry(updater, category);
       }
     });
-  } catch (error) {
-    console.error("Caught error in updatePath: " + error);
+  } catch (e) {
+    cldrNotify.exception(e, "updating path for Dashboard");
   }
   return data; // for unit test
 }
 
 function newPathUpdater(data, json) {
+  if (!json.xpstrid) {
+    cldrNotify.error(
+      "Invalid server response",
+      "Missing path identifier for Dashboard"
+    );
+    return null;
+  }
   const updater = {
     data: data,
     json: json,
-    xpstrid: getSinglePathFromUpdate(json),
+    xpstrid: json.xpstrid,
     oldCategories: [],
     newCategories: [],
     group: null,
@@ -164,55 +172,58 @@ function newPathUpdater(data, json) {
   return updater;
 }
 
-function getSinglePathFromUpdate(json) {
-  for (let row of Object.values(json.page.rows)) {
-    if (row.xpstrid) {
-      return row.xpstrid;
-    }
-  }
-  throw new Error("Missing path in getSinglePathFromUpdate");
-}
-
 function updateEntry(updater, category) {
-  const catData = getDataForCategory(updater.data, category);
-  for (let group of catData.groups) {
-    const entries = group.entries;
-    for (let i in entries) {
-      if (entries[i].xpstrid === updater.xpstrid) {
-        const newEntry = getNewEntry(updater, category);
-        pathIndex[updater.xpstrid][category] = entries[i] = newEntry;
-        return;
+  try {
+    const catData = getDataForCategory(updater.data, category);
+    for (let group of catData.groups) {
+      const entries = group.entries;
+      for (let i in entries) {
+        if (entries[i].xpstrid === updater.xpstrid) {
+          const newEntry = getNewEntry(updater, category);
+          pathIndex[updater.xpstrid][category] = entries[i] = newEntry;
+          return;
+        }
       }
     }
+  } catch (e) {
+    cldrNotify.exception(e, "updating dashboard entry");
   }
 }
 
 function removeEntry(updater, category) {
-  const catData = getDataForCategory(updater.data, category);
-  for (let group of catData.groups) {
-    const entries = group.entries;
-    for (let i in entries) {
-      if (entries[i].xpstrid === updater.xpstrid) {
-        entries.splice(i, 1);
-        --catData.total;
-        delete pathIndex[updater.xpstrid][category];
-        return;
+  try {
+    const catData = getDataForCategory(updater.data, category);
+    for (let group of catData.groups) {
+      const entries = group.entries;
+      for (let i in entries) {
+        if (entries[i].xpstrid === updater.xpstrid) {
+          entries.splice(i, 1);
+          --catData.total;
+          delete pathIndex[updater.xpstrid][category];
+          return;
+        }
       }
     }
+  } catch (e) {
+    cldrNotify.exception(e, "removing dashboard entry");
   }
 }
 
 function addEntry(updater, category) {
-  const newEntry = getNewEntry(updater, category); // sets updater.group
-  const catData = getDataForCategory(updater.data, category);
-  const group = getMatchingGroup(catData, updater.group);
-  // TODO: insert in a particular order; see https://unicode-org.atlassian.net/browse/CLDR-15202
-  group.entries.push(newEntry);
-  catData.total++;
-  if (!(updater.xpstrid in pathIndex)) {
-    pathIndex[updater.xpstrid] = {};
+  try {
+    const newEntry = getNewEntry(updater, category); // sets updater.group
+    const catData = getDataForCategory(updater.data, category);
+    const group = getMatchingGroup(catData, updater.group);
+    // TODO: insert in a particular order; see https://unicode-org.atlassian.net/browse/CLDR-15202
+    group.entries.push(newEntry);
+    catData.total++;
+    if (!(updater.xpstrid in pathIndex)) {
+      pathIndex[updater.xpstrid] = {};
+    }
+    pathIndex[updater.xpstrid][category] = newEntry;
+  } catch (e) {
+    cldrNotify.exception(e, "adding dashboard entry");
   }
-  pathIndex[updater.xpstrid][category] = newEntry;
 }
 
 function getNewEntry(updater, category) {
@@ -229,10 +240,13 @@ function getNewEntry(updater, category) {
       }
     }
   }
-  return null;
+  throw new Error("New entry not found");
 }
 
 function getMatchingGroup(catData, groupToMatch) {
+  if (!groupToMatch) {
+    throw new Error("Matching dashboard group not found");
+  }
   for (let group of catData.groups) {
     if (groupsMatch(group, groupToMatch)) {
       return group;

@@ -1669,6 +1669,7 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         if (oldvotes != null) {
+            oldvotes.put("lastVoteVersion", SurveyMain.getLastVoteVersion());
             if (contested != null) {
                 oldvotes.put("contested", contested); // contested = losing
             }

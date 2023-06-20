@@ -445,11 +445,11 @@ function addImportVotesFooter(voteTableDiv, voteList, mainCategories) {
     )
   );
   if (mainCategories.length > 1) {
-    addCategoryCheckboxes(mainCategories, voteList);
+    addCategoryCheckboxes(voteTableDiv, mainCategories, voteList);
   }
 }
 
-function addCategoryCheckboxes(mainCategories, voteList) {
+function addCategoryCheckboxes(voteTableDiv, mainCategories, voteList) {
   voteTableDiv.appendChild(
     document.createTextNode(cldrText.get("v_oldvotes_all_section"))
   );

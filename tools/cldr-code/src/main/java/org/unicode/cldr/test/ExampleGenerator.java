@@ -94,6 +94,10 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  * @author markdavis
  */
 public class ExampleGenerator {
+    private static final String INTERNAL = "internal: ";
+    private static final String SUBTRACTS = "➖";
+    private static final String ADDS = "➕";
+    private static final String HINTS = "🗝️";
     private static final String EXAMPLE_OF_INCORRECT = "❌  ";
     private static final String EXAMPLE_OF_CAUTION = "⚠️  ";
 
@@ -561,10 +565,10 @@ public class ExampleGenerator {
             UnicodeSet value_minus_winning = new UnicodeSet(valueSet).removeAll(winningSet);
             UnicodeSet winning_minus_value = new UnicodeSet(winningSet).removeAll(valueSet);
             if (!value_minus_winning.isEmpty()) {
-                examples.add(LRM + "➕ " + SUSF.format(value_minus_winning));
+                examples.add(LRM + ADDS + " " + SUSF.format(value_minus_winning));
             }
             if (!winning_minus_value.isEmpty()) {
-                examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
+                examples.add(LRM + SUBTRACTS + " " + SUSF.format(winning_minus_value));
             }
         }
         if (parts.containsAttributeValue("type", "auxiliary")) {
@@ -576,7 +580,8 @@ public class ExampleGenerator {
             if (!mainAndAux.containsAll(exemplars)) {
                 examples.add(
                         LRM
-                                + "🔬️ "
+                                + HINTS
+                                + " "
                                 + SUSF.format(new UnicodeSet(exemplars).removeAll(mainAndAux)));
             }
         }
@@ -586,7 +591,7 @@ public class ExampleGenerator {
                 examples.add(CodePointEscaper.toExample(nsm.codePointAt(0)));
             }
         }
-        examples.add(setBackground("internal: ") + valueSet.toPattern(false)); // internal format
+        examples.add(setBackground(INTERNAL) + valueSet.toPattern(false)); // internal format
         return formatExampleList(examples);
     }
 

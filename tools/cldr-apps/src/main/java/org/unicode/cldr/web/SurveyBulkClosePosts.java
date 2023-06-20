@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import org.json.JSONException;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XMLSource;
 
 public class SurveyBulkClosePosts {
@@ -110,10 +111,12 @@ public class SurveyBulkClosePosts {
     }
 
     private boolean matchesWinning(String loc, Integer xpath, String value) {
-        XMLSource diskData = sm.getDiskFactory().makeSource(loc).freeze();
+        STFactory stf = sm.getSTFactory();
+        XMLSource diskData = stf.makeSource(loc).freeze();
         String xpathString = sm.xpt.getById(xpath);
         String curValue = diskData.getValueAtDPath(xpathString);
-        return diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString);
+        CLDRFile cldrFile = stf.make(loc, true, true);
+        return cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString);
     }
 
     private void doExecute() {

@@ -1996,39 +1996,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     }
 
     /**
-     * Does the value in question either match or inherent the current value in this XMLSource?
-     *
-     * <p>To match, the value in question and the current value must be non-null and equal.
-     *
-     * <p>To inherit the current value, the value in question must be INHERITANCE_MARKER and the
-     * current value must equal the bailey value.
-     *
-     * @param value the value in question
-     * @param curValue the current value, that is, getValueAtDPath(xpathString)
-     * @param xpathString the path identifier
-     * @return true if it matches or inherits, else false
-     */
-    public boolean equalsOrInheritsCurrentValue(String value, String curValue, String xpathString) {
-        if (value == null || curValue == null) {
-            return false;
-        }
-        if (value.equals(curValue)) {
-            return true;
-        }
-        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
-            String baileyValue = getBaileyValue(xpathString, null, null);
-            if (baileyValue == null) {
-                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
-                return false;
-            }
-            if (curValue.equals(baileyValue)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Add a SourceLocation to this full XPath. Base implementation does nothing.
      *
      * @param currentFullXPath

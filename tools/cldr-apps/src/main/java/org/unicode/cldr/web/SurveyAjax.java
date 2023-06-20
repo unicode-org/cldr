@@ -1626,7 +1626,7 @@ public class SurveyAjax extends HttpServlet {
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning =
-                        diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString);
+                        cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString);
                 if (oldvotes != null) {
                     String xpathStringHash = sm.xpt.getStringIDString(xp);
                     JSONObject aRow =
@@ -2231,10 +2231,10 @@ public class SurveyAjax extends HttpServlet {
         if (value == null) {
             return true;
         }
-        if (!diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
+        CLDRFile cldrFile = fac.make(loc, true, true);
+        if (!cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
             return false;
         }
-        CLDRFile cldrFile = fac.make(loc, true, true);
         if (CheckForCopy.sameAsCode(value, xpathString, cldrFile.getUnresolved(), cldrFile)) {
             return false;
         }

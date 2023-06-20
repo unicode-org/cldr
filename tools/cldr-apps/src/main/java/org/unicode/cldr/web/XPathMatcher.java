@@ -155,13 +155,29 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
         return regex(null, pattern);
     }
 
-    public static XPathMatcher getMatcherForString(String str) {
-        if (str.contains(DataPage.CONTINENT_DIVIDER)) {
-            // just return prefix
-            return BaseAndPrefixMatcher.getInstance(
-                    XPathTable.NO_XPATH, str.substring(0, str.indexOf(DataPage.CONTINENT_DIVIDER)));
-        } else {
-            return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, str);
+    public static XPathMatcher exactMatcherForString(String str) {
+        return ExactMatcher.getInstance(str);
+    }
+
+    static class ExactMatcher extends XPathMatcher {
+        final String xpath;
+
+        private ExactMatcher(String xpath) {
+            this.xpath = xpath;
+        }
+
+        @Override
+        public String getName() {
+            return xpath;
+        }
+
+        @Override
+        public boolean matches(String xpath, int xpid) {
+            return this.xpath.equals(xpath);
+        }
+
+        public static ExactMatcher getInstance(String xpath) {
+            return new ExactMatcher(xpath);
         }
     }
 }

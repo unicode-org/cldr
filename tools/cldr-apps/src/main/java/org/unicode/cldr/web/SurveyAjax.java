@@ -2959,8 +2959,8 @@ public class SurveyAjax extends HttpServlet {
                     sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
             for (CLDRLocale ol : relatedLocs) {
                 String baseName = ol.getBaseName();
-                XMLSource src = sm.getSTFactory().makeSource(baseName, true /* resolved */);
-                String ov = src.getValueAtDPath(xpathString);
+                CLDRFile src = sm.getSTFactory().make(baseName, true /* resolved */);
+                String ov = src.getStringValue(xpathString);
                 if (ov != null) {
                     JSONArray other;
                     if (others.has(ov)) {

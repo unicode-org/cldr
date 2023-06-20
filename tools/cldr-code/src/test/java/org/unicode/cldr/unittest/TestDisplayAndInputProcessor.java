@@ -737,9 +737,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             // unicodeSet, displayForm, roundtrip
             {
                 "//ldml/characters/exemplarCharacters",
-                "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "❰WNJ❱ ๎ ็ - . a b c def å",
-                "[\\u200B ๎ ็ a b c {def} å]",
+                "[a-c {def} å \\u200B \\- . ๎ ็a-pr-vzáéíóöúüőű{ccs}{cs}{ddz}{ddzs}{dz}{dzs}{ggy}{gy}{lly}{ly}{nny}{ny}{ssz}{sz}{tty}{ty}{zs}{zzs}]",
+                "❰WNJ❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
+                "[\\u200B ๎ ็ aá b c {ccs} {cs} d {ddz} {ddzs} {def} {dz} {dzs} eé f g {ggy} {gy} h ií j k l {lly} {ly} m n {nny} {ny} oó p r s {ssz} {sz} t {tty} {ty} uú v üű z {zs} {zzs} öő å]",
                 // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
             },

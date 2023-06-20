@@ -11,6 +11,7 @@ package org.unicode.cldr.util;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
@@ -1753,5 +1754,31 @@ public class CldrUtility {
             t.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * For each string S in the UnicodeSet U, remove S if it U "doesn't need it" for testing
+     * containsAll. That is, U.containsAll matches the same set of strings with or without S. For
+     * example [ad{ad}{bcd}{bc}] flattens to [ad{bc}]
+     *
+     * @param value, which is modified if it is not freezable
+     * @return resulting value
+     */
+    public static UnicodeSet flatten(UnicodeSet value) {
+        Set<String> strings = ImmutableSet.copyOf(value.strings());
+        HashSet<String> toAdd = new HashSet<>();
+        if (value.isFrozen()) {
+            value = new UnicodeSet(value);
+        }
+        for (String s : strings) {
+            value.remove(s);
+            if (!value.containsAll(s)) {
+                toAdd.add(s);
+            }
+            value.add(s);
+        }
+        value.removeAll(strings);
+        value.addAll(toAdd);
+        return value;
     }
 }

@@ -1504,16 +1504,28 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnicodeSetExamples() {
         String[][] tests = {
             {
+                "hi",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[ॄ‌‍]",
+                "〖‎🗝️ ॑ ॒ ॠ ॡ क्ष ॻ ज्ञ ॼ ड़ ॾ त्र ॿ ऱ श्र ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+            },
+            {
+                "hu",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
+                "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ a: á: à: aː áː àː aʼ bʼ ɓ ć ĉ č ċ ch ch’ chʼ cʼh ď ḑ đ ḍ ḓ ð dź ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ e: é: è: eː éː èː eʼ ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌ ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gh gʻ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧ į į́ i᷆ i᷇ ỉ ị i̱ i: í: ì: iː íː ìː íj́ iʼ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ jhy ǩ ķ ḵ k’ kh kʷ kʼ ƙ ĺ ľ ļ ł ḷ ḽ ḻ ḿ m̀ m̄ mb ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ nd ng ɲ ŋ ŋ́ ŋ̀ ŋ̄ ŋg ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́ ọ̀ ộ o̱ o: ó: ò: oː óː òː oʻ ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ pʼ qʼ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș sh ß ť ṭ ț ṱ ṯ t’ tł’ ts’ tz tzʼ tʼ ŧ ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː uʼ ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal: ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
+            },
+            {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
             },
             {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
         };
@@ -1524,7 +1536,9 @@ public class TestExampleGenerator extends TestFmwk {
             final String value = test[2];
             final String expected = test[3];
             ExampleGenerator exampleGenerator = getExampleGenerator(locale);
-            String actual = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
+            String actual =
+                    ExampleGenerator.simplify( //
+                            exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
         }
     }

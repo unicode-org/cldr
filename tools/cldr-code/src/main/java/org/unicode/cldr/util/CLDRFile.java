@@ -2465,6 +2465,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
+        UnicodeSet result = getRawExemplarSet(type, winningChoice);
+        if (result.isEmpty()) {
+            return result.cloneAsThawed();
+        }
+        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
+        result.closeOver(UnicodeSet.CASE);
+        result.removeAll(toNuke);
+        result.remove(0x20);
+        return result;
+    }
+
+    public UnicodeSet getRawExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         String path = getExemplarPath(type);
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
@@ -2474,10 +2486,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             return UnicodeSet.EMPTY;
         }
         UnicodeSet result = SimpleUnicodeSetFormatter.parseLenient(v);
-        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
-        result.closeOver(UnicodeSet.CASE);
-        result.removeAll(toNuke);
-        result.remove(0x20);
         return result;
     }
 

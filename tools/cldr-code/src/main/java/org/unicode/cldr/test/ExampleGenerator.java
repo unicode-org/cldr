@@ -51,6 +51,8 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
@@ -68,6 +70,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -91,6 +94,10 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  * @author markdavis
  */
 public class ExampleGenerator {
+    private static final String INTERNAL = "internal: ";
+    private static final String SUBTRACTS = "➖";
+    private static final String ADDS = "➕";
+    private static final String HINTS = "🗝️";
     private static final String EXAMPLE_OF_INCORRECT = "❌  ";
     private static final String EXAMPLE_OF_CAUTION = "⚠️  ";
 
@@ -558,19 +565,33 @@ public class ExampleGenerator {
             UnicodeSet value_minus_winning = new UnicodeSet(valueSet).removeAll(winningSet);
             UnicodeSet winning_minus_value = new UnicodeSet(winningSet).removeAll(valueSet);
             if (!value_minus_winning.isEmpty()) {
-                examples.add(LRM + "➕ " + SUSF.format(value_minus_winning));
+                examples.add(LRM + ADDS + " " + SUSF.format(value_minus_winning));
             }
             if (!winning_minus_value.isEmpty()) {
-                examples.add(LRM + "➖ " + SUSF.format(winning_minus_value));
+                examples.add(LRM + SUBTRACTS + " " + SUSF.format(winning_minus_value));
+            }
+        }
+        if (parts.containsAttributeValue("type", "auxiliary")) {
+            LanguageTagParser ltp = new LanguageTagParser();
+            String ltpScript = ltp.set(cldrFile.getLocaleID()).getResolvedScript();
+            UnicodeSet exemplars = ScriptToExemplars.getExemplars(ltpScript);
+            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            UnicodeSet mainAndAux = new UnicodeSet(main).addAll(valueSet);
+            if (!mainAndAux.containsAll(exemplars)) {
+                examples.add(
+                        LRM
+                                + HINTS
+                                + " "
+                                + SUSF.format(new UnicodeSet(exemplars).removeAll(mainAndAux)));
             }
         }
         if (SHOW_NON_SPACING_IN_UNICODE_SET
-                && valueSet.containsSome(CodePointEscaper.NON_SPACING)) {
+                && valueSet.containsSome(CodePointEscaper.FORCE_ESCAPE)) {
             for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.FORCE_ESCAPE)) {
                 examples.add(CodePointEscaper.toExample(nsm.codePointAt(0)));
             }
         }
-        examples.add(setBackground("internal: ") + valueSet.toPattern(false)); // internal format
+        examples.add(setBackground(INTERNAL) + valueSet.toPattern(false)); // internal format
         return formatExampleList(examples);
     }
 

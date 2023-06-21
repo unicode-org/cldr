@@ -31,16 +31,21 @@ $IPA_CONSONANT = [ m n p b t d k ɡ ʔ f v s z ʃ ʒ ʁ ɢ h χ {t͡ʃ} {d͡ʒ} 
 َیْ → æj;
 ِی → ej;
 
+یوْ → iːv;
+{یو} ه $BOUNDARY → iːv;
+{یو} هٔ $BOUNDARY → iːv;
+یو → juː;
 َوْ → av;
 
-َه → æ;
+{ َ ه} $BOUNDARY → æ;
+[^ːeoæ] {هٔ} $BOUNDARY → eje;
+[e] {هٔ} $BOUNDARY → je;
 [^ːeoæ] {ه} $BOUNDARY → e;
 [e] {ه} $BOUNDARY → ;
 اَ → æ;
 اً $BOUNDARY → æn;
 َ → æ;
 یه → je;
-{هٔ} $BOUNDARY → jæ;
 یٰ → ɒː;
 {ی} $VOWEL → j;
 ی → iː;
@@ -57,6 +62,8 @@ $BOUNDARY {ای} → iː;
 
 خوا → χɒː;
 {و} $VOWEL → v;
+{و} ه $BOUNDARY → v;
+{و} هٔ $BOUNDARY → v;
 $IPA_CONSONANT {و} → uː;
 ُ{و} $IPA_CONSONANT → uː;
 

@@ -1358,7 +1358,7 @@ public class SurveyAjax extends HttpServlet {
             boolean isSubmit,
             String confirmList,
             String loc)
-            throws ServletException, IOException, JSONException, SQLException {
+            throws IOException, JSONException, SQLException {
         r.put("what", WHAT_OLDVOTES);
         if (user == null) {
             r.put("err", "Must be logged in");
@@ -1394,7 +1394,7 @@ public class SurveyAjax extends HttpServlet {
             boolean isSubmit,
             String confirmList,
             String loc)
-            throws ServletException, IOException, JSONException, SQLException {
+            throws IOException, JSONException, SQLException {
 
         JSONObject oldvotes = new JSONObject();
         final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
@@ -1407,11 +1407,10 @@ public class SurveyAjax extends HttpServlet {
             oldvotes.put("localeDisplayName", locale.getDisplayName());
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
             oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
-            STFactory fac = sm.getSTFactory();
             if (isSubmit) {
-                submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes, fac);
+                submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes);
             } else {
-                viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes, fac);
+                viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes);
             }
         }
         r.put("oldvotes", oldvotes);
@@ -1429,7 +1428,7 @@ public class SurveyAjax extends HttpServlet {
      */
     public void listLocalesForImportOldVotes(
             User user, SurveyMain sm, final String newVotesTable, JSONObject oldvotes)
-            throws ServletException, IOException, JSONException, SQLException {
+            throws IOException, JSONException, SQLException {
 
         /* Loop thru multiple old votes tables in reverse chronological order. */
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
@@ -1496,7 +1495,6 @@ public class SurveyAjax extends HttpServlet {
          */
         JSONObject header = new JSONObject().put("LOCALE", 0).put("COUNT", 1).put("LOCALE_NAME", 2);
         JSONArray data = new JSONArray();
-        STFactory fac = sm.getSTFactory();
         /*
          * Create the data array. Revise the vote count for each locale, to match how viewOldVotes
          * will assemble the data, since viewOldVotes may filter out some votes. Call viewOldVotes here
@@ -1518,13 +1516,7 @@ public class SurveyAjax extends HttpServlet {
                         if (locale != null) {
                             realCount =
                                     viewOldVotes(
-                                            user,
-                                            sm,
-                                            loc,
-                                            locale,
-                                            newVotesTable,
-                                            oldVotesNull,
-                                            fac);
+                                            user, sm, loc, locale, newVotesTable, oldVotesNull);
                         }
                     } catch (Throwable t) {
                         SurveyLog.logException(
@@ -1556,7 +1548,6 @@ public class SurveyAjax extends HttpServlet {
      * @param locale the CLDRLocale matching loc
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to; if null, just return the count
-     * @param fac the STFactory to be used for getPathHeader, getPathsForFile
      * @return the number of entries that will be viewable for this locale in the Import Old Votes
      *     interface.
      *     <p>Called locally by importOldVotesForValidatedUser and listLocalesForImportOldVotes
@@ -1567,17 +1558,17 @@ public class SurveyAjax extends HttpServlet {
             String loc,
             CLDRLocale locale,
             final String newVotesTable,
-            JSONObject oldvotes,
-            STFactory fac)
+            JSONObject oldvotes)
             throws IOException, JSONException, SQLException {
 
         Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
-
+        STFactory stFac = sm.getSTFactory();
+        Factory diskFac = sm.getDiskFactory();
         // extract the pathheaders
         for (Map<String, Object> m : rows) {
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
-            m.put("pathHeader", fac.getPathHeader(xpathString));
+            m.put("pathHeader", stFac.getPathHeader(xpathString));
         }
 
         // sort by pathheader
@@ -1596,11 +1587,11 @@ public class SurveyAjax extends HttpServlet {
             }
             englishFile = sm.getEnglishFile();
         }
-        XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
-        CLDRFile cldrFile = fac.make(loc, true, true);
+        CLDRFile cldrFile = diskFac.make(loc, true, true);
+        XMLSource diskData = cldrFile.getResolvingDataSource();
         CLDRFile cldrUnresolved = cldrFile.getUnresolved();
 
-        Set<String> validPaths = fac.getPathsForFile(locale);
+        Set<String> validPaths = stFac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
@@ -1626,7 +1617,7 @@ public class SurveyAjax extends HttpServlet {
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning =
-                        diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString);
+                        cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString);
                 if (oldvotes != null) {
                     String xpathStringHash = sm.xpt.getStringIDString(xp);
                     JSONObject aRow =
@@ -1689,7 +1680,6 @@ public class SurveyAjax extends HttpServlet {
      * @param confirmList the list, as a string like "7b8ee7884f773afa,1234567890abcdef"
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
-     * @param fac the STFactory to be used for ballotBoxForLocale
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
@@ -1701,8 +1691,7 @@ public class SurveyAjax extends HttpServlet {
             CLDRLocale locale,
             String confirmList,
             final String newVotesTable,
-            JSONObject oldvotes,
-            STFactory fac)
+            JSONObject oldvotes)
             throws IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
@@ -1712,7 +1701,8 @@ public class SurveyAjax extends HttpServlet {
                             + "  is migrating old votes in "
                             + locale.getDisplayName());
         }
-        BallotBox<User> box = fac.ballotBoxForLocale(locale);
+        STFactory stFac = sm.getSTFactory();
+        BallotBox<User> box = stFac.ballotBoxForLocale(locale);
 
         Set<String> confirmSet = new HashSet<>();
         for (String s : confirmList.split(",")) {
@@ -1853,7 +1843,8 @@ public class SurveyAjax extends HttpServlet {
                         .toString();
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO " + importTable + "(locale,xpath,value) VALUES(?,?,?)";
+        // IGNORE: don't throw an exception if the row already exists
+        String sql = "INSERT IGNORE INTO " + importTable + "(locale,xpath,value) VALUES(?,?,?)";
         try {
             conn = DBUtils.getInstance().getDBConnection();
             /*
@@ -2122,7 +2113,8 @@ public class SurveyAjax extends HttpServlet {
     private int importAllOldWinningVotes(
             User user, SurveyMain sm, final String oldVotesTable, final String newVotesTable)
             throws IOException, SQLException {
-        STFactory fac = sm.getSTFactory();
+        STFactory stFac = sm.getSTFactory();
+        Factory diskFac = sm.getDiskFactory();
 
         /*
          * Different from similar queries elsewhere: since we're doing ALL locales for this user,
@@ -2166,8 +2158,8 @@ public class SurveyAjax extends HttpServlet {
             if (locale == null) {
                 continue;
             }
-            XMLSource diskData =
-                    sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
+            CLDRFile cldrFile = diskFac.make(loc, true);
+            XMLSource diskData = cldrFile.getResolvingDataSource();
             DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
             if (value != null) {
                 value = daip.processInput(xpathString, value, null);
@@ -2177,8 +2169,8 @@ public class SurveyAjax extends HttpServlet {
                 if (curValue == null) {
                     continue;
                 }
-                if (valueCanBeAutoImported(value, curValue, diskData, xpathString, fac, loc)) {
-                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                if (valueCanBeAutoImported(value, curValue, cldrFile, xpathString, loc)) {
+                    BallotBox<User> box = stFac.ballotBoxForLocale(locale);
                     /*
                      * Only import the most recent vote (or abstention) for the given user and xpathString.
                      * Skip if user already has a vote for this xpathString (with ANY value).
@@ -2213,29 +2205,23 @@ public class SurveyAjax extends HttpServlet {
      *
      * @param value the value in question
      * @param curValue the current value, that is, getValueAtDPath(xpathString)
-     * @param diskData the XMLSource for getBaileyValue
+     * @param cldrFile the resolved disk-based CLDRFile for equalsOrInheritsCurrentValue and
+     *     CheckForCopy.sameAsCode
      * @param xpathString the path identifier
-     * @param fac the STFactory
      * @param loc the locale string
      * @return true if OK to import, else false
      */
     private boolean valueCanBeAutoImported(
-            String value,
-            String curValue,
-            XMLSource diskData,
-            String xpathString,
-            STFactory fac,
-            String loc) {
+            String value, String curValue, CLDRFile cldrFile, String xpathString, String loc) {
         if (skipLocForImportingVotes(loc)) {
             return false;
         }
         if (value == null) {
             return true;
         }
-        if (!diskData.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
+        if (!cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString)) {
             return false;
         }
-        CLDRFile cldrFile = fac.make(loc, true, true);
         if (CheckForCopy.sameAsCode(value, xpathString, cldrFile.getUnresolved(), cldrFile)) {
             return false;
         }

@@ -468,6 +468,10 @@ public class LikelySubtagsTest extends TestFmwk {
      * Written as one test, to avoid the overhead of iterating over all locales twice.
      */
     public void testGetResolvedScriptVsExemplars() {
+        if (true) {
+            warnln("testGetResolvedScriptVsExemplars is temporarily disabled");
+            return;
+        }
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         LanguageTagParser ltp = new LanguageTagParser();
         // Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();

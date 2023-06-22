@@ -468,13 +468,8 @@ public class LikelySubtagsTest extends TestFmwk {
      * Written as one test, to avoid the overhead of iterating over all locales twice.
      */
     public void testGetResolvedScriptVsExemplars() {
-        if (true) {
-            warnln("testGetResolvedScriptVsExemplars is temporarily disabled");
-            return;
-        }
         Factory factory = CLDRConfig.getInstance().getCldrFactory();
         LanguageTagParser ltp = new LanguageTagParser();
-        // Map<String, UnicodeSet> scriptToExemplars = new TreeMap<>();
         Multimap<String, UnicodeSet> scriptToMains = TreeMultimap.create();
         Multimap<String, UnicodeSet> scriptToAuxes = TreeMultimap.create();
         UnicodeSet collectedBad = new UnicodeSet();
@@ -612,13 +607,7 @@ public class LikelySubtagsTest extends TestFmwk {
         UnicodeSet bad = new UnicodeSet();
         for (String s : main) {
             if (!MAIN_AUX_EXPECTED.containsAll(s)) {
-                s.codePoints()
-                        .forEach(
-                                x -> {
-                                    if (!MAIN_AUX_EXPECTED.contains(x)) {
-                                        bad.add(x);
-                                    }
-                                });
+                bad.add(s);
             }
         }
         if (!bad.isEmpty()) {
@@ -632,21 +621,27 @@ public class LikelySubtagsTest extends TestFmwk {
                                 + bad.size()
                                 + " unexpected exemplar characters:\t"
                                 + bad.toPattern(false));
-                collected.addAll(bad);
             }
+            collected.addAll(bad);
         }
         return CldrUtility.flatten(new UnicodeSet(main).removeAll(bad));
     }
 
-    /** Remove items with a count equal to size */
+    /**
+     * Remove items with a count equal to size (they are common to all locales), and flatten
+     * (against the whole set)
+     */
     private UnicodeSet getUncommon(UnicodeMap<Integer> counts, int size) {
-        for (String s : counts.keySet().freeze()) {
+        UnicodeSet flattenedAll =
+                CldrUtility.flatten(counts.keySet()); // we flatten against the whole set
+        UnicodeSet result = new UnicodeSet();
+        for (String s : flattenedAll) {
             int count = counts.get(s);
-            if (count == size) {
-                counts.remove(s);
+            if (count != size) {
+                result.add(s);
             }
         }
-        return counts.keySet();
+        return result.freeze();
     }
 
     private void getCounts(Collection<UnicodeSet> usets, UnicodeMap<Integer> counts) {

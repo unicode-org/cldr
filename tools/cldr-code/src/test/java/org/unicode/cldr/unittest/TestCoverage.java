@@ -1,27 +1,38 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R4;
 import java.util.Collections;
 import java.util.EnumSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverage extends TestFmwkPlus {
 
@@ -157,10 +168,216 @@ public class TestCoverage extends TestFmwkPlus {
     }
 
     public void showDiff(String title, Set<CoreItems> all, Set<CoreItems> coreCoverage) {
-        Set diff = EnumSet.copyOf(all);
+        Set<CoreItems> diff = EnumSet.copyOf(all);
         diff.removeAll(coreCoverage);
         if (diff.size() != 0) {
             errln("\t" + title + ": " + diff);
+        }
+    }
+
+    static class CoverageStatus {
+
+        private Level level;
+        private boolean inRoot;
+        private boolean inId;
+        private Level languageLevel;
+        private String displayName;
+
+        public CoverageStatus(
+                Level level,
+                boolean inRoot,
+                boolean inId,
+                Level languageLevel,
+                String displayName) {
+            this.level = level;
+            this.inRoot = inRoot;
+            this.inId = inId;
+            this.languageLevel = languageLevel == null ? Level.UNDETERMINED : languageLevel;
+            this.displayName = displayName;
+        }
+
+        @Override
+        public String toString() {
+            return (inRoot ? "root" : "x")
+                    + "\t"
+                    + (inId ? "ids" : "x")
+                    + "\t"
+                    + stringForm(languageLevel)
+                    + "\t"
+                    + stringForm(level)
+                    + "\t"
+                    + displayName;
+        }
+
+        private String stringForm(Level level2) {
+            if (level == null) {
+                return "υnd";
+            }
+            switch (level2) {
+                case UNDETERMINED:
+                    return "υnd";
+                case COMPREHENSIVE:
+                    return "ϲomp";
+                default:
+                    return level2.toString();
+            }
+        }
+    }
+
+    public void testLSR() {
+        SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+        Factory factory = testInfo.getCldrFactory();
+        CLDRFile root = factory.make("root", true);
+        CoverageLevel2 coverageLevel =
+                CoverageLevel2.getInstance(supplementalData, "yyy"); // non-existant locale
+
+        Set<String> langsRoot = new TreeSet<>();
+        Set<String> scriptsRoot = new TreeSet<>();
+        Set<String> regionsRoot = new TreeSet<>();
+
+        // Get root LSR codes
+
+        for (String path : root) {
+            if (!path.startsWith("//ldml/localeDisplayNames/")) {
+                continue;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String code = parts.getAttributeValue(3, "type");
+            if (code == null || code.contains("_")) {
+                continue;
+            }
+            switch (parts.getElement(3)) {
+                case "language":
+                    langsRoot.add(code);
+                    break;
+                case "script":
+                    scriptsRoot.add(code);
+                    break;
+                case "territory":
+                    regionsRoot.add(code);
+                    break;
+            }
+        }
+        langsRoot = ImmutableSet.copyOf(langsRoot);
+        scriptsRoot = ImmutableSet.copyOf(scriptsRoot);
+        regionsRoot = ImmutableSet.copyOf(regionsRoot);
+
+        // get CLDR locale IDs' codes
+
+        Map<String, Level> langs = new TreeMap<>();
+        Map<String, Level> scripts = new TreeMap<>();
+        Map<String, Level> regions = new TreeMap<>();
+        LikelySubtags likely = new LikelySubtags();
+
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String locale : factory.getAvailable()) {
+            Level languageLevel = sc.getLocaleCoverageLevel(Organization.cldr, locale);
+            if (languageLevel == null || languageLevel == Level.UNDETERMINED) {
+                languageLevel = Level.CORE;
+            }
+            ltp.set(locale);
+            likely.maximize(ltp);
+            addBestLevel(langs, ltp.getLanguage(), languageLevel);
+            addBestLevel(scripts, ltp.getScript(), languageLevel);
+            addBestLevel(regions, ltp.getRegion(), languageLevel);
+        }
+        regions.remove("");
+        scripts.remove("");
+
+        // get the data
+
+        Map<String, CoverageStatus> data = new TreeMap<>();
+
+        ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
+                ImmutableMap.of(
+                        CLDRFile.LANGUAGE_NAME,
+                        Row.of("language", langs, langsRoot, Level.MODERN),
+                        CLDRFile.SCRIPT_NAME,
+                        Row.of("script", scripts, scriptsRoot, Level.MODERATE),
+                        CLDRFile.TERRITORY_NAME,
+                        Row.of("region", regions, regionsRoot, Level.MODERATE));
+
+        for (Entry<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
+                typeToInfo.entrySet()) {
+            int type = typeAndInfo.getKey();
+            String name = typeAndInfo.getValue().get0();
+            Map<String, Level> idPartMap = typeAndInfo.getValue().get1();
+            Set<String> setRoot = typeAndInfo.getValue().get2();
+            Level targetLevel = typeAndInfo.getValue().get3();
+            for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
+                String displayName = testInfo.getEnglish().getName(type, code);
+                String path = CLDRFile.getKey(type, code);
+                Level level = coverageLevel.getLevel(path);
+                data.put(
+                        name + "\t" + code,
+                        new CoverageStatus(
+                                level,
+                                setRoot.contains(code),
+                                idPartMap.containsKey(code),
+                                idPartMap.get(code),
+                                displayName));
+            }
+        }
+        System.out.println(
+                "\nType\tCode\tIn Root\tIn CLDR Locales\tCLDR TargeLevel\tRoot Path Level\tCombinations");
+        for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        }
+        System.out.println();
+        for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+            final String key = entry.getKey();
+            if (!key.startsWith("language")) {
+                continue;
+            }
+            final CoverageStatus value = entry.getValue();
+            if (value.inId) {
+                continue;
+            }
+            String[] parts = key.split("\t");
+            PopulationData population = sdi.getBaseLanguagePopulationData(parts[1]);
+            if (population == null) {
+                System.out.println(key + "\t" + value.displayName + "\t" + value + "\t-1\t-1");
+            } else {
+                System.out.println(
+                        key
+                                + "\t"
+                                + value.displayName
+                                + "\t"
+                                + value
+                                + "\t"
+                                + population.getPopulation()
+                                + "\t"
+                                + population.getLiteratePopulation());
+            }
+        }
+
+        //        assertEquals("Level of\t" + name + "\t" + code + "\t", targetLevel, level);
+        //
+        //        for (Entry<Integer, R3<String, Set<String>, Level>> typeAndInfo :
+        // typeToInfo.entrySet()) {
+        //            int type = typeAndInfo.getKey();
+        //            String name = typeAndInfo.getValue().get0();
+        //            Set<String> set = typeAndInfo.getValue().get1();
+        //            for (String code : set) {
+        //                String path = CLDRFile.getKey(type, code);
+        //                String rootValue = root.getStringValue(path);
+        //                assertNotNull("Root value of\t" + name + "\t" + code + "\t", rootValue);
+        //            }
+        //        }
+
+    }
+
+    private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
+        if (level != Level.UNDETERMINED) {
+            int debug = 0;
+        }
+        Level old = codeToBestLevel.get(code);
+        if (old == null) {
+            codeToBestLevel.put(code, level);
+        } else if (level.compareTo(old) > 0) {
+            codeToBestLevel.put(code, level);
+        } else if (level != old) {
+            int debug = 0;
         }
     }
 }

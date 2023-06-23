@@ -24,6 +24,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 
 public class TestCoverage extends TestFmwkPlus {
+    private static final boolean DEBUG = false;
+    private static final boolean SHOW_LSR_DATA = false;
 
     static final StandardCodes sc = StandardCodes.make();
     static final CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -88,8 +90,6 @@ public class TestCoverage extends TestFmwkPlus {
             assertEquals(localeId + " : " + path + " : ", expectedVotes, actualVotes);
         }
     }
-
-    static final boolean DEBUG = false;
 
     public void TestLocales() {
         long start = System.currentTimeMillis();
@@ -157,7 +157,7 @@ public class TestCoverage extends TestFmwkPlus {
     }
 
     public void showDiff(String title, Set<CoreItems> all, Set<CoreItems> coreCoverage) {
-        Set diff = EnumSet.copyOf(all);
+        Set<CoreItems> diff = EnumSet.copyOf(all);
         diff.removeAll(coreCoverage);
         if (diff.size() != 0) {
             errln("\t" + title + ": " + diff);

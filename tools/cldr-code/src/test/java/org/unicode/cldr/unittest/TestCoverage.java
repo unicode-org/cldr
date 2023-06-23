@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
@@ -35,6 +36,8 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverage extends TestFmwkPlus {
+    private static final boolean DEBUG = false;
+    private static final boolean SHOW_LSR_DATA = false;
 
     static final StandardCodes sc = StandardCodes.make();
     static final CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -99,8 +102,6 @@ public class TestCoverage extends TestFmwkPlus {
             assertEquals(localeId + " : " + path + " : ", expectedVotes, actualVotes);
         }
     }
-
-    static final boolean DEBUG = false;
 
     public void TestLocales() {
         long start = System.currentTimeMillis();
@@ -318,12 +319,44 @@ public class TestCoverage extends TestFmwkPlus {
                                 displayName));
             }
         }
-        System.out.println(
-                "\nType\tCode\tIn Root\tIn CLDR Locales\tCLDR TargeLevel\tRoot Path Level\tCombinations");
-        for (Entry<String, CoverageStatus> entry : data.entrySet()) {
-            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        if (SHOW_LSR_DATA) {
+
+            System.out.println(
+                    "\nType\tCode\tIn Root\tIn CLDR Locales\tCLDR TargeLevel\tRoot Path Level\tCombinations");
+            for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+                System.out.println(entry.getKey() + "\t" + entry.getValue());
+            }
+            System.out.println();
+            for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+                final String key = entry.getKey();
+                if (!key.startsWith("language")) {
+                    continue;
+                }
+                final CoverageStatus value = entry.getValue();
+                if (value.inId) {
+                    continue;
+                }
+                String[] parts = key.split("\t");
+                PopulationData population = sdi.getBaseLanguagePopulationData(parts[1]);
+                if (population == null) {
+                    System.out.println(key + "\t" + value.displayName + "\t" + value + "\t-1\t-1");
+                } else {
+                    System.out.println(
+                            key
+                                    + "\t"
+                                    + value.displayName
+                                    + "\t"
+                                    + value
+                                    + "\t"
+                                    + population.getPopulation()
+                                    + "\t"
+                                    + population.getLiteratePopulation());
+                }
+            }
         }
-        System.out.println();
+
+        Set<String> ids = new TreeSet<>();
+        Set<String> missing = new TreeSet<>();
         for (Entry<String, CoverageStatus> entry : data.entrySet()) {
             final String key = entry.getKey();
             if (!key.startsWith("language")) {
@@ -331,40 +364,37 @@ public class TestCoverage extends TestFmwkPlus {
             }
             final CoverageStatus value = entry.getValue();
             if (value.inId) {
-                continue;
-            }
-            String[] parts = key.split("\t");
-            PopulationData population = sdi.getBaseLanguagePopulationData(parts[1]);
-            if (population == null) {
-                System.out.println(key + "\t" + value.displayName + "\t" + value + "\t-1\t-1");
-            } else {
-                System.out.println(
-                        key
-                                + "\t"
-                                + value.displayName
-                                + "\t"
-                                + value
-                                + "\t"
-                                + population.getPopulation()
-                                + "\t"
-                                + population.getLiteratePopulation());
+                String[] parts = key.split("\t");
+                ids.add(parts[1]);
+                if (!value.inRoot) {
+                    missing.add(parts[1]);
+                }
             }
         }
+        if (!assertEquals(
+                "Language subtags that are in a CLDR locale's ID are in root ("
+                        + missing.size()
+                        + ")",
+                "",
+                Joiner.on(' ').join(missing))) {
+            warnln(
+                    "Full set for resetting $language in attributeValueValidity.xml ("
+                            + ids.size()
+                            + "):"
+                            + breakLines(ids, "\n                "));
+        }
+    }
 
-        //        assertEquals("Level of\t" + name + "\t" + code + "\t", targetLevel, level);
-        //
-        //        for (Entry<Integer, R3<String, Set<String>, Level>> typeAndInfo :
-        // typeToInfo.entrySet()) {
-        //            int type = typeAndInfo.getKey();
-        //            String name = typeAndInfo.getValue().get0();
-        //            Set<String> set = typeAndInfo.getValue().get1();
-        //            for (String code : set) {
-        //                String path = CLDRFile.getKey(type, code);
-        //                String rootValue = root.getStringValue(path);
-        //                assertNotNull("Root value of\t" + name + "\t" + code + "\t", rootValue);
-        //            }
-        //        }
-
+    private String breakLines(Set<String> ids, String indent) {
+        StringBuilder result = new StringBuilder();
+        int lastFirstChar = 0;
+        for (String id : ids) {
+            int firstChar = id.codePointAt(0);
+            result.append(firstChar == lastFirstChar ? " " : indent);
+            result.append(id);
+            lastFirstChar = firstChar;
+        }
+        return result.toString();
     }
 
     private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {

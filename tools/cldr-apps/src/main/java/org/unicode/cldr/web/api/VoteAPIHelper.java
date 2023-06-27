@@ -257,24 +257,25 @@ public class VoteAPIHelper {
      * @param resolver the back-end VoteResolver
      * @return the VotingResults
      */
-    private static RowResponse.Row.VotingResults getVotingResults(VoteResolver<String> resolver) {
-        final RowResponse.Row.VotingResults results = new RowResponse.Row.VotingResults();
+    public static <T> RowResponse.Row.VotingResults<T> getVotingResults(VoteResolver<T> resolver) {
+        final RowResponse.Row.VotingResults<T> results = new RowResponse.Row.VotingResults<>();
         final EnumSet<Organization> conflictedOrgs = resolver.getConflictedOrganizations();
-        final List<String> valueToVoteA = new ArrayList<>();
-        final Map<String, Long> valueToVote = resolver.getResolvedVoteCounts();
-        for (Map.Entry<String, Long> e : valueToVote.entrySet()) {
+        /** array of Key, Value, Key, Value… */
+        final List<Object> valueToVoteA = new ArrayList<>();
+        final Map<T, Long> valueToVote = resolver.getResolvedVoteCounts();
+        for (Map.Entry<T, Long> e : valueToVote.entrySet()) {
             valueToVoteA.add(e.getKey());
             valueToVoteA.add(String.valueOf(e.getValue()));
         }
         results.nameTime = resolver.getNameTime();
         results.requiredVotes = resolver.getRequiredVotes();
-        results.value_vote = valueToVoteA.toArray(new String[0]);
+        results.value_vote = valueToVoteA.toArray(new Object[0]);
         results.valueIsLocked = resolver.isValueLocked();
         results.orgs = new HashMap<>();
         for (Organization o : Organization.values()) {
-            final String orgVote = resolver.getOrgVote(o);
+            final T orgVote = resolver.getOrgVote(o);
             if (orgVote != null) {
-                final RowResponse.Row.OrgValueVotes org = new RowResponse.Row.OrgValueVotes();
+                final RowResponse.Row.OrgValueVotes<T> org = new RowResponse.Row.OrgValueVotes<>();
                 org.conflicted = conflictedOrgs.contains(o);
                 org.orgVote = orgVote;
                 org.status = resolver.getStatusForOrganization(o).name();

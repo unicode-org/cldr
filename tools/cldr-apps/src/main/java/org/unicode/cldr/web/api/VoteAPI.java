@@ -152,19 +152,22 @@ public class VoteAPI {
                 public Map<String, VoteEntry> votes;
             }
 
-            public static final class OrgValueVotes {
+            public static final class OrgValueVotes<T> {
                 public boolean conflicted;
-                public String orgVote; // value like "↑↑↑"
+                public T orgVote; // value like "↑↑↑"
                 public String status; // like "ok"
-                public Map<String, Long> votes; // key is value like "↑↑↑"
+                public Map<T, Long> votes; // key is value like "↑↑↑"
             }
 
-            public static final class VotingResults {
+            public static final class VotingResults<T> {
                 public Map<String, Long> nameTime;
-                public Map<String, OrgValueVotes>
+                public Map<String, OrgValueVotes<T>>
                         orgs; // key is organization name like "apple", "google"
                 public int requiredVotes;
-                public String[] value_vote;
+
+                @Schema(description = "1-dimensional array of value, vote, value, vote…")
+                public Object[] value_vote;
+
                 public boolean valueIsLocked;
             }
 
@@ -197,7 +200,7 @@ public class VoteAPI {
             public StatusAction statusAction;
             public String translationHint;
             public String voteVhash;
-            public VotingResults votingResults;
+            public VotingResults<String> votingResults;
             public String winningValue;
             public String winningVhash;
             public String xpath;

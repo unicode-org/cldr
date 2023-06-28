@@ -119,9 +119,14 @@ public abstract class VoterReportStatus<T> {
      * @return vote statistics for each acceptability level
      */
     public Map<ReportAcceptability, Set<Integer>> updateResolver(
-            CLDRLocale l, ReportId r, Set<T> userList, VoteResolver<ReportAcceptability> res) {
+            CLDRLocale l,
+            ReportId r,
+            Set<T> userList,
+            VoteResolver<ReportAcceptability> res,
+            Map<T, ReportAcceptability> votes) {
         Map<ReportAcceptability, Set<Integer>> statistics = new HashMap<>();
         res.clear();
+        votes.clear();
         res.setBaileyValue(null);
         // Get the report status for each user
         userList.forEach(
@@ -139,6 +144,7 @@ public abstract class VoterReportStatus<T> {
                                 rs.getDate()); // TODO: Cast because T must be an Integer.
                         // Refactor class to not be templatized
                         statistics.computeIfAbsent(acc, k -> new HashSet<>()).add((Integer) id);
+                        votes.put(id, acc);
                     }
                 });
         return statistics;

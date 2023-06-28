@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -121,13 +122,14 @@ public class TestReportStatus {
         final CLDRLocale assamese = CLDRLocale.getInstance("ssy");
 
         // update resolver
-        mrv.updateResolver(french, ReportId.compact, m.keySet(), res);
+        Map<Integer, ReportAcceptability> votes = new TreeMap<>();
+        mrv.updateResolver(french, ReportId.compact, m.keySet(), res, votes);
 
         // should be missing
         assertAll("fr: no votes yet", () -> assertEquals(Status.missing, res.getWinningStatus()));
 
         mrv.markReportComplete(VETTER1, french, ReportId.compact, true, true);
-        mrv.updateResolver(french, ReportId.compact, m.keySet(), res);
+        mrv.updateResolver(french, ReportId.compact, m.keySet(), res, votes);
         assertAll(
                 "fr: vetter1 voted",
                 () -> assertEquals(Status.approved, res.getWinningStatus()),
@@ -135,21 +137,21 @@ public class TestReportStatus {
 
         // now dispute it as a guest (mark as not acceptable)
         mrv.markReportComplete(GUEST2, french, ReportId.compact, true, false);
-        mrv.updateResolver(french, ReportId.compact, m.keySet(), res);
+        mrv.updateResolver(french, ReportId.compact, m.keySet(), res, votes);
         assertAll(
                 "fr: guest2 unacceptable",
                 () -> assertEquals(Status.approved, res.getWinningStatus()),
                 () -> assertEquals(ReportAcceptability.acceptable, res.getWinningValue()));
         // more support for unacceptability
         mrv.markReportComplete(VETTER4, french, ReportId.compact, true, false);
-        mrv.updateResolver(french, ReportId.compact, m.keySet(), res);
+        mrv.updateResolver(french, ReportId.compact, m.keySet(), res, votes);
         assertAll(
                 "fr: vetter4 also unacceptable",
                 () -> assertEquals(Status.approved, res.getWinningStatus()),
                 () -> assertEquals(ReportAcceptability.notAcceptable, res.getWinningValue()));
         // guest drops out (abstention). Now it is a dispute.
         mrv.markReportComplete(GUEST2, french, ReportId.compact, false, false);
-        mrv.updateResolver(french, ReportId.compact, m.keySet(), res);
+        mrv.updateResolver(french, ReportId.compact, m.keySet(), res, votes);
         assertAll(
                 "fr: guest2 unvotes",
                 // now provisional
@@ -160,7 +162,7 @@ public class TestReportStatus {
 
         // Now in Assamese.
         mrv.markReportComplete(GUEST2, assamese, ReportId.zones, true, false);
-        mrv.updateResolver(assamese, ReportId.zones, m.keySet(), res);
+        mrv.updateResolver(assamese, ReportId.zones, m.keySet(), res, votes);
         assertAll(
                 "ssy: guest2 votes notAcceptable",
                 // now unconfirmed

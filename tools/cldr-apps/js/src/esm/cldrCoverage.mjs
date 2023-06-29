@@ -3,6 +3,9 @@
  */
 
 import * as cldrStatus from "./cldrStatus.mjs";
+import * as cldrClient from "./cldrClient.mjs";
+import * as cldrXlsx from "./cldrXlsx.mjs";
+import * as XLSX from "xlsx";
 
 let surveyLevels = null;
 
@@ -133,15 +136,84 @@ function updateCoverage(theDiv) {
   }
 }
 
+async function getCoverageStatus() {
+  const client = await cldrClient.getClient();
+  const { body } = await client.apis.voting.getCoverageStatus();
+  const { levelNames, results } = body;
+  const cooked = results.reduce((p, v) => {
+    const { proportions, locale } = v;
+    delete v.proportions;
+    v.proportions = {};
+    for (let n = 0; n < levelNames.length; n++) {
+      v.adjustedGoal = v.adjustedGoal?.toLowerCase();
+      v.cldrLocaleLevelGoal = v.cldrLocaleLevelGoal?.toLowerCase();
+      v.staticLevel = v.staticLevel?.toLowerCase();
+      const name = levelNames[n];
+      const val = proportions[n];
+      v.proportions[name] = val; // "modern": 0.45 etc
+    }
+    p[locale] = v;
+    return p;
+  }, {});
+
+  return cooked;
+}
+
+async function getCoverageStatusXlsx() {
+  const data = await getCoverageStatus();
+
+  const locales = Object.keys(data).sort();
+
+  const COLUMNS = [
+    {
+      title: "locale",
+    },
+    {
+      title: "level",
+    },
+  ];
+
+  const ws_data = [
+    [...COLUMNS.map(({ title }) => title)], // header
+    ...locales.map((locale) => {
+      const {
+        adjustdGoal,
+        cldrLocaleLevelGoal,
+        found,
+        icu,
+        missing,
+        proportions,
+        shownMissingPaths,
+        staticLevel,
+        sumFound,
+        sumUnconfirmed,
+        unconfirmedc,
+        visibleLevelComputed,
+      } = data[locale];
+
+      return [locale, visibleLevelComputed];
+    }),
+  ];
+
+  // TODO: comments
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  const ws_name = "LiveLocaleCoverage";
+  XLSX.utils.book_append_sheet(wb, ws, ws_name);
+  XLSX.writeFile(wb, `${ws_name}.xlsx`);
+}
+
 export {
   covName,
   covValue,
   effectiveCoverage,
   effectiveName,
+  getCoverageStatus,
+  getCoverageStatusXlsx,
   getSurveyOrgCov,
   getSurveyUserCov,
   setSurveyLevels,
   setSurveyUserCov,
-  updateCovFromJson,
   updateCoverage,
+  updateCovFromJson,
 };

@@ -118,10 +118,12 @@
         </tbody>
       </table>
     </section>
+    <button @click="getCoverageStatusXlsx()">Get Locale Coverage .xlsx</button>
   </div>
 </template>
 
 <script>
+import * as cldrCoverage from "../esm/cldrCoverage.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrPriorityItems from "../esm/cldrPriorityItems.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
@@ -290,6 +292,11 @@ export default {
 
     statusIcon(status) {
       return cldrTable.getStatusIcon(status);
+    },
+
+    getCoverageStatusXlsx() {
+      cldrCoverage.getCoverageStatusXlsx();
+      // TODO error check
     },
   },
 };

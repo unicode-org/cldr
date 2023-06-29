@@ -1,8 +1,11 @@
 package org.unicode.cldr.web.api;
 
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -397,6 +400,44 @@ public class Summary {
             SurveyLog.logException(logger, t, "Exception interrupting Automatic Summary Snapshot");
             t.printStackTrace();
         }
+    }
+
+    public static final class CoverageStatusResponse {
+        public String levelNames[] = new String[Level.values().length];
+        public CalculateLocaleCoverage.CoverageResult[] results;
+
+        public CoverageStatusResponse(Collection<CalculateLocaleCoverage.CoverageResult> results) {
+            this.results = results.toArray(new CalculateLocaleCoverage.CoverageResult[0]);
+            for (final Level l : Level.values()) {
+                levelNames[l.ordinal()] = UCharacter.toTitleCase(ULocale.ENGLISH, l.name(), null);
+            }
+        }
+    }
+
+    @GET
+    @Path("/dashboard/coverageStatus")
+    @Produces(MediaType.APPLICATION_JSON)
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Dashboard results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                CoverageStatusResponse.class)))
+            })
+    public Response getCoverageStatus() {
+        // todo auth
+        return Response.ok()
+                .entity(
+                        new CoverageStatusResponse(
+                                CalculateLocaleCoverage.getCoverage(
+                                        CookieSession.sm.getSTFactory())))
+                .build();
     }
 
     @GET

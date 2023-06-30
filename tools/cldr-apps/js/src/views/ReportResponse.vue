@@ -23,7 +23,7 @@
         I have not reviewed the items.</a-radio
       >
     </a-radio-group>
-    <hr v-if="loaded || error"/>
+    <hr v-if="loaded || error" />
     <a-alert v-if="error" type="error" v-model:message="error" />
     <a-spin size="small" v-if="!loaded" />
     <a-collapse v-if="reportStatus">
@@ -31,6 +31,7 @@
         <VoteInfo
           :votes="reportStatus.votes"
           :votingResults="reportStatus.votingResults"
+          :winner="reportStatus.status"
         />
         <template #extra>
           <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>

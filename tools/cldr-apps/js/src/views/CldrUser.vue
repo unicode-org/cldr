@@ -28,6 +28,8 @@ export default {
   data() {
     return {
       info: null,
+      org: null,
+      name: null,
     };
   },
   components: {
@@ -36,8 +38,7 @@ export default {
   computed: {},
   props: {
     uid: {
-      type: String, // should be Number but harder for caller?
-      // uid of user
+      type: String,
       default: null,
     },
     noHover: {
@@ -45,25 +46,16 @@ export default {
       default: false,
     },
     plain: {
-      type: Boolean,
+      type: String,
       default: false,
-    },
-    org: {
-      // used for pulling org out
-      type: String,
-      default: null,
-    },
-    name: {
-      // used for pulling name out
-      type: String,
-      default: null,
     },
   },
   async created() {
     this.info = await cldrUsers.getUserInfo(this.uid);
-    const {org, name} = this.info;
+    const { org, name } = this.info;
     this.org = org || null;
     this.name = name || null;
+    this.$emit("org", this.org);
   },
 };
 </script>

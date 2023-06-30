@@ -229,7 +229,12 @@ public class DataPage {
              */
             public Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
-                    votes = ballotBox.getVotesForValue(xpath, rawValue);
+                    String valueToCheck = rawValue;
+                    if (valueToCheck.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        // Not so raw as it ought to be.
+                        valueToCheck = inheritedValue;
+                    }
+                    votes = ballotBox.getVotesForValue(xpath, valueToCheck);
                     checkedVotes = true;
                 }
                 return votes;

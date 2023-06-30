@@ -612,6 +612,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"ga", "few", "0"}, // n in 3..6
             {"ga", "many", "0,00"}, // n in 7..10
             {"ar", "zero", "0"}, // n is 0
+            {"blo", "zero", "0"},	// n = 0
             {"cy", "zero", "0"}, // n is 0
             {"ksh", "zero", "0"}, // n is 0
             {"lag", "zero", "0"}, // n is 0

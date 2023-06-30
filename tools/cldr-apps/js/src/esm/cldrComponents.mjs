@@ -17,8 +17,11 @@ import SearchButton from "../views/SearchButton.vue";
 
 import {
   Alert,
+  Avatar,
   Button,
   Checkbox,
+  Collapse,
+  CollapsePanel,
   Form,
   Input,
   List,
@@ -45,8 +48,11 @@ function setup(app) {
 
   // we use a- to denote ant components and cldr- to denote cldr components
   app.component("a-alert", Alert);
+  app.component("a-avatar", Avatar);
   app.component("a-button", Button);
   app.component("a-checkbox", Checkbox);
+  app.component("a-collapse", Collapse);
+  app.component("a-collapse-panel", CollapsePanel);
   app.component("a-form-item", Form.Item);
   app.component("a-form", Form);
   app.component("a-input-password", Input.Password);

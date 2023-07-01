@@ -118,7 +118,9 @@
         </tbody>
       </table>
     </section>
-    <button @click="getCoverageStatusXlsx()">Get Locale Coverage .xlsx</button>
+    <button v-if="this.canSummarizeAllLocales" @click="getCoverageStatusXlsx()">
+      Get DDL Locale Coverage .xlsx <b>SLOOOW</b>
+    </button>
   </div>
 </template>
 
@@ -296,7 +298,6 @@ export default {
 
     getCoverageStatusXlsx() {
       cldrCoverage.getCoverageStatusXlsx();
-      // TODO error check
     },
   },
 };

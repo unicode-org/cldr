@@ -430,8 +430,15 @@ public class Summary {
                                                         implementation =
                                                                 CoverageStatusResponse.class)))
             })
-    public Response getCoverageStatus() {
-        // todo auth
+    public Response getCoverageStatus(@HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+        CookieSession cs = Auth.getSession(sessionString);
+        if (cs == null) {
+            return Auth.noSessionResponse();
+        }
+        if (cs.user == null || !cs.user.getLevel().canCreateSummarySnapshot()) {
+            return Response.status(Status.UNAUTHORIZED).build();
+        }
+        cs.userDidAction();
         return Response.ok()
                 .entity(
                         new CoverageStatusResponse(

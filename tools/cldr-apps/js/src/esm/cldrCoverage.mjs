@@ -156,11 +156,13 @@ async function getCoverageStatus() {
     return p;
   }, {});
 
-  return cooked;
+  return { data: cooked, levelNames, raw: results };
 }
 
 async function getCoverageStatusXlsx() {
-  const data = await getCoverageStatus();
+  const { data, levelNames } = await getCoverageStatus();
+
+  levelNames.sort();
 
   const locales = Object.keys(data).sort();
 
@@ -171,13 +173,47 @@ async function getCoverageStatusXlsx() {
     {
       title: "level",
     },
+    {
+      title: "oldLevel",
+    },
+    {
+      title: "adjustedGoal",
+    },
+    {
+      title: "cldrLocaleLevelGoal",
+    },
+    // add the levelNames
+    ...levelNames.map((title) => ({ title })),
+    {
+      title: "icu",
+    },
+    {
+      title: "missing",
+    },
+    {
+      title: "missingPaths",
+    },
+    {
+      title: "found",
+    },
+    {
+      title: "sumFound",
+    },
+    {
+      title: "sumUnconfirmed",
+    },
+    {
+      title: "unconfirmedc",
+    },
   ];
+
+  // add coverage level columns
 
   const ws_data = [
     [...COLUMNS.map(({ title }) => title)], // header
     ...locales.map((locale) => {
       const {
-        adjustdGoal,
+        adjustedGoal,
         cldrLocaleLevelGoal,
         found,
         icu,
@@ -191,13 +227,38 @@ async function getCoverageStatusXlsx() {
         visibleLevelComputed,
       } = data[locale];
 
-      return [locale, visibleLevelComputed];
+      return [
+        locale,
+        visibleLevelComputed,
+        staticLevel || "-",
+        adjustedGoal || "",
+        cldrLocaleLevelGoal || "",
+        // add the levels
+        ...levelNames.map((level) => proportions[level]),
+        !!icu ? "y" : "",
+        missing || 0,
+        (shownMissingPaths || []).join(","),
+        found || 0,
+        sumFound || 0,
+        sumUnconfirmed || 0,
+        unconfirmedc || 0,
+      ];
     }),
   ];
 
   // TODO: comments
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  // set all of the levels to %
+  // index of first 'level' column
+  const colStart = COLUMNS.findIndex(({ title }) => title === levelNames[0]);
+  for (let r = 1; r < ws_data.length; r++) {
+    for (let n = 0; n < levelNames.length; n++) {
+      const c = colStart + n;
+      const cr = XLSX.utils.encode_cell({ r, c });
+      ws[cr].z = "0%"; // percentage for levels
+    }
+  }
   const ws_name = "LiveLocaleCoverage";
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(wb, `${ws_name}.xlsx`);

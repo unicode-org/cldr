@@ -34,22 +34,29 @@ public class VoteAPIHelper {
     private static final boolean DEBUG_SERIALIZATION = false;
 
     public static final class VoteEntry {
-        public final String email;
-        public final VoteResolver.Level level;
-        public final String name;
-        public final String org;
         public final Integer overridedVotes;
         public final String userid;
         public final int votes;
 
-        public VoteEntry(User u, Integer override) {
-            this.email = u.email.replace("@", " (at) ");
+        // TODO: CLDR-16829 remove these fields, and all 'redacted' parameters in this file.
+        public final String email;
+        public final VoteResolver.Level level;
+        public final String name;
+        public final String org;
+
+        public VoteEntry(User u, Integer override, boolean redacted) {
             this.level = u.getLevel();
             this.org = u.getOrganization().toString();
             this.overridedVotes = override;
-            this.name = u.name;
             this.userid = Integer.toString(u.id);
             this.votes = u.getVoteCount();
+            if (!redacted) {
+                this.email = u.email.replace("@", " (at) ");
+                this.name = u.name;
+            } else {
+                this.email = "(hidden)";
+                this.name = "User#" + userid;
+            }
         }
     }
 
@@ -109,6 +116,9 @@ public class VoteAPIHelper {
             return Auth.noSessionResponse();
         }
         try {
+            /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
+            final boolean redacted =
+                    ((mySession.user == null) || (!mySession.user.getLevel().isGuest()));
             final RowResponse r = new RowResponse();
             XPathMatcher matcher = null;
             PageId pageId = null;
@@ -163,7 +173,7 @@ public class VoteAPIHelper {
                 r.localeDisplayName = locale.getDisplayName();
                 r.page.nocontent = false;
                 Collection<DataRow> dataRows = pageData.getAll();
-                r.page.rows = makePageRows(dataRows);
+                r.page.rows = makePageRows(dataRows, redacted);
                 if (args.page != null) {
                     r.displaySets = makeDisplaySets(dataRows);
                 }
@@ -201,15 +211,16 @@ public class VoteAPIHelper {
         return displaySets;
     }
 
-    private static Map<String, RowResponse.Row> makePageRows(Collection<DataRow> all) {
+    private static Map<String, RowResponse.Row> makePageRows(
+            Collection<DataRow> all, boolean redacted) {
         final Map<String, RowResponse.Row> rows = new HashMap<>();
         for (final DataRow r : all) {
-            rows.put(r.fieldHash(), calculateRow(r));
+            rows.put(r.fieldHash(), calculateRow(r, redacted));
         }
         return rows;
     }
 
-    private static RowResponse.Row calculateRow(final DataRow r) {
+    private static RowResponse.Row calculateRow(final DataRow r, boolean redacted) {
         final RowResponse.Row row = new RowResponse.Row();
         final VoteResolver<String> resolver = r.getResolver();
         final String xpath = r.getXpath();
@@ -232,7 +243,7 @@ public class VoteAPIHelper {
         row.inheritedValue = r.getInheritedValue();
         row.inheritedDisplayValue = r.getInheritedDisplayValue();
         row.inheritedXpid = r.getInheritedXPath();
-        row.items = calculateItems(r);
+        row.items = calculateItems(r, redacted);
         row.placeholderInfo = placeholders.get(xpath);
         row.placeholderStatus = placeholders.getStatus(xpath);
         row.rdf = r.getRDFURI();
@@ -286,15 +297,16 @@ public class VoteAPIHelper {
         return results;
     }
 
-    private static Map<String, Candidate> calculateItems(final DataRow r) {
+    private static Map<String, Candidate> calculateItems(final DataRow r, boolean redacted) {
         final Map<String, Candidate> items = new HashMap<>();
         for (final CandidateItem i : r.items.values()) {
-            items.put(i.getValueHash(), calculateItem(i));
+            items.put(i.getValueHash(), calculateItem(i, redacted));
         }
         return items;
     }
 
-    private static RowResponse.Row.Candidate calculateItem(final CandidateItem i) {
+    private static RowResponse.Row.Candidate calculateItem(
+            final CandidateItem i, boolean redacted) {
         RowResponse.Row.Candidate c = new RowResponse.Row.Candidate();
         c.example = i.getExample();
         c.history = i.getHistory();
@@ -305,7 +317,7 @@ public class VoteAPIHelper {
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
         c.valueHash = i.getValueHash();
-        c.votes = calculateVotes(i.getVotes(), i.getOverrides());
+        c.votes = calculateVotes(i.getVotes(), i.getOverrides(), redacted);
         return c;
     }
 
@@ -320,7 +332,7 @@ public class VoteAPIHelper {
     }
 
     private static Map<String, VoteEntry> calculateVotes(
-            Set<User> users, Map<User, Integer> overrides) {
+            Set<User> users, Map<User, Integer> overrides, boolean redacted) {
         if (users == null) {
             return null;
         }
@@ -333,7 +345,7 @@ public class VoteAPIHelper {
             if (overrides != null) {
                 override = overrides.get(u);
             }
-            VoteEntry voteEntry = new VoteEntry(u, override);
+            VoteEntry voteEntry = new VoteEntry(u, override, redacted);
             votes.put(voteEntry.userid, voteEntry);
         }
         return votes;

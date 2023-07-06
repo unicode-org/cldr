@@ -43,6 +43,16 @@
           </template>
         </span>
         <span class="right-control">
+          <a-spin v-if="downloadMessage">
+            <i>{{ downloadMessage }}</i>
+          </a-spin>
+          <button
+            v-if="!downloadMessage"
+            class="cldr-nav-btn"
+            @click="downloadXlsx"
+          >
+            Download…
+          </button>
           <input
             type="checkbox"
             title="Hide checked items"
@@ -165,6 +175,7 @@ import * as cldrCoverage from "../esm/cldrCoverage.mjs";
 import * as cldrDash from "../esm/cldrDash.mjs";
 import * as cldrGui from "../esm/cldrGui.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
@@ -181,6 +192,7 @@ export default {
       locale: null,
       localeName: null,
       level: null,
+      downloadMessage: null,
     };
   },
 
@@ -279,6 +291,23 @@ export default {
           console.error(msg);
           this.fetchErr = msg;
         });
+    },
+
+    downloadXlsx() {
+      cldrDash
+        .downloadXlsx(
+          this.data,
+          this.locale,
+          (status) => (this.downloadMessage = status)
+        )
+        .then(
+          () => (this.downloadMessage = null),
+          (err) => {
+            console.error(err);
+            cldrNotify.exception(err, `Loading ${this.locale} Dash.xlsx`);
+            this.downloadMessage = null;
+          }
+        );
     },
 
     /**

@@ -3806,4 +3806,38 @@ public class TestUnits extends TestFmwk {
             }
         }
     }
+
+    public void testGetRelated() {
+        Map<Rational, String> related2 =
+                converter.getRelatedExamples(
+                        "meter", Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem)));
+        logln(showUnitExamples("meter", related2));
+
+        Set<String> generated = new LinkedHashSet<>();
+        for (String unit : converter.getSimpleUnits()) {
+            Map<Rational, String> related =
+                    converter.getRelatedExamples(
+                            unit, Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem)));
+            generated.addAll(related.values());
+            logln(showUnitExamples(unit, related));
+        }
+        logln(generated.toString());
+    }
+
+    public String showUnitExamples(String unit, Map<Rational, String> related) {
+        return "\n"
+                + unit
+                + "\t#"
+                + converter.getSystemsEnum(unit)
+                + "\n= "
+                + related.entrySet().stream()
+                        .map(
+                                x ->
+                                        x.getKey().toString(FormatStyle.basic)
+                                                + " "
+                                                + x.getValue()
+                                                + "\t#"
+                                                + converter.getSystemsEnum(x.getValue()))
+                        .collect(Collectors.joining("\n= "));
+    }
 }

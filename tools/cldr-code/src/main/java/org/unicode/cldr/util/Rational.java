@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.Notation;
 import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.NumberFormatter.GroupingStrategy;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -322,6 +323,7 @@ public final class Rational implements Comparable<Rational> {
 
     public enum FormatStyle {
         plain,
+        basic,
         simple,
         repeating,
         repeatingAll,
@@ -334,10 +336,29 @@ public final class Rational implements Comparable<Rational> {
         return toString(FormatStyle.plain);
     }
 
+    private static final BigInteger BASIC_LIMIT = BigInteger.valueOf(20);
+
     public String toString(FormatStyle style) {
         switch (style) {
             case plain:
                 return numerator + (denominator.equals(BigInteger.ONE) ? "" : " / " + denominator);
+            case basic:
+                if (denominator.equals(BigInteger.ONE)) {
+                    return numerator.toString();
+                } else if (denominator.compareTo(BASIC_LIMIT) <= 0
+                        || numerator.compareTo(BASIC_LIMIT) <= 0) {
+                    return nf.format(numerator) + "/" + nf.format(denominator);
+                } else {
+                    String result =
+                            nf2.format(numerator.doubleValue() / denominator.doubleValue())
+                                    .toString();
+                    Rational roundtrip = Rational.of(result);
+                    if (roundtrip.equals(this)) {
+                        return result;
+                    }
+                    return "~" + result;
+                }
+            default:
         }
         Output<BigDecimal> newNumerator = new Output<>(new BigDecimal(numerator));
         final BigInteger newDenominator = minimalDenominator(newNumerator, denominator);
@@ -349,31 +370,36 @@ public final class Rational implements Comparable<Rational> {
         switch (style) {
             case repeating:
                 limit = 30;
+                // fall through with smaller limit
             case repeatingAll:
-                String result =
-                        toRepeating(limit); // limit of 30 on the repeating length, so we don't get
-                // unreasonable
-                if (result != null) {
+                // if we come directly here, the limit is huge
+                String result = toRepeating(limit);
+                if (result != null) { // null is returned if we can't fit into the limit
                     return result;
                 }
                 // otherwise drop through to simple
             case simple:
-                {
-                    return denIsOne ? numStr : numStr + "/" + denStr;
-                }
+                return denIsOne ? numStr : numStr + "/" + denStr;
             case html:
-                {
-                    return denIsOne
-                            ? numStr
-                            : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
-                }
+                return denIsOne
+                        ? numStr
+                        : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
             default:
                 throw new UnsupportedOperationException();
         }
     }
 
     static final LocalizedNumberFormatter nf =
-            NumberFormatter.with().precision(Precision.unlimited()).locale(Locale.ENGLISH);
+            NumberFormatter.with()
+                    .precision(Precision.unlimited())
+                    .grouping(GroupingStrategy.OFF)
+                    .locale(Locale.ENGLISH);
+
+    static final LocalizedNumberFormatter nf2 =
+            NumberFormatter.with()
+                    .precision(Precision.fixedSignificantDigits(5))
+                    .locale(Locale.ENGLISH);
+
     static final LocalizedNumberFormatter snf =
             NumberFormatter.with()
                     .precision(Precision.unlimited())

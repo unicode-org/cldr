@@ -391,9 +391,20 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGeneratorJa = getExampleGenerator("ja");
         checkValue(
                 "Length m",
-                "〖❬1.5❭m〗〖1 meter 🟰 1000 millimeter〗〖1 meter 🟰 3.0250 jo-jp〗〖1 meter 🟰 ~1.0936 yard (US/UK)〗〖1 meter 🟰 ~0.0023341 ri-jp〗〖1 meter 🟰 1/1000 kilometer〗〖1 meter 🟰 ~0.00062137 mile (US/UK)〗",
+                "〖❬1.5❭m〗〖1 meter 🟰 1000 millimeter〗〖1 meter 🟰 3.0250 jo-jp (JP)〗〖1 meter 🟰 ~1.0936 yard (US/UK)〗〖1 meter 🟰 ~0.0023341 ri-jp (JP)〗〖1 meter 🟰 1/1000 kilometer〗〖1 meter 🟰 ~0.00062137 mile (US/UK)〗",
                 exampleGeneratorJa,
                 "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue(
+                "Length ri",
+                "〖❬1.5❭ 里〗〖1 ri-jp (JP) 🟰 1296 jo-jp (JP)〗〖1 ri-jp (JP) 🟰 ~468.54 yard (US/UK)〗〖1 ri-jp (JP) 🟰 ~428.43 meter〗〖1 ri-jp (JP) 🟰 ~0.42843 kilometer〗〖1 ri-jp (JP) 🟰 ~0.26621 mile (US/UK)〗",
+                exampleGeneratorJa,
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-ri-jp\"]/unitPattern[@count=\"other\"]");
+
+        checkValue(
+                "Length ri",
+                "〖1 ri-jp (JP) 🟰 1296 jo-jp (JP)〗〖1 ri-jp (JP) 🟰 ~468.54 yard (US/UK)〗〖1 ri-jp (JP) 🟰 ~428.43 meter〗〖1 ri-jp (JP) 🟰 ~0.42843 kilometer〗〖1 ri-jp (JP) 🟰 ~0.26621 mile (US/UK)〗",
+                exampleGeneratorJa,
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-ri-jp\"]/displayName");
     }
 
     /**

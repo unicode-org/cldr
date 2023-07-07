@@ -495,7 +495,9 @@ public class ExampleGenerator {
         } else if (parts.getElement(-1).equals("compoundUnitPattern1")
                 || parts.getElement(-1).equals("unitPrefixPattern")) {
             result = handleCompoundUnit1(parts, value);
-        } else if (parts.getElement(-1).equals("unitPattern")) {
+        } else if (parts.getElement(-2).equals("unit")
+                && (parts.getElement(-1).equals("unitPattern")
+                        || parts.getElement(-1).equals("displayName"))) {
             result = handleFormatUnit(parts, value);
         } else if (parts.getElement(-1).equals("perUnitPattern")) {
             result = handleFormatPerUnit(value);
@@ -1214,16 +1216,58 @@ public class ExampleGenerator {
         // Sample:
         // //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"][@case="accusative"]
 
-        String count = parts.getAttributeValue(-1, "count");
+        String longUnitId = parts.getAttributeValue(-2, "type");
+        final String shortUnitId = UNIT_CONVERTER.getShortId(longUnitId);
+        if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
+            return null;
+        }
+
         List<String> examples = new ArrayList<>();
+        if (parts.getElement(-1).equals("unitPattern")) {
+            String count = parts.getAttributeValue(-1, "count");
+            DecimalQuantity amount = getBest(Count.valueOf(count));
+            if (amount != null) {
+                addFormattedUnits(examples, parts, unitPattern, shortUnitId, amount);
+            }
+        }
+        // add related units
+        Map<Rational, String> relatedUnits =
+                UNIT_CONVERTER.getRelatedExamples(shortUnitId, getExampleUnitSystems());
+        String unitSystem = null;
+        for (Entry<Rational, String> relatedUnitInfo : relatedUnits.entrySet()) {
+            if (unitSystem == null) {
+                Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(shortUnitId);
+                unitSystem = UnitSystem.getSystemsDisplay(systems);
+            }
+            Rational relatedValue = relatedUnitInfo.getKey();
+            String relatedUnit = relatedUnitInfo.getValue();
+            Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(relatedUnit);
+            examples.add(
+                    String.format(
+                            "1 %s%s 🟰 %s %s%s",
+                            shortUnitId,
+                            unitSystem,
+                            relatedValue.toString(FormatStyle.basic),
+                            relatedUnit,
+                            UnitSystem.getSystemsDisplay(systems)));
+        }
+        return formatExampleList(examples);
+    }
+
+    /**
+     * Handles paths like:<br>
+     * //ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-imperial"]/unitPattern[@count="other"]
+     */
+    public void addFormattedUnits(
+            List<String> examples,
+            XPathParts parts,
+            String unitPattern,
+            final String shortUnitId,
+            DecimalQuantity amount) {
         /*
          * PluralRules.FixedDecimal is deprecated, but deprecated in ICU is
          * also used to mark internal methods (which are OK for us to use in CLDR).
          */
-        DecimalQuantity amount = getBest(Count.valueOf(count));
-        if (amount == null) {
-            return null;
-        }
         DecimalFormat numberFormat;
         String formattedAmount;
         numberFormat = icuServiceBuilder.getNumberFormat(1);
@@ -1232,11 +1276,6 @@ public class ExampleGenerator {
                 format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
 
         if (parts.getElement(-2).equals("unit")) {
-            String longUnitId = parts.getAttributeValue(-2, "type");
-            final String shortUnitId = UNIT_CONVERTER.getShortId(longUnitId);
-            if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
-                return null;
-            }
             if (unitPattern != null) {
                 String gCase = parts.getAttributeValue(-1, "case");
                 if (gCase == null) {
@@ -1296,27 +1335,8 @@ public class ExampleGenerator {
                         examples.add(EXAMPLE_OF_CAUTION + "️No Case Minimal Pair available yet️");
                     }
                 }
-                Map<Rational, String> relatedUnits =
-                        UNIT_CONVERTER.getRelatedExamples(shortUnitId, getExampleUnitSystems());
-                for (Entry<Rational, String> relatedUnitInfo : relatedUnits.entrySet()) {
-                    Rational relatedValue = relatedUnitInfo.getKey();
-                    String relatedUnit = relatedUnitInfo.getValue();
-                    Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(relatedUnit);
-                    String info =
-                            systems.contains(UnitSystem.ussystem)
-                                    ? systems.contains(UnitSystem.uksystem) ? " (US/UK)" : " (US)"
-                                    : systems.contains(UnitSystem.uksystem) ? " (UK)" : "";
-                    examples.add(
-                            String.format(
-                                    "1 %s 🟰 %s %s%s",
-                                    shortUnitId,
-                                    relatedValue.toString(FormatStyle.basic),
-                                    relatedUnit,
-                                    info));
-                }
             }
         }
-        return formatExampleList(examples);
     }
 
     /**

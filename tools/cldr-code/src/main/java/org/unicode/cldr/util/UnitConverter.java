@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
@@ -20,6 +21,7 @@ import com.ibm.icu.util.ULocale;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -1617,6 +1619,26 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
             return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
+        }
+
+        private static final Joiner SLASH_JOINER = Joiner.on("/");
+
+        public static String getSystemsDisplay(Set<UnitSystem> systems) {
+            List<String> result = new ArrayList<>();
+            for (UnitSystem system : systems) {
+                switch (system) {
+                    case ussystem:
+                        result.add("US");
+                        break;
+                    case uksystem:
+                        result.add("UK");
+                        break;
+                    case jpsystem:
+                        result.add("JP");
+                        break;
+                }
+            }
+            return result.isEmpty() ? "" : " (" + SLASH_JOINER.join(result) + ")";
         }
     }
 

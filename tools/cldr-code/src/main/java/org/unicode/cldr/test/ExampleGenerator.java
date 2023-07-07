@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
@@ -70,6 +71,8 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -78,6 +81,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
@@ -1292,9 +1296,39 @@ public class ExampleGenerator {
                         examples.add(EXAMPLE_OF_CAUTION + "️No Case Minimal Pair available yet️");
                     }
                 }
+                Map<Rational, String> relatedUnits =
+                        UNIT_CONVERTER.getRelatedExamples(shortUnitId, getExampleUnitSystems());
+                for (Entry<Rational, String> relatedUnitInfo : relatedUnits.entrySet()) {
+                    Rational relatedValue = relatedUnitInfo.getKey();
+                    String relatedUnit = relatedUnitInfo.getValue();
+                    Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(relatedUnit);
+                    String info =
+                            systems.contains(UnitSystem.ussystem)
+                                    ? systems.contains(UnitSystem.uksystem) ? " (US/UK)" : " (US)"
+                                    : systems.contains(UnitSystem.uksystem) ? " (UK)" : "";
+                    examples.add(
+                            String.format(
+                                    "1 %s 🟰 %s %s%s",
+                                    shortUnitId,
+                                    relatedValue.toString(FormatStyle.basic),
+                                    relatedUnit,
+                                    info));
+                }
             }
         }
         return formatExampleList(examples);
+    }
+
+    /**
+     * Customize the systems according to the locale
+     *
+     * @return
+     */
+    public Set<UnitSystem> getExampleUnitSystems() {
+        LanguageTagParser ltp = new LanguageTagParser().set(cldrFile.getLocaleID());
+        return ltp.getLanguage().equals("ja")
+                ? UnitSystem.ALL
+                : Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem));
     }
 
     private String getConstrastingCase(

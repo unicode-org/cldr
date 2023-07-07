@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -2019,6 +2020,31 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 baseUnit = getStandardUnit(baseUnit);
             }
             result.put(otherValue, baseUnit);
+        }
+    }
+
+    static final Set<UnitSystem> NO_UK =
+            Set.copyOf(Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.uksystem)));
+    static final Set<UnitSystem> NO_JP =
+            Set.copyOf(Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem)));
+    static final Set<UnitSystem> NO_JP_UK =
+            Set.copyOf(
+                    Sets.difference(
+                            UnitSystem.ALL, Set.of(UnitSystem.jpsystem, UnitSystem.uksystem)));
+    /**
+     * Customize the systems according to the locale
+     *
+     * @return
+     */
+    public static Set<UnitSystem> getExampleUnitSystems(String locale) {
+        String language = CLDRLocale.getInstance(locale).getLanguage();
+        switch (language) {
+            case "ja":
+                return NO_UK;
+            case "en":
+                return NO_JP;
+            default:
+                return NO_JP_UK;
         }
     }
 }

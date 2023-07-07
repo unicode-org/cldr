@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
@@ -1232,8 +1231,10 @@ public class ExampleGenerator {
         }
         // add related units
         Map<Rational, String> relatedUnits =
-                UNIT_CONVERTER.getRelatedExamples(shortUnitId, getExampleUnitSystems());
+                UNIT_CONVERTER.getRelatedExamples(
+                        shortUnitId, UnitConverter.getExampleUnitSystems(cldrFile.getLocaleID()));
         String unitSystem = null;
+        boolean first = true;
         for (Entry<Rational, String> relatedUnitInfo : relatedUnits.entrySet()) {
             if (unitSystem == null) {
                 Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(shortUnitId);
@@ -1242,12 +1243,23 @@ public class ExampleGenerator {
             Rational relatedValue = relatedUnitInfo.getKey();
             String relatedUnit = relatedUnitInfo.getValue();
             Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(relatedUnit);
+            String relation = "≡";
+            String relatedValueDisplay = relatedValue.toString(FormatStyle.basic);
+            if (relatedValueDisplay.startsWith("~")) {
+                relation = "≈";
+                relatedValueDisplay = relatedValueDisplay.substring(1);
+            }
+            if (!examples.isEmpty() && first) {
+                examples.add(""); // add blank line
+                first = false;
+            }
             examples.add(
                     String.format(
-                            "1 %s%s 🟰 %s %s%s",
+                            "1 %s%s %s %s %s%s",
                             shortUnitId,
                             unitSystem,
-                            relatedValue.toString(FormatStyle.basic),
+                            relation,
+                            relatedValueDisplay,
                             relatedUnit,
                             UnitSystem.getSystemsDisplay(systems)));
         }
@@ -1337,18 +1349,6 @@ public class ExampleGenerator {
                 }
             }
         }
-    }
-
-    /**
-     * Customize the systems according to the locale
-     *
-     * @return
-     */
-    public Set<UnitSystem> getExampleUnitSystems() {
-        LanguageTagParser ltp = new LanguageTagParser().set(cldrFile.getLocaleID());
-        return ltp.getLanguage().equals("ja")
-                ? UnitSystem.ALL
-                : Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem));
     }
 
     private String getConstrastingCase(

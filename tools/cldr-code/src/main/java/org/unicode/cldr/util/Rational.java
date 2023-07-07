@@ -370,23 +370,20 @@ public final class Rational implements Comparable<Rational> {
         switch (style) {
             case repeating:
                 limit = 30;
+                // fall through with smaller limit
             case repeatingAll:
+                // if we come directly here, the limit is huge
                 String result = toRepeating(limit);
-                // unreasonable
-                if (result != null) {
+                if (result != null) { // null is returned if we can't fit into the limit
                     return result;
                 }
                 // otherwise drop through to simple
             case simple:
-                {
-                    return denIsOne ? numStr : numStr + "/" + denStr;
-                }
+                return denIsOne ? numStr : numStr + "/" + denStr;
             case html:
-                {
-                    return denIsOne
-                            ? numStr
-                            : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
-                }
+                return denIsOne
+                        ? numStr
+                        : "<sup>" + numStr + "</sup>" + "/<sub>" + denStr + "<sub>";
             default:
                 throw new UnsupportedOperationException();
         }

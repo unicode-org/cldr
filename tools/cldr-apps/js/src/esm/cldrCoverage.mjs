@@ -3,6 +3,9 @@
  */
 
 import * as cldrStatus from "./cldrStatus.mjs";
+import * as cldrClient from "./cldrClient.mjs";
+import * as cldrXlsx from "./cldrXlsx.mjs";
+import * as XLSX from "xlsx";
 
 let surveyLevels = null;
 
@@ -133,15 +136,145 @@ function updateCoverage(theDiv) {
   }
 }
 
+async function getCoverageStatus() {
+  const client = await cldrClient.getClient();
+  const { body } = await client.apis.voting.getCoverageStatus();
+  const { levelNames, results } = body;
+  const cooked = results.reduce((p, v) => {
+    const { proportions, locale } = v;
+    delete v.proportions;
+    v.proportions = {};
+    for (let n = 0; n < levelNames.length; n++) {
+      v.adjustedGoal = v.adjustedGoal?.toLowerCase();
+      v.cldrLocaleLevelGoal = v.cldrLocaleLevelGoal?.toLowerCase();
+      v.staticLevel = v.staticLevel?.toLowerCase();
+      const name = levelNames[n];
+      const val = proportions[n];
+      v.proportions[name] = val; // "modern": 0.45 etc
+    }
+    p[locale] = v;
+    return p;
+  }, {});
+
+  return { data: cooked, levelNames, raw: results };
+}
+
+async function getCoverageStatusXlsx() {
+  const { data, levelNames } = await getCoverageStatus();
+
+  levelNames.sort();
+
+  const locales = Object.keys(data).sort();
+
+  const COLUMNS = [
+    {
+      title: "locale",
+    },
+    {
+      title: "level",
+    },
+    {
+      title: "oldLevel",
+    },
+    {
+      title: "adjustedGoal",
+    },
+    {
+      title: "cldrLocaleLevelGoal",
+    },
+    // add the levelNames
+    ...levelNames.map((title) => ({ title })),
+    {
+      title: "icu",
+    },
+    {
+      title: "missing",
+    },
+    {
+      title: "missingPaths",
+    },
+    {
+      title: "found",
+    },
+    {
+      title: "sumFound",
+    },
+    {
+      title: "sumUnconfirmed",
+    },
+    {
+      title: "unconfirmedc",
+    },
+  ];
+
+  // add coverage level columns
+
+  const ws_data = [
+    [...COLUMNS.map(({ title }) => title)], // header
+    ...locales.map((locale) => {
+      const {
+        adjustedGoal,
+        cldrLocaleLevelGoal,
+        found,
+        icu,
+        missing,
+        proportions,
+        shownMissingPaths,
+        staticLevel,
+        sumFound,
+        sumUnconfirmed,
+        unconfirmedc,
+        visibleLevelComputed,
+      } = data[locale];
+
+      return [
+        locale,
+        visibleLevelComputed,
+        staticLevel || "-",
+        adjustedGoal || "",
+        cldrLocaleLevelGoal || "",
+        // add the levels
+        ...levelNames.map((level) => proportions[level]),
+        !!icu ? "y" : "",
+        missing || 0,
+        (shownMissingPaths || []).join(","),
+        found || 0,
+        sumFound || 0,
+        sumUnconfirmed || 0,
+        unconfirmedc || 0,
+      ];
+    }),
+  ];
+
+  // TODO: comments
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  // set all of the levels to %
+  // index of first 'level' column
+  const colStart = COLUMNS.findIndex(({ title }) => title === levelNames[0]);
+  for (let r = 1; r < ws_data.length; r++) {
+    for (let n = 0; n < levelNames.length; n++) {
+      const c = colStart + n;
+      const cr = XLSX.utils.encode_cell({ r, c });
+      ws[cr].z = "0%"; // percentage for levels
+    }
+  }
+  const ws_name = "LiveLocaleCoverage";
+  XLSX.utils.book_append_sheet(wb, ws, ws_name);
+  XLSX.writeFile(wb, `${ws_name}.xlsx`);
+}
+
 export {
   covName,
   covValue,
   effectiveCoverage,
   effectiveName,
+  getCoverageStatus,
+  getCoverageStatusXlsx,
   getSurveyOrgCov,
   getSurveyUserCov,
   setSurveyLevels,
   setSurveyUserCov,
-  updateCovFromJson,
   updateCoverage,
+  updateCovFromJson,
 };

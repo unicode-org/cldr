@@ -170,13 +170,13 @@ public class ShowLocaleCoverage {
 
     private static Set<String> COMMON_LOCALES;
 
-    private static class StatusData {
+    public static class StatusData {
         int missing;
         int provisional;
         int unconfirmed;
     }
 
-    private static class StatusCounter {
+    public static class StatusCounter {
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
@@ -268,7 +268,7 @@ public class ShowLocaleCoverage {
         }
     }
 
-    private static class FoundAndTotal {
+    public static class FoundAndTotal {
         final int found;
         final int total;
 

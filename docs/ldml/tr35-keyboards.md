@@ -292,7 +292,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 ## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
 * New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms will be included in the CLDR repository. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
-* New layouts will have version metadata to indicate their spec compliance versi​​on number. For this tech preview, the value used must be `techpreview`.
+* New layouts will have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`.
 
 ```xml
 <keyboard conformsTo="techpreview"/>
@@ -345,7 +345,7 @@ _Attribute:_ `conformsTo` (required)
 This attribute distinguishes the keyboard from prior versions,
 and it also specifies the minimum CLDR version required.
 
-For purposes of this current draft spec, the value should always be `techpreview`
+For purposes of this current draft specification, the value should always be `techpreview`
 
 ```xml
 <keyboard … conformsTo="techpreview"/>
@@ -2431,7 +2431,7 @@ The following are the design principles for the IDs.
 
 | Platform | No modifier combination match is available | No map match is available for key position | Transform fails (i.e. if \^d is pressed when that transform does not exist) |
 |----------|--------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------|
-| Chrome OS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br/> In the spec: No output | No output at all |
+| Chrome OS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br/> In the specification: No output | No output at all |
 | Mac OS X  | Fall back to base (unless combination is some sort of keyboard shortcut, e.g. cmd-c) | No output | Both keys are output separately |
 | Windows  | No output | No output | Both keys are output separately |
 

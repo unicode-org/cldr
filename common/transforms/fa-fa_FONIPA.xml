@@ -65,13 +65,15 @@ $BOUNDARY {ای} → iː;
 آ → ɒː;
 اِ → e;
 اُ → o;
-او → uː;
+$BOUNDARY {او} → uː;
+او → ɒːv;
 ا → ɒː; # Probably [^$BOUNDARY]
 ِ → e;
 ه ِ ّ → hhe; # Needed because NFD moves kasra before shadda
 هِ → he;
 
 خوا → χɒː;
+خوی → χiː;
 {و} $VOWEL → v;
 {و} ه $BOUNDARY → v;
 {و} هٔ $BOUNDARY → v;

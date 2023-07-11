@@ -427,9 +427,9 @@ See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion a
 <!-- Pan Nigerian Keyboard-->
 <keyboard locale="mul-Latn-NG-t-k0-panng">
     <locales>
-    <locale id="ha"/>
-    <locale id="ig"/>
-    <!-- others … -->
+        <locale id="ha"/>
+        <locale id="ig"/>
+        <!-- others … -->
     </locales>
 </keyboard>
 ```
@@ -458,7 +458,7 @@ Element used to keep track of the source data version.
 
 _Attribute:_ `number` (required)
 
-> Must be a [[SEMVER](https://semver.org)] compatible version number, such as `1.0.0`
+> Must be a [[SEMVER](https://semver.org)] compatible version number, such as `1.0.0` or `38.0.0-beta.11`
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 

@@ -281,9 +281,9 @@ The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 secti
 * `value` on the `<variable>` element
 * `to` and `display` on the `<display>` element
 * `baseCharacter` on the `<displayOptions>` element
-* Some attributes on [Keyboard Test Data](#Keyboard Test Data) subelements
+* Some attributes on [Keyboard Test Data](#keyboard-test-data) subelements
 
-Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
+Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
 
 Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#57-dtd-annotations)
 
@@ -291,8 +291,8 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 ## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
-* New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
-* New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be `techpreview`.
+* New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms will be included in the CLDR repository. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
+* New layouts will have version metadata to indicate their spec compliance versi​​on number. For this tech preview, the value used must be `techpreview`.
 
 ```xml
 <keyboard conformsTo="techpreview"/>
@@ -308,7 +308,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 ### <a name="Extensibility" href="#Extensibility">Extensibility</a>
 
-For extensibility, the `<special>` element will be allowed at every nearly every level.
+For extensibility, the `<special>` element will be allowed at nearly every level.
 
 See [Element special](tr35.md#special) in Part 1.
 

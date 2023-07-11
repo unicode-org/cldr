@@ -43,6 +43,7 @@ $IPA_CONSONANT = [ m n p b t d k ɡ ʔ f v s z ʃ ʒ ʁ ɢ h χ {t͡ʃ} {d͡ʒ} 
 ا ٔ → ʔ;
 و ٔ → ʔ;
 ی ْ ٔ → ʔ; # Needed because NFD reorders sukun before hamza
+ی ِ ٔ → ʔe; # Needed because NFD reorders kasra before hamza
 ی ٔ → ʔ;
 
 { َ ه} $BOUNDARY → æ;

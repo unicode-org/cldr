@@ -1249,8 +1249,10 @@ public class ExampleGenerator {
                 relation = "≈";
                 relatedValueDisplay = relatedValueDisplay.substring(1);
             }
-            if (!examples.isEmpty() && first) {
-                examples.add(""); // add blank line
+            if (first) {
+                if (!examples.isEmpty()) {
+                    examples.add(""); // add blank line
+                }
                 first = false;
             }
             examples.add(
@@ -1382,7 +1384,7 @@ public class ExampleGenerator {
     @SuppressWarnings("deprecation")
     public String handleCompoundUnit(UnitLength unitLength, String compoundType, Count count) {
         /*
-         *  <units>
+             *  <units>
         <unitLength type="long">
             <alias source="locale" path="../unitLength[@type='short']"/>
         </unitLength>
@@ -1391,7 +1393,7 @@ public class ExampleGenerator {
                 <unitPattern count="other">{0}/{1}</unitPattern>
             </compoundUnit>
 
-         *  <compoundUnit type="per">
+             *  <compoundUnit type="per">
                 <unitPattern count="one">{0}/{1}</unitPattern>
                 <unitPattern count="other">{0}/{1}</unitPattern>
             </compoundUnit>
@@ -1400,7 +1402,7 @@ public class ExampleGenerator {
                 <unitPattern count="other">{0} meters</unitPattern>
             </unit>
 
-         */
+             */
 
         // we want to get a number that works for the count passed in.
         DecimalQuantity amount = getBest(count);

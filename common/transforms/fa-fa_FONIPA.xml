@@ -56,6 +56,13 @@ $IPA_CONSONANT = [ m n p b t d k ɡ ʔ f v s z ʃ ʒ ʁ ɢ h χ {t͡ʃ} {d͡ʒ} 
 َ → æ;
 یه → je;
 یٰ → ɒː;
+$IPA_CONSONANT {وی} $VOWEL → uːj;
+# If yeh is preceded by a consonant and followed by a vowel,
+# it's pronounced /iːj/, but a sukun breaks that and makes it
+# be pronounced just as /j/.
+$IPA_CONSONANT {\u0652 یو} → juː;
+$IPA_CONSONANT {\u0652 ی} $VOWEL → j;
+$IPA_CONSONANT {ی} $VOWEL → iːj;
 {ی} $VOWEL → j;
 ی ْ → j;
 ی → iː;

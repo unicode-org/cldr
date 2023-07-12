@@ -64,6 +64,7 @@ $BOUNDARY {ای} → iː;
 ا\u0653 → ɒː;
 آ → ɒː;
 اِ → e;
+$BOUNDARY {اُو} → o;
 اُ → o;
 $BOUNDARY {او} → uː;
 او → ɒːv;
@@ -78,10 +79,13 @@ $BOUNDARY {او} → uː;
 {و} ه $BOUNDARY → v;
 {و} هٔ $BOUNDARY → v;
 $IPA_CONSONANT {و} → uː;
+$IPA_CONSONANT\u0651 {و} → uː; # shadda after a consonant
 ُ{و} $IPA_CONSONANT → uː;
 
 $BOUNDARY {و} $BOUNDARY → va;
-و → ;
+{ ُو} $VOWEL → ov;
+ُ و ٔ → oʔ;
+ ُو → o;
 ُ → o;
 
 # Consonants

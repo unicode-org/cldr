@@ -492,6 +492,7 @@ const strings = {
   special_mail: "Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
+  special_upload: "Upload (Bulk Import)",
   // The special_r_* are the names of reports, used by ReportResponse.vue and others
   special_r_compact: "Numbers",
   special_r_datetime: "Datetime",

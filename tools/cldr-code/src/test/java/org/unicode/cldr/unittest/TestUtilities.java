@@ -730,7 +730,14 @@ public class TestUtilities extends TestFmwkPlus {
         final Set<String> eightVoteSublocales =
                 new HashSet<>(
                         Arrays.asList(
-                    "pt_PT", "zh_Hant", "zh_Hant_HK", "en_AU", "en_GB", "es_MX", "fr_CA", "es_419"));
+                                "pt_PT",
+                                "zh_Hant",
+                                "zh_Hant_HK",
+                                "en_AU",
+                                "en_GB",
+                                "es_MX",
+                                "fr_CA",
+                                "es_419"));
         final VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {

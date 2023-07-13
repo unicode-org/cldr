@@ -138,6 +138,9 @@ public enum Level {
      * @return level with the minimal getLevel() value
      */
     public static Level max(Level a, Level b) {
+        if (a == null) {
+            return b;
+        }
         return Level.fromLevel(Math.max(a.getLevel(), b.getLevel()));
     }
 

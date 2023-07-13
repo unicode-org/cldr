@@ -38,6 +38,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.VoteResolver;
 
 public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static StandardCodes sc = StandardCodes.make();
@@ -439,9 +440,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
     /** Tests that cldr+special is a superset of the TC locales, with the right levels */
     public void TestCldrSuperset() {
-        Map<String, Level> apple = sc.getLocalesToLevelsFor(Organization.apple);
-        Map<String, Level> google = sc.getLocalesToLevelsFor(Organization.google);
-        Map<String, Level> microsoft = sc.getLocalesToLevelsFor(Organization.microsoft);
+        final Set<Organization> orgs = Organization.getTCOrgs();
+
+        Map<Organization, Map<String, Level>> orgToLevels = new TreeMap<>();
+        orgs.forEach(org -> orgToLevels.put(org, sc.getLocalesToLevelsFor(org)));
+
         Map<String, Level> special = sc.getLocalesToLevelsFor(Organization.special);
 
         Map<String, Level> cldr = sc.getLocalesToLevelsFor(Organization.cldr);
@@ -449,30 +452,62 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // check that the cldr locales (+ special) have the max level of the TC locales
 
         for (Entry<String, Level> entry : cldr.entrySet()) {
-            String locale = entry.getKey();
+            final String locale = entry.getKey();
+
+            final Map<Organization, Level> orgToLevel =
+                    orgToLevels.entrySet().stream()
+                            .collect(
+                                    Collectors.toMap(
+                                            Entry::getKey,
+                                            v -> {
+                                                final Level l = v.getValue().get(locale);
+                                                if (l == null) return Level.UNDETERMINED;
+                                                return l;
+                                            }));
+
             Level cldrLevel = entry.getValue();
-            Level appleLevel = apple.get(locale);
-            Level googleLevel = google.get(locale);
-            Level microsoftLevel = microsoft.get(locale);
             Level specialLevel = special.get(locale);
+            boolean cldrLevelIsModern = cldrLevel.compareTo(Level.MODERN) >= 0;
 
-            // check the 8 vote count
+            // check the vote count
 
-            int count =
-                    getLevelCount(appleLevel)
-                            + getLevelCount(googleLevel)
-                            + getLevelCount(microsoftLevel);
+            final int count =
+                    (int)
+                            orgToLevel.values().stream()
+                                    .filter(TestCLDRLocaleCoverage::isPresentAndAtLeastModern)
+                                    .count();
+            final int countMin = 2;
+            final boolean countAtLeast = count > countMin;
             int defaultVotes =
                     SupplementalDataInfo.getInstance()
                             .getRequiredVotes(CLDRLocale.getInstance(locale), null);
-            assertEquals(
-                    "8 votes for " + locale + " at " + cldrLevel,
-                    count > 2 && cldrLevel.compareTo(Level.MODERN) >= 0,
-                    defaultVotes == 8);
+
+            if (countAtLeast && cldrLevelIsModern) {
+                assertEquals(
+                        "orgCount="
+                                + count
+                                + ", and cldrLevel="
+                                + cldrLevel
+                                + ", expected LOWER_BAR but it wasn't for "
+                                + locale,
+                        VoteResolver.LOWER_BAR,
+                        defaultVotes);
+            } else {
+                assertNotEquals(
+                        "orgCount="
+                                + count
+                                + ", and cldrLevel="
+                                + cldrLevel
+                                + ", expected "
+                                + locale
+                                + " to NOT have LOWER_BAR",
+                        VoteResolver.LOWER_BAR,
+                        defaultVotes);
+            }
 
             // check the max level
-
-            Level maxLevel = Level.max(appleLevel, googleLevel, microsoftLevel, specialLevel);
+            Level maxLevel =
+                    Level.max(specialLevel, Level.max(orgToLevel.values().toArray(new Level[0])));
             assertEquals(
                     "cldr level = max for " + locale + " (" + ENGLISH.getName(locale) + ")",
                     cldrLevel,
@@ -480,22 +515,24 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         }
 
         // check that the cldr locales include all of the other locale's
-
-        checkCldrContains("cldr", cldr, "apple", apple);
-        checkCldrContains("cldr", cldr, "google", google);
-        checkCldrContains("cldr", cldr, "microsoft", microsoft);
-        checkCldrContains("cldr", cldr, "special", apple);
-
-        // check that special doesn't overlap with TC, except for locales in
-        // LOCALE_CONTAINMENT_EXCEPTIONS
-
-        checkDisjoint("special", special, "apple", apple);
-        checkDisjoint("special", special, "google", google);
-        checkDisjoint("special", special, "microsoft", microsoft);
+        orgToLevels
+                .entrySet()
+                .forEach(
+                        e -> {
+                            final Organization org = e.getKey();
+                            final Map<String, Level> l = e.getValue();
+                            checkCldrContains("cldr", cldr, org.name(), l);
+                            checkCldrContains("cldr", cldr, "special", l);
+                            // check that special doesn't overlap with TC, except for locales in
+                            // LOCALE_CONTAINMENT_EXCEPTIONS
+                            checkDisjoint("special", special, org.name(), l);
+                        });
     }
 
-    private int getLevelCount(Level appleLevel) {
-        return appleLevel == null ? 0 : appleLevel.compareTo(Level.MODERN) >= 0 ? 1 : 0;
+    private static boolean isPresentAndAtLeastModern(Level orgLevel) {
+        return orgLevel == Level.UNDETERMINED
+                ? false
+                : orgLevel.compareTo(Level.MODERN) >= 0 ? true : false;
     }
 
     private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");

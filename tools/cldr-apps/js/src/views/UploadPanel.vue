@@ -25,12 +25,12 @@
             Value'</a-timeline-item
           >
           <a-timeline-item
-            >Edit the spreadsheet to fill in the 'New Value'
-            column</a-timeline-item
-          >
+            >Edit the spreadsheet to fill in the 'New Value'. Save the
+            spreadsheet off as .xlsx or .csv or .tsv.
+          </a-timeline-item>
           <a-timeline-item>Come back to this page</a-timeline-item>
           <a-timeline-item
-            >Choose a locale id:
+            >Enter the locale id:
             <a-input
               style="width: 25em"
               :max-length="40"
@@ -67,7 +67,7 @@
             >The spreadsheet <b>{{ xlsFileDone }}</b> will be converted into a
             .xml file
           </a-timeline-item>
-          <a-timeline-item v-if="!xlsErr && xlsHeaders">
+          <a-timeline-item v-if="!xlsErr && xlsHeaders && xlsFileDone">
             Columns:
             <span v-for="header of xlsHeaders"> {{ header }} |</span>
             <br />
@@ -95,7 +95,8 @@
           >
           <a-timeline-item v-if="!xlsErr && xlsXml">
             <h4>{{ xlsLocale }}.xml</h4>
-            <textarea cols="50" rows="20">{{ xlsXml }}</textarea><br/>
+            <textarea cols="50" rows="20">{{ xlsXml }}</textarea
+            ><br />
             <a-button @click="xmlDownload">Download…</a-button>
           </a-timeline-item>
           <a-timeline-item v-if="!xlsErr && xlsXml"
@@ -119,7 +120,6 @@
           >Help on Bulk XML Upload</a
         >
       </a-collapse-panel>
-
     </a-collapse>
   </div>
 </template>
@@ -130,7 +130,7 @@ import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import { ref } from "vue";
 import { InboxOutlined } from "@ant-design/icons-vue";
-import { fileSave } from 'browser-fs-access';
+import { fileSave } from "browser-fs-access";
 
 export default {
   components: {
@@ -182,16 +182,20 @@ export default {
         }
       });
     },
-        xmlDownload() {
-            const blob = new Blob([this.xlsXml], { type: 'text/xml' });
-            return fileSave(blob,
-                {
-                    fileName: `${this.xlsLocale}.xml`, extensions: ['.xml'],
-                });
-        },
+    xmlDownload() {
+      const blob = new Blob([this.xlsXml], { type: "text/xml" });
+      return fileSave(blob, {
+        fileName: `${this.xlsLocale}.xml`,
+        extensions: [".xml"],
+      });
     },
-    watch: {
-        xlsWb() {
+  },
+  watch: {
+    xlsWb() {
+      if (!this.xlsWb) {
+        this.xlsHeaders = null;
+        return;
+      }
       try {
         this.xlsHeaders = cldrBulkConverter.xlsHeaders(this.xlsWb);
       } catch (e) {

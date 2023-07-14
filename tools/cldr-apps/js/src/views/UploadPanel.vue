@@ -4,16 +4,6 @@
       <h1>This panel is only available if you are logged in.</h1>
     </div>
     <a-collapse v-if="surveyUser" v-model:activeKey="activeKey" accordion>
-      <a-collapse-panel
-        key="upload-xml"
-        header="Upload XML as your vote (Bulk Upload)"
-      >
-        <a id="xmlup" target="_blank" :href="xmlUploadUrl"> Upload XML… </a> |
-        <a href="https://cldr.unicode.org/index/survey-tool/bulk-data-upload"
-          >Help on Bulk XML Upload</a
-        >
-      </a-collapse-panel>
-
       <a-collapse-panel key="convert-xlsx" header="Convert XLSX to XML">
         <h4>
           How to use this: (Beta, see
@@ -104,8 +94,9 @@
             </button></a-timeline-item
           >
           <a-timeline-item v-if="!xlsErr && xlsXml">
-            <a-button>Download…</a-button><br />
-            <textarea cols="50" rows="20">{{ xlsXml }}</textarea>
+            <h4>{{ xlsLocale }}.xml</h4>
+            <textarea cols="50" rows="20">{{ xlsXml }}</textarea><br/>
+            <a-button @click="xmlDownload">Download…</a-button>
           </a-timeline-item>
           <a-timeline-item v-if="!xlsErr && xlsXml"
             >Use the 'Upload XML' section of this page to upload that XML
@@ -119,9 +110,16 @@
         <hr />
       </a-collapse-panel>
 
-      <!-- <a-collapse-panel key="help" header="More Help">
+      <a-collapse-panel
+        key="upload-xml"
+        header="Upload XML as your vote (Bulk Upload)"
+      >
+        <a id="xmlup" target="_blank" :href="xmlUploadUrl"> Upload XML… </a> |
+        <a href="https://cldr.unicode.org/index/survey-tool/bulk-data-upload"
+          >Help on Bulk XML Upload</a
+        >
+      </a-collapse-panel>
 
-            </a-collapse-panel> -->
     </a-collapse>
   </div>
 </template>
@@ -132,24 +130,26 @@ import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import { ref } from "vue";
 import { InboxOutlined } from "@ant-design/icons-vue";
+import { fileSave } from 'browser-fs-access';
+
 export default {
   components: {
     InboxOutlined,
   },
   data: function () {
     return {
-      activeKey: "convert-xlsx", // ref("upload-xml"),
+      activeKey: "",
       sessionId: cldrStatus.refs.sessionId,
       surveyUser: cldrStatus.refs.surveyUser,
-      xlsLocale: "yo", // null,
+      xlsLocale: null,
       xlsFileList: ref([]),
       xlsFileDone: null,
       xlsWb: null,
       xlsErr: null,
       xlsXml: null,
       xlsHeaders: ref([]),
-      xlsXpathColumn: ref("XPath"), // null
-      xlsValueColumn: ref("Proposed value"), // null
+      xlsXpathColumn: ref(null),
+      xlsValueColumn: ref(null),
     };
   },
   created: function () {},
@@ -182,9 +182,16 @@ export default {
         }
       });
     },
-  },
-  watch: {
-    xlsWb() {
+        xmlDownload() {
+            const blob = new Blob([this.xlsXml], { type: 'text/xml' });
+            return fileSave(blob,
+                {
+                    fileName: `${this.xlsLocale}.xml`, extensions: ['.xml'],
+                });
+        },
+    },
+    watch: {
+        xlsWb() {
       try {
         this.xlsHeaders = cldrBulkConverter.xlsHeaders(this.xlsWb);
       } catch (e) {

@@ -107,7 +107,7 @@ XMLUploader.writeBulkInfoHtml("check", out);
 <div style='padding: 1em;'>
 <%
 try {
-	cf = SimpleFactory.makeFile(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
+	cf = SimpleFactory.makeFileLenient(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
 } catch(Throwable t) {
 	SurveyLog.logException(t, "while "+email+"uploading bulk file ");
 	out.println("<h3>Failed to parse.</h3>");

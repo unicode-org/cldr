@@ -46,9 +46,9 @@ function xlsHeaders(wb) {
 }
 
 function xlsGenerateXml(locale, wb, xColumn, vColumn) {
-    if (!wb) throw Error(`No workbook`);
-    const sheet = wb.Sheets[wb.SheetNames[0]];
-    const headers = xlsHeaders(wb);
+  if (!wb) throw Error(`No workbook`);
+  const sheet = wb.Sheets[wb.SheetNames[0]];
+  const headers = xlsHeaders(wb);
   const xNumber = headers.findIndex((v) => v === xColumn); // col # for XPath
   const vNumber = headers.findIndex((v) => v === vColumn); // col # for Value
 
@@ -66,38 +66,15 @@ function xlsGenerateXml(locale, wb, xColumn, vColumn) {
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Don't change the DOCTYPE. -->
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Generated using cldrBulkConverter from a spreadsheet
-     locale: ${locale} / ${bcp47} / ${name}
--->
-
-<!-- Copyright © 1991-2023 Unicode, Inc.
-For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!--
+ Generated ${new Date().toLocaleDateString()} using cldrBulkConverter from a spreadsheet
+ Locale: ${locale} / ${bcp47} / ${name}
 -->
 <ldml>
 	<identity>
         <version number="$Revision$"/><!-- don't remove this.-->
     </identity>
-
-    <characterLabels/>
-    <localeDisplayNames>
-        <languages/>
-		<scripts/>
-        <territories/>
-        <types/>
-    </localeDisplayNames>
-    <units>
-        <unitLength type="long"/>
-    </units>
-    <annotations/>
-    <characters/>
-    <numbers>
-        <miscPatterns numberSystem="latn"/>
-    </numbers>
-
-    </ldml>`;
-
+</ldml>`;
 
   const xparser = new DOMParser();
   const doc = xparser.parseFromString(xml, "text/xml");
@@ -106,19 +83,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
   function newTag(tag, content, attrs) {
     const n = doc.createElement(tag);
     // add any content
-    if(content) {
-        const t = doc.createTextNode(content);
-        n.appendChild(t);
+    if (content) {
+      const t = doc.createTextNode(content);
+      n.appendChild(t);
     }
     if (attrs) {
-        setAttrs(attrs, n);
+      setAttrs(attrs, n);
     }
     return n;
   }
 
   function setAttrs(a, newChild) {
     for (const [k, v] of Object.entries(a)) {
-        newChild.setAttribute(k, v);
+      newChild.setAttribute(k, v);
     }
     return newChild;
   }
@@ -127,37 +104,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
   function nodeAttrMap(n) {
     const attrs = {};
     for (const a of n.attributes) {
-        attrs[a.name] = a.value;
+      attrs[a.name] = a.value;
     }
     return attrs;
   }
 
   /** half of a deep equality */
-  function matchHalf(a,b) {
-    for(const [k,v] of Object.entries(a)) {
-        // TODO: skip excluded
-        if (b[k]!==v) return false;
+  function matchHalf(a, b) {
+    for (const [k, v] of Object.entries(a)) {
+      // TODO: skip excluded
+      if (b[k] !== v) return false;
     }
     return true;
   }
   /** deep equality for Map<string,string> */
-  function matchAttrs(a,b) {
-    return (matchHalf(a,b) && matchHalf(b,a));
+  function matchAttrs(a, b) {
+    return matchHalf(a, b) && matchHalf(b, a);
   }
 
   /** find mathing subnode */
   function findSubNode(parent, tag, attrs) {
     for (const n of parent.children) {
-        if (!n.nodeType === Node.ELEMENT_NODE) continue;
-        if (n.nodeName != tag) continue;
-        // check attrs
-        console.dir(n);
-        const subAttrs = nodeAttrMap(n);
-        if(!matchAttrs(attrs, subAttrs)) {
-            console.log(`No match for ${tag}: ${subAttrs} ≠ ${attrs}`);
-            continue;
-        }
-        return n;
+      if (!n.nodeType === Node.ELEMENT_NODE) continue;
+      if (n.nodeName != tag) continue;
+      // check attrs
+      const subAttrs = nodeAttrMap(n);
+      if (!matchAttrs(attrs, subAttrs)) {
+        continue;
+      }
+      return n;
     }
     return null;
   }
@@ -165,69 +140,70 @@ CLDR data files are interpreted according to the LDML specification (http://unic
   // setup identity
   const ident = doc.getElementsByTagName("identity")[0];
   if (language) {
-    ident.appendChild(newTag("language",null,{type:language}));
+    ident.appendChild(newTag("language", null, { type: language }));
   }
   if (script) {
-    ident.appendChild(newTag("script",null,{type:script}));
+    ident.appendChild(newTag("script", null, { type: script }));
   }
   if (region) {
-    ident.appendChild(newTag("region",null,{type:region}));
+    ident.appendChild(newTag("region", null, { type: region }));
   }
   if (variant) {
-    ident.appendChild(newTag("variant",null,{type:variant})); // may be wrong for valencia etc.
+    ident.appendChild(newTag("variant", null, { type: variant })); // may be wrong for valencia etc.
   }
 
   // now, walk each row
-  for(let r=1;;r++) {
+  for (let r = 1; ; r++) {
     const xpath = sheet[XLSX.utils.encode_cell({ c: xNumber, r })]?.v;
     const value = sheet[XLSX.utils.encode_cell({ c: vNumber, r })]?.v;
     if (!xpath) break;
     if (!value) {
-        // skip missing value
-        continue;
+      // skip missing value
+      continue;
     }
-    if(!xpath.startsWith('//ldml')) {
-        throw Error(`Invalid xpath on row ${r} - ${xpath}`);
+    if (!xpath.startsWith("//ldml")) {
+      throw Error(`Invalid xpath on row ${r} - ${xpath}`);
     }
 
     // now the fun part
     // //ldml/localeDisplayNames/territories/territory[@type="IO"][@alt="chagos"]
-    let xpathParts = xpath.split('/').slice(2);
-    const root = doc.getRootNode();  // our node
+    let xpathParts = xpath.split("/").slice(2);
+    const root = doc.getRootNode(); // our node
     let n = root; // start with root
     const NAME = /^[^\[]*/;
     const ATTRS = /\[@([^=]+)="([^"]+)"\]/g;
     // parse
-    console.log(`Parsint ${xpath}`);
-    for(const p of xpathParts) {
-        const a = {};
-        const tag = p.match(NAME)[0];
-        const attrstr = p.substr(tag.length);
-        let g;
-        while (g = ATTRS.exec(attrstr)) {
-            const [, k, v] = g;
-            a[k] = v; // add to map
+    for (const p of xpathParts) {
+      const a = {};
+      const tag = p.match(NAME)[0];
+      const attrstr = p.substr(tag.length);
+      let g;
+      while ((g = ATTRS.exec(attrstr))) {
+        const [, k, v] = g;
+        a[k] = v; // add to map
+      }
+      console.dir({ tag, a });
+      // Now, go find that node
+      const child = findSubNode(n, tag, a);
+      if (!child) {
+        // special: don't create 2 subnodes
+        if (n === root) {
+          throw Error(
+            `could not find root node ${tag} - root is ${root.children[0].nodeName}?`
+          );
         }
-        console.dir({ tag, a });
-        // Now, go find that node
-        const child = findSubNode(n, tag, a);
-        if (!child) {
-            // special: don't create 2 subnodes
-            if (n === root) {
-                throw Error(`could not find root node ${tag} - root is ${root.children[0].nodeName}?`);
-            }
-            // then make it
-            const newChild = newTag(tag);
-            // add attrs
-            setAttrs(a, newChild);
-            n.appendChild(newChild);
-            n = newChild;
-        } else {
-            n = child;
-        }
+        // then make it
+        const newChild = newTag(tag);
+        // add attrs
+        setAttrs(a, newChild);
+        n.appendChild(newChild);
+        n = newChild;
+      } else {
+        n = child;
+      }
     }
     // whew. Created.
-    n.appendChild(doc.createTextNode(value.trim());
+    n.appendChild(doc.createTextNode(value.trim()));
   }
 
   // write it out
@@ -236,8 +212,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
   return xser.serializeToString(doc);
 }
 
-function xlsDownloadXml(locale, xml) {
-  // TODO
-}
-
-export { xlsDownloadXml, xlsGenerateXml, xlsHeaders, xlsUpload };
+export { xlsGenerateXml, xlsHeaders, xlsUpload };

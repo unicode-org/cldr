@@ -31,7 +31,7 @@
       <li>
         <ul>
           <li>
-            <a v-bind:href="uploadXmlUrl" target="_blank">Upload XML </a>
+            <a href="#upload">Upload (Bulk Import)</a>
           </li>
         </ul>
       </li>

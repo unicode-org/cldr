@@ -560,7 +560,18 @@ public class DataPage {
             baselineStatus = resolver.getBaselineStatus();
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
-            displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+
+            Output<String> pathWhereFound = new Output<String>(),
+                    localeWhereFound = new Output<String>();
+            comparisonValueFile.getStringValueWithBailey(xpath, pathWhereFound, localeWhereFound);
+            final boolean samePath = xpath.equals(pathWhereFound.value);
+            if (!samePath) {
+                // zero out displayName if it's sideways inheritance
+                displayName = "";
+            } else {
+                displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+            }
+
             addFixedCandidates();
         }
 

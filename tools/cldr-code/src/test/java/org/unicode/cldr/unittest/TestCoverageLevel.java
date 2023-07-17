@@ -16,6 +16,7 @@ import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collection;
@@ -364,6 +365,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     static final Date NOW = new Date();
+
+    private static final boolean DEBUG = false;
 
     static class TypeName implements Transform<String, String> {
         private final int field;
@@ -1319,6 +1322,36 @@ public class TestCoverageLevel extends TestFmwkPlus {
             codeToBestLevel.put(code, level);
         } else if (level != old) {
             int debug = 0;
+        }
+    }
+
+    public void TestEnglishCoverage() {
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
+        Set<Row.R5<String, String, Boolean, Boolean, Level>> inherited = new TreeSet<>();
+        for (String path : ENGLISH) {
+            String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
+            final boolean samePath = path.equals(pathWhereFound.value);
+            final boolean sameLocale = "en".equals(localeWhereFound.value);
+            if (!samePath) {
+                Level level = SDI.getCoverageLevel(path, "en");
+                if (level.compareTo(Level.MODERN) <= 0) {
+                    inherited.add(Row.of(path, value, samePath, sameLocale, level));
+                }
+            }
+        }
+        if (!assertEquals("English has sideways inheritance:", 0, inherited.size())) {
+            System.out.println("Check the following, then use in modify_config.txt\n");
+            String pattern = "locale=en ; action=add ; new_path=%s ; new_value=%s";
+            for (Row.R5<String, String, Boolean, Boolean, Level> row : inherited) {
+                System.out.println(String.format(pattern, row.get0(), row.get1()));
+                if (DEBUG) {
+                    System.out.println(
+                            String.format(
+                                    "%s\t%s\t%s\t%s\t%s",
+                                    row.get0(), row.get1(), row.get2(), row.get3(), row.get4()));
+                }
+            }
         }
     }
 }

@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Date;
+
 import com.ibm.icu.util.Output;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.unittest.TestUtilities;
@@ -23,26 +25,31 @@ public class TestVoteResolver {
                 CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("Bouvet", Status.unconfirmed);
         vr.setBaileyValue("BV");
-        // Vote with a date in the past, this wil l lose the org dispute
-        vr.add(
-                "Bouvet",
+
+        // A date in 2017
+        final Date t0 = new Date(1500000000000L);
+        // A date in 2020
+        final Date t1 = new Date(1600000000000L);
+
+        assertTrue(t0.before(t1));
+
+        // Vote with a date in the past, this will lose the org dispute
+        vr.add( "Bouvet",
                 TestUtilities.TestUser.googleV.voterId,
                 null,
-                DateConstants.RECENT_HISTORY);
+                t0);
 
-        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, DateConstants.NOW);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, DateConstants.NOW);
-        vr.add(
-                "Illa Bouvet",
+        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, t1);
+        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, t1);
+        vr.add("Illa Bouvet",
                 TestUtilities.TestUser.unaffiliatedS.voterId,
                 null,
-                DateConstants.NOW);
+                t1);
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
-                () ->
-                        assertEquals(
-                                VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
+                () -> assertEquals(
+                        VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
     }
 
     @Test

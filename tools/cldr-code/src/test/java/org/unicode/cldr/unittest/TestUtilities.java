@@ -567,7 +567,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("apple", toVoterId("appleV"));
 
         // check that alphabetical wins when votes are equal
-        Map<String, Long> counts = resolver.getResolvedVoteCounts();
+        Map<String, Long> counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(2));
 
@@ -577,7 +577,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
-        counts = resolver.getResolvedVoteCounts();
+        counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
 
@@ -586,7 +586,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
-        counts = resolver.getResolvedVoteCounts();
+        counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
     }

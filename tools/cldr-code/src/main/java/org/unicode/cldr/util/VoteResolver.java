@@ -547,9 +547,15 @@ public class VoteResolver<T> {
     private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes =
                 new EnumMap<>(Organization.class);
-        private final Counter<T> totalVotes = new Counter<>();
+        /**
+         * All votes, even those that aren't any org's vote because they lost an intra-org dispute
+         */
+        private final Counter<T> allVotesIncludingIntraOrgDispute = new Counter<>();
+
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
+        /** The result of {@link #getTotals(EnumSet)} */
         private final Counter<T> totals = new Counter<>(true);
+
         private Map<String, Long> nameTime = new LinkedHashMap<>();
         // map an organization to what it voted for.
         private final Map<Organization, T> orgToAdd = new EnumMap<>(Organization.class);
@@ -569,21 +575,12 @@ public class VoteResolver<T> {
             }
             orgToAdd.clear();
             orgToMax.clear();
-            totalVotes.clear();
+            allVotesIncludingIntraOrgDispute.clear();
             baileyValue = null;
             baileySet = false;
             if (transcript != null) {
                 transcript = new StringBuilder();
             }
-        }
-
-        /**
-         * Returns value of voted item, in case there is exactly 1.
-         *
-         * @return
-         */
-        private T getSingleVotedItem() {
-            return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
 
         public Map<String, Long> getNameTime() {
@@ -624,10 +621,13 @@ public class VoteResolver<T> {
             if (DROP_HARD_INHERITANCE) {
                 value = changeBaileyToInheritance(value);
             }
-            totalVotes.add(value, votes, time.getTime());
+            /** All votes are added here, even if they will later lose an intra-org dispute. */
+            allVotesIncludingIntraOrgDispute.add(value, votes, time.getTime());
             nameTime.put(info.getName(), time.getTime());
             if (DEBUG) {
-                System.out.println("totalVotes Info: " + totalVotes);
+                System.out.println(
+                        "allVotesIncludingIntraOrgDispute Info: "
+                                + allVotesIncludingIntraOrgDispute);
             }
             if (DEBUG) {
                 System.out.println("VoteInfo: " + info.getName() + info.getOrganization());
@@ -1093,8 +1093,8 @@ public class VoteResolver<T> {
                  */
                 @Override
                 public int compare(T o1, T o2) {
-                    long v1 = organizationToValueAndVote.totalVotes.get(o1);
-                    long v2 = organizationToValueAndVote.totalVotes.get(o2);
+                    long v1 = organizationToValueAndVote.allVotesIncludingIntraOrgDispute.get(o1);
+                    long v2 = organizationToValueAndVote.allVotesIncludingIntraOrgDispute.get(o2);
                     if (v1 != v2) {
                         return v1 < v2 ? 1 : -1; // highest vote first
                     }
@@ -2035,9 +2035,11 @@ public class VoteResolver<T> {
      * Returns a map from value to resolved vote count, in descending order. If the winning item is
      * not there, insert at the front. If the baseline (trunk) item is not there, insert at the end.
      *
+     * <p>This map includes intra-org disputes.
+     *
      * @return the map
      */
-    public Map<T, Long> getResolvedVoteCounts() {
+    public Map<T, Long> getResolvedVoteCountsIncludingIntraOrgDisputes() {
         if (!resolved) {
             resolveVotes();
         }
@@ -2051,13 +2053,14 @@ public class VoteResolver<T> {
         if (baselineValue != null && !totals.containsKey(baselineValue)) {
             result.put(baselineValue, 0L);
         }
-        for (T value : organizationToValueAndVote.totalVotes.getMap().keySet()) {
+        for (T value :
+                organizationToValueAndVote.allVotesIncludingIntraOrgDispute.getMap().keySet()) {
             if (!result.containsKey(value)) {
                 result.put(value, 0L);
             }
         }
         if (DEBUG) {
-            System.out.println("getResolvedVoteCounts :" + result);
+            System.out.println("getResolvedVoteCountsIncludingIntraOrgDisputes :" + result);
         }
         return result;
     }
@@ -2076,14 +2079,12 @@ public class VoteResolver<T> {
             return VoteStatus.provisionalOrWorse;
         }
         final int itemsWithVotes =
-                DROP_HARD_INHERITANCE
-                        ? organizationToValueAndVote.totalVotes.size()
-                        : countDistinctValuesWithVotes();
+                DROP_HARD_INHERITANCE ? totals.size() : countDistinctValuesWithVotes();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;
         }
-        final T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
+        final T singleVotedItem = getSingleVotedItem();
         if (!equalsOrgVote(winningValue, singleVotedItem)) {
             // If someone voted but didn't win
             return VoteStatus.disputed;
@@ -2096,6 +2097,15 @@ public class VoteResolver<T> {
             // We voted, we won, value is approved, no disputes, have votes
             return VoteStatus.ok;
         }
+    }
+
+    /**
+     * Returns value of voted item, in case there is exactly 1.
+     *
+     * @return
+     */
+    private T getSingleVotedItem() {
+        return totals.size() != 1 ? null : totals.iterator().next();
     }
 
     /**
@@ -2126,7 +2136,7 @@ public class VoteResolver<T> {
         if (!resolved) { // must be resolved for bothInheritanceAndBaileyHadVotes
             throw new RuntimeException("countDistinctValuesWithVotes !resolved");
         }
-        int count = organizationToValueAndVote.totalVotes.size();
+        int count = organizationToValueAndVote.allVotesIncludingIntraOrgDispute.size();
         if (count > 1 && bothInheritanceAndBaileyHadVotes) {
             return count - 1; // prevent showing as "disputed" in dashboard
         }

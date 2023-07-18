@@ -273,7 +273,7 @@ public class VoteAPIHelper {
         final EnumSet<Organization> conflictedOrgs = resolver.getConflictedOrganizations();
         /** array of Key, Value, Key, Value… */
         final List<Object> valueToVoteA = new ArrayList<>();
-        final Map<T, Long> valueToVote = resolver.getResolvedVoteCounts();
+        final Map<T, Long> valueToVote = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         for (Map.Entry<T, Long> e : valueToVote.entrySet()) {
             valueToVoteA.add(e.getKey());
             valueToVoteA.add(String.valueOf(e.getValue()));

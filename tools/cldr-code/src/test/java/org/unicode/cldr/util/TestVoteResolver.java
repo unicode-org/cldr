@@ -4,9 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Date;
-
 import com.ibm.icu.util.Output;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.unittest.TestUtilities;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
@@ -34,22 +33,17 @@ public class TestVoteResolver {
         assertTrue(t0.before(t1));
 
         // Vote with a date in the past, this will lose the org dispute
-        vr.add( "Bouvet",
-                TestUtilities.TestUser.googleV.voterId,
-                null,
-                t0);
+        vr.add("Bouvet", TestUtilities.TestUser.googleV.voterId, null, t0);
 
         vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, t1);
         vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, t1);
-        vr.add("Illa Bouvet",
-                TestUtilities.TestUser.unaffiliatedS.voterId,
-                null,
-                t1);
+        vr.add("Illa Bouvet", TestUtilities.TestUser.unaffiliatedS.voterId, null, t1);
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
-                () -> assertEquals(
-                        VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
+                () ->
+                        assertEquals(
+                                VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
     }
 
     @Test

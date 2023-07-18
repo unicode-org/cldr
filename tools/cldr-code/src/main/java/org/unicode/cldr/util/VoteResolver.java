@@ -547,7 +547,9 @@ public class VoteResolver<T> {
     private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes =
                 new EnumMap<>(Organization.class);
-        /** All votes, even those that aren't any org's vote because they lost an intra-org dispute */
+        /**
+         * All votes, even those that aren't any org's vote because they lost an intra-org dispute
+         */
         private final Counter<T> allVotesIncludingIntraOrgDispute = new Counter<>();
 
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
@@ -619,11 +621,13 @@ public class VoteResolver<T> {
             if (DROP_HARD_INHERITANCE) {
                 value = changeBaileyToInheritance(value);
             }
-            /** All votes are added here, even if they will later lose an intra-org dispute.  */
+            /** All votes are added here, even if they will later lose an intra-org dispute. */
             allVotesIncludingIntraOrgDispute.add(value, votes, time.getTime());
             nameTime.put(info.getName(), time.getTime());
             if (DEBUG) {
-                System.out.println("allVotesIncludingIntraOrgDispute Info: " + allVotesIncludingIntraOrgDispute);
+                System.out.println(
+                        "allVotesIncludingIntraOrgDispute Info: "
+                                + allVotesIncludingIntraOrgDispute);
             }
             if (DEBUG) {
                 System.out.println("VoteInfo: " + info.getName() + info.getOrganization());
@@ -2031,7 +2035,7 @@ public class VoteResolver<T> {
      * Returns a map from value to resolved vote count, in descending order. If the winning item is
      * not there, insert at the front. If the baseline (trunk) item is not there, insert at the end.
      *
-     * This map includes intra-org disputes.
+     * <p>This map includes intra-org disputes.
      *
      * @return the map
      */
@@ -2049,7 +2053,8 @@ public class VoteResolver<T> {
         if (baselineValue != null && !totals.containsKey(baselineValue)) {
             result.put(baselineValue, 0L);
         }
-        for (T value : organizationToValueAndVote.allVotesIncludingIntraOrgDispute.getMap().keySet()) {
+        for (T value :
+                organizationToValueAndVote.allVotesIncludingIntraOrgDispute.getMap().keySet()) {
             if (!result.containsKey(value)) {
                 result.put(value, 0L);
             }
@@ -2074,9 +2079,7 @@ public class VoteResolver<T> {
             return VoteStatus.provisionalOrWorse;
         }
         final int itemsWithVotes =
-                DROP_HARD_INHERITANCE
-                        ? totals.size()
-                        : countDistinctValuesWithVotes();
+                DROP_HARD_INHERITANCE ? totals.size() : countDistinctValuesWithVotes();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;

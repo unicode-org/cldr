@@ -260,7 +260,8 @@ public class ReportAPI {
             } else {
                 votersForNotAcceptable = 0;
             }
-            Map<ReportAcceptability, Long> rvc = res.getResolvedVoteCountsIncludingIntraOrgDisputes();
+            Map<ReportAcceptability, Long> rvc =
+                    res.getResolvedVoteCountsIncludingIntraOrgDisputes();
             acceptableScore = rvc.get(ReportAcceptability.acceptable);
             notAcceptableScore = rvc.get(ReportAcceptability.notAcceptable);
             // serialize the voteResolver

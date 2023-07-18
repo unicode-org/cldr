@@ -547,13 +547,13 @@ public class VoteResolver<T> {
     private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes =
                 new EnumMap<>(Organization.class);
-        /** All distinct values */
+        /** All distinct values, including intra-org disputes */
         private final Counter<T> totalVotes = new Counter<>();
-        /** All distinct values, excluding org-dispute. */
-        private final Counter<T> totalUndisputedVotes = new Counter<>();
 
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
+        /** All disctinct values, excluding intra-org disputes */
         private final Counter<T> totals = new Counter<>(true);
+
         private Map<String, Long> nameTime = new LinkedHashMap<>();
         // map an organization to what it voted for.
         private final Map<Organization, T> orgToAdd = new EnumMap<>(Organization.class);
@@ -574,7 +574,6 @@ public class VoteResolver<T> {
             orgToAdd.clear();
             orgToMax.clear();
             totalVotes.clear();
-            totalUndisputedVotes.clear();
             baileyValue = null;
             baileySet = false;
             if (transcript != null) {
@@ -588,11 +587,7 @@ public class VoteResolver<T> {
          * @return
          */
         private T getSingleVotedItem() {
-            return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
-        }
-
-        private T getSingleVotedUndisputedItem() {
-            return totalUndisputedVotes.size() != 1 ? null : totalUndisputedVotes.iterator().next();
+            return totals.size() != 1 ? null : totals.iterator().next();
         }
 
         public Map<String, Long> getNameTime() {
@@ -783,7 +778,10 @@ public class VoteResolver<T> {
                 annotateTranscript(
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
+                // Now that we know exactly what this org's final vote is, add it to the total
+                // counter
                 orgToAdd.put(org, considerItem);
+                // This vote isn't in an org dispute, so add it to totalUndisputedVotes
                 totalUndisputedVotes.add(considerItem, considerCount);
                 totals.add(considerItem, considerCount, considerTime);
 
@@ -2087,13 +2085,13 @@ public class VoteResolver<T> {
         }
         final int itemsWithVotes =
                 DROP_HARD_INHERITANCE
-                        ? organizationToValueAndVote.totalUndisputedVotes.size()
+                        ? organizationToValueAndVote.totals.size()
                         : countDistinctValuesWithVotes();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;
         }
-        final T singleVotedItem = organizationToValueAndVote.getSingleVotedUndisputedItem();
+        final T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
         if (!equalsOrgVote(winningValue, singleVotedItem)) {
             // If someone voted but didn't win
             return VoteStatus.disputed;

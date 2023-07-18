@@ -23,10 +23,20 @@ public class TestVoteResolver {
                 CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("Bouvet", Status.unconfirmed);
         vr.setBaileyValue("BV");
-        vr.add("Bouvet", TestUtilities.TestUser.googleV.voterId);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.unaffiliatedS.voterId);
+        // Vote with a date in the past, this wil l lose the org dispute
+        vr.add(
+                "Bouvet",
+                TestUtilities.TestUser.googleV.voterId,
+                null,
+                DateConstants.RECENT_HISTORY);
+
+        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, DateConstants.NOW);
+        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, DateConstants.NOW);
+        vr.add(
+                "Illa Bouvet",
+                TestUtilities.TestUser.unaffiliatedS.voterId,
+                null,
+                DateConstants.NOW);
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),

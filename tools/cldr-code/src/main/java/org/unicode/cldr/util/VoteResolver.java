@@ -551,7 +551,7 @@ public class VoteResolver<T> {
         private final Counter<T> totalVotes = new Counter<>();
 
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
-        /** All disctinct values, excluding intra-org disputes */
+        /** All distinct values, excluding intra-org disputes */
         private final Counter<T> totals = new Counter<>(true);
 
         private Map<String, Long> nameTime = new LinkedHashMap<>();
@@ -778,11 +778,7 @@ public class VoteResolver<T> {
                 annotateTranscript(
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
-                // Now that we know exactly what this org's final vote is, add it to the total
-                // counter
                 orgToAdd.put(org, considerItem);
-                // This vote isn't in an org dispute, so add it to totalUndisputedVotes
-                totalUndisputedVotes.add(considerItem, considerCount);
                 totals.add(considerItem, considerCount, considerTime);
 
                 if (DEBUG) {

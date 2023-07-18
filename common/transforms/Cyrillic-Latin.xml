@@ -35,7 +35,7 @@ $macron = \u0304 ;
 $breveBelow = \u032E;
 
 $ignoreForCase = [‧[:Mn:][:Me:]] ;
-$lower = [[:Latin:][:Cyrillic:] &amp; [:Ll:]];
+$lower = [[:Latin:][:Cyrillic:] & [:Ll:]];
 $beforeLower = $ignoreForCase * $lower ;
 
 # Move up so not masked

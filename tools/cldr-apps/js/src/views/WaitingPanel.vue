@@ -2,49 +2,25 @@
   <div id="home">
     <!-- if $specialPage == retry then we have reached this page 'directly' -->
     <h1 v-if="$specialPage != 'retry'" class="hang">Loading the SurveyTool…</h1>
-    <h1>
-      <a-spin size="large" :delay="1000" />
-    </h1>
-    <ol>
-      <li v-if="!statusData">Checking…</li>
-      <!-- this shows while we are waiting for status data -->
+    <a-steps direction="vertical" :status="status" :current="current">
+      <a-step title="Checking on things…" />
+      <!-- 1 -->
+      <a-step title="Trying to start the SurveyTool" />
+      <!-- 2 -->
+      <a-step title="The SurveyTool is starting" />
+      <!-- 3 -->
+      <a-step title="The SurveyTool has started!" />
+      <!-- 4 -->
+      <a-step title="Redirecting you to the SurveyTool…" />
+      <!-- 5 -->
+    </a-steps>
+    <a-spin size="large" :delay="1000" />
+    <ul>
       <li v-if="fetchErr" class="st-sad">
         I’m having some trouble contacting the SurveyTool.
       </li>
-      <li v-if="statusData">Checking on SurveyTool status…</li>
-      <li v-if="!statusData.triedToStartUp">SurveyTool hasn’t started yet.</li>
       <li v-if="!statusData.triedToStartUp && attemptedLoadErr">
         Still trying to get the SurveyTool to start.
-      </li>
-      <li
-        v-if="
-          !statusData.triedToStartUp && attemptedLoadCount && !attemptedLoadErr
-        "
-      >
-        Trying to start the SurveyTool…
-      </li>
-      <li
-        v-if="
-          statusData.triedToStartUp &&
-          !(statusData.status && statusData.status.isSetup)
-        "
-      >
-        The SurveyTool is trying to start.
-      </li>
-      <li
-        v-if="
-          statusData.triedToStartUp &&
-          statusData.status &&
-          statusData.status.isSetup
-        "
-      >
-        The SurveyTool started up.
-      </li>
-      <li
-        v-if="statusData.status && statusData.status.isSetup"
-        class="st-happy"
-      >
-        Redirecting you to the SurveyTool!
       </li>
       <li v-if="statusData.status && statusData.status.isBusted" class="st-sad">
         The SurveyTool is not running, sorry. Here is the reason:
@@ -52,8 +28,7 @@
           {{ statusData.status.isBusted }}
         </p>
       </li>
-    </ol>
-
+    </ul>
     <!-- <button v-on:click="fetchStatus()">Retry</button> -->
   </div>
 </template>
@@ -71,6 +46,44 @@ export default {
       fetchCount: 0,
       fetchErr: null,
     };
+  },
+  computed: {
+    current() {
+      if (!this.statusData) {
+        return 1; // checking
+      } else if (!this.statusData.triedToStartUp) {
+        return 2; // trying to start
+      } else if (
+        this.statusData.triedToStartUp &&
+        !(this.statusData.status && this.statusData.status.isSetup)
+      ) {
+        return 3; // starting up
+        //  step 4 started?
+      } else if (
+        this.statusData.triedToStartUp &&
+        this.statusData.status &&
+        this.statusData.status.isSetup
+      ) {
+        return 5; // redirecting
+      }
+    },
+    status() {
+      if (
+        this.statusData &&
+        this.statusData.status &&
+        this.statusData.status.isBusted
+      ) {
+        return "error";
+      } else if (this.attemptedLoadErr) {
+        return "wait";
+      } else if (this.attemptedLoadCount > 2) {
+        return "wait";
+      } else if (this.statusData.status && this.statusData.status.isSetup) {
+        return "finish";
+      } else {
+        return "process";
+      }
+    },
   },
   created: function () {
     this.fetchStatus();
@@ -108,8 +121,9 @@ export default {
             );
           }
           if (data.status && data.status.isSetup) {
-            if (this.$specialPage == "retry") {
-              // immediately head back to the main page.
+            if (window.location.hash.startsWith(`#${this.$specialPage}`)) {
+              // If the URL actually goes to this page (as in '#retry'),
+              // then head back to the main page.
               window.location.replace("v#");
               setTimeout(
                 () =>
@@ -129,6 +143,7 @@ export default {
                 window.location.reload();
               });
             } else {
+              // Otherwise, cause a reload, which should take the user back where they were.
               window.setTimeout(() => window.location.reload(), NORMAL_RETRY);
             }
           } else if (data.status && data.status.isBusted) {

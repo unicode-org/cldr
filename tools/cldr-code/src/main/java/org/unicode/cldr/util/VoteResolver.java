@@ -547,7 +547,11 @@ public class VoteResolver<T> {
     private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes =
                 new EnumMap<>(Organization.class);
+        /** All distinct values */
         private final Counter<T> totalVotes = new Counter<>();
+        /** All distinct values, excluding org-dispute. */
+        private final Counter<T> totalUndisputedVotes = new Counter<>();
+
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
         private final Counter<T> totals = new Counter<>(true);
         private Map<String, Long> nameTime = new LinkedHashMap<>();
@@ -570,6 +574,7 @@ public class VoteResolver<T> {
             orgToAdd.clear();
             orgToMax.clear();
             totalVotes.clear();
+            totalUndisputedVotes.clear();
             baileyValue = null;
             baileySet = false;
             if (transcript != null) {
@@ -584,6 +589,10 @@ public class VoteResolver<T> {
          */
         private T getSingleVotedItem() {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
+        }
+
+        private T getSingleVotedUndisputedItem() {
+            return totalUndisputedVotes.size() != 1 ? null : totalUndisputedVotes.iterator().next();
         }
 
         public Map<String, Long> getNameTime() {
@@ -775,6 +784,7 @@ public class VoteResolver<T> {
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
                 orgToAdd.put(org, considerItem);
+                totalUndisputedVotes.add(considerItem, considerCount);
                 totals.add(considerItem, considerCount, considerTime);
 
                 if (DEBUG) {
@@ -2077,13 +2087,13 @@ public class VoteResolver<T> {
         }
         final int itemsWithVotes =
                 DROP_HARD_INHERITANCE
-                        ? organizationToValueAndVote.totalVotes.size()
+                        ? organizationToValueAndVote.totalUndisputedVotes.size()
                         : countDistinctValuesWithVotes();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;
         }
-        final T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
+        final T singleVotedItem = organizationToValueAndVote.getSingleVotedUndisputedItem();
         if (!equalsOrgVote(winningValue, singleVotedItem)) {
             // If someone voted but didn't win
             return VoteStatus.disputed;

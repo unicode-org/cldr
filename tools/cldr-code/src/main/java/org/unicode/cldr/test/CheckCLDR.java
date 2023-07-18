@@ -192,15 +192,15 @@ public abstract class CheckCLDR implements CheckAccessor {
                 return StatusAction.ALLOW_TICKET_ONLY;
             }
 
-            // always forbid bulk import except in data submission.
-            if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
-                return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
-            }
-
             // if TC+, allow anything else, even suppressed items and errors
             if (userInfo != null
                     && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
                 return StatusAction.ALLOW;
+            }
+
+            // always forbid bulk import except in data submission.
+            if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
+                return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
             }
 
             if (status == SurveyToolStatus.HIDE) {

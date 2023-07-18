@@ -162,7 +162,7 @@ export default {
   /*
  * for bootstrap
  */
-  padding-top: 60px;
+  margin-top: 10em;
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 1em;

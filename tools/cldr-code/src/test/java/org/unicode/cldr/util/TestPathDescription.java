@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TestPathDescription {
     @Test
     public void testParseGiantString() {
-        assertNotNull(PathDescription.parseLookupString());
+        RegexLookup<String> l = PathDescription.parseLookupString();
+        assertNotNull(l);
     }
 }

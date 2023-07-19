@@ -862,8 +862,12 @@ public class PathDescription {
     private static final Map<String, String> ZONE2COUNTRY =
             STANDARD_CODES.zoneParser.getZoneToCounty();
 
-    private static final RegexLookup<String> pathHandling =
-            new RegexLookup<String>().loadFromString(pathDescriptionString);
+
+    static RegexLookup<String> parseLookupString() {
+        return new RegexLookup<String>().loadFromString(pathDescriptionString);
+    }
+
+    private static final RegexLookup<String> pathHandling = parseLookupString();
 
     // set in construction
 

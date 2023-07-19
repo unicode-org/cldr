@@ -100,8 +100,7 @@ public class RegexFileParser {
                 lineParser.parse(line);
             }
         } catch (Exception e) {
-            System.err.println("Error reading " + source + " at line " + lineNumber + ": " + line);
-            e.printStackTrace();
+            throw new IllegalArgumentException("Error reading " + source + " at line " + lineNumber + ": " + line, e);
         }
     }
 }

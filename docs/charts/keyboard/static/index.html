@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CLDR | Proposed Keyboard 3.0  Chart</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./keyboard-chart.js"></script>
+    <script src="./data/keyboard-data.js"></script>
+    <link href="./keyboard-chart.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://www.unicode.org/webscripts/standard_styles.css">
+  </head>
+  <body>
+    <div id="app">
+        <!-- standard unicode header-->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <!-- BEGIN HEADER BAR -->
+                <tr>
+                  <td colspan="2">
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+
+                      <td class="icon" style="width:38px; height:35px">
+                      <a href="https://www.unicode.org/">
+                      <img border="0" src="https://www.unicode.org/webscripts/logo60s2.gif" align="middle"
+                      alt="[Unicode]" width="34" height="33"></a>
+                      </td>
+
+                      <td class="icon" style="vertical-align:middle">
+                      <a class="bar"> </a>
+                      <a class="bar" href="https://cldr.unicode.org/index/keyboard-workgroup"><font size="3">CLDR | Keyboard-SC | Charts</font></a>
+                      </td>
+
+                      <td class="bar">
+                      <a href="https://www.unicode.org/main.html" class="bar">Tech Site</a>
+                      | <a href="https://www.unicode.org/sitemap/" class="bar">Site Map</a> |
+                      <a href="https://www.unicode.org/search" class="bar">Search </a>
+                      </td>
+
+                    </tr>
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="gray">&nbsp;</td>
+                </tr>
+            <!-- END HEADER BAR -->
+  <!-- BEGIN CONTENTS -->
+  <tr>
+    <td class="contents" valign="top">
+
+
+      <i
+        >Note: This is a very preliminary chart. For feedback on this chart or
+        contents, please comment on:
+        <a href="https://unicode-org.atlassian.net/browse/CLDR-16655"
+          >https://unicode-org.atlassian.net/browse/CLDR-16655</a
+        ></i
+      >
+      <!-- {{ message }} -->
+      <hr />
+      <div>
+        <span v-for="file of files" :key="file">
+          <a :href="'#'+file">{{file}}</a> |
+        </span>
+      </div>
+      <hr />
+      <ol>
+        <li v-for="file of files" :key="file">
+          <h2 :id="file"><code>{{file}}</code></h2>
+          <ul>
+            <li v-for="layers of getLayers(file)">
+              <h3 v-if="layers.form">Form: {{ layers.form }}</h3>
+              <h3 v-if="layers.id">ID: {{ layers.id }}</h3>
+              <h4 v-if="layers.minDeviceWidth">
+                minDeviceWidth: {{ layers.minDeviceWidth }}mm
+              </h4>
+              <ul>
+                <li v-for="layer of layers.layer">
+                  <h4 v-if="layer.modifier">Modifier: {{ layer.modifier }}</h4>
+                  <h4 v-if="layer.id">{{ layer.id }}</h4>
+                  <div class="rows">
+                    <div class="row" v-for="row of layer.row">
+                      <span
+                        :title="key.id"
+                        :class="getKeyClass(key)"
+                        v-for="key of row.keys"
+                      >
+                        {{key.to}}
+                        <b title="Switch" v-if="key.switch">☞ {{key.switch}}</b>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <hr />
+        </li>
+      </ol>
+      </td>
+      </tr>
+      </table>
+      </div>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {};
+        },
+        computed: {
+          files() {
+            return getIds();
+          },
+        },
+        methods: {
+          getLayers(id) {
+            return getKeyboardLayers(id);
+          },
+          getKeys(id) {
+            return getKeyboardKeys(id);
+          },
+          getKeyClass(key) {
+            if (key.gap) {
+              return "gap-key key";
+            } else if (key.to) {
+              return "to-key key";
+            } else if (key.switch) {
+              return "switch-key key";
+            } else {
+              return "key";
+            }
+          },
+        },
+      }).mount("#app");
+    </script>
+
+  </body>
+</html>

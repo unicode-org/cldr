@@ -20,11 +20,6 @@ import * as cldrText from "./cldrText.mjs";
  */
 const FORUM_DIV_CLASS = "forumDiv";
 
-/**
- * Encapsulate this class name -- caution: it's used literally in surveytool.css
- */
-const FORUM_DIV_CLASS = "forumDiv";
-
 const SUMMARY_CLASS = "getForumSummary";
 
 const FORUM_DEBUG = false;

@@ -15,7 +15,7 @@ import="org.unicode.cldr.web.*"
 XMLUploader.writeBulkInfoHtml("upload", out);
 %>
 
-<a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' alt='ST' /></a>
+<a href="<%=request.getContextPath()%>/v#upload">Return to the SurveyTool <img src='STLogo.png' style='float:right;' alt='ST' /></a>
 <hr/>
 
 
@@ -48,20 +48,20 @@ if (doRedirectToSurvey) {
 	Welcome to the CLDR Bulk Upload tool. This tool will let you upload an XML file and submit it as your vote, or as the vote
 	of a user in your organization.
 	<br/>
-For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
+For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/bulk-data-upload'>Using Bulk Upload</a>
 </p>
 </div>
 <h1>Bulk: 1. Upload files</h1>
 <h3>Logged in as: <%= cs.user.name %> </h3>
 
 
-<% 
+<%
 
 String email = request.getParameter("email");
 
 if(SurveyMain.isUnofficial() && email==null) {
 	email = cs.user.email;
-	%>	<%-- 
+	%>	<%--
 		    <div class='unofficial' title='Not an official SurveyTool' >
 		        <%= WebContext.iconHtml(request,"warn","Unofficial Site") %>Unofficial
 		    </div>
@@ -78,7 +78,7 @@ if(request.getParameter("emailbad")!=null) { %>
 <div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> Invalid address or access denied: <address><%= email %></address></div>
 <% } else if(request.getParameter("filebad")!=null) { %>
 <div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> No file was uploaded, or a file error occured.</div>
-<% } 
+<% }
 
 if(request.getParameter("s")==null) { %>
 <div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> Error, not logged in.</div>
@@ -86,7 +86,7 @@ if(request.getParameter("s")==null) { %>
 <form method="POST" action="./check.jsp" enctype="multipart/form-data">
 <input type="hidden" name="s" value="<%= request.getParameter("s") %>" />
 <div class='helpHtml'>
-	The account name must be a valid email address. 
+	The account name must be a valid email address.
               Use your own address, <i><%= cs.user.email %></i> to vote as yourself. <br/>
      See the help for information on formatting the XML file.
 </div>
@@ -94,7 +94,7 @@ if(request.getParameter("s")==null) { %>
 <div>
 <label for='email'>
 	Account that will be voting:
-</label>	
+</label>
     <input id='email' name="email" size='40' value="<%= email %>" />
 </div>
 <div>

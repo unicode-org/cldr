@@ -6,6 +6,8 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrXlsx from "./cldrXlsx.mjs";
+import * as XLSX from "xlsx";
 
 /**
  * An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are objects whose
@@ -319,4 +321,85 @@ function getCheckmarkUrl(entry, locale) {
   return cldrAjax.makeUrl(p);
 }
 
-export { saveEntryCheckmark, setData, updatePath };
+/**
+ *
+ * @param {Object} data processed data to download
+ * @param {String} locale locale id
+ * @param {Function} cb takes one argument 'status': if falsy, done. otherwise, string value
+ */
+async function downloadXlsx(data, locale, cb) {
+  const xpathMap = cldrSurvey.getXpathMap();
+  const { coverageLevel, notifications } = data;
+
+  // Fetch all XPaths in parallel since it'll take a while
+  cb(`Loading…`);
+  const allXpaths = [];
+  for (const { groups } of notifications) {
+    for (const { section, entries } of groups) {
+      if (section === "Reports") {
+        continue; // skip this
+      }
+      for (const { xpstrid } of entries) {
+        allXpaths.push(xpstrid);
+      }
+    }
+  }
+  await Promise.all(allXpaths.map((x) => xpathMap.get(x)));
+  cb(`Calculating…`);
+
+  // Now we can expect that xpathMap can return immediately.
+
+  const ws_data = [
+    [
+      "Category",
+      "Header",
+      "Page",
+      "Section",
+      "Code",
+      "English",
+      "Old",
+      "Subtype",
+      "Winning",
+      "Xpstr", // hex - to hide
+      "XPath", // fetched
+      "URL", // formula
+    ],
+  ];
+
+  for (const { category, groups } of notifications) {
+    for (const { header, page, section, entries } of groups) {
+      for (const { code, english, old, subtype, winning, xpstrid } of entries) {
+        const xpath =
+          section === "Reports" ? "-" : (await xpathMap.get(xpstrid)).path;
+        ws_data.push([
+          category,
+          header,
+          page,
+          section,
+          code,
+          english,
+          old,
+          subtype,
+          winning,
+          xpstrid,
+          xpath,
+          `https://st.unicode.org/cldr-apps/v#/${locale}/${page}/${xpstrid}`,
+        ]);
+      }
+    }
+  }
+
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  // cldrXlsx.pushComment(ws, "C1", `As of ${new Date().toISOString()}`);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(
+    wb,
+    ws,
+    `${locale}.${coverageLevel.toLowerCase()}`
+  );
+  cb(`Writing…`);
+  XLSX.writeFile(wb, `Dash_${locale}_${coverageLevel.toLowerCase()}.xlsx`);
+  cb(null);
+}
+
+export { saveEntryCheckmark, setData, updatePath, downloadXlsx };

@@ -34,7 +34,7 @@
 	if (!request.getMethod().equals("POST") || isBad) {
 		response.sendRedirect(request.getContextPath() + "/upload.jsp");
 	}
-	
+
 	CLDRFile cf = null;
 	InputStream fis = null;
 	List<FileItem> list = upload.parseRequest(request);
@@ -47,7 +47,7 @@
 	fis = item.getInputStream();
 		}
 	}
-	
+
 	boolean isSubmit = fields.containsKey("submit");
 	boolean isBulk = fields.containsKey("bulk");
         String email = fields.get("email");
@@ -89,14 +89,14 @@
 </head>
 <body>
 
-<a href="upload.jsp?s=<%= sid %>&email=<%= email %>">Re-Upload File/Try Another</a> | <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
+<a href="upload.jsp?s=<%= sid %>&email=<%= email %>">Re-Upload File/Try Another</a> | <a href="<%=request.getContextPath()%>v/#upload">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <hr/>
 <h3>SurveyTool File Check | <%=title%>  | Submitted as: <%= theirU.name %> </h3>
 
 	<div class='helpHtml'>
 		Your file is being tested.
 		<br>
-		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a>.<br/>
+		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/bulk-data-upload'>Using Bulk Upload</a>.<br/>
 		Verify that there are no errors, then click the NEXT button.
 	</div>
 
@@ -107,14 +107,14 @@ XMLUploader.writeBulkInfoHtml("check", out);
 <div style='padding: 1em;'>
 <%
 try {
-	cf = SimpleFactory.makeFile(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
+	cf = SimpleFactory.makeFileLenient(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
 } catch(Throwable t) {
 	SurveyLog.logException(t, "while "+email+"uploading bulk file ");
 	out.println("<h3>Failed to parse.</h3>");
 	while(t!=null) {
 		%>
 		<div class='adminThreadStack'><%= StackTracker.stackToString(t.getStackTrace(), 1) %></div>
-		<pre class='adminExceptionMESSAGE'><%= t %></pre>	
+		<pre class='adminExceptionMESSAGE'><%= t %></pre>
 		<%
 		t = t.getCause();
 		if(t!=null) {

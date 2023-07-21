@@ -57,7 +57,7 @@ public class TestUtilities extends TestFmwkPlus {
     private static final int STRING_ID_TEST_COUNT = 1024 * 16;
 
     final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.unaffiliated);
-    final int TWO_VETTER_BAR = 2 * ONE_VETTER_BAR;
+    final int TWO_VETTER_BAR = VoteResolver.LOWER_BAR;
 
     public static void main(String[] args) {
         new TestUtilities().run(args);
@@ -567,7 +567,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("apple", toVoterId("appleV"));
 
         // check that alphabetical wins when votes are equal
-        Map<String, Long> counts = resolver.getResolvedVoteCounts();
+        Map<String, Long> counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(2));
 
@@ -577,7 +577,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
-        counts = resolver.getResolvedVoteCounts();
+        counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
 
@@ -586,7 +586,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setBaseline("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
-        counts = resolver.getResolvedVoteCounts();
+        counts = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<>(counts.keySet()).get(0));
     }
@@ -730,7 +730,14 @@ public class TestUtilities extends TestFmwkPlus {
         final Set<String> eightVoteSublocales =
                 new HashSet<>(
                         Arrays.asList(
-                                "pt_PT", "zh_Hant", "en_AU", "en_GB", "es_MX", "fr_CA", "es_419"));
+                                "pt_PT",
+                                "zh_Hant",
+                                "zh_Hant_HK",
+                                "en_AU",
+                                "en_GB",
+                                "es_MX",
+                                "fr_CA",
+                                "es_419"));
         final VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {

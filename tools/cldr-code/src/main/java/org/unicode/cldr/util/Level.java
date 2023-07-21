@@ -81,15 +81,8 @@ public enum Level {
         return this.name().toLowerCase();
     }
 
-    // public int compareTo(Level o) {
-    // int otherLevel = ((Level) o).level;
-    // return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
-    // }
-
-    static final StandardCodes sc = StandardCodes.make();
-
     public static int getDefaultWeight(String organization, String desiredLocale) {
-        Level level = sc.getLocaleCoverageLevel(organization, desiredLocale);
+        Level level = StandardCodes.make().getLocaleCoverageLevel(organization, desiredLocale);
         if (level.compareTo(Level.MODERATE) >= 0) {
             return 4;
         }
@@ -145,6 +138,9 @@ public enum Level {
      * @return level with the minimal getLevel() value
      */
     public static Level max(Level a, Level b) {
+        if (a == null) {
+            return b;
+        }
         return Level.fromLevel(Math.max(a.getLevel(), b.getLevel()));
     }
 

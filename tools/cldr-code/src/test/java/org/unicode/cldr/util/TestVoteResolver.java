@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.ibm.icu.util.Output;
+import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.unittest.TestUtilities;
+import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 
 /**
@@ -14,6 +16,36 @@ import org.unicode.cldr.util.VoteResolver.Status;
  * @see org.unicode.cldr.unittest.TestUtilities#TestUser
  */
 public class TestVoteResolver {
+
+    @Test
+    void testDisputed() {
+        final VoteResolver<String> vr = getStringResolver();
+        vr.setLocale(
+                CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+        vr.setBaseline("Bouvet", Status.unconfirmed);
+        vr.setBaileyValue("BV");
+
+        // A date in 2017
+        final Date t0 = new Date(1500000000000L);
+        // A date in 2020
+        final Date t1 = new Date(1600000000000L);
+
+        assertTrue(t0.before(t1));
+
+        // Vote with a date in the past, this will lose the org dispute
+        vr.add("Bouvet", TestUtilities.TestUser.googleV.voterId, null, t0);
+
+        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, t1);
+        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, t1);
+        vr.add("Illa Bouvet", TestUtilities.TestUser.unaffiliatedS.voterId, null, t1);
+        assertAll(
+                "Verify the outcome",
+                () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
+                () ->
+                        assertEquals(
+                                VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
+    }
+
     @Test
     void testExplanations() {
         // Example from https://st.unicode.org/cldr-apps/v#/fr/Languages_A_D/54dc38b9b6c86cac

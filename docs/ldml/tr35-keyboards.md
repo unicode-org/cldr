@@ -2,11 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-<!-- HTML: no th -->
-<table><tbody>
-<tr><td>Version</td><td>Technical Preview (3.0)</td></tr>
-<tr><td>Editors</td><td>Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) (for this draft), the <a href="https://cldr.unicode.org/index/keyboard-workgroup">CLDR Keyboard-SC</a>, and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table>
+|Version|44 (draft)   |
+|-------|-------------|
+|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 

@@ -206,7 +206,7 @@ public class TestCldrFactory extends TestFmwkPlus {
         byte[] b = string.getBytes(StandardCharsets.UTF_8);
         InputStream fis = new ByteArrayInputStream(b);
         CLDRFile filteredCldrFile = new CLDRFile(new SimpleXMLSource("enx"));
-        filteredCldrFile.loadFromInputStream("enx", "enx", fis, DraftStatus.unconfirmed);
+        filteredCldrFile.loadFromInputStream("enx", "enx", fis, DraftStatus.unconfirmed, false);
         return filteredCldrFile;
     }
 

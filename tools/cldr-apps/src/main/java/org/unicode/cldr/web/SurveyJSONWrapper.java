@@ -125,7 +125,7 @@ public final class SurveyJSONWrapper {
                                         .toString()) /* "raw" is only used for debugging (stdebug_enabled) */
                         .put("requiredVotes", r.getRequiredVotes());
 
-        Map<String, Long> valueToVote = r.getResolvedVoteCounts();
+        Map<String, Long> valueToVote = r.getResolvedVoteCountsIncludingIntraOrgDisputes();
 
         JSONObject orgs = new JSONObject();
         for (Organization o : Organization.values()) {

@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
@@ -10,6 +11,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -20,6 +22,7 @@ import com.ibm.icu.util.ULocale;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -1607,6 +1610,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         public static final Set<UnitSystem> SiOrMetric =
                 ImmutableSet.of(UnitSystem.metric, UnitSystem.si);
+        public static final Set<UnitSystem> ALL = ImmutableSet.copyOf(UnitSystem.values());
 
         public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
             return stringUnitSystems.stream()
@@ -1616,6 +1620,26 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
             return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
+        }
+
+        private static final Joiner SLASH_JOINER = Joiner.on("/");
+
+        public static String getSystemsDisplay(Set<UnitSystem> systems) {
+            List<String> result = new ArrayList<>();
+            for (UnitSystem system : systems) {
+                switch (system) {
+                    case ussystem:
+                        result.add("US");
+                        break;
+                    case uksystem:
+                        result.add("UK");
+                        break;
+                    case jpsystem:
+                        result.add("JP");
+                        break;
+                }
+            }
+            return result.isEmpty() ? "" : " (" + SLASH_JOINER.join(result) + ")";
         }
     }
 
@@ -1883,5 +1907,144 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public Map<String, String> getBaseUnitToStatus() {
         return baseUnitToStatus;
+    }
+
+    static final Rational LIMIT_UPPER_RELATED = Rational.of(10000);
+    static final Rational LIMIT_LOWER_RELATED = LIMIT_UPPER_RELATED.reciprocal();
+
+    public Map<Rational, String> getRelatedExamples(
+            String inputUnit, Set<UnitSystem> allowedSystems) {
+        Set<String> others = new LinkedHashSet<>(canConvertBetween(inputUnit));
+        if (others.size() <= 1) {
+            return Map.of();
+        }
+        // add common units
+        if (others.contains("meter")) {
+            others.add("kilometer");
+            others.add("millimeter");
+        } else if (others.contains("liter")) {
+            others.add("milliliter");
+        }
+        // remove unusual units
+        others.removeAll(
+                Set.of(
+                        "fathom",
+                        "carat",
+                        "grain",
+                        "slug",
+                        "drop",
+                        "pinch",
+                        "cup-metric",
+                        "dram",
+                        "jigger",
+                        "pint-metric",
+                        "bushel, barrel",
+                        "dunam",
+                        "rod",
+                        "chain",
+                        "furlong",
+                        "fortnight",
+                        "rankine",
+                        "kelvin",
+                        "calorie-it",
+                        "british-thermal-unit-it",
+                        "foodcalorie"));
+
+        Map<Rational, String> result = new TreeMap<>(Comparator.reverseOrder());
+
+        // get metric
+        Output<String> sourceBase = new Output<>();
+        ConversionInfo sourceConversionInfo = parseUnitId(inputUnit, sourceBase, false);
+        String baseUnit = sourceBase.value;
+        Rational baseUnitToInput = sourceConversionInfo.factor;
+
+        putIfInRange(result, baseUnit, baseUnitToInput);
+
+        // get similar IDs
+        // TBD
+
+        // get nearby in same system, and in metric
+
+        for (UnitSystem system : allowedSystems) {
+            if (system.equals(UnitSystem.si)) {
+                continue;
+            }
+            String closestLess = null;
+            Rational closestLessValue = Rational.NEGATIVE_INFINITY;
+            String closestGreater = null;
+            Rational closestGreaterValue = Rational.INFINITY;
+
+            // check all the units in this system, to find the nearest above,and the nearest below
+
+            for (String other : others) {
+                if (other.equals(inputUnit)
+                        || other.endsWith("-person")
+                        || other.endsWith("-scandinavian")
+                        || other.startsWith("100-")) { // skips
+                    continue;
+                }
+                Set<UnitSystem> otherSystems = getSystemsEnum(other);
+                if (!otherSystems.contains(system)) {
+                    continue;
+                }
+
+                sourceConversionInfo = parseUnitId(other, sourceBase, false);
+                Rational otherValue =
+                        baseUnitToInput.multiply(sourceConversionInfo.factor.reciprocal());
+
+                if (otherValue.compareTo(Rational.ONE) < 0) {
+                    if (otherValue.compareTo(closestLessValue) > 0) {
+                        closestLess = other;
+                        closestLessValue = otherValue;
+                    }
+                } else {
+                    if (otherValue.compareTo(closestGreaterValue) < 0) {
+                        closestGreater = other;
+                        closestGreaterValue = otherValue;
+                    }
+                }
+            }
+            putIfInRange(result, closestLess, closestLessValue);
+            putIfInRange(result, closestGreater, closestGreaterValue);
+        }
+
+        result.remove(Rational.ONE, inputUnit); // simplest to do here
+        return result;
+    }
+
+    public void putIfInRange(Map<Rational, String> result, String baseUnit, Rational otherValue) {
+        if (baseUnit != null
+                && otherValue.compareTo(LIMIT_LOWER_RELATED) >= 0
+                && otherValue.compareTo(LIMIT_UPPER_RELATED) <= 0) {
+            if (baseUnitToQuantity.get(baseUnit) != null) {
+                baseUnit = getStandardUnit(baseUnit);
+            }
+            result.put(otherValue, baseUnit);
+        }
+    }
+
+    static final Set<UnitSystem> NO_UK =
+            Set.copyOf(Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.uksystem)));
+    static final Set<UnitSystem> NO_JP =
+            Set.copyOf(Sets.difference(UnitSystem.ALL, Set.of(UnitSystem.jpsystem)));
+    static final Set<UnitSystem> NO_JP_UK =
+            Set.copyOf(
+                    Sets.difference(
+                            UnitSystem.ALL, Set.of(UnitSystem.jpsystem, UnitSystem.uksystem)));
+    /**
+     * Customize the systems according to the locale
+     *
+     * @return
+     */
+    public static Set<UnitSystem> getExampleUnitSystems(String locale) {
+        String language = CLDRLocale.getInstance(locale).getLanguage();
+        switch (language) {
+            case "ja":
+                return NO_UK;
+            case "en":
+                return NO_JP;
+            default:
+                return NO_JP_UK;
+        }
     }
 }

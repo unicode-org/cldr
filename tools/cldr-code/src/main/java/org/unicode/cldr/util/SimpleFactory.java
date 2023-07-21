@@ -700,6 +700,13 @@ public class SimpleFactory extends Factory {
         return file;
     }
 
+    /** Load with lenient read (for bulk upload) */
+    public static CLDRFile makeFileLenient(
+            String fileName, InputStream fis, CLDRFile.DraftStatus minimalDraftStatus) {
+        CLDRFile file = CLDRFile.load(fileName, null, fis, minimalDraftStatus, true);
+        return file;
+    }
+
     /**
      * Produce a CLDRFile from a file input stream.
      *

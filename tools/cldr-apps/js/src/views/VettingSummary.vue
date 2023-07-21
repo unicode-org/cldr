@@ -118,10 +118,14 @@
         </tbody>
       </table>
     </section>
+    <button v-if="this.canSummarizeAllLocales" @click="getCoverageStatusXlsx()">
+      Get DDL Locale Coverage .xlsx <b>SLOOOW</b>
+    </button>
   </div>
 </template>
 
 <script>
+import * as cldrCoverage from "../esm/cldrCoverage.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrPriorityItems from "../esm/cldrPriorityItems.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
@@ -290,6 +294,10 @@ export default {
 
     statusIcon(status) {
       return cldrTable.getStatusIcon(status);
+    },
+
+    getCoverageStatusXlsx() {
+      cldrCoverage.getCoverageStatusXlsx();
     },
   },
 };

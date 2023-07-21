@@ -28,11 +28,13 @@ import {
   Popover,
   Progress,
   Radio,
+  Select,
   Spin,
   Steps,
   Textarea,
   Tooltip,
   Timeline,
+  UploadDragger,
 } from "ant-design-vue";
 // Note: 'notification' is a function and is imported as a function in cldrVue.mjs,
 // or within a specific app.
@@ -65,6 +67,7 @@ function setup(app) {
   app.component("a-progress", Progress);
   app.component("a-radio-group", Radio.Group);
   app.component("a-radio", Radio);
+  app.component("a-select", Select);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);
@@ -72,6 +75,7 @@ function setup(app) {
   app.component("a-timeline-item", Timeline.Item);
   app.component("a-timeline", Timeline);
   app.component("a-tooltip", Tooltip);
+  app.component("a-upload-dragger", UploadDragger);
   app.component("cldr-loginbutton", LoginButton);
   app.component("cldr-report-response", ReportResponse);
   app.component("cldr-searchbutton", SearchButton);

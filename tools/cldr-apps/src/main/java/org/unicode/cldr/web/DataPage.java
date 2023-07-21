@@ -228,15 +228,31 @@ public class DataPage {
              * @return the set of votes
              */
             public Set<UserRegistry.User> getVotes() {
-                if (!checkedVotes) {
-                    String valueToCheck = rawValue;
-                    if (valueToCheck.equals(CldrUtility.INHERITANCE_MARKER)) {
-                        // Not so raw as it ought to be.
-                        valueToCheck = inheritedValue;
+                if (!checkedVotes)
+                    synchronized (this) {
+                        Set<User> rawVotes = ballotBox.getVotesForValue(xpath, rawValue);
+                        if (!rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                            // simple case - not triple up arrow just pass this through
+                            this.votes = rawVotes;
+                        } else {
+                            // we need to collect triple up arrow AND hard vots
+                            Set<User> allVotes = new TreeSet<User>();
+                            if (rawVotes != null) {
+                                allVotes.addAll(rawVotes);
+                            }
+                            // Also add in inherited value (hard) votes
+                            Set<User> inhVotes = ballotBox.getVotesForValue(xpath, inheritedValue);
+                            if (inhVotes != null) {
+                                allVotes.addAll(inhVotes);
+                            }
+                            // null out if no votes
+                            if (allVotes.isEmpty()) {
+                                allVotes = null;
+                            }
+                            this.votes = allVotes;
+                        }
+                        checkedVotes = true;
                     }
-                    votes = ballotBox.getVotesForValue(xpath, valueToCheck);
-                    checkedVotes = true;
-                }
                 return votes;
             }
 
@@ -544,7 +560,18 @@ public class DataPage {
             baselineStatus = resolver.getBaselineStatus();
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
-            displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+
+            Output<String> pathWhereFound = new Output<String>(),
+                    localeWhereFound = new Output<String>();
+            comparisonValueFile.getStringValueWithBailey(xpath, pathWhereFound, localeWhereFound);
+            final boolean samePath = xpath.equals(pathWhereFound.value);
+            if (!samePath) {
+                // zero out displayName if it's sideways inheritance
+                displayName = "";
+            } else {
+                displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+            }
+
             addFixedCandidates();
         }
 

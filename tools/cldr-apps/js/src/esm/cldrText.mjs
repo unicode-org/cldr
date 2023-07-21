@@ -492,6 +492,7 @@ const strings = {
   special_mail: "Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
+  special_upload: "Upload (Bulk Import)",
   // The special_r_* are the names of reports, used by ReportResponse.vue and others
   special_r_compact: "Numbers",
   special_r_datetime: "Datetime",
@@ -577,7 +578,7 @@ const strings = {
   transcript_note:
     "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to <a href='https://unicode-org.atlassian.net/browse/CLDR-14943'>CLDR-14943</a>",
 
-  empty_comparison_cell_hint: "not available in English; see the Info Panel",
+  empty_comparison_cell_hint: "not applicable to English",
 };
 
 /**

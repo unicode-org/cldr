@@ -41,16 +41,34 @@ function XpathMap() {
  * This function will do a search and then call the onResult function.
  * Priority order for search: hex, id, then path.
  * @function get
- * @param search {Object} the object to search for
+ * @param search {Object|string} the object to search for, if a string defaults to hex unless it starts with '/'
  * @param search.hex {String} optional - search by hex id
  * @param search.path {String} optional - search by xpath
  * @param search.id {Number} optional - search by number (String will be converted to Number)
- * @param onResult - will be called with one parameter that looks like this:
+ * @param [onResult] - will be called with one parameter that looks like this:
  *  { search, err, result } -  'search' is the input param,
  * 'err' if non-null is any error, and 'result' if non-null is the result info struct.
  * If there is an error, 'result' will be null. Please do not modify 'result'!
+ * @returns Promise<result> if onResult was not specified
  */
 XpathMap.prototype.get = function get(search, onResult) {
+  // unwrap search to by string
+  if (typeof search === "string") {
+    if (search.startsWith("/")) {
+      search = { path: search };
+    } else {
+      search = { hex: search };
+    }
+  }
+  // promisify if onResult is omitted
+  if (!onResult) {
+    return new Promise((resolve, reject) =>
+      this.get(search, ({ search, err, result }) => {
+        if (err) return reject(err);
+        return resolve(result);
+      })
+    );
+  }
   // see if we have anything immediately
   let result = this.getImmediately(search);
   if (result) {
@@ -85,7 +103,7 @@ XpathMap.prototype.get = function get(search, onResult) {
       } else {
         onResult({
           search: search,
-          err: "no results from server",
+          err: `XpathMap: no results: ${JSON.stringify(search)}`,
         });
       }
     };

@@ -19,6 +19,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
@@ -30,6 +31,8 @@ import org.unicode.cldr.web.WebContext;
 public class Auth {
     /** Header to be used for a ST Session id */
     public static final String SESSION_HEADER = "X-SurveyTool-Session";
+
+    public static final java.util.logging.Logger logger = SurveyLog.forClass(Auth.class);
 
     @Path("/login")
     @POST
@@ -73,8 +76,8 @@ public class Auth {
                     if (jwtInfo != null) {
                         request.password = jwtInfo.internalGetPassword();
                         request.email = jwtInfo.email;
-                        System.err.println(
-                                "Logged in " + request.email + " #" + jwtId + " using JWT");
+                        logger.fine(
+                                () -> "Logged in " + request.email + " #" + jwtId + " using JWT");
                     }
                 }
             }

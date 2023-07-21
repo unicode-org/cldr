@@ -1,21 +1,22 @@
 /*
  * cldrInheritance: encapsulate inheritance explainer.
  */
-import * as cldrAjax from "./cldrAjax.js";
-import * as cldrLoad from "./cldrLoad.js";
+import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrLoad from "./cldrLoad.mjs";
 /**
  * null, or promise to reason explanations
  */
 let reasonStrings = null;
 
 /**
- * @returns Promise<Map<String,String>> map from reason enum to string
+ * @returns Promise<Map<String,Object>> map from reason enum to object
  */
 function getInheritanceReasonStrings() {
   if (reasonStrings === null) {
     reasonStrings = cldrAjax
       .doFetch(`api/xpath/inheritance/reasons`)
-      .then((v) => v.json());
+      .then((v) => v.json())
+      .then((r) => r.reduce((p, v) => ((p[v.reason] = v), p), {}));
   }
   return reasonStrings;
 }
@@ -33,9 +34,11 @@ async function explainInheritance(itemLocale, itemXpath) {
   const { items } = await r.json();
   let lastLocale = null;
   let lastPath = null;
-  let firstNone = false;
   for (let i = 0; i < items.length; i++) {
-    const { locale, xpath, reason } = items[i];
+    const { locale, xpath, reason, hidden } = items[i];
+    if (hidden) {
+      items[i].hidden = true;
+    }
     if (reason !== "none") {
       // hide 'none'
       items[i].showReason = true;
@@ -48,7 +51,7 @@ async function explainInheritance(itemLocale, itemXpath) {
       lastLocale = locale;
     }
     if (xpath && lastPath !== xpath) {
-      if (i !== 0 || xpath !== itemXpath) {
+      if (i === 0 || xpath !== itemXpath) {
         // Don't set newXpath for the first (current) xpath.
         items[i].newXpath = xpath;
       }

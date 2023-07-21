@@ -169,7 +169,8 @@
 <script>
 import { notification } from "ant-design-vue";
 import { ref, reactive } from "vue";
-import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as setUtils from "../esm/setUtils.mjs";
 
 function errBox(message) {
@@ -223,7 +224,7 @@ export default {
       const quiet = id != this.transferFromId;
       if (!this.votesCache[id]) {
         this.votesCache[id] = { loading: true };
-        const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
+        const sessionId = cldrStatus.getSessionId();
         fetch(`SurveyAjax?what=user_oldvotes&s=${sessionId}&old_user_id=${id}`)
           .then((r) => r.json())
           .then((o) => {
@@ -292,7 +293,7 @@ export default {
         return;
       }
       this.started = `Begin copy from ${this.fromLocale} to ${this.toLocale}`;
-      const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
+      const sessionId = cldrStatus.getSessionId();
       fetch(
         `SurveyAjax?what=user_xferoldvotes&s=${sessionId}&from_user_id=${this.transferFromId}&to_user_id=${this.transferToId}&from_locale=${this.fromLocale}&to_locale=${this.toLocale}`
       )
@@ -333,7 +334,7 @@ export default {
         // ID set from URL. fetch its data.
         this.transferFrom(this.transferFromId);
       }
-      const sessionId = this.$cldrOpts.cldrStatus.getSessionId();
+      const sessionId = cldrStatus.getSessionId();
       fetch(`SurveyAjax?what=user_list&s=${sessionId}`)
         .then((r) => r.json())
         .then(({ shownUsers }) => shownUsers)

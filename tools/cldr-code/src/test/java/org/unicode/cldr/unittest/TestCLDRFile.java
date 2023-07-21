@@ -58,6 +58,7 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * This is the original TestFwmk test case for CLDRFile.
@@ -319,6 +320,7 @@ public class TestCLDRFile extends TestFmwk {
                             || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
                             || path.contains("[@alt=\"variant\"]")
                             || path.contains("[@alt=\"formal\"]")
+                            || path.contains("[@type=\"pressure-gasoline-equivalent\"]")
                             || (path.contains("dayPeriod[@type=")
                                     && (path.endsWith("1\"]")
                                             || path.endsWith("\"am\"]")
@@ -391,14 +393,14 @@ public class TestCLDRFile extends TestFmwk {
             if (path.startsWith("//ldml/localeDisplayNames/")
                     || path.contains("[@alt=\"accounting\"]")
                     || path.contains("[@alt=\"alphaNextToNumber\"]") // CLDR-14336
+                    || path.contains("[@alt=\"ascii\"]") // CLDR-16606
                     || path.contains("[@alt=\"noCurrency\"]") // CLDR-14336
                     || path.startsWith("//ldml/personNames/") // CLDR-15384
-            ) {
+                    || path.startsWith("//ldml/typographicNames/styleName")
+                    || path.startsWith("//ldml/units")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
-                if (!path.contains("speed-beaufort")) {
-                    errln("+" + engName + ", -" + locales + "\t" + path);
-                }
+                errln("+" + engName + ", -" + locales + "\t" + path);
             }
         }
         for (Entry<String, Set<String>> entry : extraPathsToLocales.keyValuesSet()) {
@@ -968,6 +970,30 @@ public class TestCLDRFile extends TestFmwk {
                                             Sets.difference(
                                                     es.getRawExtraPaths(),
                                                     es_US.getRawExtraPaths())));
+        }
+    }
+
+    public void testEnglishSideways() {
+        CLDRFile fr = cldrFactory.make("fr", true);
+        CLDRFile en = cldrFactory.make("en", true);
+        System.out.println();
+        for (String path : fr.fullIterable()) {
+            if (!path.startsWith("//ldml/units") || path.endsWith("/gender")) {
+                continue;
+            }
+            Status status = new Status();
+            String localeWhereFound = en.getSourceLocaleID(path, status);
+            if (!Objects.equals(path, status.pathWhereFound)) {
+                XPathParts pathParts = XPathParts.getFrozenInstance(path);
+                String type = pathParts.getAttributeValue(3, "type");
+                XPathParts foundPathParts = XPathParts.getFrozenInstance(status.pathWhereFound);
+                String foundType = foundPathParts.getAttributeValue(3, "type");
+                if (Objects.equals(type, foundType)) {
+                    continue; // ok to go sideways within type
+                }
+                System.out.println(
+                        String.format("%s\t%s\t%s", path, status.pathWhereFound, localeWhereFound));
+            }
         }
     }
 }

@@ -310,13 +310,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return new Alias(pos, oldPath, newPath, aliasParts);
         }
 
-        /**
-         * @param newLocaleID
-         * @param oldPath
-         * @param aliasParts
-         * @param newPath
-         * @param pathsEqual
-         */
         private Alias(int pos, String oldPath, String newPath, String aliasParts) {
             Matcher matcher = aliasPattern.matcher(aliasParts);
             if (!matcher.matches()) {
@@ -412,11 +405,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * This function is called on the full path, when we know the distinguishing path matches
          * the oldPath. So we just want to modify the base of the path
-         *
-         * @param oldPath
-         * @param newPath
-         * @param result
-         * @return
          */
         public String changeNewToOld(String fullPath, String newPath, String oldPath) {
             // do common case quickly
@@ -590,6 +578,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 list.add(
                         new LocaleInheritanceInfo(
                                 locale, path, LocaleInheritanceInfo.Reason.value));
+                // Since we’re not resolving, there’s no way to look for a Bailey value here.
             } else {
                 list.add(
                         new LocaleInheritanceInfo(
@@ -987,7 +976,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
              *
-             * Also skip caching if the list (tracing) is enabled.
+             * Also skip caching if the list is non-null, for tracing.
              */
             if (!skipInheritanceMarker || !cachingIsEnabled || (list != null)) {
                 return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker, list);
@@ -1089,6 +1078,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 boolean skipFirst,
                 boolean skipInheritanceMarker,
                 List<LocaleInheritanceInfo> list) {
+
+            //   When calculating the Bailey values, we track the final
+            //   return value as firstValue. If non-null, this will become
+            //   the function's ultimate return value.
+            AliasLocation firstValue = null;
             for (XMLSource source : sources.values()) {
                 if (skipFirst) {
                     skipFirst = false;
@@ -1103,14 +1097,30 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                     new LocaleInheritanceInfo(
                                             localeID, xpath, Reason.inheritanceMarker));
                         }
-                        continue;
+                        // skip the inheritance marker and keep going
+                    } else {
+                        // We have a “hard” value.
+                        if (list == null) {
+                            return new AliasLocation(xpath, localeID);
+                        }
+                        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            list.add(
+                                    new LocaleInheritanceInfo(
+                                            localeID, xpath, Reason.inheritanceMarker));
+                        } else {
+                            list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
+                        }
+                        // Now, keep looping to add additional Bailey values.
+                        // Note that we will typically exit the recursion (terminal state)
+                        // with Reason.codeFallback or Reason.none
+                        if (firstValue == null) {
+                            // Save this, this will eventually be the function return.
+                            firstValue = new AliasLocation(xpath, localeID);
+                            // Everything else is only for Bailey.
+                        } // else: we’re already looping.
                     }
-                    if (list != null) {
-                        list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
-                    }
-                    return new AliasLocation(xpath, localeID);
-                }
-                if (list != null) {
+                } else if (list != null) {
+                    // No value, but we do have a list to update
                     // Note that the path wasn't found in this locale
                     // This also gives a trace of the locale inheritance
                     list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.none));
@@ -1190,19 +1200,28 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             if (aliasedPath != null) {
                 // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
-                return getCachedFullStatus(aliasedPath, skipInheritanceMarker, list);
+                AliasLocation cachedFullStatus =
+                        getCachedFullStatus(aliasedPath, skipInheritanceMarker, list);
+                // We call the above first, to update the list (if needed)
+                if (firstValue == null) {
+                    // not looping due to Bailey - return the cached status.
+                    return cachedFullStatus;
+                } else {
+                    // Bailey loop. Return the first value.
+                    return firstValue;
+                }
             }
 
             // Fallback location.
             if (list != null) {
-                list.add(
-                        new LocaleInheritanceInfo(
-                                null,
-                                xpath,
-                                Reason.codeFallback)); // Not using CODE_FALLBACK_ID as it is
-                // implicit in the reason
+                // Not using CODE_FALLBACK_ID as it is implicit in the reason
+                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codeFallback));
             }
-            return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            if (firstValue == null) {
+                return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            } else {
+                return firstValue;
+            }
         }
 
         /**
@@ -1630,6 +1649,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "biot");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "chagos");
 
             // new alternate name
 
@@ -1960,39 +1981,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static XMLSource getFrozenInstance(
             String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
         return XMLNormalizingLoader.getFrozenInstance(localeId, dirs, minimalDraftStatus);
-    }
-
-    /**
-     * Does the value in question either match or inherent the current value in this XMLSource?
-     *
-     * <p>To match, the value in question and the current value must be non-null and equal.
-     *
-     * <p>To inherit the current value, the value in question must be INHERITANCE_MARKER and the
-     * current value must equal the bailey value.
-     *
-     * @param value the value in question
-     * @param curValue the current value, that is, getValueAtDPath(xpathString)
-     * @param xpathString the path identifier
-     * @return true if it matches or inherits, else false
-     */
-    public boolean equalsOrInheritsCurrentValue(String value, String curValue, String xpathString) {
-        if (value == null || curValue == null) {
-            return false;
-        }
-        if (value.equals(curValue)) {
-            return true;
-        }
-        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
-            String baileyValue = getBaileyValue(xpathString, null, null);
-            if (baileyValue == null) {
-                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
-                return false;
-            }
-            if (curValue.equals(baileyValue)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**

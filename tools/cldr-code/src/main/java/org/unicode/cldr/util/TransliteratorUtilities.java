@@ -142,4 +142,25 @@ public class TransliteratorUtilities {
             Transliterator.createFromRules("any-html", HTML_RULES_ASCII, Transliterator.FORWARD);
     public static final Transliterator fromHTML =
             Transliterator.createFromRules("html-any", HTML_RULES, Transliterator.REVERSE);
+
+    public static Transliterator getTransliteratorFromFile(String ID, String file) {
+        return getTransliteratorFromFile(ID, file, Transliterator.FORWARD);
+    }
+
+    public static Transliterator getTransliteratorFromFile(String ID, String file, int direction) {
+        try {
+            BufferedReader br = CldrUtility.getUTF8Data(file);
+            StringBuilder input = new StringBuilder();
+            while (true) {
+                String line = br.readLine();
+                if (line == null) break;
+                if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
+                input.append(line);
+                input.append('\n');
+            }
+            return Transliterator.createFromRules(ID, input.toString(), direction);
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException("Can't open transliterator file " + file, e);
+        }
+    }
 }

@@ -1,19 +1,5 @@
 <template>
   <div v-if="loggedIn" class="reportResponse">
-    <div>
-      <a-tooltip class="boxy" v-if="reportStatus">
-        Approval Status:
-        <template #title>
-          {{ reportName }} {{ reportStatus.status }}:
-          {{ reportStatus.acceptability }}
-        </template>
-        <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>
-        {{ humanizeAcceptability }}
-      </a-tooltip>
-      <a-spin size="small" v-if="!loaded" />
-    </div>
-    <a-alert v-if="error" type="error" v-model:message="error" />
-
     <p>
       Please read the
       <a
@@ -37,17 +23,37 @@
         I have not reviewed the items.</a-radio
       >
     </a-radio-group>
+    <hr v-if="loaded || error" />
+    <a-alert v-if="error" type="error" v-model:message="error" />
+    <a-spin size="small" v-if="!loaded" />
+    <a-collapse v-if="reportStatus">
+      <a-collapse-panel :header="approvalHeader" :ghost="voteCount > 0">
+        <VoteInfo
+          :votes="reportStatus.votes"
+          :votingResults="reportStatus.votingResults"
+          :winner="reportStatus.status"
+        />
+        <template #extra>
+          <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>
+          {{ humanizeAcceptability }}
+        </template>
+      </a-collapse-panel>
+    </a-collapse>
   </div>
 </template>
 
 <script>
-import * as cldrClient from "../esm/cldrClient.js";
-import * as cldrReport from "../esm/cldrReport.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrTable from "../esm/cldrTable.js";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrClient from "../esm/cldrClient.mjs";
+import * as cldrReport from "../esm/cldrReport.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrTable from "../esm/cldrTable.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
+import VoteInfo from "./VoteInfo.vue";
 
 export default {
+  components: {
+    VoteInfo,
+  },
   props: [
     "report", // e.g. 'numbers'
   ],
@@ -67,6 +73,19 @@ export default {
     await this.reload();
   },
   computed: {
+    approvalHeader() {
+      if (this.voteCount == 0) {
+        return "Approval Status";
+      } else {
+        return `Approval Status: ${this.voteCount} vote(s)`;
+      }
+    },
+    voteCount() {
+      if (!this.reportStatus) {
+        return 0;
+      }
+      return Object.keys(this.reportStatus.votes).length;
+    },
     loggedIn() {
       return !!cldrStatus.getSurveyUser();
     },
@@ -141,7 +160,7 @@ export default {
         await this.client.apis.voting.updateReport(
           {
             user: user.id,
-            locale: this.$cldrOpts.locale,
+            locale: cldrStatus.getCurrentLocale(),
             report: this.report,
           },
           {
@@ -171,11 +190,11 @@ export default {
         // get MY vote
         const resp = this.client.apis.voting.getReport({
           user: user.id,
-          locale: this.$cldrOpts.locale,
+          locale: cldrStatus.getCurrentLocale(),
         });
         // get the overall status for this locale
         const reportLocaleStatusResponse = cldrReport.getOneReportLocaleStatus(
-          this.$cldrOpts.locale,
+          cldrStatus.getCurrentLocale(),
           this.report
         );
 

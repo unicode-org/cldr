@@ -191,15 +191,19 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"]", // TODO
-                    // CLDR-15384
-                    "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]", // TODO
-                    // CLDR-15384
+                    "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]",
                     "//ldml/personNames/foreignSpaceReplacement", // TODO CLDR-15384
+                    "//ldml/personNames/nativeSpaceReplacement[@xml:space=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+                    "//ldml/personNames/nativeSpaceReplacement[@xml:space=\"([^\"]*+)\"]", // TODO
+                    "//ldml/personNames/nativeSpaceReplacement[@alt=\"([^\"]*+)\"]",
+                    "//ldml/personNames/nativeSpaceReplacement", // TODO CLDR-15384
                     "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
-                    "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // TODO CLDR-15384
+                    "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
+                    "//ldml/personNames/parameterDefault[@parameter=\"([^\"]*+)\"]" // TODO
+                    // CLDR-15384
                     );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
@@ -217,6 +221,8 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/characters/exemplarCharacters",
                     "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
                     // TODO Add background
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-16606
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-16606
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateFormats/dateFormatLength[@type=\"([^\"]*+)\"]/dateFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"]",
@@ -760,6 +766,25 @@ public class TestExampleGenerator extends TestFmwk {
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                                 "d‏/M‏/y"));
         assertEquals("Currency format example faulty", "【٥‏/٩‏/١٩٩٩〗【⃪٥‏/٩‏/١٩٩٩〗", actual);
+    }
+
+    public void TestDateTimeComboFormats() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("en");
+        checkValue(
+                "DateTimeCombo long std",
+                "〖❬September 5, 1999❭, ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭, ❬1:25 PM❭〗〖❬September 5, 1999❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+        checkValue(
+                "DateTimeCombo short std",
+                "〖❬9/5/99❭, ❬1:25:59 PM Eastern Standard Time❭〗〖❬9/5/99❭, ❬1:25 PM❭〗〖❬9/5/99❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+        checkValue(
+                "DateTimeCombo long std",
+                "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗〖❬today❭ at ❬1:25 PM❭〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
     }
 
     public void TestSymbols() {
@@ -1473,6 +1498,48 @@ public class TestExampleGenerator extends TestFmwk {
             for (String line : pluralSheet) {
                 System.out.println(line);
             }
+        }
+    }
+
+    public void TestUnicodeSetExamples() {
+        String[][] tests = {
+            {
+                "hi",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[ॄ‌‍]",
+                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ड़ ॾ ॿ ऱ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+            },
+            {
+                "hu",
+                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+                "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
+                "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ aː áː àː ɓ ć ĉ č ċ ď ḑ đ ḍ ḓ ð ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ eː éː èː ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌ ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧ į į́ i᷆ i᷇ ỉ ị i̱ iː íː ìː íj́ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ ǩ ķ ḵ kʷ ƙ ĺ ľ ļ ł ḷ ḽ ḻ ḿ m̀ m̄ ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ ɲ ŋ ŋ́ ŋ̀ ŋ̄ ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́ ọ̀ ộ o̱ oː óː òː ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș ß ť ṭ ț ṱ ṯ ŧ ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal: ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
+            },
+            {
+                "de",
+                "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
+                "[\\u200B \\- . ๎ ็]",
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+            },
+            {
+                "de",
+                "//ldml/characters/exemplarCharacters",
+                "[\\u200B a-z ๎ ็]",
+                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
+            },
+            {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
+        };
+
+        for (String[] test : tests) {
+            final String locale = test[0];
+            final String path = test[1];
+            final String value = test[2];
+            final String expected = test[3];
+            ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+            String actual =
+                    ExampleGenerator.simplify( //
+                            exampleGenerator.getExampleHtml(path, value));
+            assertEquals(locale + path + "=" + value, expected, actual);
         }
     }
 }

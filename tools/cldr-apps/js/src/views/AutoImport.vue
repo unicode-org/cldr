@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrSurvey from "../esm/cldrSurvey.js";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrSurvey from "../esm/cldrSurvey.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   data() {

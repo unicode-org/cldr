@@ -635,6 +635,7 @@ public class TestDtdData extends TestFmwk {
                                         || attribute.equals("length")
                                         || attribute.equals("usage")
                                         || attribute.equals("formality")))
+                        || (elementName.equals("parameterDefault") && attribute.equals("parameter"))
                         || (elementName.equals("sampleName") && attribute.equals("item"))
                         || (elementName.equals("nameField") && attribute.equals("type"));
 
@@ -911,6 +912,7 @@ public class TestDtdData extends TestFmwk {
         String[][] tests = {
             {"//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]", "any"},
             {"//ldml/personNames/foreignSpaceReplacement", "any"},
+            {"//ldml/personNames/nativeSpaceReplacement", "any"},
             {"//ldml/personNames/initialPattern[@type=\"initial\"]", "nonempty"},
         };
         for (String[] test : tests) {

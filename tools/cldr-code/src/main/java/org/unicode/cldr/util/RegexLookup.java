@@ -1194,8 +1194,8 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     /**
      * Add a pattern/value pair.
      *
-     * @param stringPattern
-     * @param target
+     * @param stringPattern regex to match
+     * @param target return type on match
      * @return this, for chaining
      */
     public RegexLookup<T> add(String stringPattern, T target) {
@@ -1210,7 +1210,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * Add a pattern/value pair.
      *
      * @param pattern
-     * @param target
+     * @param target return type on match
      * @return this, for chaining
      */
     public RegexLookup<T> add(Finder pattern, T target) {

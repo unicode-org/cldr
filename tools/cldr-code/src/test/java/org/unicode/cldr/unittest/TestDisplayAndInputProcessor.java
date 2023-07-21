@@ -61,8 +61,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     public void TestTasawaq() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile("twq", true));
         // time for data driven test
-        final String input = "[Z \u017E ]";
-        final String expect = "[z \u017E]"; // lower case
+        final String input = "Z \u017E";
+        final String expect = "[zž]"; // should only be lowercased if the exemplar class is set.
         String value = daip.processInput("//ldml/characters/exemplarCharacters", input, null);
         if (!value.equals(expect)) {
             errln(
@@ -349,6 +349,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
+                display = daip.processForDisplay(path, value);
+                input = daip.processInput(path, display, internalException);
+                diff(value, input, path);
                 errln(
                         cldrFile.getLocaleID()
                                 + "\tNo roundtrip in DAIP:"
@@ -366,8 +369,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                                 + ">\n\tpath<"
                                 + path
                                 + ">");
-                daip.processInput(path, value, internalException); // for
-                // debugging
+                // for debugging
+                daip.processForDisplay(path, value);
+                daip.processInput(path, display, internalException);
             } else if (!CharSequences.equals(value, display)
                     || !CharSequences.equals(value, input)
                     || internalException[0] != null) {
@@ -390,23 +394,62 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             }
         }
     }
+    /** DAIP can add characters to UnicodeSets, so remove them for a clean test. Could optimize */
+    UnicodeSet suppressAdditions(UnicodeSet value, UnicodeSet input_value) {
+        for (UnicodeSetIterator usi = new UnicodeSetIterator(value); usi.next(); ) {
+            switch (usi.getString()) {
+                case "\u2011":
+                    input_value.remove('-');
+                    break; // nobreak hyphen
+                case "-":
+                    input_value.remove('\u2011');
+                    break; // nobreak hyphen
+                case " ":
+                    input_value.remove('\u00a0');
+                    break; // nobreak space
+                case "\u00a0":
+                    input_value.remove(' ');
+                    break; // nobreak space
+                case "\u202F":
+                    input_value.remove('\u2009');
+                    break; // nobreak narrow space
+                case "\u2009":
+                    input_value.remove('\u202F');
+                    break; // nobreak narrow space
+            }
+        }
+        return input_value;
+    }
 
     private String diff(String value, String input, String path) {
         if (value.equals(input)) {
             return null;
         }
-        if (path.contains("/foreignSpaceReplacement")) {
+        if (path.contains("/foreignSpaceReplacement") || path.contains("/nativeSpaceReplacement")) {
             return null; // CLDR-15384 typically inherited; no DAIP processing desired
         }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
-                UnicodeSet s1 = new UnicodeSet(value);
-                UnicodeSet s2 = new UnicodeSet(input);
-                if (!s1.equals(s2)) {
-                    UnicodeSet temp = new UnicodeSet(s1).removeAll(s2);
-                    UnicodeSet temp2 = new UnicodeSet(s2).removeAll(s1);
-                    temp.addAll(temp2);
-                    return temp.toPattern(true);
+                UnicodeSet valueSet = new UnicodeSet(value);
+                UnicodeSet inputSet;
+                try {
+                    inputSet = new UnicodeSet(input);
+                } catch (Exception e) {
+                    inputSet = UnicodeSet.EMPTY;
+                }
+                if (!valueSet.equals(inputSet)) {
+                    // The test has problems, because DAIP can add characters.
+                    // So check that it adds them right
+                    UnicodeSet value_input = new UnicodeSet(valueSet).removeAll(inputSet);
+                    UnicodeSet input_value =
+                            suppressAdditions(
+                                    valueSet, new UnicodeSet(inputSet).removeAll(valueSet));
+                    if (!value_input.isEmpty() || !input_value.isEmpty()) {
+                        return (value_input.isEmpty() ? "" : "V-I:" + value_input.toPattern(true))
+                                + (input_value.isEmpty()
+                                        ? ""
+                                        : "I-V:" + input_value.toPattern(true));
+                    }
                 }
                 return null;
             } catch (Exception e) {
@@ -687,5 +730,59 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 "Empty FSR output for" + xpath,
                 DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE,
                 roundTrip);
+    }
+
+    public void TestUnicodeSetExamples() {
+        String[][] tests = {
+            // unicodeSet, displayForm, roundtrip
+            {
+                "//ldml/characters/exemplarCharacters",
+                "[a-c {def} å \\u200B \\- . ๎ ็a-pr-vzáéíóöúüőű{ccs}{cs}{ddz}{ddzs}{dz}{dzs}{ggy}{gy}{lly}{ly}{nny}{ny}{ssz}{sz}{tty}{ty}{zs}{zzs}]",
+                "❰WNJ❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
+                "[\\u200B ๎ ็ aá b c {ccs} {cs} d {ddz} {ddzs} {def} {dz} {dzs} eé f g {ggy} {gy} h ií j k l {lly} {ly} m n {nny} {ny} oó p r s {ssz} {sz} t {tty} {ty} uú v üű z {zs} {zzs} öő å]",
+                // note: DAIP also adds break/nobreak alternates for
+                // hyphen, and removes some characters if exemplars
+            },
+            {
+                "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
+                "[a-c {def} å \\u200B \\- . ๎ ็]",
+                "❰WNJ❱ ๎ ็ - . a b c def å",
+                "[\\u200B ๎ ็ \\- ‑ . a b c {def} å]",
+                // note: DAIP also adds break/nobreak alternates
+                // for hyphen, etc.
+            },
+        };
+        // Note, since processInput does a fixup for examplars, we account for that in the input.
+        // If we had just \u200B, then \u2011 gets added.
+        Exception[] excp = new Exception[1];
+        int count = 0;
+        DisplayAndInputProcessor daip =
+                new DisplayAndInputProcessor(info.getCLDRFile("da", true), true);
+        for (String[] test : tests) {
+            final String path = test[0];
+            final String unicodeSet = new UnicodeSet(test[1]).toPattern(true); // normalize
+            final String expectedDisplayForm = test[2];
+            final String expectedXmlForm = test[3];
+            // final String expectedRoundtrip = new UnicodeSet(test[3]).toPattern(true); //
+            // normalize
+
+            String actualDisplayForm = daip.processForDisplay(path, unicodeSet);
+            assertEquals(
+                    ++count + ") unicodeSet to display, " + path,
+                    expectedDisplayForm,
+                    actualDisplayForm);
+            String actualXmlFormat = daip.processInput(path, expectedDisplayForm, excp);
+            assertEquals(
+                    count + ") display to unicodeSet, " + path, expectedXmlForm, actualXmlFormat);
+
+            // Now we check that processInput can work on the display form.
+            // Just in case the ST calls it twice.
+
+            String doubleInputProcessing = daip.processInput(path, actualXmlFormat, excp);
+            assertEquals(
+                    count + ") processInput twice, " + path,
+                    actualXmlFormat,
+                    doubleInputProcessing);
+        }
     }
 }

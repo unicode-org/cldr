@@ -12,7 +12,6 @@ import com.ibm.icu.text.Transliterator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
-import org.unicode.cldr.test.CheckCLDR;
 
 /**
  * @deprecated TODO: what is supposed to replace PrettyPath? If no replacement is planned, make it
@@ -24,12 +23,13 @@ public class PrettyPath {
 
     {
         prettyPathZoneTransform =
-                CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
+                TransliteratorUtilities.getTransliteratorFromFile(
+                        "prettyPathZone", "prettyPathZone.txt");
         Transliterator.registerInstance(prettyPathZoneTransform);
     }
 
     private Transliterator prettyPathTransform =
-            CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
+            TransliteratorUtilities.getTransliteratorFromFile("ID", "prettyPath.txt");
 
     private Map<String, String> prettyPath_path = new HashMap<>();
     private Map<String, String> path_prettyPath_sortable = new HashMap<>();

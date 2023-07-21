@@ -24,9 +24,9 @@
 			for the icu4j.version tag to use -->
 		<icu4j.version>73.1-release-73-1</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
-		<maven-surefire-plugin-version>2.22.2</maven-surefire-plugin-version>
+		<maven-surefire-plugin-version>3.1.0</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
-		<httpcomponents-version>5.0.3</httpcomponents-version>
+		<httpcomponents-version>5.2.1</httpcomponents-version>
 		<!--  web-specific properties are under cldr-apps -->
 		<mysql.version>8.0.30</mysql.version>
 		<!-- jsonwebtoken.io -->
@@ -138,7 +138,7 @@
 			<dependency>
 				<groupId>org.jsoup</groupId>
 				<artifactId>jsoup</artifactId>
-				<version>1.15.3</version>
+				<version>1.16.1</version>
 			</dependency>
 
 			<!-- db connectors -->
@@ -248,7 +248,7 @@
 				<plugin>
 					<groupId>io.openliberty.tools</groupId>
 					<artifactId>liberty-maven-plugin</artifactId>
-					<version>3.5.1</version>
+					<version>3.7.1</version>
 				</plugin>
 				<plugin>
 					<groupId>com.github.eirslett</groupId>
@@ -258,7 +258,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.22.2</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -267,7 +267,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.0.2</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
@@ -288,7 +288,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>3.3.0</version>
+					<version>3.5.0</version>
 				</plugin>
 				<plugin>
 			        <groupId>org.apache.maven.plugins</groupId>

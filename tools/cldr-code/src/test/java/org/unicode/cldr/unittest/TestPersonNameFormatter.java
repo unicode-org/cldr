@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import static org.unicode.cldr.util.personname.PersonNameFormatter.Modifier.retain;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
@@ -34,6 +36,7 @@ import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckPersonNames;
 import org.unicode.cldr.test.CheckPlaceHolders;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -77,7 +80,7 @@ public class TestPersonNameFormatter extends TestFmwk {
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     final FallbackFormatter FALLBACK_FORMATTER =
-            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
+            new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, null, false);
     final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES =
@@ -731,6 +734,10 @@ public class TestPersonNameFormatter extends TestFmwk {
                 case initial:
                     expected = "v.B.";
                     break;
+                case retain:
+                    // "retain" is a no-op except when used in conjunction with "initial"
+                    expected = "van Berk";
+                    break;
                 case initialCap:
                     expected = "Van Berk";
                     break;
@@ -740,12 +747,18 @@ public class TestPersonNameFormatter extends TestFmwk {
                 case prefix:
                     expected = null;
                     break;
-                case informal:
-                    expected = "van Berk";
-                    break;
                 case core:
                     expected = "van Berk";
                     break; // TODO fix core
+                case vocative:
+                    expected = "van Berkᵛ"; // artificial fallback for CLDR vetters
+                    break;
+                case genitive:
+                    expected = "van Berkᵍ"; // artificial fallback for CLDR vetters
+                    break;
+                case informal:
+                    expected = "van Berk"; // no fallback change
+                    break;
                 default:
                     throw new IllegalArgumentException("Need to add modifier test for " + m);
             }
@@ -865,9 +878,15 @@ public class TestPersonNameFormatter extends TestFmwk {
         final Map<String, String> resolvedMap = new TreeMap<>();
         final Map<String, String> unresolvedMap = new TreeMap<>();
         private String localeID;
+        private Set<Modifier> allowedModifiers;
 
         public CheckAccessorStub(String localeID) {
             this.localeID = localeID;
+            this.allowedModifiers = Modifier.getAllowedModifiers(localeID);
+        }
+
+        public Set<Modifier> getAllowedModifiers() {
+            return allowedModifiers;
         }
 
         public CheckAccessorStub put(String path, String value) {
@@ -1073,35 +1092,62 @@ public class TestPersonNameFormatter extends TestFmwk {
 
     public void TestCheckPatterns() {
         String[][] tests = {
-            // sample-pattern, errorWhenMonogram, errorWhenNonMonogram
+            // Format:
+            // sample-pattern,
+            // errorWhenMonogram,
+            // errorWhenNonMonogram
             {
+                "fr",
                 "{title} {given-monogram-allCaps}",
                 "Error: Disallowed when usage=monogram: {title…}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {given-allCaps-monogram}"
             },
             {
+                "fr",
                 "{given-informal-initial}.",
                 "Error: -monogram is required when usage=monogram, in {given-informal-initial}|Warning: “.” is discouraged when usage=monogram, in \"{given-informal-initial}.\"",
                 ""
             },
             {
+                "fr",
                 "{surname-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram}"
             },
             {
+                "fr",
                 "{surname-core-monogram-allCaps}",
                 "",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-allCaps-monogram-core}"
             },
             {
+                "fr",
                 "{surname-core-monogram}",
                 "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram-core}",
                 "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram-core}"
             },
             {
+                "fr",
                 "{given}.{surname}",
                 "Error: -monogram is required when usage=monogram, in {given}|Warning: “.” is discouraged when usage=monogram, in \"{given}.{surname}\"|Error: -monogram is required when usage=monogram, in {surname}",
+                ""
+            },
+            {
+                "fr",
+                "{given-foo}",
+                "Error: Invalid placeholder in value: «{given-foo}»",
+                "Error: Invalid placeholder in value: «{given-foo}»"
+            },
+            {
+                "fr", // French does not have vocative
+                "{given-vocative}",
+                "Error: Illegal grammatical case modifiers for fr: [vocative]; see <a href='http://cldr.unicode.org/translation/error-codes#invalidPlaceHolder'  target='cldr_error_codes'>invalid place holder</a>.|Error: -monogram is required when usage=monogram, in {given-vocative}",
+                "Error: Illegal grammatical case modifiers for fr: [vocative]; see <a href='http://cldr.unicode.org/translation/error-codes#invalidPlaceHolder'  target='cldr_error_codes'>invalid place holder</a>."
+            },
+            {
+                "ru", // Russian has vocative
+                "{given-vocative}",
+                "Error: -monogram is required when usage=monogram, in {given-vocative}",
                 ""
             },
         };
@@ -1110,24 +1156,38 @@ public class TestPersonNameFormatter extends TestFmwk {
         XPathParts nonMonogramPathParts = XPathParts.getFrozenInstance(sampleNonMonogramPath);
         int i = 0;
         for (String[] row : tests) {
+
             ++i;
-            String samplePattern = row[0];
-            String expectedMonogramErrors = row[1];
-            String expectedNonMonogramErrors = row.length < 3 ? row[1] : row[2];
+            final String locale = row[0];
+            String samplePattern = row[1];
+            String expectedMonogramErrors = row[2];
+            String expectedNonMonogramErrors = row.length < 4 ? row[2] : row[3];
             CheckAccessorStub stub =
-                    new CheckAccessorStub("fr")
+                    new CheckAccessorStub(locale)
                             .put(sampleMonogramPath, samplePattern)
                             .put(sampleNonMonogramPath, samplePattern);
             results.clear();
             CheckPlaceHolders.checkPersonNamePatterns(
-                    stub, sampleMonogramPath, monogramPathParts, samplePattern, results);
+                    stub,
+                    stub.getAllowedModifiers(),
+                    locale,
+                    sampleMonogramPath,
+                    monogramPathParts,
+                    samplePattern,
+                    results);
             assertEquals(
                     i + ") monogram, " + samplePattern,
                     expectedMonogramErrors,
                     joinCheckStatus(results));
             results.clear();
             CheckPlaceHolders.checkPersonNamePatterns(
-                    stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
+                    stub,
+                    stub.getAllowedModifiers(),
+                    locale,
+                    sampleNonMonogramPath,
+                    nonMonogramPathParts,
+                    samplePattern,
+                    results);
             assertEquals(
                     i + ") non-monogram, " + samplePattern,
                     expectedNonMonogramErrors,
@@ -1391,6 +1451,7 @@ public class TestPersonNameFormatter extends TestFmwk {
         final String wholeFile = sw.toString();
         assertTrue(
                 "Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
+        assertTrue("Contains nativeSpaceReplacement", wholeFile.contains("nativeSpaceReplacement"));
     }
 
     public void testInitials() {
@@ -1520,5 +1581,69 @@ public class TestPersonNameFormatter extends TestFmwk {
         namePattern = NamePattern.from(0, "•{given} {given2} {surname}•");
         actual = namePattern.format(sampleNameObject4, parameters, FALLBACK_FORMATTER);
         assertEquals("duplicates", "•Shinzō Abe•", actual);
+    }
+
+    public void testCheckPersonNamesDefault() {
+        String[][] tests = {
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "formal", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"formality\"]", "informal", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                "foo",
+                "Error: Valid values are: formal, informal"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                null,
+                "Error: Valid values are: formal, informal"
+            },
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "long", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "medium", ""},
+            {"//ldml/personNames/parameterDefault[@parameter=\"length\"]", "short", ""},
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                "foo",
+                "Error: Valid values are: long, medium, short"
+            },
+            {
+                "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                null,
+                "Error: Valid values are: long, medium, short"
+            },
+        };
+        for (String[] test : tests) {
+            String path = test[0];
+            String value = test[1];
+            String expected = test[2];
+            List<CheckStatus> statusList = new ArrayList<>();
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            CheckPersonNames.checkParameterDefault(
+                    new CheckPersonNames(), value, statusList, parts);
+            String flattened = Joiner.on("|").join(statusList);
+            assertEquals(path + "=" + value, expected, flattened);
+        }
+    }
+
+    public void TestRetainModifier() {
+        NameObject testName =
+                SimpleNameObject.from("locale=fr, given=Jean-Michel, surname=Basquiat");
+        FallbackFormatter fallbackFormatter =
+                new FallbackFormatter(ULocale.ENGLISH, "{0}.", "{0} {1}", null, null, null, false);
+
+        FormatParameters parameters = FormatParameters.from("length=medium; formality=formal");
+        NamePattern namePattern;
+        String actual;
+
+        namePattern = NamePattern.from(0, "{given} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("Sanity check", "Jean-Michel Basquiat", actual);
+
+        namePattern = NamePattern.from(0, "{given-initial} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("given-initial", "J. M. Basquiat", actual);
+
+        namePattern = NamePattern.from(0, "{given-initial-retain} {surname}");
+        actual = namePattern.format(testName, parameters, fallbackFormatter);
+        assertEquals("given-initial-retain", "J.-M. Basquiat", actual);
     }
 }

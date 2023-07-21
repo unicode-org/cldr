@@ -268,7 +268,7 @@ public class ConsoleCheckCLDR {
     };
 
     private static final Comparator<String> baseFirstCollator =
-            new Comparator<String>() {
+            new Comparator<>() {
                 LanguageTagParser languageTagParser1 = new LanguageTagParser();
                 LanguageTagParser languageTagParser2 = new LanguageTagParser();
 
@@ -840,24 +840,13 @@ public class ConsoleCheckCLDR {
                 missingExemplars.removeAll(
                         new UnicodeSet("[[:Uppercase:]-[İ]]")); // remove uppercase #4670
                 if (missingExemplars.size() != 0) {
-                    Collator col = Collator.getInstance(new ULocale(localeID));
                     showSummary(
                             localeID,
                             level,
                             "Total missing from general exemplars:\t"
                                     + missingExemplars.size()
                                     + "\t"
-                                    + new UnicodeSetPrettyPrinter()
-                                            .setOrdering(
-                                                    col != null
-                                                            ? col
-                                                            : Collator.getInstance(ULocale.ROOT))
-                                            .setSpaceComparator(
-                                                    col != null
-                                                            ? col
-                                                            : Collator.getInstance(ULocale.ROOT)
-                                                                    .setStrength2(Collator.PRIMARY))
-                                            .setCompressRanges(false)
+                                    + UnicodeSetPrettyPrinter.fromIcuLocale(localeID)
                                             .format(missingExemplars));
                 }
             }
@@ -867,17 +856,7 @@ public class ConsoleCheckCLDR {
                         localeID,
                         level,
                         "Total missing from currency exemplars:\t"
-                                + new UnicodeSetPrettyPrinter()
-                                        .setOrdering(
-                                                col != null
-                                                        ? col
-                                                        : Collator.getInstance(ULocale.ROOT))
-                                        .setSpaceComparator(
-                                                col != null
-                                                        ? col
-                                                        : Collator.getInstance(ULocale.ROOT)
-                                                                .setStrength2(Collator.PRIMARY))
-                                        .setCompressRanges(true)
+                                + UnicodeSetPrettyPrinter.fromIcuLocale(localeID)
                                         .format(missingCurrencyExemplars));
             }
             for (ErrorType type : subtotalCount.keySet()) {

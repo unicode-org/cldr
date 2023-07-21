@@ -8,19 +8,25 @@ package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.FieldPosition;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-/** Provides more flexible formatting of UnicodeSet patterns. */
-public class UnicodeSetPrettyPrinter {
+/**
+ * Provides more flexible formatting of UnicodeSet patterns. <br>
+ * Used in the XML for UnicodeSets. <br>
+ * For the Survey Tool, should use SimpleUnicodeSetFormatter.java
+ */
+public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     private static final StringComparator CODEPOINT_ORDER =
             new UTF16.StringComparator(true, false, 0);
     private static final UnicodeSet PATTERN_WHITESPACE =
@@ -42,6 +48,38 @@ public class UnicodeSetPrettyPrinter {
 
     private Comparator<String> ordering;
     private Comparator<String> spaceComp;
+
+    /** Make from root collator obtained from ICU */
+    public static final UnicodeSetPrettyPrinter ROOT_ICU =
+            from(
+                    (Comparator) Collator.getInstance(ULocale.ROOT).freeze(),
+                    (Comparator)
+                            Collator.getInstance(ULocale.ROOT)
+                                    .setStrength2(Collator.PRIMARY)
+                                    .freeze());
+
+    /** Make from ICU Locale */
+    public static UnicodeSetPrettyPrinter fromIcuLocale(String localeId) {
+        Collator col = ComparatorUtilities.getIcuCollator(localeId, Collator.IDENTICAL).freeze();
+        Collator spaceCol = col.cloneAsThawed().setStrength2(Collator.PRIMARY).freeze();
+        return from((Comparator) col, (Comparator) spaceCol);
+    }
+
+    /** Make from CLDR Locale */
+    public static UnicodeSetPrettyPrinter fromCldrLocale(String localeId) {
+        Collator col = ComparatorUtilities.getCldrCollator(localeId, Collator.IDENTICAL).freeze();
+        Collator spaceCol = col.cloneAsThawed().setStrength2(Collator.PRIMARY).freeze();
+        return from((Comparator) col, (Comparator) spaceCol);
+    }
+
+    /** Utility for creating UnicodeSetPrettyPrinter */
+    public static UnicodeSetPrettyPrinter from(
+            Comparator<String> col, Comparator<String> spaceCol) {
+        return new UnicodeSetPrettyPrinter()
+                .setOrdering(col)
+                .setSpaceComparator(spaceCol)
+                .setCompressRanges(false);
+    }
 
     public UnicodeSetPrettyPrinter() {}
 
@@ -123,53 +161,46 @@ public class UnicodeSetPrettyPrinter {
      * @param uset
      * @return formatted UnicodeSet
      */
-    public String format(UnicodeSet uset) {
-        first = true;
-        UnicodeSet putAtEnd =
-                new UnicodeSet(uset)
-                        .retainAll(SORT_AT_END); // remove all the unassigned gorp for now
-        // make sure that comparison separates all strings, even canonically equivalent ones
-        TreeSet<String> orderedStrings = new TreeSet<>(ordering);
-        for (UnicodeSetIterator it = new UnicodeSetIterator(uset); it.nextRange(); ) {
-            if (it.codepoint == UnicodeSetIterator.IS_STRING) {
-                orderedStrings.add(it.string);
-            } else {
-                for (int i = it.codepoint; i <= it.codepointEnd; ++i) {
-                    if (!putAtEnd.contains(i)) {
-                        orderedStrings.add(UTF16.valueOf(i));
+    @Override
+    public synchronized String format(UnicodeSet uset) {
+        try {
+            first = true;
+            UnicodeSet putAtEnd =
+                    new UnicodeSet(uset)
+                            .retainAll(SORT_AT_END); // remove all the unassigned gorp for now
+            // make sure that comparison separates all strings, even canonically equivalent ones
+            TreeSet<String> orderedStrings = new TreeSet<>(ordering);
+            for (UnicodeSetIterator it = new UnicodeSetIterator(uset); it.nextRange(); ) {
+                if (it.codepoint == UnicodeSetIterator.IS_STRING) {
+                    orderedStrings.add(it.string);
+                } else {
+                    for (int i = it.codepoint; i <= it.codepointEnd; ++i) {
+                        if (!putAtEnd.contains(i)) {
+                            orderedStrings.add(UTF16.valueOf(i));
+                        }
                     }
                 }
             }
-        }
-        target.setLength(0);
-        target.append("[");
-        for (String item : orderedStrings) {
-            appendUnicodeSetItem(item);
-        }
-        for (UnicodeSetIterator it = new UnicodeSetIterator(putAtEnd);
-                it.next(); ) { // add back the unassigned gorp
-            appendUnicodeSetItem(
-                    it.codepoint); // we know that these are only codepoints, not strings, so this
-            // is safe
-        }
-        flushLast();
-        target.append("]");
-        String sresult = target.toString();
+            target.setLength(0);
+            target.append("[");
+            for (String item : orderedStrings) {
+                appendUnicodeSetItem(item);
+            }
+            for (UnicodeSetIterator it = new UnicodeSetIterator(putAtEnd);
+                    it.next(); ) { // add back the unassigned gorp
+                appendUnicodeSetItem(
+                        it.codepoint); // we know that these are only codepoints, not strings, so
+                // this
+                // is safe
+            }
+            flushLast();
+            target.append("]");
+            String sresult = target.toString();
 
-        // double check the results. This can be removed once we have more tests.
-        //        try {
-        //            UnicodeSet  doubleCheck = new UnicodeSet(sresult);
-        //            if (!uset.equals(doubleCheck)) {
-        //                throw new IllegalStateException("Failure to round-trip in pretty-print " +
-        // uset + " => " + sresult + Utility.LINE_SEPARATOR + " source-result: " + new
-        // UnicodeSet(uset).removeAll(doubleCheck) +  Utility.LINE_SEPARATOR + " result-source: " +
-        // new UnicodeSet(doubleCheck).removeAll(uset));
-        //            }
-        //        } catch (RuntimeException e) {
-        //            throw (RuntimeException) new IllegalStateException("Failure to round-trip in
-        // pretty-print " + uset).initCause(e);
-        //        }
-        return sresult;
+            return sresult;
+        } catch (Exception e) {
+            return uset.toPattern(false);
+        }
     }
 
     private UnicodeSetPrettyPrinter appendUnicodeSetItem(String s) {
@@ -299,5 +330,10 @@ public class UnicodeSetPrettyPrinter {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+    }
+
+    @Override
+    public UnicodeSet parse(String formattedString) {
+        return new UnicodeSet(formattedString);
     }
 }

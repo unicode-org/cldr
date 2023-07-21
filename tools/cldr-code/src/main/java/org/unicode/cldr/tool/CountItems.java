@@ -212,17 +212,8 @@ public class CountItems {
             if (v == null) continue;
             UnicodeSet exemplars = new UnicodeSet(v);
             if (exemplars.size() != 0 && exemplars.size() < 500) {
-                Collator col = Collator.getInstance(new ULocale(locale));
-                Collator spaceCol = Collator.getInstance(new ULocale(locale));
-                spaceCol.setStrength(Collator.PRIMARY);
                 out.println(locale + ":\t\u200E" + v + '\u200E');
-                String fixed =
-                        new UnicodeSetPrettyPrinter()
-                                .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                                .setSpaceComparator(
-                                        spaceCol != null ? spaceCol : ROOT_PRIMARY_COLLATOR)
-                                .setCompressRanges(true)
-                                .format(exemplars);
+                String fixed = UnicodeSetPrettyPrinter.fromIcuLocale(locale).format(exemplars);
                 out.println(" =>\t\u200E" + fixed + '\u200E');
 
                 verifyEquality(exemplars, new UnicodeSet(fixed));

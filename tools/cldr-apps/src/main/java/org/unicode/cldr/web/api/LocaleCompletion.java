@@ -88,6 +88,9 @@ public class LocaleCompletion {
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
+        if (localeId == null || localeId.isBlank() || localeId.equals("USER")) {
+            return STError.badLocale(localeId); // 404
+        }
         CLDRLocale cldrLocale = CLDRLocale.getInstance(localeId);
         return Response.ok(getLocaleCompletion(cldrLocale)).build();
     }
@@ -176,8 +179,10 @@ public class LocaleCompletion {
         // we need an XML Source to receive notification.
         // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
         // whenever a vote happens.
-        final XMLSource mySource = stFactory.makeSource(cldrLocale.toString(), false);
-        mySource.addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
+        stFactory
+                .get(cldrLocale)
+                .getSource()
+                .addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
         return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
     }
 

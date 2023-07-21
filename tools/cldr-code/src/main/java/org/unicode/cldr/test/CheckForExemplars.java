@@ -261,15 +261,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;
-        prettyPrint =
-                new UnicodeSetPrettyPrinter()
-                        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                        .setSpaceComparator(
-                                col != null
-                                        ? col
-                                        : Collator.getInstance(ULocale.ROOT)
-                                                .setStrength2(Collator.PRIMARY))
-                        .setCompressRanges(true);
+        prettyPrint = UnicodeSetPrettyPrinter.ROOT_ICU;
         return this;
     }
 
@@ -554,10 +546,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // check for spaces
 
-        if (!value.equals(value.trim())
-                && !path.contains(
-                        "/foreignSpaceReplacement")) { // foreignSpaceReplacement value can be just
-            // space
+        if (!value.equals(value.trim()) && !path.contains("SpaceReplacement")) {
+            // foreignSpaceReplacement and nativeSpaceReplacement values can be just space, or just
+            // nothing
             if (!leadOrTrailWhitespaceOk.reset(path).find()) {
                 result.add(
                         new CheckStatus()

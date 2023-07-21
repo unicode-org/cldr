@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -19,7 +20,10 @@ public class PathInfo {
     static final Options options =
             new Options(PathInfo.class)
                     .add("locale", ".*", "und", "Locale ID for the path info")
-                    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin");
+                    .add("infile", ".*", null, "File to read paths from or '--infile=-' for stdin")
+                    .add("nosource", "Don’t print the XML Source line")
+                    .add("OutputDaip", ".*", "run a string through DAIP for output")
+                    .add("InputDaip", ".*", "run a string through DAIP for input");
 
     public static void main(String args[]) throws IOException {
         final Set<String> paths = options.parse(args, true);
@@ -65,7 +69,7 @@ public class PathInfo {
                 if (!prePopulated && file != null) {
                     // scan all possible XPaths
                     System.err.println("INFO: Scanning all possible xpaths for hex IDs...");
-                    // TODO: include fullpath, etc etc...
+                    file.getExtraPaths().forEach(x -> StringId.getHexId(x));
                     file.fullIterable().forEach(x -> StringId.getHexId(x));
                     prePopulated = true;
                 }
@@ -90,6 +94,7 @@ public class PathInfo {
     }
 
     private static void showPath(final String path, CLDRFile file) {
+        final boolean nosource = options.get("nosource").doesOccur();
         System.out.println("-------------------\n");
         System.out.println("• " + path);
         System.out.println("• " + StringId.getHexId(path));
@@ -104,9 +109,11 @@ public class PathInfo {
         }
         System.out.println("• Value: " + file.getStringValue(dPath));
         // File lookup
-        SourceLocation source = file.getSourceLocation(path);
-        if (source != null) {
-            System.out.println(source + " XML Source Location");
+        if (!nosource) {
+            SourceLocation source = file.getSourceLocation(path);
+            if (source != null) {
+                System.out.println(source + " XML Source Location");
+            }
         }
         // Inheritance lookup
         final String fullPath = file.getFullXPath(path);
@@ -115,6 +122,32 @@ public class PathInfo {
             System.out.println("• Full path: " + StringId.getHexId(fullPath));
         }
 
+        Option inputDaip = options.get("InputDaip");
+        Option outputDaip = options.get("OutputDaip");
+        if (inputDaip.doesOccur() || outputDaip.doesOccur()) {
+            DisplayAndInputProcessor daip = new DisplayAndInputProcessor(file);
+            if (inputDaip.doesOccur()) {
+                String input = inputDaip.getValue();
+                System.out.println("INPUT: " + input);
+                Exception[] e = new Exception[1];
+                final String raw = daip.processInput(path, input, e);
+                System.out.println("RAW<<: " + raw);
+                if (e.length > 0) {
+                    for (final Exception ex : e) {
+                        System.err.println(ex);
+                    }
+                }
+            }
+            if (outputDaip.doesOccur()) {
+                String output = outputDaip.getValue();
+                System.out.println("RAW   : " + output);
+                final String disp = daip.processForDisplay(path, output);
+                System.out.println("DISP>>: " + disp);
+            }
+            return; // skip inheritance chain
+        }
+
+        // inheritance
         Status status = new Status();
         if (false) {
             // For debugging: compare the below to calling getSourceLocaleIdExtended directly.
@@ -123,13 +156,22 @@ public class PathInfo {
         }
         System.out.println("• Inheritance chain:");
         for (final LocaleInheritanceInfo e : file.getPathsWhereFound(dPath)) {
-            System.out.println("\n  • " + e); // reason : locale + xpath
+            System.out.print("  ");
+            if (e.getReason().isTerminal()) {
+                System.out.print("•"); // terminal
+            } else {
+                System.out.print("|"); // non-terminal
+            }
+            System.out.println(" " + e); // reason : locale + xpath
+            if (e.getAttribute() != null) {
+                System.out.println("    attribute=" + e.getAttribute());
+            }
             if (e.getLocale() != null
                     && e.getPath() != null
                     && !e.getLocale().equals(CODE_FALLBACK_ID)) {
                 final CLDRFile subFile = CLDRConfig.getInstance().getCLDRFile(e.getLocale(), false);
                 SourceLocation subsource = subFile.getSourceLocation(e.getPath());
-                if (subsource != null) {
+                if (subsource != null && !nosource) {
                     System.out.println("    " + subsource + " XML Source");
                 }
             }

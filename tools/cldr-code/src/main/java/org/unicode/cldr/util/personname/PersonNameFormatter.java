@@ -11,14 +11,12 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
@@ -46,14 +44,16 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
@@ -155,10 +155,12 @@ public class PersonNameFormatter {
         allCaps,
         initialCap,
         initial,
+        retain,
         monogram,
         prefix,
         core,
-        ;
+        vocative,
+        genitive;
         public static final Set<Modifier> INITIALS = ImmutableSet.of(initialCap, initial);
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
@@ -175,6 +177,12 @@ public class PersonNameFormatter {
                 };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
         public static final Set<Modifier> EMPTY = ImmutableSet.of();
+        public static final Set<String> ALL_STRINGS =
+                ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableSet());
+
+        public static final Set<Modifier> GRAMMAR = ImmutableSet.of(vocative, genitive);
+        public static final Set<Modifier> NON_GRAMMAR =
+                ImmutableSet.copyOf(Sets.difference(ALL, ImmutableSet.of(vocative, genitive)));
 
         static final Set<Set<Modifier>> INCONSISTENT_SETS =
                 ImmutableSet.of(
@@ -222,6 +230,21 @@ public class PersonNameFormatter {
         }
 
         /**
+         * Extracts grammar modifiers and adds to non-grammar modifiers
+         *
+         * @param allGrammarForLocale
+         * @return
+         */
+        public static Set<Modifier> extractFrom(Collection<String> allGrammarForLocale) {
+            return ImmutableSet.copyOf(
+                    Sets.union(
+                            Modifier.NON_GRAMMAR,
+                            Modifier.GRAMMAR.stream()
+                                    .filter(x -> allGrammarForLocale.contains(x.toString()))
+                                    .collect(Collectors.toSet())));
+        }
+
+        /**
          * Verifies that the prefix, core, and plain values are consistent. Returns null if ok,
          * otherwise error message.
          */
@@ -247,6 +270,18 @@ public class PersonNameFormatter {
                         "There is no -prefix, but there is a -core and plain that are unequal";
             }
             return errorMessage2;
+        }
+
+        public static Set<Modifier> getAllowedModifiers(String locale) {
+            GrammarInfo grammarInfo =
+                    CLDRConfig.getInstance().getSupplementalDataInfo().getGrammarInfo(locale);
+            return grammarInfo == null
+                    ? Modifier.ALL
+                    : Modifier.extractFrom(
+                            grammarInfo.get(
+                                    GrammaticalTarget.nominal,
+                                    GrammaticalFeature.grammaticalCase,
+                                    GrammaticalScope.personNames));
         }
     }
 
@@ -525,6 +560,7 @@ public class PersonNameFormatter {
         private final String formatterLanguage;
         private final String formatterScript;
         private final BreakIterator characterBreakIterator;
+        private final BreakIterator wordBreakIterator;
         private final MessageFormat initialFormatter;
         private final MessageFormat initialSequenceFormatter;
         private final String foreignSpaceReplacement;
@@ -535,6 +571,7 @@ public class PersonNameFormatter {
         }
 
         private final boolean uppercaseSurnameIfSurnameFirst;
+        private final Map<String, Enum> parameterDefaults;
 
         public FallbackFormatter(
                 ULocale uLocale,
@@ -542,6 +579,7 @@ public class PersonNameFormatter {
                 String initialSequencePattern,
                 String foreignSpaceReplacement,
                 String nativeSpaceReplacement,
+                Map<String, Enum> parameterDefaults,
                 boolean uppercaseSurnameIfSurnameFirst) {
             formatterLocale = uLocale;
             LanguageTagParser ltp = new LanguageTagParser().set(uLocale.toString());
@@ -549,6 +587,7 @@ public class PersonNameFormatter {
             formatterLanguage = ltp.getLanguage();
             formatterScript = ltp.getScript();
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
+            wordBreakIterator = BreakIterator.getWordInstance();
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
             this.foreignSpaceReplacement =
@@ -556,6 +595,10 @@ public class PersonNameFormatter {
             this.uppercaseSurnameIfSurnameFirst = uppercaseSurnameIfSurnameFirst;
             this.nativeSpaceReplacement =
                     nativeSpaceReplacement == null ? " " : nativeSpaceReplacement;
+            this.parameterDefaults =
+                    parameterDefaults == null
+                            ? Collections.emptyMap()
+                            : ImmutableMap.copyOf(parameterDefaults);
         }
 
         /**
@@ -593,7 +636,12 @@ public class PersonNameFormatter {
             for (Modifier modifier : remainingModifers) {
                 switch (modifier) {
                     case initial:
-                        bestValue = formatInitial(bestValue, nameFormatParameters);
+                        boolean retainPunctuation = remainingModifers.contains(Modifier.retain);
+                        bestValue =
+                                formatInitial(bestValue, nameFormatParameters, retainPunctuation);
+                        break;
+                    case retain:
+                        // do nothing-- this is handled by "initial" above
                         break;
                     case monogram:
                         bestValue = formatMonogram(bestValue, nameFormatParameters);
@@ -615,6 +663,16 @@ public class PersonNameFormatter {
                     case informal:
                         // no option, just fall back
                         break;
+                        // WARNING The following fallbacks are ONLY for the examples in CLDR, not
+                        // for production software
+                    case genitive:
+                        bestValue = bestValue + "ᵍ";
+                        break;
+                    case vocative:
+                        bestValue = bestValue + "ᵛ";
+                        break;
+                    default:
+                        break;
                 }
             }
             return isBackground && bestValue != null
@@ -624,21 +682,46 @@ public class PersonNameFormatter {
                     : bestValue;
         }
 
-        public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
+        public String formatInitial(
+                String bestValue,
+                FormatParameters nameFormatParameters,
+                boolean retainPunctuation) {
             // It is probably unusual to have multiple name fields, so this could be optimized for
             // the simpler case.
 
             // Employ both the initialFormatter and initialSequenceFormatter
 
             String result = null;
-            for (String part : SPLIT_SPACE.split(bestValue)) {
-                String partFirst = getFirstGrapheme(part);
-                bestValue = initialFormatter.format(new String[] {partFirst});
-                if (result == null) {
-                    result = bestValue;
-                } else {
-                    result = initialSequenceFormatter.format(new String[] {result, bestValue});
+            String separator = null;
+            wordBreakIterator.setText(bestValue);
+            int lastBound = wordBreakIterator.first();
+            int curBound = wordBreakIterator.next();
+            while (curBound != BreakIterator.DONE) {
+                String part = bestValue.substring(lastBound, curBound);
+                if (Character.isLetter(part.codePointAt(0))) {
+                    String partFirst = getFirstGrapheme(part);
+                    String partFormatted = initialFormatter.format(new String[] {partFirst});
+                    if (separator != null) {
+                        if (result == null) {
+                            result = "";
+                        }
+                        result = result + separator + partFormatted;
+                    } else if (result == null) {
+                        result = partFormatted;
+                    } else {
+                        result =
+                                initialSequenceFormatter.format(
+                                        new String[] {result, partFormatted});
+                    }
+                } else if (retainPunctuation && !Character.isWhitespace(part.codePointAt(0))) {
+                    if (separator == null) {
+                        separator = part;
+                    } else {
+                        separator = separator + part;
+                    }
                 }
+                lastBound = curBound;
+                curBound = wordBreakIterator.next();
             }
             return result;
         }
@@ -1298,16 +1381,16 @@ public class PersonNameFormatter {
                 final String value = parts.get(1);
                 switch (key) {
                     case "order":
-                        order = Order.valueOf(value);
+                        order = Order.from(value);
                         break;
                     case "length":
                         length = Length.from(value);
                         break;
                     case "usage":
-                        usage = Usage.valueOf(value);
+                        usage = Usage.from(value);
                         break;
                     case "formality":
-                        formality = Formality.valueOf(value);
+                        formality = Formality.from(value);
                         break;
                 }
             }
@@ -1760,35 +1843,6 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
-    public static final class LocaleSpacingData {
-        public static LocaleSpacingData getInstance() {
-            return LocaleSpacingData.SINGLETON;
-        }
-
-        static LocaleSpacingData SINGLETON = new LocaleSpacingData();
-        private final Set<String> LOCALES_NOT_NEEDING_SPACES;
-
-        LocaleSpacingData() {
-            Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
-            Set<String> EXCLUSIONS = ImmutableSet.of("Thai");
-            _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
-            for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
-                Info info = ScriptMetadata.getInfo(i);
-                if (info != null && info.lbLetters == Trinary.YES) {
-                    final String script = UScript.getShortName(i);
-                    if (!EXCLUSIONS.contains(script)) {
-                        _LOCALE_NOT_NEEDING_SPACES.add(script);
-                    }
-                }
-            }
-            LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
-        }
-
-        public Set<String> getScriptsNotNeedingSpacesInNames() {
-            return LOCALES_NOT_NEEDING_SPACES;
-        }
-    }
-
     /**
      * Create a formatter from a CLDR file.
      *
@@ -1801,13 +1855,8 @@ public class PersonNameFormatter {
         String initialPattern = null;
         String initialSequencePattern = null;
         String foreignSpaceReplacement = " ";
-        String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
-        String nativeSpaceReplacement =
-                LocaleSpacingData.getInstance()
-                                .getScriptsNotNeedingSpacesInNames()
-                                .contains(formattingScript)
-                        ? ""
-                        : " ";
+        String nativeSpaceReplacement = " ";
+        Map<String, Enum> parameterDefaults = new TreeMap<>();
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1842,7 +1891,7 @@ public class PersonNameFormatter {
                         // ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of
                         // locales
                         for (String locale : SPLIT_SPACE.split(value)) {
-                            Order order = Order.valueOf(parts.getAttributeValue(-1, "order"));
+                            Order order = Order.from(parts.getAttributeValue(-1, "order"));
                             _localeToOrder.put(new ULocale(locale), order);
                         }
                         break;
@@ -1854,6 +1903,19 @@ public class PersonNameFormatter {
                         break;
                     case "sampleName":
                         // skip
+                        break;
+                    case "parameterDefault":
+                        final String setting = parts.getAttributeValue(-1, "parameter");
+                        Enum parameterDefault = null;
+                        switch (setting) {
+                            case "length":
+                                parameterDefault = Length.from(value);
+                                break;
+                            case "formality":
+                                parameterDefault = Formality.from(value);
+                                break;
+                        }
+                        parameterDefaults.put(setting, parameterDefault);
                         break;
                     default:
                         throw new IllegalArgumentException("Unexpected path: " + path);
@@ -1874,6 +1936,7 @@ public class PersonNameFormatter {
                         initialSequencePattern,
                         foreignSpaceReplacement,
                         nativeSpaceReplacement,
+                        parameterDefaults,
                         false);
     }
 
@@ -1989,34 +2052,6 @@ public class PersonNameFormatter {
             myLocale = new ULocale(parentLocaleString);
         }
         return null;
-    }
-
-    /** Special data for vetters, to how what foreign names would format */
-    private static final Map<String, SimpleNameObject> FOREIGN_NAME_FOR_NON_SPACING;
-
-    static {
-        // code     given   surname
-        final String[][] specials = {
-            {"th", "อัลเบิร์ต", "ไอน์สไตน์"},
-            {"my", "အဲလ်ဘတ်", "အိုင်းစတိုင်း"},
-            {"km", "អាល់បឺត", "អែងស្តែង"},
-            {"ko", "알베르트", "아인슈타인"},
-            {"ja", "アルベルト", "アインシュタイン"},
-            {"zh", "阿尔伯特", "爱因斯坦"}
-        };
-        Map<String, SimpleNameObject> temp = Maps.newLinkedHashMap();
-        for (String[] row : specials) {
-            temp.put(row[0], specialNameOf(row));
-        }
-        FOREIGN_NAME_FOR_NON_SPACING = ImmutableMap.copyOf(temp);
-    }
-
-    private static SimpleNameObject specialNameOf(String[] row) {
-        return new SimpleNameObject(
-                new ULocale("de_CH"),
-                ImmutableMap.of(
-                        ModifiedField.from("given"), row[1],
-                        ModifiedField.from("surname"), row[2]));
     }
 
     /**

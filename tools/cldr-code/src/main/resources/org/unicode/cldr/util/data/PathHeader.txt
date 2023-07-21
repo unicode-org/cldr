@@ -99,6 +99,7 @@
 //ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/dateFormats/dateFormatLength[@type="%A"]/dateFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:date)-$2 ; HIDE
 
+//ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"][@alt="ascii"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2-ascii ; HIDE
 //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar(gregorian) ; &calField(Formats:Standard:time) ; $1 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
@@ -107,6 +108,7 @@
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2-$3 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:dateTime)-$2 ; HIDE
 
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"][@alt="ascii"]             ; Special  ; Suppress ; &calendar($1); &calField(Formats:Flexible:date)-$2-ascii ; HIDE
 //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]     ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*[Hms]%a)"]           ; DateTime ; &calendar(gregorian); &calField(Formats:Flexible:time24) ; $1 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(E*(a|b|B)*[h]%a)"]       ; DateTime ; &calendar(generic); &calField(Formats:Flexible:time12) ; $1 ; LTR_ALWAYS
@@ -292,14 +294,23 @@
 
 //ldml/personNames/nameOrderLocales[@order=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(NameOrder) ; $1-$2
 //ldml/personNames/nameOrderLocales[@order=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(NameOrder) ; $1
+
+//ldml/personNames/parameterDefault[@parameter=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(Parameters) ; $1-$2
+//ldml/personNames/parameterDefault[@parameter=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(Parameters) ; $1
+
 //ldml/personNames/foreignSpaceReplacement[@xml:space=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement-$2
 //ldml/personNames/foreignSpaceReplacement[@xml:space=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement
 //ldml/personNames/foreignSpaceReplacement[@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement-$1
 //ldml/personNames/foreignSpaceReplacement   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; foreignSpaceReplacement
+//ldml/personNames/nativeSpaceReplacement[@xml:space=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement-$2
+//ldml/personNames/nativeSpaceReplacement[@xml:space=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement
+//ldml/personNames/nativeSpaceReplacement[@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement-$1
+//ldml/personNames/nativeSpaceReplacement   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; nativeSpaceReplacement
+
 //ldml/personNames/initialPattern[@type=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1-$2
 //ldml/personNames/initialPattern[@type=\"%A\"]   ; Misc ; Person Name Formats ; &personNameSection(AuxiliaryItems) ; pattern-$1
-//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$2) ; &personNameOrder($3-$4-$5)
-//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$2) ; &personNameOrder($3-$4)
+//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$3) ; &personNameOrder($1-$2-$3-$4-$5)
+//ldml/personNames/personName[@order=\"%A\"][@length=\"%A\"][@usage=\"%A\"][@formality=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; &personNameSection(PersonName:$1-$3) ; &personNameOrder($1-$2-$3-$4)
 //ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"][@alt=\"%A\"]        ; Misc ; Person Name Formats ; &personNameSection(SampleName:$1) ; &sampleNameOrder($2-$3)
 //ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"]        ; Misc ; Person Name Formats ;  &personNameSection(SampleName:$1) ; &sampleNameOrder($2)
 

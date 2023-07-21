@@ -46,4 +46,8 @@ public enum VoteType {
     public int id() {
         return integerId;
     }
+
+    public boolean isImported() {
+        return this == AUTO_IMPORT || this == MANUAL_IMPORT;
+    }
 }

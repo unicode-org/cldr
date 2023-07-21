@@ -1,23 +1,23 @@
-import { TestCldrAccount } from "./TestCldrAccount.js";
-import { TestCldrAdmin } from "./TestCldrAdmin.js";
-import { TestCldrBulkClosePosts } from "./TestCldrBulkClosePosts.js";
+import { TestCldrAccount } from "./TestCldrAccount.mjs";
+import { TestCldrAdmin } from "./TestCldrAdmin.mjs";
+import { TestCldrBulkClosePosts } from "./TestCldrBulkClosePosts.mjs";
 import { TestCldrCache } from "./TestCldrCache.mjs";
-import { TestCldrChecksum } from "./TestCldrChecksum.js";
-import { TestCldrCreateLogin } from "./TestCldrCreateLogin.js";
-import { TestCldrCsvFromTable } from "./TestCldrCsvFromTable.js";
-import { TestCldrDash } from "./TestCldrDash.js";
-import { TestCldrErrorSubtypes } from "./TestCldrErrorSubtypes.js";
-import { TestCldrForum } from "./TestCldrForum.js";
-import { TestCldrForumFilter } from "./TestCldrForumFilter.js";
-import { TestCldrForumParticipation } from "./TestCldrForumParticipation.js";
-import { TestCldrGui } from "./TestCldrGui.js";
-import { TestCldrListUsers } from "./TestCldrListUsers.js";
-import { TestCldrProgress } from "./TestCldrProgress.js";
-import { TestCldrStatus } from "./TestCldrStatus.js";
-import { TestCldrTable } from "./TestCldrTable.js";
-import { TestCldrText } from "./TestCldrText.js";
+import { TestCldrChecksum } from "./TestCldrChecksum.mjs";
+import { TestCldrCreateLogin } from "./TestCldrCreateLogin.mjs";
+import { TestCldrCsvFromTable } from "./TestCldrCsvFromTable.mjs";
+import { TestCldrDash } from "./TestCldrDash.mjs";
+import { TestCldrErrorSubtypes } from "./TestCldrErrorSubtypes.mjs";
+import { TestCldrForum } from "./TestCldrForum.mjs";
+import { TestCldrForumFilter } from "./TestCldrForumFilter.mjs";
+import { TestCldrForumParticipation } from "./TestCldrForumParticipation.mjs";
+import { TestCldrGui } from "./TestCldrGui.mjs";
+import { TestCldrListUsers } from "./TestCldrListUsers.mjs";
+import { TestCldrProgress } from "./TestCldrProgress.mjs";
+import { TestCldrStatus } from "./TestCldrStatus.mjs";
+import { TestCldrTable } from "./TestCldrTable.mjs";
+import { TestCldrText } from "./TestCldrText.mjs";
 
-import * as TestCldrTest from "./TestCldrTest.js";
+import * as TestCldrTest from "./TestCldrTest.mjs";
 
 export default {
   TestCldrAccount,

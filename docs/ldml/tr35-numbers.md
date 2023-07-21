@@ -3,6 +3,7 @@
 # Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
 
 |Version|44 (draft)|
+|-------|----------|
 |Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).

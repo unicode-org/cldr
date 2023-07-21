@@ -2,12 +2,16 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
@@ -30,6 +34,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -43,6 +48,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
 import org.unicode.cldr.util.Organization;
@@ -62,6 +68,8 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
+
+    private static final boolean SHOW_LSR_DATA = false;
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -495,6 +503,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern language100 =
                 PatternCache.get(
                         "("
+                                + "blo|kxv|skr|vmw|xnr|"
                                 + "ach|aeb?|afh|ak[kz]|aln|ang|apc|ar[coqswyz]|ase|avk|"
                                 + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgc|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
                                 + "ca[dry]|cch|ch[bgnp]|cic|cop|cps|crh?|csb|"
@@ -512,7 +521,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "oj|osa|ota|"
                                 + "pal|pap|pcd|pd[ct]|peo|pfl|phn|pi|pms|pnt|pon|pro|"
                                 + "qug|"
-                                + "raj|rgn|rif|rom|rtm|ru[eg]|"
+                                + "ra[jpr]|rgn|rif|rom|rtm|ru[eg]|"
                                 + "sa[msz]|sbp|sd[ch]|se[eil]|sg[as]|shu?|sid|sl[iy]|sog|srr|stq|su[sx]|syc|szl|"
                                 + "tcy|ter|tiv|tk[lr]|tl[iy]?|tmh|tog|tpi|tru|ts[di]|ttt|tw|"
                                 + "uga|"
@@ -527,7 +536,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "cho|li|moh|nso|sw_CD|srn|lad|ve|gaa|pam|ale|sma|sba|lua|kha|sc|nv|men|cv|quc|pap|bla|"
                                 + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
                                 + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
-                                + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|rap|bug|ban|xal|oc|alt|nia|myv|ain|rar|krl|ay|"
+                                + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|bug|ban|xal|oc|alt|nia|myv|ain|krl|ay|"
                                 + "syr|kv|umb|cu|prg|vo|"
                                 + "atj|blt|clc|crg|crj|crk|crl|crm|crr|csw|cwd|hax|hdn|hnj|hur|ike|ikt|"
                                 + "kwk|lil|moe|ojb|ojc|ojg|ojs|ojw|oka|pqm|slh|str|tce|tgx|tht|trw|ttm)");
@@ -730,6 +739,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
                 // So far we are generating datetimeSkeleton mechanically, no coverage
                 if (xpp.containsElement("datetimeSkeleton")) {
+                    continue;
+                }
+                // The alt="ascii" time patterns are hopefully short-lived. We do not survey
+                // for them, they can be generated mechanically from the non-alt patterns.
+                // CLDR-16606
+                if (path.contains("[@alt=\"ascii\"]")) {
                     continue;
                 }
                 String element = xpp.getElement(-1);
@@ -1070,5 +1085,240 @@ public class TestCoverageLevel extends TestFmwkPlus {
         bMinusA.removeAll(expected);
         result.putAll("actual-expected", bMinusA);
         return result;
+    }
+
+    static class CoverageStatus {
+
+        private Level level;
+        private boolean inRoot;
+        private boolean inId;
+        private Level languageLevel;
+        private String displayName;
+
+        public CoverageStatus(
+                Level level,
+                boolean inRoot,
+                boolean inId,
+                Level languageLevel,
+                String displayName) {
+            this.level = level;
+            this.inRoot = inRoot;
+            this.inId = inId;
+            this.languageLevel = languageLevel == null ? Level.UNDETERMINED : languageLevel;
+            this.displayName = displayName;
+        }
+
+        @Override
+        public String toString() {
+            return (inRoot ? "root" : "x")
+                    + "\t"
+                    + (inId ? "ids" : "x")
+                    + "\t"
+                    + stringForm(languageLevel)
+                    + "\t"
+                    + stringForm(level)
+                    + "\t"
+                    + displayName;
+        }
+
+        private String stringForm(Level level2) {
+            if (level == null) {
+                return "υnd";
+            }
+            switch (level2) {
+                case UNDETERMINED:
+                    return "υnd";
+                case COMPREHENSIVE:
+                    return "ϲomp";
+                default:
+                    return level2.toString();
+            }
+        }
+    }
+
+    public void testLSR() {
+        SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+        CLDRFile root = factory.make(LocaleNames.ROOT, true);
+        CoverageLevel2 coverageLevel =
+                CoverageLevel2.getInstance(supplementalData, "qtz"); // non-existent locale
+
+        Set<String> langsRoot = new TreeSet<>();
+        Set<String> scriptsRoot = new TreeSet<>();
+        Set<String> regionsRoot = new TreeSet<>();
+
+        // Get root LSR codes
+
+        for (String path : root) {
+            if (!path.startsWith("//ldml/localeDisplayNames/")) {
+                continue;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String code = parts.getAttributeValue(3, "type");
+            if (code == null || code.contains("_")) {
+                continue;
+            }
+            switch (parts.getElement(3)) {
+                case "language":
+                    langsRoot.add(code);
+                    break;
+                case "script":
+                    scriptsRoot.add(code);
+                    break;
+                case "territory":
+                    regionsRoot.add(code);
+                    break;
+            }
+        }
+        langsRoot = ImmutableSet.copyOf(langsRoot);
+        scriptsRoot = ImmutableSet.copyOf(scriptsRoot);
+        regionsRoot = ImmutableSet.copyOf(regionsRoot);
+
+        // get CLDR locale IDs' codes
+
+        Map<String, Level> langs = new TreeMap<>();
+        Map<String, Level> scripts = new TreeMap<>();
+        Map<String, Level> regions = new TreeMap<>();
+        LikelySubtags likely = new LikelySubtags();
+
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String locale : factory.getAvailable()) {
+            Level languageLevel = STANDARD_CODES.getLocaleCoverageLevel(Organization.cldr, locale);
+            if (languageLevel == null || languageLevel == Level.UNDETERMINED) {
+                languageLevel = Level.CORE;
+            }
+            ltp.set(locale);
+            likely.maximize(ltp);
+            addBestLevel(langs, ltp.getLanguage(), languageLevel);
+            addBestLevel(scripts, ltp.getScript(), languageLevel);
+            addBestLevel(regions, ltp.getRegion(), languageLevel);
+        }
+        regions.remove("");
+        scripts.remove("");
+
+        // get the data
+
+        Map<String, CoverageStatus> data = new TreeMap<>();
+
+        ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
+                ImmutableMap.of(
+                        CLDRFile.LANGUAGE_NAME,
+                        Row.of("language", langs, langsRoot, Level.MODERN),
+                        CLDRFile.SCRIPT_NAME,
+                        Row.of("script", scripts, scriptsRoot, Level.MODERATE),
+                        CLDRFile.TERRITORY_NAME,
+                        Row.of("region", regions, regionsRoot, Level.MODERATE));
+
+        for (Entry<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
+                typeToInfo.entrySet()) {
+            int type = typeAndInfo.getKey();
+            String name = typeAndInfo.getValue().get0();
+            Map<String, Level> idPartMap = typeAndInfo.getValue().get1();
+            Set<String> setRoot = typeAndInfo.getValue().get2();
+            Level targetLevel = typeAndInfo.getValue().get3();
+            for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
+                String displayName = testInfo.getEnglish().getName(type, code);
+                String path = CLDRFile.getKey(type, code);
+                Level level = coverageLevel.getLevel(path);
+                data.put(
+                        name + "\t" + code,
+                        new CoverageStatus(
+                                level,
+                                setRoot.contains(code),
+                                idPartMap.containsKey(code),
+                                idPartMap.get(code),
+                                displayName));
+            }
+        }
+        if (SHOW_LSR_DATA) {
+
+            System.out.println(
+                    "\nType\tCode\tIn Root\tIn CLDR Locales\tCLDR TargeLevel\tRoot Path Level\tCombinations");
+            for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+                System.out.println(entry.getKey() + "\t" + entry.getValue());
+            }
+            System.out.println();
+            for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+                final String key = entry.getKey();
+                if (!key.startsWith("language")) {
+                    continue;
+                }
+                final CoverageStatus value = entry.getValue();
+                if (value.inId) {
+                    continue;
+                }
+                String[] parts = key.split("\t");
+                PopulationData population = SDI.getBaseLanguagePopulationData(parts[1]);
+                if (population == null) {
+                    System.out.println(key + "\t" + value.displayName + "\t" + value + "\t-1\t-1");
+                } else {
+                    System.out.println(
+                            key
+                                    + "\t"
+                                    + value.displayName
+                                    + "\t"
+                                    + value
+                                    + "\t"
+                                    + population.getPopulation()
+                                    + "\t"
+                                    + population.getLiteratePopulation());
+                }
+            }
+        }
+
+        Set<String> ids = new TreeSet<>();
+        Set<String> missing = new TreeSet<>();
+        for (Entry<String, CoverageStatus> entry : data.entrySet()) {
+            final String key = entry.getKey();
+            if (!key.startsWith("language")) {
+                continue;
+            }
+            final CoverageStatus value = entry.getValue();
+            if (value.inId) {
+                String[] parts = key.split("\t");
+                ids.add(parts[1]);
+                if (!value.inRoot) {
+                    missing.add(parts[1]);
+                }
+            }
+        }
+        if (!assertEquals(
+                "Language subtags that are in a CLDR locale's ID are in root ("
+                        + missing.size()
+                        + ")",
+                "",
+                Joiner.on(' ').join(missing))) {
+            warnln(
+                    "Full set for resetting $language in attributeValueValidity.xml ("
+                            + ids.size()
+                            + "):"
+                            + breakLines(ids, "\n                "));
+        }
+    }
+
+    private String breakLines(Set<String> ids, String indent) {
+        StringBuilder result = new StringBuilder();
+        int lastFirstChar = 0;
+        for (String id : ids) {
+            int firstChar = id.codePointAt(0);
+            result.append(firstChar == lastFirstChar ? " " : indent);
+            result.append(id);
+            lastFirstChar = firstChar;
+        }
+        return result.toString();
+    }
+
+    private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
+        if (level != Level.UNDETERMINED) {
+            int debug = 0;
+        }
+        Level old = codeToBestLevel.get(code);
+        if (old == null) {
+            codeToBestLevel.put(code, level);
+        } else if (level.compareTo(old) > 0) {
+            codeToBestLevel.put(code, level);
+        } else if (level != old) {
+            int debug = 0;
+        }
     }
 }

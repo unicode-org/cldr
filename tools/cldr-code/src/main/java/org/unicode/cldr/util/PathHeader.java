@@ -1086,7 +1086,7 @@ public class PathHeader implements Comparable<PathHeader> {
             "Und"
         };
         static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-        static List<String> unitOrder = DtdData.unitOrder.getOrder();
+        static List<String> unitOrder = DtdData.getUnitOrder().getOrder();
         static final MapComparator<String> dayPeriods =
                 new MapComparator<String>()
                         .add(
@@ -2051,21 +2051,15 @@ public class PathHeader implements Comparable<PathHeader> {
                             // sampleName item values in desired sort order
                             final List<String> itemValues =
                                     PersonNameFormatter.SampleType.ALL_STRINGS;
-                            // personName attribute values: each group in desired
-                            // sort order, but groups from least important to most
-                            final List<String> pnAttrValues =
-                                    Arrays.asList(
-                                            "long",
-                                            "medium",
-                                            "short", // length values
-                                            "givenFirst",
-                                            "surnameFirst",
-                                            "sorting"); // order values
-
                             if (source.equals("NameOrder")) {
                                 order = 0;
                                 return "NameOrder for Locales";
                             }
+                            if (source.equals("Parameters")) {
+                                order = 4;
+                                return "Default Parameters";
+                            }
+
                             if (source.equals("AuxiliaryItems")) {
                                 order = 10;
                                 return source;
@@ -2080,16 +2074,24 @@ public class PathHeader implements Comparable<PathHeader> {
                             if (source.startsWith(pnPrefix)) {
                                 String attrValues = source.substring(pnPrefix.length());
                                 List<String> parts = HYPHEN_SPLITTER.splitToList(attrValues);
-                                order = 30;
-                                for (String part : parts) {
-                                    if (pnAttrValues.contains(part)) {
-                                        order += (1 << pnAttrValues.indexOf(part));
-                                    }
+
+                                String nameOrder = parts.get(0);
+                                if (nameOrder.contentEquals("sorting")) {
+                                    order = 40;
+                                    return "PersonName Sorting Patterns (Usage: referring)";
                                 }
-                                attrValues = attrValues.replace("sorting-", "sorting/index-");
-                                return "PersonName Patterns for Order-Length: " + attrValues;
+                                order = 30;
+                                if (nameOrder.contentEquals("surnameFirst")) {
+                                    order += 1;
+                                }
+                                String nameUsage = parts.get(1);
+                                if (nameUsage.contentEquals("monogram")) {
+                                    order += 20;
+                                    return "PersonName Monogram Patterns for Order: " + nameOrder;
+                                }
+                                return "PersonName Main Patterns for Order: " + nameOrder;
                             }
-                            order = 40;
+                            order = 60;
                             return source;
                         }
                     });
@@ -2103,21 +2105,37 @@ public class PathHeader implements Comparable<PathHeader> {
                             // sort order, but groups from least important to most
                             final List<String> attrValues =
                                     Arrays.asList(
+                                            "referring",
+                                            "addressing", // usage values to include
                                             "formal",
                                             "informal", // formality values
-                                            "referring",
-                                            "addressing",
-                                            "monogram"); // usage values
+                                            "long",
+                                            "medium",
+                                            "short"); // length values
                             // order & length values handled in &personNameSection
 
                             List<String> parts = HYPHEN_SPLITTER.splitToList(source);
                             order = 0;
+                            String attributes = "";
+                            boolean skipReferring = false;
                             for (String part : parts) {
                                 if (attrValues.contains(part)) {
                                     order += (1 << attrValues.indexOf(part));
-                                } // anything else like alt="variant" is at order 0
+                                    // anything else like alt="variant" is at order 0
+                                    if (!skipReferring || !part.contentEquals("referring")) {
+                                        // Add this part to display attribute string
+                                        if (attributes.length() == 0) {
+                                            attributes = part;
+                                        } else {
+                                            attributes = attributes + "-" + part;
+                                        }
+                                    }
+                                } else if (part.contentEquals("sorting")) {
+                                    skipReferring = true; // For order=sorting, don't display
+                                    // usage=referring
+                                }
                             }
-                            return source;
+                            return attributes;
                         }
                     });
 
@@ -2440,6 +2458,7 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param path
      * @return
      */
+    @Deprecated
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return SECTION_LINK
                 + PathHeader.getUrl(baseUrl, file.getLocaleID(), path)

@@ -17,4 +17,4 @@ mysqldump ${DATABASE_NAME} --add-drop-table --create-options --default-character
 
 # Wait until mysqldump is finished before running xz, to minimize db disruption (don't use | pipe)
 xz ${FNAME}.sql
-rsync -q ${FNAME}.sql.xz ${RSYNC_DEST}
+rsync --quiet --remove-source-files ${FNAME}.sql.xz ${RSYNC_DEST}

@@ -1,9 +1,11 @@
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -12,20 +14,35 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
 public class CheckPersonNames extends CheckCLDR {
 
+    private static final String LengthValues =
+            Joiner.on(", ")
+                    .join(Length.ALL.stream().map(x -> x.toString()).collect(Collectors.toList()));
+    private static final String FormalityValues =
+            Joiner.on(", ")
+                    .join(
+                            Formality.ALL.stream()
+                                    .map(x -> x.toString())
+                                    .collect(Collectors.toList()));
+
     static final String MISSING = CldrUtility.NO_INHERITANCE_MARKER;
 
-    boolean isRoot = false;
-    boolean hasRootParent = false;
-    String initialSeparator = " ";
+    private boolean isRoot = false;
+    private boolean hasRootParent = false;
+    private String initialSeparator = " ";
 
     private UnicodeSet allowedCharacters;
-    private boolean spacesNeededInNames;
+    private boolean emptyNativeSpaceReplacement;
 
     static final UnicodeSet BASE_ALLOWED =
             new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}-\\p{N}-[❮❯∅<>∅0]]").freeze();
@@ -45,16 +62,16 @@ public class CheckPersonNames extends CheckCLDR {
         String script = new LikelySubtags().getLikelyScript(localeId);
         allowedCharacters =
                 new UnicodeSet(BASE_ALLOWED).addAll(getUnicodeSetForScript(script)).freeze();
-        spacesNeededInNames =
-                !PersonNameFormatter.LocaleSpacingData.getInstance()
-                        .getScriptsNotNeedingSpacesInNames()
-                        .contains(script);
 
         String initialPatternSequence =
                 cldrFileToCheck.getStringValue(
                         "//ldml/personNames/initialPattern[@type=\"initialSequence\"]");
         initialSeparator = MessageFormat.format(initialPatternSequence, "", "");
         //
+        emptyNativeSpaceReplacement =
+                cldrFileToCheck
+                        .getStringValue("//ldml/personNames/nativeSpaceReplacement")
+                        .isEmpty();
         return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
 
@@ -72,6 +89,9 @@ public class CheckPersonNames extends CheckCLDR {
         }
     }
 
+    static final UnicodeSet nativeSpaceReplacementValues = new UnicodeSet("[{}\\ ]").freeze();
+    static final UnicodeSet foreignSpaceReplacementValues = new UnicodeSet("[\\ ・·]").freeze();
+
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
@@ -81,8 +101,12 @@ public class CheckPersonNames extends CheckCLDR {
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch (parts.getElement(2)) {
+            default:
+                int debug = 0;
+                break;
             case "personName":
                 NamePattern namePattern = NamePattern.from(0, value);
+                checkAdjacentFields(namePattern, result);
                 ArrayList<List<String>> failures =
                         namePattern.findInitialFailures(initialSeparator);
                 for (List<String> row : failures) {
@@ -100,8 +124,19 @@ public class CheckPersonNames extends CheckCLDR {
                 }
 
                 break;
+            case "nativeSpaceReplacement":
+                if (!nativeSpaceReplacementValues.contains(value)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.illegalCharactersInPattern)
+                                    .setMessage(
+                                            "NativeSpaceReplacement must be space if script requires spaces, and empty otherwise."));
+                }
+                break;
             case "foreignSpaceReplacement":
-                if (spacesNeededInNames && !" ".equals(value)) {
+                if (!foreignSpaceReplacementValues.contains(value)) {
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
@@ -110,6 +145,9 @@ public class CheckPersonNames extends CheckCLDR {
                                     .setMessage(
                                             "ForeignSpaceReplacement must be space if script requires spaces."));
                 }
+                break;
+            case "parameterDefault":
+                checkParameterDefault(this, value, result, parts);
                 break;
             case "sampleName":
                 if (value == null) {
@@ -194,5 +232,72 @@ public class CheckPersonNames extends CheckCLDR {
                 break;
         }
         return this;
+    }
+
+    private void checkAdjacentFields(NamePattern namePattern, List<CheckStatus> result) {
+        ModifiedField lastModifiedField = null;
+        for (int i = 0; i < namePattern.getElementCount(); ++i) {
+            ModifiedField modifiedField = namePattern.getModifiedField(i);
+            if (modifiedField == null) { // literal
+                lastModifiedField = null;
+            } else if (lastModifiedField != null) { // we have two adjacent fields
+                // adjacent monograms are ok
+                if (lastModifiedField.getModifiers().contains(Modifier.monogram)
+                        && modifiedField.getModifiers().contains(Modifier.monogram)) {
+                    continue;
+                }
+                // no gap after initials is ok (the check for consistency with the initials pattern
+                // is elsewhere)
+                if (lastModifiedField.getModifiers().contains(Modifier.initial)
+                        || lastModifiedField.getModifiers().contains(Modifier.initialCap)) {
+                    continue;
+                }
+
+                // no gap before title is ok, for locales with no spaces
+                if (modifiedField.getField() == Field.title && emptyNativeSpaceReplacement) {
+                    continue;
+                }
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(
+                                        emptyNativeSpaceReplacement
+                                                ? CheckStatus.warningType
+                                                : CheckStatus.errorType)
+                                .setSubtype(Subtype.missingSpaceBetweenNameFields)
+                                .setMessage(
+                                        "Normally there should be a space or punctuation between name fields: '{'{0}'}{'{1}'}'",
+                                        lastModifiedField, modifiedField));
+            }
+            lastModifiedField = modifiedField;
+        }
+    }
+
+    public static void checkParameterDefault(
+            CheckCLDR checkCldr, String value, List<CheckStatus> result, XPathParts parts) {
+        String okValues = null;
+        boolean succeed = false;
+        try {
+            switch (parts.getAttributeValue(-1, "parameter")) {
+                case "length":
+                    okValues = LengthValues;
+                    PersonNameFormatter.Length.from(value);
+                    break;
+                case "formality":
+                    okValues = FormalityValues;
+                    PersonNameFormatter.Formality.from(value);
+                    break;
+            }
+            succeed = true;
+        } catch (Exception e) {
+        }
+        if (value == null || !succeed) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(checkCldr)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalParameterValue)
+                            .setMessage("Valid values are: {0}", okValues));
+        }
     }
 }

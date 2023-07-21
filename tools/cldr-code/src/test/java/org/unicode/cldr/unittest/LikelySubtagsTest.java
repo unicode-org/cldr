@@ -1,14 +1,19 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -19,16 +24,24 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class LikelySubtagsTest extends TestFmwk {
 
     private boolean DEBUG = false;
+    private static boolean SHOW_EXEMPLARS = System.getProperty("SHOW_EXEMPLARS") != null;
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
             CLDRConfig.getInstance().getSupplementalDataInfo();
     static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
@@ -308,6 +321,8 @@ public class LikelySubtagsTest extends TestFmwk {
     public void TestMissingInfoForLanguage() {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
+        CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
+
         for (String language : CLDRConfig.getInstance().getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
                 continue;
@@ -321,6 +336,15 @@ public class LikelySubtagsTest extends TestFmwk {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
+                Level covLevel = ccl.getEffectiveCoverageLevel(language);
+                if (covLevel == null || !covLevel.isAtLeast(Level.BASIC)) {
+                    // https://unicode-org.atlassian.net/browse/CLDR-15663
+                    if (logKnownIssue(
+                            "CLDR-15663",
+                            "English translation should not be required for sub-basic language name")) {
+                        continue; // skip error
+                    }
+                }
                 errln("Missing English translation for: " + language);
             }
         }
@@ -429,5 +453,207 @@ public class LikelySubtagsTest extends TestFmwk {
 
     public String showOverride(String script, String originCountry, String langScript) {
         return "{\"und_" + script + "\", \"" + langScript + originCountry + "\"},";
+    }
+
+    /**
+     * Test two issues:
+     *
+     * <ul>
+     *   <li>That the script of the locale's examplars matches the script derived from the locale's
+     *       identifier.
+     *   <li>That the union of the exemplar sets (main+aux) for all locales with the script matches
+     *       what is in ltp.getResolvedScript()
+     * </ul>
+     *
+     * Written as one test, to avoid the overhead of iterating over all locales twice.
+     */
+    public void testGetResolvedScriptVsExemplars() {
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        LanguageTagParser ltp = new LanguageTagParser();
+        Multimap<String, UnicodeSet> scriptToMains = TreeMultimap.create();
+        Multimap<String, UnicodeSet> scriptToAuxes = TreeMultimap.create();
+        UnicodeSet collectedBad = new UnicodeSet();
+        for (String locale : factory.getAvailable()) {
+            if ("root".equals(locale)) {
+                continue;
+            }
+            CLDRFile cldrFile = factory.make(locale, true);
+            UnicodeSet main = cldrFile.getRawExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            main = checkSet("main", locale, main, collectedBad);
+            UnicodeSet aux =
+                    cldrFile.getRawExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
+            aux = checkSet("aux", locale, aux, collectedBad);
+            String script = null;
+            int uScript = 0;
+            for (String s : main) {
+                uScript = UScript.getScript(s.codePointAt(0));
+                if (uScript > UScript.INHERITED) {
+                    script = UScript.getShortName(uScript);
+                    break;
+                }
+            }
+            if (script == null) {
+                errln("No script for " + locale);
+                continue;
+            }
+            String ltpScript = ltp.set(locale).getResolvedScript();
+            switch (uScript) {
+                case UScript.HAN:
+                    switch (ltp.getLanguage()) {
+                        case "ja":
+                            script = "Jpan";
+                            break;
+                        case "yue":
+                            script = ltp.getScript();
+                            if (script.isEmpty()) {
+                                script = "Hant";
+                            }
+                            break;
+                        case "zh":
+                            script = ltp.getScript();
+                            if (script.isEmpty()) {
+                                script = "Hans";
+                            }
+                            break;
+                    }
+                    break;
+                case UScript.HANGUL:
+                    switch (ltp.getLanguage()) {
+                        case "ko":
+                            script = "Kore";
+                            break;
+                    }
+            }
+            if (!assertEquals(locale, script, ltpScript)) {
+                ltp.getResolvedScript(); // for debugging
+            }
+            scriptToMains.put(ltpScript, main.freeze());
+            if (!aux.isEmpty()) {
+                scriptToAuxes.put(ltpScript, aux.freeze());
+            }
+        }
+
+        if (!collectedBad.isEmpty()) {
+            warnln(
+                    "Locales have "
+                            + collectedBad.size()
+                            + " unexpected characters in main and/or aux:\t"
+                            + collectedBad.toPattern(false));
+        }
+
+        // now check that ScriptToExemplars.getExemplars matches the data
+
+        Set<String> problemScripts = new LinkedHashSet<>();
+        Map<String, UnicodeSet> expected = new TreeMap<>();
+        for (Entry<String, Collection<UnicodeSet>> entry : scriptToMains.asMap().entrySet()) {
+            String script = entry.getKey();
+            Collection<UnicodeSet> mains = entry.getValue();
+            Collection<UnicodeSet> auxes = scriptToAuxes.get(script);
+
+            UnicodeSet flattened;
+            if (mains.size() <= 1 && auxes.size() <= 1) {
+                continue;
+            } else {
+                UnicodeMap<Integer> counts = new UnicodeMap<>();
+                getCounts(mains, counts);
+                flattened = getUncommon(counts, mains.size());
+                if (counts.size() < 32) {
+                    getCounts(auxes, counts);
+                    flattened = getUncommon(counts, mains.size());
+                }
+            }
+            expected.put(script, flattened.freeze());
+        }
+        for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
+            String script = entry.getKey();
+            UnicodeSet flattened = entry.getValue();
+
+            // now compare to what we get from the cached file, to make sure the latter is up to
+            // date
+
+            if (!assertEquals(
+                    script,
+                    flattened.toPattern(false),
+                    ScriptToExemplars.getExemplars(script).toPattern(false))) {
+                problemScripts.add(script);
+            }
+        }
+
+        if (!problemScripts.isEmpty()) {
+            warnln(
+                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to get a fresh copy, or reset to expected value for: "
+                            + problemScripts);
+            if (SHOW_EXEMPLARS) {
+                for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
+                    String script = entry.getKey();
+                    UnicodeSet flattened = entry.getValue();
+                    if (!flattened.isEmpty()) {
+                        System.out.println(
+                                script
+                                        + " ;\t"
+                                        + flattened.size()
+                                        + " ;\t"
+                                        + flattened.toPattern(false));
+                    }
+                }
+            }
+        }
+    }
+
+    static final UnicodeSet MAIN_AUX_EXPECTED = new UnicodeSet("[\\p{L}\\p{M}\\p{Cf}·]").freeze();
+
+    private UnicodeSet checkSet(
+            String title, String locale, UnicodeSet main, UnicodeSet collected) {
+        UnicodeSet bad = new UnicodeSet();
+        for (String s : main) {
+            if (!MAIN_AUX_EXPECTED.containsAll(s)) {
+                bad.add(s);
+            }
+        }
+        if (!bad.isEmpty()) {
+            if (SHOW_EXEMPLARS) {
+                warnln(
+                        "\t"
+                                + title
+                                + "\tLocale\t"
+                                + locale
+                                + "\thas "
+                                + bad.size()
+                                + " unexpected exemplar characters:\t"
+                                + bad.toPattern(false));
+            }
+            collected.addAll(bad);
+        }
+        return CldrUtility.flatten(new UnicodeSet(main).removeAll(bad));
+    }
+
+    /**
+     * Remove items with a count equal to size (they are common to all locales), and flatten
+     * (against the whole set)
+     */
+    private UnicodeSet getUncommon(UnicodeMap<Integer> counts, int size) {
+        UnicodeSet flattenedAll =
+                CldrUtility.flatten(counts.keySet()); // we flatten against the whole set
+        UnicodeSet result = new UnicodeSet();
+        for (String s : flattenedAll) {
+            int count = counts.get(s);
+            if (count != size) {
+                result.add(s);
+            }
+        }
+        return result.freeze();
+    }
+
+    private void getCounts(Collection<UnicodeSet> usets, UnicodeMap<Integer> counts) {
+        for (UnicodeSet uset : usets) {
+            for (String s : uset) {
+                Integer old = counts.get(s);
+                if (old == null) {
+                    counts.put(s, 1);
+                } else {
+                    counts.put(s, old + 1);
+                }
+            }
+        }
     }
 }

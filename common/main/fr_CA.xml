@@ -894,7 +894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">Israël</territory>
 			<territory type="IM">île de Man</territory>
 			<territory type="IN">Inde</territory>
-			<territory type="IO">territoire britannique de l’océan Indien</territory>
+			<territory type="IO" draft="provisional">territoire britannique de l’océan Indien</territory>
 			<territory type="IQ">Irak</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Islande</territory>
@@ -1089,10 +1089,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">↑↑↑</type>
 			<type key="calendar" type="hebrew">↑↑↑</type>
 			<type key="calendar" type="indian">calendrier indien</type>
-			<type key="calendar" type="islamic">↑↑↑</type>
-			<type key="calendar" type="islamic-civil">↑↑↑</type>
-			<type key="calendar" type="islamic-tbla">↑↑↑</type>
-			<type key="calendar" type="islamic-umalqura">calendrier musulman (calculé, Umm al-Qura)</type>
+			<type key="calendar" type="islamic" draft="provisional">↑↑↑</type>
+			<type key="calendar" type="islamic-civil" draft="provisional">↑↑↑</type>
+			<type key="calendar" type="islamic-tbla" draft="provisional">↑↑↑</type>
+			<type key="calendar" type="islamic-umalqura" draft="provisional">calendrier musulman (calculé, Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">↑↑↑</type>
 			<type key="calendar" type="japanese">↑↑↑</type>
 			<type key="calendar" type="persian">↑↑↑</type>
@@ -1186,7 +1186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[áåäãā ē íìī ñ óòöø úǔ]</exemplarCharacters>
 		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
@@ -7517,10 +7517,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} calories</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<gender>↑↑↑</gender>
-				<displayName>kilocalories</displayName>
-				<unitPattern count="one">{0} kilocalorie</unitPattern>
-				<unitPattern count="other">{0} kilocalories</unitPattern>
+				<gender draft="provisional">↑↑↑</gender>
+				<displayName draft="provisional">kilocalories</displayName>
+				<unitPattern count="one" draft="provisional">{0} kilocalorie</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} kilocalories</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<gender>↑↑↑</gender>
@@ -7626,19 +7626,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>point</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">point</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -8662,9 +8662,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="one" draft="provisional">{0} kcal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -8757,19 +8757,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>ppcm</displayName>
-				<unitPattern count="one">{0} ppcm</unitPattern>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName draft="provisional">ppcm</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppp</displayName>
-				<unitPattern count="one">{0} ppp</unitPattern>
-				<unitPattern count="other">{0} ppp</unitPattern>
+				<displayName draft="provisional">ppp</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppp</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>p</displayName>
-				<unitPattern count="one">{0} p</unitPattern>
-				<unitPattern count="other">{0} p</unitPattern>
+				<displayName draft="provisional">p</displayName>
+				<unitPattern count="one" draft="provisional">{0} p</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} p</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -9713,9 +9713,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>↑↑↑</displayName>
@@ -9808,19 +9808,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>ppcm</displayName>
-				<unitPattern count="one">{0}ppcm</unitPattern>
-				<unitPattern count="other">{0}ppcm</unitPattern>
+				<displayName draft="provisional">ppcm</displayName>
+				<unitPattern count="one" draft="provisional">{0}ppcm</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppp</displayName>
-				<unitPattern count="one">{0}ppp</unitPattern>
-				<unitPattern count="other">{0}ppp</unitPattern>
+				<displayName draft="provisional">ppp</displayName>
+				<unitPattern count="one" draft="provisional">{0}ppp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}ppp</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>p</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">p</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -10749,27 +10749,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
-			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignGS">
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignGGS">
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given2" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title">Mme</nameField>
-			<nameField type="given">↑↑↑</nameField>
-			<nameField type="given-informal">↑↑↑</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname-prefix">↑↑↑</nameField>
-			<nameField type="surname-core">↑↑↑</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="generation">↑↑↑</nameField>
-			<nameField type="credentials">↑↑↑</nameField>
+			<nameField type="title" draft="provisional">Mme</nameField>
+			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given-informal" draft="provisional">↑↑↑</nameField>
+			<nameField type="given2" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
+			<nameField type="generation" draft="provisional">↑↑↑</nameField>
+			<nameField type="credentials" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

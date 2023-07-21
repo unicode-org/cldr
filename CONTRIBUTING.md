@@ -99,7 +99,7 @@ All rights reserved. [Terms of use][]
 [Terms of use]: https://www.unicode.org/copyright.html
 [Jira]: https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md
 [Tools source]: https://github.com/unicode-org/cldr/tree/main/tools
-[Maven setup]: https://cldr.unicode.org/development/cldr-development-site/maven-setup
+[Maven setup]: https://cldr.unicode.org/development/maven
 [Repository Organization]: https://cldr.unicode.org/index/downloads#h.lf1z45b9du36
 [How to contribute]: https://cldr.unicode.org/#h.vw32p8sealpj
 [Unicode member]: https://home.unicode.org/membership/why-join/

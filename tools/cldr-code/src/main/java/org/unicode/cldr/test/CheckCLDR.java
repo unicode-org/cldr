@@ -12,10 +12,6 @@ import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -813,7 +809,9 @@ public abstract class CheckCLDR implements CheckAccessor {
             missingNonAltPath,
             badSamplePersonName,
             missingLanguage,
-            namePlaceholderProblem;
+            namePlaceholderProblem,
+            missingSpaceBetweenNameFields,
+            illegalParameterValue;
 
             @Override
             public String toString() {
@@ -1437,23 +1435,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         }
     }
 
-    public static Transliterator getTransliteratorFromFile(String ID, String file) {
-        try {
-            BufferedReader br = CldrUtility.getUTF8Data(file);
-            StringBuffer input = new StringBuffer();
-            while (true) {
-                String line = br.readLine();
-                if (line == null) break;
-                if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
-                input.append(line);
-                input.append('\n');
-            }
-            return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException("Can't open transliterator file " + file, e);
-        }
-    }
-
+    @Override
     public Phase getPhase() {
         return phase;
     }

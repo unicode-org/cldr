@@ -33,6 +33,7 @@
 
 <script>
 import CldrRow from "./CldrRow.vue";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 export default {
   components: {
@@ -51,11 +52,11 @@ export default {
     } else if (this.xpstrid) {
       theUrl = `api/voting/${this.locale}/row/${this.xpstrid}`;
     } else {
-      throw Error(`Need xpstrid= or page= to continue.`);
+      throw new Error(`Need xpstrid= or page= to continue.`);
     }
     fetch(theUrl, {
       headers: {
-        "X-SurveyTool-Session": this.$cldrOpts.sessionId,
+        "X-SurveyTool-Session": cldrStatus.getSessionId(),
       },
     })
       .then((r) => r.json())

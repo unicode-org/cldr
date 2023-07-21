@@ -673,7 +673,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">Iserɛli</territory>
 			<territory type="IM">Isle of Man</territory>
 			<territory type="IN">India</territory>
-			<territory type="IO">Etíkun Índíánì ti Ìlú Bírítísì</territory>
+			<territory type="IO" draft="provisional">Etíkun Índíánì ti Ìlú Bírítísì</territory>
 			<territory type="IQ">Iraki</territory>
 			<territory type="IR">Irani</territory>
 			<territory type="IS">Ashilandi</territory>
@@ -856,9 +856,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="ethiopic-amete-alem">Èdè Kalenda Alem Amete tio Etiopia</type>
 			<type key="calendar" type="gregorian">Kàlɛ́ńdà Gregory</type>
 			<type key="calendar" type="hebrew">Kàlɛ́ńdà Hébérù</type>
-			<type key="calendar" type="islamic">Kàlɛ́ńdà Lárúbáwá</type>
-			<type key="calendar" type="islamic-civil">Kàlɛ́ńdà ti Musulumi</type>
-			<type key="calendar" type="islamic-umalqura">Kàlɛ́ńdà Musulumi</type>
+			<type key="calendar" type="islamic" draft="provisional">Kàlɛ́ńdà Lárúbáwá</type>
+			<type key="calendar" type="islamic-civil" draft="provisional">Kàlɛ́ńdà ti Musulumi</type>
+			<type key="calendar" type="islamic-umalqura" draft="provisional">Kàlɛ́ńdà Musulumi</type>
 			<type key="calendar" type="iso8601">Kàlɛ́ńdà ISO-8601</type>
 			<type key="calendar" type="japanese">Kàlɛ́ńdà ti Jàpánù</type>
 			<type key="calendar" type="persian">Kàlɛ́ńdà Pásíànù</type>
@@ -931,11 +931,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á à b d e é è ɛ {ɛ\u0301} {ɛ\u0300} f g {gb} h i í ì j k l m n o ó ò ɔ {ɔ\u0301} {ɔ\u0300} p r s {sh} t u ú ù w y]</exemplarCharacters>
+		<exemplarCharacters>[aáà b d eéè ɛ{ɛ́}{ɛ̀} f g {gb} h iíì j k l m n oóò ɔ{ɔ́}{ɔ̀} p r s {sh} t uúù w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B D E F G H I J K L M N O P R S T U W Y]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -5875,8 +5875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="other" draft="provisional">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -5951,16 +5951,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>ppcm</displayName>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName draft="provisional">ppcm</displayName>
+				<unitPattern count="other" draft="provisional">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppi</displayName>
-				<unitPattern count="other">{0} ppi</unitPattern>
+				<displayName draft="provisional">ppi</displayName>
+				<unitPattern count="other" draft="provisional">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dɔ́ɔ̀tì</displayName>
-				<unitPattern count="other">{0} dɔ́ɔ̀tì</unitPattern>
+				<displayName draft="provisional">dɔ́ɔ̀tì</displayName>
+				<unitPattern count="other" draft="provisional">{0} dɔ́ɔ̀tì</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>ìdinwɔ̀n ayé</displayName>
@@ -6741,8 +6741,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="other" draft="provisional">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>↑↑↑</displayName>
@@ -6817,16 +6817,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>ppcm</displayName>
-				<unitPattern count="other">{0} ppcm</unitPattern>
+				<displayName draft="provisional">ppcm</displayName>
+				<unitPattern count="other" draft="provisional">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppi</displayName>
-				<unitPattern count="other">{0} ppi</unitPattern>
+				<displayName draft="provisional">ppi</displayName>
+				<unitPattern count="other" draft="provisional">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dɔ́ɔ̀tì</displayName>
-				<unitPattern count="other">{0} dɔ́ɔ̀tì</unitPattern>
+				<displayName draft="provisional">dɔ́ɔ̀tì</displayName>
+				<unitPattern count="other" draft="provisional">{0} dɔ́ɔ̀tì</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>àmì ìdínwɔ̀n ayé</displayName>
@@ -7607,8 +7607,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0}Cal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="other" draft="provisional">{0}Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kJ</displayName>
@@ -7683,16 +7683,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dpcm</displayName>
-				<unitPattern count="other">{0}dpcm</unitPattern>
+				<displayName draft="provisional">dpcm</displayName>
+				<unitPattern count="other" draft="provisional">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
-				<unitPattern count="other">{0}dpi</unitPattern>
+				<displayName draft="provisional">dpi</displayName>
+				<unitPattern count="other" draft="provisional">{0}dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>dɔ́ɔ̀tì</displayName>
-				<unitPattern count="other">{0} dɔ́ɔ̀tì</unitPattern>
+				<displayName draft="provisional">dɔ́ɔ̀tì</displayName>
+				<unitPattern count="other" draft="provisional">{0} dɔ́ɔ̀tì</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>R⊕</displayName>

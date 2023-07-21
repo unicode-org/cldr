@@ -6,7 +6,7 @@
   "scripts": {
     "build-test": "webpack --config webpack-test.config.js",
     "test": "npm run nonbrowser-test && npm run browser-test",
-    "nonbrowser-test": "mocha --require esm --reporter spec test/nonbrowser/test-*.js",
+    "nonbrowser-test": "mocha --reporter spec test/nonbrowser/test-*.mjs",
     "browser-test": "npm run build-test && mocha-headless-chrome -f test/Test.html",
     "lint": "exit 0",
     "build": "webpack --mode=production",
@@ -31,7 +31,7 @@
     "chai": "^4.3.6",
     "css-loader": "^6.7.3",
     "esm": "^3.2.25",
-    "mocha": "^8.4.0",
+    "mocha": "^10.2.0",
     "mocha-headless-chrome": "^4.0.0",
     "style-loader": "^3.3.2",
     "vue-loader": "^17.0.1",
@@ -43,6 +43,7 @@
     "ant-design-vue": "^3.2.16",
     "swagger-client": "^3.18.5",
     "vue": "^3.2.47",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "marked": "^4.3.0"
   }
 }

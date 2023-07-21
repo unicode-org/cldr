@@ -93,7 +93,7 @@ public class SearchCLDR {
                             "path",
                             ".*",
                             null,
-                            "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+                            "regex to filter paths. ! in front selects items that don't match; §§ to separate multiple tests. Example: -p relative.*@type=\\\"-?3\\\"")
                     .add(
                             "value",
                             ".*",
@@ -129,7 +129,7 @@ public class SearchCLDR {
                             "filter by errors, eg CheckForCopy, or CheckForCopy:sameAsCode");
 
     private static String fileMatcher;
-    private static Matcher pathMatcher;
+    private static MatcherList pathMatcher;
     private static boolean countOnly;
     private static boolean showPath;
     private static boolean showSurveyToolUrl;
@@ -152,8 +152,7 @@ public class SearchCLDR {
         Output<Boolean> exclude = new Output<>();
         fileMatcher = myOptions.get("file").getValue();
 
-        pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
-        Boolean pathExclude = exclude.value;
+        pathMatcher = MatcherList.from(myOptions.get("path").getValue());
 
         Set<Level> levelMatcher = getEnumMatcher(myOptions.get("level").getValue(), exclude);
 
@@ -309,7 +308,7 @@ public class SearchCLDR {
                     int debug = 0;
                 }
 
-                if (pathMatcher != null && pathExclude == pathMatcher.reset(fullPath).find()) {
+                if (pathMatcher != null && !pathMatcher.find(fullPath)) {
                     continue;
                 }
 

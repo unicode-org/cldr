@@ -15,7 +15,6 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
@@ -138,7 +137,7 @@ public class VoteAPIHelper {
                 if (xp == null) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_XPATH)).build();
                 }
-                matcher = XPathMatcher.getMatcherForString(xp); // single string
+                matcher = XPathMatcher.exactMatcherForString(xp);
             } else {
                 // Should not get here.
                 return new STError(
@@ -149,6 +148,9 @@ public class VoteAPIHelper {
             final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher);
             pageData.setUserForVotelist(mySession.user);
             r.page = new RowResponse.Page();
+            if (args.xpstrid != null) {
+                r.setOneRowPath(args.xpstrid);
+            }
 
             // don't return default content
             CLDRLocale dcParent =
@@ -221,12 +223,14 @@ public class VoteAPIHelper {
         // situations.
         row.displayExample = r.getDisplayExample();
         row.displayName = r.getDisplayName();
+        row.rawEnglish = r.getRawEnglish();
         row.extraAttributes = r.getNonDistinguishingAttributes();
         row.flagged = r.isFlagged();
         row.hasVoted = r.userHasVoted();
         row.helpHtml = r.getHelpHTML();
         row.inheritedLocale = r.getInheritedLocaleName();
         row.inheritedValue = r.getInheritedValue();
+        row.inheritedDisplayValue = r.getInheritedDisplayValue();
         row.inheritedXpid = r.getInheritedXPath();
         row.items = calculateItems(r);
         row.placeholderInfo = placeholders.get(xpath);
@@ -243,6 +247,7 @@ public class VoteAPIHelper {
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);
+        row.fixedCandidates = r.fixedCandidates();
         return row;
     }
 
@@ -252,24 +257,25 @@ public class VoteAPIHelper {
      * @param resolver the back-end VoteResolver
      * @return the VotingResults
      */
-    private static RowResponse.Row.VotingResults getVotingResults(VoteResolver<String> resolver) {
-        final RowResponse.Row.VotingResults results = new RowResponse.Row.VotingResults();
+    public static <T> RowResponse.Row.VotingResults<T> getVotingResults(VoteResolver<T> resolver) {
+        final RowResponse.Row.VotingResults<T> results = new RowResponse.Row.VotingResults<>();
         final EnumSet<Organization> conflictedOrgs = resolver.getConflictedOrganizations();
-        final List<String> valueToVoteA = new ArrayList<>();
-        final Map<String, Long> valueToVote = resolver.getResolvedVoteCounts();
-        for (Map.Entry<String, Long> e : valueToVote.entrySet()) {
+        /** array of Key, Value, Key, Value… */
+        final List<Object> valueToVoteA = new ArrayList<>();
+        final Map<T, Long> valueToVote = resolver.getResolvedVoteCounts();
+        for (Map.Entry<T, Long> e : valueToVote.entrySet()) {
             valueToVoteA.add(e.getKey());
             valueToVoteA.add(String.valueOf(e.getValue()));
         }
         results.nameTime = resolver.getNameTime();
         results.requiredVotes = resolver.getRequiredVotes();
-        results.value_vote = valueToVoteA.toArray(new String[0]);
+        results.value_vote = valueToVoteA.toArray(new Object[0]);
         results.valueIsLocked = resolver.isValueLocked();
         results.orgs = new HashMap<>();
         for (Organization o : Organization.values()) {
-            final String orgVote = resolver.getOrgVote(o);
+            final T orgVote = resolver.getOrgVote(o);
             if (orgVote != null) {
-                final RowResponse.Row.OrgValueVotes org = new RowResponse.Row.OrgValueVotes();
+                final RowResponse.Row.OrgValueVotes<T> org = new RowResponse.Row.OrgValueVotes<>();
                 org.conflicted = conflictedOrgs.contains(o);
                 org.orgVote = orgVote;
                 org.status = resolver.getStatusForOrganization(o).name();

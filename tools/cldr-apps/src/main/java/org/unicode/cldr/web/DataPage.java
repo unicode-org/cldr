@@ -29,6 +29,9 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -168,7 +171,8 @@ public class DataPage {
                     return null;
                 }
                 try {
-                    return getProcessor().processForDisplay(xpath, rawValue);
+                    return DisplayAndInputProcessorFactory.make(locale)
+                            .processForDisplay(xpath, rawValue);
                 } catch (Throwable t) {
                     String msg = "getProcessedValue, while processing " + xpath + ":" + rawValue;
                     logger.log(java.util.logging.Level.FINE, msg, t);
@@ -225,7 +229,12 @@ public class DataPage {
              */
             public Set<UserRegistry.User> getVotes() {
                 if (!checkedVotes) {
-                    votes = ballotBox.getVotesForValue(xpath, rawValue);
+                    String valueToCheck = rawValue;
+                    if (valueToCheck.equals(CldrUtility.INHERITANCE_MARKER)) {
+                        // Not so raw as it ought to be.
+                        valueToCheck = inheritedValue;
+                    }
+                    votes = ballotBox.getVotesForValue(xpath, valueToCheck);
                     checkedVotes = true;
                 }
                 return votes;
@@ -408,7 +417,11 @@ public class DataPage {
             return coverageValue;
         }
 
+        /** the displayName is the value of the 'English' column. */
         private final String displayName;
+
+        /** Same as displayName, but unprocessed */
+        private final String rawEnglish;
 
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
@@ -437,6 +450,13 @@ public class DataPage {
 
         public String getInheritedValue() {
             return inheritedValue;
+        }
+
+        private String inheritedDisplayValue = null;
+
+        /** like getInheritedValue(), but processed */
+        public String getInheritedDisplayValue() {
+            return inheritedDisplayValue;
         }
 
         /** The winning item for this DataRow. */
@@ -493,6 +513,9 @@ public class DataPage {
         /** The voting transcript, set by the DataRow constructor */
         private final String voteTranscript;
 
+        /** Are there fixed candidates (i.e. plus is prohibited) */
+        private boolean haveFixedCandidates = false;
+
         public String getVoteTranscript() {
             return voteTranscript;
         }
@@ -520,7 +543,35 @@ public class DataPage {
             baselineValue = resolver.getBaselineValue();
             baselineStatus = resolver.getBaselineStatus();
 
-            this.displayName = comparisonValueFile.getStringValue(xpath);
+            rawEnglish = comparisonValueFile.getStringValue(xpath);
+            displayName = getBaselineProcessor().processForDisplay(xpath, rawEnglish);
+            addFixedCandidates();
+        }
+
+        /** check to see if there are any 'fixed' values, i.e. no freeform input is allowed. */
+        public void addFixedCandidates() {
+            Collection<String> candidates = getFixedCandidates();
+            // Could have other XPaths here
+
+            if (candidates == null || candidates.isEmpty()) {
+                return;
+            }
+            haveFixedCandidates = true;
+            for (final String candidate : candidates) {
+                addItem(candidate, "fixed");
+            }
+        }
+
+        private Collection<String> getFixedCandidates() {
+            if (PatternCache.get("^//ldml/units/unitLength.*/unit.*/gender")
+                    .matcher(xpath)
+                    .matches()) {
+                return grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalGender,
+                        GrammaticalScope.units);
+            }
+            return Collections.emptySet();
         }
 
         /**
@@ -553,9 +604,7 @@ public class DataPage {
             if (value == null) {
                 return null;
             }
-            if (VoteResolver.DROP_HARD_INHERITANCE
-                    && value.equals(inheritedValue)
-                    && !inheritsFromRootOrFallback()) {
+            if (VoteResolver.DROP_HARD_INHERITANCE && value.equals(inheritedValue)) {
                 value = CldrUtility.INHERITANCE_MARKER;
             }
             CandidateItem item = items.get(value);
@@ -573,15 +622,13 @@ public class DataPage {
             if (winningValue != null && winningValue.equals(value)) {
                 winningItem = item;
             }
-            if (baselineValue != null && baselineValue.equals(value)) {
+            if (baselineValue != null
+                    && (baselineValue.equals(value)
+                            || (CldrUtility.INHERITANCE_MARKER.equals(value)
+                                    && baselineValue.equals(inheritedValue)))) {
                 item.isBaselineValue = true;
             }
             return item;
-        }
-
-        private boolean inheritsFromRootOrFallback() {
-            String loc = inheritedLocale.getBaseName();
-            return XMLSource.ROOT_ID.equals(loc) || XMLSource.CODE_FALLBACK_ID.equals(loc);
         }
 
         /** Calculate the hash used for HTML forms for this DataRow. */
@@ -608,6 +655,10 @@ public class DataPage {
 
         public String getDisplayName() {
             return displayName;
+        }
+
+        public String getRawEnglish() {
+            return rawEnglish;
         }
 
         /** Get the locale for this DataRow */
@@ -759,6 +810,7 @@ public class DataPage {
                  */
                 // System.out.println("Warning: no inherited value in updateInheritedValue; xpath =
                 // " + xpath);
+                inheritedDisplayValue = null;
             } else {
                 /*
                  * Unless this DataRow already has an item with value INHERITANCE_MARKER,
@@ -783,6 +835,10 @@ public class DataPage {
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
                     }
                 }
+                // Note: the inherited value uses the child locale
+                inheritedDisplayValue =
+                        DisplayAndInputProcessorFactory.make(locale)
+                                .processForDisplay(xpath, inheritedValue);
             }
             if ((checkCldr != null) && (inheritedItem != null) && (inheritedItem.tests == null)) {
                 if (TRACE_TIME) {
@@ -835,8 +891,22 @@ public class DataPage {
                 String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
                 if (ourVote != null) {
                     CandidateItem voteItem = items.get(ourVote);
+                    if (voteItem == null) {
+                        // inherited value matches inheritance marker and vice-versa
+                        if (ourVote.equals(inheritedValue)) {
+                            voteItem = items.get(CldrUtility.INHERITANCE_MARKER);
+                        } else if (ourVote.equals(CldrUtility.INHERITANCE_MARKER)) {
+                            voteItem = items.get(inheritedValue);
+                        }
+                    }
                     if (voteItem != null) {
                         voteVhash = voteItem.getValueHash();
+                    } else {
+                        logger.severe(
+                                "Found ourVote = "
+                                        + ourVote
+                                        + " but did not find voteItem for xpath = "
+                                        + xpath);
                     }
                 }
             }
@@ -848,15 +918,14 @@ public class DataPage {
         }
 
         public String getHelpHTML() {
-            return nativeExampleGenerator.getHelpHtml(xpath, this.displayName);
+            return nativeExampleGenerator.getHelpHtml(xpath, rawEnglish);
         }
 
         public String getDisplayExample() {
             String displayExample = null;
             if (displayName != null) {
                 displayExample =
-                        sm.getComparisonValuesExample()
-                                .getNonTrivialExampleHtml(xpath, displayName);
+                        sm.getComparisonValuesExample().getNonTrivialExampleHtml(xpath, rawEnglish);
             }
             return displayExample;
         }
@@ -989,7 +1058,9 @@ public class DataPage {
                      * en dash, as in "E10–520", when SurveyAjax.processRequest calls processInput.
                      * Call processInput here as well, so that isUnvotableRoot can match correctly.
                      */
-                    unvotableRootValue = getProcessor().processInput(xpath, rootValue, null);
+                    unvotableRootValue =
+                            DisplayAndInputProcessorFactory.make(locale)
+                                    .processInput(xpath, rootValue, null);
                     addItem(unvotableRootValue, "root-annotation");
                 }
             }
@@ -1024,6 +1095,10 @@ public class DataPage {
 
         public String getTranslationHint() {
             return TranslationHints.get(xpath);
+        }
+
+        public boolean fixedCandidates() {
+            return haveFixedCandidates;
         }
     }
 
@@ -1340,6 +1415,8 @@ public class DataPage {
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
+    private GrammarInfo grammarInfo;
+
     DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
@@ -1354,6 +1431,7 @@ public class DataPage {
                             .format(Calendar.getInstance().getTime());
             System.out.println("🌴 Created new DataPage for loc " + loc + " at " + creationTime);
         }
+        grammarInfo = sm.getSupplementalDataInfo().getGrammarInfo(locale.getBaseName());
     }
 
     /**
@@ -1897,10 +1975,6 @@ public class DataPage {
          * baselineValue, or because it has votes), then "add" it again here so that we have myItem and
          * will call setTests.
          *
-         * Also, if inherited value is from root or code-fallback, then we still need a candidate item that's
-         * non-inherited to avoid errors about inheriting from root/fallback, and to match the winning value
-         * which might be not be INHERITANCE_MARKER even though it matches the bailey value.
-         *
          * TODO: It would be better to consolidate where setTests is called for all items, to ensure
          * it's called once and only once for each item that needs it.
          */
@@ -1908,8 +1982,7 @@ public class DataPage {
         if (ourValue != null) {
             if (!VoteResolver.DROP_HARD_INHERITANCE
                     || !ourValue.equals(row.inheritedValue)
-                    || row.items.get(ourValue) != null
-                    || row.inheritsFromRootOrFallback()) {
+                    || row.items.get(ourValue) != null) {
                 myItem = row.addItem(ourValue, "our");
                 if (DEBUG) {
                     System.err.println(
@@ -1957,7 +2030,7 @@ public class DataPage {
      * @return the processor
      *     <p>Called by getProcessedValue
      */
-    private DisplayAndInputProcessor getProcessor() {
+    private DisplayAndInputProcessor getBaselineProcessor() {
         if (processor == null) {
             processor = new DisplayAndInputProcessor(SurveyMain.TRANS_HINT_LOCALE, false);
         }

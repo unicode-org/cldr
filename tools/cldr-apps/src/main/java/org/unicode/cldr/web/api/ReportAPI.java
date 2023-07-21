@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -190,9 +191,10 @@ public class ReportAPI {
             LocaleReportVettingResult rr = new LocaleReportVettingResult();
             rr.locale = loc.toString();
             for (final ReportId report : ReportId.getReportsAvailable()) {
+                Map<Integer, ReportAcceptability> votes = new TreeMap<>();
                 Map<ReportAcceptability, Set<Integer>> statistics =
-                        db.updateResolver(loc, report, allUsers, res);
-                rr.reports.add(new ReportVettingResult(report, res, statistics));
+                        db.updateResolver(loc, report, allUsers, res, votes);
+                rr.reports.add(new ReportVettingResult(report, res, statistics, votes));
                 statistics.values().forEach(s -> rr.addVoters(s));
             }
             r.locales.add(rr);
@@ -234,7 +236,8 @@ public class ReportAPI {
         public ReportVettingResult(
                 ReportId id,
                 VoteResolver<ReportAcceptability> res,
-                Map<ReportAcceptability, Set<Integer>> statistics) {
+                Map<ReportAcceptability, Set<Integer>> statistics,
+                Map<Integer, ReportAcceptability> votes) {
             this.report = id;
             this.status = res.getWinningStatus();
             if (this.status != VoteResolver.Status.missing) {
@@ -260,6 +263,11 @@ public class ReportAPI {
             Map<ReportAcceptability, Long> rvc = res.getResolvedVoteCounts();
             acceptableScore = rvc.get(ReportAcceptability.acceptable);
             notAcceptableScore = rvc.get(ReportAcceptability.notAcceptable);
+            // serialize the voteResolver
+            transcript = res.getTranscript();
+            resolvedVoteCounts = res.getResolvedVoteCounts();
+            votingResults = VoteAPIHelper.getVotingResults(res);
+            this.votes = votes;
         }
 
         public ReportId report;
@@ -269,6 +277,10 @@ public class ReportAPI {
         public int votersForNotAcceptable;
         public Long acceptableScore;
         public Long notAcceptableScore;
+        public String transcript;
+        public Map<ReportAcceptability, Long> resolvedVoteCounts;
+        public VoteAPI.RowResponse.Row.VotingResults<ReportAcceptability> votingResults;
+        public Map<Integer, ReportAcceptability> votes;
     }
 
     @POST

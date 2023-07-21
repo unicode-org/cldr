@@ -36,10 +36,6 @@ PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/displa
 PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/unitPattern[@count="one"]
 PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/unitPattern[@count="other"]
 
-HINT: if in your locale "m" is always understood as meters, use something else here - e.g. "min", "mn."
-PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-minute"]/unitPattern[@count="one"]
-PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-minute"]/unitPattern[@count="other"]
-
 HINT: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK
 PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-foodcalorie"]/displayName
 PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"]

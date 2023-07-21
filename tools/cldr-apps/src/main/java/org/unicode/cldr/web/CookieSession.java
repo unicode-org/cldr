@@ -728,8 +728,9 @@ public class CookieSession {
                 }
             }
             for (CookieSession cs : toRemove) {
-                if (SurveyMain.isUnofficial()) {
-                    System.err.println("Removed stale session " + cs);
+                if (SurveyMain.isUnofficial() && cs.user != null) {
+                    // Don't log on anonymous users
+                    logger.fine(() -> "Removed stale session " + cs);
                 }
                 cs.remove();
             }

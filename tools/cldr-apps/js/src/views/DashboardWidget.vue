@@ -160,14 +160,14 @@
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrCoverage from "../esm/cldrCoverage.js";
-import * as cldrDash from "../esm/cldrDash.js";
-import * as cldrGui from "../esm/cldrGui.js";
-import * as cldrLoad from "../esm/cldrLoad.js";
-import * as cldrReport from "../esm/cldrReport.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrCoverage from "../esm/cldrCoverage.mjs";
+import * as cldrDash from "../esm/cldrDash.mjs";
+import * as cldrGui from "../esm/cldrGui.mjs";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
+import * as cldrReport from "../esm/cldrReport.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   props: [],
@@ -254,7 +254,7 @@ export default {
         .doFetch(url)
         .then((response) => {
           if (!response.ok) {
-            throw Error(response.statusText);
+            throw new Error(response.statusText);
           }
           return response;
         })

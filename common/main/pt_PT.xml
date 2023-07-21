@@ -825,7 +825,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IL">Israel</territory>
 			<territory type="IM">Ilha de Man</territory>
 			<territory type="IN">Índia</territory>
-			<territory type="IO">Território Britânico do Oceano Índico</territory>
+			<territory type="IO" draft="provisional">Território Britânico do Oceano Índico</territory>
 			<territory type="IQ">↑↑↑</territory>
 			<territory type="IR">Irão</territory>
 			<territory type="IS">Islândia</territory>
@@ -1032,9 +1032,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="gregorian">Calendário gregoriano</type>
 			<type key="calendar" type="hebrew">Calendário hebraico</type>
 			<type key="calendar" type="indian" draft="contributed">Calendário nacional indiano</type>
-			<type key="calendar" type="islamic">Calendário islâmico</type>
-			<type key="calendar" type="islamic-civil">Calendário islâmico (civil)</type>
-			<type key="calendar" type="islamic-umalqura">Calendário islâmico (Umm al-Qura)</type>
+			<type key="calendar" type="islamic" draft="provisional">Calendário islâmico</type>
+			<type key="calendar" type="islamic-civil" draft="provisional">Calendário islâmico (civil)</type>
+			<type key="calendar" type="islamic-umalqura" draft="provisional">Calendário islâmico (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">↑↑↑</type>
 			<type key="calendar" type="japanese">Calendário japonês</type>
 			<type key="calendar" type="persian">Calendário persa</type>
@@ -1154,7 +1154,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' &quot; “ ” « » ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … ' &quot;“” « » ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -7037,10 +7037,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} calorias</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<gender>↑↑↑</gender>
-				<displayName>quilocalorias</displayName>
-				<unitPattern count="one">{0} quilocaloria</unitPattern>
-				<unitPattern count="other">{0} quilocalorias</unitPattern>
+				<gender draft="provisional">↑↑↑</gender>
+				<displayName draft="provisional">quilocalorias</displayName>
+				<unitPattern count="one" draft="provisional">{0} quilocaloria</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} quilocalorias</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<gender draft="contributed">↑↑↑</gender>
@@ -7146,19 +7146,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} píxeis por polegada</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>pontos</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} pontos</unitPattern>
+				<displayName draft="provisional">pontos</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} pontos</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -8182,9 +8182,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} cal</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="one" draft="provisional">{0} kcal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>quilojoule</displayName>
@@ -8277,19 +8277,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>ppp</displayName>
-				<unitPattern count="one">{0} ppp</unitPattern>
-				<unitPattern count="other">{0} ppp</unitPattern>
+				<displayName draft="provisional">ppp</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppp</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>pontos</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} p</unitPattern>
+				<displayName draft="provisional">pontos</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} p</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -9233,9 +9233,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">kcal</displayName>
-				<unitPattern count="one" draft="contributed">{0} kcal</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kcal</unitPattern>
+				<displayName draft="provisional">kcal</displayName>
+				<unitPattern count="one" draft="provisional">{0} kcal</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -9328,19 +9328,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">ppp</displayName>
-				<unitPattern count="one" draft="contributed">{0} ppp</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ppp</unitPattern>
+				<displayName draft="provisional">ppp</displayName>
+				<unitPattern count="one" draft="provisional">{0} ppp</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} ppp</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="contributed">ponto</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} p</unitPattern>
+				<displayName draft="provisional">ponto</displayName>
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} p</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName draft="contributed">↑↑↑</displayName>

@@ -42,6 +42,9 @@ jobs:
         with:
           name: tr35-spec
           path: tools/scripts/tr-archiver/tr35.zip
+      - name: 'Run TR link extractor (experimental)'
+        # Note: see CLDR-16526 for making this an error
+        run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)

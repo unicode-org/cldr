@@ -12,7 +12,6 @@ import com.ibm.icu.text.DateIntervalInfo;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -20,6 +19,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -35,16 +35,16 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.ComparatorUtilities;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Emoji;
-import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -58,6 +58,8 @@ public class DisplayAndInputProcessor {
     public static final String NOL_START_PATH = "//ldml/personNames/nameOrderLocales";
 
     public static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
+    public static final String NSR_START_PATH = "//ldml/personNames/nativeSpaceReplacement";
+
     public static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
     private static final boolean FIX_YEARS = true;
@@ -104,9 +106,9 @@ public class DisplayAndInputProcessor {
                             + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*)");
 
     private static final Pattern AMPM_SPACE_BEFORE =
-            PatternCache.get("([Khms])([ \\u00A0]+)(a+)"); // time, space, a+
+            PatternCache.get("([Khms])([ \\u00A0\\u202F]+)(a+)"); // time, space, a+
     private static final Pattern AMPM_SPACE_AFTER =
-            PatternCache.get("(a+)([ \\u00A0]+)([Kh])"); // a+, space, hour
+            PatternCache.get("(a+)([ \\u00A0\\u202F]+)([Kh])"); // a+, space, hour
 
     // Pattern to match against paths that might have date formats with y
     private static final Pattern YEAR_FORMAT_XPATHS =
@@ -188,7 +190,7 @@ public class DisplayAndInputProcessor {
             new HashSet<>(
                     Arrays.asList(
                             "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
-                            "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+                            "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -231,7 +233,8 @@ public class DisplayAndInputProcessor {
     private static final Transliterator zawgyiUnicodeTransliterator =
             Transliterator.getInstance("Zawgyi-my");
 
-    private UnicodeSetPrettyPrinter pp = null;
+    private SimpleUnicodeSetFormatter pp = new SimpleUnicodeSetFormatter(); // default collator
+    private UnicodeSetPrettyPrinter rawFormatter = new UnicodeSetPrettyPrinter(); // default
 
     private final CLDRLocale locale;
     private String scriptCode; // actual or default script code (not null after init)
@@ -255,37 +258,15 @@ public class DisplayAndInputProcessor {
     void init(CLDRLocale locale, boolean needsCollator) {
         isPosix = locale.toString().contains("POSIX");
         if (needsCollator) {
-            ICUServiceBuilder isb = null;
-            try {
-                isb = ICUServiceBuilder.forLocale(locale);
-            } catch (Exception e) {
-            }
-
-            Collator col;
-            if (isb != null) {
-                try {
-                    col = isb.getRuleBasedCollator();
-                } catch (Exception e) {
-                    col = Collator.getInstance(ULocale.ROOT);
-                }
-            } else {
-                col = Collator.getInstance(ULocale.ROOT);
-            }
-
-            Collator spaceCol = Collator.getInstance(locale.toULocale());
-            if (spaceCol instanceof RuleBasedCollator) {
-                ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
-            }
-            pp =
-                    new UnicodeSetPrettyPrinter()
-                            .setOrdering(Collator.getInstance(ULocale.ROOT))
-                            .setSpaceComparator(
-                                    Collator.getInstance(ULocale.ROOT)
-                                            .setStrength2(Collator.PRIMARY))
-                            .setCompressRanges(true)
-                            .setToQuote(new UnicodeSet(TO_QUOTE))
-                            .setOrdering(col)
-                            .setSpaceComparator(spaceCol);
+            Collator col =
+                    ComparatorUtilities.getCldrCollator(locale.toString(), Collator.IDENTICAL);
+            Collator spaceCol =
+                    ComparatorUtilities.getCldrCollator(locale.toString(), Collator.PRIMARY);
+            pp = new SimpleUnicodeSetFormatter((Comparator) col);
+            rawFormatter = UnicodeSetPrettyPrinter.from((Comparator) col, (Comparator) spaceCol);
+        } else {
+            pp = new SimpleUnicodeSetFormatter(); // default collator
+            rawFormatter = new UnicodeSetPrettyPrinter(); // default
         }
         String script = locale.getScript();
         if (script == null || script.length() < 4) {
@@ -301,7 +282,7 @@ public class DisplayAndInputProcessor {
         scriptCode = script;
     }
 
-    public UnicodeSetPrettyPrinter getPrettyPrinter() {
+    public SimpleUnicodeSetFormatter getPrettyPrinter() {
         return pp;
     }
 
@@ -353,9 +334,15 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        if (value == null) {
+            return null;
+        }
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            return value;
+        }
         value = Normalizer.compose(value, false); // Always normalize all text to NFC.
         if (hasUnicodeSetValue(path)) {
-            value = displayUnicodeSet(value);
+            return displayUnicodeSet(value);
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
         } else {
@@ -392,7 +379,9 @@ public class DisplayAndInputProcessor {
         }
         // Fix up possibly empty field
         if (value.isEmpty()
-                && (path.startsWith(FSR_START_PATH) || path.startsWith(NOL_START_PATH))) {
+                && (path.startsWith(FSR_START_PATH)
+                        || path.startsWith(NSR_START_PATH)
+                        || path.startsWith(NOL_START_PATH))) {
             value = EMPTY_ELEMENT_VALUE;
         }
         return value;
@@ -428,16 +417,16 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(
             String path, String value, Exception[] internalException) {
+        // skip processing for inheritance marker
+        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            return value;
+        }
         final String original = value;
         value = stripProblematicControlCharacters(value);
         value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         value = value.replace('\u00B5', '\u03BC'); // use the right Greek mu character
         if (internalException != null) {
             internalException[0] = null;
-        }
-        // skip processing for inheritance marker
-        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            return value;
         }
         // for root annotations
         if (CLDRLocale.ROOT.equals(locale) && path.contains("/annotations")) {
@@ -456,6 +445,9 @@ public class DisplayAndInputProcessor {
 
     private String processInputMore(String path, String value) {
         final boolean isUnicodeSet = hasUnicodeSetValue(path);
+        if (isUnicodeSet) {
+            return inputUnicodeSet(path, value);
+        }
 
         value = processLocaleSpecificInput(path, value, isUnicodeSet);
 
@@ -471,6 +463,7 @@ public class DisplayAndInputProcessor {
         // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
         if (!path.contains("/insertBetween")
                 && !path.contains("/foreignSpaceReplacement")
+                && !path.contains("/nativeSpaceReplacement")
                 && !path.contains("[@xml:space=\"preserve\"]")
                 && !isUnicodeSet) {
             value = value.trim();
@@ -538,9 +531,10 @@ public class DisplayAndInputProcessor {
         }
 
         // check specific cases
-        if (isUnicodeSet) {
-            value = inputUnicodeSet(path, value);
-        } else if (path.contains("stopword")) {
+        //        if (isUnicodeSet) {
+        //            value = inputUnicodeSet(path, value);
+        //        } else
+        if (path.contains("stopword")) {
             if (value.equals("NONE")) {
                 value = "";
             }
@@ -713,47 +707,39 @@ public class DisplayAndInputProcessor {
     }
 
     private String displayUnicodeSet(String value) {
-        if (value.startsWith("[") && value.endsWith("]")) {
-            value = value.substring(1, value.length() - 1);
-        }
-
-        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-        // if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
-        // return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
-        // }
-        return value;
+        return pp.format(
+                new UnicodeSet(value)); // will throw exception if bad format, eg missing [...]
     }
 
     private String inputUnicodeSet(String path, String value) {
-        // clean up the user's input.
-        // first, fix up the '['
+        UnicodeSet exemplar = null;
+        // hack, in case the input is called twice
         value = value.trim();
-
-        // remove brackets and trim again before regex
-        if (value.startsWith("[")) {
-            value = value.substring(1);
+        if (value.startsWith("[") && value.endsWith("]")) {
+            try {
+                exemplar = new UnicodeSet(value);
+            } catch (Exception e2) {
+                // fall through
+            }
         }
-        if (value.endsWith("]") && (!value.endsWith("\\]") || value.endsWith("\\\\]"))) {
-            value = value.substring(0, value.length() - 1);
+        if (exemplar == null) {
+            try {
+                exemplar = pp.parse(value);
+            } catch (Exception e) {
+                // can't parse at all
+                return value; // we can't throw an exception because clients won't expect it.
+            }
         }
-        value = value.trim();
-
-        value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
-        value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
-
-        // re-add brackets.
-        value = "[" + value + "]";
-
-        UnicodeSet exemplar = new UnicodeSet(value);
         XPathParts parts = XPathParts.getFrozenInstance(path);
-        if (parts.getElement(2).equals("parseLenients")) {
-            return exemplar.toPattern(false);
-        }
+        //        if (parts.getElement(2).equals("parseLenients")) {
+        //            return exemplar.toPattern(false);
+        //        }
         final String type = parts.getAttributeValue(-1, "type");
-        ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
-        value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
+        ExemplarType exemplarType =
+                !path.contains("exemplarCharacters")
+                        ? null
+                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+        value = getCleanedUnicodeSet(exemplar, exemplarType);
         return value;
     }
 
@@ -1036,14 +1022,18 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE2 =
             PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public static String getCleanedUnicodeSet(
-            UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter, ExemplarType exemplarType) {
-        if (prettyPrinter == null) {
-            return exemplar.toPattern(false);
+    public String getCleanedUnicodeSet(UnicodeSet exemplar, ExemplarType exemplarType) {
+
+        if (rawFormatter == null) {
+            throw new IllegalArgumentException("Formatter must not be null");
         }
+        if (exemplar == null) {
+            throw new IllegalArgumentException("set to be cleaned must not be null");
+        }
+
         String value;
-        prettyPrinter.setCompressRanges(exemplar.size() > 300);
-        value = exemplar.toPattern(false);
+        // prettyPrinter.setCompressRanges(exemplar.size() > 300);
+        // value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 
         for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
@@ -1074,42 +1064,21 @@ public class DisplayAndInputProcessor {
                     toAdd.add("\u202F");
                     break; // nobreak narrow space
             }
-            if (exemplarType.convertUppercase) {
+            if (exemplarType != null && exemplarType.convertUppercase) {
                 string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
             }
             toAdd.add(string);
+            // we allow
             String composed = Normalizer.compose(string, false);
             if (!string.equals(composed)) {
                 toAdd.add(composed);
             }
         }
 
-        toAdd.removeAll(exemplarType.toRemove);
-
-        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
-            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
-            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
-            System.out.println(
-                    "Exemplar:\t"
-                            + exemplarType
-                            + ",\tremoved\t"
-                            + oldOnly
-                            + ",\tadded\t"
-                            + newOnly);
+        if (exemplarType != null) {
+            toAdd.removeAll(exemplarType.toRemove);
         }
-
-        String fixedExemplar = prettyPrinter.format(toAdd);
-        UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
-        if (!toAdd.equals(doubleCheck)) {
-            // something went wrong, leave as is
-        } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
-            if (DEBUG_DAIP) {
-                System.out.println(
-                        TestMetadata.showDifference(
-                                With.codePoints(value), With.codePoints(fixedExemplar), "\n"));
-            }
-            value = fixedExemplar;
-        }
+        value = rawFormatter.format(toAdd);
         return value;
     }
 
@@ -1267,12 +1236,13 @@ public class DisplayAndInputProcessor {
         if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek"))
                 && HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
+            String spaceReplace = path.contains("ascii") ? "$1\u0020$3" : "$1\u202F$3";
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
-                value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202F$3");
+                value = AMPM_SPACE_BEFORE.matcher(value).replaceAll(spaceReplace);
             }
             test = AMPM_SPACE_AFTER.matcher(value).replaceAll("$2$3"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
-                value = AMPM_SPACE_AFTER.matcher(value).replaceAll("$1\u202F$3");
+                value = AMPM_SPACE_AFTER.matcher(value).replaceAll(spaceReplace);
             }
         }
         if (scriptCode.equals("Cyrl") && YEAR_FORMAT_XPATHS.matcher(path).matches()) {

@@ -31,6 +31,9 @@ import org.unicode.cldr.util.UnitConverter.TargetInfo;
 final class NistUnits {
     private static final boolean DEBUG = false;
 
+    public static final String NIST_CONVERSIONS = "nistConversions";
+    public static final String NIST_DERIVED_UNITS = "nistDerivedUnits";
+
     static final Multimap<String, String> unitToQuantity;
     static final Map<String, TargetInfo> derivedUnitToConversion;
     static final List<ExternalUnitConversionData> externalConversionData;
@@ -74,6 +77,7 @@ final class NistUnits {
                                                 parts.get(0),
                                                 parts.get(1),
                                                 factor,
+                                                NIST_CONVERSIONS,
                                                 line,
                                                 _idChanges);
                                 _externalConversionData.add(data);
@@ -153,7 +157,13 @@ final class NistUnits {
 
                         ExternalUnitConversionData data =
                                 new ExternalUnitConversionData(
-                                        quantity, name, targetUnit, Rational.ONE, line, _idChanges);
+                                        quantity, //
+                                        name, //
+                                        targetUnit, //
+                                        Rational.ONE, //
+                                        NIST_DERIVED_UNITS, //
+                                        line, //
+                                        _idChanges);
                         _externalConversionData.add(data);
                     }
                 }

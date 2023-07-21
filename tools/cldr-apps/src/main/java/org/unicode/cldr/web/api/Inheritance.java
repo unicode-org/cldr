@@ -2,9 +2,8 @@ package org.unicode.cldr.web.api;
 
 import static org.unicode.cldr.web.CookieSession.sm;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,10 +23,36 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LocaleInheritanceInfo;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.STFactory;
 
 @Path("/xpath/inheritance")
 @Tag(name = "xpath", description = "APIs for XPath info")
 public class Inheritance {
+    public static final class ReasonInfo {
+        ReasonInfo(LocaleInheritanceInfo.Reason v) {
+            this.reason = v.name();
+            this.terminal = v.isTerminal();
+            this.description = v.getDescription();
+        }
+
+        @Schema(description = "reason id", example = "codeFallback")
+        public final String reason;
+
+        @Schema(description = "true if a terminal reason", example = "true")
+        public final boolean terminal;
+
+        @Schema(
+                description =
+                        "Description for reason. String substitution of 'attribute' may be required.")
+        public final String description;
+    }
+
+    public static final ReasonInfo[] reasons =
+            Arrays.stream(LocaleInheritanceInfo.Reason.values())
+                    .map(v -> new ReasonInfo(v))
+                    .toArray(l -> new ReasonInfo[l]);
+
     @GET
     @Path("/reasons")
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,18 +61,17 @@ public class Inheritance {
             value = {
                 @APIResponse(
                         responseCode = "200",
-                        description = "Array of possible alt values",
+                        description = "Array of possible reasons",
                         content =
                                 @Content(
                                         mediaType = "application/json",
-                                        schema = @Schema(implementation = Map.class)))
+                                        schema =
+                                                @Schema(
+                                                        type = SchemaType.ARRAY,
+                                                        implementation = ReasonInfo.class)))
             })
     public Response getReasons() {
-        Map<String, String> map = new TreeMap<>();
-        for (final LocaleInheritanceInfo.Reason r : LocaleInheritanceInfo.Reason.values()) {
-            map.put(r.name(), r.getDescription());
-        }
-        return Response.ok(map).build();
+        return Response.ok(reasons).build();
     }
 
     @GET
@@ -100,38 +124,45 @@ public class Inheritance {
         return Response.ok(new InheritanceResponse(paths)).build();
     }
 
-    private String getXPathByHex(String hexId) {
-        String xpath = null;
-        try {
-            xpath = sm.xpt.getByStringID(hexId);
-        } catch (RuntimeException e) {
-            /*
-             * Don't report the exception. This happens when it simply wasn't found.
-             * Possibly getByStringID, or some version of it, should not throw an exception.
-             */
-        }
-        return xpath;
-    }
-
     /** Streamable version of {@link LocaleInheritanceInfo} */
     public static final class LocaleInheritance {
+        @Schema(description = "xpath stringid to item")
         public String xpath;
+
+        @Schema(description = "locale of item if present")
         public String locale;
+
+        @Schema(description = "xpath full of item")
         public String xpathFull;
+
+        @Schema(description = "which attribute was implicated in a change")
         public String attribute;
+
+        @Schema(description = "reason for the entry")
         public LocaleInheritanceInfo.Reason reason;
 
-        public LocaleInheritance(LocaleInheritanceInfo info) {
+        @Schema(description = "true if not shown in the SurveyTool")
+        public boolean hidden = false;
+
+        public LocaleInheritance(LocaleInheritanceInfo info, final STFactory stf) {
             this.reason = info.getReason();
             this.locale = info.getLocale();
             this.attribute = info.getAttribute();
             final String x = info.getPath();
             if (x != null) {
                 this.xpath = StringId.getHexId(x);
+                CookieSession.sm.xpt.getByXpath(x); // make sure it's in the XPT!
             } else {
                 this.xpath = null;
             }
             this.xpathFull = x;
+            if (this.locale != null && !this.locale.isEmpty() && this.xpath != null) {
+                // Fairly complex to answer this.
+                this.hidden = !stf.isVisibleInSurveyTool(this.locale, x);
+            } else {
+                // without a locale or xpath, must be hidden
+                this.hidden = true;
+            }
         }
     }
 
@@ -141,9 +172,10 @@ public class Inheritance {
         public final LocaleInheritance[] items;
 
         public InheritanceResponse(List<LocaleInheritanceInfo> list) {
+            final STFactory stf = CookieSession.sm.getSTFactory();
             items =
                     list.stream()
-                            .map(i -> new LocaleInheritance(i))
+                            .map(i -> new LocaleInheritance(i, stf))
                             .collect(Collectors.toList())
                             .toArray(new LocaleInheritance[list.size()]);
         }

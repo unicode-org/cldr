@@ -68,7 +68,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
                             true)
                     .add(
                             "^//ldml/localeDisplayNames/types/type\\[@key=\"collation\"]\\[@type=\"standard\"]",
-                            true);
+                            true)
+                    .add("^//ldml/typographicNames", true);
 
     static UnicodeSet ASCII_LETTER = new UnicodeSet("[a-zA-Z]").freeze();
 

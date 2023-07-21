@@ -282,7 +282,7 @@ Apple	;	kn	;	modern
 Apple	;	ko	;	modern
 Apple	;	lt	;	modern
 Apple	;	lv	;	modern
-Apple	;	mi	;	basic
+Apple	;	mi	;	modern
 Apple	;	mk	;	modern
 Apple	;	ml	;	modern
 Apple	;	mr	;	modern
@@ -484,7 +484,7 @@ Cldr  ; cv  ; basic
 Cldr	;	en_AU	;	modern
 Cldr	;	es_MX	;	modern
 Cldr	;	fr_CA	;	modern
-Cldr  ; mi  ; basic
+Cldr  ; mi  ; modern
 Cldr	;	zh_Hant_HK	;	modern
 
 #Cldr	other (from Google)
@@ -576,6 +576,8 @@ Breton	;	br	;	modern	;	Breton
 Breton ; fr ; modern ;
 
 Cherokee	;	chr	;	modern	;	Cherokee
+
+Choctaw	;	cho	;	modern	;	Choctaw
 
 Gnome	;	lt	;	modern	;	Lithuanian
 Gnome	;	ar	;	modern	;	Arabic
@@ -749,6 +751,8 @@ Rumantscha	;	rm	;	modern	;	Romansch
 Adlam	;	ff	;	modern	;	Fulah
 Adlam ; ff_Adlm ; modern ; Fulah (Adlam)
 
+anii	;	blo	;	moderate	;	Anii
+
 Netflix ; ar ; modern
 Netflix ; da ; moderate ;
 #Netflix ; de ; modern
@@ -762,50 +766,48 @@ Netflix ; pt ; modern
 Netflix ; sr ; modern
 #Netflix ; sv ; modern
 
+mikmaw_kinamatnewey ; mic      ; basic ; Mi'kmaw
+
 nyiakeng_puachue_hmong ; hnj      ; modern ; Green Hmong (hnj_Hmnp) - default content
 #The following is not in CLDR (yet)
 #nyiakeng_puachue_hmong ; mww_Hmnp ; modern ; White Hmong (mww_Hmnp)
 
 Meta	;	ar	;	modern	;	Arabic
-Meta	;	az	;	modern	;	Azerbaijani
-Meta  ;	bn	;	modern	;	Bengali
+Meta	;	bn	;	modern	;	Bengali
 Meta	;	cs	;	modern	;	Czech
-Meta	;	cy	;	modern	;	Welsh
 Meta	;	da	;	modern	;	Danish
 Meta	;	de	;	modern	;	German
+Meta	;	el	;	modern 	;	Greek
 Meta	;	en	;	modern	;	American English
 Meta	;	en_GB	;	modern	;	British English
 Meta	;	es	;	modern	;	European Spanish
 Meta	;	es_419	;	modern	;	Latin American Spanish
-Meta 	;	fa	;	modern 	;	Persian
+Meta	;	fa	;	modern 	;	Persian
+Meta	;	fi	;	modern 	;	Finnish
 Meta	;	fr	;	modern	;	French
-Meta  ;	gu	;	modern	;	Gujarati
-Meta 	;	he	;	modern	;	Hebrew
-Meta 	;	hi	;	modern	;	Hindi
-Meta	;	hr	;	modern	;	Croatian
+Meta	;	gu	;	modern	;	Gujarati
+Meta	;	he	;	modern	;	Hebrew
+Meta	;	hi	;	modern	;	Hindi
 Meta	;	hu	;	modern	;	Hungarian
 Meta	;	id	;	modern	;	Indonesian
 Meta	;	it	;	modern	;	Italian
 Meta	;	ja	;	modern	;	Japanese
-Meta  ;	kn	;	modern	;	Kannada
+Meta	;	kn	;	modern	;	Kannada
 Meta	;	ko	;	modern	;	Korean
-Meta	;	ml	;	modern	;	Malayalam
 Meta	;	mr	;	modern	;	Marathi
 Meta	;	ms	;	modern	;	Malay
 Meta	;	my	;	modern	;	Burmese (Myanmar)
 Meta	;	nl	;	modern	;	Dutch
-Meta 	;	pa	;	modern	;	Punjabi
+Meta	;	no	;	modern	;	Norwegian (Bokmål)
 Meta	;	pl	;	modern	;	Polish
-Meta 	;	ps	;	modern	;	Pashto
 Meta	;	pt	;	modern	;	Brazilian Portuguese
 Meta	;	pt_PT	;	modern	;	European Portuguese
 Meta	;	ro	;	modern	;	Romanian
 Meta	;	ru	;	modern	;	Russian
 Meta	;	sk	;	modern	;	Slovak
-Meta	;	sr	;	modern	;	Serbian
+Meta	;	sv	;	modern	;	Swedish
 Meta	;	sw	;	modern	;	Swahili
-Meta 	;	ta	;	modern	;	Tamil
-Meta 	;	te	;	modern	;	Telugu 
+Meta	;	ta	;	modern	;	Tamil
 Meta	;	th	;	modern	;	Thai
 Meta	;	tr	;	modern	;	Turkish
 Meta	;	ur	;	modern	;	Urdu
@@ -886,6 +888,9 @@ wikimedia ; * ; moderate ;
 # World Organization for the Development of N’ko (WODN)
 wod_nko ; nqo ; modern ; N’Ko
 wod_nko ; bm_Nkoo ; modern ; Bambara (N’ko)
+
+# Western Swampy Cree + Internet Working Group
+wsci_wg ; csw ; modern ; Swampy Cree
 
 yahoo ; mul ; modern ;
 # ^no votes in 30…40 for this org

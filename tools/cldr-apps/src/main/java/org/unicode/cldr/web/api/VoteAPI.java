@@ -152,19 +152,22 @@ public class VoteAPI {
                 public Map<String, VoteEntry> votes;
             }
 
-            public static final class OrgValueVotes {
+            public static final class OrgValueVotes<T> {
                 public boolean conflicted;
-                public String orgVote; // value like "↑↑↑"
+                public T orgVote; // value like "↑↑↑"
                 public String status; // like "ok"
-                public Map<String, Long> votes; // key is value like "↑↑↑"
+                public Map<T, Long> votes; // key is value like "↑↑↑"
             }
 
-            public static final class VotingResults {
+            public static final class VotingResults<T> {
                 public Map<String, Long> nameTime;
-                public Map<String, OrgValueVotes>
+                public Map<String, OrgValueVotes<T>>
                         orgs; // key is organization name like "apple", "google"
                 public int requiredVotes;
-                public String[] value_vote;
+
+                @Schema(description = "1-dimensional array of value, vote, value, vote…")
+                public Object[] value_vote;
+
                 public boolean valueIsLocked;
             }
 
@@ -175,12 +178,14 @@ public class VoteAPI {
             public String dir;
             public String displayExample;
             public String displayName;
+            public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
             public boolean hasVoted;
             public String helpHtml;
             public String inheritedLocale;
             public String inheritedValue;
+            public String inheritedDisplayValue;
             public String inheritedXpid;
             public Map<String, Candidate> items;
 
@@ -195,7 +200,7 @@ public class VoteAPI {
             public StatusAction statusAction;
             public String translationHint;
             public String voteVhash;
-            public VotingResults votingResults;
+            public VotingResults<String> votingResults;
             public String winningValue;
             public String winningVhash;
             public String xpath;
@@ -204,6 +209,9 @@ public class VoteAPI {
 
             @Schema(description = "prose description of voting outcome")
             public String voteTranscript;
+
+            @Schema(description = "True if candidates are fixed (disable plus).", example = "false")
+            public boolean fixedCandidates;
         }
 
         public static final class Page {
@@ -228,6 +236,16 @@ public class VoteAPI {
         public Dashboard.ReviewNotification[] notifications;
         public Page page;
         public String pageId;
+
+        /**
+         * If the request was for a single row only, include the hex xpath ID for that row here in
+         * the response.
+         */
+        public String xpstrid = null;
+
+        public void setOneRowPath(String xpstrid) {
+            this.xpstrid = xpstrid;
+        }
     }
 
     @POST

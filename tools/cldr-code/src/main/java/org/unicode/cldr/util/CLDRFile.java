@@ -167,6 +167,50 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private File supplementalDirectory;
 
+    /**
+     * Does the value in question either match or inherent the current value?
+     *
+     * <p>To match, the value in question and the current value must be non-null and equal.
+     *
+     * <p>To inherit the current value, the value in question must be INHERITANCE_MARKER and the
+     * current value must equal the bailey value.
+     *
+     * <p>This CLDRFile is only used here for getBaileyValue, not to get curValue
+     *
+     * @param value the value in question
+     * @param curValue the current value, that is, XMLSource.getValueAtDPath(xpathString)
+     * @param xpathString the path identifier
+     * @return true if it matches or inherits, else false
+     */
+    public boolean equalsOrInheritsCurrentValue(String value, String curValue, String xpathString) {
+        if (value == null || curValue == null) {
+            return false;
+        }
+        if (value.equals(curValue)) {
+            return true;
+        }
+        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+            String baileyValue = getBaileyValue(xpathString, null, null);
+            if (baileyValue == null) {
+                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
+                return false;
+            }
+            if (curValue.equals(baileyValue)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public XMLSource getResolvingDataSource() {
+        if (!isResolved()) {
+            throw new IllegalArgumentException(
+                    "CLDRFile must be resolved for getResolvingDataSource");
+        }
+        // dataSource instanceof XMLSource.ResolvingSource
+        return dataSource;
+    }
+
     public enum DraftStatus {
         unconfirmed,
         provisional,
@@ -554,32 +598,45 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Similar to {@link #getBaileyValue(String, Output, Output)} except returns a map, as
-     * constructed values can have multiple contributory paths.
+     * Return a list of all paths which contributed to the value, as well as all bailey values. This
+     * is used to explain inheritance and bailey values. The list must be interpreted in order. When
+     * {@link LocaleInheritanceInfo.Reason#isTerminal()} return true, that indicates a successful
+     * lookup and partitions values from subsequent bailey values.
      *
-     * @return map from xpath to locale of one or more contributing paths in the case of glossonymns
-     *     or other constructed values.
+     * @see #getBaileyValue(String, Output, Output)
+     * @see #getSourceLocaleIdExtended(String, Status, boolean)
      */
     public List<LocaleInheritanceInfo> getPathsWhereFound(String xpath) {
-        List<LocaleInheritanceInfo> list = new LinkedList<>();
+        if (!isResolved()) {
+            throw new IllegalArgumentException(
+                    "getPathsWhereFound() is only valid on a resolved CLDRFile");
+        }
+        LinkedList<LocaleInheritanceInfo> list = new LinkedList<>();
         // first, call getSourceLocaleIdExtended to populate the list
         Status status = new Status();
-        getSourceLocaleIdExtended(xpath, status, true, list);
+        getSourceLocaleIdExtended(xpath, status, false, list);
         final String path1 = status.pathWhereFound;
         // For now, the only special case is Glossonym
         if (path1.equals(GlossonymConstructor.PSEUDO_PATH)) {
-            list.clear(); // Rebuild this
-            // it's a Glossonym, so dig in
+            // it's a Glossonym, so as the GlossonymConstructor what the paths are.  Sort paths in
+            // reverse order.
             final Set<String> xpaths =
-                    new GlossonymConstructor(this).getPathsWhereFound(xpath, new TreeSet<String>());
+                    new GlossonymConstructor(this)
+                            .getPathsWhereFound(
+                                    xpath, new TreeSet<String>(Comparator.reverseOrder()));
             for (final String subpath : xpaths) {
-                // recurse
                 final String locale2 = getSourceLocaleIdExtended(subpath, status, true);
                 final String path2 = status.pathWhereFound;
-                list.add(new LocaleInheritanceInfo(locale2, path2, Reason.constructed));
+                // Paths are in reverse order (c-b-a) so we insert them at the top of our list.
+                list.addFirst(new LocaleInheritanceInfo(locale2, path2, Reason.constructed));
             }
-        } else {
-            return list;
+
+            // now the list contains:
+            // constructed: a
+            // constructed: b
+            // constructed: c
+            // (none) - this is where the glossonym was
+            // (bailey value(s))
         }
         return list;
     }
@@ -697,6 +754,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(distinguishedXPath, false, true);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
+                if (list != null) {
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    getLocaleID(), distinguishedXPath, Reason.fallback, null));
+                }
                 result =
                         dataSource.getSourceLocaleIdExtended(
                                 fallbackPath, status, skipInheritanceMarker, list);
@@ -2449,6 +2511,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
+        UnicodeSet result = getRawExemplarSet(type, winningChoice);
+        if (result.isEmpty()) {
+            return result.cloneAsThawed();
+        }
+        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
+        result.closeOver(UnicodeSet.CASE);
+        result.removeAll(toNuke);
+        result.remove(0x20);
+        return result;
+    }
+
+    public UnicodeSet getRawExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         String path = getExemplarPath(type);
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
@@ -2457,11 +2531,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (v == null) {
             return UnicodeSet.EMPTY;
         }
-        UnicodeSet result = new UnicodeSet(v);
-        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
-        result.closeOver(UnicodeSet.CASE);
-        result.removeAll(toNuke);
-        result.remove(0x20);
+        UnicodeSet result = SimpleUnicodeSetFormatter.parseLenient(v);
         return result;
     }
 

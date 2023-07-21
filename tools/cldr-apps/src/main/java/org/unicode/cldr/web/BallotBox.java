@@ -53,13 +53,22 @@ public interface BallotBox<T> {
         }
     }
 
+    /**
+     * @param value raw (non-display) value
+     */
     public void voteForValue(T user, String distinguishingXpath, String value)
             throws InvalidXPathException, VoteNotAcceptedException;
 
+    /**
+     * @param value raw (non-display) value
+     */
     public void voteForValueWithType(
             T user, String distinguishingXpath, String value, VoteType voteType)
             throws VoteNotAcceptedException, InvalidXPathException;
 
+    /**
+     * @param value raw (non-display) value
+     */
     public void voteForValueWithType(
             T user, String distinguishingXpath, String value, Integer withVote, VoteType voteType)
             throws InvalidXPathException, VoteNotAcceptedException;
@@ -105,6 +114,15 @@ public interface BallotBox<T> {
      * @return
      */
     VoteResolver<String> getResolver(String path);
+
+    /**
+     * Get the vote resolver for this path.
+     *
+     * @param path
+     * @param r resolver to reuse (must be from a prior call)
+     * @return
+     */
+    VoteResolver<String> getResolver(String path, VoteResolver<String> r);
 
     /**
      * Whether the user voted at all. Returns false if user voted for null (no opinion).

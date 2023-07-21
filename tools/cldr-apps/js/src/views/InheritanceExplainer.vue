@@ -18,37 +18,55 @@
             showReason,
             xpath,
             xpathFull,
+            hidden,
           } in inheritance"
           v-bind:color="colorForReason(reason)"
         >
+          <template #dot v-if="!isTerminal(reason)">
+            <!-- nonterminal show as a down arrow -->
+            <i class="glyphicon glyphicon-circle-arrow-down" />
+          </template>
           <p v-bind:title="reason">
             <b class="locale" v-if="newLocale">{{ newLocale }}</b>
             <span class="reason" v-if="showReason">{{
               getReason(reason, attribute)
             }}</span>
-            <!-- show the Go button, only if we have locale AND xpath. Show always, so we can navigate   -->
-            <a-button
-              size="small"
-              shape="round"
-              v-if="locale && xpath"
+            &nbsp;
+            <!-- show the Jump button, only if we have locale AND xpath. Hide if we're already there.  -->
+            <button
+              class="cldr-nav-btn"
+              v-if="
+                !hidden &&
+                locale &&
+                xpath &&
+                (locale != currentLocale || xpath != currentId)
+              "
               @click="go(locale, xpath)"
-              >Jump</a-button
             >
+              Jump
+            </button>
           </p>
           <!-- only show on change -->
-          <!-- <b v-if="locale" v-bind:title="Locale ID">{{ locale }}</b> -->
-          <p v-if="newXpath" class="xpath">
+          <div v-if="newXpath" :class="xpathClass(hidden)">
             {{ xpathFull }}
-          </p>
+          </div>
         </a-timeline-item>
       </a-timeline>
+      <button
+        class="cldr-nav-btn"
+        title="Close the Inheritance Explainer"
+        @click="closeInheritanceExplainer"
+      >
+        Close
+      </button>
     </template>
   </a-popover>
 </template>
 
 <script>
 import * as cldrInheritance from "../esm/cldrInheritance.mjs";
-import * as cldrText from "../esm/cldrText.js";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 import { ref } from "vue";
 import { notification } from "ant-design-vue";
 export default {
@@ -59,15 +77,25 @@ export default {
     let itemXpath = ref("");
     let inheritance = ref(null);
     let reasons = ref(null);
+    const { currentLocale, currentId } = cldrStatus.refs;
     return {
       visible,
       itemLocale,
       itemXpath,
       inheritance,
       reasons,
+      currentLocale,
+      currentId,
     };
   },
   methods: {
+    xpathClass(hidden) {
+      if (hidden) {
+        return "xpath xpath-hidden";
+      } else {
+        return "xpath";
+      }
+    },
     explain(locale, xpath) {
       // clear this first in case something happens
       this.visible = false;
@@ -76,14 +104,10 @@ export default {
       this.itemLocale = locale;
       this.itemXpath = xpath;
       if (!locale || !xpath) {
-        // Not the best UX, but we don't have an easy way
-        // to track whether the locale is set or not without
-        // registering a callback, which seems heavyweight for
-        // this feature. Ideally, we would gray out this button
-        // if inappropriate.
+        // Shouldn't get here unless the caller made an error.
         notification.info({
           description:
-            "Please click on an item first, and then clicking this button.",
+            "Please click on an item first, and then click this button.",
           message: "Inheritance Explainer",
           placement: "topLeft",
         });
@@ -114,33 +138,44 @@ export default {
     colorForReason(reason) {
       return (
         {
-          none: "gray",
-          value: "green",
-          itemAlias: "teal",
+          changedAttribute: "yellow",
           codeFallback: "red",
           constructed: "purple",
-          removedAttribute: "blue",
-          changedAttribute: "yellow",
+          fallback: "brown",
           inheritanceMarker: "orange",
+          itemAlias: "teal",
+          none: "gray",
+          removedAttribute: "blue",
+          value: "green",
         }[reason] || null
       );
+    },
+    isTerminal(reason) {
+      return this.reasons[reason]?.terminal;
     },
     go(locale, xpath) {
       const href = `#/${locale}//${xpath}`;
       window.location.assign(href);
     },
     getReason(reason, attribute) {
-      const r = this.reasons[reason] || reason;
+      const r = this.reasons[reason].description || reason;
       return cldrText.subTemplate(r, { attribute });
+    },
+    closeInheritanceExplainer() {
+      this.visible = false;
     },
   },
 };
 </script>
 
 <style scoped>
-/* .inheritanceTimeline {
-  overflow-y: scroll;
-} */
+.xpath {
+  font-size: smaller;
+}
+
+.xpath-hidden {
+  opacity: 0.4;
+}
 
 .locale {
   padding-right: 0.5em;

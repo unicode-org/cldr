@@ -1,11 +1,12 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.Sets;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class LocaleSet {
 
-    private Set<CLDRLocale> set = new TreeSet<>();
+    private final Set<CLDRLocale> set = new TreeSet<>();
     private boolean isAllLocales = false;
 
     public LocaleSet() {}
@@ -37,10 +38,7 @@ public class LocaleSet {
             return true;
         }
         final CLDRLocale parent = locale.getParent();
-        if (parent != null && set.contains(parent)) {
-            return true;
-        }
-        return false;
+        return parent != null && set.contains(parent);
     }
 
     @Override
@@ -72,5 +70,36 @@ public class LocaleSet {
             throw new IllegalArgumentException("Do not call getSet if isAllLocales");
         }
         return set;
+    }
+
+    public boolean intersectionNonEmpty(LocaleSet otherSet) {
+        if (isEmpty() || otherSet.isEmpty()) {
+            return false;
+        }
+        if (isAllLocales || otherSet.isAllLocales) {
+            return true;
+        }
+        return !Sets.intersection(getSet(), otherSet.getSet()).isEmpty();
+    }
+
+    /**
+     * Given a set that may include regional variants (sublocales) for the same language, return a
+     * set in which such sublocales have been combined under the main language name. For example,
+     * given "aa fr_BE fr_CA zh", return "aa fr zh"
+     *
+     * <p>This method is intended to combined regional variants in the same way they are combined
+     * for SurveyForum.java.
+     *
+     * @return the set in which regional variants have been combined
+     */
+    public LocaleSet combineRegionalVariants() {
+        if (isAllLocales || isEmpty()) {
+            return this;
+        }
+        Set<String> languageSet = new TreeSet<>();
+        for (CLDRLocale locale : getSet()) {
+            languageSet.add(locale.getLanguage());
+        }
+        return new LocaleSet(languageSet);
     }
 }

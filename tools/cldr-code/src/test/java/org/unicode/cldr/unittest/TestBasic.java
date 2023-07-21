@@ -171,6 +171,10 @@ public class TestBasic extends TestFmwkPlus {
             List<TimingInfo> data)
             throws IOException {
         boolean deepCheck = getInclusion() >= 10;
+        if (directoryFile.getName().equals("import")
+                && directoryFile.getParentFile().getName().equals("keyboards")) {
+            return; // skip imports
+        }
         File[] listFiles = directoryFile.listFiles();
         String normalizedPath = PathUtilities.getNormalizedPathString(directoryFile);
         String indent = Utility.repeat("\t", level);
@@ -1400,11 +1404,8 @@ public class TestBasic extends TestFmwkPlus {
                     switch (type) {
                         case ldmlBCP47:
                         case ldmlICU:
-                            tooOld = version.isOlderThan(CldrVersion.v1_7_2);
-                            break;
                         case keyboard:
-                        case platform:
-                            tooOld = version.isOlderThan(CldrVersion.v22_1);
+                            tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
                             break;
                         default:
                             break;
@@ -1505,6 +1506,10 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
+            if (file.getParentFile().getName().equals("import")
+                    && file.getParentFile().getParentFile().getName().equals("keyboards")) {
+                return; // skip imports
+            }
             checkDtdComparatorFor(file, null);
         }
     }

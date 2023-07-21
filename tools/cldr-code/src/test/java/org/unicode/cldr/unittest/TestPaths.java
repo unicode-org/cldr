@@ -379,10 +379,8 @@ public class TestPaths extends TestFmwkPlus {
             for (DtdType dtdType : DtdType.values()) {
                 if (dtdType == DtdType.ldmlICU
                         || (inclusion <= 5
-                                && dtdType
-                                        == DtdType
-                                                .platform)) { // keyboards/*/_platform.xml won't be
-                    // in the list for non-exhaustive runs
+                                && false)) { // keyboards/*/_platform.xml won't be in the list for
+                    // non-exhaustive runs
                     continue;
                 }
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
@@ -454,7 +452,10 @@ public class TestPaths extends TestFmwkPlus {
             String dirPath = CLDRPaths.BASE_DIRECTORY + directory;
             for (String fileName : new File(dirPath).list()) {
                 File dir2 = new File(dirPath + fileName);
-                if (!dir2.isDirectory() || fileName.equals("properties") // TODO as flat files
+                if (!dir2.isDirectory()
+                        || (dir2.getName().equals("import")
+                                && directory.equals("keyboards/")) // has a different root element
+                        || fileName.equals("properties") // TODO as flat files
                 //                    || fileName.equals(".DS_Store")
                 //                    || ChartDelta.LDML_DIRECTORIES.contains(dir)
                 //                    || fileName.equals("dtd")  // TODO as flat files
@@ -540,15 +541,22 @@ public class TestPaths extends TestFmwkPlus {
                             //                        parts.set(path);
                             //                        removeNonDistinguishing(parts, dtdData,
                             // counter, removed, nonFinalValues);
-                            errln(
-                                    "Duplicate: "
-                                            + file
-                                            + ", "
-                                            + path
-                                            + ", "
-                                            + cleaned
-                                            + ", "
-                                            + value);
+                            if (type != DtdType.keyboardTest
+                                    || !logKnownIssue(
+                                            "CLDR-15034",
+                                            "keyboardTest data appears as duplicate xpaths")) {
+                                errln(
+                                        "Duplicate "
+                                                + type.toString()
+                                                + ": "
+                                                + file
+                                                + ", "
+                                                + path
+                                                + ", "
+                                                + cleaned
+                                                + ", "
+                                                + value);
+                            }
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
@@ -558,7 +566,7 @@ public class TestPaths extends TestFmwkPlus {
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
-                            if (isVerbose()) {
+                            if (true || isVerbose()) {
                                 String starredPath = starrer.set(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);

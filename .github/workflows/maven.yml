@@ -126,6 +126,20 @@ jobs:
           -Dexec.cleanupDaemonThreads=false
           -Dexec.args="-q --schema=common/dtd/ldml.xsd  common/main"
           || (echo 'Schema failed, rerun GenerateDtd' ; exit 0)
+      - name: Keyboard Schema Check
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="--schema=keyboards/dtd/ldmlKeyboard.xsd keyboards/3.0"
+          && echo 'Schema failed, rerun GenerateDtd'
+      - name: Keyboard Test Schema Check
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="--schema=keyboards/dtd/ldmlKeyboardTest.xsd keyboards/test"
+          && echo 'Schema failed, rerun GenerateDtd'
       - name: Setup MySQL
         run: |
           sudo systemctl start mysql.service

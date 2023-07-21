@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<keyboard locale="mt-t-k0-47key" conformsTo="techpreview">
+    <locales>
+        <!-- English is also an official language in Malta.-->
+        <locale id="en" />
+    </locales>
+    <info author="Steven R. Loomis" normalization="NFC" layout="QWERTY" indicator="MT" />
+
+    <names>
+        <name value="Maltese 47-key" />
+        <name value="MSA 100:2002 47-key" />
+    </names>
+
+    <keys>
+        <!-- imports -->
+        <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+        <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+
+        <!-- accent grave -->
+        <key id="a-grave" to="à" />
+        <key id="A-grave" to="À" />
+        <key id="e-grave" to="è" />
+        <key id="E-grave" to="È" />
+        <key id="i-grave" to="ì" />
+        <key id="I-grave" to="Ì" />
+        <key id="o-grave" to="ò" />
+        <key id="O-grave" to="Ò" />
+        <key id="u-grave" to="ù" />
+        <key id="U-grave" to="Ù" />
+
+        <!-- tikka and maqtugha -->
+        <key id="c-tikka" to="ċ" /> <!-- tikka is a dot -->
+        <key id="C-tikka" to="Ċ" />
+        <key id="g-tikka" to="ġ" />
+        <key id="G-tikka" to="Ġ" />
+        <key id="h-maqtugha" to="ħ" /> <!-- maqtugħa, i.e. cut -->
+        <key id="H-maqtugha" to="Ħ" /> <!-- maqtugħa, i.e. cut -->
+        <key id="z-tikka" to="ż" />
+        <key id="Z-tikka" to="Ż" />
+
+        <!-- Cedilla -->
+        <key id="c-cedilla" to="ç" />
+
+        <!-- gaps -->
+        <key id="gap" gap="true" width="1" />
+    </keys>
+
+    <!-- 47-key: MSA 100:2002, Appendix, figure A.1 -->
+    <layers form="us">
+        <layer modifier="none">
+            <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+            <row keys="q w e r t y u i o p g-tikka h-maqtugha z-tikka" />
+            <row keys="a s d f g h j k l semi-colon apos" />
+            <row keys="z x c v b n m comma period slash" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="shift">
+            <row keys="C-tikka bang at euro dollar percent caret amp asterisk open-paren close-paren underscore plus" />
+            <row keys="Q W E R T Y U I O P G-tikka H-maqtugha Z-tikka" />
+            <row keys="A S D F G H J K L colon double-quote" />
+            <row keys="Z X C V B N M open-angle close-angle question" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR">
+            <row keys="grave gap gap pound gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square backslash" />
+            <row keys="a-grave gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR shift">
+            <row keys="tilde gap gap gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly pipe" />
+            <row keys="A-grave gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+    </layers>
+
+</keyboard>

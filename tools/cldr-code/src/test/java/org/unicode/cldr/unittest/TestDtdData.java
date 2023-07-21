@@ -271,11 +271,13 @@ public class TestDtdData extends TestFmwk {
                                         + showPath(parents)
                                         + "||path has neither value NOR value attributes NOR dist. attrs.||");
                     } else {
-                        m.put(
-                                "error",
-                                "\t||"
-                                        + showPath(parents)
-                                        + "||path has neither value NOR value attributes||");
+                        if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                            m.put(
+                                    "error",
+                                    "\t||"
+                                            + showPath(parents)
+                                            + "||path has neither value NOR value attributes||");
+                        }
                     }
                 }
                 break;
@@ -304,11 +306,13 @@ public class TestDtdData extends TestFmwk {
                 // if no children left, treat like EMPTY
                 if (children.isEmpty()) {
                     if (valueAttributes.isEmpty()) {
-                        errln(
-                                type
-                                        + "\t|| "
-                                        + showPath(parents)
-                                        + "||path has neither value NOR value attributes||");
+                        if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                            errln(
+                                    type
+                                            + "\t|| "
+                                            + showPath(parents)
+                                            + "||DTD has neither value NOR value attributes (only special or deprecated children)||");
+                        }
                     }
                     break;
                 }
@@ -358,11 +362,17 @@ public class TestDtdData extends TestFmwk {
             for (Element element : dtdData.getElements()) {
                 boolean orderedNew = dtdData.isOrdered(element.name);
                 boolean orderedOld = isOrderedOld(element.name, type);
-                assertEquals("isOrdered " + type + ":" + element, orderedOld, orderedNew);
+                assertEquals(
+                        "isOrdered " + type + ":" + element + " (old vs. DTD)",
+                        orderedOld,
+                        orderedNew);
                 boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
                 boolean deprecatedOld =
                         SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*");
-                assertEquals("isDeprecated " + type + ":" + element, deprecatedOld, deprecatedNew);
+                assertEquals(
+                        "isDeprecated " + type + ":" + element + " (old vs. DTD)",
+                        deprecatedOld,
+                        deprecatedNew);
 
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew =
@@ -376,7 +386,7 @@ public class TestDtdData extends TestFmwk {
                                     + element.name
                                     + "\") && attribute.equals(\""
                                     + attribute.name
-                                    + "\")",
+                                    + "\") (old vs. DTD)",
                             distinguishedOld,
                             distinguishedNew)) {
                         // for debugging
@@ -388,14 +398,22 @@ public class TestDtdData extends TestFmwk {
                             SUPPLEMENTAL_DATA_INFO.isDeprecated(
                                     type, element.name, attribute.name, "*");
                     assertEquals(
-                            "isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
+                            "isDeprecated " + type + ":" + attribute + " (old vs. DTD)",
+                            deprecatedOld,
+                            deprecatedNew);
                     for (String value : attribute.values.keySet()) {
                         deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
                         deprecatedOld =
                                 SUPPLEMENTAL_DATA_INFO.isDeprecated(
                                         type, element.name, attribute.name, value);
                         assertEquals(
-                                "isDeprecated " + type + ":" + attribute + ":" + value,
+                                "isDeprecated "
+                                        + type
+                                        + ":"
+                                        + attribute
+                                        + ":"
+                                        + value
+                                        + " (old vs. DTD)",
                                 deprecatedOld,
                                 deprecatedNew);
                     }
@@ -432,6 +450,11 @@ public class TestDtdData extends TestFmwk {
     //        }
     //
     //    }
+
+    /** paths that can be empty elements. Each item starts with '!' because of showPath. */
+    static final Set<String> ALLOWED_EMPTY_NO_VALUE_PATHS =
+            Collections.unmodifiableSet(
+                    new HashSet<>(Arrays.asList("!//keyboardTest/tests/test/backspace")));
 
     // TESTING CODE
     static final Set<String> orderedElements =
@@ -547,8 +570,25 @@ public class TestDtdData extends TestFmwk {
                                     "substitute", // needed for characters.xml
                                     "unitPreference")));
 
+    static final Set<String> orderedKeyboardTestElements =
+            Collections.unmodifiableSet(
+                    new HashSet<>(Arrays.asList("emit", "keystroke", "check", "backspace")));
+
+    static final Set<String> orderedKeyboardElements =
+            Collections.unmodifiableSet(
+                    new HashSet<>(
+                            Arrays.asList("name", "reorder", "row", "settings", "transform")));
+
     public static boolean isOrderedOld(String element, DtdType type) {
-        return orderedElements.contains(element);
+        switch (type) {
+            case keyboardTest:
+                return orderedKeyboardTestElements.contains(element);
+            case keyboard:
+                return orderedKeyboardElements.contains(element);
+            default:
+                // all others, above
+                return orderedElements.contains(element);
+        }
     }
 
     public boolean isDistinguishingOld(DtdType dtdType, String elementName, String attribute) {
@@ -717,20 +757,29 @@ public class TestDtdData extends TestFmwk {
                                 && attribute.equals("order"));
 
             case keyboard:
+                if (elementName.equals("keyboard") && attribute.equals("locale")
+                        || elementName.equals("vkeys") && attribute.equals("from")
+                        || elementName.equals("layers") && attribute.equals("form")
+                        || elementName.equals("layers") && attribute.equals("minDeviceWidth")
+                        || elementName.equals("vkey") && attribute.equals("from")
+                        || elementName.equals("layer") && attribute.equals("modifier")
+                        || elementName.equals("map") && attribute.equals("id")
+                        || elementName.equals("key") && attribute.equals("id")
+                        || elementName.equals("import") && attribute.equals("path")
+                        || elementName.equals("import") && attribute.equals("base")
+                        || elementName.equals("layer") && attribute.equals("id")
+                        || elementName.equals("string") && attribute.equals("id")
+                        || elementName.equals("set") && attribute.equals("id")
+                        || elementName.equals("unicodeSet") && attribute.equals("id")) {
+                    return true;
+                }
+                // fall through to old keyboard
                 return attribute.equals("_q")
                         || elementName.equals("keyboard") && attribute.equals("locale")
                         || elementName.equals("keyMap") && attribute.equals("modifiers")
-                        || elementName.equals("map") && attribute.equals("iso")
-                        || elementName.equals("map") && attribute.equals("optional")
-                        || elementName.equals("map") && attribute.equals("longpress-status")
+                        || elementName.equals("key") && attribute.equals("flicks")
                         || elementName.equals("transforms") && attribute.equals("type")
-                        || elementName.equals("transform") && attribute.equals("from")
-                        || elementName.equals("import") && attribute.equals("path")
-                        || elementName.equals("reorder") && attribute.equals("before")
-                        || elementName.equals("reorder") && attribute.equals("from")
-                        || elementName.equals("reorder") && attribute.equals("after")
-                        || elementName.equals("layer") && attribute.equals("modifier")
-                        || elementName.equals("switch") && attribute.equals("iso")
+                        || elementName.equals("layerMap") && attribute.equals("modifier")
                         || elementName.equals("transform") && attribute.equals("before")
                         || elementName.equals("transform") && attribute.equals("after")
                         || elementName.equals("backspace") && attribute.equals("before")
@@ -738,19 +787,23 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("backspace") && attribute.equals("after")
                         || elementName.equals("vkeys") && attribute.equals("type")
                         || elementName.equals("flick") && attribute.equals("directions")
-                        || elementName.equals("row") && attribute.equals("keys")
+                        // || elementName.equals("row") && attribute.equals("keys")
                         || elementName.equals("vkey") && attribute.equals("iso")
                         || elementName.equals("display") && attribute.equals("to")
-                        || elementName.equals("flicks") && attribute.equals("iso");
+                        || elementName.equals("display") && attribute.equals("id")
+                        || elementName.equals("flicks") && attribute.equals("id")
+                        || elementName.equals("flick") && attribute.equals("directions");
+            case keyboardTest:
+                return elementName.equals("tests") && attribute.equals("name")
+                        || elementName.equals("test") && attribute.equals("name")
+                        || elementName.equals("repertoire") && attribute.equals("name")
+                        || elementName.equals("info") && attribute.equals("name");
 
-            case platform:
-                return attribute.equals("_q")
-                        || elementName.equals("platform") && attribute.equals("id")
-                        || elementName.equals("map") && attribute.equals("keycode");
             case ldmlICU:
                 return false;
             default:
-                throw new IllegalArgumentException("Type is wrong: " + dtdType);
+                throw new IllegalArgumentException(
+                        "type missing from isDistinguishingOld(): " + dtdType);
         }
         // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute},
         // true)) {

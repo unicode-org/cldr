@@ -1676,8 +1676,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     // <!ATTLIST version number CDATA #REQUIRED >
                     // <!ATTLIST version cldrVersion CDATA #FIXED "24" >
                     if (attribute.equals("cldrVersion") && (qName.equals("version"))) {
-                        ((SimpleXMLSource) target.dataSource)
-                                .setDtdVersionInfo(VersionInfo.getInstance(value));
+                        if (!value.equals("techpreview")) { // TODO: Keyboard techpreview
+                            ((SimpleXMLSource) target.dataSource)
+                                    .setDtdVersionInfo(VersionInfo.getInstance(value));
+                        }
                     } else {
                         putAndFixDeprecatedAttribute(qName, attribute, value);
                     }

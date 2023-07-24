@@ -2069,14 +2069,14 @@ public class VoteResolver<T> {
         if (!resolved) {
             resolveVotes();
         }
+        if (Status.provisional.compareTo(winningStatus) >= 0) {
+            // If the value is provisional, it needs more votes.
+            return VoteStatus.provisionalOrWorse;
+        }
         T orgVote = organizationToValueAndVote.getOrgVoteRaw(orgOfUser);
         if (!equalsOrgVote(winningValue, orgVote)) {
             // We voted and lost
             return VoteStatus.losing;
-        }
-        if (Status.provisional.compareTo(winningStatus) >= 0) {
-            // If the value is provisional, it needs more votes.
-            return VoteStatus.provisionalOrWorse;
         }
         final int itemsWithVotes =
                 DROP_HARD_INHERITANCE ? totals.size() : countDistinctValuesWithVotes();

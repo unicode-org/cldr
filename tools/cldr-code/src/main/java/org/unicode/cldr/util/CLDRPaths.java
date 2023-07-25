@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
-import org.unicode.cldr.tool.GenerateDtd;
 import org.unicode.cldr.tool.ToolConstants;
 
 /**
@@ -42,11 +41,11 @@ public class CLDRPaths {
     /**
      * Get path to dtd2md dir
      *
-     * @see GenerateDtd
+     * @see DTD2Markdown
      * @return Path
      */
-    public static final Path getDtd2Md() {
-        return new File(BASE_DIRECTORY).toPath().resolve("./docs/ldml/dtd2md");
+    public static final Path getDtd2MdDirectory() {
+        return new File(BASE_DIRECTORY).toPath().resolve("docs/ldml/dtd2md");
     }
 
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");

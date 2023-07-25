@@ -595,6 +595,7 @@ public abstract class CheckCLDR implements CheckAccessor {
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
                 .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+                .add(new CheckAnnotations())
                 // .add(new CheckAttributeValues(factory))
                 .add(new CheckChildren(factory))
                 .add(new CheckCoverage(factory))
@@ -811,7 +812,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             missingLanguage,
             namePlaceholderProblem,
             missingSpaceBetweenNameFields,
-            illegalParameterValue;
+            illegalParameterValue,
+            illegalAnnotationCode;
 
             @Override
             public String toString() {

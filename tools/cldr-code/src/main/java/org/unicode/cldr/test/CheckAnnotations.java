@@ -27,7 +27,7 @@ public class CheckAnnotations extends CheckCLDR {
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.illegalAnnotationCode)
                             .setMessage(
-                                    "The annotation must be a translation and not contain the numeric E- code ({0})",
+                                    "The annotation must be a translation and not contain the E… code from root, or anything like it. ({0})",
                                     ecode));
         }
         return this;

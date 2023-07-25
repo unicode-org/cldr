@@ -160,7 +160,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
-        private boolean isUEscapedAttribute = false;
+        private boolean attributeAllowsUEscape = false;
         public AttributeStatus attributeStatus =
                 AttributeStatus.distinguished; // default unless reset by annotations, or for xml:
         // attributes
@@ -296,7 +296,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         isDeprecatedAttribute = true;
                         break;
                     case "@ALLOWS_UESC":
-                        isUEscapedAttribute = true;
+                        attributeAllowsUEscape = true;
                         break;
 
                     default:
@@ -381,8 +381,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return isDeprecatedAttribute;
         }
 
-        public boolean isUEscaped() {
-            return isUEscapedAttribute;
+        public boolean allowsUEscape() {
+            return attributeAllowsUEscape;
         }
 
         public boolean isDeprecatedValue(String value) {
@@ -1242,7 +1242,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             seen.seenAttributes.add(a);
             boolean attributeDeprecated =
                     elementDeprecated || isDeprecated(current.name, a.name, "*");
-            boolean attributeUEscaped = isUEscaped(current.name, a.name, "*");
+            boolean attributeUEscaped = allowsUEscape(current.name, a.name, "*");
             deprecatedValues.clear();
 
             showComments(b, a.commentsPre, true);
@@ -1414,12 +1414,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 attributeValue); // don't need special test for "*"
     }
 
-    public boolean isUEscaped(String elementName, String attributeName, String attributeValue) {
+    public boolean allowsUEscape(String elementName, String attributeName, String attributeValue) {
         Element element = getElementThrowingIfNull(elementName, null, null);
         Attribute attribute = element.getAttributeNamed(attributeName);
         if (attribute == null) {
             throw new IllegalByDtdException(elementName, attributeName, attributeValue);
-        } else if (attribute.isUEscaped()) {
+        } else if (attribute.allowsUEscape()) {
             return true;
         }
         return false;

@@ -10,8 +10,15 @@ import com.thaiopensource.relaxng.output.OutputFormat;
 import com.thaiopensource.relaxng.output.xsd.XsdOutputFormat;
 import com.thaiopensource.relaxng.translate.util.InvalidParamsException;
 import com.thaiopensource.xml.sax.ErrorHandlerImpl;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /** Called by GenerateDtd to convert DTD to XSD */
@@ -26,7 +33,7 @@ public class DTD2XSD {
 
     private static void writeXsd(
             DtdType type, DtdData data, final String dtdPath, final String xsdPath) {
-        // Step 1: trang
+        // Step 1: fire up Trang to do the basic conversion
         InputFormat inFormat = new DtdInputFormat();
         OutputFormat outputFormat = new XsdOutputFormat();
         ErrorHandlerImpl eh = new ErrorHandlerImpl();
@@ -47,6 +54,42 @@ public class DTD2XSD {
                 | OutputFailedException e) {
             e.printStackTrace();
             System.err.println("Error generating XSD from " + inputUri);
+        }
+
+        // Step 2: re-parse
+        final Document d = LDMLUtilities.parse(xsdPath, false, false);
+
+        // Step 3: remove all <!-- @ comments
+        removeAnnotationComments(null, d);
+
+        // Step 4: write .xsd out
+        try (OutputStream file =
+                        new BufferedOutputStream(new FileOutputStream(xsdPath, false)); // Append
+                PrintWriter pw = new PrintWriter(file); ) {
+            LDMLUtilities.printDOMTree(
+                    d,
+                    pw,
+                    null,
+                    "<!-- Note: DTD @-annotations are not currently converted to .xsd. -->\n\n" /* copyright is passthrough from .dtd */);
+        } catch (Throwable t) {
+            throw new RuntimeException("Generating .xsd for " + type, t);
+        }
+    }
+
+    static void removeAnnotationComments(Node parent, Node n) {
+        if (parent != null && n.getNodeType() == Node.COMMENT_NODE) {
+            if (n.getTextContent().trim().startsWith("@")) {
+                parent.removeChild(n);
+            }
+        } else {
+            NodeList nl = n.getChildNodes();
+            if (nl != null) {
+                // walk backwards because of deletion
+                for (int i = nl.getLength() - 1; i > 0; i--) {
+                    // recurse
+                    removeAnnotationComments(n, nl.item(i));
+                }
+            }
         }
     }
 }

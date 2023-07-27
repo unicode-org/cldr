@@ -3890,12 +3890,16 @@ public class TestUnits extends TestFmwk {
         }
     }
 
+    static final Set<String> extras =
+            Set.of("square-meter", "cubic-meter", "square-second", "cubic-second");
+
     public void testRelations() {
         Multimap<String, UnitEquivalence> decomps = TreeMultimap.create();
         Set<UnitId> unitIds =
                 converter.getBaseUnitToQuantity().entrySet().stream()
                         .map(x -> converter.createUnitId(x.getKey()).freeze())
                         .collect(Collectors.toSet());
+        extras.forEach(x -> unitIds.add(converter.createUnitId(x).freeze()));
         for (UnitId id1 : unitIds) {
             String standard1 = converter.getStandardUnit(id1.toString());
             if (skipUnit(standard1)) {
@@ -3955,7 +3959,8 @@ public class TestUnits extends TestFmwk {
     }
 
     private boolean skipUnit(String unit) {
-        return unit == null || unit.contains("-") || unit.equals("becquerel");
+        return !extras.contains(unit)
+                && (unit == null || unit.contains("-") || unit.equals("becquerel"));
     }
 
     public void testEquivalents() {

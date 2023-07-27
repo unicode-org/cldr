@@ -415,6 +415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:regex/simple-->
     <!--@VALUE-->
 <!ATTLIST unitQuantity description CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT convertUnits ( convertUnit* ) >
@@ -435,6 +436,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/literal/ussystem, uksystem, jpsystem, metric, si, other-->
     <!--@VALUE-->
 <!ATTLIST convertUnit description CDATA #IMPLIED >
+    <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT unitPreferenceData ( unitPreferences* ) >

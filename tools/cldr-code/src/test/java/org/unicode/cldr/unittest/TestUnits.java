@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.Comparators;
+import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -3839,5 +3840,147 @@ public class TestUnits extends TestFmwk {
                                                 + "\t#"
                                                 + converter.getSystemsEnum(x.getValue()))
                         .collect(Collectors.joining("\n= "));
+    }
+
+    static class UnitEquivalence implements Comparable<UnitEquivalence> {
+        final String standard1;
+        final char operation;
+        final String standard2;
+        final UnitId id1;
+        final UnitId id2;
+
+        public UnitEquivalence(
+                String standard1, char operation, String standard2, UnitId id1, UnitId id2) {
+            this.standard1 = standard1;
+            this.operation = operation;
+            this.standard2 = standard2;
+            this.id1 = id1;
+            this.id2 = id2;
+        }
+
+        @Override
+        public int compareTo(UnitEquivalence other) {
+            return ComparisonChain.start()
+                    .compare(standard1, other.standard1)
+                    .compare(operation, other.operation)
+                    .compare(standard2, other.standard2)
+                    .compare(id1, other.id1)
+                    .compare(id2, other.id2)
+                    .result();
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(standard1, operation, standard2, id1, id2);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return compareTo((UnitEquivalence) obj) == 0;
+        }
+
+        @Override
+        public String toString() {
+            return standard1 + " " + operation + " " + standard2 + "\t🟰\t" + id1 + " " + operation
+                    + " " + id2;
+        }
+
+        public String getStandards() {
+            return standard1 + " " + operation + " " + standard2;
+        }
+    }
+
+    public void testRelations() {
+        Multimap<String, UnitEquivalence> decomps = TreeMultimap.create();
+        Set<UnitId> unitIds =
+                converter.getBaseUnitToQuantity().entrySet().stream()
+                        .map(x -> converter.createUnitId(x.getKey()).freeze())
+                        .collect(Collectors.toSet());
+        for (UnitId id1 : unitIds) {
+            String standard1 = converter.getStandardUnit(id1.toString());
+            if (skipUnit(standard1)) {
+                continue;
+            }
+            for (UnitId id2 : unitIds) {
+                String standard2 = converter.getStandardUnit(id2.toString());
+                if (skipUnit(standard2)) {
+                    continue;
+                }
+
+                UnitId mul = id1.times(id2);
+                String standardMul = converter.getStandardUnit(mul.toString());
+                if (!skipUnit(standardMul)) {
+                    if (standard1.compareTo(standard2) < 0) { // suppress because commutes
+                        decomps.put(
+                                standardMul,
+                                new UnitEquivalence(standard1, '×', standard2, id1, id2));
+                        // decomps.put(standardMul, standard1 + " × " + standard2 + "\t🟰\t" + id1 +
+                        // " × " + id2);
+                    }
+                }
+
+                UnitId id2Recip = id2.getReciprocal();
+                UnitId div = id1.times(id2Recip);
+                String standardDiv = converter.getStandardUnit(div.toString());
+                if (!skipUnit(standardDiv)) {
+                    decomps.put(
+                            standardDiv, new UnitEquivalence(standard1, '∕', standard2, id1, id2));
+                    // decomps.put(standardDiv, standard1 + " ∕ " + standard2 + "\t🟰\t" + id1 + " ∕
+                    // " + id2);
+                }
+            }
+        }
+        Multimap<String, String> testCases =
+                ImmutableMultimap.<String, String>builder()
+                        .put("joule", "second × watt")
+                        .put("joule", "meter × newton")
+                        .put("volt", "ampere × ohm")
+                        .put("watt", "ampere × volt")
+                        .build();
+        Multimap<String, String> missing = TreeMultimap.create(testCases);
+        for (Entry<String, Collection<UnitEquivalence>> entry : decomps.asMap().entrySet()) {
+            String unitId = entry.getKey();
+            logln(unitId + " 🟰 ");
+            for (UnitEquivalence item : entry.getValue()) {
+                logln("\t" + item);
+                missing.remove(unitId, item.getStandards());
+                Collection<String> others = missing.get(unitId);
+            }
+        }
+        if (!assertEquals("All cases covered", 0, missing.size())) {
+            for (Entry<String, String> item : missing.entries()) {
+                System.out.println(item);
+            }
+        }
+    }
+
+    private boolean skipUnit(String unit) {
+        return unit == null || unit.contains("-") || unit.equals("becquerel");
+    }
+
+    public void testEquivalents() {
+        List<List<String>> tests =
+                List.of(List.of("gallon-gasoline-equivalent", "33.705", "kilowatt-hour"));
+        for (List<String> test : tests) {
+            final String unit1 = test.get(0);
+            final Rational expectedFactor = Rational.of(test.get(1));
+            final String unit2 = test.get(2);
+            Output<String> baseUnit1String = new Output<>();
+            ConversionInfo base = converter.parseUnitId(unit1, baseUnit1String, false);
+            UnitId baseUnit1 = converter.createUnitId(baseUnit1String.value).resolve();
+            Output<String> baseUnit2String = new Output<>();
+            ConversionInfo other = converter.parseUnitId(unit2, baseUnit2String, false);
+            UnitId baseUnit2 = converter.createUnitId(baseUnit2String.value).resolve();
+            Rational actual = base.factor.divide(other.factor);
+            assertEquals(test.toString() + ", baseUnits", baseUnit1, baseUnit2);
+            assertEquals(
+                    test.toString()
+                            + ", factors, e="
+                            + expectedFactor.toString(FormatStyle.basic)
+                            + ", a="
+                            + actual.toString(FormatStyle.basic),
+                    expectedFactor,
+                    actual);
+        }
     }
 }

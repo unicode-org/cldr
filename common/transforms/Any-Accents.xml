@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="Any" target="Accents" direction="both" alias="und-t-d0-accents" backwardAlias="und-t-s0-accents">
-			<tRule>
+			<tRule><![CDATA[
 :: NFD (NFC) ;
 # to do: make reversible
 # define special conversion characters.
@@ -22,7 +22,7 @@ $pre \' $post ↔ ́ ; # COMBINING ACUTE ACCENT
 $pre \^ $post ↔ ̂ ; # COMBINING CIRCUMFLEX ACCENT
 $pre \~ $post ↔ ̃ ; # COMBINING TILDE
 $pre \- $post ↔ ̄ ; # COMBINING MACRON
-$pre \&quot; $post ↔ ̈ ; # COMBINING DIAERESIS
+$pre \" $post ↔ ̈ ; # COMBINING DIAERESIS
 $pre \* $post ↔ ̊ ; # COMBINING RING ABOVE
 $pre \, $post ↔ ̧ ; # COMBINING CEDILLA
 $pre '/' $post ↔ ̸ ; # COMBINING LONG SOLIDUS OVERLAY
@@ -278,7 +278,7 @@ $pre v $post ↔ ʌ ; # LATIN SMALL LETTER TURNED V
 # $pre YYY $post ↔ ẚ ; # LATIN SMALL LETTER A WITH RIGHT HALF RING
 # $pre YYY $post ↔ ⁿ ; # SUPERSCRIPT LATIN SMALL LETTER N
 :: NFC (NFD) ;
-			</tRule>
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

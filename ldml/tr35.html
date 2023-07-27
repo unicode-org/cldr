@@ -941,6 +941,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1153,9 +1170,15 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#Date_Ranges">Date and Date Ranges</a></li>
 <li><a href="#Text_Directionality">Text Directionality</a></li>
 <li><a href="#Unicode_Sets">Unicode Sets</a><ul>
+<li><a href="#unicodeset-syntax-">UnicodeSet syntax #####</a><ul>
+<li><a href="#syntax-special-case-examples">Syntax Special Case Examples</a></li>
+</ul>
+</li>
 <li><a href="#Lists_of_Code_Points">Lists of Code Points</a></li>
+<li><a href="#Backslash_Escapes">Backslash Escapes</a></li>
 <li><a href="#Unicode_Properties">Unicode Properties</a></li>
 <li><a href="#Boolean_Operations">Boolean Operations</a></li>
+<li><a href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></li>
 <li><a href="#UnicodeSet_Examples">UnicodeSet Examples</a></li>
 </ul>
 </li>
@@ -3516,7 +3539,13 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 </ul><p>That is, Friday at 24:00:00 is the same time as Saturday at 00:00:00. Thus when the <code>hour</code> is missing, the <code>from</code> and <code>to</code> are interpreted inclusively: the range includes all of the day mentioned.</p><p>For example, the following are equivalent:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">usesMetazone</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"1991-10-27"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"2006-04-02"</span> <span class="hljs-attr">...</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">usesMetazone</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"1991-10-27 00:00:00"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"2006-04-02 24:00:00"</span> <span class="hljs-attr">...</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">usesMetazone</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"1991-10-26 24:00:00"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"2006-04-03 00:00:00"</span> <span class="hljs-attr">...</span>/&gt;</span>
-</code></pre><p>If the <code>from</code> element is missing, it is assumed to be as far backwards in time as there is data for; if the <code>to</code> element is missing, then it is from this point onwards, with no known end point.</p><p>The dates and times are specified in local time, unless otherwise noted. (In particular, the metazone values are in UTC (also known as GMT).</p><h4 id="Text_Directionality"><a name="text-directionality" href="#Text_Directionality">Text Directionality</a></h4><p>The content of certain elements, such as date or number formats, may consist of several sub-elements with an inherent order (for example, the year, month, and day for dates). In some cases, the order of these sub-elements may be changed depending on the bidirectional context in which the element is embedded.</p><p>For example, short date formats in languages such as Arabic may contain neutral or weak characters at the beginning or end of the element content. In such a case, the overall order of the sub-elements may change depending on the surrounding text.</p><p>Element content whose display may be affected in this way should include an explicit direction mark, such as U+200E LEFT-TO-RIGHT MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or end of the element content, or both.</p><h4 id="Unicode_Sets"><a name="unicode-sets" href="#Unicode_Sets">Unicode Sets</a></h4><p>Some attribute values or element contents use <em>UnicodeSet</em> notation. A UnicodeSet represents a finite set of Unicode code points and strings, and is defined by lists of code points and strings, Unicode property sets, and set operators, all bounded by square brackets. In this context, a code point means a string consisting of exactly one code point.</p><p>A UnicodeSet implements the semantics in <em>UTS #18: Unicode Regular Expressions</em> [<a href="https://www.unicode.org/reports/tr41/#UTS18">UTS18</a>] Levels 1 &amp; 2 that are relevant to determining sets of characters. Note however that it may deviate from the syntax provided in [<a href="https://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], which is illustrative rather than a requirement. There is one exception to the supported semantics, Section <a href="https://www.unicode.org/reports/tr18/#RL2.6">RL2.6</a> <em>Wildcards in Property Values</em>. That feature can be supported in clients such as ICU by implementing a “hook” as is done in the <a href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7Bname%3D%2FAPPLE%2F%7D">online UnicodeSet utilities</a>.</p><p>A UnicodeSet may be cited in specifications outside of the domain of LDML. In such a case, the specification may specify a subset of the syntax provided here.</p><p>The following provides EBNF syntax for a UnicodeSet:</p><table>
+</code></pre><p>If the <code>from</code> element is missing, it is assumed to be as far backwards in time as there is data for; if the <code>to</code> element is missing, then it is from this point onwards, with no known end point.</p><p>The dates and times are specified in local time, unless otherwise noted. (In particular, the metazone values are in UTC (also known as GMT).</p><h4 id="Text_Directionality"><a name="text-directionality" href="#Text_Directionality">Text Directionality</a></h4><p>The content of certain elements, such as date or number formats, may consist of several sub-elements with an inherent order (for example, the year, month, and day for dates). In some cases, the order of these sub-elements may be changed depending on the bidirectional context in which the element is embedded.</p><p>For example, short date formats in languages such as Arabic may contain neutral or weak characters at the beginning or end of the element content. In such a case, the overall order of the sub-elements may change depending on the surrounding text.</p><p>Element content whose display may be affected in this way should include an explicit direction mark, such as U+200E LEFT-TO-RIGHT MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or end of the element content, or both.</p><h4 id="Unicode_Sets"><a name="unicode-sets" href="#Unicode_Sets">Unicode Sets</a></h4><p>Some attribute values or element contents use <em>UnicodeSet</em> notation.
+A UnicodeSet represents a finite set of Unicode code points and strings, and is defined by lists of code points and strings, Unicode property sets, and set operators, with square brackets for groupings.
+In this context, a code point means a string consisting of exactly one code point.</p><p>A UnicodeSet implements the semantics in <em>UTS #18: Unicode Regular Expressions</em> [<a href="https://www.unicode.org/reports/tr41/#UTS18">UTS18</a>] Levels 1 &amp; 2 that are relevant to determining sets of characters.
+Note however that it may deviate from the syntax provided in [<a href="https://www.unicode.org/reports/tr41/#UTS18">UTS18</a>].
+In particular, Section <a href="https://www.unicode.org/reports/tr18/#RL2.6">RL2.6</a> <em>Wildcards in Property Values</em> is not supported.
+However, that feature can be supported in clients such as ICU by implementing a “hook” as is done in the <a href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7Bname%3D%2FAPPLE%2F%7D">online UnicodeSet utilities</a>.</p><p>A UnicodeSet may be cited in specifications outside of the domain of LDML.
+In such a case, that specification may specify a subset or superset of the syntax provided here.</p><h5 id="unicodeset-syntax">UnicodeSet syntax</h5><table>
 <thead>
 <tr>
 <th>Symbol</th>
@@ -3525,23 +3554,28 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 </tr>
 </thead>
 <tbody><tr>
-<td><code>root</code></td>
-<td><pre>= prop<br>| '[-]'<br>| '[' [\-\^]? s seq+ ']'</pre></td>
-<td>\p{x=y},<br>[abc]</td>
+<td><code>unicodeSet</code></td>
+<td><pre>= prop<br>| '[' '^'? s '-'? s seq* [\$ \-]? s ']' <br>| var</pre></td>
+<td>\p{x=y},<br>[abc],<br>$myset</td>
 </tr>
 <tr>
 <td><code>seq</code></td>
-<td><pre>= root (s [\&amp;\-] s root)* s<br>| range s</pre></td>
+<td><pre>= unicodeSet (s [\&amp;\-] s unicodeSet)* s<br>| range s</pre></td>
 <td>[abc]-[cde], a</td>
 </tr>
 <tr>
 <td><code>range</code></td>
-<td><pre>= char ('-' char)?<br>| '{' (s char)+ s '}'</pre></td>
-<td>a, a-c, {abc}</td>
+<td><pre>= element ('-' element)?</pre></td>
+<td>a, a-c, {abc}, a-{z}  <br> <em>note: in ranges, elements must resolve to exactly one code point.</em></td>
+</tr>
+<tr>
+<td><code>element</code></td>
+<td><pre>= char | string | var </pre></td>
+<td>%, b, {hello}, {}, \x{61 62}</td>
 </tr>
 <tr>
 <td><code>prop</code></td>
-<td><pre>= '\' [pP] '{' propName ([≠=] s value1+)? '}'<br>| '[:' '^'? propName ([≠=] s value2+)? ':]'</pre></td>
+<td><pre>= '\' [pP] '{' propName ([≠=] s pValuePerl+)? '}'<br>| '[:' '^'? propName ([≠=] s pValuePosix+)? ':]'</pre></td>
 <td>\p{x=y}, [:x=y:]<br></td>
 </tr>
 <tr>
@@ -3550,24 +3584,34 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 <td>General_Category,<br>General Category</td>
 </tr>
 <tr>
-<td><code>value1</code></td>
+<td><code>pValuePerl</code></td>
 <td><pre>= [^\}]<br>| '\' quoted</pre></td>
 <td>Lm,<br>\n,<br>\}</td>
 </tr>
 <tr>
-<td><code>value2</code></td>
+<td><code>pValuePosix</code></td>
 <td><pre>= [^:]<br>| '\' quoted</pre></td>
 <td>Lm,<br>\n,<br>\:</td>
 </tr>
 <tr>
+<td><code>string</code></td>
+<td><pre>= '{' (s charInString)* s '}' </pre></td>
+<td>{hello}</td>
+</tr>
+<tr>
 <td><code>char</code></td>
-<td><pre>= [^\&amp; \- \[ \[ \] \\ \} \{ [:Pat_WS:]]<br>| '\' quoted</pre></td>
-<td>a, b, c, \n</td>
+<td><pre>= [^ \^ \&amp; \- \[ \] \\ \{ \$ [:Pat_WS:]]<br>| '\' quoted</pre></td>
+<td>a, b, c, \n, \{, \$</td>
+</tr>
+<tr>
+<td><code>charInString</code></td>
+<td><pre>= [^ \\ \} [:Pat_WS:]]<br>| '\' quoted</pre></td>
+<td>a, b, c, \n, {, $</td>
 </tr>
 <tr>
 <td><code>quoted</code></td>
-<td><pre>= 'u' (hex{4} | bracketedHex)<br>| 'x' (hex{2} | bracketedHex)<br>| 'U00' ('0' hex{5} | '10' hex{4})<br>| 'N{' propName '}'<br>| [[\u0000-\U00010FFFF]-[uxUN]]</pre></td>
-<td><em><strong>error</strong> if lengths not exact</em></td>
+<td><pre>= 'u' (hex{4} | bracketedHex)<br>| 'x' (hex{2} | bracketedHex)<br>| 'U00' ('0' hex{5} | '10' hex{4})<br>| 'N{' charName '}'<br>| [[\u0000-\U00010FFFF]-[uxUN]]</pre></td>
+<td>n, U0000FFFE, {, $, ] <br> <em>note: lengths are exact</em></td>
 </tr>
 <tr>
 <td><code>charName</code></td>
@@ -3576,8 +3620,8 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 </tr>
 <tr>
 <td><code>bracketedHex</code></td>
-<td><pre>= '{' s hexCodePoint (s hexCodePoint)* s '}'</pre></td>
-<td>{61 2019 62}</td>
+<td><pre>= '{' s hexCodePoint (sRequired hexCodePoint)* s '}'</pre></td>
+<td>{61 2019 62}, {61}</td>
 </tr>
 <tr>
 <td><code>hexCodePoint</code></td>
@@ -3590,11 +3634,27 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 <td></td>
 </tr>
 <tr>
+<td><code>var</code></td>
+<td><pre>= '$' [:XID_Start:] [:XID_Continue:]*</pre></td>
+<td>$a, $elt5  (optional support)</td>
+</tr>
+<tr>
 <td><code>s</code></td>
 <td><pre>= [:Pattern_White_Space:]*</pre></td>
 <td>optional whitespace</td>
 </tr>
-</tbody></table><p>Some constraints on UnicodeSet syntax are not captured by this EBNF. Notably, property names and values are restricted to those supported by the implementation, and have additional constraints imposed by [<a href="https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>]. In addition, quoted values that resolve to more than one code point are disallowed in ranges of the form <code>char '-' char</code>.</p><p>The syntax characters are listed in the table below:</p><table>
+<tr>
+<td><code>sRequired</code></td>
+<td><pre>= [:Pattern_White_Space:]+</pre></td>
+<td>required whitespace</td>
+</tr>
+</tbody></table><p>Some constraints on UnicodeSet syntax are not captured by this EBNF.
+Notably:</p><ol>
+<li>Property names and values are restricted to those supported by the implementation, and have additional constraints imposed by [<a href="https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>].</li>
+<li>Escapes that use multiple code points are equivalent to their flattened representation, i.e., <code>\x{61 62}</code> is equivalent to <code>\x{61}\x{62}</code>. These can also occur in strings, so <strong>[{\x{ 061 62 0063}}]</strong> is equivalent to <strong>[{abc}]</strong>.</li>
+<li>Ranges (<strong>X</strong>-<strong>Y</strong>) are only supported in the case that elements <strong>X</strong> and <strong>Y</strong> resolve to single code points. That is, <strong>[a-b]</strong> and <strong>[{a}-{b}]</strong> are supported, while <strong>[a-{bz}]</strong> and <strong>[{ax}-{bz}]</strong> are not, because single-codepoint-strings are equivalent to that code point.</li>
+<li>If <strong>[…]</strong> starts with [:, then it begins a prop, and must also terminate with :]. Thus <strong>[:di:]</strong> is a valid property expression, <strong>[di:]</strong> is a 3 code-point set, and <strong>[:di]</strong> raises an error. Whitespace is significant when initiating/terminating a POSIX property expression, so <strong>[ :]</strong> is syntactically valid and equivalent to <strong>[\:]</strong>.</li>
+</ol><p>The syntax characters are listed in the table below:</p><table>
 <thead>
 <tr>
 <th>Char</th>
@@ -3607,7 +3667,7 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 <td>$</td>
 <td>U+0024</td>
 <td>DOLLAR SIGN</td>
-<td>Equivalent of \uFFFF (This is for implementations that return \uFFFF when accessing before the first or after the last character)</td>
+<td>Equivalent to \uFFFF when followed by ']', initiator for variable identifiers otherwise</td>
 </tr>
 <tr>
 <td>&amp;</td>
@@ -3669,8 +3729,136 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 <td>ASCII whitespace,<br>LRM, RLM,<br>LINE/PARAGRAPH SEPARATOR</td>
 <td>Ignored except when escaped</td>
 </tr>
-</tbody></table><h5 id="Lists_of_Code_Points"><a name="lists-of-code-points" href="#Lists_of_Code_Points">Lists of Code Points</a></h5><p>Lists are a sequence of strings that may include ranges, which are indicated by a '-' between two code points, as in "a-z". The sequence <em>start-end</em> specifies the range of all code points from the start to end, inclusive, in Unicode order. For example, <strong>[a c d-f m]</strong> is equivalent to <strong>[a c d e f m]</strong>. Whitespace can be freely used for clarity, as <strong>[a c d-f m]</strong> means the same as <strong>[acd-fm]</strong>.</p><p>A string with multiple code points is represented in a list by being surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>. It can be used with the range notation, as described in <em>Section String Range](#String_Range)</em> . There is an additional restriction on string ranges in a UnicodeSet: the number of codepoints in the first string of the range must be identical to the number in the second. Thus [{ab}-{c}] and [{ab}-c] are invalid.</p><p>In UnicodeSets, there are two ways to quote syntax code points:</p><p><a name="Backslash_Escapes"></a>
-Outside of single quotes, certain backslashed code point sequences can be used to quote code points:</p><table>
+</tbody></table><p>Note that some syntax characters only have a special meaning in a certain context. In particular:</p><ul>
+<li>Out of all above syntax characters, only \, }, and whitespace have a special meaning inside strings (<strong>[{[a-z]}]</strong> is the set of the string '[a-z]', <strong>[{$blah}]</strong> is the set of the string '$blah').</li>
+<li>$ is equivalent to \uFFFF when appearing at the very end of a set with or without trailing whitespace (<strong>[a-z$]</strong>, <strong>[a-z$ ]</strong>), and used as starting indicator for a variable reference elsewhere, in which case the variable name will be the longest match on the <code>var</code> nonterminal (such as <strong>[$my_set]</strong>).</li>
+<li>- is equivalent to the literal character \- when occuring at the very beginning of a set, after a ^ at the beginning of a set, or at the very end of a set, in all cases with or without whitespace (<strong>[-abc]</strong>, <strong>[ ^ -abc]</strong>, <strong>[abc-]</strong>), and used as the set difference or range operator elsewhere (<strong>[[abc]-[bc]]</strong>, <strong>[a-z]</strong>)</li>
+<li>: initiates a POSIX property set when directly after a [ without whitespace inbetween (<strong>[:L:]</strong>), ends a POSIX property set when directly before a ] without whitespace inbetween (<strong>[:L:]</strong>), and is equivalent to the literal character \: in any other place (<strong>[ :]</strong>, <strong>[L:]</strong>)</li>
+<li>} ends a string when occurring inside a string (<strong>[{hello}]</strong>), and is equivalent to the literal character \} in any other place (<strong>[}a]</strong>)</li>
+</ul><h6 id="syntax-special-case-examples">Syntax Special Case Examples</h6><p>In the following, a table of examples including common sources of confusion concerning the UnicodeSet syntax:</p><table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Contained Elements</th>
+<th>Syntax Errors</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>[^a]</strong></td>
+<td>All Unicode code points except 'a'</td>
+<td><strong>[ ^a]</strong>, <strong>[a^]</strong></td>
+</tr>
+<tr>
+<td><strong>[\^a]</strong></td>
+<td>'a' and '^'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[:L:]</strong></td>
+<td>All code points with Unicode property 'General_Category' equal to 'Letter'</td>
+<td><strong>[:L]</strong>, <strong>[:]</strong></td>
+</tr>
+<tr>
+<td><strong>[ :]</strong></td>
+<td>':'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[L:]</strong></td>
+<td>'L' and ':'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[-]</strong></td>
+<td>'-'.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[  - ]</strong></td>
+<td>'-'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[a-]</strong>, <strong>[-a]</strong></td>
+<td>'a' and '-'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[a -b]</strong></td>
+<td>All code points between 'a' and 'b' (inclusive)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[[a-b] -[b]]</strong>, <strong>[[a]-[b]-[c]]</strong></td>
+<td>'a'</td>
+<td><strong>[a-b-c]</strong></td>
+</tr>
+<tr>
+<td><strong>[^  - ]</strong></td>
+<td>All Unicode code points except '-'</td>
+<td><strong>[ ^  - ]</strong></td>
+</tr>
+<tr>
+<td><strong>[$]</strong>, <strong>[ $  ]</strong></td>
+<td>U+FFFF</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[$a]</strong></td>
+<td>The value of the variable '$a'</td>
+<td><strong>[$ a]</strong>, <strong>[$und]</strong></td>
+</tr>
+<tr>
+<td><strong>[$a$]</strong></td>
+<td>U+FFFF and the value of the variable '$a'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[a$]</strong></td>
+<td>'a' and U+FFFF</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[}]</strong></td>
+<td>'}'</td>
+<td><strong>[{]</strong></td>
+</tr>
+<tr>
+<td><strong>[{}]</strong></td>
+<td>the empty string, ''</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[{}}]</strong></td>
+<td>'}' and the empty string, ''</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[{{}]</strong></td>
+<td>'{'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[{$var}]</strong></td>
+<td>the string '$var'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[{[a-z}]</strong>, <strong>[{ [ a - z}]</strong></td>
+<td>the string '[a-z'</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>[\x{10FFFF 1}]</strong></td>
+<td>U+10FFFF and U+1</td>
+<td><strong>[\x{10FFFF1}]</strong></td>
+</tr>
+<tr>
+<td><strong>[\x{61}-d]</strong></td>
+<td>'a', 'b', 'c', and 'd'</td>
+<td><strong>[\x{61 63}-d]</strong>, <strong>[\x{61 63}-\x{62 64}]</strong></td>
+</tr>
+</tbody></table><p><em>Note: the above assumes that variables are supported, $a is defined as a full UnicodeSet, a string, or a char, and $und is not defined at all.</em></p><h5 id="Lists_of_Code_Points"><a name="lists-of-code-points" href="#Lists_of_Code_Points">Lists of Code Points</a></h5><p>Lists are a sequence of strings that may include ranges, which are indicated by a '-' between two code points, as in "a-z". The sequence <em>start-end</em> specifies the range of all code points from the start to end, inclusive, in Unicode order. For example, <strong>[a c d-f m]</strong> is equivalent to <strong>[a c d e f m]</strong>. Whitespace can be freely used for clarity, as <strong>[a c d-f m]</strong> means the same as <strong>[acd-fm]</strong>.</p><p>A string with multiple code points is represented in a list by being surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>. It can be used with the range notation, with the restriction that each string contains exactly one code point. Thus <strong>[{ab}-{c}]</strong>, <strong>[{ax}-{bz}]</strong>, and <strong>[{ab}-c]</strong> are invalid. A string consisting of a single code point is equivalent to that code point, that is, <strong>[{a}-c]</strong> is valid and equivalent to <strong>[a b c]</strong>.</p><h5 id="Backslash_Escapes"><a name="backslash-escapes" href="#Backslash_Escapes">Backslash Escapes</a></h5><p>Certain backslashed code point sequences can be used to quote code points:</p><table>
 <thead>
 <tr>
 <th>Sequence</th>
@@ -3757,7 +3945,26 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <li>To take the set-difference of two sets, use the '-' operator. For example, <strong>[[:letter:] - [a-z]]</strong></li>
 <li>To invert a set, place a '^' immediately after the opening '['. For example, <strong>[^a-z]</strong>. In any other location, the '^' does not have a special meaning. The inversion [^X] is equivalent to [[\x{0}-\x{10FFFF}]-[X]]. Thus multi-code point strings are discarded.</li>
 <li>Symmetric difference (~) is not supported.</li>
-</ul><p>The binary operators '&amp;', '-', and the implicit union have equal precedence and bind left-to-right. Thus <strong>[[:letter:]-[a-z]-[\u0100-\u01FF]]</strong> is equal to <strong>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</strong>. Another example is the set <strong>[[ace][bdf] - [abc][def]]</strong>, which is not the empty set, but instead equal to <strong>[[[[ace] [bdf]] - [abc]] [def]]</strong>, which equals <strong>[[[abcdef] - [abc]] [def]]</strong>, which equals <strong>[[def] [def]]</strong>, which equals <strong>[def]</strong>.</p><p><strong>One caution:</strong> the '&amp;' and '-' operators operate between sets. That is, they must be immediately preceded and immediately followed by a set. For example, the pattern <strong>[[:Lu:]-A]</strong> is illegal, since it is interpreted as the set <strong>[:Lu:]</strong> followed by the incomplete range <strong>-A</strong>. To specify the set of upper case letters except for 'A', enclose the 'A' in brackets: <strong>[[:Lu:]-[A]]</strong>.</p><h5 id="UnicodeSet_Examples"><a name="unicodeset-examples" href="#UnicodeSet_Examples">UnicodeSet Examples</a></h5><p>The following table summarizes the syntax that can be used.</p><table>
+</ul><p>The binary operators '&amp;', '-', and the implicit union have equal precedence and bind left-to-right. Thus <strong>[[:letter:]-[a-z]-[\u0100-\u01FF]]</strong> is equal to <strong>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</strong>. Another example is the set <strong>[[ace][bdf] - [abc][def]]</strong>, which is not the empty set, but instead equal to <strong>[[[[ace] [bdf]] - [abc]] [def]]</strong>, which equals <strong>[[[abcdef] - [abc]] [def]]</strong>, which equals <strong>[[def] [def]]</strong>, which equals <strong>[def]</strong>.</p><p><strong>One caution:</strong> the '&amp;' and '-' operators operate between sets. That is, they must be immediately preceded and immediately followed by a set. For example, the pattern <strong>[[:Lu:]-A]</strong> is illegal, since it is interpreted as the set <strong>[:Lu:]</strong> followed by the incomplete range <strong>-A</strong>. To specify the set of upper case letters except for 'A', enclose the 'A' in brackets: <strong>[[:Lu:]-[A]]</strong>.</p><h5 id="Variables_in_UnicodeSets"><a name="variables-in-unicodesets" href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></h5><p>Support for variable identifiers (var) is optional.
+They are used in certain contexts such as in <a href="Transforms">https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Transforms</a>.
+When they are used, they are defined as follows:</p><p>UnicodeSets may contain variables (<code>$my_char</code>, <code>$the_set</code>, ...) in place of full UnicodeSets and strings/characters. If variable support is enabled, variables must be defined (out-of-scope for UnicodeSets). In particular, referring to undefined variables is an error.</p><p>Not all variable maps are valid for a given expression in UnicodeSet syntax.
+For instance, consider <strong>[$a-$b]</strong>; this may be a range of characters if both <strong>$a</strong> and <strong>$b</strong> are characters,
+or a difference of sets if they are both sets; but given the map <code>{ a =&gt; '0', b =&gt; [:L:] }</code>, it is invalid.</p><p><strong>Note:</strong> In particular, the variable map is needed not just to compute the actual set of characters and strings represented by the UnicodeSet,
+but also to parse the UnicodeSet syntax: if <strong>$a</strong> and <strong>$b</strong> were unknown, the parsing of <strong>[$a-$b]</strong> would be ambiguous.</p><p>Variables are replaced by value, that is, <strong>[a $minus z]</strong> with a variable map <code>{ minus =&gt; '-' }</code> is equivalent to <strong>[-az]</strong>, not <strong>[a-z]</strong> (i.e., cardinality of 3 instead of 26).
+The full <code>var</code> nonterminal is replaced, i.e., the variable name together with the prefixed $.</p><p>The variable syntax implements UAX31-R1-2 with XID_Start and XID_Continue. For more information, see [<a href="https://www.unicode.org/reports/tr41/#UAX31">UAX31</a>].
+Variables are equivalent normalized identifiers with Normalization Form C, implementing UAX31-R4. Furthermore, variables are case-sensitive.</p><p>Notes:</p><ol>
+<li>The 'type' of a variable value is not specified syntactically. 
+Thus [$a-$b] can resolve whether $a and $b are chars/strings (eg, $a=δ, $b=θ) or full UnicodeSets (eg, $a=\p{script=greek}, $b=\p{general_category=letter}).
+The only restriction is that the result be syntactic; thus ($a=w, $b=xy) would raise an error.</li>
+<li>Variable substitution is currently disallowed inside of property expressions. 
+Thus \p{gc=$blah} raises an error.</li>
+<li>'$' when followed by ']' is interpreted as \uFFFF, and is used to match before the start of a string or after the end.
+Thus [ab$] matches the string "xaby" in the locations (marked with '()'): "()xaby", "x(a)by", "xa(b)y", "xaby()".</li>
+<li>If an unescaped '$' is neither followed by a character of type [:XID_Start:] nor a ']', it is a syntax error.</li>
+</ol><p><strong>Backwards compatibility</strong>: In prior versions of this document, the character $ was a valid element of the <code>char</code> nonterminal with the special meaning of <code>\uFFFF</code>.
+In current versions, the $ character may only appear by itself at the end of a UnicodeSet, e.g., <strong>[a-z$]</strong>, where it keeps that interpretation.
+Allowing $ to appear in any other location is only allowed as the prefix for variables.
+The previous behavior of allowing $ in the <code>char</code> nonterminal is considered obsolete and must be avoided by new implementations.</p><h5 id="UnicodeSet_Examples"><a name="unicodeset-examples" href="#UnicodeSet_Examples">UnicodeSet Examples</a></h5><p>The following table summarizes the syntax that can be used.</p><table>
 <thead>
 <tr>
 <th>Example</th>
@@ -3795,10 +4002,6 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <tr>
 <td>[x\u{61 2019 62}y]</td>
 <td>Equivalent to [x\u0061\u2019\u0062y] (= [xa’by])</td>
-</tr>
-<tr>
-<td>[{ax}-{bz}]</td>
-<td>The set containing [{ax} {ay} {az} {bx} {by} {bz}], using the range syntax to get all the strings from {ax} to {bz} as described in <em>Section String Range](#String_Range)</em>.</td>
 </tr>
 <tr>
 <td>[:Lu:]</td>

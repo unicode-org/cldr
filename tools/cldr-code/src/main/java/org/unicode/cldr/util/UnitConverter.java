@@ -1319,6 +1319,25 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
             return gender;
         }
+
+        public UnitId times(UnitId id2) {
+            UnitId result = new UnitId(comparator);
+            combine(numUnitsToPowers, id2.numUnitsToPowers, result.numUnitsToPowers);
+            combine(denUnitsToPowers, id2.denUnitsToPowers, result.denUnitsToPowers);
+            return result;
+        }
+
+        public void combine(
+                Map<String, Integer> map1,
+                Map<String, Integer> map2,
+                Map<String, Integer> resultMap) {
+            Set<String> units = Sets.union(map1.keySet(), map2.keySet());
+            for (String unit : units) {
+                Integer int1 = map1.get(unit);
+                Integer int2 = map2.get(unit);
+                resultMap.put(unit, (int1 == null ? 0 : int1) + (int2 == null ? 0 : int2));
+            }
+        }
     }
 
     public enum PlaceholderLocation {

@@ -253,8 +253,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' systems="metric si"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000' systems="metric"/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325'/>
-        <convertUnit source='gasoline-equivalent' baseUnit='kilogram-per-meter-square-second' factor='33.7 * 3600 * 1000/gal_to_m3'/>
-        
+        <convertUnit source='gasoline-equivalent' baseUnit='kilogram-per-meter-square-second' factor='33.705 * 3600 * 1000/gal_to_m3' description="Constructed so that 1 gallon-gasoline-equivalent = 33.705 kWh as per https://www3.epa.gov/otaq/gvg/learn-more-technology.htm"/>
 
         <!-- pressure-per-length -->
         <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='13595.1*gravity'/>

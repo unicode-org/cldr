@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM '../dtd/ldmlKeyboard.dtd'>
+<keyboard locale="pcm" conformsTo="techpreview">
+	<version number="1.0.0" />
+	<names>
+		<name value="Nigerian Pidgin" />
+		<name value="Naijíriá Píjin" />
+	</names>
+	<settings fallback="omit" />
+	<keys>
+		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+		<key id="grave" to="̀" /> <!-- TODO: move to NCR -->
+		<key id="acute" to="́" /> <!-- TODO: move to NCR -->
+
+		<!-- accented vowels -->
+		<key id="odot" to="ọ" />
+		<key id="Odot" to="Ọ" />
+		<key id="edot" to="ẹ" />
+		<key id="Edot" to="Ẹ" />
+
+		<!-- currency -->
+		<key id="naira" to="₦" />
+	</keys>
+
+	<layers form="iso">
+		<layer modifier="none">
+			<row
+				keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+			<row keys="acute w e r t y u i o p open-square close-square" />
+			<row keys="a s d f g h j k l odot edot slash" />
+			<row keys="slash z c v b n m comma period semi-colon apos" />
+			<row keys="space" />
+		</layer>
+
+		<layer modifier="shift">
+			<row
+				keys="grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus" />
+			<row keys="acute W E R T Y U I O P open-curly close-curly" />
+			<row keys="A S D F G H J K L Odot Edot" />
+			<row keys="question Z C V B N M open-angle close-angle colon double-quote" />
+			<row keys="space" />
+		</layer>
+	</layers>
+
+	<transforms type="simple">
+		<transformGroup>
+			<!-- Change vowels with appended acute, grave, and dot below combiners to combined forms -->
+			<transform from="a\u{300}" to="à" />
+			<transform from="E\u{300}" to="È" />
+			<transform from="o\u{301}" to="ó" />
+			<transform from="O\u{300}" to="Ò" />
+			<transform from="o\u{323}" to="ọ" />
+			<transform from="A\u{323}" to="Ạ" />
+			<transform from="a\u{323}" to="ạ" />
+			<transform from="a\u{301}" to="á" />
+			<transform from="A\u{300}" to="À" />
+			<transform from="E\u{323}" to="Ẹ" />
+			<transform from="O\u{323}" to="Ọ" />
+			<transform from="''" to="\u{323}" /> <!-- Quick way to add dot below -->
+			<transform from="A\u{301}" to="Á" />
+			<transform from="e\u{323}" to="ẹ" />
+			<transform from="O\u{301}" to="Ó" />
+			<transform from="e\u{301}" to="é" />
+			<transform from="e\u{300}" to="è" />
+			<transform from="E\u{301}" to="É" />
+			<transform from="o\u{300}" to="ò" />
+		</transformGroup>
+	</transforms>
+</keyboard>

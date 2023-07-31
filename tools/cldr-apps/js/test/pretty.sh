@@ -1,4 +1,4 @@
-npx prettier --no-error-on-unmatched-pattern --write \
+npx prettier@2.8.8 --no-error-on-unmatched-pattern --write \
     tools/cldr-apps/js/src/*.{js,mjs} \
     tools/cldr-apps/js/src/css/*.css \
     tools/cldr-apps/js/src/esm/*.{js,mjs} \

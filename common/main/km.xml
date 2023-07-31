@@ -4634,8 +4634,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
-			<decimal>,</decimal>
-			<group>.</group>
+			<decimal>.</decimal>
+			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign draft="contributed">+</plusSign>
@@ -4646,6 +4646,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
+		</symbols>
+		<symbols numberSystem="khmr">
+			<decimal draft="contributed">,</decimal>
+			<group draft="contributed">.</group>
+			<list draft="contributed">;</list>
+			<percentSign draft="contributed">%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
+			<approximatelySign draft="contributed">↑↑↑</approximatelySign>
+			<exponential draft="contributed">E</exponential>
+			<superscriptingExponent draft="contributed">×</superscriptingExponent>
+			<perMille draft="contributed">‰</perMille>
+			<infinity draft="contributed">∞</infinity>
+			<nan draft="contributed">NaN</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">

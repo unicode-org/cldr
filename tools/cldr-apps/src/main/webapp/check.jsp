@@ -134,13 +134,13 @@ cs.stuff.remove("SubmitLocale");
 <h3>Locale</h3>
  <tt class='codebox'><%=loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.TRANS_HINT_LOCALE)%><br/>
 <%
-UserRegistry.ModifyDenial md = UserRegistry.userCanModifyLocaleWhy(theirU,loc);
+UserRegistry.ModifyDenial md = UserRegistry.userCanModifyLocaleWhy(cs.user,loc);
 if(!cs.sm.getLocalesSet().contains(loc)) {
 	%><h1 class='ferrbox'>Error: Locale doesn't exist in the Survey Tool.</h1><%
 } else if(cs.sm.getReadOnlyLocales().contains(loc)) {
 	%><h1 class='ferrbox'>Error: <%= loc.getDisplayName() %> may not be modified: <%= SpecialLocales.getComment(loc) %></h1><%
 } else if(md != null) {
-	%><h1 class='ferrbox'>Error: <%= theirU.name %>  (<%= theirU.email %>) may not modify <%= loc.getDisplayName() %>: <%= md.getReason() %></h1><%
+	%><h1 class='ferrbox'>Error: <%= cs.user.name %>  (<%= cs.user.email %>) may not modify <%= loc.getDisplayName() %>: <%= md.getReason() %></h1><%
 } else {
 	cs.stuff.put("SubmitLocale",cf);
 %>

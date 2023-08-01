@@ -1982,7 +1982,7 @@ public class TestUnits extends TestFmwk {
             if (cldrResult.equals(Rational.NaN)) {
                 cantConvert.add(data);
             } else {
-                if (cldrResult.approximatelyEquals(externalResult)) {
+                if (!cldrResult.approximatelyEquals(externalResult)) {
                     convertDiff.put(data, cldrResult);
                 } else {
                     remainingCldrUnits.remove(data.source);
@@ -2025,9 +2025,10 @@ public class TestUnits extends TestFmwk {
 
         int unitsWithoutExternalCheck = 0;
         if (SHOW_MISSING_TEST_DATA && !remainingCldrUnits.isEmpty()) {
-            System.out.println("Not tested against external data");
+            System.out.println("\nNot tested against external data");
         }
         for (String remainingUnit : remainingCldrUnits) {
+            ExternalUnitConversionData external = NistUnits.unitToData.get(remainingUnit);
             final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
             if (!targetInfo.target.contentEquals(remainingUnit)) {
                 if (SHOW_MISSING_TEST_DATA) {

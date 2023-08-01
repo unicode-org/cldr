@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">やや濃い肌色</annotation>
 		<annotation cp="🏿">濃い肌色 | 肌の色 | 肌色6</annotation>
 		<annotation cp="🏿" type="tts">濃い肌色</annotation>
-		<annotation cp="‾" draft="contributed">オーバーライン</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">オーバーライン</annotation>
+		<annotation cp="‾">オーバースコア | オーバーライン | 上線</annotation>
+		<annotation cp="‾" type="tts">オーバーライン</annotation>
 		<annotation cp="_">アンダースコア | アンダーライン | 下線 | 記号</annotation>
 		<annotation cp="_" type="tts">アンダースコア</annotation>
 		<annotation cp="-">ダッシュ | ハイフンマイナス | マイナス | 記号</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">逆疑問符</annotation>
 		<annotation cp="؟">クエスチョンマーク | はてなマーク | 左右反転の疑問符 | 疑問符 | 約物 | 記号</annotation>
 		<annotation cp="؟" type="tts">左右反転の疑問符</annotation>
-		<annotation cp="‽" draft="contributed">インテロバング</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">インテロバング</annotation>
+		<annotation cp="‽">インテロバング</annotation>
+		<annotation cp="‽" type="tts">インテロバング</annotation>
 		<annotation cp=".">ドット | ピリオド | フルストップ | 終止符</annotation>
 		<annotation cp="." type="tts">ピリオド</annotation>
 		<annotation cp="…">三点リーダー | 点々 | 省略 | 省略記号</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">ダブルプライム</annotation>
 		<annotation cp="‴">トリプルプライム | プライム | 記号</annotation>
 		<annotation cp="‴" type="tts">トリプルプライム</annotation>
-		<annotation cp="‸" draft="contributed">キャレット</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">キャレット</annotation>
+		<annotation cp="‸">キャレット</annotation>
+		<annotation cp="‸" type="tts">キャレット</annotation>
 		<annotation cp="※">※ | コメント | 注釈 | 米印 | 記号</annotation>
 		<annotation cp="※" type="tts">米印</annotation>
-		<annotation cp="⁂" draft="contributed">アステリズム</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">アステリズム</annotation>
+		<annotation cp="⁂">アスタリズム | アステリズム | 三ツ星印</annotation>
+		<annotation cp="⁂" type="tts">アステリズム</annotation>
 		<annotation cp="`">アクサングラーブ | アクセント | グレイヴ アクセント | 発音区別符号 | 記号</annotation>
 		<annotation cp="`" type="tts">グレイヴ アクセント</annotation>
 		<annotation cp="´">アキュート アクセント | アクサンテギュ | アクセント | 発音区別符号 | 記号</annotation>
@@ -181,192 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">原盤権マーク</annotation>
 		<annotation cp="←">左 | 左向矢印 | 左矢印 | 矢印</annotation>
 		<annotation cp="←" type="tts">左向矢印</annotation>
-		<annotation cp="↚" draft="contributed">斜線付き左向き矢印</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">斜線付き左向き矢印</annotation>
+		<annotation cp="↚">斜線付き左向き矢印</annotation>
+		<annotation cp="↚" type="tts">斜線付き左向き矢印</annotation>
 		<annotation cp="→">右 | 右向矢印 | 右矢印 | 矢印</annotation>
 		<annotation cp="→" type="tts">右向矢印</annotation>
-		<annotation cp="↛" draft="contributed">斜線付き右向き矢印</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">斜線付き右向き矢印</annotation>
+		<annotation cp="↛">斜線付き右向き矢印</annotation>
+		<annotation cp="↛" type="tts">斜線付き右向き矢印</annotation>
 		<annotation cp="↑">上 | 上向矢印 | 上矢印 | 矢印</annotation>
 		<annotation cp="↑" type="tts">上向矢印</annotation>
 		<annotation cp="↓">下 | 下向矢印 | 下矢印 | 矢印</annotation>
 		<annotation cp="↓" type="tts">下向矢印</annotation>
-		<annotation cp="↜" draft="contributed">左向き波線矢印</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">左向き波線矢印</annotation>
-		<annotation cp="↝" draft="contributed">右向き波線矢印</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">右向き波線矢印</annotation>
-		<annotation cp="↞" draft="contributed">左向き二重鏃矢印</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">左向き二重鏃矢印</annotation>
-		<annotation cp="↟" draft="contributed">上向き二重鏃矢印</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">上向き二重鏃矢印</annotation>
-		<annotation cp="↠" draft="contributed">右向き二重鏃矢印</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">右向き二重鏃矢印</annotation>
-		<annotation cp="↡" draft="contributed">下向き二重鏃矢印</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">下向き二重鏃矢印</annotation>
-		<annotation cp="↢" draft="contributed">尾付き左向き矢印</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">尾付き左向き矢印</annotation>
-		<annotation cp="↣" draft="contributed">尾付き右向き矢印</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">尾付き右向き矢印</annotation>
-		<annotation cp="↤" draft="contributed">棒からの左向き矢印</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">棒からの左向き矢印</annotation>
-		<annotation cp="↥" draft="contributed">棒からの上向き矢印</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">棒からの上向き矢印</annotation>
-		<annotation cp="↦" draft="contributed">棒からの右向き矢印</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">棒からの右向き矢印</annotation>
-		<annotation cp="↧" draft="contributed">棒からの下向き矢印</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">棒からの下向き矢印</annotation>
-		<annotation cp="↨" draft="contributed">下線付き上下矢印</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">下線付き上下矢印</annotation>
-		<annotation cp="↫" draft="contributed">ループ付き左向き矢印</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">ループ付き左向き矢印</annotation>
-		<annotation cp="↬" draft="contributed">ループ付き右向き矢印</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">ループ付き右向き矢印</annotation>
-		<annotation cp="↭" draft="contributed">左右波線矢印</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">左右波線矢印</annotation>
-		<annotation cp="↯" draft="contributed">下向きジグザグ矢印</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">下向きジグザグ矢印</annotation>
-		<annotation cp="↰" draft="contributed">上向き左折矢印</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">上向き左折矢印</annotation>
-		<annotation cp="↱" draft="contributed">上向き右折矢印</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">上向き右折矢印</annotation>
-		<annotation cp="↲" draft="contributed">下向き左折矢印</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">下向き左折矢印</annotation>
-		<annotation cp="↳" draft="contributed">下向き右折矢印</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">下向き右折矢印</annotation>
-		<annotation cp="↴" draft="contributed">右向き下曲がり矢印</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">右向き下曲がり矢印</annotation>
-		<annotation cp="↵" draft="contributed">下向き左曲がり矢印</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">下向き左曲がり矢印</annotation>
-		<annotation cp="↶" draft="contributed">反時計回りの上半円矢印</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">反時計回りの上半円矢印</annotation>
-		<annotation cp="↷" draft="contributed">時計回りの上半円矢印</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">時計回りの上半円矢印</annotation>
-		<annotation cp="↸" draft="contributed">上線付き北西矢印</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">上線付き北西矢印</annotation>
-		<annotation cp="↹" draft="contributed">右縦棒付き右矢印の上に左縦棒付き左矢印</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">右縦棒付き右矢印の上に左縦棒付き左矢印</annotation>
-		<annotation cp="↺" draft="contributed">反時計回りの開いた円矢印</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">反時計回りの開いた円矢印</annotation>
-		<annotation cp="↻" draft="contributed">時計回りの開いた円矢印</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">時計回りの開いた円矢印</annotation>
-		<annotation cp="↼" draft="contributed">とげが上向きの左向き銛型矢印</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">とげが上向きの左向き銛型矢印</annotation>
-		<annotation cp="↽" draft="contributed">とげが下向きの左向き銛型矢印</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">とげが下向きの左向き銛型矢印</annotation>
-		<annotation cp="↾" draft="contributed">とげが右向きの上向き銛型矢印</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">とげが右向きの上向き銛型矢印</annotation>
-		<annotation cp="↿" draft="contributed">とげが左向きの上向き銛型矢印</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">とげが左向きの上向き銛型矢印</annotation>
-		<annotation cp="⇀" draft="contributed">とげが上向きの右向き銛型矢印</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">とげが上向きの右向き銛型矢印</annotation>
-		<annotation cp="⇁" draft="contributed">とげが下向きの右向き銛型矢印</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">とげが下向きの右向き銛型矢印</annotation>
-		<annotation cp="⇂" draft="contributed">とげが右向きの下向き銛型矢印</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">とげが右向きの下向き銛型矢印</annotation>
-		<annotation cp="⇃" draft="contributed">とげが左向きの下向き銛型矢印</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">とげが左向きの下向き銛型矢印</annotation>
-		<annotation cp="⇄" draft="contributed">右矢印左矢印</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">右矢印左矢印</annotation>
+		<annotation cp="↜">左向き波線矢印</annotation>
+		<annotation cp="↜" type="tts">左向き波線矢印</annotation>
+		<annotation cp="↝">右向き波線矢印</annotation>
+		<annotation cp="↝" type="tts">右向き波線矢印</annotation>
+		<annotation cp="↞">左向き二重鏃矢印</annotation>
+		<annotation cp="↞" type="tts">左向き二重鏃矢印</annotation>
+		<annotation cp="↟">上向き二重鏃矢印</annotation>
+		<annotation cp="↟" type="tts">上向き二重鏃矢印</annotation>
+		<annotation cp="↠">右向き二重鏃矢印</annotation>
+		<annotation cp="↠" type="tts">右向き二重鏃矢印</annotation>
+		<annotation cp="↡">下向き二重鏃矢印</annotation>
+		<annotation cp="↡" type="tts">下向き二重鏃矢印</annotation>
+		<annotation cp="↢">尾付き左向き矢印</annotation>
+		<annotation cp="↢" type="tts">尾付き左向き矢印</annotation>
+		<annotation cp="↣">尾付き右向き矢印</annotation>
+		<annotation cp="↣" type="tts">尾付き右向き矢印</annotation>
+		<annotation cp="↤">棒からの左向き矢印</annotation>
+		<annotation cp="↤" type="tts">棒からの左向き矢印</annotation>
+		<annotation cp="↥">棒からの上向き矢印</annotation>
+		<annotation cp="↥" type="tts">棒からの上向き矢印</annotation>
+		<annotation cp="↦">棒からの右向き矢印</annotation>
+		<annotation cp="↦" type="tts">棒からの右向き矢印</annotation>
+		<annotation cp="↧">棒からの下向き矢印</annotation>
+		<annotation cp="↧" type="tts">棒からの下向き矢印</annotation>
+		<annotation cp="↨">下線付き上下矢印</annotation>
+		<annotation cp="↨" type="tts">下線付き上下矢印</annotation>
+		<annotation cp="↫">ループ付き左向き矢印</annotation>
+		<annotation cp="↫" type="tts">ループ付き左向き矢印</annotation>
+		<annotation cp="↬">ループ付き右向き矢印</annotation>
+		<annotation cp="↬" type="tts">ループ付き右向き矢印</annotation>
+		<annotation cp="↭">左右波線矢印</annotation>
+		<annotation cp="↭" type="tts">左右波線矢印</annotation>
+		<annotation cp="↯">下向きジグザグ矢印</annotation>
+		<annotation cp="↯" type="tts">下向きジグザグ矢印</annotation>
+		<annotation cp="↰">上向き左折矢印</annotation>
+		<annotation cp="↰" type="tts">上向き左折矢印</annotation>
+		<annotation cp="↱">上向き右折矢印</annotation>
+		<annotation cp="↱" type="tts">上向き右折矢印</annotation>
+		<annotation cp="↲">下向き左折矢印</annotation>
+		<annotation cp="↲" type="tts">下向き左折矢印</annotation>
+		<annotation cp="↳">下向き右折矢印</annotation>
+		<annotation cp="↳" type="tts">下向き右折矢印</annotation>
+		<annotation cp="↴">右向き下曲がり矢印</annotation>
+		<annotation cp="↴" type="tts">右向き下曲がり矢印</annotation>
+		<annotation cp="↵">下向き左曲がり矢印</annotation>
+		<annotation cp="↵" type="tts">下向き左曲がり矢印</annotation>
+		<annotation cp="↶">反時計回りの上半円矢印</annotation>
+		<annotation cp="↶" type="tts">反時計回りの上半円矢印</annotation>
+		<annotation cp="↷">時計回りの上半円矢印</annotation>
+		<annotation cp="↷" type="tts">時計回りの上半円矢印</annotation>
+		<annotation cp="↸">上線付き北西矢印</annotation>
+		<annotation cp="↸" type="tts">上線付き北西矢印</annotation>
+		<annotation cp="↹">右縦棒付き右矢印の上に左縦棒付き左矢印</annotation>
+		<annotation cp="↹" type="tts">右縦棒付き右矢印の上に左縦棒付き左矢印</annotation>
+		<annotation cp="↺">反時計回りの開いた円矢印</annotation>
+		<annotation cp="↺" type="tts">反時計回りの開いた円矢印</annotation>
+		<annotation cp="↻">時計回りの開いた円矢印</annotation>
+		<annotation cp="↻" type="tts">時計回りの開いた円矢印</annotation>
+		<annotation cp="↼">とげが上向きの左向き銛型矢印</annotation>
+		<annotation cp="↼" type="tts">とげが上向きの左向き銛型矢印</annotation>
+		<annotation cp="↽">とげが下向きの左向き銛型矢印</annotation>
+		<annotation cp="↽" type="tts">とげが下向きの左向き銛型矢印</annotation>
+		<annotation cp="↾">とげが右向きの上向き銛型矢印</annotation>
+		<annotation cp="↾" type="tts">とげが右向きの上向き銛型矢印</annotation>
+		<annotation cp="↿">とげが左向きの上向き銛型矢印</annotation>
+		<annotation cp="↿" type="tts">とげが左向きの上向き銛型矢印</annotation>
+		<annotation cp="⇀">とげが上向きの右向き銛型矢印</annotation>
+		<annotation cp="⇀" type="tts">とげが上向きの右向き銛型矢印</annotation>
+		<annotation cp="⇁">とげが下向きの右向き銛型矢印</annotation>
+		<annotation cp="⇁" type="tts">とげが下向きの右向き銛型矢印</annotation>
+		<annotation cp="⇂">とげが右向きの下向き銛型矢印</annotation>
+		<annotation cp="⇂" type="tts">とげが右向きの下向き銛型矢印</annotation>
+		<annotation cp="⇃">とげが左向きの下向き銛型矢印</annotation>
+		<annotation cp="⇃" type="tts">とげが左向きの下向き銛型矢印</annotation>
+		<annotation cp="⇄">右矢印左矢印</annotation>
+		<annotation cp="⇄" type="tts">右矢印左矢印</annotation>
 		<annotation cp="⇅">アップダウン | 上下矢印 | 上向矢印下向矢印 | 矢印</annotation>
 		<annotation cp="⇅" type="tts">上向矢印下向矢印</annotation>
 		<annotation cp="⇆">左右矢印 | 左向矢印右向矢印 | 往復 | 矢印</annotation>
 		<annotation cp="⇆" type="tts">左向矢印右向矢印</annotation>
-		<annotation cp="⇇" draft="contributed">左向きペア矢印</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">左向きペア矢印</annotation>
-		<annotation cp="⇈" draft="contributed">上向きペア矢印</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">上向きペア矢印</annotation>
-		<annotation cp="⇉" draft="contributed">右向きペア矢印</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">右向きペア矢印</annotation>
-		<annotation cp="⇊" draft="contributed">下向きペア矢印</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">下向きペア矢印</annotation>
-		<annotation cp="⇋" draft="contributed">左向き銛型矢印右向き銛型矢印</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">左向き銛型矢印右向き銛型矢印</annotation>
-		<annotation cp="⇌" draft="contributed">右向き銛型矢印左向き銛型矢印</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">右向き銛型矢印左向き銛型矢印</annotation>
-		<annotation cp="⇐" draft="contributed">左向き二重矢印</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">左向き二重矢印</annotation>
-		<annotation cp="⇍" draft="contributed">斜線付き左向き二重矢印</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">斜線付き左向き二重矢印</annotation>
-		<annotation cp="⇑" draft="contributed">上向き二重矢印</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">上向き二重矢印</annotation>
-		<annotation cp="⇒" draft="contributed">右向き二重矢印</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">右向き二重矢印</annotation>
-		<annotation cp="⇏" draft="contributed">斜線付き右向き二重矢印</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">斜線付き右向き二重矢印</annotation>
-		<annotation cp="⇓" draft="contributed">下向き二重矢印</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">下向き二重矢印</annotation>
-		<annotation cp="⇔" draft="contributed">二重両矢印</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">二重両矢印</annotation>
-		<annotation cp="⇎" draft="contributed">斜線付き二重両矢印</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">斜線付き二重両矢印</annotation>
-		<annotation cp="⇖" draft="contributed">北西二重矢印</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">北西二重矢印</annotation>
-		<annotation cp="⇗" draft="contributed">北東二重矢印</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">北東二重矢印</annotation>
-		<annotation cp="⇘" draft="contributed">南東二重矢印</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">南東二重矢印</annotation>
-		<annotation cp="⇙" draft="contributed">南西二重矢印</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">南西二重矢印</annotation>
-		<annotation cp="⇚" draft="contributed">左向き三重矢印</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">左向き三重矢印</annotation>
-		<annotation cp="⇛" draft="contributed">右向き三重矢印</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">右向き三重矢印</annotation>
-		<annotation cp="⇜" draft="contributed">左向きよじれ矢印</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">左向きよじれ矢印</annotation>
-		<annotation cp="⇝" draft="contributed">右向きよじれ矢印</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">右向きよじれ矢印</annotation>
-		<annotation cp="⇞" draft="contributed">二重線付き上向き矢印</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">二重線付き上向き矢印</annotation>
-		<annotation cp="⇟" draft="contributed">二重線付き下向き矢印</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">二重線付き下向き矢印</annotation>
-		<annotation cp="⇠" draft="contributed">左向き破線矢印</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">左向き破線矢印</annotation>
-		<annotation cp="⇡" draft="contributed">上向き破線矢印</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">上向き破線矢印</annotation>
-		<annotation cp="⇢" draft="contributed">右向き破線矢印</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">右向き破線矢印</annotation>
-		<annotation cp="⇣" draft="contributed">下向き破線矢印</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">下向き破線矢印</annotation>
-		<annotation cp="⇤" draft="contributed">左縦棒付き左矢印</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">左縦棒付き左矢印</annotation>
-		<annotation cp="⇥" draft="contributed">右縦棒付き右矢印</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">右縦棒付き右矢印</annotation>
-		<annotation cp="⇦" draft="contributed">左向き白矢印</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">左向き白矢印</annotation>
-		<annotation cp="⇧" draft="contributed">上向き白矢印</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">上向き白矢印</annotation>
-		<annotation cp="⇨" draft="contributed">右向き白矢印</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">右向き白矢印</annotation>
-		<annotation cp="⇩" draft="contributed">下向き白矢印</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">下向き白矢印</annotation>
-		<annotation cp="⇪" draft="contributed">棒付き上向き白矢印</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">棒付き上向き白矢印</annotation>
-		<annotation cp="⇵" draft="contributed">下矢印上矢印</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">下矢印上矢印</annotation>
-		<annotation cp="∀" draft="contributed">全称記号</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">全称記号</annotation>
-		<annotation cp="∂" draft="contributed">偏微分</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">偏微分</annotation>
-		<annotation cp="∃" draft="contributed">存在記号</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">存在記号</annotation>
-		<annotation cp="∅" draft="contributed">空集合</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">空集合</annotation>
+		<annotation cp="⇇">左向きペア矢印</annotation>
+		<annotation cp="⇇" type="tts">左向きペア矢印</annotation>
+		<annotation cp="⇈">上向きペア矢印</annotation>
+		<annotation cp="⇈" type="tts">上向きペア矢印</annotation>
+		<annotation cp="⇉">右向きペア矢印</annotation>
+		<annotation cp="⇉" type="tts">右向きペア矢印</annotation>
+		<annotation cp="⇊">下向きペア矢印</annotation>
+		<annotation cp="⇊" type="tts">下向きペア矢印</annotation>
+		<annotation cp="⇋">左向き銛型矢印右向き銛型矢印</annotation>
+		<annotation cp="⇋" type="tts">左向き銛型矢印右向き銛型矢印</annotation>
+		<annotation cp="⇌">右向き銛型矢印左向き銛型矢印</annotation>
+		<annotation cp="⇌" type="tts">右向き銛型矢印左向き銛型矢印</annotation>
+		<annotation cp="⇐">左向き二重矢印</annotation>
+		<annotation cp="⇐" type="tts">左向き二重矢印</annotation>
+		<annotation cp="⇍">斜線付き左向き二重矢印</annotation>
+		<annotation cp="⇍" type="tts">斜線付き左向き二重矢印</annotation>
+		<annotation cp="⇑">上向き二重矢印</annotation>
+		<annotation cp="⇑" type="tts">上向き二重矢印</annotation>
+		<annotation cp="⇒">右向き二重矢印</annotation>
+		<annotation cp="⇒" type="tts">右向き二重矢印</annotation>
+		<annotation cp="⇏">斜線付き右向き二重矢印</annotation>
+		<annotation cp="⇏" type="tts">斜線付き右向き二重矢印</annotation>
+		<annotation cp="⇓">下向き二重矢印</annotation>
+		<annotation cp="⇓" type="tts">下向き二重矢印</annotation>
+		<annotation cp="⇔">二重両矢印</annotation>
+		<annotation cp="⇔" type="tts">二重両矢印</annotation>
+		<annotation cp="⇎">斜線付き二重両矢印</annotation>
+		<annotation cp="⇎" type="tts">斜線付き二重両矢印</annotation>
+		<annotation cp="⇖">北西二重矢印</annotation>
+		<annotation cp="⇖" type="tts">北西二重矢印</annotation>
+		<annotation cp="⇗">北東二重矢印</annotation>
+		<annotation cp="⇗" type="tts">北東二重矢印</annotation>
+		<annotation cp="⇘">南東二重矢印</annotation>
+		<annotation cp="⇘" type="tts">南東二重矢印</annotation>
+		<annotation cp="⇙">南西二重矢印</annotation>
+		<annotation cp="⇙" type="tts">南西二重矢印</annotation>
+		<annotation cp="⇚">左向き三重矢印</annotation>
+		<annotation cp="⇚" type="tts">左向き三重矢印</annotation>
+		<annotation cp="⇛">右向き三重矢印</annotation>
+		<annotation cp="⇛" type="tts">右向き三重矢印</annotation>
+		<annotation cp="⇜">左向きよじれ矢印</annotation>
+		<annotation cp="⇜" type="tts">左向きよじれ矢印</annotation>
+		<annotation cp="⇝">右向きよじれ矢印</annotation>
+		<annotation cp="⇝" type="tts">右向きよじれ矢印</annotation>
+		<annotation cp="⇞">二重線付き上向き矢印</annotation>
+		<annotation cp="⇞" type="tts">二重線付き上向き矢印</annotation>
+		<annotation cp="⇟">二重線付き下向き矢印</annotation>
+		<annotation cp="⇟" type="tts">二重線付き下向き矢印</annotation>
+		<annotation cp="⇠">左向き破線矢印</annotation>
+		<annotation cp="⇠" type="tts">左向き破線矢印</annotation>
+		<annotation cp="⇡">上向き破線矢印</annotation>
+		<annotation cp="⇡" type="tts">上向き破線矢印</annotation>
+		<annotation cp="⇢">右向き破線矢印</annotation>
+		<annotation cp="⇢" type="tts">右向き破線矢印</annotation>
+		<annotation cp="⇣">下向き破線矢印</annotation>
+		<annotation cp="⇣" type="tts">下向き破線矢印</annotation>
+		<annotation cp="⇤">左縦棒付き左矢印</annotation>
+		<annotation cp="⇤" type="tts">左縦棒付き左矢印</annotation>
+		<annotation cp="⇥">右縦棒付き右矢印</annotation>
+		<annotation cp="⇥" type="tts">右縦棒付き右矢印</annotation>
+		<annotation cp="⇦">左向き白矢印</annotation>
+		<annotation cp="⇦" type="tts">左向き白矢印</annotation>
+		<annotation cp="⇧">上向き白矢印</annotation>
+		<annotation cp="⇧" type="tts">上向き白矢印</annotation>
+		<annotation cp="⇨">右向き白矢印</annotation>
+		<annotation cp="⇨" type="tts">右向き白矢印</annotation>
+		<annotation cp="⇩">下向き白矢印</annotation>
+		<annotation cp="⇩" type="tts">下向き白矢印</annotation>
+		<annotation cp="⇪">棒付き上向き白矢印</annotation>
+		<annotation cp="⇪" type="tts">棒付き上向き白矢印</annotation>
+		<annotation cp="⇵">下矢印上矢印</annotation>
+		<annotation cp="⇵" type="tts">下矢印上矢印</annotation>
+		<annotation cp="∀">すべての | すべてのための | 任意の | 全称記号</annotation>
+		<annotation cp="∀" type="tts">全称記号</annotation>
+		<annotation cp="∂">偏微分</annotation>
+		<annotation cp="∂" type="tts">偏微分</annotation>
+		<annotation cp="∃">存在記号</annotation>
+		<annotation cp="∃" type="tts">存在記号</annotation>
+		<annotation cp="∅">数学 | 空集合 | 集合演算子</annotation>
+		<annotation cp="∅" type="tts">空集合</annotation>
 		<annotation cp="∆">デルタ | 三角 | 増分</annotation>
 		<annotation cp="∆" type="tts">増分</annotation>
 		<annotation cp="∇">ナブラ | 三角 | 逆三角</annotation>
 		<annotation cp="∇" type="tts">ナブラ</annotation>
 		<annotation cp="∈">元 | 包含 | 属する | 要素 | 集合</annotation>
 		<annotation cp="∈" type="tts">属する</annotation>
-		<annotation cp="∉" draft="contributed">要素の否定</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">要素の否定</annotation>
-		<annotation cp="∋" draft="contributed">元として含む</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">元として含む</annotation>
-		<annotation cp="∎" draft="contributed">墓石記号</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">墓石記号</annotation>
-		<annotation cp="∏" draft="contributed">総乗</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">総乗</annotation>
-		<annotation cp="∑" draft="contributed">総和</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">総和</annotation>
+		<annotation cp="∉">の要素ではない | 要素の否定</annotation>
+		<annotation cp="∉" type="tts">要素の否定</annotation>
+		<annotation cp="∋">元として含む</annotation>
+		<annotation cp="∋" type="tts">元として含む</annotation>
+		<annotation cp="∎">Q.E.D. | ハルモス | 墓石記号 | 証明の終わり | 証明終了</annotation>
+		<annotation cp="∎" type="tts">墓石記号</annotation>
+		<annotation cp="∏">総乗 | 総積 | 論理</annotation>
+		<annotation cp="∏" type="tts">総乗</annotation>
+		<annotation cp="∑">和 | 数学記号 | 総和</annotation>
+		<annotation cp="∑" type="tts">総和</annotation>
 		<annotation cp="+">プラス記号 | 加算 | 正符号 | 足す</annotation>
 		<annotation cp="+" type="tts">プラス記号</annotation>
 		<annotation cp="±">プラスマイナス | 複号</annotation>
@@ -377,16 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">乗算記号</annotation>
 		<annotation cp="&lt;">より小さい | 不等号 | 小なり | 開始タグ</annotation>
 		<annotation cp="&lt;" type="tts">小なり</annotation>
-		<annotation cp="≮" draft="contributed">より小さくはない</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">より小さくはない</annotation>
+		<annotation cp="≮">よりは小さくない | より小さくはない | 不等号 | 数学記号</annotation>
+		<annotation cp="≮" type="tts">より小さくはない</annotation>
 		<annotation cp="=">イコール | 等しい | 等号</annotation>
 		<annotation cp="=" type="tts">等号</annotation>
 		<annotation cp="≠">ノットイコール | 等しくない | 等号否定</annotation>
 		<annotation cp="≠" type="tts">等号否定</annotation>
 		<annotation cp="&gt;">より大きい | 不等号 | 大なり | 閉じタグ</annotation>
 		<annotation cp="&gt;" type="tts">大なり</annotation>
-		<annotation cp="≯" draft="contributed">より大きくはない</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">より大きくはない</annotation>
+		<annotation cp="≯">よりは大きくない | より大きくはない | 不等号 | 数学記号</annotation>
+		<annotation cp="≯" type="tts">より大きくはない</annotation>
 		<annotation cp="¬">でない | 否定 | 否定記号</annotation>
 		<annotation cp="¬" type="tts">否定</annotation>
 		<annotation cp="|">バーティカルバー | パイプ | 否定論理積 | 棒 | 縦棒 | 縦線</annotation>
@@ -397,316 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">マイナス記号</annotation>
 		<annotation cp="⁻">マイナス | 上付きマイナス | 添え字</annotation>
 		<annotation cp="⁻" type="tts">上付きマイナス</annotation>
-		<annotation cp="∓" draft="contributed">マイナスプラス記号</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">マイナスプラス記号</annotation>
-		<annotation cp="∕" draft="contributed">除算スラッシュ</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">除算スラッシュ</annotation>
-		<annotation cp="⁄" draft="contributed">分数スラッシュ</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">分数スラッシュ</annotation>
-		<annotation cp="∗" draft="contributed">アスタリスク演算子</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">アスタリスク演算子</annotation>
-		<annotation cp="∘" draft="contributed">合成写像の記号</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">合成写像の記号</annotation>
-		<annotation cp="∙" draft="contributed">ビュレット演算子</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">ビュレット演算子</annotation>
+		<annotation cp="∓">プラスマイナス | マイナスプラス記号</annotation>
+		<annotation cp="∓" type="tts">マイナスプラス記号</annotation>
+		<annotation cp="∕">ストローク | スラッシュ | 斜線 | 除算スラッシュ</annotation>
+		<annotation cp="∕" type="tts">除算スラッシュ</annotation>
+		<annotation cp="⁄">ストローク | スラッシュ | 分数スラッシュ | 斜線</annotation>
+		<annotation cp="⁄" type="tts">分数スラッシュ</annotation>
+		<annotation cp="∗">アスタリスク演算子 | 星印</annotation>
+		<annotation cp="∗" type="tts">アスタリスク演算子</annotation>
+		<annotation cp="∘">円記号 | 合成 | 合成写像の記号 | 演算子</annotation>
+		<annotation cp="∘" type="tts">合成写像の記号</annotation>
+		<annotation cp="∙">ビュレット演算子</annotation>
+		<annotation cp="∙" type="tts">ビュレット演算子</annotation>
 		<annotation cp="√">ルート | 二乗根 | 平方根 | 根号</annotation>
 		<annotation cp="√" type="tts">平方根</annotation>
-		<annotation cp="∝" draft="contributed">比例</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">比例</annotation>
+		<annotation cp="∝">比例</annotation>
+		<annotation cp="∝" type="tts">比例</annotation>
 		<annotation cp="∞">インフィニティ | メビウスの輪 | 無限大記号</annotation>
 		<annotation cp="∞" type="tts">無限大記号</annotation>
-		<annotation cp="∟" draft="contributed">直角</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">直角</annotation>
-		<annotation cp="∠" draft="contributed">角</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">角</annotation>
-		<annotation cp="∣" draft="contributed">約数</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">約数</annotation>
-		<annotation cp="∥" draft="contributed">平行</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">平行</annotation>
-		<annotation cp="∧" draft="contributed">論理積</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">論理積</annotation>
+		<annotation cp="∟">数学記号 | 直角</annotation>
+		<annotation cp="∟" type="tts">直角</annotation>
+		<annotation cp="∠">アキュート | 角度</annotation>
+		<annotation cp="∠" type="tts">角</annotation>
+		<annotation cp="∣">約数</annotation>
+		<annotation cp="∣" type="tts">約数</annotation>
+		<annotation cp="∥">平行</annotation>
+		<annotation cp="∥" type="tts">平行</annotation>
+		<annotation cp="∧">論理積</annotation>
+		<annotation cp="∧" type="tts">論理積</annotation>
 		<annotation cp="∩">共通部分 | 積集合 | 集合</annotation>
 		<annotation cp="∩" type="tts">積集合</annotation>
 		<annotation cp="∪">合併集合 | 和集合 | 集合</annotation>
 		<annotation cp="∪" type="tts">和集合</annotation>
-		<annotation cp="∫" draft="contributed">積分</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">積分</annotation>
-		<annotation cp="∬" draft="contributed">二重積分</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">二重積分</annotation>
-		<annotation cp="∮" draft="contributed">線積分</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">線積分</annotation>
-		<annotation cp="∴" draft="contributed">ゆえに</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">ゆえに</annotation>
-		<annotation cp="∵" draft="contributed">なぜならば</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">なぜならば</annotation>
-		<annotation cp="∶" draft="contributed">比</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">比</annotation>
-		<annotation cp="∷" draft="contributed">比率</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">比率</annotation>
-		<annotation cp="∼" draft="contributed">チルダ演算子</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">チルダ演算子</annotation>
-		<annotation cp="∽" draft="contributed">相似</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">相似</annotation>
-		<annotation cp="∾" draft="contributed">逆の横向きS</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">逆の横向きS</annotation>
-		<annotation cp="≃" draft="contributed">漸進的に等しい</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">漸進的に等しい</annotation>
-		<annotation cp="≅" draft="contributed">およそ等しい</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">およそ等しい</annotation>
+		<annotation cp="∫">微積分学 | 積分</annotation>
+		<annotation cp="∫" type="tts">積分</annotation>
+		<annotation cp="∬">二重積分 | 微積分学</annotation>
+		<annotation cp="∬" type="tts">二重積分</annotation>
+		<annotation cp="∮">線積分</annotation>
+		<annotation cp="∮" type="tts">線積分</annotation>
+		<annotation cp="∴">ゆえに | 論理</annotation>
+		<annotation cp="∴" type="tts">ゆえに</annotation>
+		<annotation cp="∵">なぜならば | 論理</annotation>
+		<annotation cp="∵" type="tts">なぜならば</annotation>
+		<annotation cp="∶">比</annotation>
+		<annotation cp="∶" type="tts">比</annotation>
+		<annotation cp="∷">比率</annotation>
+		<annotation cp="∷" type="tts">比率</annotation>
+		<annotation cp="∼">チルダ演算子 | 演算子</annotation>
+		<annotation cp="∼" type="tts">チルダ演算子</annotation>
+		<annotation cp="∽">相似</annotation>
+		<annotation cp="∽" type="tts">相似</annotation>
+		<annotation cp="∾">逆の横向きS</annotation>
+		<annotation cp="∾" type="tts">逆の横向きS</annotation>
+		<annotation cp="≃">数学記号 | 漸近線 | 漸進的に等しい</annotation>
+		<annotation cp="≃" type="tts">漸進的に等しい</annotation>
+		<annotation cp="≅">およそ等しい | 合同 | 同型写像 | 数学記号 | 等価</annotation>
+		<annotation cp="≅" type="tts">およそ等しい</annotation>
 		<annotation cp="≈">おおよそ等しい | ほぼ等しい | 約 | 近似</annotation>
 		<annotation cp="≈" type="tts">ほぼ等しい</annotation>
-		<annotation cp="≌" draft="contributed">すべて等しい</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">すべて等しい</annotation>
-		<annotation cp="≒" draft="contributed">ほとんど等しい</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">ほとんど等しい</annotation>
-		<annotation cp="≖" draft="contributed">等号の中に丸</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">等号の中に丸</annotation>
+		<annotation cp="≌">すべて等しい | 数学記号 | 等価</annotation>
+		<annotation cp="≌" type="tts">すべて等しい</annotation>
+		<annotation cp="≒">ほとんど等しい</annotation>
+		<annotation cp="≒" type="tts">ほとんど等しい</annotation>
+		<annotation cp="≖">数学記号 | 等価 | 等号の中に丸</annotation>
+		<annotation cp="≖" type="tts">等号の中に丸</annotation>
 		<annotation cp="≡">3本線 | 合同 | 合同記号 | 常に等しい | 恒等式</annotation>
 		<annotation cp="≡" type="tts">常に等しい</annotation>
-		<annotation cp="≣" draft="contributed">完全に同等</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">完全に同等</annotation>
+		<annotation cp="≣">完全に同等 | 数学記号 | 等価</annotation>
+		<annotation cp="≣" type="tts">完全に同等</annotation>
 		<annotation cp="≤">より小さいか等しい | 不等号 | 以下 | 小なりイコール | 等号付き</annotation>
 		<annotation cp="≤" type="tts">小なりイコール</annotation>
 		<annotation cp="≥">より大きいか等しい | 不等号 | 以上 | 大なりイコール | 等号付き</annotation>
 		<annotation cp="≥" type="tts">大なりイコール</annotation>
-		<annotation cp="≦" draft="contributed">より小さいか又は等しい</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">より小さいか又は等しい</annotation>
-		<annotation cp="≧" draft="contributed">より大きいか又は等しい</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">より大きいか又は等しい</annotation>
-		<annotation cp="≪" draft="contributed">非常に小さい</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">非常に小さい</annotation>
-		<annotation cp="≫" draft="contributed">非常に大きい</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">非常に大きい</annotation>
-		<annotation cp="≬" draft="contributed">次の間に</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">次の間に</annotation>
-		<annotation cp="≳" draft="contributed">大きいかほぼ等しい</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">大きいかほぼ等しい</annotation>
-		<annotation cp="≺" draft="contributed">前にある</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">前にある</annotation>
-		<annotation cp="≻" draft="contributed">後にある</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">後にある</annotation>
-		<annotation cp="⊁" draft="contributed">後にはない</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">後にはない</annotation>
+		<annotation cp="≦">より小さいか又は等しい | 不等号 | 数学記号</annotation>
+		<annotation cp="≦" type="tts">より小さいか又は等しい</annotation>
+		<annotation cp="≧">より大きいか又は等しい | 不等号 | 数学記号</annotation>
+		<annotation cp="≧" type="tts">より大きいか又は等しい</annotation>
+		<annotation cp="≪">不等号 | 数学記号 | 非常に小さい</annotation>
+		<annotation cp="≪" type="tts">非常に小さい</annotation>
+		<annotation cp="≫">不等号 | 数学記号 | 非常に大きい</annotation>
+		<annotation cp="≫" type="tts">非常に大きい</annotation>
+		<annotation cp="≬">次の間に</annotation>
+		<annotation cp="≬" type="tts">次の間に</annotation>
+		<annotation cp="≳">不等号 | 大きいかほぼ等しい | 数学記号</annotation>
+		<annotation cp="≳" type="tts">大きいかほぼ等しい</annotation>
+		<annotation cp="≺">前にある | 数学記号 | 集合演算子</annotation>
+		<annotation cp="≺" type="tts">前にある</annotation>
+		<annotation cp="≻">後にある | 数学記号 | 集合演算子</annotation>
+		<annotation cp="≻" type="tts">後にある</annotation>
+		<annotation cp="⊁">後にはない | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⊁" type="tts">後にはない</annotation>
 		<annotation cp="⊂">真部分集合 | 部分集合 | 集合</annotation>
 		<annotation cp="⊂" type="tts">真部分集合</annotation>
-		<annotation cp="⊃" draft="contributed">上位集合</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">上位集合</annotation>
-		<annotation cp="⊆" draft="contributed">部分集合</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">部分集合</annotation>
-		<annotation cp="⊇" draft="contributed">部分集合（逆方向）</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">部分集合（逆方向）</annotation>
-		<annotation cp="⊕" draft="contributed">直和</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">直和</annotation>
-		<annotation cp="⊖" draft="contributed">対称差</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">対称差</annotation>
-		<annotation cp="⊗" draft="contributed">直積</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">直積</annotation>
-		<annotation cp="⊘" draft="contributed">丸囲みスラッシュ</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">丸囲みスラッシュ</annotation>
-		<annotation cp="⊙" draft="contributed">丸囲みドット</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">丸囲みドット</annotation>
-		<annotation cp="⊚" draft="contributed">丸囲みリング</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">丸囲みリング</annotation>
-		<annotation cp="⊛" draft="contributed">丸囲みアスタリスク</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">丸囲みアスタリスク</annotation>
-		<annotation cp="⊞" draft="contributed">四角囲みプラス</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">四角囲みプラス</annotation>
-		<annotation cp="⊟" draft="contributed">四角囲みマイナス</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">四角囲みマイナス</annotation>
-		<annotation cp="⊥" draft="contributed">垂直記号</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">垂直記号</annotation>
-		<annotation cp="⊮" draft="contributed">強制しない</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">強制しない</annotation>
-		<annotation cp="⊰" draft="contributed">前置関係</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">前置関係</annotation>
-		<annotation cp="⊱" draft="contributed">後置関係</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">後置関係</annotation>
-		<annotation cp="⋭" draft="contributed">正規部分群（逆方向）又は等しいの否定</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">正規部分群（逆方向）又は等しいの否定</annotation>
-		<annotation cp="⊶" draft="contributed">オリジナル</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">オリジナル</annotation>
-		<annotation cp="⊹" draft="contributed">エルミート共役行列</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">エルミート共役行列</annotation>
-		<annotation cp="⊿" draft="contributed">直角三角形</annotation>
-		<annotation cp="⊿" type="tts" draft="contributed">直角三角形</annotation>
-		<annotation cp="⋁" draft="contributed">ｎ項論理和</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">ｎ項論理和</annotation>
-		<annotation cp="⋂" draft="contributed">ｎ項共通部分</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">ｎ項共通部分</annotation>
-		<annotation cp="⋃" draft="contributed">ｎ項和集合</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">ｎ項和集合</annotation>
-		<annotation cp="⋅" draft="contributed">ドット演算子</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">ドット演算子</annotation>
-		<annotation cp="⋆" draft="contributed">スター演算子</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">スター演算子</annotation>
-		<annotation cp="⋈" draft="contributed">自然結合</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">自然結合</annotation>
-		<annotation cp="⋒" draft="contributed">二重共通部分</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">二重共通部分</annotation>
-		<annotation cp="⋘" draft="contributed">極度に小さい</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">極度に小さい</annotation>
-		<annotation cp="⋙" draft="contributed">極度に大きい</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">極度に大きい</annotation>
-		<annotation cp="⋮" draft="contributed">縦三点リーダー</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">縦三点リーダー</annotation>
-		<annotation cp="⋯" draft="contributed">中央揃いの横三点リーダー</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">中央揃いの横三点リーダー</annotation>
-		<annotation cp="⋰" draft="contributed">右上がり斜め三点リーダー</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">右上がり斜め三点リーダー</annotation>
-		<annotation cp="⋱" draft="contributed">右下がり斜め三点リーダー</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">右下がり斜め三点リーダー</annotation>
-		<annotation cp="■" draft="contributed">黒四角</annotation>
-		<annotation cp="■" type="tts" draft="contributed">黒四角</annotation>
-		<annotation cp="□" draft="contributed">白四角</annotation>
-		<annotation cp="□" type="tts" draft="contributed">白四角</annotation>
-		<annotation cp="▢" draft="contributed">角丸白四角</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">角丸白四角</annotation>
-		<annotation cp="▣" draft="contributed">白四角の中に黒四角</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">白四角の中に黒四角</annotation>
-		<annotation cp="▤" draft="contributed">横縞線入りの四角</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">横縞線入りの四角</annotation>
-		<annotation cp="▥" draft="contributed">縦縞線入りの四角</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">縦縞線入りの四角</annotation>
-		<annotation cp="▦" draft="contributed">格子線入りの四角</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">格子線入りの四角</annotation>
-		<annotation cp="▧" draft="contributed">左上右下斜め縞線入りの四角</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">左上右下斜め縞線入りの四角</annotation>
-		<annotation cp="▨" draft="contributed">右上左下斜め縞線入りの四角</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">右上左下斜め縞線入りの四角</annotation>
-		<annotation cp="▩" draft="contributed">斜め格子線入りの四角</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">斜め格子線入りの四角</annotation>
-		<annotation cp="▬" draft="contributed">黒い長方形</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">黒い長方形</annotation>
-		<annotation cp="▭" draft="contributed">白い長方形</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">白い長方形</annotation>
-		<annotation cp="▮" draft="contributed">縦長の黒い長方形</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">縦長の黒い長方形</annotation>
-		<annotation cp="▰" draft="contributed">黒い平行四辺形</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">黒い平行四辺形</annotation>
+		<annotation cp="⊃">上位集合 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⊃" type="tts">上位集合</annotation>
+		<annotation cp="⊆">部分集合</annotation>
+		<annotation cp="⊆" type="tts">部分集合</annotation>
+		<annotation cp="⊇">数学記号 | 部分集合（逆方向） | 集合演算子</annotation>
+		<annotation cp="⊇" type="tts">部分集合（逆方向）</annotation>
+		<annotation cp="⊕">直和</annotation>
+		<annotation cp="⊕" type="tts">直和</annotation>
+		<annotation cp="⊖">対称差</annotation>
+		<annotation cp="⊖" type="tts">対称差</annotation>
+		<annotation cp="⊗">テンソル積 | 直積</annotation>
+		<annotation cp="⊗" type="tts">直積</annotation>
+		<annotation cp="⊘">丸囲みスラッシュ | 数学記号</annotation>
+		<annotation cp="⊘" type="tts">丸囲みスラッシュ</annotation>
+		<annotation cp="⊙">XNOR | 丸囲みドット | 演算子</annotation>
+		<annotation cp="⊙" type="tts">丸囲みドット</annotation>
+		<annotation cp="⊚">丸囲みリング</annotation>
+		<annotation cp="⊚" type="tts">丸囲みリング</annotation>
+		<annotation cp="⊛">アスタリスク | 丸囲みアスタリスク | 演算子</annotation>
+		<annotation cp="⊛" type="tts">丸囲みアスタリスク</annotation>
+		<annotation cp="⊞">四角囲みプラス | 数学記号</annotation>
+		<annotation cp="⊞" type="tts">四角囲みプラス</annotation>
+		<annotation cp="⊟">四角囲みマイナス</annotation>
+		<annotation cp="⊟" type="tts">四角囲みマイナス</annotation>
+		<annotation cp="⊥">垂直記号</annotation>
+		<annotation cp="⊥" type="tts">垂直記号</annotation>
+		<annotation cp="⊮">強制しない</annotation>
+		<annotation cp="⊮" type="tts">強制しない</annotation>
+		<annotation cp="⊰">前置関係 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⊰" type="tts">前置関係</annotation>
+		<annotation cp="⊱">後置関係 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⊱" type="tts">後置関係</annotation>
+		<annotation cp="⋭">数学記号 | 正規部分群（逆方向）又は等しいの否定 | 群論</annotation>
+		<annotation cp="⋭" type="tts">正規部分群（逆方向）又は等しいの否定</annotation>
+		<annotation cp="⊶">オリジナル</annotation>
+		<annotation cp="⊶" type="tts">オリジナル</annotation>
+		<annotation cp="⊹">エルミート共役行列 | 正方行列 | 自己随伴行列</annotation>
+		<annotation cp="⊹" type="tts">エルミート共役行列</annotation>
+		<annotation cp="⊿">数学記号 | 直角三角形</annotation>
+		<annotation cp="⊿" type="tts">直角三角形</annotation>
+		<annotation cp="⋁">ｎ項論理和 | 論理 | 選言命題</annotation>
+		<annotation cp="⋁" type="tts">ｎ項論理和</annotation>
+		<annotation cp="⋂">ｎ項共通部分 | 共通部分 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⋂" type="tts">ｎ項共通部分</annotation>
+		<annotation cp="⋃">ｎ項和集合 | 和集合 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⋃" type="tts">ｎ項和集合</annotation>
+		<annotation cp="⋅">ドット演算子</annotation>
+		<annotation cp="⋅" type="tts">ドット演算子</annotation>
+		<annotation cp="⋆">スター演算子</annotation>
+		<annotation cp="⋆" type="tts">スター演算子</annotation>
+		<annotation cp="⋈">バイナリ演算子 | 自然結合</annotation>
+		<annotation cp="⋈" type="tts">自然結合</annotation>
+		<annotation cp="⋒">二重共通部分 | 共通部分 | 数学記号 | 集合演算子</annotation>
+		<annotation cp="⋒" type="tts">二重共通部分</annotation>
+		<annotation cp="⋘">不等号 | 数学記号 | 極度に小さい</annotation>
+		<annotation cp="⋘" type="tts">極度に小さい</annotation>
+		<annotation cp="⋙">不等号 | 数学記号 | 極度に大きい</annotation>
+		<annotation cp="⋙" type="tts">極度に大きい</annotation>
+		<annotation cp="⋮">三点リーダー | 数学記号 | 縦三点リーダー</annotation>
+		<annotation cp="⋮" type="tts">縦三点リーダー</annotation>
+		<annotation cp="⋯">中央揃いの横三点リーダー</annotation>
+		<annotation cp="⋯" type="tts">中央揃いの横三点リーダー</annotation>
+		<annotation cp="⋰">右上がり斜め三点リーダー</annotation>
+		<annotation cp="⋰" type="tts">右上がり斜め三点リーダー</annotation>
+		<annotation cp="⋱">右下がり斜め三点リーダー</annotation>
+		<annotation cp="⋱" type="tts">右下がり斜め三点リーダー</annotation>
+		<annotation cp="■">黒四角</annotation>
+		<annotation cp="■" type="tts">黒四角</annotation>
+		<annotation cp="□">白四角</annotation>
+		<annotation cp="□" type="tts">白四角</annotation>
+		<annotation cp="▢">角丸白四角</annotation>
+		<annotation cp="▢" type="tts">角丸白四角</annotation>
+		<annotation cp="▣">白四角の中に黒四角</annotation>
+		<annotation cp="▣" type="tts">白四角の中に黒四角</annotation>
+		<annotation cp="▤">横縞線入りの四角</annotation>
+		<annotation cp="▤" type="tts">横縞線入りの四角</annotation>
+		<annotation cp="▥">縦縞線入りの四角</annotation>
+		<annotation cp="▥" type="tts">縦縞線入りの四角</annotation>
+		<annotation cp="▦">格子線入りの四角</annotation>
+		<annotation cp="▦" type="tts">格子線入りの四角</annotation>
+		<annotation cp="▧">左上右下斜め縞線入りの四角</annotation>
+		<annotation cp="▧" type="tts">左上右下斜め縞線入りの四角</annotation>
+		<annotation cp="▨">右上左下斜め縞線入りの四角</annotation>
+		<annotation cp="▨" type="tts">右上左下斜め縞線入りの四角</annotation>
+		<annotation cp="▩">斜め格子線入りの四角</annotation>
+		<annotation cp="▩" type="tts">斜め格子線入りの四角</annotation>
+		<annotation cp="▬">黒い長方形</annotation>
+		<annotation cp="▬" type="tts">黒い長方形</annotation>
+		<annotation cp="▭">白い長方形</annotation>
+		<annotation cp="▭" type="tts">白い長方形</annotation>
+		<annotation cp="▮">縦長の黒い長方形</annotation>
+		<annotation cp="▮" type="tts">縦長の黒い長方形</annotation>
+		<annotation cp="▰">黒い平行四辺形</annotation>
+		<annotation cp="▰" type="tts">黒い平行四辺形</annotation>
 		<annotation cp="▲">三角 | 上 | 上向黒三角 | 塗りつぶし | 矢印 | 黒三角</annotation>
 		<annotation cp="▲" type="tts">上向黒三角</annotation>
-		<annotation cp="△" draft="contributed">上向き白三角</annotation>
-		<annotation cp="△" type="tts" draft="contributed">上向き白三角</annotation>
-		<annotation cp="▴" draft="contributed">上向き黒三角小</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">上向き黒三角小</annotation>
-		<annotation cp="▵" draft="contributed">上向き白三角小</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">上向き白三角小</annotation>
-		<annotation cp="▷" draft="contributed">右向き白三角</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">右向き白三角</annotation>
-		<annotation cp="▸" draft="contributed">右向き黒三角小</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">右向き黒三角小</annotation>
-		<annotation cp="▹" draft="contributed">右向き白三角小</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">右向き白三角小</annotation>
-		<annotation cp="►" draft="contributed">右向きの黒い二等辺三角形</annotation>
-		<annotation cp="►" type="tts" draft="contributed">右向きの黒い二等辺三角形</annotation>
-		<annotation cp="▻" draft="contributed">右向きの白い二等辺三角形</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">右向きの白い二等辺三角形</annotation>
+		<annotation cp="△">上向き白三角</annotation>
+		<annotation cp="△" type="tts">上向き白三角</annotation>
+		<annotation cp="▴">上向き黒三角小</annotation>
+		<annotation cp="▴" type="tts">上向き黒三角小</annotation>
+		<annotation cp="▵">上向き白三角小</annotation>
+		<annotation cp="▵" type="tts">上向き白三角小</annotation>
+		<annotation cp="▷">右向き白三角</annotation>
+		<annotation cp="▷" type="tts">右向き白三角</annotation>
+		<annotation cp="▸">右向き黒三角小</annotation>
+		<annotation cp="▸" type="tts">右向き黒三角小</annotation>
+		<annotation cp="▹">右向き白三角小</annotation>
+		<annotation cp="▹" type="tts">右向き白三角小</annotation>
+		<annotation cp="►">右向きの黒い二等辺三角形</annotation>
+		<annotation cp="►" type="tts">右向きの黒い二等辺三角形</annotation>
+		<annotation cp="▻">右向きの白い二等辺三角形</annotation>
+		<annotation cp="▻" type="tts">右向きの白い二等辺三角形</annotation>
 		<annotation cp="▼">三角 | 下 | 下向黒三角 | 塗りつぶし | 矢印 | 黒三角</annotation>
 		<annotation cp="▼" type="tts">下向黒三角</annotation>
-		<annotation cp="▽" draft="contributed">下向き白三角</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">下向き白三角</annotation>
-		<annotation cp="▾" draft="contributed">下向き黒三角小</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">下向き黒三角小</annotation>
-		<annotation cp="▿" draft="contributed">下向き白三角小</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">下向き白三角小</annotation>
-		<annotation cp="◁" draft="contributed">左向き白三角</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">左向き白三角</annotation>
-		<annotation cp="◂" draft="contributed">左向き黒三角小</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">左向き黒三角小</annotation>
-		<annotation cp="◃" draft="contributed">左向き白三角小</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">左向き白三角小</annotation>
-		<annotation cp="◄" draft="contributed">左向きの黒い二等辺三角形</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">左向きの黒い二等辺三角形</annotation>
-		<annotation cp="◅" draft="contributed">左向きの白い二等辺三角形</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">左向きの白い二等辺三角形</annotation>
-		<annotation cp="◆" draft="contributed">黒ひし形</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">黒ひし形</annotation>
-		<annotation cp="◇" draft="contributed">白ひし形</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">白ひし形</annotation>
-		<annotation cp="◈" draft="contributed">白ひし形の中に黒ひし形</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">白ひし形の中に黒ひし形</annotation>
-		<annotation cp="◉" draft="contributed">白丸の中に黒丸</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">白丸の中に黒丸</annotation>
+		<annotation cp="▽">下向き白三角</annotation>
+		<annotation cp="▽" type="tts">下向き白三角</annotation>
+		<annotation cp="▾">下向き黒三角小</annotation>
+		<annotation cp="▾" type="tts">下向き黒三角小</annotation>
+		<annotation cp="▿">下向き白三角小</annotation>
+		<annotation cp="▿" type="tts">下向き白三角小</annotation>
+		<annotation cp="◁">左向き白三角</annotation>
+		<annotation cp="◁" type="tts">左向き白三角</annotation>
+		<annotation cp="◂">左向き黒三角小</annotation>
+		<annotation cp="◂" type="tts">左向き黒三角小</annotation>
+		<annotation cp="◃">左向き白三角小</annotation>
+		<annotation cp="◃" type="tts">左向き白三角小</annotation>
+		<annotation cp="◄">左向きの黒い二等辺三角形</annotation>
+		<annotation cp="◄" type="tts">左向きの黒い二等辺三角形</annotation>
+		<annotation cp="◅">左向きの白い二等辺三角形</annotation>
+		<annotation cp="◅" type="tts">左向きの白い二等辺三角形</annotation>
+		<annotation cp="◆">黒ひし形</annotation>
+		<annotation cp="◆" type="tts">黒ひし形</annotation>
+		<annotation cp="◇">白ひし形</annotation>
+		<annotation cp="◇" type="tts">白ひし形</annotation>
+		<annotation cp="◈">白ひし形の中に黒ひし形</annotation>
+		<annotation cp="◈" type="tts">白ひし形の中に黒ひし形</annotation>
+		<annotation cp="◉">丸で囲まれたドット | 塗りつぶしの同心円 | 白丸の中に黒丸 | 魚眼</annotation>
+		<annotation cp="◉" type="tts">白丸の中に黒丸</annotation>
 		<annotation cp="◊">ダイア | ダイヤ | ひし形 | 四角</annotation>
 		<annotation cp="◊" type="tts">ひし形</annotation>
 		<annotation cp="○">中抜き | 丸 | 白丸 | 輪</annotation>
 		<annotation cp="○" type="tts">白丸</annotation>
-		<annotation cp="◌" draft="contributed">点線の丸</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">点線の丸</annotation>
-		<annotation cp="◍" draft="contributed">縦線入りの丸</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">縦線入りの丸</annotation>
-		<annotation cp="◎" draft="contributed">二重丸</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">二重丸</annotation>
+		<annotation cp="◌">点線の丸</annotation>
+		<annotation cp="◌" type="tts">点線の丸</annotation>
+		<annotation cp="◍">縦線入りの丸</annotation>
+		<annotation cp="◍" type="tts">縦線入りの丸</annotation>
+		<annotation cp="◎">二重丸 | 同心円 | 標的</annotation>
+		<annotation cp="◎" type="tts">二重丸</annotation>
 		<annotation cp="●">丸 | 塗りつぶし | 黒丸</annotation>
 		<annotation cp="●" type="tts">黒丸</annotation>
-		<annotation cp="◐" draft="contributed">左半黒丸</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">左半黒丸</annotation>
-		<annotation cp="◑" draft="contributed">右半黒丸</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">右半黒丸</annotation>
-		<annotation cp="◒" draft="contributed">下半黒丸</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">下半黒丸</annotation>
-		<annotation cp="◓" draft="contributed">上半黒丸</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">上半黒丸</annotation>
-		<annotation cp="◔" draft="contributed">右上に黒い四分円がある白丸</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">右上に黒い四分円がある白丸</annotation>
-		<annotation cp="◕" draft="contributed">左上に白い四分円のある黒丸</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">左上に白い四分円のある黒丸</annotation>
-		<annotation cp="◖" draft="contributed">黒い左半円</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">黒い左半円</annotation>
-		<annotation cp="◗" draft="contributed">黒い右半円</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">黒い右半円</annotation>
-		<annotation cp="◘" draft="contributed">反転ビュレット</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">反転ビュレット</annotation>
-		<annotation cp="◙" draft="contributed">黒四角の中に白丸</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">黒四角の中に白丸</annotation>
-		<annotation cp="◜" draft="contributed">左上四分円弧</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">左上四分円弧</annotation>
-		<annotation cp="◝" draft="contributed">右上四分円弧</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">右上四分円弧</annotation>
-		<annotation cp="◞" draft="contributed">右下四分円弧</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">右下四分円弧</annotation>
-		<annotation cp="◟" draft="contributed">左下四分円弧</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">左下四分円弧</annotation>
-		<annotation cp="◠" draft="contributed">上半円弧</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">上半円弧</annotation>
-		<annotation cp="◡" draft="contributed">下半円弧</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">下半円弧</annotation>
-		<annotation cp="◢" draft="contributed">黒い右下三角</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">黒い右下三角</annotation>
-		<annotation cp="◣" draft="contributed">黒い左下三角</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">黒い左下三角</annotation>
-		<annotation cp="◤" draft="contributed">黒い左上三角</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">黒い左上三角</annotation>
-		<annotation cp="◥" draft="contributed">黒い右上三角</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">黒い右上三角</annotation>
-		<annotation cp="◦" draft="contributed">白ビュレット</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">白ビュレット</annotation>
+		<annotation cp="◐">左半黒丸</annotation>
+		<annotation cp="◐" type="tts">左半黒丸</annotation>
+		<annotation cp="◑">右半黒丸</annotation>
+		<annotation cp="◑" type="tts">右半黒丸</annotation>
+		<annotation cp="◒">下半黒丸</annotation>
+		<annotation cp="◒" type="tts">下半黒丸</annotation>
+		<annotation cp="◓">上半黒丸</annotation>
+		<annotation cp="◓" type="tts">上半黒丸</annotation>
+		<annotation cp="◔">右上に黒い四分円がある白丸</annotation>
+		<annotation cp="◔" type="tts">右上に黒い四分円がある白丸</annotation>
+		<annotation cp="◕">左上に白い四分円のある黒丸</annotation>
+		<annotation cp="◕" type="tts">左上に白い四分円のある黒丸</annotation>
+		<annotation cp="◖">黒い左半円</annotation>
+		<annotation cp="◖" type="tts">黒い左半円</annotation>
+		<annotation cp="◗">黒い右半円</annotation>
+		<annotation cp="◗" type="tts">黒い右半円</annotation>
+		<annotation cp="◘">反転ビュレット</annotation>
+		<annotation cp="◘" type="tts">反転ビュレット</annotation>
+		<annotation cp="◙">黒四角の中に白丸</annotation>
+		<annotation cp="◙" type="tts">黒四角の中に白丸</annotation>
+		<annotation cp="◜">左上四分円弧</annotation>
+		<annotation cp="◜" type="tts">左上四分円弧</annotation>
+		<annotation cp="◝">右上四分円弧</annotation>
+		<annotation cp="◝" type="tts">右上四分円弧</annotation>
+		<annotation cp="◞">右下四分円弧</annotation>
+		<annotation cp="◞" type="tts">右下四分円弧</annotation>
+		<annotation cp="◟">左下四分円弧</annotation>
+		<annotation cp="◟" type="tts">左下四分円弧</annotation>
+		<annotation cp="◠">上半円弧</annotation>
+		<annotation cp="◠" type="tts">上半円弧</annotation>
+		<annotation cp="◡">下半円弧</annotation>
+		<annotation cp="◡" type="tts">下半円弧</annotation>
+		<annotation cp="◢">黒い右下三角</annotation>
+		<annotation cp="◢" type="tts">黒い右下三角</annotation>
+		<annotation cp="◣">黒い左下三角</annotation>
+		<annotation cp="◣" type="tts">黒い左下三角</annotation>
+		<annotation cp="◤">黒い左上三角</annotation>
+		<annotation cp="◤" type="tts">黒い左上三角</annotation>
+		<annotation cp="◥">黒い右上三角</annotation>
+		<annotation cp="◥" type="tts">黒い右上三角</annotation>
+		<annotation cp="◦">白ビュレット</annotation>
+		<annotation cp="◦" type="tts">白ビュレット</annotation>
 		<annotation cp="◯">中抜き | 丸 | 大きな白丸 | 白丸大 | 輪</annotation>
 		<annotation cp="◯" type="tts">白丸大</annotation>
-		<annotation cp="◳" draft="contributed">右上に四角のある白四角</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">右上に四角のある白四角</annotation>
-		<annotation cp="◷" draft="contributed">右上に四分円のある白丸</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">右上に四分円のある白丸</annotation>
-		<annotation cp="◿" draft="contributed">右下三角</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">右下三角</annotation>
+		<annotation cp="◳">右上に四角のある白四角</annotation>
+		<annotation cp="◳" type="tts">右上に四角のある白四角</annotation>
+		<annotation cp="◷">右上に四分円のある白丸</annotation>
+		<annotation cp="◷" type="tts">右上に四分円のある白丸</annotation>
+		<annotation cp="◿">右下三角</annotation>
+		<annotation cp="◿" type="tts">右下三角</annotation>
 		<annotation cp="♪">八分音符 | 記号 | 音楽 | 音符</annotation>
 		<annotation cp="♪" type="tts">八分音符</annotation>
-		<annotation cp="⨧" draft="contributed">2下付きプラス</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">2下付きプラス</annotation>
-		<annotation cp="⨯" draft="contributed">ベクトルクロス積</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">ベクトルクロス積</annotation>
-		<annotation cp="⨼" draft="contributed">内部積</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">内部積</annotation>
-		<annotation cp="⩣" draft="contributed">二重下線付き論理和</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">二重下線付き論理和</annotation>
-		<annotation cp="⩽" draft="contributed">より小さいか又は等しい（斜め）</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">より小さいか又は等しい（斜め）</annotation>
-		<annotation cp="⪍" draft="contributed">より小さいか又はほぼ等しい</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">より小さいか又はほぼ等しい</annotation>
-		<annotation cp="⪚" draft="contributed">より大きいか又は等しい（上2本線）</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">より大きいか又は等しい（上2本線）</annotation>
-		<annotation cp="⪺" draft="contributed">後にあるか又はほぼ等しい</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">後にあるか又はほぼ等しい</annotation>
+		<annotation cp="⨧">2下付きプラス</annotation>
+		<annotation cp="⨧" type="tts">2下付きプラス</annotation>
+		<annotation cp="⨯">ベクトルクロス積</annotation>
+		<annotation cp="⨯" type="tts">ベクトルクロス積</annotation>
+		<annotation cp="⨼">内部積</annotation>
+		<annotation cp="⨼" type="tts">内部積</annotation>
+		<annotation cp="⩣">二重下線付き論理和</annotation>
+		<annotation cp="⩣" type="tts">二重下線付き論理和</annotation>
+		<annotation cp="⩽">より小さいか又は等しい（斜め）</annotation>
+		<annotation cp="⩽" type="tts">より小さいか又は等しい（斜め）</annotation>
+		<annotation cp="⪍">より小さいか又はほぼ等しい</annotation>
+		<annotation cp="⪍" type="tts">より小さいか又はほぼ等しい</annotation>
+		<annotation cp="⪚">より大きいか又は等しい（上2本線） | 不等号 | 数学記号</annotation>
+		<annotation cp="⪚" type="tts">より大きいか又は等しい（上2本線）</annotation>
+		<annotation cp="⪺">後にあるか又はほぼ等しい</annotation>
+		<annotation cp="⪺" type="tts">後にあるか又はほぼ等しい</annotation>
 		<annotation cp="♭">フラット | 記号 | 音楽 | 音符</annotation>
 		<annotation cp="♭" type="tts">フラット</annotation>
 		<annotation cp="♯">シャープ | 記号 | 音楽 | 音符</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">嬉し泣き</annotation>
 		<annotation cp="🙂">スマイル | 微笑み | 微笑む | 笑顔 | 顔</annotation>
 		<annotation cp="🙂" type="tts">微笑む</annotation>
+		<annotation cp="🙂‍↕">はい | 頷く | 顔 | 首を振る</annotation>
+		<annotation cp="🙂‍↕" type="tts">首を縦に振る</annotation>
+		<annotation cp="🙂‍↔">いいえ | 不賛成 | 顔 | 首を振る</annotation>
+		<annotation cp="🙂‍↔" type="tts">首を横に振る</annotation>
 		<annotation cp="🙃">さかさま | さかさまの顔 | 顔</annotation>
 		<annotation cp="🙃" type="tts">さかさまの顔</annotation>
 		<annotation cp="🫠">とろける | 液体 | 溶けそう | 溶けている顔 | 溶ける | 顔</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">大人</annotation>
 		<annotation cp="👱">ブロンド | 人 | 金髪 | 金髪の人 | 顔</annotation>
 		<annotation cp="👱" type="tts">金髪の人</annotation>
+		<annotation cp="🧑‍🧒">大人一人 | 子供一人 | 家族 | 親子</annotation>
+		<annotation cp="🧑‍🧒" type="tts">家族: 大人一人と子供一人</annotation>
+		<annotation cp="🧑‍🧒‍🧒">大人一人 | 子供二人 | 家族 | 親子</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">家族: 大人一人と子供二人</annotation>
+		<annotation cp="🧑‍🧑‍🧒">大人二人 | 子供一人 | 家族 | 親子</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">家族: 大人二人と子供一人</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">大人二人 | 子供二人 | 家族 | 親子</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">家族: 大人二人と子供二人</annotation>
 		<annotation cp="👨">大人 | 男 | 男性 | 顔</annotation>
 		<annotation cp="👨" type="tts">男性</annotation>
 		<annotation cp="🧔">あごひげ | あごひげの人 | ひげ | 人 | 顔</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">前を向いているひよこ</annotation>
 		<annotation cp="🐦">動物 | 顔 | 鳥</annotation>
 		<annotation cp="🐦" type="tts">鳥</annotation>
+		<annotation cp="🐦‍🔥">不死鳥 | 火の鳥 | 神話</annotation>
+		<annotation cp="🐦‍🔥" type="tts">フェニックス</annotation>
 		<annotation cp="🐧">ペンギン | 動物 | 鳥</annotation>
 		<annotation cp="🐧" type="tts">ペンギン</annotation>
 		<annotation cp="🕊">ハト | 動物 | 平和 | 鳥</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">オウム</annotation>
 		<annotation cp="🪽">天使 | 神話 | 空 | 翼 | 飛ぶ | 鳥</annotation>
 		<annotation cp="🪽" type="tts">翼</annotation>
+		<annotation cp="🐦‍⬛">カラス | 烏 | 鳥 | 黒 | 黒鳥</annotation>
+		<annotation cp="🐦‍⬛" type="tts">黒い鳥</annotation>
 		<annotation cp="🪿">アヒル | ガーガー | ガチョウ | まぬけ | 鳥</annotation>
 		<annotation cp="🪿" type="tts">ガチョウ</annotation>
 		<annotation cp="🐸">カエル | カエルの顔 | 動物 | 顔</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">鳥の卵と巣</annotation>
 		<annotation cp="🍄">きのこ | キノコ | マッシュルーム | 毒 | 野菜</annotation>
 		<annotation cp="🍄" type="tts">キノコ</annotation>
+		<annotation cp="🍄‍🟫">しいたけ | マッシュルーム | 茶色 | 茸</annotation>
+		<annotation cp="🍄‍🟫" type="tts">きのこ</annotation>
 		<annotation cp="🍇">グレープ | ぶどう | 果物</annotation>
 		<annotation cp="🍇" type="tts">ぶどう</annotation>
 		<annotation cp="🍈">メロン | 果物 | 野菜</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">みかん</annotation>
 		<annotation cp="🍋">レモン | 果物</annotation>
 		<annotation cp="🍋" type="tts">レモン</annotation>
+		<annotation cp="🍋‍🟩">トロピカル | ライム | 果物 | 柑橘類</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ライム</annotation>
 		<annotation cp="🍌">バナナ | 果物</annotation>
 		<annotation cp="🍌" type="tts">バナナ</annotation>
 		<annotation cp="🍍">トロピカル | パイナップル | パイン | 果物</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">リンクシンボル</annotation>
 		<annotation cp="⛓">くさり | チェーン | 鎖</annotation>
 		<annotation cp="⛓" type="tts">鎖</annotation>
+		<annotation cp="⛓‍💥">くさり | チェーン | 壊れた</annotation>
+		<annotation cp="⛓‍💥" type="tts">壊れた鎖</annotation>
 		<annotation cp="🪝">フック | 引っ掛け | 掛け金 | 留め金</annotation>
 		<annotation cp="🪝" type="tts">フック</annotation>
 		<annotation cp="🧰">ツールボックス | メカニック | 工具箱 | 整備士 | 機械工</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">上下矢印</annotation>
 		<annotation cp="↔">左右 | 左右矢印 | 矢印</annotation>
 		<annotation cp="↔" type="tts">左右矢印</annotation>
-		<annotation cp="↮" draft="contributed">斜線付き左右矢印</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">斜線付き左右矢印</annotation>
+		<annotation cp="↮">斜線付き左右矢印</annotation>
+		<annotation cp="↮" type="tts">斜線付き左右矢印</annotation>
 		<annotation cp="↩">カーブ | 右カーブ矢印 | 左 | 曲線 | 矢印</annotation>
 		<annotation cp="↩" type="tts">右カーブ矢印</annotation>
 		<annotation cp="↪">カーブ | 右 | 左カーブ矢印 | 曲線 | 矢印</annotation>
@@ -3833,38 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">ポンド</annotation>
 		<annotation cp="¥">CNY | JPY | 中国元 | 円 | 日本円 | 通貨</annotation>
 		<annotation cp="¥" type="tts">円</annotation>
-		<annotation cp="₢" draft="contributed">クルゼイロ</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">クルゼイロ</annotation>
-		<annotation cp="₣" draft="contributed">フランスフラン</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">フランスフラン</annotation>
-		<annotation cp="₤" draft="contributed">リラ</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">リラ</annotation>
+		<annotation cp="₢">BRB | クルゼイロ | 通貨</annotation>
+		<annotation cp="₢" type="tts">クルゼイロ</annotation>
+		<annotation cp="₣">フラン | フランスフラン | 通貨</annotation>
+		<annotation cp="₣" type="tts">フランスフラン</annotation>
+		<annotation cp="₤">リラ | 通貨</annotation>
+		<annotation cp="₤" type="tts">リラ</annotation>
 		<annotation cp="₥">ミル | 通貨</annotation>
 		<annotation cp="₥" type="tts">ミル</annotation>
 		<annotation cp="₩">KPW | KRW | ウォン | 北朝鮮ウォン | 通貨 | 韓国ウォン</annotation>
 		<annotation cp="₩" type="tts">ウォン</annotation>
 		<annotation cp="€">EUR | ユーロ | 通貨</annotation>
 		<annotation cp="€" type="tts">ユーロ</annotation>
-		<annotation cp="₰" draft="contributed">ドイツマルク</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">ドイツマルク</annotation>
+		<annotation cp="₰">ドイツマルク | ペニヒ | 通貨</annotation>
+		<annotation cp="₰" type="tts">ドイツマルク</annotation>
 		<annotation cp="₱">フィリピンペソ | ペソ | メキシコペソ | 通貨</annotation>
 		<annotation cp="₱" type="tts">ペソ</annotation>
-		<annotation cp="₳" draft="contributed">アウストラル</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">アウストラル</annotation>
-		<annotation cp="₶" draft="contributed">トゥールリーブル</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">トゥールリーブル</annotation>
-		<annotation cp="₷" draft="contributed">スペスミーロ</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">スペスミーロ</annotation>
+		<annotation cp="₳">ARA | アウストラル | 通貨</annotation>
+		<annotation cp="₳" type="tts">アウストラル</annotation>
+		<annotation cp="₶">トゥールリーブル | 通貨</annotation>
+		<annotation cp="₶" type="tts">トゥールリーブル</annotation>
+		<annotation cp="₷">スペスミーロ | 通貨</annotation>
+		<annotation cp="₷" type="tts">スペスミーロ</annotation>
 		<annotation cp="₹">インドルピー | ルピー | 通貨</annotation>
 		<annotation cp="₹" type="tts">インドルピー</annotation>
 		<annotation cp="₽">ルーブル | ロシアルーブル | 通貨</annotation>
 		<annotation cp="₽" type="tts">ルーブル</annotation>
 		<annotation cp="₿">BTC | ビットコイン | 仮想通貨 | 通貨</annotation>
 		<annotation cp="₿" type="tts">ビットコイン</annotation>
-		<annotation cp="₨" draft="contributed">ルピー</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">ルピー</annotation>
-		<annotation cp="﷼" draft="contributed">リヤル</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">リヤル</annotation>
+		<annotation cp="₨">ルピー | 通貨</annotation>
+		<annotation cp="₨" type="tts">ルピー</annotation>
+		<annotation cp="﷼">リヤル | 通貨</annotation>
+		<annotation cp="﷼" type="tts">リヤル</annotation>
 		<annotation cp="¹">1 | 上付き1 | 添え字</annotation>
 		<annotation cp="¹" type="tts">上付き1</annotation>
 		<annotation cp="²">2 | 2乗 | 上付き2 | 添え字</annotation>

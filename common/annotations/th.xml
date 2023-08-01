@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">โทนผิวสีแทน</annotation>
 		<annotation cp="🏿">โทนผิวสีเข้ม | โทนสีผิว | ผิวโทน 6</annotation>
 		<annotation cp="🏿" type="tts">โทนผิวสีเข้ม</annotation>
-		<annotation cp="‾" draft="contributed">ขีดบน</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">ขีดบน</annotation>
+		<annotation cp="‾">ขีดบน</annotation>
+		<annotation cp="‾" type="tts">ขีดบน</annotation>
 		<annotation cp="_">ขีดกลาง | ขีดล่าง | ขีดเส้นใต้ | สัญประกาศ | เส้น | เส้นใต้</annotation>
 		<annotation cp="_" type="tts">สัญประกาศ</annotation>
 		<annotation cp="-">ขีดกลาง | เครื่องหมายลบ | ยัติภังค์ | ยัติภังค์-เครื่องหมายลบ</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">เครื่องหมายปรัศนีกลับหัว</annotation>
 		<annotation cp="؟">คำถาม | เครื่องหมายปรัศนี | เครื่องหมายปรัศนีแบบอารบิก | อารบิก</annotation>
 		<annotation cp="؟" type="tts">เครื่องหมายปรัศนีแบบอารบิก</annotation>
-		<annotation cp="‽" draft="contributed">อินเทอร์โรแบง</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">อินเทอร์โรแบง</annotation>
+		<annotation cp="‽">อินเทอร์โรแบง</annotation>
+		<annotation cp="‽" type="tts">อินเทอร์โรแบง</annotation>
 		<annotation cp=".">เครื่องหมายจุด | จุด | มหัพภาค</annotation>
 		<annotation cp="." type="tts">มหัพภาค</annotation>
 		<annotation cp="…">จุดไข่ปลา | จุดหลายจุด | เอลลิปซิส</annotation>
@@ -161,17 +161,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">ไพรม์คู่</annotation>
 		<annotation cp="‴">ทริปเปิลไพรม์ | ไพรม์</annotation>
 		<annotation cp="‴" type="tts">ทริปเปิลไพรม์</annotation>
-		<annotation cp="‸" draft="contributed">แคเรต</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">แคเรต</annotation>
+		<annotation cp="‸">แคเรต</annotation>
+		<annotation cp="‸" type="tts">แคเรต</annotation>
 		<annotation cp="※">เครื่องหมายอ้างอิง</annotation>
 		<annotation cp="※" type="tts">เครื่องหมายอ้างอิง</annotation>
-		<annotation cp="⁂" draft="contributed">แอสเทอริซึม</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">แอสเทอริซึม</annotation>
+		<annotation cp="⁂">ดอกจัน | ดาว | แอสเทอริซึม</annotation>
+		<annotation cp="⁂" type="tts">แอสเทอริซึม</annotation>
 		<annotation cp="`">เกรฟ | เกรฟแอกเซนต์ | โทน | แอกเซนต์</annotation>
 		<annotation cp="`" type="tts">เกรฟแอกเซนต์</annotation>
 		<annotation cp="´">การเน้นเสียง | เครื่องหมายกำกับเสียงสูง | โทน | เสียงสูง</annotation>
 		<annotation cp="´" type="tts">เครื่องหมายกำกับเสียงสูง</annotation>
-		<annotation cp="^">การเน้นเสียง | เครื่องหมายบั้ง | เครื่องหมายหมวก | เซอร์คัมเฟล็กซ์ | ตัวกำกับเสียงเซอร์คัมเฟล็กซ์ | ตัวชี้ | ยกกำลัง | รูปสามเหลี่ยม</annotation>
+		<annotation cp="^">การเน้นเสียง | เครื่องหมายบั้ง | เครื่องหมายหมวก | เซอร์คัมเฟล็กซ์ | ตัวชี้ | ยกกำลัง | รูปสามเหลี่ยม</annotation>
 		<annotation cp="^" type="tts">ตัวกำกับเสียงเซอร์คัมเฟล็กซ์</annotation>
 		<annotation cp="¨">เครื่องหมายไดเอเรซิส | ไดเอเรซิส | เทรม่า | อุมเล้าท์</annotation>
 		<annotation cp="¨" type="tts">เครื่องหมายไดเอเรซิส</annotation>
@@ -181,189 +181,189 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">ลิขสิทธิ์แถบบันทึกเสียง</annotation>
 		<annotation cp="←">ซ้าย | ลูกศร | ลูกศรชี้ซ้าย</annotation>
 		<annotation cp="←" type="tts">ลูกศรชี้ซ้าย</annotation>
-		<annotation cp="↚" draft="contributed">ขีดทับลูกศรซ้าย</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">ขีดทับลูกศรซ้าย</annotation>
+		<annotation cp="↚">ขีดทับลูกศรซ้าย</annotation>
+		<annotation cp="↚" type="tts">ขีดทับลูกศรซ้าย</annotation>
 		<annotation cp="→">ขวา | ลูกศร | ลูกศรชี้ขวา</annotation>
 		<annotation cp="→" type="tts">ลูกศรชี้ขวา</annotation>
-		<annotation cp="↛" draft="contributed">ขีดทับลูกศรขวา</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">ขีดทับลูกศรขวา</annotation>
+		<annotation cp="↛">ขีดทับลูกศรขวา</annotation>
+		<annotation cp="↛" type="tts">ขีดทับลูกศรขวา</annotation>
 		<annotation cp="↑">ขึ้น | ลูกศร | ลูกศรแบบชี้ขึ้น</annotation>
 		<annotation cp="↑" type="tts">ลูกศรแบบชี้ขึ้น</annotation>
 		<annotation cp="↓">ลง | ลูกศร | ลูกศรแบบชี้ลง</annotation>
 		<annotation cp="↓" type="tts">ลูกศรแบบชี้ลง</annotation>
-		<annotation cp="↜" draft="contributed">ลูกศรคลื่นซ้าย</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">ลูกศรคลื่นซ้าย</annotation>
-		<annotation cp="↝" draft="contributed">ลูกศรคลื่นขวา</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">ลูกศรคลื่นขวา</annotation>
-		<annotation cp="↞" draft="contributed">ลูกศรสองหัวซ้าย</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">ลูกศรสองหัวซ้าย</annotation>
-		<annotation cp="↟" draft="contributed">ลูกศรสองหัวขึ้น</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">ลูกศรสองหัวขึ้น</annotation>
-		<annotation cp="↠" draft="contributed">ลูกศรสองหัวขวา</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">ลูกศรสองหัวขวา</annotation>
-		<annotation cp="↡" draft="contributed">ลูกศรสองหัวลง</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">ลูกศรสองหัวลง</annotation>
-		<annotation cp="↢" draft="contributed">หางลูกศรซ้าย</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">หางลูกศรซ้าย</annotation>
-		<annotation cp="↣" draft="contributed">หางลูกศรขวา</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">หางลูกศรขวา</annotation>
-		<annotation cp="↤" draft="contributed">ลูกศรซ้ายจากแท่ง</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">ลูกศรซ้ายจากแท่ง</annotation>
-		<annotation cp="↥" draft="contributed">ลูกศรขึ้นจากแท่ง</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">ลูกศรขึ้นจากแท่ง</annotation>
-		<annotation cp="↦" draft="contributed">ลูกศรขวาจากแท่ง</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">ลูกศรขวาจากแท่ง</annotation>
-		<annotation cp="↧" draft="contributed">ลูกศรลงจากแท่ง</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">ลูกศรลงจากแท่ง</annotation>
-		<annotation cp="↨" draft="contributed">ลูกศรขึ้นลงมีฐาน</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">ลูกศรขึ้นลงมีฐาน</annotation>
-		<annotation cp="↫" draft="contributed">ลูกศรซ้ายหางม้วน</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">ลูกศรซ้ายหางม้วน</annotation>
-		<annotation cp="↬" draft="contributed">ลูกศรขวาหางม้วน</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">ลูกศรขวาหางม้วน</annotation>
-		<annotation cp="↭" draft="contributed">ลูกศรคลื่นซ้ายขวา</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">ลูกศรคลื่นซ้ายขวา</annotation>
-		<annotation cp="↯" draft="contributed">ลูกศรซิกแซกลง</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">ลูกศรซิกแซกลง</annotation>
-		<annotation cp="↰" draft="contributed">ลูกศรขึ้นปลายซ้าย</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">ลูกศรขึ้นปลายซ้าย</annotation>
-		<annotation cp="↱" draft="contributed">ลูกศรขึ้นปลายขวา</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">ลูกศรขึ้นปลายขวา</annotation>
-		<annotation cp="↲" draft="contributed">ลูกศรลงปลายซ้าย</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">ลูกศรลงปลายซ้าย</annotation>
-		<annotation cp="↳" draft="contributed">ลูกศรลงปลายขวา</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">ลูกศรลงปลายขวา</annotation>
-		<annotation cp="↴" draft="contributed">ลูกศรมุมขวาลง</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">ลูกศรมุมขวาลง</annotation>
-		<annotation cp="↵" draft="contributed">ลูกศรมุมลงซ้าย</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">ลูกศรมุมลงซ้าย</annotation>
-		<annotation cp="↶" draft="contributed">ลูกศรครึ่งวงกลมบนทวนเข็มนาฬิกา</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">ลูกศรครึ่งวงกลมบนทวนเข็มนาฬิกา</annotation>
-		<annotation cp="↷" draft="contributed">ลูกศรครึ่งวงกลมบนตามเข็มนาฬิกา</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">ลูกศรครึ่งวงกลมบนตามเข็มนาฬิกา</annotation>
-		<annotation cp="↸" draft="contributed">ลูกศรแท่งยาวตะวันตกเฉียงเหนือ</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">ลูกศรแท่งยาวตะวันตกเฉียงเหนือ</annotation>
-		<annotation cp="↹" draft="contributed">แท่งลูกศรซ้ายเหนือแท่งลูกศรขวา</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">แท่งลูกศรซ้ายเหนือแท่งลูกศรขวา</annotation>
-		<annotation cp="↺" draft="contributed">ลูกศรวงกลมเปิดทวนเข็มนาฬิกา</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">ลูกศรวงกลมเปิดทวนเข็มนาฬิกา</annotation>
-		<annotation cp="↻" draft="contributed">ลูกศรวงกลมเปิดตามเข็มนาฬิกา</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">ลูกศรวงกลมเปิดตามเข็มนาฬิกา</annotation>
-		<annotation cp="↼" draft="contributed">เงี่ยงฉมวกซ้ายขึ้น</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">เงี่ยงฉมวกซ้ายขึ้น</annotation>
-		<annotation cp="↽" draft="contributed">เงี่ยงฉมวกซ้ายลง</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">เงี่ยงฉมวกซ้ายลง</annotation>
-		<annotation cp="↾" draft="contributed">เงี่ยงฉมวกขึ้นขวา</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">เงี่ยงฉมวกขึ้นขวา</annotation>
-		<annotation cp="↿" draft="contributed">เงี่ยงฉมวกขึ้นซ้าย</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">เงี่ยงฉมวกขึ้นซ้าย</annotation>
-		<annotation cp="⇀" draft="contributed">เงี่ยงฉมวกขวาขึ้น</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">เงี่ยงฉมวกขวาขึ้น</annotation>
-		<annotation cp="⇁" draft="contributed">เงี่ยงฉมวกขวาลง</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">เงี่ยงฉมวกขวาลง</annotation>
-		<annotation cp="⇂" draft="contributed">เงี่ยงฉมวกลงขวา</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">เงี่ยงฉมวกลงขวา</annotation>
-		<annotation cp="⇃" draft="contributed">เงี่ยงฉมวกลงซ้าย</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">เงี่ยงฉมวกลงซ้าย</annotation>
-		<annotation cp="⇄" draft="contributed">ลูกศรขวาเหนือลูกศรซ้าย</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">ลูกศรขวาเหนือลูกศรซ้าย</annotation>
+		<annotation cp="↜">ลูกศรคลื่นซ้าย</annotation>
+		<annotation cp="↜" type="tts">ลูกศรคลื่นซ้าย</annotation>
+		<annotation cp="↝">ลูกศรคลื่นขวา</annotation>
+		<annotation cp="↝" type="tts">ลูกศรคลื่นขวา</annotation>
+		<annotation cp="↞">ลูกศรสองหัวซ้าย</annotation>
+		<annotation cp="↞" type="tts">ลูกศรสองหัวซ้าย</annotation>
+		<annotation cp="↟">ลูกศรสองหัวขึ้น</annotation>
+		<annotation cp="↟" type="tts">ลูกศรสองหัวขึ้น</annotation>
+		<annotation cp="↠">ลูกศรสองหัวขวา</annotation>
+		<annotation cp="↠" type="tts">ลูกศรสองหัวขวา</annotation>
+		<annotation cp="↡">ลูกศรสองหัวลง</annotation>
+		<annotation cp="↡" type="tts">ลูกศรสองหัวลง</annotation>
+		<annotation cp="↢">หางลูกศรซ้าย</annotation>
+		<annotation cp="↢" type="tts">หางลูกศรซ้าย</annotation>
+		<annotation cp="↣">หางลูกศรขวา</annotation>
+		<annotation cp="↣" type="tts">หางลูกศรขวา</annotation>
+		<annotation cp="↤">ลูกศรซ้ายจากแท่ง</annotation>
+		<annotation cp="↤" type="tts">ลูกศรซ้ายจากแท่ง</annotation>
+		<annotation cp="↥">ลูกศรขึ้นจากแท่ง</annotation>
+		<annotation cp="↥" type="tts">ลูกศรขึ้นจากแท่ง</annotation>
+		<annotation cp="↦">ลูกศรขวาจากแท่ง</annotation>
+		<annotation cp="↦" type="tts">ลูกศรขวาจากแท่ง</annotation>
+		<annotation cp="↧">ลูกศรลงจากแท่ง</annotation>
+		<annotation cp="↧" type="tts">ลูกศรลงจากแท่ง</annotation>
+		<annotation cp="↨">ลูกศรขึ้นลงมีฐาน</annotation>
+		<annotation cp="↨" type="tts">ลูกศรขึ้นลงมีฐาน</annotation>
+		<annotation cp="↫">ลูกศรซ้ายหางม้วน</annotation>
+		<annotation cp="↫" type="tts">ลูกศรซ้ายหางม้วน</annotation>
+		<annotation cp="↬">ลูกศรขวาหางม้วน</annotation>
+		<annotation cp="↬" type="tts">ลูกศรขวาหางม้วน</annotation>
+		<annotation cp="↭">ลูกศรคลื่นซ้ายขวา</annotation>
+		<annotation cp="↭" type="tts">ลูกศรคลื่นซ้ายขวา</annotation>
+		<annotation cp="↯">ซิกแซก | ลูกศรซิกแซกลง</annotation>
+		<annotation cp="↯" type="tts">ลูกศรซิกแซกลง</annotation>
+		<annotation cp="↰">ลูกศรขึ้นปลายซ้าย</annotation>
+		<annotation cp="↰" type="tts">ลูกศรขึ้นปลายซ้าย</annotation>
+		<annotation cp="↱">ลูกศรขึ้นปลายขวา</annotation>
+		<annotation cp="↱" type="tts">ลูกศรขึ้นปลายขวา</annotation>
+		<annotation cp="↲">ลูกศรลงปลายซ้าย</annotation>
+		<annotation cp="↲" type="tts">ลูกศรลงปลายซ้าย</annotation>
+		<annotation cp="↳">ลูกศรลงปลายขวา</annotation>
+		<annotation cp="↳" type="tts">ลูกศรลงปลายขวา</annotation>
+		<annotation cp="↴">ลูกศรมุมขวาลง</annotation>
+		<annotation cp="↴" type="tts">ลูกศรมุมขวาลง</annotation>
+		<annotation cp="↵">ลูกศรมุมลงซ้าย</annotation>
+		<annotation cp="↵" type="tts">ลูกศรมุมลงซ้าย</annotation>
+		<annotation cp="↶">ลูกศรครึ่งวงกลมบนทวนเข็มนาฬิกา</annotation>
+		<annotation cp="↶" type="tts">ลูกศรครึ่งวงกลมบนทวนเข็มนาฬิกา</annotation>
+		<annotation cp="↷">ลูกศรครึ่งวงกลมบนตามเข็มนาฬิกา</annotation>
+		<annotation cp="↷" type="tts">ลูกศรครึ่งวงกลมบนตามเข็มนาฬิกา</annotation>
+		<annotation cp="↸">ลูกศรแท่งยาวตะวันตกเฉียงเหนือ</annotation>
+		<annotation cp="↸" type="tts">ลูกศรแท่งยาวตะวันตกเฉียงเหนือ</annotation>
+		<annotation cp="↹">ทางขวา | ทางซ้าย | แท่ง | แท่งลูกศรซ้ายเหนือแท่งลูกศรขวา | ลูกศร</annotation>
+		<annotation cp="↹" type="tts">แท่งลูกศรซ้ายเหนือแท่งลูกศรขวา</annotation>
+		<annotation cp="↺">ลูกศรวงกลมเปิดทวนเข็มนาฬิกา</annotation>
+		<annotation cp="↺" type="tts">ลูกศรวงกลมเปิดทวนเข็มนาฬิกา</annotation>
+		<annotation cp="↻">ลูกศรวงกลมเปิดตามเข็มนาฬิกา</annotation>
+		<annotation cp="↻" type="tts">ลูกศรวงกลมเปิดตามเข็มนาฬิกา</annotation>
+		<annotation cp="↼">เงี่ยง | เงี่ยงฉมวกซ้ายขึ้น</annotation>
+		<annotation cp="↼" type="tts">เงี่ยงฉมวกซ้ายขึ้น</annotation>
+		<annotation cp="↽">เงี่ยงฉมวกซ้ายลง</annotation>
+		<annotation cp="↽" type="tts">เงี่ยงฉมวกซ้ายลง</annotation>
+		<annotation cp="↾">เงี่ยง | เงี่ยงฉมวกขึ้นขวา</annotation>
+		<annotation cp="↾" type="tts">เงี่ยงฉมวกขึ้นขวา</annotation>
+		<annotation cp="↿">เงี่ยง | เงี่ยงฉมวกขึ้นซ้าย</annotation>
+		<annotation cp="↿" type="tts">เงี่ยงฉมวกขึ้นซ้าย</annotation>
+		<annotation cp="⇀">เงี่ยง | เงี่ยงฉมวกขวาขึ้น</annotation>
+		<annotation cp="⇀" type="tts">เงี่ยงฉมวกขวาขึ้น</annotation>
+		<annotation cp="⇁">เงี่ยง | เงี่ยงฉมวกขวาลง</annotation>
+		<annotation cp="⇁" type="tts">เงี่ยงฉมวกขวาลง</annotation>
+		<annotation cp="⇂">เงี่ยง | เงี่ยงฉมวกลงขวา</annotation>
+		<annotation cp="⇂" type="tts">เงี่ยงฉมวกลงขวา</annotation>
+		<annotation cp="⇃">เงี่ยง | เงี่ยงฉมวกลงซ้าย</annotation>
+		<annotation cp="⇃" type="tts">เงี่ยงฉมวกลงซ้าย</annotation>
+		<annotation cp="⇄">ลูกศรขวาเหนือลูกศรซ้าย</annotation>
+		<annotation cp="⇄" type="tts">ลูกศรขวาเหนือลูกศรซ้าย</annotation>
 		<annotation cp="⇅">ขึ้น | ลง | ลูกศร | ลูกศรชี้ขึ้นและลูกศรชี้ลง</annotation>
 		<annotation cp="⇅" type="tts">ลูกศรชี้ขึ้นและลูกศรชี้ลง</annotation>
 		<annotation cp="⇆">ขวา | ซ้าย | ลูกศร | ลูกศรชี้ซ้ายเหนือลูกศรชี้ขวา</annotation>
 		<annotation cp="⇆" type="tts">ลูกศรชี้ซ้ายเหนือลูกศรชี้ขวา</annotation>
-		<annotation cp="⇇" draft="contributed">ลูกศรคู่ซ้าย</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">ลูกศรคู่ซ้าย</annotation>
-		<annotation cp="⇈" draft="contributed">ลูกศรคู่ขึ้น</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">ลูกศรคู่ขึ้น</annotation>
-		<annotation cp="⇉" draft="contributed">ลูกศรคู่ขวา</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">ลูกศรคู่ขวา</annotation>
-		<annotation cp="⇊" draft="contributed">ลูกศรคู่ลง</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">ลูกศรคู่ลง</annotation>
-		<annotation cp="⇋" draft="contributed">ฉมวกซ้ายเหนือฉมวกขวา</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">ฉมวกซ้ายเหนือฉมวกขวา</annotation>
-		<annotation cp="⇌" draft="contributed">ฉมวกขวาเหนือฉมวกซ้าย</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">ฉมวกขวาเหนือฉมวกซ้าย</annotation>
-		<annotation cp="⇐" draft="contributed">ลูกศรซ้อนซ้าย</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">ลูกศรซ้อนซ้าย</annotation>
-		<annotation cp="⇍" draft="contributed">ลูกศรซ้อนซ้ายขีดทับ</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">ลูกศรซ้อนซ้ายขีดทับ</annotation>
-		<annotation cp="⇑" draft="contributed">ลูกศรซ้อนขึ้น</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">ลูกศรซ้อนขึ้น</annotation>
-		<annotation cp="⇒" draft="contributed">ลูกศรซ้อนขวา</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">ลูกศรซ้อนขวา</annotation>
-		<annotation cp="⇏" draft="contributed">ลูกศรซ้อนขวาขีดทับ</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">ลูกศรซ้อนขวาขีดทับ</annotation>
-		<annotation cp="⇓" draft="contributed">ลูกศรซ้อนลง</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">ลูกศรซ้อนลง</annotation>
-		<annotation cp="⇔" draft="contributed">ลูกศรซ้อนซ้ายขวา</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">ลูกศรซ้อนซ้ายขวา</annotation>
-		<annotation cp="⇎" draft="contributed">ลูกศรซ้อนซ้ายขวาขีดทับ</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">ลูกศรซ้อนซ้ายขวาขีดทับ</annotation>
-		<annotation cp="⇖" draft="contributed">ลูกศรซ้อนตะวันตกเฉียงเหนือ</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">ลูกศรซ้อนตะวันตกเฉียงเหนือ</annotation>
-		<annotation cp="⇗" draft="contributed">ลูกศรซ้อนตะวันออกเฉียงเหนือ</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">ลูกศรซ้อนตะวันออกเฉียงเหนือ</annotation>
-		<annotation cp="⇘" draft="contributed">ลูกศรซ้อนตะวันออกเฉียงใต้</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">ลูกศรซ้อนตะวันออกเฉียงใต้</annotation>
-		<annotation cp="⇙" draft="contributed">ลูกศรซ้อนตะวันตกเฉียงใต้</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">ลูกศรซ้อนตะวันตกเฉียงใต้</annotation>
-		<annotation cp="⇚" draft="contributed">ลูกศรซ้อนสามซ้าย</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">ลูกศรซ้อนสามซ้าย</annotation>
-		<annotation cp="⇛" draft="contributed">ลูกศรซ้อนสามขวา</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">ลูกศรซ้อนสามขวา</annotation>
-		<annotation cp="⇜" draft="contributed">ลูกศรยึกยือซ้าย</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">ลูกศรยึกยือซ้าย</annotation>
-		<annotation cp="⇝" draft="contributed">ลูกศรยึกยือขวา</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">ลูกศรยึกยือขวา</annotation>
-		<annotation cp="⇞" draft="contributed">ลูกศรขึ้นขีดทับคู่</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">ลูกศรขึ้นขีดทับคู่</annotation>
-		<annotation cp="⇟" draft="contributed">ลูกศรลงขีดทับคู่</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">ลูกศรลงขีดทับคู่</annotation>
-		<annotation cp="⇠" draft="contributed">ลูกศรเส้นประซ้าย</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">ลูกศรเส้นประซ้าย</annotation>
-		<annotation cp="⇡" draft="contributed">ลูกศรเส้นประขึ้น</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">ลูกศรเส้นประขึ้น</annotation>
-		<annotation cp="⇢" draft="contributed">ลูกศรเส้นประขวา</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">ลูกศรเส้นประขวา</annotation>
-		<annotation cp="⇣" draft="contributed">ลูกศรเส้นประลง</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">ลูกศรเส้นประลง</annotation>
-		<annotation cp="⇤" draft="contributed">แท่งลูกศรซ้าย</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">แท่งลูกศรซ้าย</annotation>
-		<annotation cp="⇥" draft="contributed">แท่งลูกศรขวา</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">แท่งลูกศรขวา</annotation>
-		<annotation cp="⇦" draft="contributed">ลูกศรกลวงซ้าย</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">ลูกศรกลวงซ้าย</annotation>
-		<annotation cp="⇧" draft="contributed">ลูกศรกลวงขึ้น</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">ลูกศรกลวงขึ้น</annotation>
-		<annotation cp="⇨" draft="contributed">ลูกศรกลวงขวา</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">ลูกศรกลวงขวา</annotation>
-		<annotation cp="⇩" draft="contributed">ลูกศรกลวงลง</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">ลูกศรกลวงลง</annotation>
-		<annotation cp="⇪" draft="contributed">ลูกศรกลวงขึ้นจากแท่ง</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">ลูกศรกลวงขึ้นจากแท่ง</annotation>
-		<annotation cp="⇵" draft="contributed">ลูกศรลงด้านซ้ายลูกศรขึ้น</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">ลูกศรลงด้านซ้ายลูกศรขึ้น</annotation>
-		<annotation cp="∀" draft="contributed">ตัวบ่งปริมาณแบบทั้งหมด</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">ตัวบ่งปริมาณแบบทั้งหมด</annotation>
-		<annotation cp="∂" draft="contributed">ผลต่างเชิงอนุพันธ์ย่อย</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">ผลต่างเชิงอนุพันธ์ย่อย</annotation>
-		<annotation cp="∃" draft="contributed">ตัวบ่งปริมาณแบบบางตัว</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">ตัวบ่งปริมาณแบบบางตัว</annotation>
-		<annotation cp="∅" draft="contributed">เซตว่าง</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">เซตว่าง</annotation>
+		<annotation cp="⇇">ลูกศรคู่ซ้าย</annotation>
+		<annotation cp="⇇" type="tts">ลูกศรคู่ซ้าย</annotation>
+		<annotation cp="⇈">ลูกศรคู่ขึ้น</annotation>
+		<annotation cp="⇈" type="tts">ลูกศรคู่ขึ้น</annotation>
+		<annotation cp="⇉">ลูกศรคู่ขวา</annotation>
+		<annotation cp="⇉" type="tts">ลูกศรคู่ขวา</annotation>
+		<annotation cp="⇊">ลูกศรคู่ลง</annotation>
+		<annotation cp="⇊" type="tts">ลูกศรคู่ลง</annotation>
+		<annotation cp="⇋">ฉมวกซ้ายเหนือฉมวกขวา</annotation>
+		<annotation cp="⇋" type="tts">ฉมวกซ้ายเหนือฉมวกขวา</annotation>
+		<annotation cp="⇌">ฉมวกขวาเหนือฉมวกซ้าย</annotation>
+		<annotation cp="⇌" type="tts">ฉมวกขวาเหนือฉมวกซ้าย</annotation>
+		<annotation cp="⇐">ลูกศรซ้อนซ้าย</annotation>
+		<annotation cp="⇐" type="tts">ลูกศรซ้อนซ้าย</annotation>
+		<annotation cp="⇍">ลูกศรซ้อนซ้ายขีดทับ</annotation>
+		<annotation cp="⇍" type="tts">ลูกศรซ้อนซ้ายขีดทับ</annotation>
+		<annotation cp="⇑">ลูกศรซ้อนขึ้น</annotation>
+		<annotation cp="⇑" type="tts">ลูกศรซ้อนขึ้น</annotation>
+		<annotation cp="⇒">ลูกศรซ้อนขวา</annotation>
+		<annotation cp="⇒" type="tts">ลูกศรซ้อนขวา</annotation>
+		<annotation cp="⇏">ลูกศรซ้อนขวาขีดทับ</annotation>
+		<annotation cp="⇏" type="tts">ลูกศรซ้อนขวาขีดทับ</annotation>
+		<annotation cp="⇓">ลูกศรซ้อนลง</annotation>
+		<annotation cp="⇓" type="tts">ลูกศรซ้อนลง</annotation>
+		<annotation cp="⇔">ลูกศรซ้อนซ้ายขวา</annotation>
+		<annotation cp="⇔" type="tts">ลูกศรซ้อนซ้ายขวา</annotation>
+		<annotation cp="⇎">ลูกศรซ้อนซ้ายขวาขีดทับ</annotation>
+		<annotation cp="⇎" type="tts">ลูกศรซ้อนซ้ายขวาขีดทับ</annotation>
+		<annotation cp="⇖">ลูกศรซ้อนตะวันตกเฉียงเหนือ</annotation>
+		<annotation cp="⇖" type="tts">ลูกศรซ้อนตะวันตกเฉียงเหนือ</annotation>
+		<annotation cp="⇗">ลูกศรซ้อนตะวันออกเฉียงเหนือ</annotation>
+		<annotation cp="⇗" type="tts">ลูกศรซ้อนตะวันออกเฉียงเหนือ</annotation>
+		<annotation cp="⇘">ลูกศรซ้อนตะวันออกเฉียงใต้</annotation>
+		<annotation cp="⇘" type="tts">ลูกศรซ้อนตะวันออกเฉียงใต้</annotation>
+		<annotation cp="⇙">ลูกศรซ้อนตะวันตกเฉียงใต้</annotation>
+		<annotation cp="⇙" type="tts">ลูกศรซ้อนตะวันตกเฉียงใต้</annotation>
+		<annotation cp="⇚">ลูกศรซ้อนสามซ้าย</annotation>
+		<annotation cp="⇚" type="tts">ลูกศรซ้อนสามซ้าย</annotation>
+		<annotation cp="⇛">ลูกศรซ้อนสามขวา</annotation>
+		<annotation cp="⇛" type="tts">ลูกศรซ้อนสามขวา</annotation>
+		<annotation cp="⇜">ลูกศรยึกยือซ้าย</annotation>
+		<annotation cp="⇜" type="tts">ลูกศรยึกยือซ้าย</annotation>
+		<annotation cp="⇝">ลูกศรยึกยือขวา</annotation>
+		<annotation cp="⇝" type="tts">ลูกศรยึกยือขวา</annotation>
+		<annotation cp="⇞">ลูกศรขึ้นขีดทับคู่</annotation>
+		<annotation cp="⇞" type="tts">ลูกศรขึ้นขีดทับคู่</annotation>
+		<annotation cp="⇟">ลูกศรลงขีดทับคู่</annotation>
+		<annotation cp="⇟" type="tts">ลูกศรลงขีดทับคู่</annotation>
+		<annotation cp="⇠">ลูกศรเส้นประซ้าย</annotation>
+		<annotation cp="⇠" type="tts">ลูกศรเส้นประซ้าย</annotation>
+		<annotation cp="⇡">ลูกศรเส้นประขึ้น</annotation>
+		<annotation cp="⇡" type="tts">ลูกศรเส้นประขึ้น</annotation>
+		<annotation cp="⇢">ลูกศรเส้นประขวา</annotation>
+		<annotation cp="⇢" type="tts">ลูกศรเส้นประขวา</annotation>
+		<annotation cp="⇣">ลูกศรเส้นประลง</annotation>
+		<annotation cp="⇣" type="tts">ลูกศรเส้นประลง</annotation>
+		<annotation cp="⇤">แท่งลูกศรซ้าย</annotation>
+		<annotation cp="⇤" type="tts">แท่งลูกศรซ้าย</annotation>
+		<annotation cp="⇥">แท่งลูกศรขวา</annotation>
+		<annotation cp="⇥" type="tts">แท่งลูกศรขวา</annotation>
+		<annotation cp="⇦">ลูกศรกลวงซ้าย</annotation>
+		<annotation cp="⇦" type="tts">ลูกศรกลวงซ้าย</annotation>
+		<annotation cp="⇧">ลูกศรกลวงขึ้น</annotation>
+		<annotation cp="⇧" type="tts">ลูกศรกลวงขึ้น</annotation>
+		<annotation cp="⇨">ลูกศรกลวงขวา</annotation>
+		<annotation cp="⇨" type="tts">ลูกศรกลวงขวา</annotation>
+		<annotation cp="⇩">ลูกศรกลวงลง</annotation>
+		<annotation cp="⇩" type="tts">ลูกศรกลวงลง</annotation>
+		<annotation cp="⇪">ลูกศรกลวงขึ้นจากแท่ง</annotation>
+		<annotation cp="⇪" type="tts">ลูกศรกลวงขึ้นจากแท่ง</annotation>
+		<annotation cp="⇵">ลูกศรลงด้านซ้ายลูกศรขึ้น</annotation>
+		<annotation cp="⇵" type="tts">ลูกศรลงด้านซ้ายลูกศรขึ้น</annotation>
+		<annotation cp="∀">ตัวบ่งปริมาณแบบทั้งหมด | ทั้งหมด | แบบทั้งหมด | สำหรับทั้งหมด</annotation>
+		<annotation cp="∀" type="tts">ตัวบ่งปริมาณแบบทั้งหมด</annotation>
+		<annotation cp="∂">ผลต่างเชิงอนุพันธ์ | ผลต่างเชิงอนุพันธ์ย่อย</annotation>
+		<annotation cp="∂" type="tts">ผลต่างเชิงอนุพันธ์ย่อย</annotation>
+		<annotation cp="∃">ตัวบ่งปริมาณแบบบางตัว</annotation>
+		<annotation cp="∃" type="tts">ตัวบ่งปริมาณแบบบางตัว</annotation>
+		<annotation cp="∅">คณิตศาสตร์ | เซตว่าง | ตัวดำเนินการของเซต</annotation>
+		<annotation cp="∅" type="tts">เซตว่าง</annotation>
 		<annotation cp="∆">การเพิ่มค่า | สามเหลี่ยม</annotation>
 		<annotation cp="∆" type="tts">การเพิ่มค่า</annotation>
 		<annotation cp="∇">เดล | นาบลา | สามเหลี่ยม</annotation>
 		<annotation cp="∇" type="tts">เดล</annotation>
 		<annotation cp="∈">ความเป็นสมาชิก | เซต | ประกอบด้วย | เป็นสมาชิกของ | สมาชิก</annotation>
 		<annotation cp="∈" type="tts">เป็นสมาชิกของ</annotation>
-		<annotation cp="∉" draft="contributed">ไม่เป็นสมาชิก</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">ไม่เป็นสมาชิก</annotation>
-		<annotation cp="∋" draft="contributed">มีในฐานะสมาชิก</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">มีในฐานะสมาชิก</annotation>
-		<annotation cp="∎" draft="contributed">พิสูจน์เสร็จสิ้นแล้ว</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">พิสูจน์เสร็จสิ้นแล้ว</annotation>
-		<annotation cp="∏" draft="contributed">เครื่องหมายผลคูณจำนวนมาก</annotation>
+		<annotation cp="∉">ไม่เป็นสมาชิก | สมาชิก</annotation>
+		<annotation cp="∉" type="tts">ไม่เป็นสมาชิก</annotation>
+		<annotation cp="∋">เป็นสมาชิก | มีในฐานะสมาชิก | สมาชิก</annotation>
+		<annotation cp="∋" type="tts">มีในฐานะสมาชิก</annotation>
+		<annotation cp="∎">จบการพิสูจน์ | ซ.ต.พ. | พิสูจน์เสร็จสิ้นแล้ว</annotation>
+		<annotation cp="∎" type="tts">พิสูจน์เสร็จสิ้นแล้ว</annotation>
+		<annotation cp="∏">ตรรกศาสตร์ | ผลคูณ | ผลคูณจำนวนมาก</annotation>
 		<annotation cp="∏" type="tts" draft="contributed">เครื่องหมายผลคูณจำนวนมาก</annotation>
 		<annotation cp="∑" draft="contributed">สัญลักษณ์ผลรวมจำนวนมาก</annotation>
 		<annotation cp="∑" type="tts" draft="contributed">สัญลักษณ์ผลรวมจำนวนมาก</annotation>
@@ -377,16 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">สัญลักษณ์คูณ</annotation>
 		<annotation cp="&lt;">แท็ก | แท็กเปิด | น้อยกว่า</annotation>
 		<annotation cp="&lt;" type="tts">น้อยกว่า</annotation>
-		<annotation cp="≮" draft="contributed">ไม่น้อยกว่า</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">ไม่น้อยกว่า</annotation>
+		<annotation cp="≮">คณิตศาสตร์ | ไม่เท่ากัน | ไม่น้อยกว่า</annotation>
+		<annotation cp="≮" type="tts">ไม่น้อยกว่า</annotation>
 		<annotation cp="=">เท่ากัน | เท่ากับ</annotation>
 		<annotation cp="=" type="tts">เท่ากับ</annotation>
 		<annotation cp="≠">เครื่องหมายไม่เท่ากับ | ไม่เท่ากับ | อสมการ</annotation>
 		<annotation cp="≠" type="tts">ไม่เท่ากับ</annotation>
 		<annotation cp="&gt;">แท็ก | แท็กปิด | มากกว่า</annotation>
 		<annotation cp="&gt;" type="tts">มากกว่า</annotation>
-		<annotation cp="≯" draft="contributed">ไม่มากกว่า</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">ไม่มากกว่า</annotation>
+		<annotation cp="≯">คณิตศาสตร์ | ไม่เท่ากัน | ไม่มากกว่า</annotation>
+		<annotation cp="≯" type="tts">ไม่มากกว่า</annotation>
 		<annotation cp="¬">ค่าลบ | ไม่</annotation>
 		<annotation cp="¬" type="tts">ค่าลบ</annotation>
 		<annotation cp="|">เชฟเฟอร์สโตรก | แถบแนวตั้ง | แท่ง | ไปป์ | วีบาร์ | เส้น | เส้นแนวตั้ง</annotation>
@@ -397,316 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">เครื่องหมายลบ</annotation>
 		<annotation cp="⁻">ตัวยก | ตัวยกเครื่องหมายลบ | ลบ</annotation>
 		<annotation cp="⁻" type="tts">ตัวยกเครื่องหมายลบ</annotation>
-		<annotation cp="∓" draft="contributed">ลบหรือบวก</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">ลบหรือบวก</annotation>
-		<annotation cp="∕" draft="contributed">สแลชหาร</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">สแลชหาร</annotation>
-		<annotation cp="⁄" draft="contributed">สแลชเศษส่วน</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">สแลชเศษส่วน</annotation>
-		<annotation cp="∗" draft="contributed">ตัวดำเนินการดอกจัน</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">ตัวดำเนินการดอกจัน</annotation>
-		<annotation cp="∘" draft="contributed">ตัวดำเนินการวงแหวน</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">ตัวดำเนินการวงแหวน</annotation>
-		<annotation cp="∙" draft="contributed">ตัวดำเนินการบุลเลต</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">ตัวดำเนินการบุลเลต</annotation>
+		<annotation cp="∓">บวกลบ | ลบหรือบวก</annotation>
+		<annotation cp="∓" type="tts">ลบหรือบวก</annotation>
+		<annotation cp="∕">สแลช | สแลชหาร</annotation>
+		<annotation cp="∕" type="tts">สแลชหาร</annotation>
+		<annotation cp="⁄">สแลชเศษส่วน | เส้นแบ่ง</annotation>
+		<annotation cp="⁄" type="tts">สแลชเศษส่วน</annotation>
+		<annotation cp="∗">ดอกจัน | ตัวดำเนินการดอกจัน</annotation>
+		<annotation cp="∗" type="tts">ตัวดำเนินการดอกจัน</annotation>
+		<annotation cp="∘">ตัวดำเนินการ | ตัวดำเนินการวงแหวน | ตัวประกอบ</annotation>
+		<annotation cp="∘" type="tts">ตัวดำเนินการวงแหวน</annotation>
+		<annotation cp="∙">ตัวดำเนินการ | ตัวดำเนินการบุลเลต</annotation>
+		<annotation cp="∙" type="tts">ตัวดำเนินการบุลเลต</annotation>
 		<annotation cp="√">ฐาน | ราก | รากที่สอง | รูต | สแควร์ | เสิร์ด</annotation>
 		<annotation cp="√" type="tts">รากที่สอง</annotation>
-		<annotation cp="∝" draft="contributed">ได้สัดส่วน</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">ได้สัดส่วน</annotation>
+		<annotation cp="∝">ได้สัดส่วน | ตามสัดส่วน</annotation>
+		<annotation cp="∝" type="tts">ได้สัดส่วน</annotation>
 		<annotation cp="∞">สัญลักษณ์อนันต์ | อนันต์</annotation>
 		<annotation cp="∞" type="tts">สัญลักษณ์อนันต์</annotation>
-		<annotation cp="∟" draft="contributed">มุมฉาก</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">มุมฉาก</annotation>
-		<annotation cp="∠" draft="contributed">มุม</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">มุม</annotation>
-		<annotation cp="∣" draft="contributed">แบ่ง</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">แบ่ง</annotation>
-		<annotation cp="∥" draft="contributed">เส้นขนาน</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">เส้นขนาน</annotation>
-		<annotation cp="∧" draft="contributed">และตรรกศาสตร์</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">และตรรกศาสตร์</annotation>
+		<annotation cp="∟">คณิตศาสตร์ | มุมฉาก</annotation>
+		<annotation cp="∟" type="tts">มุมฉาก</annotation>
+		<annotation cp="∠">มุม | มุมแหลม</annotation>
+		<annotation cp="∠" type="tts">มุม</annotation>
+		<annotation cp="∣">ตัวแบ่ง | แบ่ง</annotation>
+		<annotation cp="∣" type="tts">แบ่ง</annotation>
+		<annotation cp="∥">เส้นขนาน</annotation>
+		<annotation cp="∥" type="tts">เส้นขนาน</annotation>
+		<annotation cp="∧">และตรรกศาสตร์</annotation>
+		<annotation cp="∧" type="tts">และตรรกศาสตร์</annotation>
 		<annotation cp="∩">เซต | อินเตอร์เซกชั่น</annotation>
 		<annotation cp="∩" type="tts">อินเตอร์เซกชั่น</annotation>
 		<annotation cp="∪">เซต | ยูเนียน | หมู่</annotation>
 		<annotation cp="∪" type="tts">ยูเนียน</annotation>
-		<annotation cp="∫" draft="contributed">อินทิกรัล</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">อินทิกรัล</annotation>
-		<annotation cp="∬" draft="contributed">อินทิกรัลสองชั้น</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">อินทิกรัลสองชั้น</annotation>
-		<annotation cp="∮" draft="contributed">คอนทัวร์อินทิกรัล</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">คอนทัวร์อินทิกรัล</annotation>
-		<annotation cp="∴" draft="contributed">ดังนั้น</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">ดังนั้น</annotation>
-		<annotation cp="∵" draft="contributed">เนื่องจาก</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">เนื่องจาก</annotation>
-		<annotation cp="∶" draft="contributed">อัตราส่วน</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">อัตราส่วน</annotation>
-		<annotation cp="∷" draft="contributed">สัดส่วน</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">สัดส่วน</annotation>
-		<annotation cp="∼" draft="contributed">ตัวดำเนินการตัวหนอน</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">ตัวดำเนินการตัวหนอน</annotation>
-		<annotation cp="∽" draft="contributed">ตัวหนอนกลับด้าน</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">ตัวหนอนกลับด้าน</annotation>
-		<annotation cp="∾" draft="contributed">เลซี้ เอสกลับหัว</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">เลซี้ เอสกลับหัว</annotation>
-		<annotation cp="≃" draft="contributed">เท่ากันเชิงเส้นกำกับ</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">เท่ากันเชิงเส้นกำกับ</annotation>
-		<annotation cp="≅" draft="contributed">เท่ากันโดยประมาณ</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">เท่ากันโดยประมาณ</annotation>
+		<annotation cp="∫">แคลคูลัส | อินทิกรัล</annotation>
+		<annotation cp="∫" type="tts">อินทิกรัล</annotation>
+		<annotation cp="∬">แคลคูลัส | อินทิกรัลสองชั้น</annotation>
+		<annotation cp="∬" type="tts">อินทิกรัลสองชั้น</annotation>
+		<annotation cp="∮">คอนทัวร์อินทิกรัล</annotation>
+		<annotation cp="∮" type="tts">คอนทัวร์อินทิกรัล</annotation>
+		<annotation cp="∴">ดังนั้น | ตรรกศาสตร์</annotation>
+		<annotation cp="∴" type="tts">ดังนั้น</annotation>
+		<annotation cp="∵">ตรรกศาสตร์ | เนื่องจาก</annotation>
+		<annotation cp="∵" type="tts">เนื่องจาก</annotation>
+		<annotation cp="∶">อัตราส่วน</annotation>
+		<annotation cp="∶" type="tts">อัตราส่วน</annotation>
+		<annotation cp="∷">ได้สัดส่วน | ตามสัดส่วน</annotation>
+		<annotation cp="∷" type="tts">สัดส่วน</annotation>
+		<annotation cp="∼">ตัวดำเนินการ | ตัวดำเนินการตัวหนอน</annotation>
+		<annotation cp="∼" type="tts">ตัวดำเนินการตัวหนอน</annotation>
+		<annotation cp="∽">ตัวหนอน | ตัวหนอนกลับด้าน</annotation>
+		<annotation cp="∽" type="tts">ตัวหนอนกลับด้าน</annotation>
+		<annotation cp="∾">เลซี่ เอสกลับหัว</annotation>
+		<annotation cp="∾" type="tts">เลซี่ เอสกลับหัว</annotation>
+		<annotation cp="≃">คณิตศาสตร์ | เท่ากันเชิงเส้นกำกับ | เส้นกำกับ</annotation>
+		<annotation cp="≃" type="tts">เท่ากันเชิงเส้นกำกับ</annotation>
+		<annotation cp="≅">คณิตศาสตร์ | เท่ากัน | เท่ากันโดยประมาณ | สมภาค | สมสัณฐาน</annotation>
+		<annotation cp="≅" type="tts">เท่ากันโดยประมาณ</annotation>
 		<annotation cp="≈">เกือบเท่ากับ | ใกล้เคียง | ประมาณ</annotation>
 		<annotation cp="≈" type="tts">เกือบเท่ากับ</annotation>
-		<annotation cp="≌" draft="contributed">เท่ากันทุกประการ</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">เท่ากันทุกประการ</annotation>
-		<annotation cp="≒" draft="contributed">ภาพเท่ากันโดยประมาณ</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">ภาพเท่ากันโดยประมาณ</annotation>
-		<annotation cp="≖" draft="contributed">วงแหวนในเท่ากัน</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">วงแหวนในเท่ากัน</annotation>
+		<annotation cp="≌">คณิตศาสตร์ | เท่ากัน | เท่ากันทั้งหมด | เท่ากันทุกประการ</annotation>
+		<annotation cp="≌" type="tts">เท่ากันทุกประการ</annotation>
+		<annotation cp="≒">ภาพเท่ากันโดยประมาณ</annotation>
+		<annotation cp="≒" type="tts">ภาพเท่ากันโดยประมาณ</annotation>
+		<annotation cp="≖">คณิตศาสตร์ | เท่ากัน | วงแหวนในเท่ากัน</annotation>
+		<annotation cp="≖" type="tts">วงแหวนในเท่ากัน</annotation>
 		<annotation cp="≡">ตรงกัน | สามขีด | เหมือน | เหมือนกับ</annotation>
 		<annotation cp="≡" type="tts">เหมือนกับ</annotation>
-		<annotation cp="≣" draft="contributed">เท่ากันโดยแท้</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">เท่ากันโดยแท้</annotation>
+		<annotation cp="≣">คณิตศาสตร์ | เท่ากัน | เท่ากันโดยแท้</annotation>
+		<annotation cp="≣" type="tts">เท่ากันโดยแท้</annotation>
 		<annotation cp="≤">เท่ากัน | เท่ากับ | น้อยกว่า | น้อยกว่าหรือเท่ากับ | อสมการ</annotation>
 		<annotation cp="≤" type="tts">น้อยกว่าหรือเท่ากับ</annotation>
 		<annotation cp="≥">เท่ากัน | เท่ากับ | มากกว่า | มากกว่าหรือเท่ากับ | อสมการ</annotation>
 		<annotation cp="≥" type="tts">มากกว่าหรือเท่ากับ</annotation>
-		<annotation cp="≦" draft="contributed">น้อยกว่าเหนือเท่ากัน</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">น้อยกว่าเหนือเท่ากัน</annotation>
-		<annotation cp="≧" draft="contributed">มากกว่าเหนือเท่ากัน</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">มากกว่าเหนือเท่ากัน</annotation>
-		<annotation cp="≪" draft="contributed">น้อยกว่ามาก</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">น้อยกว่ามาก</annotation>
-		<annotation cp="≫" draft="contributed">มากกว่ามาก</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">มากกว่ามาก</annotation>
-		<annotation cp="≬" draft="contributed">ระหว่าง</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">ระหว่าง</annotation>
-		<annotation cp="≳" draft="contributed">เท่ากันมากกว่า</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">เท่ากันมากกว่า</annotation>
-		<annotation cp="≺" draft="contributed">นำหน้า</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">นำหน้า</annotation>
-		<annotation cp="≻" draft="contributed">ตามหลัง</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">ตามหลัง</annotation>
-		<annotation cp="⊁" draft="contributed">ไม่ตามหลัง</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">ไม่ตามหลัง</annotation>
+		<annotation cp="≦">คณิตศาสตร์ | น้อยกว่าเหนือเท่ากัน | ไม่เท่ากัน</annotation>
+		<annotation cp="≦" type="tts">น้อยกว่าเหนือเท่ากัน</annotation>
+		<annotation cp="≧">คณิตศาสตร์ | มากกว่าเหนือเท่ากัน | ไม่เท่ากัน</annotation>
+		<annotation cp="≧" type="tts">มากกว่าเหนือเท่ากัน</annotation>
+		<annotation cp="≪">คณิตศาสตร์ | น้อยกว่ามาก | ไม่เท่ากัน</annotation>
+		<annotation cp="≪" type="tts">น้อยกว่ามาก</annotation>
+		<annotation cp="≫">คณิตศาสตร์ | มากกว่ามาก | ไม่เท่ากัน</annotation>
+		<annotation cp="≫" type="tts">มากกว่ามาก</annotation>
+		<annotation cp="≬">ระหว่าง</annotation>
+		<annotation cp="≬" type="tts">ระหว่าง</annotation>
+		<annotation cp="≳">คณิตศาสตร์ | เท่ากันมากกว่า | ไม่เท่ากัน</annotation>
+		<annotation cp="≳" type="tts">เท่ากันมากกว่า</annotation>
+		<annotation cp="≺">คณิตศาสตร์ | ตัวดำเนินการของเซต | นำหน้า</annotation>
+		<annotation cp="≺" type="tts">นำหน้า</annotation>
+		<annotation cp="≻">คณิตศาสตร์ | ตัวดำเนินการของเซต | ตามหลัง</annotation>
+		<annotation cp="≻" type="tts">ตามหลัง</annotation>
+		<annotation cp="⊁">คณิตศาสตร์ | ตัวดำเนินการของเซต | ไม่ตามหลัง</annotation>
+		<annotation cp="⊁" type="tts">ไม่ตามหลัง</annotation>
 		<annotation cp="⊂">เซต | เซตย่อย | เซตย่อยของ</annotation>
 		<annotation cp="⊂" type="tts">เซตย่อยของ</annotation>
-		<annotation cp="⊃" draft="contributed">ซุปเปอร์เซต</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">ซุปเปอร์เซต</annotation>
-		<annotation cp="⊆" draft="contributed">เท่ากันสับเซต</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">เท่ากันสับเซต</annotation>
-		<annotation cp="⊇" draft="contributed">เท่ากันซุปเปอร์เซต</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">เท่ากันซุปเปอร์เซต</annotation>
-		<annotation cp="⊕" draft="contributed">เครื่องหมายบวกในวงกลม</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">เครื่องหมายบวกในวงกลม</annotation>
-		<annotation cp="⊖" draft="contributed">เครื่องหมายลบในวงกลม</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">เครื่องหมายลบในวงกลม</annotation>
-		<annotation cp="⊗" draft="contributed">เครื่องหมายคูณในวงกลม</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">เครื่องหมายคูณในวงกลม</annotation>
-		<annotation cp="⊘" draft="contributed">สแลชหารในวงกลม</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">สแลชหารในวงกลม</annotation>
-		<annotation cp="⊙" draft="contributed">ตัวดำเนินการจุดในวงกลม</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">ตัวดำเนินการจุดในวงกลม</annotation>
-		<annotation cp="⊚" draft="contributed">ตัวดำเนินการวงแหวนในวงกลม</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">ตัวดำเนินการวงแหวนในวงกลม</annotation>
-		<annotation cp="⊛" draft="contributed">ตัวดำเนินการดอกจันในวงกลม</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">ตัวดำเนินการดอกจันในวงกลม</annotation>
-		<annotation cp="⊞" draft="contributed">เครื่องหมายบวกในสี่เหลี่ยมจัตุรัส</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">เครื่องหมายบวกในสี่เหลี่ยมจัตุรัส</annotation>
-		<annotation cp="⊟" draft="contributed">เครื่องหมายลบในสี่เหลี่ยมจัตุรัส</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">เครื่องหมายลบในสี่เหลี่ยมจัตุรัส</annotation>
-		<annotation cp="⊥" draft="contributed">แทคขึ้น</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">แทคขึ้น</annotation>
-		<annotation cp="⊮" draft="contributed">ไม่บังคับ</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">ไม่บังคับ</annotation>
-		<annotation cp="⊰" draft="contributed">นำหน้าภายใต้ความสัมพันธ์</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">นำหน้าภายใต้ความสัมพันธ์</annotation>
-		<annotation cp="⊱" draft="contributed">ตามหลังภายใต้ความสัมพันธ์</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">ตามหลังภายใต้ความสัมพันธ์</annotation>
-		<annotation cp="⋭" draft="contributed">ไม่มีในฐานะเท่ากันกลุ่มย่อยปกติ</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">ไม่มีในฐานะเท่ากันกลุ่มย่อยปกติ</annotation>
-		<annotation cp="⊶" draft="contributed">ต้นกำเนิด</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">ต้นกำเนิด</annotation>
-		<annotation cp="⊹" draft="contributed">เมทริกซ์สังยุคเอร์มีเชียน</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">เมทริกซ์สังยุคเอร์มีเชียน</annotation>
-		<annotation cp="⊿" draft="contributed">สามเหลี่ยมมุมฉาก</annotation>
-		<annotation cp="⊿" type="tts" draft="contributed">สามเหลี่ยมมุมฉาก</annotation>
-		<annotation cp="⋁" draft="contributed">หรือเชิงตรรกะจำนวนมาก</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">หรือเชิงตรรกะจำนวนมาก</annotation>
-		<annotation cp="⋂" draft="contributed">อินเตอร์เซกชันจำนวนมาก</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">อินเตอร์เซกชันจำนวนมาก</annotation>
-		<annotation cp="⋃" draft="contributed">ยูเนียนจำนวนมาก</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">ยูเนียนจำนวนมาก</annotation>
-		<annotation cp="⋅" draft="contributed">ตัวดำเนินการจุด</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">ตัวดำเนินการจุด</annotation>
-		<annotation cp="⋆" draft="contributed">ตัวดำเนินการดาว</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">ตัวดำเนินการดาว</annotation>
-		<annotation cp="⋈" draft="contributed">การเชื่อมตามธรรมชาติ</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">การเชื่อมตามธรรมชาติ</annotation>
-		<annotation cp="⋒" draft="contributed">อินเตอร์เซกชันคู่</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">อินเตอร์เซกชันคู่</annotation>
-		<annotation cp="⋘" draft="contributed">น้อยกว่ามากมาก</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">น้อยกว่ามากมาก</annotation>
-		<annotation cp="⋙" draft="contributed">มากกว่ามากมาก</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">มากกว่ามากมาก</annotation>
-		<annotation cp="⋮" draft="contributed">จุดไข่ปลาแนวตั้ง</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">จุดไข่ปลาแนวตั้ง</annotation>
-		<annotation cp="⋯" draft="contributed">จุดไข่ปลาแนวนอนเส้นกลาง</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">จุดไข่ปลาแนวนอนเส้นกลาง</annotation>
-		<annotation cp="⋰" draft="contributed">จุดไข่ปลาทแยงขวาขึ้น</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">จุดไข่ปลาทแยงขวาขึ้น</annotation>
-		<annotation cp="⋱" draft="contributed">จุดไข่ปลาทแยงขวาลง</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">จุดไข่ปลาทแยงขวาลง</annotation>
-		<annotation cp="■" draft="contributed">สี่เหลี่ยมจัตุรัสทึบ</annotation>
-		<annotation cp="■" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสทึบ</annotation>
-		<annotation cp="□" draft="contributed">สี่เหลี่ยมจัตุรัสกลวง</annotation>
-		<annotation cp="□" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสกลวง</annotation>
-		<annotation cp="▢" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงมีมุมกลม</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงมีมุมกลม</annotation>
-		<annotation cp="▣" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงที่มีสี่เหลี่ยมจัตุรัสทึบ</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงที่มีสี่เหลี่ยมจัตุรัสทึบ</annotation>
-		<annotation cp="▤" draft="contributed">สี่เหลี่ยมจัตุรัสเติมเส้นแนวนอน</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมเส้นแนวนอน</annotation>
-		<annotation cp="▥" draft="contributed">สี่เหลี่ยมจัตุรัสเติมเส้นแนวตั้ง</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมเส้นแนวตั้ง</annotation>
-		<annotation cp="▦" draft="contributed">สี่เหลี่ยมจัตุรัสเติมขีดไขว้ตั้งฉาก</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมขีดไขว้ตั้งฉาก</annotation>
+		<annotation cp="⊃">คณิตศาสตร์ | ซุปเปอร์เซต | ตัวดำเนินการของเซต</annotation>
+		<annotation cp="⊃" type="tts">ซุปเปอร์เซต</annotation>
+		<annotation cp="⊆">เท่ากับเซตย่อย</annotation>
+		<annotation cp="⊆" type="tts">เท่ากับเซตย่อย</annotation>
+		<annotation cp="⊇">คณิตศาสตร์ | เท่ากัน | เท่ากับซุปเปอร์เซต</annotation>
+		<annotation cp="⊇" type="tts">เท่ากับซุปเปอร์เซต</annotation>
+		<annotation cp="⊕">เครื่องหมายบวกในวงกลม</annotation>
+		<annotation cp="⊕" type="tts">เครื่องหมายบวกในวงกลม</annotation>
+		<annotation cp="⊖">ความต่างแบบสมมาตร | เครื่องหมายลบในวงกลม</annotation>
+		<annotation cp="⊖" type="tts">เครื่องหมายลบในวงกลม</annotation>
+		<annotation cp="⊗">เครื่องหมายคูณในวงกลม | เทนเซอร์ | ผลคูณ</annotation>
+		<annotation cp="⊗" type="tts">เครื่องหมายคูณในวงกลม</annotation>
+		<annotation cp="⊘">การหาร | คณิตศาสตร์ | สแลชหารในวงกลม</annotation>
+		<annotation cp="⊘" type="tts">สแลชหารในวงกลม</annotation>
+		<annotation cp="⊙">XNOR | ตัวดำเนินการ | ตัวดำเนินการจุดในวงกลม</annotation>
+		<annotation cp="⊙" type="tts">ตัวดำเนินการจุดในวงกลม</annotation>
+		<annotation cp="⊚">ตัวดำเนินการวงแหวนในวงกลม</annotation>
+		<annotation cp="⊚" type="tts">ตัวดำเนินการวงแหวนในวงกลม</annotation>
+		<annotation cp="⊛">ดอกจัน | ตัวดำเนินการ | ตัวดำเนินการดอกจันในวงกลม</annotation>
+		<annotation cp="⊛" type="tts">ตัวดำเนินการดอกจันในวงกลม</annotation>
+		<annotation cp="⊞">การบวก | คณิตศาสตร์ | เครื่องหมายบวกในสี่เหลี่ยมจตุรัส</annotation>
+		<annotation cp="⊞" type="tts">เครื่องหมายบวกในสี่เหลี่ยมจัตุรัส</annotation>
+		<annotation cp="⊟">การลบ | คณิตศาสตร์ | เครื่องหมายลบในสี่เหลี่ยมจตุรัส</annotation>
+		<annotation cp="⊟" type="tts">เครื่องหมายลบในสี่เหลี่ยมจัตุรัส</annotation>
+		<annotation cp="⊥">แทคขึ้น</annotation>
+		<annotation cp="⊥" type="tts">แทคขึ้น</annotation>
+		<annotation cp="⊮">ไม่บังคับ</annotation>
+		<annotation cp="⊮" type="tts">ไม่บังคับ</annotation>
+		<annotation cp="⊰">คณิตศาสตร์ | ตัวดำเนินการของเซต | นำหน้าภายใต้ความสัมพันธ์</annotation>
+		<annotation cp="⊰" type="tts">นำหน้าภายใต้ความสัมพันธ์</annotation>
+		<annotation cp="⊱">คณิตศาสตร์ | ตัวดำเนินการของเซต | ตามหลังภายใต้ความสัมพันธ์</annotation>
+		<annotation cp="⊱" type="tts">ตามหลังภายใต้ความสัมพันธ์</annotation>
+		<annotation cp="⋭">คณิตศาสตร์ | ทฤษฎีกลุ่ม | ไม่มีในฐานะเท่ากับกลุ่มย่อยปกติ</annotation>
+		<annotation cp="⋭" type="tts">ไม่มีในฐานะเท่ากับกลุ่มย่อยปกติ</annotation>
+		<annotation cp="⊶">ต้นกำเนิด</annotation>
+		<annotation cp="⊶" type="tts">ต้นกำเนิด</annotation>
+		<annotation cp="⊹">คณิตศาสตร์ | เมทริกซ์จัตุรัส | เมทริกซ์ผูกพันในตัว | เมทริกซ์สังยุคเอร์มีเชียน</annotation>
+		<annotation cp="⊹" type="tts">เมทริกซ์สังยุคเอร์มีเชียน</annotation>
+		<annotation cp="⊿">คณิตศาสตร์ | มุมฉาก | สามเหลี่ยมมุมฉาก</annotation>
+		<annotation cp="⊿" type="tts">สามเหลี่ยมมุมฉาก</annotation>
+		<annotation cp="⋁">ตรรกศาสตร์ | ประพจน์เลือก | หรือเชิงตรรกะจำนวนมาก</annotation>
+		<annotation cp="⋁" type="tts">หรือเชิงตรรกะจำนวนมาก</annotation>
+		<annotation cp="⋂">คณิตศาสตร์ | ตัวดำเนินการของเซต | อินเตอร์เซกชัน | อินเตอร์เซกชันจำนวนมาก</annotation>
+		<annotation cp="⋂" type="tts">อินเตอร์เซกชันจำนวนมาก</annotation>
+		<annotation cp="⋃">คณิตศาสตร์ | ตัวดำเนินการของเซต | ยูเนียน | ยูเนียนจำนวนมาก</annotation>
+		<annotation cp="⋃" type="tts">ยูเนียนจำนวนมาก</annotation>
+		<annotation cp="⋅">ตัวดำเนินการจุด</annotation>
+		<annotation cp="⋅" type="tts">ตัวดำเนินการจุด</annotation>
+		<annotation cp="⋆">ตัวดำเนินการ | ตัวดำเนินการดาว</annotation>
+		<annotation cp="⋆" type="tts">ตัวดำเนินการดาว</annotation>
+		<annotation cp="⋈">การเชื่อมตามธรรมชาติ | ตัวดำเนินการไบนารี | หูกระต่าย</annotation>
+		<annotation cp="⋈" type="tts">การเชื่อมตามธรรมชาติ</annotation>
+		<annotation cp="⋒">คณิตศาสตร์ | ตัวดำเนินการเซต | อินเตอร์เซกชัน | อินเตอร์เซกชันคู่</annotation>
+		<annotation cp="⋒" type="tts">อินเตอร์เซกชันคู่</annotation>
+		<annotation cp="⋘">คณิตศาสตร์ | น้อยกว่ามากมาก | ไม่เท่ากัน</annotation>
+		<annotation cp="⋘" type="tts">น้อยกว่ามากมาก</annotation>
+		<annotation cp="⋙">คณิตศาสตร์ | มากกว่ามากมาก | ไม่เท่ากัน</annotation>
+		<annotation cp="⋙" type="tts">มากกว่ามากมาก</annotation>
+		<annotation cp="⋮">คณิตศาสตร์ | จุดไข่ปลา | จุดไข่ปลาแนวตั้ง</annotation>
+		<annotation cp="⋮" type="tts">จุดไข่ปลาแนวตั้ง</annotation>
+		<annotation cp="⋯">จุดไข่ปลา | จุดไข่ปลาแนวนอนเส้นกลาง</annotation>
+		<annotation cp="⋯" type="tts">จุดไข่ปลาแนวนอนเส้นกลาง</annotation>
+		<annotation cp="⋰">คณิตศาสตร์ | จุดไข่ปลา | จุดไข่ปลาทแยงขวาขึ้น</annotation>
+		<annotation cp="⋰" type="tts">จุดไข่ปลาทแยงขวาขึ้น</annotation>
+		<annotation cp="⋱">คณิตศาสตร์ | จุดไข่ปลา | จุดไข่ปลาทแยงขวาลง</annotation>
+		<annotation cp="⋱" type="tts">จุดไข่ปลาทแยงขวาลง</annotation>
+		<annotation cp="■">สี่เหลี่ยมจัตุรัสทึบ</annotation>
+		<annotation cp="■" type="tts">สี่เหลี่ยมจัตุรัสทึบ</annotation>
+		<annotation cp="□">สี่เหลี่ยมจัตุรัสกลวง</annotation>
+		<annotation cp="□" type="tts">สี่เหลี่ยมจัตุรัสกลวง</annotation>
+		<annotation cp="▢">สี่เหลี่ยมจัตุรัสกลวงมุมมน</annotation>
+		<annotation cp="▢" type="tts">สี่เหลี่ยมจัตุรัสกลวงมุมมน</annotation>
+		<annotation cp="▣">สี่เหลี่ยมจัตุรัสกลวงที่มีสี่เหลี่ยมจัตุรัสทึบ</annotation>
+		<annotation cp="▣" type="tts">สี่เหลี่ยมจัตุรัสกลวงที่มีสี่เหลี่ยมจัตุรัสทึบ</annotation>
+		<annotation cp="▤">สี่เหลี่ยมจัตุรัสเติมเส้นแนวนอน</annotation>
+		<annotation cp="▤" type="tts">สี่เหลี่ยมจัตุรัสเติมเส้นแนวนอน</annotation>
+		<annotation cp="▥">สี่เหลี่ยมจัตุรัสเติมเส้นแนวตั้ง</annotation>
+		<annotation cp="▥" type="tts">สี่เหลี่ยมจัตุรัสเติมเส้นแนวตั้ง</annotation>
+		<annotation cp="▦">สี่เหลี่ยมจัตุรัสเติมขีดไขว้ตั้งฉาก</annotation>
+		<annotation cp="▦" type="tts">สี่เหลี่ยมจัตุรัสเติมขีดไขว้ตั้งฉาก</annotation>
 		<annotation cp="▧" draft="contributed">สี่เหลี่ยมจัตุรัสเติมขวาล่างซ้ายบน</annotation>
 		<annotation cp="▧" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมขวาล่างซ้ายบน</annotation>
 		<annotation cp="▨" draft="contributed">สี่เหลี่ยมจัตุรัสเติมซ้ายล่างขวาบน</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมซ้ายล่างขวาบน</annotation>
+		<annotation cp="▨" type="tts">สี่เหลี่ยมจัตุรัสเติมเส้นจากซ้ายบนไปขวาล่าง</annotation>
 		<annotation cp="▩" draft="contributed">สี่เหลี่ยมจัตุรัสเติมไขว้ทแยง</annotation>
 		<annotation cp="▩" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสเติมไขว้ทแยง</annotation>
-		<annotation cp="▬" draft="contributed">สี่เหลี่ยมผืนผ้าทึบ</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">สี่เหลี่ยมผืนผ้าทึบ</annotation>
-		<annotation cp="▭" draft="contributed">สี่เหลี่ยมผืนผ้ากลวง</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">สี่เหลี่ยมผืนผ้ากลวง</annotation>
-		<annotation cp="▮" draft="contributed">สี่เหลี่ยมผืนผ้าแนวตั้งทึบ</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">สี่เหลี่ยมผืนผ้าแนวตั้งทึบ</annotation>
-		<annotation cp="▰" draft="contributed">สี่เหลี่ยมด้านขนานทึบ</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">สี่เหลี่ยมด้านขนานทึบ</annotation>
+		<annotation cp="▬">สี่เหลี่ยมผืนผ้าทึบ</annotation>
+		<annotation cp="▬" type="tts">สี่เหลี่ยมผืนผ้าทึบ</annotation>
+		<annotation cp="▭">สี่เหลี่ยมผืนผ้ากลวง</annotation>
+		<annotation cp="▭" type="tts">สี่เหลี่ยมผืนผ้ากลวง</annotation>
+		<annotation cp="▮">สี่เหลี่ยมผืนผ้าแนวตั้งทึบ</annotation>
+		<annotation cp="▮" type="tts">สี่เหลี่ยมผืนผ้าแนวตั้งทึบ</annotation>
+		<annotation cp="▰">สี่เหลี่ยมด้านขนานทึบ</annotation>
+		<annotation cp="▰" type="tts">สี่เหลี่ยมด้านขนานทึบ</annotation>
 		<annotation cp="▲">ขึ้น | ทึบ | ลูกศร | สามเหลี่ยม | สามเหลี่ยมทึบหัวชี้ขึ้น</annotation>
 		<annotation cp="▲" type="tts">สามเหลี่ยมทึบหัวชี้ขึ้น</annotation>
-		<annotation cp="△" draft="contributed">สามเหลี่ยมชี้ขึ้นกลวง</annotation>
-		<annotation cp="△" type="tts" draft="contributed">สามเหลี่ยมชี้ขึ้นกลวง</annotation>
-		<annotation cp="▴" draft="contributed">สามเหลี่ยมเล็กชี้ขึ้นทึบ</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ขึ้นทึบ</annotation>
-		<annotation cp="▵" draft="contributed">สามเหลี่ยมเล็กชี้ขึ้นกลวง</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ขึ้นกลวง</annotation>
-		<annotation cp="▷" draft="contributed">สามเหลี่ยมชี้ขวากลวง</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">สามเหลี่ยมชี้ขวากลวง</annotation>
-		<annotation cp="▸" draft="contributed">สามเหลี่ยมเล็กชี้ขวาทึบ</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ขวาทึบ</annotation>
-		<annotation cp="▹" draft="contributed">สามเหลี่ยมเล็กชี้ขวากลวง</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ขวากลวง</annotation>
-		<annotation cp="►" draft="contributed">ตัวชี้ขวาทึบ</annotation>
-		<annotation cp="►" type="tts" draft="contributed">ตัวชี้ขวาทึบ</annotation>
-		<annotation cp="▻" draft="contributed">ตัวชี้ขวากลวง</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">ตัวชี้ขวากลวง</annotation>
+		<annotation cp="△">สามเหลี่ยมชี้ขึ้นกลวง</annotation>
+		<annotation cp="△" type="tts">สามเหลี่ยมชี้ขึ้นกลวง</annotation>
+		<annotation cp="▴">สามเหลี่ยมเล็กชี้ขึ้นทึบ</annotation>
+		<annotation cp="▴" type="tts">สามเหลี่ยมเล็กชี้ขึ้นทึบ</annotation>
+		<annotation cp="▵">สามเหลี่ยมเล็กชี้ขึ้นกลวง</annotation>
+		<annotation cp="▵" type="tts">สามเหลี่ยมเล็กชี้ขึ้นกลวง</annotation>
+		<annotation cp="▷">สามเหลี่ยมชี้ขวากลวง</annotation>
+		<annotation cp="▷" type="tts">สามเหลี่ยมชี้ขวากลวง</annotation>
+		<annotation cp="▸">สามเหลี่ยมเล็กชี้ขวาทึบ</annotation>
+		<annotation cp="▸" type="tts">สามเหลี่ยมเล็กชี้ขวาทึบ</annotation>
+		<annotation cp="▹">สามเหลี่ยมเล็กชี้ขวากลวง</annotation>
+		<annotation cp="▹" type="tts">สามเหลี่ยมเล็กชี้ขวากลวง</annotation>
+		<annotation cp="►">ตัวชี้ขวาทึบ</annotation>
+		<annotation cp="►" type="tts">ตัวชี้ขวาทึบ</annotation>
+		<annotation cp="▻">ตัวชี้ขวากลวง</annotation>
+		<annotation cp="▻" type="tts">ตัวชี้ขวากลวง</annotation>
 		<annotation cp="▼">ทึบ | ลง | ลูกศร | สามเหลี่ยม | สามเหลี่ยมทึบหัวชี้ลง</annotation>
 		<annotation cp="▼" type="tts">สามเหลี่ยมทึบหัวชี้ลง</annotation>
-		<annotation cp="▽" draft="contributed">สามเหลี่ยมชี้ลงกลวง</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">สามเหลี่ยมชี้ลงกลวง</annotation>
-		<annotation cp="▾" draft="contributed">สามเหลี่ยมเล็กชี้ลงทึบ</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ลงทึบ</annotation>
-		<annotation cp="▿" draft="contributed">สามเหลี่ยมเล็กชี้ลงกลวง</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ลงกลวง</annotation>
-		<annotation cp="◁" draft="contributed">สามเหลี่ยมชี้ซ้ายกลวง</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">สามเหลี่ยมชี้ซ้ายกลวง</annotation>
-		<annotation cp="◂" draft="contributed">สามเหลี่ยมเล็กชี้ซ้ายทึบ</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ซ้ายทึบ</annotation>
-		<annotation cp="◃" draft="contributed">สามเหลี่ยมเล็กชี้ซ้ายกลวง</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">สามเหลี่ยมเล็กชี้ซ้ายกลวง</annotation>
-		<annotation cp="◄" draft="contributed">ตัวชี้ซ้ายทึบ</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">ตัวชี้ซ้ายทึบ</annotation>
-		<annotation cp="◅" draft="contributed">ตัวชี้ซ้ายกลวง</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">ตัวชี้ซ้ายกลวง</annotation>
-		<annotation cp="◆" draft="contributed">สี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">สี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
-		<annotation cp="◇" draft="contributed">สี่เหลี่ยมขนมเปียกปูนกลวง</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">สี่เหลี่ยมขนมเปียกปูนกลวง</annotation>
-		<annotation cp="◈" draft="contributed">สี่เหลี่ยมขนมเปียกปูนกลวงที่มีสี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">สี่เหลี่ยมขนมเปียกปูนกลวงที่มีสี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
-		<annotation cp="◉" draft="contributed">วงกลมกลวงที่มีวงกลมทึบ</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">วงกลมกลวงที่มีวงกลมทึบ</annotation>
+		<annotation cp="▽">สามเหลี่ยมชี้ลงกลวง</annotation>
+		<annotation cp="▽" type="tts">สามเหลี่ยมชี้ลงกลวง</annotation>
+		<annotation cp="▾">สามเหลี่ยมเล็กชี้ลงทึบ</annotation>
+		<annotation cp="▾" type="tts">สามเหลี่ยมเล็กชี้ลงทึบ</annotation>
+		<annotation cp="▿">สามเหลี่ยมเล็กชี้ลงกลวง</annotation>
+		<annotation cp="▿" type="tts">สามเหลี่ยมเล็กชี้ลงกลวง</annotation>
+		<annotation cp="◁">สามเหลี่ยมชี้ซ้ายกลวง</annotation>
+		<annotation cp="◁" type="tts">สามเหลี่ยมชี้ซ้ายกลวง</annotation>
+		<annotation cp="◂">สามเหลี่ยมเล็กชี้ซ้ายทึบ</annotation>
+		<annotation cp="◂" type="tts">สามเหลี่ยมเล็กชี้ซ้ายทึบ</annotation>
+		<annotation cp="◃">สามเหลี่ยมเล็กชี้ซ้ายกลวง</annotation>
+		<annotation cp="◃" type="tts">สามเหลี่ยมเล็กชี้ซ้ายกลวง</annotation>
+		<annotation cp="◄">ตัวชี้ซ้ายทึบ</annotation>
+		<annotation cp="◄" type="tts">ตัวชี้ซ้ายทึบ</annotation>
+		<annotation cp="◅">ตัวชี้ซ้ายกลวง</annotation>
+		<annotation cp="◅" type="tts">ตัวชี้ซ้ายกลวง</annotation>
+		<annotation cp="◆">สี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
+		<annotation cp="◆" type="tts">สี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
+		<annotation cp="◇">สี่เหลี่ยมขนมเปียกปูนกลวง</annotation>
+		<annotation cp="◇" type="tts">สี่เหลี่ยมขนมเปียกปูนกลวง</annotation>
+		<annotation cp="◈">สี่เหลี่ยมขนมเปียกปูนกลวงที่มีสี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
+		<annotation cp="◈" type="tts">สี่เหลี่ยมขนมเปียกปูนกลวงที่มีสี่เหลี่ยมขนมเปียกปูนทึบ</annotation>
+		<annotation cp="◉">จุดที่มีวงกลมรอบ | ตาปลา | วงกลมกลวงที่มีวงกลมทึบ | วงกลมที่มีวงกลมทึบร่วมศูนย์กลาง</annotation>
+		<annotation cp="◉" type="tts">วงกลมกลวงที่มีวงกลมทึบ</annotation>
 		<annotation cp="◊">สี่เหลี่ยมขนมเปียกปูน | สี่เหลี่ยมข้าวหลามตัด | สี่เหลี่ยมด้านเท่า</annotation>
 		<annotation cp="◊" type="tts">สี่เหลี่ยมขนมเปียกปูน</annotation>
 		<annotation cp="○">จุดกลม | จุดกลมกลวง | วงแหวน</annotation>
 		<annotation cp="○" type="tts">จุดกลมกลวง</annotation>
-		<annotation cp="◌" draft="contributed">วงกลมจุด</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">วงกลมจุด</annotation>
-		<annotation cp="◍" draft="contributed">วงกลมเติมเส้นแนวตั้ง</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">วงกลมเติมเส้นแนวตั้ง</annotation>
-		<annotation cp="◎" draft="contributed">จุดกลางเป้า</annotation>
+		<annotation cp="◌">วงกลมจุด</annotation>
+		<annotation cp="◌" type="tts">วงกลมจุด</annotation>
+		<annotation cp="◍">วงกลมเติมเส้นแนวตั้ง</annotation>
+		<annotation cp="◍" type="tts">วงกลมเติมเส้นแนวตั้ง</annotation>
+		<annotation cp="◎">เป้าหมาย | วงกลมซ้อน | วงกลมร่วมศูนย์กลาง</annotation>
 		<annotation cp="◎" type="tts" draft="contributed">จุดกลางเป้า</annotation>
 		<annotation cp="●">จุดกลม | จุดกลมทึบ</annotation>
 		<annotation cp="●" type="tts">จุดกลมทึบ</annotation>
-		<annotation cp="◐" draft="contributed">วงกลมทึบครึ่งซ้าย</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">วงกลมทึบครึ่งซ้าย</annotation>
-		<annotation cp="◑" draft="contributed">วงกลมทึบครึ่งขวา</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">วงกลมทึบครึ่งขวา</annotation>
-		<annotation cp="◒" draft="contributed">วงกลมทึบครึ่งล่าง</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">วงกลมทึบครึ่งล่าง</annotation>
-		<annotation cp="◓" draft="contributed">วงกลมทึบครึ่งบน</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">วงกลมทึบครึ่งบน</annotation>
-		<annotation cp="◔" draft="contributed">วงกลมทึบเสี้ยวขวาบน</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">วงกลมทึบเสี้ยวขวาบน</annotation>
-		<annotation cp="◕" draft="contributed">วงกลมทึบทั้งหมดเว้นเสี้ยวซ้ายบน</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">วงกลมทึบทั้งหมดเว้นเสี้ยวซ้ายบน</annotation>
-		<annotation cp="◖" draft="contributed">ครึ่งวงกลมทึบซ้าย</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">ครึ่งวงกลมทึบซ้าย</annotation>
-		<annotation cp="◗" draft="contributed">ครึ่งวงกลมทึบขวา</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">ครึ่งวงกลมทึบขวา</annotation>
-		<annotation cp="◘" draft="contributed">บุลเลตกลับด้าน</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">บุลเลตกลับด้าน</annotation>
-		<annotation cp="◙" draft="contributed">สี่เหลี่ยมจัตุรัสทึบที่มีวงกลมกลวง</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสทึบที่มีวงกลมกลวง</annotation>
-		<annotation cp="◜" draft="contributed">ส่วนโค้งวงกลมเสี้ยวซ้ายบน</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">ส่วนโค้งวงกลมเสี้ยวซ้ายบน</annotation>
-		<annotation cp="◝" draft="contributed">ส่วนโค้งวงกลมเสี้ยวขวาบน</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">ส่วนโค้งวงกลมเสี้ยวขวาบน</annotation>
-		<annotation cp="◞" draft="contributed">ส่วนโค้งวงกลมเสี้ยวขวาล่าง</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">ส่วนโค้งวงกลมเสี้ยวขวาล่าง</annotation>
-		<annotation cp="◟" draft="contributed">ส่วนโค้งวงกลมเสี้ยวซ้ายล่าง</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">ส่วนโค้งวงกลมเสี้ยวซ้ายล่าง</annotation>
-		<annotation cp="◠" draft="contributed">ครึ่งวงกลมบน</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">ครึ่งวงกลมบน</annotation>
-		<annotation cp="◡" draft="contributed">ครึ่งวงกลมล่าง</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">ครึ่งวงกลมล่าง</annotation>
-		<annotation cp="◢" draft="contributed">สามเหลี่ยมขวาล่างทึบ</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">สามเหลี่ยมขวาล่างทึบ</annotation>
-		<annotation cp="◣" draft="contributed">สามเหลี่ยมซ้ายล่างทึบ</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">สามเหลี่ยมซ้ายล่างทึบ</annotation>
-		<annotation cp="◤" draft="contributed">สามเหลี่ยมซ้ายบนทึบ</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">สามเหลี่ยมซ้ายบนทึบ</annotation>
-		<annotation cp="◥" draft="contributed">สามเหลี่ยมขวาบนทึบ</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">สามเหลี่ยมขวาบนทึบ</annotation>
-		<annotation cp="◦" draft="contributed">บุลเลตกลวง</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">บุลเลตกลวง</annotation>
+		<annotation cp="◐">วงกลมทึบครึ่งซ้าย</annotation>
+		<annotation cp="◐" type="tts">วงกลมทึบครึ่งซ้าย</annotation>
+		<annotation cp="◑">วงกลมทึบครึ่งขวา</annotation>
+		<annotation cp="◑" type="tts">วงกลมทึบครึ่งขวา</annotation>
+		<annotation cp="◒">วงกลมทึบครึ่งล่าง</annotation>
+		<annotation cp="◒" type="tts">วงกลมทึบครึ่งล่าง</annotation>
+		<annotation cp="◓">วงกลมทึบครึ่งบน</annotation>
+		<annotation cp="◓" type="tts">วงกลมทึบครึ่งบน</annotation>
+		<annotation cp="◔">วงกลมทึบเสี้ยวขวาบน</annotation>
+		<annotation cp="◔" type="tts">วงกลมทึบเสี้ยวขวาบน</annotation>
+		<annotation cp="◕">วงกลมทึบทั้งหมดเว้นเสี้ยวซ้ายบน</annotation>
+		<annotation cp="◕" type="tts">วงกลมทึบทั้งหมดเว้นเสี้ยวซ้ายบน</annotation>
+		<annotation cp="◖">ครึ่งวงกลมทึบซ้าย</annotation>
+		<annotation cp="◖" type="tts">ครึ่งวงกลมทึบซ้าย</annotation>
+		<annotation cp="◗">ครึ่งวงกลมทึบขวา</annotation>
+		<annotation cp="◗" type="tts">ครึ่งวงกลมทึบขวา</annotation>
+		<annotation cp="◘">บุลเลตกลับด้าน</annotation>
+		<annotation cp="◘" type="tts">บุลเลตกลับด้าน</annotation>
+		<annotation cp="◙">วงกลมกลวงกลับด้าน | สี่เหลี่ยมจัตุรัสทึบที่มีวงกลมกลวง</annotation>
+		<annotation cp="◙" type="tts">สี่เหลี่ยมจัตุรัสทึบที่มีวงกลมกลวง</annotation>
+		<annotation cp="◜">ส่วนโค้งวงกลมเสี้ยวซ้ายบน</annotation>
+		<annotation cp="◜" type="tts">ส่วนโค้งวงกลมเสี้ยวซ้ายบน</annotation>
+		<annotation cp="◝">ส่วนโค้งวงกลมเสี้ยวขวาบน</annotation>
+		<annotation cp="◝" type="tts">ส่วนโค้งวงกลมเสี้ยวขวาบน</annotation>
+		<annotation cp="◞">ส่วนโค้งวงกลมเสี้ยวขวาล่าง</annotation>
+		<annotation cp="◞" type="tts">ส่วนโค้งวงกลมเสี้ยวขวาล่าง</annotation>
+		<annotation cp="◟">ส่วนโค้งวงกลมเสี้ยวซ้ายล่าง</annotation>
+		<annotation cp="◟" type="tts">ส่วนโค้งวงกลมเสี้ยวซ้ายล่าง</annotation>
+		<annotation cp="◠">ครึ่งวงกลมบน</annotation>
+		<annotation cp="◠" type="tts">ครึ่งวงกลมบน</annotation>
+		<annotation cp="◡">ครึ่งวงกลมล่าง</annotation>
+		<annotation cp="◡" type="tts">ครึ่งวงกลมล่าง</annotation>
+		<annotation cp="◢">สามเหลี่ยมขวาล่างทึบ</annotation>
+		<annotation cp="◢" type="tts">สามเหลี่ยมขวาล่างทึบ</annotation>
+		<annotation cp="◣">สามเหลี่ยมซ้ายล่างทึบ</annotation>
+		<annotation cp="◣" type="tts">สามเหลี่ยมซ้ายล่างทึบ</annotation>
+		<annotation cp="◤">สามเหลี่ยมซ้ายบนทึบ</annotation>
+		<annotation cp="◤" type="tts">สามเหลี่ยมซ้ายบนทึบ</annotation>
+		<annotation cp="◥">สามเหลี่ยมขวาบนทึบ</annotation>
+		<annotation cp="◥" type="tts">สามเหลี่ยมขวาบนทึบ</annotation>
+		<annotation cp="◦">บุลเลตกลวง</annotation>
+		<annotation cp="◦" type="tts">บุลเลตกลวง</annotation>
 		<annotation cp="◯">จุดกลม | จุดกลมกลวงใหญ่ | วงแหวน</annotation>
 		<annotation cp="◯" type="tts">จุดกลมกลวงใหญ่</annotation>
-		<annotation cp="◳" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงเสี้ยวขวาบน</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">สี่เหลี่ยมจัตุรัสกลวงเสี้ยวขวาบน</annotation>
-		<annotation cp="◷" draft="contributed">วงกลมกลวงมีเสี้ยวขวาบน</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">วงกลมกลวงมีเสี้ยวขวาบน</annotation>
-		<annotation cp="◿" draft="contributed">สามเหลี่ยมขวาล่าง</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">สามเหลี่ยมขวาล่าง</annotation>
+		<annotation cp="◳">สี่เหลี่ยมจัตุรัสกลวงเสี้ยวขวาบน</annotation>
+		<annotation cp="◳" type="tts">สี่เหลี่ยมจัตุรัสกลวงเสี้ยวขวาบน</annotation>
+		<annotation cp="◷">วงกลมกลวงมีเสี้ยวขวาบน</annotation>
+		<annotation cp="◷" type="tts">วงกลมกลวงมีเสี้ยวขวาบน</annotation>
+		<annotation cp="◿">สามเหลี่ยมขวาล่าง</annotation>
+		<annotation cp="◿" type="tts">สามเหลี่ยมขวาล่าง</annotation>
 		<annotation cp="♪">เขบ็ต 1 ชั้น | ดนตรี | โน้ต | โน้ตเขบ็ต 1 ชั้น</annotation>
 		<annotation cp="♪" type="tts">โน้ตเขบ็ต 1 ชั้น</annotation>
-		<annotation cp="⨧" draft="contributed">เครื่องหมายบวกตัวห้อยเลขสอง</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">เครื่องหมายบวกตัวห้อยเลขสอง</annotation>
-		<annotation cp="⨯" draft="contributed">ผลคูณไขว้ของเวกเตอร์</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">ผลคูณไขว้ของเวกเตอร์</annotation>
-		<annotation cp="⨼" draft="contributed">ผลคูณภายใน</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">ผลคูณภายใน</annotation>
-		<annotation cp="⩣" draft="contributed">เส้นใต้คู่ของหรือเชิงตรรกะ</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">เส้นใต้คู่ของหรือเชิงตรรกะ</annotation>
-		<annotation cp="⩽" draft="contributed">เท่ากันเอียงน้อยกว่า</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">เท่ากันเอียงน้อยกว่า</annotation>
-		<annotation cp="⪍" draft="contributed">น้อยกว่าเหนือเท่ากันคล้าย</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">น้อยกว่าเหนือเท่ากันคล้าย</annotation>
-		<annotation cp="⪚" draft="contributed">มากกว่าเท่ากันเส้นคู่</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">มากกว่าเท่ากันเส้นคู่</annotation>
-		<annotation cp="⪺" draft="contributed">ตามหลังเหนือไม่เกือบเท่ากัน</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">ตามหลังเหนือไม่เกือบเท่ากัน</annotation>
+		<annotation cp="⨧">เครื่องหมายบวกตัวห้อยเลขสอง</annotation>
+		<annotation cp="⨧" type="tts">เครื่องหมายบวกตัวห้อยเลขสอง</annotation>
+		<annotation cp="⨯">ผลคูณไขว้ของเวกเตอร์</annotation>
+		<annotation cp="⨯" type="tts">ผลคูณไขว้ของเวกเตอร์</annotation>
+		<annotation cp="⨼">ผลคูณภายใน</annotation>
+		<annotation cp="⨼" type="tts">ผลคูณภายใน</annotation>
+		<annotation cp="⩣">เส้นใต้คู่หรือเชิงตรรกะ</annotation>
+		<annotation cp="⩣" type="tts">เส้นใต้คู่หรือเชิงตรรกะ</annotation>
+		<annotation cp="⩽">เท่ากันเอียงน้อยกว่า</annotation>
+		<annotation cp="⩽" type="tts">เท่ากันเอียงน้อยกว่า</annotation>
+		<annotation cp="⪍">น้อยกว่าเหนือเท่ากันคล้าย</annotation>
+		<annotation cp="⪍" type="tts">น้อยกว่าเหนือเท่ากันคล้าย</annotation>
+		<annotation cp="⪚">คณิตศาสตร์ | มากกว่าเท่ากันเส้นคู่ | ไม่เท่ากัน</annotation>
+		<annotation cp="⪚" type="tts">มากกว่าเท่ากันเส้นคู่</annotation>
+		<annotation cp="⪺">ตามหลังเหนือไม่เกือบเท่ากัน</annotation>
+		<annotation cp="⪺" type="tts">ตามหลังเหนือไม่เกือบเท่ากัน</annotation>
 		<annotation cp="♭">ดนตรี | โน้ต | แฟลต</annotation>
 		<annotation cp="♭" type="tts">แฟลต</annotation>
 		<annotation cp="♯">ชาร์ป | ดนตรี | โน้ต | สูงขึ้นครึ่งเสียง</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">ร้องไห้ดีใจ</annotation>
 		<annotation cp="🙂">ยิ้ม | หน้า | หน้ายิ้มบางๆ</annotation>
 		<annotation cp="🙂" type="tts">หน้ายิ้มบางๆ</annotation>
+		<annotation cp="🙂‍↕">ผงกหัว | เห็นด้วย, ใช่</annotation>
+		<annotation cp="🙂‍↕" type="tts">พยักหน้า</annotation>
+		<annotation cp="🙂‍↔">ไม่, สั่น | ส่ายหัว</annotation>
+		<annotation cp="🙂‍↔" type="tts">ส่ายหน้า</annotation>
 		<annotation cp="🙃">กลับหัว | หน้า | หน้ากลับหัว</annotation>
 		<annotation cp="🙃" type="tts">หน้ากลับหัว</annotation>
 		<annotation cp="🫠">ของเหลว | ใบหน้าละลาย | ละลาย | สูญสลาย | หายไป</annotation>
@@ -795,8 +799,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😶" type="tts">หน้าไม่มีปาก</annotation>
 		<annotation cp="🫥">เก็บตัว | ซ่อน | ล่องหน | หดหู่ | หน้าเป็นเส้นประ | หายไป</annotation>
 		<annotation cp="🫥" type="tts">หน้าเป็นเส้นประ</annotation>
-		<annotation cp="😶‍🌫" draft="contributed">หน้าในหมู่เมฆ</annotation>
-		<annotation cp="😶‍🌫" type="tts" draft="contributed">หน้าในหมู่เมฆ</annotation>
+		<annotation cp="😶‍🌫">ใบหน้าในเมฆ​ | หน้าในเมฆ | หน้าในหมอก | เหม่อลอย</annotation>
+		<annotation cp="😶‍🌫" type="tts">หน้าในหมู่เมฆ</annotation>
 		<annotation cp="😏">แสยะยิ้ม | หน้า</annotation>
 		<annotation cp="😏" type="tts">แสยะยิ้ม</annotation>
 		<annotation cp="😒">ไม่มีความสุข | หน้า | หน้าหน่าย</annotation>
@@ -805,8 +809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">กลอกตา</annotation>
 		<annotation cp="😬">เบะปาก | ยิงฟัน | หน้า</annotation>
 		<annotation cp="😬" type="tts">เบะปาก</annotation>
-		<annotation cp="😮‍💨" draft="contributed">หน้าหายใจออก</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">หน้าหายใจออก</annotation>
+		<annotation cp="😮‍💨">ถอนหายใจ | ใบหน้าหายใจออก | โล่งใจ | โล่งอก | หอบ | หายใจออก | เหนื่อย</annotation>
+		<annotation cp="😮‍💨" type="tts">หน้าหายใจออก</annotation>
 		<annotation cp="🤥">ขี้โกหก | ขี้จุ๊ | จมูกยาว | พิน็อคคิโอ | หน้า</annotation>
 		<annotation cp="🤥" type="tts">ขี้โกหก</annotation>
 		<annotation cp="🫨">ช็อค | ใบหน้า | ใบหน้าสั่น | แผ่นดินไหว | สั่น | สั่นสะเทือน</annotation>
@@ -841,8 +845,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">หน้างงงวย</annotation>
 		<annotation cp="😵">มึน | หน้า | หน้ามึน</annotation>
 		<annotation cp="😵" type="tts">หน้ามึน</annotation>
-		<annotation cp="😵‍💫" draft="contributed">หน้าตาลาย</annotation>
-		<annotation cp="😵‍💫" type="tts" draft="contributed">หน้าตาลาย</annotation>
+		<annotation cp="😵‍💫">ตาลาย | เป็นลม | มึน | สะกดจิต | หน้ามึน</annotation>
+		<annotation cp="😵‍💫" type="tts">หน้าตาลาย</annotation>
 		<annotation cp="🤯">ช็อค | ตะลึง | หัวระเบิด</annotation>
 		<annotation cp="🤯" type="tts">ช็อค</annotation>
 		<annotation cp="🤠">คน | คาวบอย | คาวบอยสวมหมวก | หน้า | หมวก</annotation>
@@ -953,7 +957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😼" type="tts">แมวยิ้มเจ้าเล่ห์</annotation>
 		<annotation cp="😽">ตา | แมว | แมวส่งจุ๊บ | ส่งจูบ | หน้า</annotation>
 		<annotation cp="😽" type="tts">แมวส่งจุ๊บ</annotation>
-		<annotation cp="🙀">ตกใจ | ประหลาดใจ | แมว | แมวตกใจ | หน้า | โอ๊ะ</annotation>
+		<annotation cp="🙀">ตกใจ | ประหลาดใจ | แมว | หน้า | โอ๊ะ</annotation>
 		<annotation cp="🙀" type="tts">แมวตกใจ</annotation>
 		<annotation cp="😿">น้ำตา | แมว | แมวร้องไห้ | ร้องไห้ | เศร้า | หน้า</annotation>
 		<annotation cp="😿" type="tts">แมวร้องไห้</annotation>
@@ -987,10 +991,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">เครื่องหมายอัศเจรีย์รูปหัวใจ</annotation>
 		<annotation cp="💔">หัวใจ | อกหัก</annotation>
 		<annotation cp="💔" type="tts">อกหัก</annotation>
-		<annotation cp="❤‍🔥" draft="contributed">ไฟไหม้หัวใจ</annotation>
-		<annotation cp="❤‍🔥" type="tts" draft="contributed">ไฟไหม้หัวใจ</annotation>
-		<annotation cp="❤‍🩹" draft="contributed">หัวใจที่มีการซ่อมแซม</annotation>
-		<annotation cp="❤‍🩹" type="tts" draft="contributed">หัวใจที่มีการซ่อมแซม</annotation>
+		<annotation cp="❤‍🔥">ร้อนรุ่ม | รัก | หลง | หัวใจ | หัวใจไฟไม้ | ไหม้</annotation>
+		<annotation cp="❤‍🔥" type="tts">ไฟไหม้หัวใจ</annotation>
+		<annotation cp="❤‍🩹">กลับมาดีขึ้น | ซ่อมแซมหัวใจ | ดีขึ้น | พักฟื้นหัวใจ | เยียวยา | เยียวยาหัวใจ | สุขภาพดี</annotation>
+		<annotation cp="❤‍🩹" type="tts">หัวใจที่มีการซ่อมแซม</annotation>
 		<annotation cp="❤">หัวใจ | หัวใจแดง | หัวใจสีแดง</annotation>
 		<annotation cp="❤" type="tts">หัวใจสีแดง</annotation>
 		<annotation cp="🩷">ชมพู | ชอบ | น่ารัก | รัก | หัวใจ | หัวใจสีชมพู</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">คน</annotation>
 		<annotation cp="👱">คนผมทอง | ผม | ผมทอง</annotation>
 		<annotation cp="👱" type="tts">คนผมทอง</annotation>
+		<annotation cp="🧑‍🧒">ครอบครัว: ผู้ใหญ่, ลูก</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ครอบครัว: ผู้ใหญ่, ลูก, ลูก</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก, เด็ก</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ครอบครัว: พ่อ, แม่, ลูก</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ครอบครัว: พ่อ, แม่, ลูก, ลูก</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก, เด็ก</annotation>
 		<annotation cp="👨">คน | ผู้ชาย</annotation>
 		<annotation cp="👨" type="tts">ผู้ชาย</annotation>
 		<annotation cp="🧔">คน | ผู้ชาย | ผู้ชายมีเครา | มีเครา | หนวดเครา</annotation>
@@ -1413,7 +1425,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫃" type="tts">ผู้ชายตั้งครรภ์</annotation>
 		<annotation cp="🫄">คนตั้งครรภ์ | ตั้งท้อง | ป่อง | พุง | อิ่ม</annotation>
 		<annotation cp="🫄" type="tts">คนตั้งครรภ์</annotation>
-		<annotation cp="🤱">ให้นม</annotation>
+		<annotation cp="🤱">เด็กทารก | ผู้หญิงให้นมลูก | หน้าอก | ให้นม</annotation>
 		<annotation cp="🤱" type="tts">ให้นม</annotation>
 		<annotation cp="👩‍🍼">ขวดนม | เด็กทารก | ผู้หญิง | ผู้หญิงให้นมลูก | ให้นม</annotation>
 		<annotation cp="👩‍🍼" type="tts">ผู้หญิงให้นมลูก</annotation>
@@ -1515,19 +1527,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">ผู้ชายกำลังคุกเข่า</annotation>
 		<annotation cp="🧎‍♀">กำลังคุกเข่า | ผู้หญิง | ผู้หญิงกำลังคุกเข่า</annotation>
 		<annotation cp="🧎‍♀" type="tts">ผู้หญิงกำลังคุกเข่า</annotation>
-		<annotation cp="🧑‍🦯">การเข้าถึง | คนเดินถือไม้เท้านำทาง | ตาบอด</annotation>
+		<annotation cp="🧑‍🦯">การเข้าถึง | การช่วยเหลือพิเศษ | คนเดินถือไม้เท้านำทาง | ตาบอด</annotation>
 		<annotation cp="🧑‍🦯" type="tts">คนเดินถือไม้เท้านำทาง</annotation>
 		<annotation cp="👨‍🦯">การเข้าถึง | ตาบอด | ผู้ชาย | ผู้ชายเดินถือไม้เท้านำทาง</annotation>
 		<annotation cp="👨‍🦯" type="tts">ผู้ชายเดินถือไม้เท้านำทาง</annotation>
 		<annotation cp="👩‍🦯">การเข้าถึง | ตาบอด | ผู้หญิง | ผู้หญิงเดินถือไม้เท้านำทาง</annotation>
 		<annotation cp="👩‍🦯" type="tts">ผู้หญิงเดินถือไม้เท้านำทาง</annotation>
-		<annotation cp="🧑‍🦼">การเข้าถึง | คนนั่งวีลแชร์ไฟฟ้า | วีลแชร์</annotation>
+		<annotation cp="🧑‍🦼">การเข้าถึง | การช่วยเหลือพิเศษ | คนนั่งวีลแชร์ไฟฟ้า | วีลแชร์</annotation>
 		<annotation cp="🧑‍🦼" type="tts">คนนั่งวีลแชร์ไฟฟ้า</annotation>
 		<annotation cp="👨‍🦼">การเข้าถึง | ผู้ชาย | ผู้ชายนั่งวีลแชร์ไฟฟ้า | วีลแชร์</annotation>
 		<annotation cp="👨‍🦼" type="tts">ผู้ชายนั่งวีลแชร์ไฟฟ้า</annotation>
 		<annotation cp="👩‍🦼">การเข้าถึง | ผู้หญิง | ผู้หญิงนั่งวีลแชร์ไฟฟ้า | วีลแชร์</annotation>
 		<annotation cp="👩‍🦼" type="tts">ผู้หญิงนั่งวีลแชร์ไฟฟ้า</annotation>
-		<annotation cp="🧑‍🦽">การเข้าถึง | คนนั่งวีลแชร์ธรรมดา | วีลแชร์</annotation>
+		<annotation cp="🧑‍🦽">การเข้าถึง | การช่วยเหลือพิเศษ | คนนั่งวีลแชร์ธรรมดา | วีลแชร์</annotation>
 		<annotation cp="🧑‍🦽" type="tts">คนนั่งวีลแชร์ธรรมดา</annotation>
 		<annotation cp="👨‍🦽">การเข้าถึง | ผู้ชาย | ผู้ชายนั่งวีลแชร์ธรรมดา | วีลแชร์</annotation>
 		<annotation cp="👨‍🦽" type="tts">ผู้ชายนั่งวีลแชร์ธรรมดา</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">ลูกเจี๊ยบยืนหันหน้า</annotation>
 		<annotation cp="🐦">นก | สัตว์</annotation>
 		<annotation cp="🐦" type="tts">นก</annotation>
+		<annotation cp="🐦‍🔥">เทพนิยาย, ไฟ, เกิดใหม่, กลับชาติ | นกฟินิกซ์</annotation>
+		<annotation cp="🐦‍🔥" type="tts">นกฟินิกซ์</annotation>
 		<annotation cp="🐧">เพนกวิน | สัตว์</annotation>
 		<annotation cp="🐧" type="tts">เพนกวิน</annotation>
 		<annotation cp="🕊">นก | นกพิราบขาว | บิน | สันติภาพ</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">นกแก้ว</annotation>
 		<annotation cp="🪽">การบิน | ตำนาน | นก | นางฟ้า | บิน | ปีก</annotation>
 		<annotation cp="🪽" type="tts">ปีก</annotation>
+		<annotation cp="🐦‍⬛">กา | เบิร์ด | แบล็ก | รุค | เรเวน</annotation>
+		<annotation cp="🐦‍⬛" type="tts">นกสีดำ</annotation>
 		<annotation cp="🪿">ก้าบ | ทึ่ม | นก | สัตว์ปีก | ห่าน</annotation>
 		<annotation cp="🪿" type="tts">ห่าน</annotation>
 		<annotation cp="🐸">กบ | หน้า</annotation>
@@ -1903,7 +1919,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐚" type="tts">หอย</annotation>
 		<annotation cp="🪸">แนวปะการัง | ปะการัง | มหาสมุทร</annotation>
 		<annotation cp="🪸" type="tts">ปะการัง</annotation>
-		<annotation cp="🪼">ต่อย | แมงกะพรุน | เยลลี่ | สัตว์ทะเล | สัตว์ไม่มีกระดูกสันหลัง | แสบร้อน | โอ๊ย</annotation>
+		<annotation cp="🪼">ต่อย | แมงกะพรุน | สัตว์ทะเล | สัตว์ไม่มีกระดูกสันหลัง | แสบร้อน | โอ๊ย</annotation>
 		<annotation cp="🪼" type="tts">แมงกะพรุน</annotation>
 		<annotation cp="🐌">สัตว์ | หอยทาก</annotation>
 		<annotation cp="🐌" type="tts">หอยทาก</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">รังนกที่มีไข่</annotation>
 		<annotation cp="🍄">พืช | เห็ด</annotation>
 		<annotation cp="🍄" type="tts">เห็ด</annotation>
+		<annotation cp="🍄‍🟫">เห็ดสีน้ำตาล | อาหาร, เชื้อรา, ธรรมชาติ, ผัก</annotation>
+		<annotation cp="🍄‍🟫" type="tts">เห็ดสีน้ำตาล</annotation>
 		<annotation cp="🍇">ผลไม้ | องุ่น</annotation>
 		<annotation cp="🍇" type="tts">องุ่น</annotation>
 		<annotation cp="🍈">ผลไม้ | เมลอน</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ส้ม</annotation>
 		<annotation cp="🍋">ผลไม้ | เลมอน</annotation>
 		<annotation cp="🍋" type="tts">เลมอน</annotation>
+		<annotation cp="🍋‍🟩">มะนาว | ส้ม, ผลไม้, เขตร้อน</annotation>
+		<annotation cp="🍋‍🟩" type="tts">มะนาว</annotation>
 		<annotation cp="🍌">กล้วย | ผลไม้</annotation>
 		<annotation cp="🍌" type="tts">กล้วย</annotation>
 		<annotation cp="🍍">ผลไม้ | สับปะรด</annotation>
@@ -2061,7 +2081,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫘" type="tts">เมล็ดถั่ว</annotation>
 		<annotation cp="🌰">เกาลัด | พืช</annotation>
 		<annotation cp="🌰" type="tts">เกาลัด</annotation>
-		<annotation cp="🫚">ขิง | เครื่องเทศ | เบียร์ | ราก</annotation>
+		<annotation cp="🫚">ขิง | เครื่องเทศ | แง่ง | เบียร์</annotation>
 		<annotation cp="🫚" type="tts">ขิง</annotation>
 		<annotation cp="🫛">ถั่ว | ถั่วแระญี่ปุ่น | ผัก | ฝัก | ฝักถั่ว | พืชถั่ว | เมล็ดถั่ว</annotation>
 		<annotation cp="🫛" type="tts">ฝักถั่ว</annotation>
@@ -2935,7 +2955,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">รองเท้าบัลเล่ต์</annotation>
 		<annotation cp="👢">ผู้หญิง | รองเท้าบู๊ต | รองเท้าบู๊ตผู้หญิง | เสื้อผ้า</annotation>
 		<annotation cp="👢" type="tts">รองเท้าบู๊ตผู้หญิง</annotation>
-		<annotation cp="🪮">ผม | ส้อม | หวี | หวีส้อม | แอโฟร</annotation>
+		<annotation cp="🪮">ผม | หวี | หวีส้อม | แอโฟร</annotation>
 		<annotation cp="🪮" type="tts">หวีส้อม</annotation>
 		<annotation cp="👑">พระราชา | พระราชินี | มงกุฎ</annotation>
 		<annotation cp="👑" type="tts">มงกุฎ</annotation>
@@ -3015,7 +3035,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪘" type="tts">กลองยาว</annotation>
 		<annotation cp="🪇">เขย่า | เครื่องเคาะ | เครื่องดนตรี | ดนตรี | มาราคัส | สั่น</annotation>
 		<annotation cp="🪇" type="tts">มาราคัส</annotation>
-		<annotation cp="🪈">ขลุ่ย | ขลุ่ยไม้ | เครื่องลมไม้ | ดนตรี | ไพพ์ | รีคอร์เดอร์</annotation>
+		<annotation cp="🪈">ขลุ่ย | ขลุ่ยไม้ | เครื่องเป่า | เครื่องลมไม้ | ดนตรี | ไพพ์ | รีคอร์เดอร์</annotation>
 		<annotation cp="🪈" type="tts">ขลุ่ย</annotation>
 		<annotation cp="📱">โทรศัพท์ | โทรศัพท์มือถือ</annotation>
 		<annotation cp="📱" type="tts">โทรศัพท์มือถือ</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">สัญลักษณ์การลิงก์</annotation>
 		<annotation cp="⛓">โซ่</annotation>
 		<annotation cp="⛓" type="tts">โซ่</annotation>
+		<annotation cp="⛓‍💥">โซ่ขาด | แตก, หัก, ตรวน, กุญแจมือ, อิสรภาพ</annotation>
+		<annotation cp="⛓‍💥" type="tts">โซ่ขาด</annotation>
 		<annotation cp="🪝">งอ | จับ | ดักปลา | ตะขอ</annotation>
 		<annotation cp="🪝" type="tts">ตะขอ</annotation>
 		<annotation cp="🧰">กล่องเครื่องมือ | เครื่องมือ | เครื่องมือช่าง | ช่างกล | หีบ</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">ลูกศรชี้ขึ้นลง</annotation>
 		<annotation cp="↔">ขวา | ซ้าย | ลูกศร | ลูกศรชี้ซ้ายขวา</annotation>
 		<annotation cp="↔" type="tts">ลูกศรชี้ซ้ายขวา</annotation>
-		<annotation cp="↮" draft="contributed">ขีดทับลูกศรซ้ายขวา</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">ขีดทับลูกศรซ้ายขวา</annotation>
+		<annotation cp="↮">ขีดทับลูกศรซ้ายขวา</annotation>
+		<annotation cp="↮" type="tts">ขีดทับลูกศรซ้ายขวา</annotation>
 		<annotation cp="↩">ซ้าย | ลูกศร | ลูกศรวนซ้าย | วน</annotation>
 		<annotation cp="↩" type="tts">ลูกศรวนซ้าย</annotation>
 		<annotation cp="↪">ขวา | ลูกศร | ลูกศรวนขวา | วน</annotation>
@@ -3833,38 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">ปอนด์</annotation>
 		<annotation cp="¥">เงินเยนญี่ปุ่น (JPY) | เงินหยวนจีน (CNY) | เยน | สกุลเงิน | หยวน</annotation>
 		<annotation cp="¥" type="tts">เยน</annotation>
-		<annotation cp="₢" draft="contributed">ครูเซโร</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">ครูเซโร</annotation>
-		<annotation cp="₣" draft="contributed">ฟรังก์ฝรั่งเศส</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">ฟรังก์ฝรั่งเศส</annotation>
-		<annotation cp="₤" draft="contributed">ลีรา</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">ลีรา</annotation>
+		<annotation cp="₢">BRB | ครูเซโร | สกุลเงิน</annotation>
+		<annotation cp="₢" type="tts">ครูเซโร</annotation>
+		<annotation cp="₣">ฟรังก์ | ฟรังก์ฝรั่งเศส | สกุลเงิน</annotation>
+		<annotation cp="₣" type="tts">ฟรังก์ฝรั่งเศส</annotation>
+		<annotation cp="₤">ลีรา | สกุลเงิน</annotation>
+		<annotation cp="₤" type="tts">ลีรา</annotation>
 		<annotation cp="₥">มิล | มิลล์</annotation>
 		<annotation cp="₥" type="tts">มิลล์</annotation>
 		<annotation cp="₩">เงินวอน | วอน | วอนเกาหลีใต้</annotation>
 		<annotation cp="₩" type="tts">วอน</annotation>
 		<annotation cp="€">เงินยูโร (EUR) | ยูโร | สกุลเงิน</annotation>
 		<annotation cp="€" type="tts">ยูโร</annotation>
-		<annotation cp="₰" draft="contributed">เพนนีเยอรมัน</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">เพนนีเยอรมัน</annotation>
+		<annotation cp="₰">เพนนีเยอรมัน | สกุลเงิน | เหรียญทองแดงเยอรมัน</annotation>
+		<annotation cp="₰" type="tts">เพนนีเยอรมัน</annotation>
 		<annotation cp="₱">เปโซ</annotation>
 		<annotation cp="₱" type="tts">เปโซ</annotation>
-		<annotation cp="₳" draft="contributed">ออสทรัล</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">ออสทรัล</annotation>
-		<annotation cp="₶" draft="contributed">เงินปอนด์ตูนัวส์</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">เงินปอนด์ตูนัวส์</annotation>
-		<annotation cp="₷" draft="contributed">สเปสมิโล</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">สเปสมิโล</annotation>
+		<annotation cp="₳">ARA | สกุลเงิน | ออสทรัล</annotation>
+		<annotation cp="₳" type="tts">ออสทรัล</annotation>
+		<annotation cp="₶">เงินปอนด์ตูนัวส์ | สกุลเงิน</annotation>
+		<annotation cp="₶" type="tts">เงินปอนด์ตูนัวส์</annotation>
+		<annotation cp="₷">สกุลเงิน | สเปสมิโล</annotation>
+		<annotation cp="₷" type="tts">สเปสมิโล</annotation>
 		<annotation cp="₹">รูปี | รูปีอินเดีย | สกุลเงิน</annotation>
 		<annotation cp="₹" type="tts">รูปีอินเดีย</annotation>
 		<annotation cp="₽">รูเบิล | สกุลเงิน</annotation>
 		<annotation cp="₽" type="tts">รูเบิล</annotation>
 		<annotation cp="₿">เงินดิจิทัลบิตคอยน์ | บิตคอยน์</annotation>
 		<annotation cp="₿" type="tts">บิตคอยน์</annotation>
-		<annotation cp="₨" draft="contributed">รูปี</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">รูปี</annotation>
-		<annotation cp="﷼" draft="contributed">เรียล</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">เรียล</annotation>
+		<annotation cp="₨">รูปี | สกุลเงิน</annotation>
+		<annotation cp="₨" type="tts">รูปี</annotation>
+		<annotation cp="﷼">เรียล | สกุลเงิน</annotation>
+		<annotation cp="﷼" type="tts">เรียล</annotation>
 		<annotation cp="¹">ตัวยกเลขหนึ่ง | หนึ่ง</annotation>
 		<annotation cp="¹" type="tts">ตัวยกเลขหนึ่ง</annotation>
 		<annotation cp="²">ตัวยก | ตัวยกเลขสอง | ยกกำลังสอง | สอง</annotation>

@@ -12,9 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ab">آذأربایئجانی</language>
@@ -69,7 +69,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_GB">ئینگیلیسی بئریتانیایی</language>
 			<language type="en_GB" alt="short">ئینگیلیسی بئریتانیا گأپ</language>
 			<language type="en_US">ئینگیلیسی ئمریکایی</language>
-			<language type="en_US" alt="short">ئینگیلیسی ئمریکایی</language>
+			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="eo">ئسپئرانتو</language>
 			<language type="es">ئسپانیایی</language>
 			<language type="es_419">ئسپانیایی ئمریکا لاتین</language>
@@ -332,29 +332,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US">ڤولاتیا یأکاگئرته</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language">{0}</codePattern>
-			<codePattern type="script">{0}</codePattern>
-			<codePattern type="territory">{0}</codePattern>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
 			<characterOrder>right-to-left</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
+			<lineOrder>↑↑↑</lineOrder>
 		</orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ٙ ٛ آ أ ؤ ئ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ڤ ق ک گ ل م ن ھ ە و ۉ ۊ ی ؽ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200B\u200C\u200D\u200E\u200F ً ٌ ٍ َ ُ ِ ّ ْ ٔ إ ة ك ه ى ي]</exemplarCharacters>
 		<exemplarCharacters type="index">[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ھ و ی]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ ، ٫ ٬ ؛ \: ! ؟ . … ‹ › « » ( ) \[ \] * / \\]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -362,48 +362,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>G y MMMM d, EEEE</pattern>
-							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>G y MMMM d</pattern>
-							<datetimeSkeleton>GyMMMMd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>G y MMM d</pattern>
-							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>GGGGG y-MM-dd</pattern>
-							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<intervalFormats>
@@ -415,32 +415,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">جانڤیە</month>
-							<month type="2">فئڤریە</month>
-							<month type="3">مارس</month>
-							<month type="4">آڤریل</month>
-							<month type="5">مئی</month>
-							<month type="6">جوٙأن</month>
-							<month type="7">جوٙلا</month>
-							<month type="8">آگوست</month>
-							<month type="9">سئپتامر</month>
-							<month type="10">ئوکتوڤر</month>
-							<month type="11">نوڤامر</month>
-							<month type="12">دئسامر</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جانڤیە</month>
@@ -459,142 +459,142 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">جانڤیە</month>
-							<month type="2">فئڤریە</month>
-							<month type="3">مارس</month>
-							<month type="4">آڤریل</month>
-							<month type="5">مئی</month>
-							<month type="6">جوٙأن</month>
-							<month type="7">جوٙلا</month>
-							<month type="8">آگوست</month>
-							<month type="9">سئپتامر</month>
-							<month type="10">ئوکتوڤر</month>
-							<month type="11">نوڤامر</month>
-							<month type="12">دئسامر</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">جانڤیە</month>
-							<month type="2">فئڤریە</month>
-							<month type="3">مارس</month>
-							<month type="4">آڤریل</month>
-							<month type="5">مئی</month>
-							<month type="6">جوٙأن</month>
-							<month type="7">جوٙلا</month>
-							<month type="8">آگوست</month>
-							<month type="9">سئپتامر</month>
-							<month type="10">ئوکتوڤر</month>
-							<month type="11">نوڤامر</month>
-							<month type="12">دئسامر</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">Sun</day>
-							<day type="mon">Mon</day>
-							<day type="tue">Tue</day>
-							<day type="wed">Wed</day>
-							<day type="thu">Thu</day>
-							<day type="fri">Fri</day>
-							<day type="sat">Sat</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Sun</day>
-							<day type="mon">Mon</day>
-							<day type="tue">Tue</day>
-							<day type="wed">Wed</day>
-							<day type="thu">Thu</day>
-							<day type="fri">Fri</day>
-							<day type="sat">Sat</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">Sun</day>
-							<day type="mon">Mon</day>
-							<day type="tue">Tue</day>
-							<day type="wed">Wed</day>
-							<day type="thu">Thu</day>
-							<day type="fri">Fri</day>
-							<day type="sat">Sat</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Sun</day>
-							<day type="mon">Mon</day>
-							<day type="tue">Tue</day>
-							<day type="wed">Wed</day>
-							<day type="thu">Thu</day>
-							<day type="fri">Fri</day>
-							<day type="sat">Sat</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
 							<quarter type="1">چارأک أڤأل</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">چارأک أڤأل</quarter>
@@ -607,94 +607,94 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraAbbr>
-						<era type="0">BCE</era>
-						<era type="0" alt="variant">BCE</era>
-						<era type="1">CE</era>
-						<era type="1" alt="variant">CE</era>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="1" alt="variant">↑↑↑</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>y MMMM d, EEEE</pattern>
-							<datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>y MMMM d</pattern>
-							<datetimeSkeleton>yMMMMd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>y MMM d</pattern>
-							<datetimeSkeleton>yMMMd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>y-MM-dd</pattern>
-							<datetimeSkeleton>yMMdd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-							<datetimeSkeleton>HHmmsszzzz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-							<datetimeSkeleton>HHmmssz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-							<datetimeSkeleton>HHmmss</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
-							<datetimeSkeleton>HHmm</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<intervalFormats>
@@ -711,37 +711,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>سال</displayName>
 			</field>
 			<field type="year-short">
-				<displayName>سال</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="year-narrow">
-				<displayName>سال</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="quarter">
 				<displayName>چارأک</displayName>
 			</field>
 			<field type="quarter-short">
-				<displayName>چارأک</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>چارأک</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="month">
 				<displayName>ما</displayName>
 			</field>
 			<field type="month-short">
-				<displayName>ما</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>ما</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="week">
 				<displayName>ھأفتە</displayName>
 			</field>
 			<field type="week-short">
-				<displayName>ھأفتە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="week-narrow">
-				<displayName>ھأفتە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
 				<displayName>روٙز</displayName>
@@ -750,10 +750,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">شوٙصوٙ</relative>
 			</field>
 			<field type="day-short">
-				<displayName>روٙز</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day-narrow">
-				<displayName>روٙز</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>روٙز ھأفتە</displayName>
@@ -765,35 +765,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ساأت</displayName>
 			</field>
 			<field type="hour-short">
-				<displayName>ساأت</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour-narrow">
-				<displayName>ساأت</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="minute">
 				<displayName>دئیقە</displayName>
 			</field>
 			<field type="minute-short">
-				<displayName>دئیقە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="minute-narrow">
-				<displayName>دئیقە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="second">
 				<displayName>ثانیە</displayName>
 			</field>
 			<field type="second-short">
-				<displayName>ثانیە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="second-narrow">
-				<displayName>ثانیە</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="zone">
 				<displayName>راساگە</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
-			<regionFormat>{0}</regionFormat>
+			<regionFormat>↑↑↑</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>نادیار</exemplarCity>
 			</zone>
@@ -815,120 +815,120 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator>:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern>#E0</pattern>
+					<pattern>↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
+					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName>رئال بئرئزیل</displayName>
-				<displayName count="other">رئال بئرئزیل</displayName>
-				<symbol draft="contributed">R$</symbol>
-				<symbol alt="narrow" draft="contributed">R$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>یوان چین</displayName>
-				<displayName count="other">یوان چین</displayName>
-				<symbol draft="contributed">CN¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>یورو</displayName>
-				<displayName count="other">یورو</displayName>
-				<symbol draft="contributed">€</symbol>
-				<symbol alt="narrow" draft="contributed">€</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>پوند بئریتانیا</displayName>
-				<displayName count="other">پوند بئریتانیا</displayName>
-				<symbol draft="contributed">£</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>روٙپیه هئن</displayName>
-				<displayName count="other">روٙپیه هئن</displayName>
-				<symbol draft="contributed">₹</symbol>
-				<symbol alt="narrow" draft="contributed">₹</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
 				<symbol>د.ع.‏</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>یئن جاپوٙن</displayName>
-				<displayName count="other">یئن جاپوٙن</displayName>
-				<symbol draft="contributed">JP¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>روٙبل روٙسیه</displayName>
-				<displayName count="other">روٙبل روٙسیه</displayName>
-				<symbol draft="contributed">RUB</symbol>
-				<symbol alt="narrow" draft="contributed">₽</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
-				<symbol draft="contributed">US$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>پیل نادیار</displayName>
-				<displayName count="other">پیل نادیار</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unitLength type="long">
 			<unit type="area-square-kilometer">
-				<unitPattern count="other">{0} km²</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

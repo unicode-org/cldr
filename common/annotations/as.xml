@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">আনন্দাশ্ৰুৰ সৈতে মুখ</annotation>
 		<annotation cp="🙂">মুখ | লাহেকৈ হাঁহি থকা মুখ | হাঁহি</annotation>
 		<annotation cp="🙂" type="tts">লাহেকৈ হাঁহি থকা মুখ</annotation>
+		<annotation cp="🙂‍↕">উলম্বভাৱে মূৰ জোকাৰি থকা | হয় বুলি তল মূৰ কৰা</annotation>
+		<annotation cp="🙂‍↕" type="tts">উলম্বভাৱে মূৰ জোকাৰি থকা</annotation>
+		<annotation cp="🙂‍↔">অনুভূমিকভাৱে মূৰ জোকাৰি থকা | নহয় বুলি মূৰ জোকাৰা</annotation>
+		<annotation cp="🙂‍↔" type="tts">অনুভূমিকভাৱে মূৰ জোকাৰি থকা</annotation>
 		<annotation cp="🙃">ওলোটা | মুখ</annotation>
 		<annotation cp="🙃" type="tts">ওলোটা মুখ</annotation>
 		<annotation cp="🫠">গলি যোৱা | গলি যোৱা মুখ | নাইকিয়া হোৱা | পনীয়া | বিলিন হোৱা</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">প্ৰাপ্তবয়স্ক</annotation>
 		<annotation cp="👱">চুলি | ব্যক্তি: সোণালী চুলি | সোণালী চুলিৰ ব্যক্তি | স্বৰ্ণকেশী</annotation>
 		<annotation cp="👱" type="tts">ব্যক্তি: সোণালী চুলি</annotation>
+		<annotation cp="🧑‍🧒">পৰিয়াল: প্ৰাপ্তবয়স্ক, শিশু</annotation>
+		<annotation cp="🧑‍🧒" type="tts">পৰিয়াল: প্ৰাপ্তবয়স্ক, শিশু</annotation>
+		<annotation cp="🧑‍🧒‍🧒">পৰিয়াল: প্ৰাপ্তবয়স্ক, শিশু, সন্তান</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">পৰিয়াল: প্ৰাপ্তবয়স্ক, শিশু, সন্তান</annotation>
+		<annotation cp="🧑‍🧑‍🧒">পৰিয়াল: প্ৰাপ্তবয়স্ক, বয়স্ক, শিশু</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">পৰিয়াল: প্ৰাপ্তবয়স্ক, বয়স্ক, শিশু</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">পৰিয়াল: প্ৰাপ্তবয়স্ক, বয়স্ক, শিশু, সন্তান</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">পৰিয়াল: প্ৰাপ্তবয়স্ক, বয়স্ক, শিশু, সন্তান</annotation>
 		<annotation cp="👨">পুৰুষ | মুনিহ</annotation>
 		<annotation cp="👨" type="tts">মুনিহ</annotation>
 		<annotation cp="🧔">দাঢ়ি | পুৰুষ | পুৰুষ: দাঢ়ি | ব্যক্তি</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">সন্মুখৰ ফালে মুখ কৰি থকা মূৰ্গী পোৱালী</annotation>
 		<annotation cp="🐦">চৰাই</annotation>
 		<annotation cp="🐦" type="tts">চৰাই</annotation>
+		<annotation cp="🐦‍🔥">কল্পকাহিনী, ফায়াৰবাৰ্ড, পুনৰ্জন্ম, নতুন জন্ম | কল্পকাহিনীৰ চৰাই</annotation>
+		<annotation cp="🐦‍🔥" type="tts">কল্পকাহিনীৰ চৰাই</annotation>
 		<annotation cp="🐧">চৰাই | পেংগুইন</annotation>
 		<annotation cp="🐧" type="tts">পেংগুইন</annotation>
 		<annotation cp="🕊">উৰা | চৰাই | পাৰ | শান্তি</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">ভাটৌ</annotation>
 		<annotation cp="🪽">উৰা | চৰাই | চৰাইৰ পাখি | দৈবিক | পৌৰাণিক কথা | বিমান</annotation>
 		<annotation cp="🪽" type="tts">চৰাইৰ পাখি</annotation>
+		<annotation cp="🐦‍⬛">ক’লা | কাউৰী | চৰাই | ঢোৰা কাউৰী | ৰুক</annotation>
+		<annotation cp="🐦‍⬛" type="tts">ক’লা চৰাই</annotation>
 		<annotation cp="🪿">অবুজন | চৰাই | মুৰ্গী | ৰাজহাঁহ | হংক</annotation>
 		<annotation cp="🪿" type="tts">ৰাজহাঁহ</annotation>
 		<annotation cp="🐸">ভেকুলী | মুখমণ্ডল</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">কণী থকা বাহ</annotation>
 		<annotation cp="🍄">কাঠফুলা | বেংচটা</annotation>
 		<annotation cp="🍄" type="tts">কাঠফুলা</annotation>
+		<annotation cp="🍄‍🟫">খাদ্য, ভেঁকুৰ, প্ৰকৃতি, পাচলি | ব্ৰাউন মাছৰুম</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ব্ৰাউন মাছৰুম</annotation>
 		<annotation cp="🍇">আঙুৰ | ফল</annotation>
 		<annotation cp="🍇" type="tts">আঙুৰ</annotation>
 		<annotation cp="🍈">খৰভুজ | ফল</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">কমলা টেঙা</annotation>
 		<annotation cp="🍋">চাইট্ৰাছ | নেমু | ফল</annotation>
 		<annotation cp="🍋" type="tts">নেমু</annotation>
+		<annotation cp="🍋‍🟩">চাইট্ৰাছ, ফল, গ্রীষ্মমণ্ডলীয় | নেমু টেঙা</annotation>
+		<annotation cp="🍋‍🟩" type="tts">নেমু টেঙা</annotation>
 		<annotation cp="🍌">কল | ফল</annotation>
 		<annotation cp="🍌" type="tts">কল</annotation>
 		<annotation cp="🍍">আনাৰস | ফল</annotation>
@@ -2999,7 +3019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎷" type="tts">ছেক্স’ফোন</annotation>
 		<annotation cp="🪗">এক’ৰডিয়ান | কনচাৰ্টিনা | স্কুইজ বাকচ</annotation>
 		<annotation cp="🪗" type="tts">এক’ৰডিয়ান</annotation>
-		<annotation cp="🎸">গিটাৰ | গীটাৰ | বাদ্যযন্ত্ৰ | সংগীত</annotation>
+		<annotation cp="🎸">গীটাৰ | বাদ্যযন্ত্ৰ | সংগীত</annotation>
 		<annotation cp="🎸" type="tts">গীটাৰ</annotation>
 		<annotation cp="🎹">কীব’ৰ্ড | পিয়ানো | বাদ্যযন্ত্ৰ | সংগীত | সাংগীতিক কীব’ৰ্ড</annotation>
 		<annotation cp="🎹" type="tts">সাংগীতিক কীব’ৰ্ড</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">শিকলিৰ আঙুঠি</annotation>
 		<annotation cp="⛓">শিকলি | শিকলিবিলাক</annotation>
 		<annotation cp="⛓" type="tts">শিকলি</annotation>
+		<annotation cp="⛓‍💥">ভঙা শিকলি | ভঙা, ভাঙি যোৱা, শিকলি, কাফ, স্বাধীনতা</annotation>
+		<annotation cp="⛓‍💥" type="tts">ভঙা শিকলি</annotation>
 		<annotation cp="🪝">এনচাৰে | কাৰ্ভ | ক্ৰুক | চেলিং পইণ্ট | ধৰা | হুক</annotation>
 		<annotation cp="🪝" type="tts">হুক</annotation>
 		<annotation cp="🧰">চন্দুক | টুলবক্স | মেকানিক | সঁজুলি</annotation>

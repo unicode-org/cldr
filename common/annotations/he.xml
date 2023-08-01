@@ -25,6 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">גוון עור כהה בינוני</annotation>
 		<annotation cp="🏿">גוון עור | גוון עור כהה | סוג 6</annotation>
 		<annotation cp="🏿" type="tts">גוון עור כהה</annotation>
+		<annotation cp="‾">וינקולום | מחיקה | קו עליון</annotation>
+		<annotation cp="‾" type="tts">קו עליון</annotation>
 		<annotation cp="_">מקף תחתון | קו תחתון | קו תחתי</annotation>
 		<annotation cp="_" type="tts">קו תחתון</annotation>
 		<annotation cp="-">מינוס | מקף | מקף-מינוס | קו</annotation>
@@ -61,6 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">סימן שאלה הפוך</annotation>
 		<annotation cp="؟">כתב ערבי | סימן שאלה | סימן שאלה בכתב הערבי</annotation>
 		<annotation cp="؟" type="tts">סימן שאלה בכתב הערבי</annotation>
+		<annotation cp="‽">אינטרובאנג | סימן תמיהה | שאלה קריאה</annotation>
+		<annotation cp="‽" type="tts">אינטרובאנג</annotation>
 		<annotation cp=".">נקודה | סוף משפט | פיסוק</annotation>
 		<annotation cp="." type="tts">נקודה</annotation>
 		<annotation cp="…">אליפסיס | שלוש נקודות</annotation>
@@ -157,8 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">גרשיים</annotation>
 		<annotation cp="‴">מרכאות | פיסוק | שלושה גרשים</annotation>
 		<annotation cp="‴" type="tts">שלושה גרשים</annotation>
+		<annotation cp="‸" draft="contributed">גג | כובע | קרט</annotation>
+		<annotation cp="‸" type="tts">קרט</annotation>
 		<annotation cp="※">סימן ייחוס</annotation>
 		<annotation cp="※" type="tts">סימן ייחוס</annotation>
+		<annotation cp="⁂" draft="contributed">אסטריזם | כוכביות | כוכבים</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">כוכביות</annotation>
 		<annotation cp="`">הטעמה | סימן דיאקריטי | סימן הטעמה משני</annotation>
 		<annotation cp="`" type="tts">סימן הטעמה משני</annotation>
 		<annotation cp="´">הטעמה | סימן דיאקריטי | סימן הטעמה</annotation>
@@ -173,24 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">זכויות יוצרים על הקלטת סאונד</annotation>
 		<annotation cp="←">חץ | חץ שמצביע שמאלה | מצביע לשמאל | שמאל | שמאלה</annotation>
 		<annotation cp="←" type="tts">חץ שמצביע שמאלה</annotation>
+		<annotation cp="↚" draft="contributed">חץ מחוק שמאלה</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">חץ מחוק שמאלה</annotation>
 		<annotation cp="→">חץ | חץ שמצביע ימינה | ימין | ימינה</annotation>
 		<annotation cp="→" type="tts">חץ שמצביע ימינה</annotation>
+		<annotation cp="↛" draft="contributed">חץ מחוק ימינה</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">חץ מחוק ימינה</annotation>
 		<annotation cp="↑">חץ | חץ שמצביע למעלה | למעלה | מצביע למעלה</annotation>
 		<annotation cp="↑" type="tts">חץ שמצביע למעלה</annotation>
 		<annotation cp="↓">חץ | חץ שמצביע למטה | למטה | מצביע למטה</annotation>
 		<annotation cp="↓" type="tts">חץ שמצביע למטה</annotation>
+		<annotation cp="↜" draft="contributed">חץ גלי | חץ גלי שמאלה | חץ שמאלה</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">חץ גלי שמאלה</annotation>
+		<annotation cp="↝" draft="contributed">חץ גלי | חץ גלי ימינה | חץ ימינה</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">חץ גלי ימינה</annotation>
+		<annotation cp="↞" draft="contributed">חץ דו-ראשי שמאלה | חץ כפול שמאלה</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">חץ דו-ראשי שמאלה</annotation>
+		<annotation cp="↟" draft="contributed">חץ דו-ראשי למעלה | חץ כלפי מעלה | חץ כפול</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">חץ דו-ראשי למעלה</annotation>
+		<annotation cp="↠" draft="contributed">חץ דו-ראשי ימינה | חץ כפול ימינה</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">חץ דו-ראשי ימינה</annotation>
+		<annotation cp="↡" draft="contributed">חץ דו-ראשי למטה | חץ כלפי מטה | חץ כפול</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">חץ דו-ראשי למטה</annotation>
+		<annotation cp="↢" draft="contributed">חץ שמאלה עם זנב</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">חץ שמאלה עם זנב</annotation>
+		<annotation cp="↣" draft="contributed">חץ ימינה עם זנב</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">חץ ימינה עם זנב</annotation>
+		<annotation cp="↤" draft="contributed">חץ שמאלה מהפס</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">חץ שמאלה מהפס</annotation>
+		<annotation cp="↥" draft="contributed">חץ למעלה מהפס</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">חץ למעלה מהפס</annotation>
+		<annotation cp="↦" draft="contributed">חץ ימינה מהפס</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">חץ ימינה מהפס</annotation>
+		<annotation cp="↧" draft="contributed">חץ למטה מהפס</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">חץ למטה מהפס</annotation>
+		<annotation cp="↨" draft="contributed">חץ למעלה למטה עם בסיס</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">חץ למעלה למטה עם בסיס</annotation>
+		<annotation cp="↫" draft="contributed">חץ שמאלה עם לולאה</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">חץ שמאלה עם לולאה</annotation>
+		<annotation cp="↬" draft="contributed">חץ ימינה עם לולאה</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">חץ ימינה עם לולאה</annotation>
+		<annotation cp="↭" draft="contributed">חץ גלי שמאלה ימינה</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">חץ גלי שמאלה ימינה</annotation>
 		<annotation cp="↯" draft="contributed">חץ זיגזג כלפי מטה</annotation>
 		<annotation cp="↯" type="tts" draft="contributed">חץ זיגזג כלפי מטה</annotation>
+		<annotation cp="↰" draft="contributed">ראש חץ למעלה שמאלה</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">ראש חץ למעלה שמאלה</annotation>
+		<annotation cp="↱" draft="contributed">ראש חץ למעלה ימינה</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">ראש חץ למעלה ימינה</annotation>
+		<annotation cp="↲" draft="contributed">ראש חץ למטה שמאלה</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">ראש חץ למטה שמאלה</annotation>
+		<annotation cp="↳" draft="contributed">ראש חץ למטה ימינה</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">ראש חץ למטה ימינה</annotation>
+		<annotation cp="↴" draft="contributed">חץ פינתי למטה ימינה</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">חץ פינתי למטה ימינה</annotation>
+		<annotation cp="↵" draft="contributed">חץ פינתי למטה שמאלה</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">חץ פינתי למטה שמאלה</annotation>
+		<annotation cp="↶" draft="contributed">חץ מעגלי עליון נגד כיוון השעון</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">חץ מעגלי עליון נגד כיוון השעון</annotation>
+		<annotation cp="↷" draft="contributed">חץ מעגלי עליון עם כיוון השעון</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">חץ מעגלי עליון עם כיוון השעון</annotation>
+		<annotation cp="↸" draft="contributed">חץ צפון מערב פס ארוך</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">חץ צפון מערב פס ארוך</annotation>
+		<annotation cp="↹" draft="contributed">חץ | ימינה | פס | שמאלה, שמאלה מעל ימינה</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">פסי חיצים שמאלה מעל ימינה</annotation>
+		<annotation cp="↺" draft="contributed">חץ מעגלי פתוח נגד כיוון השעון</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">חץ מעגלי פתוח נגד כיוון השעון</annotation>
+		<annotation cp="↻" draft="contributed">חץ מעגלי פתוח עם כיוון השעון</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">חץ מעגלי פתוח עם כיוון השעון</annotation>
+		<annotation cp="↼" draft="contributed">קוץ | קוץ צלצל שמאלה למעלה</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">קוץ צלצל שמאלה למעלה</annotation>
+		<annotation cp="↽" draft="contributed">קוץ צלצל שמאלה למטה</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">קוץ צלצל שמאלה למטה</annotation>
+		<annotation cp="↾" draft="contributed">קוץ | קוץ צלצל ימינה למעלה</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">קוץ צלצל ימינה למעלה</annotation>
+		<annotation cp="↿" draft="contributed">קוץ | קוץ צלצל שמאלי למעלה</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">קוץ צלצל שמאלי למעלה</annotation>
+		<annotation cp="⇀" draft="contributed">קוץ | קוץ צלצל ימני למעלה</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">קוץ צלצל ימני למעלה</annotation>
+		<annotation cp="⇁" draft="contributed">קוץ | קוץ צלצל ימני למטה</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">קוץ צלצל ימני למטה</annotation>
+		<annotation cp="⇂" draft="contributed">קוץ | קוץ צלצל ימינה למטה</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">קוץ צלצל ימינה למטה</annotation>
+		<annotation cp="⇃" draft="contributed">קוץ | קוץ צלצל שמאלי למטה</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">קוץ צלצל שמאלי למטה</annotation>
+		<annotation cp="⇄" draft="contributed">חץ ימינה מעל חץ שמאלה</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">חץ ימינה מעל חץ שמאלה</annotation>
 		<annotation cp="⇅">חיצים | חיצים למעלה ולמטה | חיצים שפונים למעלה ולמטה | חץ | למטה | למעלה</annotation>
 		<annotation cp="⇅" type="tts">חיצים למעלה ולמטה</annotation>
 		<annotation cp="⇆">חיצים | חיצים ימינה ושמאלה | חץ | ימינה ושמאלה</annotation>
 		<annotation cp="⇆" type="tts">חיצים ימינה ושמאלה</annotation>
+		<annotation cp="⇇" draft="contributed">צמד חיצים שמאלה</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">צמד חיצים שמאלה</annotation>
+		<annotation cp="⇈" draft="contributed">צמד חיצים למעלה</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">צמד חיצים למעלה</annotation>
+		<annotation cp="⇉" draft="contributed">צמד חיצים ימינה</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">צמד חיצים ימינה</annotation>
+		<annotation cp="⇊" draft="contributed">צמד חיצים למטה</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">צמד חיצים למטה</annotation>
+		<annotation cp="⇋" draft="contributed">צלצל שמאלה מעל צלצל ימינה</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">צלצל שמאלה מעל צלצל ימינה</annotation>
+		<annotation cp="⇌" draft="contributed">צלצל ימינה מעל צלצל שמאלה</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">צלצל ימינה מעל צלצל שמאלה</annotation>
+		<annotation cp="⇐" draft="contributed">חץ כפול שמאלה</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">חץ כפול שמאלה</annotation>
+		<annotation cp="⇍" draft="contributed">חץ כפול שמאלה מחוק</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">חץ כפול שמאלה מחוק</annotation>
+		<annotation cp="⇑" draft="contributed">חץ כפול למעלה</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">חץ כפול למעלה</annotation>
+		<annotation cp="⇒" draft="contributed">חץ כפול ימינה</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">חץ כפול ימינה</annotation>
+		<annotation cp="⇏" draft="contributed">חץ כפול ימינה מחוק</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">חץ כפול ימינה מחוק</annotation>
+		<annotation cp="⇓" draft="contributed">חץ כפול למטה</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">חץ כפול למטה</annotation>
+		<annotation cp="⇔" draft="contributed">חץ כפול שמאלה ימינה</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">חץ כפול שמאלה ימינה</annotation>
+		<annotation cp="⇎" draft="contributed">חץ כפול שמאלה ימינה מחוק</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">חץ כפול שמאלה ימינה מחוק</annotation>
+		<annotation cp="⇖" draft="contributed">חץ כפול צפון מערב</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">חץ כפול צפון מערב</annotation>
+		<annotation cp="⇗" draft="contributed">חץ כפול צפון מזרח</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">חץ כפול צפון מזרח</annotation>
+		<annotation cp="⇘" draft="contributed">חץ כפול דרום מזרח</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">חץ כפול דרום מזרח</annotation>
+		<annotation cp="⇙" draft="contributed">חץ כפול דרום מערב</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">חץ כפול דרום מערב</annotation>
+		<annotation cp="⇚" draft="contributed">שלושה חיצים שמאלה</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">שלושה חיצים שמאלה</annotation>
+		<annotation cp="⇛" draft="contributed">שלושה חיצים ימינה</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">שלושה חיצים ימינה</annotation>
+		<annotation cp="⇜" draft="contributed">חץ משורבט שמאלה</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">חץ משורבט שמאלה</annotation>
+		<annotation cp="⇝" draft="contributed">חץ משורבט ימינה</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">חץ משורבט ימינה</annotation>
+		<annotation cp="⇞" draft="contributed">חץ למעלה עם מחיקה כפולה</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">חץ למעלה עם מחיקה כפולה</annotation>
+		<annotation cp="⇟" draft="contributed">חץ למטה עם מחיקה כפולה</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">חץ למטה עם מחיקה כפולה</annotation>
+		<annotation cp="⇠" draft="contributed">חץ מקווקו שמאלה</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">חץ מקווקו שמאלה</annotation>
+		<annotation cp="⇡" draft="contributed">חץ מקווקו למעלה</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">חץ מקווקו למעלה</annotation>
+		<annotation cp="⇢" draft="contributed">חץ מקווקו ימינה</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">חץ מקווקו ימינה</annotation>
+		<annotation cp="⇣" draft="contributed">חץ מקווקו למטה</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">חץ מקווקו למטה</annotation>
+		<annotation cp="⇤" draft="contributed">חץ שמאלה | פס</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">חץ שמאלה אל פס</annotation>
+		<annotation cp="⇥" draft="contributed">חץ ימינה | פס</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">חץ ימינה אל פס</annotation>
+		<annotation cp="⇦" draft="contributed">חץ חלול | חץ שמאלה</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">חץ חלול שמאלה</annotation>
+		<annotation cp="⇧" draft="contributed">חץ חלול | חץ למעלה</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">חץ חלול למעלה</annotation>
+		<annotation cp="⇨" draft="contributed">חץ חלול | חץ ימינה</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">חץ חלול ימינה</annotation>
+		<annotation cp="⇩" draft="contributed">חץ חלול | חץ למטה</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">חץ חלול למטה</annotation>
+		<annotation cp="⇪" draft="contributed">חץ חלול | חץ למעלה | חץ מפס</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">חץ חלול למעלה מפס</annotation>
+		<annotation cp="⇵" draft="contributed">חץ למטה | חץ למעלה</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">חץ למטה משמאל למעלה מימין</annotation>
+		<annotation cp="∀" draft="contributed">אוניברסלי | לכל | נתון</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">לכל</annotation>
+		<annotation cp="∂" draft="contributed">דיפרנציאל | נגזרת | נגזרת חלקית</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">נגזרת</annotation>
+		<annotation cp="∃" draft="contributed">קיים | קיימות</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">קיים</annotation>
+		<annotation cp="∅" draft="contributed">אופרטור קבוצות | הקבוצה הריקה | מתמטיקה | קבוצה ריקה</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">קבוצה ריקה</annotation>
 		<annotation cp="∆">דלתא | משולש | תוספת</annotation>
 		<annotation cp="∆" type="tts">תוספת</annotation>
 		<annotation cp="∇">הפוך | משולש</annotation>
 		<annotation cp="∇" type="tts">משולש הפוך</annotation>
 		<annotation cp="∈">אלמנט | אלמנט של | חבר ב- | מערך | נכלל | רכיב | רכיב של</annotation>
 		<annotation cp="∈" type="tts">רכיב של</annotation>
+		<annotation cp="∉" draft="contributed">אופרטור קבוצות | אי-שייכות | לא נמצא ב- | לא שייך ל-</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">לא שייך ל-</annotation>
+		<annotation cp="∋" draft="contributed">אופרטור קבוצות | נמצא ב- | שייך ל- | שייכות</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">שייך ל-</annotation>
+		<annotation cp="∎" draft="contributed">Q.E.D. | QED | הלמוש | מ.ש.ל. | מש״ל</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">מש״ל</annotation>
+		<annotation cp="∏" draft="contributed">לוגיקה | מכפלה | מכפלת קבוצה</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">מכפלת קבוצה</annotation>
+		<annotation cp="∑" draft="contributed">מתמטיקה | סיגמה | סכום | סכום קבוצה</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">סכום קבוצה</annotation>
 		<annotation cp="+">בנוסף | הוספה | סימן פלוס | פלוס</annotation>
 		<annotation cp="+" type="tts">סימן פלוס</annotation>
 		<annotation cp="±">בערך | מינוס | פחות או יותר | פלוס | פלוס-מינוס</annotation>
@@ -201,12 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">סימן הכפלה</annotation>
 		<annotation cp="&lt;">פחות | קטן מ- | תג | תג פותח</annotation>
 		<annotation cp="&lt;" type="tts">קטן מ-</annotation>
+		<annotation cp="≮" draft="contributed">אי-שוויון | לא קטן מ- | מתמטיקה</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">לא קטן מ-</annotation>
 		<annotation cp="=">שווה | שווה ל- | שוויון</annotation>
 		<annotation cp="=" type="tts">שווה</annotation>
 		<annotation cp="≠">אי-שוויון | לא שווה | שונה</annotation>
 		<annotation cp="≠" type="tts">לא שווה</annotation>
 		<annotation cp="&gt;">גדול | גדול מ- | יותר | תג | תג סוגר</annotation>
 		<annotation cp="&gt;" type="tts">גדול מ-</annotation>
+		<annotation cp="≯" draft="contributed">אי-שוויון | לא גדול מ- | מתמטיקה</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">לא גדול מ-</annotation>
 		<annotation cp="¬">לא | שלילה</annotation>
 		<annotation cp="¬" type="tts">שלילה</annotation>
 		<annotation cp="|">פיסוק | קו | קו אנכי | קו ניצב</annotation>
@@ -218,191 +398,315 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻">מינוס | סימן | עילי</annotation>
 		<annotation cp="⁻" type="tts">סימן מינוס עילי</annotation>
 		<annotation cp="∓" draft="contributed">חיבור או חיסור</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">חיבור או חיסור</annotation>
-		<annotation cp="∗" draft="contributed">כוכב</annotation>
-		<annotation cp="∙" draft="contributed">אופרטור</annotation>
+		<annotation cp="∓" type="tts">חיבור או חיסור</annotation>
+		<annotation cp="∕" draft="contributed">חלקי | לוכסן | לוכסן חילוק | קו נטוי</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">לוכסן חילוק</annotation>
+		<annotation cp="⁄" draft="contributed">חלקי | לוכסן | לוכסן שברים | קו נטוי</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">לוכסן שברים</annotation>
+		<annotation cp="∗">אופרטור כוכבית | כוכב | כוכבית</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">אופרטור כוכבית</annotation>
+		<annotation cp="∘" draft="contributed">אופרטור | אופרטור טבעת | קומפוזיציה</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">אופרטור טבעת</annotation>
+		<annotation cp="∙">אופרטור | אופרטור תבליט</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">אופרטור תבליט</annotation>
 		<annotation cp="√">שורש | שורש מרובע | שורש ריבועי</annotation>
 		<annotation cp="√" type="tts">שורש ריבועי</annotation>
-		<annotation cp="∝" draft="contributed">פרופורציונלי</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">פרופורציונלי</annotation>
+		<annotation cp="∝">יחסי | פרופורציונלי</annotation>
+		<annotation cp="∝" type="tts">פרופורציונלי</annotation>
 		<annotation cp="∞">אינסוף | אינסופי | סימן אינסוף</annotation>
 		<annotation cp="∞" type="tts">סימן אינסוף</annotation>
-		<annotation cp="∟" draft="contributed">זווית ישרה</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">זווית ישרה</annotation>
-		<annotation cp="∠" draft="contributed">זווית</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">זווית</annotation>
-		<annotation cp="∣" draft="contributed">חילוק</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">חילוק</annotation>
-		<annotation cp="∥" draft="contributed">מקביל</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">מקביל</annotation>
-		<annotation cp="∧" draft="contributed">׳וגם׳ לוגי</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">׳וגם׳ לוגי</annotation>
+		<annotation cp="∟">זווית ישרה</annotation>
+		<annotation cp="∟" type="tts">זווית ישרה</annotation>
+		<annotation cp="∠">זווית | זווית חדה</annotation>
+		<annotation cp="∠" type="tts">זווית</annotation>
+		<annotation cp="∣">חילוק | מחלק</annotation>
+		<annotation cp="∣" type="tts">חילוק</annotation>
+		<annotation cp="∥">מקביל</annotation>
+		<annotation cp="∥" type="tts">מקביל</annotation>
+		<annotation cp="∧">׳וגם׳ לוגי</annotation>
+		<annotation cp="∧" type="tts">׳וגם׳ לוגי</annotation>
 		<annotation cp="∩">חיתוך | קבוצה</annotation>
 		<annotation cp="∩" type="tts">חיתוך</annotation>
 		<annotation cp="∪">אוסף | איחוד | קבוצה</annotation>
 		<annotation cp="∪" type="tts">איחוד</annotation>
-		<annotation cp="∫" draft="contributed">אינטגרל</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">אינטגרל</annotation>
-		<annotation cp="∬" draft="contributed">אינטגרל כפול</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">אינטגרל כפול</annotation>
-		<annotation cp="∮" draft="contributed">אינטגרל במסילה</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">אינטגרל במסילה</annotation>
-		<annotation cp="∴" draft="contributed">לכן</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">לכן</annotation>
-		<annotation cp="∵" draft="contributed">בגלל</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">בגלל</annotation>
-		<annotation cp="∶" draft="contributed">יחס</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">יחס</annotation>
-		<annotation cp="∷" draft="contributed">פרופורציה</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">פרופורציה</annotation>
+		<annotation cp="∫">אינטגרל</annotation>
+		<annotation cp="∫" type="tts">אינטגרל</annotation>
+		<annotation cp="∬">אינטגרל כפול</annotation>
+		<annotation cp="∬" type="tts">אינטגרל כפול</annotation>
+		<annotation cp="∮">אינטגרל במסילה</annotation>
+		<annotation cp="∮" type="tts">אינטגרל במסילה</annotation>
+		<annotation cp="∴">היקש לוגי | לכן</annotation>
+		<annotation cp="∴" type="tts">לכן</annotation>
+		<annotation cp="∵">בגלל | היקש לוגי</annotation>
+		<annotation cp="∵" type="tts">בגלל</annotation>
+		<annotation cp="∶">יחס</annotation>
+		<annotation cp="∶" type="tts">יחס</annotation>
+		<annotation cp="∷">פרופורציה | פרופורציונליות</annotation>
+		<annotation cp="∷" type="tts">פרופורציה</annotation>
+		<annotation cp="∼" draft="contributed">אופרטור | אופרטור טילדה</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">אופרטור טילדה</annotation>
+		<annotation cp="∽" draft="contributed">טילדה | טילדה הפוכה</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">טילדה הפוכה</annotation>
+		<annotation cp="∾" draft="contributed">s שכובה הפוכה</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">s שכובה הפוכה</annotation>
+		<annotation cp="≃" draft="contributed">אסימפטוטה | מתמטיקה | שוויון אסימפטוטי</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">שוויון אסימפטוטי</annotation>
+		<annotation cp="≅" draft="contributed">איזומורפיות | בערך שווה | שוויון | שקול | שקילות</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">איזומורפיות</annotation>
 		<annotation cp="≈">בערך | בקירוב | כמעט | כמעט שווה | קירוב</annotation>
 		<annotation cp="≈" type="tts">כמעט שווה</annotation>
+		<annotation cp="≌" draft="contributed">מתמטיקה | שוויון | שוויון כולל</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">שוויון כולל</annotation>
+		<annotation cp="≒" draft="contributed">תמונת שוויון דומה</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">תמונת שוויון דומה</annotation>
+		<annotation cp="≖" draft="contributed">מתמטיקה | שוויון | שוויון טבעת</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">שוויון טבעת</annotation>
 		<annotation cp="≡">בדיוק | זהה | זהה ל- | שווה ערך | שקול</annotation>
 		<annotation cp="≡" type="tts">זהה ל-</annotation>
+		<annotation cp="≣" draft="contributed">מוגדר בתור | שווה תמיד ל- | שקול ל-</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">מוגדר בתור</annotation>
 		<annotation cp="≤">פחות | קטן | קטן מ- או שווה ל- | שווה | שוויון</annotation>
 		<annotation cp="≤" type="tts">קטן מ- או שווה ל-</annotation>
 		<annotation cp="≥">גדול | גדול מ- או שווה ל- | יותר | שווה | שוויון</annotation>
 		<annotation cp="≥" type="tts">גדול מ- או שווה ל-</annotation>
+		<annotation cp="≦" draft="contributed">אי-שוויון | מתמטיקה | קטן מ- מעל שווה</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">קטן מ- מעל שווה</annotation>
+		<annotation cp="≧" draft="contributed">אי-שוויון | גדול מ- מעל שווה | מתמטיקה</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">גדול מ- מעל שווה</annotation>
+		<annotation cp="≪" draft="contributed">אי-שוויון | הרבה פחות מ- | מתמטיקה</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">הרבה פחות מ-</annotation>
+		<annotation cp="≫" draft="contributed">אי-שוויון | הרבה יותר מ- | מתמטיקה</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">הרבה יותר מ-</annotation>
+		<annotation cp="≬" draft="contributed">בין</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">בין</annotation>
+		<annotation cp="≳" draft="contributed">אי-שוויון | גדול מ- או שווה ל- | מתמטיקה</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">גדול מ- שווה</annotation>
+		<annotation cp="≺" draft="contributed">אופרטור קבוצות | מתמטיקה | קודם ל-</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">קודם ל-</annotation>
+		<annotation cp="≻" draft="contributed">אופרטור קבוצות | מתמטיקה | עוקב</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">עוקב</annotation>
+		<annotation cp="⊁" draft="contributed">אופרטור קבוצות | לא עוקב | מתמטיקה</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">לא עוקב</annotation>
 		<annotation cp="⊂">מוכל ב- | נכלל ב- | קבוצה | קבוצת משנה</annotation>
 		<annotation cp="⊂" type="tts">מוכל ב-</annotation>
-		<annotation cp="⋮" draft="contributed">שלוש נקודות אנכיות</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">שלוש נקודות אנכיות</annotation>
-		<annotation cp="⋯" draft="contributed">שלוש נקודות אופקיות באמצע</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">שלוש נקודות אופקיות באמצע</annotation>
-		<annotation cp="⋰" draft="contributed">שלוש נקודות ימינה כלפי מעלה</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">שלוש נקודות ימינה כלפי מעלה</annotation>
-		<annotation cp="⋱" draft="contributed">שלוש נקודות ימינה כלפי מטה</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">שלוש נקודות ימינה כלפי מטה</annotation>
-		<annotation cp="■" draft="contributed">ריבוע מלא</annotation>
-		<annotation cp="■" type="tts" draft="contributed">ריבוע מלא</annotation>
-		<annotation cp="□" draft="contributed">ריבוע חלול</annotation>
-		<annotation cp="□" type="tts" draft="contributed">ריבוע חלול</annotation>
-		<annotation cp="▢" draft="contributed">ריבוע חלול עם פינות מעוגלות</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">ריבוע חלול עם פינות מעוגלות</annotation>
-		<annotation cp="▣" draft="contributed">ריבוע חלול שמכיל ריבוע מלא</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">ריבוע חלול שמכיל ריבוע מלא</annotation>
-		<annotation cp="▤" draft="contributed">ריבוע עם מילוי אופקי</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">ריבוע עם מילוי אופקי</annotation>
-		<annotation cp="▥" draft="contributed">ריבוע עם מילוי אנכי</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">ריבוע עם מילוי אנכי</annotation>
-		<annotation cp="▦" draft="contributed">מילוי צלב אורתוגונלי של ריבוע</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">מילוי צלב אורתוגונלי של ריבוע</annotation>
-		<annotation cp="▧" draft="contributed">מילוי ריבוע בצד השמאלי העליון והימני התחתון</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">מילוי ריבוע בצד השמאלי העליון והימני התחתון</annotation>
-		<annotation cp="▨" draft="contributed">מילוי ריבוע בצד הימני העליון והשמאלי התחתון</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">מילוי ריבוע בצד הימני העליון והשמאלי התחתון</annotation>
-		<annotation cp="▩" draft="contributed">מילוי צלב אלכסוני של ריבוע</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">מילוי צלב אלכסוני של ריבוע</annotation>
-		<annotation cp="▬" draft="contributed">מלבן מלא</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">מלבן מלא</annotation>
-		<annotation cp="▭" draft="contributed">מלבן חלול</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">מלבן חלול</annotation>
-		<annotation cp="▮" draft="contributed">מלבן אנכי מלא</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">מלבן אנכי מלא</annotation>
-		<annotation cp="▰" draft="contributed">מקבילית מלאה</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">מקבילית מלאה</annotation>
+		<annotation cp="⊃" draft="contributed">אופרטור קבוצות | מכיל | מתמטיקה</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">מכיל</annotation>
+		<annotation cp="⊆" draft="contributed">אופרטור קבוצות | מוכל או שווה ל- | מתמטיקה</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">מוכל או שווה ל-</annotation>
+		<annotation cp="⊇" draft="contributed">אופרטור קבוצות | מכיל | מתמטיקה | קבוצה מכילה</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">קבוצה מכילה</annotation>
+		<annotation cp="⊕" draft="contributed">חיבור | סכום | סכום ישר | פלוס במעגל</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">פלוס במעגל</annotation>
+		<annotation cp="⊖" draft="contributed">הפרש סימטרי | מינוס | שחיקה</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">מינוס במעגל</annotation>
+		<annotation cp="⊗" draft="contributed">כפל במעגל | מכפלה | מכפלה טנזורית</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">כפל במעגל</annotation>
+		<annotation cp="⊘" draft="contributed">חילוק | לוכסן חילוק במעגל | מתמטיקה</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">לוכסן חילוק במעגל</annotation>
+		<annotation cp="⊙" draft="contributed">XNOR | אופרטור | נקודה במעגל</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">נקודה במעגל</annotation>
+		<annotation cp="⊚" draft="contributed">אופרטור טבעת במעגל | טבעת במעגל</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">טבעת במעגל</annotation>
+		<annotation cp="⊛" draft="contributed">אופרטור | כוכבית | כוכבית במעגל</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">כוכבית במעגל</annotation>
+		<annotation cp="⊞" draft="contributed">חיבור | מתמטיקה | פלוס בריבוע</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">פלוס בריבוע</annotation>
+		<annotation cp="⊟" draft="contributed">מינוס | מינוס בריבוע | מתמטייקה</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">מינוס בריבוע</annotation>
+		<annotation cp="⊥" draft="contributed">זווית ישרה | מאונך | ניצב</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">ניצב</annotation>
+		<annotation cp="⊮" draft="contributed">לא אוכף</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">לא אוכף</annotation>
+		<annotation cp="⊰" draft="contributed">אופרטור קבוצות | מתמטיקה | קודם ביחס</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">קודם ביחס</annotation>
+		<annotation cp="⊱" draft="contributed">אופרטור קבוצות | מתמטיקה | עוקב ביחס</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">עוקב ביחס</annotation>
+		<annotation cp="⋭" draft="contributed">לא מכיל כתת-קבוצה נורמלית שווה | מתמטיקה | תורת הקבוצות</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">לא מכיל כתת-קבוצה נורמלית שווה</annotation>
+		<annotation cp="⊶" draft="contributed">מקורי</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">מקורי</annotation>
+		<annotation cp="⊹" draft="contributed">מטריצה הרמיטיאנית | מטריצה מרובעת | מתמטיקה</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">מטריצה הרמיטיאנית</annotation>
+		<annotation cp="⊿" draft="contributed">זווית ישרה | משולשת זווית ישרה | מתמטיקה</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">משולש זווית ישרה</annotation>
+		<annotation cp="⋁" draft="contributed">או קבוצה | לוגיקה | מתמטיקה</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">או קבוצה</annotation>
+		<annotation cp="⋂" draft="contributed">אופרטור קבוצות | חיתוך | חיתוך קבוצות | מתמטיקה</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">חיתוך קבוצות</annotation>
+		<annotation cp="⋃" draft="contributed">אופרטור קבוצות | איחוד | איחוד קבוצות | מתמטיקה</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">איחוד קבוצות</annotation>
+		<annotation cp="⋅" draft="contributed">אופרטור | אופרטור נקודה</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">אופרטור נקודה</annotation>
+		<annotation cp="⋆" draft="contributed">אופרטור | אופרטור של כוכבית</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">אופרטור של כוכבית</annotation>
+		<annotation cp="⋈" draft="contributed">אופרטור בינארי | איחוד טבעי | עניבת פרפר</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">איחוד טבעי</annotation>
+		<annotation cp="⋒" draft="contributed">אופרטור קבוצות | חיתוך | חיתוך כפול | מתמטיקה</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">חיתוך כפול</annotation>
+		<annotation cp="⋘" draft="contributed">אי-שוויון | מתמטיקה | קטן בהרבה מ-</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">קטן בהרבה מ-</annotation>
+		<annotation cp="⋙" draft="contributed">אי-שוויון | גדול בהרבה מ- | מתמטיקה</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">גדול בהרבה מ-</annotation>
+		<annotation cp="⋮">מתמטיקה | שלוש נקודות | שלוש נקודות אנכיות</annotation>
+		<annotation cp="⋮" type="tts">שלוש נקודות אנכיות</annotation>
+		<annotation cp="⋯">שלוש נקודות | שלוש נקודות אופקיות באמצע</annotation>
+		<annotation cp="⋯" type="tts">שלוש נקודות אופקיות באמצע</annotation>
+		<annotation cp="⋰">מתמטיקה | קובוץ הפוך | שלוש נקודות | שלוש נקודות ימינה כלפי מעלה</annotation>
+		<annotation cp="⋰" type="tts">שלוש נקודות ימינה כלפי מעלה</annotation>
+		<annotation cp="⋱">מתמטיקה | קובוץ | שלוש נקודות | שלוש נקודת ימינה כלפי מטה</annotation>
+		<annotation cp="⋱" type="tts">שלוש נקודות ימינה כלפי מטה</annotation>
+		<annotation cp="■">ריבוע מלא</annotation>
+		<annotation cp="■" type="tts">ריבוע מלא</annotation>
+		<annotation cp="□">ריבוע חלול</annotation>
+		<annotation cp="□" type="tts">ריבוע חלול</annotation>
+		<annotation cp="▢">ריבוע חלול עם פינות מעוגלות</annotation>
+		<annotation cp="▢" type="tts">ריבוע חלול עם פינות מעוגלות</annotation>
+		<annotation cp="▣">ריבוע חלול שמכיל ריבוע מלא</annotation>
+		<annotation cp="▣" type="tts">ריבוע חלול שמכיל ריבוע מלא</annotation>
+		<annotation cp="▤">ריבוע עם מילוי אופקי</annotation>
+		<annotation cp="▤" type="tts">ריבוע עם מילוי אופקי</annotation>
+		<annotation cp="▥">ריבוע עם מילוי אנכי</annotation>
+		<annotation cp="▥" type="tts">ריבוע עם מילוי אנכי</annotation>
+		<annotation cp="▦">ריבוע עם מילוי מקווקו</annotation>
+		<annotation cp="▦" type="tts">ריבוע עם מילוי מקווקו</annotation>
+		<annotation cp="▧">מילוי ריבוע בצד השמאלי העליון והימני התחתון</annotation>
+		<annotation cp="▧" type="tts">מילוי ריבוע בצד השמאלי העליון והימני התחתון</annotation>
+		<annotation cp="▨">מילוי ריבוע בצד הימני העליון והשמאלי התחתון</annotation>
+		<annotation cp="▨" type="tts">מילוי ריבוע בצד הימני העליון והשמאלי התחתון</annotation>
+		<annotation cp="▩">מילוי צלב אלכסוני של ריבוע</annotation>
+		<annotation cp="▩" type="tts">מילוי צלב אלכסוני של ריבוע</annotation>
+		<annotation cp="▬">מלבן מלא</annotation>
+		<annotation cp="▬" type="tts">מלבן מלא</annotation>
+		<annotation cp="▭">מלבן חלול</annotation>
+		<annotation cp="▭" type="tts">מלבן חלול</annotation>
+		<annotation cp="▮">מלבן אנכי מלא</annotation>
+		<annotation cp="▮" type="tts">מלבן אנכי מלא</annotation>
+		<annotation cp="▰">מקבילית מלאה</annotation>
+		<annotation cp="▰" type="tts">מקבילית מלאה</annotation>
 		<annotation cp="▲">חץ | חץ שפונה למעלה | כלפי מעלה | למעלה | משולש | משולש שחור שפונה כלפי מעלה | שחור</annotation>
 		<annotation cp="▲" type="tts">משולש שחור שפונה כלפי מעלה</annotation>
-		<annotation cp="△" draft="contributed">משולש חלול שמצביע כלפי מעלה</annotation>
-		<annotation cp="△" type="tts" draft="contributed">משולש חלול שמצביע כלפי מעלה</annotation>
-		<annotation cp="▴" draft="contributed">משולש קטן מלא שמצביע כלפי מעלה</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">משולש קטן מלא שמצביע כלפי מעלה</annotation>
-		<annotation cp="▵" draft="contributed">משולש קטן חלול שמצביע כלפי מעלה</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">משולש קטן חלול שמצביע כלפי מעלה</annotation>
-		<annotation cp="▷" draft="contributed">משולש חלול שמצביע ימינה</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">משולש חלול שמצביע ימינה</annotation>
-		<annotation cp="▸" draft="contributed">משולש קטן מלא שמצביע ימינה</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">משולש קטן מלא שמצביע ימינה</annotation>
-		<annotation cp="▹" draft="contributed">משולש קטן חלול שמצביע ימינה</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">משולש קטן חלול שמצביע ימינה</annotation>
-		<annotation cp="►" draft="contributed">מצביע מלא ימינה</annotation>
-		<annotation cp="►" type="tts" draft="contributed">מצביע מלא ימינה</annotation>
-		<annotation cp="▻" draft="contributed">מצביע חלול ימינה</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">מצביע חלול ימינה</annotation>
+		<annotation cp="△">משולש חלול שמצביע כלפי מעלה</annotation>
+		<annotation cp="△" type="tts">משולש חלול שמצביע כלפי מעלה</annotation>
+		<annotation cp="▴">משולש קטן מלא שמצביע כלפי מעלה</annotation>
+		<annotation cp="▴" type="tts">משולש קטן מלא שמצביע כלפי מעלה</annotation>
+		<annotation cp="▵">משולש קטן חלול שמצביע כלפי מעלה</annotation>
+		<annotation cp="▵" type="tts">משולש קטן חלול שמצביע כלפי מעלה</annotation>
+		<annotation cp="▷">משולש חלול שמצביע ימינה</annotation>
+		<annotation cp="▷" type="tts">משולש חלול שמצביע ימינה</annotation>
+		<annotation cp="▸">משולש קטן מלא שמצביע ימינה</annotation>
+		<annotation cp="▸" type="tts">משולש קטן מלא שמצביע ימינה</annotation>
+		<annotation cp="▹">משולש קטן חלול שמצביע ימינה</annotation>
+		<annotation cp="▹" type="tts">משולש קטן חלול שמצביע ימינה</annotation>
+		<annotation cp="►">מצביע מלא ימינה</annotation>
+		<annotation cp="►" type="tts">מצביע מלא ימינה</annotation>
+		<annotation cp="▻">מצביע חלול ימינה</annotation>
+		<annotation cp="▻" type="tts">מצביע חלול ימינה</annotation>
 		<annotation cp="▼">חץ | חץ שפונה למטה | כלפי מטה | למטה | משולש | משולש שחור שפונה כלפי מטה | שחור</annotation>
 		<annotation cp="▼" type="tts">משולש שחור שפונה כלפי מטה</annotation>
-		<annotation cp="▽" draft="contributed">משולש חלול שמצביע למטה</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">משולש חלול שמצביע למטה</annotation>
-		<annotation cp="▾" draft="contributed">משולש קטן מלא שמצביע למטה</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">משולש קטן מלא שמצביע למטה</annotation>
-		<annotation cp="▿" draft="contributed">משולש קטן חלול שמצביע למטה</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">משולש קטן חלול שמצביע למטה</annotation>
-		<annotation cp="◁" draft="contributed">משולש חלול שמצביע שמאלה</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">משולש חלול שמצביע שמאלה</annotation>
-		<annotation cp="◂" draft="contributed">משולש קטן מלא שמצביע שמאלה</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">משולש קטן מלא שמצביע שמאלה</annotation>
-		<annotation cp="◃" draft="contributed">משולש קטן חלול שמצביע שמאלה</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">משולש קטן חלול שמצביע שמאלה</annotation>
-		<annotation cp="◄" draft="contributed">מצביע מלא שמאלה</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">מצביע מלא שמאלה</annotation>
-		<annotation cp="◅" draft="contributed">מצביע חלול שמאלה</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">מצביע חלול שמאלה</annotation>
-		<annotation cp="◆" draft="contributed">מעוין מלא</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">מעוין מלא</annotation>
-		<annotation cp="◇" draft="contributed">מעוין חלול</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">מעוין חלול</annotation>
-		<annotation cp="◈" draft="contributed">מעוין חלול שמכיל מעוין מלא</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">מעוין חלול שמכיל מעוין מלא</annotation>
-		<annotation cp="◉" draft="contributed">עיגול חלול שמכיל עיגול מלא</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">עיגול חלול שמכיל עיגול מלא</annotation>
+		<annotation cp="▽">משולש חלול שמצביע למטה</annotation>
+		<annotation cp="▽" type="tts">משולש חלול שמצביע למטה</annotation>
+		<annotation cp="▾">משולש קטן מלא שמצביע למטה</annotation>
+		<annotation cp="▾" type="tts">משולש קטן מלא שמצביע למטה</annotation>
+		<annotation cp="▿">משולש קטן חלול שמצביע למטה</annotation>
+		<annotation cp="▿" type="tts">משולש קטן חלול שמצביע למטה</annotation>
+		<annotation cp="◁">משולש חלול שמצביע שמאלה</annotation>
+		<annotation cp="◁" type="tts">משולש חלול שמצביע שמאלה</annotation>
+		<annotation cp="◂">משולש קטן מלא שמצביע שמאלה</annotation>
+		<annotation cp="◂" type="tts">משולש קטן מלא שמצביע שמאלה</annotation>
+		<annotation cp="◃">משולש קטן חלול שמצביע שמאלה</annotation>
+		<annotation cp="◃" type="tts">משולש קטן חלול שמצביע שמאלה</annotation>
+		<annotation cp="◄">מצביע מלא שמאלה</annotation>
+		<annotation cp="◄" type="tts">מצביע מלא שמאלה</annotation>
+		<annotation cp="◅">מצביע חלול שמאלה</annotation>
+		<annotation cp="◅" type="tts">מצביע חלול שמאלה</annotation>
+		<annotation cp="◆">מעוין מלא</annotation>
+		<annotation cp="◆" type="tts">מעוין מלא</annotation>
+		<annotation cp="◇">מעוין חלול</annotation>
+		<annotation cp="◇" type="tts">מעוין חלול</annotation>
+		<annotation cp="◈">מעוין חלול שמכיל מעוין מלא</annotation>
+		<annotation cp="◈" type="tts">מעוין חלול שמכיל מעוין מלא</annotation>
+		<annotation cp="◉">עיגול חלול שמכיל עיגול מלא</annotation>
+		<annotation cp="◉" type="tts">עיגול חלול שמכיל עיגול מלא</annotation>
 		<annotation cp="◊">יהלום | מעוין | מעוין קטן</annotation>
 		<annotation cp="◊" type="tts">מעוין קטן</annotation>
 		<annotation cp="○">חלול | עיגול | עיגול חלול קטן</annotation>
 		<annotation cp="○" type="tts">עיגול חלול קטן</annotation>
-		<annotation cp="◌" draft="contributed">עיגול מנוקד</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">עיגול מנוקד</annotation>
-		<annotation cp="◍" draft="contributed">עיגול עם מילוי אנכי</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">עיגול עם מילוי אנכי</annotation>
-		<annotation cp="◎" draft="contributed">בול פגיעה</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">בול פגיעה</annotation>
+		<annotation cp="◌">עיגול מנוקד</annotation>
+		<annotation cp="◌" type="tts">עיגול מנוקד</annotation>
+		<annotation cp="◍">עיגול עם מילוי אנכי</annotation>
+		<annotation cp="◍" type="tts">עיגול עם מילוי אנכי</annotation>
+		<annotation cp="◎">בול פגיעה | מעגלים קונצנטריים</annotation>
+		<annotation cp="◎" type="tts">מעגלים קונצנטריים</annotation>
 		<annotation cp="●">עיגול | עיגול שחור קטן | שחור | תבליט</annotation>
 		<annotation cp="●" type="tts">עיגול שחור קטן</annotation>
-		<annotation cp="◐" draft="contributed">עיגול שחציו השמאלי מלא</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">עיגול שחציו השמאלי מלא</annotation>
-		<annotation cp="◑" draft="contributed">עיגול שחציו הימני מלא</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">עיגול שחציו הימני מלא</annotation>
-		<annotation cp="◒" draft="contributed">עיגול שחציו התחתון מלא</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">עיגול שחציו התחתון מלא</annotation>
-		<annotation cp="◓" draft="contributed">עיגול שחציו העליון מלא</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">עיגול שחציו העליון מלא</annotation>
-		<annotation cp="◔" draft="contributed">עיגול שהרבע הימני העליון שלו מלא</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">עיגול שהרבע הימני העליון שלו מלא</annotation>
-		<annotation cp="◕" draft="contributed">עיגול מלא, למעט הרבע השמאלי העליון</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">עיגול מלא, למעט הרבע השמאלי העליון</annotation>
-		<annotation cp="◖" draft="contributed">חצי עיגול שמאלי מלא</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">חצי עיגול שמאלי מלא</annotation>
-		<annotation cp="◗" draft="contributed">חצי עיגול ימני מלא</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">חצי עיגול ימני מלא</annotation>
-		<annotation cp="◘" draft="contributed">תבליט הפוך</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">תבליט הפוך</annotation>
-		<annotation cp="◙" draft="contributed">ריבוע מלא שמכיל עיגול חלול</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">ריבוע מלא שמכיל עיגול חלול</annotation>
-		<annotation cp="◜" draft="contributed">רבע שמאלי עליון של קשת מעגלית</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">רבע שמאלי עליון של קשת מעגלית</annotation>
-		<annotation cp="◝" draft="contributed">רבע ימני עליון של קשת מעגלית</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">רבע ימני עליון של קשת מעגלית</annotation>
-		<annotation cp="◞" draft="contributed">רבע ימני תחתון של קשת מעגלית</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">רבע ימני תחתון של קשת מעגלית</annotation>
-		<annotation cp="◟" draft="contributed">רבע שמאלי תחתון של קשת מעגלית</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">רבע שמאלי תחתון של קשת מעגלית</annotation>
-		<annotation cp="◠" draft="contributed">חצי עליון של עיגול</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">חצי עליון של עיגול</annotation>
-		<annotation cp="◡" draft="contributed">חצי תחתון של עיגול</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">חצי תחתון של עיגול</annotation>
-		<annotation cp="◢" draft="contributed">חלק ימני תחתון מלא של מלבן</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">חלק ימני תחתון מלא של מלבן</annotation>
-		<annotation cp="◣" draft="contributed">חלק שמאלי תחתון מלא של מלבן</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">חלק שמאלי תחתון מלא של מלבן</annotation>
-		<annotation cp="◤" draft="contributed">חלק שמאלי עליון מלא של מלבן</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">חלק שמאלי עליון מלא של מלבן</annotation>
-		<annotation cp="◥" draft="contributed">חלק ימני עליון מלא של מלבן</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">חלק ימני עליון מלא של מלבן</annotation>
-		<annotation cp="◦" draft="contributed">תבליט חלול</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">תבליט חלול</annotation>
+		<annotation cp="◐">עיגול שחציו השמאלי מלא</annotation>
+		<annotation cp="◐" type="tts">עיגול שחציו השמאלי מלא</annotation>
+		<annotation cp="◑">עיגול שחציו הימני מלא</annotation>
+		<annotation cp="◑" type="tts">עיגול שחציו הימני מלא</annotation>
+		<annotation cp="◒">עיגול שחציו התחתון מלא</annotation>
+		<annotation cp="◒" type="tts">עיגול שחציו התחתון מלא</annotation>
+		<annotation cp="◓">עיגול שחציו העליון מלא</annotation>
+		<annotation cp="◓" type="tts">עיגול שחציו העליון מלא</annotation>
+		<annotation cp="◔">עיגול שהרבע הימני העליון שלו מלא</annotation>
+		<annotation cp="◔" type="tts">עיגול שהרבע הימני העליון שלו מלא</annotation>
+		<annotation cp="◕">עיגול מלא, למעט הרבע השמאלי העליון</annotation>
+		<annotation cp="◕" type="tts">עיגול מלא, למעט הרבע השמאלי העליון</annotation>
+		<annotation cp="◖">חצי עיגול שמאלי מלא</annotation>
+		<annotation cp="◖" type="tts">חצי עיגול שמאלי מלא</annotation>
+		<annotation cp="◗">חצי עיגול ימני מלא</annotation>
+		<annotation cp="◗" type="tts">חצי עיגול ימני מלא</annotation>
+		<annotation cp="◘">תבליט הפוך</annotation>
+		<annotation cp="◘" type="tts">תבליט הפוך</annotation>
+		<annotation cp="◙">ריבוע מלא שמכיל עיגול חלול</annotation>
+		<annotation cp="◙" type="tts">ריבוע מלא שמכיל עיגול חלול</annotation>
+		<annotation cp="◜">רבע שמאלי עליון של קשת מעגלית</annotation>
+		<annotation cp="◜" type="tts">רבע שמאלי עליון של קשת מעגלית</annotation>
+		<annotation cp="◝">רבע ימני עליון של קשת מעגלית</annotation>
+		<annotation cp="◝" type="tts">רבע ימני עליון של קשת מעגלית</annotation>
+		<annotation cp="◞">רבע ימני תחתון של קשת מעגלית</annotation>
+		<annotation cp="◞" type="tts">רבע ימני תחתון של קשת מעגלית</annotation>
+		<annotation cp="◟">רבע שמאלי תחתון של קשת מעגלית</annotation>
+		<annotation cp="◟" type="tts">רבע שמאלי תחתון של קשת מעגלית</annotation>
+		<annotation cp="◠">חצי עליון של עיגול</annotation>
+		<annotation cp="◠" type="tts">חצי עליון של עיגול</annotation>
+		<annotation cp="◡">חצי תחתון של עיגול</annotation>
+		<annotation cp="◡" type="tts">חצי תחתון של עיגול</annotation>
+		<annotation cp="◢">חלק ימני תחתון מלא של מלבן</annotation>
+		<annotation cp="◢" type="tts">חלק ימני תחתון מלא של מלבן</annotation>
+		<annotation cp="◣">חלק שמאלי תחתון מלא של מלבן</annotation>
+		<annotation cp="◣" type="tts">חלק שמאלי תחתון מלא של מלבן</annotation>
+		<annotation cp="◤">חלק שמאלי עליון מלא של מלבן</annotation>
+		<annotation cp="◤" type="tts">חלק שמאלי עליון מלא של מלבן</annotation>
+		<annotation cp="◥">חלק ימני עליון מלא של מלבן</annotation>
+		<annotation cp="◥" type="tts">חלק ימני עליון מלא של מלבן</annotation>
+		<annotation cp="◦">תבליט חלול</annotation>
+		<annotation cp="◦" type="tts">תבליט חלול</annotation>
 		<annotation cp="◯">חלול | טבעת | עיגול | עיגול חלול גדול</annotation>
 		<annotation cp="◯" type="tts">עיגול חלול גדול</annotation>
+		<annotation cp="◳" draft="contributed">ריבוע חלול עם רביע ימני עליון חלול</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">ריבוע חלול עם רביע ימני עליון חלול</annotation>
+		<annotation cp="◷" draft="contributed">עיגול חלול עם רביע ימני עליון חלול</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">עיגול חלול עם רביע ימני עליון חלול</annotation>
+		<annotation cp="◿" draft="contributed">משולש ימני תחתון</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">משולש ימני תחתון</annotation>
 		<annotation cp="♪">מוזיקה | מקצב | שמינית תו | תו</annotation>
 		<annotation cp="♪" type="tts">שמינית תו</annotation>
+		<annotation cp="⨧" draft="contributed">פלוס שתיים בכיתוב תחתי</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">פלוס שתיים בכיתוב תחתי</annotation>
+		<annotation cp="⨯" draft="contributed">מכפלה וקטורית</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">מכפלה וקטורית</annotation>
+		<annotation cp="⨼" draft="contributed">מכפלה פנימית</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">מכפלה פנימית</annotation>
+		<annotation cp="⩣" draft="contributed">או לוגי עם פס תחתון כפול</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">או לוגי עם פס תחתון כפול</annotation>
+		<annotation cp="⩽" draft="contributed">קטן מ- עם שוויון אלכסוני</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">קטן מ- עם שוויון אלכסוני</annotation>
+		<annotation cp="⪍" draft="contributed">קטן מ- מעל שוויון דומה</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">קטן מ- מעל שוויון דומה</annotation>
+		<annotation cp="⪚" draft="contributed">אי-שוויון | מתמטיקה | שוויון דו-קווי גדול מ-</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">שוויון דו-קווי גדול מ-</annotation>
+		<annotation cp="⪺" draft="contributed">עוקב מעל לא כמעט שווה</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">עוקב מעל לא כמעט שווה</annotation>
 		<annotation cp="♭">במול | מוזיקה | סולם מינורי | תו</annotation>
 		<annotation cp="♭" type="tts">במול</annotation>
 		<annotation cp="♯">דיאז | מוזיקה | סולם מז׳ורי | תו</annotation>
@@ -425,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">פרצוף עם דמעות שמחה</annotation>
 		<annotation cp="🙂">חיוך | מחייך | פרצוף | פרצוף עם חיוך קטן | פרצוף עם חיוך קל</annotation>
 		<annotation cp="🙂" type="tts">פרצוף עם חיוך קטן</annotation>
+		<annotation cp="🙂‍↕">מנענע ראש מלמעלה למטה | נד, כן</annotation>
+		<annotation cp="🙂‍↕" type="tts">מנענע ראש מלמעלה למטה</annotation>
+		<annotation cp="🙂‍↔">לא, מנענע | מנענע ראש מצד לצד</annotation>
+		<annotation cp="🙂‍↔" type="tts">מנענע ראש מצד לצד</annotation>
 		<annotation cp="🙃">הפוך | פרצוף</annotation>
 		<annotation cp="🙃" type="tts">פרצוף הפוך</annotation>
 		<annotation cp="🫠">מתמוסס | נוזל | נמס | נעלם | פרצוף נמס</annotation>
@@ -469,7 +777,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">פרצוף מחבק</annotation>
 		<annotation cp="🤭">אוי | אופס | טעות | פרצוף עם יד על הפה</annotation>
 		<annotation cp="🤭" type="tts">פרצוף עם יד על הפה</annotation>
-		<annotation cp="🫢">בושה | הפתעה | חרדת קודש | פחד | פרצוף עם יד על הפה ועיניים פעורות | תדהמה</annotation>
+		<annotation cp="🫢">הַפתָעָה | חוסר אמון | יראה | מביך | מפחד | פנים עם עיניים פקוחות ויד על הפה | תדהמה</annotation>
 		<annotation cp="🫢" type="tts">פרצוף עם יד על הפה ועיניים פעורות</annotation>
 		<annotation cp="🫣">הצצה | פרצוף מציץ עם יד על העיניים | שקוע במשהו</annotation>
 		<annotation cp="🫣" type="tts">פרצוף מציץ עם יד על העיניים</annotation>
@@ -757,7 +1065,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">כף יד פונה למטה</annotation>
 		<annotation cp="🫴">בוא הנה | בקשה | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴" type="tts">כף יד פונה למעלה</annotation>
-		<annotation cp="🫷">דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷">יד דוחפת שמאלה | כיף | לדחוף | לַחֲכוֹת | לסרב | עצור | שמאלה</annotation>
 		<annotation cp="🫷" type="tts">יד דוחפת שמאלה</annotation>
 		<annotation cp="🫸">דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
 		<annotation cp="🫸" type="tts">יד דוחפת ימינה</annotation>
@@ -771,7 +1079,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✌" type="tts">אצבעות מסמנות ניצחון</annotation>
 		<annotation cp="🤞">אצבעות | בהצלחה | יד מחזיקה אצבעות | מחזיק</annotation>
 		<annotation cp="🤞" type="tts">יד מחזיקה אצבעות</annotation>
-		<annotation cp="🫰">אצבעות | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰">אהבה | אצבעות | יאללה | יקר | כסף | לצרוד | קליק באצבעות</annotation>
 		<annotation cp="🫰" type="tts">קליק באצבעות</annotation>
 		<annotation cp="🤟">אהבה | בוהן, אצבע וזרת מורמות | יד</annotation>
 		<annotation cp="🤟" type="tts">בוהן, אצבע וזרת מורמות</annotation>
@@ -809,7 +1117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">מחיאות כפיים</annotation>
 		<annotation cp="🙌">כפות ידיים | כפות ידיים מורמות | סימן | שמחה</annotation>
 		<annotation cp="🙌" type="tts">כפות ידיים מורמות</annotation>
-		<annotation cp="🫶">אהבה | אוהבים | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶">אהבה | ידיים לב</annotation>
 		<annotation cp="🫶" type="tts">סימן לב עם הידיים</annotation>
 		<annotation cp="👐">ידיים פתוחות | כפות ידיים פתוחות | קבלה</annotation>
 		<annotation cp="👐" type="tts">כפות ידיים פתוחות</annotation>
@@ -873,17 +1181,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">אדם</annotation>
 		<annotation cp="👱">אדם עם שיער בלונדיני | בלונד | בלונדיני</annotation>
 		<annotation cp="👱" type="tts">אדם עם שיער בלונדיני</annotation>
+		<annotation cp="🧑‍🧒">משפחה: מבוגר, מבוגרת, ילד, ילדה</annotation>
+		<annotation cp="🧑‍🧒" type="tts">משפחה: הורה, ילד</annotation>
+		<annotation cp="🧑‍🧒‍🧒">משפחה: מבוגר, מבוגרת, ילד, ילדה</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">משפחה: מבוגר, מבוגרת, ילד, ילדה</annotation>
+		<annotation cp="🧑‍🧑‍🧒">משפחה: הורה, מבוגר, מבוגרת, ילד, ילדה</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">משפחה: הורה, הורה, ילד</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">משפחה: הורה, מבוגר, ילד, ילדה</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">משפחה: הורה, הורה, ילד, ילד</annotation>
 		<annotation cp="👨">איש | גבר</annotation>
 		<annotation cp="👨" type="tts">איש</annotation>
 		<annotation cp="🧔">אדם מזוקן | זקן | מזוקן</annotation>
 		<annotation cp="🧔" type="tts">אדם מזוקן</annotation>
-		<annotation cp="🧔‍♂">גבר עם זקן | גבר, זקן, גבר עם זקן</annotation>
+		<annotation cp="🧔‍♂">גבר | גבר: זקן | זקן</annotation>
 		<annotation cp="🧔‍♂" type="tts">גבר עם זקן</annotation>
 		<annotation cp="👱‍♂">איש | בלונדיני | גבר</annotation>
 		<annotation cp="👱‍♂" type="tts">בלונדיני</annotation>
 		<annotation cp="👩">אישה | בחורה | בת</annotation>
 		<annotation cp="👩" type="tts">אישה</annotation>
-		<annotation cp="🧔‍♀">אישה עם זקן | אישה, זקן, אישה עם זקן</annotation>
+		<annotation cp="🧔‍♀">אישה | אישה: זקן | זקן</annotation>
 		<annotation cp="🧔‍♀" type="tts">אישה עם זקן</annotation>
 		<annotation cp="👱‍♀">אישה | בלונדינית</annotation>
 		<annotation cp="👱‍♀" type="tts">בלונדינית</annotation>
@@ -925,9 +1241,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💁‍♀" type="tts">אישה מבקשת טיפ</annotation>
 		<annotation cp="🙋">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋" type="tts">אישה מרימה את היד</annotation>
-		<annotation cp="🙋‍♂">איש | גבר | גבר מרים יד | מצביע | מרים יד</annotation>
-		<annotation cp="🙋‍♂" type="tts">גבר מרים יד</annotation>
-		<annotation cp="🙋‍♀">אישה | אישה מנופפת בידה | אישה מרימה יד | מצביעה | מרימה יד</annotation>
+		<annotation cp="🙋‍♂">איש | גבר | גבר מרים את היד | מצביע</annotation>
+		<annotation cp="🙋‍♂" type="tts">גבר מרים את היד</annotation>
+		<annotation cp="🙋‍♀">אישה | אישה מנופפת בידה | אישה מרימה את היד | מצביעה</annotation>
 		<annotation cp="🙋‍♀" type="tts">אישה מנופפת בידה</annotation>
 		<annotation cp="🧏">חירש | כבד שמיעה | לקוי שמיעה | לקות שמיעה | נגישות</annotation>
 		<annotation cp="🧏" type="tts">כבד שמיעה</annotation>
@@ -977,7 +1293,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍⚖" type="tts">שופט</annotation>
 		<annotation cp="👩‍⚖">אישה | מאזניים | משפט | צדק | שופטת</annotation>
 		<annotation cp="👩‍⚖" type="tts">שופטת</annotation>
-		<annotation cp="🧑‍🌾">חווה | חקלאות | חקלאי | חקלאי/ת | חקלאית | טבע</annotation>
+		<annotation cp="🧑‍🌾">גנן | גננת | חווה | חקלאות | חקלאי | חקלאית</annotation>
 		<annotation cp="🧑‍🌾" type="tts">חקלאי/ת</annotation>
 		<annotation cp="👨‍🌾">איש | גנן | חוואי | חקלאי</annotation>
 		<annotation cp="👨‍🌾" type="tts">חקלאי</annotation>
@@ -989,7 +1305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🍳" type="tts">טבח</annotation>
 		<annotation cp="👩‍🍳">אישה | טבחית | מבשלת | שפית</annotation>
 		<annotation cp="👩‍🍳" type="tts">טבחית</annotation>
-		<annotation cp="🧑‍🔧">חשמלאי | חשמלאית | מכונאי | מכונאי/ת | מכונאית</annotation>
+		<annotation cp="🧑‍🔧">אינסטלטור | אינסטלטורית | חשמלאי | חשמלאית | מכונאי | מכונאית | שרברב</annotation>
 		<annotation cp="🧑‍🔧" type="tts">מכונאי/ת</annotation>
 		<annotation cp="👨‍🔧">איש | איש מקצוע | גבר | חשמלאי | טכנאי | מכונאי | שרברב</annotation>
 		<annotation cp="👨‍🔧" type="tts">מכונאי</annotation>
@@ -1001,31 +1317,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🏭" type="tts">פועל</annotation>
 		<annotation cp="👩‍🏭">אישה | מפעילה | מפעל | מרכיבה | עובדת | עובדת תעשייה | פועלת</annotation>
 		<annotation cp="👩‍🏭" type="tts">פועלת</annotation>
-		<annotation cp="🧑‍💼">איש עסקים | משרד | עובד/ת משרד | צווארון לבן</annotation>
+		<annotation cp="🧑‍💼">אדריכל | אדריכלית | מנהל | מנהלת | עבודה משרדית | עסק | צווארון לבן</annotation>
 		<annotation cp="🧑‍💼" type="tts">עובד/ת משרד</annotation>
 		<annotation cp="👨‍💼">אדריכל | איש עסקים | מנהל | משרד | עובד משרד | פקיד | צווארון לבן</annotation>
 		<annotation cp="👨‍💼" type="tts">עובד משרד</annotation>
 		<annotation cp="👩‍💼">אדריכלית | אשת עסקים | מנהלת | משרד | עובדת משרד | פקידה | צווארון לבן</annotation>
 		<annotation cp="👩‍💼" type="tts">עובדת משרד</annotation>
-		<annotation cp="🧑‍🔬">מדען | מדען/ית | מדענית | מהנדס | מהנדסת | מעבדה</annotation>
+		<annotation cp="🧑‍🔬">ביולוג | ביולוגית | מדען | מדענית | מהנדס | מהנדסת</annotation>
 		<annotation cp="🧑‍🔬" type="tts">מדען/ית</annotation>
 		<annotation cp="👨‍🔬">איש | ביולוג | גבר | כימאי | מדען | מהנדס | פיזיקאי</annotation>
 		<annotation cp="👨‍🔬" type="tts">מדען</annotation>
 		<annotation cp="👩‍🔬">אישה | ביולוגית | כימאית | מדענית | מהנדסת | פיזיקאית</annotation>
 		<annotation cp="👩‍🔬" type="tts">מדענית</annotation>
-		<annotation cp="🧑‍💻">טכנולוג | טכנולוג/ית | טכנולוגית | מפתח | מפתחת | מתכנת | מתכנתת</annotation>
+		<annotation cp="🧑‍💻">טכנולוג | טכנולוגית | ממציא | מפתח | מפתחת | מתכנת | מתכנתת</annotation>
 		<annotation cp="🧑‍💻" type="tts">טכנולוג/ית</annotation>
 		<annotation cp="👨‍💻">איש | גבר | חוקר | טכנולוג | מפתח | מתכנת | תוכנה</annotation>
 		<annotation cp="👨‍💻" type="tts">טכנולוג</annotation>
 		<annotation cp="👩‍💻">אישה | חוקרת | טכנולוגית | מפתחת | מתכנתת | תוכנה</annotation>
 		<annotation cp="👩‍💻" type="tts">טכנולוגית</annotation>
-		<annotation cp="🧑‍🎤">אומן | אמן | אמנית | זמר | זמר/ת | זמרת | שחקן | שחקנית</annotation>
+		<annotation cp="🧑‍🎤">אומן | אמן | אמנית | זמר | זמרת | שחקן | שחקנית</annotation>
 		<annotation cp="🧑‍🎤" type="tts">זמר/ת</annotation>
 		<annotation cp="👨‍🎤">איש | בדרן | גבר | זמר | כוכב | רוק | שחקן</annotation>
 		<annotation cp="👨‍🎤" type="tts">זמר</annotation>
 		<annotation cp="👩‍🎤">אישה | בדרנית | זמרת | כוכבת | רוק | שחקנית</annotation>
 		<annotation cp="👩‍🎤" type="tts">זמרת</annotation>
-		<annotation cp="🧑‍🎨">אומן | אומן/ית | אומנות | אומנית | אמן | אמנות | אמנית</annotation>
+		<annotation cp="🧑‍🎨">אומן | אומנות | אומנית | אמן | אמנות | אמנית | צבעים</annotation>
 		<annotation cp="🧑‍🎨" type="tts">אומן/ית</annotation>
 		<annotation cp="👨‍🎨">איש | אמן | גבר | צבעים | צייר</annotation>
 		<annotation cp="👨‍🎨" type="tts">אמן</annotation>
@@ -1043,7 +1359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🚀" type="tts">אסטרונאוט</annotation>
 		<annotation cp="👩‍🚀">אישה | אסטרונאוטית | חלל | חללית</annotation>
 		<annotation cp="👩‍🚀" type="tts">אסטרונאוטית</annotation>
-		<annotation cp="🧑‍🚒">כבאות | כבאי | לוחם אש | לוחם/ת אש | לוחמת אש | מכבי אש</annotation>
+		<annotation cp="🧑‍🚒">כבאות | כבאי | כבאית | לוחם אש | לוחמת אש | מכבי אש</annotation>
 		<annotation cp="🧑‍🚒" type="tts">לוחם/ת אש</annotation>
 		<annotation cp="👨‍🚒">איש | גבר | כבאי | כיבוי | לוחם אש | מכבי אש</annotation>
 		<annotation cp="👨‍🚒" type="tts">לוחם אש</annotation>
@@ -1107,7 +1423,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤰" type="tts">אישה בהיריון</annotation>
 		<annotation cp="🫃">איש עם בטן היריון | בטן | היריון | כרס | נפוח | שמן</annotation>
 		<annotation cp="🫃" type="tts">איש עם בטן היריון</annotation>
-		<annotation cp="🫄">בהריון | בטן | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄">בהריון | בטן | היריון | הריון | כרס | נפוח | נפוחה</annotation>
 		<annotation cp="🫄" type="tts">בהריון</annotation>
 		<annotation cp="🤱">אישה מניקה | הנקה | מיניקה | מניקה</annotation>
 		<annotation cp="🤱" type="tts">אישה מניקה</annotation>
@@ -1243,9 +1559,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕴" type="tts">אדם בחליפת עסקים מרחף</annotation>
 		<annotation cp="👯">אוזני ארנב | אישה | ארנבות | נשים | נשים עם אוזני ארנב רוקדות | רוקדות | שפנפנות</annotation>
 		<annotation cp="👯" type="tts">נשים עם אוזני ארנב רוקדות</annotation>
-		<annotation cp="👯‍♂">אוזני ארנב | איש | בנים חוגגים | בנים רוקדים עם אוזני ארנב | גבר | גברים עם אוזני ארנב רוקדים | חגיגה | מסיבה | רקדן | תחפושת</annotation>
+		<annotation cp="👯‍♂">אוזני ארנב | איש | בנים חוגגים | בנים רוקדים עם אוזני ארנב | גבר | גברים עם אוזני ארנב רוקדים | מסיבה</annotation>
 		<annotation cp="👯‍♂" type="tts">גברים עם אוזני ארנב רוקדים</annotation>
-		<annotation cp="👯‍♀">אישה | בנות חוגגות | חגיגה | מסיבה | נשים עם אוזני ארנב | נשים רוקדות עם אוזני ארנב | רקדנית | תחפושת</annotation>
+		<annotation cp="👯‍♀">אישה | בנות חוגגות | חגיגה | מסיבה | נשים עם אוזני ארנב | נשים רוקדות עם אוזני ארנב | תחפושת</annotation>
 		<annotation cp="👯‍♀" type="tts">נשים עם אוזני ארנב</annotation>
 		<annotation cp="🧖">מישהי בסאונה | ספא</annotation>
 		<annotation cp="🧖" type="tts">מישהי בסאונה</annotation>
@@ -1503,7 +1819,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐻" type="tts">דוב</annotation>
 		<annotation cp="🐻‍❄">ארקטי | דוב | לבן | קוטב</annotation>
 		<annotation cp="🐻‍❄" type="tts">דוב קוטב</annotation>
-		<annotation cp="🐨">דוב | דובי | חיות כיס | חיית כיס | קואלה</annotation>
+		<annotation cp="🐨">חיית כיס | פנים | קואלה</annotation>
 		<annotation cp="🐨" type="tts">קואלה</annotation>
 		<annotation cp="🐼">פנדה | פני פנדה | פנים</annotation>
 		<annotation cp="🐼" type="tts">פנדה</annotation>
@@ -1533,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">אפרוח מלפנים</annotation>
 		<annotation cp="🐦">ציפור</annotation>
 		<annotation cp="🐦" type="tts">ציפור</annotation>
+		<annotation cp="🐦‍🔥">עוף החול | פנטזיה, פניקס, ציפור האש, התחדשות, לידה מחדש</annotation>
+		<annotation cp="🐦‍🔥" type="tts">עוף החול</annotation>
 		<annotation cp="🐧">פינגווין | ציפור</annotation>
 		<annotation cp="🐧" type="tts">פינגווין</annotation>
 		<annotation cp="🕊">יונה | עלה זית | שלום</annotation>
@@ -1557,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">תוכי</annotation>
 		<annotation cp="🪽">טיסה | כנף | כנפיים | מיתולוגיה | מלאכים | עופות | ציפורים</annotation>
 		<annotation cp="🪽" type="tts">כנף</annotation>
+		<annotation cp="🐦‍⬛">עורב | עורבני | ציפור שחורה</annotation>
+		<annotation cp="🐦‍⬛" type="tts">ציפור שחורה</annotation>
 		<annotation cp="🪿">אווז | טפשות | עוף | ציפור</annotation>
 		<annotation cp="🪿" type="tts">אווז</annotation>
 		<annotation cp="🐸">פני צפרדע | פנים | צפרדע</annotation>
@@ -1689,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">קן עם ביצים</annotation>
 		<annotation cp="🍄">ירק | פטריה</annotation>
 		<annotation cp="🍄" type="tts">פטריה</annotation>
+		<annotation cp="🍄‍🟫">פטריות, טבע, ירקות | פטרייה חומה</annotation>
+		<annotation cp="🍄‍🟫" type="tts">פטרייה חומה</annotation>
 		<annotation cp="🍇">ענבים | פרי | קיץ</annotation>
 		<annotation cp="🍇" type="tts">ענבים</annotation>
 		<annotation cp="🍈">מלון | פרי | קיץ</annotation>
@@ -1699,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">קלמנטינה</annotation>
 		<annotation cp="🍋">לימון | פרי | פרי הדר</annotation>
 		<annotation cp="🍋" type="tts">לימון</annotation>
+		<annotation cp="🍋‍🟩">ליים | פרי הדר, פרי, טרופי</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ליים</annotation>
 		<annotation cp="🍌">בננה | פרי</annotation>
 		<annotation cp="🍌" type="tts">בננה</annotation>
 		<annotation cp="🍍">אננס | טרופי | פרי</annotation>
@@ -1829,7 +2153,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧂" type="tts">מלח</annotation>
 		<annotation cp="🥫">קופסת שימורים | שימורים</annotation>
 		<annotation cp="🥫" type="tts">שימורים</annotation>
-		<annotation cp="🍱">אוכל | בנטו | חמגשית | חמגשית עם אוכל | יפני | יפנית</annotation>
+		<annotation cp="🍱">בנטו | קופסה</annotation>
 		<annotation cp="🍱" type="tts">חמגשית עם אוכל</annotation>
 		<annotation cp="🍘">אורז | פריכיות | פריכית אורז</annotation>
 		<annotation cp="🍘" type="tts">פריכית אורז</annotation>
@@ -2601,7 +2925,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">ביקיני</annotation>
 		<annotation cp="👚">אישה | בגד | חולצה | חולצת אישה</annotation>
 		<annotation cp="👚" type="tts">חולצת אישה</annotation>
-		<annotation cp="🪭">ביישנות | חם | לפלרטט | לקרר | מניפה | מניפת יד מתקפלת | ריקוד</annotation>
+		<annotation cp="🪭">ביישן | חם | לרקוד | מאוורר | מאוורר יד מתקפל | קירור | רפרוף</annotation>
 		<annotation cp="🪭" type="tts">מניפת יד מתקפלת</annotation>
 		<annotation cp="👛">ארנק | כסף | מטבעות</annotation>
 		<annotation cp="👛" type="tts">ארנק</annotation>
@@ -2631,7 +2955,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">נעלי בלט</annotation>
 		<annotation cp="👢">אישה | חורף | מגף | מגף של אישה</annotation>
 		<annotation cp="👢" type="tts">מגף של אישה</annotation>
-		<annotation cp="🪮">אפרו | מסרק | סידור שיער | שיער | תלתלים</annotation>
+		<annotation cp="🪮">אפרו | לִבחוֹר | מסרק | שיער</annotation>
 		<annotation cp="🪮" type="tts">מסרק שיער</annotation>
 		<annotation cp="👑">כתר | מלך | מלכה</annotation>
 		<annotation cp="👑" type="tts">כתר</annotation>
@@ -2979,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">חוליות משולבות</annotation>
 		<annotation cp="⛓">שרשראות | שרשרת</annotation>
 		<annotation cp="⛓" type="tts">שרשראות</annotation>
+		<annotation cp="⛓‍💥">שבירה, קטיעה, שרשרת, שלשלאות, חירות | שרשרת שבורה</annotation>
+		<annotation cp="⛓‍💥" type="tts">שרשרת שבורה</annotation>
 		<annotation cp="🪝">אנקול | וו | קרס</annotation>
 		<annotation cp="🪝" type="tts">קרס</annotation>
 		<annotation cp="🧰">ארגז | כלים | תיבה | תיקונים</annotation>
@@ -3055,7 +3381,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪣" type="tts">דלי</annotation>
 		<annotation cp="🧼">להתרחץ | לרחוץ | סבון | ספוג</annotation>
 		<annotation cp="🧼" type="tts">סבון</annotation>
-		<annotation cp="🫧">בועות | גיהוק | סבון | שיהוק | תת-ימי</annotation>
+		<annotation cp="🫧">בועות | גיהוק | מתחת למים | נקי | סבון</annotation>
 		<annotation cp="🫧" type="tts">בועות</annotation>
 		<annotation cp="🪥">דנטלי | היגיינת הפה | לצחצח | מברשת | צחצוח | שיניים</annotation>
 		<annotation cp="🪥" type="tts">מברשת שיניים</annotation>
@@ -3155,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">חץ מעלה ומטה</annotation>
 		<annotation cp="↔">חץ | חץ שמאלה וימינה | ימינה | שמאלה</annotation>
 		<annotation cp="↔" type="tts">חץ שמאלה וימינה</annotation>
+		<annotation cp="↮" draft="contributed">חץ מחוק שמאל ימין</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">חץ מחוק שמאל ימין</annotation>
 		<annotation cp="↩">חץ | חץ ימינה מתעקל שמאלה | מתעקל | פרסה | שמאלה</annotation>
 		<annotation cp="↩" type="tts">חץ ימינה מתעקל שמאלה</annotation>
 		<annotation cp="↪">חץ | חץ שמאלה מתעקל ימינה</annotation>
@@ -3201,7 +3529,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">חנוכיה</annotation>
 		<annotation cp="🔯">דת | יהדות | יהודי | מגן דוד | מגן דוד עם נקודה באמצע</annotation>
 		<annotation cp="🔯" type="tts">מגן דוד עם נקודה באמצע</annotation>
-		<annotation cp="🪯">דת | סיקים | סמל | סמל סיקי</annotation>
+		<annotation cp="🪯">דת | סיקים | סמל סיקי | קהנדה</annotation>
 		<annotation cp="🪯" type="tts">סמל סיקי</annotation>
 		<annotation cp="♈">גלגל המזלות | טלה | מזל</annotation>
 		<annotation cp="♈" type="tts">מזל טלה</annotation>
@@ -3293,7 +3621,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➖" type="tts">סימן חיסור</annotation>
 		<annotation cp="➗">חילוק | חלקי | חשבון | מתמטיקה | סימן חילוק | סימן חילוק עבה</annotation>
 		<annotation cp="➗" type="tts">סימן חילוק</annotation>
-		<annotation cp="🟰">חשבון | מתמטיקה | סימן שווה עבה | שווה</annotation>
+		<annotation cp="🟰">מתמטיקה | סימן שווה עבה | שווה</annotation>
 		<annotation cp="🟰" type="tts">סימן שווה עבה</annotation>
 		<annotation cp="♾">אוניברסלי | אין-סוף | אינסוף | בלתי מוגבל</annotation>
 		<annotation cp="♾" type="tts">אינסוף</annotation>
@@ -3527,20 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">פאונד</annotation>
 		<annotation cp="¥">ין | יפן | מטבע</annotation>
 		<annotation cp="¥" type="tts">ין</annotation>
+		<annotation cp="₢" draft="contributed">BRB | מטבע | קרוזיארו | קרוזרו</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">קרוזרו</annotation>
+		<annotation cp="₣" draft="contributed">מטבע | פרנק | פרנק צרפתי</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">פרנק צרפתי</annotation>
+		<annotation cp="₤">לִירָה | מטבע</annotation>
+		<annotation cp="₤" type="tts">לִירָה</annotation>
 		<annotation cp="₥">אלפית | החלק האלף | מיל | סימן אלפית</annotation>
 		<annotation cp="₥" type="tts">סימן אלפית</annotation>
 		<annotation cp="₩">KPW | KRW | סימן וון</annotation>
 		<annotation cp="₩" type="tts">סימן וון</annotation>
 		<annotation cp="€">אירו | יורו | מטבע</annotation>
 		<annotation cp="€" type="tts">אירו</annotation>
+		<annotation cp="₰">אגורה גרמנית | מטבע | פניג</annotation>
+		<annotation cp="₰" type="tts">אגורה גרמנית</annotation>
 		<annotation cp="₱">כסף | מטבע | פסו</annotation>
 		<annotation cp="₱" type="tts">פסו</annotation>
+		<annotation cp="₳">ARA | אוסטרלי | מַטְבֵּעַ</annotation>
+		<annotation cp="₳" type="tts">אוסטרלי</annotation>
+		<annotation cp="₶">ליבר טורנואה | מטבע</annotation>
+		<annotation cp="₶" type="tts">ליבר טורנואה</annotation>
+		<annotation cp="₷">מטבע | ספשמילו</annotation>
+		<annotation cp="₷" type="tts">ספשמילו</annotation>
 		<annotation cp="₹">הודו | מטבע | רופי | רופי הודי | רופיה</annotation>
 		<annotation cp="₹" type="tts">רופי הודי</annotation>
 		<annotation cp="₽">מטבע | רובל</annotation>
 		<annotation cp="₽" type="tts">רובל</annotation>
-		<annotation cp="₿">BTC | ביטקוין | וירטואלי | מטבע</annotation>
+		<annotation cp="₿">BTC | ביטקוין</annotation>
 		<annotation cp="₿" type="tts">ביטקוין</annotation>
+		<annotation cp="₨">מטבע | רוּפּיָה</annotation>
+		<annotation cp="₨" type="tts">רוּפּיָה</annotation>
+		<annotation cp="﷼">מטבע | ריאל</annotation>
+		<annotation cp="﷼" type="tts">ריאל</annotation>
 		<annotation cp="¹">אחת | הספרה אחת בכתב עילי | הערה | כתב עילי | מוקטן</annotation>
 		<annotation cp="¹" type="tts">הספרה אחת בכתב עילי</annotation>
 		<annotation cp="²">בריבוע | הספרה שתיים בכתב עילי | הערה | כתב עילי | מוקטן | שתיים</annotation>

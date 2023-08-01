@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -26,7 +26,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏿">dark na kulay ng balat | kulay ng balat | type 6</annotation>
 		<annotation cp="🏿" type="tts">dark na kulay ng balat</annotation>
 		<annotation cp="‾" draft="contributed">overline</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">overline</annotation>
+		<annotation cp="‾" type="tts">overline</annotation>
 		<annotation cp="_">gatlang | linya | mababang gatlang | mababang linya | salungguhit | underdash</annotation>
 		<annotation cp="_" type="tts">mababang linya</annotation>
 		<annotation cp="-">gatlang | gitling | gitling na minus | gitling- pananda ng pagbabawas | minus</annotation>
@@ -64,7 +64,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="؟">arabic | arabic na tandang pananong | tandang pananong | tanong</annotation>
 		<annotation cp="؟" type="tts">arabic na tandang pananong</annotation>
 		<annotation cp="‽" draft="contributed">interrobang</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">interrobang</annotation>
+		<annotation cp="‽" type="tts">interrobang</annotation>
 		<annotation cp=".">buong hinto | tuldok</annotation>
 		<annotation cp="." type="tts">tuldok</annotation>
 		<annotation cp="…">ellipsis | mga tuldok | omisyon</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">dobleng prime</annotation>
 		<annotation cp="‴">tripleng prime</annotation>
 		<annotation cp="‴" type="tts">tripleng prime</annotation>
-		<annotation cp="‸" draft="contributed">caret</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">caret</annotation>
+		<annotation cp="‸">caret</annotation>
+		<annotation cp="‸" type="tts">caret</annotation>
 		<annotation cp="※">tanda ng reference</annotation>
 		<annotation cp="※" type="tts">tanda ng reference</annotation>
 		<annotation cp="⁂" draft="contributed">asterismo</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">asterismo</annotation>
+		<annotation cp="⁂" type="tts">asterismo</annotation>
 		<annotation cp="`">accent | grave | tono</annotation>
 		<annotation cp="`" type="tts">grave accent</annotation>
 		<annotation cp="´">accent | acute | tono</annotation>
@@ -181,92 +181,92 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">copyright ng recording ng tunog</annotation>
 		<annotation cp="←">arrow | arrow na nakaturo sa kaliwa | kaliwa</annotation>
 		<annotation cp="←" type="tts">arrow na nakaturo sa kaliwa</annotation>
-		<annotation cp="↚" draft="contributed">kaliwang arrow stroke</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">kaliwang arrow stroke</annotation>
+		<annotation cp="↚">kaliwang arrow stroke</annotation>
+		<annotation cp="↚" type="tts">kaliwang arrow stroke</annotation>
 		<annotation cp="→">arrow | arrow na nakaturo sa kanan | kanan</annotation>
 		<annotation cp="→" type="tts">arrow na nakaturo sa kanan</annotation>
-		<annotation cp="↛" draft="contributed">kanang arrow stroke</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">kanang arrow stroke</annotation>
+		<annotation cp="↛">kanang arrow stroke</annotation>
+		<annotation cp="↛" type="tts">kanang arrow stroke</annotation>
 		<annotation cp="↑">arrow | arrow na nakaturo pataas | pataas</annotation>
 		<annotation cp="↑" type="tts">arrow na nakaturo pataas</annotation>
 		<annotation cp="↓">arrow | arrow na nakaturo pababa | pababa</annotation>
 		<annotation cp="↓" type="tts">arrow na nakaturo pababa</annotation>
-		<annotation cp="↜" draft="contributed">kaliwang maalon na arrow</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">kaliwang maalon na arrow</annotation>
-		<annotation cp="↝" draft="contributed">kanang maalon na arrow</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">kanang maalon na arrow</annotation>
-		<annotation cp="↞" draft="contributed">kaliwang dalawang ulo na arrow</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">kaliwang dalawang ulo na arrow</annotation>
-		<annotation cp="↟" draft="contributed">paitaas na dalawang ulo na arrow</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">paitaas na dalawang ulo na arrow</annotation>
-		<annotation cp="↠" draft="contributed">kanang dalawang ulo na arrow</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">kanang dalawang ulo na arrow</annotation>
-		<annotation cp="↡" draft="contributed">pababa na dalawang ulo na arrow</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">pababa na dalawang ulo na arrow</annotation>
-		<annotation cp="↢" draft="contributed">kaliwang buntot ng arrow</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">kaliwang buntot ng arrow</annotation>
-		<annotation cp="↣" draft="contributed">kanang buntot ng arrow</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">kanang buntot ng arrow</annotation>
-		<annotation cp="↤" draft="contributed">kaliwang arrow mula sa bar</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">kaliwang arrow mula sa bar</annotation>
-		<annotation cp="↥" draft="contributed">paitaas na arrow mula sa bar</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">paitaas na arrow mula sa bar</annotation>
-		<annotation cp="↦" draft="contributed">kanang arrow mula sa bar</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">kanang arrow mula sa bar</annotation>
-		<annotation cp="↧" draft="contributed">pababa na arrow mula sa bar</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">pababa na arrow mula sa bar</annotation>
-		<annotation cp="↨" draft="contributed">pataas pababa na arrow na may base</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">pataas pababa na arrow na may base</annotation>
-		<annotation cp="↫" draft="contributed">kaliwang arrow na loop</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">kaliwang arrow na loop</annotation>
-		<annotation cp="↬" draft="contributed">kanang arrow na loop</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">kanang arrow na loop</annotation>
-		<annotation cp="↭" draft="contributed">kaliwa’t kanang maalon na arrow</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">kaliwa’t kanang maalon na arrow</annotation>
+		<annotation cp="↜">kaliwang maalon na arrow</annotation>
+		<annotation cp="↜" type="tts">kaliwang maalon na arrow</annotation>
+		<annotation cp="↝">kanang maalon na arrow</annotation>
+		<annotation cp="↝" type="tts">kanang maalon na arrow</annotation>
+		<annotation cp="↞">kaliwang dalawang ulo na arrow</annotation>
+		<annotation cp="↞" type="tts">kaliwang dalawang ulo na arrow</annotation>
+		<annotation cp="↟">paitaas na dalawang ulo na arrow</annotation>
+		<annotation cp="↟" type="tts">paitaas na dalawang ulo na arrow</annotation>
+		<annotation cp="↠">kanang dalawang ulo na arrow</annotation>
+		<annotation cp="↠" type="tts">kanang dalawang ulo na arrow</annotation>
+		<annotation cp="↡">pababa na dalawang ulo na arrow</annotation>
+		<annotation cp="↡" type="tts">pababa na dalawang ulo na arrow</annotation>
+		<annotation cp="↢">kaliwang buntot ng arrow</annotation>
+		<annotation cp="↢" type="tts">kaliwang buntot ng arrow</annotation>
+		<annotation cp="↣">kanang buntot ng arrow</annotation>
+		<annotation cp="↣" type="tts">kanang buntot ng arrow</annotation>
+		<annotation cp="↤">kaliwang arrow mula sa bar</annotation>
+		<annotation cp="↤" type="tts">kaliwang arrow mula sa bar</annotation>
+		<annotation cp="↥">paitaas na arrow mula sa bar</annotation>
+		<annotation cp="↥" type="tts">paitaas na arrow mula sa bar</annotation>
+		<annotation cp="↦">kanang arrow mula sa bar</annotation>
+		<annotation cp="↦" type="tts">kanang arrow mula sa bar</annotation>
+		<annotation cp="↧">pababa na arrow mula sa bar</annotation>
+		<annotation cp="↧" type="tts">pababa na arrow mula sa bar</annotation>
+		<annotation cp="↨">pataas pababa na arrow na may base</annotation>
+		<annotation cp="↨" type="tts">pataas pababa na arrow na may base</annotation>
+		<annotation cp="↫">kaliwang arrow na loop</annotation>
+		<annotation cp="↫" type="tts">kaliwang arrow na loop</annotation>
+		<annotation cp="↬">kanang arrow na loop</annotation>
+		<annotation cp="↬" type="tts">kanang arrow na loop</annotation>
+		<annotation cp="↭">kaliwa’t kanang maalon na arrow</annotation>
+		<annotation cp="↭" type="tts">kaliwa’t kanang maalon na arrow</annotation>
 		<annotation cp="↯" draft="contributed">pababang zigzag na arrow</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">pababang zigzag na arrow</annotation>
-		<annotation cp="↰" draft="contributed">paitaas na arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">paitaas na arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↱" draft="contributed">paitaas na arrow na lumiko sa kanan</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">paitaas na arrow na lumiko sa kanan</annotation>
-		<annotation cp="↲" draft="contributed">pababa na arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">pababa na arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↳" draft="contributed">pababa na arrow na lumiko sa kanan</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">pababa na arrow na lumiko sa kanan</annotation>
-		<annotation cp="↴" draft="contributed">kanan na arrow na lumiko pababa</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">kanan na arrow na lumiko pababa</annotation>
-		<annotation cp="↵" draft="contributed">pababang arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">pababang arrow na lumiko sa kaliwa</annotation>
-		<annotation cp="↶" draft="contributed">anticlockwise na semicircle na arrow sa taas</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">anticlockwise na semicircle na arrow sa taas</annotation>
-		<annotation cp="↷" draft="contributed">clockwise na semicircle na arrow sa taas</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">clockwise na semicircle na arrow sa taas</annotation>
-		<annotation cp="↸" draft="contributed">hilagang kanluran na arrow na may mahabang bar</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">hilagang kanluran na arrow na may mahabang bar</annotation>
+		<annotation cp="↯" type="tts">pababang zigzag na arrow</annotation>
+		<annotation cp="↰">paitaas na arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↰" type="tts">paitaas na arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↱">paitaas na arrow na lumiko sa kanan</annotation>
+		<annotation cp="↱" type="tts">paitaas na arrow na lumiko sa kanan</annotation>
+		<annotation cp="↲">pababa na arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↲" type="tts">pababa na arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↳">pababa na arrow na lumiko sa kanan</annotation>
+		<annotation cp="↳" type="tts">pababa na arrow na lumiko sa kanan</annotation>
+		<annotation cp="↴">kanan na arrow na lumiko pababa</annotation>
+		<annotation cp="↴" type="tts">kanan na arrow na lumiko pababa</annotation>
+		<annotation cp="↵">pababang arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↵" type="tts">pababang arrow na lumiko sa kaliwa</annotation>
+		<annotation cp="↶">anticlockwise na semicircle na arrow sa taas</annotation>
+		<annotation cp="↶" type="tts">anticlockwise na semicircle na arrow sa taas</annotation>
+		<annotation cp="↷">clockwise na semicircle na arrow sa taas</annotation>
+		<annotation cp="↷" type="tts">clockwise na semicircle na arrow sa taas</annotation>
+		<annotation cp="↸">hilagang kanluran na arrow na may mahabang bar</annotation>
+		<annotation cp="↸" type="tts">hilagang kanluran na arrow na may mahabang bar</annotation>
 		<annotation cp="↹" draft="contributed">kaliwa na arrow bar sa taas ng kanan na arrow bar</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">kaliwa na arrow bar sa taas ng kanan na arrow bar</annotation>
-		<annotation cp="↺" draft="contributed">anticlockwise bukas na bilog na arrow</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">anticlockwise bukas na bilog na arrow</annotation>
-		<annotation cp="↻" draft="contributed">clockwise bukas na bilog na arrow</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">clockwise bukas na bilog na arrow</annotation>
-		<annotation cp="↼" draft="contributed">kaliwang harpoon barb pataas</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">kaliwang harpoon barb pataas</annotation>
-		<annotation cp="↽" draft="contributed">kaliwang harpoon barb pababa</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">kaliwang harpoon barb pababa</annotation>
-		<annotation cp="↾" draft="contributed">pataas na harpoon barb na kanan</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">pataas na harpoon barb na kanan</annotation>
-		<annotation cp="↿" draft="contributed">paitaas na harpoon barb na kaliwa</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">paitaas na harpoon barb na kaliwa</annotation>
-		<annotation cp="⇀" draft="contributed">kanang harpoon barb pataas</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">kanang harpoon barb pataas</annotation>
-		<annotation cp="⇁" draft="contributed">kanang harpoon barb pababa</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">kanang harpoon barb pababa</annotation>
-		<annotation cp="⇂" draft="contributed">pababang kanan na harpoon barb</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">pababang kanan na harpoon barb</annotation>
-		<annotation cp="⇃" draft="contributed">pababang kaliwa na harpoon barb</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">pababang kaliwa na harpoon barb</annotation>
-		<annotation cp="⇄" draft="contributed">kanang arrow sa taas ng kaliwang arrow</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">kanang arrow sa taas ng kaliwang arrow</annotation>
+		<annotation cp="↹" type="tts">kaliwa na arrow bar sa taas ng kanan na arrow bar</annotation>
+		<annotation cp="↺">anticlockwise bukas na bilog na arrow</annotation>
+		<annotation cp="↺" type="tts">anticlockwise bukas na bilog na arrow</annotation>
+		<annotation cp="↻">clockwise bukas na bilog na arrow</annotation>
+		<annotation cp="↻" type="tts">clockwise bukas na bilog na arrow</annotation>
+		<annotation cp="↼">kaliwang harpoon barb pataas</annotation>
+		<annotation cp="↼" type="tts">kaliwang harpoon barb pataas</annotation>
+		<annotation cp="↽">kaliwang harpoon barb pababa</annotation>
+		<annotation cp="↽" type="tts">kaliwang harpoon barb pababa</annotation>
+		<annotation cp="↾">pataas na harpoon barb na kanan</annotation>
+		<annotation cp="↾" type="tts">pataas na harpoon barb na kanan</annotation>
+		<annotation cp="↿">paitaas na harpoon barb na kaliwa</annotation>
+		<annotation cp="↿" type="tts">paitaas na harpoon barb na kaliwa</annotation>
+		<annotation cp="⇀">kanang harpoon barb pataas</annotation>
+		<annotation cp="⇀" type="tts">kanang harpoon barb pataas</annotation>
+		<annotation cp="⇁">kanang harpoon barb pababa</annotation>
+		<annotation cp="⇁" type="tts">kanang harpoon barb pababa</annotation>
+		<annotation cp="⇂">pababang kanan na harpoon barb</annotation>
+		<annotation cp="⇂" type="tts">pababang kanan na harpoon barb</annotation>
+		<annotation cp="⇃">pababang kaliwa na harpoon barb</annotation>
+		<annotation cp="⇃" type="tts">pababang kaliwa na harpoon barb</annotation>
+		<annotation cp="⇄">kanang arrow sa taas ng kaliwang arrow</annotation>
+		<annotation cp="⇄" type="tts">kanang arrow sa taas ng kaliwang arrow</annotation>
 		<annotation cp="⇅">arrow | pababa | pataas | pataas na arrow at pababang arrow</annotation>
 		<annotation cp="⇅" type="tts">pataas na arrow at pababang arrow</annotation>
 		<annotation cp="⇆">arrow | kaliwa | kanan | pakaliwa sa ibabaw ng pakanang arrow | pakaliwang arrow sa ibabaw ng pakanang arrow</annotation>
@@ -277,96 +277,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇈" type="tts" draft="contributed">dalawang pataas na arrow</annotation>
 		<annotation cp="⇉" draft="contributed">dalawang kanan na arrow</annotation>
 		<annotation cp="⇉" type="tts" draft="contributed">dalawang kanan na arrow</annotation>
-		<annotation cp="⇊" draft="contributed">dalawang pababa na arrow</annotation>
+		<annotation cp="⇊">dalawang pababa na arrow</annotation>
 		<annotation cp="⇊" type="tts" draft="contributed">dalawang pababa na arrow</annotation>
-		<annotation cp="⇋" draft="contributed">kaliwang harpoon sa taas ng kanang harpoon</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">kaliwang harpoon sa taas ng kanang harpoon</annotation>
-		<annotation cp="⇌" draft="contributed">kanang harpoon sa taas ng kaliwang harpoon</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">kanang harpoon sa taas ng kaliwang harpoon</annotation>
-		<annotation cp="⇐" draft="contributed">kaliwa na dobleng arrow</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">kaliwa na dobleng arrow</annotation>
-		<annotation cp="⇍" draft="contributed">kaliwa na dobleng arrow na may stroke</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">kaliwa na dobleng arrow na may stroke</annotation>
-		<annotation cp="⇑" draft="contributed">pataas na dobleng arrow</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">pataas na dobleng arrow</annotation>
-		<annotation cp="⇒" draft="contributed">kanan na dobleng arrow</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">kanan na dobleng arrow</annotation>
-		<annotation cp="⇏" draft="contributed">kanan na dobleng arrow na may stroke</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">kanan na dobleng arrow na may stroke</annotation>
-		<annotation cp="⇓" draft="contributed">pababa na dobleng arrow</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">pababa na dobleng arrow</annotation>
-		<annotation cp="⇔" draft="contributed">kaliwa’t kanang doble na arrow</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">kaliwa’t kanang doble na arrow</annotation>
-		<annotation cp="⇎" draft="contributed">kaliwa’t kanang doble na arrow na may stroke</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">kaliwa’t kanang doble na arrow na may stroke</annotation>
-		<annotation cp="⇖" draft="contributed">hilagang kanluran na dobleng arrow</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">hilagang kanluran na dobleng arrow</annotation>
-		<annotation cp="⇗" draft="contributed">hilagang silangan na dobleng arrow</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">hilagang silangan na dobleng arrow</annotation>
-		<annotation cp="⇘" draft="contributed">timog silangan na dobleng arrow</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">timog silangan na dobleng arrow</annotation>
-		<annotation cp="⇙" draft="contributed">timog kanluran na dobleng arrow</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">timog kanluran na dobleng arrow</annotation>
-		<annotation cp="⇚" draft="contributed">kaliwa na tripleng arrow</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">kaliwa na tripleng arrow</annotation>
-		<annotation cp="⇛" draft="contributed">kanan na tripleng arrow</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">kanan na tripleng arrow</annotation>
-		<annotation cp="⇜" draft="contributed">kaliwa na squiggle arrow</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">kaliwa na squiggle arrow</annotation>
-		<annotation cp="⇝" draft="contributed">kanan na squiggle arrow</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">kanan na squiggle arrow</annotation>
-		<annotation cp="⇞" draft="contributed">pataas na arrow na may dobleng stroke</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">pataas na arrow na may dobleng stroke</annotation>
-		<annotation cp="⇟" draft="contributed">pababang arrow na may dobleng stroke</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">pababang arrow na may dobleng stroke</annotation>
-		<annotation cp="⇠" draft="contributed">kaliwang arrow na may dash</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">kaliwang arrow na may dash</annotation>
-		<annotation cp="⇡" draft="contributed">pataas na dash na arrow</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">pataas na dash na arrow</annotation>
-		<annotation cp="⇢" draft="contributed">kanan na dash na arrow</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">kanan na dash na arrow</annotation>
-		<annotation cp="⇣" draft="contributed">pababang dash na arrow</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">pababang dash na arrow</annotation>
-		<annotation cp="⇤" draft="contributed">kaliwang arrow na may bar</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">kaliwang arrow na may bar</annotation>
-		<annotation cp="⇥" draft="contributed">kanang arrow na may bar</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">kanang arrow na may bar</annotation>
-		<annotation cp="⇦" draft="contributed">kaliwang walang laman na arrow</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">kaliwang walang laman na arrow</annotation>
-		<annotation cp="⇧" draft="contributed">pataas na walang laman na arrow</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">pataas na walang laman na arrow</annotation>
-		<annotation cp="⇨" draft="contributed">kanang walang laman na arrow</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">kanang walang laman na arrow</annotation>
-		<annotation cp="⇩" draft="contributed">pababang arrow na walang laman</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">pababang arrow na walang laman</annotation>
-		<annotation cp="⇪" draft="contributed">pataas na arrow na walang laman mula sa bar</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">pataas na arrow na walang laman mula sa bar</annotation>
-		<annotation cp="⇵" draft="contributed">pababa na arrow sa kaliwa pataas na arrow</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">pababa na arrow sa kaliwa pataas na arrow</annotation>
-		<annotation cp="∀" draft="contributed">para sa lahat</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">para sa lahat</annotation>
+		<annotation cp="⇋">kaliwang harpoon sa taas ng kanang harpoon</annotation>
+		<annotation cp="⇋" type="tts">kaliwang harpoon sa taas ng kanang harpoon</annotation>
+		<annotation cp="⇌">kanang harpoon sa taas ng kaliwang harpoon</annotation>
+		<annotation cp="⇌" type="tts">kanang harpoon sa taas ng kaliwang harpoon</annotation>
+		<annotation cp="⇐">kaliwa na dobleng arrow</annotation>
+		<annotation cp="⇐" type="tts">kaliwa na dobleng arrow</annotation>
+		<annotation cp="⇍">kaliwa na dobleng arrow na may stroke</annotation>
+		<annotation cp="⇍" type="tts">kaliwa na dobleng arrow na may stroke</annotation>
+		<annotation cp="⇑">pataas na dobleng arrow</annotation>
+		<annotation cp="⇑" type="tts">pataas na dobleng arrow</annotation>
+		<annotation cp="⇒">kanan na dobleng arrow</annotation>
+		<annotation cp="⇒" type="tts">kanan na dobleng arrow</annotation>
+		<annotation cp="⇏">kanan na dobleng arrow na may stroke</annotation>
+		<annotation cp="⇏" type="tts">kanan na dobleng arrow na may stroke</annotation>
+		<annotation cp="⇓">pababa na dobleng arrow</annotation>
+		<annotation cp="⇓" type="tts">pababa na dobleng arrow</annotation>
+		<annotation cp="⇔">kaliwa’t kanang doble na arrow</annotation>
+		<annotation cp="⇔" type="tts">kaliwa’t kanang doble na arrow</annotation>
+		<annotation cp="⇎">kaliwa’t kanang doble na arrow na may stroke</annotation>
+		<annotation cp="⇎" type="tts">kaliwa’t kanang doble na arrow na may stroke</annotation>
+		<annotation cp="⇖">hilagang kanluran na dobleng arrow</annotation>
+		<annotation cp="⇖" type="tts">hilagang kanluran na dobleng arrow</annotation>
+		<annotation cp="⇗">hilagang silangan na dobleng arrow</annotation>
+		<annotation cp="⇗" type="tts">hilagang silangan na dobleng arrow</annotation>
+		<annotation cp="⇘">timog silangan na dobleng arrow</annotation>
+		<annotation cp="⇘" type="tts">timog silangan na dobleng arrow</annotation>
+		<annotation cp="⇙">timog kanluran na dobleng arrow</annotation>
+		<annotation cp="⇙" type="tts">timog kanluran na dobleng arrow</annotation>
+		<annotation cp="⇚">kaliwa na tripleng arrow</annotation>
+		<annotation cp="⇚" type="tts">kaliwa na tripleng arrow</annotation>
+		<annotation cp="⇛">kanan na tripleng arrow</annotation>
+		<annotation cp="⇛" type="tts">kanan na tripleng arrow</annotation>
+		<annotation cp="⇜">kaliwa na squiggle arrow</annotation>
+		<annotation cp="⇜" type="tts">kaliwa na squiggle arrow</annotation>
+		<annotation cp="⇝">kanan na squiggle arrow</annotation>
+		<annotation cp="⇝" type="tts">kanan na squiggle arrow</annotation>
+		<annotation cp="⇞">pataas na arrow na may dobleng stroke</annotation>
+		<annotation cp="⇞" type="tts">pataas na arrow na may dobleng stroke</annotation>
+		<annotation cp="⇟">pababang arrow na may dobleng stroke</annotation>
+		<annotation cp="⇟" type="tts">pababang arrow na may dobleng stroke</annotation>
+		<annotation cp="⇠">kaliwang arrow na may dash</annotation>
+		<annotation cp="⇠" type="tts">kaliwang arrow na may dash</annotation>
+		<annotation cp="⇡">pataas na dash na arrow</annotation>
+		<annotation cp="⇡" type="tts">pataas na dash na arrow</annotation>
+		<annotation cp="⇢">kanan na dash na arrow</annotation>
+		<annotation cp="⇢" type="tts">kanan na dash na arrow</annotation>
+		<annotation cp="⇣">pababang dash na arrow</annotation>
+		<annotation cp="⇣" type="tts">pababang dash na arrow</annotation>
+		<annotation cp="⇤">kaliwang arrow na may bar</annotation>
+		<annotation cp="⇤" type="tts">kaliwang arrow na may bar</annotation>
+		<annotation cp="⇥">kanang arrow na may bar</annotation>
+		<annotation cp="⇥" type="tts">kanang arrow na may bar</annotation>
+		<annotation cp="⇦">kaliwang walang laman na arrow</annotation>
+		<annotation cp="⇦" type="tts">kaliwang walang laman na arrow</annotation>
+		<annotation cp="⇧">pataas na walang laman na arrow</annotation>
+		<annotation cp="⇧" type="tts">pataas na walang laman na arrow</annotation>
+		<annotation cp="⇨">kanang walang laman na arrow</annotation>
+		<annotation cp="⇨" type="tts">kanang walang laman na arrow</annotation>
+		<annotation cp="⇩">pababang arrow na walang laman</annotation>
+		<annotation cp="⇩" type="tts">pababang arrow na walang laman</annotation>
+		<annotation cp="⇪">pataas na arrow na walang laman mula sa bar</annotation>
+		<annotation cp="⇪" type="tts">pataas na arrow na walang laman mula sa bar</annotation>
+		<annotation cp="⇵">pababa na arrow sa kaliwa pataas na arrow</annotation>
+		<annotation cp="⇵" type="tts">pababa na arrow sa kaliwa pataas na arrow</annotation>
+		<annotation cp="∀">para sa lahat</annotation>
+		<annotation cp="∀" type="tts">para sa lahat</annotation>
 		<annotation cp="∂">differential | partial na differential</annotation>
 		<annotation cp="∂" type="tts">partial na differential</annotation>
-		<annotation cp="∃" draft="contributed">mayroon</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">mayroon</annotation>
-		<annotation cp="∅" draft="contributed">walang laman na set</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">walang laman na set</annotation>
+		<annotation cp="∃">mayroon</annotation>
+		<annotation cp="∃" type="tts">mayroon</annotation>
+		<annotation cp="∅">walang laman na set</annotation>
+		<annotation cp="∅" type="tts">walang laman na set</annotation>
 		<annotation cp="∆">increment | tatsulok</annotation>
 		<annotation cp="∆" type="tts">increment</annotation>
 		<annotation cp="∇">nabla | tatsulok</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">element | element ng | membership | naglalaman ng | set</annotation>
 		<annotation cp="∈" type="tts">element ng</annotation>
-		<annotation cp="∉" draft="contributed">hindi elemento</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">hindi elemento</annotation>
-		<annotation cp="∋" draft="contributed">naglalaman bilang miyembro</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">naglalaman bilang miyembro</annotation>
-		<annotation cp="∎" draft="contributed">end proof</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">end proof</annotation>
-		<annotation cp="∏" draft="contributed">produktong n-ary</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">produktong n-ary</annotation>
-		<annotation cp="∑" draft="contributed">n-ary summation</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">n-ary summation</annotation>
+		<annotation cp="∉">hindi elemento</annotation>
+		<annotation cp="∉" type="tts">hindi elemento</annotation>
+		<annotation cp="∋">naglalaman bilang miyembro</annotation>
+		<annotation cp="∋" type="tts">naglalaman bilang miyembro</annotation>
+		<annotation cp="∎">end proof</annotation>
+		<annotation cp="∎" type="tts">end proof</annotation>
+		<annotation cp="∏">produktong n-ary</annotation>
+		<annotation cp="∏" type="tts">produktong n-ary</annotation>
+		<annotation cp="∑">n-ary summation</annotation>
+		<annotation cp="∑" type="tts">n-ary summation</annotation>
 		<annotation cp="+">tanda ng pagdaragdag</annotation>
 		<annotation cp="+" type="tts">tanda ng pagdaragdag</annotation>
 		<annotation cp="±">dagdag-bawas</annotation>
@@ -377,16 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">multiplication sign</annotation>
 		<annotation cp="&lt;">mas mababa sa</annotation>
 		<annotation cp="&lt;" type="tts">mas mababa sa</annotation>
-		<annotation cp="≮" draft="contributed">hindi bababa sa</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">hindi bababa sa</annotation>
+		<annotation cp="≮">hindi bababa sa</annotation>
+		<annotation cp="≮" type="tts">hindi bababa sa</annotation>
 		<annotation cp="=">equal | katumbas</annotation>
 		<annotation cp="=" type="tts">katumbas</annotation>
 		<annotation cp="≠">hindi equal | hindi magkatumbas | hindi pantay</annotation>
 		<annotation cp="≠" type="tts">hindi pantay</annotation>
 		<annotation cp="&gt;" draft="contributed">mahigit sa</annotation>
 		<annotation cp="&gt;" type="tts">mahigit sa</annotation>
-		<annotation cp="≯" draft="contributed">hindi higit sa</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">hindi higit sa</annotation>
+		<annotation cp="≯">hindi higit sa</annotation>
+		<annotation cp="≯" type="tts">hindi higit sa</annotation>
 		<annotation cp="¬">negasyon</annotation>
 		<annotation cp="¬" type="tts">negasyon</annotation>
 		<annotation cp="|">patayong linya</annotation>
@@ -397,184 +397,184 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">pananda ng pagbabawas</annotation>
 		<annotation cp="⁻">minus | superscript</annotation>
 		<annotation cp="⁻" type="tts">superscript minus</annotation>
-		<annotation cp="∓" draft="contributed">minus o plus</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">minus o plus</annotation>
-		<annotation cp="∕" draft="contributed">dibisyon slash</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">dibisyon slash</annotation>
+		<annotation cp="∓">minus o plus</annotation>
+		<annotation cp="∓" type="tts">minus o plus</annotation>
+		<annotation cp="∕">dibisyon slash</annotation>
+		<annotation cp="∕" type="tts">dibisyon slash</annotation>
 		<annotation cp="⁄">fraction na slash | stroke | virgule</annotation>
 		<annotation cp="⁄" type="tts">fraction na slash</annotation>
-		<annotation cp="∗" draft="contributed">asterisk operator</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">asterisk operator</annotation>
-		<annotation cp="∘" draft="contributed">ring operator</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">ring operator</annotation>
-		<annotation cp="∙" draft="contributed">bullet operator</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">bullet operator</annotation>
+		<annotation cp="∗">asterisk operator</annotation>
+		<annotation cp="∗" type="tts">asterisk operator</annotation>
+		<annotation cp="∘">ring operator</annotation>
+		<annotation cp="∘" type="tts">ring operator</annotation>
+		<annotation cp="∙">bullet operator</annotation>
+		<annotation cp="∙" type="tts">bullet operator</annotation>
 		<annotation cp="√">radical | radix | root | square | surd</annotation>
 		<annotation cp="√" type="tts">square root</annotation>
-		<annotation cp="∝" draft="contributed">proporsyonal</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">proporsyonal</annotation>
+		<annotation cp="∝">proporsyonal</annotation>
+		<annotation cp="∝" type="tts">proporsyonal</annotation>
 		<annotation cp="∞">infinity | infinity sign</annotation>
 		<annotation cp="∞" type="tts">infinity sign</annotation>
 		<annotation cp="∟" draft="contributed">kanang anggulo</annotation>
 		<annotation cp="∟" type="tts" draft="contributed">kanang anggulo</annotation>
 		<annotation cp="∠" draft="contributed">anggulo</annotation>
 		<annotation cp="∠" type="tts" draft="contributed">anggulo</annotation>
-		<annotation cp="∣" draft="contributed">hatiin</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">hatiin</annotation>
-		<annotation cp="∥" draft="contributed">kahanay</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">kahanay</annotation>
-		<annotation cp="∧" draft="contributed">lohikal at</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">lohikal at</annotation>
+		<annotation cp="∣">hatiin</annotation>
+		<annotation cp="∣" type="tts">hatiin</annotation>
+		<annotation cp="∥">kahanay</annotation>
+		<annotation cp="∥" type="tts">kahanay</annotation>
+		<annotation cp="∧">lohikal at</annotation>
+		<annotation cp="∧" type="tts">lohikal at</annotation>
 		<annotation cp="∩">intersection | set</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
 		<annotation cp="∪">koleksyon | set | union</annotation>
 		<annotation cp="∪" type="tts">union</annotation>
-		<annotation cp="∫" draft="contributed">integral</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">integral</annotation>
-		<annotation cp="∬" draft="contributed">dobleng integral</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">dobleng integral</annotation>
-		<annotation cp="∮" draft="contributed">contour integral</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">contour integral</annotation>
-		<annotation cp="∴" draft="contributed">kaya</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">kaya</annotation>
-		<annotation cp="∵" draft="contributed">dahil</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">dahil</annotation>
-		<annotation cp="∶" draft="contributed">ratio</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">ratio</annotation>
-		<annotation cp="∷" draft="contributed">proporsyon</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">proporsyon</annotation>
-		<annotation cp="∼" draft="contributed">tilde operator</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">tilde operator</annotation>
-		<annotation cp="∽" draft="contributed">baligtad na tilde</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">baligtad na tilde</annotation>
-		<annotation cp="∾" draft="contributed">baligtad na s</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">baligtad na s</annotation>
-		<annotation cp="≃" draft="contributed">pantay na pantay</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">pantay na pantay</annotation>
-		<annotation cp="≅" draft="contributed">halos pantay</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">halos pantay</annotation>
+		<annotation cp="∫">integral</annotation>
+		<annotation cp="∫" type="tts">integral</annotation>
+		<annotation cp="∬">dobleng integral</annotation>
+		<annotation cp="∬" type="tts">dobleng integral</annotation>
+		<annotation cp="∮">contour integral</annotation>
+		<annotation cp="∮" type="tts">contour integral</annotation>
+		<annotation cp="∴">kaya</annotation>
+		<annotation cp="∴" type="tts">kaya</annotation>
+		<annotation cp="∵">dahil</annotation>
+		<annotation cp="∵" type="tts">dahil</annotation>
+		<annotation cp="∶">ratio</annotation>
+		<annotation cp="∶" type="tts">ratio</annotation>
+		<annotation cp="∷">proporsyon</annotation>
+		<annotation cp="∷" type="tts">proporsyon</annotation>
+		<annotation cp="∼">tilde operator</annotation>
+		<annotation cp="∼" type="tts">tilde operator</annotation>
+		<annotation cp="∽">baligtad na tilde</annotation>
+		<annotation cp="∽" type="tts">baligtad na tilde</annotation>
+		<annotation cp="∾">baligtad na s</annotation>
+		<annotation cp="∾" type="tts">baligtad na s</annotation>
+		<annotation cp="≃">pantay na pantay</annotation>
+		<annotation cp="≃" type="tts">pantay na pantay</annotation>
+		<annotation cp="≅">halos pantay</annotation>
+		<annotation cp="≅" type="tts">halos pantay</annotation>
 		<annotation cp="≈">halos katumbas | humigit-kumulang | tantya</annotation>
 		<annotation cp="≈" type="tts">halos katumbas</annotation>
-		<annotation cp="≌" draft="contributed">lahat pantay</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">lahat pantay</annotation>
-		<annotation cp="≒" draft="contributed">halos pantay ang imahe</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">halos pantay ang imahe</annotation>
-		<annotation cp="≖" draft="contributed">singsing sa loob ng equal</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">singsing sa loob ng equal</annotation>
+		<annotation cp="≌">lahat pantay</annotation>
+		<annotation cp="≌" type="tts">lahat pantay</annotation>
+		<annotation cp="≒">halos pantay ang imahe</annotation>
+		<annotation cp="≒" type="tts">halos pantay ang imahe</annotation>
+		<annotation cp="≖">singsing sa loob ng equal</annotation>
+		<annotation cp="≖" type="tts">singsing sa loob ng equal</annotation>
 		<annotation cp="≡">eksakto | katulad | katulad ng | triple</annotation>
 		<annotation cp="≡" type="tts">katulad ng</annotation>
-		<annotation cp="≣" draft="contributed">istriktong katumbas</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">istriktong katumbas</annotation>
+		<annotation cp="≣">istriktong katumbas</annotation>
+		<annotation cp="≣" type="tts">istriktong katumbas</annotation>
 		<annotation cp="≤">mas mababa sa o katumbas</annotation>
 		<annotation cp="≤" type="tts">mas mababa sa o katumbas</annotation>
 		<annotation cp="≥" draft="contributed">mahigit sa o katumbas</annotation>
 		<annotation cp="≥" type="tts">mahigit sa o katumbas</annotation>
-		<annotation cp="≦" draft="contributed">simblo ng mas mababa sa sa taas ng simblo ng katumbas</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">simblo ng mas mababa sa sa taas ng simblo ng katumbas</annotation>
+		<annotation cp="≦">simblo ng mas mababa sa sa taas ng simblo ng katumbas</annotation>
+		<annotation cp="≦" type="tts">simblo ng mas mababa sa sa taas ng simblo ng katumbas</annotation>
 		<annotation cp="≧" draft="contributed">simbolo ng mas higit sa sa taas ng simbolo ng katumbas</annotation>
 		<annotation cp="≧" type="tts" draft="contributed">simbolo ng mas higit sa sa taas ng simbolo ng katumbas</annotation>
-		<annotation cp="≪" draft="contributed">higit na mas mababa sa</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">higit na mas mababa sa</annotation>
+		<annotation cp="≪">higit na mas mababa sa</annotation>
+		<annotation cp="≪" type="tts">higit na mas mababa sa</annotation>
 		<annotation cp="≫" draft="contributed">higit na mas higit sa</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">higit na mas higit sa</annotation>
-		<annotation cp="≬" draft="contributed">sa pagitan ng</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">sa pagitan ng</annotation>
-		<annotation cp="≳" draft="contributed">mas higit sa katumbas</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">mas higit sa katumbas</annotation>
-		<annotation cp="≺" draft="contributed">nauna</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">nauna</annotation>
-		<annotation cp="≻" draft="contributed">sundan</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">sundan</annotation>
-		<annotation cp="⊁" draft="contributed">hindi sinusundan</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">hindi sinusundan</annotation>
+		<annotation cp="≫" type="tts">higit na mas higit sa</annotation>
+		<annotation cp="≬">sa pagitan ng</annotation>
+		<annotation cp="≬" type="tts">sa pagitan ng</annotation>
+		<annotation cp="≳">mas higit sa katumbas</annotation>
+		<annotation cp="≳" type="tts">mas higit sa katumbas</annotation>
+		<annotation cp="≺">nauna</annotation>
+		<annotation cp="≺" type="tts">nauna</annotation>
+		<annotation cp="≻">sundan</annotation>
+		<annotation cp="≻" type="tts">sundan</annotation>
+		<annotation cp="⊁">hindi sinusundan</annotation>
+		<annotation cp="⊁" type="tts">hindi sinusundan</annotation>
 		<annotation cp="⊂">set | subset | subset ng</annotation>
 		<annotation cp="⊂" type="tts">subset ng</annotation>
-		<annotation cp="⊃" draft="contributed">superset</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">superset</annotation>
-		<annotation cp="⊆" draft="contributed">pantay na subset</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">pantay na subset</annotation>
-		<annotation cp="⊇" draft="contributed">pantay na superset</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">pantay na superset</annotation>
-		<annotation cp="⊕" draft="contributed">nakabilog na plus</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">nakabilog na plus</annotation>
-		<annotation cp="⊖" draft="contributed">nakabilog na minus</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">nakabilog na minus</annotation>
-		<annotation cp="⊗" draft="contributed">nakabilog na times</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">nakabilog na times</annotation>
-		<annotation cp="⊘" draft="contributed">nakabilog na division slash</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">nakabilog na division slash</annotation>
-		<annotation cp="⊙" draft="contributed">nakabilog na tuldok na operator</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">nakabilog na tuldok na operator</annotation>
-		<annotation cp="⊚" draft="contributed">nakabilog na sing sing na operator</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">nakabilog na sing sing na operator</annotation>
-		<annotation cp="⊛" draft="contributed">nakabilog na asterisk operator</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">nakabilog na asterisk operator</annotation>
-		<annotation cp="⊞" draft="contributed">nakakuwadrado na plus</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">nakakuwadrado na plus</annotation>
-		<annotation cp="⊟" draft="contributed">nakakuwadrado na minus</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">nakakuwadrado na minus</annotation>
+		<annotation cp="⊃">superset</annotation>
+		<annotation cp="⊃" type="tts">superset</annotation>
+		<annotation cp="⊆">pantay na subset</annotation>
+		<annotation cp="⊆" type="tts">pantay na subset</annotation>
+		<annotation cp="⊇">pantay na superset</annotation>
+		<annotation cp="⊇" type="tts">pantay na superset</annotation>
+		<annotation cp="⊕">nakabilog na plus</annotation>
+		<annotation cp="⊕" type="tts">nakabilog na plus</annotation>
+		<annotation cp="⊖">nakabilog na minus</annotation>
+		<annotation cp="⊖" type="tts">nakabilog na minus</annotation>
+		<annotation cp="⊗">nakabilog na times</annotation>
+		<annotation cp="⊗" type="tts">nakabilog na times</annotation>
+		<annotation cp="⊘">nakabilog na division slash</annotation>
+		<annotation cp="⊘" type="tts">nakabilog na division slash</annotation>
+		<annotation cp="⊙">nakabilog na tuldok na operator</annotation>
+		<annotation cp="⊙" type="tts">nakabilog na tuldok na operator</annotation>
+		<annotation cp="⊚">nakabilog na sing sing na operator</annotation>
+		<annotation cp="⊚" type="tts">nakabilog na sing sing na operator</annotation>
+		<annotation cp="⊛">nakabilog na asterisk operator</annotation>
+		<annotation cp="⊛" type="tts">nakabilog na asterisk operator</annotation>
+		<annotation cp="⊞">nakakuwadrado na plus</annotation>
+		<annotation cp="⊞" type="tts">nakakuwadrado na plus</annotation>
+		<annotation cp="⊟">nakakuwadrado na minus</annotation>
+		<annotation cp="⊟" type="tts">nakakuwadrado na minus</annotation>
 		<annotation cp="⊥" draft="contributed">pataas na tack</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">pataas na tack</annotation>
-		<annotation cp="⊮" draft="contributed">hindi pinupuwersa</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">hindi pinupuwersa</annotation>
-		<annotation cp="⊰" draft="contributed">nauna sa ilalim ng relasyon</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">nauna sa ilalim ng relasyon</annotation>
-		<annotation cp="⊱" draft="contributed">sundan sa ilalim ng relasyon</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">sundan sa ilalim ng relasyon</annotation>
-		<annotation cp="⋭" draft="contributed">hindi naglalaman bilang normal na pantay na subgroup</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">hindi naglalaman bilang normal na pantay na subgroup</annotation>
-		<annotation cp="⊶" draft="contributed">orihinal</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">orihinal</annotation>
-		<annotation cp="⊹" draft="contributed">hermitian conjugate matrix</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">hermitian conjugate matrix</annotation>
+		<annotation cp="⊥" type="tts">pataas na tack</annotation>
+		<annotation cp="⊮">hindi pinupuwersa</annotation>
+		<annotation cp="⊮" type="tts">hindi pinupuwersa</annotation>
+		<annotation cp="⊰">nauna sa ilalim ng relasyon</annotation>
+		<annotation cp="⊰" type="tts">nauna sa ilalim ng relasyon</annotation>
+		<annotation cp="⊱">sundan sa ilalim ng relasyon</annotation>
+		<annotation cp="⊱" type="tts">sundan sa ilalim ng relasyon</annotation>
+		<annotation cp="⋭">hindi naglalaman bilang normal na pantay na subgroup</annotation>
+		<annotation cp="⋭" type="tts">hindi naglalaman bilang normal na pantay na subgroup</annotation>
+		<annotation cp="⊶">orihinal</annotation>
+		<annotation cp="⊶" type="tts">orihinal</annotation>
+		<annotation cp="⊹">hermitian conjugate matrix</annotation>
+		<annotation cp="⊹" type="tts">hermitian conjugate matrix</annotation>
 		<annotation cp="⊿" draft="contributed">kanang tatsulok</annotation>
 		<annotation cp="⊿" type="tts" draft="contributed">kanang tatsulok</annotation>
-		<annotation cp="⋁" draft="contributed">n-ary lohikal o</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">n-ary lohikal o</annotation>
-		<annotation cp="⋂" draft="contributed">n-ary interseksyon</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">n-ary interseksyon</annotation>
-		<annotation cp="⋃" draft="contributed">n-ary union</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">n-ary union</annotation>
-		<annotation cp="⋅" draft="contributed">tuldok na operator</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">tuldok na operator</annotation>
-		<annotation cp="⋆" draft="contributed">bituin na operator</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">bituin na operator</annotation>
+		<annotation cp="⋁">n-ary lohikal o</annotation>
+		<annotation cp="⋁" type="tts">n-ary lohikal o</annotation>
+		<annotation cp="⋂">n-ary interseksyon</annotation>
+		<annotation cp="⋂" type="tts">n-ary interseksyon</annotation>
+		<annotation cp="⋃">n-ary union</annotation>
+		<annotation cp="⋃" type="tts">n-ary union</annotation>
+		<annotation cp="⋅">tuldok na operator</annotation>
+		<annotation cp="⋅" type="tts">tuldok na operator</annotation>
+		<annotation cp="⋆">bituin na operator</annotation>
+		<annotation cp="⋆" type="tts">bituin na operator</annotation>
 		<annotation cp="⋈">binary operator | bowtie | natural na pagsasama</annotation>
 		<annotation cp="⋈" type="tts">natural na pagsasama</annotation>
-		<annotation cp="⋒" draft="contributed">dobleng interseksyon</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">dobleng interseksyon</annotation>
-		<annotation cp="⋘" draft="contributed">sobrang higit na mas mababa sa</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">sobrang higit na mas mababa sa</annotation>
-		<annotation cp="⋙" draft="contributed">sobrang higit na mas higit sa</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">sobrang higit na mas higit sa</annotation>
-		<annotation cp="⋮" draft="contributed">patayong ellipsis</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">patayong ellipsis</annotation>
+		<annotation cp="⋒">dobleng interseksyon</annotation>
+		<annotation cp="⋒" type="tts">dobleng interseksyon</annotation>
+		<annotation cp="⋘">sobrang higit na mas mababa sa</annotation>
+		<annotation cp="⋘" type="tts">sobrang higit na mas mababa sa</annotation>
+		<annotation cp="⋙">sobrang higit na mas higit sa</annotation>
+		<annotation cp="⋙" type="tts">sobrang higit na mas higit sa</annotation>
+		<annotation cp="⋮">patayong ellipsis</annotation>
+		<annotation cp="⋮" type="tts">patayong ellipsis</annotation>
 		<annotation cp="⋯">ellipsis | midline na pahalang na ellipsis</annotation>
 		<annotation cp="⋯" type="tts">midline na pahalang na ellipsis</annotation>
-		<annotation cp="⋰" draft="contributed">pataas na kanang diagonal ellipsis</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">pataas na kanang diagonal ellipsis</annotation>
+		<annotation cp="⋰">pataas na kanang diagonal ellipsis</annotation>
+		<annotation cp="⋰" type="tts">pataas na kanang diagonal ellipsis</annotation>
 		<annotation cp="⋱" draft="contributed">pababang kanan na dayagonal ellipsis</annotation>
 		<annotation cp="⋱" type="tts" draft="contributed">pababang kanan na dayagonal ellipsis</annotation>
-		<annotation cp="■" draft="contributed">punong kuwadrado</annotation>
-		<annotation cp="■" type="tts" draft="contributed">punong kuwadrado</annotation>
-		<annotation cp="□" draft="contributed">walang laman na kuwadrado</annotation>
+		<annotation cp="■">punong kuwadrado</annotation>
+		<annotation cp="■" type="tts">punong kuwadrado</annotation>
+		<annotation cp="□">walang laman na kuwadrado</annotation>
 		<annotation cp="□" type="tts" draft="contributed">walang laman na kuwadrado</annotation>
-		<annotation cp="▢" draft="contributed">walang laman na kuwadrado na may pabilog na kanto</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">walang laman na kuwadrado na may pabilog na kanto</annotation>
-		<annotation cp="▣" draft="contributed">punong kuwadrado sa loob ng walang laman na kuwadrado</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">punong kuwadrado sa loob ng walang laman na kuwadrado</annotation>
-		<annotation cp="▤" draft="contributed">kuwadradong may pahalang na punan</annotation>
+		<annotation cp="▢">walang laman na kuwadrado na may pabilog na kanto</annotation>
+		<annotation cp="▢" type="tts">walang laman na kuwadrado na may pabilog na kanto</annotation>
+		<annotation cp="▣">punong kuwadrado sa loob ng walang laman na kuwadrado</annotation>
+		<annotation cp="▣" type="tts">punong kuwadrado sa loob ng walang laman na kuwadrado</annotation>
+		<annotation cp="▤">kuwadradong may pahalang na punan</annotation>
 		<annotation cp="▤" type="tts" draft="contributed">kuwadradong may pahalang na punan</annotation>
-		<annotation cp="▥" draft="contributed">kuwadradong may patayo na punan</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">kuwadradong may patayo na punan</annotation>
-		<annotation cp="▦" draft="contributed">kuwadradong may orthogonal crosshatch na laman</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">kuwadradong may orthogonal crosshatch na laman</annotation>
-		<annotation cp="▧" draft="contributed">kuwadradong may itaas na kaliwa at ibabang kanan na punan</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">kuwadradong may itaas na kaliwa at ibabang kanan na punan</annotation>
-		<annotation cp="▨" draft="contributed">kuwadradong may itaas na kanan at ibabang kaliwa na punan</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">kuwadradong may itaas na kanan at ibabang kaliwa na punan</annotation>
-		<annotation cp="▩" draft="contributed">kuwadradong may dayagonal crosshatch na punan</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">kuwadradong may dayagonal crosshatch na punan</annotation>
+		<annotation cp="▥">kuwadradong may patayo na punan</annotation>
+		<annotation cp="▥" type="tts">kuwadradong may patayo na punan</annotation>
+		<annotation cp="▦">kuwadradong may orthogonal crosshatch na laman</annotation>
+		<annotation cp="▦" type="tts">kuwadradong may orthogonal crosshatch na laman</annotation>
+		<annotation cp="▧">kuwadradong may itaas na kaliwa at ibabang kanan na punan</annotation>
+		<annotation cp="▧" type="tts">kuwadradong may itaas na kaliwa at ibabang kanan na punan</annotation>
+		<annotation cp="▨">kuwadradong may itaas na kanan at ibabang kaliwa na punan</annotation>
+		<annotation cp="▨" type="tts">kuwadradong may itaas na kanan at ibabang kaliwa na punan</annotation>
+		<annotation cp="▩">kuwadradong may dayagonal crosshatch na punan</annotation>
+		<annotation cp="▩" type="tts">kuwadradong may dayagonal crosshatch na punan</annotation>
 		<annotation cp="▬" draft="contributed">punong rektanggulo</annotation>
 		<annotation cp="▬" type="tts" draft="contributed">punong rektanggulo</annotation>
 		<annotation cp="▭" draft="contributed">walang laman na rektanggulo</annotation>
@@ -589,124 +589,124 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="△" type="tts" draft="contributed">walang laman na up-pointing na tatsulok</annotation>
 		<annotation cp="▴" draft="contributed">punong up-pointing na maliit na tatsulok</annotation>
 		<annotation cp="▴" type="tts" draft="contributed">punong up-pointing na maliit na tatsulok</annotation>
-		<annotation cp="▵" draft="contributed">walang laman na up-pointing na maliit na tatsulok</annotation>
+		<annotation cp="▵">walang laman na up-pointing na maliit na tatsulok</annotation>
 		<annotation cp="▵" type="tts" draft="contributed">walang laman na up-pointing na maliit na tatsulok</annotation>
-		<annotation cp="▷" draft="contributed">walang laman na right-pointing na tatsulok</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">walang laman na right-pointing na tatsulok</annotation>
-		<annotation cp="▸" draft="contributed">punong right-pointing na maliit na tatsulok</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">punong right-pointing na maliit na tatsulok</annotation>
-		<annotation cp="▹" draft="contributed">walang laman na right-pointing na maliit na tatsulok</annotation>
+		<annotation cp="▷">walang laman na right-pointing na tatsulok</annotation>
+		<annotation cp="▷" type="tts">walang laman na right-pointing na tatsulok</annotation>
+		<annotation cp="▸">punong right-pointing na maliit na tatsulok</annotation>
+		<annotation cp="▸" type="tts">punong right-pointing na maliit na tatsulok</annotation>
+		<annotation cp="▹">walang laman na right-pointing na maliit na tatsulok</annotation>
 		<annotation cp="▹" type="tts" draft="contributed">walang laman na right-pointing na maliit na tatsulok</annotation>
-		<annotation cp="►" draft="contributed">punong right-pointing na pointer</annotation>
-		<annotation cp="►" type="tts" draft="contributed">punong right-pointing na pointer</annotation>
-		<annotation cp="▻" draft="contributed">walang laman na right-pointing na pointer</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">walang laman na right-pointing na pointer</annotation>
+		<annotation cp="►">punong right-pointing na pointer</annotation>
+		<annotation cp="►" type="tts">punong right-pointing na pointer</annotation>
+		<annotation cp="▻">walang laman na right-pointing na pointer</annotation>
+		<annotation cp="▻" type="tts">walang laman na right-pointing na pointer</annotation>
 		<annotation cp="▼">arrow | may fill | pababa | pababang tatsulok na may fill | tatsulok</annotation>
 		<annotation cp="▼" type="tts">pababang tatsulok na may fill</annotation>
-		<annotation cp="▽" draft="contributed">walang laman na down-pointing na tatsulok</annotation>
+		<annotation cp="▽">walang laman na down-pointing na tatsulok</annotation>
 		<annotation cp="▽" type="tts" draft="contributed">walang laman na down-pointing na tatsulok</annotation>
-		<annotation cp="▾" draft="contributed">punong down-pointing na maliit na triangle</annotation>
+		<annotation cp="▾">punong down-pointing na maliit na triangle</annotation>
 		<annotation cp="▾" type="tts" draft="contributed">punong down-pointing na maliit na triangle</annotation>
-		<annotation cp="▿" draft="contributed">walang laman na down-pointing na maliit na tatsulok</annotation>
+		<annotation cp="▿">walang laman na down-pointing na maliit na tatsulok</annotation>
 		<annotation cp="▿" type="tts" draft="contributed">walang laman na down-pointing na maliit na tatsulok</annotation>
-		<annotation cp="◁" draft="contributed">walang laman na left-pointing na tatsulok</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">walang laman na left-pointing na tatsulok</annotation>
-		<annotation cp="◂" draft="contributed">punong left-pointing na maliit na tatsulok</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">punong left-pointing na maliit na tatsulok</annotation>
-		<annotation cp="◃" draft="contributed">walang laman na left-pointing na maliit na tatsulok</annotation>
+		<annotation cp="◁">walang laman na left-pointing na tatsulok</annotation>
+		<annotation cp="◁" type="tts">walang laman na left-pointing na tatsulok</annotation>
+		<annotation cp="◂">punong left-pointing na maliit na tatsulok</annotation>
+		<annotation cp="◂" type="tts">punong left-pointing na maliit na tatsulok</annotation>
+		<annotation cp="◃">walang laman na left-pointing na maliit na tatsulok</annotation>
 		<annotation cp="◃" type="tts" draft="contributed">walang laman na left-pointing na maliit na tatsulok</annotation>
-		<annotation cp="◄" draft="contributed">punong left-pointing na pointer</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">punong left-pointing na pointer</annotation>
-		<annotation cp="◅" draft="contributed">walang laman na left-pointing na pointer</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">walang laman na left-pointing na pointer</annotation>
-		<annotation cp="◆" draft="contributed">punong diamante</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">punong diamante</annotation>
-		<annotation cp="◇" draft="contributed">walang laman na diamante</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">walang laman na diamante</annotation>
-		<annotation cp="◈" draft="contributed">punong diamante sa loob ng walang laman na diamante</annotation>
+		<annotation cp="◄">punong left-pointing na pointer</annotation>
+		<annotation cp="◄" type="tts">punong left-pointing na pointer</annotation>
+		<annotation cp="◅">walang laman na left-pointing na pointer</annotation>
+		<annotation cp="◅" type="tts">walang laman na left-pointing na pointer</annotation>
+		<annotation cp="◆">punong diamante</annotation>
+		<annotation cp="◆" type="tts">punong diamante</annotation>
+		<annotation cp="◇">walang laman na diamante</annotation>
+		<annotation cp="◇" type="tts">walang laman na diamante</annotation>
+		<annotation cp="◈">punong diamante sa loob ng walang laman na diamante</annotation>
 		<annotation cp="◈" type="tts" draft="contributed">punong diamante sa loob ng walang laman na diamante</annotation>
-		<annotation cp="◉" draft="contributed">punong bilog sa loob ng walang laman na bilog</annotation>
+		<annotation cp="◉">punong bilog sa loob ng walang laman na bilog</annotation>
 		<annotation cp="◉" type="tts" draft="contributed">punong bilog sa loob ng walang laman na bilog</annotation>
 		<annotation cp="◊">diamante | lozenge | rhombus</annotation>
 		<annotation cp="◊" type="tts">lozenge</annotation>
 		<annotation cp="○">bilog | singsing | walang lamang bilog</annotation>
 		<annotation cp="○" type="tts">walang lamang bilog</annotation>
-		<annotation cp="◌" draft="contributed">dotted na bilog</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">dotted na bilog</annotation>
-		<annotation cp="◍" draft="contributed">bilog na may patayong punan</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">bilog na may patayong punan</annotation>
-		<annotation cp="◎" draft="contributed">gitna ng tudlaan</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">gitna ng tudlaan</annotation>
+		<annotation cp="◌">dotted na bilog</annotation>
+		<annotation cp="◌" type="tts">dotted na bilog</annotation>
+		<annotation cp="◍">bilog na may patayong punan</annotation>
+		<annotation cp="◍" type="tts">bilog na may patayong punan</annotation>
+		<annotation cp="◎">gitna ng tudlaan</annotation>
+		<annotation cp="◎" type="tts">gitna ng tudlaan</annotation>
 		<annotation cp="●">bilog | may fill na bilog</annotation>
 		<annotation cp="●" type="tts">may fill na bilog</annotation>
-		<annotation cp="◐" draft="contributed">bilog na kalahating puno sa kaliwa</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">bilog na kalahating puno sa kaliwa</annotation>
-		<annotation cp="◑" draft="contributed">bilog na kalahating puno sa kanan</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">bilog na kalahating puno sa kanan</annotation>
-		<annotation cp="◒" draft="contributed">bilog na kalahating puno sa baba</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">bilog na kalahating puno sa baba</annotation>
-		<annotation cp="◓" draft="contributed">bilog na kalahating puno sa taas</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">bilog na kalahating puno sa taas</annotation>
-		<annotation cp="◔" draft="contributed">bilog na puno sa kanang itaas na kuwadrante</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">bilog na puno sa kanang itaas na kuwadrante</annotation>
-		<annotation cp="◕" draft="contributed">bilog na puno lahat maliban sa itaas na kaliwang kuwadrante</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">bilog na puno lahat maliban sa itaas na kaliwang kuwadrante</annotation>
-		<annotation cp="◖" draft="contributed">kalahating puno sa kaliwa na bilog</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">kalahating puno sa kaliwa na bilog</annotation>
-		<annotation cp="◗" draft="contributed">kalahating puno sa kanan na bilog</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">kalahating puno sa kanan na bilog</annotation>
-		<annotation cp="◘" draft="contributed">baligtad na bullet</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">baligtad na bullet</annotation>
-		<annotation cp="◙" draft="contributed">punong kuwadrado na may walang laman na bilog sa loob</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">punong kuwadrado na may walang laman na bilog sa loob</annotation>
-		<annotation cp="◜" draft="contributed">pabilog na arko sa itaas na kaliwang kuwadrante</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">pabilog na arko sa itaas na kaliwang kuwadrante</annotation>
-		<annotation cp="◝" draft="contributed">pabilog na arko sa itaas na kanang kuwadrante</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">pabilog na arko sa itaas na kanang kuwadrante</annotation>
-		<annotation cp="◞" draft="contributed">pabilog na arko sa ibabang kanan na kuwadrante</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">pabilog na arko sa ibabang kanan na kuwadrante</annotation>
-		<annotation cp="◟" draft="contributed">pabilog na arko sa ibabang kaliwa na kuwadrante</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">pabilog na arko sa ibabang kaliwa na kuwadrante</annotation>
-		<annotation cp="◠" draft="contributed">itaas na kalahating bilog</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">itaas na kalahating bilog</annotation>
-		<annotation cp="◡" draft="contributed">ibaba na kalahating bilog</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">ibaba na kalahating bilog</annotation>
-		<annotation cp="◢" draft="contributed">punong ibabang kanan na tatsulok</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">punong ibabang kanan na tatsulok</annotation>
-		<annotation cp="◣" draft="contributed">punong ibabang kaliwa na tatsulok</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">punong ibabang kaliwa na tatsulok</annotation>
-		<annotation cp="◤" draft="contributed">punong itaas na kaliwang tatsulok</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">punong itaas na kaliwang tatsulok</annotation>
-		<annotation cp="◥" draft="contributed">punong itaas na kanang tatsulok</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">punong itaas na kanang tatsulok</annotation>
-		<annotation cp="◦" draft="contributed">walang laman na bullet</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">walang laman na bullet</annotation>
+		<annotation cp="◐">bilog na kalahating puno sa kaliwa</annotation>
+		<annotation cp="◐" type="tts">bilog na kalahating puno sa kaliwa</annotation>
+		<annotation cp="◑">bilog na kalahating puno sa kanan</annotation>
+		<annotation cp="◑" type="tts">bilog na kalahating puno sa kanan</annotation>
+		<annotation cp="◒">bilog na kalahating puno sa baba</annotation>
+		<annotation cp="◒" type="tts">bilog na kalahating puno sa baba</annotation>
+		<annotation cp="◓">bilog na kalahating puno sa taas</annotation>
+		<annotation cp="◓" type="tts">bilog na kalahating puno sa taas</annotation>
+		<annotation cp="◔">bilog na puno sa kanang itaas na kuwadrante</annotation>
+		<annotation cp="◔" type="tts">bilog na puno sa kanang itaas na kuwadrante</annotation>
+		<annotation cp="◕">bilog na puno lahat maliban sa itaas na kaliwang kuwadrante</annotation>
+		<annotation cp="◕" type="tts">bilog na puno lahat maliban sa itaas na kaliwang kuwadrante</annotation>
+		<annotation cp="◖">kalahating puno sa kaliwa na bilog</annotation>
+		<annotation cp="◖" type="tts">kalahating puno sa kaliwa na bilog</annotation>
+		<annotation cp="◗">kalahating puno sa kanan na bilog</annotation>
+		<annotation cp="◗" type="tts">kalahating puno sa kanan na bilog</annotation>
+		<annotation cp="◘">baligtad na bullet</annotation>
+		<annotation cp="◘" type="tts">baligtad na bullet</annotation>
+		<annotation cp="◙">punong kuwadrado na may walang laman na bilog sa loob</annotation>
+		<annotation cp="◙" type="tts">punong kuwadrado na may walang laman na bilog sa loob</annotation>
+		<annotation cp="◜">pabilog na arko sa itaas na kaliwang kuwadrante</annotation>
+		<annotation cp="◜" type="tts">pabilog na arko sa itaas na kaliwang kuwadrante</annotation>
+		<annotation cp="◝">pabilog na arko sa itaas na kanang kuwadrante</annotation>
+		<annotation cp="◝" type="tts">pabilog na arko sa itaas na kanang kuwadrante</annotation>
+		<annotation cp="◞">pabilog na arko sa ibabang kanan na kuwadrante</annotation>
+		<annotation cp="◞" type="tts">pabilog na arko sa ibabang kanan na kuwadrante</annotation>
+		<annotation cp="◟">pabilog na arko sa ibabang kaliwa na kuwadrante</annotation>
+		<annotation cp="◟" type="tts">pabilog na arko sa ibabang kaliwa na kuwadrante</annotation>
+		<annotation cp="◠">itaas na kalahating bilog</annotation>
+		<annotation cp="◠" type="tts">itaas na kalahating bilog</annotation>
+		<annotation cp="◡">ibaba na kalahating bilog</annotation>
+		<annotation cp="◡" type="tts">ibaba na kalahating bilog</annotation>
+		<annotation cp="◢">punong ibabang kanan na tatsulok</annotation>
+		<annotation cp="◢" type="tts">punong ibabang kanan na tatsulok</annotation>
+		<annotation cp="◣">punong ibabang kaliwa na tatsulok</annotation>
+		<annotation cp="◣" type="tts">punong ibabang kaliwa na tatsulok</annotation>
+		<annotation cp="◤">punong itaas na kaliwang tatsulok</annotation>
+		<annotation cp="◤" type="tts">punong itaas na kaliwang tatsulok</annotation>
+		<annotation cp="◥">punong itaas na kanang tatsulok</annotation>
+		<annotation cp="◥" type="tts">punong itaas na kanang tatsulok</annotation>
+		<annotation cp="◦">walang laman na bullet</annotation>
+		<annotation cp="◦" type="tts">walang laman na bullet</annotation>
 		<annotation cp="◯">bilog | malaking walang lamang bilog | singsing</annotation>
 		<annotation cp="◯" type="tts">malaking walang lamang bilog</annotation>
-		<annotation cp="◳" draft="contributed">walang laman na kuwadrado sa itaas na kanang kuwadrante</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">walang laman na kuwadrado sa itaas na kanang kuwadrante</annotation>
-		<annotation cp="◷" draft="contributed">walang laman na bilog na may itaas na kanang kuwadrante</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">walang laman na bilog na may itaas na kanang kuwadrante</annotation>
-		<annotation cp="◿" draft="contributed">ibabang kanan na tatsulok</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">ibabang kanan na tatsulok</annotation>
+		<annotation cp="◳">walang laman na kuwadrado sa itaas na kanang kuwadrante</annotation>
+		<annotation cp="◳" type="tts">walang laman na kuwadrado sa itaas na kanang kuwadrante</annotation>
+		<annotation cp="◷">walang laman na bilog na may itaas na kanang kuwadrante</annotation>
+		<annotation cp="◷" type="tts">walang laman na bilog na may itaas na kanang kuwadrante</annotation>
+		<annotation cp="◿">ibabang kanan na tatsulok</annotation>
+		<annotation cp="◿" type="tts">ibabang kanan na tatsulok</annotation>
 		<annotation cp="♪">ikawalo | ikawalong nota | musika | nota</annotation>
 		<annotation cp="♪" type="tts">ikawalong nota</annotation>
-		<annotation cp="⨧" draft="contributed">plus subscript na dalawa</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">plus subscript na dalawa</annotation>
-		<annotation cp="⨯" draft="contributed">produkto ng vector cross</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">produkto ng vector cross</annotation>
-		<annotation cp="⨼" draft="contributed">produkto ng interior</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">produkto ng interior</annotation>
-		<annotation cp="⩣" draft="contributed">lohikal o dobleng underbar</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">lohikal o dobleng underbar</annotation>
+		<annotation cp="⨧">plus subscript na dalawa</annotation>
+		<annotation cp="⨧" type="tts">plus subscript na dalawa</annotation>
+		<annotation cp="⨯">produkto ng vector cross</annotation>
+		<annotation cp="⨯" type="tts">produkto ng vector cross</annotation>
+		<annotation cp="⨼">produkto ng interior</annotation>
+		<annotation cp="⨼" type="tts">produkto ng interior</annotation>
+		<annotation cp="⩣">lohikal o dobleng underbar</annotation>
+		<annotation cp="⩣" type="tts">lohikal o dobleng underbar</annotation>
 		<annotation cp="⩽">mas mababa sa naka-slant na equal</annotation>
 		<annotation cp="⩽" type="tts">mas mababa sa naka-slant na equal</annotation>
-		<annotation cp="⪍" draft="contributed">mas mababa sa itaas ng similar na equal</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">mas mababa sa itaas ng similar na equal</annotation>
+		<annotation cp="⪍">mas mababa sa itaas ng similar na equal</annotation>
+		<annotation cp="⪍" type="tts">mas mababa sa itaas ng similar na equal</annotation>
 		<annotation cp="⪚" draft="contributed">dobleng linya na equal na mas malaki sa</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">dobleng linya na equal na mas malaki sa</annotation>
-		<annotation cp="⪺" draft="contributed">kasunod sa itaas ng hindi halos katumbas</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">kasunod sa itaas ng hindi halos katumbas</annotation>
+		<annotation cp="⪚" type="tts">dobleng linya na equal na mas malaki sa</annotation>
+		<annotation cp="⪺">kasunod sa itaas ng hindi halos katumbas</annotation>
+		<annotation cp="⪺" type="tts">kasunod sa itaas ng hindi halos katumbas</annotation>
 		<annotation cp="♭">bemolle | flat | musika | nota</annotation>
 		<annotation cp="♭" type="tts">flat</annotation>
 		<annotation cp="♯">dièse | diesis | musika | nota | sharp</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">mukhang naiiyak sa tuwa</annotation>
 		<annotation cp="🙂">medyo nakangiti | mukha | nakangiti | ngiti</annotation>
 		<annotation cp="🙂" type="tts">medyo nakangiti</annotation>
+		<annotation cp="🙂‍↕">gumagalaw na mukha paayon | tango, oo</annotation>
+		<annotation cp="🙂‍↕" type="tts">gumagalaw na mukha paayon</annotation>
+		<annotation cp="🙂‍↔">gumagalaw na mukha pahalang | hindi, umiiling</annotation>
+		<annotation cp="🙂‍↔" type="tts">gumagalaw na mukha pahalang</annotation>
 		<annotation cp="🙃">baligtad | baligtad na mukha | mukha</annotation>
 		<annotation cp="🙃" type="tts">baligtad na mukha</annotation>
 		<annotation cp="🫠">natutunaw na mukha</annotation>
@@ -796,7 +800,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫥" draft="contributed">dotted na linya na mukha</annotation>
 		<annotation cp="🫥" type="tts">dotted na linya na mukha</annotation>
 		<annotation cp="😶‍🌫" draft="contributed">mukhang nasa ulap</annotation>
-		<annotation cp="😶‍🌫" type="tts" draft="contributed">mukhang nasa ulap</annotation>
+		<annotation cp="😶‍🌫" type="tts">mukhang nasa ulap</annotation>
 		<annotation cp="😏">mukha | nakangisi | ngisi</annotation>
 		<annotation cp="😏" type="tts">nakangisi</annotation>
 		<annotation cp="😒">hindi masaya | hindi natutuwa | mukha</annotation>
@@ -806,7 +810,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😬">mukha | nagngingitngit | nagtitiis | nakangiwi | nandidiri | nasasaktan | ngiwi</annotation>
 		<annotation cp="😬" type="tts">nakangiwi</annotation>
 		<annotation cp="😮‍💨" draft="contributed">mukhang humihinga palabas</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="contributed">mukhang humihinga palabas</annotation>
+		<annotation cp="😮‍💨" type="tts">mukhang humihinga palabas</annotation>
 		<annotation cp="🤥">mukha | nagsisinungaling | pinocchio | sinungaling</annotation>
 		<annotation cp="🤥" type="tts">nagsisinungaling</annotation>
 		<annotation cp="🫨">lindol | mukha | nabigla | nanginginig | nanginginig na mukha | vibrate</annotation>
@@ -842,7 +846,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😵">hikab | inaantok | mukha | mukhang nahihilo | naghihikab</annotation>
 		<annotation cp="😵" type="tts">mukhang nahihilo</annotation>
 		<annotation cp="😵‍💫" draft="contributed">mukang may spiral na mata</annotation>
-		<annotation cp="😵‍💫" type="tts" draft="contributed">mukang may spiral na mata</annotation>
+		<annotation cp="😵‍💫" type="tts">mukang may spiral na mata</annotation>
 		<annotation cp="🤯">nabigla | sumasabog na ulo</annotation>
 		<annotation cp="🤯" type="tts">sumasabog na ulo</annotation>
 		<annotation cp="🤠">cowboy | cowgirl | mukha | mukha na may cowboy hat | sombrero</annotation>
@@ -990,7 +994,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❤‍🔥" draft="contributed">pusong nasa apoy</annotation>
 		<annotation cp="❤‍🔥" type="tts" draft="contributed">pusong nasa apoy</annotation>
 		<annotation cp="❤‍🩹" draft="contributed">pag-ayos sa puso</annotation>
-		<annotation cp="❤‍🩹" type="tts" draft="contributed">pag-ayos sa puso</annotation>
+		<annotation cp="❤‍🩹" type="tts">pag-ayos sa puso</annotation>
 		<annotation cp="❤">pag-ibig | pulang puso | puso</annotation>
 		<annotation cp="❤" type="tts">pulang puso</annotation>
 		<annotation cp="🩷">cute | gusto | kulay rosas | pink na puso | puso</annotation>
@@ -1059,7 +1063,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫲" type="tts">pakaliwang kamay</annotation>
 		<annotation cp="🫳">nakataob na palad</annotation>
 		<annotation cp="🫳" type="tts">nakataob na palad</annotation>
-		<annotation cp="🫴" draft="contributed">nakasalong palad</annotation>
+		<annotation cp="🫴">nakasalong palad</annotation>
 		<annotation cp="🫴" type="tts">nakasalong palad</annotation>
 		<annotation cp="🫷">hintay | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
 		<annotation cp="🫷" type="tts">pakaliwang tumutulak na kamay</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">tao</annotation>
 		<annotation cp="👱">blond | buhok | lalaki | tao | taong may blond na buhok</annotation>
 		<annotation cp="👱" type="tts">taong may blond na buhok</annotation>
+		<annotation cp="🧑‍🧒" draft="contributed">pamilya: adulto, bata</annotation>
+		<annotation cp="🧑‍🧒" type="tts" draft="contributed">pamilya: adulto, bata</annotation>
+		<annotation cp="🧑‍🧒‍🧒" draft="contributed">pamilya: adulto, bata, bata</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">pamilya: adulto, bata, bata</annotation>
+		<annotation cp="🧑‍🧑‍🧒" draft="contributed">pamilya: adulto, adulto, bata</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">pamilya: adulto, adulto, bata</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" draft="contributed">pamilya: adulto, adulto, bata,bata</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts" draft="contributed">pamilya: adulto, adulto, bata, bata</annotation>
 		<annotation cp="👨">lalaki | matanda</annotation>
 		<annotation cp="👨" type="tts">lalaki</annotation>
 		<annotation cp="🧔">balbas | lalaki: balbas | tao | taong may balbas</annotation>
@@ -1483,7 +1495,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">lalaking zombie</annotation>
 		<annotation cp="🧟‍♀">babaeng zombie | buhay na patay | walking dead</annotation>
 		<annotation cp="🧟‍♀" type="tts">babaeng zombie</annotation>
-		<annotation cp="🧌" draft="contributed">troll</annotation>
+		<annotation cp="🧌">troll</annotation>
 		<annotation cp="🧌" type="tts">troll</annotation>
 		<annotation cp="💆">masahe | mukha | pagpapamasahe ng mukha | parlor | salon</annotation>
 		<annotation cp="💆" type="tts">pagpapamasahe ng mukha</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">nakaharap na sisiw</annotation>
 		<annotation cp="🐦">hayop | ibon</annotation>
 		<annotation cp="🐦" type="tts">ibon</annotation>
+		<annotation cp="🐦‍🔥" draft="contributed">pantasya, firebird, muling pagsilang, reinkarnasyon | phoenix</annotation>
+		<annotation cp="🐦‍🔥" type="tts" draft="contributed">phoenix</annotation>
 		<annotation cp="🐧">antartica | hayop | ibon | penguin</annotation>
 		<annotation cp="🐧" type="tts">penguin</annotation>
 		<annotation cp="🕊">hayop | ibon | kalapati | kapayapaan | lumilipad</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">loro</annotation>
 		<annotation cp="🪽">ibon | lumilipad | mala-anghel | metolohiya | paglalayag | pakpak</annotation>
 		<annotation cp="🪽" type="tts">pakpak</annotation>
+		<annotation cp="🐦‍⬛" draft="contributed">ibon | itim | rook | uwak</annotation>
+		<annotation cp="🐦‍⬛" type="tts" draft="contributed">itim na ibon</annotation>
 		<annotation cp="🪿">bumubusina | fowl | gansa | hangal | ibon</annotation>
 		<annotation cp="🪿" type="tts">gansa</annotation>
 		<annotation cp="🐸">hayop | mukha | palaka</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">pugad na may mga itlog</annotation>
 		<annotation cp="🍄">halaman | kabute | mushroom</annotation>
 		<annotation cp="🍄" type="tts">kabute</annotation>
+		<annotation cp="🍄‍🟫" draft="contributed">kayumanggi na kabute | pagkain, kabute, kalikasan, gulay</annotation>
+		<annotation cp="🍄‍🟫" type="tts" draft="contributed">kayumanggi na kabute</annotation>
 		<annotation cp="🍇">grapes | halaman | prutas | ubas</annotation>
 		<annotation cp="🍇" type="tts">ubas</annotation>
 		<annotation cp="🍈">halaman | melon | prutas</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">dalanghita</annotation>
 		<annotation cp="🍋">citrus | halaman | lemon | prutas</annotation>
 		<annotation cp="🍋" type="tts">lemon</annotation>
+		<annotation cp="🍋‍🟩" draft="contributed">citrus, prutas, tropikal | dayap</annotation>
+		<annotation cp="🍋‍🟩" type="tts" draft="contributed">dayap</annotation>
 		<annotation cp="🍌">banana | halaman | prutas | saba | saging</annotation>
 		<annotation cp="🍌" type="tts">saging</annotation>
 		<annotation cp="🍍">halaman | pineapple | pinya | prutas</annotation>
@@ -3031,7 +3051,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">fax machine</annotation>
 		<annotation cp="🔋">baterya</annotation>
 		<annotation cp="🔋" type="tts">baterya</annotation>
-		<annotation cp="🪫" draft="contributed">paubos ang baterya</annotation>
+		<annotation cp="🪫">paubos ang baterya</annotation>
 		<annotation cp="🪫" type="tts">paubos ang baterya</annotation>
 		<annotation cp="🔌">de-kuryente | electric plug | kuryente | plug</annotation>
 		<annotation cp="🔌" type="tts">electric plug</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">kawing</annotation>
 		<annotation cp="⛓">kadena</annotation>
 		<annotation cp="⛓" type="tts">kadena</annotation>
+		<annotation cp="⛓‍💥" draft="contributed">lagot na kadena | lagot, nalalagot, kadena, posas, kalayaan</annotation>
+		<annotation cp="⛓‍💥" type="tts" draft="contributed">lagot na kadena</annotation>
 		<annotation cp="🪝">huli | kawit | selling point</annotation>
 		<annotation cp="🪝" type="tts">kawit</annotation>
 		<annotation cp="🧰">kaban | kagamitan | kahon ng kagamitan | mekaniko</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">pataas-pababang arrow</annotation>
 		<annotation cp="↔">arrow | pakaliwa | pakaliwa-pakanang arrow | pakanan</annotation>
 		<annotation cp="↔" type="tts">pakaliwa-pakanang arrow</annotation>
-		<annotation cp="↮" draft="contributed">kaliwa’t kanang arrow stroke</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">kaliwa’t kanang arrow stroke</annotation>
+		<annotation cp="↮">kaliwa’t kanang arrow stroke</annotation>
+		<annotation cp="↮" type="tts">kaliwa’t kanang arrow stroke</annotation>
 		<annotation cp="↩">arrow | direksyon | kurba | pakaliwa | pakanan | pakanang arrow na kumurba pakaliwa</annotation>
 		<annotation cp="↩" type="tts">pakanang arrow na kumurba pakaliwa</annotation>
 		<annotation cp="↪">arrow | direksyon | kurba | pakaliwa | pakaliwang arrow na kumurba pakanan</annotation>
@@ -3834,11 +3856,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥">CNY | JPY | pera | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
 		<annotation cp="₢" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
 		<annotation cp="₣" draft="contributed">french franc</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">french franc</annotation>
+		<annotation cp="₣" type="tts">french franc</annotation>
 		<annotation cp="₤" draft="contributed">lira</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
@@ -3846,15 +3868,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="€">EUR | euro | pera</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
 		<annotation cp="₰" draft="contributed">german penny</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">german penny</annotation>
+		<annotation cp="₰" type="tts">german penny</annotation>
 		<annotation cp="₱">piso</annotation>
 		<annotation cp="₱" type="tts">piso</annotation>
 		<annotation cp="₳" draft="contributed">austral</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
 		<annotation cp="₶" draft="contributed">livre tournois</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
 		<annotation cp="₷" draft="contributed">spesmilo</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">indian rupee | pera | rupee</annotation>
 		<annotation cp="₹" type="tts">indian rupee</annotation>
 		<annotation cp="₽">pera | ruble</annotation>
@@ -3862,9 +3884,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
 		<annotation cp="₨" draft="contributed">rupee</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">rupee</annotation>
+		<annotation cp="₨" type="tts">rupee</annotation>
 		<annotation cp="﷼" draft="contributed">rial</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">isa | superscript | superscript na isa</annotation>
 		<annotation cp="¹" type="tts">superscript na isa</annotation>
 		<annotation cp="²">dalawa | squared | superscript | superscript na dalawa</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">មុខសើចឡើងហៀរទឹកភ្នែក</annotation>
 		<annotation cp="🙂">ញញឹម | មុខ | មុខចេញស្នាមញញឹមបន្តិច</annotation>
 		<annotation cp="🙂" type="tts">មុខចេញស្នាមញញឹមបន្តិច</annotation>
+		<annotation cp="🙂‍↕">ងក់ក្បាល | ងក់ក្បាលតាមខ្សែបញ្ឈរ | ងាកក្បាលចុះឡើង</annotation>
+		<annotation cp="🙂‍↕" type="tts">ងក់ក្បាល</annotation>
+		<annotation cp="🙂‍↔">គ្រវីក្បាល | គ្រវីក្បាលឆ្វេងស្ដាំ | គ្រវីក្បាលតាមខ្សែផ្ដេក</annotation>
+		<annotation cp="🙂‍↔" type="tts">គ្រវីក្បាល</annotation>
 		<annotation cp="🙃">ញញឹម | មុខ | មុខញញឹមបញ្រ្ចាស</annotation>
 		<annotation cp="🙃" type="tts">មុខញញឹមបញ្រ្ចាស</annotation>
 		<annotation cp="🫠">មុខរលាយ | សញ្ញាមុខរលាយ</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">មនុស្សធំ</annotation>
 		<annotation cp="👱">ទង់ដែង | មនុស្សសក់ទង់ដែង | សក់</annotation>
 		<annotation cp="👱" type="tts">មនុស្សសក់ទង់ដែង</annotation>
+		<annotation cp="🧑‍🧒">គ្រួសារ៖ មនុស្សពេញវ័យ, កុមារ</annotation>
+		<annotation cp="🧑‍🧒" type="tts">គ្រួសារ៖ មនុស្សពេញវ័យ, កុមារ</annotation>
+		<annotation cp="🧑‍🧒‍🧒">គ្រួសារ៖ មនុស្សពេញវ័យ, កុមារ, ក្មេង</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">គ្រួសារ៖ មនុស្សពេញវ័យ, កុមារ, ក្មេង</annotation>
+		<annotation cp="🧑‍🧑‍🧒">គ្រួសារ៖ មនុស្សធំ, មនុស្សពេញវ័យ, កុមារ</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">គ្រួសារ៖ មនុស្សធំ, មនុស្សពេញវ័យ, កុមារ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">គ្រួសារ៖ មនុស្សធំ, មនុស្សពេញវ័យ, កុមារ, ក្មេង</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">គ្រួសារ៖ មនុស្សធំ, មនុស្សពេញវ័យ, កុមារ, ក្មេង</annotation>
 		<annotation cp="👨">បុរស | ប្រុស | មនុស្សធំ</annotation>
 		<annotation cp="👨" type="tts">បុរស</annotation>
 		<annotation cp="🧔">បុរស | បុរសមានពុកចង្កា | ពុកចង្កា | មនុស្ស | មនុស្សមានពុកចង្កា</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">កូនមាន់</annotation>
 		<annotation cp="🐦">បក្សី</annotation>
 		<annotation cp="🐦" type="tts">បក្សី</annotation>
+		<annotation cp="🐦‍🔥">ស្រមើស្រមៃ, បក្សីភ្លើង, កើតឡើងវិញ, ចាប់កំណើតឡើងវិញ | ហង្សអាទិទេព</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ហង្សអាទិទេព</annotation>
 		<annotation cp="🐧">បក្សី | ផេនឃ្វីន</annotation>
 		<annotation cp="🐧" type="tts">ផេនឃ្វីន</annotation>
 		<annotation cp="🕊">បក្សី | ព្រាប | សន្តិភាព | ហើរ</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">សេក</annotation>
 		<annotation cp="🪽">ដូចទេវតា | ទេវកថា | បក្សី | ស្លាប | ហើរ | ហោះ</annotation>
 		<annotation cp="🪽" type="tts">ស្លាប</annotation>
+		<annotation cp="🐦‍⬛">ក្អែក | ខ្មៅ | បក្សី | រូក | រ៉ែវិន</annotation>
+		<annotation cp="🐦‍⬛" type="tts">បក្សីខ្មៅ</annotation>
 		<annotation cp="🪿">ក្ងាន | ក្ងានស្រែក | បក្សី | ល្ងីល្ងើ | សត្វស្លាប</annotation>
 		<annotation cp="🪿" type="tts">ក្ងាន</annotation>
 		<annotation cp="🐸">កង្កែប | មុខ</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">សញ្ញារូបសំបុកមានស៊ុត</annotation>
 		<annotation cp="🍄">ផ្សិត | រុក្ខជាតិ</annotation>
 		<annotation cp="🍄" type="tts">ផ្សិត</annotation>
+		<annotation cp="🍄‍🟫">ផ្សិតពណ៌ត្នោត | អាហារ, ផ្សិត, ធម្មជាតិ, បន្លែ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ផ្សិតពណ៌ត្នោត</annotation>
 		<annotation cp="🍇">ទំពាំងបាយជូ | ទំពាាំងបាយជូ | ផ្លែឈើ</annotation>
 		<annotation cp="🍇" type="tts">ទំពាំងបាយជូ</annotation>
 		<annotation cp="🍈">ត្រសក់ស្រូវ | ផ្លែឈើ</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ក្រូចឃ្វិច</annotation>
 		<annotation cp="🍋">ក្រូ​ចឆ្មា | ផ្លែឈើ</annotation>
 		<annotation cp="🍋" type="tts">ក្រូ​ចឆ្មា</annotation>
+		<annotation cp="🍋‍🟩">ក្រូច, ផ្លែឈើ, ត្រូពិច | ក្រូចឆ្មារ</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ក្រូចឆ្មារ</annotation>
 		<annotation cp="🍌">ចេក | ផ្លែឈើ</annotation>
 		<annotation cp="🍌" type="tts">ចេក</annotation>
 		<annotation cp="🍍">ផ្លែឈើ | ម្នាស់</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">តំណ</annotation>
 		<annotation cp="⛓">ច្រវាក់</annotation>
 		<annotation cp="⛓" type="tts">ច្រវាក់</annotation>
+		<annotation cp="⛓‍💥">ដាច់ច្រវាក់ | បែក, ដាច់, ច្រវាក់, ខ្នោះ, សេរីភាព</annotation>
+		<annotation cp="⛓‍💥" type="tts">ដាច់ច្រវាក់</annotation>
 		<annotation cp="🪝">កោង | ចំណុចទាក់ទាញ | ចាប់ | ដាក់អន្ទាក់ | តម្ពក់ | ផ្លែសន្ទូច</annotation>
 		<annotation cp="🪝" type="tts">ផ្លែសន្ទូច</annotation>
 		<annotation cp="🧰">ប្រអប់ដាក់ឧបករណ៍ | មេកានិច | ហិប | ឧបករណ៍</annotation>

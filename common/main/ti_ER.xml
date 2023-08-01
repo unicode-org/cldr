@@ -13,9 +13,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}፣ {1}</localeSeparator>
-			<localeKeyTypePattern>{0}፦ {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="af">↑↑↑</language>
@@ -23,7 +23,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ak">↑↑↑</language>
 			<language type="am">↑↑↑</language>
 			<language type="ar">↑↑↑</language>
-			<language type="ar_001">ዘመናዊ ምዱብ ዓረብ</language>
+			<language type="ar_001">↑↑↑</language>
 			<language type="as">↑↑↑</language>
 			<language type="asa">↑↑↑</language>
 			<language type="ast">↑↑↑</language>
@@ -162,31 +162,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="my">↑↑↑</language>
 			<language type="mzn">↑↑↑</language>
 			<language type="nds">↑↑↑</language>
-			<language type="nds_NL">ትሑት ሳክሰን</language>
+			<language type="nds_NL">↑↑↑</language>
 			<language type="nl">↑↑↑</language>
-			<language type="nl_BE">ፍላሚሽ</language>
+			<language type="nl_BE">↑↑↑</language>
 			<language type="nmg">↑↑↑</language>
 			<language type="rw">↑↑↑</language>
 			<language type="ses">↑↑↑</language>
 			<language type="smn">↑↑↑</language>
 			<language type="sq">↑↑↑</language>
 			<language type="sr">ሰርብኛ</language>
-			<language type="ti">ትግርኛ</language>
+			<language type="ti">↑↑↑</language>
 			<language type="tlh">↑↑↑</language>
 			<language type="tzm">↑↑↑</language>
 			<language type="yue">↑↑↑</language>
 			<language type="yue" alt="menu">↑↑↑</language>
 			<language type="zh">↑↑↑</language>
 			<language type="zh" alt="menu">↑↑↑</language>
-			<language type="zh_Hans">ቀሊል ቻይንኛ</language>
-			<language type="zh_Hans" alt="long">ቀሊል ማንዳሪን ቻይንኛ</language>
-			<language type="zh_Hant">ባህላዊ ቻይንኛ</language>
-			<language type="zh_Hant" alt="long">ባህላዊ ማንዳሪን ቻይንኛ</language>
+			<language type="zh_Hans">↑↑↑</language>
+			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hant">↑↑↑</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 		</languages>
 		<codePatterns>
-			<codePattern type="language">ቋንቋ፦ {0}</codePattern>
-			<codePattern type="script">ኢደ-ጽሕፈት፦ {0}</codePattern>
-			<codePattern type="territory">ዞባ፦ {0}</codePattern>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -197,8 +197,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<delimiters>
 		<quotationStart>‘</quotationStart>
 		<quotationEnd>’</quotationEnd>
-		<alternateQuotationStart>“</alternateQuotationStart>
-		<alternateQuotationEnd>”</alternateQuotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -206,7 +206,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE፡ dd MMMM መዓልቲ y G</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -214,7 +214,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="ethiopic">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -231,8 +231,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d" draft="unconfirmed">MM-dd – MM-dd</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">MM-dd – MM-dd</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d" draft="unconfirmed">E፡ MM-dd – E፡ MM-dd</greatestDifference>
@@ -242,8 +242,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="unconfirmed">MMM d–d</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">MMM d – MMM d</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="unconfirmed">E፡ MMM d – E፡ MMM d</greatestDifference>
@@ -284,7 +284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<days>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="tue">ሰ</day>
+							<day type="tue">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -300,7 +300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE፡ dd MMMM መዓልቲ y G</pattern>
+							<pattern>↑↑↑</pattern>
 							<datetimeSkeleton>GyMMMMEEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -309,21 +309,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="japanese">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="roc">
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>

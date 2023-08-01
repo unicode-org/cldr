@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">темный тон кожи</annotation>
 		<annotation cp="🏿">кожа | оттенок | очень темный тон кожи | тело | темный | цвет | цвет кожи | цвет кожи 6</annotation>
 		<annotation cp="🏿" type="tts">очень темный тон кожи</annotation>
-		<annotation cp="‾" draft="contributed">надчеркивание</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">надчеркивание</annotation>
+		<annotation cp="‾">надчеркивание</annotation>
+		<annotation cp="‾" type="tts">надчеркивание</annotation>
 		<annotation cp="_">андерскор | нижний пробел | подчеркивание | символ подчеркивания</annotation>
 		<annotation cp="_" type="tts">подчеркивание</annotation>
 		<annotation cp="-">вычитание | дефис | дефис-минус | минус | тире</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">перевернутый вопросительный знак</annotation>
 		<annotation cp="؟">арабский | арабский вопросительный знак | вопрос | вопросительный знак | знак вопроса</annotation>
 		<annotation cp="؟" type="tts">арабский вопросительный знак</annotation>
-		<annotation cp="‽" draft="contributed">интерробанг</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">интерробанг</annotation>
+		<annotation cp="‽">интерробанг</annotation>
+		<annotation cp="‽" type="tts">интерробанг</annotation>
 		<annotation cp=".">конец | точка</annotation>
 		<annotation cp="." type="tts">точка</annotation>
 		<annotation cp="…">многоточие | отточие | точки</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">двойной штрих</annotation>
 		<annotation cp="‴">прим | тройной | штрих</annotation>
 		<annotation cp="‴" type="tts">тройной штрих</annotation>
-		<annotation cp="‸" draft="contributed">знак вставки</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">знак вставки</annotation>
+		<annotation cp="‸">знак вставки | карет</annotation>
+		<annotation cp="‸" type="tts">знак вставки</annotation>
 		<annotation cp="※">знак | знак сноски | сноска</annotation>
 		<annotation cp="※" type="tts">знак сноски</annotation>
-		<annotation cp="⁂" draft="contributed">три звездочки</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">три звездочки</annotation>
+		<annotation cp="⁂">астеризм | три звездочки</annotation>
+		<annotation cp="⁂" type="tts">астеризм</annotation>
 		<annotation cp="`">гравис | ударение</annotation>
 		<annotation cp="`" type="tts">гравис</annotation>
 		<annotation cp="´">акут | ударение</annotation>
@@ -181,176 +181,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">авторское право на музыку</annotation>
 		<annotation cp="←">налево | стрелка | стрелка «налево»</annotation>
 		<annotation cp="←" type="tts">стрелка «налево»</annotation>
-		<annotation cp="↚" draft="contributed">перечеркнутая стрелка влево</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">перечеркнутая стрелка влево</annotation>
+		<annotation cp="↚">перечеркнутая стрелка влево</annotation>
+		<annotation cp="↚" type="tts">перечеркнутая стрелка влево</annotation>
 		<annotation cp="→">направо | стрелка | стрелка «направо»</annotation>
 		<annotation cp="→" type="tts">стрелка «направо»</annotation>
-		<annotation cp="↛" draft="contributed">перечеркнутая стрелка вправо</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">перечеркнутая стрелка вправо</annotation>
+		<annotation cp="↛">перечеркнутая стрелка вправо</annotation>
+		<annotation cp="↛" type="tts">перечеркнутая стрелка вправо</annotation>
 		<annotation cp="↑">кверху | стрелка | стрелка «кверху»</annotation>
 		<annotation cp="↑" type="tts">стрелка «кверху»</annotation>
 		<annotation cp="↓">книзу | стрелка | стрелка «книзу»</annotation>
 		<annotation cp="↓" type="tts">стрелка «книзу»</annotation>
-		<annotation cp="↜" draft="contributed">волнистая стрелка влево</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">волнистая стрелка влево</annotation>
-		<annotation cp="↝" draft="contributed">волнистая стрелка вправо</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">волнистая стрелка вправо</annotation>
-		<annotation cp="↞" draft="contributed">стрелка влево с двумя наконечниками</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">стрелка влево с двумя наконечниками</annotation>
-		<annotation cp="↟" draft="contributed">стрелка вверх с двумя наконечниками</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">стрелка вверх с двумя наконечниками</annotation>
-		<annotation cp="↠" draft="contributed">стрелка вправо с двумя наконечниками</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">стрелка вправо с двумя наконечниками</annotation>
-		<annotation cp="↡" draft="contributed">стрелка вниз с двумя наконечниками</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">стрелка вниз с двумя наконечниками</annotation>
-		<annotation cp="↢" draft="contributed">стрелка влево с хвостом</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">стрелка влево с хвостом</annotation>
-		<annotation cp="↣" draft="contributed">стрелка вправо с хвостом</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">стрелка вправо с хвостом</annotation>
-		<annotation cp="↤" draft="contributed">стрелка влево из вертикальной черты</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">стрелка влево из вертикальной черты</annotation>
-		<annotation cp="↥" draft="contributed">стрелка вверх из вертикальной черты</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">стрелка вверх из вертикальной черты</annotation>
-		<annotation cp="↦" draft="contributed">стрелка вправо из вертикальной черты</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">стрелка вправо из вертикальной черты</annotation>
-		<annotation cp="↧" draft="contributed">стрелка вниз из вертикальной черты</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">стрелка вниз из вертикальной черты</annotation>
-		<annotation cp="↨" draft="contributed">стрелка вверх и вниз от планки внизу</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">стрелка вверх и вниз от планки внизу</annotation>
-		<annotation cp="↫" draft="contributed">стрелка влево с петлей</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">стрелка влево с петлей</annotation>
-		<annotation cp="↬" draft="contributed">стрелка вправо с петлей</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">стрелка вправо с петлей</annotation>
-		<annotation cp="↭" draft="contributed">волнистая стрелка вправо-влево</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">волнистая стрелка вправо-влево</annotation>
-		<annotation cp="↯" draft="contributed">зигзагообразная стрелка вниз</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">зигзагообразная стрелка вниз</annotation>
-		<annotation cp="↰" draft="contributed">стрелка вверх с поворотом налево</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">стрелка вверх с поворотом налево</annotation>
-		<annotation cp="↱" draft="contributed">стрелка вверх с поворотом направо</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">стрелка вверх с поворотом направо</annotation>
-		<annotation cp="↲" draft="contributed">стрелка вниз с поворотом налево</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">стрелка вниз с поворотом налево</annotation>
-		<annotation cp="↳" draft="contributed">стрелка вниз с поворотом направо</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">стрелка вниз с поворотом направо</annotation>
-		<annotation cp="↴" draft="contributed">стрелка вправо с поворотом вниз под прямым углом</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">стрелка вправо с поворотом вниз под прямым углом</annotation>
+		<annotation cp="↜">волнистая стрелка влево</annotation>
+		<annotation cp="↜" type="tts">волнистая стрелка влево</annotation>
+		<annotation cp="↝">волнистая стрелка вправо</annotation>
+		<annotation cp="↝" type="tts">волнистая стрелка вправо</annotation>
+		<annotation cp="↞">стрелка влево с двумя наконечниками</annotation>
+		<annotation cp="↞" type="tts">стрелка влево с двумя наконечниками</annotation>
+		<annotation cp="↟">стрелка вверх с двумя наконечниками</annotation>
+		<annotation cp="↟" type="tts">стрелка вверх с двумя наконечниками</annotation>
+		<annotation cp="↠">стрелка вправо с двумя наконечниками</annotation>
+		<annotation cp="↠" type="tts">стрелка вправо с двумя наконечниками</annotation>
+		<annotation cp="↡">стрелка вниз с двумя наконечниками</annotation>
+		<annotation cp="↡" type="tts">стрелка вниз с двумя наконечниками</annotation>
+		<annotation cp="↢">стрелка влево с хвостом</annotation>
+		<annotation cp="↢" type="tts">стрелка влево с хвостом</annotation>
+		<annotation cp="↣">стрелка вправо с хвостом</annotation>
+		<annotation cp="↣" type="tts">стрелка вправо с хвостом</annotation>
+		<annotation cp="↤">стрелка влево из вертикальной черты</annotation>
+		<annotation cp="↤" type="tts">стрелка влево из вертикальной черты</annotation>
+		<annotation cp="↥">стрелка вверх из вертикальной черты</annotation>
+		<annotation cp="↥" type="tts">стрелка вверх из вертикальной черты</annotation>
+		<annotation cp="↦">стрелка вправо из вертикальной черты</annotation>
+		<annotation cp="↦" type="tts">стрелка вправо из вертикальной черты</annotation>
+		<annotation cp="↧">стрелка вниз из вертикальной черты</annotation>
+		<annotation cp="↧" type="tts">стрелка вниз из вертикальной черты</annotation>
+		<annotation cp="↨">стрелка вверх и вниз от планки внизу</annotation>
+		<annotation cp="↨" type="tts">стрелка вверх и вниз от планки внизу</annotation>
+		<annotation cp="↫">стрелка влево с петлей</annotation>
+		<annotation cp="↫" type="tts">стрелка влево с петлей</annotation>
+		<annotation cp="↬">стрелка вправо с петлей</annotation>
+		<annotation cp="↬" type="tts">стрелка вправо с петлей</annotation>
+		<annotation cp="↭">волнистая стрелка вправо-влево</annotation>
+		<annotation cp="↭" type="tts">волнистая стрелка вправо-влево</annotation>
+		<annotation cp="↯">зигзагообразная стрелка вниз</annotation>
+		<annotation cp="↯" type="tts">зигзагообразная стрелка вниз</annotation>
+		<annotation cp="↰">стрелка вверх с поворотом налево</annotation>
+		<annotation cp="↰" type="tts">стрелка вверх с поворотом налево</annotation>
+		<annotation cp="↱">стрелка вверх с поворотом направо</annotation>
+		<annotation cp="↱" type="tts">стрелка вверх с поворотом направо</annotation>
+		<annotation cp="↲">стрелка вниз с поворотом налево</annotation>
+		<annotation cp="↲" type="tts">стрелка вниз с поворотом налево</annotation>
+		<annotation cp="↳">стрелка вниз с поворотом направо</annotation>
+		<annotation cp="↳" type="tts">стрелка вниз с поворотом направо</annotation>
+		<annotation cp="↴">стрелка вправо с поворотом вниз под прямым углом</annotation>
+		<annotation cp="↴" type="tts">стрелка вправо с поворотом вниз под прямым углом</annotation>
 		<annotation cp="↵" draft="contributed">стрелка вниз с поворотом налево под прямым углом</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">стрелка вниз с поворотом налево под прямым углом</annotation>
+		<annotation cp="↵" type="tts">стрелка вниз с поворотом налево под прямым углом</annotation>
 		<annotation cp="↶" draft="contributed">стрелка полукругом против часовой стрелки</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">стрелка полукругом против часовой стрелки</annotation>
+		<annotation cp="↶" type="tts">стрелка полукругом против часовой стрелки</annotation>
 		<annotation cp="↷" draft="contributed">стрелка полукругом по часовой стрелке</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">стрелка полукругом по часовой стрелке</annotation>
+		<annotation cp="↷" type="tts">стрелка полукругом по часовой стрелке</annotation>
 		<annotation cp="↸" draft="contributed">стрелка на северо-запад под длинной чертой</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">стрелка на северо-запад под длинной чертой</annotation>
+		<annotation cp="↸" type="tts">стрелка на северо-запад под длинной чертой</annotation>
 		<annotation cp="↹" draft="contributed">стрелка влево над стрелкой вправо с перпендикулярными чертами</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">стрелка влево над стрелкой вправо с перпендикулярными чертами</annotation>
-		<annotation cp="↺" draft="contributed">круглая стрелка с наконечником против часовой стрелки</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">круглая стрелка с наконечником против часовой стрелки</annotation>
-		<annotation cp="↻" draft="contributed">круглая стрелка с наконечником по часовой стрелке</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">круглая стрелка с наконечником по часовой стрелке</annotation>
-		<annotation cp="↼" draft="contributed">гарпун влево с зубцом вверх</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">гарпун влево с зубцом вверх</annotation>
-		<annotation cp="↽" draft="contributed">гарпун влево с зубцом вниз</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">гарпун влево с зубцом вниз</annotation>
-		<annotation cp="↾" draft="contributed">гарпун вверх с зубцом вправо</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">гарпун вверх с зубцом вправо</annotation>
-		<annotation cp="↿" draft="contributed">гарпун вверх с зубцом влево</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">гарпун вверх с зубцом влево</annotation>
-		<annotation cp="⇀" draft="contributed">гарпун вправо с зубцом вверх</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">гарпун вправо с зубцом вверх</annotation>
-		<annotation cp="⇁" draft="contributed">гарпун вправо с зубцом вниз</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">гарпун вправо с зубцом вниз</annotation>
-		<annotation cp="⇂" draft="contributed">гарпун вниз с зубцом вправо</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">гарпун вниз с зубцом вправо</annotation>
-		<annotation cp="⇃" draft="contributed">гарпун вниз с зубцом влево</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">гарпун вниз с зубцом влево</annotation>
-		<annotation cp="⇄" draft="contributed">стрелка вправо над стрелкой влево</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">стрелка вправо над стрелкой влево</annotation>
+		<annotation cp="↹" type="tts">стрелка влево над стрелкой вправо с перпендикулярными чертами</annotation>
+		<annotation cp="↺">круглая стрелка с наконечником против часовой стрелки</annotation>
+		<annotation cp="↺" type="tts">круглая стрелка с наконечником против часовой стрелки</annotation>
+		<annotation cp="↻">круглая стрелка с наконечником по часовой стрелке</annotation>
+		<annotation cp="↻" type="tts">круглая стрелка с наконечником по часовой стрелке</annotation>
+		<annotation cp="↼">гарпун влево с зубцом вверх</annotation>
+		<annotation cp="↼" type="tts">гарпун влево с зубцом вверх</annotation>
+		<annotation cp="↽">гарпун влево с зубцом вниз</annotation>
+		<annotation cp="↽" type="tts">гарпун влево с зубцом вниз</annotation>
+		<annotation cp="↾">гарпун вверх с зубцом вправо</annotation>
+		<annotation cp="↾" type="tts">гарпун вверх с зубцом вправо</annotation>
+		<annotation cp="↿">гарпун вверх с зубцом влево</annotation>
+		<annotation cp="↿" type="tts">гарпун вверх с зубцом влево</annotation>
+		<annotation cp="⇀">гарпун вправо с зубцом вверх</annotation>
+		<annotation cp="⇀" type="tts">гарпун вправо с зубцом вверх</annotation>
+		<annotation cp="⇁">гарпун вправо с зубцом вниз</annotation>
+		<annotation cp="⇁" type="tts">гарпун вправо с зубцом вниз</annotation>
+		<annotation cp="⇂">гарпун вниз с зубцом вправо</annotation>
+		<annotation cp="⇂" type="tts">гарпун вниз с зубцом вправо</annotation>
+		<annotation cp="⇃">гарпун вниз с зубцом влево</annotation>
+		<annotation cp="⇃" type="tts">гарпун вниз с зубцом влево</annotation>
+		<annotation cp="⇄">стрелка вправо над стрелкой влево</annotation>
+		<annotation cp="⇄" type="tts">стрелка вправо над стрелкой влево</annotation>
 		<annotation cp="⇅">кверху | книзу | стрелка | стрелки «кверху» и «книзу»</annotation>
 		<annotation cp="⇅" type="tts">стрелки «кверху» и «книзу»</annotation>
 		<annotation cp="⇆">налево | направо | стрелка | стрелка «налево» над стрелкой «направо»</annotation>
 		<annotation cp="⇆" type="tts">стрелка «налево» над стрелкой «направо»</annotation>
-		<annotation cp="⇇" draft="contributed">парные стрелки влево</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">парные стрелки влево</annotation>
+		<annotation cp="⇇">парные стрелки влево</annotation>
+		<annotation cp="⇇" type="tts">парные стрелки влево</annotation>
 		<annotation cp="⇈" draft="contributed">парные стрелки вверх</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">парные стрелки вверх</annotation>
+		<annotation cp="⇈" type="tts">парные стрелки вверх</annotation>
 		<annotation cp="⇉" draft="contributed">парные стрелки вправо</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">парные стрелки вправо</annotation>
+		<annotation cp="⇉" type="tts">парные стрелки вправо</annotation>
 		<annotation cp="⇊" draft="contributed">парные стрелки вниз</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">парные стрелки вниз</annotation>
-		<annotation cp="⇋" draft="contributed">гарпун влево над гарпуном вправо</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">гарпун влево над гарпуном вправо</annotation>
-		<annotation cp="⇌" draft="contributed">гарпун вправо над гарпуном влево</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">гарпун вправо над гарпуном влево</annotation>
+		<annotation cp="⇊" type="tts">парные стрелки вниз</annotation>
+		<annotation cp="⇋">гарпун влево над гарпуном вправо</annotation>
+		<annotation cp="⇋" type="tts">гарпун влево над гарпуном вправо</annotation>
+		<annotation cp="⇌">гарпун вправо над гарпуном влево</annotation>
+		<annotation cp="⇌" type="tts">гарпун вправо над гарпуном влево</annotation>
 		<annotation cp="⇐" draft="contributed">двойная стрелка влево</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">двойная стрелка влево</annotation>
+		<annotation cp="⇐" type="tts">двойная стрелка влево</annotation>
 		<annotation cp="⇍" draft="contributed">двойная перечеркнутая стрелка влево</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">двойная перечеркнутая стрелка влево</annotation>
+		<annotation cp="⇍" type="tts">двойная перечеркнутая стрелка влево</annotation>
 		<annotation cp="⇑" draft="contributed">двойная стрелка вверх</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">двойная стрелка вверх</annotation>
+		<annotation cp="⇑" type="tts">двойная стрелка вверх</annotation>
 		<annotation cp="⇒" draft="contributed">двойная стрелка вправо</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">двойная стрелка вправо</annotation>
+		<annotation cp="⇒" type="tts">двойная стрелка вправо</annotation>
 		<annotation cp="⇏" draft="contributed">двойная перечеркнутая стрелка вправо</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">двойная перечеркнутая стрелка вправо</annotation>
+		<annotation cp="⇏" type="tts">двойная перечеркнутая стрелка вправо</annotation>
 		<annotation cp="⇓" draft="contributed">двойная стрелка вниз</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">двойная стрелка вниз</annotation>
+		<annotation cp="⇓" type="tts">двойная стрелка вниз</annotation>
 		<annotation cp="⇔" draft="contributed">двойная стрелка влево-вправо</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">двойная стрелка влево-вправо</annotation>
+		<annotation cp="⇔" type="tts">двойная стрелка влево-вправо</annotation>
 		<annotation cp="⇎" draft="contributed">двойная перечеркнутая стрелка влево-вправо</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">двойная перечеркнутая стрелка влево-вправо</annotation>
+		<annotation cp="⇎" type="tts">двойная перечеркнутая стрелка влево-вправо</annotation>
 		<annotation cp="⇖" draft="contributed">двойная стрелка на северо-запад</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">двойная стрелка на северо-запад</annotation>
+		<annotation cp="⇖" type="tts">двойная стрелка на северо-запад</annotation>
 		<annotation cp="⇗" draft="contributed">двойная стрелка на северо-восток</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">двойная стрелка на северо-восток</annotation>
+		<annotation cp="⇗" type="tts">двойная стрелка на северо-восток</annotation>
 		<annotation cp="⇘" draft="contributed">двойная стрелка на юго-восток</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">двойная стрелка на юго-восток</annotation>
+		<annotation cp="⇘" type="tts">двойная стрелка на юго-восток</annotation>
 		<annotation cp="⇙" draft="contributed">двойная стрелка на юго-запад</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">двойная стрелка на юго-запад</annotation>
+		<annotation cp="⇙" type="tts">двойная стрелка на юго-запад</annotation>
 		<annotation cp="⇚" draft="contributed">тройная стрелка влево</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">тройная стрелка влево</annotation>
+		<annotation cp="⇚" type="tts">тройная стрелка влево</annotation>
 		<annotation cp="⇛" draft="contributed">тройная стрелка вправо</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">тройная стрелка вправо</annotation>
+		<annotation cp="⇛" type="tts">тройная стрелка вправо</annotation>
 		<annotation cp="⇜" draft="contributed">стрелка влево с изгибами</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">стрелка влево с изгибами</annotation>
+		<annotation cp="⇜" type="tts">стрелка влево с изгибами</annotation>
 		<annotation cp="⇝" draft="contributed">стрелка вправо с изгибами</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">стрелка вправо с изгибами</annotation>
+		<annotation cp="⇝" type="tts">стрелка вправо с изгибами</annotation>
 		<annotation cp="⇞" draft="contributed">стрелка вверх с двойным перечеркиванием</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">стрелка вверх с двойным перечеркиванием</annotation>
+		<annotation cp="⇞" type="tts">стрелка вверх с двойным перечеркиванием</annotation>
 		<annotation cp="⇟" draft="contributed">стрелка вниз с двойным перечеркиванием</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">стрелка вниз с двойным перечеркиванием</annotation>
+		<annotation cp="⇟" type="tts">стрелка вниз с двойным перечеркиванием</annotation>
 		<annotation cp="⇠" draft="contributed">пунктирная стрелка влево</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">пунктирная стрелка влево</annotation>
+		<annotation cp="⇠" type="tts">пунктирная стрелка влево</annotation>
 		<annotation cp="⇡" draft="contributed">пунктирная стрелка вверх</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">пунктирная стрелка вверх</annotation>
+		<annotation cp="⇡" type="tts">пунктирная стрелка вверх</annotation>
 		<annotation cp="⇢" draft="contributed">пунктирная стрелка вправо</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">пунктирная стрелка вправо</annotation>
+		<annotation cp="⇢" type="tts">пунктирная стрелка вправо</annotation>
 		<annotation cp="⇣" draft="contributed">пунктирная стрелка вниз</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">пунктирная стрелка вниз</annotation>
+		<annotation cp="⇣" type="tts">пунктирная стрелка вниз</annotation>
 		<annotation cp="⇤" draft="contributed">стрелка влево, упирающаяся в планку</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">стрелка влево, упирающаяся в планку</annotation>
+		<annotation cp="⇤" type="tts">стрелка влево, упирающаяся в планку</annotation>
 		<annotation cp="⇥" draft="contributed">стрелка вправо, упирающаяся в планку</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">стрелка вправо, упирающаяся в планку</annotation>
+		<annotation cp="⇥" type="tts">стрелка вправо, упирающаяся в планку</annotation>
 		<annotation cp="⇦" draft="contributed">полая стрелка влево</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">полая стрелка влево</annotation>
+		<annotation cp="⇦" type="tts">полая стрелка влево</annotation>
 		<annotation cp="⇧" draft="contributed">полая стрелка вверх</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">полая стрелка вверх</annotation>
+		<annotation cp="⇧" type="tts">полая стрелка вверх</annotation>
 		<annotation cp="⇨" draft="contributed">полая стрелка вправо</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">полая стрелка вправо</annotation>
+		<annotation cp="⇨" type="tts">полая стрелка вправо</annotation>
 		<annotation cp="⇩" draft="contributed">полая стрелка вниз</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">полая стрелка вниз</annotation>
+		<annotation cp="⇩" type="tts">полая стрелка вниз</annotation>
 		<annotation cp="⇪" draft="contributed">полая стрелка вверх на прямоугольнике</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">полая стрелка вверх на прямоугольнике</annotation>
+		<annotation cp="⇪" type="tts">полая стрелка вверх на прямоугольнике</annotation>
 		<annotation cp="⇵" draft="contributed">стрелка вниз слева от стрелки вверх</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">стрелка вниз слева от стрелки вверх</annotation>
-		<annotation cp="∀" draft="contributed">для всех</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">для всех</annotation>
-		<annotation cp="∂" draft="contributed">частная производная</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">частная производная</annotation>
+		<annotation cp="⇵" type="tts">стрелка вниз слева от стрелки вверх</annotation>
+		<annotation cp="∀">данность | для всех | любое | универсально</annotation>
+		<annotation cp="∀" type="tts">для всех</annotation>
+		<annotation cp="∂">дифференциал | частичный дифференциал</annotation>
+		<annotation cp="∂" type="tts">частичный дифференциал</annotation>
 		<annotation cp="∃" draft="contributed">существует</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">существует</annotation>
-		<annotation cp="∅" draft="contributed">пустое множество</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">пустое множество</annotation>
+		<annotation cp="∃" type="tts">существует</annotation>
+		<annotation cp="∅">математика | оператор над множеством | пустое множество</annotation>
+		<annotation cp="∅" type="tts">пустое множество</annotation>
 		<annotation cp="∆">инкремент | треугольник</annotation>
 		<annotation cp="∆" type="tts">инкремент</annotation>
 		<annotation cp="∇">набла | треугольник</annotation>
@@ -358,15 +358,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈">множество | принадлежность | принадлежность множеству | содержит | состоит в | элемент</annotation>
 		<annotation cp="∈" type="tts">принадлежность множеству</annotation>
 		<annotation cp="∉" draft="contributed">не принадлежит</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">не принадлежит</annotation>
+		<annotation cp="∉" type="tts">не принадлежит</annotation>
 		<annotation cp="∋" draft="contributed">содержит в качестве члена</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">содержит в качестве члена</annotation>
-		<annotation cp="∎" draft="contributed">конец доказательства</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">конец доказательства</annotation>
-		<annotation cp="∏" draft="contributed">произведение</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">произведение</annotation>
-		<annotation cp="∑" draft="contributed">сумма</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">сумма</annotation>
+		<annotation cp="∋" type="tts">содержит в качестве члена</annotation>
+		<annotation cp="∎">конец доказательства | надгробие | ч. т. д. | что и требовалось доказать</annotation>
+		<annotation cp="∎" type="tts">конец доказательства</annotation>
+		<annotation cp="∏">n-арное произведение | логика | произведение</annotation>
+		<annotation cp="∏" type="tts">произведение</annotation>
+		<annotation cp="∑">n-арное суммирование | сумма | суммирование</annotation>
+		<annotation cp="∑" type="tts">сумма</annotation>
 		<annotation cp="+">знак плюса | плюс | прибавление | сложение</annotation>
 		<annotation cp="+" type="tts">плюс</annotation>
 		<annotation cp="±">плюс минус | плюс-минус</annotation>
@@ -378,7 +378,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&lt;">менее | меньше | меньше чем | открыть тег | тег</annotation>
 		<annotation cp="&lt;" type="tts">меньше</annotation>
 		<annotation cp="≮" draft="contributed">не меньше чем</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">не меньше чем</annotation>
+		<annotation cp="≮" type="tts">не меньше чем</annotation>
 		<annotation cp="=">знак равенства | равно | равняется</annotation>
 		<annotation cp="=" type="tts">равно</annotation>
 		<annotation cp="≠">знак неравенства | не равно | не равняется | неравенство</annotation>
@@ -386,7 +386,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&gt;">более | больше | больше чем | закрыть тег | тег</annotation>
 		<annotation cp="&gt;" type="tts">больше</annotation>
 		<annotation cp="≯" draft="contributed">не больше чем</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">не больше чем</annotation>
+		<annotation cp="≯" type="tts">не больше чем</annotation>
 		<annotation cp="¬">не | отрицание</annotation>
 		<annotation cp="¬" type="tts">отрицание</annotation>
 		<annotation cp="|">вертикальная линия | вертикальная черта | пайп</annotation>
@@ -398,47 +398,315 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻">минус | надстрочный | степень</annotation>
 		<annotation cp="⁻" type="tts">надстрочный минус</annotation>
 		<annotation cp="∓" draft="contributed">знак минус-плюс</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">знак минус-плюс</annotation>
+		<annotation cp="∓" type="tts">знак минус-плюс</annotation>
 		<annotation cp="∕" draft="contributed">разделительный знак</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">разделительный знак</annotation>
+		<annotation cp="∕" type="tts">разделительный знак</annotation>
 		<annotation cp="⁄" draft="contributed">дробная наклонная черта</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">дробная наклонная черта</annotation>
-		<annotation cp="∗" draft="contributed">оператор звездочки</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">оператор звездочки</annotation>
+		<annotation cp="⁄" type="tts">дробная наклонная черта</annotation>
+		<annotation cp="∗">звездочка | оператор звездочки</annotation>
+		<annotation cp="∗" type="tts">оператор звездочки</annotation>
 		<annotation cp="∘" draft="contributed">кольцевой оператор</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">кольцевой оператор</annotation>
+		<annotation cp="∘" type="tts">кольцевой оператор</annotation>
+		<annotation cp="∙" draft="contributed">буллет-оператор | оператор | оператор произведения</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">оператор произведения</annotation>
 		<annotation cp="√">знак корня | иррациональное число | квадратный | корень | радикал</annotation>
 		<annotation cp="√" type="tts">квадратный корень</annotation>
+		<annotation cp="∝" draft="contributed">пропорционально | пропорциональность</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">пропорционально</annotation>
 		<annotation cp="∞">бесконечность | знак бесконечности</annotation>
 		<annotation cp="∞" type="tts">знак бесконечности</annotation>
+		<annotation cp="∟" draft="contributed">математика | правый угол | прямой угол</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">прямой угол</annotation>
+		<annotation cp="∠" draft="contributed">острый угол | угол</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">острый угол</annotation>
+		<annotation cp="∣">вертикальная линия | разделительная черта | разделяет</annotation>
+		<annotation cp="∣" type="tts">разделяет</annotation>
+		<annotation cp="∥">знаки отношений | математические операторы | параллельно | параллельность</annotation>
+		<annotation cp="∥" type="tts">параллельно</annotation>
+		<annotation cp="∧">конъюнктор | конъюнкция | логический оператор «и» | логическое и</annotation>
+		<annotation cp="∧" type="tts">логическое и</annotation>
 		<annotation cp="∩">множество | пересечение</annotation>
 		<annotation cp="∩" type="tts">пересечение</annotation>
 		<annotation cp="∪">множество | объединение | совокупность</annotation>
 		<annotation cp="∪" type="tts">объединение</annotation>
+		<annotation cp="∫" draft="contributed">интеграл | математический анализ</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">интеграл</annotation>
+		<annotation cp="∬" draft="contributed">двойной интеграл | математический анализ</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">двойной интеграл</annotation>
+		<annotation cp="∮">интеграл по замкнутому контуру | интеграл по контуру | криволинейный интеграл</annotation>
+		<annotation cp="∮" type="tts">интеграл по замкнутому контуру</annotation>
+		<annotation cp="∴">логический оператор | следовательно</annotation>
+		<annotation cp="∴" type="tts">следовательно</annotation>
+		<annotation cp="∵">логический оператор | поскольку | потому что | так как</annotation>
+		<annotation cp="∵" type="tts">поскольку</annotation>
+		<annotation cp="∶">отношение | соотношение</annotation>
+		<annotation cp="∶" type="tts">соотношение</annotation>
+		<annotation cp="∷">пропорциональность | пропорция</annotation>
+		<annotation cp="∷" type="tts">пропорция</annotation>
+		<annotation cp="∼">оператор | оператор тильды | тильда</annotation>
+		<annotation cp="∼" type="tts">оператор тильды</annotation>
+		<annotation cp="∽">обратная тильда | тильда</annotation>
+		<annotation cp="∽" type="tts">обратная тильда</annotation>
+		<annotation cp="∾">инвертированная плавная S</annotation>
+		<annotation cp="∾" type="tts">инвертированная плавная S</annotation>
+		<annotation cp="≃">асимптотически равно | асимптотическое равенство | математика</annotation>
+		<annotation cp="≃" type="tts">асимптотически равно</annotation>
+		<annotation cp="≅">изоморфизм | конгруэнтность | приблизительно равно | примерно равно | равенство</annotation>
+		<annotation cp="≅" type="tts">конгруэнтность</annotation>
 		<annotation cp="≈">около | почти равно | приближение | приблизительно равно | примерно | примерно равно</annotation>
 		<annotation cp="≈" type="tts">приблизительно равно</annotation>
+		<annotation cp="≌">все равны | математика | равенство</annotation>
+		<annotation cp="≌" type="tts">все равны</annotation>
+		<annotation cp="≒" draft="contributed">знак приблизительного равенства | приблизительное равенство</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">приблизительное равенство</annotation>
+		<annotation cp="≖">кольцо в равно | математика | равенство</annotation>
+		<annotation cp="≖" type="tts">кольцо в равно</annotation>
 		<annotation cp="≡">идентичный | равный | тождественное равенство | тождество | тройной</annotation>
 		<annotation cp="≡" type="tts">тождество</annotation>
+		<annotation cp="≣">математика | равенство | строго эквивалентно</annotation>
+		<annotation cp="≣" type="tts">строго эквивалентно</annotation>
 		<annotation cp="≤">меньше или равно | не более | не более чем | неравенство</annotation>
 		<annotation cp="≤" type="tts">меньше или равно</annotation>
 		<annotation cp="≥">больше или равно | не менее | не менее чем | неравенство</annotation>
 		<annotation cp="≥" type="tts">больше или равно</annotation>
+		<annotation cp="≦">математика | меньше над равно | неравенство</annotation>
+		<annotation cp="≦" type="tts">меньше над равно</annotation>
+		<annotation cp="≧">больше над равно | математика | неравенство</annotation>
+		<annotation cp="≧" type="tts">больше над равно</annotation>
+		<annotation cp="≪">математика | намного меньше | неравенство</annotation>
+		<annotation cp="≪" type="tts">намного меньше</annotation>
+		<annotation cp="≫">математика | намного больше | неравенство</annotation>
+		<annotation cp="≫" type="tts">намного больше</annotation>
+		<annotation cp="≬">между</annotation>
+		<annotation cp="≬" type="tts">между</annotation>
+		<annotation cp="≳">больше или эквивалентно | больше либо эквивалентно | математика | неравенство</annotation>
+		<annotation cp="≳" type="tts">больше или эквивалентно</annotation>
+		<annotation cp="≺">математика | оператор над множеством | предшествует</annotation>
+		<annotation cp="≺" type="tts">предшествует</annotation>
+		<annotation cp="≻">математика | оператор над множеством | следует</annotation>
+		<annotation cp="≻" type="tts">следует</annotation>
+		<annotation cp="⊁">математика | не следует | оператор над множеством</annotation>
+		<annotation cp="⊁" type="tts">не следует</annotation>
 		<annotation cp="⊂">включено в | множество | подмножество</annotation>
 		<annotation cp="⊂" type="tts">подмножество</annotation>
+		<annotation cp="⊃">математика | надмножество | оператор над множеством | супермножество</annotation>
+		<annotation cp="⊃" type="tts">надмножество</annotation>
+		<annotation cp="⊆">подмножество равно</annotation>
+		<annotation cp="⊆" type="tts">подмножество равно</annotation>
+		<annotation cp="⊇">математика | надмножество равно | равенство</annotation>
+		<annotation cp="⊇" type="tts">надмножество равно</annotation>
+		<annotation cp="⊕">знак плюса в круге | плюс в круге</annotation>
+		<annotation cp="⊕" type="tts">плюс в круге</annotation>
+		<annotation cp="⊖">минус в круге | симметрическая разность</annotation>
+		<annotation cp="⊖" type="tts">минус в круге</annotation>
+		<annotation cp="⊗">знак умножения в круге | произведение | тензор</annotation>
+		<annotation cp="⊗" type="tts">знак умножения в круге</annotation>
+		<annotation cp="⊘">дробная черта в круге | математика</annotation>
+		<annotation cp="⊘" type="tts">дробная черта в круге</annotation>
+		<annotation cp="⊙">оператор | оператор точки в круге</annotation>
+		<annotation cp="⊙" type="tts">оператор точки в круге</annotation>
+		<annotation cp="⊚">кольцевой оператор в круге</annotation>
+		<annotation cp="⊚" type="tts">кольцевой оператор в круге</annotation>
+		<annotation cp="⊛">оператор | оператор звездочки в круге</annotation>
+		<annotation cp="⊛" type="tts">оператор звездочки в круге</annotation>
+		<annotation cp="⊞">знак плюса | квадрат | математика | плюс в квадрате | сложение</annotation>
+		<annotation cp="⊞" type="tts">плюс в квадрате</annotation>
+		<annotation cp="⊟">вычитание | знак минуса | математика | минус | минус в квадрате</annotation>
+		<annotation cp="⊟" type="tts">минус в квадрате</annotation>
+		<annotation cp="⊥" draft="contributed">вертикальный шип | фальсум | шип</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">вертикальный шип</annotation>
+		<annotation cp="⊮">не влечет</annotation>
+		<annotation cp="⊮" type="tts">не влечет</annotation>
+		<annotation cp="⊰">математика | оператор над множеством | предшествует | предшествует относительно</annotation>
+		<annotation cp="⊰" type="tts">предшествует относительно</annotation>
+		<annotation cp="⊱">математика | оператор над множеством | следует | следует относительно</annotation>
+		<annotation cp="⊱" type="tts">следует относительно</annotation>
+		<annotation cp="⋭">математика | не содержит как нормальную подгруппу или не равно | теория групп</annotation>
+		<annotation cp="⋭" type="tts">не содержит как нормальную подгруппу или не равно</annotation>
+		<annotation cp="⊶">прообраз</annotation>
+		<annotation cp="⊶" type="tts">прообраз</annotation>
+		<annotation cp="⊹">квадратная матрица | математика | самосопряженная матрица | эрмитова сопряженная матрица</annotation>
+		<annotation cp="⊹" type="tts">эрмитова сопряженная матрица</annotation>
+		<annotation cp="⊿">треугольник вершиной вправо | треугольник, направленный вправо</annotation>
+		<annotation cp="⊿" type="tts">треугольник вершиной вправо</annotation>
+		<annotation cp="⋁">n-арное логическое или | дизъюнкция | логика</annotation>
+		<annotation cp="⋁" type="tts">n-арное логическое или</annotation>
+		<annotation cp="⋂">n-арное пересечение | математика | оператор над множеством | пересечение</annotation>
+		<annotation cp="⋂" type="tts">n-арное пересечение</annotation>
+		<annotation cp="⋃">n-арное объединение | математика | объединение | оператор над множеством</annotation>
+		<annotation cp="⋃" type="tts">n-арное объединение</annotation>
+		<annotation cp="⋅">оператор | оператор точки</annotation>
+		<annotation cp="⋅" type="tts">оператор точки</annotation>
+		<annotation cp="⋆">оператор | оператор звезды</annotation>
+		<annotation cp="⋆" type="tts">оператор звезды</annotation>
+		<annotation cp="⋈">бабочка | бинарный оператор | галстук-бабочка | естественное соединение</annotation>
+		<annotation cp="⋈" type="tts">естественное соединение</annotation>
+		<annotation cp="⋒">двойное пересечение | математика | оператор над множеством | пересечение</annotation>
+		<annotation cp="⋒" type="tts">двойное пересечение</annotation>
+		<annotation cp="⋘">гораздо меньше | математика | меньше | неравенство</annotation>
+		<annotation cp="⋘" type="tts">гораздо меньше</annotation>
+		<annotation cp="⋙">больше | гораздо больше | математика | неравенство</annotation>
+		<annotation cp="⋙" type="tts">гораздо больше</annotation>
+		<annotation cp="⋮">вертикальное многоточие | математика | многоточие</annotation>
+		<annotation cp="⋮" type="tts">вертикальное многоточие</annotation>
+		<annotation cp="⋯">внутристрочное горизонтальное многоточие | многоточие</annotation>
+		<annotation cp="⋯" type="tts">внутристрочное горизонтальное многоточие</annotation>
+		<annotation cp="⋰">диагональное многоточие вверх вправо | математика | многоточие</annotation>
+		<annotation cp="⋰" type="tts">диагональное многоточие вверх вправо</annotation>
+		<annotation cp="⋱">диагональное многоточие вниз вправо | математика | многоточие</annotation>
+		<annotation cp="⋱" type="tts">диагональное многоточие вниз вправо</annotation>
+		<annotation cp="■">закрашенный квадрат</annotation>
+		<annotation cp="■" type="tts">закрашенный квадрат</annotation>
+		<annotation cp="□">полый квадрат</annotation>
+		<annotation cp="□" type="tts">полый квадрат</annotation>
+		<annotation cp="▢">полый квадрат с закругленными углами</annotation>
+		<annotation cp="▢" type="tts">полый квадрат с закругленными углами</annotation>
+		<annotation cp="▣">закрашенный квадрат внутри полого квадрата</annotation>
+		<annotation cp="▣" type="tts">закрашенный квадрат внутри полого квадрата</annotation>
+		<annotation cp="▤">квадрат с горизонтальной штриховкой</annotation>
+		<annotation cp="▤" type="tts">квадрат с горизонтальной штриховкой</annotation>
+		<annotation cp="▥">квадрат с вертикальной штриховкой</annotation>
+		<annotation cp="▥" type="tts">квадрат с вертикальной штриховкой</annotation>
+		<annotation cp="▦">квадрат с ортогональной перекрестной штриховкой</annotation>
+		<annotation cp="▦" type="tts">квадрат с ортогональной перекрестной штриховкой</annotation>
+		<annotation cp="▧">квадрат с диагональной штриховкой слева направо</annotation>
+		<annotation cp="▧" type="tts">квадрат с диагональной штриховкой слева направо</annotation>
+		<annotation cp="▨">квадрат с диагональной штриховкой справа налево</annotation>
+		<annotation cp="▨" type="tts">квадрат с диагональной штриховкой справа налево</annotation>
+		<annotation cp="▩">квадрат с диагональной перекрестной штриховкой</annotation>
+		<annotation cp="▩" type="tts">квадрат с диагональной перекрестной штриховкой</annotation>
+		<annotation cp="▬">закрашенный прямоугольник | прямоугольник</annotation>
+		<annotation cp="▬" type="tts">закрашенный прямоугольник</annotation>
+		<annotation cp="▭">полый прямоугольник</annotation>
+		<annotation cp="▭" type="tts">полый прямоугольник</annotation>
+		<annotation cp="▮">закрашенный вертикальный прямоугольник</annotation>
+		<annotation cp="▮" type="tts">закрашенный вертикальный прямоугольник</annotation>
+		<annotation cp="▰">закрашенный параллелограмм</annotation>
+		<annotation cp="▰" type="tts">закрашенный параллелограмм</annotation>
 		<annotation cp="▲">вверх | закрашенный | закрашенный треугольник вершиной вверх | стрелка | треугольник</annotation>
 		<annotation cp="▲" type="tts">закрашенный треугольник вершиной вверх</annotation>
+		<annotation cp="△">полый треугольник вершиной вверх</annotation>
+		<annotation cp="△" type="tts">полый треугольник вершиной вверх</annotation>
+		<annotation cp="▴">небольшой закрашенный треугольник вершиной вверх</annotation>
+		<annotation cp="▴" type="tts">небольшой закрашенный треугольник вершиной вверх</annotation>
+		<annotation cp="▵">небольшой полый треугольник вершиной вверх</annotation>
+		<annotation cp="▵" type="tts">небольшой полый треугольник вершиной вверх</annotation>
+		<annotation cp="▷">полый треугольник вершиной вправо</annotation>
+		<annotation cp="▷" type="tts">полый треугольник вершиной вправо</annotation>
+		<annotation cp="▸">небольшой закрашенный треугольник вершиной вправо</annotation>
+		<annotation cp="▸" type="tts">небольшой закрашенный треугольник вершиной вправо</annotation>
+		<annotation cp="▹">небольшой полый треугольник вершиной вправо</annotation>
+		<annotation cp="▹" type="tts">небольшой полый треугольник вершиной вправо</annotation>
+		<annotation cp="►">закрашенный указатель вправо</annotation>
+		<annotation cp="►" type="tts">закрашенный указатель вправо</annotation>
+		<annotation cp="▻">полый указатель вправо</annotation>
+		<annotation cp="▻" type="tts">полый указатель вправо</annotation>
 		<annotation cp="▼">вниз | закрашенный | закрашенный треугольник вершиной вниз | стрелка | треугольник</annotation>
 		<annotation cp="▼" type="tts">закрашенный треугольник вершиной вниз</annotation>
+		<annotation cp="▽">полый треугольник вершиной вниз</annotation>
+		<annotation cp="▽" type="tts">полый треугольник вершиной вниз</annotation>
+		<annotation cp="▾">небольшой закрашенный треугольник вершиной вниз</annotation>
+		<annotation cp="▾" type="tts">небольшой закрашенный треугольник вершиной вниз</annotation>
+		<annotation cp="▿">небольшой полый треугольник вершиной вниз</annotation>
+		<annotation cp="▿" type="tts">небольшой полый треугольник вершиной вниз</annotation>
+		<annotation cp="◁">полый треугольник вершиной влево</annotation>
+		<annotation cp="◁" type="tts">полый треугольник вершиной влево</annotation>
+		<annotation cp="◂">небольшой закрашенный треугольник вершиной влево</annotation>
+		<annotation cp="◂" type="tts">небольшой закрашенный треугольник вершиной влево</annotation>
+		<annotation cp="◃">небольшой полый треугольник вершиной влево</annotation>
+		<annotation cp="◃" type="tts">небольшой полый треугольник вершиной влево</annotation>
+		<annotation cp="◄">закрашенный указатель влево</annotation>
+		<annotation cp="◄" type="tts">закрашенный указатель влево</annotation>
+		<annotation cp="◅">полый указатель влево</annotation>
+		<annotation cp="◅" type="tts">полый указатель влево</annotation>
+		<annotation cp="◆">закрашенный ромб</annotation>
+		<annotation cp="◆" type="tts">закрашенный ромб</annotation>
+		<annotation cp="◇">полый ромб</annotation>
+		<annotation cp="◇" type="tts">полый ромб</annotation>
+		<annotation cp="◈">закрашенный ромб внутри полого ромба</annotation>
+		<annotation cp="◈" type="tts">закрашенный ромб внутри полого ромба</annotation>
+		<annotation cp="◉">закрашенный круг внутри полого круга</annotation>
+		<annotation cp="◉" type="tts">закрашенный круг внутри полого круга</annotation>
 		<annotation cp="◊">бубны | косоугольник | ромб</annotation>
 		<annotation cp="◊" type="tts">ромб</annotation>
 		<annotation cp="○">круг | незакрашенный круг | полый | пустой круг | шар</annotation>
 		<annotation cp="○" type="tts">незакрашенный круг</annotation>
+		<annotation cp="◌">пунктирный круг</annotation>
+		<annotation cp="◌" type="tts">пунктирный круг</annotation>
+		<annotation cp="◍">круг с вертикальной штриховкой</annotation>
+		<annotation cp="◍" type="tts">круг с вертикальной штриховкой</annotation>
+		<annotation cp="◎">двойной круг | концентрические круги | мишень</annotation>
+		<annotation cp="◎" type="tts">концентрические круги</annotation>
 		<annotation cp="●">закрашенный круг | заполненный круг | круг | шар</annotation>
 		<annotation cp="●" type="tts">закрашенный круг</annotation>
+		<annotation cp="◐">круг с закрашенной левой половиной</annotation>
+		<annotation cp="◐" type="tts">круг с закрашенной левой половиной</annotation>
+		<annotation cp="◑">круг с закрашенной правой половиной</annotation>
+		<annotation cp="◑" type="tts">круг с закрашенной правой половиной</annotation>
+		<annotation cp="◒">круг с закрашенной нижней половиной</annotation>
+		<annotation cp="◒" type="tts">круг с закрашенной нижней половиной</annotation>
+		<annotation cp="◓">круг с закрашенной верхней половиной</annotation>
+		<annotation cp="◓" type="tts">круг с закрашенной верхней половиной</annotation>
+		<annotation cp="◔">круг с закрашенной верхней правой четвертью</annotation>
+		<annotation cp="◔" type="tts">круг с закрашенной верхней правой четвертью</annotation>
+		<annotation cp="◕">закрашенный круг с полой верхней левой четвертью</annotation>
+		<annotation cp="◕" type="tts">закрашенный круг с полой верхней левой четвертью</annotation>
+		<annotation cp="◖">закрашенная левая половина круга</annotation>
+		<annotation cp="◖" type="tts">закрашенная левая половина круга</annotation>
+		<annotation cp="◗">закрашенная правая половина круга</annotation>
+		<annotation cp="◗" type="tts">закрашенная правая половина круга</annotation>
+		<annotation cp="◘">инвертированный маркер пункта в списке</annotation>
+		<annotation cp="◘" type="tts">инвертированный маркер пункта в списке</annotation>
+		<annotation cp="◙">полый круг внутри закрашенного квадрата</annotation>
+		<annotation cp="◙" type="tts">полый круг внутри закрашенного квадрата</annotation>
+		<annotation cp="◜">дуга в верхней левой четверти</annotation>
+		<annotation cp="◜" type="tts">дуга в верхней левой четверти</annotation>
+		<annotation cp="◝">дуга в верхней правой четверти</annotation>
+		<annotation cp="◝" type="tts">дуга в верхней правой четверти</annotation>
+		<annotation cp="◞">дуга в нижней правой четверти</annotation>
+		<annotation cp="◞" type="tts">дуга в нижней правой четверти</annotation>
+		<annotation cp="◟">дуга в нижней левой четверти</annotation>
+		<annotation cp="◟" type="tts">дуга в нижней левой четверти</annotation>
+		<annotation cp="◠">верхний полукруг</annotation>
+		<annotation cp="◠" type="tts">верхний полукруг</annotation>
+		<annotation cp="◡">нижний полукруг</annotation>
+		<annotation cp="◡" type="tts">нижний полукруг</annotation>
+		<annotation cp="◢">закрашенный нижний правый треугольник</annotation>
+		<annotation cp="◢" type="tts">закрашенный нижний правый треугольник</annotation>
+		<annotation cp="◣">закрашенный нижний левый треугольник</annotation>
+		<annotation cp="◣" type="tts">закрашенный нижний левый треугольник</annotation>
+		<annotation cp="◤">закрашенный верхний левый треугольник</annotation>
+		<annotation cp="◤" type="tts">закрашенный верхний левый треугольник</annotation>
+		<annotation cp="◥">закрашенный верхний правый треугольник</annotation>
+		<annotation cp="◥" type="tts">закрашенный верхний правый треугольник</annotation>
+		<annotation cp="◦">полый маркер пункта в списке</annotation>
+		<annotation cp="◦" type="tts">полый маркер пункта в списке</annotation>
 		<annotation cp="◯">большой незакрашенный круг | круг | полый | пустой | шар</annotation>
 		<annotation cp="◯" type="tts">большой незакрашенный круг</annotation>
+		<annotation cp="◳">полый квадрат с полой верхней правой четвертью</annotation>
+		<annotation cp="◳" type="tts">полый квадрат с полой верхней правой четвертью</annotation>
+		<annotation cp="◷">полый круг с полой верхней правой четвертью</annotation>
+		<annotation cp="◷" type="tts">полый круг с полой верхней правой четвертью</annotation>
+		<annotation cp="◿">нижний правый треугольник</annotation>
+		<annotation cp="◿" type="tts">нижний правый треугольник</annotation>
 		<annotation cp="♪">восьмая | музыка | нота</annotation>
 		<annotation cp="♪" type="tts">восьмая нота</annotation>
+		<annotation cp="⨧">плюс с цифрой два в нижнем регистре</annotation>
+		<annotation cp="⨧" type="tts">плюс с цифрой два в нижнем регистре</annotation>
+		<annotation cp="⨯">векторное произведение</annotation>
+		<annotation cp="⨯" type="tts">векторное произведение</annotation>
+		<annotation cp="⨼">внутреннее произведение</annotation>
+		<annotation cp="⨼" type="tts">внутреннее произведение</annotation>
+		<annotation cp="⩣">логическое или с двойным подчеркиванием</annotation>
+		<annotation cp="⩣" type="tts">логическое или с двойным подчеркиванием</annotation>
+		<annotation cp="⩽">меньше или равно | меньше с наклонным равно</annotation>
+		<annotation cp="⩽" type="tts">меньше с наклонным равно</annotation>
+		<annotation cp="⪍">меньше над асимптотически равно</annotation>
+		<annotation cp="⪍" type="tts">меньше над асимптотически равно</annotation>
+		<annotation cp="⪚">больше под равно | математика | неравенство</annotation>
+		<annotation cp="⪚" type="tts">больше под равно</annotation>
+		<annotation cp="⪺">следует над приблизительно не равно</annotation>
+		<annotation cp="⪺" type="tts">следует над приблизительно не равно</annotation>
 		<annotation cp="♭">бемоль | музыка | нота</annotation>
 		<annotation cp="♭" type="tts">бемоль</annotation>
 		<annotation cp="♯">диез | музыка | нота</annotation>
@@ -461,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">смеется до слез</annotation>
 		<annotation cp="🙂">легкая улыбка | лицо | радость | слегка улыбается | улыбка | хорошо</annotation>
 		<annotation cp="🙂" type="tts">слегка улыбается</annotation>
+		<annotation cp="🙂‍↕">да | кивок | подтверждение | положительно качает головой | согласие</annotation>
+		<annotation cp="🙂‍↕" type="tts">положительно качает головой</annotation>
+		<annotation cp="🙂‍↔">несогласие | нет | отрицание | отрицательно качает головой</annotation>
+		<annotation cp="🙂‍↔" type="tts">отрицательно качает головой</annotation>
 		<annotation cp="🙃">вверх | вверх тормашками | лицо | ногами | перевернутое</annotation>
 		<annotation cp="🙃" type="tts">вверх тормашками</annotation>
 		<annotation cp="🫠">жидкое | исчезает | плавится | растворяется | тает</annotation>
@@ -527,7 +799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😶" type="tts">лицо без рта</annotation>
 		<annotation cp="🫥">депрессия | интроверт | исчезать | лицо пунктиром | невидимый | печаль | подавленность | прятаться</annotation>
 		<annotation cp="🫥" type="tts">лицо пунктиром</annotation>
-		<annotation cp="😶‍🌫">беззаботный | витающий в облаках | голова в облаках | лицо в облаках | лицо в тумане</annotation>
+		<annotation cp="😶‍🌫">витающий в облаках | голова в облаках | лицо в облаках | лицо в тумане | рассеянный</annotation>
 		<annotation cp="😶‍🌫" type="tts">лицо в облаках</annotation>
 		<annotation cp="😏">задумал | лицо | ухмылка | ухмыляется | хитрый</annotation>
 		<annotation cp="😏" type="tts">ухмыляется</annotation>
@@ -541,7 +813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😮‍💨" type="tts">выдыхает</annotation>
 		<annotation cp="🤥">буратино | врать | длинный нос | лжец | обманывать</annotation>
 		<annotation cp="🤥" type="tts">лжец</annotation>
-		<annotation cp="🫨">вибрация | вибрирует | землетрясение | лицо | трясется | тряска | трясущееся лицо | шок</annotation>
+		<annotation cp="🫨">вибрация | вибрирует | землетрясение | лицо | трясется | трясущееся лицо | шок</annotation>
 		<annotation cp="🫨" type="tts">трясущееся лицо</annotation>
 		<annotation cp="😌">испытывает облегчение | лицо | минуло | облегчение | обошло | спокойствие | стороной</annotation>
 		<annotation cp="😌" type="tts">испытывает облегчение</annotation>
@@ -793,9 +1065,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">рука ладонью вниз</annotation>
 		<annotation cp="🫴">ладонь вверх | манить | подзывать | позвать | поймать | рука | рука ладонью вверх</annotation>
 		<annotation cp="🫴" type="tts">рука ладонью вверх</annotation>
-		<annotation cp="🫷">влево | дай пять | ждать | отказ | подождать | рука ладонью влево | стоп | толкать</annotation>
+		<annotation cp="🫷">влево | дай пять | отказ | подожди | рука ладонью влево | стоп | толкать</annotation>
 		<annotation cp="🫷" type="tts">рука ладонью влево</annotation>
-		<annotation cp="🫸">вправо | дай пять | ждать | отказ | подождать | рука ладонью вправо | стоп | толкать</annotation>
+		<annotation cp="🫸">вправо | дай пять | отказ | подожди | рука ладонью вправо | стоп | толкать</annotation>
 		<annotation cp="🫸" type="tts">рука ладонью вправо</annotation>
 		<annotation cp="👌">жест | жест &quot;все хорошо&quot; | жест «все хорошо» | ок | окей | рука | хорошо</annotation>
 		<annotation cp="👌" type="tts">жест «все хорошо»</annotation>
@@ -909,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">взрослый</annotation>
 		<annotation cp="👱">блондин | волосы | светлые | человек | человек со светлыми волосами</annotation>
 		<annotation cp="👱" type="tts">человек со светлыми волосами</annotation>
+		<annotation cp="🧑‍🧒">неполная семья с одним ребенком | родитель-одиночка с одним ребенком | семья: взрослый и ребенок</annotation>
+		<annotation cp="🧑‍🧒" type="tts">семья: взрослый и ребенок</annotation>
+		<annotation cp="🧑‍🧒‍🧒">неполная семья с двумя детьми | родитель-одиночка с двумя детьми | семья: взрослый и двое детей</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">семья: взрослый и двое детей</annotation>
+		<annotation cp="🧑‍🧑‍🧒">семья с одним ребенком | семья: двое взрослых и ребенок</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">семья: двое взрослых и ребенок</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">семья с двумя детьми | семья: двое взрослых и двое детей</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">семья: двое взрослых и двое детей</annotation>
 		<annotation cp="👨">взрослый | мужчина | усы | человек</annotation>
 		<annotation cp="👨" type="tts">мужчина</annotation>
 		<annotation cp="🧔">борода | бородатый человек | бородач | мужчина</annotation>
@@ -1033,7 +1313,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🔧" type="tts">женщина-механик</annotation>
 		<annotation cp="🧑‍🏭">завод | промышленность | рабочий</annotation>
 		<annotation cp="🧑‍🏭" type="tts">рабочий</annotation>
-		<annotation cp="👨‍🏭">завод | мужчина | мужчина-рабочий | промышленность | рабочий</annotation>
+		<annotation cp="👨‍🏭">завод | мужчина | промышленность | рабочий</annotation>
 		<annotation cp="👨‍🏭" type="tts">мужчина-рабочий</annotation>
 		<annotation cp="👩‍🏭">женщина | завод | промышленность | работница | рабочий</annotation>
 		<annotation cp="👩‍🏭" type="tts">работница</annotation>
@@ -1045,43 +1325,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍💼" type="tts">офисная работница</annotation>
 		<annotation cp="🧑‍🔬">биолог | инженер | наука | ученый | физик | химик</annotation>
 		<annotation cp="🧑‍🔬" type="tts">ученый</annotation>
-		<annotation cp="👨‍🔬">биология | мужчина | мужчина-ученый | наука | ученый | химия</annotation>
+		<annotation cp="👨‍🔬">биолог | инженер | мужчина | наука | ученый | химик</annotation>
 		<annotation cp="👨‍🔬" type="tts">мужчина-ученый</annotation>
 		<annotation cp="👩‍🔬">биология | женщина | наука | ученая | химия</annotation>
 		<annotation cp="👩‍🔬" type="tts">ученая</annotation>
 		<annotation cp="🧑‍💻">инженер | ноутбук | программист | разработчик | технарь</annotation>
 		<annotation cp="🧑‍💻" type="tts">инженер</annotation>
-		<annotation cp="👨‍💻">инженер | мужчина | мужчина-инженер | ноутбук | программист | разработчик | технарь</annotation>
+		<annotation cp="👨‍💻">инженер | мужчина | ноутбук | программист | разработчик | технарь</annotation>
 		<annotation cp="👨‍💻" type="tts">мужчина-инженер</annotation>
 		<annotation cp="👩‍💻">женщина | женщина-инженер | ноутбук | программист | разработчик | технарь</annotation>
 		<annotation cp="👩‍💻" type="tts">женщина-инженер</annotation>
-		<annotation cp="🧑‍🎤">звезда | певец | пение | развлечения | рок</annotation>
+		<annotation cp="🧑‍🎤">актер | звезда | певец | пение | развлечения | рок</annotation>
 		<annotation cp="🧑‍🎤" type="tts">певец</annotation>
-		<annotation cp="👨‍🎤">звезда | мужчина | мужчина-певец | певец | пение | развлечение | рок</annotation>
+		<annotation cp="👨‍🎤">звезда | мужчина | певец | пение | развлечение | рок</annotation>
 		<annotation cp="👨‍🎤" type="tts">мужчина-певец</annotation>
 		<annotation cp="👩‍🎤">женщина | звезда | певица | пение | развлечения | рок</annotation>
 		<annotation cp="👩‍🎤" type="tts">певица</annotation>
 		<annotation cp="🧑‍🎨">кисти | палитра | художник</annotation>
 		<annotation cp="🧑‍🎨" type="tts">художник</annotation>
-		<annotation cp="👨‍🎨">кисти | мужчина | мужчина-художник | палитра | художник</annotation>
+		<annotation cp="👨‍🎨">кисти | мужчина | палитра | художник</annotation>
 		<annotation cp="👨‍🎨" type="tts">мужчина-художник</annotation>
 		<annotation cp="👩‍🎨">женщина | кисти | палитра | художница</annotation>
 		<annotation cp="👩‍🎨" type="tts">художница</annotation>
 		<annotation cp="🧑‍✈">летчик | пилот | самолет</annotation>
 		<annotation cp="🧑‍✈" type="tts">пилот</annotation>
-		<annotation cp="👨‍✈">мужчина | мужчина-пилот | пилот</annotation>
+		<annotation cp="👨‍✈">мужчина | пилот | самолет</annotation>
 		<annotation cp="👨‍✈" type="tts">мужчина-пилот</annotation>
 		<annotation cp="👩‍✈">женщина | женщина-пилот | пилот</annotation>
 		<annotation cp="👩‍✈" type="tts">женщина-пилот</annotation>
 		<annotation cp="🧑‍🚀">астронавт | космонавт | ракета</annotation>
 		<annotation cp="🧑‍🚀" type="tts">космонавт</annotation>
-		<annotation cp="👨‍🚀">космонавт | космос | мужчина | мужчина-космонавт</annotation>
+		<annotation cp="👨‍🚀">астронавт | космонавт | космос | мужчина</annotation>
 		<annotation cp="👨‍🚀" type="tts">мужчина-космонавт</annotation>
 		<annotation cp="👩‍🚀">женщина | женщина-космонавт | космонавт | космос</annotation>
 		<annotation cp="👩‍🚀" type="tts">женщина-космонавт</annotation>
 		<annotation cp="🧑‍🚒">пожарная машина | пожарный</annotation>
 		<annotation cp="🧑‍🚒" type="tts">пожарный</annotation>
-		<annotation cp="👨‍🚒">мужчина | мужчина-пожарный | пожарный</annotation>
+		<annotation cp="👨‍🚒">мужчина | пожарная машина | пожарный</annotation>
 		<annotation cp="👨‍🚒" type="tts">мужчина-пожарный</annotation>
 		<annotation cp="👩‍🚒">женщина | женщина-пожарный | пожарный</annotation>
 		<annotation cp="👩‍🚒" type="tts">женщина-пожарный</annotation>
@@ -1135,7 +1415,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵‍♀" type="tts">женщина в смокинге</annotation>
 		<annotation cp="👰">невеста | свадьба | фата</annotation>
 		<annotation cp="👰" type="tts">невеста</annotation>
-		<annotation cp="👰‍♂">мужчина | мужчина в фате | фата | фата на мужчине</annotation>
+		<annotation cp="👰‍♂">мужчина | мужчина в фате | фата</annotation>
 		<annotation cp="👰‍♂" type="tts">мужчина в фате</annotation>
 		<annotation cp="👰‍♀">женщина | женщина в фате | невеста | фата</annotation>
 		<annotation cp="👰‍♀" type="tts">женщина в фате</annotation>
@@ -1149,7 +1429,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤱" type="tts">кормление грудью</annotation>
 		<annotation cp="👩‍🍼">забота | кормление | кормящая женщина | мама | ребенок</annotation>
 		<annotation cp="👩‍🍼" type="tts">кормящая женщина</annotation>
-		<annotation cp="👨‍🍼">забота | кормление | кормящий мужчина | мужчина | ребенок</annotation>
+		<annotation cp="👨‍🍼">забота | кормление | кормящий мужчина | мужчина | папа | ребенок</annotation>
 		<annotation cp="👨‍🍼" type="tts">кормящий мужчина</annotation>
 		<annotation cp="🧑‍🍼">забота | кормление | кормящий | ребенок | человек</annotation>
 		<annotation cp="🧑‍🍼" type="tts">кормящий человек</annotation>
@@ -1247,19 +1527,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">мужчина на коленях</annotation>
 		<annotation cp="🧎‍♀">девочка | девушка | женщина | женщина на коленях | колени | на коленях</annotation>
 		<annotation cp="🧎‍♀" type="tts">женщина на коленях</annotation>
-		<annotation cp="🧑‍🦯">инвалид | ограниченные возможности | слепой | человек с белой тростью</annotation>
+		<annotation cp="🧑‍🦯">инвалид | слепой | человек с белой тростью</annotation>
 		<annotation cp="🧑‍🦯" type="tts">человек с белой тростью</annotation>
 		<annotation cp="👨‍🦯">инвалид | мужчина | мужчина с тростью для ходьбы | палочка | слепой | трость | человек</annotation>
 		<annotation cp="👨‍🦯" type="tts">мужчина с тростью для ходьбы</annotation>
 		<annotation cp="👩‍🦯">женщина | женщина с тростью для ходьбы | инвалид | палочка | слепая | трость | человек</annotation>
 		<annotation cp="👩‍🦯" type="tts">женщина с тростью для ходьбы</annotation>
-		<annotation cp="🧑‍🦼">инвалид | инвалидная коляска | ограниченные возможности | человек в кресле-коляске с мотором</annotation>
+		<annotation cp="🧑‍🦼">инвалид | инвалидная коляска | человек в кресле-коляске с мотором</annotation>
 		<annotation cp="🧑‍🦼" type="tts">человек в кресле-коляске с мотором</annotation>
 		<annotation cp="👨‍🦼">в кресле | инвалид | кресло | мужчина | мужчина в электрическом кресле-коляске</annotation>
 		<annotation cp="👨‍🦼" type="tts">мужчина в электрическом кресле-коляске</annotation>
 		<annotation cp="👩‍🦼">в кресле | женщина | женщина в электрическом кресле-коляске | инвалид | кресло</annotation>
 		<annotation cp="👩‍🦼" type="tts">женщина в электрическом кресле-коляске</annotation>
-		<annotation cp="🧑‍🦽">инвалид | инвалидная коляска | ограниченные возможности | человек в кресле-коляске с ручным приводом</annotation>
+		<annotation cp="🧑‍🦽">инвалид | инвалидная коляска | человек в кресле-коляске с ручным приводом</annotation>
 		<annotation cp="🧑‍🦽" type="tts">человек в кресле-коляске с ручным приводом</annotation>
 		<annotation cp="👨‍🦽">в кресле | инвалид | кресло | мужчина | мужчина в ручном кресле-коляске</annotation>
 		<annotation cp="👨‍🦽" type="tts">мужчина в ручном кресле-коляске</annotation>
@@ -1569,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">цыпленок</annotation>
 		<annotation cp="🐦">голова | птица</annotation>
 		<annotation cp="🐦" type="tts">птица</annotation>
+		<annotation cp="🐦‍🔥">возрождение | огненная птица | реинкарнация | сказочная птица | феникс</annotation>
+		<annotation cp="🐦‍🔥" type="tts">феникс</annotation>
 		<annotation cp="🐧">голова | пингвин</annotation>
 		<annotation cp="🐧" type="tts">пингвин</annotation>
 		<annotation cp="🕊">белый | голубь | мир | полет</annotation>
@@ -1593,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">попугай</annotation>
 		<annotation cp="🪽">авиация | ангельский | крыло | летать | мифология | полет | птица</annotation>
 		<annotation cp="🪽" type="tts">крыло</annotation>
+		<annotation cp="🐦‍⬛">ворон | ворона | грач | птица | черный</annotation>
+		<annotation cp="🐦‍⬛" type="tts">черная птица</annotation>
 		<annotation cp="🪿">глупый | гоготать | гусь | дичь | птица</annotation>
 		<annotation cp="🪿" type="tts">гусь</annotation>
 		<annotation cp="🐸">голова | голова лягушки | жаба | зеленая | лягушка | морда</annotation>
@@ -1725,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">гнездо с яйцами</annotation>
 		<annotation cp="🍄">гриб | мухомор | несъедобный | поганка | растение | ядовитый</annotation>
 		<annotation cp="🍄" type="tts">гриб</annotation>
+		<annotation cp="🍄‍🟫" draft="contributed">бурый гриб | гриб | еда | овощ | природа</annotation>
+		<annotation cp="🍄‍🟫" type="tts" draft="contributed">бурый гриб</annotation>
 		<annotation cp="🍇">виноград | виноградина | сок | фрукт</annotation>
 		<annotation cp="🍇" type="tts">виноград</annotation>
 		<annotation cp="🍈">дыня | растение | фрукт | ягода</annotation>
@@ -1735,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">мандарин</annotation>
 		<annotation cp="🍋">лимон | фрукт | цитрус | цитрусовый</annotation>
 		<annotation cp="🍋" type="tts">лимон</annotation>
+		<annotation cp="🍋‍🟩" draft="contributed">лайм | тропический | фрукт | цитрус | цитрусовый</annotation>
+		<annotation cp="🍋‍🟩" type="tts" draft="contributed">лайм</annotation>
 		<annotation cp="🍌">банан | фрукт</annotation>
 		<annotation cp="🍌" type="tts">банан</annotation>
 		<annotation cp="🍍">ананас | фрукт</annotation>
@@ -3015,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">гиперссылка</annotation>
 		<annotation cp="⛓">звенья | цепочка | цепь</annotation>
 		<annotation cp="⛓" type="tts">цепь</annotation>
+		<annotation cp="⛓‍💥" draft="contributed">оковы | разорванная цепь | разорвать | разрыв | свобода | цепь</annotation>
+		<annotation cp="⛓‍💥" type="tts" draft="contributed">разорванная цепь</annotation>
 		<annotation cp="🪝">захват | крюк | крючок | подвес | уловка</annotation>
 		<annotation cp="🪝" type="tts">крюк</annotation>
 		<annotation cp="🧰">инструменты | комплект инструментов | механик | ящик для инструментов</annotation>
@@ -3045,7 +3335,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💊" type="tts">пилюля</annotation>
 		<annotation cp="🩹">заклеить | лечить | пластырь | порез | рана</annotation>
 		<annotation cp="🩹" type="tts">пластырь</annotation>
-		<annotation cp="🩼">инвалидность | костыли | костыль | опора | отсутствие мобильности | перелом | травма | трость</annotation>
+		<annotation cp="🩼">инвалидность | костыль | опора | перелом | травма | трость</annotation>
 		<annotation cp="🩼" type="tts">костыль</annotation>
 		<annotation cp="🩺">врач | доктор | инструмент | сердце | слушать | стетоскоп</annotation>
 		<annotation cp="🩺" type="tts">стетоскоп</annotation>
@@ -3191,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">стрелка вверх-вниз</annotation>
 		<annotation cp="↔">влево и вправо | влево-вправо | двойная | стрелка | стрелка влево вправо</annotation>
 		<annotation cp="↔" type="tts">стрелка влево-вправо</annotation>
-		<annotation cp="↮" draft="contributed">перечеркнутая стрелка вправо-влево</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">перечеркнутая стрелка вправо-влево</annotation>
+		<annotation cp="↮">перечеркнутая стрелка вправо-влево</annotation>
+		<annotation cp="↮" type="tts">перечеркнутая стрелка вправо-влево</annotation>
 		<annotation cp="↩">изгиб | изогнутая стрелка | поворот влево | стрелка вправо | стрелка вправо с поворотом влево</annotation>
 		<annotation cp="↩" type="tts">стрелка вправо с поворотом влево</annotation>
 		<annotation cp="↪">изгиб | изогнутая стрелка | поворот вправо | стрелка влево | стрелка влево с поворотом вправо</annotation>
@@ -3565,20 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">фунт</annotation>
 		<annotation cp="¥">валюта | иена | китайский юань | юань | японская иена</annotation>
 		<annotation cp="¥" type="tts">иена</annotation>
+		<annotation cp="₢">валюта | крузейро</annotation>
+		<annotation cp="₢" type="tts">крузейро</annotation>
+		<annotation cp="₣">валюта | франк | французский франк</annotation>
+		<annotation cp="₣" type="tts">французский франк</annotation>
+		<annotation cp="₤">валюта | лира</annotation>
+		<annotation cp="₤" type="tts">лира</annotation>
 		<annotation cp="₥">мил | милесимо | миллим | милль | милльем | миль | мильем</annotation>
 		<annotation cp="₥" type="tts">милль</annotation>
 		<annotation cp="₩">вона | ЮКВ/СКВ</annotation>
 		<annotation cp="₩" type="tts">вона</annotation>
 		<annotation cp="€">валюта | евро</annotation>
 		<annotation cp="€" type="tts">евро</annotation>
+		<annotation cp="₰">валюта | немецкий пенни</annotation>
+		<annotation cp="₰" type="tts">немецкий пенни</annotation>
 		<annotation cp="₱">песо</annotation>
 		<annotation cp="₱" type="tts">песо</annotation>
+		<annotation cp="₳">аустраль | валюта</annotation>
+		<annotation cp="₳" type="tts">аустраль</annotation>
+		<annotation cp="₶">валюта | турский ливр</annotation>
+		<annotation cp="₶" type="tts">турский ливр</annotation>
+		<annotation cp="₷">валюта | спесмило</annotation>
+		<annotation cp="₷" type="tts">спесмило</annotation>
 		<annotation cp="₹">валюта | индийская рупия | рупия</annotation>
 		<annotation cp="₹" type="tts">индийская рупия</annotation>
 		<annotation cp="₽">валюта | рубль</annotation>
 		<annotation cp="₽" type="tts">рубль</annotation>
 		<annotation cp="₿">btc | биткоин | биткойн | бтк</annotation>
 		<annotation cp="₿" type="tts">биткоин</annotation>
+		<annotation cp="₨">валюта | рупия</annotation>
+		<annotation cp="₨" type="tts">рупия</annotation>
+		<annotation cp="﷼">валюта | риал</annotation>
+		<annotation cp="﷼" type="tts">риал</annotation>
 		<annotation cp="¹">надстрочная цифра один | надстрочный | один | степень</annotation>
 		<annotation cp="¹" type="tts">надстрочная цифра один</annotation>
 		<annotation cp="²">в квадрате | два | квадрат | надстрочная цифра два | надстрочный | степень</annotation>

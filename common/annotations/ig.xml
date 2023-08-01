@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">ọtanjele ahụ maka òji-ndịna etiti</annotation>
 		<annotation cp="🏿">ọtanjele ahụ | ọtanjele ahụ maka òji | ụdị 6</annotation>
 		<annotation cp="🏿" type="tts">ọtanjele ahụ maka òji</annotation>
+		<annotation cp="‾">akara etiti | akara etiti ala | akara mgbakọ elu</annotation>
+		<annotation cp="‾" type="tts">akara etiti</annotation>
 		<annotation cp="_">dash | line | low dash | low line | underdash | underline</annotation>
 		<annotation cp="_" type="tts">low line</annotation>
 		<annotation cp="-">dash | mwepu | njiko | njiko-mwepu</annotation>
@@ -59,6 +61,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts">akara ajuju di inverted</annotation>
 		<annotation cp="؟">ajuju | akara ajuju | akara ajuju arabik | arabic | arabic akara ajuju</annotation>
 		<annotation cp="؟" type="tts">akara ajuju arabik</annotation>
+		<annotation cp="‽">akàra ajụjụ</annotation>
+		<annotation cp="‽" type="tts">akàra ajụjụ</annotation>
 		<annotation cp=".">dot | kponkwem | mgbe</annotation>
 		<annotation cp="." type="tts">mgbe</annotation>
 		<annotation cp="…">ellipsis | kponkwem | omission</annotation>
@@ -155,8 +159,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="″" type="tts">prime abuo</annotation>
 		<annotation cp="‴">prime | prime ato</annotation>
 		<annotation cp="‴" type="tts">prime ato</annotation>
+		<annotation cp="‸">karet</annotation>
+		<annotation cp="‸" type="tts">karet</annotation>
 		<annotation cp="※">akara reference</annotation>
 		<annotation cp="※" type="tts">akara reference</annotation>
+		<annotation cp="⁂">akara kpakpando atọ | dinkus | kpakpando</annotation>
+		<annotation cp="⁂" type="tts">akara kpakpando atọ</annotation>
 		<annotation cp="`">accent | grave | ụda</annotation>
 		<annotation cp="`" type="tts">grave accent</annotation>
 		<annotation cp="´">accent | acute | ụda</annotation>
@@ -171,22 +179,192 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">ụda recording copyright</annotation>
 		<annotation cp="←">arrow | left | left-pointing arrow</annotation>
 		<annotation cp="←" type="tts">left-pointing arrow</annotation>
+		<annotation cp="↚">akụ na-atụ aka ekpe</annotation>
+		<annotation cp="↚" type="tts">akụ na-atụ aka ekpe</annotation>
 		<annotation cp="→">arrow | right | right-pointing akụ</annotation>
 		<annotation cp="→" type="tts">right-pointing akụ</annotation>
+		<annotation cp="↛">akụ na-atụ aka nri</annotation>
+		<annotation cp="↛" type="tts">akụ na-atụ aka nri</annotation>
 		<annotation cp="↑">arrow | up | up-pointing arrow</annotation>
 		<annotation cp="↑" type="tts">up-pointing arrow</annotation>
 		<annotation cp="↓">arrow | down | down-pointing akụ | down-pointing arrow</annotation>
 		<annotation cp="↓" type="tts">down-pointing akụ</annotation>
+		<annotation cp="↜">akụ na-efegharị na-atụ aka ekpe</annotation>
+		<annotation cp="↜" type="tts">akụ na-efegharị na-atụ aka ekpe</annotation>
+		<annotation cp="↝">akụ na-efegharị na-atụ aka nri</annotation>
+		<annotation cp="↝" type="tts">akụ na-efegharị na-atụ aka nri</annotation>
+		<annotation cp="↞">akụ nwere isi abụo na-atụ aka ekpe</annotation>
+		<annotation cp="↞" type="tts">akụ nwere isi abụo na-atụ aka ekpe</annotation>
+		<annotation cp="↟">akụ nwere isi abụo na-atụli elu</annotation>
+		<annotation cp="↟" type="tts">akụ nwere isi abụo na-atụli elu</annotation>
+		<annotation cp="↠">akụ nwere isi abụo na-atụ aka nri</annotation>
+		<annotation cp="↠" type="tts">akụ nwere isi abụo na-atụ aka nri</annotation>
+		<annotation cp="↡">akụ nwere isi abụo na-atụda ala</annotation>
+		<annotation cp="↡" type="tts">akụ nwere isi abụo na-atụda ala</annotation>
+		<annotation cp="↢">akụ nwere ọdụ na-atụ n’aka ekpe</annotation>
+		<annotation cp="↢" type="tts">akụ nwere ọdụ na-atụ n’aka ekpe</annotation>
+		<annotation cp="↣">akụ nwere ọdụ na-atụ n’aka nri</annotation>
+		<annotation cp="↣" type="tts">akụ nwere ọdụ na-atụ n’aka nri</annotation>
+		<annotation cp="↤">akụ aka ekpe sitere na-ahịrị</annotation>
+		<annotation cp="↤" type="tts">akụ aka ekpe sitere na-ahịrị</annotation>
+		<annotation cp="↥">akụ elu sitere na-ahịrị</annotation>
+		<annotation cp="↥" type="tts">akụ elu sitere na-ahịrị</annotation>
+		<annotation cp="↦">akụ aka nri sitere na-ahịrị</annotation>
+		<annotation cp="↦" type="tts">akụ aka nri sitere na-ahịrị</annotation>
+		<annotation cp="↧">akụ ala sitere na-ahịrị</annotation>
+		<annotation cp="↧" type="tts">akụ ala sitere na-ahịrị</annotation>
+		<annotation cp="↨">akụ elu na ala nwere ahịrị</annotation>
+		<annotation cp="↨" type="tts">akụ elu na ala nwere ahịrị</annotation>
+		<annotation cp="↫">akụ aka ekpe nwere okirikiri</annotation>
+		<annotation cp="↫" type="tts">akụ aka ekpe nwere okirikiri</annotation>
+		<annotation cp="↬">akụ aka nri nwere okirikiri</annotation>
+		<annotation cp="↬" type="tts">akụ aka nri nwere okirikiri</annotation>
+		<annotation cp="↭">akụ aka nri n’aka ekpe na-efegharị</annotation>
+		<annotation cp="↭" type="tts">akụ aka nri n’aka ekpe na-efegharị</annotation>
+		<annotation cp="↯">akụ rịgọ rịgọ n’aga ala | rịgọ rịgọ</annotation>
+		<annotation cp="↯" type="tts">akụ rịgọ rịgọ n’aga ala</annotation>
+		<annotation cp="↰">akụ n’aga elu gawa aka ekpe</annotation>
+		<annotation cp="↰" type="tts">akụ n’aga elu gawa aka ekpe</annotation>
+		<annotation cp="↱">akụ n’aga elu gawa aka nri</annotation>
+		<annotation cp="↱" type="tts">akụ n’aga elu gawa aka nri</annotation>
+		<annotation cp="↲">akụ n’agbada ala gawa aka ekpe</annotation>
+		<annotation cp="↲" type="tts">akụ n’agbada ala gawa aka ekpe</annotation>
+		<annotation cp="↳">akụ n’agbada ala gawa aka nri</annotation>
+		<annotation cp="↳" type="tts">akụ n’agbada ala gawa aka nri</annotation>
+		<annotation cp="↴">akụ n’aga n’aka nri gbadawa n’ala</annotation>
+		<annotation cp="↴" type="tts">akụ n’aga n’aka nri gbadawa n’ala</annotation>
+		<annotation cp="↵">akụ n’agbada n’ala tụgharịa n’aka ekpe</annotation>
+		<annotation cp="↵" type="tts">akụ n’agbada n’ala tụgharịa n’aka ekpe</annotation>
+		<annotation cp="↶">akụ ọkara okirikiri elu na atụgharịa n’aka nri</annotation>
+		<annotation cp="↶" type="tts">akụ ọkara okirikiri elu na atụgharịa n’aka nri</annotation>
+		<annotation cp="↷">akụ ọkara okirikiri elu na atụgharịa n’aka ekpe</annotation>
+		<annotation cp="↷" type="tts">akụ ọkara okirikiri elu na atụgharịa n’aka ekpe</annotation>
+		<annotation cp="↸">akụ toro ogologo n’eche ihu ebe ugwu</annotation>
+		<annotation cp="↸" type="tts">akụ toro ogologo n’eche ihu ebe ugwu</annotation>
+		<annotation cp="↹">ahịrị | aka ekpe | aka nri | akụ | akụ aka ekpe n’elu nke aka nri</annotation>
+		<annotation cp="↹" type="tts">akụ aka ekpe n’elu nke aka nri nwere ahịrị</annotation>
+		<annotation cp="↺">akụ okirikiri na atụgharịa n’aka nri</annotation>
+		<annotation cp="↺" type="tts">akụ okirikiri na atụgharịa n’aka nri</annotation>
+		<annotation cp="↻">akụ okirikiri na atụgharịa n’aka ekpe</annotation>
+		<annotation cp="↻" type="tts">akụ okirikiri na atụgharịa n’aka ekpe</annotation>
+		<annotation cp="↼">gbagoro | nko aka ekpe gbagoro elu</annotation>
+		<annotation cp="↼" type="tts">nko aka ekpe gbagoro elu</annotation>
+		<annotation cp="↽">nko aka ekpe gabdara ala</annotation>
+		<annotation cp="↽" type="tts">nko aka ekpe gadara ala</annotation>
+		<annotation cp="↾">nko | nko aka elu n’aga n’aka nri</annotation>
+		<annotation cp="↾" type="tts">nko aka elu n’aga n’aka nri</annotation>
+		<annotation cp="↿">nko | nko aka elu n’aga n’aka ekpe</annotation>
+		<annotation cp="↿" type="tts">nko aka elu n’aga n’aka ekpe</annotation>
+		<annotation cp="⇀">nko | nko aka nri gbagoro elu</annotation>
+		<annotation cp="⇀" type="tts">nko aka nri gbagoro elu</annotation>
+		<annotation cp="⇁">nko | nko aka nri gbadara ala</annotation>
+		<annotation cp="⇁" type="tts">nko aka nri gbadara ala</annotation>
+		<annotation cp="⇂">nko | nko gbadara ala n’aga n’aka nri</annotation>
+		<annotation cp="⇂" type="tts">nko gbadara ala n’aga n’aka nri</annotation>
+		<annotation cp="⇃">nko | nko gbadara ala n’aga n’aka ekpe</annotation>
+		<annotation cp="⇃" type="tts">nko gbadara ala n’aga n’aka ekpe</annotation>
+		<annotation cp="⇄">akụ aka nri n’elu nke aka ekpe</annotation>
+		<annotation cp="⇄" type="tts">akụ aka nri n’elu nke aka ekpe</annotation>
 		<annotation cp="⇅">arrow | down | up | up-pointing and down-pointing arrows</annotation>
 		<annotation cp="⇅" type="tts">up-pointing and down-pointing arrows</annotation>
 		<annotation cp="⇆">arrow | left | left-pointing over right-pointing arrows | right</annotation>
 		<annotation cp="⇆" type="tts">left-pointing over right-pointing arrows</annotation>
+		<annotation cp="⇇">akụ abụo n’aga n’aka ekpe</annotation>
+		<annotation cp="⇇" type="tts">akụ abụo n’aga n’aka ekpe</annotation>
+		<annotation cp="⇈">akụ abụo n’agbago elu</annotation>
+		<annotation cp="⇈" type="tts">akụ abụo n’agbago elu</annotation>
+		<annotation cp="⇉">akụ abụo n’aga n’aka nri</annotation>
+		<annotation cp="⇉" type="tts">akụ abụo n’aga n’aka nri</annotation>
+		<annotation cp="⇊">akụ abụo n’agbada ala</annotation>
+		<annotation cp="⇊" type="tts">akụ abụo n’agbada ala</annotation>
+		<annotation cp="⇋">nko aka ekpe n’elu nko aka nri</annotation>
+		<annotation cp="⇋" type="tts">nko aka ekpe n’elu nko aka nri</annotation>
+		<annotation cp="⇌">nko aka nri n’elu nko aka ekpe</annotation>
+		<annotation cp="⇌" type="tts">nko aka nri n’elu nko aka ekpe</annotation>
+		<annotation cp="⇐">akụ aka ekpe nwere ahịrị abụo</annotation>
+		<annotation cp="⇐" type="tts">akụ aka ekpe nwere ahịrị abụo</annotation>
+		<annotation cp="⇍">akụ aka ekpe nwere ahịrị abụo akachiri n’etiti</annotation>
+		<annotation cp="⇍" type="tts">akụ aka ekpe nwere ahịrị abụo akachiri n’etiti</annotation>
+		<annotation cp="⇑">akụ n’agbago nwere ahịrị abụo</annotation>
+		<annotation cp="⇑" type="tts">akụ n’agbago nwere ahịrị abụo</annotation>
+		<annotation cp="⇒">akụ aka nri nwere ahịrị abụo</annotation>
+		<annotation cp="⇒" type="tts">akụ aka nri nwere ahịrị abụo</annotation>
+		<annotation cp="⇏">akụ aka nri nwere ahịrị abụo akachiri n’etiti</annotation>
+		<annotation cp="⇏" type="tts">akụ aka nri nwere ahịrị abụo akachiri n’etiti</annotation>
+		<annotation cp="⇓">akụ n’agbada ala nwere ahịrị abụo</annotation>
+		<annotation cp="⇓" type="tts">akụ n’agbada ala nwere ahịrị abụo</annotation>
+		<annotation cp="⇔">akụ ahịrị abụo n’aga ekpe na aka nri</annotation>
+		<annotation cp="⇔" type="tts">akụ ahịrị abụo n’aga ekpe na aka nri</annotation>
+		<annotation cp="⇎">akụ ahịrị abụo n’aga ekpe na aka nri akachiri n’etiti</annotation>
+		<annotation cp="⇎" type="tts">akụ ahịrị abụo n’aga ekpe na aka nri akachiri n’etiti</annotation>
+		<annotation cp="⇖">akụ ahịrị abụo n’aga ebe ugwu ndida</annotation>
+		<annotation cp="⇖" type="tts">akụ ahịrị abụo n’aga ebe ugwu ndida</annotation>
+		<annotation cp="⇗">akụ ahịrị abụo n’aga ebe ugwu ọwụwa anyanwụ</annotation>
+		<annotation cp="⇗" type="tts">akụ ahịrị abụo n’aga ebe ugwu ọwụwa anyanwụ</annotation>
+		<annotation cp="⇘">akụ ahịrị abụo n’aga ebe ndida ọwụwa anyanwụ</annotation>
+		<annotation cp="⇘" type="tts">akụ ahịrị abụo n’aga ebe ndida ọwụwa anyanwụ</annotation>
+		<annotation cp="⇙">akụ ahịrị abụo n’aga ebe ndida anyanwụ</annotation>
+		<annotation cp="⇙" type="tts">akụ ahịrị abụo n’aga ebe ndida anyanwụ</annotation>
+		<annotation cp="⇚">akụ ahịrị atọ n’aga aka ekpe</annotation>
+		<annotation cp="⇚" type="tts">akụ ahịrị atọ n’aga aka ekpe</annotation>
+		<annotation cp="⇛">akụ ahịrị atọ n’aga aka ekpe</annotation>
+		<annotation cp="⇛" type="tts">akụ ahịrị atọ n’aga aka nri</annotation>
+		<annotation cp="⇜">akụ rịgọrịgọ n’aga aka ekpe</annotation>
+		<annotation cp="⇜" type="tts">akụ rịgọrịgọ n’aga aka ekpe</annotation>
+		<annotation cp="⇝">akụ rịgọrịgọ n’aga aka nri</annotation>
+		<annotation cp="⇝" type="tts">akụ rịgọrịgọ n’aga aka nri</annotation>
+		<annotation cp="⇞">akụ n’agbago elu nwere nkachi abụọ</annotation>
+		<annotation cp="⇞" type="tts">akụ n’agbago elu nwere nkachi abụọ</annotation>
+		<annotation cp="⇟">akụ n’agbada ala nwere nkachi abụọ</annotation>
+		<annotation cp="⇟" type="tts">akụ n’agbada ala nwere nkachi abụọ</annotation>
+		<annotation cp="⇠">akụ akara ùhiè n’aga aka ekpe</annotation>
+		<annotation cp="⇠" type="tts">akụ akara ùhiè n’aga aka ekpe</annotation>
+		<annotation cp="⇡">akụ akara ùhiè n’agbago elu</annotation>
+		<annotation cp="⇡" type="tts">akụ akara ùhiè n’agbago elu</annotation>
+		<annotation cp="⇢">akụ akara ùhiè n’aga aka nri</annotation>
+		<annotation cp="⇢" type="tts">akụ akara ùhiè n’aga aka nri</annotation>
+		<annotation cp="⇣">akụ akara ùhiè n’agbada ala</annotation>
+		<annotation cp="⇣" type="tts">akụ akara ùhiè n’agbada ala</annotation>
+		<annotation cp="⇤">ahịrị akụ aka ekpe</annotation>
+		<annotation cp="⇤" type="tts">ahịrị akụ aka ekpe</annotation>
+		<annotation cp="⇥">ahịrị akụ aka nri</annotation>
+		<annotation cp="⇥" type="tts">ahịrị akụ aka nri</annotation>
+		<annotation cp="⇦">akụ aka ekpe nwere oghere</annotation>
+		<annotation cp="⇦" type="tts">akụ aka ekpe nwere oghere</annotation>
+		<annotation cp="⇧">akụ n’agbago elu nwere oghere</annotation>
+		<annotation cp="⇧" type="tts">akụ n’agbago elu nwere oghere</annotation>
+		<annotation cp="⇨">akụ aka nri nwere oghere</annotation>
+		<annotation cp="⇨" type="tts">akụ aka nri nwere oghere</annotation>
+		<annotation cp="⇩">akụ n’agbada ala nwere oghere</annotation>
+		<annotation cp="⇩" type="tts">akụ n’agbada ala nwere oghere</annotation>
+		<annotation cp="⇪">akụ nwere oghere n’agbago elu si n’ahịrị</annotation>
+		<annotation cp="⇪" type="tts">akụ nwere oghere n’agbago elu si n’ahịrị</annotation>
+		<annotation cp="⇵">akụ n’agbada ala nke aka ekpe n’agbago elu</annotation>
+		<annotation cp="⇵" type="tts">akụ n’agbada ala nke aka ekpe n’agbago elu</annotation>
+		<annotation cp="∀">enyere | keọbụla | kezuruọha | maka nke niile | nke niile</annotation>
+		<annotation cp="∀" type="tts">nke nille</annotation>
+		<annotation cp="∂">difrensha | ọkara difrensha</annotation>
+		<annotation cp="∂" type="tts">ọkara difrensha</annotation>
+		<annotation cp="∃">enwere</annotation>
+		<annotation cp="∃" type="tts">enwere</annotation>
+		<annotation cp="∅">mgbakọ na mwepụ | okpokoro set | opereto set</annotation>
+		<annotation cp="∅" type="tts">set ghere oghe</annotation>
 		<annotation cp="∆">mmụba | triangul</annotation>
 		<annotation cp="∆" type="tts">mmụba</annotation>
 		<annotation cp="∇">nabla | triangul</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">contains | element | element of | membership | set</annotation>
 		<annotation cp="∈" type="tts">element of</annotation>
+		<annotation cp="∉">abụghị element | element</annotation>
+		<annotation cp="∉" type="tts">abụghị element</annotation>
+		<annotation cp="∋">element | nwere ótú</annotation>
+		<annotation cp="∋" type="tts">nwere ótú</annotation>
+		<annotation cp="∎">halmos | ili | kegosiri | njedebe ngosi</annotation>
+		<annotation cp="∎" type="tts">njedebe ngosi</annotation>
+		<annotation cp="∏">logik | mpụta | mpụta n-ary</annotation>
+		<annotation cp="∏" type="tts">mpụta n-ary</annotation>
+		<annotation cp="∑">mgbakọ | mgbakọ n-ary | mgbakọ na mwepụ</annotation>
+		<annotation cp="∑" type="tts">mgbakọ n-ary</annotation>
 		<annotation cp="+">akara igbakota | igbakota | tinye</annotation>
 		<annotation cp="+" type="tts">akara igbakota</annotation>
 		<annotation cp="±">igbakota-mwepu</annotation>
@@ -197,12 +375,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">otutu akara</annotation>
 		<annotation cp="&lt;">pekarịrị</annotation>
 		<annotation cp="&lt;" type="tts">pekarịrị</annotation>
+		<annotation cp="≮">ahaghị | epeghị mpe karịa | mgbakọ na mwepụ</annotation>
+		<annotation cp="≮" type="tts">epeghị mpe karịa</annotation>
 		<annotation cp="=">nhara</annotation>
 		<annotation cp="=" type="tts">nhara</annotation>
 		<annotation cp="≠">nhaghị nhara</annotation>
 		<annotation cp="≠" type="tts">nhaghị nhara</annotation>
 		<annotation cp="&gt;">karirị | karịrị</annotation>
 		<annotation cp="&gt;" type="tts">karirị</annotation>
+		<annotation cp="≯">ahaghị | ebughị ibu karịa | mgbakọ na mwepụ</annotation>
+		<annotation cp="≯" type="tts">ebughị ibu karịa</annotation>
 		<annotation cp="¬">mgbagha</annotation>
 		<annotation cp="¬" type="tts">mgbagha</annotation>
 		<annotation cp="|">ahịrị kwụ ọtọ</annotation>
@@ -213,38 +395,316 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="−" type="tts">akara mwepu</annotation>
 		<annotation cp="⁻">minus | superscript</annotation>
 		<annotation cp="⁻" type="tts">superscript minus</annotation>
+		<annotation cp="∓">mgbakwunye-mwepu | mwepu-maọbụ-mgbakwunye</annotation>
+		<annotation cp="∓" type="tts">mwepu-maọbụ-mgbakwunye</annotation>
+		<annotation cp="∕">ahịrị | ahịrị nkewa | akara</annotation>
+		<annotation cp="∕" type="tts">ahịrị nkewa</annotation>
+		<annotation cp="⁄">akara | akara nkebi</annotation>
+		<annotation cp="⁄" type="tts">akara nkebi</annotation>
+		<annotation cp="∗">akara kpakpando | kpakpando</annotation>
+		<annotation cp="∗" type="tts">akara kpakpando</annotation>
+		<annotation cp="∘">mmejupụta | opiretọ | opiretọ òkirikiri</annotation>
+		<annotation cp="∘" type="tts">opiretọ òkirikiri</annotation>
+		<annotation cp="∙">mgbọ | opiretọ mgbọ</annotation>
+		<annotation cp="∙" type="tts">opiretọ mgbọ</annotation>
 		<annotation cp="√">radical | radix | root | square | surd</annotation>
 		<annotation cp="√" type="tts">square root</annotation>
+		<annotation cp="∝">hatara | nhata</annotation>
+		<annotation cp="∝" type="tts">hatara</annotation>
 		<annotation cp="∞">akara ebiyebi | ebiyebi</annotation>
 		<annotation cp="∞" type="tts">akara ebiyebi</annotation>
+		<annotation cp="∟">akụkụ aka nri | mgbakọ na mwepụ</annotation>
+		<annotation cp="∟" type="tts">akụkụ aka nri</annotation>
+		<annotation cp="∠">akụkụ | akụkụ digrii iri anọ n’ise</annotation>
+		<annotation cp="∠" type="tts">akụkụ</annotation>
+		<annotation cp="∣">n’ekewa | nkewa</annotation>
+		<annotation cp="∣" type="tts">n’ekewa</annotation>
+		<annotation cp="∥">ahịrị abụọ nọkọtara ọnụ</annotation>
+		<annotation cp="∥" type="tts">ahịrị abụọ nọkọtara ọnụ</annotation>
+		<annotation cp="∧">ac | atque | logik na | weji</annotation>
+		<annotation cp="∧" type="tts">nwere nghọta ma</annotation>
 		<annotation cp="∩">intersection | set</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
 		<annotation cp="∪">collection | set | union</annotation>
 		<annotation cp="∪" type="tts">union</annotation>
+		<annotation cp="∫">intija | kakulus</annotation>
+		<annotation cp="∫" type="tts">intija</annotation>
+		<annotation cp="∬">intija abụọ | kakulus</annotation>
+		<annotation cp="∬" type="tts">intija abụọ</annotation>
+		<annotation cp="∮">kọntọ intija</annotation>
+		<annotation cp="∮" type="tts">kọntọ intija</annotation>
+		<annotation cp="∴">logik | ya mere</annotation>
+		<annotation cp="∴" type="tts">ya mere</annotation>
+		<annotation cp="∵">logik | maka</annotation>
+		<annotation cp="∵" type="tts">maka</annotation>
+		<annotation cp="∶">retio</annotation>
+		<annotation cp="∶" type="tts">retio</annotation>
+		<annotation cp="∷">nhata</annotation>
+		<annotation cp="∷" type="tts">nhata</annotation>
+		<annotation cp="∼">opiretọ | opiretọ taid</annotation>
+		<annotation cp="∼" type="tts">opiretọ taid</annotation>
+		<annotation cp="∽">opiretọ mmeghari | taid</annotation>
+		<annotation cp="∽" type="tts">opiretọ mmeghari</annotation>
+		<annotation cp="∾">s ntụgharị umengwụ</annotation>
+		<annotation cp="∾" type="tts">s ntụgharị umengwụ</annotation>
+		<annotation cp="≃">hatara na ntụgharị | mgbakọ na mwepụ | ntụgharị</annotation>
+		<annotation cp="≃" type="tts">hatara na ntụgharị</annotation>
+		<annotation cp="≅">congruence | ihe ruru nhata | isomorphism | mgbakọ na mwepụ | nhata</annotation>
+		<annotation cp="≅" type="tts">ruru nhata</annotation>
 		<annotation cp="≈">ofokwa nhara</annotation>
 		<annotation cp="≈" type="tts">ofokwa nhara</annotation>
+		<annotation cp="≌">ha niile hatara | mgbakọ na mwepụ | nhata</annotation>
+		<annotation cp="≌" type="tts">ha niile hatara</annotation>
+		<annotation cp="≒">ruru nhata onyinyo</annotation>
+		<annotation cp="≒" type="tts">ruru nhata onyinyo</annotation>
+		<annotation cp="≖">mgbakọ na mwepụ | nhata | òkirikiri na nhata</annotation>
+		<annotation cp="≖" type="tts">òkirikiri na nhata</annotation>
 		<annotation cp="≡">ezigbo ya | kpọmkwem | okpukpu atọ | yiri</annotation>
 		<annotation cp="≡" type="tts">yiri</annotation>
+		<annotation cp="≣">hatara kpọmkwem | mgbakọ na mwepụ | nhata</annotation>
+		<annotation cp="≣" type="tts">hatara kpọmkwem</annotation>
 		<annotation cp="≤">nhara | pekarịrị ma-ọbụ nhara</annotation>
 		<annotation cp="≤" type="tts">pekarịrị ma-ọbụ nhara</annotation>
 		<annotation cp="≥">karịrị ma-ọbụ nha</annotation>
 		<annotation cp="≥" type="tts">karịrị ma-ọbụ nha</annotation>
+		<annotation cp="≦">ahataghị | erughị n’elu hatara | mgbakọ na mwepụ</annotation>
+		<annotation cp="≦" type="tts">erughị n’elu hatara</annotation>
+		<annotation cp="≧">ahataghị | kariri n’elu hatara | mgbakọ na mwepụ</annotation>
+		<annotation cp="≧" type="tts">kariri n’elu hatara</annotation>
+		<annotation cp="≪">ahataghị | erughị dị ukwuu | mgbakọ na mwepụ</annotation>
+		<annotation cp="≪" type="tts">erughị dị ukwuu</annotation>
+		<annotation cp="≫">ahataghị | mgbakọ na mwepụ | nkari dị ukwuu</annotation>
+		<annotation cp="≫" type="tts">nkari dị ukwuu</annotation>
+		<annotation cp="≬">n’etiti</annotation>
+		<annotation cp="≬" type="tts">n’etiti</annotation>
+		<annotation cp="≳">ahataghị | kariri nhata | mgbakọ na mwepụ</annotation>
+		<annotation cp="≳" type="tts">kariri nhata</annotation>
+		<annotation cp="≺">mgbakọ na mwepụ | na-ebute ụzọ | opiretọ set</annotation>
+		<annotation cp="≺" type="tts">na-ebute ụzọ</annotation>
+		<annotation cp="≻">mgbakọ na mwepụ | na-esote | opiretọ set</annotation>
+		<annotation cp="≻" type="tts">na-esote</annotation>
+		<annotation cp="⊁">anaghị esote | mgbakọ na mwepụ | opiretọ set</annotation>
+		<annotation cp="⊁" type="tts">anaghị esote</annotation>
 		<annotation cp="⊂">set | subset | subset of</annotation>
 		<annotation cp="⊂" type="tts">subset of</annotation>
+		<annotation cp="⊃">mgbakọ na mwepụ | opiretọ set | set dị elu</annotation>
+		<annotation cp="⊃" type="tts">set dị elu</annotation>
+		<annotation cp="⊆">set dị ala hatara</annotation>
+		<annotation cp="⊆" type="tts">set dị ala hatara</annotation>
+		<annotation cp="⊇">mgbakọ na mwepụ | nhata | set dị elu hatara</annotation>
+		<annotation cp="⊇" type="tts">set dị elu hatara</annotation>
+		<annotation cp="⊕">mgbakọ | mgbakọ agbara okirikiri</annotation>
+		<annotation cp="⊕" type="tts">mgbakọ agbara okirikiri</annotation>
+		<annotation cp="⊖">mgbawa ala | mwepụ agbara okirikiri | ndi iche</annotation>
+		<annotation cp="⊖" type="tts">mwepụ agbara okirikiri</annotation>
+		<annotation cp="⊗">mmụbaa | mmụbaa agbara okirikiri | tensọ</annotation>
+		<annotation cp="⊗" type="tts">mmụbaa agbara okirikiri</annotation>
+		<annotation cp="⊘">akara nkewa agbara okiririri | dika nkewa | mgbakọ na mwepụ</annotation>
+		<annotation cp="⊘" type="tts">akara nkewa agbara okiririri</annotation>
+		<annotation cp="⊙">opiretọ | opiretọ ntụpọ agbara okirikiri | XNOR</annotation>
+		<annotation cp="⊙" type="tts">opiretọ ntụpọ agbara okirikiri</annotation>
+		<annotation cp="⊚">opiretọ òkirikiri agbara okirikiri</annotation>
+		<annotation cp="⊚" type="tts">opiretọ òkirikiri agbara okirikiri</annotation>
+		<annotation cp="⊛">kpakpando | opiretọ | opiretọ kpakpando agbara okirikiri</annotation>
+		<annotation cp="⊛" type="tts">opiretọ kpakpando agbara okirikiri</annotation>
+		<annotation cp="⊞">dika mgbakọ | mgbakọ na mwepụ | mgbakọ sụkwai</annotation>
+		<annotation cp="⊞" type="tts">mgbakọ sụkwai</annotation>
+		<annotation cp="⊟">dika mwepụ | mgbakọ na mwepụ | mwepụ sụkwai</annotation>
+		<annotation cp="⊟" type="tts">mwepụ sụkwai</annotation>
+		<annotation cp="⊥">eet | falsum | tak | tak elu</annotation>
+		<annotation cp="⊥" type="tts">tak elu</annotation>
+		<annotation cp="⊮">adịghị amanye</annotation>
+		<annotation cp="⊮" type="tts">adịghị amanye</annotation>
+		<annotation cp="⊰">bu ụzọ n’okpuru mmekọrịta | mgbakọ na mwepụ | opiretọ set</annotation>
+		<annotation cp="⊰" type="tts">bu ụzọ n’okpuru mmekọrịta</annotation>
+		<annotation cp="⊱">mgbakọ na mwepụ | na-esote n’okpuru mmekọrịta | opiretọ set</annotation>
+		<annotation cp="⊱" type="tts">na-esote n’okpuru mmekọrịta</annotation>
+		<annotation cp="⋭">enweghị nkịtị ótú okpuru hatara | mgbakọ na mwepụ | tiori ótú</annotation>
+		<annotation cp="⋭" type="tts">enweghị nkịtị ótú okpuru hatara</annotation>
+		<annotation cp="⊶">nke ezi</annotation>
+		<annotation cp="⊶" type="tts">nke ezi</annotation>
+		<annotation cp="⊹">hermitian conjugate matrix | mgbakọ na mwepụ | self-adjoint matrix | sụkwai matrix</annotation>
+		<annotation cp="⊹" type="tts">hermitian conjugate matrix</annotation>
+		<annotation cp="⊿">mgbakọ na mwepụ | triangle aka nri | triangle akụkụ aka nri</annotation>
+		<annotation cp="⊿" type="tts">triangle aka nri</annotation>
+		<annotation cp="⋁">disjunction | lojik | n-ary lojik maọbụ</annotation>
+		<annotation cp="⋁" type="tts">n-ary lojik maọbụ</annotation>
+		<annotation cp="⋂">intersection | mgbakọ na mwepụ | n-ary intersection | opiretọ set</annotation>
+		<annotation cp="⋂" type="tts">n-ary intersection</annotation>
+		<annotation cp="⋃">mgbakọ na mwepụ | n-ary union | opiretọ set | union</annotation>
+		<annotation cp="⋃" type="tts">n-ary union</annotation>
+		<annotation cp="⋅">opiretọ | opiretọ ntụpọ</annotation>
+		<annotation cp="⋅" type="tts">opiretọ ntụpọ</annotation>
+		<annotation cp="⋆">opiretọ | opiretọ kpakpando</annotation>
+		<annotation cp="⋆" type="tts">opiretọ kpakpando</annotation>
+		<annotation cp="⋈">bowtie | njikọ okike | opiretọ binary</annotation>
+		<annotation cp="⋈" type="tts">njikọ okike</annotation>
+		<annotation cp="⋒">intersection | intersection abụọ | mgbakọ na mwepụ | opiretọ set</annotation>
+		<annotation cp="⋒" type="tts">intersection abụọ</annotation>
+		<annotation cp="⋘">ahataghị | erughị ma ọli | mgbakọ na mwepụ</annotation>
+		<annotation cp="⋘" type="tts">erughị ma ọli</annotation>
+		<annotation cp="⋙">ahataghị | kariri nke ukwuu | mgbakọ na mwepụ</annotation>
+		<annotation cp="⋙" type="tts">kariri nke ukwuu</annotation>
+		<annotation cp="⋮">ellipsis | ellipsis kwụ ọtọ | mgbakọ na mwepụ</annotation>
+		<annotation cp="⋮" type="tts">ellipsis kwụ ọtọ</annotation>
+		<annotation cp="⋯">ellipsis | ellipsis etiti dara ada</annotation>
+		<annotation cp="⋯" type="tts">ellipsis etiti dara ada</annotation>
+		<annotation cp="⋰">ellipsis | ellipsis elu dafere n’akuku aka nri | mgbakọ na mwepụ</annotation>
+		<annotation cp="⋰" type="tts">ellipsis elu dafere n’akuku aka nri</annotation>
+		<annotation cp="⋱">ellipsis | ellipsis ala dafere n’akuku aka nri | mgbakọ na mwepụ</annotation>
+		<annotation cp="⋱" type="tts">ellipsis ala dafere n’akuku aka nri</annotation>
+		<annotation cp="■">skwya emejuru emeju</annotation>
+		<annotation cp="■" type="tts">skwya emejuru emeju</annotation>
+		<annotation cp="□">skwya ghere oghe</annotation>
+		<annotation cp="□" type="tts">skwya ghere oghe</annotation>
+		<annotation cp="▢">skwya ghere oghe nwere akụkụ okirikiri</annotation>
+		<annotation cp="▢" type="tts">skwya ghere oghe nwere akụkụ okirikiri</annotation>
+		<annotation cp="▣">skwya ghere oghe nwere skwya emejuru emeju</annotation>
+		<annotation cp="▣" type="tts">skwya ghere oghe nwere skwya emejuru emeju</annotation>
+		<annotation cp="▤">skwya nwere mmeju ahịrị dara ada</annotation>
+		<annotation cp="▤" type="tts">skwya nwere mmeju ahịrị dara ada</annotation>
+		<annotation cp="▥">skwya nwere mmeju ahịrị kwụ ọtọ</annotation>
+		<annotation cp="▥" type="tts">skwya nwere mmeju ahịrị kwụ ọtọ</annotation>
+		<annotation cp="▦">skwya emejuru orthogonal crosshatch</annotation>
+		<annotation cp="▦" type="tts">skwya emejuru orthogonal crosshatch</annotation>
+		<annotation cp="▧">skwya emejuru elu aka ekpe ala aka nri</annotation>
+		<annotation cp="▧" type="tts">skwya emejuru elu aka ekpe ala aka nri</annotation>
+		<annotation cp="▨">skwya emejuru elu aka nri ala aka ekpe</annotation>
+		<annotation cp="▨" type="tts">skwya emejuru elu aka nri ala aka ekpe</annotation>
+		<annotation cp="▩">skwya emejuru n’akuku crosshatch</annotation>
+		<annotation cp="▩" type="tts">skwya emejuru n’akuku crosshatch</annotation>
+		<annotation cp="▬">rectangle emejuru</annotation>
+		<annotation cp="▬" type="tts">rectangle emejuru</annotation>
+		<annotation cp="▭">rectangle ghere oghe</annotation>
+		<annotation cp="▭" type="tts">rectangle ghere oghe</annotation>
+		<annotation cp="▮">rectangle ahịrị kwụ ọtọ emejuru</annotation>
+		<annotation cp="▮" type="tts">rectangle ahịrị kwụ ọtọ emejuru</annotation>
+		<annotation cp="▰">parallelogram emejuru</annotation>
+		<annotation cp="▰" type="tts">parallelogram emejuru</annotation>
 		<annotation cp="▲">arrow | elu | filled | filled up-pointing triangul | triangul</annotation>
 		<annotation cp="▲" type="tts">filled up-pointing triangul</annotation>
+		<annotation cp="△">triangle ghere oghe n’eche ihu n’elu</annotation>
+		<annotation cp="△" type="tts">triangle ghere oghe n’eche ihu n’elu</annotation>
+		<annotation cp="▴">obere triangle emejuru n’eche ihu n’elu</annotation>
+		<annotation cp="▴" type="tts">obere triangle emejuru n’eche ihu n’elu</annotation>
+		<annotation cp="▵">obere triangle ghere oghe n’eche ihu n’elu</annotation>
+		<annotation cp="▵" type="tts">obere triangle ghere oghe n’eche ihu n’elu</annotation>
+		<annotation cp="▷">triangle ghere oghe n’eche ihu n’aka nri</annotation>
+		<annotation cp="▷" type="tts">triangle ghere oghe n’eche ihu n’aka nri</annotation>
+		<annotation cp="▸">obere triangle emejuru n’eche ihu n’aka nri</annotation>
+		<annotation cp="▸" type="tts">obere triangle emejuru n’eche ihu n’aka nri</annotation>
+		<annotation cp="▹">obere triangle ghere oghe n’eche ihu n’aka nri</annotation>
+		<annotation cp="▹" type="tts">obere triangle ghere oghe n’eche ihu n’aka nri</annotation>
+		<annotation cp="►">ntụaka emejuru n’aka nri</annotation>
+		<annotation cp="►" type="tts">ntụaka emejuru n’aka nri</annotation>
+		<annotation cp="▻">ntụaka ghere oghe n’aka nri</annotation>
+		<annotation cp="▻" type="tts">ntụaka ghere oghe n’aka nri</annotation>
 		<annotation cp="▼">arrow | down | filled | filled down-pointing triangul | triangul</annotation>
 		<annotation cp="▼" type="tts">filled down-pointing triangul</annotation>
+		<annotation cp="▽">triangle ghere oghe n’eche ihu n’ala</annotation>
+		<annotation cp="▽" type="tts">triangle ghere oghe n’eche ihu n’ala</annotation>
+		<annotation cp="▾">obere triangle emejuru n’eche ihu n’ala</annotation>
+		<annotation cp="▾" type="tts">obere triangle emejuru n’eche ihu n’ala</annotation>
+		<annotation cp="▿">obere triangle ghere oghe n’eche ihu n’ala</annotation>
+		<annotation cp="▿" type="tts">obere triangle ghere oghe n’eche ihu n’ala</annotation>
+		<annotation cp="◁">triangle ghere oghe n’aka ekpe</annotation>
+		<annotation cp="◁" type="tts">triangle ghere oghe n’aka ekpe</annotation>
+		<annotation cp="◂">obere triangle emejuru n’eche ihu n’aka ekpe</annotation>
+		<annotation cp="◂" type="tts">obere triangle emejuru n’eche ihu n’aka ekpe</annotation>
+		<annotation cp="◃">obere triangle ghere oghe n’eche ihu n’aka ekpe</annotation>
+		<annotation cp="◃" type="tts">obere triangle ghere oghe n’eche ihu n’aka ekpe</annotation>
+		<annotation cp="◄">ntụaka emejuru n’aka ekpe</annotation>
+		<annotation cp="◄" type="tts">ntụaka emejuru n’aka ekpe</annotation>
+		<annotation cp="◅">ntụaka ghere oghe n’aka ekpe</annotation>
+		<annotation cp="◅" type="tts">ntụaka ghere oghe n’aka ekpe</annotation>
+		<annotation cp="◆">dayamọnd emejuru</annotation>
+		<annotation cp="◆" type="tts">dayamọnd emejuru</annotation>
+		<annotation cp="◇">dayamọnd ghere oghe</annotation>
+		<annotation cp="◇" type="tts">dayamọnd ghere oghe</annotation>
+		<annotation cp="◈">dayamọnd ghere oghe nwere dayamọnd emejuru</annotation>
+		<annotation cp="◈" type="tts">dayamọnd ghere oghe nwere dayamọnd emejuru</annotation>
+		<annotation cp="◉">anya azu | okirikiri nke emejuru n’otu akụkụ | okirikiri ntụpọ | okiriri | ward</annotation>
+		<annotation cp="◉" type="tts">okiriri ghere oghe nwere okiriri emejuru</annotation>
 		<annotation cp="◊">diamond | lozenge | rhombus</annotation>
 		<annotation cp="◊" type="tts">lozenge</annotation>
 		<annotation cp="○">circle | hollow circle | ring</annotation>
 		<annotation cp="○" type="tts">hollow circle</annotation>
+		<annotation cp="◌">gburugburu nwere ntụpọ</annotation>
+		<annotation cp="◌" type="tts">gburugburu nwere ntụpọ</annotation>
+		<annotation cp="◍">okirikiri nwere ahịrị kwụ ọtọ</annotation>
+		<annotation cp="◍" type="tts">okirikiri nwere ahịrị kwụ ọtọ</annotation>
+		<annotation cp="◎">mgbaru | okirikiri abụo | okirikiri abụo dị n’otu ebe</annotation>
+		<annotation cp="◎" type="tts">okirikiri abụo dị n’otu ebe</annotation>
 		<annotation cp="●">okirikiri jupụta</annotation>
 		<annotation cp="●" type="tts">okirikiri jupụta</annotation>
+		<annotation cp="◐">okirikiri emejuru ọkara aka ekpe</annotation>
+		<annotation cp="◐" type="tts">okirikiri emejuru ọkara aka ekpe</annotation>
+		<annotation cp="◑">okirikiri emejuru ọkara aka nri</annotation>
+		<annotation cp="◑" type="tts">okirikiri emejuru ọkara aka nri</annotation>
+		<annotation cp="◒">okirikiri emejuru ọkara ala</annotation>
+		<annotation cp="◒" type="tts">okirikiri emejuru ọkara ala</annotation>
+		<annotation cp="◓">okirikiri emejuru ọkara elu</annotation>
+		<annotation cp="◓" type="tts">okirikiri emejuru ọkara elu</annotation>
+		<annotation cp="◔">okirikiri emejuru n’akụkụ aka nri elu</annotation>
+		<annotation cp="◔" type="tts">okirikiri emejuru n’akụkụ aka nri elu</annotation>
+		<annotation cp="◕">okirikiri emejuru ewezuga n’akụkụ aka ekpe elu</annotation>
+		<annotation cp="◕" type="tts">okirikiri emejuru ewezuga n’akụkụ aka ekpe elu</annotation>
+		<annotation cp="◖">ọkara okirikiri emejuru n’akụkụ aka ekpe</annotation>
+		<annotation cp="◖" type="tts">ọkara okirikiri emejuru n’akụkụ aka ekpe</annotation>
+		<annotation cp="◗">ọkara okirikiri emejuru n’akụkụ aka nri</annotation>
+		<annotation cp="◗" type="tts">ọkara okirikiri emejuru n’akụkụ aka nri</annotation>
+		<annotation cp="◘">tụkpọm</annotation>
+		<annotation cp="◘" type="tts">tụkpọm</annotation>
+		<annotation cp="◙">okirikiri ghere oghe dị iche | skwya emejuru nwere okirikiri ghere oghe</annotation>
+		<annotation cp="◙" type="tts">skwya emejuru nwere okirikiri ghere oghe</annotation>
+		<annotation cp="◜">arc okirikiri n’akụkụ aka ekpe elu</annotation>
+		<annotation cp="◜" type="tts">arc okirikiri n’akụkụ aka ekpe elu</annotation>
+		<annotation cp="◝">arc okirikiri n’akụkụ aka nri elu</annotation>
+		<annotation cp="◝" type="tts">arc okirikiri n’akụkụ aka nri elu</annotation>
+		<annotation cp="◞">arc okirikiri n’akụkụ aka nri ala</annotation>
+		<annotation cp="◞" type="tts">arc okirikiri n’akụkụ aka nri ala</annotation>
+		<annotation cp="◟">arc okirikiri n’akụkụ aka ekpe ala</annotation>
+		<annotation cp="◟" type="tts">arc okirikiri n’akụkụ aka ekpe ala</annotation>
+		<annotation cp="◠">ọkara okirikiri elu</annotation>
+		<annotation cp="◠" type="tts">ọkara okirikiri elu</annotation>
+		<annotation cp="◡">ọkara okirikiri ala</annotation>
+		<annotation cp="◡" type="tts">ọkara okirikiri ala</annotation>
+		<annotation cp="◢">triangụl ala aka nri emejuru emeju</annotation>
+		<annotation cp="◢" type="tts">triangụl ala aka nri emejuru emeju</annotation>
+		<annotation cp="◣">triangụl ala aka ekpe emejuru emeju</annotation>
+		<annotation cp="◣" type="tts">triangụl ala aka ekpe emejuru emeju</annotation>
+		<annotation cp="◤">triangụl elu aka ekpe emejuru emeju</annotation>
+		<annotation cp="◤" type="tts">triangụl elu aka ekpe emejuru emeju</annotation>
+		<annotation cp="◥">triangụl elu aka nri emejuru emeju</annotation>
+		<annotation cp="◥" type="tts">triangụl elu aka nri emejuru emeju</annotation>
+		<annotation cp="◦">tụkpọm ghere oghe</annotation>
+		<annotation cp="◦" type="tts">tụkpọm ghere oghe</annotation>
 		<annotation cp="◯">circle | large hollow circle | ring</annotation>
 		<annotation cp="◯" type="tts">large hollow circle</annotation>
+		<annotation cp="◳">skwya nwere oghere n’akwa n’akụkụ elu aka nri</annotation>
+		<annotation cp="◳" type="tts">skwya nwere oghere n’akwa n’akụkụ elu aka nri</annotation>
+		<annotation cp="◷">okirikiri oghere n’akwa n’akụkụ elu aka nri</annotation>
+		<annotation cp="◷" type="tts">okirikiri oghere n’akwa n’akụkụ elu aka nri</annotation>
+		<annotation cp="◿">triangụl ala aka nri</annotation>
+		<annotation cp="◿" type="tts">triangụl ala aka nri</annotation>
 		<annotation cp="♪">asato | egwu | note</annotation>
 		<annotation cp="♪" type="tts">note asato</annotation>
+		<annotation cp="⨧">mgbakwunye abụọ n’okpuru</annotation>
+		<annotation cp="⨧" type="tts">mgbakwunye abụọ n’okpuru</annotation>
+		<annotation cp="⨯">akara vektọ</annotation>
+		<annotation cp="⨯" type="tts">akara vektọ</annotation>
+		<annotation cp="⨼">akara ime</annotation>
+		<annotation cp="⨼" type="tts">akara ime</annotation>
+		<annotation cp="⩣">lọjik ma ọbụ ahịrị okpuru abụọ</annotation>
+		<annotation cp="⩣" type="tts">lọjik ma ọbụ ahịrị okpuru abụọ</annotation>
+		<annotation cp="⩽">erughị nhata dara ada</annotation>
+		<annotation cp="⩽" type="tts">erughị nhata dara ada</annotation>
+		<annotation cp="⪍">erughị n’elu nhata yiri ya</annotation>
+		<annotation cp="⪍" type="tts">erughị n’elu nhata yiri ya</annotation>
+		<annotation cp="⪚">ahịrị abụọ hatara karia | mgbakọ na mwepụ | nhaghị nhara</annotation>
+		<annotation cp="⪚" type="tts">ahịrị abụọ hatara karia</annotation>
+		<annotation cp="⪺">na-esote n’elu ahachaghị</annotation>
+		<annotation cp="⪺" type="tts">na-esote n’elu ahachaghị</annotation>
 		<annotation cp="♭">bemolle | dị larịị | egwu | note</annotation>
 		<annotation cp="♭" type="tts">dị larịị</annotation>
 		<annotation cp="♯">dièse | diesis | egwu | nkọ | note</annotation>
@@ -267,6 +727,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">ihu nwere anya mmiri nke aṅụrị</annotation>
 		<annotation cp="🙂">amụ | ihu | nwa obere ihu na-amụ amụ</annotation>
 		<annotation cp="🙂" type="tts">nwa obere ihu na-amụ amụ</annotation>
+		<annotation cp="🙂‍↕">ekwe n’isi site n’elu ga n’ala | ekwe n’isi, ee</annotation>
+		<annotation cp="🙂‍↕" type="tts">ekwe n’isi site n’elu ga n’ala</annotation>
+		<annotation cp="🙂‍↔">anaghị, efufe | efufe isi site n’aka nri ga n’aka ekpe</annotation>
+		<annotation cp="🙂‍↔" type="tts">efufe isi site n’aka nri ga n’aka ekpe</annotation>
 		<annotation cp="🙃">ihu | ihu nsụgharị-isi n’ala | nsụgharị-isi n’ala</annotation>
 		<annotation cp="🙃" type="tts">ihu nsụgharị-isi n’ala</annotation>
 		<annotation cp="🫠">igbari | ihu agbaze | mmiri mmiri | pụọ | Vote ihu agbaze</annotation>
@@ -331,8 +795,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">ihu enweghị ngosipụta</annotation>
 		<annotation cp="😶">ihu | ihu enweghị ọnụ | nwayọ | ọnụ</annotation>
 		<annotation cp="😶" type="tts">ihu enweghị ọnụ</annotation>
-		<annotation cp="🫥">dara mbà n’obi | ihu | pụọ | zoó</annotation>
+		<annotation cp="🫥">anaghị ahu anya | dara mbà n’obi | ihu | onye néme ihere | pụọ | zoó</annotation>
 		<annotation cp="🫥" type="tts">ihu</annotation>
+		<annotation cp="😶‍🌫">gbara nkịtị | ihu nọ n’ígwé | ihu nọ n’urukpuru | isi nọ n’ígwé</annotation>
+		<annotation cp="😶‍🌫" type="tts">ihu nọ n’ígwé</annotation>
 		<annotation cp="😏">ihu | ihu na-eme nka ọchị | nka ọchị</annotation>
 		<annotation cp="😏" type="tts">ihu na-eme nka ọchị</annotation>
 		<annotation cp="😒">atọghị ọchị | enweghị obi aṅụrị | ihu | uhu atọghị ọchị</annotation>
@@ -341,6 +807,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">ihu nwere kpụrụkpụrụ anya na-akpọgharị akpọgharị</annotation>
 		<annotation cp="😬">ihu | ihu ntachị anya | ntachi anya</annotation>
 		<annotation cp="😬" type="tts">ihu ntachị anya</annotation>
+		<annotation cp="😮‍💨">ịfụ ụfụ | ihu na-ekuda ume | ijuanya | isu ude | nkuda ume | ntakwu | obi iru ala</annotation>
+		<annotation cp="😮‍💨" type="tts">ihu na-ekuda ume</annotation>
 		<annotation cp="🤥">gosiri | ihu | Ihu asị | mgbagwojuanya</annotation>
 		<annotation cp="🤥" type="tts">Ihu asị</annotation>
 		<annotation cp="🫨">ala ọma jijiji | ihu | ihu na-ama jijiji | na-ama jijiji | ujo</annotation>
@@ -375,6 +843,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">ihu kpọrọ asị</annotation>
 		<annotation cp="😵">ajụ | ihu</annotation>
 		<annotation cp="😵" type="tts">ihu ajụ</annotation>
+		<annotation cp="😵‍💫">ajụ | ihu nwere anya na-agba gburugburu | mmegharị anya | na-agba gburugburu | nsogbu | whoa</annotation>
+		<annotation cp="😵‍💫" type="tts">ihu nwere anya na-agba gburugburu</annotation>
 		<annotation cp="🤯">ihe atụghị anya ya | isi mere nkụwa</annotation>
 		<annotation cp="🤯" type="tts">isi mere nkụwa</annotation>
 		<annotation cp="🤠">ihu | ihu okpu onye ọchụụ nnama | nwanyị ọchụụ nnama | nwoke ọchụụ nnama | okpu</annotation>
@@ -519,6 +989,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">nnukwu obi ntimkpu</annotation>
 		<annotation cp="💔">gbajie | ntiwa | obi ntiwa</annotation>
 		<annotation cp="💔" type="tts">obi ntiwa</annotation>
+		<annotation cp="❤‍🔥">agụụ mmekọahụ | ịhụnanya | mkpụrụobi | mkpụrụobi n’ere ọkụ | n’ere ọkụ | obi dị nsọ</annotation>
+		<annotation cp="❤‍🔥" type="tts">mkpụrụobi n’ere ọkụ</annotation>
+		<annotation cp="❤‍🩹">dị mma | na-adịmma | na-agbake | na-edozi | nwere ahụike | nwere mmedo</annotation>
+		<annotation cp="❤‍🩹" type="tts">mkpụrụobi nwere mmedo</annotation>
 		<annotation cp="❤">obi | obi ọbara</annotation>
 		<annotation cp="❤" type="tts">obi ọbara</annotation>
 		<annotation cp="🩷">obi | obi na-acha pink</annotation>
@@ -705,14 +1179,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">okenye</annotation>
 		<annotation cp="👱">isi awọ | Onye-isi awọ</annotation>
 		<annotation cp="👱" type="tts">Onye-isi awọ</annotation>
+		<annotation cp="🧑‍🧒">ezinaụlọ: okenye, nwata</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ezinaụlọ: okenye, nwata</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ezinaụlọ: okenye, nwata, nwata</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ezinaụlọ: okenye, nwata, nwata</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ezinaụlọ: okenye, okenye, nwata</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ezinaụlọ: okenye, okenye, nwata</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ezinaụlọ: okenye, okenye, nwata, nwata</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ezinaụlọ: okenye, okenye, nwata, nwata</annotation>
 		<annotation cp="👨">nwoke</annotation>
 		<annotation cp="👨" type="tts">nwoke</annotation>
 		<annotation cp="🧔">àhụọnụ | onye nwere ahụọnụ</annotation>
 		<annotation cp="🧔" type="tts">onye nwere ahụọnụ</annotation>
+		<annotation cp="🧔‍♂">afụ ọnụ | nwoke | nwoke: afụ ọnụ</annotation>
+		<annotation cp="🧔‍♂" type="tts">nwoke: afụ ọnụ</annotation>
 		<annotation cp="👱‍♂">isi awọ | nwoke | nwoke nwere isi-awọ</annotation>
 		<annotation cp="👱‍♂" type="tts">nwoke nwere isi-awọ</annotation>
 		<annotation cp="👩">nwanyị</annotation>
 		<annotation cp="👩" type="tts">nwanyị</annotation>
+		<annotation cp="🧔‍♀">afụ ọnụ | nwanyị | nwanyị: afụ ọnụ</annotation>
+		<annotation cp="🧔‍♀" type="tts">nwanyị: afụ ọnụ</annotation>
 		<annotation cp="👱‍♀">isi awọ | nwanyị | nwanyị nwere isi-awọ</annotation>
 		<annotation cp="👱‍♀" type="tts">nwanyị nwere isi-awọ</annotation>
 		<annotation cp="🧓">kara dị okenye | oke na nne-ndịnaetiti | okenye</annotation>
@@ -759,6 +1245,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋‍♀" type="tts">nwanyị na-ewelite aka</annotation>
 		<annotation cp="🧏">accessibility | inu | nti | onye ntị chiri</annotation>
 		<annotation cp="🧏" type="tts">onye ntị chiri</annotation>
+		<annotation cp="🧏‍♂">ntị chiri | nwoke</annotation>
+		<annotation cp="🧏‍♂" type="tts">nwoke ntị chiri</annotation>
+		<annotation cp="🧏‍♀">ntị chiri | nwanyị</annotation>
+		<annotation cp="🧏‍♀" type="tts">nwanyị ntị chiri</annotation>
 		<annotation cp="🙇">hulata | ndo | ogbugbu | onye na-ehulata ala</annotation>
 		<annotation cp="🙇" type="tts">onye na-ehulata ala</annotation>
 		<annotation cp="🙇‍♂">na-ehulata ala | ndo | ngọzi | nwoke | nwoke na-ehulata ala | ogbugbu</annotation>
@@ -777,66 +1267,98 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷‍♂" type="tts">nwoke na-egosi nhatanha aka</annotation>
 		<annotation cp="🤷‍♀">adịghị iche | amaghị | ekweghị ekwe | gosi nhà | nwanyị | nwanyị na-egosi nhatanha aka</annotation>
 		<annotation cp="🤷‍♀" type="tts">nwanyị na-egosi nhatanha aka</annotation>
+		<annotation cp="🧑‍⚕">ahụike | dọkịta | nọọsụ | onye dọkịta | ọrụ ahụike</annotation>
+		<annotation cp="🧑‍⚕" type="tts">onye ọrụ ahụike</annotation>
 		<annotation cp="👨‍⚕">dọkịta | nletaahụike | nọọsụ | nwoke | nwoke ọrụ ahụike | onye dọkịta</annotation>
 		<annotation cp="👨‍⚕" type="tts">nwoke ọrụ ahụike</annotation>
 		<annotation cp="👩‍⚕">dọkịta | nletaahụike | nọọsụ | nwanyị | nwanyị onye ọrụ ahụike | onye dọkịta</annotation>
 		<annotation cp="👩‍⚕" type="tts">nwanyị onye ọrụ ahụike</annotation>
+		<annotation cp="🧑‍🎓">nwata akwụkwọ | onye gụchara akwụkwọ</annotation>
+		<annotation cp="🧑‍🎓" type="tts">nwata akwụkwọ</annotation>
 		<annotation cp="👨‍🎓">nwaakwụkwọ | nwoke | nwoke nwata akwụkwọ | onye gụchara akwụkwọ</annotation>
 		<annotation cp="👨‍🎓" type="tts">nwoke nwata akwụkwọ</annotation>
 		<annotation cp="👩‍🎓">nwaakwụkwọ | nwanyị | onye gụchara akwụkwọ</annotation>
 		<annotation cp="👩‍🎓" type="tts">nwanyị nwaakwụkwọ</annotation>
+		<annotation cp="🧑‍🏫">ọkammụta | onyenkuzi | onyentụzịaka</annotation>
+		<annotation cp="🧑‍🏫" type="tts">onyenkuzi</annotation>
 		<annotation cp="👨‍🏫">nwoke | ọkammụta | onyenkuzi | onyentụzịaka</annotation>
 		<annotation cp="👨‍🏫" type="tts">nwoke onyenkuzi</annotation>
 		<annotation cp="👩‍🏫">nwanyị | ọkammụta | onyenkuzi | onyentụzịaka</annotation>
 		<annotation cp="👩‍🏫" type="tts">nwanyị ọkammụta</annotation>
-		<annotation cp="👨‍⚖">ikpe nkwụọtọ | nsialọ | nwoke | nwoke ikpe</annotation>
+		<annotation cp="🧑‍⚖">ihe ọ̀tụ̀tụ̀ | ikpe nkwụọtọ | onye ikpe</annotation>
+		<annotation cp="🧑‍⚖" type="tts">onye ikpe</annotation>
+		<annotation cp="👨‍⚖">ihe ọ̀tụ̀tụ̀ | ikpe nkwụọtọ | nwoke | nwoke ikpe</annotation>
 		<annotation cp="👨‍⚖" type="tts">nwoke ikpe</annotation>
-		<annotation cp="👩‍⚖">ikpe nkwụọtọ | nsialọ | nwanyị | nwanyị ikpe nkwụọtọ</annotation>
+		<annotation cp="👩‍⚖">ihe ọ̀tụ̀tụ̀ | ikpe nkwụọtọ | nwanyị | nwanyị ikpe nkwụọtọ</annotation>
 		<annotation cp="👩‍⚖" type="tts">nwanyị ikpe nkwụọtọ</annotation>
+		<annotation cp="🧑‍🌾">onye ọchị nnama | onye ọrụ ugbo | ọsụ ahịhịa</annotation>
+		<annotation cp="🧑‍🌾" type="tts">onye ọrụ ugbo</annotation>
 		<annotation cp="👨‍🌾">nwoke | nwoke ọrụ ugbo | onye ọchị nnama | ọrụ ugbo | ọsụ ahịhịa</annotation>
 		<annotation cp="👨‍🌾" type="tts">nwoke ọrụ ugbo</annotation>
 		<annotation cp="👩‍🌾">nwanyị | nwanyị ọrụ ugbo | onye ọchị nnama | ọrụ ugbo | ọsụ ahịhịa</annotation>
 		<annotation cp="👩‍🌾" type="tts">nwanyị ọrụ ugbo</annotation>
+		<annotation cp="🧑‍🍳">onye na-esi nri</annotation>
+		<annotation cp="🧑‍🍳" type="tts">onye na-esi nri</annotation>
 		<annotation cp="👨‍🍳">na-esi | nri | nwoke</annotation>
 		<annotation cp="👨‍🍳" type="tts">nwoke na-esi nri</annotation>
 		<annotation cp="👩‍🍳">na-esi | nri | nwanyị</annotation>
 		<annotation cp="👩‍🍳" type="tts">nwanyị na-esi</annotation>
-		<annotation cp="👨‍🔧">mechanik | nwoke | onyeazụmaahịa | ọrụ ngwaọkụ | ọrụụlọ</annotation>
-		<annotation cp="👨‍🔧" type="tts">nwoke mechanik</annotation>
-		<annotation cp="👩‍🔧">mechanik | nwanyị | onyeazụmaahịa | ọrụ ngwaọkụ | ọrụụlọ</annotation>
-		<annotation cp="👩‍🔧" type="tts">nwanyị mechanik</annotation>
+		<annotation cp="🧑‍🔧">onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
+		<annotation cp="🧑‍🔧" type="tts">onye na-arụzi ụgbọala</annotation>
+		<annotation cp="👨‍🔧">nwoke | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
+		<annotation cp="👨‍🔧" type="tts">nwoke onye na-arụzi ụgbọala</annotation>
+		<annotation cp="👩‍🔧">nwanyị | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
+		<annotation cp="👩‍🔧" type="tts">nwanyị na-arụzi ụgbọala</annotation>
+		<annotation cp="🧑‍🏭">ọgbakọ | onyeọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
+		<annotation cp="🧑‍🏭" type="tts">onyeọrụ ụlọ ọrụ</annotation>
 		<annotation cp="👨‍🏭">nwoke | nwoke onyeọrụ ụlọ ọrụ | ọgbakọ | onyeọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
 		<annotation cp="👨‍🏭" type="tts">nwoke onyeọrụ ụlọ ọrụ</annotation>
 		<annotation cp="👩‍🏭">nwanyị | nwanyị onyeọrụ ụlọ ọrụ | ọgbakọ | onyeọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
 		<annotation cp="👩‍🏭" type="tts">nwanyị onyeọrụ ụlọ ọrụ</annotation>
+		<annotation cp="🧑‍💼">akwa-ọfịịsị | azụmaahịa | ọkammụta eserese | onye ọrụ ọfịịsị | onyenjikwa</annotation>
+		<annotation cp="🧑‍💼" type="tts">onye ọrụ ọfịịsị</annotation>
 		<annotation cp="👨‍💼">akwa-ọfịịsị | azụmaahịa | nwoke | nwoke onye ọrụ ọfịịsị | ọfịịsị | ọkammụta eserese | onyenjikwa</annotation>
 		<annotation cp="👨‍💼" type="tts">nwoke onye ọrụ ọfịịsị</annotation>
 		<annotation cp="👩‍💼">akwa-ọfịịsị | azụmaahịa | nwanyị | nwanyị onye ọrụ ọfịịsị | ọfịịsị | ọkammụta eserese | onyenjikwa</annotation>
 		<annotation cp="👩‍💼" type="tts">nwanyị onye ọrụ ọfịịsị</annotation>
-		<annotation cp="👨‍🔬">injineer | nwoke | nwoke ọkammụta sayensi | ọkammụta ahụ mmadụ | ọkammụta phizisi | ọkammụta sayensi | ọkammụta sọm | oree ọgwụ</annotation>
+		<annotation cp="🧑‍🔬">injinia | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
+		<annotation cp="🧑‍🔬" type="tts">ọkammụta sayensi</annotation>
+		<annotation cp="👨‍🔬">injinia | nwoke | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
 		<annotation cp="👨‍🔬" type="tts">nwoke ọkammụta sayensi</annotation>
-		<annotation cp="👩‍🔬">injineer | nwanyị | nwanyị ọkammụta sayensi | ọkammụta ahụ mmadụ | ọkammụta phizisi | ọkammụta sayensi | ọkammụta sọm | oree ọgwụ</annotation>
+		<annotation cp="👩‍🔬">injinia | nwanyị | nwoke | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
 		<annotation cp="👩‍🔬" type="tts">nwanyị ọkammụta sayensi</annotation>
+		<annotation cp="🧑‍💻">koda | ngwanrò | onye mmepụta | onye teknụụzụ | onyenrụpụta</annotation>
+		<annotation cp="🧑‍💻" type="tts">onye teknụụzụ</annotation>
 		<annotation cp="👨‍💻">koda | ngwanrò | nwoke | nwoke onye teknụụzụ | onye mmepụta | onye teknụụzụ | onyenrụpụta</annotation>
 		<annotation cp="👨‍💻" type="tts">nwoke onye teknụụzụ</annotation>
 		<annotation cp="👩‍💻">koda | ngwanrò | nwanyi | nwanyi onye teknụụzụ | onye mmepụta | onye teknụụzụ | onyenrụpụta</annotation>
 		<annotation cp="👩‍💻" type="tts">nwanyi onye teknụụzụ</annotation>
-		<annotation cp="👨‍🎤">kpakpandò | nwoke | nwoke ọgụụ egwu | ọgụụ egwu | ọkpaiheọchị | òmenkà | rọkụ</annotation>
+		<annotation cp="🧑‍🎤">ọgụụ egwu | ọkpaiheọchị | òmenkà | onye ama ama | rọkụ</annotation>
+		<annotation cp="🧑‍🎤" type="tts">ọgụụ egwu</annotation>
+		<annotation cp="👨‍🎤">nwoke | nwoke ọgụụ egwu | ọgụụ egwu | ọkpaiheọchị | onye ama ama | onye na-eme ihe nkiri | rọkụ</annotation>
 		<annotation cp="👨‍🎤" type="tts">nwoke ọgụụ egwu</annotation>
-		<annotation cp="👩‍🎤">kpakpandò | nwanyi | nwanyi ọgụụ egwu | ọgụụ egwu | ọkpaiheọchị | òmenkà | rọkụ</annotation>
+		<annotation cp="👩‍🎤">kpakpandò | nwanyi | nwanyi ọgụụ egwu | ọgụụ egwu | ọkpaiheọchị | onye na-eme ihe nkiri | rọkụ</annotation>
 		<annotation cp="👩‍🎤" type="tts">nwanyi ọgụụ egwu</annotation>
-		<annotation cp="👨‍🎨">nwoke | omeǹkà | palette</annotation>
+		<annotation cp="🧑‍🎨">efere ntecha | omeǹkà</annotation>
+		<annotation cp="🧑‍🎨" type="tts">omeǹkà</annotation>
+		<annotation cp="👨‍🎨">efere ntecha | nwoke | omeǹkà</annotation>
 		<annotation cp="👨‍🎨" type="tts">omeǹkà nwoke</annotation>
 		<annotation cp="👩‍🎨">nwanyị | omeǹkà | palette</annotation>
 		<annotation cp="👩‍🎨" type="tts">omeǹkà nwanyị</annotation>
+		<annotation cp="🧑‍✈">ọkwọ ugbọelu | ugbọelu</annotation>
+		<annotation cp="🧑‍✈" type="tts">ọkwọ ugbọelu</annotation>
 		<annotation cp="👨‍✈">nwoke | nwoke ọkwọ ugbọelu | ọ̀kwọụgbọelu | ụgbọelu</annotation>
 		<annotation cp="👨‍✈" type="tts">nwoke ọkwọ ugbọelu</annotation>
 		<annotation cp="👩‍✈">nwanyị | ọkwọ | ugbọelu</annotation>
 		<annotation cp="👩‍✈" type="tts">nwanyị ọkwọ ugbọelu</annotation>
+		<annotation cp="🧑‍🚀">òjenọnwa | ụgbọeluọnwa</annotation>
+		<annotation cp="🧑‍🚀" type="tts">òjenọnwa</annotation>
 		<annotation cp="👨‍🚀">nwoke | òjenọnwa | ụgbọeluọnwa</annotation>
 		<annotation cp="👨‍🚀" type="tts">nwoke òjenọnwa</annotation>
 		<annotation cp="👩‍🚀">nwanyị | òjenọnwa | ụgbọelu ọnwa</annotation>
 		<annotation cp="👩‍🚀" type="tts">nwanyị òjenọnwa</annotation>
+		<annotation cp="🧑‍🚒">onyemgbanyụọkụ | ụgbọmgbanyụọkụ</annotation>
+		<annotation cp="🧑‍🚒" type="tts">onyemgbanyụọkụ</annotation>
 		<annotation cp="👨‍🚒">nwoke | onyemgbanyụọkụ | ụgbọmgbanyụọkụ</annotation>
 		<annotation cp="👨‍🚒" type="tts">nwoke onyemgbanyụọkụ</annotation>
 		<annotation cp="👩‍🚒">nwanyị | onyemgbanyụọkụ | ụgbọmgbanyụọkụ</annotation>
@@ -885,8 +1407,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">nwanyị nwere ichafùisi</annotation>
 		<annotation cp="🤵">nwoke | nwoke yi uwe agbamụakwụkwọ | uwe agbamụakwụkwọ | yi akwà</annotation>
 		<annotation cp="🤵" type="tts">nwoke yi uwe agbamụakwụkwọ</annotation>
-		<annotation cp="👰">akwà nkochi ihu | na-agbàakwụkwọ | Nwanyị na-agba akwụkwọ | Nwanyị na-agba akwụkwọ yi akwa nkochi ihu</annotation>
-		<annotation cp="👰" type="tts">Nwanyị na-agba akwụkwọ yi akwa nkochi ihu</annotation>
+		<annotation cp="🤵‍♂">nwoke | nwoke yi uwe tuxedo | tuxedo</annotation>
+		<annotation cp="🤵‍♂" type="tts">nwoke yi uwe tuxedo</annotation>
+		<annotation cp="🤵‍♀">nwanyị | nwanyị yi uwe tuxedo | tuxedo</annotation>
+		<annotation cp="🤵‍♀" type="tts">nwanyị yi uwe tuxedo</annotation>
+		<annotation cp="👰">agbàmakwụkwọ | akwà nkochi ihu | nwanyị na-agba akwụkwọ | onye | onye yi akwa nkochi ihu</annotation>
+		<annotation cp="👰" type="tts">nwanyị na-agba akwụkwọ yi akwa nkochi ihu</annotation>
+		<annotation cp="👰‍♂">akwà nkochi ihu | mwoke yi akwà nkochi ihu | nwoke</annotation>
+		<annotation cp="👰‍♂" type="tts">nwoke yi akwà nkochi ihu</annotation>
+		<annotation cp="👰‍♀">akwà nkochi ihu | nwanyị | nwanyị yi akwà nkochi ihu</annotation>
+		<annotation cp="👰‍♀" type="tts">nwanyị nkochi ihu</annotation>
 		<annotation cp="🤰">dị ime | nwanyị | nwanyị dị ime</annotation>
 		<annotation cp="🤰" type="tts">nwanyị dị ime</annotation>
 		<annotation cp="🫃">afọ | iju afọ | ime | nwoke di ime</annotation>
@@ -895,16 +1425,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫄" type="tts">onye di ime</annotation>
 		<annotation cp="🤱">ara | enyemụara | na-eleta nwa | nwa</annotation>
 		<annotation cp="🤱" type="tts">enyemụara</annotation>
+		<annotation cp="👩‍🍼">n’enye nri | nwa | nwanyị</annotation>
+		<annotation cp="👩‍🍼" type="tts">nwanyị n’enye nwa nri</annotation>
+		<annotation cp="👨‍🍼">n’enye nri | nwa | nwoke</annotation>
+		<annotation cp="👨‍🍼" type="tts">nwoke n’enye nwa nri</annotation>
+		<annotation cp="🧑‍🍼">n’enye nri | nwa | onye</annotation>
+		<annotation cp="🧑‍🍼" type="tts">onye n’enye nwa nri</annotation>
 		<annotation cp="👼">akarọakọ | arọrarọ | ihu | mmụọ ọma | mụo ọma nwata ọhụrụ | nwata ọhụrụ</annotation>
 		<annotation cp="👼" type="tts">mụo ọma nwata ọhụrụ</annotation>
 		<annotation cp="🎅">claus | Ekeresìmesì | Emume | nna | Nna Ekeresìmesi | santa</annotation>
 		<annotation cp="🎅" type="tts">Nna Ekeresìmesi</annotation>
-		<annotation cp="🤶">claus | ekeresìmesì | Ènwemụaṅụrị | Mrs. | nne | Nne Ekeresìmesi</annotation>
+		<annotation cp="🤶">claus | ekeresìmesì | Ènwemụaṅụrị | nne | Nne Ekeresìmesi | Oriaku</annotation>
 		<annotation cp="🤶" type="tts">Nne Ekeresìmesi</annotation>
-		<annotation cp="🦸">dike | dike nwanyi | ihe oma | ike | odogwu</annotation>
+		<annotation cp="🧑‍🎄">claus | ekeresìmesì | mx claus</annotation>
+		<annotation cp="🧑‍🎄" type="tts">mx claus</annotation>
+		<annotation cp="🦸">dike | dike nwanyị | ihe oma | ike | odogwu</annotation>
 		<annotation cp="🦸" type="tts">dike</annotation>
-		<annotation cp="🦹">ihe ojoo | ike | omempụ | supervillian</annotation>
-		<annotation cp="🦹" type="tts">supervillian</annotation>
+		<annotation cp="🦸‍♂">di mma | dike nwoke | ike | nwoke | odogwu</annotation>
+		<annotation cp="🦸‍♂" type="tts">dike nwoke</annotation>
+		<annotation cp="🦸‍♀">di mma | dike nwanyi | ike | nwanyị | odogwu nwanyị</annotation>
+		<annotation cp="🦸‍♀" type="tts">dike nwanyị</annotation>
+		<annotation cp="🦹">ihe ojoo | ike | omempụ | onye ọjọọ</annotation>
+		<annotation cp="🦹" type="tts">onye ọjọọ</annotation>
+		<annotation cp="🦹‍♂">ihe ojoo | ike | nwoke | nwoke onye ọjọọ | omempụ</annotation>
+		<annotation cp="🦹‍♂" type="tts">nwoke onye ọjọọ</annotation>
+		<annotation cp="🦹‍♀">ihe ojoo | ike | nwanyị | nwanyị onye ọjọọ | omempụ</annotation>
+		<annotation cp="🦹‍♀" type="tts">nwanyị onye ọjọọ</annotation>
 		<annotation cp="🧙">dibia nwanyị | dibịa nwoke | nwanyị kwenyere n’ike abrakatabra | nwoke kwenyere n’ike abrakatabra | onye abrakatabra</annotation>
 		<annotation cp="🧙" type="tts">onye abrakatabra</annotation>
 		<annotation cp="🧙‍♂">dibia nwoke | nwoke abrakatabra | nwoke kwenyere n’ike abrakatabra</annotation>
@@ -969,8 +1515,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♀" type="tts">nwanyị na-aga ije</annotation>
 		<annotation cp="🧍">guzo | iguzo | onye na-e guzo</annotation>
 		<annotation cp="🧍" type="tts">onye na-e guzo</annotation>
+		<annotation cp="🧍‍♂">na-eguzo | nwoke</annotation>
+		<annotation cp="🧍‍♂" type="tts">nwoke na-eguzo</annotation>
+		<annotation cp="🧍‍♀">na-eguzo | nwanyị</annotation>
+		<annotation cp="🧍‍♀" type="tts">nwanyị na-eguzo</annotation>
 		<annotation cp="🧎">gbu ikpere n’ala | igbu ikpere n’ala | onye gbu ikpere n’ala</annotation>
 		<annotation cp="🧎" type="tts">onye gbu ikpere n’ala</annotation>
+		<annotation cp="🧎‍♂">gbu ikpere n’ala | nwoke</annotation>
+		<annotation cp="🧎‍♂" type="tts">nwoke gbu ikpere n’ala</annotation>
+		<annotation cp="🧎‍♀">gbu ikpere n’ala | nwanyị</annotation>
+		<annotation cp="🧎‍♀" type="tts">nwanyị gbu ikpere n’ala</annotation>
+		<annotation cp="🧑‍🦯">kpuru ìsì | nweta | onye nwere mkpara ọcha</annotation>
+		<annotation cp="🧑‍🦯" type="tts">onye ji mkpara ọcha</annotation>
+		<annotation cp="👨‍🦯">kpuru ìsì | nweta | nwoke | nwoke ji mkpara ọcha</annotation>
+		<annotation cp="👨‍🦯" type="tts">nwoke ji mkpara ọcha</annotation>
+		<annotation cp="👩‍🦯">kpuru ìsì | nwanyị | nwanyị ji mkpara ọcha | nweta</annotation>
+		<annotation cp="👩‍🦯" type="tts">nwanyị ji mkpara ọcha</annotation>
+		<annotation cp="🧑‍🦼">nweta | oche nkwagharị | onye nọ n’oche nkwagharị nwere moto</annotation>
+		<annotation cp="🧑‍🦼" type="tts">onye nọ n’oche nkwagharị nwere moto</annotation>
+		<annotation cp="👨‍🦼">nweta | nwoke | nwoke nọ n’oche nkwagharị nwere moto | oche nkwagharị</annotation>
+		<annotation cp="👨‍🦼" type="tts">nwoke nọ n’oche nkwagharị nwere moto</annotation>
+		<annotation cp="👩‍🦼">nwanyị | nwanyị nọ n’oche nkwagharị nwere moto | nweta | oche nkwagharị</annotation>
+		<annotation cp="👩‍🦼" type="tts">nwanyị nọ n’oche nkwagharị nwere moto</annotation>
+		<annotation cp="🧑‍🦽">nweta | oche nkwagharị | onye nọ n’oche nkwagharị nke aka</annotation>
+		<annotation cp="🧑‍🦽" type="tts">onye nọ n’oche nkwagharị nke aka</annotation>
+		<annotation cp="👨‍🦽">nweta | nwoke | nwoke nọ n’oche nkwagharị nke aka | oche nkwagharị</annotation>
+		<annotation cp="👨‍🦽" type="tts">nwoke nọ n’oche nkwagharị nke aka</annotation>
+		<annotation cp="👩‍🦽">nwanyị | nwanyị nọ n’oche nkwagharị nke aka | nweta | oche nkwagharị</annotation>
+		<annotation cp="👩‍🦽" type="tts">nwanyị nọ n’oche nkwagharị nke aka</annotation>
 		<annotation cp="🏃">agbamụọsọ | na-agba ọsọ | onye na-agba ọsọ</annotation>
 		<annotation cp="🏃" type="tts">onye na-agba ọsọ</annotation>
 		<annotation cp="🏃‍♂">agbamụọsọ | na-agba ọsọ | na-eme egwuregwu inyinya | nwoke | nwoke na-agba ọsọ</annotation>
@@ -1097,6 +1669,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀" type="tts">onye na-asa ahụ</annotation>
 		<annotation cp="🛌">onye nọ n’àkwà | ụlọ nkwarị | ụra</annotation>
 		<annotation cp="🛌" type="tts">onye nọ n’àkwà</annotation>
+		<annotation cp="🧑‍🤝‍🧑">aka | di na nwunye | ji | mmadu | ndị ji aka</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">ndị ji aka</annotation>
 		<annotation cp="👭">aka | di na nwunye | jide | nwanyị | ụmụ nwanyị abụọ jikọtara aka</annotation>
 		<annotation cp="👭" type="tts">ụmụ nwanyị abụọ jikọtara aka</annotation>
 		<annotation cp="👫">aka | di na nwunye | jide | nwanyị | nwoke | nwoke na nwaanyị jikọtara aka</annotation>
@@ -1141,6 +1715,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐕" type="tts">nkịta</annotation>
 		<annotation cp="🦮">accessibility | kpuru ìsì | ndumoodu | nkịta ndumoodu</annotation>
 		<annotation cp="🦮" type="tts">nkịta ndumoodu</annotation>
+		<annotation cp="🐕‍🦺">enyemaka | nkịta | nweta | ọrụ</annotation>
+		<annotation cp="🐕‍🦺" type="tts">nkịta ọrụ</annotation>
 		<annotation cp="🐩">nkịta | nkịta ajị ajị</annotation>
 		<annotation cp="🐩" type="tts">nkịta ajị ajị</annotation>
 		<annotation cp="🐺">ihu | ihu nkịta ọhịa | nkịta ọhịa</annotation>
@@ -1153,8 +1729,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">ihu nwaologbo</annotation>
 		<annotation cp="🐈">nwa nkịta | nwaologbo</annotation>
 		<annotation cp="🐈" type="tts">nwaologbo</annotation>
+		<annotation cp="🐈‍⬛">enweghi chioma | nwamba | ojii</annotation>
+		<annotation cp="🐈‍⬛" type="tts">nwamba ojii</annotation>
 		<annotation cp="🦁">ihu | Leo | ọdụm | zodịak</annotation>
-		<annotation cp="🦁" type="tts">ihu ọdụm</annotation>
+		<annotation cp="🦁" type="tts">ọdụm</annotation>
 		<annotation cp="🐯">ihu | taịga</annotation>
 		<annotation cp="🐯" type="tts">ihu taịga</annotation>
 		<annotation cp="🐅">taịga</annotation>
@@ -1237,6 +1815,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">ụsụ</annotation>
 		<annotation cp="🐻">bịar | ihu | ihu biar</annotation>
 		<annotation cp="🐻" type="tts">ihu biar</annotation>
+		<annotation cp="🐻‍❄">bịar | bịar oyi | ebe oyi | ọcha</annotation>
+		<annotation cp="🐻‍❄" type="tts">bịar oyi</annotation>
 		<annotation cp="🐨">anụmanụ koala | biar</annotation>
 		<annotation cp="🐨" type="tts">anụmanụ koala</annotation>
 		<annotation cp="🐼">ihu | panda</annotation>
@@ -1267,6 +1847,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">chewe ihu na nwa ọkụkọ</annotation>
 		<annotation cp="🐦">nnụnụ</annotation>
 		<annotation cp="🐦" type="tts">nnụnụ</annotation>
+		<annotation cp="🐦‍🔥">akụkọ ifo, nnụnụ n’ere ọkụ, ịlọ ụwa, ịlọ ụwa | nnụnụ n’ere ọkụ</annotation>
+		<annotation cp="🐦‍🔥" type="tts">nnụnụ n’ere ọkụ</annotation>
 		<annotation cp="🐧">nnụnụ | nnụnụ sno</annotation>
 		<annotation cp="🐧" type="tts">nnụnụ sno</annotation>
 		<annotation cp="🕊">fepụ | nduri | nnụnụ | udo</annotation>
@@ -1291,6 +1873,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦜" type="tts">icheku</annotation>
 		<annotation cp="🪽">angelic | aviation | ị-fe | mythology | nkunnunu | nnụnụ</annotation>
 		<annotation cp="🪽" type="tts">nkunnunu</annotation>
+		<annotation cp="🐦‍⬛">nnụnụ | ojii | ugoloọma</annotation>
+		<annotation cp="🐦‍⬛" type="tts">nnụnụ ojii</annotation>
 		<annotation cp="🪿">nnụnụ | ọgazị | okuko</annotation>
 		<annotation cp="🪿" type="tts">ọgazị</annotation>
 		<annotation cp="🐸">akịrị | ihu</annotation>
@@ -1423,6 +2007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">akwụ nwere akwa</annotation>
 		<annotation cp="🍄">ero | ero mkpụmkpụ</annotation>
 		<annotation cp="🍄" type="tts">ero</annotation>
+		<annotation cp="🍄‍🟫">ero aja aja | nri, nje, okike, akwụkwọ nri</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ero aja aja</annotation>
 		<annotation cp="🍇">grepụ | grepụ gasị | mkpụrụosisi</annotation>
 		<annotation cp="🍇" type="tts">grepụ gasị</annotation>
 		<annotation cp="🍈">mkpụrụosisi | mkpụrụosisi melọn</annotation>
@@ -1432,7 +2018,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊">mkpụrụosisi | oroma | Tangerinụ</annotation>
 		<annotation cp="🍊" type="tts">Tangerinụ</annotation>
 		<annotation cp="🍋">mkpụrụosisi | oroma | oroma nkịrịsị</annotation>
-		<annotation cp="🍋" type="tts">oroma nkịrịsị</annotation>
+		<annotation cp="🍋" type="tts">oroma lemọn</annotation>
+		<annotation cp="🍋‍🟩">mmiri mkpụrụ osisi, mkpụrụ osisi, ebe okpomọkụ | oroma nkịrịsị</annotation>
+		<annotation cp="🍋‍🟩" type="tts">oroma nkịrịsị</annotation>
 		<annotation cp="🍌">mkpụrụosisi | unerè</annotation>
 		<annotation cp="🍌" type="tts">unerè</annotation>
 		<annotation cp="🍍">mkpụrụosisi | ọkwụrụ bekee</annotation>
@@ -2713,6 +3301,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔗" type="tts">njikọ</annotation>
 		<annotation cp="⛓">agbụ igwe | agbụ igwe gasị</annotation>
 		<annotation cp="⛓" type="tts">agbụ igwe gasị</annotation>
+		<annotation cp="⛓‍💥">agbụ ígwè gbajiri agbaji | gbajie, mgbaji, agbụ ígwè, nkedo aka ígwè, nwere onwe</annotation>
+		<annotation cp="⛓‍💥" type="tts">agbụ ígwè gbajiri agbaji</annotation>
 		<annotation cp="🪝">ebe ire ere | jide | krook | ngu</annotation>
 		<annotation cp="🪝" type="tts">ngu</annotation>
 		<annotation cp="🧰">igbe ngwaọrụ | ngwáọrụ | obi</annotation>
@@ -2889,6 +3479,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">ube-dị ala dị elu</annotation>
 		<annotation cp="↔">ube | ube-akanri akaekpe</annotation>
 		<annotation cp="↔" type="tts">ube-akanri akaekpe</annotation>
+		<annotation cp="↮">akụ na-atụ aka ekpe na aka nri</annotation>
+		<annotation cp="↮" type="tts">akụ na-atụ aka ekpe na aka nri</annotation>
 		<annotation cp="↩">ube | ube-akanri gbagọrọ akaekpe</annotation>
 		<annotation cp="↩" type="tts">ube-akanri gbagọrọ akaekpe</annotation>
 		<annotation cp="↪">ube | ube-akaekpe gbagọrọ akanri</annotation>
@@ -3249,6 +3841,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">ọkọlọtọ ọcha</annotation>
 		<annotation cp="🏳‍🌈">egwurugwu | ọkọlọtọ egwurugwu</annotation>
 		<annotation cp="🏳‍🌈" type="tts">ọkọlọtọ egwurugwu</annotation>
+		<annotation cp="🏳‍⚧">ndị na-agbanwe okike | ọcha | odo odo | ọkọlọtọ | pịnkị</annotation>
+		<annotation cp="🏳‍⚧" type="tts">ọkọlọtọ ndị na-agbanwe okike ha</annotation>
+		<annotation cp="🏴‍☠">akụ | Jolly Roger | nwakpo | ọkọlọtọ ndị ohi oké osimiri | onye ohi oké osimiri</annotation>
+		<annotation cp="🏴‍☠" type="tts">ọkọlọtọ ndị ohi oké osimiri</annotation>
 		<annotation cp="¢">cent</annotation>
 		<annotation cp="¢" type="tts">cent</annotation>
 		<annotation cp="$">dọla | ego | peso | USD</annotation>
@@ -3257,20 +3853,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">paụnd</annotation>
 		<annotation cp="¥">CNY | ego | JPY | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₢">BRB | cruzeiro | ego</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">ego | franc | french franc</annotation>
+		<annotation cp="₣" type="tts">french franc</annotation>
+		<annotation cp="₤">ego | lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">ego | EUR | ụro</annotation>
 		<annotation cp="€" type="tts">ụro</annotation>
+		<annotation cp="₰">ego | german penny | pfennig</annotation>
+		<annotation cp="₰" type="tts">german penny</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳">ARA | austral | ego</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">ego | livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">ego | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">ego | indian rupee | rupee</annotation>
 		<annotation cp="₹" type="tts">indian rupee</annotation>
 		<annotation cp="₽">ego | ruble</annotation>
 		<annotation cp="₽" type="tts">ruble</annotation>
 		<annotation cp="₿">bitcoin | bitcoin BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨">ego | rupee</annotation>
+		<annotation cp="₨" type="tts">rupee</annotation>
+		<annotation cp="﷼">ego | rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">one | superscript</annotation>
 		<annotation cp="¹" type="tts">superscript one</annotation>
 		<annotation cp="²">squared | superscript | two</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,7 +25,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">stredne tmavý tón pleti</annotation>
 		<annotation cp="🏿">koža | odtieň | pleť | tmavá | tmavý tón pleti | tón</annotation>
 		<annotation cp="🏿" type="tts">tmavý tón pleti</annotation>
-		<annotation cp="‾" draft="contributed">horná čiara</annotation>
+		<annotation cp="‾">horná čiara</annotation>
 		<annotation cp="‾" type="tts">horná čiara</annotation>
 		<annotation cp="_">podčiarkovník</annotation>
 		<annotation cp="_" type="tts">podčiarkovník</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">obrátený otáznik</annotation>
 		<annotation cp="؟">arabčina | arabský otáznik | čo | otázka</annotation>
 		<annotation cp="؟" type="tts">arabský otáznik</annotation>
-		<annotation cp="‽" draft="contributed">interrobang</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">interrobang</annotation>
+		<annotation cp="‽">interrobang</annotation>
+		<annotation cp="‽" type="tts">interrobang</annotation>
 		<annotation cp=".">bodka | koniec | koniec vety</annotation>
 		<annotation cp="." type="tts">bodka</annotation>
 		<annotation cp="…">bodky | tri bodky | vynechanie</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">dvojitá indexová čiarka</annotation>
 		<annotation cp="‴">index | trojitá indexová čiarka</annotation>
 		<annotation cp="‴" type="tts">trojitá indexová čiarka</annotation>
-		<annotation cp="‸" draft="contributed">vsuvka</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">vsuvka</annotation>
+		<annotation cp="‸">vsuvka</annotation>
+		<annotation cp="‸" type="tts">vsuvka</annotation>
 		<annotation cp="※">komedžiruši | odkaz</annotation>
 		<annotation cp="※" type="tts">komedžiruši</annotation>
-		<annotation cp="⁂" draft="contributed">asterizmus</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">asterizmus</annotation>
+		<annotation cp="⁂">asterizmus</annotation>
+		<annotation cp="⁂" type="tts">asterizmus</annotation>
 		<annotation cp="`">gravis | obrátený dĺžeň | tupý prízvuk</annotation>
 		<annotation cp="`" type="tts">obrátený dĺžeň</annotation>
 		<annotation cp="´">akútový prízvuk | dĺžeň</annotation>
@@ -181,176 +181,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">autorské práva na nahrávku</annotation>
 		<annotation cp="←">doľava | šípka | šípka smerujúca doľava</annotation>
 		<annotation cp="←" type="tts">šípka smerujúca doľava</annotation>
-		<annotation cp="↚" draft="contributed">šípka doľava s prečiarknutím</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">šípka doľava s prečiarknutím</annotation>
+		<annotation cp="↚">šípka doľava s prečiarknutím</annotation>
+		<annotation cp="↚" type="tts">šípka doľava s prečiarknutím</annotation>
 		<annotation cp="→">šípka | šípka smerujúca doprava | vpravo</annotation>
 		<annotation cp="→" type="tts">šípka smerujúca doprava</annotation>
-		<annotation cp="↛" draft="contributed">šípka doprava s prečiarknutím</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">šípka doprava s prečiarknutím</annotation>
+		<annotation cp="↛">šípka doprava s prečiarknutím</annotation>
+		<annotation cp="↛" type="tts">šípka doprava s prečiarknutím</annotation>
 		<annotation cp="↑">nahor | šípka | šípka smerujúca nahor</annotation>
 		<annotation cp="↑" type="tts">šípka smerujúca nahor</annotation>
 		<annotation cp="↓">nadol | šípka | šípka smerujúca nadol</annotation>
 		<annotation cp="↓" type="tts">šípka smerujúca nadol</annotation>
-		<annotation cp="↜" draft="contributed">vlnitá šípka doľava</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">vlnitá šípka doľava</annotation>
-		<annotation cp="↝" draft="contributed">vlnitá šípka doprava</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">vlnitá šípka doprava</annotation>
-		<annotation cp="↞" draft="contributed">šípka doľava s dvomi hlavami</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">šípka doľava s dvomi hlavami</annotation>
-		<annotation cp="↟" draft="contributed">šípka nahor s dvomi hlavami</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">šípka nahor s dvomi hlavami</annotation>
-		<annotation cp="↠" draft="contributed">šípka doprava s dvomi hlavami</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">šípka doprava s dvomi hlavami</annotation>
-		<annotation cp="↡" draft="contributed">šípka nadol s dvomi hlavami</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">šípka nadol s dvomi hlavami</annotation>
-		<annotation cp="↢" draft="contributed">šípka doľava s chvostom</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">šípka doľava s chvostom</annotation>
-		<annotation cp="↣" draft="contributed">šípka doprava s chvostom</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">šípka doprava s chvostom</annotation>
-		<annotation cp="↤" draft="contributed">šípka doľava od zvislej čiary</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">šípka doľava od zvislej čiary</annotation>
-		<annotation cp="↥" draft="contributed">šípka nahor od zvislej čiary</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">šípka nahor od zvislej čiary</annotation>
-		<annotation cp="↦" draft="contributed">šípka doprava od zvislej čiary</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">šípka doprava od zvislej čiary</annotation>
-		<annotation cp="↧" draft="contributed">šípka nadol od zvislej čiary</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">šípka nadol od zvislej čiary</annotation>
-		<annotation cp="↨" draft="contributed">šípka nahor a nadol so základňou</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">šípka nahor a nadol so základňou</annotation>
-		<annotation cp="↫" draft="contributed">šípka doľava so slučkou</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">šípka doľava so slučkou</annotation>
-		<annotation cp="↬" draft="contributed">šípka doprava so slučkou</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">šípka doprava so slučkou</annotation>
-		<annotation cp="↭" draft="contributed">vlnitá šípka doľava a doprava</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">vlnitá šípka doľava a doprava</annotation>
-		<annotation cp="↯" draft="contributed">cik-cak šípka nadol</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">cik-cak šípka nadol</annotation>
-		<annotation cp="↰" draft="contributed">šípka nahor so špičkou doľava</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">šípka nahor so špičkou doľava</annotation>
-		<annotation cp="↱" draft="contributed">šípka nahor so špičkou doprava</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">šípka nahor so špičkou doprava</annotation>
-		<annotation cp="↲" draft="contributed">šípka nadol so špičkou doľava</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">šípka nadol so špičkou doľava</annotation>
-		<annotation cp="↳" draft="contributed">šípka nadol so špičkou doprava</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">šípka nadol so špičkou doprava</annotation>
-		<annotation cp="↴" draft="contributed">šípka doprava a nadol</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">šípka doprava a nadol</annotation>
-		<annotation cp="↵" draft="contributed">šípka nadol a doľava</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">šípka nadol a doľava</annotation>
-		<annotation cp="↶" draft="contributed">horná polkruhová šípka doľava</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">horná polkruhová šípka doľava</annotation>
-		<annotation cp="↷" draft="contributed">horná polkruhová šípka doprava</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">horná polkruhová šípka doprava</annotation>
-		<annotation cp="↸" draft="contributed">šípka na severozápad s čiarou nad</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">šípka na severozápad s čiarou nad</annotation>
-		<annotation cp="↹" draft="contributed">šípka doľava s čiarou nad šípkou doprava s čiarou</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">šípka doľava s čiarou nad šípkou doprava s čiarou</annotation>
-		<annotation cp="↺" draft="contributed">otvorená kruhová šípka doľava</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">otvorená kruhová šípka doľava</annotation>
-		<annotation cp="↻" draft="contributed">otvorená kruhová šípka doprava</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">otvorená kruhová šípka doprava</annotation>
-		<annotation cp="↼" draft="contributed">harpúna vľavo s hrotom nahor</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">harpúna vľavo s hrotom nahor</annotation>
-		<annotation cp="↽" draft="contributed">harpúna vľavo s hrotom nadol</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">harpúna vľavo s hrotom nadol</annotation>
-		<annotation cp="↾" draft="contributed">harpúna nahor s hrotom vpravo</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">harpúna nahor s hrotom vpravo</annotation>
-		<annotation cp="↿" draft="contributed">harpúna nahor s hrotom vľavo</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">harpúna nahor s hrotom vľavo</annotation>
-		<annotation cp="⇀" draft="contributed">harpúna vpravo s hrotom nahor</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">harpúna vpravo s hrotom nahor</annotation>
-		<annotation cp="⇁" draft="contributed">harpúna vpravo s hrotom nadol</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">harpúna vpravo s hrotom nadol</annotation>
-		<annotation cp="⇂" draft="contributed">harpúna nadol s hrotom vpravo</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">harpúna nadol s hrotom vpravo</annotation>
-		<annotation cp="⇃" draft="contributed">harpúna nadol s hrotom vľavo</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">harpúna nadol s hrotom vľavo</annotation>
-		<annotation cp="⇄" draft="contributed">šípka doprava nad šípkou doľava</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">šípka doprava nad šípkou doľava</annotation>
+		<annotation cp="↜">vlnitá šípka doľava</annotation>
+		<annotation cp="↜" type="tts">vlnitá šípka doľava</annotation>
+		<annotation cp="↝">vlnitá šípka doprava</annotation>
+		<annotation cp="↝" type="tts">vlnitá šípka doprava</annotation>
+		<annotation cp="↞">šípka doľava s dvomi hlavami</annotation>
+		<annotation cp="↞" type="tts">šípka doľava s dvomi hlavami</annotation>
+		<annotation cp="↟">šípka nahor s dvomi hlavami</annotation>
+		<annotation cp="↟" type="tts">šípka nahor s dvomi hlavami</annotation>
+		<annotation cp="↠">šípka doprava s dvomi hlavami</annotation>
+		<annotation cp="↠" type="tts">šípka doprava s dvomi hlavami</annotation>
+		<annotation cp="↡">šípka nadol s dvomi hlavami</annotation>
+		<annotation cp="↡" type="tts">šípka nadol s dvomi hlavami</annotation>
+		<annotation cp="↢">šípka doľava s chvostom</annotation>
+		<annotation cp="↢" type="tts">šípka doľava s chvostom</annotation>
+		<annotation cp="↣">šípka doprava s chvostom</annotation>
+		<annotation cp="↣" type="tts">šípka doprava s chvostom</annotation>
+		<annotation cp="↤">šípka doľava od zvislej čiary</annotation>
+		<annotation cp="↤" type="tts">šípka doľava od zvislej čiary</annotation>
+		<annotation cp="↥">šípka nahor od zvislej čiary</annotation>
+		<annotation cp="↥" type="tts">šípka nahor od zvislej čiary</annotation>
+		<annotation cp="↦">šípka doprava od zvislej čiary</annotation>
+		<annotation cp="↦" type="tts">šípka doprava od zvislej čiary</annotation>
+		<annotation cp="↧">šípka nadol od zvislej čiary</annotation>
+		<annotation cp="↧" type="tts">šípka nadol od zvislej čiary</annotation>
+		<annotation cp="↨">šípka nahor a nadol so základňou</annotation>
+		<annotation cp="↨" type="tts">šípka nahor a nadol so základňou</annotation>
+		<annotation cp="↫">šípka doľava so slučkou</annotation>
+		<annotation cp="↫" type="tts">šípka doľava so slučkou</annotation>
+		<annotation cp="↬">šípka doprava so slučkou</annotation>
+		<annotation cp="↬" type="tts">šípka doprava so slučkou</annotation>
+		<annotation cp="↭">vlnitá šípka doľava a doprava</annotation>
+		<annotation cp="↭" type="tts">vlnitá šípka doľava a doprava</annotation>
+		<annotation cp="↯">cik-cak šípka nadol</annotation>
+		<annotation cp="↯" type="tts">cik-cak šípka nadol</annotation>
+		<annotation cp="↰">šípka nahor so špičkou doľava</annotation>
+		<annotation cp="↰" type="tts">šípka nahor so špičkou doľava</annotation>
+		<annotation cp="↱">šípka nahor so špičkou doprava</annotation>
+		<annotation cp="↱" type="tts">šípka nahor so špičkou doprava</annotation>
+		<annotation cp="↲">šípka nadol so špičkou doľava</annotation>
+		<annotation cp="↲" type="tts">šípka nadol so špičkou doľava</annotation>
+		<annotation cp="↳">šípka nadol so špičkou doprava</annotation>
+		<annotation cp="↳" type="tts">šípka nadol so špičkou doprava</annotation>
+		<annotation cp="↴">šípka doprava a nadol</annotation>
+		<annotation cp="↴" type="tts">šípka doprava a nadol</annotation>
+		<annotation cp="↵">šípka nadol a doľava</annotation>
+		<annotation cp="↵" type="tts">šípka nadol a doľava</annotation>
+		<annotation cp="↶">horná polkruhová šípka doľava</annotation>
+		<annotation cp="↶" type="tts">horná polkruhová šípka doľava</annotation>
+		<annotation cp="↷">horná polkruhová šípka doprava</annotation>
+		<annotation cp="↷" type="tts">horná polkruhová šípka doprava</annotation>
+		<annotation cp="↸">šípka na severozápad s čiarou nad</annotation>
+		<annotation cp="↸" type="tts">šípka na severozápad s čiarou nad</annotation>
+		<annotation cp="↹">šípka doľava s čiarou nad šípkou doprava s čiarou</annotation>
+		<annotation cp="↹" type="tts">šípka doľava s čiarou nad šípkou doprava s čiarou</annotation>
+		<annotation cp="↺">otvorená kruhová šípka doľava</annotation>
+		<annotation cp="↺" type="tts">otvorená kruhová šípka doľava</annotation>
+		<annotation cp="↻">otvorená kruhová šípka doprava</annotation>
+		<annotation cp="↻" type="tts">otvorená kruhová šípka doprava</annotation>
+		<annotation cp="↼">harpúna vľavo s hrotom nahor</annotation>
+		<annotation cp="↼" type="tts">harpúna vľavo s hrotom nahor</annotation>
+		<annotation cp="↽">harpúna vľavo s hrotom nadol</annotation>
+		<annotation cp="↽" type="tts">harpúna vľavo s hrotom nadol</annotation>
+		<annotation cp="↾">harpúna nahor s hrotom vpravo</annotation>
+		<annotation cp="↾" type="tts">harpúna nahor s hrotom vpravo</annotation>
+		<annotation cp="↿">harpúna nahor s hrotom vľavo</annotation>
+		<annotation cp="↿" type="tts">harpúna nahor s hrotom vľavo</annotation>
+		<annotation cp="⇀">harpúna vpravo s hrotom nahor</annotation>
+		<annotation cp="⇀" type="tts">harpúna vpravo s hrotom nahor</annotation>
+		<annotation cp="⇁">harpúna vpravo s hrotom nadol</annotation>
+		<annotation cp="⇁" type="tts">harpúna vpravo s hrotom nadol</annotation>
+		<annotation cp="⇂">harpúna nadol s hrotom vpravo</annotation>
+		<annotation cp="⇂" type="tts">harpúna nadol s hrotom vpravo</annotation>
+		<annotation cp="⇃">harpúna nadol s hrotom vľavo</annotation>
+		<annotation cp="⇃" type="tts">harpúna nadol s hrotom vľavo</annotation>
+		<annotation cp="⇄">šípka doprava nad šípkou doľava</annotation>
+		<annotation cp="⇄" type="tts">šípka doprava nad šípkou doľava</annotation>
 		<annotation cp="⇅">nadol | nahor | šípka | šípka nahor a šípka nadol | šípky smerujúce nahor a nadol</annotation>
 		<annotation cp="⇅" type="tts">šípka nahor a šípka nadol</annotation>
 		<annotation cp="⇆">šípka | šípka smerujúca vľavo nad šípkou smerujúcou vpravo | šípka vľavo nad šípkou vpravo | vľavo | vpravo</annotation>
 		<annotation cp="⇆" type="tts">šípka vľavo nad šípkou vpravo</annotation>
-		<annotation cp="⇇" draft="contributed">dvojica šípok doľava</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">dvojica šípok doľava</annotation>
-		<annotation cp="⇈" draft="contributed">dvojica šípok nahor</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">dvojica šípok nahor</annotation>
-		<annotation cp="⇉" draft="contributed">dvojica šípok doprava</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">dvojica šípok doprava</annotation>
-		<annotation cp="⇊" draft="contributed">dvojica šípok nadol</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">dvojica šípok nadol</annotation>
-		<annotation cp="⇋" draft="contributed">harpúna doľava nad harpúnou doprava</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">harpúna doľava nad harpúnou doprava</annotation>
-		<annotation cp="⇌" draft="contributed">harpúna doprava nad harpúnou doľava</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">harpúna doprava nad harpúnou doľava</annotation>
-		<annotation cp="⇐" draft="contributed">dvojitá šípka doľava</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">dvojitá šípka doľava</annotation>
-		<annotation cp="⇍" draft="contributed">dvojitá prečiarknutá šípka doľava</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">dvojitá prečiarknutá šípka doľava</annotation>
-		<annotation cp="⇑" draft="contributed">dvojitá šípka nahor</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">dvojitá šípka nahor</annotation>
-		<annotation cp="⇒" draft="contributed">dvojitá šípka doprava</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">dvojitá šípka doprava</annotation>
-		<annotation cp="⇏" draft="contributed">dvojitá prečiarknutá šípka doprava</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">dvojitá prečiarknutá šípka doprava</annotation>
-		<annotation cp="⇓" draft="contributed">dvojitá šípka nadol</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">dvojitá šípka nadol</annotation>
-		<annotation cp="⇔" draft="contributed">dvojitá šípka doľava a doprava</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">dvojitá šípka doľava a doprava</annotation>
-		<annotation cp="⇎" draft="contributed">prečiarknutá dvojitá šípka doľava a doprava</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">prečiarknutá dvojitá šípka doľava a doprava</annotation>
-		<annotation cp="⇖" draft="contributed">dvojitá šípka doľava nahor</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">dvojitá šípka doľava nahor</annotation>
-		<annotation cp="⇗" draft="contributed">dvojitá šípka doprava nahor</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">dvojitá šípka doprava nahor</annotation>
-		<annotation cp="⇘" draft="contributed">dvojitá šípka doprava nadol</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">dvojitá šípka doprava nadol</annotation>
-		<annotation cp="⇙" draft="contributed">dvojitá šípka doľava nadol</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">dvojitá šípka doľava nadol</annotation>
-		<annotation cp="⇚" draft="contributed">trojitá šípka doľava</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">trojitá šípka doľava</annotation>
-		<annotation cp="⇛" draft="contributed">trojitá šípka doprava</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">trojitá šípka doprava</annotation>
-		<annotation cp="⇜" draft="contributed">kľukatá šípka doľava</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">kľukatá šípka doľava</annotation>
-		<annotation cp="⇝" draft="contributed">kľukatá šípka doprava</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">kľukatá šípka doprava</annotation>
-		<annotation cp="⇞" draft="contributed">dvakrát prečiarknutá šípka nahor</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">dvakrát prečiarknutá šípka nahor</annotation>
-		<annotation cp="⇟" draft="contributed">dvakrát prečiarknutá šípka nadol</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">dvakrát prečiarknutá šípka nadol</annotation>
-		<annotation cp="⇠" draft="contributed">prerušovaná šípka doľava</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">prerušovaná šípka doľava</annotation>
-		<annotation cp="⇡" draft="contributed">prerušovaná šípka nahor</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">prerušovaná šípka nahor</annotation>
-		<annotation cp="⇢" draft="contributed">prerušovaná šípka doprava</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">prerušovaná šípka doprava</annotation>
-		<annotation cp="⇣" draft="contributed">prerušovaná šípka nadol</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">prerušovaná šípka nadol</annotation>
-		<annotation cp="⇤" draft="contributed">šípka doľava s čiarou</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">šípka doľava s čiarou</annotation>
-		<annotation cp="⇥" draft="contributed">šípka doprava s čiarou</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">šípka doprava s čiarou</annotation>
-		<annotation cp="⇦" draft="contributed">dutá šípka doľava</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">dutá šípka doľava</annotation>
-		<annotation cp="⇧" draft="contributed">dutá šípka nahor</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">dutá šípka nahor</annotation>
-		<annotation cp="⇨" draft="contributed">dutá šípka doprava</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">dutá šípka doprava</annotation>
-		<annotation cp="⇩" draft="contributed">dutá šípka nadol</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">dutá šípka nadol</annotation>
-		<annotation cp="⇪" draft="contributed">dutá šípka nahor s čiarou pod</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">dutá šípka nahor s čiarou pod</annotation>
-		<annotation cp="⇵" draft="contributed">šípka nadol vľavo so šípkou nahor</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">šípka nadol vľavo so šípkou nahor</annotation>
+		<annotation cp="⇇">dvojica šípok doľava</annotation>
+		<annotation cp="⇇" type="tts">dvojica šípok doľava</annotation>
+		<annotation cp="⇈">dvojica šípok nahor</annotation>
+		<annotation cp="⇈" type="tts">dvojica šípok nahor</annotation>
+		<annotation cp="⇉">dvojica šípok doprava</annotation>
+		<annotation cp="⇉" type="tts">dvojica šípok doprava</annotation>
+		<annotation cp="⇊">dvojica šípok nadol</annotation>
+		<annotation cp="⇊" type="tts">dvojica šípok nadol</annotation>
+		<annotation cp="⇋">harpúna doľava nad harpúnou doprava</annotation>
+		<annotation cp="⇋" type="tts">harpúna doľava nad harpúnou doprava</annotation>
+		<annotation cp="⇌">harpúna doprava nad harpúnou doľava</annotation>
+		<annotation cp="⇌" type="tts">harpúna doprava nad harpúnou doľava</annotation>
+		<annotation cp="⇐">dvojitá šípka doľava</annotation>
+		<annotation cp="⇐" type="tts">dvojitá šípka doľava</annotation>
+		<annotation cp="⇍">dvojitá prečiarknutá šípka doľava</annotation>
+		<annotation cp="⇍" type="tts">dvojitá prečiarknutá šípka doľava</annotation>
+		<annotation cp="⇑">dvojitá šípka nahor</annotation>
+		<annotation cp="⇑" type="tts">dvojitá šípka nahor</annotation>
+		<annotation cp="⇒">dvojitá šípka doprava</annotation>
+		<annotation cp="⇒" type="tts">dvojitá šípka doprava</annotation>
+		<annotation cp="⇏">dvojitá prečiarknutá šípka doprava</annotation>
+		<annotation cp="⇏" type="tts">dvojitá prečiarknutá šípka doprava</annotation>
+		<annotation cp="⇓">dvojitá šípka nadol</annotation>
+		<annotation cp="⇓" type="tts">dvojitá šípka nadol</annotation>
+		<annotation cp="⇔">dvojitá šípka doľava a doprava</annotation>
+		<annotation cp="⇔" type="tts">dvojitá šípka doľava a doprava</annotation>
+		<annotation cp="⇎">prečiarknutá dvojitá šípka doľava a doprava</annotation>
+		<annotation cp="⇎" type="tts">prečiarknutá dvojitá šípka doľava a doprava</annotation>
+		<annotation cp="⇖">dvojitá šípka doľava nahor</annotation>
+		<annotation cp="⇖" type="tts">dvojitá šípka doľava nahor</annotation>
+		<annotation cp="⇗">dvojitá šípka doprava nahor</annotation>
+		<annotation cp="⇗" type="tts">dvojitá šípka doprava nahor</annotation>
+		<annotation cp="⇘">dvojitá šípka doprava nadol</annotation>
+		<annotation cp="⇘" type="tts">dvojitá šípka doprava nadol</annotation>
+		<annotation cp="⇙">dvojitá šípka doľava nadol</annotation>
+		<annotation cp="⇙" type="tts">dvojitá šípka doľava nadol</annotation>
+		<annotation cp="⇚">trojitá šípka doľava</annotation>
+		<annotation cp="⇚" type="tts">trojitá šípka doľava</annotation>
+		<annotation cp="⇛">trojitá šípka doprava</annotation>
+		<annotation cp="⇛" type="tts">trojitá šípka doprava</annotation>
+		<annotation cp="⇜">kľukatá šípka doľava</annotation>
+		<annotation cp="⇜" type="tts">kľukatá šípka doľava</annotation>
+		<annotation cp="⇝">kľukatá šípka doprava</annotation>
+		<annotation cp="⇝" type="tts">kľukatá šípka doprava</annotation>
+		<annotation cp="⇞">dvakrát prečiarknutá šípka nahor</annotation>
+		<annotation cp="⇞" type="tts">dvakrát prečiarknutá šípka nahor</annotation>
+		<annotation cp="⇟">dvakrát prečiarknutá šípka nadol</annotation>
+		<annotation cp="⇟" type="tts">dvakrát prečiarknutá šípka nadol</annotation>
+		<annotation cp="⇠">prerušovaná šípka doľava</annotation>
+		<annotation cp="⇠" type="tts">prerušovaná šípka doľava</annotation>
+		<annotation cp="⇡">prerušovaná šípka nahor</annotation>
+		<annotation cp="⇡" type="tts">prerušovaná šípka nahor</annotation>
+		<annotation cp="⇢">prerušovaná šípka doprava</annotation>
+		<annotation cp="⇢" type="tts">prerušovaná šípka doprava</annotation>
+		<annotation cp="⇣">prerušovaná šípka nadol</annotation>
+		<annotation cp="⇣" type="tts">prerušovaná šípka nadol</annotation>
+		<annotation cp="⇤">šípka doľava s čiarou</annotation>
+		<annotation cp="⇤" type="tts">šípka doľava s čiarou</annotation>
+		<annotation cp="⇥">šípka doprava s čiarou</annotation>
+		<annotation cp="⇥" type="tts">šípka doprava s čiarou</annotation>
+		<annotation cp="⇦">dutá šípka doľava</annotation>
+		<annotation cp="⇦" type="tts">dutá šípka doľava</annotation>
+		<annotation cp="⇧">dutá šípka nahor</annotation>
+		<annotation cp="⇧" type="tts">dutá šípka nahor</annotation>
+		<annotation cp="⇨">dutá šípka doprava</annotation>
+		<annotation cp="⇨" type="tts">dutá šípka doprava</annotation>
+		<annotation cp="⇩">dutá šípka nadol</annotation>
+		<annotation cp="⇩" type="tts">dutá šípka nadol</annotation>
+		<annotation cp="⇪">dutá šípka nahor s čiarou pod</annotation>
+		<annotation cp="⇪" type="tts">dutá šípka nahor s čiarou pod</annotation>
+		<annotation cp="⇵">šípka nadol vľavo so šípkou nahor</annotation>
+		<annotation cp="⇵" type="tts">šípka nadol vľavo so šípkou nahor</annotation>
 		<annotation cp="∀" draft="contributed">pre všetky</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">pre všetky</annotation>
+		<annotation cp="∀" type="tts">pre všetky</annotation>
 		<annotation cp="∂" draft="contributed">parciálny diferenciál</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">parciálny diferenciál</annotation>
-		<annotation cp="∃" draft="contributed">existuje</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">existuje</annotation>
+		<annotation cp="∂" type="tts">parciálny diferenciál</annotation>
+		<annotation cp="∃">existuje</annotation>
+		<annotation cp="∃" type="tts">existuje</annotation>
 		<annotation cp="∅" draft="contributed">prázdna množina</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">prázdna množina</annotation>
+		<annotation cp="∅" type="tts">prázdna množina</annotation>
 		<annotation cp="∆">delta | trojuholník</annotation>
 		<annotation cp="∆" type="tts">delta</annotation>
 		<annotation cp="∇">nabla | trojuholník</annotation>
@@ -358,15 +358,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈">je prvkom | množina | obsahuje | patrí | prvok</annotation>
 		<annotation cp="∈" type="tts">je prvkom</annotation>
 		<annotation cp="∉" draft="contributed">nie je prvkom</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">nie je prvkom</annotation>
+		<annotation cp="∉" type="tts">nie je prvkom</annotation>
 		<annotation cp="∋" draft="contributed">obsahuje ako člen</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">obsahuje ako člen</annotation>
+		<annotation cp="∋" type="tts">obsahuje ako člen</annotation>
 		<annotation cp="∎" draft="contributed">koniec dôkazu</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">koniec dôkazu</annotation>
+		<annotation cp="∎" type="tts">koniec dôkazu</annotation>
 		<annotation cp="∏" draft="contributed">n-árny súčin</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">n-árny súčin</annotation>
+		<annotation cp="∏" type="tts">n-árny súčin</annotation>
 		<annotation cp="∑" draft="contributed">n-árny súčet</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">n-árny súčet</annotation>
+		<annotation cp="∑" type="tts">n-árny súčet</annotation>
 		<annotation cp="+">plus | sčítanie | sčítať | znak plus</annotation>
 		<annotation cp="+" type="tts">znak plus</annotation>
 		<annotation cp="±">asi | plus-mínus | približne | zhruba</annotation>
@@ -378,7 +378,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&lt;">je menšie než | menej než | menšie ako | menšie než</annotation>
 		<annotation cp="&lt;" type="tts">je menšie než</annotation>
 		<annotation cp="≮" draft="contributed">nie menšie ako</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">nie menšie ako</annotation>
+		<annotation cp="≮" type="tts">nie menšie ako</annotation>
 		<annotation cp="=">rovná sa | rovnítko | rovnosť</annotation>
 		<annotation cp="=" type="tts">rovná sa</annotation>
 		<annotation cp="≠">nerovná sa | nerovnosť</annotation>
@@ -386,7 +386,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&gt;">je väčšie než | väčšie ako | väčšie než | viacej než</annotation>
 		<annotation cp="&gt;" type="tts">je väčšie než</annotation>
 		<annotation cp="≯" draft="contributed">nie väčšie ako</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">nie väčšie ako</annotation>
+		<annotation cp="≯" type="tts">nie väčšie ako</annotation>
 		<annotation cp="¬">negácia | nie | opak</annotation>
 		<annotation cp="¬" type="tts">negácia</annotation>
 		<annotation cp="|">pruh | ťah | zvislá čiara | zvislý</annotation>
@@ -398,315 +398,315 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻">horný index | mínus | mínus horný index</annotation>
 		<annotation cp="⁻" type="tts">mínus horný index</annotation>
 		<annotation cp="∓" draft="contributed">mínus alebo plus</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">mínus alebo plus</annotation>
+		<annotation cp="∓" type="tts">mínus alebo plus</annotation>
 		<annotation cp="∕" draft="contributed">lomka delenia</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">lomka delenia</annotation>
+		<annotation cp="∕" type="tts">lomka delenia</annotation>
 		<annotation cp="⁄" draft="contributed">zlomková lomka</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">zlomková lomka</annotation>
+		<annotation cp="⁄" type="tts">zlomková lomka</annotation>
 		<annotation cp="∗" draft="contributed">operátor hviezdička</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">operátor hviezdička</annotation>
+		<annotation cp="∗" type="tts">operátor hviezdička</annotation>
 		<annotation cp="∘" draft="contributed">operátor krúžok</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">operátor krúžok</annotation>
+		<annotation cp="∘" type="tts">operátor krúžok</annotation>
 		<annotation cp="∙" draft="contributed">operátor odrážka</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">operátor odrážka</annotation>
+		<annotation cp="∙" type="tts">operátor odrážka</annotation>
 		<annotation cp="√">druhá odmocnina | odmocnenie | odmocnina | odmocniť | odmocňovať | znak odmocnenia</annotation>
 		<annotation cp="√" type="tts">druhá odmocnina</annotation>
 		<annotation cp="∝" draft="contributed">proporcionálny</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">proporcionálny</annotation>
+		<annotation cp="∝" type="tts">proporcionálny</annotation>
 		<annotation cp="∞">nekonečno | znak nekonečna</annotation>
 		<annotation cp="∞" type="tts">znak nekonečna</annotation>
 		<annotation cp="∟" draft="contributed">pravý uhol</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">pravý uhol</annotation>
+		<annotation cp="∟" type="tts">pravý uhol</annotation>
 		<annotation cp="∠" draft="contributed">uhol</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">uhol</annotation>
+		<annotation cp="∠" type="tts">uhol</annotation>
 		<annotation cp="∣" draft="contributed">delí</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">delí</annotation>
-		<annotation cp="∥" draft="contributed">rovnobežné</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">rovnobežné</annotation>
+		<annotation cp="∣" type="tts">delí</annotation>
+		<annotation cp="∥">rovnobežné</annotation>
+		<annotation cp="∥" type="tts">rovnobežné</annotation>
 		<annotation cp="∧" draft="contributed">logické a</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">logické a</annotation>
+		<annotation cp="∧" type="tts">logické a</annotation>
 		<annotation cp="∩">množina | prienik</annotation>
 		<annotation cp="∩" type="tts">prienik</annotation>
 		<annotation cp="∪">množina | súbor | zjednotenie</annotation>
 		<annotation cp="∪" type="tts">zjednotenie</annotation>
 		<annotation cp="∫" draft="contributed">integrál</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">integrál</annotation>
+		<annotation cp="∫" type="tts">integrál</annotation>
 		<annotation cp="∬" draft="contributed">dvojitý integrál</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">dvojitý integrál</annotation>
-		<annotation cp="∮" draft="contributed">krivkový integrál</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">krivkový integrál</annotation>
+		<annotation cp="∬" type="tts">dvojitý integrál</annotation>
+		<annotation cp="∮">krivkový integrál</annotation>
+		<annotation cp="∮" type="tts">krivkový integrál</annotation>
 		<annotation cp="∴" draft="contributed">preto</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">preto</annotation>
+		<annotation cp="∴" type="tts">preto</annotation>
 		<annotation cp="∵" draft="contributed">pretože</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">pretože</annotation>
-		<annotation cp="∶" draft="contributed">pomer</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">pomer</annotation>
+		<annotation cp="∵" type="tts">pretože</annotation>
+		<annotation cp="∶">pomer</annotation>
+		<annotation cp="∶" type="tts">pomer</annotation>
 		<annotation cp="∷" draft="contributed">proporcia</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">proporcia</annotation>
+		<annotation cp="∷" type="tts">proporcia</annotation>
 		<annotation cp="∼" draft="contributed">operátor vlnovka</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">operátor vlnovka</annotation>
+		<annotation cp="∼" type="tts">operátor vlnovka</annotation>
 		<annotation cp="∽" draft="contributed">otočená vlnovka</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">otočená vlnovka</annotation>
-		<annotation cp="∾" draft="contributed">otočené ležaté s</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">otočené ležaté s</annotation>
+		<annotation cp="∽" type="tts">otočená vlnovka</annotation>
+		<annotation cp="∾">otočené ležaté s</annotation>
+		<annotation cp="∾" type="tts">otočené ležaté s</annotation>
 		<annotation cp="≃" draft="contributed">asymptoticky rovné</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">asymptoticky rovné</annotation>
+		<annotation cp="≃" type="tts">asymptoticky rovné</annotation>
 		<annotation cp="≅" draft="contributed">približne rovné</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">približne rovné</annotation>
+		<annotation cp="≅" type="tts">približne rovné</annotation>
 		<annotation cp="≈">je približne rovné | odhad | približne</annotation>
 		<annotation cp="≈" type="tts">je približne rovné</annotation>
 		<annotation cp="≌" draft="contributed">všetky rovné</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">všetky rovné</annotation>
-		<annotation cp="≒" draft="contributed">približne sa rovná alebo je obrazom</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">približne sa rovná alebo je obrazom</annotation>
+		<annotation cp="≌" type="tts">všetky rovné</annotation>
+		<annotation cp="≒">približne sa rovná alebo je obrazom</annotation>
+		<annotation cp="≒" type="tts">približne sa rovná alebo je obrazom</annotation>
 		<annotation cp="≖" draft="contributed">kruh v znamienku rovná sa</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">kruh v znamienku rovná sa</annotation>
+		<annotation cp="≖" type="tts">kruh v znamienku rovná sa</annotation>
 		<annotation cp="≡">identické | kongruentné | totožné | totožné s</annotation>
 		<annotation cp="≡" type="tts">totožné s</annotation>
 		<annotation cp="≣" draft="contributed">presný ekvivalent</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">presný ekvivalent</annotation>
+		<annotation cp="≣" type="tts">presný ekvivalent</annotation>
 		<annotation cp="≤">je menšie alebo rovné | menej než | nerovnosť | rovná sa</annotation>
 		<annotation cp="≤" type="tts">je menšie alebo rovné</annotation>
 		<annotation cp="≥">je väčšie alebo rovné | nerovnosť | rovná sa | viacej než</annotation>
 		<annotation cp="≥" type="tts">je väčšie alebo rovné</annotation>
 		<annotation cp="≦" draft="contributed">menšie ako nad rovná sa</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">menšie ako nad rovná sa</annotation>
+		<annotation cp="≦" type="tts">menšie ako nad rovná sa</annotation>
 		<annotation cp="≧" draft="contributed">väčšie ako nad rovná sa</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">väčšie ako nad rovná sa</annotation>
+		<annotation cp="≧" type="tts">väčšie ako nad rovná sa</annotation>
 		<annotation cp="≪" draft="contributed">oveľa menšie ako</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">oveľa menšie ako</annotation>
+		<annotation cp="≪" type="tts">oveľa menšie ako</annotation>
 		<annotation cp="≫" draft="contributed">oveľa väčšie ako</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">oveľa väčšie ako</annotation>
-		<annotation cp="≬" draft="contributed">medzi</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">medzi</annotation>
+		<annotation cp="≫" type="tts">oveľa väčšie ako</annotation>
+		<annotation cp="≬">medzi</annotation>
+		<annotation cp="≬" type="tts">medzi</annotation>
 		<annotation cp="≳" draft="contributed">väčšie ako alebo ekvivalentné</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">väčšie ako alebo ekvivalentné</annotation>
+		<annotation cp="≳" type="tts">väčšie ako alebo ekvivalentné</annotation>
 		<annotation cp="≺" draft="contributed">predchádza</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">predchádza</annotation>
+		<annotation cp="≺" type="tts">predchádza</annotation>
 		<annotation cp="≻" draft="contributed">nasleduje</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">nasleduje</annotation>
+		<annotation cp="≻" type="tts">nasleduje</annotation>
 		<annotation cp="⊁" draft="contributed">nenasleduje</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">nenasleduje</annotation>
+		<annotation cp="⊁" type="tts">nenasleduje</annotation>
 		<annotation cp="⊂">množina | podmnožina | podmožina z</annotation>
 		<annotation cp="⊂" type="tts">podmnožina</annotation>
 		<annotation cp="⊃" draft="contributed">nadmnožina</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">nadmnožina</annotation>
-		<annotation cp="⊆" draft="contributed">podmnožina alebo rovná sa</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">podmnožina alebo rovná sa</annotation>
-		<annotation cp="⊇" draft="contributed">nadmnožina alebo rovná sa</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">nadmnožina alebo rovná sa</annotation>
+		<annotation cp="⊃" type="tts">nadmnožina</annotation>
+		<annotation cp="⊆">podmnožina alebo rovná sa</annotation>
+		<annotation cp="⊆" type="tts">podmnožina alebo rovná sa</annotation>
+		<annotation cp="⊇">nadmnožina alebo rovná sa</annotation>
+		<annotation cp="⊇" type="tts">nadmnožina alebo rovná sa</annotation>
 		<annotation cp="⊕" draft="contributed">plus v kruhu</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">plus v kruhu</annotation>
+		<annotation cp="⊕" type="tts">plus v kruhu</annotation>
 		<annotation cp="⊖" draft="contributed">mínus v kruhu</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">mínus v kruhu</annotation>
+		<annotation cp="⊖" type="tts">mínus v kruhu</annotation>
 		<annotation cp="⊗" draft="contributed">krížik v kruhu</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">krížik v kruhu</annotation>
+		<annotation cp="⊗" type="tts">krížik v kruhu</annotation>
 		<annotation cp="⊘" draft="contributed">lomka v kruhu</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">lomka v kruhu</annotation>
+		<annotation cp="⊘" type="tts">lomka v kruhu</annotation>
 		<annotation cp="⊙" draft="contributed">operátor bodka v kruhu</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">operátor bodka v kruhu</annotation>
-		<annotation cp="⊚" draft="contributed">operátor krúžok v kruhu</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">operátor krúžok v kruhu</annotation>
+		<annotation cp="⊙" type="tts">operátor bodka v kruhu</annotation>
+		<annotation cp="⊚">operátor krúžok v kruhu</annotation>
+		<annotation cp="⊚" type="tts">operátor krúžok v kruhu</annotation>
 		<annotation cp="⊛" draft="contributed">operátor hviezdička v kruhu</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">operátor hviezdička v kruhu</annotation>
+		<annotation cp="⊛" type="tts">operátor hviezdička v kruhu</annotation>
 		<annotation cp="⊞" draft="contributed">plus vo štvorci</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">plus vo štvorci</annotation>
+		<annotation cp="⊞" type="tts">plus vo štvorci</annotation>
 		<annotation cp="⊟" draft="contributed">mínus vo štvorci</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">mínus vo štvorci</annotation>
+		<annotation cp="⊟" type="tts">mínus vo štvorci</annotation>
 		<annotation cp="⊥" draft="contributed">kolmica otočená nahor</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">kolmica otočená nahor</annotation>
-		<annotation cp="⊮" draft="contributed">nevynucuje</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">nevynucuje</annotation>
+		<annotation cp="⊥" type="tts">kolmica otočená nahor</annotation>
+		<annotation cp="⊮">nevynucuje</annotation>
+		<annotation cp="⊮" type="tts">nevynucuje</annotation>
 		<annotation cp="⊰" draft="contributed">vzťah predchádza zdola</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">vzťah predchádza zdola</annotation>
+		<annotation cp="⊰" type="tts">vzťah predchádza zdola</annotation>
 		<annotation cp="⊱" draft="contributed">vzťah nasleduje zdola</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">vzťah nasleduje zdola</annotation>
+		<annotation cp="⊱" type="tts">vzťah nasleduje zdola</annotation>
 		<annotation cp="⋭" draft="contributed">neobsahuje ako normálnu podskupinu alebo rovná sa</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">neobsahuje ako normálnu podskupinu alebo rovná sa</annotation>
-		<annotation cp="⊶" draft="contributed">počiatok</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">počiatok</annotation>
+		<annotation cp="⋭" type="tts">neobsahuje ako normálnu podskupinu alebo rovná sa</annotation>
+		<annotation cp="⊶">počiatok</annotation>
+		<annotation cp="⊶" type="tts">počiatok</annotation>
 		<annotation cp="⊹" draft="contributed">hermitovská konjugovaná matica</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">hermitovská konjugovaná matica</annotation>
+		<annotation cp="⊹" type="tts">hermitovská konjugovaná matica</annotation>
 		<annotation cp="⊿" draft="contributed">pravouhlý trojuholník</annotation>
-		<annotation cp="⊿" type="tts" draft="contributed">pravouhlý trojuholník</annotation>
+		<annotation cp="⊿" type="tts">pravouhlý trojuholník</annotation>
 		<annotation cp="⋁" draft="contributed">n-árne logické alebo</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">n-árne logické alebo</annotation>
+		<annotation cp="⋁" type="tts">n-árne logické alebo</annotation>
 		<annotation cp="⋂" draft="contributed">n-árny prienik</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">n-árny prienik</annotation>
+		<annotation cp="⋂" type="tts">n-árny prienik</annotation>
 		<annotation cp="⋃" draft="contributed">n-árne zjednotenie</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">n-árne zjednotenie</annotation>
+		<annotation cp="⋃" type="tts">n-árne zjednotenie</annotation>
 		<annotation cp="⋅" draft="contributed">operátor bodka</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">operátor bodka</annotation>
+		<annotation cp="⋅" type="tts">operátor bodka</annotation>
 		<annotation cp="⋆" draft="contributed">operátor hviezda</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">operátor hviezda</annotation>
+		<annotation cp="⋆" type="tts">operátor hviezda</annotation>
 		<annotation cp="⋈" draft="contributed">prirodzené spojenie</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">prirodzené spojenie</annotation>
+		<annotation cp="⋈" type="tts">prirodzené spojenie</annotation>
 		<annotation cp="⋒" draft="contributed">dvojitý prienik</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">dvojitý prienik</annotation>
+		<annotation cp="⋒" type="tts">dvojitý prienik</annotation>
 		<annotation cp="⋘" draft="contributed">o veľmi veľa menšie ako</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">o veľmi veľa menšie ako</annotation>
+		<annotation cp="⋘" type="tts">o veľmi veľa menšie ako</annotation>
 		<annotation cp="⋙" draft="contributed">o veľmi veľa väčšie ako</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">o veľmi veľa väčšie ako</annotation>
+		<annotation cp="⋙" type="tts">o veľmi veľa väčšie ako</annotation>
 		<annotation cp="⋮" draft="contributed">tri bodky zvislo</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">tri bodky zvislo</annotation>
+		<annotation cp="⋮" type="tts">tri bodky zvislo</annotation>
 		<annotation cp="⋯" draft="contributed">tri bodky vodorovne v strede</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">tri bodky vodorovne v strede</annotation>
+		<annotation cp="⋯" type="tts">tri bodky vodorovne v strede</annotation>
 		<annotation cp="⋰" draft="contributed">tri bodky šikmo doprava nahor</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">tri bodky šikmo doprava nahor</annotation>
+		<annotation cp="⋰" type="tts">tri bodky šikmo doprava nahor</annotation>
 		<annotation cp="⋱" draft="contributed">tri bodky šikmo doprava nadol</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">tri bodky šikmo doprava nadol</annotation>
-		<annotation cp="■" draft="contributed">plný štvorec</annotation>
-		<annotation cp="■" type="tts" draft="contributed">plný štvorec</annotation>
-		<annotation cp="□" draft="contributed">prázdny štvorec</annotation>
-		<annotation cp="□" type="tts" draft="contributed">prázdny štvorec</annotation>
-		<annotation cp="▢" draft="contributed">prázdny štvorec so zaoblenými rohmi</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">prázdny štvorec so zaoblenými rohmi</annotation>
-		<annotation cp="▣" draft="contributed">prázdny štvorec s plným štvorcom</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">prázdny štvorec s plným štvorcom</annotation>
-		<annotation cp="▤" draft="contributed">prázdny štvorec s vodorovnou výplňou</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">prázdny štvorec s vodorovnou výplňou</annotation>
-		<annotation cp="▥" draft="contributed">prázdny štvorec so zvislou výplňou</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">prázdny štvorec so zvislou výplňou</annotation>
-		<annotation cp="▦" draft="contributed">štvorec s pravouhlou mriežkovanou výplňou</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">štvorec s pravouhlou mriežkovanou výplňou</annotation>
-		<annotation cp="▧" draft="contributed">štvorec s výplňou vľavo hore a vpravo dole</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">štvorec s výplňou vľavo hore a vpravo dole</annotation>
-		<annotation cp="▨" draft="contributed">štvorec s výplňou vpravo hore a vľavo dole</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">štvorec s výplňou vpravo hore a vľavo dole</annotation>
-		<annotation cp="▩" draft="contributed">štvorec so šikmou mriežkovanou výplňou</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">štvorec so šikmou mriežkovanou výplňou</annotation>
-		<annotation cp="▬" draft="contributed">plný obdĺžnik</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">plný obdĺžnik</annotation>
-		<annotation cp="▭" draft="contributed">prázdny obdĺžnik</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">prázdny obdĺžnik</annotation>
-		<annotation cp="▮" draft="contributed">plný zvislý obdĺžnik</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">plný zvislý obdĺžnik</annotation>
-		<annotation cp="▰" draft="contributed">plný kosodĺžnik</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">plný kosodĺžnik</annotation>
+		<annotation cp="⋱" type="tts">tri bodky šikmo doprava nadol</annotation>
+		<annotation cp="■">plný štvorec</annotation>
+		<annotation cp="■" type="tts">plný štvorec</annotation>
+		<annotation cp="□">prázdny štvorec</annotation>
+		<annotation cp="□" type="tts">prázdny štvorec</annotation>
+		<annotation cp="▢">prázdny štvorec so zaoblenými rohmi</annotation>
+		<annotation cp="▢" type="tts">prázdny štvorec so zaoblenými rohmi</annotation>
+		<annotation cp="▣">prázdny štvorec s plným štvorcom</annotation>
+		<annotation cp="▣" type="tts">prázdny štvorec s plným štvorcom</annotation>
+		<annotation cp="▤">prázdny štvorec s vodorovnou výplňou</annotation>
+		<annotation cp="▤" type="tts">prázdny štvorec s vodorovnou výplňou</annotation>
+		<annotation cp="▥">prázdny štvorec so zvislou výplňou</annotation>
+		<annotation cp="▥" type="tts">prázdny štvorec so zvislou výplňou</annotation>
+		<annotation cp="▦">štvorec s pravouhlou mriežkovanou výplňou</annotation>
+		<annotation cp="▦" type="tts">štvorec s pravouhlou mriežkovanou výplňou</annotation>
+		<annotation cp="▧">štvorec s výplňou vľavo hore a vpravo dole</annotation>
+		<annotation cp="▧" type="tts">štvorec s výplňou vľavo hore a vpravo dole</annotation>
+		<annotation cp="▨">štvorec s výplňou vpravo hore a vľavo dole</annotation>
+		<annotation cp="▨" type="tts">štvorec s výplňou vpravo hore a vľavo dole</annotation>
+		<annotation cp="▩">štvorec so šikmou mriežkovanou výplňou</annotation>
+		<annotation cp="▩" type="tts">štvorec so šikmou mriežkovanou výplňou</annotation>
+		<annotation cp="▬">plný obdĺžnik</annotation>
+		<annotation cp="▬" type="tts">plný obdĺžnik</annotation>
+		<annotation cp="▭">prázdny obdĺžnik</annotation>
+		<annotation cp="▭" type="tts">prázdny obdĺžnik</annotation>
+		<annotation cp="▮">plný zvislý obdĺžnik</annotation>
+		<annotation cp="▮" type="tts">plný zvislý obdĺžnik</annotation>
+		<annotation cp="▰">plný kosodĺžnik</annotation>
+		<annotation cp="▰" type="tts">plný kosodĺžnik</annotation>
 		<annotation cp="▲">nahor | plný trojuholník smerujúci nahor | šípka | trojuholník | vyplnený</annotation>
 		<annotation cp="▲" type="tts">plný trojuholník smerujúci nahor</annotation>
-		<annotation cp="△" draft="contributed">prázdny trojuholník smerujúci nahor</annotation>
-		<annotation cp="△" type="tts" draft="contributed">prázdny trojuholník smerujúci nahor</annotation>
-		<annotation cp="▴" draft="contributed">malý plný trojuholník smerujúci nahor</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">malý plný trojuholník smerujúci nahor</annotation>
-		<annotation cp="▵" draft="contributed">malý prázdny trojuholník smerujúci nahor</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">malý prázdny trojuholník smerujúci nahor</annotation>
-		<annotation cp="▷" draft="contributed">prázdny trojuholník smerujúci doprava</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">prázdny trojuholník smerujúci doprava</annotation>
-		<annotation cp="▸" draft="contributed">malý plný trojuholník smerujúci doprava</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">malý plný trojuholník smerujúci doprava</annotation>
-		<annotation cp="▹" draft="contributed">malý prázdny trojuholník smerujúci doprava</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">malý prázdny trojuholník smerujúci doprava</annotation>
-		<annotation cp="►" draft="contributed">plný ukazovateľ smerujúci doprava</annotation>
-		<annotation cp="►" type="tts" draft="contributed">plný ukazovateľ smerujúci doprava</annotation>
-		<annotation cp="▻" draft="contributed">prázdny ukazovateľ smerujúci doprava</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">prázdny ukazovateľ smerujúci doprava</annotation>
+		<annotation cp="△">prázdny trojuholník smerujúci nahor</annotation>
+		<annotation cp="△" type="tts">prázdny trojuholník smerujúci nahor</annotation>
+		<annotation cp="▴">malý plný trojuholník smerujúci nahor</annotation>
+		<annotation cp="▴" type="tts">malý plný trojuholník smerujúci nahor</annotation>
+		<annotation cp="▵">malý prázdny trojuholník smerujúci nahor</annotation>
+		<annotation cp="▵" type="tts">malý prázdny trojuholník smerujúci nahor</annotation>
+		<annotation cp="▷">prázdny trojuholník smerujúci doprava</annotation>
+		<annotation cp="▷" type="tts">prázdny trojuholník smerujúci doprava</annotation>
+		<annotation cp="▸">malý plný trojuholník smerujúci doprava</annotation>
+		<annotation cp="▸" type="tts">malý plný trojuholník smerujúci doprava</annotation>
+		<annotation cp="▹">malý prázdny trojuholník smerujúci doprava</annotation>
+		<annotation cp="▹" type="tts">malý prázdny trojuholník smerujúci doprava</annotation>
+		<annotation cp="►">plný ukazovateľ smerujúci doprava</annotation>
+		<annotation cp="►" type="tts">plný ukazovateľ smerujúci doprava</annotation>
+		<annotation cp="▻">prázdny ukazovateľ smerujúci doprava</annotation>
+		<annotation cp="▻" type="tts">prázdny ukazovateľ smerujúci doprava</annotation>
 		<annotation cp="▼">nadol | plný trojuholník smerujúci nadol | šípka | trojuholník | vyplnený</annotation>
 		<annotation cp="▼" type="tts">plný trojuholník smerujúci nadol</annotation>
-		<annotation cp="▽" draft="contributed">prázdny ukazovateľ smerujúci nadol</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">prázdny ukazovateľ smerujúci nadol</annotation>
-		<annotation cp="▾" draft="contributed">malý plný trojuholník smerujúci nadol</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">malý plný trojuholník smerujúci nadol</annotation>
-		<annotation cp="▿" draft="contributed">malý prázdny trojuholník smerujúci nadol</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">malý prázdny trojuholník smerujúci nadol</annotation>
-		<annotation cp="◁" draft="contributed">prázdny trojuholník smerujúci doľava</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">prázdny trojuholník smerujúci doľava</annotation>
-		<annotation cp="◂" draft="contributed">malý plný trojuholník smerujúci doľava</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">malý plný trojuholník smerujúci doľava</annotation>
-		<annotation cp="◃" draft="contributed">malý prázdny trojuholník smerujúci doľava</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">malý prázdny trojuholník smerujúci doľava</annotation>
-		<annotation cp="◄" draft="contributed">plný ukazovateľ smerujúci doľava</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">plný ukazovateľ smerujúci doľava</annotation>
-		<annotation cp="◅" draft="contributed">prázdny ukazovateľ smerujúci doľava</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">prázdny ukazovateľ smerujúci doľava</annotation>
-		<annotation cp="◆" draft="contributed">plný kosoštvorec</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">plný kosoštvorec</annotation>
-		<annotation cp="◇" draft="contributed">prázdny kosoštvorec</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">prázdny kosoštvorec</annotation>
-		<annotation cp="◈" draft="contributed">prázdny kosoštvorec s plným kosoštvorcom</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">prázdny kosoštvorec s plným kosoštvorcom</annotation>
+		<annotation cp="▽">prázdny ukazovateľ smerujúci nadol</annotation>
+		<annotation cp="▽" type="tts">prázdny ukazovateľ smerujúci nadol</annotation>
+		<annotation cp="▾">malý plný trojuholník smerujúci nadol</annotation>
+		<annotation cp="▾" type="tts">malý plný trojuholník smerujúci nadol</annotation>
+		<annotation cp="▿">malý prázdny trojuholník smerujúci nadol</annotation>
+		<annotation cp="▿" type="tts">malý prázdny trojuholník smerujúci nadol</annotation>
+		<annotation cp="◁">prázdny trojuholník smerujúci doľava</annotation>
+		<annotation cp="◁" type="tts">prázdny trojuholník smerujúci doľava</annotation>
+		<annotation cp="◂">malý plný trojuholník smerujúci doľava</annotation>
+		<annotation cp="◂" type="tts">malý plný trojuholník smerujúci doľava</annotation>
+		<annotation cp="◃">malý prázdny trojuholník smerujúci doľava</annotation>
+		<annotation cp="◃" type="tts">malý prázdny trojuholník smerujúci doľava</annotation>
+		<annotation cp="◄">plný ukazovateľ smerujúci doľava</annotation>
+		<annotation cp="◄" type="tts">plný ukazovateľ smerujúci doľava</annotation>
+		<annotation cp="◅">prázdny ukazovateľ smerujúci doľava</annotation>
+		<annotation cp="◅" type="tts">prázdny ukazovateľ smerujúci doľava</annotation>
+		<annotation cp="◆">plný kosoštvorec</annotation>
+		<annotation cp="◆" type="tts">plný kosoštvorec</annotation>
+		<annotation cp="◇">prázdny kosoštvorec</annotation>
+		<annotation cp="◇" type="tts">prázdny kosoštvorec</annotation>
+		<annotation cp="◈">prázdny kosoštvorec s plným kosoštvorcom</annotation>
+		<annotation cp="◈" type="tts">prázdny kosoštvorec s plným kosoštvorcom</annotation>
 		<annotation cp="◉" draft="contributed">prázdny kruh s plným kruhom</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">prázdny kruh s plným kruhom</annotation>
+		<annotation cp="◉" type="tts">prázdny kruh s plným kruhom</annotation>
 		<annotation cp="◊">diamantový vzor | káro | kosoštvorec</annotation>
 		<annotation cp="◊" type="tts">kosoštvorec</annotation>
 		<annotation cp="○">kruh | krúžok | prázdny kruh</annotation>
 		<annotation cp="○" type="tts">prázdny kruh</annotation>
-		<annotation cp="◌" draft="contributed">bodkovaný kruh</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">bodkovaný kruh</annotation>
-		<annotation cp="◍" draft="contributed">kruh so zvislou výplňou</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">kruh so zvislou výplňou</annotation>
+		<annotation cp="◌">bodkovaný kruh</annotation>
+		<annotation cp="◌" type="tts">bodkovaný kruh</annotation>
+		<annotation cp="◍">kruh so zvislou výplňou</annotation>
+		<annotation cp="◍" type="tts">kruh so zvislou výplňou</annotation>
 		<annotation cp="◎" draft="contributed">sústredné kruhy</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">sústredné kruhy</annotation>
+		<annotation cp="◎" type="tts">sústredné kruhy</annotation>
 		<annotation cp="●">kruh | plný kruh</annotation>
 		<annotation cp="●" type="tts">plný kruh</annotation>
-		<annotation cp="◐" draft="contributed">kruh s plnou ľavou polovicou</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">kruh s plnou ľavou polovicou</annotation>
-		<annotation cp="◑" draft="contributed">kruh s plnou pravou polovicou</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">kruh s plnou pravou polovicou</annotation>
-		<annotation cp="◒" draft="contributed">kruh s plnou dolnou polovicou</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">kruh s plnou dolnou polovicou</annotation>
-		<annotation cp="◓" draft="contributed">kruh s plnou hornou polovicou</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">kruh s plnou hornou polovicou</annotation>
-		<annotation cp="◔" draft="contributed">kruh s plným horným pravým kvadrantom</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">kruh s plným horným pravým kvadrantom</annotation>
-		<annotation cp="◕" draft="contributed">plný kruh s prázdnym horným ľavým kvadrantom</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">plný kruh s prázdnym horným ľavým kvadrantom</annotation>
-		<annotation cp="◖" draft="contributed">plný ľavý polkruh</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">plný ľavý polkruh</annotation>
-		<annotation cp="◗" draft="contributed">plný pravý polkruh</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">plný pravý polkruh</annotation>
-		<annotation cp="◘" draft="contributed">inverzná odrážka</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">inverzná odrážka</annotation>
+		<annotation cp="◐">kruh s plnou ľavou polovicou</annotation>
+		<annotation cp="◐" type="tts">kruh s plnou ľavou polovicou</annotation>
+		<annotation cp="◑">kruh s plnou pravou polovicou</annotation>
+		<annotation cp="◑" type="tts">kruh s plnou pravou polovicou</annotation>
+		<annotation cp="◒">kruh s plnou dolnou polovicou</annotation>
+		<annotation cp="◒" type="tts">kruh s plnou dolnou polovicou</annotation>
+		<annotation cp="◓">kruh s plnou hornou polovicou</annotation>
+		<annotation cp="◓" type="tts">kruh s plnou hornou polovicou</annotation>
+		<annotation cp="◔">kruh s plným horným pravým kvadrantom</annotation>
+		<annotation cp="◔" type="tts">kruh s plným horným pravým kvadrantom</annotation>
+		<annotation cp="◕">plný kruh s prázdnym horným ľavým kvadrantom</annotation>
+		<annotation cp="◕" type="tts">plný kruh s prázdnym horným ľavým kvadrantom</annotation>
+		<annotation cp="◖">plný ľavý polkruh</annotation>
+		<annotation cp="◖" type="tts">plný ľavý polkruh</annotation>
+		<annotation cp="◗">plný pravý polkruh</annotation>
+		<annotation cp="◗" type="tts">plný pravý polkruh</annotation>
+		<annotation cp="◘">inverzná odrážka</annotation>
+		<annotation cp="◘" type="tts">inverzná odrážka</annotation>
 		<annotation cp="◙" draft="contributed">plný štvorec s prázdnym kruhom</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">plný štvorec s prázdnym kruhom</annotation>
-		<annotation cp="◜" draft="contributed">ľavý horný štvrťkruh</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">ľavý horný štvrťkruh</annotation>
-		<annotation cp="◝" draft="contributed">pravý horný štvrťkruh</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">pravý horný štvrťkruh</annotation>
-		<annotation cp="◞" draft="contributed">pravý dolný štvrťkruh</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">pravý dolný štvrťkruh</annotation>
-		<annotation cp="◟" draft="contributed">ľavý dolný štvrťkruh</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">ľavý dolný štvrťkruh</annotation>
-		<annotation cp="◠" draft="contributed">horný polkruh</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">horný polkruh</annotation>
+		<annotation cp="◙" type="tts">plný štvorec s prázdnym kruhom</annotation>
+		<annotation cp="◜">ľavý horný štvrťkruh</annotation>
+		<annotation cp="◜" type="tts">ľavý horný štvrťkruh</annotation>
+		<annotation cp="◝">pravý horný štvrťkruh</annotation>
+		<annotation cp="◝" type="tts">pravý horný štvrťkruh</annotation>
+		<annotation cp="◞">pravý dolný štvrťkruh</annotation>
+		<annotation cp="◞" type="tts">pravý dolný štvrťkruh</annotation>
+		<annotation cp="◟">ľavý dolný štvrťkruh</annotation>
+		<annotation cp="◟" type="tts">ľavý dolný štvrťkruh</annotation>
+		<annotation cp="◠">horný polkruh</annotation>
+		<annotation cp="◠" type="tts">horný polkruh</annotation>
 		<annotation cp="◡" draft="contributed">dolný polkruh</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">dolný polkruh</annotation>
-		<annotation cp="◢" draft="contributed">plný trojuholník vpravo dole</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">plný trojuholník vpravo dole</annotation>
-		<annotation cp="◣" draft="contributed">plný trojuholník vľavo dole</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">plný trojuholník vľavo dole</annotation>
-		<annotation cp="◤" draft="contributed">plný trojuholník vľavo hore</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">plný trojuholník vľavo hore</annotation>
-		<annotation cp="◥" draft="contributed">plný trojuholník vpravo hore</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">plný trojuholník vpravo hore</annotation>
-		<annotation cp="◦" draft="contributed">dutá odrážka</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">dutá odrážka</annotation>
+		<annotation cp="◡" type="tts">dolný polkruh</annotation>
+		<annotation cp="◢">plný trojuholník vpravo dole</annotation>
+		<annotation cp="◢" type="tts">plný trojuholník vpravo dole</annotation>
+		<annotation cp="◣">plný trojuholník vľavo dole</annotation>
+		<annotation cp="◣" type="tts">plný trojuholník vľavo dole</annotation>
+		<annotation cp="◤">plný trojuholník vľavo hore</annotation>
+		<annotation cp="◤" type="tts">plný trojuholník vľavo hore</annotation>
+		<annotation cp="◥">plný trojuholník vpravo hore</annotation>
+		<annotation cp="◥" type="tts">plný trojuholník vpravo hore</annotation>
+		<annotation cp="◦">dutá odrážka</annotation>
+		<annotation cp="◦" type="tts">dutá odrážka</annotation>
 		<annotation cp="◯">kruh | prstenec | veľký prázdny kruh</annotation>
 		<annotation cp="◯" type="tts">veľký prázdny kruh</annotation>
-		<annotation cp="◳" draft="contributed">prázdny štvorec s kvadrantom vpravo hore</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">prázdny štvorec s kvadrantom vpravo hore</annotation>
-		<annotation cp="◷" draft="contributed">prázdny kruh s kvadrantom vpravo hore</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">prázdny kruh s kvadrantom vpravo hore</annotation>
-		<annotation cp="◿" draft="contributed">trojuholník vpravo dole</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">trojuholník vpravo dole</annotation>
+		<annotation cp="◳">prázdny štvorec s kvadrantom vpravo hore</annotation>
+		<annotation cp="◳" type="tts">prázdny štvorec s kvadrantom vpravo hore</annotation>
+		<annotation cp="◷">prázdny kruh s kvadrantom vpravo hore</annotation>
+		<annotation cp="◷" type="tts">prázdny kruh s kvadrantom vpravo hore</annotation>
+		<annotation cp="◿">trojuholník vpravo dole</annotation>
+		<annotation cp="◿" type="tts">trojuholník vpravo dole</annotation>
 		<annotation cp="♪">hudba | osmina | osminová nota</annotation>
 		<annotation cp="♪" type="tts">osminová nota</annotation>
-		<annotation cp="⨧" draft="contributed">plus s dolným indexom dva</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">plus s dolným indexom dva</annotation>
-		<annotation cp="⨯" draft="contributed">vektorový súčin</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">vektorový súčin</annotation>
-		<annotation cp="⨼" draft="contributed">skalárny súčin</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">skalárny súčin</annotation>
-		<annotation cp="⩣" draft="contributed">logické alebo s dvomi čiarami pod</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">logické alebo s dvomi čiarami pod</annotation>
-		<annotation cp="⩽" draft="contributed">menšie ako šikmé rovná sa</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">menšie ako šikmé rovná sa</annotation>
-		<annotation cp="⪍" draft="contributed">menšie ako nad podobné alebo rovná sa</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">menšie ako nad podobné alebo rovná sa</annotation>
-		<annotation cp="⪚" draft="contributed">rovná sa nad väčšie ako</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">rovná sa nad väčšie ako</annotation>
-		<annotation cp="⪺" draft="contributed">nasleduje nad nie je približne rovné</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">nasleduje nad nie je približne rovné</annotation>
+		<annotation cp="⨧">plus s dolným indexom dva</annotation>
+		<annotation cp="⨧" type="tts">plus s dolným indexom dva</annotation>
+		<annotation cp="⨯">vektorový súčin</annotation>
+		<annotation cp="⨯" type="tts">vektorový súčin</annotation>
+		<annotation cp="⨼">skalárny súčin</annotation>
+		<annotation cp="⨼" type="tts">skalárny súčin</annotation>
+		<annotation cp="⩣">logické alebo s dvomi čiarami pod</annotation>
+		<annotation cp="⩣" type="tts">logické alebo s dvomi čiarami pod</annotation>
+		<annotation cp="⩽">menšie ako šikmé rovná sa</annotation>
+		<annotation cp="⩽" type="tts">menšie ako šikmé rovná sa</annotation>
+		<annotation cp="⪍">menšie ako nad podobné alebo rovná sa</annotation>
+		<annotation cp="⪍" type="tts">menšie ako nad podobné alebo rovná sa</annotation>
+		<annotation cp="⪚">rovná sa nad väčšie ako</annotation>
+		<annotation cp="⪚" type="tts">rovná sa nad väčšie ako</annotation>
+		<annotation cp="⪺">nasleduje nad nie je približne rovné</annotation>
+		<annotation cp="⪺" type="tts">nasleduje nad nie je približne rovné</annotation>
 		<annotation cp="♭">béčko | hudba | posuvka | zníženie | zníženie tónu</annotation>
 		<annotation cp="♭" type="tts">zníženie tónu</annotation>
 		<annotation cp="♯">hudba | krížik | posuvka | zvýšenie | zvýšenie tónu</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">plačem od smiechu</annotation>
 		<annotation cp="🙂">tvár | úsmev | usmievajúca sa tvár</annotation>
 		<annotation cp="🙂" type="tts">usmievajúca sa tvár</annotation>
+		<annotation cp="🙂‍↕">prikývnutie, áno | prikyvujúca hlava</annotation>
+		<annotation cp="🙂‍↕" type="tts">prikyvujúca hlava</annotation>
+		<annotation cp="🙂‍↔">hlava krútiaca sa zo strany na stranu | nie, krútenie</annotation>
+		<annotation cp="🙂‍↔" type="tts">hlava krútiaca sa zo strany na stranu</annotation>
 		<annotation cp="🙃">otočená | prevrátená | tvár</annotation>
 		<annotation cp="🙃" type="tts">prevrátená tvár</annotation>
 		<annotation cp="🫠">rozpustiť | roztiecť | roztopená tvár | roztopiť | zmiznúť</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dospelý</annotation>
 		<annotation cp="👱">blond | svetlovlasý človek</annotation>
 		<annotation cp="👱" type="tts">svetlovlasý človek</annotation>
+		<annotation cp="🧑‍🧒">dcéra | dieťa | matka | otec | syn</annotation>
+		<annotation cp="🧑‍🧒" type="tts">rodina: dospelý, dieťa</annotation>
+		<annotation cp="🧑‍🧒‍🧒">brat | dcéra | dve deti | matka | otec | sestra | syn</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">rodina: dospelý, dieťa, dieťa</annotation>
+		<annotation cp="🧑‍🧑‍🧒">dieťa | matka | otec</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">rodina: dospelý, dospelý, dieťa</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">brat | brat a sestra | bratia | rodina | sestra | sestry | súrodenci</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">rodina: dospelý, dospelý, dieťa, dieťa</annotation>
 		<annotation cp="👨">dospelý | muž</annotation>
 		<annotation cp="👨" type="tts">muž</annotation>
 		<annotation cp="🧔">brada | bradáč | fúzatý | fúzy</annotation>
@@ -1517,21 +1529,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♀" type="tts">kľačiaca žena</annotation>
 		<annotation cp="🧑‍🦯">človek s bielou palicou | handicap | hendikep | pomôcka | postihnutie</annotation>
 		<annotation cp="🧑‍🦯" type="tts">človek s bielou palicou</annotation>
-		<annotation cp="👨‍🦯">handicap | hendikep | muž | muž s bielou palicou | muž so slepeckou palicou | pomôcka | postihnutie | slepý | uľahčenie</annotation>
+		<annotation cp="👨‍🦯">handicap | hendikep | muž s bielou palicou | muž so slepeckou palicou | pomôcka | postihnutie | slepý</annotation>
 		<annotation cp="👨‍🦯" type="tts">muž s bielou palicou</annotation>
-		<annotation cp="👩‍🦯">handicap | hendikep | pomôcka | postihnutie | slepá | uľahčenie | žena | žena so slepeckou palicou</annotation>
+		<annotation cp="👩‍🦯">handicap | hendikep | pomôcka | postihnutie | slepá | žena so slepeckou palicou</annotation>
 		<annotation cp="👩‍🦯" type="tts">žena so slepeckou palicou</annotation>
 		<annotation cp="🧑‍🦼">človek na elektrickom invalidnom vozíku | handicap | hendikep | invalidný | pomôcka | postihnutie | vozík</annotation>
 		<annotation cp="🧑‍🦼" type="tts">človek na elektrickom invalidnom vozíku</annotation>
-		<annotation cp="👨‍🦼">handicap | hendikep | invalidný | muž | muž na elektrickom invalidnom vozíku | pomôcka | postihnutie | vozík</annotation>
+		<annotation cp="👨‍🦼">handicap | hendikep | invalidný | muž na elektrickom invalidnom vozíku | pomôcka | postihnutie | vozík</annotation>
 		<annotation cp="👨‍🦼" type="tts">muž na elektrickom invalidnom vozíku</annotation>
-		<annotation cp="👩‍🦼">handicap | hendikep | invalidný | pomôcka | postihnutie | vozík | žena | žena na elektrickom invalidnom vozíku</annotation>
+		<annotation cp="👩‍🦼">handicap | hendikep | invalidný | pomôcka | postihnutie | vozík | žena na elektrickom invalidnom vozíku</annotation>
 		<annotation cp="👩‍🦼" type="tts">žena na elektrickom invalidnom vozíku</annotation>
 		<annotation cp="🧑‍🦽">človek na mechanickom invalidnom vozíku | handicap | hendikep | invalidný | pomôcka | postihnutie | vozík</annotation>
 		<annotation cp="🧑‍🦽" type="tts">človek na mechanickom invalidnom vozíku</annotation>
-		<annotation cp="👨‍🦽">handicap | hendikep | invalidný | muž | muž na mechanickom invalidnom vozíku | pomôcka | postihnutie | vozík</annotation>
+		<annotation cp="👨‍🦽">handicap | hendikep | invalidný | muž na mechanickom invalidnom vozíku | pomôcka | postihnutie | vozík</annotation>
 		<annotation cp="👨‍🦽" type="tts">muž na mechanickom invalidnom vozíku</annotation>
-		<annotation cp="👩‍🦽">handicap | hendikep | invalidný | pomôcka | postihnutie | vozík | žena | žena na mechanickom invalidnom vozíku</annotation>
+		<annotation cp="👩‍🦽">handicap | hendikep | invalidný | pomôcka | postihnutie | vozík | žena na mechanickom invalidnom vozíku</annotation>
 		<annotation cp="👩‍🦽" type="tts">žena na mechanickom invalidnom vozíku</annotation>
 		<annotation cp="🏃">beh | bežiaci človek | maratón | preteky</annotation>
 		<annotation cp="🏃" type="tts">bežiaci človek</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">kurča spredu</annotation>
 		<annotation cp="🐦">vták</annotation>
 		<annotation cp="🐦" type="tts">vták</annotation>
+		<annotation cp="🐦‍🔥">fantázia | fénix | ohnivý vták | reinkarnácia | znovuzrodenie</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fénix</annotation>
 		<annotation cp="🐧">tučniak</annotation>
 		<annotation cp="🐧" type="tts">tučniak</annotation>
 		<annotation cp="🕊">holubica | lietať | mier | vták</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">papagáj</annotation>
 		<annotation cp="🪽">anjelské | krídlo | lietanie | mytológia | vták</annotation>
 		<annotation cp="🪽" type="tts">krídlo</annotation>
+		<annotation cp="🐦‍⬛">čierny | drozd | havran | škorec | vrana | vták</annotation>
+		<annotation cp="🐦‍⬛" type="tts">čierny vták</annotation>
 		<annotation cp="🪿">gagotať | hlúpy | hus | hydina | vták</annotation>
 		<annotation cp="🪿" type="tts">hus</annotation>
 		<annotation cp="🐸">hlava | žaba</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">hniezdo s vajcami</annotation>
 		<annotation cp="🍄">hríb | huba</annotation>
 		<annotation cp="🍄" type="tts">huba</annotation>
+		<annotation cp="🍄‍🟫">hnedý hríb | jedlo, huba, príroda, zelenina</annotation>
+		<annotation cp="🍄‍🟫" type="tts">hnedý hríb</annotation>
 		<annotation cp="🍇">hrozno | ovocie | rastlina</annotation>
 		<annotation cp="🍇" type="tts">hrozno</annotation>
 		<annotation cp="🍈">cukrový melón | ovocie | rastlina</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandarínka</annotation>
 		<annotation cp="🍋">citrón | citrus | ovocie | rastlina</annotation>
 		<annotation cp="🍋" type="tts">citrón</annotation>
+		<annotation cp="🍋‍🟩">citrus, ovocie, tropické | limetka</annotation>
+		<annotation cp="🍋‍🟩" type="tts">limetka</annotation>
 		<annotation cp="🍌">banán | ovocie | rastlina</annotation>
 		<annotation cp="🍌" type="tts">banán</annotation>
 		<annotation cp="🍍">ananás | ovocie | rastlina</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">spojovací článok</annotation>
 		<annotation cp="⛓">reťaz | reťaze</annotation>
 		<annotation cp="⛓" type="tts">reťaz</annotation>
+		<annotation cp="⛓‍💥">pretrhnutá, roztrhnutá, putá, sloboda | reťaz</annotation>
+		<annotation cp="⛓‍💥" type="tts">roztrhnutá reťaz</annotation>
 		<annotation cp="🪝">háčik | hák | lákadlo | nachytať | skoba</annotation>
 		<annotation cp="🪝" type="tts">hák</annotation>
 		<annotation cp="🧰">debna | kufrík na náradie | náradie | nástroje</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">šípka nahor aj nadol</annotation>
 		<annotation cp="↔">šípka | šípka doprava aj doľava</annotation>
 		<annotation cp="↔" type="tts">šípka doprava aj doľava</annotation>
-		<annotation cp="↮" draft="contributed">šípka doľava a doprava s prečiarknutím</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">šípka doľava a doprava s prečiarknutím</annotation>
+		<annotation cp="↮">šípka doľava a doprava s prečiarknutím</annotation>
+		<annotation cp="↮" type="tts">šípka doľava a doprava s prečiarknutím</annotation>
 		<annotation cp="↩">šípka | šípka doprava zakrivená doľava</annotation>
 		<annotation cp="↩" type="tts">šípka doprava zakrivená doľava</annotation>
 		<annotation cp="↪">šípka | šípka doľava zakrivená doprava</annotation>
@@ -3833,38 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">libra</annotation>
 		<annotation cp="¥">CNY | jen | JPY | mena | yen</annotation>
 		<annotation cp="¥" type="tts">jen</annotation>
-		<annotation cp="₢" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₣" draft="contributed">francúzsky frank</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">francúzsky frank</annotation>
-		<annotation cp="₤" draft="contributed">líra</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">líra</annotation>
+		<annotation cp="₢">cruzeiro</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">francúzsky frank</annotation>
+		<annotation cp="₣" type="tts">francúzsky frank</annotation>
+		<annotation cp="₤">líra</annotation>
+		<annotation cp="₤" type="tts">líra</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | euro | mena</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
-		<annotation cp="₰" draft="contributed">nemecká penca</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">nemecká penca</annotation>
+		<annotation cp="₰">nemecká penca</annotation>
+		<annotation cp="₰" type="tts">nemecká penca</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
-		<annotation cp="₳" draft="contributed">austral</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
-		<annotation cp="₶" draft="contributed">livre tournois</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
-		<annotation cp="₷" draft="contributed">spesmilo</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
+		<annotation cp="₳">austral</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">tourská libra</annotation>
+		<annotation cp="₶" type="tts">tourská libra</annotation>
+		<annotation cp="₷">spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">indická rupia | mena | rupia</annotation>
 		<annotation cp="₹" type="tts">indická rupia</annotation>
 		<annotation cp="₽">mena | rubeľ</annotation>
 		<annotation cp="₽" type="tts">rubeľ</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
-		<annotation cp="₨" draft="contributed">rupie</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">rupie</annotation>
-		<annotation cp="﷼" draft="contributed">rial</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
+		<annotation cp="₨">rupia</annotation>
+		<annotation cp="₨" type="tts">rupia</annotation>
+		<annotation cp="﷼">rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">horný index | jedna | jedna horný index</annotation>
 		<annotation cp="¹" type="tts">jedna horný index</annotation>
 		<annotation cp="²">dva | dva horný index | horný index | na druhú</annotation>

@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="en">Ingglis</language>
@@ -27,8 +27,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</territories>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrik</measurementSystemName>
-			<measurementSystemName type="UK">UK</measurementSystemName>
-			<measurementSystemName type="US">US</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Langguis: {0}</codePattern>
@@ -42,10 +42,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . '‘’ &quot;“” ( ) + =]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -84,25 +84,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<dateTimeFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<gmtFormat>GMT {0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>{0} Taem</regionFormat>
 			<regionFormat type="daylight">{0} Delaet Taem</regionFormat>
 			<regionFormat type="standard">{0} Standad Taem</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
 			<metazone type="GMT">
 				<long>
 					<standard>Grinis Min Taem</standard>
@@ -111,21 +111,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native>latn</native>
+			<native>↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

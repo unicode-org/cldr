@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>↑↑↑</localePattern>
-			<localeSeparator>↑↑↑</localeSeparator>
+			<localePattern>{0} pi {1}</localePattern>
+			<localeSeparator>{0} pi {1}</localeSeparator>
 			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -22,13 +22,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de" draft="unconfirmed">toki Tosi</language>
 			<language type="de_AT" draft="unconfirmed">↑↑↑</language>
 			<language type="de_CH" draft="unconfirmed">↑↑↑</language>
-			<language type="en" draft="unconfirmed">toki Inli</language>
+			<language type="en">toki Inli</language>
 			<language type="en_AU" draft="unconfirmed">↑↑↑</language>
 			<language type="en_CA" draft="unconfirmed">toki Inli pi ma Kanata</language>
 			<language type="en_GB" draft="unconfirmed">toki Inli pi ma Piten</language>
 			<language type="en_GB" alt="short" draft="unconfirmed">toki Inli pi ma Juke</language>
-			<language type="en_US" draft="unconfirmed">toki Inli pi ma Mewika</language>
-			<language type="en_US" alt="short" draft="unconfirmed">toki Inli pi ma Mewika</language>
+			<language type="en_US" draft="unconfirmed">↑↑↑</language>
+			<language type="en_US" alt="short" draft="unconfirmed">↑↑↑</language>
 			<language type="es" draft="unconfirmed">toki Epanja</language>
 			<language type="es_419" draft="unconfirmed">toki Epanja pi ma Amelika</language>
 			<language type="es_ES" draft="unconfirmed">↑↑↑</language>
@@ -49,24 +49,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_PT" draft="unconfirmed">↑↑↑</language>
 			<language type="ru" draft="unconfirmed">toki Lusi</language>
 			<language type="th" draft="unconfirmed">toki Tawi</language>
-			<language type="tok">Toki Pona</language>
+			<language type="tok">toki pona</language>
 			<language type="tr" draft="unconfirmed">toki Tuki</language>
 			<language type="und" draft="unconfirmed">toki ante</language>
+			<language type="uz">toki Opeki</language>
 			<language type="zh" draft="unconfirmed">toki Sonko</language>
 		</languages>
 		<scripts>
-			<script type="Arab" draft="unconfirmed">sitelen Alapi</script>
+			<script type="Arab">sitelen Alapi</script>
 			<script type="Cyrl" draft="unconfirmed">sitelen Kililita</script>
 			<script type="Hans" draft="unconfirmed">sitelen Sonko</script>
-			<script type="Hans" alt="stand-alone" draft="unconfirmed">sitelen Sonko</script>
-			<script type="Jpan" draft="unconfirmed">sitelen Nijon</script>
+			<script type="Hans" alt="stand-alone" draft="unconfirmed">↑↑↑</script>
+			<script type="Jpan">sitelen Nijon</script>
 			<script type="Kore" draft="unconfirmed">sitelen Anku</script>
-			<script type="Latn" draft="unconfirmed">sitelen Lasina</script>
-			<script type="Zxxx" draft="unconfirmed">sitelen ala</script>
-			<script type="Zzzz" draft="unconfirmed">sitelen ante</script>
+			<script type="Latn">sitelen Lasina</script>
+			<script type="Zxxx">sitelen ala</script>
+			<script type="Zzzz">sitelen ante</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="unconfirmed">ma ale</territory>
+			<territory type="001">ma ale</territory>
 			<territory type="002" draft="unconfirmed">ma Apika</territory>
 			<territory type="009" draft="unconfirmed">ma Osijanija</territory>
 			<territory type="019" draft="unconfirmed">ma Amelika</territory>
@@ -92,20 +93,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BW" draft="unconfirmed">ma Posuwana</territory>
 			<territory type="BY" draft="unconfirmed">ma Pelalusi</territory>
 			<territory type="CD" draft="unconfirmed">ma Konko pi ma tomo Kinsasa</territory>
-			<territory type="CD" alt="variant">ma Konko pi ma tomo Kinsasa</territory>
+			<territory type="CD" alt="variant">↑↑↑</territory>
 			<territory type="CF" draft="unconfirmed">ma Santapiken</territory>
 			<territory type="CG" draft="unconfirmed">ma Konko pi ma tomo Pasapi</territory>
-			<territory type="CG" alt="variant">ma Konko pi ma tomo Pasapi</territory>
+			<territory type="CG" alt="variant">↑↑↑</territory>
 			<territory type="CH" draft="unconfirmed">ma Suwasi</territory>
 			<territory type="CI" draft="unconfirmed">ma Kosiwa</territory>
-			<territory type="CI" alt="variant" draft="unconfirmed">ma Kosiwa</territory>
+			<territory type="CI" alt="variant" draft="unconfirmed">↑↑↑</territory>
 			<territory type="CL" draft="unconfirmed">ma Sile</territory>
 			<territory type="CM" draft="unconfirmed">ma Kamelun</territory>
 			<territory type="CN" draft="unconfirmed">ma Sonko</territory>
 			<territory type="CO" draft="unconfirmed">ma Kolonpija</territory>
 			<territory type="CY" draft="unconfirmed">ma Kiposi</territory>
 			<territory type="CZ" draft="unconfirmed">ma Seki</territory>
-			<territory type="CZ" alt="variant" draft="unconfirmed">ma Seki</territory>
+			<territory type="CZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
 			<territory type="DE" draft="unconfirmed">ma Tosi</territory>
 			<territory type="DJ" draft="unconfirmed">ma Sipusi</territory>
 			<territory type="DK" draft="unconfirmed">ma Tansi</territory>
@@ -129,7 +130,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GR" draft="unconfirmed">ma Elena</territory>
 			<territory type="GW" draft="unconfirmed">ma Kinepisa</territory>
 			<territory type="HK" draft="unconfirmed">ma Onkon</territory>
-			<territory type="HK" alt="short" draft="unconfirmed">ma Onkon</territory>
+			<territory type="HK" alt="short" draft="unconfirmed">↑↑↑</territory>
 			<territory type="HR" draft="unconfirmed">ma Lowasi</territory>
 			<territory type="HU" draft="unconfirmed">ma Mosijo</territory>
 			<territory type="ID" draft="unconfirmed">ma Intonesija</territory>
@@ -201,7 +202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SS" draft="unconfirmed">ma Sasutan</territory>
 			<territory type="SY" draft="unconfirmed">ma Sulija</territory>
 			<territory type="SZ">ma Sawasi</territory>
-			<territory type="SZ" alt="variant" draft="unconfirmed">ma Sawasi</territory>
+			<territory type="SZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
 			<territory type="TD" draft="unconfirmed">ma Sate</territory>
 			<territory type="TG" draft="unconfirmed">ma Toko</territory>
 			<territory type="TH" draft="unconfirmed">ma Tawi</territory>
@@ -214,7 +215,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG" draft="unconfirmed">ma Ukanta</territory>
 			<territory type="UN" draft="unconfirmed">kulupu pi ma ale</territory>
 			<territory type="US" draft="unconfirmed">ma Mewika</territory>
-			<territory type="US" alt="short" draft="unconfirmed">ma Mewika</territory>
+			<territory type="US" alt="short" draft="unconfirmed">↑↑↑</territory>
+			<territory type="UZ">ma Opekisan</territory>
 			<territory type="VA" draft="unconfirmed">ma Wasikano</territory>
 			<territory type="VE" draft="unconfirmed">ma Penesuwela</territory>
 			<territory type="VN" draft="unconfirmed">ma Wije</territory>
@@ -226,12 +228,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZW" draft="unconfirmed">ma Sinpapuwe</territory>
 		</territories>
 		<types>
-			<type key="numbers" type="latn" draft="unconfirmed">sitelen nanpa Alapi</type>
+			<type key="numbers" type="arab">sitelen nanpa Alapi</type>
+			<type key="numbers" type="latn">sitelen nanpa Lasina</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">nasin pi ma ale</measurementSystemName>
+			<measurementSystemName type="UK">nasin pi ma Juke</measurementSystemName>
+			<measurementSystemName type="US">nasin pi ma Mewika</measurementSystemName>
+		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">toki {0}</codePattern>
-			<codePattern type="script" draft="unconfirmed">sitelen {0}</codePattern>
-			<codePattern type="territory" draft="unconfirmed">ma {0}</codePattern>
+			<codePattern type="language">toki li {0}</codePattern>
+			<codePattern type="script">sitelen li {0}</codePattern>
+			<codePattern type="territory">ma li {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -247,10 +255,125 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="word-medial" draft="unconfirmed">↑↑↑</ellipsis>
 	</characters>
+	<delimiters>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">mun #1</month>
+							<month type="2">mun #2</month>
+							<month type="3">mun #3</month>
+							<month type="4">mun #4</month>
+							<month type="5">mun #5</month>
+							<month type="6">mun #6</month>
+							<month type="7">mun #7</month>
+							<month type="8">mun #8</month>
+							<month type="9">mun #9</month>
+							<month type="10">mun #10</month>
+							<month type="11">mun #11</month>
+							<month type="12">mun #12</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun">suno esun #7</day>
+							<day type="mon">suno esun #1</day>
+							<day type="tue">suno esun #2</day>
+							<day type="wed">suno esun #3</day>
+							<day type="thu">suno esun #4</day>
+							<day type="fri">suno esun #5</day>
+							<day type="sat">suno esun #6</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pi open suno</dayPeriod>
+							<dayPeriod type="pm">pi pini suno</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hm">#h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">#HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">#h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">#HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">#h:mm:ss a 'lon' v</dateFormatItem>
+						<dateFormatItem id="Hmsv">#HH:mm:ss 'lon' v</dateFormatItem>
+						<dateFormatItem id="yMd">#y)#M)#d</dateFormatItem>
+						<dateFormatItem id="yMMMd">'sike' #y ) #M ) #d</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>tenpo UTC{0}</gmtFormat>
+			<gmtZeroFormat>tenpo UTC</gmtZeroFormat>
+			<regionFormat>tenpo pi {0}</regionFormat>
+			<regionFormat type="daylight">tenpo seli suno pi {0}</regionFormat>
+			<regionFormat type="standard">tenpo pi {0}</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard>tenpo pi ma Keni</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">↑↑↑</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group> </group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,#0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>%#,#0</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>¤#,#0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 	</numbers>
 </ldml>

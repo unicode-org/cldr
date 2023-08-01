@@ -12,9 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ar" draft="unconfirmed">arabiamiusut</language>
@@ -171,7 +171,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FR" draft="unconfirmed">Frankrigi</territory>
 			<territory type="GA" draft="unconfirmed">Gabon</territory>
 			<territory type="GB" draft="unconfirmed">Tuluit Nunaat</territory>
-			<territory type="GB" alt="short" draft="unconfirmed">Tuluit Nunaat</territory>
+			<territory type="GB" alt="short" draft="unconfirmed">↑↑↑</territory>
 			<territory type="GD" draft="unconfirmed">Grenada</territory>
 			<territory type="GE" draft="unconfirmed">Georgia</territory>
 			<territory type="GG" draft="unconfirmed">Guernsey</territory>
@@ -187,7 +187,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GW" draft="unconfirmed">Guinea-Bissau</territory>
 			<territory type="GY" draft="unconfirmed">Guyana</territory>
 			<territory type="HK" draft="unconfirmed">Hongkong</territory>
-			<territory type="HK" alt="short" draft="unconfirmed">Hongkong</territory>
+			<territory type="HK" alt="short" draft="unconfirmed">↑↑↑</territory>
 			<territory type="HN" draft="unconfirmed">Honduras</territory>
 			<territory type="HR" draft="unconfirmed">Kroatia</territory>
 			<territory type="HT" draft="unconfirmed">Haiti</territory>
@@ -236,7 +236,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ML" draft="unconfirmed">Mali</territory>
 			<territory type="MM" draft="unconfirmed">Burma</territory>
 			<territory type="MO" draft="unconfirmed">Macao</territory>
-			<territory type="MO" alt="short" draft="unconfirmed">Macao</territory>
+			<territory type="MO" alt="short" draft="unconfirmed">↑↑↑</territory>
 			<territory type="MQ" draft="unconfirmed">Martinique</territory>
 			<territory type="MR" draft="unconfirmed">Mauritania</territory>
 			<territory type="MS" draft="unconfirmed">Montserrat</territory>
@@ -341,8 +341,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="unconfirmed">SI</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">UK</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">US</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="unconfirmed">oqaatsit: {0}</codePattern>
@@ -355,10 +355,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[áâã éêẽ íîĩ ôõ ĸ úûũ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[, . % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
-		<ellipsis type="initial" draft="unconfirmed">…{0}</ellipsis>
-		<ellipsis type="medial" draft="unconfirmed">{0}…{1}</ellipsis>
-		<moreInformation draft="unconfirmed">?</moreInformation>
+		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="medial" draft="unconfirmed">↑↑↑</ellipsis>
+		<moreInformation draft="unconfirmed">↑↑↑</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">»</quotationStart>
@@ -390,44 +390,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">GGGGG y-MM-dd</pattern>
-							<datetimeSkeleton draft="unconfirmed">GGGGGyMMdd</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed" draft="unconfirmed">E, d</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="unconfirmed">HH</dateFormatItem>
+						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d/M</dateFormatItem>
-						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">y-MM</dateFormatItem>
 						<dateFormatItem id="yMd" draft="unconfirmed">y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, y-MM-dd</dateFormatItem>
@@ -438,16 +438,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="unconfirmed">d–d</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
@@ -455,8 +455,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
@@ -464,15 +464,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="unconfirmed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="unconfirmed">M–M</greatestDifference>
@@ -486,7 +486,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">E, MM-dd – E, MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="unconfirmed">LLL–LLL</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d" draft="unconfirmed">MM-d – d</greatestDifference>
@@ -552,18 +552,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">dec</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">J</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">J</month>
-							<month type="7" draft="unconfirmed">J</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januaarip</month>
@@ -582,18 +582,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">jan</month>
-							<month type="2">febr</month>
-							<month type="3">mar</month>
-							<month type="4">apr</month>
-							<month type="5">maj</month>
-							<month type="6">jun</month>
-							<month type="7">jul</month>
-							<month type="8">aug</month>
-							<month type="9">sept</month>
-							<month type="10">okt</month>
-							<month type="11">nov</month>
-							<month type="12">dec</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">J</month>
@@ -637,13 +637,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">arf</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">sap</day>
-							<day type="mon">ata</day>
-							<day type="tue">mar</day>
-							<day type="wed">pin</day>
-							<day type="thu">sis</day>
-							<day type="fri">tal</day>
-							<day type="sat">arf</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sapaat</day>
@@ -657,7 +657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
+							<day type="sun" draft="unconfirmed">↑↑↑</day>
 							<day type="mon" draft="unconfirmed">A</day>
 							<day type="tue" draft="unconfirmed">M</day>
 							<day type="wed" draft="unconfirmed">P</day>
@@ -666,22 +666,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">A</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">sap</day>
-							<day type="mon">ata</day>
-							<day type="tue">mar</day>
-							<day type="wed">pin</day>
-							<day type="thu">sis</day>
-							<day type="fri">tal</day>
-							<day type="sat">arf</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">sapaat</day>
-							<day type="mon">ataasinngorneq</day>
-							<day type="tue">marlunngorneq</day>
-							<day type="wed">pingasunngorneq</day>
-							<day type="thu">sisamanngorneq</day>
-							<day type="fri">tallimanngorneq</day>
-							<day type="sat">arfininngorneq</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -694,10 +694,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">S4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="unconfirmed">ukiup sisamararterutaa 1</quarter>
@@ -708,10 +708,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="unconfirmed">S1</quarter>
@@ -720,10 +720,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">S4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">ukiup sisamararterutaa 1</quarter>
-							<quarter type="2" draft="unconfirmed">ukiup sisamararterutaa 2</quarter>
-							<quarter type="3" draft="unconfirmed">ukiup sisamararterutaa 3</quarter>
-							<quarter type="4" draft="unconfirmed">ukiup sisamararterutaa 4</quarter>
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -754,9 +754,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0" draft="unconfirmed">Kr.s.</era>
-						<era type="0" alt="variant" draft="unconfirmed">f.v.t.</era>
+						<era type="0" alt="variant" draft="unconfirmed">↑↑↑</era>
 						<era type="1" draft="unconfirmed">Kr.k.</era>
-						<era type="1" alt="variant" draft="unconfirmed">v.t.</era>
+						<era type="1" alt="variant" draft="unconfirmed">↑↑↑</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -780,8 +780,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">y-MM-dd</pattern>
-							<datetimeSkeleton draft="unconfirmed">yMMdd</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -789,81 +789,81 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH.mm.ss zzzz</pattern>
-							<datetimeSkeleton>HHmmsszzzz</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>HH.mm.ss z</pattern>
-							<datetimeSkeleton>HHmmssz</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>HH.mm.ss</pattern>
-							<datetimeSkeleton>HHmmss</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>HH.mm</pattern>
-							<datetimeSkeleton>HHmm</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Ed" draft="unconfirmed">E, d</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="unconfirmed">HH</dateFormatItem>
+						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d/M</dateFormatItem>
-						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="yM" draft="unconfirmed">y-MM</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">y-MM-dd</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="unconfirmed">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="unconfirmed">dd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, dd MMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="unconfirmed">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="unconfirmed">d–d</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
@@ -871,8 +871,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
@@ -880,15 +880,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="unconfirmed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="unconfirmed">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="unconfirmed">M–M</greatestDifference>
@@ -902,7 +902,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">E, MM-dd – E, MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="unconfirmed">LLL–LLL</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d" draft="unconfirmed">MM-d – d</greatestDifference>
@@ -913,7 +913,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">E, MM-d – E, MM-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y–y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">y-MM – MM</greatestDifference>
@@ -961,11 +961,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">manna ukioq</relative>
 				<relative type="1" draft="unconfirmed">tulleq ukioq</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} ukioq</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} ukioq</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} ukioq siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} ukioq siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -975,11 +975,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">manna qaammat</relative>
 				<relative type="1" draft="unconfirmed">tulleq qaammat</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} qaammat</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} qaammat</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} qaammat siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} qaammat siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -989,11 +989,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">manna sapaatip-akunnera</relative>
 				<relative type="1" draft="unconfirmed">tulleq sapaatip-akunnera</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} sapaatip-akunnera</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} sapaatip-akunnera</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} sapaatip-akunnera siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} sapaatip-akunnera siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -1005,11 +1005,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1" draft="unconfirmed">aqagu</relative>
 				<relative type="2" draft="unconfirmed">aqaguagu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} ulloq unnuarlu</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} ulloq unnuarlu</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} ulloq unnuarlu siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} ulloq unnuarlu siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -1057,22 +1057,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour">
 				<displayName draft="unconfirmed">nalunaaquttap-akunnera</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} nalunaaquttap-akunnera</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} nalunaaquttap-akunnera</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} nalunaaquttap-akunnera siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} nalunaaquttap-akunnera siden</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName draft="unconfirmed">minutsi</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} minutsi</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} minutsi</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} minutsi siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} minutsi siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -1080,11 +1080,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">sekundi</displayName>
 				<relative type="0" draft="unconfirmed">uisoriinnaq</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">om {0} sekundi</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} sekundi</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">for {0} sekundi siden</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} sekundi siden</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -1094,9 +1094,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT</gmtZeroFormat>
-			<regionFormat draft="unconfirmed">{0}</regionFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="unconfirmed">↑↑↑</regionFormat>
 			<fallbackFormat draft="unconfirmed">{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">atorsinnaanngitsoq nalunaaqutaqaqatigiissut</exemplarCity>
@@ -1105,32 +1105,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Qaanaaq</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity draft="unconfirmed">Ittoqqortoormiit</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">latn</native>
+			<native draft="unconfirmed">↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<list draft="unconfirmed">;</list>
-			<percentSign draft="unconfirmed">%</percentSign>
-			<plusSign draft="unconfirmed">+</plusSign>
+			<list draft="unconfirmed">↑↑↑</list>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
 			<minusSign draft="unconfirmed">−</minusSign>
 			<exponential draft="unconfirmed">×10^</exponential>
 			<superscriptingExponent draft="unconfirmed">·</superscriptingExponent>
-			<perMille draft="unconfirmed">‰</perMille>
-			<infinity draft="unconfirmed">∞</infinity>
-			<nan draft="unconfirmed">NaN</nan>
+			<perMille draft="unconfirmed">↑↑↑</perMille>
+			<infinity draft="unconfirmed">↑↑↑</infinity>
+			<nan draft="unconfirmed">↑↑↑</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">#,##0.###</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -1163,29 +1163,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0 td</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="1000" count="other" draft="unconfirmed">0 td</pattern>
-					<pattern type="10000" count="one" draft="unconfirmed">00 td</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 td</pattern>
-					<pattern type="100000" count="one" draft="unconfirmed">000 td</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 td</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0 mn</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="1000000" count="other" draft="unconfirmed">0 mn</pattern>
-					<pattern type="10000000" count="one" draft="unconfirmed">00 mn</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 mn</pattern>
-					<pattern type="100000000" count="one" draft="unconfirmed">000 mn</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 mn</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0 md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="1000000000" count="other" draft="unconfirmed">0 md</pattern>
-					<pattern type="10000000000" count="one" draft="unconfirmed">00 md</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 md</pattern>
-					<pattern type="100000000000" count="one" draft="unconfirmed">000 md</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0 bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other" draft="unconfirmed">0 bn</pattern>
-					<pattern type="10000000000000" count="one" draft="unconfirmed">00 bn</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 bn</pattern>
-					<pattern type="100000000000000" count="one" draft="unconfirmed">000 bn</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other" draft="unconfirmed">000 bn</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
@@ -1193,7 +1193,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">#E0</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
@@ -1219,89 +1219,89 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">¤0 td</pattern>
+					<pattern type="1000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0 td</pattern>
 					<pattern type="1000" count="other" draft="provisional">¤0 td</pattern>
 					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0 td</pattern>
-					<pattern type="10000" count="one" draft="provisional">¤00 td</pattern>
+					<pattern type="10000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 td</pattern>
 					<pattern type="10000" count="other" draft="provisional">¤00 td</pattern>
 					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 td</pattern>
-					<pattern type="100000" count="one" draft="provisional">¤000 td</pattern>
+					<pattern type="100000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 td</pattern>
 					<pattern type="100000" count="other" draft="provisional">¤000 td</pattern>
 					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 td</pattern>
-					<pattern type="1000000" count="one" draft="provisional">¤0 mn</pattern>
+					<pattern type="1000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0 mn</pattern>
 					<pattern type="1000000" count="other" draft="provisional">¤0 mn</pattern>
 					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0 mn</pattern>
-					<pattern type="10000000" count="one" draft="provisional">¤00 mn</pattern>
+					<pattern type="10000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 mn</pattern>
 					<pattern type="10000000" count="other" draft="provisional">¤00 mn</pattern>
 					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 mn</pattern>
-					<pattern type="100000000" count="one" draft="provisional">¤000 mn</pattern>
+					<pattern type="100000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 mn</pattern>
 					<pattern type="100000000" count="other" draft="provisional">¤000 mn</pattern>
 					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 mn</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">¤0 md</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0 md</pattern>
 					<pattern type="1000000000" count="other" draft="provisional">¤0 md</pattern>
 					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0 md</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">¤00 md</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 md</pattern>
 					<pattern type="10000000000" count="other" draft="provisional">¤00 md</pattern>
 					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 md</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">¤000 md</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 md</pattern>
 					<pattern type="100000000000" count="other" draft="provisional">¤000 md</pattern>
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 md</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">¤0 bn</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0 bn</pattern>
 					<pattern type="1000000000000" count="other" draft="provisional">¤0 bn</pattern>
 					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0 bn</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">¤00 bn</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 bn</pattern>
 					<pattern type="10000000000000" count="other" draft="provisional">¤00 bn</pattern>
 					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 bn</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">¤000 bn</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 bn</pattern>
 					<pattern type="100000000000000" count="other" draft="provisional">¤000 bn</pattern>
 					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 bn</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="DKK">
 				<displayName draft="unconfirmed">danmarkimut koruuni</displayName>
 				<displayName count="one" draft="unconfirmed">danskinut koruuni</displayName>
-				<displayName count="other" draft="unconfirmed">danmarkimut koruuni</displayName>
+				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol>kr.</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
-				<displayName count="one">euro</displayName>
-				<displayName count="other">euro</displayName>
-				<symbol>€</symbol>
-				<symbol alt="narrow" draft="unconfirmed">€</symbol>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName draft="unconfirmed">norskit koruuni</displayName>
-				<displayName count="one" draft="unconfirmed">norskit koruuni</displayName>
-				<displayName count="other" draft="unconfirmed">norskit koruuni</displayName>
+				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">Nkr</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="unconfirmed">svenskit koruuni</displayName>
-				<displayName count="one" draft="unconfirmed">svenskit koruuni</displayName>
-				<displayName count="other" draft="unconfirmed">svenskit koruuni</displayName>
+				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">Skr</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast" draft="unconfirmed">≥{0}</pattern>
-			<pattern type="range" draft="unconfirmed">{0}–{1}</pattern>
+			<pattern type="atLeast" draft="unconfirmed">↑↑↑</pattern>
+			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} Ulloq</pluralMinimalPairs>
@@ -1314,7 +1314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern draft="unconfirmed">{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">Jordgravitationer</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} nutsuinera nunarsuaq</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nutsuinera nunarsuaq</unitPattern>
 			</unit>
@@ -1334,33 +1334,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} radiani</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">gradi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} gradi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} gradi</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">bueminutsi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} bueminutsi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} bueminutsi</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">buesekundi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} buesekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} buesekundi</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">kvadratkilometeri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadratkilometeri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kvadratkilometeri</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">hektari</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hektari</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hektari</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">kvadratmeteri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kvadratmeteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadratmeteri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kvadratmeteri</perUnitPattern>
@@ -1372,17 +1372,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="unconfirmed">{0} per kvadratsentimeteri</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">engelske kvadratmil</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk kvadratmil</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske kvadratmil</unitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">amerikanske tønde land</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} amerikanskt tønde land</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} amerikanske tønde land</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">kvadratfod</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kvadratfod</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadratfod</unitPattern>
 			</unit>
@@ -1397,7 +1397,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} millimoli per literi</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName draft="unconfirmed">millioni ilaa</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millioni ilaa</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millioni ilaa</unitPattern>
 			</unit>
@@ -1407,45 +1407,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} literi per kilometeri</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">ukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per ukioq</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">qaammat</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} qaammat</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} qaammat</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per qaammat</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">sapaatip-akunnera</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">ulloq unnuarlu</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ulloq unnuarlu</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ulloq unnuarlu</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">nalunaaquttap-akunnera</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} nalunaaquttap-akunnera</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} nalunaaquttap-akunnera</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/h</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">minutsi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} minutsi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} minutsi</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">sekundi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} sekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} sekundi</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">millisekundi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millisekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millisekundi</unitPattern>
 			</unit>
@@ -1460,13 +1460,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} nanosekundi</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">kilometeri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilometeri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilometeri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kilometeri</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">meteri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} meteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} meteri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per meteri</perUnitPattern>
@@ -1477,13 +1477,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} decimeteri</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">centimeteri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} centimeteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} centimeteri</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per centimeteri</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">millimeteri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millimeteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millimeteri</unitPattern>
 			</unit>
@@ -1498,156 +1498,156 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} nanometeri</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">pikometeri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} pikometeri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} pikometeri</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">engelske mil</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk mil</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske mil</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">engelske yard</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk yard</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske yard</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">fod</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per fod</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">tommer</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per tomme</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">lysukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fth</unitPattern>
-				<unitPattern count="other">{0} fth</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName draft="unconfirmed">svenskeq mili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} svenskeq mili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} svenskeq mili</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName draft="unconfirmed">luksi</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} luksi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} luksi</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName draft="unconfirmed">tonni</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} tonni</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} tonni</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">kilogrammi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilogrammi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilogrammi</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kilogrammi</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">grammi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} grammi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} grammi</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per grammi</perUnitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">skålpund</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">unser</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
+				<displayName draft="provisional">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">kilowatti</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilowatti</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilowatti</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">watti</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} watti</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} watti</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">hestekrafter</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hestekraft</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hestekrafter</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName draft="provisional">tommer kviksølv</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} tomme kviksølv</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} tommer kviksølv</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">millibari</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millibari</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millibari</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">hektopascali</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} hektopascali</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hektopascali</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">kilometeri per nalunaaquttap-akunnera</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilometeri per nalunaaquttap-akunnera</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilometeri per nalunaaquttap-akunnera</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">meteri per sekundi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} meteri per sekundi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} meteri per sekundi</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">engelske mil per nalunaaquttap-akunnera</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk mil per nalunaaquttap-akunnera</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske mil per nalunaaquttap-akunnera</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">gradi Celsius</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} gradi Celsius</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} gradi Celsius</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">gradi Fahrenheit</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} gradi Fahrenheit</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} gradi Fahrenheit</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">kubikkilometeri</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kubikkilometeri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kubikkilometeri</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">engelske kubikmil</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} engelsk kubikmil</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} engelske kubikmil</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName draft="unconfirmed">megaliteri</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} megaliteri</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} megaliteri</unitPattern>
 			</unit>
@@ -1657,7 +1657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} hectoliteri</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">literi</displayName>
+				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} literi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} literi</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per literi</perUnitPattern>
@@ -1696,218 +1696,218 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="unconfirmed">{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="provisional">Jordgravitationer</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} G</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} G</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName draft="unconfirmed">m/s²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m/s²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m/s²</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName draft="unconfirmed">kaaj</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kaaj</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kaaj</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName draft="unconfirmed">rad</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} rad</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} rad</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName draft="provisional">gradi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="provisional">bueminutsi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="provisional">buesekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="provisional">kvadratkilometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/km²</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="provisional">hektari</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ha</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ha</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="provisional">kvadratmeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/m²</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName draft="unconfirmed">cm²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} cm²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm²</perUnitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="provisional">engelske kvadratmil</displayName>
-				<unitPattern count="one">{0} mi²</unitPattern>
-				<unitPattern count="other">{0} mi²</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName draft="provisional">amerikanske tønde land</displayName>
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName draft="provisional">kvadratfod</displayName>
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName draft="unconfirmed">mg/dL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mg/dL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mg/dL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="unconfirmed">mmol/L</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mmol/L</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mmol/L</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName draft="unconfirmed">millioni ilaa</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ppm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ppm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName draft="unconfirmed">L/km</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} L/km</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} L/km</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName draft="unconfirmed">L/100km</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} L/100km</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} L/100km</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="provisional">ukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ukioq</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/ukioq</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="provisional">qaammat</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mån</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} mån</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/mån</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="provisional">sapaatip-akunnera</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} u</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} u</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">ulloq unnuarlu</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} d</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} d</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/d</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="provisional">nalunaaquttap-akunnera</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} h</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} h</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/h</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minutsi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} min</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} min</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/min</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">sekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} s</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} s</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/s</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="provisional">millisekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName draft="unconfirmed">μs</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} μs</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} μs</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName draft="unconfirmed">ns</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ns</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ns</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">kilometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">meteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="provisional">centimeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">millimeteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">μm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} μm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} μm</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName draft="unconfirmed">nm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} nm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} nm</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="provisional">pikometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} pm</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} pm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="provisional">engelske mil</displayName>
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="provisional">engelske yard</displayName>
-				<unitPattern count="one">{0} yd</unitPattern>
-				<unitPattern count="other">{0} yd</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName draft="provisional">fod</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
 			</unit>
@@ -1919,54 +1919,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="provisional">lysukioq</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lysåri</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} lysåri</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fth</unitPattern>
-				<unitPattern count="other">{0} fth</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="unconfirmed">svenskeq mili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} svenskeq mili</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} svenskeq mili</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="unconfirmed">luksi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lx</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lx</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tonni</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} t</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} t</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="provisional">kilogrammi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kg</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/kg</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName draft="provisional">grammi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/g</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="provisional">skålpund</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
@@ -1976,108 +1976,108 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="provisional">kilowatti</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} kW</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} kW</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="provisional">watti</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} W</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} W</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName draft="provisional">hestekrafter</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hk</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} hk</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName draft="provisional">tommer kviksølv</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="provisional">millibari</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mbar</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mbar</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="provisional">hektopascali</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} hPa</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="provisional">kilometeri per nalunaaquttap-akunnera</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km/h</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km/h</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName draft="provisional">meteri per sekundi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m/s</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m/s</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="provisional">engelske mil per nalunaaquttap-akunnera</displayName>
-				<unitPattern count="one">{0} mi/h</unitPattern>
-				<unitPattern count="other">{0} mi/h</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName draft="provisional">gradi Celsius</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}°C</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°C</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName draft="provisional">gradi Fahrenheit</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0}°F</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°F</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName draft="provisional">kubikkilometeri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} km³</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} km³</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="provisional">engelske kubikmil</displayName>
-				<unitPattern count="one">{0} mi³</unitPattern>
-				<unitPattern count="other">{0} mi³</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName draft="unconfirmed">megaliteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName draft="unconfirmed">hL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} hL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="provisional">literi</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} L</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} L</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName draft="unconfirmed">dL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} dL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} dL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName draft="unconfirmed">cL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} cL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName draft="unconfirmed">mL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName draft="unconfirmed">ssk</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ssk</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ssk</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName draft="unconfirmed">tsk</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tsk</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} tsk</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -2089,43 +2089,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="unconfirmed">{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<unitPattern count="one" draft="unconfirmed">{0}G</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
-				<displayName draft="unconfirmed">m/s²</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} m/s²</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} m/s²</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName draft="unconfirmed">kaaj</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}kaaj</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}kaaj</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName draft="unconfirmed">rad</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}rad</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="one" draft="unconfirmed">{0}km²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/km²</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="unconfirmed">{0}ha</unitPattern>
@@ -2134,48 +2134,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="area-square-meter">
 				<unitPattern count="one" draft="unconfirmed">{0}m²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/m²</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName draft="unconfirmed">cm²</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}cm²</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}cm²</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm²</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<unitPattern count="one">{0} mi²</unitPattern>
-				<unitPattern count="other">{0} mi²</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-acre">
-				<unitPattern count="one">{0} ac</unitPattern>
-				<unitPattern count="other">{0} ac</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<unitPattern count="one">{0} ft²</unitPattern>
-				<unitPattern count="other">{0} ft²</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName draft="unconfirmed">mg/dL</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}mg/dL</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mg/dL</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName draft="unconfirmed">mmol/L</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}mmol/L</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mmol/L</unitPattern>
 			</unit>
 			<unit type="concentr-permillion">
-				<displayName draft="unconfirmed">millioni ilaa</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}ppm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ppm</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName draft="unconfirmed">L/km</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}L/km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}L/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName draft="unconfirmed">L/100km</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}L/100km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}L/100km</unitPattern>
 			</unit>
@@ -2198,63 +2198,63 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="unconfirmed">{0}h</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}h</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/h</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one" draft="unconfirmed">{0}min</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}min</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/min</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="unconfirmed">{0}s</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}s</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/s</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="unconfirmed">{0}ms</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName draft="unconfirmed">μs</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}μs</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName draft="unconfirmed">ns</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ns</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ns</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one" draft="unconfirmed">{0}km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName draft="unconfirmed">dm</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one" draft="unconfirmed">{0}mm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName draft="unconfirmed">μm</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}μm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}μm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName draft="unconfirmed">nm</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}nm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}nm</unitPattern>
 			</unit>
@@ -2263,41 +2263,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0}pm</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one">{0} mi</unitPattern>
-				<unitPattern count="other">{0} mi</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<unitPattern count="one">{0} yd</unitPattern>
-				<unitPattern count="other">{0} yd</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="unconfirmed">{0} fod</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} fod</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/fod</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<unitPattern count="one" draft="unconfirmed">{0} tomme</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tommer</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/tomme</perUnitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one" draft="unconfirmed">{0} lå</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} lå</unitPattern>
 			</unit>
 			<unit type="length-furlong">
-				<displayName>fur</displayName>
-				<unitPattern count="one">{0} fur</unitPattern>
-				<unitPattern count="other">{0} fur</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-fathom">
-				<displayName>fm</displayName>
-				<unitPattern count="one">{0} fth</unitPattern>
-				<unitPattern count="other">{0} fth</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName draft="unconfirmed">sømili</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} sømili</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} sømili</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName draft="unconfirmed">sv. mili</displayName>
@@ -2306,31 +2306,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="unconfirmed">lux</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} lx</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} lx</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName draft="unconfirmed">tonni</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}t</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}t</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one" draft="unconfirmed">{0}kg</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}kg</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/kg</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/g</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<unitPattern count="one" draft="unconfirmed">{0} skålpund</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} skålpund</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<unitPattern count="one" draft="unconfirmed">{0} unse</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} unser</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<unitPattern count="one" draft="unconfirmed">{0}kW</unitPattern>
@@ -2345,8 +2345,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0}hk</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="one" draft="unconfirmed">{0}mbar</unitPattern>
@@ -2365,64 +2365,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0}m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<unitPattern count="one">{0} mi/h</unitPattern>
-				<unitPattern count="other">{0} mi/h</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="one" draft="unconfirmed">{0}°C</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°C</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="unconfirmed">{0}°F</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°F</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="unconfirmed">{0}km³</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
-				<unitPattern count="one">{0} mi³</unitPattern>
-				<unitPattern count="other">{0} mi³</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName draft="unconfirmed">megaliteri</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ML</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ML</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName draft="unconfirmed">hL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} hL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} hL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<unitPattern count="one" draft="unconfirmed">{0}L</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}L</unitPattern>
-				<perUnitPattern draft="unconfirmed">{0}/L</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
-				<displayName draft="unconfirmed">dL</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}dL</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}dL</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
-				<displayName draft="unconfirmed">cL</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}cL</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
-				<displayName draft="unconfirmed">mL</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} mL</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} mL</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName draft="unconfirmed">ssk</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} ssk</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} ssk</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName draft="unconfirmed">tsk</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tsk</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} tsk</unitPattern>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<coordinateUnitPattern type="east" draft="unconfirmed">{0}Ø</coordinateUnitPattern>
@@ -2432,27 +2432,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0} aamma {1}</listPatternPart>
 			<listPatternPart type="2" draft="unconfirmed">{0} aamma {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
 			<listPatternPart type="start" draft="unconfirmed">{0} {1}</listPatternPart>
@@ -2461,8 +2461,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2" draft="unconfirmed">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0}, {1}</listPatternPart>
 			<listPatternPart type="2" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>

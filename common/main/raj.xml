@@ -34,7 +34,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<codePatterns>
 			<codePattern type="language">↑↑↑</codePattern>
 			<codePattern type="script">↑↑↑</codePattern>
-			<codePattern type="territory">{0}</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -179,10 +179,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<numbers>
 		<defaultNumberingSystem>deva</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">latn</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal>.</decimal>
+			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
@@ -217,4 +217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
+	<personNames>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
+	</personNames>
 </ldml>

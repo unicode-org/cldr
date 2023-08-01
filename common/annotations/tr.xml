@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">orta koyu cilt tonu</annotation>
 		<annotation cp="🏿">cilt tonu | koyu cilt tonu | tip 6</annotation>
 		<annotation cp="🏿" type="tts">koyu cilt tonu</annotation>
-		<annotation cp="‾" draft="contributed">üst çizgi</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">üst çizgi</annotation>
+		<annotation cp="‾">üst çizgi</annotation>
+		<annotation cp="‾" type="tts">üst çizgi</annotation>
 		<annotation cp="_">alt çizgi | alt satır | alt tire</annotation>
 		<annotation cp="_" type="tts">alt çizgi</annotation>
 		<annotation cp="-">çizgi | eksi | tire | tire-eksi</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">ters soru işareti</annotation>
 		<annotation cp="؟">arapça | arapça soru işareti | soru | soru işareti</annotation>
 		<annotation cp="؟" type="tts">arapça soru işareti</annotation>
-		<annotation cp="‽" draft="contributed">soru ve ünlem işareti</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">soru ve ünlem işareti</annotation>
+		<annotation cp="‽">soru ve ünlem işareti</annotation>
+		<annotation cp="‽" type="tts">soru ve ünlem işareti</annotation>
 		<annotation cp=".">nokta | tam durak</annotation>
 		<annotation cp="." type="tts">nokta</annotation>
 		<annotation cp="…">eksilti | eksiltme | üç nokta</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">iki üssü</annotation>
 		<annotation cp="‴">üç üssü | üssü</annotation>
 		<annotation cp="‴" type="tts">üç üssü</annotation>
-		<annotation cp="‸" draft="contributed">düzeltme işareti</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">düzeltme işareti</annotation>
+		<annotation cp="‸">düzeltme işareti</annotation>
+		<annotation cp="‸" type="tts">düzeltme işareti</annotation>
 		<annotation cp="※">referans işareti</annotation>
 		<annotation cp="※" type="tts">referans işareti</annotation>
-		<annotation cp="⁂" draft="contributed">üç yıldız işareti</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">üç yıldız işareti</annotation>
+		<annotation cp="⁂">üç yıldız işareti</annotation>
+		<annotation cp="⁂" type="tts">üç yıldız işareti</annotation>
 		<annotation cp="`">aksan | aksan işareti | işaret | ton | vurgu</annotation>
 		<annotation cp="`" type="tts">aksan işareti</annotation>
 		<annotation cp="´">aksan | tiz aksan | tiz vurgu</annotation>
@@ -181,192 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">ses kaydı telif hakkı</annotation>
 		<annotation cp="←">ok | sol | solu gösteren ok</annotation>
 		<annotation cp="←" type="tts">solu gösteren ok</annotation>
-		<annotation cp="↚" draft="contributed">sola doğru çizgili ok</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">sola doğru çizgili ok</annotation>
+		<annotation cp="↚">sola doğru çizgili ok</annotation>
+		<annotation cp="↚" type="tts">sola doğru çizgili ok</annotation>
 		<annotation cp="→">ok | sağ | sağı gösteren ok</annotation>
 		<annotation cp="→" type="tts">sağı gösteren ok</annotation>
-		<annotation cp="↛" draft="contributed">sağa doğru çizgili ok</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">sağa doğru çizgili ok</annotation>
+		<annotation cp="↛">sağa doğru çizgili ok</annotation>
+		<annotation cp="↛" type="tts">sağa doğru çizgili ok</annotation>
 		<annotation cp="↑">ok | yukarı | yukarı gösteren ok</annotation>
 		<annotation cp="↑" type="tts">yukarı gösteren ok</annotation>
 		<annotation cp="↓">aşağı | aşağı gösteren ok | ok</annotation>
 		<annotation cp="↓" type="tts">aşağı gösteren ok</annotation>
-		<annotation cp="↜" draft="contributed">sola doğru dalgalı ok</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">sola doğru dalgalı ok</annotation>
-		<annotation cp="↝" draft="contributed">sağa doğru dalgalı ok</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">sağa doğru dalgalı ok</annotation>
-		<annotation cp="↞" draft="contributed">sola doğru çift başlı ok</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">sola doğru çift başlı ok</annotation>
-		<annotation cp="↟" draft="contributed">yukarı doğru çift başlı ok</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">yukarı doğru çift başlı ok</annotation>
-		<annotation cp="↠" draft="contributed">sağa doğru çift başlı ok</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">sağa doğru çift başlı ok</annotation>
-		<annotation cp="↡" draft="contributed">aşağı doğru çift başlı ok</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">aşağı doğru çift başlı ok</annotation>
-		<annotation cp="↢" draft="contributed">sola doğru kuyruklu ok</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">sola doğru kuyruklu ok</annotation>
-		<annotation cp="↣" draft="contributed">sağa doğru kuyruklu ok</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">sağa doğru kuyruklu ok</annotation>
-		<annotation cp="↤" draft="contributed">sola doğru çubuktan ok</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">sola doğru çubuktan ok</annotation>
-		<annotation cp="↥" draft="contributed">yukarı doğru çubuktan ok</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">yukarı doğru çubuktan ok</annotation>
-		<annotation cp="↦" draft="contributed">sağa doğru çubuktan ok</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">sağa doğru çubuktan ok</annotation>
-		<annotation cp="↧" draft="contributed">aşağı doğru çubuktan ok</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">aşağı doğru çubuktan ok</annotation>
-		<annotation cp="↨" draft="contributed">yukarı aşağı tabanlı ok</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">yukarı aşağı tabanlı ok</annotation>
-		<annotation cp="↫" draft="contributed">sola döngülü ok</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">sola döngülü ok</annotation>
-		<annotation cp="↬" draft="contributed">sağa döngülü ok</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">sağa döngülü ok</annotation>
-		<annotation cp="↭" draft="contributed">sol sağ dalgalı ok</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">sol sağ dalgalı ok</annotation>
-		<annotation cp="↯" draft="contributed">aşağı yönlü zikzak ok</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">aşağı yönlü zikzak ok</annotation>
-		<annotation cp="↰" draft="contributed">solda ipucu ile yukarı ok</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">solda ipucu ile yukarı ok</annotation>
-		<annotation cp="↱" draft="contributed">sağda ipucu ile yukarı ok</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">sağda ipucu ile yukarı ok</annotation>
-		<annotation cp="↲" draft="contributed">solda ipucu ile aşağı ok</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">solda ipucu ile aşağı ok</annotation>
-		<annotation cp="↳" draft="contributed">sağda ipucu ile aşağı ok</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">sağda ipucu ile aşağı ok</annotation>
-		<annotation cp="↴" draft="contributed">aşağı doğru köşesi olan sağ ok</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">aşağı doğru köşesi olan sağ ok</annotation>
-		<annotation cp="↵" draft="contributed">sola doğru köşesi olan aşağı ok</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">sola doğru köşesi olan aşağı ok</annotation>
-		<annotation cp="↶" draft="contributed">saat yönünün tersinde üst yarım daireli ok</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">saat yönünün tersinde üst yarım daireli ok</annotation>
-		<annotation cp="↷" draft="contributed">saat yönünde üst yarım daireli ok</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">saat yönünde üst yarım daireli ok</annotation>
-		<annotation cp="↸" draft="contributed">kuzeybatı yönlü uzun çubuklu ok</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">kuzeybatı yönlü uzun çubuklu ok</annotation>
-		<annotation cp="↹" draft="contributed">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
-		<annotation cp="↺" draft="contributed">saat yönünün tersinde açık daireli ok</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">saat yönünün tersinde açık daireli ok</annotation>
-		<annotation cp="↻" draft="contributed">saat yönünde açık daireli ok</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">saat yönünde açık daireli ok</annotation>
-		<annotation cp="↼" draft="contributed">yukarı kancalı sol yönlü zıpkın</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">yukarı kancalı sol yönlü zıpkın</annotation>
-		<annotation cp="↽" draft="contributed">aşağı kancalı sol yönlü zıpkın</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">aşağı kancalı sol yönlü zıpkın</annotation>
-		<annotation cp="↾" draft="contributed">sağ kancalı yukarı yönlü zıpkın</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">sağ kancalı yukarı yönlü zıpkın</annotation>
-		<annotation cp="↿" draft="contributed">sol kancalı yukarı yönlü zıpkın</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">sol kancalı yukarı yönlü zıpkın</annotation>
-		<annotation cp="⇀" draft="contributed">yukarı kancalı sağ yönlü zıpkın</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">yukarı kancalı sağ yönlü zıpkın</annotation>
-		<annotation cp="⇁" draft="contributed">aşağı kancalı sağ yönlü zıpkın</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">aşağı kancalı sağ yönlü zıpkın</annotation>
-		<annotation cp="⇂" draft="contributed">sağ kancalı aşağı yönlü zıpkın</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">sağ kancalı aşağı yönlü zıpkın</annotation>
-		<annotation cp="⇃" draft="contributed">sol kancalı aşağı yönlü zıpkın</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">sol kancalı aşağı yönlü zıpkın</annotation>
-		<annotation cp="⇄" draft="contributed">sol ok üzerinde sağ ok</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">sol ok üzerinde sağ ok</annotation>
+		<annotation cp="↜">sola doğru dalgalı ok</annotation>
+		<annotation cp="↜" type="tts">sola doğru dalgalı ok</annotation>
+		<annotation cp="↝">sağa doğru dalgalı ok</annotation>
+		<annotation cp="↝" type="tts">sağa doğru dalgalı ok</annotation>
+		<annotation cp="↞">sola doğru çift başlı ok</annotation>
+		<annotation cp="↞" type="tts">sola doğru çift başlı ok</annotation>
+		<annotation cp="↟">yukarı doğru çift başlı ok</annotation>
+		<annotation cp="↟" type="tts">yukarı doğru çift başlı ok</annotation>
+		<annotation cp="↠">sağa doğru çift başlı ok</annotation>
+		<annotation cp="↠" type="tts">sağa doğru çift başlı ok</annotation>
+		<annotation cp="↡">aşağı doğru çift başlı ok</annotation>
+		<annotation cp="↡" type="tts">aşağı doğru çift başlı ok</annotation>
+		<annotation cp="↢">sola doğru kuyruklu ok</annotation>
+		<annotation cp="↢" type="tts">sola doğru kuyruklu ok</annotation>
+		<annotation cp="↣">sağa doğru kuyruklu ok</annotation>
+		<annotation cp="↣" type="tts">sağa doğru kuyruklu ok</annotation>
+		<annotation cp="↤">sola doğru çubuktan ok</annotation>
+		<annotation cp="↤" type="tts">sola doğru çubuktan ok</annotation>
+		<annotation cp="↥">yukarı doğru çubuktan ok</annotation>
+		<annotation cp="↥" type="tts">yukarı doğru çubuktan ok</annotation>
+		<annotation cp="↦">sağa doğru çubuktan ok</annotation>
+		<annotation cp="↦" type="tts">sağa doğru çubuktan ok</annotation>
+		<annotation cp="↧">aşağı doğru çubuktan ok</annotation>
+		<annotation cp="↧" type="tts">aşağı doğru çubuktan ok</annotation>
+		<annotation cp="↨">yukarı aşağı tabanlı ok</annotation>
+		<annotation cp="↨" type="tts">yukarı aşağı tabanlı ok</annotation>
+		<annotation cp="↫">sola döngülü ok</annotation>
+		<annotation cp="↫" type="tts">sola döngülü ok</annotation>
+		<annotation cp="↬">sağa döngülü ok</annotation>
+		<annotation cp="↬" type="tts">sağa döngülü ok</annotation>
+		<annotation cp="↭">sol sağ dalgalı ok</annotation>
+		<annotation cp="↭" type="tts">sol sağ dalgalı ok</annotation>
+		<annotation cp="↯">aşağı yönlü zikzak ok</annotation>
+		<annotation cp="↯" type="tts">aşağı yönlü zikzak ok</annotation>
+		<annotation cp="↰">solda ipucu ile yukarı ok</annotation>
+		<annotation cp="↰" type="tts">solda ipucu ile yukarı ok</annotation>
+		<annotation cp="↱">sağda ipucu ile yukarı ok</annotation>
+		<annotation cp="↱" type="tts">sağda ipucu ile yukarı ok</annotation>
+		<annotation cp="↲">solda ipucu ile aşağı ok</annotation>
+		<annotation cp="↲" type="tts">solda ipucu ile aşağı ok</annotation>
+		<annotation cp="↳">sağda ipucu ile aşağı ok</annotation>
+		<annotation cp="↳" type="tts">sağda ipucu ile aşağı ok</annotation>
+		<annotation cp="↴">aşağı doğru köşesi olan sağ ok</annotation>
+		<annotation cp="↴" type="tts">aşağı doğru köşesi olan sağ ok</annotation>
+		<annotation cp="↵">sola doğru köşesi olan aşağı ok</annotation>
+		<annotation cp="↵" type="tts">sola doğru köşesi olan aşağı ok</annotation>
+		<annotation cp="↶">saat yönünün tersinde üst yarım daireli ok</annotation>
+		<annotation cp="↶" type="tts">saat yönünün tersinde üst yarım daireli ok</annotation>
+		<annotation cp="↷">saat yönünde üst yarım daireli ok</annotation>
+		<annotation cp="↷" type="tts">saat yönünde üst yarım daireli ok</annotation>
+		<annotation cp="↸">kuzeybatı yönlü uzun çubuklu ok</annotation>
+		<annotation cp="↸" type="tts">kuzeybatı yönlü uzun çubuklu ok</annotation>
+		<annotation cp="↹">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
+		<annotation cp="↹" type="tts">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
+		<annotation cp="↺">saat yönünün tersinde açık daireli ok</annotation>
+		<annotation cp="↺" type="tts">saat yönünün tersinde açık daireli ok</annotation>
+		<annotation cp="↻">saat yönünde açık daireli ok</annotation>
+		<annotation cp="↻" type="tts">saat yönünde açık daireli ok</annotation>
+		<annotation cp="↼">yukarı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↼" type="tts">yukarı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↽">aşağı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↽" type="tts">aşağı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↾">sağ kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↾" type="tts">sağ kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↿">sol kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↿" type="tts">sol kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="⇀">yukarı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇀" type="tts">yukarı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇁">aşağı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇁" type="tts">aşağı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇂">sağ kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇂" type="tts">sağ kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇃">sol kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇃" type="tts">sol kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇄">sol ok üzerinde sağ ok</annotation>
+		<annotation cp="⇄" type="tts">sol ok üzerinde sağ ok</annotation>
 		<annotation cp="⇅">aşağı | ok | yukarı | yukarı ve aşağı bakan oklar</annotation>
 		<annotation cp="⇅" type="tts">yukarı ve aşağı bakan oklar</annotation>
 		<annotation cp="⇆">altta sağa üstte sola bakan oklar | ok | sağ | sol</annotation>
 		<annotation cp="⇆" type="tts">altta sağa üstte sola bakan oklar</annotation>
-		<annotation cp="⇇" draft="contributed">sola eşleştirilmiş oklar</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">sola eşleştirilmiş oklar</annotation>
-		<annotation cp="⇈" draft="contributed">yukarı eşleştirilmiş oklar</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">yukarı eşleştirilmiş oklar</annotation>
-		<annotation cp="⇉" draft="contributed">aşağı doğru eşleştirilmiş oklar</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">aşağı doğru eşleştirilmiş oklar</annotation>
-		<annotation cp="⇊" draft="contributed">aşağı eşleştirilmiş oklar</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">aşağı eşleştirilmiş oklar</annotation>
-		<annotation cp="⇋" draft="contributed">sağ zıpkın üstünde sol zıpkın</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">sağ zıpkın üstünde sol zıpkın</annotation>
-		<annotation cp="⇌" draft="contributed">sol zıpkın üstünde sağ zıpkın</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">sol zıpkın üstünde sağ zıpkın</annotation>
-		<annotation cp="⇐" draft="contributed">sola çift ok</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">sola çift ok</annotation>
-		<annotation cp="⇍" draft="contributed">sola çizgili çift ok</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">sola çizgili çift ok</annotation>
-		<annotation cp="⇑" draft="contributed">yukarı çift ok</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">yukarı çift ok</annotation>
-		<annotation cp="⇒" draft="contributed">sağa çift ok</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">sağa çift ok</annotation>
-		<annotation cp="⇏" draft="contributed">sağa çizgili çift ok</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">sağa çizgili çift ok</annotation>
-		<annotation cp="⇓" draft="contributed">aşağı çift ok</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">aşağı çift ok</annotation>
-		<annotation cp="⇔" draft="contributed">sol sağ çift ok</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">sol sağ çift ok</annotation>
-		<annotation cp="⇎" draft="contributed">sol sağ çizgili çift ok</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">sol sağ çizgili çift ok</annotation>
-		<annotation cp="⇖" draft="contributed">kuzeybatı yönlü çift ok</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">kuzeybatı yönlü çift ok</annotation>
-		<annotation cp="⇗" draft="contributed">kuzeydoğu yönlü çift ok</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">kuzeydoğu yönlü çift ok</annotation>
-		<annotation cp="⇘" draft="contributed">güneydoğu yönlü çift ok</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">güneydoğu yönlü çift ok</annotation>
-		<annotation cp="⇙" draft="contributed">güneybatı yönlü çift ok</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">güneybatı yönlü çift ok</annotation>
-		<annotation cp="⇚" draft="contributed">sola üçlü ok</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">sola üçlü ok</annotation>
-		<annotation cp="⇛" draft="contributed">sağa üçlü ok</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">sağa üçlü ok</annotation>
-		<annotation cp="⇜" draft="contributed">sola eğri ok</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">sola eğri ok</annotation>
-		<annotation cp="⇝" draft="contributed">sağa eğri ok</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">sağa eğri ok</annotation>
-		<annotation cp="⇞" draft="contributed">çift çizgili yukarı ok</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">çift çizgili yukarı ok</annotation>
-		<annotation cp="⇟" draft="contributed">çift çizgili aşağı ok</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">çift çizgili aşağı ok</annotation>
-		<annotation cp="⇠" draft="contributed">sola çizgili ok</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">sola çizgili ok</annotation>
-		<annotation cp="⇡" draft="contributed">yukarı çizgili ok</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">yukarı çizgili ok</annotation>
-		<annotation cp="⇢" draft="contributed">sağa çizgili ok</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">sağa çizgili ok</annotation>
-		<annotation cp="⇣" draft="contributed">aşağı çizgili ok</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">aşağı çizgili ok</annotation>
-		<annotation cp="⇤" draft="contributed">sol ok çubuğu</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">sol ok çubuğu</annotation>
-		<annotation cp="⇥" draft="contributed">sağ ok çubuğu</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">sağ ok çubuğu</annotation>
-		<annotation cp="⇦" draft="contributed">sola boş ok</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">sola boş ok</annotation>
-		<annotation cp="⇧" draft="contributed">yukarı boş ok</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">yukarı boş ok</annotation>
-		<annotation cp="⇨" draft="contributed">sağa boş ok</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">sağa boş ok</annotation>
-		<annotation cp="⇩" draft="contributed">aşağı boş ok</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">aşağı boş ok</annotation>
-		<annotation cp="⇪" draft="contributed">çubuktan yukarı boş ok</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">çubuktan yukarı boş ok</annotation>
-		<annotation cp="⇵" draft="contributed">aşağı ok sol yukarı ok</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">aşağı ok sol yukarı ok</annotation>
-		<annotation cp="∀" draft="contributed">tümü için</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">tümü için</annotation>
-		<annotation cp="∂" draft="contributed">kısmi fark</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">kısmi fark</annotation>
-		<annotation cp="∃" draft="contributed">vardır</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">vardır</annotation>
-		<annotation cp="∅" draft="contributed">boş küme</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">boş küme</annotation>
+		<annotation cp="⇇">sola eşleştirilmiş oklar</annotation>
+		<annotation cp="⇇" type="tts">sola eşleştirilmiş oklar</annotation>
+		<annotation cp="⇈">yukarı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇈" type="tts">yukarı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇉">aşağı doğru eşleştirilmiş oklar</annotation>
+		<annotation cp="⇉" type="tts">aşağı doğru eşleştirilmiş oklar</annotation>
+		<annotation cp="⇊">aşağı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇊" type="tts">aşağı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇋">sağ zıpkın üstünde sol zıpkın</annotation>
+		<annotation cp="⇋" type="tts">sağ zıpkın üstünde sol zıpkın</annotation>
+		<annotation cp="⇌">sol zıpkın üstünde sağ zıpkın</annotation>
+		<annotation cp="⇌" type="tts">sol zıpkın üstünde sağ zıpkın</annotation>
+		<annotation cp="⇐">sola çift ok</annotation>
+		<annotation cp="⇐" type="tts">sola çift ok</annotation>
+		<annotation cp="⇍">sola çizgili çift ok</annotation>
+		<annotation cp="⇍" type="tts">sola çizgili çift ok</annotation>
+		<annotation cp="⇑">yukarı çift ok</annotation>
+		<annotation cp="⇑" type="tts">yukarı çift ok</annotation>
+		<annotation cp="⇒">sağa çift ok</annotation>
+		<annotation cp="⇒" type="tts">sağa çift ok</annotation>
+		<annotation cp="⇏">sağa çizgili çift ok</annotation>
+		<annotation cp="⇏" type="tts">sağa çizgili çift ok</annotation>
+		<annotation cp="⇓">aşağı çift ok</annotation>
+		<annotation cp="⇓" type="tts">aşağı çift ok</annotation>
+		<annotation cp="⇔">sol sağ çift ok</annotation>
+		<annotation cp="⇔" type="tts">sol sağ çift ok</annotation>
+		<annotation cp="⇎">sol sağ çizgili çift ok</annotation>
+		<annotation cp="⇎" type="tts">sol sağ çizgili çift ok</annotation>
+		<annotation cp="⇖">kuzeybatı yönlü çift ok</annotation>
+		<annotation cp="⇖" type="tts">kuzeybatı yönlü çift ok</annotation>
+		<annotation cp="⇗">kuzeydoğu yönlü çift ok</annotation>
+		<annotation cp="⇗" type="tts">kuzeydoğu yönlü çift ok</annotation>
+		<annotation cp="⇘">güneydoğu yönlü çift ok</annotation>
+		<annotation cp="⇘" type="tts">güneydoğu yönlü çift ok</annotation>
+		<annotation cp="⇙">güneybatı yönlü çift ok</annotation>
+		<annotation cp="⇙" type="tts">güneybatı yönlü çift ok</annotation>
+		<annotation cp="⇚">sola üçlü ok</annotation>
+		<annotation cp="⇚" type="tts">sola üçlü ok</annotation>
+		<annotation cp="⇛">sağa üçlü ok</annotation>
+		<annotation cp="⇛" type="tts">sağa üçlü ok</annotation>
+		<annotation cp="⇜">sola eğri ok</annotation>
+		<annotation cp="⇜" type="tts">sola eğri ok</annotation>
+		<annotation cp="⇝">sağa eğri ok</annotation>
+		<annotation cp="⇝" type="tts">sağa eğri ok</annotation>
+		<annotation cp="⇞">çift çizgili yukarı ok</annotation>
+		<annotation cp="⇞" type="tts">çift çizgili yukarı ok</annotation>
+		<annotation cp="⇟">çift çizgili aşağı ok</annotation>
+		<annotation cp="⇟" type="tts">çift çizgili aşağı ok</annotation>
+		<annotation cp="⇠">sola çizgili ok</annotation>
+		<annotation cp="⇠" type="tts">sola çizgili ok</annotation>
+		<annotation cp="⇡">yukarı çizgili ok</annotation>
+		<annotation cp="⇡" type="tts">yukarı çizgili ok</annotation>
+		<annotation cp="⇢">sağa çizgili ok</annotation>
+		<annotation cp="⇢" type="tts">sağa çizgili ok</annotation>
+		<annotation cp="⇣">aşağı çizgili ok</annotation>
+		<annotation cp="⇣" type="tts">aşağı çizgili ok</annotation>
+		<annotation cp="⇤">sol ok çubuğu</annotation>
+		<annotation cp="⇤" type="tts">sol ok çubuğu</annotation>
+		<annotation cp="⇥">sağ ok çubuğu</annotation>
+		<annotation cp="⇥" type="tts">sağ ok çubuğu</annotation>
+		<annotation cp="⇦">sola boş ok</annotation>
+		<annotation cp="⇦" type="tts">sola boş ok</annotation>
+		<annotation cp="⇧">yukarı boş ok</annotation>
+		<annotation cp="⇧" type="tts">yukarı boş ok</annotation>
+		<annotation cp="⇨">sağa boş ok</annotation>
+		<annotation cp="⇨" type="tts">sağa boş ok</annotation>
+		<annotation cp="⇩">aşağı boş ok</annotation>
+		<annotation cp="⇩" type="tts">aşağı boş ok</annotation>
+		<annotation cp="⇪">çubuktan yukarı boş ok</annotation>
+		<annotation cp="⇪" type="tts">çubuktan yukarı boş ok</annotation>
+		<annotation cp="⇵">aşağı ok sol yukarı ok</annotation>
+		<annotation cp="⇵" type="tts">aşağı ok sol yukarı ok</annotation>
+		<annotation cp="∀">tümü için</annotation>
+		<annotation cp="∀" type="tts">tümü için</annotation>
+		<annotation cp="∂">kısmi fark</annotation>
+		<annotation cp="∂" type="tts">kısmi fark</annotation>
+		<annotation cp="∃">vardır</annotation>
+		<annotation cp="∃" type="tts">vardır</annotation>
+		<annotation cp="∅">boş küme</annotation>
+		<annotation cp="∅" type="tts">boş küme</annotation>
 		<annotation cp="∆">artım | üçgen</annotation>
 		<annotation cp="∆" type="tts">artım</annotation>
 		<annotation cp="∇">nabla | üçgen</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">eleman | elemanıdır | içerir | küme | üyelik</annotation>
 		<annotation cp="∈" type="tts">elemanıdır</annotation>
-		<annotation cp="∉" draft="contributed">elemanı değildir</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">elemanı değildir</annotation>
-		<annotation cp="∋" draft="contributed">eleman olarak kapsar</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">eleman olarak kapsar</annotation>
-		<annotation cp="∎" draft="contributed">silinmiş öğe</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">silinmiş öğe</annotation>
-		<annotation cp="∏" draft="contributed">n öğeli çarpım</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">n öğeli çarpım</annotation>
-		<annotation cp="∑" draft="contributed">n öğeli toplama</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">n öğeli toplama</annotation>
+		<annotation cp="∉">elemanı değildir</annotation>
+		<annotation cp="∉" type="tts">elemanı değildir</annotation>
+		<annotation cp="∋">eleman olarak kapsar</annotation>
+		<annotation cp="∋" type="tts">eleman olarak kapsar</annotation>
+		<annotation cp="∎">silinmiş öğe</annotation>
+		<annotation cp="∎" type="tts">silinmiş öğe</annotation>
+		<annotation cp="∏">n öğeli çarpım</annotation>
+		<annotation cp="∏" type="tts">n öğeli çarpım</annotation>
+		<annotation cp="∑">n öğeli toplama</annotation>
+		<annotation cp="∑" type="tts">n öğeli toplama</annotation>
 		<annotation cp="+">artı | artı işareti | ekle</annotation>
 		<annotation cp="+" type="tts">artı işareti</annotation>
 		<annotation cp="±">artı-eksi</annotation>
@@ -377,16 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">çarpma işareti</annotation>
 		<annotation cp="&lt;">açık etiket | açılış etiketi | etiket | küçüktür</annotation>
 		<annotation cp="&lt;" type="tts">küçüktür</annotation>
-		<annotation cp="≮" draft="contributed">küçük değildir</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">küçük değildir</annotation>
+		<annotation cp="≮">eşitsizlik | küçük değildir | matematik</annotation>
+		<annotation cp="≮" type="tts">küçük değildir</annotation>
 		<annotation cp="=">eşit | eşittir</annotation>
 		<annotation cp="=" type="tts">eşittir</annotation>
 		<annotation cp="≠">denksizlik | eşit değildir | eşitsizlik</annotation>
 		<annotation cp="≠" type="tts">eşit değildir</annotation>
 		<annotation cp="&gt;">büyüktür | etiket | kapalı etiket | kapanış etiketi</annotation>
 		<annotation cp="&gt;" type="tts">büyüktür</annotation>
-		<annotation cp="≯" draft="contributed">büyük değildir</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">büyük değildir</annotation>
+		<annotation cp="≯">büyük değildir | eşitsizlik | matematik</annotation>
+		<annotation cp="≯" type="tts">büyük değildir</annotation>
 		<annotation cp="¬">olumsuzlama | olumsuzluk</annotation>
 		<annotation cp="¬" type="tts">olumsuzlama</annotation>
 		<annotation cp="|">çizgi | çubuk | dikey | Sheffer inme</annotation>
@@ -397,316 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">eksi işareti</annotation>
 		<annotation cp="⁻">eksi | üs | üst eksi simgesi | üst simge</annotation>
 		<annotation cp="⁻" type="tts">üs eksi</annotation>
-		<annotation cp="∓" draft="contributed">artı veya eksi</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">artı veya eksi</annotation>
-		<annotation cp="∕" draft="contributed">bölme çizgisi</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">bölme çizgisi</annotation>
-		<annotation cp="⁄" draft="contributed">kesir bölme işareti</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">kesir bölme işareti</annotation>
-		<annotation cp="∗" draft="contributed">yıldız işareti işleci</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">yıldız işareti işleci</annotation>
-		<annotation cp="∘" draft="contributed">döngü işleci</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">döngü işleci</annotation>
-		<annotation cp="∙" draft="contributed">madde işareti işleci</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">madde işareti işleci</annotation>
+		<annotation cp="∓">artı eksi | artı veya eksi | eksi artı | eksi veya artı</annotation>
+		<annotation cp="∓" type="tts">artı veya eksi</annotation>
+		<annotation cp="∕">bölme çizgisi</annotation>
+		<annotation cp="∕" type="tts">bölme çizgisi</annotation>
+		<annotation cp="⁄">kesir bölme işareti</annotation>
+		<annotation cp="⁄" type="tts">kesir bölme işareti</annotation>
+		<annotation cp="∗">yıldız işareti işleci</annotation>
+		<annotation cp="∗" type="tts">yıldız işareti işleci</annotation>
+		<annotation cp="∘">döngü işleci</annotation>
+		<annotation cp="∘" type="tts">döngü işleci</annotation>
+		<annotation cp="∙">madde işareti işleci</annotation>
+		<annotation cp="∙" type="tts">madde işareti işleci</annotation>
 		<annotation cp="√">kare | karekök | kök | radikal | radikal ifade | taban</annotation>
 		<annotation cp="√" type="tts">karekök</annotation>
-		<annotation cp="∝" draft="contributed">orantılı</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">orantılı</annotation>
+		<annotation cp="∝">orantılı</annotation>
+		<annotation cp="∝" type="tts">orantılı</annotation>
 		<annotation cp="∞">sonsuzluk | sonsuzluk işareti</annotation>
 		<annotation cp="∞" type="tts">sonsuzluk işareti</annotation>
-		<annotation cp="∟" draft="contributed">dik açı</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">dik açı</annotation>
-		<annotation cp="∠" draft="contributed">açı</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">açı</annotation>
-		<annotation cp="∣" draft="contributed">bölen</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">bölen</annotation>
-		<annotation cp="∥" draft="contributed">paralel</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">paralel</annotation>
-		<annotation cp="∧" draft="contributed">mantıksal ve</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">mantıksal ve</annotation>
+		<annotation cp="∟">dik açı | matematik</annotation>
+		<annotation cp="∟" type="tts">dik açı</annotation>
+		<annotation cp="∠">açı | dar açı</annotation>
+		<annotation cp="∠" type="tts">açı</annotation>
+		<annotation cp="∣">bölen</annotation>
+		<annotation cp="∣" type="tts">bölen</annotation>
+		<annotation cp="∥">paralel</annotation>
+		<annotation cp="∥" type="tts">paralel</annotation>
+		<annotation cp="∧">mantıksal ve</annotation>
+		<annotation cp="∧" type="tts">mantıksal ve</annotation>
 		<annotation cp="∩">kesişim | küme</annotation>
 		<annotation cp="∩" type="tts">kesişim</annotation>
 		<annotation cp="∪">birleşim | küme | toplam</annotation>
 		<annotation cp="∪" type="tts">birleşim</annotation>
-		<annotation cp="∫" draft="contributed">entegral</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">entegral</annotation>
-		<annotation cp="∬" draft="contributed">çift entegral</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">çift entegral</annotation>
-		<annotation cp="∮" draft="contributed">çevre entegrali</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">çevre entegrali</annotation>
-		<annotation cp="∴" draft="contributed">öyleyse</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">öyleyse</annotation>
-		<annotation cp="∵" draft="contributed">çünkü</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">çünkü</annotation>
-		<annotation cp="∶" draft="contributed">oran</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">oran</annotation>
-		<annotation cp="∷" draft="contributed">orantı</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">orantı</annotation>
-		<annotation cp="∼" draft="contributed">tilde işleci</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">tilde işleci</annotation>
-		<annotation cp="∽" draft="contributed">ters tilde</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">ters tilde</annotation>
-		<annotation cp="∾" draft="contributed">ters çevrilmiş yavaş s</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">ters çevrilmiş yavaş s</annotation>
-		<annotation cp="≃" draft="contributed">asimptotik olarak eşit</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">asimptotik olarak eşit</annotation>
-		<annotation cp="≅" draft="contributed">yaklaşık olarak eşit</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">yaklaşık olarak eşit</annotation>
+		<annotation cp="∫">entegral</annotation>
+		<annotation cp="∫" type="tts">entegral</annotation>
+		<annotation cp="∬">çift entegral</annotation>
+		<annotation cp="∬" type="tts">çift entegral</annotation>
+		<annotation cp="∮">çevre entegrali</annotation>
+		<annotation cp="∮" type="tts">çevre entegrali</annotation>
+		<annotation cp="∴">öyleyse</annotation>
+		<annotation cp="∴" type="tts">öyleyse</annotation>
+		<annotation cp="∵">çünkü</annotation>
+		<annotation cp="∵" type="tts">çünkü</annotation>
+		<annotation cp="∶">oran</annotation>
+		<annotation cp="∶" type="tts">oran</annotation>
+		<annotation cp="∷">orantı</annotation>
+		<annotation cp="∷" type="tts">orantı</annotation>
+		<annotation cp="∼">tilde işleci</annotation>
+		<annotation cp="∼" type="tts">tilde işleci</annotation>
+		<annotation cp="∽">ters tilde</annotation>
+		<annotation cp="∽" type="tts">ters tilde</annotation>
+		<annotation cp="∾">ters çevrilmiş yavaş s</annotation>
+		<annotation cp="∾" type="tts">ters çevrilmiş yavaş s</annotation>
+		<annotation cp="≃">asimptotik olarak eşit</annotation>
+		<annotation cp="≃" type="tts">asimptotik olarak eşit</annotation>
+		<annotation cp="≅">yaklaşık olarak eşit</annotation>
+		<annotation cp="≅" type="tts">yaklaşık olarak eşit</annotation>
 		<annotation cp="≈">neredeyse eşit | yaklaşık | yaklaştırma</annotation>
 		<annotation cp="≈" type="tts">neredeyse eşit</annotation>
-		<annotation cp="≌" draft="contributed">tamamen eşit</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">tamamen eşit</annotation>
-		<annotation cp="≒" draft="contributed">yaklaşık olarak eşit veya sanalı</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">yaklaşık olarak eşit veya sanalı</annotation>
-		<annotation cp="≖" draft="contributed">eşitlikte döngü</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">eşitlikte döngü</annotation>
+		<annotation cp="≌">tamamen eşit</annotation>
+		<annotation cp="≌" type="tts">tamamen eşit</annotation>
+		<annotation cp="≒">yaklaşık olarak eşit veya sanalı</annotation>
+		<annotation cp="≒" type="tts">yaklaşık olarak eşit veya sanalı</annotation>
+		<annotation cp="≖">eşitlikte döngü</annotation>
+		<annotation cp="≖" type="tts">eşitlikte döngü</annotation>
 		<annotation cp="≡">aynı | denk | denktir | üçlü</annotation>
 		<annotation cp="≡" type="tts">denktir</annotation>
-		<annotation cp="≣" draft="contributed">tamamen eşdeğeri</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">tamamen eşdeğeri</annotation>
+		<annotation cp="≣">tamamen eşdeğeri</annotation>
+		<annotation cp="≣" type="tts">tamamen eşdeğeri</annotation>
 		<annotation cp="≤">eşitsizlik | eşittir | küçük eşit | küçüktür</annotation>
 		<annotation cp="≤" type="tts">küçük eşit</annotation>
 		<annotation cp="≥">büyük eşit | büyüktür | eşit | eşitsizlik</annotation>
 		<annotation cp="≥" type="tts">büyük eşit</annotation>
-		<annotation cp="≦" draft="contributed">küçük eşittirden büyük</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">küçük eşittirden büyük</annotation>
-		<annotation cp="≧" draft="contributed">büyük eşittirden küçük</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">büyük eşittirden küçük</annotation>
-		<annotation cp="≪" draft="contributed">çok daha küçüktür</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">çok daha küçüktür</annotation>
-		<annotation cp="≫" draft="contributed">çok daha büyüktür</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">çok daha büyüktür</annotation>
-		<annotation cp="≬" draft="contributed">arasında</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">arasında</annotation>
-		<annotation cp="≳" draft="contributed">büyük veya eşdeğer</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">büyük veya eşdeğer</annotation>
-		<annotation cp="≺" draft="contributed">önce gelir</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">önce gelir</annotation>
-		<annotation cp="≻" draft="contributed">sonra gelir</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">sonra gelir</annotation>
-		<annotation cp="⊁" draft="contributed">sonra gelmez</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">sonra gelmez</annotation>
+		<annotation cp="≦">eşitsizlik | küçük eşittirden büyük | matematik</annotation>
+		<annotation cp="≦" type="tts">küçük eşittirden büyük</annotation>
+		<annotation cp="≧">büyük eşittirden küçük | eşitsizlik | matematik</annotation>
+		<annotation cp="≧" type="tts">büyük eşittirden küçük</annotation>
+		<annotation cp="≪">çok daha küçüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="≪" type="tts">çok daha küçüktür</annotation>
+		<annotation cp="≫">çok daha büyüktür | eşizliklik | matematik</annotation>
+		<annotation cp="≫" type="tts">çok daha büyüktür</annotation>
+		<annotation cp="≬">arasında</annotation>
+		<annotation cp="≬" type="tts">arasında</annotation>
+		<annotation cp="≳">büyük veya eşdeğer</annotation>
+		<annotation cp="≳" type="tts">büyük veya eşdeğer</annotation>
+		<annotation cp="≺">önce gelir</annotation>
+		<annotation cp="≺" type="tts">önce gelir</annotation>
+		<annotation cp="≻">sonra gelir</annotation>
+		<annotation cp="≻" type="tts">sonra gelir</annotation>
+		<annotation cp="⊁">sonra gelmez</annotation>
+		<annotation cp="⊁" type="tts">sonra gelmez</annotation>
 		<annotation cp="⊂">alt küme | alt kümesi | alt kümesidir | küme</annotation>
 		<annotation cp="⊂" type="tts">alt kümesidir</annotation>
-		<annotation cp="⊃" draft="contributed">üst küme</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">üst küme</annotation>
-		<annotation cp="⊆" draft="contributed">alt küme eşittir</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">alt küme eşittir</annotation>
-		<annotation cp="⊇" draft="contributed">üst küme eşittir</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">üst küme eşittir</annotation>
-		<annotation cp="⊕" draft="contributed">daire içinde artı</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">daire içinde artı</annotation>
-		<annotation cp="⊖" draft="contributed">daire içinde eksi</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">daire içinde eksi</annotation>
-		<annotation cp="⊗" draft="contributed">daire içinde çarpı</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">daire içinde çarpı</annotation>
-		<annotation cp="⊘" draft="contributed">daire içinde bölme işareti</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">daire içinde bölme işareti</annotation>
-		<annotation cp="⊙" draft="contributed">daire içinde nokta işleci</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">daire içinde nokta işleci</annotation>
-		<annotation cp="⊚" draft="contributed">daire içinde döngü işleci</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">daire içinde döngü işleci</annotation>
-		<annotation cp="⊛" draft="contributed">daire içinde yıldız işareti işleci</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">daire içinde yıldız işareti işleci</annotation>
-		<annotation cp="⊞" draft="contributed">kare içinde artı</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">kare içinde artı</annotation>
-		<annotation cp="⊟" draft="contributed">kare içinde eksi</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">kare içinde eksi</annotation>
-		<annotation cp="⊥" draft="contributed">üst iğne</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">üst iğne</annotation>
-		<annotation cp="⊮" draft="contributed">gerektirmez</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">gerektirmez</annotation>
-		<annotation cp="⊰" draft="contributed">bağıntıya göre önce gelir</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">bağıntıya göre önce gelir</annotation>
-		<annotation cp="⊱" draft="contributed">bağıntıya göre sonra gelir</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">bağıntıya göre sonra gelir</annotation>
-		<annotation cp="⋭" draft="contributed">normal alt grup olarak kapsamaz</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">normal alt grup olarak kapsamaz</annotation>
-		<annotation cp="⊶" draft="contributed">orijinal</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">orijinal</annotation>
-		<annotation cp="⊹" draft="contributed">hermit eşleniği matrisi</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">hermit eşleniği matrisi</annotation>
-		<annotation cp="⊿" draft="contributed">dik üçgen</annotation>
-		<annotation cp="⊿" type="tts" draft="contributed">dik üçgen</annotation>
-		<annotation cp="⋁" draft="contributed">n öğeli mantıksal veya</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">n öğeli mantıksal veya</annotation>
-		<annotation cp="⋂" draft="contributed">n öğeli kesişim</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">n öğeli kesişim</annotation>
-		<annotation cp="⋃" draft="contributed">n öğeli birleşim</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">n öğeli birleşim</annotation>
-		<annotation cp="⋅" draft="contributed">nokta işleci</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">nokta işleci</annotation>
-		<annotation cp="⋆" draft="contributed">yıldız işleci</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">yıldız işleci</annotation>
-		<annotation cp="⋈" draft="contributed">doğal birleşim</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">doğal birleşim</annotation>
-		<annotation cp="⋒" draft="contributed">çift kesişim</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">çift kesişim</annotation>
-		<annotation cp="⋘" draft="contributed">çok fazla küçüktür</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">çok fazla küçüktür</annotation>
-		<annotation cp="⋙" draft="contributed">çok fazla büyüktür</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">çok fazla büyüktür</annotation>
-		<annotation cp="⋮" draft="contributed">dikey üç nokta</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">dikey üç nokta</annotation>
-		<annotation cp="⋯" draft="contributed">orta çizgi yatay üç nokta</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">orta çizgi yatay üç nokta</annotation>
-		<annotation cp="⋰" draft="contributed">yukarı sağa çapraz üç nokta</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">yukarı sağa çapraz üç nokta</annotation>
-		<annotation cp="⋱" draft="contributed">aşağı sağa çapraz üç nokta</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">aşağı sağa çapraz üç nokta</annotation>
-		<annotation cp="■" draft="contributed">dolu kare</annotation>
-		<annotation cp="■" type="tts" draft="contributed">dolu kare</annotation>
-		<annotation cp="□" draft="contributed">boş kare</annotation>
-		<annotation cp="□" type="tts" draft="contributed">boş kare</annotation>
-		<annotation cp="▢" draft="contributed">yuvarlak köşeli boş kare</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">yuvarlak köşeli boş kare</annotation>
-		<annotation cp="▣" draft="contributed">dolu kareli boş kare</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">dolu kareli boş kare</annotation>
-		<annotation cp="▤" draft="contributed">yatay doldurulan kare</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">yatay doldurulan kare</annotation>
-		<annotation cp="▥" draft="contributed">dikey doldurulan kare</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">dikey doldurulan kare</annotation>
-		<annotation cp="▦" draft="contributed">dikgen çapraz çizgi ile doldurulan kare</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">dikgen çapraz çizgi ile doldurulan kare</annotation>
-		<annotation cp="▧" draft="contributed">sol üstten sağ alta doğru doldurulan kare</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">sol üstten sağ alta doğru doldurulan kare</annotation>
-		<annotation cp="▨" draft="contributed">sağ üstten sol alta doğru doldurulan kare</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">sağ üstten sol alta doğru doldurulan kare</annotation>
-		<annotation cp="▩" draft="contributed">köşegen çapraz çizgi ile doldurulan kare</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">köşegen çapraz çizgi ile doldurulan kare</annotation>
-		<annotation cp="▬" draft="contributed">dolu dikdörtgen</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">dolu dikdörtgen</annotation>
-		<annotation cp="▭" draft="contributed">boş dikdörtgen</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">boş dikdörtgen</annotation>
-		<annotation cp="▮" draft="contributed">dolu dikey dikdörtgen</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">dolu dikey dikdörtgen</annotation>
-		<annotation cp="▰" draft="contributed">dolu paralelkenar</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">dolu paralelkenar</annotation>
+		<annotation cp="⊃">küme işlemi | matematik | üst küme</annotation>
+		<annotation cp="⊃" type="tts">üst küme</annotation>
+		<annotation cp="⊆">alt küme eşittir</annotation>
+		<annotation cp="⊆" type="tts">alt küme eşittir</annotation>
+		<annotation cp="⊇">eşitlik | matematik | üst küme eşittir</annotation>
+		<annotation cp="⊇" type="tts">üst küme eşittir</annotation>
+		<annotation cp="⊕">artı | daire içinde artı</annotation>
+		<annotation cp="⊕" type="tts">daire içinde artı</annotation>
+		<annotation cp="⊖">daire içinde eksi</annotation>
+		<annotation cp="⊖" type="tts">daire içinde eksi</annotation>
+		<annotation cp="⊗">daire içinde çarpı</annotation>
+		<annotation cp="⊗" type="tts">daire içinde çarpı</annotation>
+		<annotation cp="⊘">daire içinde bölme işareti</annotation>
+		<annotation cp="⊘" type="tts">daire içinde bölme işareti</annotation>
+		<annotation cp="⊙">daire içinde nokta işleci</annotation>
+		<annotation cp="⊙" type="tts">daire içinde nokta işleci</annotation>
+		<annotation cp="⊚">daire içinde döngü işleci</annotation>
+		<annotation cp="⊚" type="tts">daire içinde döngü işleci</annotation>
+		<annotation cp="⊛">daire içinde yıldız işareti işleci</annotation>
+		<annotation cp="⊛" type="tts">daire içinde yıldız işareti işleci</annotation>
+		<annotation cp="⊞">kare içinde artı</annotation>
+		<annotation cp="⊞" type="tts">kare içinde artı</annotation>
+		<annotation cp="⊟">kare içinde eksi</annotation>
+		<annotation cp="⊟" type="tts">kare içinde eksi</annotation>
+		<annotation cp="⊥">üst iğne</annotation>
+		<annotation cp="⊥" type="tts">üst iğne</annotation>
+		<annotation cp="⊮">gerektirmez</annotation>
+		<annotation cp="⊮" type="tts">gerektirmez</annotation>
+		<annotation cp="⊰">bağıntıya göre önce gelir</annotation>
+		<annotation cp="⊰" type="tts">bağıntıya göre önce gelir</annotation>
+		<annotation cp="⊱">bağıntıya göre sonra gelir</annotation>
+		<annotation cp="⊱" type="tts">bağıntıya göre sonra gelir</annotation>
+		<annotation cp="⋭">normal alt grup olarak kapsamaz</annotation>
+		<annotation cp="⋭" type="tts">normal alt grup olarak kapsamaz</annotation>
+		<annotation cp="⊶">orijinal</annotation>
+		<annotation cp="⊶" type="tts">orijinal</annotation>
+		<annotation cp="⊹">hermit eşleniği matrisi</annotation>
+		<annotation cp="⊹" type="tts">hermit eşleniği matrisi</annotation>
+		<annotation cp="⊿">dik açılı üçgen | dik üçgen | matematik</annotation>
+		<annotation cp="⊿" type="tts">dik üçgen</annotation>
+		<annotation cp="⋁">n öğeli mantıksal veya</annotation>
+		<annotation cp="⋁" type="tts">n öğeli mantıksal veya</annotation>
+		<annotation cp="⋂">n öğeli kesişim</annotation>
+		<annotation cp="⋂" type="tts">n öğeli kesişim</annotation>
+		<annotation cp="⋃">n öğeli birleşim</annotation>
+		<annotation cp="⋃" type="tts">n öğeli birleşim</annotation>
+		<annotation cp="⋅">nokta işleci</annotation>
+		<annotation cp="⋅" type="tts">nokta işleci</annotation>
+		<annotation cp="⋆">yıldız işleci</annotation>
+		<annotation cp="⋆" type="tts">yıldız işleci</annotation>
+		<annotation cp="⋈">doğal birleşim</annotation>
+		<annotation cp="⋈" type="tts">doğal birleşim</annotation>
+		<annotation cp="⋒">çift kesişim | kesişim | matematik</annotation>
+		<annotation cp="⋒" type="tts">çift kesişim</annotation>
+		<annotation cp="⋘">çok fazla küçüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="⋘" type="tts">çok fazla küçüktür</annotation>
+		<annotation cp="⋙">çok fazla büyüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="⋙" type="tts">çok fazla büyüktür</annotation>
+		<annotation cp="⋮">dikey üç nokta</annotation>
+		<annotation cp="⋮" type="tts">dikey üç nokta</annotation>
+		<annotation cp="⋯">orta çizgi yatay üç nokta</annotation>
+		<annotation cp="⋯" type="tts">orta çizgi yatay üç nokta</annotation>
+		<annotation cp="⋰">yukarı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋰" type="tts">yukarı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋱">aşağı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋱" type="tts">aşağı sağa çapraz üç nokta</annotation>
+		<annotation cp="■">dolu kare</annotation>
+		<annotation cp="■" type="tts">dolu kare</annotation>
+		<annotation cp="□">boş kare</annotation>
+		<annotation cp="□" type="tts">boş kare</annotation>
+		<annotation cp="▢">yuvarlak köşeli boş kare</annotation>
+		<annotation cp="▢" type="tts">yuvarlak köşeli boş kare</annotation>
+		<annotation cp="▣">dolu kareli boş kare</annotation>
+		<annotation cp="▣" type="tts">dolu kareli boş kare</annotation>
+		<annotation cp="▤">yatay doldurulan kare</annotation>
+		<annotation cp="▤" type="tts">yatay doldurulan kare</annotation>
+		<annotation cp="▥">dikey doldurulan kare</annotation>
+		<annotation cp="▥" type="tts">dikey doldurulan kare</annotation>
+		<annotation cp="▦">dikgen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▦" type="tts">dikgen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▧">sol üstten sağ alta doğru doldurulan kare</annotation>
+		<annotation cp="▧" type="tts">sol üstten sağ alta doğru doldurulan kare</annotation>
+		<annotation cp="▨">sağ üstten sol alta doğru doldurulan kare</annotation>
+		<annotation cp="▨" type="tts">sağ üstten sol alta doğru doldurulan kare</annotation>
+		<annotation cp="▩">köşegen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▩" type="tts">köşegen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▬">dolu dikdörtgen</annotation>
+		<annotation cp="▬" type="tts">dolu dikdörtgen</annotation>
+		<annotation cp="▭">boş dikdörtgen</annotation>
+		<annotation cp="▭" type="tts">boş dikdörtgen</annotation>
+		<annotation cp="▮">dolu dikey dikdörtgen</annotation>
+		<annotation cp="▮" type="tts">dolu dikey dikdörtgen</annotation>
+		<annotation cp="▰">dolu paralelkenar</annotation>
+		<annotation cp="▰" type="tts">dolu paralelkenar</annotation>
 		<annotation cp="▲">içi dolu | ok | üçgen | yukarı | yukarı bakan içi dolu üçgen</annotation>
 		<annotation cp="▲" type="tts">yukarı bakan içi dolu üçgen</annotation>
-		<annotation cp="△" draft="contributed">içi boş yukarıyı gösteren üçgen</annotation>
-		<annotation cp="△" type="tts" draft="contributed">içi boş yukarıyı gösteren üçgen</annotation>
-		<annotation cp="▴" draft="contributed">içi dolu yukarıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">içi dolu yukarıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▵" draft="contributed">içi boş yukarıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">içi boş yukarıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▷" draft="contributed">içi boş sağı gösteren üçgen</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">içi boş sağı gösteren üçgen</annotation>
-		<annotation cp="▸" draft="contributed">içi dolu sağı gösteren küçük üçgen</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">içi dolu sağı gösteren küçük üçgen</annotation>
-		<annotation cp="▹" draft="contributed">içi boş sağı gösteren küçük üçgen</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">içi boş sağı gösteren küçük üçgen</annotation>
-		<annotation cp="►" draft="contributed">içi dolu sağ işaretçi</annotation>
-		<annotation cp="►" type="tts" draft="contributed">içi dolu sağ işaretçi</annotation>
-		<annotation cp="▻" draft="contributed">içi boş sağ işaretçi</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">içi boş sağ işaretçi</annotation>
+		<annotation cp="△">içi boş yukarıyı gösteren üçgen</annotation>
+		<annotation cp="△" type="tts">içi boş yukarıyı gösteren üçgen</annotation>
+		<annotation cp="▴">içi dolu yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▴" type="tts">içi dolu yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▵">içi boş yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▵" type="tts">içi boş yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▷">içi boş sağı gösteren üçgen</annotation>
+		<annotation cp="▷" type="tts">içi boş sağı gösteren üçgen</annotation>
+		<annotation cp="▸">içi dolu sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▸" type="tts">içi dolu sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▹">içi boş sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▹" type="tts">içi boş sağı gösteren küçük üçgen</annotation>
+		<annotation cp="►">içi dolu sağ işaretçi</annotation>
+		<annotation cp="►" type="tts">içi dolu sağ işaretçi</annotation>
+		<annotation cp="▻">içi boş sağ işaretçi</annotation>
+		<annotation cp="▻" type="tts">içi boş sağ işaretçi</annotation>
 		<annotation cp="▼">aşağı | aşağı bakan içi dolu üçgen | içi dolu | ok | üçgen</annotation>
 		<annotation cp="▼" type="tts">aşağı bakan içi dolu üçgen</annotation>
-		<annotation cp="▽" draft="contributed">içi boş aşağıyı gösteren üçgen</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">içi boş aşağıyı gösteren üçgen</annotation>
-		<annotation cp="▾" draft="contributed">içi dolu aşağıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">içi dolu aşağıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▿" draft="contributed">içi boş aşağıyı gösteren küçük üçgen</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">içi boş aşağıyı gösteren küçük üçgen</annotation>
-		<annotation cp="◁" draft="contributed">içi boş sol üçgen</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">içi boş sol üçgen</annotation>
-		<annotation cp="◂" draft="contributed">içi dolu solu gösteren küçük üçgen</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">içi dolu solu gösteren küçük üçgen</annotation>
-		<annotation cp="◃" draft="contributed">içi boş solu gösteren küçük üçgen</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">içi boş solu gösteren küçük üçgen</annotation>
-		<annotation cp="◄" draft="contributed">içi dolu sol işaretçi</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">içi dolu sol işaretçi</annotation>
-		<annotation cp="◅" draft="contributed">içi boş sol işaretçi</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">içi boş sol işaretçi</annotation>
-		<annotation cp="◆" draft="contributed">dolu baklava</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">dolu baklava</annotation>
-		<annotation cp="◇" draft="contributed">boş baklava</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">boş baklava</annotation>
-		<annotation cp="◈" draft="contributed">dolu baklavalı boş baklava</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">dolu baklavalı boş baklava</annotation>
-		<annotation cp="◉" draft="contributed">dolu daireli boş daire</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">dolu daireli boş daire</annotation>
+		<annotation cp="▽">içi boş aşağıyı gösteren üçgen</annotation>
+		<annotation cp="▽" type="tts">içi boş aşağıyı gösteren üçgen</annotation>
+		<annotation cp="▾">içi dolu aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▾" type="tts">içi dolu aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▿">içi boş aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▿" type="tts">içi boş aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="◁">içi boş sol üçgen</annotation>
+		<annotation cp="◁" type="tts">içi boş sol üçgen</annotation>
+		<annotation cp="◂">içi dolu solu gösteren küçük üçgen</annotation>
+		<annotation cp="◂" type="tts">içi dolu solu gösteren küçük üçgen</annotation>
+		<annotation cp="◃">içi boş solu gösteren küçük üçgen</annotation>
+		<annotation cp="◃" type="tts">içi boş solu gösteren küçük üçgen</annotation>
+		<annotation cp="◄">içi dolu sol işaretçi</annotation>
+		<annotation cp="◄" type="tts">içi dolu sol işaretçi</annotation>
+		<annotation cp="◅">içi boş sol işaretçi</annotation>
+		<annotation cp="◅" type="tts">içi boş sol işaretçi</annotation>
+		<annotation cp="◆">dolu baklava</annotation>
+		<annotation cp="◆" type="tts">dolu baklava</annotation>
+		<annotation cp="◇">boş baklava</annotation>
+		<annotation cp="◇" type="tts">boş baklava</annotation>
+		<annotation cp="◈">dolu baklavalı boş baklava</annotation>
+		<annotation cp="◈" type="tts">dolu baklavalı boş baklava</annotation>
+		<annotation cp="◉">dolu daireli boş daire</annotation>
+		<annotation cp="◉" type="tts">dolu daireli boş daire</annotation>
 		<annotation cp="◊">baklava | elmas | eşkenar dörtgen</annotation>
 		<annotation cp="◊" type="tts">eşkenar dörtgen</annotation>
 		<annotation cp="○">boş daire | daire | halka</annotation>
 		<annotation cp="○" type="tts">boş daire</annotation>
-		<annotation cp="◌" draft="contributed">noktalı daire</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">noktalı daire</annotation>
-		<annotation cp="◍" draft="contributed">dikey doldurulan daire</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">dikey doldurulan daire</annotation>
-		<annotation cp="◎" draft="contributed">hedef merkezi</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">hedef merkezi</annotation>
+		<annotation cp="◌">noktalı daire</annotation>
+		<annotation cp="◌" type="tts">noktalı daire</annotation>
+		<annotation cp="◍">dikey doldurulan daire</annotation>
+		<annotation cp="◍" type="tts">dikey doldurulan daire</annotation>
+		<annotation cp="◎">hedef merkezi</annotation>
+		<annotation cp="◎" type="tts">hedef merkezi</annotation>
 		<annotation cp="●">çember | içi dolu çember</annotation>
 		<annotation cp="●" type="tts">içi dolu çember</annotation>
-		<annotation cp="◐" draft="contributed">sol yarısı dolu daire</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">sol yarısı dolu daire</annotation>
-		<annotation cp="◑" draft="contributed">sağ yarısı dolu daire</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">sağ yarısı dolu daire</annotation>
-		<annotation cp="◒" draft="contributed">alt yarısı dolu daire</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">alt yarısı dolu daire</annotation>
-		<annotation cp="◓" draft="contributed">üst yarısı dolu daire</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">üst yarısı dolu daire</annotation>
-		<annotation cp="◔" draft="contributed">sağ üst karesi dolu daire</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">sağ üst karesi dolu daire</annotation>
-		<annotation cp="◕" draft="contributed">sol üst karesi dolu olmayan daire</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">sol üst karesi dolu olmayan daire</annotation>
-		<annotation cp="◖" draft="contributed">sol yarı dolu daire</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">sol yarı dolu daire</annotation>
-		<annotation cp="◗" draft="contributed">sağ yarı dolu daire</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">sağ yarı dolu daire</annotation>
-		<annotation cp="◘" draft="contributed">ters madde işareti</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">ters madde işareti</annotation>
-		<annotation cp="◙" draft="contributed">içi boş daireli dolu kare</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">içi boş daireli dolu kare</annotation>
-		<annotation cp="◜" draft="contributed">sol üst çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">sol üst çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◝" draft="contributed">sağ üst çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">sağ üst çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◞" draft="contributed">sağ alt çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">sağ alt çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◟" draft="contributed">sol alt çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">sol alt çeyrek dairesi dairesel olan yay</annotation>
-		<annotation cp="◠" draft="contributed">üst yarım daire</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">üst yarım daire</annotation>
-		<annotation cp="◡" draft="contributed">alt yarım daire</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">alt yarım daire</annotation>
-		<annotation cp="◢" draft="contributed">içi dolu sağ alt üçgen</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">içi dolu sağ alt üçgen</annotation>
-		<annotation cp="◣" draft="contributed">içi dolu sol alt üçgen</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">içi dolu sol alt üçgen</annotation>
-		<annotation cp="◤" draft="contributed">içi dolu sol üst üçgen</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">içi dolu sol üst üçgen</annotation>
-		<annotation cp="◥" draft="contributed">içi dolu sağ üst üçgen</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">içi dolu sağ üst üçgen</annotation>
-		<annotation cp="◦" draft="contributed">içi boş madde işareti</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">içi boş madde işareti</annotation>
+		<annotation cp="◐">sol yarısı dolu daire</annotation>
+		<annotation cp="◐" type="tts">sol yarısı dolu daire</annotation>
+		<annotation cp="◑">sağ yarısı dolu daire</annotation>
+		<annotation cp="◑" type="tts">sağ yarısı dolu daire</annotation>
+		<annotation cp="◒">alt yarısı dolu daire</annotation>
+		<annotation cp="◒" type="tts">alt yarısı dolu daire</annotation>
+		<annotation cp="◓">üst yarısı dolu daire</annotation>
+		<annotation cp="◓" type="tts">üst yarısı dolu daire</annotation>
+		<annotation cp="◔">sağ üst karesi dolu daire</annotation>
+		<annotation cp="◔" type="tts">sağ üst karesi dolu daire</annotation>
+		<annotation cp="◕">sol üst karesi dolu olmayan daire</annotation>
+		<annotation cp="◕" type="tts">sol üst karesi dolu olmayan daire</annotation>
+		<annotation cp="◖">sol yarı dolu daire</annotation>
+		<annotation cp="◖" type="tts">sol yarı dolu daire</annotation>
+		<annotation cp="◗">sağ yarı dolu daire</annotation>
+		<annotation cp="◗" type="tts">sağ yarı dolu daire</annotation>
+		<annotation cp="◘">ters madde işareti</annotation>
+		<annotation cp="◘" type="tts">ters madde işareti</annotation>
+		<annotation cp="◙">içi boş daireli dolu kare</annotation>
+		<annotation cp="◙" type="tts">içi boş daireli dolu kare</annotation>
+		<annotation cp="◜">sol üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◜" type="tts">sol üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◝">sağ üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◝" type="tts">sağ üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◞">sağ alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◞" type="tts">sağ alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◟">sol alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◟" type="tts">sol alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◠">üst yarım daire</annotation>
+		<annotation cp="◠" type="tts">üst yarım daire</annotation>
+		<annotation cp="◡">alt yarım daire</annotation>
+		<annotation cp="◡" type="tts">alt yarım daire</annotation>
+		<annotation cp="◢">içi dolu sağ alt üçgen</annotation>
+		<annotation cp="◢" type="tts">içi dolu sağ alt üçgen</annotation>
+		<annotation cp="◣">içi dolu sol alt üçgen</annotation>
+		<annotation cp="◣" type="tts">içi dolu sol alt üçgen</annotation>
+		<annotation cp="◤">içi dolu sol üst üçgen</annotation>
+		<annotation cp="◤" type="tts">içi dolu sol üst üçgen</annotation>
+		<annotation cp="◥">içi dolu sağ üst üçgen</annotation>
+		<annotation cp="◥" type="tts">içi dolu sağ üst üçgen</annotation>
+		<annotation cp="◦">içi boş madde işareti</annotation>
+		<annotation cp="◦" type="tts">içi boş madde işareti</annotation>
 		<annotation cp="◯">büyük boş daire | daire | halka</annotation>
 		<annotation cp="◯" type="tts">büyük boş daire</annotation>
-		<annotation cp="◳" draft="contributed">sağ üst çeyrek kareli boş kare</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">sağ üst çeyrek kareli boş kare</annotation>
-		<annotation cp="◷" draft="contributed">sağ üst çeyrek daireli boş daire</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">sağ üst çeyrek daireli boş daire</annotation>
-		<annotation cp="◿" draft="contributed">sağ alt üçgen</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">sağ alt üçgen</annotation>
+		<annotation cp="◳">sağ üst çeyrek kareli boş kare</annotation>
+		<annotation cp="◳" type="tts">sağ üst çeyrek kareli boş kare</annotation>
+		<annotation cp="◷">sağ üst çeyrek daireli boş daire</annotation>
+		<annotation cp="◷" type="tts">sağ üst çeyrek daireli boş daire</annotation>
+		<annotation cp="◿">sağ alt üçgen</annotation>
+		<annotation cp="◿" type="tts">sağ alt üçgen</annotation>
 		<annotation cp="♪">müzik | nota | sekizinci</annotation>
 		<annotation cp="♪" type="tts">sekizinci nota</annotation>
-		<annotation cp="⨧" draft="contributed">altı iki olan artı simgesi</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">altı iki olan artı simgesi</annotation>
-		<annotation cp="⨯" draft="contributed">vektör çapraz çarpım</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">vektör çapraz çarpım</annotation>
-		<annotation cp="⨼" draft="contributed">iç çarpım</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">iç çarpım</annotation>
-		<annotation cp="⩣" draft="contributed">mantıksal veya çift alt çubuklu</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">mantıksal veya çift alt çubuklu</annotation>
-		<annotation cp="⩽" draft="contributed">küçüktür veya eğimli eşittir</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">küçüktür veya eğimli eşittir</annotation>
-		<annotation cp="⪍" draft="contributed">benzer veya eşittir üstündeki küçüktür</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">benzer veya eşittir üstündeki küçüktür</annotation>
-		<annotation cp="⪚" draft="contributed">çift çizgili eşittir veya büyüktür</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">çift çizgili eşittir veya büyüktür</annotation>
-		<annotation cp="⪺" draft="contributed">hemen hemen eşit değil üstünde sonra gelir</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">hemen hemen eşit değil üstünde sonra gelir</annotation>
+		<annotation cp="⨧">altı iki olan artı simgesi</annotation>
+		<annotation cp="⨧" type="tts">altı iki olan artı simgesi</annotation>
+		<annotation cp="⨯">vektör çapraz çarpım</annotation>
+		<annotation cp="⨯" type="tts">vektör çapraz çarpım</annotation>
+		<annotation cp="⨼">iç çarpım</annotation>
+		<annotation cp="⨼" type="tts">iç çarpım</annotation>
+		<annotation cp="⩣">mantıksal veya çift alt çubuklu</annotation>
+		<annotation cp="⩣" type="tts">mantıksal veya çift alt çubuklu</annotation>
+		<annotation cp="⩽">küçüktür veya eğimli eşittir</annotation>
+		<annotation cp="⩽" type="tts">küçüktür veya eğimli eşittir</annotation>
+		<annotation cp="⪍">benzer veya eşittir üstündeki küçüktür</annotation>
+		<annotation cp="⪍" type="tts">benzer veya eşittir üstündeki küçüktür</annotation>
+		<annotation cp="⪚">çift çizgili eşittir veya büyüktür</annotation>
+		<annotation cp="⪚" type="tts">çift çizgili eşittir veya büyüktür</annotation>
+		<annotation cp="⪺">hemen hemen eşit değil üstünde sonra gelir</annotation>
+		<annotation cp="⪺" type="tts">hemen hemen eşit değil üstünde sonra gelir</annotation>
 		<annotation cp="♭">bemol | düz | müzik | nota</annotation>
 		<annotation cp="♭" type="tts">düz</annotation>
 		<annotation cp="♯">diyez | müzik | nota</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">sevinç gözyaşları</annotation>
 		<annotation cp="🙂">gülme | hafifçe gülümseyen yüz | yüz</annotation>
 		<annotation cp="🙂" type="tts">hafifçe gülümseyen yüz</annotation>
+		<annotation cp="🙂‍↕">dikey olarak sallanan yüz | onay, evet</annotation>
+		<annotation cp="🙂‍↕" type="tts">dikey olarak sallanan yüz</annotation>
+		<annotation cp="🙂‍↔">hayır, sallama | yatay olarak sallanan yüz</annotation>
+		<annotation cp="🙂‍↔" type="tts">yatay olarak sallanan yüz</annotation>
 		<annotation cp="🙃">ters yüz | yüz</annotation>
 		<annotation cp="🙃" type="tts">ters yüz</annotation>
 		<annotation cp="🫠">çözülme | erime | eriyen yüz | kaybolma | sıvılaşma</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">yetişkin</annotation>
 		<annotation cp="👱">saç | sarı saçlı kişi | sarışın | sarışın kişi</annotation>
 		<annotation cp="👱" type="tts">sarışın kişi</annotation>
+		<annotation cp="🧑‍🧒">aile: yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧒" type="tts">aile: yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧒‍🧒">aile: yetişkin, çocuk, çocuk</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">aile: yetişkin, çocuk, çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒">aile: yetişkin, yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">aile: yetişkin, yetişkin, çocuk, çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk, çocuk</annotation>
 		<annotation cp="👨">erkek | kişiler</annotation>
 		<annotation cp="👨" type="tts">erkek</annotation>
 		<annotation cp="🧔">sakal | sakallı kişi</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">önden civciv</annotation>
 		<annotation cp="🐦">hayvan | kuş</annotation>
 		<annotation cp="🐦" type="tts">kuş</annotation>
+		<annotation cp="🐦‍🔥">Anka | fantezi, ateş kuşu, yeniden doğuş, reenkarnasyon</annotation>
+		<annotation cp="🐦‍🔥" type="tts">Anka</annotation>
 		<annotation cp="🐧">hayvan | penguen</annotation>
 		<annotation cp="🐧" type="tts">penguen</annotation>
 		<annotation cp="🕊">barış | güvercin | kuş | uçma</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">papağan</annotation>
 		<annotation cp="🪽">kanat | kuş | melek gibi | mitoloji | uçma | uçuş</annotation>
 		<annotation cp="🪽" type="tts">kanat</annotation>
+		<annotation cp="🐦‍⬛">kara | karga | kuş | kuzgun | siyah</annotation>
+		<annotation cp="🐦‍⬛" type="tts">siyah kuş</annotation>
 		<annotation cp="🪿">kaz | kaz sesi | kümes hayvanı | kuş | şapşal</annotation>
 		<annotation cp="🪿" type="tts">kaz</annotation>
 		<annotation cp="🐸">kurbağa | yüz</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">yumurta bulunan yuva</annotation>
 		<annotation cp="🍄">bitki | mantar</annotation>
 		<annotation cp="🍄" type="tts">mantar</annotation>
+		<annotation cp="🍄‍🟫">gıda, mantar, doğa, sebze | kahverengi mantar</annotation>
+		<annotation cp="🍄‍🟫" type="tts">kahverengi mantar</annotation>
 		<annotation cp="🍇">meyve | üzüm</annotation>
 		<annotation cp="🍇" type="tts">üzüm</annotation>
 		<annotation cp="🍈">kavun | meyve</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandalina</annotation>
 		<annotation cp="🍋">limon | meyve | narenciye</annotation>
 		<annotation cp="🍋" type="tts">limon</annotation>
+		<annotation cp="🍋‍🟩">misket limonu | narenciye, meyve, tropik</annotation>
+		<annotation cp="🍋‍🟩" type="tts">misket limonu</annotation>
 		<annotation cp="🍌">meyve | muz</annotation>
 		<annotation cp="🍌" type="tts">muz</annotation>
 		<annotation cp="🍍">ananas | meyve</annotation>
@@ -2063,7 +2083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌰" type="tts">kestane</annotation>
 		<annotation cp="🫚">baharat | bira | kök | kök zencefil | yumru</annotation>
 		<annotation cp="🫚" type="tts">kök zencefil</annotation>
-		<annotation cp="🫛">bakla | baklagil | barbunya | bezelye | edamame | fasulye | kabuk | kabuklu bezelye | sebze</annotation>
+		<annotation cp="🫛">baklagil | bezelye | edamame | fasulye | sebze</annotation>
 		<annotation cp="🫛" type="tts">kabuklu bezelye</annotation>
 		<annotation cp="🍞">ekmek | ekmek dilimi | restoran</annotation>
 		<annotation cp="🍞" type="tts">ekmek</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">bağlantı işareti</annotation>
 		<annotation cp="⛓">zincir</annotation>
 		<annotation cp="⛓" type="tts">zincir</annotation>
+		<annotation cp="⛓‍💥">kırık zincir | zincirleri kırmak, kırmak, zincir, kırık zincir, patlama, zincirler, kelepçe, özgürlük</annotation>
+		<annotation cp="⛓‍💥" type="tts">zincirleri kırmak</annotation>
 		<annotation cp="🪝">askı | çengel | eğri | kanca</annotation>
 		<annotation cp="🪝" type="tts">çengel</annotation>
 		<annotation cp="🧰">alet | alet çantası | sandık | tamirci</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">yukarı ve aşağı ok</annotation>
 		<annotation cp="↔">ok | sol ve sağ ok</annotation>
 		<annotation cp="↔" type="tts">sol ve sağ ok</annotation>
-		<annotation cp="↮" draft="contributed">sol sağ çizgili ok</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">sol sağ çizgili ok</annotation>
+		<annotation cp="↮">sol sağ çizgili ok</annotation>
+		<annotation cp="↮" type="tts">sol sağ çizgili ok</annotation>
 		<annotation cp="↩">ok | sola kıvrımlı sağ ok</annotation>
 		<annotation cp="↩" type="tts">sola kıvrımlı sağ ok</annotation>
 		<annotation cp="↪">ok | sağa kıvrımlı sol ok</annotation>
@@ -3833,38 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">sterlin</annotation>
 		<annotation cp="¥">CNY | JPY | para birimi | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
-		<annotation cp="₢" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₣" draft="contributed">fransız frangı</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">fransız frangı</annotation>
-		<annotation cp="₤" draft="contributed">lira</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
+		<annotation cp="₢">cruzeiro</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">fransız frangı</annotation>
+		<annotation cp="₣" type="tts">fransız frangı</annotation>
+		<annotation cp="₤">lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">avro | EUR | para birimi</annotation>
 		<annotation cp="€" type="tts">avro</annotation>
-		<annotation cp="₰" draft="contributed">alman senti</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">alman senti</annotation>
+		<annotation cp="₰">alman senti</annotation>
+		<annotation cp="₰" type="tts">alman senti</annotation>
 		<annotation cp="₱">pezo</annotation>
 		<annotation cp="₱" type="tts">pezo</annotation>
-		<annotation cp="₳" draft="contributed">austral</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
-		<annotation cp="₶" draft="contributed">livre tournois</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
-		<annotation cp="₷" draft="contributed">spesmilo</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
+		<annotation cp="₳">austral</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">hint rupisi | para birimi | rupi</annotation>
 		<annotation cp="₹" type="tts">hint rupisi</annotation>
 		<annotation cp="₽">para birimi | ruble</annotation>
 		<annotation cp="₽" type="tts">ruble</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
-		<annotation cp="₨" draft="contributed">rupi</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">rupi</annotation>
-		<annotation cp="﷼" draft="contributed">riyal</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">riyal</annotation>
+		<annotation cp="₨">rupi</annotation>
+		<annotation cp="₨" type="tts">rupi</annotation>
+		<annotation cp="﷼">riyal</annotation>
+		<annotation cp="﷼" type="tts">riyal</annotation>
 		<annotation cp="¹">bir | üs bir | üst bir simgesi | üst simge</annotation>
 		<annotation cp="¹" type="tts">üs bir</annotation>
 		<annotation cp="²">iki | karesi alınmış | üs iki | üst iki simgesi | üst simge</annotation>

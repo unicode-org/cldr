@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -26,7 +26,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏿">nahatoon | nahk | tume nahatoon | tüüp 6</annotation>
 		<annotation cp="🏿" type="tts">tume nahatoon</annotation>
 		<annotation cp="‾" draft="contributed">ülakriips</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">ülakriips</annotation>
+		<annotation cp="‾" type="tts">ülakriips</annotation>
 		<annotation cp="_">alajoon | alakriips | joon | kriips</annotation>
 		<annotation cp="_" type="tts">alakriips</annotation>
 		<annotation cp="-">keskkriips | kriips | miinus | sidekriips-miinus</annotation>
@@ -63,6 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">pöördküsimärk</annotation>
 		<annotation cp="؟">araabia | küsimärk | küsimus</annotation>
 		<annotation cp="؟" type="tts">araabia küsimärk</annotation>
+		<annotation cp="‽">interabang | interrobang</annotation>
+		<annotation cp="‽" type="tts">interrobang</annotation>
 		<annotation cp=".">lauselõpumärk | punkt</annotation>
 		<annotation cp="." type="tts">punkt</annotation>
 		<annotation cp="…">kolm punkti | mõttepunktid | väljajätt</annotation>
@@ -159,10 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">topeltpriim</annotation>
 		<annotation cp="‴">kolmekordne priim | priim</annotation>
 		<annotation cp="‴" type="tts">kolmekordne priim</annotation>
-		<annotation cp="‸" draft="contributed">katus</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">katus</annotation>
+		<annotation cp="‸">katus</annotation>
+		<annotation cp="‸" type="tts">katus</annotation>
 		<annotation cp="※">viitemärk</annotation>
 		<annotation cp="※" type="tts">viitemärk</annotation>
+		<annotation cp="⁂">asterism | dinkus | tähed</annotation>
+		<annotation cp="⁂" type="tts">asterism</annotation>
 		<annotation cp="`">graavis | hääldus | rõhk</annotation>
 		<annotation cp="`" type="tts">graavis</annotation>
 		<annotation cp="´">akuut | rõhk | toon</annotation>
@@ -177,42 +181,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">helisalvestise autoriõigus</annotation>
 		<annotation cp="←">nool | vasak | vasaknool</annotation>
 		<annotation cp="←" type="tts">vasaknool</annotation>
+		<annotation cp="↚">sirge vasaknool</annotation>
+		<annotation cp="↚" type="tts">sirge vasaknool</annotation>
 		<annotation cp="→">nool | parem | paremnool</annotation>
 		<annotation cp="→" type="tts">paremnool</annotation>
+		<annotation cp="↛">sirge paremnool</annotation>
+		<annotation cp="↛" type="tts">sirge paremnool</annotation>
 		<annotation cp="↑">nool | üles | ülesnool</annotation>
 		<annotation cp="↑" type="tts">ülesnool</annotation>
 		<annotation cp="↓">alla | allanool | nool</annotation>
 		<annotation cp="↓" type="tts">allanool</annotation>
-		<annotation cp="↜" draft="contributed">laineline vasaknool</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">laineline vasaknool</annotation>
-		<annotation cp="↝" draft="contributed">laineline paremnool</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">laineline paremnool</annotation>
-		<annotation cp="↢" draft="contributed">sabaga vasaknool</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">sabaga vasaknool</annotation>
-		<annotation cp="↣" draft="contributed">sabaga paremnool</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">sabaga paremnool</annotation>
+		<annotation cp="↜">laineline vasaknool</annotation>
+		<annotation cp="↜" type="tts">laineline vasaknool</annotation>
+		<annotation cp="↝">laineline paremnool</annotation>
+		<annotation cp="↝" type="tts">laineline paremnool</annotation>
+		<annotation cp="↞">kahe peaga vasaknool</annotation>
+		<annotation cp="↞" type="tts">kahe peaga vasaknool</annotation>
+		<annotation cp="↟">kahe peaga ülesnool</annotation>
+		<annotation cp="↟" type="tts">kahe peaga ülesnool</annotation>
+		<annotation cp="↠">kahe peaga paremnool</annotation>
+		<annotation cp="↠" type="tts">kahe peaga paremnool</annotation>
+		<annotation cp="↡">kahe peaga allanool</annotation>
+		<annotation cp="↡" type="tts">kahe peaga allanool</annotation>
+		<annotation cp="↢">sabaga vasaknool</annotation>
+		<annotation cp="↢" type="tts">sabaga vasaknool</annotation>
+		<annotation cp="↣">sabaga paremnool</annotation>
+		<annotation cp="↣" type="tts">sabaga paremnool</annotation>
+		<annotation cp="↤" draft="contributed">vasakule nool ribast</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">vasakule nool ribast</annotation>
+		<annotation cp="↥" draft="contributed">ülesnool ribast</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">ülesnool ribast</annotation>
+		<annotation cp="↦" draft="contributed">paremale nool ribast</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">paremale nool ribast</annotation>
+		<annotation cp="↧" draft="contributed">allanool ribast</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">allanool ribast</annotation>
+		<annotation cp="↨" draft="contributed">ülesnool alusega</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">ülesnool alusega</annotation>
+		<annotation cp="↫" draft="contributed">vasakule noolega silmus</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">vasakule noolega silmus</annotation>
+		<annotation cp="↬" draft="contributed">paremale noolega silmus</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">paremale noolega silmus</annotation>
+		<annotation cp="↭" draft="contributed">vasakule-paremale laineline nool</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">vasakule-paremale laineline nool</annotation>
 		<annotation cp="↯" draft="contributed">sakiline allanool</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">sakiline allanool</annotation>
-		<annotation cp="⇄" draft="contributed">paremnool vasaknoole kohal</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">paremnool vasaknoole kohal</annotation>
+		<annotation cp="↯" type="tts">sakiline allanool</annotation>
+		<annotation cp="↰" draft="contributed">üles vasakule pöörav nool</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">üles vasakule pöörav nool</annotation>
+		<annotation cp="↱" draft="contributed">üles paremale pöörav nool</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">üles paremale pöörav nool</annotation>
+		<annotation cp="↲" draft="contributed">alla vasakule pöörav nool</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">alla vasakule pöörav nool</annotation>
+		<annotation cp="↳" draft="contributed">alla paremale pöörav nool</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">alla paremale pöörav nool</annotation>
+		<annotation cp="↴" draft="contributed">paremale nurgaga alla nool</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">paremale nurgaga alla nool</annotation>
+		<annotation cp="↵" draft="contributed">alla nurgaga vasakule nool</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">alla nurgaga vasakule nool</annotation>
+		<annotation cp="↶" draft="contributed">vastupäeva ülemise poolkaarega nool</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">vastupäeva ülemise poolkaarega nool</annotation>
+		<annotation cp="↷" draft="contributed">päripäeva ülemise poolkaarega nool</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">päripäeva ülemise poolkaarega nool</annotation>
+		<annotation cp="↸" draft="contributed">loodesse nool pika ribaga</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">loodesse nool pika ribaga</annotation>
+		<annotation cp="↹" draft="contributed">nool | paremale ribaga nool | riba | vasakule | vasakule ribaga nool</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">ribaga vasaknool ribaga paremnoole peal</annotation>
+		<annotation cp="↺" draft="contributed">vastupäeva avatud ringiga nool</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">vastupäeva avatud ringiga nool</annotation>
+		<annotation cp="↻" draft="contributed">päripäeva avatud ringiga nool</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">päripäeva avatud ringiga nool</annotation>
+		<annotation cp="↼" draft="contributed">kisk | vasakule harpuun ülemise kiskuga</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">vasakule harpuun ülemise kiskuga</annotation>
+		<annotation cp="↽" draft="contributed">vasakule harpuun alumise kiskuga</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">vasakule harpuun alumise kiskuga</annotation>
+		<annotation cp="↾" draft="contributed">kisk | üles harpuun parema kiskuga</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">üles harpuun parema kiskuga</annotation>
+		<annotation cp="↿" draft="contributed">kisk | üles harpuun vasaku kiskuga</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">üles harpuun vasaku kiskuga</annotation>
+		<annotation cp="⇀" draft="contributed">kisk | paremale harpuun ülemise kiskuga</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">paremale harpuun ülemise kiskuga</annotation>
+		<annotation cp="⇁" draft="contributed">kisk | paremale harpuun alumise kiskuga</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">paremale harpuun alumise kiskuga</annotation>
+		<annotation cp="⇂" draft="contributed">alla harpuun parema kiskuga | kisk</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">alla harpuun parema kiskuga</annotation>
+		<annotation cp="⇃" draft="contributed">alla harpuun vasaku kiskuga | kisk</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">alla harpuun vasaku kiskuga</annotation>
+		<annotation cp="⇄">paremnool vasaknoole kohal</annotation>
+		<annotation cp="⇄" type="tts">paremnool vasaknoole kohal</annotation>
 		<annotation cp="⇅">alla | nool | üles | ülesnool ja allanool</annotation>
 		<annotation cp="⇅" type="tts">ülesnool ja allanool</annotation>
 		<annotation cp="⇆">nool | parem | vasak | vasaknool paremnoole kohal</annotation>
 		<annotation cp="⇆" type="tts">vasaknool paremnoole kohal</annotation>
-		<annotation cp="⇇" draft="contributed">paaris vasaknooled</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">paaris vasaknooled</annotation>
-		<annotation cp="⇈" draft="contributed">paaris ülesnooled</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">paaris ülesnooled</annotation>
-		<annotation cp="⇉" draft="contributed">paaris paremnooled</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">paaris paremnooled</annotation>
-		<annotation cp="⇊" draft="contributed">paaris allanooled</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">paaris allanooled</annotation>
+		<annotation cp="⇇">paaris vasaknooled</annotation>
+		<annotation cp="⇇" type="tts">paaris vasaknooled</annotation>
+		<annotation cp="⇈">paaris ülesnooled</annotation>
+		<annotation cp="⇈" type="tts">paaris ülesnooled</annotation>
+		<annotation cp="⇉">paaris paremnooled</annotation>
+		<annotation cp="⇉" type="tts">paaris paremnooled</annotation>
+		<annotation cp="⇊">paaris allanooled</annotation>
+		<annotation cp="⇊" type="tts">paaris allanooled</annotation>
+		<annotation cp="⇋" draft="contributed">vasakharpuun paremharpuuni peal</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">vasakharpuun paremharpuuni peal</annotation>
+		<annotation cp="⇌" draft="contributed">paremharpuun vasakharpuuni peal</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">paremharpuun vasakharpuuni peal</annotation>
+		<annotation cp="⇐" draft="contributed">topelt-vasaknool</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">topelt-vasaknool</annotation>
+		<annotation cp="⇍" draft="contributed">läbikriipsutatud topelt-vasaknool</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">läbikriipsutatud topelt-vasaknool</annotation>
+		<annotation cp="⇑" draft="contributed">topelt-ülesnool</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">topelt-ülesnool</annotation>
+		<annotation cp="⇒" draft="contributed">topelt-paremnool</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">topelt-paremnool</annotation>
+		<annotation cp="⇏" draft="contributed">läbikriipsutatud topelt-paremnool</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">läbikriipsutatud topelt-paremnool</annotation>
+		<annotation cp="⇓" draft="contributed">topelt-allanool</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">topelt-allanool</annotation>
+		<annotation cp="⇔" draft="contributed">vasakule-paremale topeltnool</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">vasakule-paremale topeltnool</annotation>
+		<annotation cp="⇎" draft="contributed">vasak-parem läbikriipsutatud topeltnool</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">vasak-parem läbikriipsutatud topeltnool</annotation>
+		<annotation cp="⇖" draft="contributed">topeltnool loodesse</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">topeltnool loodesse</annotation>
+		<annotation cp="⇗" draft="contributed">topeltnool kirdesse</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">topeltnool kirdesse</annotation>
+		<annotation cp="⇘" draft="contributed">topeltnool kagusse</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">topeltnool kagusse</annotation>
+		<annotation cp="⇙" draft="contributed">topeltnool edelasse</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">topeltnool edelasse</annotation>
+		<annotation cp="⇚" draft="contributed">kolmiknool vasakule</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">kolmiknool vasakule</annotation>
+		<annotation cp="⇛" draft="contributed">kolmiknool paremale</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">kolmiknool paremale</annotation>
+		<annotation cp="⇜" draft="contributed">väänlev vasaknool</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">väänlev vasaknool</annotation>
+		<annotation cp="⇝" draft="contributed">väänlev paremnool</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">väänlev paremnool</annotation>
+		<annotation cp="⇞" draft="contributed">topeltkriipsudega ülesnool</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">topeltkriipsudega ülesnool</annotation>
+		<annotation cp="⇟" draft="contributed">topeltkriipsudega allanool</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">topeltkriipsudega allanool</annotation>
+		<annotation cp="⇠" draft="contributed">katkendlik vasaknool</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">katkendlik vasaknool</annotation>
+		<annotation cp="⇡" draft="contributed">katkendlik ülesnool</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">katkendlik ülesnool</annotation>
+		<annotation cp="⇢" draft="contributed">katkendlik paremnool</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">katkendlik paremnool</annotation>
+		<annotation cp="⇣" draft="contributed">katkendlik allanool</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">katkendlik allanool</annotation>
+		<annotation cp="⇤" draft="contributed">vasaknool ribani</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">vasaknool ribani</annotation>
+		<annotation cp="⇥" draft="contributed">paremnool ribani</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">paremnool ribani</annotation>
+		<annotation cp="⇦" draft="contributed">seest tühi vasaknool</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">seest tühi vasaknool</annotation>
+		<annotation cp="⇧" draft="contributed">seest tühi ülesnool</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">seest tühi ülesnool</annotation>
+		<annotation cp="⇨" draft="contributed">seest tühi paremnool</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">seest tühi paremnool</annotation>
+		<annotation cp="⇩" draft="contributed">seest tühi allanool</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">seest tühi allanool</annotation>
+		<annotation cp="⇪" draft="contributed">seest tühi ülesnool tulbast</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">seest tühi ülesnool tulbast</annotation>
+		<annotation cp="⇵" draft="contributed">allanool vasakul ülesnool paremal</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">allanool vasakul ülesnool paremal</annotation>
+		<annotation cp="∀" draft="contributed">antud | kõigi jaoks | kõik | mis tahes | universaalne</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">kõigi jaoks</annotation>
 		<annotation cp="∂" draft="contributed">osatuletis</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">osatuletis</annotation>
-		<annotation cp="∃" draft="contributed">on olemas</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">on olemas</annotation>
+		<annotation cp="∂" type="tts">osatuletis</annotation>
+		<annotation cp="∃">on olemas</annotation>
+		<annotation cp="∃" type="tts">on olemas</annotation>
 		<annotation cp="∅" draft="contributed">tühihulk</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">tühihulk</annotation>
+		<annotation cp="∅" type="tts">tühihulk</annotation>
 		<annotation cp="∆">juurdekasv | kolmnurk</annotation>
 		<annotation cp="∆" type="tts">juurdekasv</annotation>
 		<annotation cp="∇">kolmnurk | nabla</annotation>
@@ -220,15 +358,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈">element | hulk | kuulub hulka | sisaldab</annotation>
 		<annotation cp="∈" type="tts">element</annotation>
 		<annotation cp="∉" draft="contributed">ei kuulu hulka</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">ei kuulu hulka</annotation>
+		<annotation cp="∉" type="tts">ei kuulu hulka</annotation>
 		<annotation cp="∋" draft="contributed">sisaldab liiget</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">sisaldab liiget</annotation>
+		<annotation cp="∋" type="tts">sisaldab liiget</annotation>
 		<annotation cp="∎" draft="contributed">tõestuse lõpp</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">tõestuse lõpp</annotation>
+		<annotation cp="∎" type="tts">tõestuse lõpp</annotation>
 		<annotation cp="∏" draft="contributed">korrutis</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">korrutis</annotation>
+		<annotation cp="∏" type="tts">korrutis</annotation>
 		<annotation cp="∑" draft="contributed">summa</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">summa</annotation>
+		<annotation cp="∑" type="tts">summa</annotation>
 		<annotation cp="+">liitmine | pluss | plussmärk</annotation>
 		<annotation cp="+" type="tts">plussmärk</annotation>
 		<annotation cp="±">pluss-miinus</annotation>
@@ -240,7 +378,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&lt;">algusmärgend | märgend | väiksem kui</annotation>
 		<annotation cp="&lt;" type="tts">väiksem kui</annotation>
 		<annotation cp="≮" draft="contributed">mitte väiksem kui</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">mitte väiksem kui</annotation>
+		<annotation cp="≮" type="tts">mitte väiksem kui</annotation>
 		<annotation cp="=">võrdne | võrdub | võrdusmärk</annotation>
 		<annotation cp="=" type="tts">võrdusmärk</annotation>
 		<annotation cp="≠">ebavõrdsus | ei võrdu | mittevõrdne</annotation>
@@ -248,7 +386,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="&gt;">lõpumärgend | märgend | suurem kui</annotation>
 		<annotation cp="&gt;" type="tts">suurem kui</annotation>
 		<annotation cp="≯" draft="contributed">mitte suurem kui</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">mitte suurem kui</annotation>
+		<annotation cp="≯" type="tts">mitte suurem kui</annotation>
 		<annotation cp="¬">eitus | mitte</annotation>
 		<annotation cp="¬" type="tts">eitus</annotation>
 		<annotation cp="|">joon | kriips | püstjoon | püstkriips | vertikaaljoon | vertikaalkriips</annotation>
@@ -260,59 +398,69 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻">miinus | ülakiri | ülamiinus</annotation>
 		<annotation cp="⁻" type="tts">ülamiinus</annotation>
 		<annotation cp="∓" draft="contributed">miinus või pluss</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">miinus või pluss</annotation>
-		<annotation cp="∗" draft="contributed">tärnimärk</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">tärnimärk</annotation>
+		<annotation cp="∓" type="tts">miinus või pluss</annotation>
+		<annotation cp="∕">jagamise kaldkriips | kaldkriips | kriips</annotation>
+		<annotation cp="∕" type="tts">jagamise kaldkriips</annotation>
+		<annotation cp="⁄">kaldkriips | kriips | murru kaldkriips</annotation>
+		<annotation cp="⁄" type="tts">murru kaldkriips</annotation>
+		<annotation cp="∗">tärn | tärnimärk</annotation>
+		<annotation cp="∗" type="tts">tärnimärk</annotation>
+		<annotation cp="∘">kompositsioon | ringimärk | tehtemärk</annotation>
+		<annotation cp="∘" type="tts">ringimärk</annotation>
 		<annotation cp="∙" draft="contributed">täppmärk</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">täppmärk</annotation>
+		<annotation cp="∙" type="tts">täppmärk</annotation>
 		<annotation cp="√">juur | radikaal | ruut | ruutjuur | surd</annotation>
 		<annotation cp="√" type="tts">ruutjuur</annotation>
 		<annotation cp="∝" draft="contributed">proportsionaalne</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">proportsionaalne</annotation>
+		<annotation cp="∝" type="tts">proportsionaalne</annotation>
 		<annotation cp="∞">lõpmatus | lõpmatuse märk</annotation>
 		<annotation cp="∞" type="tts">lõpmatuse märk</annotation>
 		<annotation cp="∟" draft="contributed">paremnurk</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">paremnurk</annotation>
+		<annotation cp="∟" type="tts">paremnurk</annotation>
 		<annotation cp="∠" draft="contributed">nurk</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">nurk</annotation>
+		<annotation cp="∠" type="tts">nurk</annotation>
 		<annotation cp="∣" draft="contributed">jagatud</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">jagatud</annotation>
-		<annotation cp="∥" draft="contributed">paralleelne</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">paralleelne</annotation>
+		<annotation cp="∣" type="tts">jagatud</annotation>
+		<annotation cp="∥">paralleelne</annotation>
+		<annotation cp="∥" type="tts">paralleelne</annotation>
 		<annotation cp="∧" draft="contributed">loogiline ja</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">loogiline ja</annotation>
+		<annotation cp="∧" type="tts">loogiline ja</annotation>
 		<annotation cp="∩">hulk | lõikumine</annotation>
 		<annotation cp="∩" type="tts">lõikumine</annotation>
 		<annotation cp="∪">hulk | kogu | union</annotation>
 		<annotation cp="∪" type="tts">union</annotation>
 		<annotation cp="∫" draft="contributed">integraal</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">integraal</annotation>
+		<annotation cp="∫" type="tts">integraal</annotation>
 		<annotation cp="∬" draft="contributed">topeltintegraal</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">topeltintegraal</annotation>
+		<annotation cp="∬" type="tts">topeltintegraal</annotation>
 		<annotation cp="∮" draft="contributed">kontuurintegraal</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">kontuurintegraal</annotation>
+		<annotation cp="∮" type="tts">kontuurintegraal</annotation>
 		<annotation cp="∴" draft="contributed">järelikult</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">järelikult</annotation>
+		<annotation cp="∴" type="tts">järelikult</annotation>
 		<annotation cp="∵" draft="contributed">sest</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">sest</annotation>
-		<annotation cp="∶" draft="contributed">suhe</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">suhe</annotation>
+		<annotation cp="∵" type="tts">sest</annotation>
+		<annotation cp="∶">suhe</annotation>
+		<annotation cp="∶" type="tts">suhe</annotation>
 		<annotation cp="∷" draft="contributed">proportsioon</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">proportsioon</annotation>
+		<annotation cp="∷" type="tts">proportsioon</annotation>
 		<annotation cp="∼" draft="contributed">tehtemärk tilde</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">tehtemärk tilde</annotation>
+		<annotation cp="∼" type="tts">tehtemärk tilde</annotation>
 		<annotation cp="∽" draft="contributed">tagurpidi tilde</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">tagurpidi tilde</annotation>
+		<annotation cp="∽" type="tts">tagurpidi tilde</annotation>
+		<annotation cp="∾">horisontaal- ja pöördasendis s</annotation>
+		<annotation cp="∾" type="tts">horisontaal- ja pöördasendis s</annotation>
+		<annotation cp="≃">asümptoot | asümptootiliselt võrdne | matemaatika</annotation>
+		<annotation cp="≃" type="tts">asümptootiliselt võrdne</annotation>
 		<annotation cp="≅" draft="contributed">ligikaudu võrdne</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">ligikaudu võrdne</annotation>
+		<annotation cp="≅" type="tts">ligikaudu võrdne</annotation>
 		<annotation cp="≈">ligikaudne | ligikaudsus | võrdub ligikaudu</annotation>
 		<annotation cp="≈" type="tts">võrdub ligikaudu</annotation>
 		<annotation cp="≌" draft="contributed">kõik võrdsed</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">kõik võrdsed</annotation>
-		<annotation cp="≒" draft="contributed">pilt ligikaudu võrdne</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">pilt ligikaudu võrdne</annotation>
+		<annotation cp="≌" type="tts">kõik võrdsed</annotation>
+		<annotation cp="≒">pilt ligikaudu võrdne</annotation>
+		<annotation cp="≒" type="tts">pilt ligikaudu võrdne</annotation>
 		<annotation cp="≖" draft="contributed">ringiga võrdusmärk</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">ringiga võrdusmärk</annotation>
+		<annotation cp="≖" type="tts">ringiga võrdusmärk</annotation>
 		<annotation cp="≡">identne | kolm kriipsu | täpselt</annotation>
 		<annotation cp="≡" type="tts">identne</annotation>
 		<annotation cp="≣">matemaatika | rangelt samaväärne | võrdus</annotation>
@@ -322,64 +470,243 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≥">ebavõrdsus | suurem kui | suurem või võrdne | võrdne | võrdub</annotation>
 		<annotation cp="≥" type="tts">suurem või võrdne</annotation>
 		<annotation cp="≦" draft="contributed">väiksem kui või võrdne</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">väiksem kui või võrdne</annotation>
+		<annotation cp="≦" type="tts">väiksem kui või võrdne</annotation>
 		<annotation cp="≧" draft="contributed">suurem kui või võrdne</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">suurem kui või võrdne</annotation>
+		<annotation cp="≧" type="tts">suurem kui või võrdne</annotation>
 		<annotation cp="≪" draft="contributed">palju väiksem kui</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">palju väiksem kui</annotation>
+		<annotation cp="≪" type="tts">palju väiksem kui</annotation>
 		<annotation cp="≫" draft="contributed">palju suurem kui</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">palju suurem kui</annotation>
+		<annotation cp="≫" type="tts">palju suurem kui</annotation>
 		<annotation cp="≬" draft="contributed">vahemikus</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">vahemikus</annotation>
+		<annotation cp="≬" type="tts">vahemikus</annotation>
 		<annotation cp="≳" draft="contributed">suurem kui ekvivalentne</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">suurem kui ekvivalentne</annotation>
+		<annotation cp="≳" type="tts">suurem kui ekvivalentne</annotation>
 		<annotation cp="≺" draft="contributed">eelneb</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">eelneb</annotation>
+		<annotation cp="≺" type="tts">eelneb</annotation>
 		<annotation cp="≻" draft="contributed">järgneb</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">järgneb</annotation>
+		<annotation cp="≻" type="tts">järgneb</annotation>
 		<annotation cp="⊁" draft="contributed">ei eelne</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">ei eelne</annotation>
+		<annotation cp="⊁" type="tts">ei eelne</annotation>
 		<annotation cp="⊂">alamhulk | hulk | kuulub alamhulka | pärisalamhulk</annotation>
 		<annotation cp="⊂" type="tts">pärisalamhulk</annotation>
 		<annotation cp="⊃">hulgaoperaator | matemaatika | pärisülemhulk</annotation>
 		<annotation cp="⊃" type="tts">pärisülemhulk</annotation>
-		<annotation cp="⊆" draft="contributed">alamhulk</annotation>
+		<annotation cp="⊆">alamhulk</annotation>
 		<annotation cp="⊆" type="tts">alamhulk</annotation>
 		<annotation cp="⊇">matemaatika | ülemhulk | võrdus</annotation>
 		<annotation cp="⊇" type="tts">ülemhulk</annotation>
 		<annotation cp="⊕" draft="contributed">plussmärk ringis</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">plussmärk ringis</annotation>
+		<annotation cp="⊕" type="tts">plussmärk ringis</annotation>
 		<annotation cp="⊖" draft="contributed">miinusmärk ringis</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">miinusmärk ringis</annotation>
+		<annotation cp="⊖" type="tts">miinusmärk ringis</annotation>
 		<annotation cp="⊗" draft="contributed">korrutusmärk ringis</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">korrutusmärk ringis</annotation>
+		<annotation cp="⊗" type="tts">korrutusmärk ringis</annotation>
 		<annotation cp="⊘" draft="contributed">jagamismärk ringis</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">jagamismärk ringis</annotation>
+		<annotation cp="⊘" type="tts">jagamismärk ringis</annotation>
+		<annotation cp="⊙">operaator | punkt ringis operaator | XNOR</annotation>
+		<annotation cp="⊙" type="tts">punkt ringis operaator</annotation>
+		<annotation cp="⊚" draft="contributed">ring ringis operaator</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">ring ringis operaator</annotation>
+		<annotation cp="⊛" draft="contributed">operaator | tärn | tärn ringis operaator</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">tärn ringis operaator</annotation>
+		<annotation cp="⊞" draft="contributed">matemaatika | pluss ruudus</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">pluss ruudus</annotation>
+		<annotation cp="⊟">matemaatika | miinus ruudus</annotation>
+		<annotation cp="⊟" type="tts">miinus ruudus</annotation>
+		<annotation cp="⊥">eet | falsum</annotation>
+		<annotation cp="⊥" type="tts">falsum</annotation>
+		<annotation cp="⊮">ei sunni</annotation>
+		<annotation cp="⊮" type="tts">ei sunni</annotation>
+		<annotation cp="⊰">eelneb suhte all | hulga operaator | matemaatika</annotation>
+		<annotation cp="⊰" type="tts">eelneb suhte all</annotation>
+		<annotation cp="⊱">hulga operaator | järgneb suhte all | matemaatika</annotation>
+		<annotation cp="⊱" type="tts">järgneb suhte all</annotation>
+		<annotation cp="⋭">ei sisalda nagu tavaline alarühma võrdne | matemaatika | rühmateooria</annotation>
+		<annotation cp="⋭" type="tts">ei sisalda nagu tavaline alarühma võrdne</annotation>
+		<annotation cp="⊶">originaal</annotation>
+		<annotation cp="⊶" type="tts">originaal</annotation>
+		<annotation cp="⊹">adjungeeritud maatriks | hermiitiline kaasmaatriks | kaasmaatriks | matemaatika</annotation>
+		<annotation cp="⊹" type="tts">hermiitiline kaasmaatriks</annotation>
+		<annotation cp="⊿">matemaatika | täisnurkne kolmnurk</annotation>
+		<annotation cp="⊿" type="tts">täisnurkne kolmnurk</annotation>
 		<annotation cp="⋁" draft="contributed">loogiline või</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">loogiline või</annotation>
+		<annotation cp="⋁" type="tts">loogiline või</annotation>
 		<annotation cp="⋂" draft="contributed">hulkade ühisosa</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">hulkade ühisosa</annotation>
+		<annotation cp="⋂" type="tts">hulkade ühisosa</annotation>
 		<annotation cp="⋃" draft="contributed">hulkade ühend</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">hulkade ühend</annotation>
+		<annotation cp="⋃" type="tts">hulkade ühend</annotation>
+		<annotation cp="⋅">operaator | täpi operaator</annotation>
+		<annotation cp="⋅" type="tts">täpi operaator</annotation>
+		<annotation cp="⋆">operaator | tähe operaator</annotation>
+		<annotation cp="⋆" type="tts">tähe operaator</annotation>
+		<annotation cp="⋈">binaarne operaator | kikilips | naturaalne liide</annotation>
+		<annotation cp="⋈" type="tts">naturaalne liide</annotation>
+		<annotation cp="⋒">hulga operaator | kahekordne lõikepunkt | lõikepunkt | matemaatika</annotation>
+		<annotation cp="⋒" type="tts">kahekordne lõikepunkt</annotation>
 		<annotation cp="⋘" draft="contributed">väga palju väiksem kui</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">väga palju väiksem kui</annotation>
-		<annotation cp="⋙" draft="contributed">väga palju suurem kui</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">väga palju suurem kui</annotation>
+		<annotation cp="⋘" type="tts">väga palju väiksem kui</annotation>
+		<annotation cp="⋙">matemaatika | väga palju suurem kui | võrratus</annotation>
+		<annotation cp="⋙" type="tts">väga palju suurem kui</annotation>
+		<annotation cp="⋮">kolm punkti | matemaatika | vertikaalsed kolm punkti</annotation>
+		<annotation cp="⋮" type="tts">vertikaalsed kolm punkti</annotation>
+		<annotation cp="⋯">keskjoone horisontaalsed kolm punkti | kolm punkti</annotation>
+		<annotation cp="⋯" type="tts">keskjoone horisontaalsed kolm punkti</annotation>
+		<annotation cp="⋰">kolm punkti | matemaatika | paremale üles diagonaalsed kolm punkti</annotation>
+		<annotation cp="⋰" type="tts">paremale üles digonaalsed kolm punkti</annotation>
+		<annotation cp="⋱">kolm punkti | matemaatika | paremale alla diagonaalsed kolm punkti</annotation>
+		<annotation cp="⋱" type="tts">paremale alla diagonaalsed kolm punkti</annotation>
+		<annotation cp="■">täidetud ruut</annotation>
+		<annotation cp="■" type="tts">täidetud ruut</annotation>
+		<annotation cp="□">seest tühi ruut</annotation>
+		<annotation cp="□" type="tts">seest tühi ruut</annotation>
+		<annotation cp="▢">ümarate nurkadega seest tühi ruut</annotation>
+		<annotation cp="▢" type="tts">ümarate nurkadega seest tühi ruut</annotation>
+		<annotation cp="▣">täidetud ruut seest tühja ruudu sees</annotation>
+		<annotation cp="▣" type="tts">täidetud ruut seest tühja ruudu sees</annotation>
+		<annotation cp="▤" draft="contributed">rõhtsate triipudega ruut</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">rõhtsate triipudega ruut</annotation>
+		<annotation cp="▥" draft="contributed">püstiste triipudega ruut</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">püstiste triipudega ruut</annotation>
+		<annotation cp="▦" draft="contributed">ortogonaalse ristviirutusega ruut</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">ortogonaalse ristviirutusega ruut</annotation>
+		<annotation cp="▧" draft="contributed">ülevalt vasakult alla paremale viirutusega ruut</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">ülevalt vasakult alla paremale viirutusega ruut</annotation>
+		<annotation cp="▨" draft="contributed">ülevalt paremalt alla vasakule viirutusega ruut</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">ülevalt paremalt alla vasakule viirutusega ruut</annotation>
+		<annotation cp="▩" draft="contributed">diagonaalse ristviirutusega ruut</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">diagonaalse ristviirutusega ruut</annotation>
+		<annotation cp="▬" draft="contributed">täidetud ristkülik</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">täidetud ristkülik</annotation>
+		<annotation cp="▭" draft="contributed">seest tühi ristkülik</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">seest tühi ristkülik</annotation>
+		<annotation cp="▮" draft="contributed">täidetud püstine ristkülik</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">täidetud püstine ristkülik</annotation>
+		<annotation cp="▰" draft="contributed">täidetud rööpkülik</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">täidetud rööpkülik</annotation>
 		<annotation cp="▲">kolmnurk | nool | täidetud | täidetud üles-kolmnurk | üles</annotation>
 		<annotation cp="▲" type="tts">täidetud üles-kolmnurk</annotation>
+		<annotation cp="△" draft="contributed">seest tühi kolmnurk tipuga üleval</annotation>
+		<annotation cp="△" type="tts" draft="contributed">seest tühi kolmnurk tipuga üleval</annotation>
+		<annotation cp="▴" draft="contributed">täidetud väike kolmnurk tipuga üleval</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">täidetud väike kolmnurk tipuga üleval</annotation>
+		<annotation cp="▵" draft="contributed">seest tühi väike kolmnurk tipuga üleval</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">seest tühi väike kolmnurk tipuga üleval</annotation>
+		<annotation cp="▷" draft="contributed">seest tühi kolmnurk tipuga paremal</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">seest tühi kolmnurk tipuga paremal</annotation>
+		<annotation cp="▸" draft="contributed">täidetud väike kolmnurk tipuga paremal</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">täidetud väike kolmnurk tipuga paremal</annotation>
+		<annotation cp="▹" draft="contributed">seest tühi väike kolmnurk tipuga paremal</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">seest tühi väike kolmnurk tipuga paremal</annotation>
+		<annotation cp="►" draft="contributed">täidetud viit paremale</annotation>
+		<annotation cp="►" type="tts" draft="contributed">täidetud viit paremale</annotation>
+		<annotation cp="▻" draft="contributed">seest tühi viit paremale</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">seest tühi viit paremale</annotation>
 		<annotation cp="▼">alla | kolmnurk | nool | täidetud | täidetud alla-kolmnurk</annotation>
 		<annotation cp="▼" type="tts">täidetud alla-kolmnurk</annotation>
+		<annotation cp="▽" draft="contributed">seest tühi kolmnurk tipuga all</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">seest tühi kolmnurk tipuga all</annotation>
+		<annotation cp="▾" draft="contributed">täidetud väike kolmnurk tipuga all</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">täidetud väike kolmnurk tipuga all</annotation>
+		<annotation cp="▿" draft="contributed">seest tühi väike kolmnurk tipuga all</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">seest tühi väike kolmnurk tipuga all</annotation>
+		<annotation cp="◁" draft="contributed">seest tühi kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">seest tühi kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◂" draft="contributed">täidetud väike kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">täidetud väike kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◃" draft="contributed">seest tühi väike kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">seest tühi väike kolmnurk tipuga vasakul</annotation>
+		<annotation cp="◄" draft="contributed">täidetud viit vasakule</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">täidetud viit vasakule</annotation>
+		<annotation cp="◅" draft="contributed">seest tühi viit vasakule</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">seest tühi viit vasakule</annotation>
+		<annotation cp="◆" draft="contributed">täidetud teemant</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">täidetud teemant</annotation>
+		<annotation cp="◇" draft="contributed">seest tühi teemant</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">seest tühi teemant</annotation>
+		<annotation cp="◈" draft="contributed">seest tühjas teemantis on täidetud teemant</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">seest tühjas teemantis on täidetud teemant</annotation>
+		<annotation cp="◉" draft="contributed">seest tühjas ringis on täidetud ring</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">seest tühjas ringis on täidetud ring</annotation>
 		<annotation cp="◊">hulktahukas | romb | teemant</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">ring | sõõr | tühi ring</annotation>
 		<annotation cp="○" type="tts">tühi ring</annotation>
+		<annotation cp="◌" draft="contributed">katkendlik ring</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">katkendlik ring</annotation>
+		<annotation cp="◍" draft="contributed">püstiste triipudega ring</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">püstiste triipudega ring</annotation>
+		<annotation cp="◎" draft="contributed">kontsentrilised ringid | märklaud | topeltring</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">kontsentrilised ringid</annotation>
 		<annotation cp="●">ring | täidetud ring</annotation>
 		<annotation cp="●" type="tts">täidetud ring</annotation>
+		<annotation cp="◐" draft="contributed">täidetud vasaku poolega ring</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">täidetud vasaku poolega ring</annotation>
+		<annotation cp="◑" draft="contributed">täidetud parema poolega ring</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">täidetud parema poolega ring</annotation>
+		<annotation cp="◒" draft="contributed">täidetud alumise poolega ring</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">täidetud alumise poolega ring</annotation>
+		<annotation cp="◓" draft="contributed">täidetud ülemise poolega ring</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">täidetud ülemise poolega ring</annotation>
+		<annotation cp="◔" draft="contributed">täidetud ülemise parema veerandiga ring</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">täidetud ülemise parema veerandiga ring</annotation>
+		<annotation cp="◕" draft="contributed">täidetud ring tühja ülemise vasaku veerandiga</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">täidetud ring tühja ülemise vasaku veerandiga</annotation>
+		<annotation cp="◖" draft="contributed">täidetud vasak poolring</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">täidetud vasak poolring</annotation>
+		<annotation cp="◗" draft="contributed">täidetud parem poolring</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">täidetud parem poolring</annotation>
+		<annotation cp="◘" draft="contributed">pöördtäpp</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">pöördtäpp</annotation>
+		<annotation cp="◙" draft="contributed">täidetud ruudus on seest tühi ring</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">täidetud ruudus on seest tühi ring</annotation>
+		<annotation cp="◜" draft="contributed">ringikujulise kaare ülemine vasak veerand</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">ringikujulise kaare ülemine vasak veerand</annotation>
+		<annotation cp="◝" draft="contributed">ringikujulise kaare ülemine parem veerand</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">ringikujulise kaare ülemine parem veerand</annotation>
+		<annotation cp="◞" draft="contributed">ringikujulise kaare alumine parem veerand</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">ringikujulise kaare alumine parem veerand</annotation>
+		<annotation cp="◟" draft="contributed">ringikujulise kaare alumine vasak veerand</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">ringikujulise kaare alumine vasak veerand</annotation>
+		<annotation cp="◠" draft="contributed">ülemine poolring</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">ülemine poolring</annotation>
+		<annotation cp="◡" draft="contributed">alumine poolring</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">alumine poolring</annotation>
+		<annotation cp="◢" draft="contributed">täidetud kolmnurk all paremal</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">täidetud kolmnurk all paremal</annotation>
+		<annotation cp="◣" draft="contributed">täidetud kolmnurk all vasakul</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">täidetud kolmnurk all vasakul</annotation>
+		<annotation cp="◤" draft="contributed">täidetud kolmnurk üleval vasakul</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">täidetud kolmnurk üleval vasakul</annotation>
+		<annotation cp="◥" draft="contributed">täidetud kolmnurk üleval paremal</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">täidetud kolmnurk üleval paremal</annotation>
+		<annotation cp="◦" draft="contributed">seest tühi täpp</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">seest tühi täpp</annotation>
 		<annotation cp="◯">ring | sõõr | suur tühi ring</annotation>
 		<annotation cp="◯" type="tts">suur tühi ring</annotation>
+		<annotation cp="◳" draft="contributed">tühja ruudu sees on ruut üleval paremal</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">tühja ruudu sees on ruut üleval paremal</annotation>
+		<annotation cp="◷" draft="contributed">tühja ringi sees on ruut üleval paremal</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">tühja ringi sees on ruut üleval paremal</annotation>
+		<annotation cp="◿" draft="contributed">kolmnurk all paremal</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">kolmnurk all paremal</annotation>
 		<annotation cp="♪">kaheksandik | kaheksandiknoot | muusika | noot</annotation>
 		<annotation cp="♪" type="tts">kaheksandiknoot</annotation>
-		<annotation cp="⪚" draft="contributed">matemaatika | võrratus</annotation>
+		<annotation cp="⨧" draft="contributed">pluss alaindeks kaks</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">pluss alaindeks kaks</annotation>
+		<annotation cp="⨯">ristkorrutis</annotation>
+		<annotation cp="⨯" type="tts">ristkorrutis</annotation>
+		<annotation cp="⨼">sisekorrutis</annotation>
+		<annotation cp="⨼" type="tts">sisekorrutis</annotation>
+		<annotation cp="⩣">loogiline või kahekordne allkriips</annotation>
+		<annotation cp="⩣" type="tts">loogiline või kahekordne allkriips</annotation>
+		<annotation cp="⩽">vähem kui kaldus võrdne</annotation>
+		<annotation cp="⩽" type="tts">vähem kui kaldus võrdne</annotation>
+		<annotation cp="⪍">vähem kui sarnane võrdne kohal</annotation>
+		<annotation cp="⪍" type="tts">vähem kui sarnane võrdne kohal</annotation>
+		<annotation cp="⪚">kahejooneline võrdusmärk suurem kui | matemaatika | võrratus</annotation>
+		<annotation cp="⪚" type="tts">kahejooneline võrdusmärk suurem kui</annotation>
+		<annotation cp="⪺">järgneb pole peaaegu võrdne kohal</annotation>
+		<annotation cp="⪺" type="tts">järgneb pole peaaegu võrdne kohal</annotation>
 		<annotation cp="♭">bemoll | madaldusmärk | muusika | noot</annotation>
 		<annotation cp="♭" type="tts">bemoll</annotation>
 		<annotation cp="♯">diees | kõrgendusmärk | muusika | noot</annotation>
@@ -402,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">rõõmupisaratega nägu</annotation>
 		<annotation cp="🙂">naeratus | naeratusega nägu | nägu</annotation>
 		<annotation cp="🙂" type="tts">naeratusega nägu</annotation>
+		<annotation cp="🙂‍↕">noogutus, jah | peanoogutus</annotation>
+		<annotation cp="🙂‍↕" type="tts">peanoogutus</annotation>
+		<annotation cp="🙂‍↔">ei, raputus | pearaputus</annotation>
+		<annotation cp="🙂‍↔" type="tts">pearaputus</annotation>
 		<annotation cp="🙃">nägu | tagurpidi</annotation>
 		<annotation cp="🙃" type="tts">tagurpidi nägu</annotation>
 		<annotation cp="🫠">kaduma | lahustuma | sulama | sulav nägu | vedel</annotation>
@@ -734,7 +1065,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">käsi peopesaga allapoole</annotation>
 		<annotation cp="🫴">käsi peopesaga ülespoole | kutsuma | pakkuma | püüdma | tule</annotation>
 		<annotation cp="🫴" type="tts">käsi peopesaga ülespoole</annotation>
-		<annotation cp="🫷">keeldu | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷">keeldu | lükka | oota | stopp | vasakule | vasakule lükkav käsi | viska viis</annotation>
 		<annotation cp="🫷" type="tts">vasakule lükkav käsi</annotation>
 		<annotation cp="🫸">keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
 		<annotation cp="🫸" type="tts">paremale lükkav käsi</annotation>
@@ -850,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">täiskasvanu</annotation>
 		<annotation cp="👱">blond | blondide juustega inimene | blondiin | inimene: blondide juustega</annotation>
 		<annotation cp="👱" type="tts">inimene: blondide juustega</annotation>
+		<annotation cp="🧑‍🧒">perekond: täiskasvanu, laps</annotation>
+		<annotation cp="🧑‍🧒" type="tts">perekond: täiskasvanu, laps</annotation>
+		<annotation cp="🧑‍🧒‍🧒">perekond: täiskasvanu, laps, laps</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">perekond: täiskasvanu, laps, laps</annotation>
+		<annotation cp="🧑‍🧑‍🧒">perekond: täiskasvanu, täiskasvanu, laps</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">perekond: täiskasvanu, täiskasvanu, laps</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">perekond: täiskasvanu, täiskasvanu, laps, laps</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">perekond: täiskasvanu, täiskasvanu, laps, laps</annotation>
 		<annotation cp="👨">mees</annotation>
 		<annotation cp="👨" type="tts">mees</annotation>
 		<annotation cp="🧔">habe | habemega isik | mees: habemega</annotation>
@@ -1510,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">väike tibu eestvaates</annotation>
 		<annotation cp="🐦">lind</annotation>
 		<annotation cp="🐦" type="tts">lind</annotation>
+		<annotation cp="🐦‍🔥">fantaasia, tulelind, taassünd, reinkarnatsioon | fööniks</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fööniks</annotation>
 		<annotation cp="🐧">pingviin</annotation>
 		<annotation cp="🐧" type="tts">pingviin</annotation>
 		<annotation cp="🕊">lind | rahu | tuvi</annotation>
@@ -1534,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">papagoi</annotation>
 		<annotation cp="🪽">ingel | lend | lendamine | lind | mütoloogia | tiib</annotation>
 		<annotation cp="🪽" type="tts">tiib</annotation>
+		<annotation cp="🐦‍⬛">kaaren | lind | must | ronk | vares</annotation>
+		<annotation cp="🐦‍⬛" type="tts">must lind</annotation>
 		<annotation cp="🪿">hani | jaht | lind | prääks | tobe</annotation>
 		<annotation cp="🪿" type="tts">hani</annotation>
 		<annotation cp="🐸">konn | konna nägu | nägu</annotation>
@@ -1666,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">munadega pesa</annotation>
 		<annotation cp="🍄">mürgiseen | seen</annotation>
 		<annotation cp="🍄" type="tts">seen</annotation>
+		<annotation cp="🍄‍🟫">šampinjon | toit, seen, loodus, köögivili</annotation>
+		<annotation cp="🍄‍🟫" type="tts">šampinjon</annotation>
 		<annotation cp="🍇">puuvili | taim | viinamari | viinamarjad</annotation>
 		<annotation cp="🍇" type="tts">viinamarjad</annotation>
 		<annotation cp="🍈">melon | puuvili | taim</annotation>
@@ -1676,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandariin</annotation>
 		<annotation cp="🍋">puuvili | sidrun | taim</annotation>
 		<annotation cp="🍋" type="tts">sidrun</annotation>
+		<annotation cp="🍋‍🟩">laim | tsitrus, puuvili, troopiline</annotation>
+		<annotation cp="🍋‍🟩" type="tts">laim</annotation>
 		<annotation cp="🍌">banaan | puuvili | taim</annotation>
 		<annotation cp="🍌" type="tts">banaan</annotation>
 		<annotation cp="🍍">ananass | puuvili | taim</annotation>
@@ -2956,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">lüli</annotation>
 		<annotation cp="⛓">ahel | ahelad | kett</annotation>
 		<annotation cp="⛓" type="tts">ahelad</annotation>
+		<annotation cp="⛓‍💥">katki tegema, katkitegemine, kett, ahel, käerauad, vabadus | katkine kett</annotation>
+		<annotation cp="⛓‍💥" type="tts">katkine kett</annotation>
 		<annotation cp="🪝">kinnitamine | konks | kõver | püük | tõstmine</annotation>
 		<annotation cp="🪝" type="tts">konks</annotation>
 		<annotation cp="🧰">kast | laegas | tööriistad | tööriistakast</annotation>
@@ -3132,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">nool üles-alla</annotation>
 		<annotation cp="↔">nool | nool paremale-vasakule</annotation>
 		<annotation cp="↔" type="tts">nool paremale-vasakule</annotation>
+		<annotation cp="↮">sirge vasak-paremnool</annotation>
+		<annotation cp="↮" type="tts">sirge vasak-paremnool</annotation>
 		<annotation cp="↩">kaardus nool vasakule | nool | vasak</annotation>
 		<annotation cp="↩" type="tts">kaardus nool vasakule</annotation>
 		<annotation cp="↪">kaardus nool paremale | nool | parem</annotation>
@@ -3505,11 +3856,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¥">CNY | jeen | JPY | jüaan | valuuta</annotation>
 		<annotation cp="¥" type="tts">jeen</annotation>
 		<annotation cp="₢" draft="contributed">kruseiro</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">kruseiro</annotation>
+		<annotation cp="₢" type="tts">kruseiro</annotation>
 		<annotation cp="₣" draft="contributed">Prantsuse frank</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">Prantsuse frank</annotation>
+		<annotation cp="₣" type="tts">Prantsuse frank</annotation>
 		<annotation cp="₤" draft="contributed">liir</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">liir</annotation>
+		<annotation cp="₤" type="tts">liir</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | vonn</annotation>
@@ -3517,15 +3868,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="€">EUR | euro | valuuta</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
 		<annotation cp="₰" draft="contributed">Saksa penn</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">Saksa penn</annotation>
+		<annotation cp="₰" type="tts">Saksa penn</annotation>
 		<annotation cp="₱">peeso</annotation>
 		<annotation cp="₱" type="tts">peeso</annotation>
 		<annotation cp="₳" draft="contributed">austral</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
 		<annotation cp="₶" draft="contributed">Toursi livr</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">Toursi livr</annotation>
+		<annotation cp="₶" type="tts">Toursi livr</annotation>
 		<annotation cp="₷" draft="contributed">spesmilo</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">india ruupia | India ruupia | ruupia | valuuta</annotation>
 		<annotation cp="₹" type="tts">India ruupia</annotation>
 		<annotation cp="₽">rubla | valuuta</annotation>
@@ -3535,7 +3886,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₨">ruupia | valuuta</annotation>
 		<annotation cp="₨" type="tts">ruupia</annotation>
 		<annotation cp="﷼" draft="contributed">riaal</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">riaal</annotation>
+		<annotation cp="﷼" type="tts">riaal</annotation>
 		<annotation cp="¹">aste | astmel 1 | üks</annotation>
 		<annotation cp="¹" type="tts">astmel 1</annotation>
 		<annotation cp="²">2 | aste | astmel 2 | ruudus</annotation>

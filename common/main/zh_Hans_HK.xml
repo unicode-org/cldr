@@ -247,16 +247,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000000000000" count="other" draft="contributed">0万亿</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00万亿</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000万亿</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000000000000" count="other" draft="contributed">0万亿</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00万亿</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000万亿</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -269,7 +269,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="KYD">
 				<displayName draft="contributed">开曼群岛元</displayName>
-				<displayName count="other" draft="contributed">开曼群岛元</displayName>
+				<displayName count="other" draft="contributed">↑↑↑</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName count="other">尼加拉瓜科多巴</displayName>
@@ -312,7 +312,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="concentr-karat">
-				<displayName>开</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}开</unitPattern>
 			</unit>
 			<unit type="length-picometer">
@@ -334,8 +334,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0}光年</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>开氏度</displayName>
-				<unitPattern count="other">{0}°K</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

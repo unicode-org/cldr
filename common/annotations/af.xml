@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -695,8 +695,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⨧" type="tts">plusteken met onderskrif twee</annotation>
 		<annotation cp="⨯">kruis | produk | vektor | vektor kruisproduk</annotation>
 		<annotation cp="⨯" type="tts">vektor kruisproduk</annotation>
-		<annotation cp="⨼">interior | interiorproduk | produk</annotation>
-		<annotation cp="⨼" type="tts">interiorproduk</annotation>
+		<annotation cp="⨼">binneproduk | puntproduk | skalaarproduk</annotation>
+		<annotation cp="⨼" type="tts">binneproduk</annotation>
 		<annotation cp="⩣">dubbele | logiese | logiese of dubbele onderbalk | onderbalk</annotation>
 		<annotation cp="⩣" type="tts">logiese of dubbele onderbalk</annotation>
 		<annotation cp="⩽">gelyk aan | kleiner as | kleiner-as skuins gelyk aan | skuins</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">gesig met trane van vreugde</annotation>
 		<annotation cp="🙂">gesig | gesig wat effens glimlag | glimlag</annotation>
 		<annotation cp="🙂" type="tts">gesig wat effens glimlag</annotation>
+		<annotation cp="🙂‍↕">knik, ja | kop wat vertikaal skud</annotation>
+		<annotation cp="🙂‍↕" type="tts">kop wat vertikaal skud</annotation>
+		<annotation cp="🙂‍↔">kop wat horisontaal skud | nee, skud kop</annotation>
+		<annotation cp="🙂‍↔" type="tts">kop wat horisontaal skud</annotation>
 		<annotation cp="🙃">gesig | onderstebo</annotation>
 		<annotation cp="🙃" type="tts">onderstebo gesig</annotation>
 		<annotation cp="🫠">gesig wat smelt | smelt | verdwyn</annotation>
@@ -795,7 +799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😶" type="tts">gesig sonder mond</annotation>
 		<annotation cp="🫥">depressief | gesig met stippellyn | introvert | onsigbaar | verdwyn | wegkruip</annotation>
 		<annotation cp="🫥" type="tts">gesig met stippellyn</annotation>
-		<annotation cp="😶‍🌫">deur die mis | gesig in wolke | kop in die wolke | lugkastele | verstrooid</annotation>
+		<annotation cp="😶‍🌫">gesig in die mis | gesig in die wolke | kop in die wolke | vestrooid</annotation>
 		<annotation cp="😶‍🌫" type="tts">gesig in wolke</annotation>
 		<annotation cp="😏">gesig | gesig wat grynslag | grynslag</annotation>
 		<annotation cp="😏" type="tts">gesig wat grynslag</annotation>
@@ -809,7 +813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😮‍💨" type="tts">gesig asem uit</annotation>
 		<annotation cp="🤥">gesig | gesig wat jok | jok | leuen | lieg | onwaar</annotation>
 		<annotation cp="🤥" type="tts">gesig wat jok</annotation>
-		<annotation cp="🫨">aardbewing | gesig | gesig wat skud | skok | skud | vibreer</annotation>
+		<annotation cp="🫨">aardbewing | gesig | gesig wat skud | skok | vibreer</annotation>
 		<annotation cp="🫨" type="tts">gesig wat skud</annotation>
 		<annotation cp="😌">gesig | verlig | verligte gesig</annotation>
 		<annotation cp="😌" type="tts">verligte gesig</annotation>
@@ -841,7 +845,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">dronk gesig</annotation>
 		<annotation cp="😵">dronk | duiselig | gesig</annotation>
 		<annotation cp="😵" type="tts">duiselig gesig</annotation>
-		<annotation cp="😵‍💫">duiselig | gehipnotiseer | gesig met spiraaloë | moeilikheid | spiraal</annotation>
+		<annotation cp="😵‍💫">duiselig | gehipnotiseer | gesig met spiraaloë | moeilikheid | sjoe</annotation>
 		<annotation cp="😵‍💫" type="tts">gesig met spiraaloë</annotation>
 		<annotation cp="🤯">geskok | kop wat ontplof</annotation>
 		<annotation cp="🤯" type="tts">kop wat ontplof</annotation>
@@ -987,9 +991,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">dik hartuitroepteken</annotation>
 		<annotation cp="💔">breek | gebroke | gebroke hartjie | hart</annotation>
 		<annotation cp="💔" type="tts">gebroke hartjie</annotation>
-		<annotation cp="❤‍🔥">brand | hart | hart wat brand | liefde | lus</annotation>
+		<annotation cp="❤‍🔥">brand | hart | hart wat brand | heilige hart | liefde | wellus</annotation>
 		<annotation cp="❤‍🔥" type="tts">hart wat brand</annotation>
-		<annotation cp="❤‍🩹">beter | gesonder | helend | helende hart | herstel</annotation>
+		<annotation cp="❤‍🩹">genees | gesond | gesonder | helend | helende hart | herstel | verbeterend</annotation>
 		<annotation cp="❤‍🩹" type="tts">helende hart</annotation>
 		<annotation cp="❤">hart | rooi | rooi hartjie</annotation>
 		<annotation cp="❤" type="tts">rooi hartjie</annotation>
@@ -1059,7 +1063,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫲" type="tts">hand na links</annotation>
 		<annotation cp="🫳">hand met palm ondertoe | val | wys af</annotation>
 		<annotation cp="🫳" type="tts">hand met palm ondertoe</annotation>
-		<annotation cp="🫴">bied aan | hand met palm boontoe | kom | roep | vang | Vote hand met palm boontoe</annotation>
+		<annotation cp="🫴">bied aan | handpalm na bo | kom | roep | vang</annotation>
 		<annotation cp="🫴" type="tts">hand met palm boontoe</annotation>
 		<annotation cp="🫷">druk | hand wat linkswaarts druk | linkswaarts | stop | vatvyf | wag | weier</annotation>
 		<annotation cp="🫷" type="tts">hand wat linkswaarts druk</annotation>
@@ -1177,11 +1181,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">volwassene</annotation>
 		<annotation cp="👱">blond | hare | persoon met blonde hare</annotation>
 		<annotation cp="👱" type="tts">persoon met blonde hare</annotation>
+		<annotation cp="🧑‍🧒">gesin: grootmens, kind</annotation>
+		<annotation cp="🧑‍🧒" type="tts">gesin: grootmens, kind</annotation>
+		<annotation cp="🧑‍🧒‍🧒">gesin: grootmens, kind, kind</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">gesin: grootmens, kind, kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒">gesin: grootmens, volwasse, kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">gesin: grootmens, volwasse, kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">gesin: grootmens, volwasse, kind, kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">gesin: grootmens, volwasse, kind, kind</annotation>
 		<annotation cp="👨">man | volwassene</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">baard | bebaarde persoon | man</annotation>
 		<annotation cp="🧔" type="tts">bebaarde persoon</annotation>
-		<annotation cp="🧔‍♂">baard | baard: man | man | man: baard</annotation>
+		<annotation cp="🧔‍♂">baard | man | man: baard</annotation>
 		<annotation cp="🧔‍♂" type="tts">man: baard</annotation>
 		<annotation cp="👱‍♂">blond | blonde man | hare | man</annotation>
 		<annotation cp="👱‍♂" type="tts">blonde man</annotation>
@@ -1247,9 +1259,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙇‍♀" type="tts">vrou buig</annotation>
 		<annotation cp="🤦">facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster</annotation>
 		<annotation cp="🤦" type="tts">hand teen voorkop slaan</annotation>
-		<annotation cp="🤦‍♂">facepalm | gsig | hand teen voorkop slaan | man | man slaan hand teen voorkop | moedeloos | ongeloof | palm | verbyster</annotation>
+		<annotation cp="🤦‍♂">hand teen voorkop slaan | man | man slaan hand teen voorkop | ongeloof | verbystering</annotation>
 		<annotation cp="🤦‍♂" type="tts">man slaan hand teen voorkop</annotation>
-		<annotation cp="🤦‍♀">facepalm | gsig | hand teen voorkop slaan | moedeloos | ongeloof | palm | verbyster | vrou | vrou slaan hand teen voorkop</annotation>
+		<annotation cp="🤦‍♀">hand teen voorkop slaan | ongeloof | verbystering | vrou | vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤦‍♀" type="tts">vrou slaan hand teen voorkop</annotation>
 		<annotation cp="🤷">onseker | persoon skouerophaal | skouerophaal | skouers | weet nie</annotation>
 		<annotation cp="🤷" type="tts">persoon skouerophaal</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">kuiken wat vorentoe kyk</annotation>
 		<annotation cp="🐦">voël</annotation>
 		<annotation cp="🐦" type="tts">voël</annotation>
+		<annotation cp="🐦‍🔥">fantasie, vuurvoël, hergeboorte, reïnkarnasie | feniks</annotation>
+		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐧">pikkewyn | voël</annotation>
 		<annotation cp="🐧" type="tts">pikkewyn</annotation>
 		<annotation cp="🕊">duif | vlieg | voël | vrede</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">papegaai</annotation>
 		<annotation cp="🪽">engelagtig | lugvaart | mitologie | vlerk | vlieg | voël</annotation>
 		<annotation cp="🪽" type="tts">vlerk</annotation>
+		<annotation cp="🐦‍⬛">kraai | raaf | roek | swart | voël</annotation>
+		<annotation cp="🐦‍⬛" type="tts">swart voël</annotation>
 		<annotation cp="🪿">gans | pluimvee | snater | stuitig | voël</annotation>
 		<annotation cp="🪿" type="tts">gans</annotation>
 		<annotation cp="🐸">gesig | padda</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nes met eiers</annotation>
 		<annotation cp="🍄">paddastoel | plant | sampioen</annotation>
 		<annotation cp="🍄" type="tts">sampioen</annotation>
+		<annotation cp="🍄‍🟫">bruin sampioen | kos, fungus, natuur, groente</annotation>
+		<annotation cp="🍄‍🟫" type="tts">bruin sampioen</annotation>
 		<annotation cp="🍇">druif | druiwe | plant | vrug</annotation>
 		<annotation cp="🍇" type="tts">druiwe</annotation>
 		<annotation cp="🍈">plant | spanspek | vrug</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">nartjie</annotation>
 		<annotation cp="🍋">plant | sitrus | suur | suurlemoen | vrug</annotation>
 		<annotation cp="🍋" type="tts">suurlemoen</annotation>
+		<annotation cp="🍋‍🟩">lemmetjie | sitrus, vrug, tropies</annotation>
+		<annotation cp="🍋‍🟩" type="tts">lemmetjie</annotation>
 		<annotation cp="🍌">piesang | plant | vrug</annotation>
 		<annotation cp="🍌" type="tts">piesang</annotation>
 		<annotation cp="🍍">plant | pynappel | vrug</annotation>
@@ -2259,18 +2279,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫙" type="tts">fles</annotation>
 		<annotation cp="🏺">amfoor | aquarius | diereriem | drink | kook | kruik</annotation>
 		<annotation cp="🏺" type="tts">amfoor</annotation>
-		<annotation cp="🌍">aardbol | aardbol met europa-afrika | aarde | afrika | europa | wêreld</annotation>
-		<annotation cp="🌍" type="tts">aardbol met europa-afrika</annotation>
-		<annotation cp="🌎">aardbol | aardbol met amerikas | aarde | amerika | wêreld</annotation>
-		<annotation cp="🌎" type="tts">aardbol met amerikas</annotation>
-		<annotation cp="🌏">aardbol | aardbol met asië-australië | aarde | asië | australië | wêreld</annotation>
-		<annotation cp="🌏" type="tts">aardbol met asië-australië</annotation>
+		<annotation cp="🌍">aardbol | aardbol met Europa en Afrika | aarde | Afrika | Europa | wêreld</annotation>
+		<annotation cp="🌍" type="tts">aardbol met Europa en Afrika</annotation>
+		<annotation cp="🌎">aardbol | aardbol met Amerikas | Amerika | wêreld</annotation>
+		<annotation cp="🌎" type="tts">aardbol met Amerikas</annotation>
+		<annotation cp="🌏">aardbol | aardbol met Asië en Australië | aarde | Asië | Australië | wêreld</annotation>
+		<annotation cp="🌏" type="tts">aardbol met Asië en Australië</annotation>
 		<annotation cp="🌐">aardbol | aardbol met kringlyne | aarde | kring | lyn | wêreld</annotation>
 		<annotation cp="🌐" type="tts">aardbol met kringlyne</annotation>
 		<annotation cp="🗺">kaart | wêreld | wêreldkaart</annotation>
 		<annotation cp="🗺" type="tts">wêreldkaart</annotation>
-		<annotation cp="🗾">japan | kaart | kaart van japan</annotation>
-		<annotation cp="🗾" type="tts">kaart van japan</annotation>
+		<annotation cp="🗾">Japan | kaart | kaart van Japan</annotation>
+		<annotation cp="🗾" type="tts">kaart van Japan</annotation>
 		<annotation cp="🧭">kompas | magneties | navigasie | oriëntering</annotation>
 		<annotation cp="🧭" type="tts">kompas</annotation>
 		<annotation cp="🏔">berg | berg met sneeu op | koud | sneeu</annotation>
@@ -2315,9 +2335,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏡" type="tts">huis met tuin</annotation>
 		<annotation cp="🏢">gebou | kantoor | kantoorgebou</annotation>
 		<annotation cp="🏢" type="tts">kantoorgebou</annotation>
-		<annotation cp="🏣">gebou | japannees | japanse poskantoor | pos</annotation>
+		<annotation cp="🏣">gebou | Japannees | Japanse poskantoor | pos</annotation>
 		<annotation cp="🏣" type="tts">japanse poskantoor</annotation>
-		<annotation cp="🏤">europees | gebou | pos | poskantoor</annotation>
+		<annotation cp="🏤">Europees | gebou | pos | poskantoor</annotation>
 		<annotation cp="🏤" type="tts">poskantoor</annotation>
 		<annotation cp="🏥">dokter | gebou | hospitaal | medisyne</annotation>
 		<annotation cp="🏥" type="tts">hospitaal</annotation>
@@ -2335,14 +2355,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏬" type="tts">afdelingswinkel</annotation>
 		<annotation cp="🏭">fabriek | gebou</annotation>
 		<annotation cp="🏭" type="tts">fabriek</annotation>
-		<annotation cp="🏯">gebou | japannees | japanse kasteel | kasteel</annotation>
-		<annotation cp="🏯" type="tts">japanse kasteel</annotation>
-		<annotation cp="🏰">europees | gebou | kasteel</annotation>
+		<annotation cp="🏯">gebou | Japannees | Japanse kasteel | kasteel</annotation>
+		<annotation cp="🏯" type="tts">Japanse kasteel</annotation>
+		<annotation cp="🏰">Europees | gebou | kasteel</annotation>
 		<annotation cp="🏰" type="tts">kasteel</annotation>
 		<annotation cp="💒">gebou | kapel | romanse | trou | troue</annotation>
 		<annotation cp="💒" type="tts">troue</annotation>
-		<annotation cp="🗼">tokio | tokio-toring | toring</annotation>
-		<annotation cp="🗼" type="tts">tokio-toring</annotation>
+		<annotation cp="🗼">Tokio | Tokio-toring | toring</annotation>
+		<annotation cp="🗼" type="tts">Tokio-toring</annotation>
 		<annotation cp="🗽">standbeeld | vryheid | vryheidstandbeeld</annotation>
 		<annotation cp="🗽" type="tts">vryheidstandbeeld</annotation>
 		<annotation cp="⛪">christelik | gebou | godsdiens | kerk | kruis</annotation>
@@ -2355,8 +2375,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕍" type="tts">sinagoge</annotation>
 		<annotation cp="⛩">altaar | godsdiens | sjinto | sjinto-altaar | tempel</annotation>
 		<annotation cp="⛩" type="tts">sjinto-altaar</annotation>
-		<annotation cp="🕋">godsdiens | islam | kaäba | moslem</annotation>
-		<annotation cp="🕋" type="tts">kaäba</annotation>
+		<annotation cp="🕋">godsdiens | Islam | Kaäba | moslem</annotation>
+		<annotation cp="🕋" type="tts">Kaäba</annotation>
 		<annotation cp="⛲">fontein</annotation>
 		<annotation cp="⛲" type="tts">fontein</annotation>
 		<annotation cp="⛺">kampeer | nag | tent</annotation>
@@ -2717,8 +2737,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎋" type="tts">tanabataboom</annotation>
 		<annotation cp="🎍">bamboes | den | denneversiering | japannees | plant | viering</annotation>
 		<annotation cp="🎍" type="tts">denneversiering</annotation>
-		<annotation cp="🎎">fees | japannees | japanse poppe | pop | viering</annotation>
-		<annotation cp="🎎" type="tts">japanse poppe</annotation>
+		<annotation cp="🎎">fees | Japannees | Japanse poppe | pop | viering</annotation>
+		<annotation cp="🎎" type="tts">Japanse poppe</annotation>
 		<annotation cp="🎏">banier | karp | karpbanier | viering</annotation>
 		<annotation cp="🎏" type="tts">karpbanier</annotation>
 		<annotation cp="🎐">klok | viering | wind | windklokkie</annotation>
@@ -2759,7 +2779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏀" type="tts">basketbal</annotation>
 		<annotation cp="🏐">bal | speel | vlugbal</annotation>
 		<annotation cp="🏐" type="tts">vlugbal</annotation>
-		<annotation cp="🏈">amerikaans | amerikaanse voetbal | bal | voetbal</annotation>
+		<annotation cp="🏈">Amerikaans | Amerikaanse voetbal | bal | voetbal</annotation>
 		<annotation cp="🏈" type="tts">amerikaanse voetbal</annotation>
 		<annotation cp="🏉">bal | rugby | rugbyvoetbal | voetbal</annotation>
 		<annotation cp="🏉" type="tts">rugbyvoetbal</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">skakel</annotation>
 		<annotation cp="⛓">ketting | kettings | skakel</annotation>
 		<annotation cp="⛓" type="tts">kettings</annotation>
+		<annotation cp="⛓‍💥">breek, breek tans, ketting, boeie, vryheid | gebreekte ketting</annotation>
+		<annotation cp="⛓‍💥" type="tts">gebreekte ketting</annotation>
 		<annotation cp="🪝">hoek | strik | vang | vangs | verkoopspunt</annotation>
 		<annotation cp="🪝" type="tts">hoek</annotation>
 		<annotation cp="🧰">gereedskap | gereedskaptrommel | trommel | werktuigkundige</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">खुसीको आँसु देखिएको अनुहार</annotation>
 		<annotation cp="🙂">अनुहार | मुस्कान | हल्का हँसिलो अनुहार</annotation>
 		<annotation cp="🙂" type="tts">हल्का हँसिलो अनुहार</annotation>
+		<annotation cp="🙂‍↕">तेर्सो तरिकाले टाउको हल्लाउँदै | निहुरेर हो भन्दै</annotation>
+		<annotation cp="🙂‍↕" type="tts">ठाडो तरिकाले टाउको हल्लाउँदै</annotation>
+		<annotation cp="🙂‍↔">तेर्सो तरिकाले टाउको हल्लाउँदै | होइन भनेर टाउको हल्लाउँदै</annotation>
+		<annotation cp="🙂‍↔" type="tts">तेर्सो तरिकाले टाउको हल्लाउँदै</annotation>
 		<annotation cp="🙃">अनुहार | माथि-तल भएको | माथि-तल भएको अनुहार</annotation>
 		<annotation cp="🙃" type="tts">माथि-तल भएको अनुहार</annotation>
 		<annotation cp="🫠">घुल्नु | तरल | पग्लिनु | पग्लिरहेको अनुहार | बिलाउनु</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">वयस्क</annotation>
 		<annotation cp="👱">कैलो कपाल भएको मान्छे | फुलेको</annotation>
 		<annotation cp="👱" type="tts">कैलो कपाल भएको मान्छे</annotation>
+		<annotation cp="🧑‍🧒">परिवार: वयस्क, बच्चा</annotation>
+		<annotation cp="🧑‍🧒" type="tts">परिवार: वयस्क, बच्चा</annotation>
+		<annotation cp="🧑‍🧒‍🧒">परिवार: वयस्क, बच्चा, बच्चा</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">परिवार: वयस्क, बच्चा, बच्चा</annotation>
+		<annotation cp="🧑‍🧑‍🧒">परिवार: वयस्क, वयस्क, बच्चा</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">परिवार: वयस्क, वयस्क, बच्चा</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">परिवार: वयस्क, वयस्क, बच्चा, बच्चा</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">परिवार: वयस्क, वयस्क, बच्चा, बच्चा</annotation>
 		<annotation cp="👨">छोरामान्छे | पुरूष</annotation>
 		<annotation cp="👨" type="tts">छोरामान्छे</annotation>
 		<annotation cp="🧔">दाह्री | दाह्रीवाल मान्छे</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">अगाडि-अनुहार देखिएको कुखुराको चल्ला</annotation>
 		<annotation cp="🐦">पंक्षी</annotation>
 		<annotation cp="🐦" type="tts">पंक्षी</annotation>
+		<annotation cp="🐦‍🔥">कल्पना, फायरबर्ड, पुनर्जन्म, पुनः अवतार | फ‍िनिक्स</annotation>
+		<annotation cp="🐦‍🔥" type="tts">फिनिक्स</annotation>
 		<annotation cp="🐧">पेन्गुइन</annotation>
 		<annotation cp="🐧" type="tts">पेन्गुइन</annotation>
 		<annotation cp="🕊">उड्ने | चरा | ढुक्कुर</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">सुँगा</annotation>
 		<annotation cp="🪽">उडिरहेको | उड्डयन | चरा | दैविक | पखेंटा | पुराण</annotation>
 		<annotation cp="🪽" type="tts">पखेंटा</annotation>
+		<annotation cp="🐦‍⬛">काग | कालो | कौआ | चरा | रेभेन</annotation>
+		<annotation cp="🐦‍⬛" type="tts">कालो चरा</annotation>
 		<annotation cp="🪿">चरा | झुण्ड | मुर्ख | राजहाँस | हल्का</annotation>
 		<annotation cp="🪿" type="tts">राजहाँस</annotation>
 		<annotation cp="🐸">अनुहार | भ्यागुतो</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">अण्डासहितको गुँड</annotation>
 		<annotation cp="🍄">च्याउ | बिरूवा</annotation>
 		<annotation cp="🍄" type="tts">च्याउ</annotation>
+		<annotation cp="🍄‍🟫">खाना, ढुसी, प्रकृति, तरकारी | खैरो च्याउ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">खैरो च्याउ</annotation>
 		<annotation cp="🍇">अङ्गुर | फलफूल | बिरूवा</annotation>
 		<annotation cp="🍇" type="tts">अङ्गुर</annotation>
 		<annotation cp="🍈">तरबूज | फलफूल</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ट्यान्जरिन</annotation>
 		<annotation cp="🍋">कागती | फलफूल | बिरूवा</annotation>
 		<annotation cp="🍋" type="tts">कागती</annotation>
+		<annotation cp="🍋‍🟩">कागती | सिट्रस, फलफूल, उष्णकटिबन्य</annotation>
+		<annotation cp="🍋‍🟩" type="tts">कागति</annotation>
 		<annotation cp="🍌">केरा | फलफूल | बिरूवा</annotation>
 		<annotation cp="🍌" type="tts">केरा</annotation>
 		<annotation cp="🍍">कटर | फलफूल</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">लिंक</annotation>
 		<annotation cp="⛓">चेन</annotation>
 		<annotation cp="⛓" type="tts">चेन</annotation>
+		<annotation cp="⛓‍💥">भाँचिएको चेन | भाँच्नु, तोड्नु, चेन, कफ, स्वतन्त्रता</annotation>
+		<annotation cp="⛓‍💥" type="tts">भाँचिएको चेन</annotation>
 		<annotation cp="🪝">इन्सनेयर | कर्भ | ठग | बिक्री गर्ने बिन्दु | समात्नु | हुक</annotation>
 		<annotation cp="🪝" type="tts">हुक</annotation>
 		<annotation cp="🧰">उपकरण | औँजारबाकस | बाकस | मेकानिक</annotation>

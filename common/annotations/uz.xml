@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -63,6 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">teskari soʻroq belgisi</annotation>
 		<annotation cp="؟">arabcha | arabcha soʻroq belgisi | soʻroq | soʻroq belgisi</annotation>
 		<annotation cp="؟" type="tts">arabcha soʻroq belgisi</annotation>
+		<annotation cp="‽">interabang | interrobang</annotation>
+		<annotation cp="‽" type="tts">interrobang</annotation>
 		<annotation cp=".">davr | nuqra | nuqta</annotation>
 		<annotation cp="." type="tts">nuqta</annotation>
 		<annotation cp="…">koʻp nuqta | nuqtalar | uch nuqta</annotation>
@@ -159,8 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">qoʻsh kertma</annotation>
 		<annotation cp="‴">uch kertma | uchtalik kertma</annotation>
 		<annotation cp="‴" type="tts">uchtalik kertma</annotation>
+		<annotation cp="‸">karet</annotation>
+		<annotation cp="‸" type="tts">karet</annotation>
 		<annotation cp="※">belgi | havola | havola belgisi</annotation>
 		<annotation cp="※" type="tts">havola belgisi</annotation>
+		<annotation cp="⁂">uch yulduz | yulduzchalar | yulduzlar</annotation>
+		<annotation cp="⁂" type="tts">uch yulduz</annotation>
 		<annotation cp="`">gravis | urgʻu</annotation>
 		<annotation cp="`" type="tts">gravis</annotation>
 		<annotation cp="´">akut | urgʻu</annotation>
@@ -175,22 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">ovozli yozuv mualliflik huquqi belgisi</annotation>
 		<annotation cp="←">chapga | chapga qaragan chiziq | chiziq</annotation>
 		<annotation cp="←" type="tts">chapga qaragan chiziq</annotation>
+		<annotation cp="↚">qayta chizilgan chapga strelka</annotation>
+		<annotation cp="↚" type="tts">qayta chizilgan chapga strelka</annotation>
 		<annotation cp="→">chiziq | o‘ngga | o‘ngga qaragan chiziq</annotation>
 		<annotation cp="→" type="tts">o‘ngga qaragan chiziq</annotation>
+		<annotation cp="↛">qayta chizilgan oʻngga strelka</annotation>
+		<annotation cp="↛" type="tts">qayta chizilgan oʻngga strelka</annotation>
 		<annotation cp="↑">chiziq | yuqoriga | yuqoriga qaragan chiziq</annotation>
 		<annotation cp="↑" type="tts">yuqoriga qaragan chiziq</annotation>
 		<annotation cp="↓">chiziq | pastga | pastga qaragan chiziq</annotation>
 		<annotation cp="↓" type="tts">pastga qaragan chiziq</annotation>
+		<annotation cp="↜">toʻlqinli chapga strelka</annotation>
+		<annotation cp="↜" type="tts">toʻlqinli chapga strelka</annotation>
+		<annotation cp="↝">toʻlqinli oʻngga strelka</annotation>
+		<annotation cp="↝" type="tts">toʻlqinli oʻngga strelka</annotation>
+		<annotation cp="↞">ikki boshli chapga strelka</annotation>
+		<annotation cp="↞" type="tts">ikki boshli chapga strelka</annotation>
+		<annotation cp="↟">ikki boshli yuqoriga strelka</annotation>
+		<annotation cp="↟" type="tts">ikki boshli yuqoriga strelka</annotation>
+		<annotation cp="↠">ikki boshli oʻngga strelka</annotation>
+		<annotation cp="↠" type="tts">ikki boshli oʻngga strelka</annotation>
+		<annotation cp="↡">ikki boshli pastga strelka</annotation>
+		<annotation cp="↡" type="tts">ikki boshli pastga strelka</annotation>
+		<annotation cp="↢">dumli chapga strelka</annotation>
+		<annotation cp="↢" type="tts">dumli chapga strelka</annotation>
+		<annotation cp="↣">dumli oʻngga strelka</annotation>
+		<annotation cp="↣" type="tts">dumli oʻngga strelka</annotation>
+		<annotation cp="↤">tekis dumli chapga strelka</annotation>
+		<annotation cp="↤" type="tts">tekis dumli chapga strelka</annotation>
+		<annotation cp="↥">tekis dumli yuqoriga strelka</annotation>
+		<annotation cp="↥" type="tts">tekis dumli yuqoriga strelka</annotation>
+		<annotation cp="↦">tekis dumli oʻngga strelka</annotation>
+		<annotation cp="↦" type="tts">tekis dumli oʻngga strelka</annotation>
+		<annotation cp="↧">tekis dumli pastga strelka</annotation>
+		<annotation cp="↧" type="tts">tekis dumli pastga strelka</annotation>
+		<annotation cp="↨">asosi bilan yuqoriga-pastga strelka</annotation>
+		<annotation cp="↨" type="tts">asosi bilan yuqoriga-pastga strelka</annotation>
+		<annotation cp="↫">ilmoqli chapga strelka</annotation>
+		<annotation cp="↫" type="tts">ilmoqli chapga strelka</annotation>
+		<annotation cp="↬">ilmoqli oʻngga strelka</annotation>
+		<annotation cp="↬" type="tts">ilmoqli oʻngga strelka</annotation>
+		<annotation cp="↭">toʻlqinli chapga-oʻngga strelka</annotation>
+		<annotation cp="↭" type="tts">toʻlqinli chapga-oʻngga strelka</annotation>
+		<annotation cp="↯">zigzagsimon pastga strelka</annotation>
+		<annotation cp="↯" type="tts">zigzagsimon pastga strelka</annotation>
+		<annotation cp="↰">chapga burilgan yuqoriga strelka</annotation>
+		<annotation cp="↰" type="tts">chapga burilgan yuqoriga strelka</annotation>
+		<annotation cp="↱">oʻngga burilgan yuqoriga strelka</annotation>
+		<annotation cp="↱" type="tts">oʻngga burilgan yuqoriga strelka</annotation>
+		<annotation cp="↲">chapga burilgan pastga strelka</annotation>
+		<annotation cp="↲" type="tts">chapga burilgan pastga strelka</annotation>
+		<annotation cp="↳">oʻngga burilgan pastga strelka</annotation>
+		<annotation cp="↳" type="tts">oʻngga burilgan pastga strelka</annotation>
+		<annotation cp="↴">burchak ostida pastga burilgan oʻngga strelka</annotation>
+		<annotation cp="↴" type="tts">burchak ostida pastga burilgan oʻngga strelka</annotation>
+		<annotation cp="↵">burchak ostida chapga burilgan pastga strelka</annotation>
+		<annotation cp="↵" type="tts">burchak ostida chapga burilgan pastga strelka</annotation>
+		<annotation cp="↶">soat miliga qarshi yarim aylana strelka</annotation>
+		<annotation cp="↶" type="tts">soat miliga qarshi yarim aylana strelka</annotation>
+		<annotation cp="↷">soat mili boʻyicha yarim aylana strelka</annotation>
+		<annotation cp="↷" type="tts">soat mili boʻyicha yarim aylana strelka</annotation>
+		<annotation cp="↸">uzun chiziq ostida shimoli-gʻarbga strelka</annotation>
+		<annotation cp="↸" type="tts">uzun chiziq ostida shimoli-gʻarbga strelka</annotation>
+		<annotation cp="↹">perpendikulyar chiziqli oʻngga strelka ostidagi chapga strelka</annotation>
+		<annotation cp="↹" type="tts">perpendikulyar chiziqli oʻngga strelka ostidagi chapga strelka</annotation>
+		<annotation cp="↺">soat miliga qarshi ochiq aylana strelka</annotation>
+		<annotation cp="↺" type="tts">soat miliga qarshi ochiq aylana strelka</annotation>
+		<annotation cp="↻">soat mili boʻyicha ochiq aylana strelka</annotation>
+		<annotation cp="↻" type="tts">soat mili boʻyicha ochiq aylana strelka</annotation>
+		<annotation cp="↼">nayza | tishi yuqoriga qaragan chapga nayza</annotation>
+		<annotation cp="↼" type="tts">tishi yuqoriga qaragan chapga nayza</annotation>
+		<annotation cp="↽">tishi pastga qaragan chapga nayza</annotation>
+		<annotation cp="↽" type="tts">tishi pastga qaragan chapga nayza</annotation>
+		<annotation cp="↾">nayza | tishi oʻngga qaragan yuqoriga nayza</annotation>
+		<annotation cp="↾" type="tts">tishi oʻngga qaragan yuqoriga nayza</annotation>
+		<annotation cp="↿">nayza | tishi chapga qaragan yuqoriga nayza</annotation>
+		<annotation cp="↿" type="tts">tishi chapga qaragan yuqoriga nayza</annotation>
+		<annotation cp="⇀">nayza | tishi yuqoriga qaragan oʻngga nayza</annotation>
+		<annotation cp="⇀" type="tts">tishi yuqoriga qaragan oʻngga nayza</annotation>
+		<annotation cp="⇁">nayza | tishi pastga qaragan oʻngga nayza</annotation>
+		<annotation cp="⇁" type="tts">tishi pastga qaragan oʻngga nayza</annotation>
+		<annotation cp="⇂">nayza | tishi oʻngga qaragan pastga nayza</annotation>
+		<annotation cp="⇂" type="tts">tishi oʻngga qaragan pastga nayza</annotation>
+		<annotation cp="⇃">nayza | tishi chapga qaragan pastga nayza</annotation>
+		<annotation cp="⇃" type="tts">tishi chapga qaragan pastga nayza</annotation>
+		<annotation cp="⇄">chapga strelka ustidagi oʻngga strelka</annotation>
+		<annotation cp="⇄" type="tts">chapga strelka ustidagi oʻngga strelka</annotation>
 		<annotation cp="⇅">chiziq | pastga | yuqoriga | yuqoriga va pastga qaragan chiziqlar</annotation>
 		<annotation cp="⇅" type="tts">yuqoriga va pastga qaragan chiziqlar</annotation>
 		<annotation cp="⇆">chapga | chiziq | o‘ngga | o‘ngga qaragan chiziq ustidagi chapga qaragan chiziq | o‘ngga qaragan chiziq ustidagi chapga qaragan chiziqlar</annotation>
 		<annotation cp="⇆" type="tts">o‘ngga qaragan chiziq ustidagi chapga qaragan chiziqlar</annotation>
+		<annotation cp="⇇">chapga juft strelka</annotation>
+		<annotation cp="⇇" type="tts">chapga juft strelka</annotation>
+		<annotation cp="⇈">yuqoriga juft strelka</annotation>
+		<annotation cp="⇈" type="tts">yuqoriga juft strelka</annotation>
+		<annotation cp="⇉">oʻngga juft strelka</annotation>
+		<annotation cp="⇉" type="tts">oʻngga juft strelka</annotation>
+		<annotation cp="⇊">pastga juft strelka</annotation>
+		<annotation cp="⇊" type="tts">pastga juft strelka</annotation>
+		<annotation cp="⇋">oʻngga nayza ustidagi chapga nayza</annotation>
+		<annotation cp="⇋" type="tts">oʻngga nayza ustidagi chapga nayza</annotation>
+		<annotation cp="⇌">chapga nayza ustidagi oʻngga nayza</annotation>
+		<annotation cp="⇌" type="tts">chapga nayza ustidagi oʻngga nayza</annotation>
+		<annotation cp="⇐">chapga qoʻsh strelka</annotation>
+		<annotation cp="⇐" type="tts">chapga qoʻsh strelka</annotation>
+		<annotation cp="⇍">chiziq tortilgan chapga qoʻsh strelka</annotation>
+		<annotation cp="⇍" type="tts">chiziq tortilgan chapga qoʻsh strelka</annotation>
+		<annotation cp="⇑">yuqoriga qoʻsh strelka</annotation>
+		<annotation cp="⇑" type="tts">yuqoriga qoʻsh strelka</annotation>
+		<annotation cp="⇒">oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇒" type="tts">oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇏">oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇏" type="tts">chiziq tortilgan oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇓">pastga qoʻsh strelka</annotation>
+		<annotation cp="⇓" type="tts">pastga qoʻsh strelka</annotation>
+		<annotation cp="⇔">chapga-oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇔" type="tts">chapga-oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇎">chiziq tortilgan chapga-oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇎" type="tts">chiziq tortilgan chapga-oʻngga qoʻsh strelka</annotation>
+		<annotation cp="⇖">shimoli-gʻarbga qoʻsh strelka</annotation>
+		<annotation cp="⇖" type="tts">shimoli-gʻarbga qoʻsh strelka</annotation>
+		<annotation cp="⇗">shimoli-sharqqa qoʻsh strelka</annotation>
+		<annotation cp="⇗" type="tts">shimoli-sharqqa qoʻsh strelka</annotation>
+		<annotation cp="⇘">janubi-sharqqa qoʻsh strelka</annotation>
+		<annotation cp="⇘" type="tts">janubi-sharqqa qoʻsh strelka</annotation>
+		<annotation cp="⇙">janubi-gʻarbga qoʻsh strelka</annotation>
+		<annotation cp="⇙" type="tts">janubi-gʻarbga qoʻsh strelka</annotation>
+		<annotation cp="⇚">chapga uch strelka</annotation>
+		<annotation cp="⇚" type="tts">chapga uch strelka</annotation>
+		<annotation cp="⇛">oʻngga uch strelka</annotation>
+		<annotation cp="⇛" type="tts">oʻngga uch strelka</annotation>
+		<annotation cp="⇜">egri-bugri chapga strelka</annotation>
+		<annotation cp="⇜" type="tts">egri-bugri chapga strelka</annotation>
+		<annotation cp="⇝">egri-bugri oʻngga strelka</annotation>
+		<annotation cp="⇝" type="tts">egri-bugri oʻngga strelka</annotation>
+		<annotation cp="⇞">qoʻsh chiziqli yuqoriga strelka</annotation>
+		<annotation cp="⇞" type="tts">qoʻsh chiziqli yuqoriga strelka</annotation>
+		<annotation cp="⇟">qoʻsh chiziqli pastga strelka</annotation>
+		<annotation cp="⇟" type="tts">qoʻsh chiziqli pastga strelka</annotation>
+		<annotation cp="⇠">nuqtali chapga strelka</annotation>
+		<annotation cp="⇠" type="tts">nuqtali chapga strelka</annotation>
+		<annotation cp="⇡">nuqtali yuqoriga strelka</annotation>
+		<annotation cp="⇡" type="tts">nuqtali yuqoriga strelka</annotation>
+		<annotation cp="⇢">nuqtali oʻngga strelka</annotation>
+		<annotation cp="⇢" type="tts">nuqtali oʻngga strelka</annotation>
+		<annotation cp="⇣">nuqtali pastga strelka</annotation>
+		<annotation cp="⇣" type="tts">nuqtali pastga strelka</annotation>
+		<annotation cp="⇤">chiziqqa taqaluvchi chapga strelka</annotation>
+		<annotation cp="⇤" type="tts">chiziqqa taqaluvchi chapga strelka</annotation>
+		<annotation cp="⇥">chiziqqa taqaluvchi oʻngga strelka</annotation>
+		<annotation cp="⇥" type="tts">chiziqqa taqaluvchi oʻngga strelka</annotation>
+		<annotation cp="⇦">ichi boʻsh chapga strelka</annotation>
+		<annotation cp="⇦" type="tts">ichi boʻsh chapga strelka</annotation>
+		<annotation cp="⇧">ichi boʻsh yuqoriga strelka</annotation>
+		<annotation cp="⇧" type="tts">ichi boʻsh yuqoriga strelka</annotation>
+		<annotation cp="⇨">ichi boʻsh oʻngga strelka</annotation>
+		<annotation cp="⇨" type="tts">ichi boʻsh oʻngga strelka</annotation>
+		<annotation cp="⇩">ichi boʻsh pastga strelka</annotation>
+		<annotation cp="⇩" type="tts">ichi boʻsh pastga strelka</annotation>
+		<annotation cp="⇪">toʻgʻri toʻrtburchakli ichi boʻsh yuqoriga strelka</annotation>
+		<annotation cp="⇪" type="tts">toʻgʻri toʻrtburchakli ichi boʻsh yuqoriga strelka</annotation>
+		<annotation cp="⇵">yuqoridan pastga va pastdan yuqoriga strelka</annotation>
+		<annotation cp="⇵" type="tts">yuqoridan pastga va pastdan yuqoriga strelka</annotation>
+		<annotation cp="∀">barcha | berilgan | hamma | hamma uchun | universal</annotation>
+		<annotation cp="∀" type="tts">hamma uchun</annotation>
+		<annotation cp="∂">differensial | qisman differensial</annotation>
+		<annotation cp="∂" type="tts">qisman differensial</annotation>
+		<annotation cp="∃">mavjud</annotation>
+		<annotation cp="∃" type="tts">mavjud</annotation>
+		<annotation cp="∅">boʻsh toʻplam | matematika</annotation>
+		<annotation cp="∅" type="tts">boʻsh toʻplam</annotation>
 		<annotation cp="∆">ortish belgisi | uchburchak</annotation>
 		<annotation cp="∆" type="tts">ortish belgisi</annotation>
 		<annotation cp="∇">nabla | uchburchak</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">a’zolik | element | elementi hisoblanadi | tashkil topadi | to‘plam</annotation>
 		<annotation cp="∈" type="tts">element</annotation>
+		<annotation cp="∉">element | element emas</annotation>
+		<annotation cp="∉" type="tts">element emas</annotation>
+		<annotation cp="∋">aʼzo sifatida kiradi | element</annotation>
+		<annotation cp="∋" type="tts">aʼzo sifatida kiradi</annotation>
+		<annotation cp="∎">qabrtosh | qora tosh | yakuniy dalil</annotation>
+		<annotation cp="∎" type="tts">yakuniy dalil</annotation>
+		<annotation cp="∏">asar | mahsulot | mantiq</annotation>
+		<annotation cp="∏" type="tts">asar</annotation>
+		<annotation cp="∑">matematika | summa</annotation>
+		<annotation cp="∑" type="tts">summa</annotation>
 		<annotation cp="+">plus | plus belgisi | qoʻshish</annotation>
 		<annotation cp="+" type="tts">plus belgisi</annotation>
 		<annotation cp="±">plus-minus</annotation>
@@ -201,12 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">ko‘paytirish belgisi</annotation>
 		<annotation cp="&lt;">kichik | kichikroq | taqqoslash | teg | tegni ochish</annotation>
 		<annotation cp="&lt;" type="tts">kichik</annotation>
+		<annotation cp="≮">kichik emas | matematika | tengsizlik</annotation>
+		<annotation cp="≮" type="tts">kichik emas</annotation>
 		<annotation cp="=">barobar | teng</annotation>
 		<annotation cp="=" type="tts">teng</annotation>
 		<annotation cp="≠">teng emas | tengsizlik | tengsizlik belgisi</annotation>
 		<annotation cp="≠" type="tts">teng emas</annotation>
 		<annotation cp="&gt;">katta | kattaroq | taqqoslash | teg | tegni yopish</annotation>
 		<annotation cp="&gt;" type="tts">katta</annotation>
+		<annotation cp="≯">katta emas | matematika | tengsizlik</annotation>
+		<annotation cp="≯" type="tts">katta emas</annotation>
 		<annotation cp="¬">inkor | yoʻq</annotation>
 		<annotation cp="¬" type="tts">inkor</annotation>
 		<annotation cp="|">bar | ustun | vertikal chiziq | vertikal liniya</annotation>
@@ -217,38 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">minus belgisi</annotation>
 		<annotation cp="⁻">ayirish belgisi | satr ustidagi | satr ustidagi ayirish belgisi</annotation>
 		<annotation cp="⁻" type="tts">satr ustidagi ayirish belgisi</annotation>
+		<annotation cp="∓">minus yoki plyus | plyus-minus</annotation>
+		<annotation cp="∓" type="tts">minus yoki plyus</annotation>
+		<annotation cp="∕">ajratuvchi belgi | chiziq | slesh</annotation>
+		<annotation cp="∕" type="tts">ajratuvchi belgi</annotation>
+		<annotation cp="⁄">chiziq | kasr qiyshiq chiziq</annotation>
+		<annotation cp="⁄" type="tts">kasr qiyshiq chiziq</annotation>
+		<annotation cp="∗">yulduz | yulduzcha operatori</annotation>
+		<annotation cp="∗" type="tts">yulduzcha operatori</annotation>
+		<annotation cp="∘">halqa operatori | kompozitsiya | operator</annotation>
+		<annotation cp="∘" type="tts">halqa operatori</annotation>
+		<annotation cp="∙">bullet operatori | operator</annotation>
+		<annotation cp="∙" type="tts">bullet operatori</annotation>
 		<annotation cp="√">ildiz | ildiz belgisi | irratsional son | kvadrat | radiks</annotation>
 		<annotation cp="√" type="tts">kvadrat ildiz</annotation>
+		<annotation cp="∝">proporsionallik</annotation>
+		<annotation cp="∝" type="tts">proporsional</annotation>
 		<annotation cp="∞">cheksizlik | cheksizlik belgisi</annotation>
 		<annotation cp="∞" type="tts">cheksizlik belgisi</annotation>
+		<annotation cp="∟">matematika | toʻgʻri burchak</annotation>
+		<annotation cp="∟" type="tts">toʻgʻri burchak</annotation>
+		<annotation cp="∠">parallel</annotation>
+		<annotation cp="∠" type="tts">oʻtkir burchak</annotation>
+		<annotation cp="∣">boʻlish belgisi | boʻluvchi</annotation>
+		<annotation cp="∣" type="tts">boʻlish belgisi</annotation>
+		<annotation cp="∥">parallel</annotation>
+		<annotation cp="∥" type="tts">parallel</annotation>
+		<annotation cp="∧">choʻqqi | mantiqiy va | pona</annotation>
+		<annotation cp="∧" type="tts">mantiqiy va</annotation>
 		<annotation cp="∩">kesishma | to‘plam</annotation>
 		<annotation cp="∩" type="tts">kesishma</annotation>
 		<annotation cp="∪">birlashma | birlashtirish belgisi | kolleksiya | to‘plam</annotation>
 		<annotation cp="∪" type="tts">birlashtirish belgisi</annotation>
+		<annotation cp="∫">integral | matematik tahlil</annotation>
+		<annotation cp="∫" type="tts">integral</annotation>
+		<annotation cp="∬">matematik tahlil | qoʻsh integral</annotation>
+		<annotation cp="∬" type="tts">qoʻsh integral</annotation>
+		<annotation cp="∮">konturli integral</annotation>
+		<annotation cp="∮" type="tts">konturli integral</annotation>
+		<annotation cp="∴">mantiq | shuning uchun</annotation>
+		<annotation cp="∴" type="tts">shuning uchun</annotation>
+		<annotation cp="∵">chunki | mantiq</annotation>
+		<annotation cp="∵" type="tts">chunki</annotation>
+		<annotation cp="∶">nisbat</annotation>
+		<annotation cp="∶" type="tts">nisbat</annotation>
+		<annotation cp="∷">mutanosiblik | proporsionallik | proporsiya</annotation>
+		<annotation cp="∷" type="tts">proporsiya</annotation>
+		<annotation cp="∼">operator | tilda operatori</annotation>
+		<annotation cp="∼" type="tts">tilda operatori</annotation>
+		<annotation cp="∽">teskari tilda | tilda</annotation>
+		<annotation cp="∽" type="tts">teskari tilda</annotation>
+		<annotation cp="∾">teskari ravon s</annotation>
+		<annotation cp="∾" type="tts">teskari ravon s</annotation>
+		<annotation cp="≃">asimptotik | asimptotik teng belgisi | matematika</annotation>
+		<annotation cp="≃" type="tts">asimptotik teng belgisi</annotation>
+		<annotation cp="≅">izomorfizm | matematika | taxminiy teng belgisi</annotation>
+		<annotation cp="≅" type="tts">taxminiy teng belgisi</annotation>
 		<annotation cp="≈">deyarli teng | taxminan</annotation>
 		<annotation cp="≈" type="tts">deyarli teng</annotation>
+		<annotation cp="≌">hammasi teng belgisi | matematika | tenglik</annotation>
+		<annotation cp="≌" type="tts">hammasi teng belgisi</annotation>
+		<annotation cp="≒">taxminiy teng belgisi tasviri</annotation>
+		<annotation cp="≒" type="tts">taxminiy teng belgisi tasviri</annotation>
+		<annotation cp="≖">matematika | teng belgisidagi halqa | tenglik</annotation>
+		<annotation cp="≖" type="tts">teng belgisidagi halqa</annotation>
 		<annotation cp="≡">aniq | bir xil | bir xillik belgisi | uchta chiziqli</annotation>
 		<annotation cp="≡" type="tts">bir xillik belgisi</annotation>
+		<annotation cp="≣">matematika | qatʼiy ekvivalent | tenglik</annotation>
+		<annotation cp="≣" type="tts">qatʼiy ekvivalent</annotation>
 		<annotation cp="≤">kichik | kichik yoki teng | taqqoslash | teng | tenglik</annotation>
 		<annotation cp="≤" type="tts">kichik yoki teng</annotation>
 		<annotation cp="≥">katta | katta yoki teng | taqqoslash | teng | tenglik</annotation>
 		<annotation cp="≥" type="tts">katta yoki teng</annotation>
+		<annotation cp="≦">matematika | teng ustidagi kichik belgisi | tenglik</annotation>
+		<annotation cp="≦" type="tts">teng ustidagi kichik belgisi</annotation>
+		<annotation cp="≧">matematika | teng ustidagi katta belgisi | tenglik</annotation>
+		<annotation cp="≧" type="tts">teng ustidagi katta belgisi</annotation>
+		<annotation cp="≪">matematika | nisbatan kichik | tenglik</annotation>
+		<annotation cp="≪" type="tts">nisbatan kichik</annotation>
+		<annotation cp="≫">matematika | nisbatan katta | tenglik</annotation>
+		<annotation cp="≫" type="tts">nisbatan katta</annotation>
+		<annotation cp="≬">orasida</annotation>
+		<annotation cp="≬" type="tts">orasida</annotation>
+		<annotation cp="≳">ekvivalentdan katta | matematika | tenglik</annotation>
+		<annotation cp="≳" type="tts">ekvivalentdan katta</annotation>
+		<annotation cp="≺">matematika | oldin keladi | tenglik operatori</annotation>
+		<annotation cp="≺" type="tts">oldin keladi</annotation>
+		<annotation cp="≻">keyin keladi | matematika | tenglik operatori</annotation>
+		<annotation cp="≻" type="tts">keyin keladi</annotation>
+		<annotation cp="⊁">keyin kelmaydi | matematika</annotation>
+		<annotation cp="⊁" type="tts">keyin kelmaydi</annotation>
 		<annotation cp="⊂">ichki toʻplam | toʻplam</annotation>
 		<annotation cp="⊂" type="tts">ichki toʻplam</annotation>
+		<annotation cp="⊃">matematika | superset</annotation>
+		<annotation cp="⊃" type="tts">superset</annotation>
+		<annotation cp="⊆">subset teng</annotation>
+		<annotation cp="⊆" type="tts">subset teng</annotation>
+		<annotation cp="⊇">matematika | superset teng | tenglik</annotation>
+		<annotation cp="⊇" type="tts">superset teng</annotation>
+		<annotation cp="⊕">aylanadagi plyus | plyus</annotation>
+		<annotation cp="⊕" type="tts">aylanadagi plyus</annotation>
+		<annotation cp="⊖">aylanadagi minus | simmetrik ayirma</annotation>
+		<annotation cp="⊖" type="tts">aylanadagi minus</annotation>
+		<annotation cp="⊗">aylanadagi iks | aylanadagi koʻpaytirish | tenzorbelgisi</annotation>
+		<annotation cp="⊗" type="tts">aylanadagi koʻpaytirish belgisi</annotation>
+		<annotation cp="⊘">aylanadagi kasr chizigʻi | matematika</annotation>
+		<annotation cp="⊘" type="tts">aylanadagi kasr chizigʻi</annotation>
+		<annotation cp="⊙">aylanadagi nuqta operatori | operator | XNOR</annotation>
+		<annotation cp="⊙" type="tts">aylanadagi nuqta operatori</annotation>
+		<annotation cp="⊚">aylanadagi halqa operatori</annotation>
+		<annotation cp="⊚" type="tts">aylanadagi halqa operatori</annotation>
+		<annotation cp="⊛">aylanadagi yulduzcha operatori | operator | yulduzcha</annotation>
+		<annotation cp="⊛" type="tts">aylanadagi yulduzcha operatori</annotation>
+		<annotation cp="⊞">kvadratdagi plyus | matematika | plyus belgisi</annotation>
+		<annotation cp="⊞" type="tts">kvadratdagi plyus</annotation>
+		<annotation cp="⊟">kvadratdagi minus | matematika | minus belgisi</annotation>
+		<annotation cp="⊟" type="tts">kvadratdagi minus</annotation>
+		<annotation cp="⊥">chap berish | teskari T</annotation>
+		<annotation cp="⊥" type="tts">teskari T</annotation>
+		<annotation cp="⊮">qiziqmaydi</annotation>
+		<annotation cp="⊮" type="tts">qiziqmaydi</annotation>
+		<annotation cp="⊰">matematika | nisbatan oldin keladi | operator</annotation>
+		<annotation cp="⊰" type="tts">nisbatan oldin keladi</annotation>
+		<annotation cp="⊱">matematika | nisbatan keyin keladi | operator</annotation>
+		<annotation cp="⊱" type="tts">nisbatan keyin keladi</annotation>
+		<annotation cp="⋭">guruh nazariyasi | matematika | normal quyi guruhga kirmaydigan tenglik</annotation>
+		<annotation cp="⋭" type="tts">normal quyi guruhga kirmaydigan tenglik</annotation>
+		<annotation cp="⊶">original</annotation>
+		<annotation cp="⊶" type="tts">original</annotation>
+		<annotation cp="⊹">kvadrat matritsasi | matematika | tutashgan hermit matritsasi</annotation>
+		<annotation cp="⊹" type="tts">tutashgan hermit matritsasi</annotation>
+		<annotation cp="⊿">matematika | oʻng burchakli uchburchak | oʻng uchburchak</annotation>
+		<annotation cp="⊿" type="tts">oʻng uchburchak</annotation>
+		<annotation cp="⋁">dizyunksiya | mantiq | n-simon mantiqiy yoki</annotation>
+		<annotation cp="⋁" type="tts">n-simon mantiqiy yoki</annotation>
+		<annotation cp="⋂">kesishish | matematika | n-simon kesishish | operator</annotation>
+		<annotation cp="⋂" type="tts">n-simon kesishish</annotation>
+		<annotation cp="⋃">birlashuv | matematika | n-simon birlashuv | operator</annotation>
+		<annotation cp="⋃" type="tts">n-simon birlashuv</annotation>
+		<annotation cp="⋅">nuqta operatori | operator</annotation>
+		<annotation cp="⋅" type="tts">nuqta operatori</annotation>
+		<annotation cp="⋆">operator | yulduz operatori</annotation>
+		<annotation cp="⋆" type="tts">yulduz operatori</annotation>
+		<annotation cp="⋈">ikkilik operator | tabiiy qoʻshilish</annotation>
+		<annotation cp="⋈" type="tts">tabiiy qoʻshilish</annotation>
+		<annotation cp="⋒">kesishish | matematika | operator | qoʻsh kesishuv</annotation>
+		<annotation cp="⋒" type="tts">qoʻsh kesishuv</annotation>
+		<annotation cp="⋘">juda kichik | matematika | tengsizlik</annotation>
+		<annotation cp="⋘" type="tts">juda kichik</annotation>
+		<annotation cp="⋙">juda katta | matematika | tengsizlik</annotation>
+		<annotation cp="⋙" type="tts">juda katta</annotation>
+		<annotation cp="⋮">koʻpnuqta | matematika | vertikal koʻpnuqta</annotation>
+		<annotation cp="⋮" type="tts">vertikal koʻpnuqta</annotation>
+		<annotation cp="⋯">koʻpnuqta | satr ichidagi gorizontal koʻpnuqta</annotation>
+		<annotation cp="⋯" type="tts">satr ichidagi gorizontal koʻpnuqta</annotation>
+		<annotation cp="⋰">koʻpnuqta | matematika | yuqoriga-oʻngga diagonal koʻpnuqta</annotation>
+		<annotation cp="⋰" type="tts">yuqoriga-oʻngga diagonal koʻpnuqta</annotation>
+		<annotation cp="⋱">koʻpnuqta | matematika | pastga-oʻngga diagonal koʻpnuqta</annotation>
+		<annotation cp="⋱" type="tts">pastga-oʻngga diagonal koʻpnuqta</annotation>
+		<annotation cp="■">boʻyalgan kvadrat</annotation>
+		<annotation cp="■" type="tts">boʻyalgan kvadrat</annotation>
+		<annotation cp="□">ichi boʻsh kvadrat</annotation>
+		<annotation cp="□" type="tts">ichi boʻsh kvadrat</annotation>
+		<annotation cp="▢">burchaklari yumaloqlangan ichi boʻsh kvadrat</annotation>
+		<annotation cp="▢" type="tts">burchaklari yumaloqlangan ichi boʻsh kvadrat</annotation>
+		<annotation cp="▣">boʻsh kvadrat ichidagi boʻyalgan kvadrat</annotation>
+		<annotation cp="▣" type="tts">boʻsh kvadrat ichidagi boʻyalgan kvadrat</annotation>
+		<annotation cp="▤">gorizontal shtrixli kvadrat</annotation>
+		<annotation cp="▤" type="tts">gorizontal shtrixli kvadrat</annotation>
+		<annotation cp="▥">vertikal shtrixli kvadrat</annotation>
+		<annotation cp="▥" type="tts">vertikal shtrixli kvadrat</annotation>
+		<annotation cp="▦">ortogonal kesishma shtrixli kvadrat</annotation>
+		<annotation cp="▦" type="tts">ortogonal kesishma shtrixli kvadrat</annotation>
+		<annotation cp="▧">chapga-oʻngga diagonal shtrixli kvadrat</annotation>
+		<annotation cp="▧" type="tts">chapga-oʻngga diagonal shtrixli kvadrat</annotation>
+		<annotation cp="▨">oʻngga-chapga diagonal shtrixli kvadrat</annotation>
+		<annotation cp="▨" type="tts">oʻngga-chapga diagonal shtrixli kvadrat</annotation>
+		<annotation cp="▩">diagonal kesishma shtrixli kvadrat</annotation>
+		<annotation cp="▩" type="tts">diagonal kesishma shtrixli kvadrat</annotation>
+		<annotation cp="▬">boʻyalgan toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▬" type="tts">boʻyalgan toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▭">ichi boʻsh toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▭" type="tts">ichi boʻsh toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▮">boʻyalgan vertikal toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▮" type="tts">boʻyalgan vertikal toʻgʻri toʻrtburchak</annotation>
+		<annotation cp="▰">boʻyalgan parallelogram</annotation>
+		<annotation cp="▰" type="tts">boʻyalgan parallelogram</annotation>
 		<annotation cp="▲">chiziq | ichi boʻyalgan yuqoriga qaragan uchburchak | ichi to‘ldirilgan | ichi to‘ldirilgan yuqoriga qaragan uchburchak | uchburchak | yuqoriga</annotation>
 		<annotation cp="▲" type="tts">ichi boʻyalgan yuqoriga qaragan uchburchak</annotation>
+		<annotation cp="△">yuqoriga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="△" type="tts">yuqoriga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="▴">yuqoriga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▴" type="tts">yuqoriga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▵">yuqoriga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="▵" type="tts">yuqoriga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="▷">oʻngga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="▷" type="tts">oʻngga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="▸">oʻngga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▸" type="tts">oʻngga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▹">oʻngga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="▹" type="tts">oʻngga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="►">oʻngga qaragan boʻyalgan koʻrsatkich</annotation>
+		<annotation cp="►" type="tts">oʻngga qaragan boʻyalgan koʻrsatkich</annotation>
+		<annotation cp="▻">oʻngga qaragan ichi boʻsh koʻrsatkich</annotation>
+		<annotation cp="▻" type="tts">oʻngga qaragan ichi boʻsh koʻrsatkich</annotation>
 		<annotation cp="▼">chiziq | ichi to‘ldirilgan | ichi to‘ldirilgan pastga qaragan uchburchak | pastga | uchburchak</annotation>
 		<annotation cp="▼" type="tts">ichi to‘ldirilgan pastga qaragan uchburchak</annotation>
+		<annotation cp="▽">pastga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="▽" type="tts">pastga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="▾">pastga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▾" type="tts">pastga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="▿">pastga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="▿" type="tts">pastga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="◁">chapga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="◁" type="tts">chapga qaragan ichi boʻsh uchburchak</annotation>
+		<annotation cp="◂">chapga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="◂" type="tts">chapga qaragan boʻyalgan kichik uchburchak</annotation>
+		<annotation cp="◃">chapga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="◃" type="tts">chapga qaragan ichi boʻsh kichik uchburchak</annotation>
+		<annotation cp="◄">chapga qaragan boʻyalgan koʻrsatkich</annotation>
+		<annotation cp="◄" type="tts">chapga qaragan boʻyalgan koʻrsatkich</annotation>
+		<annotation cp="◅">chapga qaragan ichi boʻsh koʻrsatkich</annotation>
+		<annotation cp="◅" type="tts">chapga qaragan ichi boʻsh koʻrsatkich</annotation>
+		<annotation cp="◆">boʻyalgan olmos</annotation>
+		<annotation cp="◆" type="tts">boʻyalgan olmos</annotation>
+		<annotation cp="◇">ichi boʻsh olmos</annotation>
+		<annotation cp="◇" type="tts">ichi boʻsh olmos</annotation>
+		<annotation cp="◈">boʻsh olmos ichidagi boʻyalgan olmos</annotation>
+		<annotation cp="◈" type="tts">boʻsh olmos ichidagi boʻyalgan olmos</annotation>
+		<annotation cp="◉">aylana ichidagi nuqta | baliq koʻzi | boʻsh aylana ichidagi boʻyalgan aylana</annotation>
+		<annotation cp="◉" type="tts">boʻsh aylana ichidagi boʻyalgan aylana</annotation>
 		<annotation cp="◊">marvarid | romb</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">doira | halqa | ichi bo‘sh doira</annotation>
 		<annotation cp="○" type="tts">ichi bo‘sh doira</annotation>
+		<annotation cp="◌">nuqtali aylana</annotation>
+		<annotation cp="◌" type="tts">nuqtali aylana</annotation>
+		<annotation cp="◍">vertikal shtrixli aylana</annotation>
+		<annotation cp="◍" type="tts">vertikal shtrixli aylana</annotation>
+		<annotation cp="◎">konsentrik aylana | nishon | qoʻsh aylana</annotation>
+		<annotation cp="◎" type="tts">konsentrik aylana</annotation>
 		<annotation cp="●">doira | ichi to‘ldirilgan doira</annotation>
 		<annotation cp="●" type="tts">ichi to‘ldirilgan doira</annotation>
+		<annotation cp="◐">chap yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◐" type="tts">chap yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◑">oʻng yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◑" type="tts">oʻng yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◒">pastki yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◒" type="tts">pastki yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◓">yuqori yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◓" type="tts">yuqori yarmi boʻyalgan aylana</annotation>
+		<annotation cp="◔">yuqori oʻng choragi boʻyalgan aylana</annotation>
+		<annotation cp="◔" type="tts">yuqori oʻng choragi boʻyalgan aylana</annotation>
+		<annotation cp="◕">yuqori chap choragi boʻsh aylana</annotation>
+		<annotation cp="◕" type="tts">yuqori chap choragi boʻsh aylana</annotation>
+		<annotation cp="◖">aylananing chap yarmi boʻyalgan</annotation>
+		<annotation cp="◖" type="tts">aylananing chap yarmi boʻyalgan</annotation>
+		<annotation cp="◗">aylananing oʻng yarmi boʻyalgan</annotation>
+		<annotation cp="◗" type="tts">aylananing oʻng yarmi boʻyalgan</annotation>
+		<annotation cp="◘">teskari bullet</annotation>
+		<annotation cp="◘" type="tts">teskari bullet</annotation>
+		<annotation cp="◙">boʻyalgan kvadrat ichidagi boʻsh aylana | teskari ichi boʻsh aylana</annotation>
+		<annotation cp="◙" type="tts">boʻyalgan kvadrat ichidagi boʻsh aylana</annotation>
+		<annotation cp="◜">yuqori-chap kvadrant aylana yoyi</annotation>
+		<annotation cp="◜" type="tts">yuqori-chap kvadrant aylana yoyi</annotation>
+		<annotation cp="◝">yuqori-oʻng kvadrant aylana yoyi</annotation>
+		<annotation cp="◝" type="tts">yuqori-oʻng kvadrant aylana yoyi</annotation>
+		<annotation cp="◞">pastki-oʻng kvadrant aylana yoyi</annotation>
+		<annotation cp="◞" type="tts">pastki-oʻng kvadrant aylana yoyi</annotation>
+		<annotation cp="◟">pastki-chap kvadrant aylana yoyi</annotation>
+		<annotation cp="◟" type="tts">pastki-chap kvadrant aylana yoyi</annotation>
+		<annotation cp="◠">yuqori yarim aylana</annotation>
+		<annotation cp="◠" type="tts">yuqori yarim aylana</annotation>
+		<annotation cp="◡">pastki yarim aylana</annotation>
+		<annotation cp="◡" type="tts">pastki yarim aylana</annotation>
+		<annotation cp="◢">pastga boʻyalgan oʻng uchburchak</annotation>
+		<annotation cp="◢" type="tts">pastga boʻyalgan oʻng uchburchak</annotation>
+		<annotation cp="◣">pastga boʻyalgan chap uchburchak</annotation>
+		<annotation cp="◣" type="tts">pastga boʻyalgan chap uchburchak</annotation>
+		<annotation cp="◤">yuqoriga boʻyalgan chap uchburchak</annotation>
+		<annotation cp="◤" type="tts">yuqoriga boʻyalgan chap uchburchak</annotation>
+		<annotation cp="◥">yuqoriga boʻyalgan oʻng uchburchak</annotation>
+		<annotation cp="◥" type="tts">yuqoriga boʻyalgan oʻng uchburchak</annotation>
+		<annotation cp="◦">ichi boʻsh bullet</annotation>
+		<annotation cp="◦" type="tts">ichi boʻsh bullet</annotation>
 		<annotation cp="◯">doira | halqa | yirik ichi bo‘sh doira</annotation>
 		<annotation cp="◯" type="tts">yirik ichi bo‘sh doira</annotation>
+		<annotation cp="◳">yuqori-oʻng kvadrantli ichi boʻsh kvadrat</annotation>
+		<annotation cp="◳" type="tts">yuqori-oʻng kvadrantli ichi boʻsh kvadrat</annotation>
+		<annotation cp="◷">yuqori-oʻng kvadrantli ichi boʻsh aylana</annotation>
+		<annotation cp="◷" type="tts">yuqori-oʻng kvadrantli ichi boʻsh aylana</annotation>
+		<annotation cp="◿">pastki-oʻng uchburchak</annotation>
+		<annotation cp="◿" type="tts">pastki-oʻng uchburchak</annotation>
 		<annotation cp="♪">musiqa | nota | sakkizinchi</annotation>
 		<annotation cp="♪" type="tts">sakkizinchi nota</annotation>
+		<annotation cp="⨧">plyus ikki indeks</annotation>
+		<annotation cp="⨧" type="tts">plyus ikki indeks</annotation>
+		<annotation cp="⨯">vektor kesishmasi</annotation>
+		<annotation cp="⨯" type="tts">vektor kesishmasi</annotation>
+		<annotation cp="⨼">ichki tomon</annotation>
+		<annotation cp="⨼" type="tts">ichki tomon</annotation>
+		<annotation cp="⩣">mantiqiy yoki pastki qoʻsh chiziq</annotation>
+		<annotation cp="⩣" type="tts">mantiqiy yoki pastki qoʻsh chiziq</annotation>
+		<annotation cp="⩽">qiya tengdan kichik</annotation>
+		<annotation cp="⩽" type="tts">qiya tengdan kichik</annotation>
+		<annotation cp="⪍">oʻxshash tengdan kichik</annotation>
+		<annotation cp="⪍" type="tts">oʻxshash tengdan kichik</annotation>
+		<annotation cp="⪚">ikki chiziqli tengdan katta | matematika | tengsizlik</annotation>
+		<annotation cp="⪚" type="tts">ikki chiziqli tengdan katta</annotation>
+		<annotation cp="⪺">biroz oshadi, lekin teng emas</annotation>
+		<annotation cp="⪺" type="tts">biroz oshadi, lekin teng emas</annotation>
 		<annotation cp="♭">bemol | musiqa | nota</annotation>
 		<annotation cp="♭" type="tts">bemol</annotation>
 		<annotation cp="♯">diyez | musiqa | nota</annotation>
@@ -271,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">quvonch ko‘z yoshlari</annotation>
 		<annotation cp="🙂">tabassum | yengilgina kulayotgan yuz | yuz</annotation>
 		<annotation cp="🙂" type="tts">yengilgina kulayotgan yuz</annotation>
+		<annotation cp="🙂‍↕">vertikal yo‘nalishda tebranayotgan yuz, ha ishorasi</annotation>
+		<annotation cp="🙂‍↕" type="tts">vertikal yo‘nalishda tebranayotgan yuz</annotation>
+		<annotation cp="🙂‍↔">gorizontal yo‘nalishda tebranayotgan yuz | yo‘q ishorasi, silkitish</annotation>
+		<annotation cp="🙂‍↔" type="tts">gorizontal yo‘nalishda tebranayotgan yuz</annotation>
 		<annotation cp="🙃">to‘ntarilgan | yuz</annotation>
 		<annotation cp="🙃" type="tts">to‘ntarilgan yuz</annotation>
 		<annotation cp="🫠">erib ketayotgan yuz | erish | suyuqlik | yo‘qolish</annotation>
@@ -323,7 +785,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤫" type="tts">ts-s-s</annotation>
 		<annotation cp="🤔">o‘ylash | o‘ylayotgan yuz | yuz</annotation>
 		<annotation cp="🤔" type="tts">o‘ylayotgan yuz</annotation>
-		<annotation cp="🫡">ha | lashkar | ok | salom | salomlashayotgan yuz | troops</annotation>
+		<annotation cp="🫡">ha | lashkar | ok | salom | salomlashayotgan yuz</annotation>
 		<annotation cp="🫡" type="tts">salomlashayotgan yuz</annotation>
 		<annotation cp="🤐">og‘iz | og‘zi qulflangan yuz | qulf | yuz</annotation>
 		<annotation cp="🤐" type="tts">og‘zi qulflangan yuz</annotation>
@@ -552,7 +1014,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤎">jigarrang | yurak</annotation>
 		<annotation cp="🤎" type="tts">jigarrang yurak</annotation>
 		<annotation cp="🖤">ichi qora | qora | yurak</annotation>
-		<annotation cp="🖤" type="tts">ichi qora</annotation>
+		<annotation cp="🖤" type="tts">qora yurak</annotation>
 		<annotation cp="🩶">kulrang | kumush | yurak</annotation>
 		<annotation cp="🩶" type="tts">kulrang yurak</annotation>
 		<annotation cp="🤍">oq | yurak</annotation>
@@ -565,16 +1027,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💢" type="tts">jahl belgisi</annotation>
 		<annotation cp="💥">latifa | portlash | to‘qnashuv</annotation>
 		<annotation cp="💥" type="tts">to‘qnashuv</annotation>
-		<annotation cp="💫">bosh aylanish | latifa | yulduz</annotation>
-		<annotation cp="💫" type="tts">bosh aylanish</annotation>
-		<annotation cp="💦">ko‘z yoshi | ko‘z yoshi tomchilari | latifa | sachrash</annotation>
-		<annotation cp="💦" type="tts">ko‘z yoshi tomchilari</annotation>
-		<annotation cp="💨">chaqqon | latifa | shoshilish | yugurish</annotation>
+		<annotation cp="💫">bosh aylanishi | komiks | yulduz</annotation>
+		<annotation cp="💫" type="tts">bosh aylanishi</annotation>
+		<annotation cp="💦">komiks | sachrash | ter | ter tomchilari</annotation>
+		<annotation cp="💦" type="tts">ter tomchilari</annotation>
+		<annotation cp="💨">chaqqon | komiks | shoshilish | yugurish</annotation>
 		<annotation cp="💨" type="tts">chaqqon</annotation>
 		<annotation cp="🕳">darcha | kovak | teshik | tuynuk</annotation>
 		<annotation cp="🕳" type="tts">teshik</annotation>
 		<annotation cp="💬">dialog | latifa | nutq | nutq buluti | pufak | shar</annotation>
-		<annotation cp="💬" type="tts">nutq buluti</annotation>
+		<annotation cp="💬" type="tts">nutq pufagi</annotation>
 		<annotation cp="👁‍🗨">guvoh | ko‘z | nutq pufagi | nutq pufagida ko‘z</annotation>
 		<annotation cp="👁‍🗨" type="tts">nutq pufagida ko‘z</annotation>
 		<annotation cp="🗨">chap nutq pufakchasi | dialog | nutq | pufak | shar</annotation>
@@ -719,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">voyaga yetgan</annotation>
 		<annotation cp="👱">mallasoch | sariq sochli odam | shaxs: mallasoch | soch</annotation>
 		<annotation cp="👱" type="tts">shaxs: mallasoch</annotation>
+		<annotation cp="🧑‍🧒">oila: bitta katta odam va bola</annotation>
+		<annotation cp="🧑‍🧒" type="tts">oila: bitta katta odam, bir bola</annotation>
+		<annotation cp="🧑‍🧒‍🧒">oila: bitta katta odam va ikki bola</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">oila: bitta katta odam, ikki bola</annotation>
+		<annotation cp="🧑‍🧑‍🧒">oila: ikkita kattalar va bola</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">oila: ikkita kattalar, bola</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">oila: ikkita kattalar va ikkita bola</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">oila: ikkita kattalar, ikkita bola</annotation>
 		<annotation cp="👨">erkak | katta yoshli</annotation>
 		<annotation cp="👨" type="tts">erkak</annotation>
 		<annotation cp="🧔">erkak | erkak: soqol | erkak: soqolli | shaxs | soqol | soqolli</annotation>
@@ -1379,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">oldiga qarab turgan jo‘ja</annotation>
 		<annotation cp="🐦">qush</annotation>
 		<annotation cp="🐦" type="tts">qush</annotation>
+		<annotation cp="🐦‍🔥">afsonaviy qush | fantaziya | feniks | olovqush | qaqnus | qayta tugʻilish</annotation>
+		<annotation cp="🐦‍🔥" type="tts">qaqnus</annotation>
 		<annotation cp="🐧">parranda | pingvin</annotation>
 		<annotation cp="🐧" type="tts">pingvin</annotation>
 		<annotation cp="🕊">kabutar | qush | tinchlik | uchish</annotation>
@@ -1403,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">to‘ti</annotation>
 		<annotation cp="🪽">aviatsiya | farishta | mifologiya | qanot | qush | uchish</annotation>
 		<annotation cp="🪽" type="tts">qanot</annotation>
+		<annotation cp="🐦‍⬛">goʻngqargʻa | qargʻa | qora | qush | quzgʻun</annotation>
+		<annotation cp="🐦‍⬛" type="tts">qora qush</annotation>
 		<annotation cp="🪿">ahmoq | gʻoz | parranda | qichqirish | qush</annotation>
 		<annotation cp="🪿" type="tts">gʻoz</annotation>
 		<annotation cp="🐸">baqa | qurbaqa | yuz</annotation>
@@ -1485,7 +1959,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">gilos guli</annotation>
 		<annotation cp="💮">gul | oq gul</annotation>
 		<annotation cp="💮" type="tts">oq gul</annotation>
-		<annotation cp="🪷">Buddizm | gul | Hindiston | Hinduizm | nilufar gul | soflik | Vyetnam</annotation>
+		<annotation cp="🪷">Buddizm | gul | Hinduizm | nilufar gul | soflik</annotation>
 		<annotation cp="🪷" type="tts">nilufar gul</annotation>
 		<annotation cp="🏵">o‘simlik | to‘pbarggul</annotation>
 		<annotation cp="🏵" type="tts">to‘pbarggul</annotation>
@@ -1535,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">tuxumlar bor in</annotation>
 		<annotation cp="🍄">o‘simlik | qo‘ziqorin</annotation>
 		<annotation cp="🍄" type="tts">qo‘ziqorin</annotation>
+		<annotation cp="🍄‍🟫">qoʻngʻir qoʻziqorin | qoʻziqorin | sabzavot | tabiiy | taom</annotation>
+		<annotation cp="🍄‍🟫" type="tts">qoʻngʻir qoʻziqorin</annotation>
 		<annotation cp="🍇">meva | o‘simlik | uzum</annotation>
 		<annotation cp="🍇" type="tts">uzum</annotation>
 		<annotation cp="🍈">meva | o‘simlik | qovun</annotation>
@@ -1545,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandarin</annotation>
 		<annotation cp="🍋">limon | meva | nordon | o‘simlik | sitrus</annotation>
 		<annotation cp="🍋" type="tts">limon</annotation>
+		<annotation cp="🍋‍🟩">laym | meva | sitrus | tropik</annotation>
+		<annotation cp="🍋‍🟩" type="tts">laym</annotation>
 		<annotation cp="🍌">banan | meva | o‘simlik</annotation>
 		<annotation cp="🍌" type="tts">banan</annotation>
 		<annotation cp="🍍">ananas | meva | o‘simlik</annotation>
@@ -2825,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">havola</annotation>
 		<annotation cp="⛓">zanjir | zanjirlar</annotation>
 		<annotation cp="⛓" type="tts">zanjirlar</annotation>
+		<annotation cp="⛓‍💥">ozodlik | taqa | uzilgan | uzish | zanjir</annotation>
+		<annotation cp="⛓‍💥" type="tts">uzilgan zanjir</annotation>
 		<annotation cp="🪝">egri | ilgak | ilib olish | ilintirish | ilmoq | savdo nuqtasi</annotation>
 		<annotation cp="🪝" type="tts">ilgak</annotation>
 		<annotation cp="🧰">asbob | asbob-uskuna | asbob-uskuna qutisi | jamlanma | quti | uskuna | usta</annotation>
@@ -3001,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">tepa-pastga strelka</annotation>
 		<annotation cp="↔">chapga-o‘ngga strelka | strelka</annotation>
 		<annotation cp="↔" type="tts">chapga-o‘ngga strelka</annotation>
+		<annotation cp="↮">qayta chizilgan chapga-oʻngga strelka</annotation>
+		<annotation cp="↮" type="tts">qayta chizilgan chapga-oʻngga strelka</annotation>
 		<annotation cp="↩">o‘ngdan chapga qayrilish | strelka</annotation>
 		<annotation cp="↩" type="tts">o‘ngdan chapga qayrilish</annotation>
 		<annotation cp="↪">chapdan o‘ngga qayrilish | strelka</annotation>
@@ -3095,11 +3577,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏪" type="tts">tez orqaga o‘tkazish tugmasi</annotation>
 		<annotation cp="⏮">chiziq | oldingi qo‘shiq | oldingi qo‘shiq tugmasi | oldingi sahna | uchburchak</annotation>
 		<annotation cp="⏮" type="tts">oldingi qo‘shiq tugmasi</annotation>
-		<annotation cp="🔼">chiziq | qizil | tugma | yuqoriga tugmasi</annotation>
+		<annotation cp="🔼">chiziq | tugma | yuqoriga tugmasi</annotation>
 		<annotation cp="🔼" type="tts">yuqoriga tugmasi</annotation>
 		<annotation cp="⏫">chiziq | ikkita | tez yuqoriga tugmasi</annotation>
 		<annotation cp="⏫" type="tts">tez yuqoriga tugmasi</annotation>
-		<annotation cp="🔽">chiziq | pastga | pastga tugmasi | qizil | tugma</annotation>
+		<annotation cp="🔽">chiziq | pastga | pastga tugmasi | tugma</annotation>
 		<annotation cp="🔽" type="tts">pastga tugmasi</annotation>
 		<annotation cp="⏬">chiziq | ikkita | pastga | tez pastga tugmasi</annotation>
 		<annotation cp="⏬" type="tts">tez pastga tugmasi</annotation>
@@ -3373,20 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">funt sterling</annotation>
 		<annotation cp="¥">CNY | JPY | valyuta | yena | yuan</annotation>
 		<annotation cp="¥" type="tts">yena</annotation>
+		<annotation cp="₢">BRB | kruzeyro | valyuta</annotation>
+		<annotation cp="₢" type="tts">kruzeyro</annotation>
+		<annotation cp="₣">frank | fransuz franki | valyuta</annotation>
+		<annotation cp="₣" type="tts">fransuz franki</annotation>
+		<annotation cp="₤">lira | valyuta</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">Janubiy Koreya voni | Koreya Respublikasi voni | KPW | KRW | KXDR voni | Shimoliy Koreya voni | von</annotation>
 		<annotation cp="₩" type="tts">von</annotation>
 		<annotation cp="€">EUR | valyuta | yevro | yevro belgisi</annotation>
 		<annotation cp="€" type="tts">yevro belgisi</annotation>
+		<annotation cp="₰">nemis pennisi | pfennig | valyuta</annotation>
+		<annotation cp="₰" type="tts">nemis pennisi</annotation>
 		<annotation cp="₱">peso | pul</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳">ARA | avstral | valyuta</annotation>
+		<annotation cp="₳" type="tts">avstral</annotation>
+		<annotation cp="₶">tur livri | valyuta</annotation>
+		<annotation cp="₶" type="tts">tur livri</annotation>
+		<annotation cp="₷">spesmilo | valyuta</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">hind rupiysi | rupiy | valyuta</annotation>
 		<annotation cp="₹" type="tts">hind rupiysi</annotation>
 		<annotation cp="₽">rubl | valyuta</annotation>
 		<annotation cp="₽" type="tts">rubl</annotation>
 		<annotation cp="₿">bitkoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoin</annotation>
+		<annotation cp="₨">rupiya | valyura</annotation>
+		<annotation cp="₨" type="tts">rupiya</annotation>
+		<annotation cp="﷼">riyol | valyuta</annotation>
+		<annotation cp="﷼" type="tts">riyol</annotation>
 		<annotation cp="¹">bir soni | satr ustidagi | satr ustidagi bir soni</annotation>
 		<annotation cp="¹" type="tts">satr ustidagi bir soni</annotation>
 		<annotation cp="²">ikki soni | kvadrat belgisi | satr ustida | satr ustidagi ikki soni</annotation>

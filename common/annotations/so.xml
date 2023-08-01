@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -23,6 +23,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">jidh nooc madaw oo dhexe</annotation>
 		<annotation cp="🏿">jidh | jidh madaw | nooc 6</annotation>
 		<annotation cp="🏿" type="tts">jidh madaw</annotation>
+		<annotation cp="‾">leen sare</annotation>
+		<annotation cp="‾" type="tts">leen sare</annotation>
 		<annotation cp="_">daash | daash hoose | dhaash hoose | xariiq | xariiq hoose</annotation>
 		<annotation cp="_" type="tts">xariiq hoose</annotation>
 		<annotation cp="-">dhaash | jiitin-gaaban | jiitin-ka jarid | ka jar</annotation>
@@ -59,6 +61,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts">astaan su’aaleed rogan</annotation>
 		<annotation cp="؟">astaan su’aaleeda carabida | calaamadda su’aasha | calaamadda su’aasha carabiga | carabi | su’aal</annotation>
 		<annotation cp="؟" type="tts">astaan su’aaleeda carabida</annotation>
+		<annotation cp="‽">calaamad su’aal layaabed</annotation>
+		<annotation cp="‽" type="tts">calaamad su’aal layaabed</annotation>
 		<annotation cp=".">dhibic | joogsi | joogsi buuxa</annotation>
 		<annotation cp="." type="tts">joogsi</annotation>
 		<annotation cp="…">dhibco | dhibco isxig xiga | dhico isxig xiga | ka tagid</annotation>
@@ -155,8 +159,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="″" type="tts">labo hamse</annotation>
 		<annotation cp="‴">tiro aan qeybsamin | tiro saddex lambar uun u qeybsama | tiro seddex lambar uun u qeybsama</annotation>
 		<annotation cp="‴" type="tts">tiro saddex lambar uun u qeybsama</annotation>
+		<annotation cp="‸">caret</annotation>
+		<annotation cp="‸" type="tts">caret</annotation>
 		<annotation cp="※">astaan tixraac</annotation>
 		<annotation cp="※" type="tts">astaan tixraac</annotation>
+		<annotation cp="⁂">asterism | dinkus | xiddigo</annotation>
+		<annotation cp="⁂" type="tts">asterism</annotation>
 		<annotation cp="`">codka | lahjad | lahjad qabow | qabriga</annotation>
 		<annotation cp="`" type="tts">lahjad qabow</annotation>
 		<annotation cp="´">codka | lahjad | lahjad degdeg ah | qabriga</annotation>
@@ -171,22 +179,192 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">xuquuqda duubista codka</annotation>
 		<annotation cp="←">bidix | falaadh | falaadh bidix u jeedda | fallaar ku aadan bidix</annotation>
 		<annotation cp="←" type="tts">fallaar ku aadan bidix</annotation>
+		<annotation cp="↚">istarooga falaarta bidix u jeeda</annotation>
+		<annotation cp="↚" type="tts">istarooga falaarta bidix u jeeda</annotation>
 		<annotation cp="→">fallaa | fallaarta midigta ku aadan | midig</annotation>
 		<annotation cp="→" type="tts">fallaarta midigta ku aadan</annotation>
+		<annotation cp="↛">istarooga falaarta midig u jeeda</annotation>
+		<annotation cp="↛" type="tts">istarooga falaarta midig u jeeda</annotation>
 		<annotation cp="↑">fallaar | fallaar kor ku aadan | kor</annotation>
 		<annotation cp="↑" type="tts">fallaar kor ku aadan</annotation>
 		<annotation cp="↓">fallaar | fallaar hoos ku aadan | hoos</annotation>
 		<annotation cp="↓" type="tts">fallaar hoos ku aadan</annotation>
+		<annotation cp="↜">fallaarta mawjada ee bidix u jeeda</annotation>
+		<annotation cp="↜" type="tts">fallaarta mawjada ee bidix u jeeda</annotation>
+		<annotation cp="↝">fallaarta mawjada ee midig u jeeda</annotation>
+		<annotation cp="↝" type="tts">fallaarta mawjada ee midig u jeeda</annotation>
+		<annotation cp="↞">falaarta labada madax leh ee u jeeda bidix</annotation>
+		<annotation cp="↞" type="tts">falaarta labada madax leh ee u jeeda bidix</annotation>
+		<annotation cp="↟">falaarta labada madax leh ee u jeeda dhinaca kore</annotation>
+		<annotation cp="↟" type="tts">falaarta labada madax leh ee u jeeda dhinaca kore</annotation>
+		<annotation cp="↠">falaarta labada madax leh ee u jeeda dhinaca midig</annotation>
+		<annotation cp="↠" type="tts">falaarta labada madax leh ee u jeeda dhinaca midig</annotation>
+		<annotation cp="↡">falaarta labada madax leh ee u jeeda dhinaca hoose</annotation>
+		<annotation cp="↡" type="tts">falaarta labada madax leh ee u jeeda dhinaca hoose</annotation>
+		<annotation cp="↢">seynta falaarta bidix u jeeda</annotation>
+		<annotation cp="↢" type="tts">seynta falaarta bidix u jeeda</annotation>
+		<annotation cp="↣">seynta falaarta midig u jeeda</annotation>
+		<annotation cp="↣" type="tts">seynta falaarta midig u jeeda</annotation>
+		<annotation cp="↤">falaarta bidix u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↤" type="tts">falaarta bidix u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↥">falaarta kor u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↥" type="tts">falaarta kor u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↦">falaarta midig u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↦" type="tts">falaarta midig u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↧">falaarta hoos u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↧" type="tts">falaarta hoos u jeeda ee dabada ka malaasan</annotation>
+		<annotation cp="↨">falaarta kor hoos ee salka leh</annotation>
+		<annotation cp="↨" type="tts">falaarta kor hoose ee salka leh</annotation>
+		<annotation cp="↫">wareega falaarta bidixda u jeeda</annotation>
+		<annotation cp="↫" type="tts">wareega falaarta bidixda u jeeda</annotation>
+		<annotation cp="↬">wareega falaarta midigta u jeeda</annotation>
+		<annotation cp="↬" type="tts">wareega falaarta midigta u jeeda</annotation>
+		<annotation cp="↭">falaarta mawjada ee bidixda iyo midigta u jeeda</annotation>
+		<annotation cp="↭" type="tts">falaarta mawjada ee bidixda iyo midigta u jeeda</annotation>
+		<annotation cp="↯">falaarta sag-saga ee hoos u jeeda | sag-sag</annotation>
+		<annotation cp="↯" type="tts">falaarta sag-saga ee hoos u jeeda</annotation>
+		<annotation cp="↰">falaarta kor u jeeda cirifkuna bidixda u jeedo</annotation>
+		<annotation cp="↰" type="tts">falaarta kor u jeeda cirifkuna bidixda u jeedo</annotation>
+		<annotation cp="↱">falaarta kor u jeeda cirifkuna midigta u jeedo</annotation>
+		<annotation cp="↱" type="tts">falaarta kor u jeeda cirifkuna midigta u jeedo</annotation>
+		<annotation cp="↲">falaarta hoos u jeeda cirifkuna bidixda u jeedo</annotation>
+		<annotation cp="↲" type="tts">falaarta hoos u jeeda cirifkuna bidixda u jeedo</annotation>
+		<annotation cp="↳">falaarta hoos u jeeda cirifkuna midigta u jeedo</annotation>
+		<annotation cp="↳" type="tts">falaarta hoos u jeeda cirifkuna midigta u jeedo</annotation>
+		<annotation cp="↴">falaarta midig u jeeda geeskuna hoos u jeedo</annotation>
+		<annotation cp="↴" type="tts">falaarta midig u jeeda geeskuna hoos u jeedo</annotation>
+		<annotation cp="↵">falaarta hoos u jeeda geeskuna bidix u jeedo</annotation>
+		<annotation cp="↵" type="tts">falaarta hoos u jeeda geeskuna bidix u jeedo</annotation>
+		<annotation cp="↶">falaarta lidka jihada saacada ee badh wareega kore</annotation>
+		<annotation cp="↶" type="tts">falaarta lidka jihada saacada ee badh wareega kore</annotation>
+		<annotation cp="↷">falaarta jihada saacada ee badh wareega kore</annotation>
+		<annotation cp="↷" type="tts">falaarta jihada saacada ee badh wareega kore</annotation>
+		<annotation cp="↸">falaar u jeeda waqooyi galbeed oo afka gabal ka leh</annotation>
+		<annotation cp="↸" type="tts">falaar u jeeda waqooyi galbeed oo afka gabal ka leh</annotation>
+		<annotation cp="↹">falaar bidix u jeeda oo afka gabal ka leh oona dul saaran falaar midig u jeeda oo afka gabal ka leh</annotation>
+		<annotation cp="↹" type="tts">falaar bidix u jeeda oo afka gabal ka leh oona dul saaran falaar midig u jeeda oo afka gabal ka leh</annotation>
+		<annotation cp="↺">falaarta lidka jihada saacada ee wareega furan</annotation>
+		<annotation cp="↺" type="tts">falaarta lidka jihada saacada ee wareega furan</annotation>
+		<annotation cp="↻">falaarta jihada saacada ee wareega furan</annotation>
+		<annotation cp="↻" type="tts">falaarta jihada saacada ee wareega furan</annotation>
+		<annotation cp="↼">barb | falaarta dhinaca kore kaliya madaxa ka leh ee bidixda u jeeda</annotation>
+		<annotation cp="↼" type="tts">falaarta dhinaca kore kaliya madaxa ka leh ee bidixda u jeeda</annotation>
+		<annotation cp="↽">falaarta dhinaca hoose kaliya madaxa ka leh ee bidixda u jeeda</annotation>
+		<annotation cp="↽" type="tts">falaarta dhinaca hoose kaliya madaxa ka leh ee bidixda u jeeda</annotation>
+		<annotation cp="↾">barb | falaarta dhinaca midigta kaliya madaxa ka leh ee kor u jeeda</annotation>
+		<annotation cp="↾" type="tts">falaarta dhinaca midigta kaliya madaxa ka leh ee kor u jeeda</annotation>
+		<annotation cp="↿">barb | falaarta dhinaca bidixda kaliya madaxa ka leh ee kor u jeeda</annotation>
+		<annotation cp="↿" type="tts">falaarta dhinaca bidixda kaliya madaxa ka leh ee kor u jeeda</annotation>
+		<annotation cp="⇀">barb | falaarta dhinaca bidixda kaliya madaxa ka leh ee midigta u jeeda</annotation>
+		<annotation cp="⇀" type="tts">falaarta dhinaca bidixda kaliya madaxa ka leh ee midigta u jeeda</annotation>
+		<annotation cp="⇁">falaarta dhinaca midigta kaliya madaxa ka leh ee midigta u jeeda</annotation>
+		<annotation cp="⇁" type="tts">falaarta dhinaca midigta kaliya madaxa ka leh ee midigta u jeeda</annotation>
+		<annotation cp="⇂">falaarta dhinaca midigta kaliya madaxa ka leh ee hoos u jeeda</annotation>
+		<annotation cp="⇂" type="tts">falaarta dhinaca midigta kaliya madaxa ka leh ee hoos u jeeda</annotation>
+		<annotation cp="⇃">falaarta dhinaca bidixda kaliya madaxa ka leh ee hoos u jeeda</annotation>
+		<annotation cp="⇃" type="tts">falaarta dhinaca bidixda kaliya madaxa ka leh ee hoos u jeeda</annotation>
+		<annotation cp="⇄">falaar dhinac midig u jeeda oo dul saaran falaar dhinaca bidix u jeeda</annotation>
+		<annotation cp="⇄" type="tts">falaar dhinac midig u jeeda oo dul saaran falaar dhinaca bidix u jeeda</annotation>
 		<annotation cp="⇅">falaadh | fallaadho kor u jeeda iyo mid hoos u jeeda | fallaaro kor iyo hoos ku aadan | hoos | kor</annotation>
 		<annotation cp="⇅" type="tts">fallaaro kor iyo hoos ku aadan</annotation>
 		<annotation cp="⇆">bidix | fallaar | fallaaro bidix ku aadan oo ka sareeya kuwa midig ku aadan | midig</annotation>
 		<annotation cp="⇆" type="tts">fallaaro bidix ku aadan oo ka sareeya kuwa midig ku aadan</annotation>
+		<annotation cp="⇇">labo falaar oo bidix u wada jeeda</annotation>
+		<annotation cp="⇇" type="tts">labo falaar oo bidix u wada jeeda</annotation>
+		<annotation cp="⇈">labo falaar oo kor u wada jeeda</annotation>
+		<annotation cp="⇈" type="tts">labo falaar oo kor u wada jeeda</annotation>
+		<annotation cp="⇉">labo falaar oo midig u wada jeeda</annotation>
+		<annotation cp="⇉" type="tts">labo falaar oo midig u wada jeeda</annotation>
+		<annotation cp="⇊">labo falaar oo midig u wada jeeda</annotation>
+		<annotation cp="⇊" type="tts">labo falaar oo hoos u wada jeeda</annotation>
+		<annotation cp="⇋">falaar hal gees leh oo bidix u jeeda oo dul saaran falaar hal gees leh oo midig u jeeda</annotation>
+		<annotation cp="⇋" type="tts">falaar hal gees leh oo bidix u jeeda oo dul saaran falaar hal gees leh oo midig u jeeda</annotation>
+		<annotation cp="⇌">falaar hal gees leh oo midig u jeeda oo dul saaran falaar hal gees leh oo bidix u jeeda</annotation>
+		<annotation cp="⇌" type="tts">falaar hal gees leh oo midig u jeeda oo dul saaran falaar hal gees leh oo bidix u jeeda</annotation>
+		<annotation cp="⇐">falaar labo jibaaran oo bidix u jeeda</annotation>
+		<annotation cp="⇐" type="tts">falaar labo jibaaran oo bidix u jeeda</annotation>
+		<annotation cp="⇍">falaar labo jibaaran oo bidix u jeeda oo istalaab dhexda ku leh</annotation>
+		<annotation cp="⇍" type="tts">falaar labo jibaaran oo bidix u jeeda oo istalaab dhexda ku leh</annotation>
+		<annotation cp="⇑">falaar labo jibaaran oo kor u jeeda</annotation>
+		<annotation cp="⇑" type="tts">falaar labo jibaaran oo kor u jeeda</annotation>
+		<annotation cp="⇒">falaar labo jibaaran oo midig u jeeda</annotation>
+		<annotation cp="⇒" type="tts">falaar labo jibaaran oo midig u jeeda</annotation>
+		<annotation cp="⇏">falaar labo jibaaran oo midig u jeeda oo istallaab dhexda ku leh</annotation>
+		<annotation cp="⇏" type="tts">falaar labo jibaaran oo midig u jeeda oo istallaab dhexda ku leh</annotation>
+		<annotation cp="⇓">falaar labo jibaaran oo hoos u jeeda</annotation>
+		<annotation cp="⇓" type="tts">falaar labo jibaaran oo hoos u jeeda</annotation>
+		<annotation cp="⇔">falaar labo jibaaran oo bidix iyo midig u jeeda</annotation>
+		<annotation cp="⇔" type="tts">falaar labo jibaaran oo bidix iyo midig u jeeda</annotation>
+		<annotation cp="⇎">falaar labo jibaaran oo bidix iyo midig u jeeda oo istallaab dhexda ku leh</annotation>
+		<annotation cp="⇎" type="tts">falaar labo jibaaran oo bidix iyo midig u jeeda oo istallaab dhexda ku leh</annotation>
+		<annotation cp="⇖">falaar labo jibaaran oo waqooyi galbeed u jeeda</annotation>
+		<annotation cp="⇖" type="tts">falaar labo jibaaran oo waqooyi galbeed u jeeda</annotation>
+		<annotation cp="⇗">falaar labo jibaaran oo waqooyi bari u jeeda</annotation>
+		<annotation cp="⇗" type="tts">falaar labo jibaaran oo waqooyi bari u jeeda</annotation>
+		<annotation cp="⇘">falaar labo jibaaran oo koonfur bari u jeeda</annotation>
+		<annotation cp="⇘" type="tts">falaar labo jibaaran oo koonfur bari u jeeda</annotation>
+		<annotation cp="⇙">falaar labo jibaaran oo koonfur galbeed u jeeda</annotation>
+		<annotation cp="⇙" type="tts">falaar labo jibaaran oo koonfur galbeed u jeeda</annotation>
+		<annotation cp="⇚">falaar saddex jibaaran oo bidix u jeeda</annotation>
+		<annotation cp="⇚" type="tts">falaar saddex jibaaran oo bidix u jeeda</annotation>
+		<annotation cp="⇛">falaar saddex jibaaran oo midig u jeeda</annotation>
+		<annotation cp="⇛" type="tts">falaar saddex jibaaran oo midig u jeeda</annotation>
+		<annotation cp="⇜">falaar bidix u jeeda oo dhexda leen laablaabmaya ka leh</annotation>
+		<annotation cp="⇜" type="tts">falaar bidix u jeeda oo dhexda leen laablaabmaya ka leh</annotation>
+		<annotation cp="⇝">falaar midig u jeeda oo dhexda leen laablaabmaya ka leh</annotation>
+		<annotation cp="⇝" type="tts">falaar midig u jeeda oo dhexda leen laablaabmaya ka leh</annotation>
+		<annotation cp="⇞">falaar kor u jeeda oo labo diilmo leh</annotation>
+		<annotation cp="⇞" type="tts">falaar kor u jeeda oo labo diilmo leh</annotation>
+		<annotation cp="⇟">falaar hoos u jeeda oo labo diilmo leh</annotation>
+		<annotation cp="⇟" type="tts">falaar hoos u jeeda oo labo diilmo leh</annotation>
+		<annotation cp="⇠">falaar kala googo’an oo bidix u jeeda</annotation>
+		<annotation cp="⇠" type="tts">falaar kala googo’an oo bidix u jeeda</annotation>
+		<annotation cp="⇡">falaar kala googo’an oo kor u jeeda</annotation>
+		<annotation cp="⇡" type="tts">falaar kala googo’an oo kor u jeeda</annotation>
+		<annotation cp="⇢">falaar kala googo’an oo midig u jeeda</annotation>
+		<annotation cp="⇢" type="tts">falaar kala googo’an oo midig u jeeda</annotation>
+		<annotation cp="⇣">falaar kala googo’an oo hoos u jeeda</annotation>
+		<annotation cp="⇣" type="tts">falaar kala googo’an oo hoos u jeeda</annotation>
+		<annotation cp="⇤">falaar bidix u jeeda oo gabal fidsan hor ku leh</annotation>
+		<annotation cp="⇤" type="tts">falaar bidix u jeeda oo gabal fidsan hor ku leh</annotation>
+		<annotation cp="⇥">falaar midig u jeeda oo gabal fidsan hor ku leh</annotation>
+		<annotation cp="⇥" type="tts">falaar midig u jeeda oo gabal fidsan hor ku leh</annotation>
+		<annotation cp="⇦">falaar bidix u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇦" type="tts">falaar bidix u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇧">falaar kor u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇧" type="tts">falaar kor u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇨">falaar midig u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇨" type="tts">falaar midig u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇩">falaar hoos u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇩" type="tts">falaar hoos u jeeda oo dhex banaan</annotation>
+		<annotation cp="⇪">falaar kor u jeeda oo dhex banaan oona gabal dhex banaan gadaal ku leh</annotation>
+		<annotation cp="⇪" type="tts">falaar kor u jeeda oo dhex banaan oona gabal dhex banaan gadaal ku leh</annotation>
+		<annotation cp="⇵">falaar hoos u jeeda falaar bidix oo kor u jeeda</annotation>
+		<annotation cp="⇵" type="tts">falaar hoos u jeeda falaar bidix oo kor u jeeda</annotation>
+		<annotation cp="∀">dhamaan</annotation>
+		<annotation cp="∀" type="tts">dhamaan</annotation>
+		<annotation cp="∂">differential | partial differential</annotation>
+		<annotation cp="∂" type="tts">partial differential</annotation>
+		<annotation cp="∃">waxaa jiraa</annotation>
+		<annotation cp="∃" type="tts">waxaa jiraa</annotation>
+		<annotation cp="∅">set madhan</annotation>
+		<annotation cp="∅" type="tts">set madhan</annotation>
 		<annotation cp="∆">kordhin | sadex geesood</annotation>
 		<annotation cp="∆" type="tts">kordhin</annotation>
 		<annotation cp="∇">nabla | sadex geesood</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">curiyaha | curiye | isku hagaajin | ka kooban | xubinimada</annotation>
 		<annotation cp="∈" type="tts">curiyaha</annotation>
+		<annotation cp="∉">aan ahayn curiye</annotation>
+		<annotation cp="∉" type="tts">aan ahayn curiye</annotation>
+		<annotation cp="∋">ka kooban tahay si xubin ah</annotation>
+		<annotation cp="∋" type="tts">ka kooban tahay si xubin ah</annotation>
+		<annotation cp="∎">dhamaadka cadaynta</annotation>
+		<annotation cp="∎" type="tts">dhamaadka cadaynta</annotation>
+		<annotation cp="∏">calaamada n-ary</annotation>
+		<annotation cp="∏" type="tts">calaamada n-ary</annotation>
+		<annotation cp="∑">calaamada isku darka ee n-ary</annotation>
+		<annotation cp="∑" type="tts">calaamada isku darka ee n-ary</annotation>
 		<annotation cp="+">calamada balaas | ku dar | oo lagu daray | oo lagu daray calaamadda</annotation>
 		<annotation cp="+" type="tts">calamada balaas</annotation>
 		<annotation cp="±">balaas-maynas</annotation>
@@ -197,12 +375,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">xalaamada isku dhufashada</annotation>
 		<annotation cp="&lt;">ka yar | tag | tag furan</annotation>
 		<annotation cp="&lt;" type="tts">ka yar</annotation>
+		<annotation cp="≮">aan ka yareyn</annotation>
+		<annotation cp="≮" type="tts">aan ka yareyn</annotation>
 		<annotation cp="=">la mida | la midtahay</annotation>
 		<annotation cp="=" type="tts">la mida</annotation>
 		<annotation cp="≠">aan la mid ahayn | ma sinna | sinnaan la’aan</annotation>
 		<annotation cp="≠" type="tts">aan la mid ahayn</annotation>
 		<annotation cp="&gt;">ka wayn | tag | tag xidhan</annotation>
 		<annotation cp="&gt;" type="tts">ka wayn</annotation>
+		<annotation cp="≯">aan ka weyneyn</annotation>
+		<annotation cp="≯" type="tts">aan ka weyneyn</annotation>
 		<annotation cp="¬">diidmo | maya</annotation>
 		<annotation cp="¬" type="tts">diidmo</annotation>
 		<annotation cp="|">baaskiil | istaroog | istaroog sheerer | khadka | layn | layn taagan | tuubo | ul | vbar | xariiq qotonta | xariiq toosan</annotation>
@@ -213,38 +395,316 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="−" type="tts">calamada maynas</annotation>
 		<annotation cp="⁻">calaamada kajar | laga jaray | qoraalka sare</annotation>
 		<annotation cp="⁻" type="tts">calaamada kajar</annotation>
+		<annotation cp="∓">ka-jarid-ama-ku-darid | ku-darid-ka-jarid</annotation>
+		<annotation cp="∓" type="tts">ka-jarid-ama-ku-darid</annotation>
+		<annotation cp="∕">islaash | islaashta isku qeybinta | istaroog | virgule</annotation>
+		<annotation cp="∕" type="tts">islaashta isku qeybinta</annotation>
+		<annotation cp="⁄">islaashta jajabta | istaroog | virgule</annotation>
+		<annotation cp="⁄" type="tts">islaashta jajabka</annotation>
+		<annotation cp="∗">calaamada xidigta | xidig</annotation>
+		<annotation cp="∗" type="tts">calaamada xidigta</annotation>
+		<annotation cp="∘">calaamad | calaamada fargashiga | hal-abuur</annotation>
+		<annotation cp="∘" type="tts">calaamda fargashiga</annotation>
+		<annotation cp="∙">calaamad | calaamada dhibicda</annotation>
+		<annotation cp="∙" type="tts">calaamada dhibicda</annotation>
 		<annotation cp="√">a saasi ah | hooseeyaha tiro | laba jibbaaran | lambar jajab ah | lambarka laba jibaarma | xididka</annotation>
 		<annotation cp="√" type="tts">lambarka laba jibaarma</annotation>
+		<annotation cp="∝">saami ahaan | saami ahaanta</annotation>
+		<annotation cp="∝" type="tts">saami ahaan</annotation>
 		<annotation cp="∞">aan xad lahayn | calaamada infinity | calaamadda dhammaadka</annotation>
 		<annotation cp="∞" type="tts">calaamada infinity</annotation>
+		<annotation cp="∟">xagal toosan | xisaabta</annotation>
+		<annotation cp="∟" type="tts">xagal toosan</annotation>
+		<annotation cp="∠">ba’an | xagal</annotation>
+		<annotation cp="∠" type="tts">xagal</annotation>
+		<annotation cp="∣">isku qeybinaya | isku qeybiye</annotation>
+		<annotation cp="∣" type="tts">isku qeybinaya</annotation>
+		<annotation cp="∥">diilmo barbaro ah</annotation>
+		<annotation cp="∥" type="tts">diilmo barbaro ah</annotation>
+		<annotation cp="∧">ac | atque | jeexid | madax falaadheedka hoos u jeeda</annotation>
+		<annotation cp="∧" type="tts">madax falaadheedhka hoos u jeeda</annotation>
 		<annotation cp="∩">is goys | isku hagaajin</annotation>
 		<annotation cp="∩" type="tts">is goys</annotation>
 		<annotation cp="∪">isku hagaajin | isu gayn | midow</annotation>
 		<annotation cp="∪" type="tts">midow</annotation>
+		<annotation cp="∫">calculus | integral</annotation>
+		<annotation cp="∫" type="tts">integral</annotation>
+		<annotation cp="∬">calculus | integral laban laaban</annotation>
+		<annotation cp="∬" type="tts">integral laban laaban</annotation>
+		<annotation cp="∮">contour integral</annotation>
+		<annotation cp="∮" type="tts">contour integral</annotation>
+		<annotation cp="∴">macquul | sidaas darteed</annotation>
+		<annotation cp="∴" type="tts">sdiaas darteed</annotation>
+		<annotation cp="∵">macquul | sababtoo ah</annotation>
+		<annotation cp="∵" type="tts">sababtoo ah</annotation>
+		<annotation cp="∶">saami</annotation>
+		<annotation cp="∶" type="tts">saami</annotation>
+		<annotation cp="∷">saami ahan | saami ahanta</annotation>
+		<annotation cp="∷" type="tts">saami ahan</annotation>
+		<annotation cp="∼">calaamad | calaamada tilde</annotation>
+		<annotation cp="∼" type="tts">calaamada tilde</annotation>
+		<annotation cp="∽">calaamda tilde oo rogan | tilde</annotation>
+		<annotation cp="∽" type="tts">calaamada tilde oo rogan</annotation>
+		<annotation cp="∾">s-ta caajisan ee rogan</annotation>
+		<annotation cp="∾" type="tts">s-ta caajisan ee rogan</annotation>
+		<annotation cp="≃">u siman si asymptotical ah</annotation>
+		<annotation cp="≃" type="tts">u siman si asymptotical ah</annotation>
+		<annotation cp="≅">qiyaas ahan la mid ah</annotation>
+		<annotation cp="≅" type="tts">qiyaas ahan la mid ah</annotation>
 		<annotation cp="≈">ku dhawaad | ku dhawaad la mida | qiyaas</annotation>
 		<annotation cp="≈" type="tts">ku dhawaad la mida</annotation>
+		<annotation cp="≌">dhamaan isku mid ah</annotation>
+		<annotation cp="≌" type="tts">dhamaan isku mid ah</annotation>
+		<annotation cp="≒">qiyaastii la mid ah sawirka</annotation>
+		<annotation cp="≒" type="tts">qiyaastii la mid ah sawirka</annotation>
+		<annotation cp="≖">faraanti isku mid ah</annotation>
+		<annotation cp="≖" type="tts">faraanti isku mid ah</annotation>
 		<annotation cp="≡">ay mataano yihiin | lamid ah | mataano | sadex</annotation>
 		<annotation cp="≡" type="tts">ay mataano yihiin</annotation>
+		<annotation cp="≣">si adag ugu dhigma</annotation>
+		<annotation cp="≣" type="tts">si adag ugu dhigma</annotation>
 		<annotation cp="≤">ka yar | ka yar ama ka siman | ka yar ama la mid ah | sinnaan la’aan | u dhiganta | u dhigma</annotation>
 		<annotation cp="≤" type="tts">ka yar ama la mid ah</annotation>
 		<annotation cp="≥">ka wayn ama leeg | ka weyn | ka weyn ama u dhigma | sinnaan la’aan | u dhiganta | u dhigma</annotation>
 		<annotation cp="≥" type="tts">ka wayn ama leeg</annotation>
+		<annotation cp="≦">ka yar oo dulsaaran la mid ah</annotation>
+		<annotation cp="≦" type="tts">ka yar oo dulsaaran la mid ah</annotation>
+		<annotation cp="≧">ka weyn oo dulsaaran la mid ah</annotation>
+		<annotation cp="≧" type="tts">ka weyn oo dulsaaran la mid ah</annotation>
+		<annotation cp="≪">aad uuga yar</annotation>
+		<annotation cp="≪" type="tts">aad uuga yar</annotation>
+		<annotation cp="≫">aad uuga weyn</annotation>
+		<annotation cp="≫" type="tts">aad uuga weyn</annotation>
+		<annotation cp="≬">u dhaxeeya</annotation>
+		<annotation cp="≬" type="tts">u dhaxeeya</annotation>
+		<annotation cp="≳">ka weyn la mid ah</annotation>
+		<annotation cp="≳" type="tts">ka weyn la mid ah</annotation>
+		<annotation cp="≺">ka hor dhacaya</annotation>
+		<annotation cp="≺" type="tts">ka hor dhacaya</annotation>
+		<annotation cp="≻">beddelaya</annotation>
+		<annotation cp="≻" type="tts">beddelaya</annotation>
+		<annotation cp="⊁">ma beddelayo</annotation>
+		<annotation cp="⊁" type="tts">ma beddelayo</annotation>
 		<annotation cp="⊂">hoosaadka | qayb hoosaad | qayb ka mid ah | qeyb</annotation>
 		<annotation cp="⊂" type="tts">hoosaadka</annotation>
+		<annotation cp="⊃">calaamad set | superset | xisaabta</annotation>
+		<annotation cp="⊃" type="tts">superset</annotation>
+		<annotation cp="⊆">subset la mid ah</annotation>
+		<annotation cp="⊆" type="tts">subset la mid ah</annotation>
+		<annotation cp="⊇">superset la mid ah</annotation>
+		<annotation cp="⊇" type="tts">superset la mid ah</annotation>
+		<annotation cp="⊕">ku daris | ku daris wareegsan</annotation>
+		<annotation cp="⊕" type="tts">ku daris wareegsan</annotation>
+		<annotation cp="⊖">ka jaris wareegsan</annotation>
+		<annotation cp="⊖" type="tts">ka jaris wareegsan</annotation>
+		<annotation cp="⊗">ku dhufasho wareegsan</annotation>
+		<annotation cp="⊗" type="tts">ku dhufasho wareegsan</annotation>
+		<annotation cp="⊘">islaash qeybin oo wareegsan</annotation>
+		<annotation cp="⊘" type="tts">islaash qeybin oo wareegsan</annotation>
+		<annotation cp="⊙">calaamad dhibiceed wareegsan</annotation>
+		<annotation cp="⊙" type="tts">calaamad dhibiceed wareegsan</annotation>
+		<annotation cp="⊚">calaamada faraantiga oo wareegsan</annotation>
+		<annotation cp="⊚" type="tts">calaamada faraantiga oo wareegsan</annotation>
+		<annotation cp="⊛">calaamada xidigta oo wareegsan</annotation>
+		<annotation cp="⊛" type="tts">calaamada xidigta oo wareegsan</annotation>
+		<annotation cp="⊞">afar gees dhexda ku daritaan ku leh</annotation>
+		<annotation cp="⊞" type="tts">afar gees dhexda ku daritaan ku leh</annotation>
+		<annotation cp="⊟">afar gees dhexda ka jaris ku leh</annotation>
+		<annotation cp="⊟" type="tts">afar gees dhexda ka jaris ku leh</annotation>
+		<annotation cp="⊥">leen kor u jeeda oo hoosta leen fidsan ku leh</annotation>
+		<annotation cp="⊥" type="tts">leen kor u jeeda oo hoosta leen fidsan ku leh</annotation>
+		<annotation cp="⊮">ma qasbaayo</annotation>
+		<annotation cp="⊮" type="tts">ma qasbaayo</annotation>
+		<annotation cp="⊰">ka hor dhacaya si xidhiidh hoos imaada</annotation>
+		<annotation cp="⊰" type="tts">ka hor dhacaya si xidhiidh hoos imaada</annotation>
+		<annotation cp="⊱">beddelaya si xidhiidh hoos imaada</annotation>
+		<annotation cp="⊱" type="tts">beddelaya si xidhiidh hoos imaada</annotation>
+		<annotation cp="⋭">kuma jiro si koox-hoosaad caadi la mid ah</annotation>
+		<annotation cp="⋭" type="tts">kuma jiro si koox-hoosaad caadi la mid ah</annotation>
+		<annotation cp="⊶">asal</annotation>
+		<annotation cp="⊶" type="tts">asal</annotation>
+		<annotation cp="⊹">hermitian conjugate matrix | self-adjoint matrix | square matrix | xisaabta</annotation>
+		<annotation cp="⊹" type="tts">hermitian conjugate matrix</annotation>
+		<annotation cp="⊿">saddex xagaleed midig</annotation>
+		<annotation cp="⊿" type="tts">saddex xagaleed midig</annotation>
+		<annotation cp="⋁">disjunction | logic | n-ary logical ama</annotation>
+		<annotation cp="⋁" type="tts">n-ary logical ama</annotation>
+		<annotation cp="⋂">kala gosyka n-ary</annotation>
+		<annotation cp="⋂" type="tts">kala goyska n-ary</annotation>
+		<annotation cp="⋃">calaamda set-ka | ururka | ururka n-ary | xisaabta</annotation>
+		<annotation cp="⋃" type="tts">ururka n-ary</annotation>
+		<annotation cp="⋅">calaamad | calamada dhibicda</annotation>
+		<annotation cp="⋅" type="tts">calamada dhibicda</annotation>
+		<annotation cp="⋆">calaaad | calamada xidigta</annotation>
+		<annotation cp="⋆" type="tts">calamada xidigta</annotation>
+		<annotation cp="⋈">bowtie | calaamada binary-ga | ku biirista dabiiciga ah</annotation>
+		<annotation cp="⋈" type="tts">ku biirista dabiiciga ah</annotation>
+		<annotation cp="⋒">labo kala goys</annotation>
+		<annotation cp="⋒" type="tts">labo kala goys</annotation>
+		<annotation cp="⋘">aad ugu yar</annotation>
+		<annotation cp="⋘" type="tts">aad ugu yar</annotation>
+		<annotation cp="⋙">aad ugu weyn</annotation>
+		<annotation cp="⋙" type="tts">aad ugu weyn</annotation>
+		<annotation cp="⋮">seddex dhibic oo toostoos ah</annotation>
+		<annotation cp="⋮" type="tts">seddex dhibic oo toostoos ah</annotation>
+		<annotation cp="⋯">seddex dhibic oo jiifjiif ah</annotation>
+		<annotation cp="⋯" type="tts">seddex dhibic oo jiifjiif ah</annotation>
+		<annotation cp="⋰">geesal seddex dhibiceed midigta kore</annotation>
+		<annotation cp="⋰" type="tts">geesal seddex dhibiceed midigta kore</annotation>
+		<annotation cp="⋱">geesal seddex dhibiceed midigta hoose</annotation>
+		<annotation cp="⋱" type="tts">geesal seddex dhibiceed midigta hoose</annotation>
+		<annotation cp="■">afar gees dhexdiisa la buuxiyay</annotation>
+		<annotation cp="■" type="tts">afar gees dhexdiisa la buuxiyay</annotation>
+		<annotation cp="□">afar gees dhex banaan</annotation>
+		<annotation cp="□" type="tts">afar gees dhex banaan</annotation>
+		<annotation cp="▢">afar gees dhex banaan oo geesihiina la wareejiyay</annotation>
+		<annotation cp="▢" type="tts">afar gees dhex banaan oo geesihiina la wareejiyay</annotation>
+		<annotation cp="▣">afar geesle dhex banaan oo kujira afar geesle dhexdiisa la buuxiyay</annotation>
+		<annotation cp="▣" type="tts">afar geesle dhex banaan oo kujira afar geesle dhexdiisa la buuxiyay</annotation>
+		<annotation cp="▤">afar gees dhexda loo buuxiyay si dheer dheer ah</annotation>
+		<annotation cp="▤" type="tts">afar gees dhexda loo buuxiyay si dheer dheer ah</annotation>
+		<annotation cp="▥">afar gees dhexda loo buuxiyay si toosan</annotation>
+		<annotation cp="▥" type="tts">afar gees dhexda loo buuxiyay si toosan</annotation>
+		<annotation cp="▦">afar gees dhexda loo buuxiyay si siman iyo si toosan</annotation>
+		<annotation cp="▦" type="tts">afar gees dhexda loo buuxiyay si siman iyo si toosan</annotation>
+		<annotation cp="▧">afar gees dhexda loo buuxiyay si bidix iyo midig ah</annotation>
+		<annotation cp="▧" type="tts">afar gees dhexda loo buuxiyay si bidix iyo midig ah</annotation>
+		<annotation cp="▨">afar gees dhexda loo buuxiyay si midig iyo bidix ah</annotation>
+		<annotation cp="▨" type="tts">afar gees dhexda loo buuxiyay si midig iyo bidix ah</annotation>
+		<annotation cp="▩">afar gees dhexda loo buuxiyay si isku tallaab is dhaafsi ah</annotation>
+		<annotation cp="▩" type="tts">afar gees dhexda loo buuxiyay si isku tallaab is dhaafsi ah</annotation>
+		<annotation cp="▬">leydi la buuxiyay</annotation>
+		<annotation cp="▬" type="tts">leydi la buuxiyay</annotation>
+		<annotation cp="▭">leydi dhex banaan</annotation>
+		<annotation cp="▭" type="tts">leydi dhex banaan</annotation>
+		<annotation cp="▮">leydi toosan oo la buuxiyay</annotation>
+		<annotation cp="▮" type="tts">leydi toosan oo la buuxiyay</annotation>
+		<annotation cp="▰">leydida barbarta u janjeerta oo la buuxiyay</annotation>
+		<annotation cp="▰" type="tts">leydida barbarta u janjeerta oo la buuxiyay</annotation>
 		<annotation cp="▲">allaar | ka buuxda | kor | saddex xagal | saddex xagal buuxda oo kor u taagan</annotation>
 		<annotation cp="▲" type="tts">saddex xagal buuxda oo kor u taagan</annotation>
+		<annotation cp="△">saddex geesle dhex banaan oo kor u jeeda</annotation>
+		<annotation cp="△" type="tts">saddex geesle dhex banaan oo kor u jeeda</annotation>
+		<annotation cp="▴">saddex geesle yar oo la buuxiyay oo kor u jeeda</annotation>
+		<annotation cp="▴" type="tts">saddex geesle yar oo la buuxiyay oo kor u jeeda</annotation>
+		<annotation cp="▵">saddex geesle yar oo dhex banaan oo kor u jeeda</annotation>
+		<annotation cp="▵" type="tts">saddex geesle yar oo dhex banaan oo kor u jeeda</annotation>
+		<annotation cp="▷">saddex geesle dhex banaan oo midig u jeeda</annotation>
+		<annotation cp="▷" type="tts">saddex geesle dhex banaan oo midig u jeeda</annotation>
+		<annotation cp="▸">saddex geesle yar oo la buuxiyay oo midig u jeeda</annotation>
+		<annotation cp="▸" type="tts">saddex geesle yar oo la buuxiyay oo midig u jeeda</annotation>
+		<annotation cp="▹">saddex geesle yar oo dhex banaan oo midig u jeeda</annotation>
+		<annotation cp="▹" type="tts">saddex geesle yar oo dhex banaan oo midig u jeeda</annotation>
+		<annotation cp="►">tilmaame la buuxiyay oo midig u jeeda</annotation>
+		<annotation cp="►" type="tts">tilmaame la buuxiyay oo midig u jeeda</annotation>
+		<annotation cp="▻">tilmaame dhex banaan oo midig u jeeda</annotation>
+		<annotation cp="▻" type="tts">tilmaame dhex banaan oo midig u jeeda</annotation>
 		<annotation cp="▼">buuxiyey | falaadh | hoos | saddex xagal hoos-u-fiiqan | saddexagal | saddexagal hoos u sii jeeda oo buuxinaya</annotation>
 		<annotation cp="▼" type="tts">saddex xagal hoos-u-fiiqan</annotation>
+		<annotation cp="▽">seddex geesle dhex banaan oo hoos u jeeda</annotation>
+		<annotation cp="▽" type="tts">seddex geesle dhex banaan oo hoos u jeeda</annotation>
+		<annotation cp="▾">seddex geesle la buuxiyay oo hoos u jeeda</annotation>
+		<annotation cp="▾" type="tts">seddex geesle la buuxiyay oo hoos u jeeda</annotation>
+		<annotation cp="▿">seddex geesle yar oo dhex banaan oo hoos u jeeda</annotation>
+		<annotation cp="▿" type="tts">seddex geesle yar dhex banaan oo hoos u jeeda</annotation>
+		<annotation cp="◁">seddex geesle dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◁" type="tts">seddex geesle dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◂">seddex geesle yar oo la buuxiyay oo bidix u jeeda</annotation>
+		<annotation cp="◂" type="tts">seddex geesle yar oo la buuxiyay oo bidix u jeeda</annotation>
+		<annotation cp="◃">seddex geesle yar oo dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◃" type="tts">seddex geesle yar oo dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◄">tilmaame la buuxiyay oo bidix u jeeda</annotation>
+		<annotation cp="◄" type="tts">tilmaame la buuxiyay oo bidix u jeeda</annotation>
+		<annotation cp="◅">tilmaame dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◅" type="tts">tilmaame dhex banaan oo bidix u jeeda</annotation>
+		<annotation cp="◆">dheyman gudihiisa la buuxiyay</annotation>
+		<annotation cp="◆" type="tts">dheyman gudihiisa la buuxiyay</annotation>
+		<annotation cp="◇">dheyman dhex banaan</annotation>
+		<annotation cp="◇" type="tts">dheyman dhex banaan</annotation>
+		<annotation cp="◈">dheyman dhex banaan oo uu kujiro dheyman dhexdiisa la buuxiyay</annotation>
+		<annotation cp="◈" type="tts">dheyman dhex banaan oo uu kujiro dheyman dhexdiisa la buuxiyay</annotation>
+		<annotation cp="◉">wareeg dhex dhibic ku leh</annotation>
+		<annotation cp="◉" type="tts">wareeg dhex banaan oo uu kujiro wareeg dhexdiisa la buuxiyay</annotation>
 		<annotation cp="◊">dheeman | qaab dheeman | rhombus</annotation>
 		<annotation cp="◊" type="tts">qaab dheeman</annotation>
 		<annotation cp="○">duleelka goobada | faraanti | goobad</annotation>
 		<annotation cp="○" type="tts">duleelka goobada</annotation>
+		<annotation cp="◌">dhibic la goobaabay</annotation>
+		<annotation cp="◌" type="tts">dhibic la goobaabay</annotation>
+		<annotation cp="◍">wareeg dhexdiisa sida toosan loo buuxiyay</annotation>
+		<annotation cp="◍" type="tts">wareeg dhexdiisa sida toosan loo buuxiyay</annotation>
+		<annotation cp="◎">labo goobaabin o isku dhex jiraan</annotation>
+		<annotation cp="◎" type="tts">goobaabino isku dhex jiraan</annotation>
 		<annotation cp="●">goobaabin | goobaabin buuxiyey | goobada buuxa</annotation>
 		<annotation cp="●" type="tts">goobada buuxa</annotation>
+		<annotation cp="◐">goobaabin badhka bidixda la buuxiyay</annotation>
+		<annotation cp="◐" type="tts">goobaabin badhka bidixda la buuxiyay</annotation>
+		<annotation cp="◑">goobaabin badhka midigta la buuxiyay</annotation>
+		<annotation cp="◑" type="tts">goobaabin badhka midigta la buuxiyay</annotation>
+		<annotation cp="◒">goobaabin badhka hoose la buuxiyay</annotation>
+		<annotation cp="◒" type="tts">goobaabin badhka hoose la buuxiyay</annotation>
+		<annotation cp="◓">goobaabin badhka kore la buuxiyay</annotation>
+		<annotation cp="◓" type="tts">goobaabin badhka kore la buuxiyay</annotation>
+		<annotation cp="◔">goobaabin afar meelood meesha kore ee midigta laga buuxiyay</annotation>
+		<annotation cp="◔" type="tts">goobaabin afar meelood meesha kore ee midigta laga buuxiyay</annotation>
+		<annotation cp="◕">goobaabin afar meelood meesha kore ee bidix aan la buuxinin</annotation>
+		<annotation cp="◕" type="tts">goobaabin afar meelood meesha kore ee bidix aan la buuxinin</annotation>
+		<annotation cp="◖">goobaabin badhka bidixda la buxiyay</annotation>
+		<annotation cp="◖" type="tts">goobaabin badhka bidixda la buxiyay</annotation>
+		<annotation cp="◗">goobaabin badhka midigta la buxiyay</annotation>
+		<annotation cp="◗" type="tts">goobaabin badhka midigta la buxiyay</annotation>
+		<annotation cp="◘">bulet rogan</annotation>
+		<annotation cp="◘" type="tts">bulet rogan</annotation>
+		<annotation cp="◙">afar gees uu ku dhex jiro goobaabin dhexda la buuxiyay | goobaabin dhex banaan oo rogan</annotation>
+		<annotation cp="◙" type="tts">afar gees uu ku dhex jiro goobaabin dhexda la buuxiyay</annotation>
+		<annotation cp="◜">qaansada dhinaca bidix kore ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◜" type="tts">qaansada dhinaca bidix kore ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◝">qaansada dhinaca midig kore ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◝" type="tts">qaansada dhinaca midig kore ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◞">qaansada dhinaca midig hoose ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◞" type="tts">qaansada dhinaca midig hoose ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◟">qaansada dhinaca bidix hoose ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◟" type="tts">qaansada dhinaca bidix hoose ee afar gees meelka goobaabinta</annotation>
+		<annotation cp="◠">badhka kore ee goobaabinta</annotation>
+		<annotation cp="◠" type="tts">badhka kore ee goobaabinta</annotation>
+		<annotation cp="◡">badhka hoose ee goobaabinta</annotation>
+		<annotation cp="◡" type="tts">badhka hoose ee goobaabinta</annotation>
+		<annotation cp="◢">seddex geesle midigta hoose oo la buuxiyay</annotation>
+		<annotation cp="◢" type="tts">seddex geesle midigta hoose oo la buuxiyay</annotation>
+		<annotation cp="◣">seddex geesle bidixda hoose oo la buuxiyay</annotation>
+		<annotation cp="◣" type="tts">seddex geesle bidixda hoose oo la buuxiyay</annotation>
+		<annotation cp="◤">seddex geesle bidixda kore oo la buuxiyay</annotation>
+		<annotation cp="◤" type="tts">seddex geesle bidixda kore oo la buuxiyay</annotation>
+		<annotation cp="◥">seddex geesle midigta kore oo la buuxiyay</annotation>
+		<annotation cp="◥" type="tts">seddex geesle midigta kore oo la buuxiyay</annotation>
+		<annotation cp="◦">dhibic dhex banaan</annotation>
+		<annotation cp="◦" type="tts">dhibic dhex banaan</annotation>
 		<annotation cp="◯">faraanti | goobad | goobad duleel weeyn</annotation>
 		<annotation cp="◯" type="tts">goobad duleel weeyn</annotation>
+		<annotation cp="◳">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
+		<annotation cp="◳" type="tts">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
+		<annotation cp="◷">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
+		<annotation cp="◷" type="tts">goobaabin dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
+		<annotation cp="◿">seddex geeslaha dhinaca hoose ee midig</annotation>
+		<annotation cp="◿" type="tts">seddex geeslaha dhinaca hoose ee midig</annotation>
 		<annotation cp="♪">fiiro gaar ah | muusigga | sideedaad | xadhiga sideedaad</annotation>
 		<annotation cp="♪" type="tts">xadhiga sideedaad</annotation>
+		<annotation cp="⨧">calaamada ku darista oo labo hoos ka leh</annotation>
+		<annotation cp="⨧" type="tts">calaamada ku darista oo labo hoos ka leh</annotation>
+		<annotation cp="⨯">iskutallaab</annotation>
+		<annotation cp="⨯" type="tts">iskutallaab</annotation>
+		<annotation cp="⨼">natiijada gudaha</annotation>
+		<annotation cp="⨼" type="tts">natiijada gudaha</annotation>
+		<annotation cp="⩣">logical ama labo gabal hoos ku leh</annotation>
+		<annotation cp="⩣" type="tts">logical ama labo gabal hoos ku leh</annotation>
+		<annotation cp="⩽">ka yar siman jiifsan</annotation>
+		<annotation cp="⩽" type="tts">ka yar siman jiifsan</annotation>
+		<annotation cp="⪍">ka yar oo ka sareysa siman la mid ah</annotation>
+		<annotation cp="⪍" type="tts">ka yar oo ka sareysa siman la mid ah</annotation>
+		<annotation cp="⪚">labo leen la mid ah ka weyn</annotation>
+		<annotation cp="⪚" type="tts">labo leen la mid ah ka weyn</annotation>
+		<annotation cp="⪺">beddelid ka sareysa aan inaba la mid ahayn</annotation>
+		<annotation cp="⪺" type="tts">beddelid ka sareysa aan inaba la mid ahayn</annotation>
 		<annotation cp="♭">cod hoose | fidsan | fiiro gaar ah | muusigga</annotation>
 		<annotation cp="♭" type="tts">fidsan</annotation>
 		<annotation cp="♯">calaamada istalaabta | fiiqan | la soco | muusigga | Seef ah</annotation>
@@ -267,6 +727,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">waji ilin farxad leh</annotation>
 		<annotation cp="🙂">dhoola cadeyn | face | waji yara dhoola cadeynaya</annotation>
 		<annotation cp="🙂" type="tts">waji yara dhoola cadeynaya</annotation>
+		<annotation cp="🙂‍↕">lux, haa | madax u luxida sida toosan</annotation>
+		<annotation cp="🙂‍↕" type="tts">madax u luxida sida toosan</annotation>
+		<annotation cp="🙂‍↔">madax u luxida sida jiifsan | maya, lux</annotation>
+		<annotation cp="🙂‍↔" type="tts">madax u luxida sida jiifsan</annotation>
 		<annotation cp="🙃">hoos u foorara | waji | waji hoos-hoos u raaraca</annotation>
 		<annotation cp="🙃" type="tts">waji hoos-hoos u raaraca</annotation>
 		<annotation cp="🫠">baaba’a | dareere | dhalaalay | qasmau | waji dhalaalaya</annotation>
@@ -715,6 +1179,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">qof</annotation>
 		<annotation cp="👱">qof timo cad leh | qof: timo cad | timo | timo cad</annotation>
 		<annotation cp="👱" type="tts">qof: timo cad</annotation>
+		<annotation cp="🧑‍🧒">qoys: qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧒" type="tts">qoys: qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧒‍🧒">qoys: qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">qoys: qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒">qoys: qof weyn, qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
 		<annotation cp="👨">nin | ninka | qof weyn</annotation>
 		<annotation cp="👨" type="tts">ninka</annotation>
 		<annotation cp="🧔">gar | nin | nin: gar | qof</annotation>
@@ -1375,6 +1847,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">cunugga diggaaga hor soo eegaya</annotation>
 		<annotation cp="🐦">shimbir</annotation>
 		<annotation cp="🐦" type="tts">shimbir</annotation>
+		<annotation cp="🐦‍🔥">phoenix | qiyaali, shinbirta dabka, dib u dhalashada, naf dib ugu dhalashada jidh cusub</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">shimbir | shimbir baraf</annotation>
 		<annotation cp="🐧" type="tts">shimbir baraf</annotation>
 		<annotation cp="🕊">buubid | nabad | qoolleey | shimbir</annotation>
@@ -1399,6 +1873,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦜" type="tts">baqbaqaaq</annotation>
 		<annotation cp="🪽">duulaya | duulista | khuraafaad | malaa’ig | shimbiraha | wing</annotation>
 		<annotation cp="🪽" type="tts">wing</annotation>
+		<annotation cp="🐦‍⬛">madoow | shimbir | shimbir tuke xigeen ah | shimbir weyn oo madoow | tuke</annotation>
+		<annotation cp="🐦‍⬛" type="tts">shimbir madoow</annotation>
 		<annotation cp="🪿">booloboolo | haad | honk | nacasnimo | shimbiraha</annotation>
 		<annotation cp="🪿" type="tts">booloboolo</annotation>
 		<annotation cp="🐸">rah | waji</annotation>
@@ -1531,6 +2007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">buul leh ukumo</annotation>
 		<annotation cp="🍄">baaraabuq | barkin waraabe</annotation>
 		<annotation cp="🍄" type="tts">barkin waraabe</annotation>
+		<annotation cp="🍄‍🟫">boqoshaa bunni ah | cuntada, fangaska, dabiici ah, khudaar</annotation>
+		<annotation cp="🍄‍🟫" type="tts">boqoshaa bunni ah</annotation>
 		<annotation cp="🍇">canab | khudaar</annotation>
 		<annotation cp="🍇" type="tts">canab</annotation>
 		<annotation cp="🍈">khudaar | qare</annotation>
@@ -1538,9 +2016,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍉">khudaar | xab-xab</annotation>
 		<annotation cp="🍉" type="tts">xab-xab</annotation>
 		<annotation cp="🍊">khudaar | liin | oranji</annotation>
-		<annotation cp="🍊" type="tts">liin</annotation>
+		<annotation cp="🍊" type="tts">liin banbeelo</annotation>
 		<annotation cp="🍋">khudaar | liin bambeelmo | liin dhannaan</annotation>
 		<annotation cp="🍋" type="tts">liin dhannaan</annotation>
+		<annotation cp="🍋‍🟩">liin | liin dhanaan, miro, trobikal</annotation>
+		<annotation cp="🍋‍🟩" type="tts">lin</annotation>
 		<annotation cp="🍌">khudaar | moos</annotation>
 		<annotation cp="🍌" type="tts">moos</annotation>
 		<annotation cp="🍍">caananaas | khudaar</annotation>
@@ -2821,6 +3301,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔗" type="tts">liinki</annotation>
 		<annotation cp="⛓">silsilad | silsilado</annotation>
 		<annotation cp="⛓" type="tts">silsilado</annotation>
+		<annotation cp="⛓‍💥">jabi, jebin, silsilad, qeybta gacmaha ee dharka, xornimo | silsilad jabtay</annotation>
+		<annotation cp="⛓‍💥" type="tts">silsillad jabtay</annotation>
 		<annotation cp="🪝">dabin | jilaab | qaabka wax loo gado | qabo | qallooca | qallooci</annotation>
 		<annotation cp="🪝" type="tts">jilaab</annotation>
 		<annotation cp="🧰">makaanig | qalab | shaf | tuulbogos</annotation>
@@ -2997,6 +3479,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">falaadh kor u-jeeda</annotation>
 		<annotation cp="↔">fallaar | fallaarta bidix-midig</annotation>
 		<annotation cp="↔" type="tts">fallaarta bidix-midig</annotation>
+		<annotation cp="↮">istarooga falaarta bidix midigta u jeeda</annotation>
+		<annotation cp="↮" type="tts">istarooga falaarta bidix midigta u jeeda</annotation>
 		<annotation cp="↩">fallaar | fallaarta midig u qalloocsan bidix</annotation>
 		<annotation cp="↩" type="tts">fallaarta midig u qalloocsan bidix</annotation>
 		<annotation cp="↪">fallaar | fallaarta bidix u qalloocsan midig</annotation>
@@ -3369,20 +3853,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">´lacagta ingiriska laga isticmaalo</annotation>
 		<annotation cp="¥">CNY | currency | JPY | lacagta yen | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">lacagta yen</annotation>
+		<annotation cp="₢">BRB | cruzeiro | lacag</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">franc | french franc | lacag</annotation>
+		<annotation cp="₣" type="tts">french franc</annotation>
+		<annotation cp="₤">lacag | lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">guulaystay | KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">guulaystay</annotation>
 		<annotation cp="€">EUR | lacag | yuuro</annotation>
 		<annotation cp="€" type="tts">yuuro</annotation>
+		<annotation cp="₰">lacag | penny-ga jarmalka | pfennig</annotation>
+		<annotation cp="₰" type="tts">penny-ga jarmalka</annotation>
 		<annotation cp="₱">beeso</annotation>
 		<annotation cp="₱" type="tts">beeso</annotation>
+		<annotation cp="₳">ARA | austral | lacag</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">lacag | livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">lacag | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">lacagta | rubiis | rubiiska hindiya</annotation>
 		<annotation cp="₹" type="tts">rubiiska hindiya</annotation>
 		<annotation cp="₽">cutub lacageedka raashiya | lacagta</annotation>
 		<annotation cp="₽" type="tts">cutub lacageedka raashiya</annotation>
 		<annotation cp="₿">bitkoyn | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoyn</annotation>
+		<annotation cp="₨">lacag | rupee</annotation>
+		<annotation cp="₨" type="tts">rupee</annotation>
+		<annotation cp="﷼">lacag | rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">calaamada koobaad | mid | qoraalka sare</annotation>
 		<annotation cp="¹" type="tts">calaamada koobaad</annotation>
 		<annotation cp="²">calaamada labaad | laba | laba jibbaaran | qoraalka sare</annotation>

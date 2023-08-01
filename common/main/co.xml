@@ -20,9 +20,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ar" draft="unconfirmed">arabu</language>
 			<language type="ar_001" draft="unconfirmed">arabu mudernu</language>
 			<language type="co" draft="contributed">corsu</language>
+			<language type="cs" draft="unconfirmed">ceccu</language>
+			<language type="da" draft="unconfirmed">danese</language>
 			<language type="de" draft="unconfirmed">tedescu</language>
 			<language type="de_AT" draft="unconfirmed">tedescu austriacu</language>
 			<language type="de_CH" draft="unconfirmed">tedescu sguizzeru</language>
+			<language type="el" draft="unconfirmed">grecu</language>
 			<language type="en" draft="unconfirmed">inglese</language>
 			<language type="en_AU" draft="unconfirmed">inglese australianu</language>
 			<language type="en_CA" draft="unconfirmed">inglese canadianu</language>
@@ -34,12 +37,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_419" draft="unconfirmed">↑↑↑</language>
 			<language type="es_ES" draft="unconfirmed">↑↑↑</language>
 			<language type="es_MX" draft="unconfirmed">↑↑↑</language>
+			<language type="fi" draft="unconfirmed">finlandese</language>
 			<language type="fr" draft="unconfirmed">francese</language>
 			<language type="fr_CA" draft="unconfirmed">francese canadianu</language>
 			<language type="fr_CH" draft="unconfirmed">francese sguizzeru</language>
+			<language type="hu" draft="unconfirmed">ungarese</language>
+			<language type="id" draft="unconfirmed">indunesianu</language>
 			<language type="it" draft="unconfirmed">talianu</language>
 			<language type="ja" draft="unconfirmed">giappunese</language>
 			<language type="ko" draft="unconfirmed">cureanu</language>
+			<language type="lv" draft="unconfirmed">lettone</language>
+			<language type="mt" draft="unconfirmed">maltese</language>
 			<language type="nl" draft="unconfirmed">neerlandese</language>
 			<language type="nl_BE" draft="unconfirmed">fiammingu</language>
 			<language type="pl" draft="unconfirmed">pulunese</language>
@@ -47,6 +55,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_BR" draft="unconfirmed">purtughese brasilianu</language>
 			<language type="pt_PT" draft="unconfirmed">purtughese europeanu</language>
 			<language type="ru" draft="unconfirmed">russiu</language>
+			<language type="sk" draft="unconfirmed">sluvaccu</language>
+			<language type="sl" draft="unconfirmed">sluvenu</language>
+			<language type="sv" draft="unconfirmed">svedese</language>
 			<language type="th" draft="unconfirmed">tailandese</language>
 			<language type="tr" draft="unconfirmed">turcu</language>
 			<language type="und" draft="unconfirmed">lingua scunnisciuta</language>
@@ -83,7 +94,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR" draft="unconfirmed">Costa Rica</territory>
 			<territory type="CU" draft="unconfirmed">Cuba</territory>
 			<territory type="CZ" draft="unconfirmed">Republica cecca</territory>
-			<territory type="CZ" alt="variant" draft="unconfirmed">Republica cecca</territory>
+			<territory type="CZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
 			<territory type="DE" draft="unconfirmed">Alemagna</territory>
 			<territory type="DK" draft="unconfirmed">Danimarca</territory>
 			<territory type="DO" draft="unconfirmed">Republica Duminicana</territory>
@@ -148,8 +159,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<layout>
 		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
+			<characterOrder>↑↑↑</characterOrder>
+			<lineOrder>↑↑↑</lineOrder>
 		</orientation>
 	</layout>
 	<characters>
@@ -185,25 +196,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE d MMMM 'di' 'u' y G</pattern>
-							<datetimeSkeleton draft="unconfirmed">GyMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMMM 'di' 'u' y G</pattern>
-							<datetimeSkeleton draft="unconfirmed">GyMMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMM y G</pattern>
-							<datetimeSkeleton draft="unconfirmed">GyMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd/MM/y GGGGG</pattern>
-							<datetimeSkeleton draft="unconfirmed">GGGGGyMMdd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -251,18 +262,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">dic.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">G</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">G</month>
-							<month type="7" draft="unconfirmed">L</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">di ghjennaghju</month>
@@ -281,18 +292,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">ghj.</month>
-							<month type="2" draft="unconfirmed">fer.</month>
-							<month type="3" draft="unconfirmed">mar.</month>
-							<month type="4" draft="unconfirmed">apr.</month>
-							<month type="5" draft="unconfirmed">mag.</month>
-							<month type="6" draft="unconfirmed">ghju.</month>
-							<month type="7" draft="unconfirmed">lug.</month>
-							<month type="8" draft="unconfirmed">aos.</month>
-							<month type="9" draft="unconfirmed">sit.</month>
-							<month type="10" draft="unconfirmed">ott.</month>
-							<month type="11" draft="unconfirmed">nuv.</month>
-							<month type="12" draft="unconfirmed">dic.</month>
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">G</month>
@@ -336,13 +347,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">sab.</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">D</day>
-							<day type="mon" draft="unconfirmed">L</day>
-							<day type="tue" draft="unconfirmed">M</day>
-							<day type="wed" draft="unconfirmed">M</day>
-							<day type="thu" draft="unconfirmed">G</day>
-							<day type="fri" draft="unconfirmed">V</day>
-							<day type="sat" draft="unconfirmed">S</day>
+							<day type="sun" draft="unconfirmed">↑↑↑</day>
+							<day type="mon" draft="unconfirmed">↑↑↑</day>
+							<day type="tue" draft="unconfirmed">↑↑↑</day>
+							<day type="wed" draft="unconfirmed">↑↑↑</day>
+							<day type="thu" draft="unconfirmed">↑↑↑</day>
+							<day type="fri" draft="unconfirmed">↑↑↑</day>
+							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun" draft="unconfirmed">du</day>
@@ -365,13 +376,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">dum.</day>
-							<day type="mon" draft="unconfirmed">lun.</day>
-							<day type="tue" draft="unconfirmed">mar.</day>
-							<day type="wed" draft="unconfirmed">mer.</day>
-							<day type="thu" draft="unconfirmed">ghj.</day>
-							<day type="fri" draft="unconfirmed">ven.</day>
-							<day type="sat" draft="unconfirmed">sab.</day>
+							<day type="sun" draft="unconfirmed">↑↑↑</day>
+							<day type="mon" draft="unconfirmed">↑↑↑</day>
+							<day type="tue" draft="unconfirmed">↑↑↑</day>
+							<day type="wed" draft="unconfirmed">↑↑↑</day>
+							<day type="thu" draft="unconfirmed">↑↑↑</day>
+							<day type="fri" draft="unconfirmed">↑↑↑</day>
+							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun" draft="unconfirmed">D</day>
@@ -380,50 +391,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="wed" draft="unconfirmed">M</day>
 							<day type="thu" draft="unconfirmed">G</day>
 							<day type="fri" draft="unconfirmed">V</day>
-							<day type="sat" draft="unconfirmed">S</day>
+							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun" draft="unconfirmed">du</day>
-							<day type="mon" draft="unconfirmed">lu</day>
-							<day type="tue" draft="unconfirmed">ma</day>
-							<day type="wed" draft="unconfirmed">me</day>
-							<day type="thu" draft="unconfirmed">gh</day>
-							<day type="fri" draft="unconfirmed">ve</day>
-							<day type="sat" draft="unconfirmed">sa</day>
+							<day type="sun" draft="unconfirmed">↑↑↑</day>
+							<day type="mon" draft="unconfirmed">↑↑↑</day>
+							<day type="tue" draft="unconfirmed">↑↑↑</day>
+							<day type="wed" draft="unconfirmed">↑↑↑</day>
+							<day type="thu" draft="unconfirmed">↑↑↑</day>
+							<day type="fri" draft="unconfirmed">↑↑↑</day>
+							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">dumenica</day>
-							<day type="mon" draft="unconfirmed">luni</day>
-							<day type="tue" draft="unconfirmed">marti</day>
-							<day type="wed" draft="unconfirmed">mercuri</day>
-							<day type="thu" draft="unconfirmed">ghjovi</day>
-							<day type="fri" draft="unconfirmed">venneri</day>
-							<day type="sat" draft="unconfirmed">sabbatu</day>
+							<day type="sun" draft="unconfirmed">↑↑↑</day>
+							<day type="mon" draft="unconfirmed">↑↑↑</day>
+							<day type="tue" draft="unconfirmed">↑↑↑</day>
+							<day type="wed" draft="unconfirmed">↑↑↑</day>
+							<day type="thu" draft="unconfirmed">↑↑↑</day>
+							<day type="fri" draft="unconfirmed">↑↑↑</day>
+							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">T1</quarter>
-							<quarter type="2" draft="unconfirmed">T2</quarter>
-							<quarter type="3" draft="unconfirmed">T3</quarter>
-							<quarter type="4" draft="unconfirmed">T4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">1</quarter>
-							<quarter type="2" draft="unconfirmed">2</quarter>
-							<quarter type="3" draft="unconfirmed">3</quarter>
-							<quarter type="4" draft="unconfirmed">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1u trimestru</quarter>
-							<quarter type="2" draft="unconfirmed">2u trimestru</quarter>
-							<quarter type="3" draft="unconfirmed">3u trimestru</quarter>
-							<quarter type="4" draft="unconfirmed">4u trimestru</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
 							<quarter type="1" draft="unconfirmed">T1</quarter>
 							<quarter type="2" draft="unconfirmed">T2</quarter>
@@ -443,34 +434,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">4u trimestru</quarter>
 						</quarterWidth>
 					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">PM</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -488,61 +499,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1" alt="variant" draft="unconfirmed">EC</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0" draft="unconfirmed">nz à C.</era>
-						<era type="0" alt="variant" draft="unconfirmed">NEC</era>
-						<era type="1" draft="unconfirmed">dp à C.</era>
-						<era type="1" alt="variant" draft="unconfirmed">EC</era>
+						<era type="0" draft="unconfirmed">↑↑↑</era>
+						<era type="0" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="1" draft="unconfirmed">↑↑↑</era>
+						<era type="1" alt="variant" draft="unconfirmed">↑↑↑</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="unconfirmed">EEEE d MMMM 'di' 'u' y</pattern>
-							<datetimeSkeleton draft="unconfirmed">yMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMMM 'di' 'u' y</pattern>
-							<datetimeSkeleton draft="unconfirmed">yMMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="unconfirmed">d MMM y</pattern>
-							<datetimeSkeleton draft="unconfirmed">yMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern draft="unconfirmed">dd/MM/y</pattern>
-							<datetimeSkeleton draft="unconfirmed">yMMdd</datetimeSkeleton>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
-							<datetimeSkeleton draft="unconfirmed">HHmmsszzzz</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
-							<datetimeSkeleton draft="unconfirmed">HHmmssz</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
-							<datetimeSkeleton draft="unconfirmed">HHmmss</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
-							<datetimeSkeleton draft="unconfirmed">HHmm</datetimeSkeleton>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<datetimeSkeleton draft="unconfirmed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -552,7 +563,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -560,7 +571,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -568,55 +579,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1} 'à' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1} 'à' {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1} {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh" draft="unconfirmed">h B</dateFormatItem>
-						<dateFormatItem id="Bhm" draft="unconfirmed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="unconfirmed">h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
+						<dateFormatItem id="Bh" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E" draft="unconfirmed">E</dateFormatItem>
-						<dateFormatItem id="EBhm" draft="unconfirmed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="unconfirmed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed" draft="unconfirmed">E d</dateFormatItem>
 						<dateFormatItem id="Ehm" draft="unconfirmed">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="unconfirmed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="EHm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms" draft="unconfirmed">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="unconfirmed">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">y G</dateFormatItem>
 						<dateFormatItem id="GyMd" draft="unconfirmed">dd/MM/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="unconfirmed">HH</dateFormatItem>
+						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmsv" draft="unconfirmed">h:mm:ss a v</dateFormatItem>
-						<dateFormatItem id="Hmsv" draft="unconfirmed">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv" draft="unconfirmed">h:mm a v</dateFormatItem>
-						<dateFormatItem id="Hmv" draft="unconfirmed">HH:mm v</dateFormatItem>
-						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="Hmv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E dd/MM</dateFormatItem>
-						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
+						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other" draft="unconfirmed">'settimana' W MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="unconfirmed">y</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">MM/y</dateFormatItem>
 						<dateFormatItem id="yMd" draft="unconfirmed">dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E dd/MM/y</dateFormatItem>
@@ -629,10 +640,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'settimana' w 'di' 'u' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="Timezone" draft="unconfirmed">{0} {1}</appendItem>
+						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -669,7 +680,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="H" draft="unconfirmed">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M" draft="unconfirmed">MM–MM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d" draft="unconfirmed">dd/MM – dd/MM</greatestDifference>
@@ -683,7 +694,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">MMM – MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y–y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="unconfirmed">MMM–MMM y</greatestDifference>
@@ -712,15 +723,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName draft="unconfirmed">an.</displayName>
-				<relative type="-1" draft="unconfirmed">l’annu scorsu</relative>
-				<relative type="0" draft="unconfirmed">quist’annu</relative>
-				<relative type="1" draft="unconfirmed">l’annu chì vene</relative>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="year-narrow">
 				<displayName draft="unconfirmed">a.</displayName>
-				<relative type="-1" draft="unconfirmed">l’annu scorsu</relative>
-				<relative type="0" draft="unconfirmed">quist’annu</relative>
-				<relative type="1" draft="unconfirmed">l’annu chì vene</relative>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="quarter">
 				<displayName draft="unconfirmed">trimestru</displayName>
@@ -739,15 +750,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName draft="unconfirmed">m.</displayName>
-				<relative type="-1" draft="unconfirmed">u mese scorsu</relative>
-				<relative type="0" draft="unconfirmed">stu mese</relative>
-				<relative type="1" draft="unconfirmed">u mese chì vene</relative>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="month-narrow">
-				<displayName draft="unconfirmed">m.</displayName>
-				<relative type="-1" draft="unconfirmed">u mese scorsu</relative>
-				<relative type="0" draft="unconfirmed">stu mese</relative>
-				<relative type="1" draft="unconfirmed">u mese chì vene</relative>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="week">
 				<displayName draft="unconfirmed">settimana</displayName>
@@ -758,17 +769,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName draft="unconfirmed">sett.</displayName>
-				<relative type="-1" draft="unconfirmed">a settimana scorsa</relative>
-				<relative type="0" draft="unconfirmed">sta settimana</relative>
-				<relative type="1" draft="unconfirmed">a settimana chì vene</relative>
-				<relativePeriod draft="unconfirmed">a settimana di u {0}</relativePeriod>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName draft="unconfirmed">st.</displayName>
-				<relative type="-1" draft="unconfirmed">a settimana scorsa</relative>
-				<relative type="0" draft="unconfirmed">sta settimana</relative>
-				<relative type="1" draft="unconfirmed">a settimana chì vene</relative>
-				<relativePeriod draft="unconfirmed">a settimana di u {0}</relativePeriod>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName draft="unconfirmed">ghjornu</displayName>
@@ -778,15 +789,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName draft="unconfirmed">ghj.</displayName>
-				<relative type="-1" draft="unconfirmed">eri</relative>
-				<relative type="0" draft="unconfirmed">oghje</relative>
-				<relative type="1" draft="unconfirmed">dumane</relative>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName draft="unconfirmed">g</displayName>
-				<relative type="-1" draft="unconfirmed">eri</relative>
-				<relative type="0" draft="unconfirmed">oghje</relative>
-				<relative type="1" draft="unconfirmed">dumane</relative>
+				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="0" draft="unconfirmed">↑↑↑</relative>
+				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 			</field>
 			<field type="weekday">
 				<displayName draft="unconfirmed">ghjornu di a settimana</displayName>
@@ -795,7 +806,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">ora</displayName>
 			</field>
 			<field type="hour-short">
-				<displayName draft="unconfirmed">ora</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 			</field>
 			<field type="hour-narrow">
 				<displayName draft="unconfirmed">o.</displayName>
@@ -823,7 +834,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">UTC{0}</gmtFormat>
 			<gmtZeroFormat draft="unconfirmed">UTC</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">ora : {0}</regionFormat>
@@ -1056,56 +1067,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">latn</native>
+			<native draft="unconfirmed">↑↑↑</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="unconfirmed">1</minimumGroupingDigits>
+		<minimumGroupingDigits draft="unconfirmed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal draft="unconfirmed">,</decimal>
 			<group draft="unconfirmed"> </group>
-			<percentSign draft="unconfirmed">%</percentSign>
-			<plusSign draft="unconfirmed">+</plusSign>
-			<minusSign draft="unconfirmed">-</minusSign>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
 			<approximatelySign draft="unconfirmed">≈</approximatelySign>
-			<exponential draft="unconfirmed">E</exponential>
-			<superscriptingExponent draft="unconfirmed">×</superscriptingExponent>
-			<perMille draft="unconfirmed">‰</perMille>
-			<infinity draft="unconfirmed">∞</infinity>
-			<nan draft="unconfirmed">NaN</nan>
+			<exponential draft="unconfirmed">↑↑↑</exponential>
+			<superscriptingExponent draft="unconfirmed">↑↑↑</superscriptingExponent>
+			<perMille draft="unconfirmed">↑↑↑</perMille>
+			<infinity draft="unconfirmed">↑↑↑</infinity>
+			<nan draft="unconfirmed">↑↑↑</nan>
 		</symbols>
 		<decimalFormats numberSystem="adlm">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">#,##0.###</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">#,##0.###</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="adlm">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">#E0</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">#E0</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="adlm">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">#,##0 %</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -1119,12 +1130,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="adlm">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern draft="unconfirmed">#,##0.00 ¤;(#,##0.00) ¤</pattern>
-					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00;(#,##0.00)</pattern>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -1139,12 +1150,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
+			</currency>
+			<currency type="CHF">
+				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">yuan chinese</displayName>
@@ -1190,9 +1204,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 		<miscPatterns numberSystem="latn">
 			<pattern type="approximately" draft="unconfirmed">≈{0}</pattern>
-			<pattern type="atLeast" draft="unconfirmed">≥{0}</pattern>
-			<pattern type="atMost" draft="unconfirmed">≤{0}</pattern>
-			<pattern type="range" draft="unconfirmed">{0}–{1}</pattern>
+			<pattern type="atLeast" draft="unconfirmed">↑↑↑</pattern>
+			<pattern type="atMost" draft="unconfirmed">↑↑↑</pattern>
+			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
@@ -1212,6 +1226,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0} è {1}</listPatternPart>
 			<listPatternPart type="2" draft="unconfirmed">{0} è {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} o {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} o {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

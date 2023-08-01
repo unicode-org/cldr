@@ -1119,6 +1119,14 @@ public class VettingViewer<T> {
 
     private Map<String, String> getSortedNames(Organization org, Level desiredLevel) {
         Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
+        // TODO: another hack, unaffiliated gets everything
+        if (org == Organization.unaffiliated) {
+            for (String localeID : cldrFactory.getAvailable()) {
+                sortedNames.put(getName(localeID), localeID);
+            }
+            return sortedNames;
+        }
+
         // TODO Fix HACK
         // We are going to ignore the predicate for now, just using the locales that have explicit
         // coverage.

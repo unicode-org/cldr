@@ -822,11 +822,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     Comparator<String> UNIT_COMPARATOR = new UnitComparator();
 
-    /**
-     * Only handles the canonical units; no kilo-, only normalized, etc.
-     *
-     * @author markdavis
-     */
+    /** Only handles the canonical units; no kilo-, only normalized, etc. */
+    // TODO: optimize
+    // • the comparators don't have to be fields in this class;
+    //   it is not a static class, so they can be on the converter.
+    // • We can cache the frozen UnitIds, avoiding the parse times
+
     public class UnitId implements Freezable<UnitId>, Comparable<UnitId> {
         public Map<String, Integer> numUnitsToPowers;
         public Map<String, Integer> denUnitsToPowers;
@@ -1621,10 +1622,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public enum UnitSystem { // TODO convert getSystems and SupplementalDataInfo to use natively
         si,
+        si_acceptable,
         metric,
         ussystem,
         uksystem,
         jpsystem,
+        astronomical,
+        person_age,
         other;
 
         public static final Set<UnitSystem> SiOrMetric =
@@ -2065,5 +2069,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
             default:
                 return NO_JP_UK;
         }
+    }
+
+    /**
+     * Resolve the unit if possible, eg gram-square-second-per-second ==> gram-second <br>
+     * TODO handle complex units that don't match a simple quantity, eg
+     * kilogram-ampere-per-meter-square-second => pascal-ampere
+     */
+    public String resolve(String unit) {
+        UnitId unitId = createUnitId(unit);
+        if (unitId == null) {
+            return unit;
+        }
+        String resolved = unitId.resolve().toString();
+        return getStandardUnit(resolved.isBlank() ? unit : resolved);
     }
 }

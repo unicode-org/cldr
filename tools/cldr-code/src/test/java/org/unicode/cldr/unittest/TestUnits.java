@@ -1982,8 +1982,7 @@ public class TestUnits extends TestFmwk {
             if (cldrResult.equals(Rational.NaN)) {
                 cantConvert.add(data);
             } else {
-                final Rational symmetricDiff = externalResult.symmetricDiff(cldrResult);
-                if (symmetricDiff.abs().compareTo(Rational.of(1, 1000000)) > 0) {
+                if (cldrResult.approximatelyEquals(externalResult)) {
                     convertDiff.put(data, cldrResult);
                 } else {
                     remainingCldrUnits.remove(data.source);
@@ -1996,7 +1995,7 @@ public class TestUnits extends TestFmwk {
                                         + "\t"
                                         + externalResult.doubleValue()
                                         + "\t"
-                                        + symmetricDiff.doubleValue()
+                                        + cldrResult.symmetricDiff(externalResult).doubleValue()
                                         + "\t"
                                         + data);
                 }
@@ -2023,17 +2022,22 @@ public class TestUnits extends TestFmwk {
         }
 
         // check for missing external data
+
         int unitsWithoutExternalCheck = 0;
+        if (SHOW_MISSING_TEST_DATA && !remainingCldrUnits.isEmpty()) {
+            System.out.println("Not tested against external data");
+        }
         for (String remainingUnit : remainingCldrUnits) {
             final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
             if (!targetInfo.target.contentEquals(remainingUnit)) {
                 if (SHOW_MISSING_TEST_DATA) {
                     printlnIfZero(unitsWithoutExternalCheck);
                     System.out.println(
-                            "Not tested against external data\t"
-                                    + remainingUnit
+                            remainingUnit
                                     + "\t"
-                                    + targetInfo);
+                                    + targetInfo.unitInfo.factor.doubleValue()
+                                    + "\t"
+                                    + targetInfo.target);
                 }
                 unitsWithoutExternalCheck++;
             }

@@ -1637,7 +1637,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
         prefixable;
 
         public static final Set<UnitSystem> SiOrMetric =
-                ImmutableSet.of(UnitSystem.metric, UnitSystem.si);
+                ImmutableSet.of(
+                        UnitSystem.metric,
+                        UnitSystem.si,
+                        UnitSystem.metric_adjacent,
+                        UnitSystem.si_acceptable);
         public static final Set<UnitSystem> ALL = ImmutableSet.copyOf(UnitSystem.values());
 
         public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {

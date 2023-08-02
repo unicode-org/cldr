@@ -375,7 +375,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">ضرب نښه</annotation>
 		<annotation cp="&lt;">ټاګ | خلاص ټاګ | لږ - څخه</annotation>
 		<annotation cp="&lt;" type="tts">لږ - څخه</annotation>
-		<annotation cp="≮" draft="provisional">څخه کم نه | ریاضي | نابرابري</annotation>
+		<annotation cp="≮">ریاضی | نابرابري | نه کم</annotation>
 		<annotation cp="≮" type="tts">څخه کم نه</annotation>
 		<annotation cp="=">مساوي</annotation>
 		<annotation cp="=" type="tts">مساوي</annotation>
@@ -383,8 +383,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≠" type="tts">مساوي نه</annotation>
 		<annotation cp="&gt;">ټاګ | لوی - څخه | نږدې نښه</annotation>
 		<annotation cp="&gt;" type="tts">لوی - څخه</annotation>
-		<annotation cp="≯" draft="provisional">څخه لوی نه | ریاضي | نابرابري</annotation>
-		<annotation cp="≯" type="tts" draft="provisional">څخه لوی نه</annotation>
+		<annotation cp="≯">ریاضی | نابرابري | نه لوی</annotation>
+		<annotation cp="≯" type="tts">نه لوی</annotation>
 		<annotation cp="¬">نفي | نه</annotation>
 		<annotation cp="¬" type="tts">نفي</annotation>
 		<annotation cp="|">vbar | بار | پايپ | پایک | چپک | د شفر ټکان | عمودي پټه | عمودي ليکه | کرښه | وهل</annotation>
@@ -449,8 +449,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∾" type="tts">نسکور پرکاله ایس</annotation>
 		<annotation cp="≃">ایسمټوټ | ریاضي | غیر متناسب مساوي</annotation>
 		<annotation cp="≃" type="tts">په غیر متناسب ډول مساوي</annotation>
-		<annotation cp="≅">اسوموفیزم | ریاضی | مساوات | موافقت | نږدې مساوي</annotation>
-		<annotation cp="≅" type="tts">نږدې مساوي</annotation>
+		<annotation cp="≅">اسومورفیزم | ریاضی | مساوات | موافقت | نږدې مساوي</annotation>
+		<annotation cp="≅" type="tts">تقریبا مساوي</annotation>
 		<annotation cp="≈">نږدې | نږدې مساوي</annotation>
 		<annotation cp="≈" type="tts">نږدې مساوي</annotation>
 		<annotation cp="≌">ټول مساوي | ریاضي | مساوات</annotation>
@@ -477,8 +477,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≫" type="tts">له څخه ډیر لوی</annotation>
 		<annotation cp="≬">ترمنځه</annotation>
 		<annotation cp="≬" type="tts">ترمنځه</annotation>
-		<annotation cp="≳">ریاضي | غیر مساوات | له مساوي څخه لوی</annotation>
-		<annotation cp="≳" type="tts">له مساوي څخه لوی</annotation>
+		<annotation cp="≳">ریاضی | له معادل څخه لوی | نابرابري</annotation>
+		<annotation cp="≳" type="tts">له معادل څخه لوی</annotation>
 		<annotation cp="≺">ریاضي | سیټ چلونکی | مخکې</annotation>
 		<annotation cp="≺" type="tts">مخکې</annotation>
 		<annotation cp="≻">بریالی کیږي | ریاضي | سیټ چلونکی</annotation>

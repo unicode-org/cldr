@@ -751,6 +751,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PN">Pitikeina</territory>
 			<territory type="PR">Peta Riko</territory>
 			<territory type="PS">Ngā Rohe o Parihitini</territory>
+			<territory type="PS" alt="short">Parihitini</territory>
 			<territory type="PT">Potukara</territory>
 			<territory type="PW">Pārau</territory>
 			<territory type="PY">Parakai</territory>
@@ -5451,6 +5452,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atMost">↑↑↑</pattern>
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">{0} rā</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Kōwhiria te tua{0} ki te matau.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">
@@ -5537,6 +5542,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="1024p8">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -5847,6 +5855,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>kuata emepaea</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<displayName>kāpehu maha</displayName>
+				<coordinateUnitPattern type="east">{0} rāwhiti</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} raki</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} tonga</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} uru</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="10p-1">
@@ -6258,6 +6273,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-quart-imperial">
 				<unitPattern count="other">{0} kuata emepaea</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<displayName>kāpehu</displayName>
+				<coordinateUnitPattern type="east">{0} Rā</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} Ra</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} T</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} U</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="10p-1">
@@ -6682,6 +6704,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</units>
 	<listPatterns>
 		<listPattern>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1} rānei</listPatternPart>
+			<listPatternPart type="2">{0} {1} rānei</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, &amp; {1}</listPatternPart>
+			<listPatternPart type="2">{0} &amp; {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">↑↑↑</listPatternPart>

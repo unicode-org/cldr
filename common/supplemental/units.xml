@@ -185,9 +185,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <!-- time -->
         <convertUnit source='second' baseUnit='second' systems="si metric prefixable"/>
-        <convertUnit source='minute' baseUnit='second' factor='60' systems="si_acceptable metric_adjacent"/>
-        <convertUnit source='hour' baseUnit='second' factor='3600' systems="si_acceptable metric_adjacent"/>
-        <convertUnit source='day' baseUnit='second' factor='86400' systems="si_acceptable metric_adjacent"/>
+        <convertUnit source='minute' baseUnit='second' factor='60' systems="si_acceptable metric_adjacent prefixable"/>
+        <convertUnit source='hour' baseUnit='second' factor='3600' systems="si_acceptable metric_adjacent prefixable"/>
+        <convertUnit source='day' baseUnit='second' factor='86400' systems="si_acceptable metric_adjacent prefixable"/>
         <convertUnit source='day-person' baseUnit='second' factor='86400' systems="person_age"/>
         <convertUnit source='week' baseUnit='second' factor='86400*7' systems="metric_adjacent"/>
         <convertUnit source='week-person' baseUnit='second' factor='86400*7' systems="person_age"/>
@@ -197,7 +197,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='month' baseUnit='year' factor='1/12' systems="metric_adjacent"/>
         <convertUnit source='month-person' baseUnit='year' factor='1/12' systems="person_age"/>
         <convertUnit source='quarter' baseUnit='year' factor='1/4' systems="metric_adjacent"/>
-        <convertUnit source='year' baseUnit='year' systems="metric_adjacent"/>
+        <convertUnit source='year' baseUnit='year' systems="metric_adjacent prefixable"/>
         <convertUnit source='year-person' baseUnit='year' systems="person_age"/>
         <convertUnit source='decade' baseUnit='year' factor='10' systems="metric_adjacent"/>
         <convertUnit source='century' baseUnit='year' factor='100' systems="metric_adjacent"/>

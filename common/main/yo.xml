@@ -584,7 +584,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BM">Bémúdà</territory>
 			<territory type="BN">Búrúnẹ́lì</territory>
 			<territory type="BO">Bọ̀lífíyà</territory>
-			<territory type="BQ">Káríbíánì ti Nẹ́dálándì</territory>
+			<territory type="BQ">Kàríbíánì ti Nẹ́dálándì</territory>
 			<territory type="BR">Bàràsílì</territory>
 			<territory type="BS">Bàhámásì</territory>
 			<territory type="BT">Bútánì</territory>
@@ -611,7 +611,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR">Kuusita Ríkà</territory>
 			<territory type="CU">Kúbà</territory>
 			<territory type="CV">Etíokun Kápé féndè</territory>
-			<territory type="CW">Kúrásáò</territory>
+			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Erékùsù Christmas</territory>
 			<territory type="CY">Kúrúsì</territory>
 			<territory type="CZ">Ṣẹ́ẹ́kì</territory>
@@ -710,7 +710,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Modofia</territory>
 			<territory type="ME">Montenegro</territory>
-			<territory type="MF">Ìlú Mátíìnì</territory>
+			<territory type="MF">Ìlú Màtìnì</territory>
 			<territory type="MG">Madasika</territory>
 			<territory type="MH">Etikun Máṣali</territory>
 			<territory type="MK">Àríwá Macedonia</territory>
@@ -8248,8 +8248,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="compatibility">{0}-ibaramu</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} ipade</characterLabelPattern>
 		<characterLabelPattern type="extended">{0}-ifasiwaju</characterLabelPattern>
-		<characterLabelPattern type="facing-left">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="facing-right">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="facing-left">{0} ìdojúkọ òsì</characterLabelPattern>
+		<characterLabelPattern type="facing-right">{0} ìdojúkọ ọ̀tún</characterLabelPattern>
 		<characterLabelPattern type="historic">{0}-àtijó̩</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} - míràn</characterLabelPattern>
 		<characterLabelPattern type="other">{0} miran</characterLabelPattern>
@@ -8419,6 +8419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
 		<parameterDefault parameter="formality">↑↑↑</parameterDefault>
 		<parameterDefault parameter="length">↑↑↑</parameterDefault>
+		<nativeSpaceReplacement>↑↑↑</nativeSpaceReplacement>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>

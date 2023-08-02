@@ -37,6 +37,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -75,7 +76,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String, TargetInfo> sourceToTargetInfo = new LinkedHashMap<>();
     private Map<String, String> sourceToStandard;
     private Multimap<String, String> quantityToSimpleUnits = LinkedHashMultimap.create();
-    private Multimap<String, String> sourceToSystems = LinkedHashMultimap.create();
+    private Multimap<String, UnitSystem> sourceToSystems = TreeMultimap.create();
     private Set<String> baseUnits;
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
     private Comparator<String> quantityComparator;
@@ -516,7 +517,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         quantityToSimpleUnits.put(targetQuantity, source);
         if (systems != null) {
-            sourceToSystems.putAll(source, SPACE_SPLITTER.split(systems));
+            SPACE_SPLITTER
+                    .splitToList(systems)
+                    .forEach(x -> sourceToSystems.put(source, UnitSystem.valueOf(x)));
         }
     }
 
@@ -822,11 +825,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     Comparator<String> UNIT_COMPARATOR = new UnitComparator();
 
-    /**
-     * Only handles the canonical units; no kilo-, only normalized, etc.
-     *
-     * @author markdavis
-     */
+    /** Only handles the canonical units; no kilo-, only normalized, etc. */
+    // TODO: optimize
+    // • the comparators don't have to be fields in this class;
+    //   it is not a static class, so they can be on the converter.
+    // • We can cache the frozen UnitIds, avoiding the parse times
+
     public class UnitId implements Freezable<UnitId>, Comparable<UnitId> {
         public Map<String, Integer> numUnitsToPowers;
         public Map<String, Integer> denUnitsToPowers;
@@ -1615,20 +1619,29 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToTargetInfo;
     }
 
-    public Multimap<String, String> getSourceToSystems() {
+    public Multimap<String, UnitSystem> getSourceToSystems() {
         return sourceToSystems;
     }
 
     public enum UnitSystem { // TODO convert getSystems and SupplementalDataInfo to use natively
         si,
+        si_acceptable,
         metric,
+        metric_adjacent,
         ussystem,
         uksystem,
         jpsystem,
-        other;
+        astronomical,
+        person_age,
+        other,
+        prefixable;
 
         public static final Set<UnitSystem> SiOrMetric =
-                ImmutableSet.of(UnitSystem.metric, UnitSystem.si);
+                ImmutableSet.of(
+                        UnitSystem.metric,
+                        UnitSystem.si,
+                        UnitSystem.metric_adjacent,
+                        UnitSystem.si_acceptable);
         public static final Set<UnitSystem> ALL = ImmutableSet.copyOf(UnitSystem.values());
 
         public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
@@ -1637,8 +1650,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     .collect(Collectors.toSet());
         }
 
+        @Deprecated
         public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
-            return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
+            return new LinkedHashSet<>(
+                    stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toList()));
         }
 
         private static final Joiner SLASH_JOINER = Joiner.on("/");
@@ -1680,8 +1695,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
             for (String subunit : unitsToPowers.keySet()) {
                 subunit = UnitConverter.stripPrefix(subunit, null);
-                Set<UnitSystem> systems =
-                        UnitSystem.fromStringCollection(sourceToSystems.get(subunit));
+                Set<UnitSystem> systems = new TreeSet<>(sourceToSystems.get(subunit));
 
                 if (result == null) {
                     result = systems;
@@ -1698,12 +1712,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 : ImmutableSet.copyOf(EnumSet.copyOf(result));
     }
 
-    private void addSystems(Set<String> result, String subunit) {
-        Collection<String> systems = sourceToSystems.get(subunit);
-        if (!systems.isEmpty()) {
-            result.addAll(systems);
-        }
-    }
+    //    private void addSystems(Set<String> result, String subunit) {
+    //        Collection<String> systems = sourceToSystems.get(subunit);
+    //        if (!systems.isEmpty()) {
+    //            result.addAll(systems);
+    //        }
+    //    }
 
     public String reciprocalOf(String value) {
         // quick version, input guaranteed to be normalized, if original is
@@ -1967,7 +1981,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         "kelvin",
                         "calorie-it",
                         "british-thermal-unit-it",
-                        "foodcalorie"));
+                        "foodcalorie",
+                        "nautical-mile",
+                        "knot"));
 
         Map<Rational, String> result = new TreeMap<>(Comparator.reverseOrder());
 
@@ -2065,5 +2081,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
             default:
                 return NO_JP_UK;
         }
+    }
+
+    /**
+     * Resolve the unit if possible, eg gram-square-second-per-second ==> gram-second <br>
+     * TODO handle complex units that don't match a simple quantity, eg
+     * kilogram-ampere-per-meter-square-second => pascal-ampere
+     */
+    public String resolve(String unit) {
+        UnitId unitId = createUnitId(unit);
+        if (unitId == null) {
+            return unit;
+        }
+        String resolved = unitId.resolve().toString();
+        return getStandardUnit(resolved.isBlank() ? unit : resolved);
     }
 }

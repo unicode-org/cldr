@@ -37,6 +37,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -1632,7 +1633,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         jpsystem,
         astronomical,
         person_age,
-        other;
+        other,
+        prefixable;
 
         public static final Set<UnitSystem> SiOrMetric =
                 ImmutableSet.of(UnitSystem.metric, UnitSystem.si);
@@ -1689,7 +1691,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
             for (String subunit : unitsToPowers.keySet()) {
                 subunit = UnitConverter.stripPrefix(subunit, null);
-                Set<UnitSystem> systems = Set.copyOf(sourceToSystems.get(subunit));
+                Set<UnitSystem> systems = new TreeSet<>(sourceToSystems.get(subunit));
 
                 if (result == null) {
                     result = systems;

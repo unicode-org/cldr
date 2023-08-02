@@ -4050,8 +4050,35 @@ public class TestUnits extends TestFmwk {
                         new UnitSystemInvariant(UnitSystem.si, null, UnitSystem.metric, true),
                         new UnitSystemInvariant(
                                 UnitSystem.si_acceptable,
-                                Set.of("knot", "astronomical-unit", "nautical-mile"),
+                                Set.of(
+                                        "knot",
+                                        "astronomical-unit",
+                                        "nautical-mile",
+                                        "minute",
+                                        "hour",
+                                        "day",
+                                        "arc-second",
+                                        "arc-minute",
+                                        "degree",
+                                        "electronvolt"),
                                 UnitSystem.metric,
+                                true), //
+                        new UnitSystemInvariant(
+                                UnitSystem.si,
+                                Set.of("kilogram", "celsius", "radian", "katal", "steradian"),
+                                UnitSystem.prefixable,
+                                true),
+                        new UnitSystemInvariant(
+                                UnitSystem.metric,
+                                Set.of(
+                                        "hectare",
+                                        "100-kilometer",
+                                        "kilogram",
+                                        "celsius",
+                                        "radian",
+                                        "katal",
+                                        "steradian"),
+                                UnitSystem.prefixable,
                                 true));
 
         /**

@@ -167,7 +167,7 @@ function xlsGenerateXml(locale, wb, xColumn, vColumn) {
 
     // now the fun part
     // //ldml/localeDisplayNames/territories/territory[@type="IO"][@alt="chagos"]
-    let xpathParts = xpath.split("/").slice(2);
+    let xpathParts = xpath.split(/(?<!\[@[^=]+="[^"]+)\//).slice(2);
     const root = doc.getRootNode(); // our node
     let n = root; // start with root
     const NAME = /^[^\[]*/;

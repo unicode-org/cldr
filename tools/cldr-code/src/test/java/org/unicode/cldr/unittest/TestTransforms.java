@@ -405,7 +405,7 @@ public class TestTransforms extends TestFmwkPlus {
 
         Set<String> removedTransforms = new HashSet<>();
         removedTransforms.add(
-            "und-t-d0-ascii"); // https://unicode-org.atlassian.net/browse/CLDR-10436
+                "und-t-d0-ascii"); // https://unicode-org.atlassian.net/browse/CLDR-10436
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {

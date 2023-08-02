@@ -75,7 +75,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Map<String, TargetInfo> sourceToTargetInfo = new LinkedHashMap<>();
     private Map<String, String> sourceToStandard;
     private Multimap<String, String> quantityToSimpleUnits = LinkedHashMultimap.create();
-    private Multimap<String, String> sourceToSystems = LinkedHashMultimap.create();
+    private Multimap<String, UnitSystem> sourceToSystems = TreeMultimap.create();
     private Set<String> baseUnits;
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
     private Comparator<String> quantityComparator;
@@ -516,7 +516,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
         quantityToSimpleUnits.put(targetQuantity, source);
         if (systems != null) {
-            sourceToSystems.putAll(source, SPACE_SPLITTER.split(systems));
+            SPACE_SPLITTER
+                    .splitToList(systems)
+                    .forEach(x -> sourceToSystems.put(source, UnitSystem.valueOf(x)));
         }
     }
 
@@ -1616,7 +1618,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return sourceToTargetInfo;
     }
 
-    public Multimap<String, String> getSourceToSystems() {
+    public Multimap<String, UnitSystem> getSourceToSystems() {
         return sourceToSystems;
     }
 
@@ -1624,6 +1626,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         si,
         si_acceptable,
         metric,
+        metric_adjacent,
         ussystem,
         uksystem,
         jpsystem,
@@ -1641,8 +1644,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     .collect(Collectors.toSet());
         }
 
+        @Deprecated
         public static Set<String> toStringSet(Collection<UnitSystem> stringUnitSystems) {
-            return stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toSet());
+            return new LinkedHashSet<>(
+                    stringUnitSystems.stream().map(x -> x.toString()).collect(Collectors.toList()));
         }
 
         private static final Joiner SLASH_JOINER = Joiner.on("/");
@@ -1684,8 +1689,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
             for (String subunit : unitsToPowers.keySet()) {
                 subunit = UnitConverter.stripPrefix(subunit, null);
-                Set<UnitSystem> systems =
-                        UnitSystem.fromStringCollection(sourceToSystems.get(subunit));
+                Set<UnitSystem> systems = Set.copyOf(sourceToSystems.get(subunit));
 
                 if (result == null) {
                     result = systems;
@@ -1702,12 +1706,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 : ImmutableSet.copyOf(EnumSet.copyOf(result));
     }
 
-    private void addSystems(Set<String> result, String subunit) {
-        Collection<String> systems = sourceToSystems.get(subunit);
-        if (!systems.isEmpty()) {
-            result.addAll(systems);
-        }
-    }
+    //    private void addSystems(Set<String> result, String subunit) {
+    //        Collection<String> systems = sourceToSystems.get(subunit);
+    //        if (!systems.isEmpty()) {
+    //            result.addAll(systems);
+    //        }
+    //    }
 
     public String reciprocalOf(String value) {
         // quick version, input guaranteed to be normalized, if original is
@@ -1971,7 +1975,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         "kelvin",
                         "calorie-it",
                         "british-thermal-unit-it",
-                        "foodcalorie"));
+                        "foodcalorie",
+                        "nautical-mile",
+                        "knot"));
 
         Map<Rational, String> result = new TreeMap<>(Comparator.reverseOrder());
 

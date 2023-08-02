@@ -119,6 +119,8 @@ final class NistUnits {
             Set<String> _siAcceptable) {
         try {
             // Get the SI acceptable units
+            // Unfortunately, this page has inconsistent formats, so we just mine it for
+            // the systems
             try (BufferedReader in = CldrUtility.getUTF8Data("external/nistAcceptedUnits.txt")) {
                 try (Stream<String> s = in.lines()) {
                     for (String line : (Iterable<String>) s::iterator) {
@@ -126,10 +128,35 @@ final class NistUnits {
                             continue;
                         }
                         List<String> parts = SPLIT_TABS.splitToList(line);
-                        _siAcceptable.add(parts.get(0).replace(' ', '-'));
+                        _siAcceptable.add(parts.get(0).toLowerCase(Locale.ROOT).replace(' ', '-'));
                     }
                 }
             }
+            // There is also no conversion data for the following.
+            // The conversion value for daltons is given in a footnote
+            // The only reason we need 'gram' is to get the systems
+            _externalConversionData.add(
+                    new ExternalUnitConversionData(
+                            "mass",
+                            "dalton",
+                            "Da",
+                            "kilogram",
+                            Rational.of("1.660538782E-27"),
+                            null,
+                            Set.of(UnitSystem.si_acceptable),
+                            "HACK",
+                            "hack"));
+            _externalConversionData.add(
+                    new ExternalUnitConversionData(
+                            "mass",
+                            "gram",
+                            "g",
+                            "kilogram",
+                            Rational.of("1E-3"),
+                            null,
+                            Set.of(UnitSystem.si),
+                            "HACK",
+                            "hack"));
 
             try (BufferedReader in = CldrUtility.getUTF8Data("external/nistConversions.txt")) {
                 String quantity = null;

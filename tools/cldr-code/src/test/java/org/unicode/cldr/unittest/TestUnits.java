@@ -114,6 +114,8 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestUnits extends TestFmwk {
 
+    private static final Joiner JOIN_COMMA = Joiner.on(", ");
+
     /** Flags to emit debugging information */
     private static final boolean SHOW_UNIT_ORDER = getFlag("TestUnits:SHOW_UNIT_ORDER");
 
@@ -122,6 +124,7 @@ public class TestUnits extends TestFmwk {
     private static final boolean SHOW_DATA = getFlag("TestUnits:SHOW_DATA");
     private static final boolean SHOW_MISSING_TEST_DATA =
             getFlag("TestUnits:SHOW_MISSING_TEST_DATA");
+    private static final boolean SHOW_SYSTEMS = getFlag("TestUnits:SHOW_SYSTEMS");
 
     /** Flags for reformatting data file */
     private static final boolean SHOW_PREFS = getFlag("TestUnits:SHOW_PREFS");
@@ -3991,6 +3994,99 @@ public class TestUnits extends TestFmwk {
                             + actual.toString(FormatStyle.basic),
                     expectedFactor,
                     actual);
+        }
+    }
+
+    public void testUnitSystems() {
+        Set<String> fails = new LinkedHashSet<>();
+        if (SHOW_SYSTEMS) {
+            System.out.println("\n# Show Unit Systems\n#Unit\tCLDR\tNIST*");
+        }
+        for (String unit : converter.getSimpleUnits()) {
+            final Set<UnitSystem> cldrSystems = converter.getSystemsEnum(unit);
+            ExternalUnitConversionData nistInfo = NistUnits.unitToData.get(unit);
+            final Set<UnitSystem> nistSystems = nistInfo == null ? Set.of() : nistInfo.systems;
+            if (SHOW_SYSTEMS) {
+                System.out.println(
+                        unit //
+                                + "\t"
+                                + JOIN_COMMA.join(cldrSystems) //
+                                + "\t"
+                                + (nistInfo == null ? "" : JOIN_COMMA.join(nistInfo.systems)));
+            }
+            UnitSystemInvariant.test(unit, cldrSystems, fails);
+            if (!nistSystems.isEmpty() && !cldrSystems.containsAll(nistSystems)
+                    || cldrSystems.contains(UnitSystem.si) && !nistSystems.contains(UnitSystem.si)
+                    || cldrSystems.contains(UnitSystem.si_acceptable)
+                            && !nistSystems.contains(UnitSystem.si_acceptable)) {
+                fails.add(
+                        "**\t"
+                                + unit
+                                + " nistSystems="
+                                + nistSystems
+                                + " cldrSystems="
+                                + cldrSystems);
+            }
+        }
+        if (!fails.isEmpty()) {
+            errln("Mismatch between NIST and CLDR UnitSystems");
+            for (String fail : fails) {
+                System.out.println(fail);
+            }
+        }
+        if (!SHOW_SYSTEMS) {
+            warnln("Use -DTestUnits:SHOW_SYSTEMS to see the unit systems for units in units.xml");
+        }
+    }
+
+    static class UnitSystemInvariant {
+        UnitSystem source;
+        Set<String> exceptUnits;
+        UnitSystem contains;
+        boolean invert;
+
+        static final Set<UnitSystemInvariant> invariants =
+                Set.of(
+                        new UnitSystemInvariant(UnitSystem.si, null, UnitSystem.metric, true),
+                        new UnitSystemInvariant(
+                                UnitSystem.si_acceptable,
+                                Set.of("knot", "astronomical-unit", "nautical-mile"),
+                                UnitSystem.metric,
+                                true));
+
+        /**
+         * If a set of systems contains source, then it must contain contained (if invert == true)
+         * or must not (if invert = false).
+         */
+        public UnitSystemInvariant(
+                UnitSystem source, Set<String> exceptUnits, UnitSystem contained, boolean invert) {
+            this.source = source;
+            this.exceptUnits = exceptUnits == null ? Set.of() : exceptUnits;
+            this.contains = contained;
+            this.invert = invert;
+        }
+
+        public boolean ok(String unit, Set<UnitSystem> trial) {
+            if (!trial.contains(source) || exceptUnits.contains(unit)) {
+                return true;
+            }
+            if (trial.contains(contains) == invert) {
+                return true;
+            }
+            return false;
+        }
+
+        static void test(String unit, Set<UnitSystem> systems, Set<String> fails) {
+            for (UnitSystemInvariant invariant : invariants) {
+                if (!invariant.ok(unit, systems)) {
+                    fails.add("*\t" + unit + "\tfails\t" + invariant);
+                }
+            }
+        }
+
+        @Override
+        public String toString() {
+            return source + (invert ? " doesn't contain " : " contains ") + contains;
         }
     }
 }

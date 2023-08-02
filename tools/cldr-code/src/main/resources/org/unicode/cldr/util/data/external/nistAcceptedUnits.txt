@@ -1,0 +1,69 @@
+# From https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si
+
+# The term "acceptable units," which is introduced in this Guide for convenience, is used to mean the SI units plus 
+# (a) those non-SI units accepted for use with the SI (see Tables 6 - 9); and 
+# (b) appropriate multiples and submultiples of such accepted non-SI units.
+
+# Modifications
+
+# minute—time, etc => minute
+# degree—plane angle(a) => degree
+# minute—plane angle(a) => arc-minute
+# second—plane angle(a) => arc-second
+# hectare(h) => hectare
+# L(b),1 => L
+# metric ton(c) => tonne
+# rad(a) => rad
+# ångström => angstrom
+
+# Skipping log units, Table 8, Table 9 only by "this Guide"
+
+# Table 6. Non-SI units accepted for use with the SI by the CIPM and this Guide
+# Name	Symbol	Value in SI units
+
+minute	min	1 min = 60 s
+hour	h	1 h = 60 min = 3600 s
+day	d	1 d = 24 h = 86 400s
+degree	°	1° = (π/180) rad
+arc-minute	′	1′ = (1/60)° = (π/10 800) rad
+arc-second	″	1″ = (1/60)′ = (π/648 000) rad
+hectare	ha	1 ha = 1 hm2 = 104m2
+liter	L	1 L = 1 dm3 = 10-3m3
+tonne	t	1 t = 103 kg
+# neper	Np(d,f)	[see footnote (g) regarding the numerical
+# bel	B(e,f)	value of logarythmic ratio quantities such
+# decibel	dB(e,f)	as the neper, the bel and the decibel]
+
+#Table 7. Non-SI Units accepted for use with the SI by the CIPM and this Guide, whose values in SI units are obtained experimentally
+#Name	Symbol	Definition and Value in SI units
+
+electronvolt	eV	(a)
+astronomical unit	ua	(b)
+unified atomic mass unit	u	(c)
+dalton	Da	(d)
+
+#Table 8. Examples of physical quantities sometimes used as units
+#Kind of quantity	Physical quantity used as a unit	Symbol
+
+# speed	speed of light in vacuum (n.u.)	c
+# action	Planck constant divided by 2π (n.u.)	h
+# mass	electron rest mass (n.u. and a.u.)	me
+# electric charge	elementary charge (a.u.)	e
+# length	Bohr radius (a.u.)	a0
+# energy	Hartree energy (a.u.)	Eh
+# time	ratio of action to energy (a.u.)	h/ Eh
+
+#Table 9. Other non-SI units accepted for use with the SI either by the CIPM and this Guide (indicated by*), or by this Guide (indicated by**)
+#Name	Symbol	Value in SI units
+
+nautical mile	 	1 nautical mile = 1852 m
+knot	 	1 nautical mile per hour = (1852/3600)m/s
+angstrom	Å	Å = 0.1 nm = 10-10 m
+barn	b	1 b = 100 fm2 = 10-28 m2
+bar	bar	1 bar = 0.1 MPa = 100 kPa = 1000 hPa = 105 Pa
+millimeter of mercury	mmHg	1 mmHg ˜ 133.322 Pa
+
+#curie**	Ci	1 Ci = 3.7 x 1010 Bq
+#roentgen**	R	1 R = 2.58 x 10-4 C/kg
+#rad**	rad(a)	1 rad=1 cGy=10-2 Gy
+#rem**	rem	1 rem = 1 cSv = 10-2 Sv

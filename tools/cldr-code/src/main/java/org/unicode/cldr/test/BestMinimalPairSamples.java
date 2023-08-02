@@ -365,8 +365,8 @@ public class BestMinimalPairSamples {
         Set<UnitSystem> systems =
                 ExampleGenerator.UNIT_CONVERTER.getSystemsEnum(
                         ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId));
-        if (systems.contains(UnitSystem.metric)) {
-            return 0;
+        if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+            return 0; // better
         }
         return 1;
     }

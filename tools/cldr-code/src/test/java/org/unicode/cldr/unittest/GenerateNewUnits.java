@@ -1,195 +1,177 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.HashMultimap;
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.Output;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.Comparator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitId;
+import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.UnitParser;
 
 public class GenerateNewUnits {
-    private static final String CHECK_UNIT = "kilogram-force";
+
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRConfig info = CLDR_CONFIG;
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
-    static final UnitConverter converter = SDI.getUnitConverter();
+    private static final UnitConverter converter = SDI.getUnitConverter();
+
+    private static final String CHECK_UNIT = "kilogram-force";
 
     public static void main(String[] args) {
+        Set<String> argSet = Set.copyOf(Arrays.asList(args));
+        boolean SI_ACCEPTED = argSet.isEmpty() || argSet.contains("accepted");
+        boolean SYMBOLS = argSet.isEmpty() || argSet.contains("symbols");
+        boolean GENERATE_XML = argSet.isEmpty() || argSet.contains("xml");
+        boolean OTHER = argSet.isEmpty() || argSet.contains("plain");
 
-        Multimap<String, ExternalUnitConversionData> seen = HashMultimap.create();
-        Set<ExternalUnitConversionData> couldAdd = new LinkedHashSet<>();
+        boolean TEST_PARSER = argSet.contains("parser");
+        Output<String> base = new Output<>();
+
         int count = 0;
-        Output<String> sourceBase = new Output<>();
-        Output<String> targetBase = new Output<>();
-
-        List<SimpleConversionData> cleanedNist = clean(NistUnits.externalConversionData);
+        Set<ExternalUnitConversionData> cleanedNist = clean(NistUnits.externalConversionData);
         UnitParser up = new UnitParser();
+        String lastQuantity = "";
 
-        for (SimpleConversionData data : cleanedNist) {
-            if (false) {
-                System.out.println(data.source + "⟹" + data.info.factor + " * " + data.target);
+        if (SI_ACCEPTED) {
+            System.out.println("\n# SI_Accepted\n");
+            for (ExternalUnitConversionData data : NistUnits.externalConversionData) {
+                if (data.systems.contains(UnitSystem.si_acceptable)) {
+                    ConversionInfo convert = converter.parseUnitId(data.source, base, false);
+                    System.out.println((convert == null ? "OUT" : "IN") + "\t" + data);
+                }
             }
+        }
+        if (SYMBOLS) {
+            System.out.println("# Symbols\n");
 
-            up.set(data.source);
-            try {
-                List<Pair<UnitIdComponentType, String>> list = up.getRemaining();
-                System.out.println(data.source + "\t" + list.size() + "\t⟹\t" + list);
-            } catch (Exception e1) {
-                System.out.println(e1.getMessage() + ", " + data);
-                e1.printStackTrace();
+            Multimap<String, String> unitsToSymbols = TreeMultimap.create();
+            Multimap<String, String> symbolsToUnits = TreeMultimap.create();
+            Matcher simple = Pattern.compile("^[^ ·/0-9]*$").matcher("");
+            for (ExternalUnitConversionData data : NistUnits.externalConversionData) {
+                if (data.symbol != null) {
+                    ConversionInfo convert = converter.parseUnitId(data.source, base, false);
+                    if (convert != null && simple.reset(data.symbol).matches()) {
+                        unitsToSymbols.put(data.source, data.symbol);
+                        symbolsToUnits.put(data.symbol, data.source);
+                    }
+                }
             }
-            if (true) continue;
-
-            //            ConversionInfo sourceConversionInfo = converter.parseUnitId(data.source,
-            // sourceBase, false);
-            //
-            ////            Rational cldrResult = converter.convert(Rational.ONE, data.source,
-            // data.target, false);
-            ////
-            ////            if (!cldrResult.equals(Rational.NaN)) {
-            ////                continue;
-            ////            }
-            //            if (sourceConversionInfo != null) {
-            //                continue;
-            //            }
-            //
-            //            Output<String> baseUnit = new Output<>();
-            //            String target = data.target;
-            //            Rational endFactor = data.info.factor;
-            //            String mark = "";
-            //            TargetInfo baseUnit2 = NistUnits.derivedUnitToConversion.get(data.target);
-            //            if (baseUnit2 != null) {
-            //                target = baseUnit2.target;
-            //                endFactor = baseUnit2.unitInfo.factor;
-            //                mark="¹";
-            //            } else {
-            //                ConversionInfo conversionInfo = converter.getUnitInfo(data.target,
-            // baseUnit);
-            //                if (conversionInfo != null && !data.target.equals(baseUnit.value)) {
-            //                    target = baseUnit.value;
-            //                    endFactor = conversionInfo.convert(data.info.factor);
-            //                    mark="²";
-            //                }
-            //            }
-
-            String quantity;
-            try {
-                quantity = converter.getQuantityFromUnit(data.target, false);
-            } catch (Exception e) {
-                quantity = null;
+            for (Entry<String, Collection<String>> entry : unitsToSymbols.asMap().entrySet()) {
+                final String sourceUnit = entry.getKey();
+                System.out.println(
+                        converter.getQuantityFromUnit(sourceUnit, false) //
+                                + "\t"
+                                + sourceUnit //
+                                + "\t"
+                                + Joiner.on('\t').join(entry.getValue())
+                                + "\t"
+                                + converter.getSystems(sourceUnit));
             }
-            if (quantity == null) {
-                quantity = quantityFromUnit.get(data.target);
+            for (Entry<String, Collection<String>> entry : symbolsToUnits.asMap().entrySet()) {
+                if (entry.getValue().size() > 1) {
+                    System.out.println(
+                            "Ambiguous! "
+                                    + entry.getKey()
+                                    + "\t"
+                                    + Joiner.on('\t').join(entry.getValue()));
+                }
             }
+        }
+        if (GENERATE_XML) {
+            System.out.println("\n# XML missing\n");
+            for (ExternalUnitConversionData data : cleanedNist) {
 
-            System.out.println(
-                    ++count
-                            + "\t"
-                            + quantity
-                            + "\t"
-                            + data.quantity
-                            + "\t"
-                            + data.source
-                            + "\t"
-                            + data.info.factor
-                            + "\t"
-                            + data.target
-                            + "\t"
-                            + minimize(data.target)
-                            + "\n\t\t<convertUnit"
-                            + " source='"
-                            + data.source
-                            + "'"
-                            + " baseUnit='"
-                            + data.target
-                            + "'"
-                            + " factor='"
-                            + data.info.factor
-                            + "'"
-                            + " systems=\'metric si\'"
-                            + "/>");
+                if (!lastQuantity.equals(data.quantity)) {
+                    System.out.println("<!-- " + data.quantity + "-->");
+                    lastQuantity = data.quantity;
+                }
+                System.out.println(
+                        "\t\t<convertUnit"
+                                + " source='"
+                                + data.source
+                                + "'"
+                                + (data.symbol == null ? "" : " symbol='" + data.source + "'")
+                                + " baseUnit='"
+                                + data.target
+                                + "'"
+                                + " factor='"
+                                + data.info.factor
+                                + "'"
+                                + " systems=\'???\'"
+                                + "/>");
+            }
+            if (OTHER) {
+                System.out.println("\n# Missing\n");
+                for (ExternalUnitConversionData data : cleanedNist) {
+                    System.out.println(
+                            ++count
+                                    + "\t"
+                                    + data.quantity
+                                    + "\t"
+                                    + data.source
+                                    + "\t"
+                                    + data.symbol
+                                    + "\t⟹\t"
+                                    + data.info.factor
+                                    + " × "
+                                    + data.target
+                                    + "\t"
+                                    + data.info.factor.toString(FormatStyle.basic));
+                }
+            }
+            if (TEST_PARSER) {
+                System.out.println("\n# Check parser\n");
+                for (ExternalUnitConversionData data : cleanedNist) {
+                    up.set(data.source);
+                    try {
+                        List<Pair<UnitIdComponentType, String>> list = up.getRemaining();
+                        System.out.println(data.source + "\t" + list.size() + "\t⟹\t" + list);
+                    } catch (Exception e1) {
+                        System.out.println(e1.getMessage() + ", " + data);
+                        e1.printStackTrace();
+                    }
+                }
+            }
         }
     }
 
-    /**
-     * Return a simplified unit, eg kilogram-per-meter-square-second ==> pascal TODO handle complex
-     * units that don't match a simple quantity, eg kilogram-ampere-per-meter-square-second =>
-     * pascal-ampere
-     *
-     * @param unit
-     * @return
-     */
-    private static String minimize(String unit) {
-        UnitId unitId = converter.createUnitId(unit);
-        String resolved = unitId.resolve().toString();
-        return converter.getStandardUnit(resolved.isBlank() ? unit : resolved);
-        //        String quantity;
-        //        try {
-        //            quantity = converter.getQuantityFromUnit(unit, false);
-        //        } catch (Exception e) {
-        //            return unit;
-        //        }
-        //        Set<String> simpleUnits = converter.getSimpleUnits(quantity);
-        //        for (String simpleUnit : simpleUnits) {
-        //            if (unit.equals(simpleUnit)) {
-        //                continue;
-        //            }
-        //            Rational ratio = converter.convert(Rational.ONE, unit, simpleUnit, false);
-        //            if (ratio.equals(Rational.ONE)) {
-        //                return simpleUnit;
-        //            }
-        //        }
-        //        return unit;
-    }
-
-    static final Comparator<ExternalUnitConversionData> myComparator =
-            new Comparator<>() {
-                @Override
-                public int compare(ExternalUnitConversionData o1, ExternalUnitConversionData o2) {
-                    return ComparisonChain.start()
-                            .compare(o1.source, o2.source)
-                            .compare(o1.target, o2.target)
-                            .result();
-                }
-            };
-
-    private static List<SimpleConversionData> clean(
-            List<ExternalUnitConversionData> externalconversiondata) {
-        Multimap<String, ExternalUnitConversionData> cleaned =
-                TreeMultimap.create(Comparator.naturalOrder(), myComparator);
+    /** Filter out the most useful conversions */
+    private static Set<ExternalUnitConversionData> clean(
+            Set<ExternalUnitConversionData> externalconversiondata) {
+        Multimap<String, ExternalUnitConversionData> cleaned = TreeMultimap.create();
         Output<String> base = new Output<>();
         for (ExternalUnitConversionData data : NistUnits.externalConversionData) {
-            //            if (data.from.equals(NistUnits.NIST_CONVERSIONS)) {
-            //                continue; // FOR NOW
-            //            }
             if (data.source.equals(CHECK_UNIT)) {
-                int debug = 0;
+                SDI.getUnitIdComponentType(CHECK_UNIT);
             }
-            SDI.getUnitIdComponentType(CHECK_UNIT);
+
+            // skip the ones we have already
+
             ConversionInfo convert = converter.parseUnitId(data.source, base, false);
             if (convert == null) {
                 cleaned.put(data.source, data);
             }
         }
-        List<SimpleConversionData> result = new ArrayList<>();
+        Set<ExternalUnitConversionData> result = new TreeSet<>();
         ImmutableSet<String> absoluteTemperature =
                 ImmutableSet.of("celsius", "fahrenheit", "kelvin", "rankine");
         Output<String> baseUnit = new Output<>();
@@ -204,19 +186,28 @@ public class GenerateNewUnits {
             if (source.equals(CHECK_UNIT)) {
                 int debug = 0;
             }
-            SimpleConversionData revisedItem = findBestMapping(baseUnit, source, mappings);
+            ExternalUnitConversionData revisedItem = findBestMapping(baseUnit, source, mappings);
             result.add(revisedItem);
         }
         return result;
     }
 
-    public static SimpleConversionData findBestMapping(
+    /**
+     * Get the best mapping
+     *
+     * @param baseUnit
+     * @param source
+     * @param mappings
+     * @return
+     */
+    public static ExternalUnitConversionData findBestMapping(
             Output<String> baseUnit,
             final String source,
             final Collection<ExternalUnitConversionData> mappings) {
         String bestTarget = null;
         Rational bestFactor = null;
         String bestQuantity = null;
+        String bestSymbol = null;
         for (ExternalUnitConversionData data : mappings) {
             ConversionInfo conversionInfo = converter.parseUnitId(data.target, baseUnit, false);
             if (conversionInfo != null) {
@@ -226,6 +217,7 @@ public class GenerateNewUnits {
                     bestTarget = target;
                     bestFactor = endFactor;
                     bestQuantity = data.quantity;
+                    bestSymbol = data.symbol;
                 }
             } else {
                 TargetInfo baseUnit2 = NistUnits.derivedUnitToConversion.get(data.target);
@@ -233,63 +225,25 @@ public class GenerateNewUnits {
                     bestTarget = baseUnit2.target;
                     bestFactor = baseUnit2.unitInfo.factor.multiply(data.info.factor);
                     bestQuantity = data.quantity;
+                    bestSymbol = data.symbol;
                 }
             }
-            //            else {
-            //                if (!target.equals(bestTarget)
-            //                    || !approximatelyEquals(bestFactor, endFactor)
-            //                    || !data.quantity.equals(bestQuantity)
-            //                    ) {
-            //                    throw new IllegalArgumentException();
-            //                }
-            //            }
         }
-        return new SimpleConversionData(
-                bestQuantity, source, new ConversionInfo(bestFactor, Rational.ZERO), bestTarget);
+        UnitId targetId = converter.createUnitId(bestTarget);
+        bestTarget = targetId == null ? bestTarget : targetId.resolve().toString();
+        String quantity = converter.getQuantityFromUnit(bestTarget, false);
+        bestQuantity = quantity == null ? "•" + bestQuantity : quantity;
+        return new ExternalUnitConversionData(
+                bestQuantity,
+                source,
+                bestSymbol,
+                bestTarget,
+                bestFactor,
+                Rational.ZERO,
+                null,
+                null,
+                null);
     }
-
-    static final Rational EPSILON = Rational.of(1, 1000000);
-
-    private static boolean approximatelyEquals(Rational a, Rational b) {
-        if (a.equals(b)) {
-            return true;
-        }
-        // approximately equal when abs(a-b) / (a + b) < epsilon
-        Rational a_b = a.subtract(b).abs().divide(a.add(b));
-        return a_b.compareTo(EPSILON) < 0;
-    }
-
-    static class SimpleConversionData {
-        public SimpleConversionData(
-                String quantity, String source, ConversionInfo conversionInfo, String target) {
-            this.quantity = quantity;
-            this.source = source;
-            this.target = target;
-            this.info = conversionInfo;
-        }
-
-        final String quantity;
-        final String source;
-        final ConversionInfo info;
-        final String target;
-
-        @Override
-        public String toString() {
-            return quantity + ", " + source + ", " + info + ", " + target;
-        }
-    }
-
-    //    private static ExternalUnitConversionData best(String source,
-    // Collection<ExternalUnitConversionData> collection) {
-    //        if (collection.size() != 1) {
-    //            for (ExternalUnitConversionData item : collection) {
-    //
-    //                System.out.println(source + "\t" + item.info.factor + "\t" + item.target);
-    //            }
-    //            System.out.println();
-    //        }
-    //        return collection.iterator().next();
-    //    }
 
     static final ImmutableMap<String, String> quantityFromUnit =
             ImmutableMap.<String, String>builder()

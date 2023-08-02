@@ -612,8 +612,9 @@ public final class Rational implements Comparable<Rational> {
         return numerator.divide(denominator);
     }
 
+    /** The symmetric difference of a and b is 2 * abs(a - b) / (a + b) */
     public Rational symmetricDiff(Rational b) {
-        return this.subtract(b).divide(this.abs().add(b.abs())).multiply(TWO);
+        return equals(b) ? ZERO : subtract(b).abs().multiply(TWO).divide(add(b));
     }
 
     /** Return repeating fraction, as long as the length is reasonable */
@@ -707,5 +708,16 @@ public final class Rational implements Comparable<Rational> {
         }
         int result = str.length() - 1;
         return String.valueOf(result * sign);
+    }
+
+    public static final Rational EPSILON = Rational.of(1, 1000000);
+
+    /** Approximately equal when symmetric difference of a and b < epsilon (default EPSILON) */
+    public boolean approximatelyEquals(Rational b, Rational epsilon) {
+        return symmetricDiff(b).compareTo(epsilon) < 0;
+    }
+
+    public boolean approximatelyEquals(Rational b) {
+        return approximatelyEquals(b, EPSILON);
     }
 }

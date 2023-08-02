@@ -154,14 +154,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         @Deprecated
         CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING),
         /**
-         * DEPRECATED: use VETTING
-         *
-         * @see #VETTING
-         * @deprecated
-         */
-        @Deprecated
-        DISPUTED("Dispute Resolution", CheckCLDR.Phase.VETTING),
-        /**
          * DEPRECATED: Not to be used in the SurveyTool.
          *
          * @see #VETTING_CLOSED

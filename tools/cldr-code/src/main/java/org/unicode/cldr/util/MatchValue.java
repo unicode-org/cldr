@@ -122,7 +122,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "validity/bcp47";
+            return "validity/bcp47-wellformed";
         }
 
         @Override
@@ -325,7 +325,7 @@ public abstract class MatchValue implements Predicate<String> {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
             }
-            if (typeName.equals("bcp47")) {
+            if (typeName.equals("bcp47-wellformed")) {
                 return new BCP47LocaleMatchValue();
             }
             int slashPos = typeName.indexOf('/');

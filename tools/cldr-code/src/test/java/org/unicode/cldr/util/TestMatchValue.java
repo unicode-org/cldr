@@ -37,7 +37,7 @@ public class TestMatchValue {
     @Test
     void TestBcp47MatchValue() {
         // assert that no keyword is allowed
-        final MatchValue m = ValidityMatchValue.of("bcp47");
+        final MatchValue m = ValidityMatchValue.of("bcp47-wellformed");
 
         ImmutableSet<String> is_bcp47 =
                 ImmutableSet.of("und", "mt-Latn", "und-US-u-rg-ustx-tz-uschi");

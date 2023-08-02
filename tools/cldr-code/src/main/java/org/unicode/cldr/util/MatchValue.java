@@ -114,6 +114,7 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
+    /** Check that a bcp47 locale ID is well-formed */
     public static class BCP47LocaleMatchValue extends MatchValue {
         static final UnicodeSet basechars = new UnicodeSet("[A-Za-z0-9_]");
 
@@ -131,10 +132,14 @@ public abstract class MatchValue implements Predicate<String> {
             try {
                 ULocale l = ULocale.forLanguageTag(item);
                 if (l == null || l.getBaseName().isEmpty()) {
-                    return false;
+                    return false; // failed to parse
                 }
+
+                // check with lstr parser
+                LanguageTagParser ltp = new LanguageTagParser();
+                ltp.set(item);
             } catch (Throwable t) {
-                return false;
+                return false; // string failed
             }
             return true;
         }

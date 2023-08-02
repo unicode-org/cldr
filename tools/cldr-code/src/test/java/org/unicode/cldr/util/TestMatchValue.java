@@ -46,7 +46,8 @@ public class TestMatchValue {
                 is_bcp47.stream().map(v -> () -> assertTrue(m.is(v), v + ": Should be bcp47")));
 
         ImmutableSet<String> not_bcp47 =
-                ImmutableSet.of("de_DE@PREEURO", "en_US_POSIX", "a b c", "a");
+                ImmutableSet.of(
+                        "de_DE@PREEURO", "en_US_POSIX", "a b c", "a", "aa-BB-CCC-DDDD-EEEEE-u-u-u");
         assertAll(
                 "is=true",
                 not_bcp47.stream()

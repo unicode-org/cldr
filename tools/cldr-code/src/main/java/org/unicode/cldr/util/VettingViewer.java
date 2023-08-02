@@ -1119,12 +1119,21 @@ public class VettingViewer<T> {
 
     private Map<String, String> getSortedNames(Organization org, Level desiredLevel) {
         Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
+        LocalesWithExplicitLevel cldrLocale =
+                new LocalesWithExplicitLevel(Organization.cldr, desiredLevel);
+
         // TODO: another hack, unaffiliated gets everything
-        if (org == Organization.unaffiliated) {
+        if (org == Organization.unaffiliated && desiredLevel == Level.BASIC) {
             for (String localeID : cldrFactory.getAvailable()) {
-                sortedNames.put(getName(localeID), localeID);
+                if (!cldrLocale.is(localeID)) {
+                    sortedNames.put(getName(localeID), localeID);
+                }
             }
             return sortedNames;
+        }
+
+        if (org == Organization.unaffiliated) {
+            return sortedNames; // empty
         }
 
         // TODO Fix HACK

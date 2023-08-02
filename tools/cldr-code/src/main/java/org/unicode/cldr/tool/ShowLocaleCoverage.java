@@ -58,6 +58,7 @@ import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
@@ -318,8 +319,8 @@ public class ShowLocaleCoverage {
                 PrintWriter tsv_missing_counts =
                         FileUtilities.openUTF8Writer(
                                 CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing-counts.tsv");
-                PrintWriter propertiesCoverage =
-                        FileUtilities.openUTF8Writer(
+                TempPrintWriter propertiesCoverage =
+                        TempPrintWriter.openUTF8Writer(
                                 CLDRPaths.COMMON_DIRECTORY + "properties/",
                                 "coverageLevels.txt"); ) {
             tsv_missing_summary.println(TSV_MISSING_SUMMARY_HEADER);
@@ -1043,7 +1044,7 @@ public class ShowLocaleCoverage {
 
     /** Println with extra tabs to appear as table in github */
     public static void printlnWithTabs(
-            PrintWriter printWriter, int desiredCount, String textToPrint) {
+            TempPrintWriter printWriter, int desiredCount, String textToPrint) {
         StringBuilder result = new StringBuilder();
         for (String line : LF_SPLITTER.split(textToPrint)) {
             long count = desiredCount - line.chars().filter(ch -> ch == '\t').count();

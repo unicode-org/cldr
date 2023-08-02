@@ -13,6 +13,7 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -31,20 +34,24 @@ import org.xml.sax.SAXParseException;
 
 @CLDRTool(alias = "validate", description = "Check XML files for validity")
 public class XMLValidator {
+    private static final String SCHEMA = "--schema=";
     public boolean quiet = false;
     public boolean parseonly = false;
     public boolean justCheckBom = false;
+    public final File withSchema;
 
-    public XMLValidator(boolean quiet, boolean parseonly, boolean justCheckBom) {
+    public XMLValidator(boolean quiet, boolean parseonly, boolean justCheckBom, File withSchema) {
         this.quiet = quiet;
         this.parseonly = parseonly;
         this.justCheckBom = justCheckBom;
+        this.withSchema = withSchema;
     }
 
     public static void main(String[] args) throws IOException {
         boolean quiet = false;
         boolean parseonly = false;
         boolean justCheckBom = false;
+        File withSchema = null;
         if (args.length == 0) {
             System.out.println("No files specified. Validation failed. Use --help for help.");
             return;
@@ -60,6 +67,12 @@ public class XMLValidator {
                 parseonly = true;
             } else if (args[i].equals("--justCheckBom")) {
                 justCheckBom = true;
+            } else if (args[i].startsWith(SCHEMA)) {
+                withSchema = new File(args[i].substring(SCHEMA.length()));
+                if (!withSchema.canRead()) {
+                    throw new FileNotFoundException(
+                            "Could not read schema " + withSchema.getAbsolutePath());
+                }
             } else {
                 File f = new File(args[i]);
                 if (f.isDirectory()) {
@@ -82,7 +95,7 @@ public class XMLValidator {
         if (!quiet) {
             System.err.println("# " + toCheck.size() + " file(s) to check");
         }
-        int failCount = new XMLValidator(quiet, parseonly, justCheckBom).check(toCheck);
+        int failCount = new XMLValidator(quiet, parseonly, justCheckBom, withSchema).check(toCheck);
         if (failCount != 0) {
             System.err.println(
                     "# FAIL: " + failCount + " of " + toCheck.size() + " file(s) had errors.");
@@ -202,12 +215,22 @@ public class XMLValidator {
         }
     }
 
-    Document parse(InputSource docSrc, String filename) {
+    Document parse(InputSource docSrc, String filename) throws SAXException {
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
         if (!parseonly) {
             dfactory.setNamespaceAware(true);
             dfactory.setValidating(true);
+        }
+
+        if (withSchema != null) {
+            // assumes validating
+            dfactory.setNamespaceAware(true);
+            dfactory.setValidating(true);
+
+            SchemaFactory sfac = SchemaFactory.newDefaultInstance();
+            Schema schema = sfac.newSchema(withSchema);
+            dfactory.setSchema(schema);
         }
         // Set other attributes here as needed
         // applyAttributes(dfactory, attributes);

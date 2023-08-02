@@ -119,6 +119,13 @@ jobs:
           -Dexec.cleanupDaemonThreads=false
           -Dexec.args="-q --justCheckBom exemplars seed common keyboards"
           && echo 'No XML BOM detected'
+      - name: Schema check common/main in .xml files
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="-q --schema=common/dtd/ldml.xsd  common/main"
+          || (echo 'Schema failed, rerun GenerateDtd' ; exit 0)
       - name: Setup MySQL
         run: |
           sudo systemctl start mysql.service

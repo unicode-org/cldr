@@ -114,11 +114,11 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-    /** Check that a bcp47 locale ID is well-formed */
-    public static class BCP47LocaleMatchValue extends MatchValue {
+    /** Check that a bcp47 locale ID is well-formed. Does not check validity. */
+    public static class BCP47LocaleWellFormedMatchValue extends MatchValue {
         static final UnicodeSet basechars = new UnicodeSet("[A-Za-z0-9_]");
 
-        public BCP47LocaleMatchValue() {}
+        public BCP47LocaleWellFormedMatchValue() {}
 
         @Override
         public String getName() {
@@ -326,7 +326,7 @@ public abstract class MatchValue implements Predicate<String> {
                 return new LocaleMatchValue();
             }
             if (typeName.equals("bcp47-wellformed")) {
-                return new BCP47LocaleMatchValue();
+                return new BCP47LocaleWellFormedMatchValue();
             }
             int slashPos = typeName.indexOf('/');
             Set<Status> statuses = null;

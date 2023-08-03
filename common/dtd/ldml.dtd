@@ -1425,8 +1425,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST pattern type NMTOKEN "standard" >
     <!--@MATCH:literal/1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000, 10000000000000000, 100000000000000000, 1000000000000000000, 10000000000000000000, approximately, atLeast, atMost, range, standard-->
 <!ATTLIST pattern numbers CDATA #IMPLIED >
-    <!-- TODO: generalize this to be any (M=|d=)?<numberSystem> -->
-    <!--@MATCH:literal/M=romanlow, d=hanidays, hanidec, hebr, jpan, tibt, y=jpanyear-->
+    <!-- TODO: generalize this to be any (M=|d=|y=)?<numberSystem> -->
+    <!--@MATCH:literal/M=romanlow, d=hanidays, d=jpan, hanidec, hebr, tibt, y=jpanyear-->
     <!--@VALUE-->
 <!ATTLIST pattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- Only used for decimalFormats type="1000..." -->
@@ -1557,7 +1557,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT dateFormatItem ( #PCDATA ) >
 <!ATTLIST dateFormatItem id CDATA #REQUIRED >
-    <!--@MATCH:regex/((E|EEEE)?(H|HH|h|hh|Bh)(m|ms|mm|mmss)?(Z|z|zzzz|v|vvvv)?)|(ms|mmss)|(G?(y|yy|yyyy)((M{1,4}((E|EEEE|cccc)?(d|dd))?)|(w|Q|QQQ|QQQQ))?)|(U(M|MMM)d?)|(M{1,4}(((E|EEEE|cccc)?(d|dd))|W)?)|((E|EEEE)?d)|(E|EEEE)-->
+    <!--@MATCH:regex/((E|EEEE)?(H|HH|h|hh|Bh)(m|ms|mm|mmss)?(Z|z|zzzz|v|vvvv)?)|(ms|mmss)|((G|GGGGG)?(y|yy|yyyy)((M{1,4}((E|EEEE|cccc)?(d|dd))?)|(w|Q|QQQ|QQQQ))?)|(U(M|MMM)d?)|(M{1,4}(((E|EEEE|cccc)?(d|dd))|W)?)|((E|EEEE)?d)|(E|EEEE)-->
 <!ATTLIST dateFormatItem count (zero | one | two | few | many | other) #IMPLIED >
 <!ATTLIST dateFormatItem alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/ascii, variant-->

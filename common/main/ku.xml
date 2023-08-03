@@ -1739,10 +1739,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<monthWidth type="abbreviated">
 							<month type="1">muh.</month>
 							<month type="2">sef.</month>
-							<month type="3">reba Iem</month>
-							<month type="4">reba IIyem</month>
-							<month type="5">cmza Iem</month>
-							<month type="6">cmza IIyem</month>
+							<month type="3">reb. Iem</month>
+							<month type="4">reb. IIyem</month>
+							<month type="5">cmz. Iem</month>
+							<month type="6">cmz. IIyem</month>
 							<month type="7">rcb.</month>
 							<month type="8">şbn.</month>
 							<month type="9">rmz.</month>
@@ -5539,6 +5539,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>↑↑↑</displayName>
@@ -5636,7 +5637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} l/km</unitPattern>
 				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">

@@ -1871,9 +1871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">Jaman Kita</era>
-						<era type="0" alt="variant" draft="unconfirmed">Sebelon Jaman Kita</era>
 						<era type="1" draft="unconfirmed">Masèhi</era>
-						<era type="1" alt="variant" draft="unconfirmed">Jaman Kita</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">SM</era>
@@ -2463,9 +2461,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week">
 				<displayName draft="unconfirmed">minggu</displayName>
-				<relative type="-1" draft="unconfirmed">minggu kemarèn</relative>
-				<relative type="0" draft="unconfirmed">ni minggu</relative>
-				<relative type="1" draft="unconfirmed">minggu bèsok</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="unconfirmed">{0} minggu lagi</relativeTimePattern>
 				</relativeTime>

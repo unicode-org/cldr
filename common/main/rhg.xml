@@ -78,9 +78,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<timeFormats>
@@ -676,19 +673,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</otherNumberingSystems>
 	</numbers>
 	<characterLabels>
-		<characterLabelPattern type="all">𐴁𐴠𐴒𐴧𐴟𐴓𐴟𐴕</characterLabelPattern>
-		<characterLabelPattern type="compatibility">𐴋𐴡𐴀𐴡𐴙𐴓𐴧𐴝</characterLabelPattern>
-		<characterLabelPattern type="enclosed">𐴁𐴡𐴕 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝</characterLabelPattern>
-		<characterLabelPattern type="extended">𐴁𐴝𐴌𐴥𐴝𐴘𐴧𐴝</characterLabelPattern>
-		<characterLabelPattern type="facing-left">𐴁𐴝𐴕 𐴔𐴟𐴑𐴤𐴝</characterLabelPattern>
-		<characterLabelPattern type="facing-right">𐴋𐴠𐴕 𐴔𐴟𐴑𐴤𐴝</characterLabelPattern>
-		<characterLabelPattern type="historic">𐴃𐴝𐴌𐴞𐴑𐴞</characterLabelPattern>
-		<characterLabelPattern type="miscellaneous">𐴁𐴞𐴁𐴤𐴞𐴕𐴧𐴡</characterLabelPattern>
-		<characterLabelPattern type="other">𐴀𐴡𐴙𐴕𐴧𐴡</characterLabelPattern>
-		<characterLabelPattern type="scripts">𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
+		<characterLabelPattern type="all">{0} — 𐴁𐴠𐴒𐴧𐴟𐴓𐴟𐴕</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — 𐴋𐴡𐴀𐴡𐴙𐴓𐴧𐴝</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — 𐴁𐴡𐴕 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — 𐴁𐴝𐴌𐴥𐴝𐴘𐴧𐴝</characterLabelPattern>
+		<characterLabelPattern type="facing-left">{0} — 𐴁𐴝𐴕 𐴔𐴟𐴑𐴤𐴝</characterLabelPattern>
+		<characterLabelPattern type="facing-right">{0} — 𐴋𐴠𐴕 𐴔𐴟𐴑𐴤𐴝</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — 𐴃𐴝𐴌𐴞𐴑𐴞</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — 𐴁𐴞𐴁𐴤𐴞𐴕𐴧𐴡</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — 𐴀𐴡𐴙𐴕𐴧𐴡</characterLabelPattern>
+		<characterLabelPattern type="scripts">{0} — 𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="subscript">𐴏𐴥𐴝𐴁𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
-		<characterLabelPattern type="superscript">𐴏𐴟𐴂𐴥𐴡𐴌 𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
+		<characterLabelPattern type="subscript">{0} — 𐴏𐴥𐴝𐴁𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
+		<characterLabelPattern type="superscript">{0} — 𐴏𐴟𐴂𐴥𐴡𐴌 𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabelPattern>
 		<characterLabel type="activities">𐴇𐴥𐴡𐴌𐴑𐴡𐴃𐴢</characterLabel>
 		<characterLabel type="african_scripts">𐴀𐴝𐴉𐴌𐴞𐴑𐴞 𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabel>
 		<characterLabel type="american_scripts">𐴀𐴝𐴔𐴌𐴞𐴑𐴞 𐴀𐴠𐴏𐴑𐴞𐴌𐴞𐴂𐴢</characterLabel>

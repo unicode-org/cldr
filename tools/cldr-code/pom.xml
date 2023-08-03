@@ -62,6 +62,11 @@
 			<groupId>org.relaxng</groupId>
 			<artifactId>trang</artifactId>
 		</dependency>
+		<!-- for semver -->
+		<dependency>
+			<groupId>com.vdurmont</groupId>
+			<artifactId>semver4j</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

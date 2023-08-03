@@ -13,8 +13,7 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard locale CDATA #REQUIRED >
-    <!-- TODO: needs to be bcp47, waiting for #3109 -->
-    <!--@MATCH:any-->
+    <!--@MATCH:validity/bcp47-wellformed-->
 <!ATTLIST keyboard conformsTo (techpreview) #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
@@ -31,18 +30,16 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT locale EMPTY >
     <!--@TECHPREVIEW-->
 <!ATTLIST locale id CDATA #REQUIRED >
-    <!-- TODO: should be validity/bcp47 when #3109 lands -->
-    <!--@MATCH:any-->
+    <!--@MATCH:validity/bcp47-wellformed-->
     <!--@VALUE-->
 
 <!ELEMENT version EMPTY >
     <!--@TECHPREVIEW-->
 <!ATTLIST version number CDATA #IMPLIED >
-    <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
-    <!-- TODO: semver -->
-    <!--@MATCH:any-->
+    <!--@MATCH:semver-->
     <!--@VALUE-->
 <!ATTLIST version cldrVersion CDATA #FIXED "techpreview" >
+    <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
     <!--@MATCH:any-->
     <!--@METADATA-->
 

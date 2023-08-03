@@ -69,8 +69,6 @@
     </xs:element>
       
   
-    <!-- TODO: needs to be bcp47, waiting for #3109 -->
-      
   
   
   
@@ -126,8 +124,6 @@
     </xs:element>
       
   
-    <!-- TODO: should be validity/bcp47 when #3109 lands -->
-      
   
   
     <xs:element name="version">
@@ -155,12 +151,10 @@
     </xs:element>
       
   
+  
+  
     <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
       
-    <!-- TODO: semver -->
-      
-  
-  
   
   
     <xs:element name="info">

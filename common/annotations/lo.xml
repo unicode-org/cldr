@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">ຮ້ອງໄຫ້ດີໃຈ</annotation>
 		<annotation cp="🙂">ຍິ້ມ | ໜ້າ | ໜ້າຍິ້ມບາງໆ</annotation>
 		<annotation cp="🙂" type="tts">ໜ້າຍິ້ມບາງໆ</annotation>
+		<annotation cp="🙂‍↕">ແກວ່ງຫົວແນວຕັ້ງ | ງຶກຫົວ | ແມ່ນ</annotation>
+		<annotation cp="🙂‍↕" type="tts">ແກວ່ງຫົວແນວຕັ້ງ</annotation>
+		<annotation cp="🙂‍↔">ແກວ່ງຫົວແນວນອນ | ສັ່ນ | ບໍ່ | ປະຕິເສດ</annotation>
+		<annotation cp="🙂‍↔" type="tts">ແກວ່ງຫົວແນວນອນ</annotation>
 		<annotation cp="🙃">ປີ້ນຫົວ | ໜ້າ | ໜ້າປີ້ນຫົວ</annotation>
 		<annotation cp="🙃" type="tts">ໜ້າປີ້ນຫົວ</annotation>
 		<annotation cp="🫠">ຂອງແຫຼວ | ລະລາຍ | ໜ້າລະລາຍ | ຫາຍຕົວ</annotation>
@@ -837,7 +841,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥵" type="tts">ໃບໜ້າຮ້ອນໃໝ້</annotation>
 		<annotation cp="🥶">ກ້າມແຂງ | ຊຸ່ມເຢັນ | ໃບໜ້າຊຸ່ມເຢັນ | ຫຍາດນໍ້າແຂງ | ໜ້າສີຟ້າ | ໜ້າຕືງຂື້ນ</annotation>
 		<annotation cp="🥶" type="tts">ໃບໜ້າຊຸ່ມເຢັນ</annotation>
-		<annotation cp="🥴">ຕາເລືອກ | ຖືກສານພິດ | ໃບໜ້າໂຊກເສົ້າ | ປາກເຕີ່ຍ | ມືງົງ | ວິຫົວ</annotation>
+		<annotation cp="🥴">ຕາເຫຼືອກ | ຖືກສານພິດ | ໃບໜ້າໂສກເສົ້າ | ປາກເຕີ່ຍ | ມຶນງົງ | ວິນຫົວ</annotation>
 		<annotation cp="🥴" type="tts">ໃບໜ້າໂຊກເສົ້າ</annotation>
 		<annotation cp="😵">ວິນຫົວ | ໜ້າ | ໜ້າວິນຫົວ</annotation>
 		<annotation cp="😵" type="tts">ໜ້າວິນຫົວ</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ຜູ້ໃຫຍ່</annotation>
 		<annotation cp="👱">ຄົນ | ຄົນຜົມສີເຫຼືອງອ່ອນ | ຜົມສີເຫຼືອງອ່ອນ</annotation>
 		<annotation cp="👱" type="tts">ຄົນຜົມສີເຫຼືອງອ່ອນ</annotation>
+		<annotation cp="🧑‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
 		<annotation cp="👨">ຄົນ | ຜູ້ຊາຍ</annotation>
 		<annotation cp="👨" type="tts">ຜູ້ຊາຍ</annotation>
 		<annotation cp="🧔">ຄົນມີໜວດ | ໜວດ</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">ໄກ່ນ້ອຍຢືນ</annotation>
 		<annotation cp="🐦">ສັດ | ນົກ</annotation>
 		<annotation cp="🐦" type="tts">ນົກ</annotation>
+		<annotation cp="🐦‍🔥">ຈິນຕະນາການ, ນົກໄຟ, ເກີດໃໝ່, ກັບຊາດ | ຟີນິກ</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ນົກຟີນິກ</annotation>
 		<annotation cp="🐧">ສັດ | ນັກແພນກິນ | ນົກເພນກິນ</annotation>
 		<annotation cp="🐧" type="tts">ນົກເພນກິນ</annotation>
 		<annotation cp="🕊">ສັດ | ນົກເຂົາ</annotation>
@@ -1861,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">ນົກແກ້ວ</annotation>
 		<annotation cp="🪽">ການບິນ | ຕຳນານ | ນາງຟ້າ | ນົກ | ບິນ | ປີກ</annotation>
 		<annotation cp="🪽" type="tts">ປີກ</annotation>
+		<annotation cp="🐦‍⬛">ກາ | ກາປາກຂາວ | ດໍາ | ນົກ | ນົກດໍາ</annotation>
+		<annotation cp="🐦‍⬛" type="tts">ນົກດໍາ</annotation>
 		<annotation cp="🪿">ສັດປີກ | ສຽງຫ່ານ | ນົກ | ຫ່ານ | ໄຮ້ສາລະ</annotation>
 		<annotation cp="🪿" type="tts">ຫ່ານ</annotation>
 		<annotation cp="🐸">ກົບ | ສັດ | ໜ້າ | ໜ້າກົບ</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">ຮັງມີໄຂ່</annotation>
 		<annotation cp="🍄">ພືດ | ເຫັດ</annotation>
 		<annotation cp="🍄" type="tts">ເຫັດ</annotation>
+		<annotation cp="🍄‍🟫">ເຫັດສີນໍ້າຕານ | ອາຫານ, ເຊື້ອລາ, ທໍາມະຊາດ, ຜັກ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ເຫັດສີນໍ້າຕານ</annotation>
 		<annotation cp="🍇">ໝາກໄມ້ | ອາງຸ່ນ</annotation>
 		<annotation cp="🍇" type="tts">ອາງຸ່ນ</annotation>
 		<annotation cp="🍈">ພືດ | ໝາກເມລອນ | ໝາກໄມ້</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ໝາກກ້ຽງນ້ອຍ</annotation>
 		<annotation cp="🍋">ພືດ | ໝາກນາວ | ໝາກໄມ້</annotation>
 		<annotation cp="🍋" type="tts">ໝາກນາວ</annotation>
+		<annotation cp="🍋‍🟩">ສົ້ມ, ໝາກໄມ້, ລະດູຮ້ອນ | ໝາກນາວຂຽວ</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ໝາກນາວຂຽວ</annotation>
 		<annotation cp="🍌">ພືດ | ໝາກກ້ວຍ | ໝາກໄມ້</annotation>
 		<annotation cp="🍌" type="tts">ໝາກກ້ວຍ</annotation>
 		<annotation cp="🍍">ພືດ | ໝາກນັດ | ໝາກໄມ້</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">ຂໍ້ຕໍ່</annotation>
 		<annotation cp="⛓">ໂສ້</annotation>
 		<annotation cp="⛓" type="tts">ໂສ້</annotation>
+		<annotation cp="⛓‍💥">ໂສ້ຫັກ | ຫັກ, ກໍາລັງຫັກ, ໂສ້, ກັບມື, ອິດສະຫຼະພາບ</annotation>
+		<annotation cp="⛓‍💥" type="tts">ໂສ້ຫັກ</annotation>
 		<annotation cp="🪝">ຂໍ້ພັບ | ໂຄ້ງ | ຈັບ | ຈຸດຂາຍ | ດັກຟັງ | ຕະຂໍ</annotation>
 		<annotation cp="🪝" type="tts">ຕະຂໍ</annotation>
 		<annotation cp="🧰">ກັບໃສ່ເຄື່ອງອຸປະກອນ | ເຄື່ອງມືອູຸປະກອນ | ແມ່ກະນິກ | ເອີກ</annotation>

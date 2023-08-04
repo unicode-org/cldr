@@ -272,6 +272,10 @@ public class TestAnnotations extends TestFmwkPlus {
     }
 
     public void TestUniqueness() {
+        if (logKnownIssue(
+                "CLDR-16947", "skip duplicate TestUniqueness in favor of CheckDisplayCollisions")) {
+            return;
+        }
         Set<String> locales = new TreeSet<>();
         locales.add("en");
         locales.addAll(Annotations.getAvailable());

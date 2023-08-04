@@ -97,20 +97,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="year-short">
-				<relative type="-1">last yr</relative>
-				<relative type="0">this yr</relative>
-				<relative type="1">next yr</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="quarter-short">
 				<relative type="-1">last qtr</relative>
 				<relative type="0">this qtr</relative>
 				<relative type="1">next qtr</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} qtr</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} qtrs</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} qtr ago</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} qtrs ago</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -129,9 +129,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="week-short">
-				<relative type="-1">last wk</relative>
-				<relative type="0">this wk</relative>
-				<relative type="1">next wk</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 		</fields>
 		<timeZoneNames>

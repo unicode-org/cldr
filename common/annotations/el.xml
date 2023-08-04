@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,8 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">μεσαίος-σκούρος τόνος δέρματος</annotation>
 		<annotation cp="🏿">fitzpatrick | σκούρος τόνος δέρματος | τόνος δέρματος | τύπου 6</annotation>
 		<annotation cp="🏿" type="tts">σκούρος τόνος δέρματος</annotation>
-		<annotation cp="‾" draft="contributed">επάνω γραμμή</annotation>
-		<annotation cp="‾" type="tts" draft="contributed">επάνω γραμμή</annotation>
+		<annotation cp="‾">επάνω γραμμή</annotation>
+		<annotation cp="‾" type="tts">επάνω γραμμή</annotation>
 		<annotation cp="_">γραμμή | κάτω παύλα | παύλα | υπογράμμιση | χαμηλή παύλα</annotation>
 		<annotation cp="_" type="tts">κάτω παύλα</annotation>
 		<annotation cp="-">ενωτικό | ενωτικό-πλην | μείον | παύλα | πλην</annotation>
@@ -63,8 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">ανάποδο λατινικό ερωτηματικό</annotation>
 		<annotation cp="؟">αραβικό | ερωτηματικό | ερώτηση</annotation>
 		<annotation cp="؟" type="tts">αραβικό ερωτηματικό</annotation>
-		<annotation cp="‽" draft="contributed">ερωτηματικοθαυμαστικό</annotation>
-		<annotation cp="‽" type="tts" draft="contributed">ερωτηματικοθαυμαστικό</annotation>
+		<annotation cp="‽">ερωτηματικοθαυμαστικό</annotation>
+		<annotation cp="‽" type="tts">ερωτηματικοθαυμαστικό</annotation>
 		<annotation cp=".">τελεία</annotation>
 		<annotation cp="." type="tts">τελεία</annotation>
 		<annotation cp="…">αποσιωπητικά | παράλειψη | τελείες</annotation>
@@ -161,12 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">διπλά εισαγωγικά τόνου</annotation>
 		<annotation cp="‴">τριπλά εισαγωγικά τόνου</annotation>
 		<annotation cp="‴" type="tts">τριπλά εισαγωγικά τόνου</annotation>
-		<annotation cp="‸" draft="contributed">καρέ</annotation>
-		<annotation cp="‸" type="tts" draft="contributed">καρέ</annotation>
+		<annotation cp="‸">καρέ</annotation>
+		<annotation cp="‸" type="tts">καρέ</annotation>
 		<annotation cp="※">σημάδι παραπομπής</annotation>
 		<annotation cp="※" type="tts">σημάδι παραπομπής</annotation>
-		<annotation cp="⁂" draft="contributed">αστερισμός</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">αστερισμός</annotation>
+		<annotation cp="⁂">αστέρια | αστερισμός | άστρα</annotation>
+		<annotation cp="⁂" type="tts">αστερισμός</annotation>
 		<annotation cp="`">βαρεία | τόνος</annotation>
 		<annotation cp="`" type="tts">βαρεία</annotation>
 		<annotation cp="´">οξεία | τόνος</annotation>
@@ -181,192 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">πνευματικά δικαιώματα ηχογράφησης</annotation>
 		<annotation cp="←">αριστερά | βέλος | βέλος προς τα αριστερά</annotation>
 		<annotation cp="←" type="tts">βέλος προς τα αριστερά</annotation>
-		<annotation cp="↚" draft="contributed">βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
-		<annotation cp="↚" type="tts" draft="contributed">βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
+		<annotation cp="↚">βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
+		<annotation cp="↚" type="tts">βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
 		<annotation cp="→">βέλος | βέλος προς τα δεξιά | δεξιά</annotation>
 		<annotation cp="→" type="tts">βέλος προς τα δεξιά</annotation>
-		<annotation cp="↛" draft="contributed">βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
-		<annotation cp="↛" type="tts" draft="contributed">βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
+		<annotation cp="↛">βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
+		<annotation cp="↛" type="tts">βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
 		<annotation cp="↑">βέλος | βέλος προς τα επάνω | επάνω</annotation>
 		<annotation cp="↑" type="tts">βέλος προς τα επάνω</annotation>
 		<annotation cp="↓">βέλος | βέλος προς τα κάτω | κάτω</annotation>
 		<annotation cp="↓" type="tts">βέλος προς τα κάτω</annotation>
-		<annotation cp="↜" draft="contributed">κυματιστό βέλος προς τα αριστερά</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">κυματιστό βέλος προς τα αριστερά</annotation>
-		<annotation cp="↝" draft="contributed">κυματιστό βέλος προς τα δεξιά</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">κυματιστό βέλος προς τα δεξιά</annotation>
-		<annotation cp="↞" draft="contributed">βέλος προς τα αριστερά με δύο κεφαλές</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">βέλος προς τα αριστερά με δύο κεφαλές</annotation>
-		<annotation cp="↟" draft="contributed">βέλος προς τα επάνω με δύο κεφαλές</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">βέλος προς τα επάνω με δύο κεφαλές</annotation>
-		<annotation cp="↠" draft="contributed">βέλος προς τα δεξιά με δύο κεφαλές</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">βέλος προς τα δεξιά με δύο κεφαλές</annotation>
-		<annotation cp="↡" draft="contributed">βέλος προς τα κάτω με δύο κεφαλές</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">βέλος προς τα κάτω με δύο κεφαλές</annotation>
-		<annotation cp="↢" draft="contributed">ουρά βέλους προς τα αριστερά</annotation>
-		<annotation cp="↢" type="tts" draft="contributed">ουρά βέλους προς τα αριστερά</annotation>
-		<annotation cp="↣" draft="contributed">ουρά βέλους προς τα δεξιά</annotation>
-		<annotation cp="↣" type="tts" draft="contributed">ουρά βέλους προς τα δεξιά</annotation>
-		<annotation cp="↤" draft="contributed">βέλος προς τα αριστερά ως προς τη γραμμή</annotation>
-		<annotation cp="↤" type="tts" draft="contributed">βέλος προς τα αριστερά ως προς τη γραμμή</annotation>
-		<annotation cp="↥" draft="contributed">βέλος προς τα επάνω ως προς τη γραμμή</annotation>
-		<annotation cp="↥" type="tts" draft="contributed">βέλος προς τα επάνω ως προς τη γραμμή</annotation>
-		<annotation cp="↦" draft="contributed">βέλος προς τα δεξιά ως προς τη γραμμή</annotation>
-		<annotation cp="↦" type="tts" draft="contributed">βέλος προς τα δεξιά ως προς τη γραμμή</annotation>
-		<annotation cp="↧" draft="contributed">βέλος προς τα κάτω ως προς τη γραμμή</annotation>
-		<annotation cp="↧" type="tts" draft="contributed">βέλος προς τα κάτω ως προς τη γραμμή</annotation>
-		<annotation cp="↨" draft="contributed">βέλος από πάνω προς τα κάτω με βάση</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">βέλος από πάνω προς τα κάτω με βάση</annotation>
-		<annotation cp="↫" draft="contributed">βρόχος βέλους προς τα αριστερά</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">βρόχος βέλους προς τα αριστερά</annotation>
-		<annotation cp="↬" draft="contributed">βρόχος βέλους προς τα δεξιά</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">βρόχος βέλους προς τα δεξιά</annotation>
-		<annotation cp="↭" draft="contributed">αριστερό-δεξιό κυματιστό βέλος</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">αριστερό-δεξιό κυματιστό βέλος</annotation>
-		<annotation cp="↯" draft="contributed">βέλος ζιγκ-ζαγκ προς τα κάτω</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">βέλος ζιγκ-ζαγκ προς τα κάτω</annotation>
-		<annotation cp="↰" draft="contributed">βέλος προς τα επάνω με αριστερόστροφη μύτη</annotation>
-		<annotation cp="↰" type="tts" draft="contributed">βέλος προς τα επάνω με αριστερόστροφη μύτη</annotation>
-		<annotation cp="↱" draft="contributed">βέλος προς τα επάνω με δεξιόστροφη μύτη</annotation>
-		<annotation cp="↱" type="tts" draft="contributed">βέλος προς τα επάνω με δεξιόστροφη μύτη</annotation>
-		<annotation cp="↲" draft="contributed">βέλος προς τα κάτω με αριστερόστροφη μύτη</annotation>
-		<annotation cp="↲" type="tts" draft="contributed">βέλος προς τα κάτω με αριστερόστροφη μύτη</annotation>
-		<annotation cp="↳" draft="contributed">βέλος προς τα κάτω με δεξιόστροφη μύτη</annotation>
-		<annotation cp="↳" type="tts" draft="contributed">βέλος προς τα κάτω με δεξιόστροφη μύτη</annotation>
-		<annotation cp="↴" draft="contributed">βέλος προς τα δεξιά με γωνία προς τα κάτω</annotation>
-		<annotation cp="↴" type="tts" draft="contributed">βέλος προς τα δεξιά με γωνία προς τα κάτω</annotation>
-		<annotation cp="↵" draft="contributed">βέλος προς τα κάτω με γωνία προς τα αριστερά</annotation>
-		<annotation cp="↵" type="tts" draft="contributed">βέλος προς τα κάτω με γωνία προς τα αριστερά</annotation>
-		<annotation cp="↶" draft="contributed">αριστερόστροφο επάνω ημικυκλικό βέλος</annotation>
-		<annotation cp="↶" type="tts" draft="contributed">αριστερόστροφο επάνω ημικυκλικό βέλος</annotation>
-		<annotation cp="↷" draft="contributed">δεξιόστροφο επάνω ημικυκλικό βέλος</annotation>
-		<annotation cp="↷" type="tts" draft="contributed">δεξιόστροφο επάνω ημικυκλικό βέλος</annotation>
-		<annotation cp="↸" draft="contributed">βορειοδυτικό βέλος προς γραμμή</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">βορειοδυτικό βέλος προς γραμμή</annotation>
-		<annotation cp="↹" draft="contributed">βέλος προς τα αριστερά ως προς τη γραμμή πάνω από βέλος προς τα δεξι΄΄α ως προς τη γραμμή</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">βέλος προς τα αριστερά ως προς τη γραμμή πάνω από βέλος προς τα δεξι΄΄α ως προς τη γραμμή</annotation>
-		<annotation cp="↺" draft="contributed">αριστερόστροφο ανοικτού κύκλου βέλος</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">αριστερόστροφο ανοικτού κύκλου βέλος</annotation>
-		<annotation cp="↻" draft="contributed">δεξιόστροφο ανοικτού κύκλου βέλος</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">δεξιόστροφο ανοικτού κύκλου βέλος</annotation>
-		<annotation cp="↼" draft="contributed">άνυσμα προς τα αριστερά με κορυφή προς τα επάνω</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">άνυσμα προς τα αριστερά με κορυφή προς τα επάνω</annotation>
-		<annotation cp="↽" draft="contributed">άνυσμα προς τα αριστερά με κορυφή προς τα κάτω</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">άνυσμα προς τα αριστερά με κορυφή προς τα κάτω</annotation>
-		<annotation cp="↾" draft="contributed">άνυσμα προς τα επάνω με κορυφή προς τα δεξιά</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">άνυσμα προς τα επάνω με κορυφή προς τα δεξιά</annotation>
-		<annotation cp="↿" draft="contributed">άνυσμα προς τα επάνω με κορυφή προς τα αριστερά</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">άνυσμα προς τα επάνω με κορυφή προς τα αριστερά</annotation>
-		<annotation cp="⇀" draft="contributed">άνυσμα προς τα δεξιά με κορυφή προς τα επάνω</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">άνυσμα προς τα δεξιά με κορυφή προς τα επάνω</annotation>
-		<annotation cp="⇁" draft="contributed">άνυσμα προς τα δεξιά με κορυφή προς τα κάτω</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">άνυσμα προς τα δεξιά με κορυφή προς τα κάτω</annotation>
-		<annotation cp="⇂" draft="contributed">άνυσμα προς τα κάτω με κορυφή προς τα δεξιά</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">άνυσμα προς τα κάτω με κορυφή προς τα δεξιά</annotation>
-		<annotation cp="⇃" draft="contributed">άνυσμα προς τα κάτω με κορυφή προς τα αριστερά</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">άνυσμα προς τα κάτω με κορυφή προς τα αριστερά</annotation>
-		<annotation cp="⇄" draft="contributed">βέλος προς τα δεξιά επάνω από βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">βέλος προς τα δεξιά επάνω από βέλος προς τα αριστερά</annotation>
+		<annotation cp="↜">κυματιστό βέλος προς τα αριστερά</annotation>
+		<annotation cp="↜" type="tts">κυματιστό βέλος προς τα αριστερά</annotation>
+		<annotation cp="↝">κυματιστό βέλος προς τα δεξιά</annotation>
+		<annotation cp="↝" type="tts">κυματιστό βέλος προς τα δεξιά</annotation>
+		<annotation cp="↞">βέλος προς τα αριστερά με δύο κεφαλές</annotation>
+		<annotation cp="↞" type="tts">βέλος προς τα αριστερά με δύο κεφαλές</annotation>
+		<annotation cp="↟">βέλος προς τα επάνω με δύο κεφαλές</annotation>
+		<annotation cp="↟" type="tts">βέλος προς τα επάνω με δύο κεφαλές</annotation>
+		<annotation cp="↠">βέλος προς τα δεξιά με δύο κεφαλές</annotation>
+		<annotation cp="↠" type="tts">βέλος προς τα δεξιά με δύο κεφαλές</annotation>
+		<annotation cp="↡">βέλος προς τα κάτω με δύο κεφαλές</annotation>
+		<annotation cp="↡" type="tts">βέλος προς τα κάτω με δύο κεφαλές</annotation>
+		<annotation cp="↢">ουρά βέλους προς τα αριστερά</annotation>
+		<annotation cp="↢" type="tts">ουρά βέλους προς τα αριστερά</annotation>
+		<annotation cp="↣">ουρά βέλους προς τα δεξιά</annotation>
+		<annotation cp="↣" type="tts">ουρά βέλους προς τα δεξιά</annotation>
+		<annotation cp="↤">βέλος προς τα αριστερά ως προς τη γραμμή</annotation>
+		<annotation cp="↤" type="tts">βέλος προς τα αριστερά ως προς τη γραμμή</annotation>
+		<annotation cp="↥">βέλος προς τα επάνω ως προς τη γραμμή</annotation>
+		<annotation cp="↥" type="tts">βέλος προς τα επάνω ως προς τη γραμμή</annotation>
+		<annotation cp="↦">βέλος προς τα δεξιά ως προς τη γραμμή</annotation>
+		<annotation cp="↦" type="tts">βέλος προς τα δεξιά ως προς τη γραμμή</annotation>
+		<annotation cp="↧">βέλος προς τα κάτω ως προς τη γραμμή</annotation>
+		<annotation cp="↧" type="tts">βέλος προς τα κάτω ως προς τη γραμμή</annotation>
+		<annotation cp="↨">βέλος από πάνω προς τα κάτω με βάση</annotation>
+		<annotation cp="↨" type="tts">βέλος από πάνω προς τα κάτω με βάση</annotation>
+		<annotation cp="↫">βρόχος βέλους προς τα αριστερά</annotation>
+		<annotation cp="↫" type="tts">βρόχος βέλους προς τα αριστερά</annotation>
+		<annotation cp="↬">βρόχος βέλους προς τα δεξιά</annotation>
+		<annotation cp="↬" type="tts">βρόχος βέλους προς τα δεξιά</annotation>
+		<annotation cp="↭">αριστερό-δεξιό κυματιστό βέλος</annotation>
+		<annotation cp="↭" type="tts">αριστερό-δεξιό κυματιστό βέλος</annotation>
+		<annotation cp="↯">βέλος ζιγκ-ζαγκ προς τα κάτω | ζιγκ-ζαγκ</annotation>
+		<annotation cp="↯" type="tts">βέλος ζιγκ-ζαγκ προς τα κάτω</annotation>
+		<annotation cp="↰">βέλος προς τα επάνω με αριστερόστροφη μύτη</annotation>
+		<annotation cp="↰" type="tts">βέλος προς τα επάνω με αριστερόστροφη μύτη</annotation>
+		<annotation cp="↱">βέλος προς τα επάνω με δεξιόστροφη μύτη</annotation>
+		<annotation cp="↱" type="tts">βέλος προς τα επάνω με δεξιόστροφη μύτη</annotation>
+		<annotation cp="↲">βέλος προς τα κάτω με αριστερόστροφη μύτη</annotation>
+		<annotation cp="↲" type="tts">βέλος προς τα κάτω με αριστερόστροφη μύτη</annotation>
+		<annotation cp="↳">βέλος προς τα κάτω με δεξιόστροφη μύτη</annotation>
+		<annotation cp="↳" type="tts">βέλος προς τα κάτω με δεξιόστροφη μύτη</annotation>
+		<annotation cp="↴">βέλος προς τα δεξιά με γωνία προς τα κάτω</annotation>
+		<annotation cp="↴" type="tts">βέλος προς τα δεξιά με γωνία προς τα κάτω</annotation>
+		<annotation cp="↵">βέλος προς τα κάτω με γωνία προς τα αριστερά</annotation>
+		<annotation cp="↵" type="tts">βέλος προς τα κάτω με γωνία προς τα αριστερά</annotation>
+		<annotation cp="↶">αριστερόστροφο επάνω ημικυκλικό βέλος</annotation>
+		<annotation cp="↶" type="tts">αριστερόστροφο επάνω ημικυκλικό βέλος</annotation>
+		<annotation cp="↷">δεξιόστροφο επάνω ημικυκλικό βέλος</annotation>
+		<annotation cp="↷" type="tts">δεξιόστροφο επάνω ημικυκλικό βέλος</annotation>
+		<annotation cp="↸">βορειοδυτικό βέλος προς μακριά γραμμή</annotation>
+		<annotation cp="↸" type="tts">βορειοδυτικό βέλος προς μακριά γραμμή</annotation>
+		<annotation cp="↹">βέλος | βέλος προς τα αριστερά που καταλήγει σε γραμμή πάνω από βέλος προς τα δεξιά που καταλήγει σε γραμμή | γραμμή | προς τα αριστερά | προς τα δεξιά</annotation>
+		<annotation cp="↹" type="tts">βέλος προς τα αριστερά που καταλήγει σε γραμμή πάνω από βέλος προς τα δεξιά που καταλήγει σε γραμμή</annotation>
+		<annotation cp="↺">αριστερόστροφο ανοικτού κύκλου βέλος</annotation>
+		<annotation cp="↺" type="tts">αριστερόστροφο ανοικτού κύκλου βέλος</annotation>
+		<annotation cp="↻">δεξιόστροφο ανοικτού κύκλου βέλος</annotation>
+		<annotation cp="↻" type="tts">δεξιόστροφο ανοικτού κύκλου βέλος</annotation>
+		<annotation cp="↼">άνυσμα προς τα αριστερά με κορυφή προς τα επάνω</annotation>
+		<annotation cp="↼" type="tts">άνυσμα προς τα αριστερά με κορυφή προς τα επάνω</annotation>
+		<annotation cp="↽">άνυσμα προς τα αριστερά με κορυφή προς τα κάτω</annotation>
+		<annotation cp="↽" type="tts">άνυσμα προς τα αριστερά με κορυφή προς τα κάτω</annotation>
+		<annotation cp="↾">άνυσμα προς τα επάνω με κορυφή προς τα δεξιά</annotation>
+		<annotation cp="↾" type="tts">άνυσμα προς τα επάνω με κορυφή προς τα δεξιά</annotation>
+		<annotation cp="↿">άνυσμα προς τα επάνω με κορυφή προς τα αριστερά</annotation>
+		<annotation cp="↿" type="tts">άνυσμα προς τα επάνω με κορυφή προς τα αριστερά</annotation>
+		<annotation cp="⇀">άνυσμα προς τα δεξιά με κορυφή προς τα επάνω</annotation>
+		<annotation cp="⇀" type="tts">άνυσμα προς τα δεξιά με κορυφή προς τα επάνω</annotation>
+		<annotation cp="⇁">άνυσμα προς τα δεξιά με κορυφή προς τα κάτω</annotation>
+		<annotation cp="⇁" type="tts">άνυσμα προς τα δεξιά με κορυφή προς τα κάτω</annotation>
+		<annotation cp="⇂">άνυσμα προς τα κάτω με κορυφή προς τα δεξιά</annotation>
+		<annotation cp="⇂" type="tts">άνυσμα προς τα κάτω με κορυφή προς τα δεξιά</annotation>
+		<annotation cp="⇃">άνυσμα προς τα κάτω με κορυφή προς τα αριστερά</annotation>
+		<annotation cp="⇃" type="tts">άνυσμα προς τα κάτω με κορυφή προς τα αριστερά</annotation>
+		<annotation cp="⇄">βέλος προς τα δεξιά επάνω από βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇄" type="tts">βέλος προς τα δεξιά επάνω από βέλος προς τα αριστερά</annotation>
 		<annotation cp="⇅">βέλος | βέλος προς τα επάνω και βέλος προς τα κάτω | επάνω | κάτω</annotation>
 		<annotation cp="⇅" type="tts">βέλος προς τα επάνω και βέλος προς τα κάτω</annotation>
 		<annotation cp="⇆">αριστερά | βέλος | βέλος προς αριστερά πάνω από βέλος προς δεξιά | δεξιά</annotation>
 		<annotation cp="⇆" type="tts">βέλος προς αριστερά πάνω από βέλος προς δεξιά</annotation>
-		<annotation cp="⇇" draft="contributed">ζεύγος βελών προς τα αριστερά</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">ζεύγος βελών προς τα αριστερά</annotation>
-		<annotation cp="⇈" draft="contributed">ζεύγος βελών προς τα επάνω</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">ζεύγος βελών προς τα επάνω</annotation>
-		<annotation cp="⇉" draft="contributed">ζεύγος βελών προς τα δεξιά</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">ζεύγος βελών προς τα δεξιά</annotation>
-		<annotation cp="⇊" draft="contributed">ζεύγος βελών προς τα κάτω</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">ζεύγος βελών προς τα κάτω</annotation>
-		<annotation cp="⇋" draft="contributed">άνυσμα προς τα αριστερά επάνω από άνυσμα προς τα δεξιά</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">άνυσμα προς τα αριστερά επάνω από άνυσμα προς τα δεξιά</annotation>
-		<annotation cp="⇌" draft="contributed">άνυσμα προς τα δεξιά επάνω από άνυσμα προς τα αριστερά</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">άνυσμα προς τα δεξιά επάνω από άνυσμα προς τα αριστερά</annotation>
-		<annotation cp="⇐" draft="contributed">διπλό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">διπλό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇍" draft="contributed">διπλό βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">διπλό βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
-		<annotation cp="⇑" draft="contributed">διπλό βέλος προς τα επάνω</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">διπλό βέλος προς τα επάνω</annotation>
-		<annotation cp="⇒" draft="contributed">διπλό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">διπλό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇏" draft="contributed">διπλό βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">διπλό βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
-		<annotation cp="⇓" draft="contributed">διπλό βέλος προς τα κάτω</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">διπλό βέλος προς τα κάτω</annotation>
-		<annotation cp="⇔" draft="contributed">αριστερό-δεξιό διπλό βέλος</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">αριστερό-δεξιό διπλό βέλος</annotation>
-		<annotation cp="⇎" draft="contributed">αριστερό-δεξιό διπλό βέλος με πλάγια γραμμή</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">αριστερό-δεξιό διπλό βέλος με πλάγια γραμμή</annotation>
-		<annotation cp="⇖" draft="contributed">βορειοδυτικό διπλό βέλος</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">βορειοδυτικό διπλό βέλος</annotation>
-		<annotation cp="⇗" draft="contributed">βορειοανατολικό διπλό βέλος</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">βορειοανατολικό διπλό βέλος</annotation>
-		<annotation cp="⇘" draft="contributed">νοτιοανατολικό διπλό βέλος</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">νοτιοανατολικό διπλό βέλος</annotation>
-		<annotation cp="⇙" draft="contributed">νοτιοδυτικό διπλό βέλος</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">νοτιοδυτικό διπλό βέλος</annotation>
-		<annotation cp="⇚" draft="contributed">τριπλό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">τριπλό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇛" draft="contributed">τριπλό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">τριπλό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇜" draft="contributed">τεθλασμένο βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">τεθλασμένο βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇝" draft="contributed">τεθλασμένο βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">τεθλασμένο βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇞" draft="contributed">βέλος προς τα επάνω με διπλή γραμμή</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">βέλος προς τα επάνω με διπλή γραμμή</annotation>
-		<annotation cp="⇟" draft="contributed">βέλος προς τα κάτω με διπλή γραμμή</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">βέλος προς τα κάτω με διπλή γραμμή</annotation>
-		<annotation cp="⇠" draft="contributed">βέλος προς τα αριστερά με παύλες</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">βέλος προς τα αριστερά με παύλες</annotation>
-		<annotation cp="⇡" draft="contributed">βέλος προς τα επάνω με παύλες</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">βέλος προς τα επάνω με παύλες</annotation>
-		<annotation cp="⇢" draft="contributed">βέλος προς τα δεξιά με παύλες</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">βέλος προς τα δεξιά με παύλες</annotation>
-		<annotation cp="⇣" draft="contributed">βέλος προς τα κάτω με παύλες</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">βέλος προς τα κάτω με παύλες</annotation>
-		<annotation cp="⇤" draft="contributed">βέλος προς τα αριστερά που καταλήγει σε γραμμή</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">βέλος προς τα αριστερά που καταλήγει σε γραμμή</annotation>
-		<annotation cp="⇥" draft="contributed">βέλος προς τα δεξιά που καταλήγει σε γραμμή</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">βέλος προς τα δεξιά που καταλήγει σε γραμμή</annotation>
-		<annotation cp="⇦" draft="contributed">κενό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">κενό βέλος προς τα αριστερά</annotation>
-		<annotation cp="⇧" draft="contributed">κενό βέλος προς τα επάνω</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">κενό βέλος προς τα επάνω</annotation>
-		<annotation cp="⇨" draft="contributed">κενό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">κενό βέλος προς τα δεξιά</annotation>
-		<annotation cp="⇩" draft="contributed">κενό βέλος προς τα κάτω</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">κενό βέλος προς τα κάτω</annotation>
-		<annotation cp="⇪" draft="contributed">κενό βέλος προς τα επάνω που αρχίζει από γραμμή</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">κενό βέλος προς τα επάνω που αρχίζει από γραμμή</annotation>
-		<annotation cp="⇵" draft="contributed">βέλος προς τα κάτω στα αριστερά βέλους προς τα επάνω</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">βέλος προς τα κάτω στα αριστερά βέλους προς τα επάνω</annotation>
-		<annotation cp="∀" draft="contributed">για κάθε</annotation>
-		<annotation cp="∀" type="tts" draft="contributed">για κάθε</annotation>
-		<annotation cp="∂" draft="contributed">μερικό διαφορικό</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">μερικό διαφορικό</annotation>
-		<annotation cp="∃" draft="contributed">ανήκει σε</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">ανήκει σε</annotation>
-		<annotation cp="∅" draft="contributed">κενό σύνολο</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">κενό σύνολο</annotation>
+		<annotation cp="⇇">ζεύγος βελών προς τα αριστερά</annotation>
+		<annotation cp="⇇" type="tts">ζεύγος βελών προς τα αριστερά</annotation>
+		<annotation cp="⇈">ζεύγος βελών προς τα επάνω</annotation>
+		<annotation cp="⇈" type="tts">ζεύγος βελών προς τα επάνω</annotation>
+		<annotation cp="⇉">ζεύγος βελών προς τα δεξιά</annotation>
+		<annotation cp="⇉" type="tts">ζεύγος βελών προς τα δεξιά</annotation>
+		<annotation cp="⇊">ζεύγος βελών προς τα κάτω</annotation>
+		<annotation cp="⇊" type="tts">ζεύγος βελών προς τα κάτω</annotation>
+		<annotation cp="⇋">άνυσμα προς τα αριστερά επάνω από άνυσμα προς τα δεξιά</annotation>
+		<annotation cp="⇋" type="tts">άνυσμα προς τα αριστερά επάνω από άνυσμα προς τα δεξιά</annotation>
+		<annotation cp="⇌">άνυσμα προς τα δεξιά επάνω από άνυσμα προς τα αριστερά</annotation>
+		<annotation cp="⇌" type="tts">άνυσμα προς τα δεξιά επάνω από άνυσμα προς τα αριστερά</annotation>
+		<annotation cp="⇐">διπλό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇐" type="tts">διπλό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇍">διπλό βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
+		<annotation cp="⇍" type="tts">διπλό βέλος προς τα αριστερά με πλάγια γραμμή</annotation>
+		<annotation cp="⇑">διπλό βέλος προς τα επάνω</annotation>
+		<annotation cp="⇑" type="tts">διπλό βέλος προς τα επάνω</annotation>
+		<annotation cp="⇒">διπλό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇒" type="tts">διπλό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇏">διπλό βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
+		<annotation cp="⇏" type="tts">διπλό βέλος προς τα δεξιά με πλάγια γραμμή</annotation>
+		<annotation cp="⇓">διπλό βέλος προς τα κάτω</annotation>
+		<annotation cp="⇓" type="tts">διπλό βέλος προς τα κάτω</annotation>
+		<annotation cp="⇔">αριστερό-δεξιό διπλό βέλος</annotation>
+		<annotation cp="⇔" type="tts">αριστερό-δεξιό διπλό βέλος</annotation>
+		<annotation cp="⇎">αριστερό-δεξιό διπλό βέλος με πλάγια γραμμή</annotation>
+		<annotation cp="⇎" type="tts">αριστερό-δεξιό διπλό βέλος με πλάγια γραμμή</annotation>
+		<annotation cp="⇖">βορειοδυτικό διπλό βέλος</annotation>
+		<annotation cp="⇖" type="tts">βορειοδυτικό διπλό βέλος</annotation>
+		<annotation cp="⇗">βορειοανατολικό διπλό βέλος</annotation>
+		<annotation cp="⇗" type="tts">βορειοανατολικό διπλό βέλος</annotation>
+		<annotation cp="⇘">νοτιοανατολικό διπλό βέλος</annotation>
+		<annotation cp="⇘" type="tts">νοτιοανατολικό διπλό βέλος</annotation>
+		<annotation cp="⇙">νοτιοδυτικό διπλό βέλος</annotation>
+		<annotation cp="⇙" type="tts">νοτιοδυτικό διπλό βέλος</annotation>
+		<annotation cp="⇚">τριπλό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇚" type="tts">τριπλό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇛">τριπλό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇛" type="tts">τριπλό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇜">τεθλασμένο βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇜" type="tts">τεθλασμένο βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇝">τεθλασμένο βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇝" type="tts">τεθλασμένο βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇞">βέλος προς τα επάνω με διπλή γραμμή</annotation>
+		<annotation cp="⇞" type="tts">βέλος προς τα επάνω με διπλή γραμμή</annotation>
+		<annotation cp="⇟">βέλος προς τα κάτω με διπλή γραμμή</annotation>
+		<annotation cp="⇟" type="tts">βέλος προς τα κάτω με διπλή γραμμή</annotation>
+		<annotation cp="⇠">βέλος προς τα αριστερά με παύλες</annotation>
+		<annotation cp="⇠" type="tts">βέλος προς τα αριστερά με παύλες</annotation>
+		<annotation cp="⇡">βέλος προς τα επάνω με παύλες</annotation>
+		<annotation cp="⇡" type="tts">βέλος προς τα επάνω με παύλες</annotation>
+		<annotation cp="⇢">βέλος προς τα δεξιά με παύλες</annotation>
+		<annotation cp="⇢" type="tts">βέλος προς τα δεξιά με παύλες</annotation>
+		<annotation cp="⇣">βέλος προς τα κάτω με παύλες</annotation>
+		<annotation cp="⇣" type="tts">βέλος προς τα κάτω με παύλες</annotation>
+		<annotation cp="⇤">βέλος προς τα αριστερά που καταλήγει σε γραμμή</annotation>
+		<annotation cp="⇤" type="tts">βέλος προς τα αριστερά που καταλήγει σε γραμμή</annotation>
+		<annotation cp="⇥">βέλος προς τα δεξιά που καταλήγει σε γραμμή</annotation>
+		<annotation cp="⇥" type="tts">βέλος προς τα δεξιά που καταλήγει σε γραμμή</annotation>
+		<annotation cp="⇦">κενό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇦" type="tts">κενό βέλος προς τα αριστερά</annotation>
+		<annotation cp="⇧">κενό βέλος προς τα επάνω</annotation>
+		<annotation cp="⇧" type="tts">κενό βέλος προς τα επάνω</annotation>
+		<annotation cp="⇨">κενό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇨" type="tts">κενό βέλος προς τα δεξιά</annotation>
+		<annotation cp="⇩">κενό βέλος προς τα κάτω</annotation>
+		<annotation cp="⇩" type="tts">κενό βέλος προς τα κάτω</annotation>
+		<annotation cp="⇪">κενό βέλος προς τα επάνω που αρχίζει από γραμμή</annotation>
+		<annotation cp="⇪" type="tts">κενό βέλος προς τα επάνω που αρχίζει από γραμμή</annotation>
+		<annotation cp="⇵">βέλος προς τα κάτω στα αριστερά βέλους προς τα επάνω</annotation>
+		<annotation cp="⇵" type="tts">βέλος προς τα κάτω στα αριστερά βέλους προς τα επάνω</annotation>
+		<annotation cp="∀">για κάθε | καθολικό | όλα | οποιοδήποτε</annotation>
+		<annotation cp="∀" type="tts">για κάθε</annotation>
+		<annotation cp="∂">διαφορικό | μερικό διαφορικό</annotation>
+		<annotation cp="∂" type="tts">μερικό διαφορικό</annotation>
+		<annotation cp="∃">ανήκει σε</annotation>
+		<annotation cp="∃" type="tts">ανήκει σε</annotation>
+		<annotation cp="∅">κενό σύνολο | μαθηματικά | τελεστής συνόλου</annotation>
+		<annotation cp="∅" type="tts">κενό σύνολο</annotation>
 		<annotation cp="∆">προσαύξηση | τρίγωνο</annotation>
 		<annotation cp="∆" type="tts">προσαύξηση</annotation>
 		<annotation cp="∇">ανάδελτα | τρίγωνο</annotation>
 		<annotation cp="∇" type="tts">ανάδελτα</annotation>
 		<annotation cp="∈">ανήκει | μέλος | περιέχει | στοιχείο | σύνολο</annotation>
 		<annotation cp="∈" type="tts">ανήκει</annotation>
-		<annotation cp="∉" draft="contributed">δεν ανήκει</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">δεν ανήκει</annotation>
-		<annotation cp="∋" draft="contributed">περιέχει</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">περιέχει</annotation>
-		<annotation cp="∎" draft="contributed">σύμβολο τέλους απόδειξης</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">σύμβολο τέλους απόδειξης</annotation>
-		<annotation cp="∏" draft="contributed">ν-αδικό γινόμενο</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">ν-αδικό γινόμενο</annotation>
-		<annotation cp="∑" draft="contributed">ν-αδική άθροιση</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">ν-αδική άθροιση</annotation>
+		<annotation cp="∉">δεν ανήκει | δεν είναι στοιχείο | στοιχείο</annotation>
+		<annotation cp="∉" type="tts">δεν ανήκει</annotation>
+		<annotation cp="∋">περιέχει ως μέλος | στοιχείο</annotation>
+		<annotation cp="∋" type="tts">περιέχει ως μέλος</annotation>
+		<annotation cp="∎">σύμβολο τέλους απόδειξης | τέλος απόδειξης</annotation>
+		<annotation cp="∎" type="tts">τέλος απόδειξης</annotation>
+		<annotation cp="∏">γινόμενο | λογικό | ν-αδικό γινόμενο</annotation>
+		<annotation cp="∏" type="tts">ν-αδικό γινόμενο</annotation>
+		<annotation cp="∑">άθροιση | μαθηματικά | ν-αδική άθροιση</annotation>
+		<annotation cp="∑" type="tts">ν-αδική άθροιση</annotation>
 		<annotation cp="+">πρόσθεση | σύμβολο συν | συν</annotation>
 		<annotation cp="+" type="tts">σύμβολο συν</annotation>
 		<annotation cp="±">συν-πλην</annotation>
@@ -377,16 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">σύμβολο πολλαπλασιασμού</annotation>
 		<annotation cp="&lt;">ετικέτα | ετικέτα ανοίγματος | μικρότερο από</annotation>
 		<annotation cp="&lt;" type="tts">μικρότερο από</annotation>
-		<annotation cp="≮" draft="contributed">μη μικρότερο από</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">μη μικρότερο από</annotation>
+		<annotation cp="≮">ανισότητα | μαθηματικά | όχι μικρότερο από</annotation>
+		<annotation cp="≮" type="tts">όχι μικρότερο από</annotation>
 		<annotation cp="=">είναι ίσο | ίσον | ισούται</annotation>
 		<annotation cp="=" type="tts">ίσον</annotation>
 		<annotation cp="≠">ανισότητα | δεν είναι ίσο | δεν ισούται</annotation>
 		<annotation cp="≠" type="tts">δεν είναι ίσο</annotation>
 		<annotation cp="&gt;">ετικέτα | ετικέτα κλεισίματος | μεγαλύτερο από</annotation>
 		<annotation cp="&gt;" type="tts">μεγαλύτερο από</annotation>
-		<annotation cp="≯" draft="contributed">με μεγαλύτερο από</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">με μεγαλύτερο από</annotation>
+		<annotation cp="≯">ανισότητα | μαθηματικά | όχι μεγαλύτερο από</annotation>
+		<annotation cp="≯" type="tts">όχι μεγαλύτερο από</annotation>
 		<annotation cp="¬">άρνηση | όχι</annotation>
 		<annotation cp="¬" type="tts">άρνηση</annotation>
 		<annotation cp="|">γραμμή | κάθετη | κατακόρυφη μπάρα | μολυβιά | μπάρα | ράβδος</annotation>
@@ -397,316 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">σύμβολο πλην</annotation>
 		<annotation cp="⁻">εκθέτης | μείον | πλην</annotation>
 		<annotation cp="⁻" type="tts">εκθέτης πλην</annotation>
-		<annotation cp="∓" draft="contributed">συν ή πλην</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">συν ή πλην</annotation>
-		<annotation cp="∕" draft="contributed">διά</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">διά</annotation>
-		<annotation cp="⁄" draft="contributed">γραμμή κλάσματος</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">γραμμή κλάσματος</annotation>
-		<annotation cp="∗" draft="contributed">τελεστής αστερίσκος</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">τελεστής αστερίσκος</annotation>
-		<annotation cp="∘" draft="contributed">τελεστής δακτύλιος</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">τελεστής δακτύλιος</annotation>
-		<annotation cp="∙" draft="contributed">τελεστής κουκκίδα</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">τελεστής κουκκίδα</annotation>
+		<annotation cp="∓">συν ή πλην | συν-πλην</annotation>
+		<annotation cp="∓" type="tts">συν ή πλην</annotation>
+		<annotation cp="∕">κάθετος | κάθετος διαίρεσης | πλάγια γραμμή</annotation>
+		<annotation cp="∕" type="tts">κάθετος διαίρεσης</annotation>
+		<annotation cp="⁄">κάθετος | κάθετος διαίρεσης | πλάγια γραμμή</annotation>
+		<annotation cp="⁄" type="tts">κάθετος κλάσματος</annotation>
+		<annotation cp="∗">αστέρι | τελεστής αστερίσκος</annotation>
+		<annotation cp="∗" type="tts">τελεστής αστερίσκος</annotation>
+		<annotation cp="∘">σύνθεση | τελεστής | τελεστής δακτύλιος</annotation>
+		<annotation cp="∘" type="tts">τελεστής δακτύλιος</annotation>
+		<annotation cp="∙">τελεστής | τελεστής κουκκίδα</annotation>
+		<annotation cp="∙" type="tts">τελεστής κουκκίδα</annotation>
 		<annotation cp="√">βάση | ρίζα | ριζικό | ριζικός | τετραγωνική ρίζα | τετράγωνο</annotation>
 		<annotation cp="√" type="tts">τετραγωνική ρίζα</annotation>
-		<annotation cp="∝" draft="contributed">αναλογικό</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">αναλογικό</annotation>
+		<annotation cp="∝">αναλογικό | αναλογικότητα</annotation>
+		<annotation cp="∝" type="tts">αναλογικό</annotation>
 		<annotation cp="∞">άπειρο | σύμβολο απείρου</annotation>
 		<annotation cp="∞" type="tts">σύμβολο απείρου</annotation>
-		<annotation cp="∟" draft="contributed">ορθή γωνία</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">ορθή γωνία</annotation>
-		<annotation cp="∠" draft="contributed">γωνία</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">γωνία</annotation>
-		<annotation cp="∣" draft="contributed">διαιρεί</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">διαιρεί</annotation>
-		<annotation cp="∥" draft="contributed">παράλληλο</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">παράλληλο</annotation>
-		<annotation cp="∧" draft="contributed">λογικό &quot;και&quot;</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">λογικό &quot;και&quot;</annotation>
+		<annotation cp="∟">μαθηματικά | ορθή γωνία</annotation>
+		<annotation cp="∟" type="tts">ορθή γωνία</annotation>
+		<annotation cp="∠">γωνία | οξεία</annotation>
+		<annotation cp="∠" type="tts">γωνία</annotation>
+		<annotation cp="∣">διαιρεί | διαιρέτης</annotation>
+		<annotation cp="∣" type="tts">διαιρεί</annotation>
+		<annotation cp="∥">παράλληλο</annotation>
+		<annotation cp="∥" type="tts">παράλληλο</annotation>
+		<annotation cp="∧">ac | atque | λογικό &quot;και&quot; | σφήνα</annotation>
+		<annotation cp="∧" type="tts">λογικό &quot;και&quot;</annotation>
 		<annotation cp="∩">σύνολο | τομή</annotation>
 		<annotation cp="∩" type="tts">τομή</annotation>
 		<annotation cp="∪">ένωση | συλλογή | σύνολο</annotation>
 		<annotation cp="∪" type="tts">ένωση</annotation>
-		<annotation cp="∫" draft="contributed">ολοκλήρωμα</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">ολοκλήρωμα</annotation>
-		<annotation cp="∬" draft="contributed">διπλό ολοκλήρωμα</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">διπλό ολοκλήρωμα</annotation>
-		<annotation cp="∮" draft="contributed">επικαμπύλιο ολοκλήρωμα</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">επικαμπύλιο ολοκλήρωμα</annotation>
-		<annotation cp="∴" draft="contributed">άρα</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">άρα</annotation>
-		<annotation cp="∵" draft="contributed">επειδή</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">επειδή</annotation>
-		<annotation cp="∶" draft="contributed">λόγος</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">λόγος</annotation>
-		<annotation cp="∷" draft="contributed">αναλογία</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">αναλογία</annotation>
-		<annotation cp="∼" draft="contributed">τελεστής περισπωμένη</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">τελεστής περισπωμένη</annotation>
-		<annotation cp="∽" draft="contributed">ανάστροφη περισπωμένη</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">ανάστροφη περισπωμένη</annotation>
-		<annotation cp="∾" draft="contributed">ανεστραμμένο οριζόντιο s</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">ανεστραμμένο οριζόντιο s</annotation>
-		<annotation cp="≃" draft="contributed">ασυμπτωτικά ίσο</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">ασυμπτωτικά ίσο</annotation>
-		<annotation cp="≅" draft="contributed">περίπου ίσο</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">περίπου ίσο</annotation>
+		<annotation cp="∫">λογισμός | ολοκλήρωμα</annotation>
+		<annotation cp="∫" type="tts">ολοκλήρωμα</annotation>
+		<annotation cp="∬">διπλό ολοκλήρωμα | λογισμός</annotation>
+		<annotation cp="∬" type="tts">διπλό ολοκλήρωμα</annotation>
+		<annotation cp="∮">επικαμπύλιο ολοκλήρωμα</annotation>
+		<annotation cp="∮" type="tts">επικαμπύλιο ολοκλήρωμα</annotation>
+		<annotation cp="∴">άρα | λογική</annotation>
+		<annotation cp="∴" type="tts">άρα</annotation>
+		<annotation cp="∵">επειδή | λογική</annotation>
+		<annotation cp="∵" type="tts">επειδή</annotation>
+		<annotation cp="∶">λόγος</annotation>
+		<annotation cp="∶" type="tts">λόγος</annotation>
+		<annotation cp="∷">αναλογία | αναλογικότητα</annotation>
+		<annotation cp="∷" type="tts">αναλογία</annotation>
+		<annotation cp="∼">τελεστής | τελεστής περισπωμένη</annotation>
+		<annotation cp="∼" type="tts">τελεστής περισπωμένη</annotation>
+		<annotation cp="∽">ανάστροφη περισπωμένη | περισπωμένη</annotation>
+		<annotation cp="∽" type="tts">ανάστροφη περισπωμένη</annotation>
+		<annotation cp="∾">ανεστραμμένο οριζόντιο s</annotation>
+		<annotation cp="∾" type="tts">ανεστραμμένο οριζόντιο s</annotation>
+		<annotation cp="≃">ασυμπτωτικά ίσο | ασύμπτωτο | μαθηματικά</annotation>
+		<annotation cp="≃" type="tts">ασυμπτωτικά ίσο</annotation>
+		<annotation cp="≅">αντιστοιχία | ισομορφισμός | ισότητα | μαθηματικά | περίπου ίσο</annotation>
+		<annotation cp="≅" type="tts">περίπου ίσο</annotation>
 		<annotation cp="≈">κατά προσέγγιση | προσέγγιση | σχεδόν ίσο</annotation>
 		<annotation cp="≈" type="tts">σχεδόν ίσο</annotation>
-		<annotation cp="≌" draft="contributed">ισούνται όλα</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">ισούνται όλα</annotation>
-		<annotation cp="≒" draft="contributed">περίπου ίσα με την εικόνα</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">περίπου ίσα με την εικόνα</annotation>
-		<annotation cp="≖" draft="contributed">δακτύλιος σε ίσον</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">δακτύλιος σε ίσον</annotation>
+		<annotation cp="≌">ισότητα | ισούνται όλα | μαθηματικά</annotation>
+		<annotation cp="≌" type="tts">ισούνται όλα</annotation>
+		<annotation cp="≒">περίπου ίσα με την εικόνα</annotation>
+		<annotation cp="≒" type="tts">περίπου ίσα με την εικόνα</annotation>
+		<annotation cp="≖">δακτύλιος σε ίσον | ισότητα | μαθηματικά</annotation>
+		<annotation cp="≖" type="tts">δακτύλιος σε ίσον</annotation>
 		<annotation cp="≡">ακριβές | ταυτόσημο | ταυτόσημο του | τριπλό</annotation>
 		<annotation cp="≡" type="tts">ταυτόσημο του</annotation>
-		<annotation cp="≣" draft="contributed">ταυτόσημο</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">ταυτόσημο</annotation>
+		<annotation cp="≣">αυστηρά ισοδύναμο | ισότητα | μαθηματικά</annotation>
+		<annotation cp="≣" type="tts">αυστηρά ισοδύναμο</annotation>
 		<annotation cp="≤">ανισότητα | ίσο | ισούται | μικρότερο από | μικρότερο ή ίσο</annotation>
 		<annotation cp="≤" type="tts">μικρότερο ή ίσο</annotation>
 		<annotation cp="≥">ανισότητα | ίσο | ισούται | μεγαλύτερο από | μεγαλύτερο ή ίσο</annotation>
 		<annotation cp="≥" type="tts">μεγαλύτερο ή ίσο</annotation>
-		<annotation cp="≦" draft="contributed">μικρότερό από ή ίσο με</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">μικρότερό από ή ίσο με</annotation>
-		<annotation cp="≧" draft="contributed">μεγαλύτερο από ή ίσο με</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">μεγαλύτερο από ή ίσο με</annotation>
-		<annotation cp="≪" draft="contributed">πολύ μικρότερο από</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">πολύ μικρότερο από</annotation>
-		<annotation cp="≫" draft="contributed">πολύ μεγαλύτερο από</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">πολύ μεγαλύτερο από</annotation>
-		<annotation cp="≬" draft="contributed">μεταξύ</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">μεταξύ</annotation>
-		<annotation cp="≳" draft="contributed">μεγαλύτερο από ισοδύναμο</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">μεγαλύτερο από ισοδύναμο</annotation>
-		<annotation cp="≺" draft="contributed">προηγείται</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">προηγείται</annotation>
-		<annotation cp="≻" draft="contributed">έπεται</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">έπεται</annotation>
-		<annotation cp="⊁" draft="contributed">δεν έπεται</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">δεν έπεται</annotation>
+		<annotation cp="≦">ανισότητα | μαθηματικά | μικρότερό από ή ίσο με</annotation>
+		<annotation cp="≦" type="tts">μικρότερό από ή ίσο με</annotation>
+		<annotation cp="≧">ανισότητα | μαθηματικά | μεγαλύτερο από ή ίσο με</annotation>
+		<annotation cp="≧" type="tts">μεγαλύτερο από ή ίσο με</annotation>
+		<annotation cp="≪">ανισότητα | μαθηματικά | πολύ μικρότερο από</annotation>
+		<annotation cp="≪" type="tts">πολύ μικρότερο από</annotation>
+		<annotation cp="≫">ανισότητα | μαθηματικά | πολύ μεγαλύτερο από</annotation>
+		<annotation cp="≫" type="tts">πολύ μεγαλύτερο από</annotation>
+		<annotation cp="≬">μεταξύ</annotation>
+		<annotation cp="≬" type="tts">μεταξύ</annotation>
+		<annotation cp="≳">ανισότητα | μαθηματικά | μεγαλύτερο από ισοδύναμο</annotation>
+		<annotation cp="≳" type="tts">μεγαλύτερο από ισοδύναμο</annotation>
+		<annotation cp="≺">μαθηματικά | προηγείται | τελεστής συνόλου</annotation>
+		<annotation cp="≺" type="tts">προηγείται</annotation>
+		<annotation cp="≻">έπεται | μαθηματικά | τελεστής συνόλου</annotation>
+		<annotation cp="≻" type="tts">έπεται</annotation>
+		<annotation cp="⊁">δεν έπεται | μαθηματικά | τελεστής συνόλου</annotation>
+		<annotation cp="⊁" type="tts">δεν έπεται</annotation>
 		<annotation cp="⊂">σύνολο | υποσύνολο | υποσύνολο του</annotation>
 		<annotation cp="⊂" type="tts">υποσύνολο του</annotation>
-		<annotation cp="⊃" draft="contributed">υπερσύνολο</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">υπερσύνολο</annotation>
-		<annotation cp="⊆" draft="contributed">ίσο υποσύνολο</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">ίσο υποσύνολο</annotation>
-		<annotation cp="⊇" draft="contributed">ίσο υπερσύνολο</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">ίσο υπερσύνολο</annotation>
-		<annotation cp="⊕" draft="contributed">συν σε κύκλο</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">συν σε κύκλο</annotation>
-		<annotation cp="⊖" draft="contributed">μείον σε κύκλο</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">μείον σε κύκλο</annotation>
-		<annotation cp="⊗" draft="contributed">επί σε κύκλο</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">επί σε κύκλο</annotation>
-		<annotation cp="⊘" draft="contributed">διά σε κύκλο</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">διά σε κύκλο</annotation>
-		<annotation cp="⊙" draft="contributed">τελεστής κουκκίδα σε κύκλο</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">τελεστής κουκκίδα σε κύκλο</annotation>
-		<annotation cp="⊚" draft="contributed">τελεστής δακτύλιος σε κύκλο</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">τελεστής δακτύλιος σε κύκλο</annotation>
-		<annotation cp="⊛" draft="contributed">τελεστής αστερίσκος σε κύκλο</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">τελεστής αστερίσκος σε κύκλο</annotation>
-		<annotation cp="⊞" draft="contributed">συν σε τετράγωνο</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">συν σε τετράγωνο</annotation>
-		<annotation cp="⊟" draft="contributed">μείον σε τετράγωνο</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">μείον σε τετράγωνο</annotation>
-		<annotation cp="⊥" draft="contributed">διπλό ταυ</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">διπλό ταυ</annotation>
-		<annotation cp="⊮" draft="contributed">δεν επιβάλλει</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">δεν επιβάλλει</annotation>
-		<annotation cp="⊰" draft="contributed">προηγείται στη σχέση</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">προηγείται στη σχέση</annotation>
-		<annotation cp="⊱" draft="contributed">έπεται στη σχέση</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">έπεται στη σχέση</annotation>
-		<annotation cp="⋭" draft="contributed">δεν περιέχει ισοδύναμο ομάδας ως κανονικό</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">δεν περιέχει ισοδύναμο ομάδας ως κανονικό</annotation>
-		<annotation cp="⊶" draft="contributed">αρχικό</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">αρχικό</annotation>
-		<annotation cp="⊹" draft="contributed">ερμητική μιγαδική μήτρα</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">ερμητική μιγαδική μήτρα</annotation>
-		<annotation cp="⊿" draft="contributed">ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="⊿" type="tts" draft="contributed">ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="⋁" draft="contributed">ν-αδικό λογικό &quot;ή&quot;</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">ν-αδικό λογικό &quot;ή&quot;</annotation>
-		<annotation cp="⋂" draft="contributed">ν-αδική τομή</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">ν-αδική τομή</annotation>
-		<annotation cp="⋃" draft="contributed">ν-αδική ένωση</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">ν-αδική ένωση</annotation>
-		<annotation cp="⋅" draft="contributed">τελεστής-κουκκίδα</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">τελεστής-κουκκίδα</annotation>
-		<annotation cp="⋆" draft="contributed">τελεστής-αστερίσκος</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">τελεστής-αστερίσκος</annotation>
-		<annotation cp="⋈" draft="contributed">φυσική ένωση</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">φυσική ένωση</annotation>
-		<annotation cp="⋒" draft="contributed">διπλή τομή</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">διπλή τομή</annotation>
-		<annotation cp="⋘" draft="contributed">πάρα πολύ μικρότερο από</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">πάρα πολύ μικρότερο από</annotation>
-		<annotation cp="⋙" draft="contributed">πάρα πολύ μεγαλύτερο από</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">πάρα πολύ μεγαλύτερο από</annotation>
-		<annotation cp="⋮" draft="contributed">κατακόρυφα αποσιωπητικά</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">κατακόρυφα αποσιωπητικά</annotation>
-		<annotation cp="⋯" draft="contributed">οριζόντια αποσιωπητικά στο μέσο της γραμμής</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">οριζόντια αποσιωπητικά στο μέσο της γραμμής</annotation>
-		<annotation cp="⋰" draft="contributed">διαγώνια αποσιωπητικά προς τα επάνω και δεξιά</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">διαγώνια αποσιωπητικά προς τα επάνω και δεξιά</annotation>
-		<annotation cp="⋱" draft="contributed">διαγώνια αποσιωπητικά προς τα κάτω και δεξιά</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">διαγώνια αποσιωπητικά προς τα κάτω και δεξιά</annotation>
-		<annotation cp="■" draft="contributed">γεμάτο τετράγωνο</annotation>
-		<annotation cp="■" type="tts" draft="contributed">γεμάτο τετράγωνο</annotation>
-		<annotation cp="□" draft="contributed">κενό τετράγωνο</annotation>
-		<annotation cp="□" type="tts" draft="contributed">κενό τετράγωνο</annotation>
-		<annotation cp="▢" draft="contributed">κενό τετράγωνο με στρογγυλεμένες γωνίες</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">κενό τετράγωνο με στρογγυλεμένες γωνίες</annotation>
-		<annotation cp="▣" draft="contributed">κενό τετράγωνο που περιέχει γεμάτο τετράγωνο</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">κενό τετράγωνο που περιέχει γεμάτο τετράγωνο</annotation>
-		<annotation cp="▤" draft="contributed">τετράγωνο με οριζόντιες γραμμές</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">τετράγωνο με οριζόντιες γραμμές</annotation>
-		<annotation cp="▥" draft="contributed">τετράγωνο με κατακόρυφες γραμμές</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">τετράγωνο με κατακόρυφες γραμμές</annotation>
-		<annotation cp="▦" draft="contributed">τετράγωνο με ορθογώνιο πλέγμα</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">τετράγωνο με ορθογώνιο πλέγμα</annotation>
-		<annotation cp="▧" draft="contributed">τετράγωνο με γραμμές κάτω και δεξιά</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">τετράγωνο με γραμμές κάτω και δεξιά</annotation>
-		<annotation cp="▨" draft="contributed">τετράγωνο με γραμμές επάνω και δεξιά</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">τετράγωνο με γραμμές επάνω και δεξιά</annotation>
-		<annotation cp="▩" draft="contributed">τετράγωνο με διαγώνιο οριζόντιο πλέγμα</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">τετράγωνο με διαγώνιο οριζόντιο πλέγμα</annotation>
-		<annotation cp="▬" draft="contributed">γεμάτο ορθογώνιο</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">γεμάτο ορθογώνιο</annotation>
-		<annotation cp="▭" draft="contributed">κενό ορθογώνιο</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">κενό ορθογώνιο</annotation>
-		<annotation cp="▮" draft="contributed">κενό κατακόρυφο ορθογώνιο</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">κενό κατακόρυφο ορθογώνιο</annotation>
-		<annotation cp="▰" draft="contributed">γεμάτο παραλληλόγραμμο</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">γεμάτο παραλληλόγραμμο</annotation>
+		<annotation cp="⊃">μαθηματικά | τελεστής συνόλου | υπερσύνολο</annotation>
+		<annotation cp="⊃" type="tts">υπερσύνολο</annotation>
+		<annotation cp="⊆">ίσο υποσύνολο</annotation>
+		<annotation cp="⊆" type="tts">ίσο υποσύνολο</annotation>
+		<annotation cp="⊇">ίσο υπερσύνολο | ισότητα | μαθηματικά</annotation>
+		<annotation cp="⊇" type="tts">ίσο υπερσύνολο</annotation>
+		<annotation cp="⊕">συν | συν σε κύκλο</annotation>
+		<annotation cp="⊕" type="tts">συν σε κύκλο</annotation>
+		<annotation cp="⊖">διάβρωση | μείον σε κύκλο | συμμετρική διαφορά</annotation>
+		<annotation cp="⊖" type="tts">μείον σε κύκλο</annotation>
+		<annotation cp="⊗">γινόμενο | επί σε κύκλο | τανυστής</annotation>
+		<annotation cp="⊗" type="tts">επί σε κύκλο</annotation>
+		<annotation cp="⊘">διά σε κύκλο | κάθετος διαίρεσης σε κύκλο | μαθηματικά | σαν διαίρεση</annotation>
+		<annotation cp="⊘" type="tts">διά σε κύκλο</annotation>
+		<annotation cp="⊙">XNOR | τελεστής | τελεστής κουκκίδα σε κύκλο</annotation>
+		<annotation cp="⊙" type="tts">τελεστής κουκκίδα σε κύκλο</annotation>
+		<annotation cp="⊚">τελεστής δακτύλιος σε κύκλο</annotation>
+		<annotation cp="⊚" type="tts">τελεστής δακτύλιος σε κύκλο</annotation>
+		<annotation cp="⊛">αστερίσκος | τελεστής | τελεστής αστερίσκος σε κύκλο</annotation>
+		<annotation cp="⊛" type="tts">τελεστής αστερίσκος σε κύκλο</annotation>
+		<annotation cp="⊞">μαθηματικά | σαν πρόσθεση | συν σε τετράγωνο</annotation>
+		<annotation cp="⊞" type="tts">συν σε τετράγωνο</annotation>
+		<annotation cp="⊟">μαθηματικά | μείον σε τετράγωνο | σαν αφαίρεση</annotation>
+		<annotation cp="⊟" type="tts">μείον σε τετράγωνο</annotation>
+		<annotation cp="⊥">eet | falsum | ανάποδο κεφαλαίο ταυ</annotation>
+		<annotation cp="⊥" type="tts">ανάποδο κεφαλαίο ταυ</annotation>
+		<annotation cp="⊮">δεν επιβάλλει</annotation>
+		<annotation cp="⊮" type="tts">δεν επιβάλλει</annotation>
+		<annotation cp="⊰">μαθηματικά | προηγείται στη σχέση | τελεστής συνόλου</annotation>
+		<annotation cp="⊰" type="tts">προηγείται στη σχέση</annotation>
+		<annotation cp="⊱">έπεται στη σχέση | μαθηματικά | τελεστής συνόλου</annotation>
+		<annotation cp="⊱" type="tts">έπεται στη σχέση</annotation>
+		<annotation cp="⋭">δεν περιέχει ισοδύναμο ομάδας ως κανονικό | θεωρία ομάδων | μαθηματικά</annotation>
+		<annotation cp="⋭" type="tts">δεν περιέχει ισοδύναμο ομάδας ως κανονικό</annotation>
+		<annotation cp="⊶">αρχικό</annotation>
+		<annotation cp="⊶" type="tts">αρχικό</annotation>
+		<annotation cp="⊹">αυτοσυζυγής μήτρα | ερμητική μιγαδική μήτρα | μαθηματικά | τετραγωνική μήτρα</annotation>
+		<annotation cp="⊹" type="tts">ερμητική μιγαδική μήτρα</annotation>
+		<annotation cp="⊿">μαθηματικά | ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="⊿" type="tts">ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="⋁">διάζευξη | λογική | ν-αδικό λογικό &quot;ή&quot;</annotation>
+		<annotation cp="⋁" type="tts">ν-αδικό λογικό &quot;ή&quot;</annotation>
+		<annotation cp="⋂">μαθηματικά | ν-αδική τομή | τελεστής συνόλου | τομή</annotation>
+		<annotation cp="⋂" type="tts">ν-αδική τομή</annotation>
+		<annotation cp="⋃">ένωση | μαθηματικά | ν-αδική ένωση | τελεστής συνόλου</annotation>
+		<annotation cp="⋃" type="tts">ν-αδική ένωση</annotation>
+		<annotation cp="⋅">τελεστής | τελεστής-κουκκίδα</annotation>
+		<annotation cp="⋅" type="tts">τελεστής-κουκκίδα</annotation>
+		<annotation cp="⋆">τελεστής | τελεστής-αστερίσκος</annotation>
+		<annotation cp="⋆" type="tts">τελεστής-αστερίσκος</annotation>
+		<annotation cp="⋈">δυαδικός τελεστής | παπιγιόν | φυσική ένωση</annotation>
+		<annotation cp="⋈" type="tts">φυσική ένωση</annotation>
+		<annotation cp="⋒">διπλή τομή | μαθηματικά | τελεστής συνόλου | τομή</annotation>
+		<annotation cp="⋒" type="tts">διπλή τομή</annotation>
+		<annotation cp="⋘">ανισότητα | μαθηματικά | πάρα πολύ μικρότερο από</annotation>
+		<annotation cp="⋘" type="tts">πάρα πολύ μικρότερο από</annotation>
+		<annotation cp="⋙">ανισότητα | μαθηματικά | πάρα πολύ μεγαλύτερο από</annotation>
+		<annotation cp="⋙" type="tts">πάρα πολύ μεγαλύτερο από</annotation>
+		<annotation cp="⋮">αποσιωπητικά | κατακόρυφα αποσιωπητικά | μαθηματικά</annotation>
+		<annotation cp="⋮" type="tts">κατακόρυφα αποσιωπητικά</annotation>
+		<annotation cp="⋯">αποσιωπητικά | κεντρικά οριζόντια αποσιωπητικά</annotation>
+		<annotation cp="⋯" type="tts">κεντρικά οριζόντια αποσιωπητικά</annotation>
+		<annotation cp="⋰">αποσιωπητικά | μαθηματικά | πάνω δεξιά διαγώνια αποσιωπητικά</annotation>
+		<annotation cp="⋰" type="tts">πάνω δεξιά διαγώνια αποσιωπητικά</annotation>
+		<annotation cp="⋱">αποσιωπητικά | κάτω δεξιά διαγώνια αποσιωπητικά | μαθηματικά</annotation>
+		<annotation cp="⋱" type="tts">κάτω δεξιά διαγώνια αποσιωπητικά</annotation>
+		<annotation cp="■">γεμάτο τετράγωνο</annotation>
+		<annotation cp="■" type="tts">γεμάτο τετράγωνο</annotation>
+		<annotation cp="□">κενό τετράγωνο</annotation>
+		<annotation cp="□" type="tts">κενό τετράγωνο</annotation>
+		<annotation cp="▢">κενό τετράγωνο με στρογγυλεμένες γωνίες</annotation>
+		<annotation cp="▢" type="tts">κενό τετράγωνο με στρογγυλεμένες γωνίες</annotation>
+		<annotation cp="▣">κενό τετράγωνο που περιέχει γεμάτο τετράγωνο</annotation>
+		<annotation cp="▣" type="tts">κενό τετράγωνο που περιέχει γεμάτο τετράγωνο</annotation>
+		<annotation cp="▤">τετράγωνο με οριζόντιες γραμμές</annotation>
+		<annotation cp="▤" type="tts">τετράγωνο με οριζόντιες γραμμές</annotation>
+		<annotation cp="▥">τετράγωνο με κατακόρυφες γραμμές</annotation>
+		<annotation cp="▥" type="tts">τετράγωνο με κατακόρυφες γραμμές</annotation>
+		<annotation cp="▦">τετράγωνο με ορθογώνιο πλέγμα</annotation>
+		<annotation cp="▦" type="tts">τετράγωνο με ορθογώνιο πλέγμα</annotation>
+		<annotation cp="▧">τετράγωνο με γραμμές κάτω και δεξιά</annotation>
+		<annotation cp="▧" type="tts">τετράγωνο με γραμμές κάτω και δεξιά</annotation>
+		<annotation cp="▨">τετράγωνο με γραμμές επάνω και δεξιά</annotation>
+		<annotation cp="▨" type="tts">τετράγωνο με γραμμές επάνω και δεξιά</annotation>
+		<annotation cp="▩">τετράγωνο με διαγώνιο οριζόντιο πλέγμα</annotation>
+		<annotation cp="▩" type="tts">τετράγωνο με διαγώνιο οριζόντιο πλέγμα</annotation>
+		<annotation cp="▬">γεμάτο ορθογώνιο</annotation>
+		<annotation cp="▬" type="tts">γεμάτο ορθογώνιο</annotation>
+		<annotation cp="▭">κενό ορθογώνιο</annotation>
+		<annotation cp="▭" type="tts">κενό ορθογώνιο</annotation>
+		<annotation cp="▮">κενό κατακόρυφο ορθογώνιο</annotation>
+		<annotation cp="▮" type="tts">κενό κατακόρυφο ορθογώνιο</annotation>
+		<annotation cp="▰">γεμάτο παραλληλόγραμμο</annotation>
+		<annotation cp="▰" type="tts">γεμάτο παραλληλόγραμμο</annotation>
 		<annotation cp="▲">βέλος | γεμάτο | γεμάτο τρίγωνο προς τα επάνω | επάνω | τρίγωνο</annotation>
 		<annotation cp="▲" type="tts">γεμάτο τρίγωνο προς τα επάνω</annotation>
-		<annotation cp="△" draft="contributed">κενό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="△" type="tts" draft="contributed">κενό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="▴" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="▴" type="tts" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="▵" draft="contributed">κενό μικρό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="▵" type="tts" draft="contributed">κενό μικρό τρίγωνο που δείχνει επάνω</annotation>
-		<annotation cp="▷" draft="contributed">κενό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="▷" type="tts" draft="contributed">κενό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="▸" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="▸" type="tts" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="▹" draft="contributed">κενό μικρό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="▹" type="tts" draft="contributed">κενό μικρό τρίγωνο που δείχνει δεξιά</annotation>
-		<annotation cp="►" draft="contributed">γεμάτος δείκτης που δείχνει δεξιά</annotation>
-		<annotation cp="►" type="tts" draft="contributed">γεμάτος δείκτης που δείχνει δεξιά</annotation>
-		<annotation cp="▻" draft="contributed">κενός δείκτης που δείχνει δεξιά</annotation>
-		<annotation cp="▻" type="tts" draft="contributed">κενός δείκτης που δείχνει δεξιά</annotation>
+		<annotation cp="△">κενό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="△" type="tts">κενό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="▴">γεμάτο μικρό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="▴" type="tts">γεμάτο μικρό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="▵">κενό μικρό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="▵" type="tts">κενό μικρό τρίγωνο που δείχνει επάνω</annotation>
+		<annotation cp="▷">κενό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="▷" type="tts">κενό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="▸">γεμάτο μικρό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="▸" type="tts">γεμάτο μικρό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="▹">κενό μικρό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="▹" type="tts">κενό μικρό τρίγωνο που δείχνει δεξιά</annotation>
+		<annotation cp="►">γεμάτος δείκτης που δείχνει δεξιά</annotation>
+		<annotation cp="►" type="tts">γεμάτος δείκτης που δείχνει δεξιά</annotation>
+		<annotation cp="▻">κενός δείκτης που δείχνει δεξιά</annotation>
+		<annotation cp="▻" type="tts">κενός δείκτης που δείχνει δεξιά</annotation>
 		<annotation cp="▼">βέλος | γεμάτο | γεμάτο τρίγωνο προς τα κάτω | κάτω | τρίγωνο</annotation>
 		<annotation cp="▼" type="tts">γεμάτο τρίγωνο προς τα κάτω</annotation>
-		<annotation cp="▽" draft="contributed">κενό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="▽" type="tts" draft="contributed">κενό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="▾" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="▾" type="tts" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="▿" draft="contributed">κενό μικρό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="▿" type="tts" draft="contributed">κενό μικρό τρίγωνο που δείχνει κάτω</annotation>
-		<annotation cp="◁" draft="contributed">κενό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◁" type="tts" draft="contributed">κενό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◂" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◂" type="tts" draft="contributed">γεμάτο μικρό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◃" draft="contributed">κενό μικρό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◃" type="tts" draft="contributed">κενό μικρό τρίγωνο που δείχνει αριστερά</annotation>
-		<annotation cp="◄" draft="contributed">γεμάτος δείκτης που δείχνει αριστερά</annotation>
-		<annotation cp="◄" type="tts" draft="contributed">γεμάτος δείκτης που δείχνει αριστερά</annotation>
-		<annotation cp="◅" draft="contributed">κενός δείκτης που δείχνει αριστερά</annotation>
-		<annotation cp="◅" type="tts" draft="contributed">κενός δείκτης που δείχνει αριστερά</annotation>
-		<annotation cp="◆" draft="contributed">γεμάτος ρόμβος</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">γεμάτος ρόμβος</annotation>
-		<annotation cp="◇" draft="contributed">κενός ρόμβος</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">κενός ρόμβος</annotation>
-		<annotation cp="◈" draft="contributed">κενός ρόμβος που περιέχει γεμάτο ρόμβο</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">κενός ρόμβος που περιέχει γεμάτο ρόμβο</annotation>
-		<annotation cp="◉" draft="contributed">κενός ρόμβος που περιέχει γεμάτο κύκλο</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">κενός ρόμβος που περιέχει γεμάτο κύκλο</annotation>
+		<annotation cp="▽">κενό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="▽" type="tts">κενό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="▾">γεμάτο μικρό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="▾" type="tts">γεμάτο μικρό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="▿">κενό μικρό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="▿" type="tts">κενό μικρό τρίγωνο που δείχνει κάτω</annotation>
+		<annotation cp="◁">κενό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◁" type="tts">κενό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◂">γεμάτο μικρό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◂" type="tts">γεμάτο μικρό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◃">κενό μικρό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◃" type="tts">κενό μικρό τρίγωνο που δείχνει αριστερά</annotation>
+		<annotation cp="◄">γεμάτος δείκτης που δείχνει αριστερά</annotation>
+		<annotation cp="◄" type="tts">γεμάτος δείκτης που δείχνει αριστερά</annotation>
+		<annotation cp="◅">κενός δείκτης που δείχνει αριστερά</annotation>
+		<annotation cp="◅" type="tts">κενός δείκτης που δείχνει αριστερά</annotation>
+		<annotation cp="◆">γεμάτος ρόμβος</annotation>
+		<annotation cp="◆" type="tts">γεμάτος ρόμβος</annotation>
+		<annotation cp="◇">κενός ρόμβος</annotation>
+		<annotation cp="◇" type="tts">κενός ρόμβος</annotation>
+		<annotation cp="◈">κενός ρόμβος που περιέχει γεμάτο ρόμβο</annotation>
+		<annotation cp="◈" type="tts">κενός ρόμβος που περιέχει γεμάτο ρόμβο</annotation>
+		<annotation cp="◉">γεμάτοι ομόκεντροι κύκλοι | κενός κύκλος που περιέχει γεμάτο κύκλο | κουκκίδα σε κύκλο</annotation>
+		<annotation cp="◉" type="tts">κενός ρόμβος που περιέχει γεμάτο κύκλο</annotation>
 		<annotation cp="◊">διαμάντι | ρόμβος</annotation>
 		<annotation cp="◊" type="tts">ρόμβος</annotation>
 		<annotation cp="○">δακτύλιος | κενός κύκλος | κύκλος</annotation>
 		<annotation cp="○" type="tts">κενός κύκλος</annotation>
-		<annotation cp="◌" draft="contributed">κύκλος με κουκκίδα</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">κύκλος με κουκκίδα</annotation>
-		<annotation cp="◍" draft="contributed">κύκλος με κατακόρυφο πλέγμα</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">κύκλος με κατακόρυφο πλέγμα</annotation>
-		<annotation cp="◎" draft="contributed">ομόκεντροι κύκλοι</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">ομόκεντροι κύκλοι</annotation>
+		<annotation cp="◌">κύκλος με κουκκίδα</annotation>
+		<annotation cp="◌" type="tts">κύκλος με κουκκίδα</annotation>
+		<annotation cp="◍">κύκλος με κατακόρυφο πλέγμα</annotation>
+		<annotation cp="◍" type="tts">κύκλος με κατακόρυφο πλέγμα</annotation>
+		<annotation cp="◎">διπλός κύκλος | ομόκεντροι κύκλοι | στόχος</annotation>
+		<annotation cp="◎" type="tts">ομόκεντροι κύκλοι</annotation>
 		<annotation cp="●">γεμάτος κύκλος | κύκλος</annotation>
 		<annotation cp="●" type="tts">γεμάτος κύκλος</annotation>
-		<annotation cp="◐" draft="contributed">κύκλος γεμάτος στο αριστερό μισό</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">κύκλος γεμάτος στο αριστερό μισό</annotation>
-		<annotation cp="◑" draft="contributed">κύκλος γεμάτος στο δεξί μισό</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">κύκλος γεμάτος στο δεξί μισό</annotation>
-		<annotation cp="◒" draft="contributed">κύκλος γεμάτος στο κάτω μισό</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">κύκλος γεμάτος στο κάτω μισό</annotation>
-		<annotation cp="◓" draft="contributed">κύκλος γεμάτος στο επάνω μισό</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">κύκλος γεμάτος στο επάνω μισό</annotation>
-		<annotation cp="◔" draft="contributed">κύκλος γεμάτος επάνω δεξιά</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">κύκλος γεμάτος επάνω δεξιά</annotation>
-		<annotation cp="◕" draft="contributed">κύκλος γεμάτος εκτός επάνω αριστερά</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">κύκλος γεμάτος εκτός επάνω αριστερά</annotation>
-		<annotation cp="◖" draft="contributed">κύκλος γεμάτος στο μισό αριστερά</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">κύκλος γεμάτος στο μισό αριστερά</annotation>
-		<annotation cp="◗" draft="contributed">κύκλος γεμάτος στο μισό δεξιά</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">κύκλος γεμάτος στο μισό δεξιά</annotation>
-		<annotation cp="◘" draft="contributed">αντίστροφη κουκκίδα</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">αντίστροφη κουκκίδα</annotation>
-		<annotation cp="◙" draft="contributed">γεμάτο τετράγωνο με κενό κύκλο</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">γεμάτο τετράγωνο με κενό κύκλο</annotation>
-		<annotation cp="◜" draft="contributed">επάνω αριστερό τόξο κύκλου</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">επάνω αριστερό τόξο κύκλου</annotation>
-		<annotation cp="◝" draft="contributed">επάνω δεξί τόξο κύκλου</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">επάνω δεξί τόξο κύκλου</annotation>
-		<annotation cp="◞" draft="contributed">κάτω δεξί τόξο κύκλου</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">κάτω δεξί τόξο κύκλου</annotation>
-		<annotation cp="◟" draft="contributed">κάτω αριστερό τόξο κύκλου</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">κάτω αριστερό τόξο κύκλου</annotation>
-		<annotation cp="◠" draft="contributed">επάνω ημικύκλιο</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">επάνω ημικύκλιο</annotation>
-		<annotation cp="◡" draft="contributed">κάτω ημικύκλιο</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">κάτω ημικύκλιο</annotation>
-		<annotation cp="◢" draft="contributed">γεμάτο κάτω δεξί ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">γεμάτο κάτω δεξί ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◣" draft="contributed">γεμάτο κάτω αριστερό ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">γεμάτο κάτω αριστερό ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◤" draft="contributed">γεμάτο επάνω αριστερό ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">γεμάτο επάνω αριστερό ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◥" draft="contributed">γεμάτο επάνω δεξί ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">γεμάτο επάνω δεξί ορθογώνιο τρίγωνο</annotation>
-		<annotation cp="◦" draft="contributed">κενή κουκκίδα</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">κενή κουκκίδα</annotation>
+		<annotation cp="◐">κύκλος γεμάτος στο αριστερό μισό</annotation>
+		<annotation cp="◐" type="tts">κύκλος γεμάτος στο αριστερό μισό</annotation>
+		<annotation cp="◑">κύκλος γεμάτος στο δεξί μισό</annotation>
+		<annotation cp="◑" type="tts">κύκλος γεμάτος στο δεξί μισό</annotation>
+		<annotation cp="◒">κύκλος γεμάτος στο κάτω μισό</annotation>
+		<annotation cp="◒" type="tts">κύκλος γεμάτος στο κάτω μισό</annotation>
+		<annotation cp="◓">κύκλος γεμάτος στο επάνω μισό</annotation>
+		<annotation cp="◓" type="tts">κύκλος γεμάτος στο επάνω μισό</annotation>
+		<annotation cp="◔">κύκλος γεμάτος επάνω δεξιά</annotation>
+		<annotation cp="◔" type="tts">κύκλος γεμάτος επάνω δεξιά</annotation>
+		<annotation cp="◕">κύκλος γεμάτος εκτός επάνω αριστερά</annotation>
+		<annotation cp="◕" type="tts">κύκλος γεμάτος εκτός επάνω αριστερά</annotation>
+		<annotation cp="◖">κύκλος γεμάτος στο μισό αριστερά</annotation>
+		<annotation cp="◖" type="tts">κύκλος γεμάτος στο μισό αριστερά</annotation>
+		<annotation cp="◗">κύκλος γεμάτος στο μισό δεξιά</annotation>
+		<annotation cp="◗" type="tts">κύκλος γεμάτος στο μισό δεξιά</annotation>
+		<annotation cp="◘">αντίστροφη κουκκίδα</annotation>
+		<annotation cp="◘" type="tts">αντίστροφη κουκκίδα</annotation>
+		<annotation cp="◙">αντίστροφος κενός κύκλος | γεμάτο τετράγωνο με κενό κύκλο</annotation>
+		<annotation cp="◙" type="tts">γεμάτο τετράγωνο με κενό κύκλο</annotation>
+		<annotation cp="◜">επάνω αριστερό τόξο κύκλου</annotation>
+		<annotation cp="◜" type="tts">επάνω αριστερό τόξο κύκλου</annotation>
+		<annotation cp="◝">επάνω δεξί τόξο κύκλου</annotation>
+		<annotation cp="◝" type="tts">επάνω δεξί τόξο κύκλου</annotation>
+		<annotation cp="◞">κάτω δεξί τόξο κύκλου</annotation>
+		<annotation cp="◞" type="tts">κάτω δεξί τόξο κύκλου</annotation>
+		<annotation cp="◟">κάτω αριστερό τόξο κύκλου</annotation>
+		<annotation cp="◟" type="tts">κάτω αριστερό τόξο κύκλου</annotation>
+		<annotation cp="◠">επάνω ημικύκλιο</annotation>
+		<annotation cp="◠" type="tts">επάνω ημικύκλιο</annotation>
+		<annotation cp="◡">κάτω ημικύκλιο</annotation>
+		<annotation cp="◡" type="tts">κάτω ημικύκλιο</annotation>
+		<annotation cp="◢">γεμάτο κάτω δεξί ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◢" type="tts">γεμάτο κάτω δεξί ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◣">γεμάτο κάτω αριστερό ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◣" type="tts">γεμάτο κάτω αριστερό ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◤">γεμάτο επάνω αριστερό ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◤" type="tts">γεμάτο επάνω αριστερό ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◥">γεμάτο επάνω δεξί ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◥" type="tts">γεμάτο επάνω δεξί ορθογώνιο τρίγωνο</annotation>
+		<annotation cp="◦">κενή κουκκίδα</annotation>
+		<annotation cp="◦" type="tts">κενή κουκκίδα</annotation>
 		<annotation cp="◯">δακτύλιος | κύκλος | μεγάλος κενός κύκλος</annotation>
 		<annotation cp="◯" type="tts">μεγάλος κενός κύκλος</annotation>
-		<annotation cp="◳" draft="contributed">κενό τετράγωνο με επάνω δεξί</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">κενό τετράγωνο με επάνω δεξί</annotation>
-		<annotation cp="◷" draft="contributed">κενός κύκλος με επάνω δεξί τεταρτημόριο</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">κενός κύκλος με επάνω δεξί τεταρτημόριο</annotation>
-		<annotation cp="◿" draft="contributed">κάτω ορθογώνιο τεταρτημόριο</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">κάτω ορθογώνιο τεταρτημόριο</annotation>
+		<annotation cp="◳">κενό τετράγωνο με επάνω δεξί τεταρτημόριο</annotation>
+		<annotation cp="◳" type="tts">κενό τετράγωνο με επάνω δεξί τεταρτημόριο</annotation>
+		<annotation cp="◷">κενός κύκλος με επάνω δεξί τεταρτημόριο</annotation>
+		<annotation cp="◷" type="tts">κενός κύκλος με επάνω δεξί τεταρτημόριο</annotation>
+		<annotation cp="◿">κάτω ορθογώνιο τεταρτημόριο</annotation>
+		<annotation cp="◿" type="tts">κάτω ορθογώνιο τεταρτημόριο</annotation>
 		<annotation cp="♪">μουσική | νότα | όγδοη</annotation>
 		<annotation cp="♪" type="tts">όγδοη νότα</annotation>
-		<annotation cp="⨧" draft="contributed">συν δείκτης δύο</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">συν δείκτης δύο</annotation>
-		<annotation cp="⨯" draft="contributed">Διανυσματικό γινόμενο</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">Διανυσματικό γινόμενο</annotation>
-		<annotation cp="⨼" draft="contributed">εσωτερικό γινόμενο</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">εσωτερικό γινόμενο</annotation>
-		<annotation cp="⩣" draft="contributed">λογική ή διπλή κάτω παύλα</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">λογική ή διπλή κάτω παύλα</annotation>
-		<annotation cp="⩽" draft="contributed">κεκλιμένο μικρότερο από</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">κεκλιμένο μικρότερο από</annotation>
-		<annotation cp="⪍" draft="contributed">μικρότερο από παρόμοιο άνω ισοδύναμο</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">μικρότερο από παρόμοιο άνω ισοδύναμο</annotation>
-		<annotation cp="⪚" draft="contributed">μεγαλύτερο ή ίσο με διπλή γραμμή</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">μεγαλύτερο ή ίσο με διπλή γραμμή</annotation>
-		<annotation cp="⪺" draft="contributed">έπεται του άνω αμέσως σχεδόν ίσου</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">έπεται του άνω αμέσως σχεδόν ίσου</annotation>
+		<annotation cp="⨧">συν δείκτης δύο</annotation>
+		<annotation cp="⨧" type="tts">συν δείκτης δύο</annotation>
+		<annotation cp="⨯">διανυσματικό εξωτερικό γινόμενο</annotation>
+		<annotation cp="⨯" type="tts">διανυσματικό εξωτερικό γινόμενο</annotation>
+		<annotation cp="⨼">εσωτερικό γινόμενο</annotation>
+		<annotation cp="⨼" type="tts">εσωτερικό γινόμενο</annotation>
+		<annotation cp="⩣">λογική ή διπλή κάτω παύλα</annotation>
+		<annotation cp="⩣" type="tts">λογική ή διπλή κάτω παύλα</annotation>
+		<annotation cp="⩽">μικρότερο από με κεκλιμένο ίσο</annotation>
+		<annotation cp="⩽" type="tts">μικρότερο από με κεκλιμένο ίσο</annotation>
+		<annotation cp="⪍">μικρότερο από πάνω από παρόμοιο ίσο</annotation>
+		<annotation cp="⪍" type="tts">μικρότερο από πάνω από παρόμοιο ίσο</annotation>
+		<annotation cp="⪚">μεγαλύτερο ή ίσο με διπλή γραμμή</annotation>
+		<annotation cp="⪚" type="tts">μεγαλύτερο ή ίσο με διπλή γραμμή</annotation>
+		<annotation cp="⪺">έπεται πάνω από σχεδόν ίσο</annotation>
+		<annotation cp="⪺" type="tts">έπεται πάνω από σχεδόν ίσο</annotation>
 		<annotation cp="♭">μουσική | μπεμόλ | νότα | ύφεση</annotation>
 		<annotation cp="♭" type="tts">ύφεση</annotation>
 		<annotation cp="♯">δίεση | μουσική | νότα</annotation>
@@ -729,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">κλαίω από χαρά</annotation>
 		<annotation cp="🙂">ελαφρώς χαμογελαστό πρόσωπο | πρόσωπο | χαμόγελο</annotation>
 		<annotation cp="🙂" type="tts">ελαφρώς χαμογελαστό πρόσωπο</annotation>
+		<annotation cp="🙂‍↕">καταφατικά | κεφάλι που κουνιέται κατακόρυφα | νεύμα, ναι</annotation>
+		<annotation cp="🙂‍↕" type="tts">κεφάλι που κουνιέται κατακόρυφα</annotation>
+		<annotation cp="🙂‍↔">κεφάλι που κουνιέται οριζόντια | όχι, κούνημα</annotation>
+		<annotation cp="🙂‍↔" type="tts">κεφάλι που κουνιέται οριζόντια</annotation>
 		<annotation cp="🙃">ανάποδο | αναποδογυρισμένο πρόσωπο | πρόσωπο</annotation>
 		<annotation cp="🙃" type="tts">αναποδογυρισμένο πρόσωπο</annotation>
 		<annotation cp="🫠">εξαφανίζομαι | εξαφάνιση | λιώνω | λιώσιμο | πρόσωπο που λιώνει | υγρό</annotation>
@@ -841,8 +845,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">ζαλισμένο προσωπάκι</annotation>
 		<annotation cp="😵">ζαλάδα | ζαλισμένος | πρόσωπο</annotation>
 		<annotation cp="😵" type="tts">ζαλάδα</annotation>
-		<annotation cp="😵‍💫" draft="provisional">πρόσωπο με μάτια σπιράλ</annotation>
-		<annotation cp="😵‍💫" type="tts" draft="contributed">πρόσωπο με μάτια σπιράλ</annotation>
+		<annotation cp="😵‍💫">ζαλάδα | πρόβλημα | πρόσωπο με μάτια σπιράλ | πω | σπιράλ | υπνωτισμένο άτομο</annotation>
+		<annotation cp="😵‍💫" type="tts">πρόσωπο με μάτια σπιράλ</annotation>
 		<annotation cp="🤯">κεφάλι που εκρήγνυται | σοκαρισμένος</annotation>
 		<annotation cp="🤯" type="tts">κεφάλι που εκρήγνυται</annotation>
 		<annotation cp="🤠">καουμπόης | καουμπόης με καπέλο | καουμπόισσα | καπέλο | πρόσωπο</annotation>
@@ -1065,7 +1069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫷" type="tts">χέρι που σπρώχνει προς τα αριστερά</annotation>
 		<annotation cp="🫸">αρνούμαι | κόλλα το | περιμένω | προς τα δεξιά | σπρώχνω | σταματάω | χέρι που σπρώχνει προς τα δεξιά</annotation>
 		<annotation cp="🫸" type="tts">χέρι που σπρώχνει προς τα δεξιά</annotation>
-		<annotation cp="👌">OK | σώμα | χειρονομία οκ | χέρι</annotation>
+		<annotation cp="👌">ΟΚ | σώμα | χειρονομία οκ | χέρι</annotation>
 		<annotation cp="👌" type="tts">χειρονομία οκ</annotation>
 		<annotation cp="🤌">ανάκριση | δάχτυλα | δάχτυλα που κλείνουν | κλειστά | σαρκαστικό | χειρονομία</annotation>
 		<annotation cp="🤌" type="tts">δάχτυλα που κλείνουν</annotation>
@@ -1177,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ενήλικας</annotation>
 		<annotation cp="👱">άτομο: ξανθά μαλλιά | μαλλιά | ξανθός | ξανθός άνθρωπος</annotation>
 		<annotation cp="👱" type="tts">άτομο: ξανθά μαλλιά</annotation>
+		<annotation cp="🧑‍🧒">οικογένεια: ενήλικας, παιδί</annotation>
+		<annotation cp="🧑‍🧒" type="tts">οικογένεια: ενήλικας, παιδί</annotation>
+		<annotation cp="🧑‍🧒‍🧒">οικογένεια: ενήλικας, παιδί, παιδί</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">οικογένεια: ενήλικας, παιδί, παιδί</annotation>
+		<annotation cp="🧑‍🧑‍🧒">οικογένεια: ενήλικας, ενήλικας, παιδί</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">οικογένεια: ενήλικας, ενήλικας, παιδί</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">οικογένεια: ενήλικας, ενήλικας, παιδί, παιδί</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">οικογένεια: ενήλικας, ενήλικας, παιδί, παιδί</annotation>
 		<annotation cp="👨">άντρας | ενήλικας</annotation>
 		<annotation cp="👨" type="tts">άντρας</annotation>
 		<annotation cp="🧔">άτομο | άτομο: μούσι | μούσι</annotation>
@@ -1447,11 +1459,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧙‍♂" type="tts">άντρας μάγος</annotation>
 		<annotation cp="🧙‍♀">μάγισσα</annotation>
 		<annotation cp="🧙‍♀" type="tts">μάγισσα</annotation>
-		<annotation cp="🧚">Oberon | Puck | Titania | νεράιδα</annotation>
+		<annotation cp="🧚">Oberon | Puck | Titania | νεράιδα | Όμπερον | Πακ | Τιτάνια</annotation>
 		<annotation cp="🧚" type="tts">νεράιδα</annotation>
-		<annotation cp="🧚‍♂">Oberon | Puck | νεράιδος</annotation>
+		<annotation cp="🧚‍♂">Oberon | Puck | νεράιδος | Όμπερον | Πακ</annotation>
 		<annotation cp="🧚‍♂" type="tts">νεράιδος</annotation>
-		<annotation cp="🧚‍♀">Titania | γυναίκα νεράιδα</annotation>
+		<annotation cp="🧚‍♀">Titania | γυναίκα νεράιδα | Τιτάνια</annotation>
 		<annotation cp="🧚‍♀" type="tts">γυναίκα νεράιδα</annotation>
 		<annotation cp="🧛">απέθαντη | βρυκόλακας | Δράκουλας</annotation>
 		<annotation cp="🧛" type="tts">βρυκόλακας</annotation>
@@ -1837,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">κοτοπουλάκι που κοιτά μπροστά</annotation>
 		<annotation cp="🐦">πουλί</annotation>
 		<annotation cp="🐦" type="tts">πουλί</annotation>
+		<annotation cp="🐦‍🔥">φαντασία, πουλί της φωτιάς, αναγέννηση, μετενσάρκωση | φοίνικας</annotation>
+		<annotation cp="🐦‍🔥" type="tts">φοίνικας</annotation>
 		<annotation cp="🐧">πιγκουίνος | πτηνό</annotation>
 		<annotation cp="🐧" type="tts">πιγκουίνος</annotation>
 		<annotation cp="🕊">ειρήνη | περιστέρι | πετώ | πουλί</annotation>
@@ -1861,7 +1875,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">παπαγάλος</annotation>
 		<annotation cp="🪽">αγγελικό | αεροπλοΐα | μυθολογία | πετάω | πουλί | φτερό</annotation>
 		<annotation cp="🪽" type="tts">φτερό</annotation>
-		<annotation cp="🪿">ανόητος | κραυγή | πουλερικό | πουλί | χήνα</annotation>
+		<annotation cp="🐦‍⬛">κόρακας | κοράκι | μαύρο | μαυροκόρακας | πουλί</annotation>
+		<annotation cp="🐦‍⬛" type="tts">μαύρο πουλί</annotation>
+		<annotation cp="🪿">κρωγμός | πουλερικό | πουλί | πτηνό | χήνα</annotation>
 		<annotation cp="🪿" type="tts">χήνα</annotation>
 		<annotation cp="🐸">βάτραχος | πρόσωπο</annotation>
 		<annotation cp="🐸" type="tts">βάτραχος</annotation>
@@ -1903,7 +1919,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐚" type="tts">σπειροειδές κοχύλι</annotation>
 		<annotation cp="🪸">κοράλλι | ύφαλος | ωκεανός</annotation>
 		<annotation cp="🪸" type="tts">κοράλλι</annotation>
-		<annotation cp="🪼">ασπόνδυλο | ζελέ | θαλάσσιος | καίγομαι | κεντρί | μέδουσα | ωχ</annotation>
+		<annotation cp="🪼">άουτς | ασπόνδυλο | έγκαυμα | θαλάσσιο | κεντρί | μέδουσα | τσούχτρα</annotation>
 		<annotation cp="🪼" type="tts">μέδουσα</annotation>
 		<annotation cp="🐌">σαλιγκάρι | σαλίγκαρος</annotation>
 		<annotation cp="🐌" type="tts">σαλιγκάρι</annotation>
@@ -1970,7 +1986,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌳">δέντρο | ρίχνει τα φύλλα του | φυλλοβόλο | φυτό</annotation>
 		<annotation cp="🌳" type="tts">φυλλοβόλο δέντρο</annotation>
 		<annotation cp="🌴">δέντρο | φοίνικας | φυτό</annotation>
-		<annotation cp="🌴" type="tts">φοίνικας</annotation>
+		<annotation cp="🌴" type="tts">φοινικόδεντρο</annotation>
 		<annotation cp="🌵">κάκτος | φυτό</annotation>
 		<annotation cp="🌵" type="tts">κάκτος</annotation>
 		<annotation cp="🌾">όρυζα | ρύζι | φυτό</annotation>
@@ -1993,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">φωλιά με αυγά</annotation>
 		<annotation cp="🍄">μανιτάρι | φυτό</annotation>
 		<annotation cp="🍄" type="tts">μανιτάρι</annotation>
+		<annotation cp="🍄‍🟫">καφέ μανιτάρι | τρόφιμο, μύκητας, φύση, λαχανικό</annotation>
+		<annotation cp="🍄‍🟫" type="tts">καφέ μανιτάρι</annotation>
 		<annotation cp="🍇">σταφύλι | φρούτο | φυτό</annotation>
 		<annotation cp="🍇" type="tts">σταφύλι</annotation>
 		<annotation cp="🍈">πεπόνι | φρούτο | φυτό</annotation>
@@ -2003,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">μανταρίνι</annotation>
 		<annotation cp="🍋">κίτρο | λεμόνι | φρούτο | φυτό</annotation>
 		<annotation cp="🍋" type="tts">λεμόνι</annotation>
+		<annotation cp="🍋‍🟩">εσπεριδοειδές, φρούτο, τροπικό | λάιμ</annotation>
+		<annotation cp="🍋‍🟩" type="tts">λάιμ</annotation>
 		<annotation cp="🍌">μπανάνα | φρούτο | φυτό</annotation>
 		<annotation cp="🍌" type="tts">μπανάνα</annotation>
 		<annotation cp="🍍">ανανάς | φρούτο | φυτό</annotation>
@@ -2161,7 +2181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥮" type="tts">κέικ φεγγάρι</annotation>
 		<annotation cp="🍡">γλυκό | επιδόρπιο | ιαπωνικό | καλαμάκι | ντάνγκο | σουβλάκι</annotation>
 		<annotation cp="🍡" type="tts">ντάνγκο</annotation>
-		<annotation cp="🥟">empanada | gyōza | jiaozi | pierogi | potsticker | ντάμπλινγκ</annotation>
+		<annotation cp="🥟">jiaozi | γεμιστό πιτάκι | γκιόζα | εμπανάδα | μπουρεκάκι | ντάμπλινγκ | πιερόγκι</annotation>
 		<annotation cp="🥟" type="tts">ντάμπλινγκ</annotation>
 		<annotation cp="🥠">προφητεία | τυχερό μπισκότο</annotation>
 		<annotation cp="🥠" type="tts">τυχερό μπισκότο</annotation>
@@ -2237,8 +2257,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫗" type="tts">περίχυση υγρού</annotation>
 		<annotation cp="🥤">αναψυκτικό | ποτήρι με καλαμάκι | χυμός</annotation>
 		<annotation cp="🥤" type="tts">ποτήρι με καλαμάκι</annotation>
-		<annotation cp="🧋">bubble | bubble tea | γάλα | πέρλες | τσάι</annotation>
-		<annotation cp="🧋" type="tts">bubble tea</annotation>
+		<annotation cp="🧋">γάλα | πέρλες | τσάι | τσάι μπόμπα | φυσαλίδες</annotation>
+		<annotation cp="🧋" type="tts">τσάι μπόμπα</annotation>
 		<annotation cp="🧃">κουτί ροφήματος | κουτί χυμού</annotation>
 		<annotation cp="🧃" type="tts">κουτί ροφήματος</annotation>
 		<annotation cp="🧉">μάτε | ρόφημα</annotation>
@@ -3147,9 +3167,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✉" type="tts">φάκελος</annotation>
 		<annotation cp="📧">email | γράμμα | επιστολή</annotation>
 		<annotation cp="📧" type="tts">email</annotation>
-		<annotation cp="📨">e-mail | email | γράμμα | εισερχόμενος φάκελος | επιστολή | φάκελος</annotation>
+		<annotation cp="📨">e-mail | email | γράμμα | εισερχόμενα | επιστολή | λήψη | φάκελος</annotation>
 		<annotation cp="📨" type="tts">εισερχόμενος φάκελος</annotation>
-		<annotation cp="📩">e-mail | email | βέλος | εξερχόμενο | φάκελος | φάκελος με βέλος</annotation>
+		<annotation cp="📩">e-mail | email | βέλος | εξερχόμενα | φάκελος | φάκελος με βέλος</annotation>
 		<annotation cp="📩" type="tts">φάκελος με βέλος</annotation>
 		<annotation cp="📤">αλληλογραφία | αποστολή | δίσκος | δίσκος εξερχομένων | επιστολή | κουτί</annotation>
 		<annotation cp="📤" type="tts">δίσκος εξερχομένων</annotation>
@@ -3283,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">κρίκος</annotation>
 		<annotation cp="⛓">αλυσίδα | αλυσίδες</annotation>
 		<annotation cp="⛓" type="tts">αλυσίδες</annotation>
+		<annotation cp="⛓‍💥">σπάζω, σπάσιμο, αλυσίδα, χειροπέδες, ελευθερία | σπασμένη αλυσίδα</annotation>
+		<annotation cp="⛓‍💥" type="tts">σπασμένη αλυσίδα</annotation>
 		<annotation cp="🪝">γάντζος | καμπύλη | κύρτωμα | παγιδεύω | πιάνω | σημείο πώλησης</annotation>
 		<annotation cp="🪝" type="tts">γάντζος</annotation>
 		<annotation cp="🧰">εργαλείο | εργαλειοθήκη | μηχανικός | μπαούλο</annotation>
@@ -3459,8 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">πάνω κάτω βέλος</annotation>
 		<annotation cp="↔">αριστερό δεξιό βέλος | βέλος</annotation>
 		<annotation cp="↔" type="tts">αριστερό δεξιό βέλος</annotation>
-		<annotation cp="↮" draft="contributed">αριστερό-δεξιό βέλος με πλάγια γραμμή</annotation>
-		<annotation cp="↮" type="tts" draft="contributed">αριστερό-δεξιό βέλος με πλάγια γραμμή</annotation>
+		<annotation cp="↮">αριστερό-δεξιό βέλος με πλάγια γραμμή</annotation>
+		<annotation cp="↮" type="tts">αριστερό-δεξιό βέλος με πλάγια γραμμή</annotation>
 		<annotation cp="↩">βέλος | δεξιό βέλος που στρίβει αριστερά</annotation>
 		<annotation cp="↩" type="tts">δεξιό βέλος που στρίβει αριστερά</annotation>
 		<annotation cp="↪">αριστερό βέλος που στρίβει δεξιά | βέλος</annotation>
@@ -3830,41 +3852,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="$">USD | δολάριο | λεφτά | πέσο</annotation>
 		<annotation cp="$" type="tts">δολάριο</annotation>
 		<annotation cp="£">EGP | GBP | λίρα | λίρα Αγγλίας | λίρα Αιγύπτου | νόμισμα</annotation>
-		<annotation cp="£" type="tts">λίρα</annotation>
+		<annotation cp="£" type="tts">λίρα στερλίνα</annotation>
 		<annotation cp="¥">CNY | JPY | γιεν | γιουάν | Ιαπωνικό γιεν | Κινεζικό γιουάν | νόμισμα</annotation>
 		<annotation cp="¥" type="tts">γιεν</annotation>
-		<annotation cp="₢" draft="contributed">χρουζέιρο</annotation>
-		<annotation cp="₢" type="tts" draft="contributed">χρουζέιρο</annotation>
-		<annotation cp="₣" draft="contributed">γαλλικό φράγκο</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">γαλλικό φράγκο</annotation>
-		<annotation cp="₤" draft="contributed">λίρες</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">λίρες</annotation>
+		<annotation cp="₢">BRB | κρουζέιρο | νόμισμα</annotation>
+		<annotation cp="₢" type="tts">κρουζέιρο</annotation>
+		<annotation cp="₣">γαλλικό φράγκο | νόμισμα | φράγκο</annotation>
+		<annotation cp="₣" type="tts">γαλλικό φράγκο</annotation>
+		<annotation cp="₤">λίρα | νόμισμα</annotation>
+		<annotation cp="₤" type="tts">λίρα</annotation>
 		<annotation cp="₥">mil | mill | μιλ</annotation>
 		<annotation cp="₥" type="tts">μιλ</annotation>
 		<annotation cp="₩">KPW | KRW | γουόν</annotation>
 		<annotation cp="₩" type="tts">γουόν</annotation>
 		<annotation cp="€">EUR | ευρώ | νόμισμα</annotation>
 		<annotation cp="€" type="tts">ευρώ</annotation>
-		<annotation cp="₰" draft="contributed">γερμανικό μονόλεπτο</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">γερμανικό μονόλεπτο</annotation>
+		<annotation cp="₰">γερμανικό μονόλεπτο | νόμισμα | πφένιχ</annotation>
+		<annotation cp="₰" type="tts">γερμανικό μονόλεπτο</annotation>
 		<annotation cp="₱">πέσο</annotation>
 		<annotation cp="₱" type="tts">πέσο</annotation>
-		<annotation cp="₳" draft="contributed">αυστριακό</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">αυστριακό</annotation>
-		<annotation cp="₶" draft="contributed">νόμισμα</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">νόμισμα</annotation>
-		<annotation cp="₷" draft="contributed">σπεσμίλο</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">σπεσμίλο</annotation>
+		<annotation cp="₳">ARA | αουστράλ | νόμισμα</annotation>
+		<annotation cp="₳" type="tts">αουστράλ</annotation>
+		<annotation cp="₶">λίβρα Τουρ | νόμισμα</annotation>
+		<annotation cp="₶" type="tts">λίβρα Τουρ</annotation>
+		<annotation cp="₷">νόμισμα | σπεσμίλο</annotation>
+		<annotation cp="₷" type="tts">σπεσμίλο</annotation>
 		<annotation cp="₹">νόμισμα | ρουπία | ρουπία Ινδίας</annotation>
 		<annotation cp="₹" type="tts">ρουπία Ινδίας</annotation>
 		<annotation cp="₽">νόμισμα | ρούβλι</annotation>
 		<annotation cp="₽" type="tts">ρούβλι</annotation>
 		<annotation cp="₿">BTC | μπίτκοϊν</annotation>
 		<annotation cp="₿" type="tts">μπίτκοϊν</annotation>
-		<annotation cp="₨" draft="contributed">ρουπία</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">ρουπία</annotation>
-		<annotation cp="﷼" draft="contributed">ριάλ</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">ριάλ</annotation>
+		<annotation cp="₨">νόμισμα | ρουπία</annotation>
+		<annotation cp="₨" type="tts">ρουπία</annotation>
+		<annotation cp="﷼">νόμισμα | ριάλ</annotation>
+		<annotation cp="﷼" type="tts">ριάλ</annotation>
 		<annotation cp="¹">εκθέτης | ένα</annotation>
 		<annotation cp="¹" type="tts">εκθέτης ένα</annotation>
 		<annotation cp="²">δύο | εκθέτης | στο τετράγωνο</annotation>

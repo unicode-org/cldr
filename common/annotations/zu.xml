@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -316,12 +316,50 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇠" type="tts">umcibisholo wedeshi ongakwesokunxele</annotation>
 		<annotation cp="⇡">umcibisholo wedeshi ophezulu</annotation>
 		<annotation cp="⇡" type="tts">umcibisholo wedeshi ophezulu</annotation>
+		<annotation cp="⇢">rightwards dashed arrow</annotation>
+		<annotation cp="⇢" type="tts">rightwards dashed arrow</annotation>
+		<annotation cp="⇣">downwards dashed arrow</annotation>
+		<annotation cp="⇣" type="tts">downwards dashed arrow</annotation>
+		<annotation cp="⇤">leftwards arrow bar</annotation>
+		<annotation cp="⇤" type="tts">leftwards arrow bar</annotation>
+		<annotation cp="⇥">rightwards arrow bar</annotation>
+		<annotation cp="⇥" type="tts">rightwards arrow bar</annotation>
+		<annotation cp="⇦">umcibisholo ongenalutho oyakwesokunxele</annotation>
+		<annotation cp="⇦" type="tts">umcibisholo ongenalutho oyakwesokunxele</annotation>
+		<annotation cp="⇧">umcibisholo ongenalutho oya phezulu</annotation>
+		<annotation cp="⇧" type="tts">upwards hollow arrow</annotation>
+		<annotation cp="⇨">rightwards hollow arrow</annotation>
+		<annotation cp="⇨" type="tts">rightwards hollow arrow</annotation>
+		<annotation cp="⇩">downwards hollow arrow</annotation>
+		<annotation cp="⇩" type="tts">umcibisholo ongenalutho oya phansi</annotation>
+		<annotation cp="⇪">upwards hollow arrow from bar</annotation>
+		<annotation cp="⇪" type="tts">upwards hollow arrow from bar</annotation>
+		<annotation cp="⇵">downwards arrow leftwards upwards arrow</annotation>
+		<annotation cp="⇵" type="tts">downwards arrow leftwards upwards arrow</annotation>
+		<annotation cp="∀">all | any | for all | given | universal</annotation>
+		<annotation cp="∀" type="tts">for all</annotation>
+		<annotation cp="∂">differential | partial differential</annotation>
+		<annotation cp="∂" type="tts">partial differential</annotation>
+		<annotation cp="∃">there exists</annotation>
+		<annotation cp="∃" type="tts">there exists</annotation>
+		<annotation cp="∅">empty set | mathematics | set operator</annotation>
+		<annotation cp="∅" type="tts">empty set</annotation>
 		<annotation cp="∆">i-increment | triangle</annotation>
 		<annotation cp="∆" type="tts">i-increment</annotation>
 		<annotation cp="∇">i-nabla | ungxantathu</annotation>
 		<annotation cp="∇" type="tts">i-nabla</annotation>
 		<annotation cp="∈">element | element of | i-element of | iqukethe | set | ukuba yilungu</annotation>
 		<annotation cp="∈" type="tts">i-element of</annotation>
+		<annotation cp="∉">element | not an element</annotation>
+		<annotation cp="∉" type="tts">not an element</annotation>
+		<annotation cp="∋">contains as member | element</annotation>
+		<annotation cp="∋" type="tts">contains as member</annotation>
+		<annotation cp="∎">end proof | halmos | q.e.d. | qed | tombstone</annotation>
+		<annotation cp="∎" type="tts">end proof</annotation>
+		<annotation cp="∏">logic | n-ary product | product</annotation>
+		<annotation cp="∏" type="tts">n-ary product</annotation>
+		<annotation cp="∑">mathematics | n-ary summation | summation</annotation>
+		<annotation cp="∑" type="tts">n-ary summation</annotation>
 		<annotation cp="+">hlanganisa | uphawu lokuhlanganisa | yengeza</annotation>
 		<annotation cp="+" type="tts">uphawu lokuhlanganisa</annotation>
 		<annotation cp="±">hlanganisa-susa</annotation>
@@ -332,12 +370,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">uphawu lokuphindaphinda</annotation>
 		<annotation cp="&lt;">ithegi | ncane kune | vula ithegi</annotation>
 		<annotation cp="&lt;" type="tts">ncane kune</annotation>
+		<annotation cp="≮">inequality | mathematics | not less-than</annotation>
+		<annotation cp="≮" type="tts">not less-than</annotation>
 		<annotation cp="=">lingana | okulingana</annotation>
 		<annotation cp="=" type="tts">lingana</annotation>
 		<annotation cp="≠">ngalingani | ukungalingani</annotation>
 		<annotation cp="≠" type="tts">ngalingani</annotation>
 		<annotation cp="&gt;">ithegi | khulu kuno | vala ithegi</annotation>
 		<annotation cp="&gt;" type="tts">khulu kuno</annotation>
+		<annotation cp="≯">inequality | mathematics | not greater-than</annotation>
+		<annotation cp="≯" type="tts">not greater-than</annotation>
 		<annotation cp="¬">hhayi | i-negation | ukuphikisa</annotation>
 		<annotation cp="¬" type="tts">i-negation</annotation>
 		<annotation cp="|">ibha | ibha yokuqonda mpo | induku | ipayipi | ipiki | umugqa | umugqa ome mpo | unhlangothi | unhlangothi owu-sheffer | vbar</annotation>
@@ -348,38 +390,315 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">uphawu lokususa</annotation>
 		<annotation cp="⁻">i-minus | i-superscript minus | superscript</annotation>
 		<annotation cp="⁻" type="tts">i-superscript minus</annotation>
+		<annotation cp="∓">minus-or-plus | plus-minus</annotation>
+		<annotation cp="∓" type="tts">minus-or-plus</annotation>
+		<annotation cp="∕">division slash | slash | stroke | virgule</annotation>
+		<annotation cp="∕" type="tts">division slash</annotation>
+		<annotation cp="⁄">fraction slash | stroke | virgule</annotation>
+		<annotation cp="⁄" type="tts">fraction slash</annotation>
+		<annotation cp="∗">asterisk operator | star</annotation>
+		<annotation cp="∗" type="tts">asterisk operator</annotation>
+		<annotation cp="∘">composition | operator | ring operator</annotation>
+		<annotation cp="∘" type="tts">ring operator</annotation>
+		<annotation cp="∙">bullet operator | operator</annotation>
+		<annotation cp="∙" type="tts">bullet operator</annotation>
 		<annotation cp="√">i-radical | i-square root | radix | root | square | surd</annotation>
 		<annotation cp="√" type="tts">i-square root</annotation>
+		<annotation cp="∝">proportional | proportionality</annotation>
+		<annotation cp="∝" type="tts">proportional</annotation>
 		<annotation cp="∞">i-infinity | i-infinity sign</annotation>
 		<annotation cp="∞" type="tts">i-infinity sign</annotation>
+		<annotation cp="∟">mathematics | right angle</annotation>
+		<annotation cp="∟" type="tts">right angle</annotation>
+		<annotation cp="∠">acute | angle</annotation>
+		<annotation cp="∠" type="tts">angle</annotation>
+		<annotation cp="∣">divides | divisor</annotation>
+		<annotation cp="∣" type="tts">divides</annotation>
+		<annotation cp="∥">parallel</annotation>
+		<annotation cp="∥" type="tts">parallel</annotation>
+		<annotation cp="∧">ac | atque | logical and | wedge</annotation>
+		<annotation cp="∧" type="tts">logical and</annotation>
 		<annotation cp="∩">i-intersection | set</annotation>
 		<annotation cp="∩" type="tts">i-intersection</annotation>
 		<annotation cp="∪">i-collection | i-union | set | union</annotation>
 		<annotation cp="∪" type="tts">i-union</annotation>
+		<annotation cp="∫">calculus | integral</annotation>
+		<annotation cp="∫" type="tts">integral</annotation>
+		<annotation cp="∬">calculus | double integral</annotation>
+		<annotation cp="∬" type="tts">double integral</annotation>
+		<annotation cp="∮">contour integral</annotation>
+		<annotation cp="∮" type="tts">contour integral</annotation>
+		<annotation cp="∴">logic | therefore</annotation>
+		<annotation cp="∴" type="tts">therefore</annotation>
+		<annotation cp="∵">because | logic</annotation>
+		<annotation cp="∵" type="tts">because</annotation>
+		<annotation cp="∶">ratio</annotation>
+		<annotation cp="∶" type="tts">ratio</annotation>
+		<annotation cp="∷">proportion | proportionality</annotation>
+		<annotation cp="∷" type="tts">proportion</annotation>
+		<annotation cp="∼">operator | tilde operator</annotation>
+		<annotation cp="∼" type="tts">tilde operator</annotation>
+		<annotation cp="∽">reversed tilde | tilde</annotation>
+		<annotation cp="∽" type="tts">reversed tilde</annotation>
+		<annotation cp="∾">inverted lazy s</annotation>
+		<annotation cp="∾" type="tts">inverted lazy s</annotation>
+		<annotation cp="≃">asymptote | asymptotically equal | mathematics</annotation>
+		<annotation cp="≃" type="tts">asymptotically equal</annotation>
+		<annotation cp="≅">approximately equal | congruence | equality | isomorphism | mathematics</annotation>
+		<annotation cp="≅" type="tts">approximately equal</annotation>
 		<annotation cp="≈">cishe | cishe kulingane | ukusondela</annotation>
 		<annotation cp="≈" type="tts">cishe kulingane</annotation>
+		<annotation cp="≌">all equal | equality | mathematics</annotation>
+		<annotation cp="≌" type="tts">all equal</annotation>
+		<annotation cp="≒">approximately equal the image</annotation>
+		<annotation cp="≒" type="tts">approximately equal the image</annotation>
+		<annotation cp="≖">equality | mathematics | ring in equal</annotation>
+		<annotation cp="≖" type="tts">ring in equal</annotation>
 		<annotation cp="≡">kufana nalokhu | kufana nse | kuthathu | kuyafana</annotation>
 		<annotation cp="≡" type="tts">kufana nalokhu</annotation>
+		<annotation cp="≣">equality | mathematics | strictly equivalent</annotation>
+		<annotation cp="≣" type="tts">strictly equivalent</annotation>
 		<annotation cp="≤">ncane kune | ncane kune noma ukulingana | ukulingana | ukungalingani</annotation>
 		<annotation cp="≤" type="tts">ncane kune noma ukulingana</annotation>
 		<annotation cp="≥">khulu kune | lingana | okukhulu kuno noma okulinganayo | okulingana | okungalingani</annotation>
 		<annotation cp="≥" type="tts">okukhulu kuno noma okulinganayo</annotation>
+		<annotation cp="≦">inequality | less-than over equal | mathematics</annotation>
+		<annotation cp="≦" type="tts">less-than over equal</annotation>
+		<annotation cp="≧">greater-than over equal | inequality | mathematics</annotation>
+		<annotation cp="≧" type="tts">greater-than over equal</annotation>
+		<annotation cp="≪">inequality | mathematics | much less-than</annotation>
+		<annotation cp="≪" type="tts">much less-than</annotation>
+		<annotation cp="≫">inequality | mathematics | much greater-than</annotation>
+		<annotation cp="≫" type="tts">much greater-than</annotation>
+		<annotation cp="≬">between</annotation>
+		<annotation cp="≬" type="tts">between</annotation>
+		<annotation cp="≳">greater-than equivalent | inequality | mathematics</annotation>
+		<annotation cp="≳" type="tts">greater-than equivalent</annotation>
+		<annotation cp="≺">mathematics | precedes | set operator</annotation>
+		<annotation cp="≺" type="tts">precedes</annotation>
+		<annotation cp="≻">mathematics | set operator | succeeds</annotation>
+		<annotation cp="≻" type="tts">succeeds</annotation>
+		<annotation cp="⊁">does not succeed | mathematics | set operator</annotation>
+		<annotation cp="⊁" type="tts">does not succeed</annotation>
 		<annotation cp="⊂">i-set | i-subset of | subset | subset of</annotation>
 		<annotation cp="⊂" type="tts">i-subset of</annotation>
+		<annotation cp="⊃">mathematics | set operator | superset</annotation>
+		<annotation cp="⊃" type="tts">superset</annotation>
+		<annotation cp="⊆">subset equal</annotation>
+		<annotation cp="⊆" type="tts">subset equal</annotation>
+		<annotation cp="⊇">equality | mathematics | superset equal</annotation>
+		<annotation cp="⊇" type="tts">superset equal</annotation>
+		<annotation cp="⊕">circled plus | plus</annotation>
+		<annotation cp="⊕" type="tts">circled plus</annotation>
+		<annotation cp="⊖">circled minus | erosion | symmetric difference</annotation>
+		<annotation cp="⊖" type="tts">circled minus</annotation>
+		<annotation cp="⊗">circled times | product | tensor</annotation>
+		<annotation cp="⊗" type="tts">circled times</annotation>
+		<annotation cp="⊘">circled division slash | division-like | mathematics</annotation>
+		<annotation cp="⊘" type="tts">circled division slash</annotation>
+		<annotation cp="⊙">circled dot operator | operator | XNOR</annotation>
+		<annotation cp="⊙" type="tts">circled dot operator</annotation>
+		<annotation cp="⊚">circled ring operator</annotation>
+		<annotation cp="⊚" type="tts">circled ring operator</annotation>
+		<annotation cp="⊛">asterisk | circled asterisk operator | operator</annotation>
+		<annotation cp="⊛" type="tts">circled asterisk operator</annotation>
+		<annotation cp="⊞">addition-like | mathematics | squared plus</annotation>
+		<annotation cp="⊞" type="tts">squared plus</annotation>
+		<annotation cp="⊟">mathematics | squared minus | subtraction-like</annotation>
+		<annotation cp="⊟" type="tts">squared minus</annotation>
+		<annotation cp="⊥">eet | falsum | tack | up tack</annotation>
+		<annotation cp="⊥" type="tts">up tack</annotation>
+		<annotation cp="⊮">does not force</annotation>
+		<annotation cp="⊮" type="tts">does not force</annotation>
+		<annotation cp="⊰">mathematics | precedes under relation | set operator</annotation>
+		<annotation cp="⊰" type="tts">precedes under relation</annotation>
+		<annotation cp="⊱">mathematics | set operator | succeeds under relation</annotation>
+		<annotation cp="⊱" type="tts">succeeds under relation</annotation>
+		<annotation cp="⋭">does not contain as normal subgroup equal | group theory | mathematics</annotation>
+		<annotation cp="⋭" type="tts">does not contain as normal subgroup equal</annotation>
+		<annotation cp="⊶">original</annotation>
+		<annotation cp="⊶" type="tts">original</annotation>
+		<annotation cp="⊹">hermitian conjugate matrix | mathematics | self-adjoint matrix | square matrix</annotation>
+		<annotation cp="⊹" type="tts">hermitian conjugate matrix</annotation>
+		<annotation cp="⊿">mathematics | right triangle | right-angled triangle</annotation>
+		<annotation cp="⊿" type="tts">right triangle</annotation>
+		<annotation cp="⋁">disjunction | logic | n-ary logical or</annotation>
+		<annotation cp="⋁" type="tts">n-ary logical or</annotation>
+		<annotation cp="⋂">intersection | mathematics | n-ary intersection | set operator</annotation>
+		<annotation cp="⋂" type="tts">n-ary intersection</annotation>
+		<annotation cp="⋃">mathematics | n-ary union | set operator | union</annotation>
+		<annotation cp="⋃" type="tts">n-ary union</annotation>
+		<annotation cp="⋅">dot operator | operator</annotation>
+		<annotation cp="⋅" type="tts">dot operator</annotation>
+		<annotation cp="⋆">operator | star operator</annotation>
+		<annotation cp="⋆" type="tts">star operator</annotation>
+		<annotation cp="⋈">binary operator | bowtie | natural join</annotation>
+		<annotation cp="⋈" type="tts">natural join</annotation>
+		<annotation cp="⋒">double intersection | intersection | mathematics | set operator</annotation>
+		<annotation cp="⋒" type="tts">double intersection</annotation>
+		<annotation cp="⋘">inequality | mathematics | very much less-than</annotation>
+		<annotation cp="⋘" type="tts">very much less-than</annotation>
+		<annotation cp="⋙">inequality | mathematics | very much greater-than</annotation>
+		<annotation cp="⋙" type="tts">very much greater-than</annotation>
+		<annotation cp="⋮">ellipsis | mathematics | vertical ellipsis</annotation>
+		<annotation cp="⋮" type="tts">vertical ellipsis</annotation>
+		<annotation cp="⋯">ellipsis | midline horizontal ellipsis</annotation>
+		<annotation cp="⋯" type="tts">midline horizontal ellipsis</annotation>
+		<annotation cp="⋰">ellipsis | mathematics | up right diagonal ellipsis</annotation>
+		<annotation cp="⋰" type="tts">up right diagonal ellipsis</annotation>
+		<annotation cp="⋱">down right diagonal ellipsis | ellipsis | mathematics</annotation>
+		<annotation cp="⋱" type="tts">down right diagonal ellipsis</annotation>
+		<annotation cp="■">filled square</annotation>
+		<annotation cp="■" type="tts">filled square</annotation>
+		<annotation cp="□">hollow square</annotation>
+		<annotation cp="□" type="tts">hollow square</annotation>
+		<annotation cp="▢">hollow square with rounded corners</annotation>
+		<annotation cp="▢" type="tts">hollow square with rounded corners</annotation>
+		<annotation cp="▣">hollow square containing filled square</annotation>
+		<annotation cp="▣" type="tts">hollow square containing filled square</annotation>
+		<annotation cp="▤">square with horizontal fill</annotation>
+		<annotation cp="▤" type="tts">square with horizontal fill</annotation>
+		<annotation cp="▥">square with vertical fill</annotation>
+		<annotation cp="▥" type="tts">square with vertical fill</annotation>
+		<annotation cp="▦">square orthogonal crosshatch fill</annotation>
+		<annotation cp="▦" type="tts">square orthogonal crosshatch fill</annotation>
+		<annotation cp="▧">square upper left lower right fill</annotation>
+		<annotation cp="▧" type="tts">square upper left lower right fill</annotation>
+		<annotation cp="▨">square upper right lower left fill</annotation>
+		<annotation cp="▨" type="tts">square upper right lower left fill</annotation>
+		<annotation cp="▩">square diagonal crosshatch fill</annotation>
+		<annotation cp="▩" type="tts">square diagonal crosshatch fill</annotation>
+		<annotation cp="▬">filled rectangle</annotation>
+		<annotation cp="▬" type="tts">filled rectangle</annotation>
+		<annotation cp="▭">hollow rectangle</annotation>
+		<annotation cp="▭" type="tts">hollow rectangle</annotation>
+		<annotation cp="▮">filled vertical rectangle</annotation>
+		<annotation cp="▮" type="tts">filled vertical rectangle</annotation>
+		<annotation cp="▰">filled parallelogram</annotation>
+		<annotation cp="▰" type="tts">filled parallelogram</annotation>
 		<annotation cp="▲">egcwele phezulu-ungxantathu okhombayo | phezulu | ugcwele | ugcwele phezulu-ungxantathu okhombayo | umkhonto | ungxantathu</annotation>
 		<annotation cp="▲" type="tts">egcwele phezulu-ungxantathu okhombayo</annotation>
+		<annotation cp="△">hollow up-pointing triangle</annotation>
+		<annotation cp="△" type="tts">hollow up-pointing triangle</annotation>
+		<annotation cp="▴">filled up-pointing small triangle</annotation>
+		<annotation cp="▴" type="tts">filled up-pointing small triangle</annotation>
+		<annotation cp="▵">hollow up-pointing small triangle</annotation>
+		<annotation cp="▵" type="tts">hollow up-pointing small triangle</annotation>
+		<annotation cp="▷">hollow right-pointing triangle</annotation>
+		<annotation cp="▷" type="tts">hollow right-pointing triangle</annotation>
+		<annotation cp="▸">filled right-pointing small triangle</annotation>
+		<annotation cp="▸" type="tts">filled right-pointing small triangle</annotation>
+		<annotation cp="▹">hollow right-pointing small triangle</annotation>
+		<annotation cp="▹" type="tts">hollow right-pointing small triangle</annotation>
+		<annotation cp="►">filled right-pointing pointer</annotation>
+		<annotation cp="►" type="tts">filled right-pointing pointer</annotation>
+		<annotation cp="▻">hollow right-pointing pointer</annotation>
+		<annotation cp="▻" type="tts">hollow right-pointing pointer</annotation>
 		<annotation cp="▼">igcwaliswe phansi-okukhomba ungxantathu | phansi | ukugcwalisa | ukugcwalisa phansi-ukukhomba okungxantathu | umkhonto | ungxantathu</annotation>
 		<annotation cp="▼" type="tts">igcwaliswe phansi-okukhomba ungxantathu</annotation>
+		<annotation cp="▽">hollow down-pointing triangle</annotation>
+		<annotation cp="▽" type="tts">hollow down-pointing triangle</annotation>
+		<annotation cp="▾">filled down-pointing small triangle</annotation>
+		<annotation cp="▾" type="tts">filled down-pointing small triangle</annotation>
+		<annotation cp="▿">hollow down-pointing small triangle</annotation>
+		<annotation cp="▿" type="tts">hollow down-pointing small triangle</annotation>
+		<annotation cp="◁">hollow left-pointing triangle</annotation>
+		<annotation cp="◂">filled left-pointing small triangle</annotation>
+		<annotation cp="◂" type="tts">filled left-pointing small triangle</annotation>
+		<annotation cp="◃">hollow left-pointing small triangle</annotation>
+		<annotation cp="◃" type="tts">hollow left-pointing small triangle</annotation>
+		<annotation cp="◄">filled left-pointing pointer</annotation>
+		<annotation cp="◄" type="tts">filled left-pointing pointer</annotation>
+		<annotation cp="◅">hollow left-pointing pointer</annotation>
+		<annotation cp="◅" type="tts">hollow left-pointing pointer</annotation>
+		<annotation cp="◆">filled diamond</annotation>
+		<annotation cp="◆" type="tts">filled diamond</annotation>
+		<annotation cp="◇">hollow diamond</annotation>
+		<annotation cp="◇" type="tts">hollow diamond</annotation>
+		<annotation cp="◈">hollow diamond containing filled diamond</annotation>
+		<annotation cp="◈" type="tts">hollow diamond containing filled diamond</annotation>
+		<annotation cp="◉">circled dot | concentric cicles filled | fisheye | hollow circle containing filled circle | ward</annotation>
+		<annotation cp="◉" type="tts">hollow circle containing filled circle</annotation>
 		<annotation cp="◊">i-lozenge | i-rhombus | idayimani</annotation>
 		<annotation cp="◊" type="tts">i-lozenge</annotation>
 		<annotation cp="○">indandatho | indilinga | indilinga engenalutho</annotation>
 		<annotation cp="○" type="tts">indilinga engenalutho</annotation>
+		<annotation cp="◌">dotted circle</annotation>
+		<annotation cp="◌" type="tts">dotted circle</annotation>
+		<annotation cp="◍">circle with vertical fill</annotation>
+		<annotation cp="◍" type="tts">circle with vertical fill</annotation>
+		<annotation cp="◎">concentric circles | double circle | target</annotation>
+		<annotation cp="◎" type="tts">concentric circles</annotation>
 		<annotation cp="●">indilinga | indilinga egcwele</annotation>
 		<annotation cp="●" type="tts">indilinga egcwele</annotation>
+		<annotation cp="◐">circle left half filled</annotation>
+		<annotation cp="◐" type="tts">circle left half filled</annotation>
+		<annotation cp="◑">circle right half filled</annotation>
+		<annotation cp="◑" type="tts">circle right half filled</annotation>
+		<annotation cp="◒">circle lower half filled</annotation>
+		<annotation cp="◒" type="tts">circle lower half filled</annotation>
+		<annotation cp="◓">circle upper half filled</annotation>
+		<annotation cp="◓" type="tts">circle upper half filled</annotation>
+		<annotation cp="◔">circle upper right quadrant filled</annotation>
+		<annotation cp="◔" type="tts">circle upper right quadrant filled</annotation>
+		<annotation cp="◕">circle all but upper left quadrant filled</annotation>
+		<annotation cp="◕" type="tts">circle all but upper left quadrant filled</annotation>
+		<annotation cp="◖">left half filled circle</annotation>
+		<annotation cp="◖" type="tts">left half filled circle</annotation>
+		<annotation cp="◗">right half filled circle</annotation>
+		<annotation cp="◗" type="tts">right half filled circle</annotation>
+		<annotation cp="◘">inverse bullet</annotation>
+		<annotation cp="◘" type="tts">inverse bullet</annotation>
+		<annotation cp="◙">filled square containing hollow circle | inverse hollow circle</annotation>
+		<annotation cp="◙" type="tts">filled square containing hollow circle</annotation>
+		<annotation cp="◜">upper left quadrant circular arc</annotation>
+		<annotation cp="◜" type="tts">upper left quadrant circular arc</annotation>
+		<annotation cp="◝">upper right quadrant circular arc</annotation>
+		<annotation cp="◝" type="tts">upper right quadrant circular arc</annotation>
+		<annotation cp="◞">lower right quadrant circular arc</annotation>
+		<annotation cp="◞" type="tts">lower right quadrant circular arc</annotation>
+		<annotation cp="◟">lower left quadrant circular arc</annotation>
+		<annotation cp="◟" type="tts">lower left quadrant circular arc</annotation>
+		<annotation cp="◠">upper half circle</annotation>
+		<annotation cp="◠" type="tts">upper half circle</annotation>
+		<annotation cp="◡">lower half circle</annotation>
+		<annotation cp="◡" type="tts">lower half circle</annotation>
+		<annotation cp="◢">filled lower right triangle</annotation>
+		<annotation cp="◢" type="tts">filled lower right triangle</annotation>
+		<annotation cp="◣">filled lower left triangle</annotation>
+		<annotation cp="◣" type="tts">filled lower left triangle</annotation>
+		<annotation cp="◤">filled upper left triangle</annotation>
+		<annotation cp="◤" type="tts">filled upper left triangle</annotation>
+		<annotation cp="◥">filled upper right triangle</annotation>
+		<annotation cp="◥" type="tts">filled upper right triangle</annotation>
+		<annotation cp="◦">hollow bullet</annotation>
+		<annotation cp="◦" type="tts">hollow bullet</annotation>
 		<annotation cp="◯">indandatho | indilinga | indilinga enkulu engenalutho</annotation>
 		<annotation cp="◯" type="tts">indilinga enkulu engenalutho</annotation>
+		<annotation cp="◳">hollow square upper right quadrant</annotation>
+		<annotation cp="◳" type="tts">hollow square upper right quadrant</annotation>
+		<annotation cp="◷">hollow circle with upper right quadrant</annotation>
+		<annotation cp="◷" type="tts">hollow circle with upper right quadrant</annotation>
+		<annotation cp="◿">lower right triangle</annotation>
+		<annotation cp="◿" type="tts">lower right triangle</annotation>
 		<annotation cp="♪">inothi | umculo | yesishiyagalombili</annotation>
 		<annotation cp="♪" type="tts">inothi yesishiyagalombili</annotation>
+		<annotation cp="⨧">kanye nokubili okubhaliselwe</annotation>
+		<annotation cp="⨧" type="tts">plus subscript two</annotation>
+		<annotation cp="⨯">umkhiqizo we-vector cross</annotation>
+		<annotation cp="⨯" type="tts">umkhiqizo we-vector cross</annotation>
+		<annotation cp="⨼">umkhiqizo wangaphakathi</annotation>
+		<annotation cp="⨼" type="tts">umkhiqizo wangaphakathi</annotation>
+		<annotation cp="⩣">ibha yangaphansi enengqondo noma ekabili</annotation>
+		<annotation cp="⩣" type="tts">ibha yangaphansi enengqondo noma ekabili</annotation>
+		<annotation cp="⩽">ngaphansi-kunetshekile elilinganayo</annotation>
+		<annotation cp="⩽" type="tts">ngaphansi-kunetshekile elilinganayo</annotation>
+		<annotation cp="⪍">okungaphansi-kungaphezu kokulingana okufanayo</annotation>
+		<annotation cp="⪍" type="tts">okungaphansi-kungaphezu kokulingana okufanayo</annotation>
+		<annotation cp="⪚">double-line equal greater-than | inequality | mathematics</annotation>
+		<annotation cp="⪚" type="tts">double-line equal greater-than</annotation>
+		<annotation cp="⪺">succeeds above not almost equal</annotation>
+		<annotation cp="⪺" type="tts">succeeds above not almost equal</annotation>
 		<annotation cp="😀">osinekile | ubuso obusinekile</annotation>
 		<annotation cp="😀" type="tts">ubuso obusinekile</annotation>
 		<annotation cp="😃">moyizela | ubuso | ubuso obumoyizelayo obuvule umlomo | umlomo | vula</annotation>
@@ -398,9 +717,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">ubuso obunezinyembezi zentokozo</annotation>
 		<annotation cp="🙂">moyizela | ubuso | ubuso obumoyizela kancane</annotation>
 		<annotation cp="🙂" type="tts">ubuso obumoyizela kancane</annotation>
+		<annotation cp="🙂‍↕">nikina, yebo | ukunikina ikhanda phansi naphezulu</annotation>
+		<annotation cp="🙂‍↕" type="tts">ukunikina ikhanda phansi naphezulu</annotation>
+		<annotation cp="🙂‍↔">ikhanda elibuka le nale | Qha, nyakazisa</annotation>
+		<annotation cp="🙂‍↔" type="tts">ikhanda elibuka le nale</annotation>
 		<annotation cp="🙃">ubuso | ubuso obupheke phansi | ukubheka phansi</annotation>
 		<annotation cp="🙃" type="tts">ubuso obupheke phansi</annotation>
-		<annotation cp="🫠">disappear | dissolve | liquid | melt | melting face | ubuso obuncibilikayo</annotation>
+		<annotation cp="🫠">amanzi | ncibilika | ubuso obuncibilikayo | ukuncibilika</annotation>
 		<annotation cp="🫠" type="tts">ubuso obuncibilikayo</annotation>
 		<annotation cp="😉">cisha ihlo | ubuso | ubuso obucishe ihlo</annotation>
 		<annotation cp="😉" type="tts">ubuso obucishe ihlo</annotation>
@@ -464,6 +787,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😶" type="tts">ubuso obungenamlomo</annotation>
 		<annotation cp="🫥">ubuso bomugqa onamachashazi</annotation>
 		<annotation cp="🫥" type="tts">ubuso bomugqa onamachashazi</annotation>
+		<annotation cp="😶‍🌫">ikhanda elisemafini | ubuso obusemafini | ubuso obusenkungwini | ukungabikho</annotation>
+		<annotation cp="😶‍🌫" type="tts">ubuso obusemafini</annotation>
 		<annotation cp="😏">nyipha | ubuso | ubuso ubunyiphile</annotation>
 		<annotation cp="😏" type="tts">ubuso ubunyiphile</annotation>
 		<annotation cp="😒">ubuso | ubuso obungachazekile | ukungajabuli | ukungathokozi</annotation>
@@ -472,9 +797,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ubuso obupheqa amehlo</annotation>
 		<annotation cp="😬">hlina | ubuso | ubuso obuhlinile</annotation>
 		<annotation cp="😬" type="tts">ubuso obuhlinile</annotation>
+		<annotation cp="😮‍💨">donsa umoya | khipha umoya | ubuso obukhipha umoya | ukuhleba | ukukhululeka | ukushaya inkwele</annotation>
+		<annotation cp="😮‍💨" type="tts">ubuso obudonsa umoya</annotation>
 		<annotation cp="🤥">amanga | ubuso | upopayi</annotation>
 		<annotation cp="🤥" type="tts">amanga</annotation>
-		<annotation cp="🫨">earthquake | face | shaking | shock | ubuso obunyakazayo | vibrate</annotation>
+		<annotation cp="🫨">inhlekelele yemvelo | ubuso | ukunyakaza | ukuthuka | ukuvabretha</annotation>
 		<annotation cp="🫨" type="tts">ubuso obunyakazayo</annotation>
 		<annotation cp="😌">khululeka | ubuso | ubuso obukhululekile</annotation>
 		<annotation cp="😌" type="tts">ubuso obukhululekile</annotation>
@@ -506,6 +833,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">woozy face</annotation>
 		<annotation cp="😵">inzululwane | ubuso | ubuso obunenzululwane</annotation>
 		<annotation cp="😵" type="tts">ubuso obunenzululwane</annotation>
+		<annotation cp="😵‍💫">indingiliza | inkinga | isiyezi | ubuso obunamehlo anendingiliza | uku-hypnotizer | whoa</annotation>
+		<annotation cp="😵‍💫" type="tts">ubuso obunamehlo anendingiliza</annotation>
 		<annotation cp="🤯">ikhanda eliqhumayo | thukile</annotation>
 		<annotation cp="🤯" type="tts">ikhanda eliqhumayo</annotation>
 		<annotation cp="🤠">intombazane yezinkomo | isigqoko | ubuso | umfana wezinkomo</annotation>
@@ -652,9 +981,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💔" type="tts">inhliziyo eyaphukile</annotation>
 		<annotation cp="❤‍🔥">inhliziyo ebhakuzayo</annotation>
 		<annotation cp="❤‍🔥" type="tts">inhliziyo ebhakuzayo</annotation>
+		<annotation cp="❤‍🩹">inhiziyo ehlanganayo | kahle | ukuhlangana | ukululama | ukuphola | ukuthuthuka | ukwelapha</annotation>
+		<annotation cp="❤‍🩹" type="tts">inhliziyo ehlanganayo</annotation>
 		<annotation cp="❤">inhliiziyo | inhliziyo ebomvu</annotation>
 		<annotation cp="❤" type="tts">inhliziyo ebomvu</annotation>
-		<annotation cp="🩷">cute | heart | inhliziyo e-pink | like | love | pink</annotation>
+		<annotation cp="🩷">inhliziyo | inhliziyo e-pink | njenge | pink | Qhazisayo | thando</annotation>
 		<annotation cp="🩷" type="tts">inhliziyo e-pink</annotation>
 		<annotation cp="🧡">inhliziyo ewolintshi | wolintshi</annotation>
 		<annotation cp="🧡" type="tts">inhliziyo ewolintshi</annotation>
@@ -662,9 +993,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💛" type="tts">inhliziyo eqanda</annotation>
 		<annotation cp="💚">inhliziyo | inhliziyo eluhlaza satshani | luhlaza satshani</annotation>
 		<annotation cp="💚" type="tts">inhliziyo eluhlaza satshani</annotation>
-		<annotation cp="💙">blue heart | inhliziyo | inhliziyo eluhlaza sasibhakabhaka | luhlaza sasibhakabhaka</annotation>
+		<annotation cp="💙">hlaza kwesibhakabhaka | inhliziyo | inhliziyo eluhlaza kwesibhakabhaka</annotation>
 		<annotation cp="💙" type="tts">blue heart</annotation>
-		<annotation cp="🩵">cyan | heart | light blue | light blue heart | teal</annotation>
+		<annotation cp="🩵">cyan | inhiziyo eluhlaza okukhanyayo | inhliziyo | luhlaza olukhanyako | teal</annotation>
 		<annotation cp="🩵" type="tts">light blue heart</annotation>
 		<annotation cp="💜">inhliziyo | inhliziyo ensomi | nsomi</annotation>
 		<annotation cp="💜" type="tts">inhliziyo ensomi</annotation>
@@ -672,7 +1003,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤎" type="tts">inhliziyo ensundu</annotation>
 		<annotation cp="🖤">inhliziyo | inhliziyo embi | khohlakele | mnyama | ubuthakathi</annotation>
 		<annotation cp="🖤" type="tts">inhliziyo embi</annotation>
-		<annotation cp="🩶">gray | heart | inhliziyo e-grey | silver | slate</annotation>
+		<annotation cp="🩶">gray | inhliziyo | inhliziyo egray | silver | slate</annotation>
 		<annotation cp="🩶" type="tts">inhliziyo e-grey</annotation>
 		<annotation cp="🤍">inhliziyo | inhliziyo emhlophe | mhlophe</annotation>
 		<annotation cp="🤍" type="tts">inhliziyo emhlophe</annotation>
@@ -722,9 +1053,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">palm down hand</annotation>
 		<annotation cp="🫴">beckon | catch | come | offer | palm up hand</annotation>
 		<annotation cp="🫴" type="tts">palm up hand</annotation>
-		<annotation cp="🫷">high five | leftward | leftwards pushing hand | push | refuse | stop | wait</annotation>
+		<annotation cp="🫷">linda | ngakwesobunxele | phakamisa isandla | sunduza | ungavumi | yima</annotation>
 		<annotation cp="🫷" type="tts">leftwards pushing hand</annotation>
-		<annotation cp="🫸">high five | push | refuse | rightward | rightwards pushing hand | stop | wait</annotation>
+		<annotation cp="🫸">linda | ngakwesokudla | phakamisa isandla | sunduza | sunduzela ngakwesokudla | yima</annotation>
 		<annotation cp="🫸" type="tts">rightwards pushing hand</annotation>
 		<annotation cp="👌">isandla | isandla sokuthi kulungile | kulungile | umzimba</annotation>
 		<annotation cp="👌" type="tts">isandla sokuthi kulungile</annotation>
@@ -824,7 +1155,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">ulimi</annotation>
 		<annotation cp="👄">izindebe | umlomo | umzimba</annotation>
 		<annotation cp="👄" type="tts">umlomo</annotation>
-		<annotation cp="🫦">anxious | biting lip | fear | flirting | nervous | ukuluma indebe | uncomfortable | worried</annotation>
+		<annotation cp="🫦">ivalo | luma indebe | ukethuka | ukudla angothando | ukukhathazeka | ukukhungatheka | ukusaba</annotation>
 		<annotation cp="🫦" type="tts">ukuluma indebe</annotation>
 		<annotation cp="👶">ingane | usana</annotation>
 		<annotation cp="👶" type="tts">usana</annotation>
@@ -838,14 +1169,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">mdala</annotation>
 		<annotation cp="👱">izinwele | mhlophe | umuntu onezinwele ezimhlophe | umuntu: izinwele ezinhlophe</annotation>
 		<annotation cp="👱" type="tts">umuntu: izinwele ezinhlophe</annotation>
+		<annotation cp="🧑‍🧒">family: adult, child</annotation>
+		<annotation cp="🧑‍🧒" type="tts">umndeni: omdala, ingane</annotation>
+		<annotation cp="🧑‍🧒‍🧒">family: adult, child, child</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">family: adult, child, child</annotation>
+		<annotation cp="🧑‍🧑‍🧒">umndeni: omdala, omdala, ingane, ingane</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">umndeni: omdala, omdala, ingane, ingane</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">umndeni: omdala, omdala, ingane, ingane</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">family: adult, adult, child, child</annotation>
 		<annotation cp="👨">indoda | owesilisa | ubaba</annotation>
 		<annotation cp="👨" type="tts">indoda</annotation>
 		<annotation cp="🧔">indoda | indoda: intshebe | intshebe | umuntu</annotation>
 		<annotation cp="🧔" type="tts">indoda: intshebe</annotation>
+		<annotation cp="🧔‍♂">indoda | indoda : enezindevu | izindevu</annotation>
+		<annotation cp="🧔‍♂" type="tts">indoda enezindevu</annotation>
 		<annotation cp="👱‍♂">indoda | indoda enezinwele ezimhlophe | indoda: izinwele ezimhlophe | izinwele | mhlophe</annotation>
 		<annotation cp="👱‍♂" type="tts">indoda: izinwele ezimhlophe</annotation>
 		<annotation cp="👩">owesimame | umama</annotation>
 		<annotation cp="👩" type="tts">umama</annotation>
+		<annotation cp="🧔‍♀">izindevu | umama | umama : onezindevu</annotation>
+		<annotation cp="🧔‍♀" type="tts">umuntu wesimame : onezindevu</annotation>
 		<annotation cp="👱‍♀">izinwele | mhlophe | umama | umama onezinwele ezinhlophe | umama: izinwele ezimhlophe</annotation>
 		<annotation cp="👱‍♀" type="tts">umama: izinwele ezimhlophe</annotation>
 		<annotation cp="🧓">mdala | omdala omdala | ubulili-phakathi</annotation>
@@ -1370,12 +1713,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐺" type="tts">i-wolf</annotation>
 		<annotation cp="🦊">impungushe | iqili | ubuso</annotation>
 		<annotation cp="🦊" type="tts">iqili</annotation>
-		<annotation cp="🦝">i-raccoon | raccoon | ubuqili | ukufuna ukwazi</annotation>
+		<annotation cp="🦝">curious | raccoon | sly</annotation>
 		<annotation cp="🦝" type="tts">raccoon</annotation>
 		<annotation cp="🐱">ikati | isilwane sasekhaya | ubuso | ubuso bekati</annotation>
 		<annotation cp="🐱" type="tts">ubuso bekati</annotation>
 		<annotation cp="🐈">ikati | isilwane sasekhaya</annotation>
 		<annotation cp="🐈" type="tts">ikati</annotation>
+		<annotation cp="🐈‍⬛">black | cat | unlucky</annotation>
+		<annotation cp="🐈‍⬛" type="tts">ikati elimnyama</annotation>
 		<annotation cp="🦁">i-leo | i-zodiac | ibhubesi | ubuso</annotation>
 		<annotation cp="🦁" type="tts">ibhubesi</annotation>
 		<annotation cp="🐯">ithayiga | ubuso | ubuso bethayiga</annotation>
@@ -1460,6 +1805,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦇" type="tts">ilulwane</annotation>
 		<annotation cp="🐻">ibhele | ubuso</annotation>
 		<annotation cp="🐻" type="tts">ibhele</annotation>
+		<annotation cp="🐻‍❄">arctic | bear | polar bear | white</annotation>
+		<annotation cp="🐻‍❄" type="tts">polar bear</annotation>
 		<annotation cp="🐨">i-koala | ibhele</annotation>
 		<annotation cp="🐨" type="tts">i-koala</annotation>
 		<annotation cp="🐼">iphanda | ubuso</annotation>
@@ -1490,6 +1837,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">ichwane elincane elibheke phambili</annotation>
 		<annotation cp="🐦">inyoni</annotation>
 		<annotation cp="🐦" type="tts">inyoni</annotation>
+		<annotation cp="🐦‍🔥">fantasy, firebird, rebirth, reincarnation | phoenix</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">iphengwini</annotation>
 		<annotation cp="🐧" type="tts">iphengwini</annotation>
 		<annotation cp="🕊">ijuba | inyoni | ndiza | ukuthula</annotation>
@@ -1514,6 +1863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">parrot</annotation>
 		<annotation cp="🪽">angelic | aviation | bird | flying | iphiko | mythology</annotation>
 		<annotation cp="🪽" type="tts">iphiko</annotation>
+		<annotation cp="🐦‍⬛">bird | black | crow | raven | rook</annotation>
+		<annotation cp="🐦‍⬛" type="tts">inyoni emnyama</annotation>
 		<annotation cp="🪿">bird | fowl | honk | i-goose | silly</annotation>
 		<annotation cp="🪿" type="tts">i-goose</annotation>
 		<annotation cp="🐸">ixoxo | ubuso</annotation>
@@ -1646,6 +1997,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nest with eggs</annotation>
 		<annotation cp="🍄">ikhowe | isitshalo</annotation>
 		<annotation cp="🍄" type="tts">ikhowe</annotation>
+		<annotation cp="🍄‍🟫">brown mushroom | food, fungus, imvelo, iveji</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ikhowe elinsundu</annotation>
 		<annotation cp="🍇">amagilebhisi | igilebhisi | isithelo | isitshalo</annotation>
 		<annotation cp="🍇" type="tts">amagilebhisi</annotation>
 		<annotation cp="🍈">imeloni | isithelo | isitshalo</annotation>
@@ -1656,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">inantshi</annotation>
 		<annotation cp="🍋">isithelo | isitshalo | okusawolintshi | ulamula</annotation>
 		<annotation cp="🍋" type="tts">ulamula</annotation>
+		<annotation cp="🍋‍🟩">citrus, fruit, tropical | lime</annotation>
+		<annotation cp="🍋‍🟩" type="tts">lime</annotation>
 		<annotation cp="🍌">isithelo | isitshalo | ubhanana</annotation>
 		<annotation cp="🍌" type="tts">ubhanana</annotation>
 		<annotation cp="🍍">isithelo | isitshalo | upayinapu</annotation>
@@ -2922,6 +3277,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">ukuxhumanisa</annotation>
 		<annotation cp="⛓">amaketango</annotation>
 		<annotation cp="⛓" type="tts">amaketango</annotation>
+		<annotation cp="⛓‍💥">iketango eliphukile | ukuphuka, ukuphuka, iketango, ozankosi, inkululeko</annotation>
+		<annotation cp="⛓‍💥" type="tts">iketango eliphukile</annotation>
 		<annotation cp="🪝">catch | crook | curve | ensnare | i-hook | selling point</annotation>
 		<annotation cp="🪝" type="tts">i-hook</annotation>
 		<annotation cp="🧰">chest | ibhokisi lamathuluzi | mechanic | tool</annotation>
@@ -3145,7 +3502,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">imenora</annotation>
 		<annotation cp="🔯">inhlanhla | inkanyezi | intanyezi enechashazi ekhombe kasithupha</annotation>
 		<annotation cp="🔯" type="tts">intanyezi enechashazi ekhombe kasithupha</annotation>
-		<annotation cp="🪯">khanda</annotation>
 		<annotation cp="🪯" type="tts">khanda</annotation>
 		<annotation cp="♈">aries | inkanyezi | isiklabhu</annotation>
 		<annotation cp="♈" type="tts">aries</annotation>
@@ -3471,20 +3827,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">i-pound</annotation>
 		<annotation cp="¥">currency | I-CNY | i-yen | JPY | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">i-yen</annotation>
+		<annotation cp="₢">BRB | cruzeiro | currency</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">currency | franc | french franc</annotation>
+		<annotation cp="₣" type="tts">french franc</annotation>
+		<annotation cp="₤">currency | lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">i-mil | i-mill</annotation>
 		<annotation cp="₥" type="tts">i-mill</annotation>
 		<annotation cp="₩">i-won | KPW | KRW</annotation>
 		<annotation cp="₩" type="tts">i-won</annotation>
 		<annotation cp="€">EUR | euro | i-currency | i-euro</annotation>
 		<annotation cp="€" type="tts">i-euro</annotation>
+		<annotation cp="₰">currency | german penny | pfennig</annotation>
+		<annotation cp="₰" type="tts">german penny</annotation>
 		<annotation cp="₱">i-peso</annotation>
 		<annotation cp="₱" type="tts">i-peso</annotation>
+		<annotation cp="₳">ARA | austral | currency</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">currency | livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">currency | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">i-currency | i-indian rupee | indian rupee | rupee</annotation>
 		<annotation cp="₹" type="tts">i-indian rupee</annotation>
 		<annotation cp="₽">i-currency | i-ruble | ruble</annotation>
 		<annotation cp="₽" type="tts">i-ruble</annotation>
 		<annotation cp="₿">i-bitcoin | i-BTC</annotation>
 		<annotation cp="₿" type="tts">i-bitcoin</annotation>
+		<annotation cp="₨">currency | rupee</annotation>
+		<annotation cp="₨" type="tts">rupee</annotation>
+		<annotation cp="﷼">currency | rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">i-one | i-superscript one | superscript</annotation>
 		<annotation cp="¹" type="tts">i-superscript one</annotation>
 		<annotation cp="²">i-squared | i-superscript two | superscript | two</annotation>

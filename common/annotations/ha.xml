@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -179,22 +179,192 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">haƙƙin mallakar naɗar sauti</annotation>
 		<annotation cp="←">hagu | kibiya | kibiya mai nuna hagu</annotation>
 		<annotation cp="←" type="tts">kibiya mai nuna hagu</annotation>
+		<annotation cp="↚">alamar nuna hanyar hagu</annotation>
+		<annotation cp="↚" type="tts">alamar nuna hanyar hagu</annotation>
 		<annotation cp="→">dama | kibiya | kibiya mai nuna dama</annotation>
 		<annotation cp="→" type="tts">kibiya mai nuna dama</annotation>
+		<annotation cp="↛">alamar nuna hanyar dama</annotation>
+		<annotation cp="↛" type="tts">alamar nuna hanyar dama</annotation>
 		<annotation cp="↑">kibiya | kibiya mai nuna sama | sama</annotation>
 		<annotation cp="↑" type="tts">kibiya mai nuna sama</annotation>
 		<annotation cp="↓">kibiya | kibiya mai nuna ƙasa | ƙasa</annotation>
 		<annotation cp="↓" type="tts">kibiya mai nuna ƙasa</annotation>
+		<annotation cp="↜">alamar igiyar ruwa mai nuna hanyar hagu</annotation>
+		<annotation cp="↜" type="tts">alamar igiyar ruwa mai nuna hanyar hagu</annotation>
+		<annotation cp="↝">alamar igiyar ruwa mai nuna hanyar dama</annotation>
+		<annotation cp="↝" type="tts">alamar igiyar ruwa mai nuna hanyar dama</annotation>
+		<annotation cp="↞">alamar nuna hanyar hagu mai kai biyu</annotation>
+		<annotation cp="↞" type="tts">alamar nuna hanyar hagu mai kai biyu</annotation>
+		<annotation cp="↟">alamar nuna hanyar sama mai kai biyu</annotation>
+		<annotation cp="↟" type="tts">alamar nuna hanyar sama mai kai biyu</annotation>
+		<annotation cp="↠">alamar nuna hanyar dama mai kai biyu</annotation>
+		<annotation cp="↠" type="tts">alamar nuna hanyar dama mai kai biyu</annotation>
+		<annotation cp="↡">alamar nuna hanyar kasa mai kai biyu</annotation>
+		<annotation cp="↡" type="tts">alamar nuna hanyar kasa mai kai biyu</annotation>
+		<annotation cp="↢">alamar bindi mai nuna hanyar hagu</annotation>
+		<annotation cp="↢" type="tts">alamar bindi mai nuna hanyar hagu</annotation>
+		<annotation cp="↣">alamar bindi mai nuna hanyar dama</annotation>
+		<annotation cp="↣" type="tts">alamar bindi mai nuna hanyar dama</annotation>
+		<annotation cp="↤">alamar nuna hanyar hagu daga tushe</annotation>
+		<annotation cp="↤" type="tts">alamar nuna hanyar hagu daga tushe</annotation>
+		<annotation cp="↥">alamar nuna hanyar sama daga tushe</annotation>
+		<annotation cp="↥" type="tts">alamar nuna hanyar sama daga tushe</annotation>
+		<annotation cp="↦">alamar nuna hanyar dama daga tushe</annotation>
+		<annotation cp="↦" type="tts">alamar nuna hanyar dama daga tushe</annotation>
+		<annotation cp="↧">alamar nuna hanyar kasa daga tushe</annotation>
+		<annotation cp="↧" type="tts">alamar nuna hanyar kasa daga tushe</annotation>
+		<annotation cp="↨">alamar nuna hanyar kasa da sama da tushe</annotation>
+		<annotation cp="↨" type="tts">alamar nuna hanyar kasa da sama da tushe</annotation>
+		<annotation cp="↫">lankwassasshen alamar nuna hanyar hagu</annotation>
+		<annotation cp="↫" type="tts">lankwassasshen alamar nuna hanyar hagu</annotation>
+		<annotation cp="↬">lankwassasshen alamar nuna hanyar dama</annotation>
+		<annotation cp="↬" type="tts">lankwassasshen alamar nuna hanyar dama</annotation>
+		<annotation cp="↭">alamar igiyar ruwa mai nuna hanyar dama da hagu</annotation>
+		<annotation cp="↭" type="tts">alamar igiyar ruwa mai nuna hanyar dama da hagu</annotation>
+		<annotation cp="↯">alamar wandar-wandar tafiyar maciji | alamar wandar-wandar tafiyar maciji mai nuna hanyar kasa</annotation>
+		<annotation cp="↯" type="tts">alamar wandar-wandar tafiyar maciji mai nuna hanyar kasa</annotation>
+		<annotation cp="↰">alamar nuna hanyar sama mai lankwassa ta hagu</annotation>
+		<annotation cp="↰" type="tts">alamar nuna hanyar sama mai lankwassa ta hagu</annotation>
+		<annotation cp="↱">alamar nuna hanyar sama mai lankwassa ta dama</annotation>
+		<annotation cp="↱" type="tts">alamar nuna hanyar sama mai lankwassa ta dama</annotation>
+		<annotation cp="↲">alamar nuna hanyar kasa mai lankwassa ta hagu</annotation>
+		<annotation cp="↲" type="tts">alamar nuna hanyar kasa mai lankwassa ta hagu</annotation>
+		<annotation cp="↳">alamar nuna hanyar kasa mai lankwassa ta dama</annotation>
+		<annotation cp="↳" type="tts">alamar nuna hanyar kasa mai lankwassa ta dama</annotation>
+		<annotation cp="↴">alamar nuna hanyar dama mai kwana zuwa kasa</annotation>
+		<annotation cp="↴" type="tts">alamar nuna hanyar dama mai kwana zuwa kasa</annotation>
+		<annotation cp="↵">alamar nuna hanyar kasa mai kwana zuwa hagu</annotation>
+		<annotation cp="↵" type="tts">alamar nuna hanyar kasa mai kwana zuwa hagu</annotation>
+		<annotation cp="↶">juyyayen alamar agogo ta sama</annotation>
+		<annotation cp="↶" type="tts">juyyayen alamar agogo ta sama</annotation>
+		<annotation cp="↷">daidaitaccen alamar agogo ta sama</annotation>
+		<annotation cp="↷" type="tts">daidaitaccen alamar agogo ta sama</annotation>
+		<annotation cp="↸">alamar layi tsakanin arewa da yamma</annotation>
+		<annotation cp="↸" type="tts">alamar layi tsakanin arewa da yamma</annotation>
+		<annotation cp="↹">alamar nuna hagu bisa alamar nuna dama | layi | layin nuna alama | ta dama | ta hagu</annotation>
+		<annotation cp="↹" type="tts">alamar nuna hagu bisa alamar nuna dama</annotation>
+		<annotation cp="↺">juyyayen alamar agogo</annotation>
+		<annotation cp="↺" type="tts">juyyayen alamar agogo</annotation>
+		<annotation cp="↻">daidaitaccen alamar agogo</annotation>
+		<annotation cp="↻" type="tts">daidaitaccen alamar agogo</annotation>
+		<annotation cp="↼">layi mai rabin alama | layin hagu mai rabin alama zuwa sama</annotation>
+		<annotation cp="↼" type="tts">layin hagu mai rabin alama zuwa sama</annotation>
+		<annotation cp="↽">layin hagu mai rabin alama zuwa sama</annotation>
+		<annotation cp="↽" type="tts">layin hagu mai rabin alama zuwa kasa</annotation>
+		<annotation cp="↾">layin sama mai rabin alama zuwa dama</annotation>
+		<annotation cp="↾" type="tts">layin nuna sama mai rabin alama zuwa dama</annotation>
+		<annotation cp="↿">layi mai rabin alama | layin sama mai rabin alama zuwa hagu</annotation>
+		<annotation cp="↿" type="tts">layin nuna sama mai rabin alama zuwa hagu</annotation>
+		<annotation cp="⇀">layi mai rabin alama | layin dama mai rabin alama zuwa sama</annotation>
+		<annotation cp="⇀" type="tts">layin nuna dama mai rabin alama zuwa sama</annotation>
+		<annotation cp="⇁">layi mai rabin alama | layin dama mai rabin alama zuwa kasa</annotation>
+		<annotation cp="⇁" type="tts">layin dama mai rabin alama zuwa kasa</annotation>
+		<annotation cp="⇂">layi mai rabin alama | layin kasa mai rabin alama zuwa dama</annotation>
+		<annotation cp="⇂" type="tts">layin kasa mai rabin alama zuwa dama</annotation>
+		<annotation cp="⇃">layi mai rabin alama | layin kasa mai rabin alama zuwa hagu</annotation>
+		<annotation cp="⇃" type="tts">layin kasa mai rabin alama zuwa hagu</annotation>
+		<annotation cp="⇄">alamar nuna hannun dama bisa mai nuna hanyar hagu</annotation>
+		<annotation cp="⇄" type="tts">alamar nuna hannun dama bisa mai nuna hanyar hagu</annotation>
 		<annotation cp="⇅">kibiya | kibiyoyi masu nuna sama da ƙasa | ƙasa | sama</annotation>
 		<annotation cp="⇅" type="tts">kibiyoyi masu nuna sama da ƙasa</annotation>
 		<annotation cp="⇆">hagu | kibiya | nuna hagu a kan kibiyoyi masu nuna dama</annotation>
 		<annotation cp="⇆" type="tts">nuna hagu a kan kibiyoyi masu nuna dama</annotation>
+		<annotation cp="⇇">alamar nuna hanyar hagu guda biyu</annotation>
+		<annotation cp="⇇" type="tts">alamar nuna hanyar hagu guda biyu</annotation>
+		<annotation cp="⇈">alamar nuna hanyar sama guda biyu</annotation>
+		<annotation cp="⇈" type="tts">alamar nuna hanyar sama guda biyu</annotation>
+		<annotation cp="⇉">alamar nuna hanyar dama guda biyu</annotation>
+		<annotation cp="⇉" type="tts">alamar nuna hanyar dama guda biyu</annotation>
+		<annotation cp="⇊">alamar nuna hanyar kasa guda biyu</annotation>
+		<annotation cp="⇊" type="tts">alamar nuna hanyar kasa guda biyu</annotation>
+		<annotation cp="⇋">layin hagu mai rabin alama kan layin dama mai rabin alama</annotation>
+		<annotation cp="⇋" type="tts">layin hagu mai rabin alama kan layin dama mai rabin alama</annotation>
+		<annotation cp="⇌">layin dama mai rabin alama kan layin hagu mai rabin alama</annotation>
+		<annotation cp="⇌" type="tts">layin dama mai rabin alama kan layin hagu mai rabin alama</annotation>
+		<annotation cp="⇐">alamar hanyar hagu guda biyu</annotation>
+		<annotation cp="⇐" type="tts">alamar hanyar hagu guda biyu</annotation>
+		<annotation cp="⇍">layin tsallake alamar hanyar hagu guda biyu</annotation>
+		<annotation cp="⇍" type="tts">layin tsallake alamar hanyar hagu guda biyu</annotation>
+		<annotation cp="⇑">alamar hanyar sama guda biyu</annotation>
+		<annotation cp="⇑" type="tts">alamar hanyar sama guda biyu</annotation>
+		<annotation cp="⇒">alamar hanyar dama guda biyu</annotation>
+		<annotation cp="⇒" type="tts">alamar hanyar dama guda biyu</annotation>
+		<annotation cp="⇏">layin tsallake alamar hanyar dama guda biyu</annotation>
+		<annotation cp="⇏" type="tts">layin tsallake alamar hanyar dama guda biyu</annotation>
+		<annotation cp="⇓">alamar kasa biyu</annotation>
+		<annotation cp="⇓" type="tts">alamar kasa biyu</annotation>
+		<annotation cp="⇔">alamar hagu da dama biyu</annotation>
+		<annotation cp="⇔" type="tts">alamar hagu da dama biyu</annotation>
+		<annotation cp="⇎">layin tsallake alamar hagu da dama biyu</annotation>
+		<annotation cp="⇎" type="tts">layin tsallake alamar hagu da dama biyu</annotation>
+		<annotation cp="⇖">alamar hanya biyu tsakanin arewa da yamma</annotation>
+		<annotation cp="⇖" type="tts">alamar hanya biyu tsakanin arewa da yamma</annotation>
+		<annotation cp="⇗">alamar hanya biyu tsakanin arewa da gabas</annotation>
+		<annotation cp="⇗" type="tts">alamar hanya biyu tsakanin arewa da gabas</annotation>
+		<annotation cp="⇘">alamar hanya biyu tsakanin kudu da gabas</annotation>
+		<annotation cp="⇘" type="tts">alamar hanya biyu tsakanin kudu da gabas</annotation>
+		<annotation cp="⇙">alamar hanya biyu tsakanin kudu da yamma</annotation>
+		<annotation cp="⇙" type="tts">alamar hanya biyu tsakanin kudu da yamma</annotation>
+		<annotation cp="⇚">layin alamar hagu uku</annotation>
+		<annotation cp="⇚" type="tts">layin alamar hagu uku</annotation>
+		<annotation cp="⇛">layin alamar dama uku</annotation>
+		<annotation cp="⇛" type="tts">layin alamar dama uku</annotation>
+		<annotation cp="⇜">layin alamar hagu uku da zanen igiya</annotation>
+		<annotation cp="⇜" type="tts">layin alamar hagu uku da zanen igiya</annotation>
+		<annotation cp="⇝">layin alamar dama uku da zanen igiya</annotation>
+		<annotation cp="⇝" type="tts">layin alamar dama uku da zanen igiya</annotation>
+		<annotation cp="⇞">alamar sama biyu da layi biyu</annotation>
+		<annotation cp="⇞" type="tts">alamar sama biyu da layi biyu</annotation>
+		<annotation cp="⇟">alamar kasa biyu da layi biyu</annotation>
+		<annotation cp="⇟" type="tts">alamar kasa biyu da layi biyu</annotation>
+		<annotation cp="⇠">alamar layin hagu</annotation>
+		<annotation cp="⇠" type="tts">alamar layin hagu</annotation>
+		<annotation cp="⇡">alamar layin sama</annotation>
+		<annotation cp="⇡" type="tts">alamar layin sama</annotation>
+		<annotation cp="⇢">alamar layin dama</annotation>
+		<annotation cp="⇢" type="tts">alamar layin dama</annotation>
+		<annotation cp="⇣">alamar layin kasa</annotation>
+		<annotation cp="⇣" type="tts">alamar layin kasa</annotation>
+		<annotation cp="⇤">alamar layin hagu da tushe</annotation>
+		<annotation cp="⇤" type="tts">alamar layin hagu da tushe</annotation>
+		<annotation cp="⇥">alamar layin dama da tushe</annotation>
+		<annotation cp="⇥" type="tts">alamar layin dama da tushe</annotation>
+		<annotation cp="⇦">ruffafen alamar layin hagu</annotation>
+		<annotation cp="⇦" type="tts">ruffafen alamar layin hagu</annotation>
+		<annotation cp="⇧">ruffafen alamar layin sama</annotation>
+		<annotation cp="⇧" type="tts">ruffafen alamar layin sama</annotation>
+		<annotation cp="⇨">ruffafen alamar layin dama</annotation>
+		<annotation cp="⇨" type="tts">ruffafen alamar layin dama</annotation>
+		<annotation cp="⇩">ruffafen alamar layin kasa</annotation>
+		<annotation cp="⇩" type="tts">ruffafen alamar layin kasa</annotation>
+		<annotation cp="⇪">uffafen alalamar layin sama daga tushe</annotation>
+		<annotation cp="⇪" type="tts">ruffafen alamar layin sama daga tushe</annotation>
+		<annotation cp="⇵">alamar layin kasa a hannun daman alamar kasa</annotation>
+		<annotation cp="⇵" type="tts">alamar layin kasa a hannun daman alamar kasa</annotation>
+		<annotation cp="∀">duka | kowane | na duka | na koʼina | wanda aka bayar</annotation>
+		<annotation cp="∀" type="tts">na duka</annotation>
+		<annotation cp="∂">banbanci | bangaren bambanci</annotation>
+		<annotation cp="∂" type="tts">bangaren bambanci</annotation>
+		<annotation cp="∃">akwai</annotation>
+		<annotation cp="∃" type="tts">akwai</annotation>
+		<annotation cp="∅">fankon rukuni | ilmin kidaya | saita mai aiki</annotation>
+		<annotation cp="∅" type="tts">fankon rukuni</annotation>
 		<annotation cp="∆">alwatika | ƙari</annotation>
 		<annotation cp="∆" type="tts">ƙari</annotation>
 		<annotation cp="∇">alamar nabla | alwatika</annotation>
 		<annotation cp="∇" type="tts">alamar nabla</annotation>
 		<annotation cp="∈">kashi | kashi na | saita | ya ƙunshi | zama memban</annotation>
 		<annotation cp="∈" type="tts">kashi na</annotation>
+		<annotation cp="∉">ba kashi ba | kashi</annotation>
+		<annotation cp="∉" type="tts">ba kashi ba</annotation>
+		<annotation cp="∋">kashi | ya kunshi memba</annotation>
+		<annotation cp="∋" type="tts">ya kunshi memba</annotation>
+		<annotation cp="∎">an yi bayyani daidai | karshe | karshen lissafi | karshen shaida</annotation>
+		<annotation cp="∎" type="tts">karshen shaida</annotation>
+		<annotation cp="∏">dabaru | samfur | samfur ba na kullum ba</annotation>
+		<annotation cp="∏" type="tts">samfur ba na kullum ba</annotation>
+		<annotation cp="∑">ilmin kidaya | kari | kari ba na yau da kullum ba</annotation>
+		<annotation cp="∑" type="tts">kari ba na yau da kullum ba</annotation>
 		<annotation cp="+">alamar da | ƙara | ƙari</annotation>
 		<annotation cp="+" type="tts">alamar da</annotation>
 		<annotation cp="±">da-ɗebe</annotation>
@@ -205,12 +375,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">alamar yawaita</annotation>
 		<annotation cp="&lt;">alama | alamar buɗewa | ƙasa da | ƙasa-da</annotation>
 		<annotation cp="&lt;" type="tts">ƙasa da</annotation>
+		<annotation cp="≮">ba kasa-da ba | ilmin kidaya | rashin daidaito</annotation>
+		<annotation cp="≮" type="tts">ba kasa-da ba</annotation>
 		<annotation cp="=">daidai</annotation>
 		<annotation cp="=" type="tts">daidai</annotation>
 		<annotation cp="≠">ba daidai ba | rashin daidaito</annotation>
 		<annotation cp="≠" type="tts">ba daidai ba</annotation>
 		<annotation cp="&gt;">alama | alamar rufewa | mafi girma fiye da</annotation>
 		<annotation cp="&gt;" type="tts">mafi girma fiye da</annotation>
+		<annotation cp="≯">ba fiye da ba | ilmin kidaya | rashin daidaito</annotation>
+		<annotation cp="≯" type="tts">ba fiye da ba</annotation>
 		<annotation cp="¬">ba | rashi</annotation>
 		<annotation cp="¬" type="tts">rashi</annotation>
 		<annotation cp="|">bugun jini | bututu | layi | layin tsaye | sanda | sandar tsaye | stsy</annotation>
@@ -221,38 +395,316 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="−" type="tts">alamar ɗebe</annotation>
 		<annotation cp="⁻">debewar rubutun sama | ɗebe | rubutun sama</annotation>
 		<annotation cp="⁻" type="tts">debewar rubutun sama</annotation>
+		<annotation cp="∓">cirewa-ko-karawa | karawa-cirewa</annotation>
+		<annotation cp="∓" type="tts">cirewa-ko-karawa</annotation>
+		<annotation cp="∕">alamar bugun jini | alamar rabowa | yanke</annotation>
+		<annotation cp="∕" type="tts">alamar rabowa</annotation>
+		<annotation cp="⁄">alamar rabowa | alamar rabowa na kashi | yanke</annotation>
+		<annotation cp="⁄" type="tts">alamar rabowa na kashi</annotation>
+		<annotation cp="∗">alamar tauraro | tauraro</annotation>
+		<annotation cp="∗" type="tts">alamar tauraro</annotation>
+		<annotation cp="∘">alama | alamar zobe | haduwa</annotation>
+		<annotation cp="∘" type="tts">alamar zobe</annotation>
+		<annotation cp="∙">alama | alamar harsashi</annotation>
+		<annotation cp="∙" type="tts">alamar harsashi</annotation>
 		<annotation cp="√">murabbaʼi | radix | saiwa | sikwayarut | surd | tsattsaura</annotation>
 		<annotation cp="√" type="tts">sikwayarut</annotation>
+		<annotation cp="∝">daidaito | gwargwado</annotation>
+		<annotation cp="∝" type="tts">gwargwado</annotation>
 		<annotation cp="∞">alamar rashin iyaka | rashin iyaka</annotation>
 		<annotation cp="∞" type="tts">alamar rashin iyaka</annotation>
+		<annotation cp="∟">ilmin kidaya | kusurwar dama</annotation>
+		<annotation cp="∟" type="tts">kusurwar dama</annotation>
+		<annotation cp="∠">babban | kusurwa</annotation>
+		<annotation cp="∠" type="tts">kusurwa</annotation>
+		<annotation cp="∣">mai rabawa | yana rabawa</annotation>
+		<annotation cp="∣" type="tts">yana rabawa</annotation>
+		<annotation cp="∥">layi marasa haduwa</annotation>
+		<annotation cp="∥" type="tts">layi marasa haduwa</annotation>
+		<annotation cp="∧">a zahiri | dakko | maʼana da | tsinke</annotation>
+		<annotation cp="∧" type="tts">maʼana da</annotation>
 		<annotation cp="∩">alamar mahaɗa | mahaɗa | saita</annotation>
 		<annotation cp="∩" type="tts">alamar mahaɗa</annotation>
 		<annotation cp="∪">ƙungiya | saita | tari</annotation>
 		<annotation cp="∪" type="tts">ƙungiya</annotation>
+		<annotation cp="∫">kunshi | lissafi</annotation>
+		<annotation cp="∫" type="tts">kunshi</annotation>
+		<annotation cp="∬">alamar kunshi biyu | lissafi</annotation>
+		<annotation cp="∬" type="tts">alamar kunshi biyu</annotation>
+		<annotation cp="∮">lankwasashen kunshi</annotation>
+		<annotation cp="∮" type="tts">lankwasashen kunshi</annotation>
+		<annotation cp="∴">dabaru | saboda haka</annotation>
+		<annotation cp="∴" type="tts">saboda haka</annotation>
+		<annotation cp="∵">dabaru | domin</annotation>
+		<annotation cp="∵" type="tts">domin</annotation>
+		<annotation cp="∶">rabo</annotation>
+		<annotation cp="∶" type="tts">rabo</annotation>
+		<annotation cp="∷">daidaito | rabbai</annotation>
+		<annotation cp="∷" type="tts">rabbai</annotation>
+		<annotation cp="∼">alama | alamar motsin ruwa</annotation>
+		<annotation cp="∼" type="tts">alamar motsin ruwa</annotation>
+		<annotation cp="∽">juyayyen alamar motsin ruwa | motsin ruwa</annotation>
+		<annotation cp="∽" type="tts">juyayyen alamar motsin ruwa</annotation>
+		<annotation cp="∾">juyayyen raggon S</annotation>
+		<annotation cp="∾" type="tts">juyayyen raggon S</annotation>
+		<annotation cp="≃">ilmin lissafi | kusa | kusa da daidai</annotation>
+		<annotation cp="≃" type="tts">kusa da daidai</annotation>
+		<annotation cp="≅">daidaita | ilmin kidaya | kaman daidai | siffa daidai | siffa daya</annotation>
+		<annotation cp="≅" type="tts">kaman daidai</annotation>
 		<annotation cp="≈">kimani | kusan daidai | kusanci</annotation>
 		<annotation cp="≈" type="tts">kusan daidai</annotation>
+		<annotation cp="≌">daidaita | duka daya | ilmin lissafi</annotation>
+		<annotation cp="≌" type="tts">duka daya</annotation>
+		<annotation cp="≒">kusan daidai da siffan hoton</annotation>
+		<annotation cp="≒" type="tts">kusan daidai da siffan hoton</annotation>
+		<annotation cp="≖">daidaita | ilmin lissafi | zobe cikin alamar daidaita</annotation>
+		<annotation cp="≖" type="tts">zobe cikin alamar daidaita</annotation>
 		<annotation cp="≡">daidai | daidai yake da | iri ɗaya | sau uku</annotation>
 		<annotation cp="≡" type="tts">daidai yake da</annotation>
+		<annotation cp="≣">daidaita | daidaitar dole | ilmin lissafi</annotation>
+		<annotation cp="≣" type="tts">daidaitar dole</annotation>
 		<annotation cp="≤">daidai | ƙasa da ko kuma daidai | ƙasa-da | rashin daidaito | ya yi daidai</annotation>
 		<annotation cp="≤" type="tts">ƙasa da ko kuma daidai</annotation>
 		<annotation cp="≥">daidai | mafi girma | mafi girma ko daidai | rashin daidaito | ya yi daidai</annotation>
 		<annotation cp="≥" type="tts">mafi girma ko daidai</annotation>
+		<annotation cp="≦">alamar kasa-da kan na daidaita | lissafi | rashin daidaita</annotation>
+		<annotation cp="≦" type="tts">alamar kasa-da kan na daidaita</annotation>
+		<annotation cp="≧">alamar fiye-da kan na daidaita | ilmin lissafi | rashin daidaita</annotation>
+		<annotation cp="≧" type="tts">alamar fiye-da kan na daidaita</annotation>
+		<annotation cp="≪">ilmin lissafi | kasa-da sosai | rashin daidaita</annotation>
+		<annotation cp="≪" type="tts">kasa-da sosai</annotation>
+		<annotation cp="≫">fiye-da sosai | ilmin lissafi | rashin daidaita</annotation>
+		<annotation cp="≫" type="tts">fiye-da sosai</annotation>
+		<annotation cp="≬">tsakanin</annotation>
+		<annotation cp="≬" type="tts">tsakanin</annotation>
+		<annotation cp="≳">fiye-da mai daidaita | ilmin lissafi | rashin daidaita</annotation>
+		<annotation cp="≳" type="tts">fiye-da mai daidaita</annotation>
+		<annotation cp="≺">alamar rukuni | ilmin lissafi | kafin</annotation>
+		<annotation cp="≺" type="tts">kafin</annotation>
+		<annotation cp="≻">alamar rukuni | bayan | ilmin lissafi</annotation>
+		<annotation cp="≻" type="tts">bayan</annotation>
+		<annotation cp="⊁">alamar rukuni | bai cin gaba | ilmin lissafi</annotation>
+		<annotation cp="⊁" type="tts">bai cin gaba</annotation>
 		<annotation cp="⊂">rukuni | rukuni na | saita</annotation>
 		<annotation cp="⊂" type="tts">rukuni na</annotation>
+		<annotation cp="⊃">alamar rukuni | babban rukuni | ilmin lissafi</annotation>
+		<annotation cp="⊃" type="tts">babban rukuni</annotation>
+		<annotation cp="⊆">daidai karamin rukuni</annotation>
+		<annotation cp="⊆" type="tts">daidai karamin rukuni</annotation>
+		<annotation cp="⊇">daidai babban rukuni | daidaita | ilmin lissafi</annotation>
+		<annotation cp="⊇" type="tts">daidai babban rukuni</annotation>
+		<annotation cp="⊕">alamar kari cikin daʼirar | kari</annotation>
+		<annotation cp="⊕" type="tts">alamar kari cikin daʼirar</annotation>
+		<annotation cp="⊖">alamar ragowa cikin daʼirar | banbancin siffa irir daya wankewa | symmetric difference</annotation>
+		<annotation cp="⊖" type="tts">alamar ragowa cikin daʼirar</annotation>
+		<annotation cp="⊗">alamar juyawa cikin daʼirar | amsan juya lambobi | awon lissafin wuri</annotation>
+		<annotation cp="⊗" type="tts">alamar juyawa cikin daʼirar</annotation>
+		<annotation cp="⊘">alamar rabawa cikin daʼirar | ilmin lissafi | raba-daidai</annotation>
+		<annotation cp="⊘" type="tts">alamar rabawa cikin daʼirar</annotation>
+		<annotation cp="⊙">alama | alamar digo cikin daʼirar | XNOR</annotation>
+		<annotation cp="⊙" type="tts">alamar digo cikin daʼirar</annotation>
+		<annotation cp="⊚">alamar zobe cikin daʼirar</annotation>
+		<annotation cp="⊚" type="tts">alamar zobe cikin daʼirar</annotation>
+		<annotation cp="⊛">alama | alamar kaman tauraro | alamar kaman tauraro cikin daʼirar</annotation>
+		<annotation cp="⊛" type="tts">alamar kaman tauraro cikin daʼirar</annotation>
+		<annotation cp="⊞">ilmin lissafi | kaman ƙari | murabbaʼi da ƙari</annotation>
+		<annotation cp="⊞" type="tts">murabbaʼi da ƙari</annotation>
+		<annotation cp="⊟">alamar ragowa cikin murabbaʼi | ilmin lissafi | kaman rabowa</annotation>
+		<annotation cp="⊟" type="tts">alamar ragowa cikin murabbaʼi</annotation>
+		<annotation cp="⊥">kalmomin amsan karya</annotation>
+		<annotation cp="⊥" type="tts">amsan karya</annotation>
+		<annotation cp="⊮">babu dole</annotation>
+		<annotation cp="⊮" type="tts">babu dole</annotation>
+		<annotation cp="⊰">alamar rukuni | ilmin lissafi | riga cikin dangantaka</annotation>
+		<annotation cp="⊰" type="tts">riga cikin dangantaka</annotation>
+		<annotation cp="⊱">alamar rukuni | bayan cikin dangantaka | ilmin lissafi</annotation>
+		<annotation cp="⊱" type="tts">bayan cikin dangantaka</annotation>
+		<annotation cp="⋭">bayyanin rukuni | does not contkaman bai kunshi daidai bangaren rukuni ba | ilmin lissafi</annotation>
+		<annotation cp="⋭" type="tts">kaman bai kunshi daidai bangaren rukuni ba</annotation>
+		<annotation cp="⊶">ainihi</annotation>
+		<annotation cp="⊶" type="tts">ainihi</annotation>
+		<annotation cp="⊹">hadaddun matiris dayawa | ilmin lisaffi | matiris da basu juyu ba | matiris na murabbaʼi</annotation>
+		<annotation cp="⊹" type="tts">hadaddun matiris dayawa</annotation>
+		<annotation cp="⊿">alwakitan dama | ilmin lissafi | madaidaicin alwakitan dama</annotation>
+		<annotation cp="⊿" type="tts">alwakitan dama</annotation>
+		<annotation cp="⋁">dabaru | karkace | maʼana ba na yau da kullum ba ko</annotation>
+		<annotation cp="⋁" type="tts">maʼana ba na yau da kullum ba ko</annotation>
+		<annotation cp="⋂">alamar rukuni | ilmin lissafi | shiga tsakiya | shiga tsakiya ba na yau da kullum ba</annotation>
+		<annotation cp="⋂" type="tts">shiga tsakiya ba na yau da kullum ba</annotation>
+		<annotation cp="⋃">alamar rukuni | ilmin lissafi | ƙungiya | ƙungiya ba na yau da kullum ba</annotation>
+		<annotation cp="⋃" type="tts">ƙungiya ba na yau da kullum ba</annotation>
+		<annotation cp="⋅">alama | alamar digo</annotation>
+		<annotation cp="⋅" type="tts">alamar digo</annotation>
+		<annotation cp="⋆">alama | alama na tauraro</annotation>
+		<annotation cp="⋆" type="tts">alama na tauraro</annotation>
+		<annotation cp="⋈">alamar 0 da 1 kawai | igiyan ado na wuya | ƙungiya na halitta</annotation>
+		<annotation cp="⋈" type="tts">ƙungiya na halitta</annotation>
+		<annotation cp="⋒">alamar rukuni | ilmin lissafi | shiga tsakiya | shiga tsakiya sau biyu</annotation>
+		<annotation cp="⋒" type="tts">shiga tsakiya sau biyu</annotation>
+		<annotation cp="⋘">ilmin lissafi | kasa-da sosai sosai | rashin daidaita</annotation>
+		<annotation cp="⋘" type="tts">kasa-da sosai sosai</annotation>
+		<annotation cp="⋙">ilmin lissafi | rashin daidaita | yafi sosai sosai</annotation>
+		<annotation cp="⋙" type="tts">yafi sosai sosai</annotation>
+		<annotation cp="⋮">ellipsis | ilmin lissafi | tsayayyen ellipsis</annotation>
+		<annotation cp="⋮" type="tts">tsayayyen ellipsis</annotation>
+		<annotation cp="⋯">ellipsis | layin tsakiya na tsayayyen ellipsis</annotation>
+		<annotation cp="⋯" type="tts">layin tsakiya na tsayayyen ellipsis</annotation>
+		<annotation cp="⋰">daidai kwantanchen ellipsis | ellipsis | ilmin lissafi</annotation>
+		<annotation cp="⋰" type="tts">daidai kwantanchen ellipsis</annotation>
+		<annotation cp="⋱">daidai kasan kwantanchen ellipsis | ellipsis | ilmin lissafi</annotation>
+		<annotation cp="⋱" type="tts">daidai kasan kwantanchen ellipsis</annotation>
+		<annotation cp="■">cikkaken murabbaʼi</annotation>
+		<annotation cp="■" type="tts">cikkaken murabbaʼi</annotation>
+		<annotation cp="□">fankon murabbaʼi</annotation>
+		<annotation cp="□" type="tts">fankon murabbaʼi</annotation>
+		<annotation cp="▢">fankon murabbaʼi da zagayayyen kwana</annotation>
+		<annotation cp="▢" type="tts">fankon murabbaʼi da zagayayyen kwana</annotation>
+		<annotation cp="▣">fankon murabbaʼi da cikkaken murabbaʼi</annotation>
+		<annotation cp="▣" type="tts">fankon murabbaʼi da cikkaken murabbaʼi</annotation>
+		<annotation cp="▤">fankon murabbaʼi da cikkon kwantacen layi</annotation>
+		<annotation cp="▤" type="tts">fankon murabbaʼi da cikkon kwantacen layi</annotation>
+		<annotation cp="▥">fankon murabbaʼi da cikkon tsayyayen layi</annotation>
+		<annotation cp="▥" type="tts">fankon murabbaʼi da cikkon tsayyayen layi</annotation>
+		<annotation cp="▦">murabbbaʼi mai cike da juyayun layuka</annotation>
+		<annotation cp="▦" type="tts">murabbbaʼi mai cike da juyayun layuka</annotation>
+		<annotation cp="▧">cikakken murabbaʼi na kasan dama a kusurwar sama na hagu</annotation>
+		<annotation cp="▧" type="tts">cikakken murabbaʼi na kasan dama a kusurwar sama na hagu</annotation>
+		<annotation cp="▨">cikakken murabbaʼi na kasan hagu a kusurwar sama na dama</annotation>
+		<annotation cp="▨" type="tts">cikakken murabbaʼi na kasan hagu a kusurwar sama na dama</annotation>
+		<annotation cp="▩">layin cika filin murabbaʼi</annotation>
+		<annotation cp="▩" type="tts">layin cika filin murabbaʼi</annotation>
+		<annotation cp="▬">cikkaken murabbaʼi mai dari</annotation>
+		<annotation cp="▬" type="tts">cikkaken murabbaʼi mai dari</annotation>
+		<annotation cp="▭">fankon murabbaʼi mai dari</annotation>
+		<annotation cp="▭" type="tts">fankon murabbaʼi mai dari</annotation>
+		<annotation cp="▮">murabbaʼi mai dari cike da tsayyayen layi</annotation>
+		<annotation cp="▮" type="tts">murabbaʼi mai dari cike da tsayyayen layi</annotation>
+		<annotation cp="▰">cikkaken murabbaʼi mai dari da santsi</annotation>
+		<annotation cp="▰" type="tts">cikkaken murabbaʼi mai dari da santsi</annotation>
 		<annotation cp="▲">alwatika | cika | cika alwatika mai nunawa sama | kibiya | sama</annotation>
 		<annotation cp="▲" type="tts">cika alwatika mai nunawa sama</annotation>
+		<annotation cp="△">fankon alwatika mai kanlon sama</annotation>
+		<annotation cp="△" type="tts">fankon alwatika mai kanlon sama</annotation>
+		<annotation cp="▴">cikkaken karamin alwatika mai kanlon sama</annotation>
+		<annotation cp="▴" type="tts">cikkaken karamin alwatika mai kanlon sama</annotation>
+		<annotation cp="▵">fankon karamin alwatika mai kanlon sama</annotation>
+		<annotation cp="▵" type="tts">fankon karamin alwatika mai kanlon sama</annotation>
+		<annotation cp="▷">fankon karamin alwatika mai kanlon sama</annotation>
+		<annotation cp="▷" type="tts">fankon alwatika mai kanlon dama</annotation>
+		<annotation cp="▸">cikkaken karamin alwatika mai kanlon dama</annotation>
+		<annotation cp="▸" type="tts">cikkaken karamin alwatika mai kanlon dama</annotation>
+		<annotation cp="▹">fankon karamin alwatika mai kanlon dama</annotation>
+		<annotation cp="▹" type="tts">fankon karamin alwatika mai kanlon dama</annotation>
+		<annotation cp="►">cikkaken alama mai kanlon dama</annotation>
+		<annotation cp="►" type="tts">cikkaken alama mai kanlon dama</annotation>
+		<annotation cp="▻">fankon alama mai kanlon dama</annotation>
+		<annotation cp="▻" type="tts">fankon alama mai kanlon dama</annotation>
 		<annotation cp="▼">alwatika | cika | cika alwatika mai nunawa ƙasa | kibiya | ƙasa</annotation>
 		<annotation cp="▼" type="tts">cika alwatika mai nunawa ƙasa</annotation>
+		<annotation cp="▽">fankon alwatika mai kanlon kasa</annotation>
+		<annotation cp="▽" type="tts">fankon alwatika mai kanlon kasa</annotation>
+		<annotation cp="▾">cikkaken karamin alwatika mai kanlon kasa</annotation>
+		<annotation cp="▾" type="tts">cikkaken karamin alwatika mai kanlon kasa</annotation>
+		<annotation cp="▿">fankon karamin alwatika mai kanlon kasa</annotation>
+		<annotation cp="▿" type="tts">fankon karamin alwatika mai kanlon kasa</annotation>
+		<annotation cp="◁">fankon alwatika mai kanlon hagu</annotation>
+		<annotation cp="◁" type="tts">fankon alwatika mai kanlon hagu</annotation>
+		<annotation cp="◂">cikkaken karamin alwatika mai kanlon hagu</annotation>
+		<annotation cp="◂" type="tts">cikkaken karamin alwatika mai kanlon hagu</annotation>
+		<annotation cp="◃">fankon karamin alwatika mai kanlon hagu</annotation>
+		<annotation cp="◃" type="tts">fankon karamin alwatika mai kanlon hagu</annotation>
+		<annotation cp="◄">cikkaken alama mai kanlon hagu</annotation>
+		<annotation cp="◄" type="tts">cikkaken alama mai kanlon hagu</annotation>
+		<annotation cp="◅">fankon alama mai kanlon hagu</annotation>
+		<annotation cp="◅" type="tts">fankon alama mai kanlon hagu</annotation>
+		<annotation cp="◆">cikkaken zane mai kama da luʼu-luʼu</annotation>
+		<annotation cp="◆" type="tts">cikkaken zane mai kama da luʼu-luʼu</annotation>
+		<annotation cp="◇">fankon zane mai kama da luʼu-luʼu</annotation>
+		<annotation cp="◇" type="tts">fankon zane mai kama da luʼu-luʼu</annotation>
+		<annotation cp="◈">fankon zanen mai kama da luʼu-luʼu da luʼu-luʼu a ciki</annotation>
+		<annotation cp="◈" type="tts">fankon zanen mai kama da luʼu-luʼu da luʼu-luʼu a ciki</annotation>
+		<annotation cp="◉">cikkaken daʼirar cikin fankon daʼirar | cikkakun daʼirar | daʼirar | digo cikin daʼirar | unguwa</annotation>
+		<annotation cp="◉" type="tts">cikkaken daʼirar cikin fankon daʼirar</annotation>
 		<annotation cp="◊">alewa | daiman | rhombus</annotation>
 		<annotation cp="◊" type="tts">alewa</annotation>
 		<annotation cp="○">daʼira | daʼira buɗaɗɗiya | zobe</annotation>
 		<annotation cp="○" type="tts">daʼira buɗaɗɗiya</annotation>
+		<annotation cp="◌">daʼirar cike da digo</annotation>
+		<annotation cp="◌" type="tts">daʼirar cike da digo</annotation>
+		<annotation cp="◍">daʼirar cike da tsayayyen layi</annotation>
+		<annotation cp="◍" type="tts">daʼirar cike da tsayayyen layi</annotation>
+		<annotation cp="◎">daʼirar biyu | daʼirar cikin daʼirar | manufi</annotation>
+		<annotation cp="◎" type="tts">daʼirar cikin daʼirar</annotation>
 		<annotation cp="●">daʼira | daʼira cike</annotation>
 		<annotation cp="●" type="tts">daʼira cike</annotation>
+		<annotation cp="◐">rabin cikkaken daʼirar rabin fanko</annotation>
+		<annotation cp="◐" type="tts">rabin cikkaken daʼirar rabin fanko</annotation>
+		<annotation cp="◑">rabin cikkaken daʼirar dama rabin fanko</annotation>
+		<annotation cp="◑" type="tts">rabin cikkaken daʼirar dama rabin fanko</annotation>
+		<annotation cp="◒">rabin cikkaken daʼirar kasa rabin fanko</annotation>
+		<annotation cp="◒" type="tts">rabin cikkaken daʼirar kasa rabin fanko</annotation>
+		<annotation cp="◓">rabin cikkaken daʼirar sama rabin fanko</annotation>
+		<annotation cp="◓" type="tts">rabin cikkaken daʼirar sama rabin fanko</annotation>
+		<annotation cp="◔">cikkaken daʼirar bangaren dama na sama</annotation>
+		<annotation cp="◔" type="tts">cikkaken daʼirar bangaren dama na sama</annotation>
+		<annotation cp="◕">cikkaken daʼirar banda bangaren hagu na sama</annotation>
+		<annotation cp="◕" type="tts">cikkaken daʼirar banda bangaren hagu na sama</annotation>
+		<annotation cp="◖">cikkaken rabin daʼidar hagu</annotation>
+		<annotation cp="◖" type="tts">cikkaken rabin daʼidar hagu</annotation>
+		<annotation cp="◗">cikkaken rabin daʼidar dama</annotation>
+		<annotation cp="◗" type="tts">cikkaken rabin daʼidar dama</annotation>
+		<annotation cp="◘">karkatacciyar harbi</annotation>
+		<annotation cp="◘" type="tts">karkatacciyar harbi</annotation>
+		<annotation cp="◙">fankon daʼidar cikin cikkaken murabbaʼi | karkataccen fankon daʼidar</annotation>
+		<annotation cp="◙" type="tts">fankon daʼidar cikin cikkaken murabbaʼi</annotation>
+		<annotation cp="◜">bakar kusurwar hagu na sama</annotation>
+		<annotation cp="◜" type="tts">bakar kusurwar hagu na sama</annotation>
+		<annotation cp="◝">bakar kusurwar dama na sama</annotation>
+		<annotation cp="◝" type="tts">bakar kusurwar dama na sama</annotation>
+		<annotation cp="◞">bakar kusurwar dama na kasa</annotation>
+		<annotation cp="◞" type="tts">bakar kusurwar dama na kasa</annotation>
+		<annotation cp="◟">bakar kusurwar hagu na kasa</annotation>
+		<annotation cp="◟" type="tts">bakar kusurwar hagu na kasa</annotation>
+		<annotation cp="◠">rabin daʼidar sama</annotation>
+		<annotation cp="◠" type="tts">rabin daʼidar sama</annotation>
+		<annotation cp="◡">rabin daʼidar kasa</annotation>
+		<annotation cp="◡" type="tts">rabin daʼidar kasa</annotation>
+		<annotation cp="◢">cikkaken alwatikan kasa na dama</annotation>
+		<annotation cp="◢" type="tts">cikkaken alwatikan kasa na dama</annotation>
+		<annotation cp="◣">cikkaken alwatikan kasa na hagu</annotation>
+		<annotation cp="◣" type="tts">cikkaken alwatikan kasa na hagu</annotation>
+		<annotation cp="◤">cikkaken alwatikan sama na hagu</annotation>
+		<annotation cp="◤" type="tts">cikkaken alwatikan sama na hagu</annotation>
+		<annotation cp="◥">cikkaken alwatikan sama na dama</annotation>
+		<annotation cp="◥" type="tts">cikkaken alwatikan sama na dama</annotation>
+		<annotation cp="◦">fankon harbi</annotation>
+		<annotation cp="◦" type="tts">fankon harbi</annotation>
 		<annotation cp="◯">babbar daʼira buɗaɗɗiya | daʼira | zobe</annotation>
 		<annotation cp="◯" type="tts">babbar daʼira buɗaɗɗiya</annotation>
+		<annotation cp="◳">fankon murabbaʼi karamin murabbaʼi na sama a kusurwan dama</annotation>
+		<annotation cp="◳" type="tts">fankon murabbaʼi da karamin murabbaʼi na sama a kusurwan dama</annotation>
+		<annotation cp="◷">fankon daʼidar da karamin murabbaʼin dama na sama</annotation>
+		<annotation cp="◷" type="tts">fankon daʼidar da karamin murabbaʼin dama na sama</annotation>
+		<annotation cp="◿">alwatikan kusurwan kasa na dama</annotation>
+		<annotation cp="◿" type="tts">alwatikan kusurwan kasa na dama</annotation>
 		<annotation cp="♪">alama ta kiɗa | kiɗa | takwas</annotation>
 		<annotation cp="♪" type="tts">alama ta kiɗa</annotation>
+		<annotation cp="⨧">da lamba 2 a karkashi</annotation>
+		<annotation cp="⨧" type="tts">da lamba 2 a karkashi</annotation>
+		<annotation cp="⨯">samfurin haduwan vector</annotation>
+		<annotation cp="⨯" type="tts">samfurin haduwan vector</annotation>
+		<annotation cp="⨼">samfur na ciki</annotation>
+		<annotation cp="⨼" type="tts">samfur na ciki</annotation>
+		<annotation cp="⩣">maʼana ko layin kas biyu</annotation>
+		<annotation cp="⩣" type="tts">maʼana ko layin kas biyu</annotation>
+		<annotation cp="⩽">kasa-da kwantacce daidai</annotation>
+		<annotation cp="⩽" type="tts">kasa-da kwantacce daidai</annotation>
+		<annotation cp="⪍">kasa-da sama da kaman daidai</annotation>
+		<annotation cp="⪍" type="tts">kasa-da sama da kaman daidai</annotation>
+		<annotation cp="⪚">riga sama ba kusa daidai</annotation>
+		<annotation cp="⪚" type="tts">layi biyu daidai fiye-da</annotation>
+		<annotation cp="⪺">riga sama ba kusa daidai</annotation>
+		<annotation cp="⪺" type="tts">riga sama ba kusa daidai</annotation>
 		<annotation cp="♭">alama | bemolle | lebur | waƙa</annotation>
 		<annotation cp="♭" type="tts">lebur</annotation>
 		<annotation cp="♯">alamar kiɗa | bayanin kula | dièse | diesis | waƙa</annotation>
@@ -275,6 +727,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">fuska mai hawayen murna</annotation>
 		<annotation cp="🙂">fuska | fuska mai murmushi kaɗan | murmushi</annotation>
 		<annotation cp="🙂" type="tts">fuska mai murmushi kaɗan</annotation>
+		<annotation cp="🙂‍↕">girgiza kai a tsaye | yarda da kai, e</annotation>
+		<annotation cp="🙂‍↕" type="tts">Girgiza kai a tsaye</annotation>
+		<annotation cp="🙂‍↔">aʼa, girgiza | girgiza kai a kwance</annotation>
+		<annotation cp="🙂‍↔" type="tts">girgiza kai a kwance</annotation>
 		<annotation cp="🙃">a birkice | fuska | fuska a birkice</annotation>
 		<annotation cp="🙃" type="tts">fuska a birkice</annotation>
 		<annotation cp="🫠">ɓace | fuska narke | narke | ruwa</annotation>
@@ -341,6 +797,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😶" type="tts">fuska ban da baki</annotation>
 		<annotation cp="🫥">baƙin ciki | ɓace | ɓoye | ganuwa | kewaye da ɗige fuska | mai gabatarwa</annotation>
 		<annotation cp="🫥" type="tts">kewaye da ɗige fuska</annotation>
+		<annotation cp="😶‍🌫">Fuskan mara mai da hankali</annotation>
+		<annotation cp="😶‍🌫" type="tts">Fuska a sama</annotation>
 		<annotation cp="😏">fuska | fuska mai murmushin wauta | murmushin wauta</annotation>
 		<annotation cp="😏" type="tts">fuska mai murmushin wauta</annotation>
 		<annotation cp="😒">baƙin ciki | fuska | fuska mara sha’awa | mara sha’awa</annotation>
@@ -349,6 +807,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">fuska tare da idanu masu mirgina</annotation>
 		<annotation cp="😬">ɗauren fuska | fuska | fuska na ɗauren fuska</annotation>
 		<annotation cp="😬" type="tts">fuska na ɗauren fuska</annotation>
+		<annotation cp="😮‍💨">busa | kukan azaba | neman iska | numfashi | numfashin fuska | raɗa | sauki</annotation>
+		<annotation cp="😮‍💨" type="tts">numfashin fuska</annotation>
 		<annotation cp="🤥">fuska | fuska mai yin ƙarya | ƙarya | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">fuska mai yin ƙarya</annotation>
 		<annotation cp="🫨">fuska | gigice | girgiza | girgizar ƙasa</annotation>
@@ -383,6 +843,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥴" type="tts">fuska mai kasala</annotation>
 		<annotation cp="😵">fuska | fuska mai jin jiri | jiri</annotation>
 		<annotation cp="😵" type="tts">fuska mai jin jiri</annotation>
+		<annotation cp="😵‍💫">damuwa | fuska da ido karkatace | jiri | karkace | ku | rikitace</annotation>
+		<annotation cp="😵‍💫" type="tts">fuska da ido karkatace</annotation>
 		<annotation cp="🤯">firgitacce | kai mai bashewa</annotation>
 		<annotation cp="🤯" type="tts">kai mai bashewa</annotation>
 		<annotation cp="🤠">fuska | fuska mai hular kaboyi | hula | kaboyi | kaboyi na mace</annotation>
@@ -527,6 +989,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">alamar motsin rai na nauyin zuciya</annotation>
 		<annotation cp="💔">karyayyiyar zuciya | karye | karyeyye</annotation>
 		<annotation cp="💔" type="tts">karyayyiyar zuciya</annotation>
+		<annotation cp="❤‍🔥">konewa | shaʼawa | soyayya | ziciya mai tsarki | zuciya | zuciya na wuta</annotation>
+		<annotation cp="❤‍🔥" type="tts">zuciya na wuna</annotation>
+		<annotation cp="❤‍🩹">gyaran zuciya | gyarawa | inganta | karin lafiya | lafiya | samun sauki | warwarewa</annotation>
+		<annotation cp="❤‍🩹" type="tts">gyaran zuciya</annotation>
 		<annotation cp="❤">jar zuciya | zuciya</annotation>
 		<annotation cp="❤" type="tts">jar zuciya</annotation>
 		<annotation cp="🩷">kamar | kyau | ruwan hoda | soyayya | zuciya | zuciya ruwan hoda</annotation>
@@ -713,14 +1179,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">babba</annotation>
 		<annotation cp="👱">mai farin gashi | mutum mai farin gashi</annotation>
 		<annotation cp="👱" type="tts">mutum mai farin gashi</annotation>
+		<annotation cp="🧑‍🧒">iyali: manya, yara</annotation>
+		<annotation cp="🧑‍🧒" type="tts">iyali: manya, yara</annotation>
+		<annotation cp="🧑‍🧒‍🧒">iyali: manya, yara, yara</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">iyali: manya, yara, yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒">iyali: manya, manya, yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">iyali: manya, manya, yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">iyali: manya, manya, yara, yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">iyali: manya, manya, yara, yara</annotation>
 		<annotation cp="👨">namiji</annotation>
 		<annotation cp="👨" type="tts">namiji</annotation>
 		<annotation cp="🧔">gemu | mutumi mai gemu</annotation>
 		<annotation cp="🧔" type="tts">mutumi mai gemu</annotation>
+		<annotation cp="🧔‍♂">gemu | na miji | na miji: gemu</annotation>
+		<annotation cp="🧔‍♂" type="tts">na miji: gemu</annotation>
 		<annotation cp="👱‍♂">mai farin gashi | mutum | namiji mai farin gashi</annotation>
 		<annotation cp="👱‍♂" type="tts">namiji mai farin gashi</annotation>
 		<annotation cp="👩">mace</annotation>
 		<annotation cp="👩" type="tts">mace</annotation>
+		<annotation cp="🧔‍♀">gemu | mace | mace: gemu</annotation>
+		<annotation cp="🧔‍♀" type="tts">mace:gemu</annotation>
 		<annotation cp="👱‍♀">mace | mace mai farin gashi | mai farin gashi</annotation>
 		<annotation cp="👱‍♀" type="tts">mace mai farin gashi</annotation>
 		<annotation cp="🧓">babba | babba mafi tsufa | jinsi da ba a fayyace ba | mara danganta ga jinsi | tsoho</annotation>
@@ -767,6 +1245,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋‍♀" type="tts">mace mai ɗagawa hannu</annotation>
 		<annotation cp="🧏">ji | kunne | kurma | samun dama</annotation>
 		<annotation cp="🧏" type="tts">kurma</annotation>
+		<annotation cp="🧏‍♂">kurma | na miji</annotation>
+		<annotation cp="🧏‍♂" type="tts">namijin kurma</annotation>
+		<annotation cp="🧏‍♀">kurma | na mace</annotation>
+		<annotation cp="🧏‍♀" type="tts">kurman mace</annotation>
 		<annotation cp="🙇">gafarta | haƙuri | karimcin | mutum mai sunkuya | sunkuya</annotation>
 		<annotation cp="🙇" type="tts">mutum mai sunkuya</annotation>
 		<annotation cp="🙇‍♂">alheri | gafarta | haƙuri | karimcin | mutum | namiji mai sunkuya | yin sunkuya</annotation>
@@ -785,66 +1267,98 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷‍♂" type="tts">mutum ɗagawa kafaɗa</annotation>
 		<annotation cp="🤷‍♀">ɗaga kafaɗa | halin kurum | mace | mace ɗagawa kafaɗa | rashin sani | shakka</annotation>
 		<annotation cp="🤷‍♀" type="tts">mace ɗagawa kafaɗa</annotation>
+		<annotation cp="🧑‍⚕">kula da lafiyan jiki | likita | mai aikin asibiti | mai warkewa | maʼaikaciyar jinya</annotation>
+		<annotation cp="🧑‍⚕" type="tts">mai aikin asibiti</annotation>
 		<annotation cp="👨‍⚕">kula da lafiya | likita | mai ba da kula | mutum | mutum ma’aikacin kula da lafiya | nas</annotation>
 		<annotation cp="👨‍⚕" type="tts">mutum ma’aikacin kula da lafiya</annotation>
 		<annotation cp="👩‍⚕">kula da lafiya | likita | mace | mace ma’aikacin kula da lafiya | mai ba da kula | nas</annotation>
 		<annotation cp="👩‍⚕" type="tts">mace ma’aikacin kula da lafiya</annotation>
+		<annotation cp="🧑‍🎓">dalibi | wanda ya kammala karatun digiri</annotation>
+		<annotation cp="🧑‍🎓" type="tts">ɗalibi</annotation>
 		<annotation cp="👨‍🎓">ɗalibi | mai digiri | mutum</annotation>
 		<annotation cp="👨‍🎓" type="tts">mutum ɗalibi</annotation>
 		<annotation cp="👩‍🎓">ɗalibi | mace | mai digiri</annotation>
 		<annotation cp="👩‍🎓" type="tts">mace ɗalibi</annotation>
+		<annotation cp="🧑‍🏫">ferfesa | mai ba da umurni | malami</annotation>
+		<annotation cp="🧑‍🏫" type="tts">mallami</annotation>
 		<annotation cp="👨‍🏫">frafesa | mai koyarwa | malami | mutum</annotation>
 		<annotation cp="👨‍🏫" type="tts">mutum malami</annotation>
 		<annotation cp="👩‍🏫">frafesa | mace | mai koyarwa | malami</annotation>
 		<annotation cp="👩‍🏫" type="tts">mace malami</annotation>
+		<annotation cp="🧑‍⚖">hukunci | maʼauni | yankin hukunci</annotation>
+		<annotation cp="🧑‍⚖" type="tts">hukunci</annotation>
 		<annotation cp="👨‍⚖">mutum | mutum joji | shari’a | sikeloli</annotation>
 		<annotation cp="👨‍⚖" type="tts">mutum joji</annotation>
 		<annotation cp="👩‍⚖">joji | mace | sikeloli</annotation>
 		<annotation cp="👩‍⚖" type="tts">mace joji</annotation>
+		<annotation cp="🧑‍🌾">filin kiwon shanu | mai lambu | manomi</annotation>
+		<annotation cp="🧑‍🌾" type="tts">manomi</annotation>
 		<annotation cp="👨‍🌾">gadina | mai kiwon shanu | manomi | mutum</annotation>
 		<annotation cp="👨‍🌾" type="tts">mutum manomi</annotation>
 		<annotation cp="👩‍🌾">gadina | mace | mai kiwon shanu | manomi</annotation>
 		<annotation cp="👩‍🌾" type="tts">mace manomi</annotation>
+		<annotation cp="🧑‍🍳">mai dafuwa</annotation>
+		<annotation cp="🧑‍🍳" type="tts">mai dafuwa</annotation>
 		<annotation cp="👨‍🍳">kuku | mai girki | mutum</annotation>
 		<annotation cp="👨‍🍳" type="tts">mutum kuku</annotation>
 		<annotation cp="👩‍🍳">kuku | mace | mai girki</annotation>
 		<annotation cp="👩‍🍳" type="tts">mace kuku</annotation>
+		<annotation cp="🧑‍🔧">mai gyaran mota | mai gyaran pumpo | mai gyaran wuta | mai kasuwanci</annotation>
+		<annotation cp="🧑‍🔧" type="tts">mai gyaran mota</annotation>
 		<annotation cp="👨‍🔧">ɗan kasuwa | mai aikin lantarki | mai gyaran famfo | makanika | mutum</annotation>
 		<annotation cp="👨‍🔧" type="tts">mutum makanika</annotation>
 		<annotation cp="👩‍🔧">‘yar kasuwa | mace | mai aikin lantarki | mai gyaran famfo | makanika</annotation>
 		<annotation cp="👩‍🔧" type="tts">mace makanika</annotation>
+		<annotation cp="🧑‍🏭">hadawa | mai aiki | masanaʼantu | masanaʼnta</annotation>
+		<annotation cp="🧑‍🏭" type="tts">mai aikin masanaʼanta</annotation>
 		<annotation cp="👨‍🏭">ma’aikaci | ma’aikatar harhaɗa | masana’anta | masana’antu | mutum | mutum ma’aikacin masana’antu</annotation>
 		<annotation cp="👨‍🏭" type="tts">mutum ma’aikacin masana’antu</annotation>
 		<annotation cp="👩‍🏭">ma’aikaci | ma’aikatar harhaɗa | mace | mace ma’aikacin masana’antu | masana’anta | masana’antu</annotation>
 		<annotation cp="👩‍🏭" type="tts">mace ma’aikacin masana’antu</annotation>
+		<annotation cp="🧑‍💼">aikin kamfani | kasuwanci | mai aikin ofishi | mai sarrafa gida | manaja</annotation>
+		<annotation cp="🧑‍💼" type="tts">mai aikin ofishi</annotation>
 		<annotation cp="👨‍💼">aikin ofis | kasuwanci | mai ilimin zane | manaja | mutum | mutum ma’aikacin ofis | ofis</annotation>
 		<annotation cp="👨‍💼" type="tts">mutum ma’aikacin ofis</annotation>
 		<annotation cp="👩‍💼">aikin ofis | kasuwanci | mace | mace ma’aikacin ofis | mai ilimin zane | manaja | ofis</annotation>
 		<annotation cp="👩‍💼" type="tts">mace ma’aikacin ofis</annotation>
+		<annotation cp="🧑‍🔬">injiniya | masanin hallitu | masanin kimiyan lissafi | masanin kimiyya</annotation>
+		<annotation cp="🧑‍🔬" type="tts">masanin kimiyya</annotation>
 		<annotation cp="👨‍🔬">injiniya | mai ilimin lissafi | masanin ilimin fiziks | masanin ilimin halittu | masanin kimiya | mutum | mutum masanin kimiya</annotation>
 		<annotation cp="👨‍🔬" type="tts">mutum masanin kimiya</annotation>
 		<annotation cp="👩‍🔬">injiniya | mace | mace masanin kimiya | mai ilimin lissafi | masanin ilimin fiziks | masanin ilimin halittu | masanin kimiya</annotation>
 		<annotation cp="👩‍🔬" type="tts">mace masanin kimiya</annotation>
+		<annotation cp="🧑‍💻">mai haɓakawa | mai ƙirƙira | mai tsarin komfuta | masanin fasaha | tsarin aikin kwamfuta</annotation>
+		<annotation cp="🧑‍💻" type="tts">masanin fasaha</annotation>
 		<annotation cp="👨‍💻">mai fasaha | mai ƙira | mai ƙirƙirowa | mai tsarin lambar sirri | mutum | mutum mai fasaha | sofwaya</annotation>
 		<annotation cp="👨‍💻" type="tts">mutum mai fasaha</annotation>
 		<annotation cp="👩‍💻">mace | mace mai fasaha | mai fasaha | mai ƙira | mai ƙirƙirowa | mai tsarin lambar sirri | sofwaya</annotation>
 		<annotation cp="👩‍💻" type="tts">mace mai fasaha</annotation>
+		<annotation cp="🧑‍🎤">mai bada dariya | mai kwaikwayo | mai waka | sautin karfe | tauraro</annotation>
+		<annotation cp="🧑‍🎤" type="tts">mawaƙi</annotation>
 		<annotation cp="👨‍🎤">ɗan wasa | mai shaƙatawa | mawaƙi | mutum | tauraro | waƙar rock</annotation>
 		<annotation cp="👨‍🎤" type="tts">mutum mawaƙi</annotation>
 		<annotation cp="👩‍🎤">ɗan wasa | mace | mai shaƙatawa | mawaƙi | tauraro | waƙar rock</annotation>
 		<annotation cp="👩‍🎤" type="tts">mace mawaƙi</annotation>
+		<annotation cp="🧑‍🎨">mai zane | teburin aikin mai zane</annotation>
+		<annotation cp="🧑‍🎨" type="tts">mai zane</annotation>
 		<annotation cp="👨‍🎨">allon zane | mai zane | mutum | mutum mai zane</annotation>
 		<annotation cp="👨‍🎨" type="tts">mutum mai zane</annotation>
 		<annotation cp="👩‍🎨">allon zane | mace | mace mai zane | mawaƙi</annotation>
 		<annotation cp="👩‍🎨" type="tts">mace mai zane</annotation>
+		<annotation cp="🧑‍✈">jirgi</annotation>
+		<annotation cp="🧑‍✈" type="tts">mai tuka jirgi</annotation>
 		<annotation cp="👨‍✈">jirgin sama | mai tuƙin jirgin sama | mutum | mutum mai tuƙin jirgin sama</annotation>
 		<annotation cp="👨‍✈" type="tts">mutum mai tuƙin jirgin sama</annotation>
 		<annotation cp="👩‍✈">jirgin sama | mace | mace mai tuƙin jirgin sama | mai tuƙin jirgin sama</annotation>
 		<annotation cp="👩‍✈" type="tts">mace mai tuƙin jirgin sama</annotation>
+		<annotation cp="🧑‍🚀">dan sama jannati | roka</annotation>
+		<annotation cp="🧑‍🚀" type="tts">dan sama jannati</annotation>
 		<annotation cp="👨‍🚀">ɗan sama jannati | mutum | mutum ɗan sama jannati | roka</annotation>
 		<annotation cp="👨‍🚀" type="tts">mutum ɗan sama jannati</annotation>
 		<annotation cp="👩‍🚀">ɗan sama jannati | mace | mace ‘yar sama jannati | roka</annotation>
 		<annotation cp="👩‍🚀" type="tts">mace ‘yar sama jannati</annotation>
+		<annotation cp="🧑‍🚒">maʼaikacin kashe gobara | motar kashe gobara</annotation>
+		<annotation cp="🧑‍🚒" type="tts">maʼaikacin kashe gobara</annotation>
 		<annotation cp="👨‍🚒">ɗan kwana-kwana | motar kwana-kwana | mutum | mutum ɗan kwana-kwana</annotation>
 		<annotation cp="👨‍🚒" type="tts">mutum ɗan kwana-kwana</annotation>
 		<annotation cp="👩‍🚒">ɗan kwana-kwana | mace | mace ɗan kwana-kwana | motar kwana-kwana</annotation>
@@ -893,8 +1407,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">mace da ta saka ɗankwali</annotation>
 		<annotation cp="🤵">ango | kwat | mutum | mutum cikin kwat</annotation>
 		<annotation cp="🤵" type="tts">mutum cikin kwat</annotation>
+		<annotation cp="🤵‍♂">kayan mazan baturai mai burgewa | miji | na mijin da ya sa kayan baturai mai burgewa</annotation>
+		<annotation cp="🤵‍♂" type="tts">na mijin da ya sa kayan baturai mai burgewa</annotation>
+		<annotation cp="🤵‍♀">kayan baturai mai burgewa | mace | mace da ta sa kayan baturai mai burgewa</annotation>
+		<annotation cp="🤵‍♀" type="tts">mace da ta sa kayan baturai mai burgewa</annotation>
 		<annotation cp="👰">amarya | amarya da mayafi | bikin aure | mayafi</annotation>
 		<annotation cp="👰" type="tts">amarya da mayafi</annotation>
+		<annotation cp="👰‍♂">mayafi | miji | miji da ya yafa mayafi</annotation>
+		<annotation cp="👰‍♂" type="tts">miji da ya yafa mayafi</annotation>
+		<annotation cp="👰‍♀">mace | mace da ta yafa mayafi | mayafi</annotation>
+		<annotation cp="👰‍♀" type="tts">mace da ta yafa mayafi</annotation>
 		<annotation cp="🤰">ciki | mace | mace mai ciki</annotation>
 		<annotation cp="🤰" type="tts">mace mai ciki</annotation>
 		<annotation cp="🫃">cika | ciki | kumbura | mai ciki | namiji mai ciki</annotation>
@@ -903,16 +1425,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫄" type="tts">mutum mai ciki</annotation>
 		<annotation cp="🤱">jariri | jego | nono | shayarwa</annotation>
 		<annotation cp="🤱" type="tts">shayarwa</annotation>
+		<annotation cp="👩‍🍼">ba da abinci | bada nono | jariri | mace</annotation>
+		<annotation cp="👩‍🍼" type="tts">mace mai ba jariri abinci</annotation>
+		<annotation cp="👨‍🍼">ba da abinci | ba da nono | jariri | na miji</annotation>
+		<annotation cp="👨‍🍼" type="tts">na miji mai ba jariri abinci</annotation>
+		<annotation cp="🧑‍🍼">ba da abinci | ba da nono | jariri | mutum</annotation>
+		<annotation cp="🧑‍🍼" type="tts">mutum mai ba jariri abinci</annotation>
 		<annotation cp="👼">fuska | jariri | jaririn malaika | labarin aljana | malaika | tatsuniya</annotation>
 		<annotation cp="👼" type="tts">jaririn malaika</annotation>
 		<annotation cp="🎅">claus | Kirsimati | santa | Santa Claus | shagali | Tsoho-da-Gemu | uba</annotation>
 		<annotation cp="🎅" type="tts">Tsoho-da-Gemu</annotation>
 		<annotation cp="🤶">claus | Kirsimati | Matar | Matar Claus | shagalin biki | uwa</annotation>
 		<annotation cp="🤶" type="tts">Matar Claus</annotation>
+		<annotation cp="🧑‍🎄">father Chrismas | kirisimati | maganan kirisimati</annotation>
+		<annotation cp="🧑‍🎄" type="tts">father Christmas</annotation>
 		<annotation cp="🦸">gwarzo | jaruma | jarumi | ƙarfi | mai kyau</annotation>
 		<annotation cp="🦸" type="tts">jarumi</annotation>
+		<annotation cp="🦸‍♂">abu mai kyau | babban iko | babban jarumin namiji | jarumi | na miji</annotation>
+		<annotation cp="🦸‍♂" type="tts">babban jarumin namiji</annotation>
+		<annotation cp="🦸‍♀">abu mai kyau | babban karfi | jaruma | jaruma ta mace | jarumi | na mace</annotation>
+		<annotation cp="🦸‍♀" type="tts">jaruma</annotation>
 		<annotation cp="🦹">jarumi cikin zane | jurumi cikin zane | ƙarfi | mai laifi | mugunta | sharri</annotation>
 		<annotation cp="🦹" type="tts">jarumi cikin zane</annotation>
+		<annotation cp="🦹‍♂">babban iko | mai laifi | mugu | mugun abu | mugun namiji | na miji</annotation>
+		<annotation cp="🦹‍♂" type="tts">mugun namiji</annotation>
+		<annotation cp="🦹‍♀">babban iko | babban muguwar mace | mai laifi | mugun abu | mugunta | na mace</annotation>
+		<annotation cp="🦹‍♀" type="tts">muguwar mace</annotation>
 		<annotation cp="🧙">mai dabo | maye | mayya</annotation>
 		<annotation cp="🧙" type="tts">mai dabo</annotation>
 		<annotation cp="🧙‍♂">maye | mutum mai dabo</annotation>
@@ -977,8 +1515,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♀" type="tts">mace mai yin tafiya ƙafa</annotation>
 		<annotation cp="🧍">mutum a tsaye | tsaya | tsaye</annotation>
 		<annotation cp="🧍" type="tts">mutum a tsaye</annotation>
+		<annotation cp="🧍‍♂">na miji | tsayuwa</annotation>
+		<annotation cp="🧍‍♂" type="tts">miji mai tsaye</annotation>
+		<annotation cp="🧍‍♀">mace | tsayuwa</annotation>
+		<annotation cp="🧍‍♀" type="tts">mace mai tsayuwa</annotation>
 		<annotation cp="🧎">durƙusa | durƙushe | mutum a durƙushe</annotation>
 		<annotation cp="🧎" type="tts">mutum a durƙushe</annotation>
+		<annotation cp="🧑‍🦯">makanci | mutum mai farin kara | samun wuri</annotation>
+		<annotation cp="🧑‍🦯" type="tts">mutum mai farin bulala</annotation>
+		<annotation cp="🧑‍🦼">kujeran gurgu | mutum cikin kujeran gurgu | samun hanya</annotation>
+		<annotation cp="🧑‍🦼" type="tts">mutum cikin kujeran gurgu</annotation>
+		<annotation cp="🧑‍🦽">kujeran guragu | mutum a cikin motan guragu da ke bukatan tuki | samun hanya</annotation>
+		<annotation cp="🧑‍🦽" type="tts">mutum cikin motan gurgu wanda ke bukatan tuki da hannu</annotation>
+		<annotation cp="👨‍🦽">kujeran kurgu | na miji | na miji a cikin motan gurgu da ke bukatan tuki | samun wuri</annotation>
+		<annotation cp="👨‍🦽" type="tts">na miji a cikin motan gurgu da ke bukatan tuki</annotation>
+		<annotation cp="👩‍🦽">kujeran gurgu | na mace | na mace a cikin motan gurgu da ke bukatan tuki | samun wuri</annotation>
+		<annotation cp="👩‍🦽" type="tts">na mace a cikin motan gurgu da ke bukatan tuki</annotation>
 		<annotation cp="🏃">gudu | gudun dogon zango | mutum mai yin gudu</annotation>
 		<annotation cp="🏃" type="tts">mutum mai yin gudu</annotation>
 		<annotation cp="🏃‍♂">gudu | gudun dogon zango | mutum | namiji mai yin gudu | tsere</annotation>
@@ -1105,6 +1657,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀" type="tts">mutum mai yin wanka</annotation>
 		<annotation cp="🛌">barci | hotal | mutum a kan gado</annotation>
 		<annotation cp="🛌" type="tts">mutum a kan gado</annotation>
+		<annotation cp="🧑‍🤝‍🧑">hannu | mace da miji | mutane masu rikon hannaye | mutum | riko | rikon hannu</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">mutane masu rikon hannaye</annotation>
 		<annotation cp="👭">hannu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭" type="tts">namiji da mata suna riƙew da hannuwa</annotation>
 		<annotation cp="👫">hannu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
@@ -1149,6 +1703,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐕" type="tts">kare</annotation>
 		<annotation cp="🦮">jagora | karen jagora | makaho | samun dama</annotation>
 		<annotation cp="🦮" type="tts">karen jagora</annotation>
+		<annotation cp="🐕‍🦺">aiki | kare | samun wuri | taimako</annotation>
+		<annotation cp="🐕‍🦺" type="tts">karen aiki</annotation>
 		<annotation cp="🐩">kare | karen poodle</annotation>
 		<annotation cp="🐩" type="tts">karen poodle</annotation>
 		<annotation cp="🐺">fuskar | ƙyarkaci</annotation>
@@ -1161,6 +1717,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐱" type="tts">fuskar kyanwa</annotation>
 		<annotation cp="🐈">dabbar gida | kyanwa</annotation>
 		<annotation cp="🐈" type="tts">kyanwa</annotation>
+		<annotation cp="🐈‍⬛">baki | kyanwa | mara saʼa</annotation>
+		<annotation cp="🐈‍⬛" type="tts">Bakin kyanwa</annotation>
 		<annotation cp="🦁">falaki | fuskar zaki | Vote fuska | zaki | Zaki</annotation>
 		<annotation cp="🦁" type="tts">zaki</annotation>
 		<annotation cp="🐯">damisa | fuska | fuskar damisa mai ratsi-ratsi</annotation>
@@ -1245,6 +1803,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">jemage</annotation>
 		<annotation cp="🐻">dabbar bear | fuska | fuskar dabbar bear</annotation>
 		<annotation cp="🐻" type="tts">fuskar dabbar bear</annotation>
+		<annotation cp="🐻‍❄">dabban karshen duniya | fari | karshen duniya</annotation>
+		<annotation cp="🐻‍❄" type="tts">dabban karshen duniya</annotation>
 		<annotation cp="🐨">dabbar koala | fuska | marsupial</annotation>
 		<annotation cp="🐨" type="tts">dabbar koala</annotation>
 		<annotation cp="🐼">dabbar panda | fuska | fuskar dabbar panda</annotation>
@@ -1275,6 +1835,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">ƙaramin ɗan tsako mai dubawa-gaba</annotation>
 		<annotation cp="🐦">tsuntsu</annotation>
 		<annotation cp="🐦" type="tts">tsuntsu</annotation>
+		<annotation cp="🐦‍🔥">kirkirarren labari, tsuntsun wuta, sabon haihuwa, haihuwan matacce | phoenix</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">tsuntsu | tsuntsun penguin | tsuntsun Penguin</annotation>
 		<annotation cp="🐧" type="tts">tsuntsun Penguin</annotation>
 		<annotation cp="🕊">kurciya | tashi | tsuntsu | zaman lafiya</annotation>
@@ -1299,6 +1861,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦜" type="tts">aku</annotation>
 		<annotation cp="🪽">fuffuke | hikayar mafari | jirgin sama | na malaʼika | tsuntsu | yawo</annotation>
 		<annotation cp="🪽" type="tts">fuffuke</annotation>
+		<annotation cp="🐦‍⬛">baki | hankaka | rok | tsuntsu</annotation>
+		<annotation cp="🐦‍⬛" type="tts">babban tsuntsu</annotation>
 		<annotation cp="🪿">gis | kowa | tsuntsu | wauta</annotation>
 		<annotation cp="🪿" type="tts">gis</annotation>
 		<annotation cp="🐸">fuska | kwaɗo</annotation>
@@ -1431,6 +1995,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">sheƙa mai ƙwai</annotation>
 		<annotation cp="🍄">inuwar-kwaɗi | lemar-kwaɗi | shuken toadstool</annotation>
 		<annotation cp="🍄" type="tts">inuwar-kwaɗi</annotation>
+		<annotation cp="🍄‍🟫">abinci, naman gwari, yanayi, kayan lambu | naman kazan launin ruwan kasa</annotation>
+		<annotation cp="🍄‍🟫" type="tts">naman kazan launin ruwan kasa</annotation>
 		<annotation cp="🍇">ɗan itace | inabi</annotation>
 		<annotation cp="🍇" type="tts">inabi</annotation>
 		<annotation cp="🍈">ɗan itace | malo</annotation>
@@ -1441,6 +2007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">tanjarin</annotation>
 		<annotation cp="🍋">ɗan itace | kayan lemo | ruwan lemo</annotation>
 		<annotation cp="🍋" type="tts">ruwan lemo</annotation>
+		<annotation cp="🍋‍🟩">kayan lemu, ʼyaʼyan itace, wurare masu zafi | lemun tsami</annotation>
+		<annotation cp="🍋‍🟩" type="tts">lemun tsami</annotation>
 		<annotation cp="🍌">ayaba | ɗan itace</annotation>
 		<annotation cp="🍌" type="tts">ayaba</annotation>
 		<annotation cp="🍍">abarba | ɗan itace</annotation>
@@ -2721,6 +3289,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔗" type="tts">mahaɗa</annotation>
 		<annotation cp="⛓">sarƙa | sarƙoƙi</annotation>
 		<annotation cp="⛓" type="tts">sarƙoƙi</annotation>
+		<annotation cp="⛓‍💥">karyayyen sarka | karye, karyewa, sarka, sarkar hannu, ʼyanci</annotation>
+		<annotation cp="⛓‍💥" type="tts">karyayyen sarkar</annotation>
 		<annotation cp="🪝">kama | kwana | ƙugiya | sandar kiwo | tarko | wurin sayarwa</annotation>
 		<annotation cp="🪝" type="tts">ƙugiya</annotation>
 		<annotation cp="🧰">akwatin kayan aiki | kayan aiki | ƙirji | makaniki</annotation>
@@ -2897,6 +3467,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">kibiyar ƙasa ta sama</annotation>
 		<annotation cp="↔">kibiya | kibiyar hagu-dama</annotation>
 		<annotation cp="↔" type="tts">kibiyar hagu-dama</annotation>
+		<annotation cp="↮">alamar nuna hanyar hagu da dama</annotation>
+		<annotation cp="↮" type="tts">alamar nuna hanyar hagu da dama</annotation>
 		<annotation cp="↩">kibiya | kibiyar dama mai lanƙwasa ta hagu</annotation>
 		<annotation cp="↩" type="tts">kibiyar dama mai lanƙwasa ta hagu</annotation>
 		<annotation cp="↪">kibiya | kibiyar hagu mai lanƙwasa ta dama</annotation>
@@ -3257,6 +3829,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">farar tuta</annotation>
 		<annotation cp="🏳‍🌈">baƙangizo | tutar baƙangizo</annotation>
 		<annotation cp="🏳‍🌈" type="tts">tutar baƙangizo</annotation>
+		<annotation cp="🏳‍⚧">fari | ruwan hoda | shuɗe mai haske | transgender | tuta</annotation>
+		<annotation cp="🏳‍⚧" type="tts">tutan transgender</annotation>
+		<annotation cp="🏴‍☠">dukiya | ɗan fashin teku | ganima | tutan ɗan fashin teku</annotation>
+		<annotation cp="🏴‍☠" type="tts">tutan ɗan fashin teku</annotation>
 		<annotation cp="¢">anini</annotation>
 		<annotation cp="¢" type="tts">anini</annotation>
 		<annotation cp="$">dala | kuɗi | peso | USD</annotation>
@@ -3265,20 +3841,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">fam</annotation>
 		<annotation cp="¥">alamar yen | CNY | JPY | kuɗin ƙasa | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">alamar yen</annotation>
+		<annotation cp="₢">BRB | cruzeiro | kuɗi</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">franc | franc na faransanci | kuɗi</annotation>
+		<annotation cp="₣" type="tts">franc na faransanci</annotation>
+		<annotation cp="₤">kuɗi | lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
 		<annotation cp="₥">alamar mil | mill</annotation>
 		<annotation cp="₥" type="tts">alamar mil</annotation>
 		<annotation cp="₩">alamar KPW | alamar won | KRW | won</annotation>
 		<annotation cp="₩" type="tts">alamar won</annotation>
 		<annotation cp="€">kuɗin ƙasa | YUR | yuro</annotation>
 		<annotation cp="€" type="tts">yuro</annotation>
+		<annotation cp="₰">kuɗi | penny na jamus | pfennig</annotation>
+		<annotation cp="₰" type="tts">penny na jamus</annotation>
 		<annotation cp="₱">alamar peso</annotation>
 		<annotation cp="₱" type="tts">alamar peso</annotation>
+		<annotation cp="₳">ARA | kuɗi | sashen duniya na kudu</annotation>
+		<annotation cp="₳" type="tts">sashen duniya na kudu</annotation>
+		<annotation cp="₶">kuɗi | yawon shakatawa</annotation>
+		<annotation cp="₶" type="tts">yawon shakatawa</annotation>
+		<annotation cp="₷">kuɗi | spsmilo</annotation>
+		<annotation cp="₷" type="tts">spsmilo</annotation>
 		<annotation cp="₹">kuɗin ƙasa | rupee | rupee na indiya</annotation>
 		<annotation cp="₹" type="tts">rupee na indiya</annotation>
 		<annotation cp="₽">kuɗin ƙasa | ruble na rasha</annotation>
 		<annotation cp="₽" type="tts">ruble na rasha</annotation>
 		<annotation cp="₿">alamar bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">alamar bitcoin</annotation>
+		<annotation cp="₨">kuɗi | rupee</annotation>
+		<annotation cp="₨" type="tts">rupee</annotation>
+		<annotation cp="﷼">kuɗi | riyal</annotation>
+		<annotation cp="﷼" type="tts">riyal</annotation>
 		<annotation cp="¹">ɗaya | ɗaya mai rubutun sama | rubutun sama</annotation>
 		<annotation cp="¹" type="tts">ɗaya mai rubutun sama</annotation>
 		<annotation cp="²">biyu | biyu rubutun sama | mai murabbaʼi | rubutun sama</annotation>

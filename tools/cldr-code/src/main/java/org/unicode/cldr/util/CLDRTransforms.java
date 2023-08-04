@@ -982,6 +982,9 @@ public class CLDRTransforms {
             case "Olck":
                 id = "sat_Olck-sat_FONIPA"; // Latin IPA
                 break;
+            case "Cher":
+                id = "chr-chr_FONIPA";
+                break;
             default:
                 id = script + "-Latn";
         }

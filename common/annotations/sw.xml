@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -25,6 +25,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ngozi nyeusi kiasi</annotation>
 		<annotation cp="🏿">kibadilisha emoji | ngozi nyeusi | nyeusi | sura</annotation>
 		<annotation cp="🏿" type="tts">ngozi nyeusi</annotation>
+		<annotation cp="‾" draft="contributed">kata juu | kistari cha juu | kiunganishi</annotation>
+		<annotation cp="‾" type="tts" draft="contributed">kistari cha juu</annotation>
 		<annotation cp="_">kistari | kistari chini | mstari | mstari chini | mstari wa chini</annotation>
 		<annotation cp="_" type="tts">mstari wa chini</annotation>
 		<annotation cp="-">alama ya kutoa | kistari | kistariungio | kistariungio-alama ya kutoa</annotation>
@@ -61,6 +63,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">alama ya kuuliza iliyopinduliwa</annotation>
 		<annotation cp="؟">alama ya kuuliza | alama ya kuuliza ya kiarabu | kiarabu | swali</annotation>
 		<annotation cp="؟" type="tts">alama ya kuuliza ya kiarabu</annotation>
+		<annotation cp="‽" draft="contributed">balagha | kinaya</annotation>
+		<annotation cp="‽" type="tts" draft="contributed">kibalagha</annotation>
 		<annotation cp=".">alama ya kikomo | kikomo | nukta</annotation>
 		<annotation cp="." type="tts">kikomo</annotation>
 		<annotation cp="…">alama ya dukuduku | nukta | nukta ya dukuduku | ruko</annotation>
@@ -157,8 +161,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="″" type="tts">tasa mbili</annotation>
 		<annotation cp="‴">tasa | tasa tatu</annotation>
 		<annotation cp="‴" type="tts">tasa tatu</annotation>
+		<annotation cp="‸" draft="contributed">kareti</annotation>
+		<annotation cp="‸" type="tts" draft="contributed">kareti</annotation>
 		<annotation cp="※">alama ya kurejelea</annotation>
 		<annotation cp="※" type="tts">alama ya kurejelea</annotation>
+		<annotation cp="⁂" draft="contributed">dinku | nyota | vinyota</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">vinyota</annotation>
 		<annotation cp="`">lafudhi | lafudhi ya kuu | toni</annotation>
 		<annotation cp="`" type="tts">lafudhi ya kuu</annotation>
 		<annotation cp="´">kali | lafudhi | toni</annotation>
@@ -173,22 +181,192 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="℗" type="tts">hakimiliki ya rekodi ya sauti</annotation>
 		<annotation cp="←">kushoto | mshale | mshale unaoelekea kushoto</annotation>
 		<annotation cp="←" type="tts">mshale unaoelekea kushoto</annotation>
+		<annotation cp="↚" draft="contributed">mkwaju na kishale kinachoelekea kushoto</annotation>
+		<annotation cp="↚" type="tts" draft="contributed">mkwaju na kishale kinachoelekea kushoto</annotation>
 		<annotation cp="→">kulia | mshale | mshale unaoelekea kulia</annotation>
 		<annotation cp="→" type="tts">mshale unaoelekea kulia</annotation>
+		<annotation cp="↛" draft="contributed">mkwaju na kishale kinachoelekea kulia</annotation>
+		<annotation cp="↛" type="tts" draft="contributed">mkwaju na kishale kinachoelekea kulia</annotation>
 		<annotation cp="↑">juu | mshale | mshale unaoelekea juu</annotation>
 		<annotation cp="↑" type="tts">mshale unaoelekea juu</annotation>
 		<annotation cp="↓">chini | mshale | mshale unaoelekea chini</annotation>
 		<annotation cp="↓" type="tts">mshale unaoelekea chini</annotation>
+		<annotation cp="↜" draft="contributed">kishale cha kiwimbi kinachoelekea kushoto</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">kishale cha kiwimbi kinachoelekea kushoto</annotation>
+		<annotation cp="↝" draft="contributed">kishale cha kiwimbi kinachoelekea kulia</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">kishale cha kiwimbi kinachoelekea kulia</annotation>
+		<annotation cp="↞" draft="contributed">kishale chenye vichwa viwili vinavyoelekea kushoto</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">kishale chenye vichwa viwili vinavyoelekea kushoto</annotation>
+		<annotation cp="↟" draft="contributed">kishale chenye vichwa viwili vinavyoelekea juu</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">kishale chenye vichwa viwili vinavyoelekea juu</annotation>
+		<annotation cp="↠" draft="contributed">kishale chenye vichwa viwili vinavyoelekea kulia</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">kishale chenye vichwa viwili vinavyoelekea kulia</annotation>
+		<annotation cp="↡" draft="contributed">kishale chenye vichwa viwili vinavyoelekea chini</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">kishale chenye vichwa viwili vinavyoelekea chini</annotation>
+		<annotation cp="↢" draft="contributed">kishale chenye mkia unaoelekea kushoto</annotation>
+		<annotation cp="↢" type="tts" draft="contributed">kishale chenye mkia unaoelekea kushoto</annotation>
+		<annotation cp="↣" draft="contributed">kishale chenye mkia unaoelekea kulia</annotation>
+		<annotation cp="↣" type="tts" draft="contributed">kishale chenye mkia unaoelekea kulia</annotation>
+		<annotation cp="↤" draft="contributed">kishale kinachoelekea kushoto kutoka kwenye upao</annotation>
+		<annotation cp="↤" type="tts" draft="contributed">kishale kinachoelekea kushoto kutoka kwenye upao</annotation>
+		<annotation cp="↥" draft="contributed">kishale kinachoelekea juu kutoka kwenye upao</annotation>
+		<annotation cp="↥" type="tts" draft="contributed">kishale kinachoelekea juu kutoka kwenye upao</annotation>
+		<annotation cp="↦" draft="contributed">kishale kinachoelekea kulia kutoka kwenye upao</annotation>
+		<annotation cp="↦" type="tts" draft="contributed">kishale kinachoelekea kulia kutoka kwenye upao</annotation>
+		<annotation cp="↧" draft="contributed">kishale kinachoelekea chini kutoka kwenye upao</annotation>
+		<annotation cp="↧" type="tts" draft="contributed">kishale kinachoelekea chini kutoka kwenye upao</annotation>
+		<annotation cp="↨" draft="contributed">kishale cha juu chini chenye upao</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">kishale cha juu chini chenye upao</annotation>
+		<annotation cp="↫" draft="contributed">kishale kilichosokota kinachoelekea kushoto</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">kishale kilichosokota kinachoelekea kushoto</annotation>
+		<annotation cp="↬" draft="contributed">kishale kilichosokota kinachoelekea kulia</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">kishale kilichosokota kinachoelekea kulia</annotation>
+		<annotation cp="↭" draft="contributed">kishale cha kiwimbi chenye ncha pande mbili</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">kishale cha kiwimbi chenye ncha pande mbili</annotation>
+		<annotation cp="↯" draft="contributed">zigizagi | zigizagi yenye kishale kinachoelekea chini</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">zigizagi yenye kishale kinachoelekea chini</annotation>
+		<annotation cp="↰" draft="contributed">kishale kinachoelekea juu chenye ncha iliyopinda kushoto</annotation>
+		<annotation cp="↰" type="tts" draft="contributed">kishale kinachoelekea juu chenye ncha iliyopinda kushoto</annotation>
+		<annotation cp="↱" draft="contributed">kishale kinachoelekea juu chenye ncha iliyopinda kulia</annotation>
+		<annotation cp="↱" type="tts" draft="contributed">kishale kinachoelekea juu chenye ncha iliyopinda kulia</annotation>
+		<annotation cp="↲" draft="contributed">kishale kinachoelekea chini ncha ikipinda kushoto</annotation>
+		<annotation cp="↲" type="tts" draft="contributed">kishale kinachoelekea chini ncha ikipinda kushoto</annotation>
+		<annotation cp="↳" draft="contributed">kishale kinachoelekea chini ncha ikipinda kulia</annotation>
+		<annotation cp="↳" type="tts" draft="contributed">kishale kinachoelekea chini ncha ikipinda kulia</annotation>
+		<annotation cp="↴" draft="contributed">kishale cha chini chenye kona inayopinda kulia</annotation>
+		<annotation cp="↴" type="tts" draft="contributed">kishale cha chini chenye kona inayopinda kulia</annotation>
+		<annotation cp="↵" draft="contributed">kishale cha chini chenye kona inayopinda kushoto</annotation>
+		<annotation cp="↵" type="tts" draft="contributed">kishale cha chini chenye kona inayopinda kushoto</annotation>
+		<annotation cp="↶" draft="contributed">kishale nusu mviringo kinachoelekea kinyume saa</annotation>
+		<annotation cp="↶" type="tts" draft="contributed">kishale nusu mviringo kinachoelekea kinyume saa</annotation>
+		<annotation cp="↷" draft="contributed">kishale nusu mviringo kinachoelekea kisaa</annotation>
+		<annotation cp="↷" type="tts" draft="contributed">kishale nusu mviringo kinachoelekea kisaa</annotation>
+		<annotation cp="↸" draft="contributed">kishale cha kaskazini magharibi kinachoegemea upao</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">kishale cha upau wa kasakazini magharibi</annotation>
+		<annotation cp="↹" draft="contributed">kishale | kushoto | upao | vishale vya upau wa kushoto juu ya kulia</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">kishale kinachoelekea kushoto juu ya kishale kinachoelekea kulia</annotation>
+		<annotation cp="↺" draft="contributed">kishale cha mviringo wazi kinachoelekea kinyume cha saa</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">kishale cha mviringo wazi kinachoelekea kinyume cha saa</annotation>
+		<annotation cp="↻" draft="contributed">kishale cha mviringo wazi kinachoelekea kisaa</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">kishale cha mviringo wazi kinachoelekea kisaa</annotation>
+		<annotation cp="↼" draft="contributed">chembe | chusa chenye chembe inayoelekea juu kushoto</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">chusa chenye chembe inayoelekea juu kushoto</annotation>
+		<annotation cp="↽" draft="contributed">chembe | chusa chenye chembe inayoelekea chini kushoto</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">chusa chenye chembe inayoelekea chini kushoto</annotation>
+		<annotation cp="↾" draft="contributed">chembe | chusa kinachoelekea juu chenye chembe cha kulia</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">chusa kinachoelekea juu chenye chembe cha kulia</annotation>
+		<annotation cp="↿" draft="contributed">chembe | chembe cha chusa kinachoelekea juu</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">chusa kinachoelekea juu chenye chembe cha kushoto</annotation>
+		<annotation cp="⇀" draft="contributed">chembe | chusa chenye chembe inayoelekea juu kulia</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">chusa chenye chembe inayoelekea juu kulia</annotation>
+		<annotation cp="⇁" draft="contributed">chembe | chusa chenye chembe inayoelekea chini kulia</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">chusa chenye chembe inayoelekea chini kulia</annotation>
+		<annotation cp="⇂">chusa | chusa kinachoelekea chini chenye chembe cha kulia</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">chusa kinachoelekea chini chenye chembe cha kulia</annotation>
+		<annotation cp="⇃" draft="contributed">chembe | chusa kinachoelekea chini chenye chembe cha kushoto</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">chusa kinachoelekea chini chenye chembe cha kushoto</annotation>
+		<annotation cp="⇄" draft="contributed">kishale cha kulia juu ya kishale cha kushoto</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">kishale cha kulia juu ya kishale cha kushoto</annotation>
 		<annotation cp="⇅">chini | juu | mshale | mshale unaoelekea juu na mwingine chini</annotation>
 		<annotation cp="⇅" type="tts">mshale unaoelekea juu na mwingine chini</annotation>
 		<annotation cp="⇆">kulia | kushoto | mshale | mshale unaoelekea kushoto juu ya mshale unaoelekea kulia</annotation>
 		<annotation cp="⇆" type="tts">mshale unaoelekea kushoto juu ya mshale unaoelekea kulia</annotation>
+		<annotation cp="⇇" draft="contributed">vishale pacha vinavyoelekea kushoto</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">vishale pacha vinavyoelekea kushoto</annotation>
+		<annotation cp="⇈" draft="contributed">vishale pacha vinavyoelekea juu</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">vishale pacha vinavyoelekea juu</annotation>
+		<annotation cp="⇉" draft="contributed">vishale pacha vinavyoelekea kulia</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">vishale pacha vinavyoelekea kulia</annotation>
+		<annotation cp="⇊" draft="contributed">vishale pacha vinavyoelekea chini</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">vishale pacha vinavyoelekea chini</annotation>
+		<annotation cp="⇋" draft="contributed">chusa kinachoelekea kushoto juu ya chusa kinachoelekea kulia</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">chusa kinachoelekea kushoto juu ya chusa kinachoelekea kulia</annotation>
+		<annotation cp="⇌" draft="contributed">chusa kinachoelekea kulia juu ya chusa kinachoelekea kushoto</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">chusa kinachoelekea kulia juu ya chusa kinachoelekea kushoto</annotation>
+		<annotation cp="⇐" draft="contributed">vishale pacha vyenye ncha moja kushoto</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">vishale pacha vyenye ncha moja kushoto</annotation>
+		<annotation cp="⇍" draft="contributed">vishale pacha vyenye ncha moja kushoto vina mkato</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">vishale pacha vyenye ncha moja kushoto vina mkato</annotation>
+		<annotation cp="⇑" draft="contributed">vishale pacha vyenye ncha moja kuelekea juu</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">vishale pacha vyenye ncha moja kuelekea juu</annotation>
+		<annotation cp="⇒" draft="contributed">vishale pacha vyenye ncha moja kulia</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">vishale pacha vyenye ncha moja kulia</annotation>
+		<annotation cp="⇏" draft="contributed">vishale pacha vyenye ncha moja kulia vina mkato</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">vishale pacha vyenye ncha moja kulia vina mkato</annotation>
+		<annotation cp="⇓" draft="contributed">vishale pacha vyenye ncha moja kuelekea chini</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">vishale pacha vyenye ncha moja kuelekea chini</annotation>
+		<annotation cp="⇔" draft="contributed">vishale pacha vyenye ncha pande zote</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">vishale pacha vyenye ncha pande zote</annotation>
+		<annotation cp="⇎" draft="contributed">vishale pacha vyenye ncha pande zote vina mkato</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">vishale pacha vyenye ncha pande zote vina mkato</annotation>
+		<annotation cp="⇖" draft="contributed">vishale pacha vyenye ncha kaskazini magharibi</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">vishale pacha vyenye ncha kaskazini magharibi</annotation>
+		<annotation cp="⇗" draft="contributed">vishale pacha vyenye ncha kaskazini mashariki</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">vishale pacha vyenye ncha kaskazini mashariki</annotation>
+		<annotation cp="⇘" draft="contributed">vishale pacha vyenye ncha kusini mashariki</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">vishale pacha vyenye ncha kusini mashariki</annotation>
+		<annotation cp="⇙" draft="contributed">vishale pacha vyenye ncha kusini magharibi</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">vishale pacha vyenye ncha kusini magharibi</annotation>
+		<annotation cp="⇚" draft="contributed">vishale vitatu vyenye ncha moja kushoto</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">vishale vitatu vyenye ncha moja kushoto</annotation>
+		<annotation cp="⇛" draft="contributed">vishale vitatu vyenye ncha moja kulia</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">vishale vitatu vyenye ncha moja kulia</annotation>
+		<annotation cp="⇜" draft="contributed">mcharazo wenye kishale cha kushoto</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">mcharazo wenye kishale cha kushoto</annotation>
+		<annotation cp="⇝" draft="contributed">mcharazo wenye kishale cha kulia</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">mcharazo wenye kishale cha kulia</annotation>
+		<annotation cp="⇞" draft="contributed">kishale kinachoelekea juu chenye mikato miwili</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">kishale kinachoelekea juu chenye mikato miwili</annotation>
+		<annotation cp="⇟" draft="contributed">kishale kinachoelekea chini chenye mikato miwili</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">kishale kinachoelekea chini chenye mikato miwili</annotation>
+		<annotation cp="⇠" draft="contributed">kishale cha deshi cha kushoto</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">kishale cha deshi cha kushoto</annotation>
+		<annotation cp="⇡" draft="contributed">kishale cha deshi kinachoelekea juu</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">kishale cha deshi kinachoelekea juu</annotation>
+		<annotation cp="⇢" draft="contributed">kishale cha deshi cha kulia</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">kishale cha deshi cha kulia</annotation>
+		<annotation cp="⇣" draft="contributed">kishale cha deshi kinachoelekea chini</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">kishale cha deshi kinachoelekea chini</annotation>
+		<annotation cp="⇤" draft="contributed">upao wa kishale cha kushoto</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">upao wa kishale cha kushoto</annotation>
+		<annotation cp="⇥" draft="contributed">upao wa kishale cha kulia</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">upao wa kishale cha kulia</annotation>
+		<annotation cp="⇦" draft="contributed">kishale wazi kinachoelekea kushoto</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">kishale wazi kinachoelekea kushoto</annotation>
+		<annotation cp="⇧" draft="contributed">kishale wazi kinachoelekea juu</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">kishale wazi kinachoelekea juu</annotation>
+		<annotation cp="⇨" draft="contributed">kishale wazi kinachoelekea kulia</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">kishale wazi kinachoelekea kulia</annotation>
+		<annotation cp="⇩" draft="contributed">kishale wazi kinachoelekea chini</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">kishale wazi kinachoelekea chini</annotation>
+		<annotation cp="⇪" draft="contributed">kishale wazi chenye mkato kinachoelekea juu</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">kishale wazi chenye mkato kinachoelekea juu</annotation>
+		<annotation cp="⇵" draft="contributed">kishale cha kushoto chini cha kulia juu</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">kishale cha kushoto chini cha kulia juu</annotation>
+		<annotation cp="∀" draft="contributed">ikiwa | jumla | kwa yote | yote | yoyote</annotation>
+		<annotation cp="∀" type="tts" draft="contributed">kwa yote</annotation>
+		<annotation cp="∂" draft="contributed">mgawango tenguo | tenguo</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">mgawango tenguo</annotation>
+		<annotation cp="∃" draft="contributed">kuna</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">kuna</annotation>
+		<annotation cp="∅" draft="contributed">hesabu | seti kapa | ukokotoaji</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">seti kapa</annotation>
 		<annotation cp="∆">nyongeza | pembetatu</annotation>
 		<annotation cp="∆" type="tts">nyongeza</annotation>
 		<annotation cp="∇">nabla | pembetatu</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">inajumuisha | memba | memba ya | seti | umemba</annotation>
 		<annotation cp="∈" type="tts">memba ya</annotation>
+		<annotation cp="∉" draft="contributed">memba | si memba</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">si memba</annotation>
+		<annotation cp="∋" draft="contributed">ina kama memba | memba</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">ina kama memba</annotation>
+		<annotation cp="∎" draft="contributed">halmosi | mwisho wa thibitisho | q.e.d | qed</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">mwisho wa thibitisho</annotation>
+		<annotation cp="∏" draft="contributed">mantiki | zao | zao la mpango wa n</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">zao la mpango wa n</annotation>
+		<annotation cp="∑" draft="contributed">hisabati | jumla ya mpango wa n | ujumlishaji</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">jumla ya mpango wa n</annotation>
 		<annotation cp="+">alama ya kujumlisha | jumlisha | ongeza</annotation>
 		<annotation cp="+" type="tts">alama ya kujumlisha</annotation>
 		<annotation cp="±">jumlisha-toa</annotation>
@@ -199,12 +377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">alama ya kuzidisha</annotation>
 		<annotation cp="&lt;">chini ya | lebo | lebo ya kufungua</annotation>
 		<annotation cp="&lt;" type="tts">chini ya</annotation>
+		<annotation cp="≮" draft="contributed">hisabati | si chini ya | si sawa</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">si chini ya</annotation>
 		<annotation cp="=">inalingana na | lingana</annotation>
 		<annotation cp="=" type="tts">lingana</annotation>
 		<annotation cp="≠">hailingani | isiyolingana | kutokuwa sawa</annotation>
 		<annotation cp="≠" type="tts">hailingani</annotation>
 		<annotation cp="&gt;">lebo | lebo ya kufunga | zaidi ya</annotation>
 		<annotation cp="&gt;" type="tts">zaidi ya</annotation>
+		<annotation cp="≯" draft="contributed">hisabati | si sawa | si zaidi ya</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">si zaidi ya</annotation>
 		<annotation cp="¬">sio | uhasi</annotation>
 		<annotation cp="¬" type="tts">uhasi</annotation>
 		<annotation cp="|">alama | alama ya upau wima | mstari | mstari wima | upau | upau wima</annotation>
@@ -215,38 +397,316 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">alama ya kutoa</annotation>
 		<annotation cp="⁻">alama ya kutoa | alama ya kutoa ya juu | juu</annotation>
 		<annotation cp="⁻" type="tts">alama ya kutoa ya juu</annotation>
+		<annotation cp="∓" draft="contributed">jumlisha au toa | jumlisha toa</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">jumlisha au toa</annotation>
+		<annotation cp="∕" draft="contributed">deshi ya gawanya | mkato | sleshi</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">deshi ya gawanya</annotation>
+		<annotation cp="⁄" draft="contributed">mkato wa sehemu | mkwaju</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">mkato wa sehemu</annotation>
+		<annotation cp="∗" draft="contributed">fomula ya kinyota | nyota</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">kinyota cha kukokotoa</annotation>
+		<annotation cp="∘" draft="contributed">kiduara cha kukokotoa | kikokotoo | kivungo</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">kiduara cha kukokotoa</annotation>
+		<annotation cp="∙" draft="contributed">kikokotoo | nukta ya kukokotoa</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">nukta ya kukokotoa</annotation>
 		<annotation cp="√">isiyoeleweka | kipeo | kipeo cha pili | mraba | mzizi</annotation>
 		<annotation cp="√" type="tts">kipeo cha pili</annotation>
+		<annotation cp="∝" draft="contributed">kadiri | ulinganifu</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">kadiri</annotation>
 		<annotation cp="∞">alama ya isiyokoma | isiyokoma</annotation>
 		<annotation cp="∞" type="tts">alama ya isiyokoma</annotation>
+		<annotation cp="∟" draft="contributed">hesabati | pembe mraba</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">pembe mraba</annotation>
+		<annotation cp="∠" draft="contributed">kali | pembe</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">pembe</annotation>
+		<annotation cp="∣" draft="contributed">hugawanya | kigawanyi</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">hugawanya</annotation>
+		<annotation cp="∥" draft="contributed">sambamba</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">sambamba</annotation>
+		<annotation cp="∧" draft="contributed">kabari | mantiki</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">mantiki na</annotation>
 		<annotation cp="∩">seti | ungano</annotation>
 		<annotation cp="∩" type="tts">ungano</annotation>
 		<annotation cp="∪">mkusanyiko | muungano | seti</annotation>
 		<annotation cp="∪" type="tts">muungano</annotation>
+		<annotation cp="∫" draft="contributed">kalkulasi | rejeo</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">rejeo</annotation>
+		<annotation cp="∬" draft="contributed">kalkulasi | rejeo mbili</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">rejeo mbili</annotation>
+		<annotation cp="∮" draft="contributed">rejeo ya kontua</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">rejeo ya kontua</annotation>
+		<annotation cp="∴" draft="contributed">hivyo basi | mantiki</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">hivyo basi</annotation>
+		<annotation cp="∵" draft="contributed">kwa sababu | mantiki</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">kwa sababu</annotation>
+		<annotation cp="∶" draft="contributed">uwiano</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">uwiano</annotation>
+		<annotation cp="∷" draft="contributed">kadiri | uwianisho</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">kiwango</annotation>
+		<annotation cp="∼" draft="contributed">fomula | kiwimbi cha kikokotoo</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">kiwimbi cha kikokotoo</annotation>
+		<annotation cp="∽" draft="contributed">kiwimbi | kiwimbi kinyume</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">kiwimbi kinyume</annotation>
+		<annotation cp="∾" draft="contributed">s iliyopindwa kulala</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">s iliyopindwa kulala</annotation>
+		<annotation cp="≃" draft="contributed">asimptoti | hesabu | usawa usopacha</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">usawa usopacha</annotation>
+		<annotation cp="≅" draft="contributed">aisomofu | hesabu | karibu sawa na | usawa</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">karibia sawa na</annotation>
 		<annotation cp="≈">kadirio | karibia | karibu inalingana</annotation>
 		<annotation cp="≈" type="tts">karibu inalingana</annotation>
+		<annotation cp="≌" draft="contributed">hesabu | usawa | yote sawa</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">yote sawa</annotation>
+		<annotation cp="≒" draft="contributed">inakaribia kuwa sawa na picha</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">inakaribia kuwa sawa na picha</annotation>
+		<annotation cp="≖" draft="contributed">hisabati | usawa | usawa wa kujumlisha</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">usawa wa kujumlisha</annotation>
 		<annotation cp="≡">hasa | inafanana | inafanana na | mara tatu</annotation>
 		<annotation cp="≡" type="tts">inafanana na</annotation>
+		<annotation cp="≣" draft="contributed">hesabu | sawa kabisa | usawa</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">ni sawa kabisa</annotation>
 		<annotation cp="≤">chini ya | chini ya au lingana | inalingana | kutokuwa sawa | lingana</annotation>
 		<annotation cp="≤" type="tts">chini ya au lingana</annotation>
 		<annotation cp="≥">inalingana | kutokuwa sawa | lingana | zaidi ya | zaidi ya au lingana</annotation>
 		<annotation cp="≥" type="tts">zaidi ya au lingana</annotation>
+		<annotation cp="≦" draft="contributed">chini ya juu ya sawa | hisabati | kukosa usawa</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">chini ya juu ya sawa</annotation>
+		<annotation cp="≧" draft="contributed">hesabu | ukosefu wa usawa | zaidi ya juu ya sawa</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">zaidi ya juu ya sawa</annotation>
+		<annotation cp="≪" draft="contributed">chache zaidi ya | hesabu | ukosefu wa usawa</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">chache zaidi ya</annotation>
+		<annotation cp="≫" draft="contributed">hesabu | kubwa zaidi ya | ukosefu wa usawa</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">kubwa zaidi ya</annotation>
+		<annotation cp="≬" draft="contributed">kati ya</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">kati ya</annotation>
+		<annotation cp="≳" draft="contributed">hisabati | kisawe cha kubwa kuliko | ukosefu wa usawa</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">kisawe cha kubwa kuliko</annotation>
+		<annotation cp="≺" draft="contributed">hisabati | inatangulia | kigawanyaji cha seti</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">inatangulia</annotation>
+		<annotation cp="≻" draft="contributed">hisabati | inafuata | kigawanyaji cha seti</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">inafuata</annotation>
+		<annotation cp="⊁" draft="contributed">haifuati | hisabati | kigawanyaji cha seti</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">haifuati</annotation>
 		<annotation cp="⊂">seti | seti ndogo | seti ndogo ya</annotation>
 		<annotation cp="⊂" type="tts">seti ndogo ya</annotation>
+		<annotation cp="⊃" draft="contributed">hisabati | kigawanyaji cha seti | seti kuu</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">seti kuu</annotation>
+		<annotation cp="⊆" draft="contributed">sawa na seti ndogo</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">sawa na seti ndogo</annotation>
+		<annotation cp="⊇" draft="contributed">hisabati | sawa na seti kuu | usawa</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">sawa na seti kuu</annotation>
+		<annotation cp="⊕" draft="contributed">jumlisha | jumlisha kwenye duara</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">jumlisha kwenye duara</annotation>
+		<annotation cp="⊖" draft="contributed">mmomonyoko | ondoa kwenye duara | utofauti pacha</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">ondoa kwenye duara</annotation>
+		<annotation cp="⊗" draft="contributed">tokeo | uzidishaji | zidisha kwenye duara</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">zidisha kwenye duara</annotation>
+		<annotation cp="⊘" draft="contributed">gawanya kwenye duara | hisabati | kama kugawa</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">gawanya kwenye duara</annotation>
+		<annotation cp="⊙" draft="contributed">kigawanyaji | nukta ya kukokotoa kwenye duara | XNOR</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">nukta ya kukokotoa kwenye duara</annotation>
+		<annotation cp="⊚" draft="contributed">ringi ya kugawanya kwenye duara</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">ringi ya kugawanya kwenye duara</annotation>
+		<annotation cp="⊛" draft="contributed">kigawanyaji | kinyota | kinyota cha kugawanya kwenye duara</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">kinyota cha kugawanya kwenye duara</annotation>
+		<annotation cp="⊞" draft="contributed">hisabati | jumlisha kwenye mraba | kama jumlisha</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">jumlisha kwenye mraba</annotation>
+		<annotation cp="⊟" draft="contributed">hisabati | kama alama ya ondoa | ondoa kwenye mraba</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">ondoa kwenye mraba</annotation>
+		<annotation cp="⊥" draft="contributed">taki | taki wima</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">taki wima</annotation>
+		<annotation cp="⊮" draft="contributed">hailazimishi</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">hailazimishi</annotation>
+		<annotation cp="⊰" draft="contributed">hisabati | kigawanyaji cha seti | kutangulia kwenye uhusiano</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">kutangulia kwenye uhusiano</annotation>
+		<annotation cp="⊱" draft="contributed">hisabati | kigawanyaji cha seti | kufuata kwenye uhusiano</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">kufuata kwenye uhusiano</annotation>
+		<annotation cp="⋭" draft="contributed">haina kama kikundi kidogo kwenye sawa | hisabati | nadharia ya kundi</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">haina kama kikundi kidogo kwenye sawa</annotation>
+		<annotation cp="⊶" draft="contributed">asili</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">asili</annotation>
+		<annotation cp="⊹" draft="contributed">hisabati | matriksi inayojiunganisha | solo la unyambuaji wa hermite | solo mraba</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">solo la unyambuaji wa hermite</annotation>
+		<annotation cp="⊿" draft="contributed">hesabu | pembe tatu mraba</annotation>
+		<annotation cp="⊿" type="tts" draft="contributed">pembe tatu mraba</annotation>
+		<annotation cp="⋁" draft="contributed">mantiki | mantiki ya n-ary au | utengano</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">mantiki ya n-ary au</annotation>
+		<annotation cp="⋂" draft="contributed">hesabu | kikokotoo | makutano | makutano ya n-ary</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">makutano ya n-ary</annotation>
+		<annotation cp="⋃" draft="contributed">hesabu | kikokotoo | muunganiko | muunganiko wa n-ary</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">muunganiko wa n-ary</annotation>
+		<annotation cp="⋅" draft="contributed">kigawanyaji | nukta ya kigawanyaji</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">nukta ya kigawanyaji</annotation>
+		<annotation cp="⋆" draft="contributed">kigawanyaji | nyota ya kigawanyaji</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">nyota ya kigawanyaji</annotation>
+		<annotation cp="⋈" draft="contributed">kigawanyaji pacha | muunganiko asili</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">muunganiko asili</annotation>
+		<annotation cp="⋒" draft="contributed">hesabu | kigawanyaji | makutano | makutano pacha</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">makutano pacha</annotation>
+		<annotation cp="⋘" draft="contributed">chini zaidi ya | hisabati | ukosefu wa usawa</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">chini zaidi ya</annotation>
+		<annotation cp="⋙" draft="contributed">hisabati | kubwa zidi ya | ukosefu wa usawa</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">kubwa zidi ya</annotation>
+		<annotation cp="⋮" draft="contributed">hisabati | nukta tatu zilizo wima | udondoshaji</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">nukta tatu zilizo wima</annotation>
+		<annotation cp="⋯" draft="contributed">nukta tatu katikati ya mstari | udondoshaji</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">nukta tatu katikati ya mstari</annotation>
+		<annotation cp="⋰" draft="contributed">hisabati | nukta tatu za kimshazari kulia | udondoshaji</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">nukta tatu za kimshazari kulia juu</annotation>
+		<annotation cp="⋱" draft="contributed">hisabati | nukta tatu za kimshazari kulia chini | udondoshaji</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">nukta tatu za kimshazari kulia chini</annotation>
+		<annotation cp="■" draft="contributed">mraba uliokolezwa</annotation>
+		<annotation cp="■" type="tts" draft="contributed">mraba uliokolezwa</annotation>
+		<annotation cp="□" draft="contributed">mraba ulio wazi</annotation>
+		<annotation cp="□" type="tts" draft="contributed">mraba ulio wazi</annotation>
+		<annotation cp="▢" draft="contributed">mraba wazi ulio na pembe zilizo mviringo</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">mraba wazi ulio na pembe zilizo mviringo</annotation>
+		<annotation cp="▣" draft="contributed">mraba wazi ulio na mraba uliojazwa ndani</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">mraba wazi ulio na mraba uliojazwa ndani</annotation>
+		<annotation cp="▤" draft="contributed">mraba ulio na milia ya mlazo ndani</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">mraba ulio na milia ya mlazo ndani</annotation>
+		<annotation cp="▥" draft="contributed">mraba ulio na milia ya wima ndani</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">mraba ulio na milia ya wima ndani</annotation>
+		<annotation cp="▦" draft="contributed">mraba wenye miraba midogo ndani</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">mraba wenye miraba midogo ndani</annotation>
+		<annotation cp="▧" draft="contributed">mraba wenye mishazari ya kushoto kulia</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">mraba wenye mishazari ya kushoto kulia</annotation>
+		<annotation cp="▨" draft="contributed">mraba wenye mishazari ya kulia kushoto</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">mraba wenye mishazari ya kulia kushoto</annotation>
+		<annotation cp="▩" draft="contributed">mraba wenye kunguru za mraba</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">mraba wenye kunguru za mraba</annotation>
+		<annotation cp="▬" draft="contributed">mstatili uliojazwa</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">mstatili uliojazwa</annotation>
+		<annotation cp="▭" draft="contributed">mstatili uliowazi</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">mstatili uliowazi</annotation>
+		<annotation cp="▮" draft="contributed">mstatili wima uliojazwa</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">mstatili wima uliojazwa</annotation>
+		<annotation cp="▰" draft="contributed">msambamba uliojazwa</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">msambamba uliojazwa</annotation>
 		<annotation cp="▲">juu | mshale | pembetatu | pembetatu iliyojazwa inayoelekea juu | uliojazwa</annotation>
 		<annotation cp="▲" type="tts">pembetatu iliyojazwa inayoelekea juu</annotation>
+		<annotation cp="△" draft="contributed">pembe tatu wazi inayeolekea juu</annotation>
+		<annotation cp="△" type="tts" draft="contributed">pembe tatu wazi inayeolekea juu</annotation>
+		<annotation cp="▴" draft="contributed">pembe tatu ndogo iliyojazwa</annotation>
+		<annotation cp="▴" type="tts" draft="contributed">pembe tatu ndogo iliyojazwa</annotation>
+		<annotation cp="▵" draft="contributed">pembe tatu ndogo iliyo wazi</annotation>
+		<annotation cp="▵" type="tts" draft="contributed">pembe tatu ndogo iliyo wazi</annotation>
+		<annotation cp="▷" draft="contributed">pembe tatu wazi inayoelekea kulia</annotation>
+		<annotation cp="▷" type="tts" draft="contributed">pembe tatu wazi inayoelekea kulia</annotation>
+		<annotation cp="▸" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea kulia</annotation>
+		<annotation cp="▸" type="tts" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea kulia</annotation>
+		<annotation cp="▹" draft="contributed">pembe tatu ndogo iliyo wazi inayoelekea kulia</annotation>
+		<annotation cp="▹" type="tts" draft="contributed">pembe tatu ndogo iliyo wazi inayoelekea kulia</annotation>
+		<annotation cp="►" draft="contributed">kiashiria kilichojazwa kinachoelekea kulia</annotation>
+		<annotation cp="►" type="tts" draft="contributed">kiashiria kilichojazwa kinachoelekea kulia</annotation>
+		<annotation cp="▻" draft="contributed">kiashiria kilicho wazi kinachoelekea kulia</annotation>
+		<annotation cp="▻" type="tts" draft="contributed">kiashiria kilicho wazi kinachoelekea kulia</annotation>
 		<annotation cp="▼">chini | iliyojazwa | mshale | pembetatu | pembetatu iliyojazwa inayoelekea chini</annotation>
 		<annotation cp="▼" type="tts">pembetatu iliyojazwa inayoelekea chini</annotation>
+		<annotation cp="▽" draft="contributed">pembe tatu wazi inayeolekea chini</annotation>
+		<annotation cp="▽" type="tts" draft="contributed">pembe tatu wazi inayeolekea chini</annotation>
+		<annotation cp="▾" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea chini</annotation>
+		<annotation cp="▾" type="tts" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea chini</annotation>
+		<annotation cp="▿" draft="contributed">pembe tatu ndogo wazi inayoelekea chini</annotation>
+		<annotation cp="▿" type="tts" draft="contributed">pembe tatu ndogo wazi inayoelekea chini</annotation>
+		<annotation cp="◁" draft="contributed">pembe tatu wazi inayoelekea kushoto</annotation>
+		<annotation cp="◁" type="tts" draft="contributed">pembe tatu wazi inayoelekea kushoto</annotation>
+		<annotation cp="◂" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea kushoto</annotation>
+		<annotation cp="◂" type="tts" draft="contributed">pembe tatu ndogo iliyojazwa inayoelekea kushoto</annotation>
+		<annotation cp="◃" draft="contributed">pembe tatu ndogo iliyo wazi inayoelekea kushoto</annotation>
+		<annotation cp="◃" type="tts" draft="contributed">pembe tatu ndogo iliyo wazi inayoelekea kushoto</annotation>
+		<annotation cp="◄" draft="contributed">kiashiria kilichojazwa kinachoelekea kushoto</annotation>
+		<annotation cp="◄" type="tts" draft="contributed">kiashiria kilichojazwa kinachoelekea kushoto</annotation>
+		<annotation cp="◅" draft="contributed">kiashiria kilicho wazi kinachoelekea kushoto</annotation>
+		<annotation cp="◅" type="tts" draft="contributed">kiashiria kilicho wazi kinachoelekea kushoto</annotation>
+		<annotation cp="◆" draft="contributed">almasi iliyojazwa</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">almasi iliyojazwa</annotation>
+		<annotation cp="◇" draft="contributed">almasi iliyo wazi</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">almasi iliyo wazi</annotation>
+		<annotation cp="◈" draft="contributed">almasi wazi iliyo na almasi iliyojazwa</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">almasi wazi iliyo na almasi iliyojazwa</annotation>
+		<annotation cp="◉" draft="contributed">duara iliyo na duara ndani | duara iliyo na nukta | duara wazi iliyo na duara iliyojazwa</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">duara wazi iliyo na duara iliyojazwa</annotation>
 		<annotation cp="◊">almasi | msambamba | msambamba sawa</annotation>
 		<annotation cp="◊" type="tts">msambamba</annotation>
 		<annotation cp="○">mduara | mduara wazi | pete</annotation>
 		<annotation cp="○" type="tts">mduara wazi</annotation>
+		<annotation cp="◌" draft="contributed">nukta duara</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">nukta duara</annotation>
+		<annotation cp="◍" draft="contributed">duara iliyo na mistari ya wima</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">duara iliyo na mistari ya wima</annotation>
+		<annotation cp="◎" draft="contributed">duara ndani ya duara | duara pacha | shabaha</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">duara ndani ya duara</annotation>
 		<annotation cp="●">mduara | mduara uliojazwa</annotation>
 		<annotation cp="●" type="tts">mduara uliojazwa</annotation>
+		<annotation cp="◐" draft="contributed">duara iliyojazwa nusu kushoto</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">duara iliyojazwa nusu kushoto</annotation>
+		<annotation cp="◑" draft="contributed">duara iliyojazwa nusu kulia</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">duara iliyojazwa nusu kulia</annotation>
+		<annotation cp="◒" draft="contributed">duara iliyojazwa nusu ya chini</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">duara iliyojazwa nusu ya chini</annotation>
+		<annotation cp="◓" draft="contributed">duara iliyojazwa nusu ya juu</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">duara iliyojazwa nusu ya juu</annotation>
+		<annotation cp="◔" draft="contributed">duara iliyojazwa robo ya juu kulia</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">duara iliyojazwa robo ya juu kulia</annotation>
+		<annotation cp="◕" draft="contributed">duara isiyojazwa robo ya juu kushoto</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">duara isiyojazwa robo ya juu kushoto</annotation>
+		<annotation cp="◖" draft="contributed">duara iliyojazwa kipande cha kushoto</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">duara iliyojazwa kipande cha kushoto</annotation>
+		<annotation cp="◗" draft="contributed">duara iliyojazwa kipande cha kulia</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">duara iliyojazwa kipande cha kulia</annotation>
+		<annotation cp="◘" draft="contributed">mraba kinyume</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">mraba kinyume</annotation>
+		<annotation cp="◙" draft="contributed">mraba iliojazwa wenye duara wazi</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">mraba iliojazwa wenye duara wazi</annotation>
+		<annotation cp="◜" draft="contributed">tao la kushoto la robo ya juu ya duara</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">tao la kushoto la robo ya juu ya duara</annotation>
+		<annotation cp="◝" draft="contributed">tao la kulia la robo ya juu ya duara</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">tao la kulia la robo ya juu ya duara</annotation>
+		<annotation cp="◞" draft="contributed">tao la kulia la robo ya chini ya duara</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">tao la kulia la robo ya chini ya duara</annotation>
+		<annotation cp="◟" draft="contributed">tao la kushoto la robo ya chini ya duara</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">tao la kushoto la robo ya chini ya duara</annotation>
+		<annotation cp="◠" draft="contributed">nusu duara ya juu</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">nusu duara ya juu</annotation>
+		<annotation cp="◡" draft="contributed">nusu duara ya chini</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">nusu duara ya chini</annotation>
+		<annotation cp="◢" draft="contributed">pembe tatu ya chini ya kulia iliyojazwa</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">pembe tatu ya chini ya kulia iliyojazwa</annotation>
+		<annotation cp="◣" draft="contributed">pembe tatu ya chini ya kushoto iliyojazwa</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">pembe tatu ya chini ya kushoto iliyojazwa</annotation>
+		<annotation cp="◤" draft="contributed">pembe tatu ya juu ya kushoto iliyojazwa</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">pembe tatu ya juu ya kushoto iliyojazwa</annotation>
+		<annotation cp="◥" draft="contributed">pembe tatu ya juu ya kulia iliyojazwa</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">pembe tatu ya juu ya kulia iliyojazwa</annotation>
+		<annotation cp="◦" draft="contributed">tundu wazi</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">tundu wazi</annotation>
 		<annotation cp="◯">mduara | mduara mkubwa wazi | pete</annotation>
 		<annotation cp="◯" type="tts">mduara mkubwa wazi</annotation>
+		<annotation cp="◳" draft="contributed">mraba wazi ulio na mraba mdogo robo ya kulia</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">mraba wazi ulio na mraba mdogo robo ya kulia</annotation>
+		<annotation cp="◷" draft="contributed">mduara wazi wenye robo ya juu kulia</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">mduara wazi wenye robo ya juu kulia</annotation>
+		<annotation cp="◿" draft="contributed">pembe tatu ya chini iliyo wazi</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">pembe tatu ya chini iliyo wazi</annotation>
 		<annotation cp="♪">muziki | nane | noti | noti ya nane</annotation>
 		<annotation cp="♪" type="tts">noti ya nane</annotation>
+		<annotation cp="⨧" draft="contributed">alama ya jumlisha ikiwa na mbili chini</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">alama ya jumlisha ikiwa na mbili chini</annotation>
+		<annotation cp="⨯" draft="contributed">zao la kugawanya vekta</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">zao la kugawanya vekta</annotation>
+		<annotation cp="⨼" draft="contributed">zao la ndani</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">zao la ndani</annotation>
+		<annotation cp="⩣" draft="contributed">mantiki au upao pacha wa chini</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">mantiki au upao pacha wa chini</annotation>
+		<annotation cp="⩽" draft="contributed">chini ya usawa ulio hanamu</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">chini ya usawa ulio hanamu</annotation>
+		<annotation cp="⪍" draft="contributed">chini ya juu ya alama ya sawasawa</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">chini ya juu ya alama ya sawasawa</annotation>
+		<annotation cp="⪚" draft="contributed">hisabati | laini mbili za sawa na juu ya zaidi ya</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">laini mbili za sawa na juu ya zaidi ya</annotation>
+		<annotation cp="⪺" draft="contributed">inafuata juu ya karibu sawa na</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">inafuata juu ya karibu sawa na</annotation>
 		<annotation cp="♭">bemolle | kishukisho | muziki | noti</annotation>
 		<annotation cp="♭" type="tts">kishukisho</annotation>
 		<annotation cp="♯">diese | diesis | kipandisho | muziki | noti</annotation>
@@ -269,6 +729,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">uso wenye machozi ya furaha</annotation>
 		<annotation cp="🙂">tabasamu | uso | uso unaotabasamu kwa mbali</annotation>
 		<annotation cp="🙂" type="tts">uso unaotabasamu kwa mbali</annotation>
+		<annotation cp="🙂‍↕" draft="contributed">kuitika, ndiyo | kutikisa kichwa juu chini</annotation>
+		<annotation cp="🙂‍↕" type="tts" draft="contributed">kutikisa kichwa juu chini</annotation>
+		<annotation cp="🙂‍↔" draft="contributed">hapana, tikisa | kutikisa kichwa kimlalo</annotation>
+		<annotation cp="🙂‍↔" type="tts" draft="contributed">kutikisa kichwa kimlalo</annotation>
 		<annotation cp="🙃">kugeuzwa juu chini | uso | uso uliogeuzwa juu chini</annotation>
 		<annotation cp="🙃" type="tts">uso uliogeuzwa juu chini</annotation>
 		<annotation cp="🫠">didimia | fifia | toweka | uso unaoyeyuka | yeyuka</annotation>
@@ -717,6 +1181,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">mtu mzima</annotation>
 		<annotation cp="👱">mtu mwenye nywele za shaba | mtu: nywele ya shaba | nywele | rangi ya shaba</annotation>
 		<annotation cp="👱" type="tts">mtu mwenye nywele za shaba</annotation>
+		<annotation cp="🧑‍🧒" draft="contributed">familia: mtu mzima, mtoto</annotation>
+		<annotation cp="🧑‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtoto</annotation>
+		<annotation cp="🧑‍🧒‍🧒" draft="contributed">familia: mtu mzima, mtoto, mtoto</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtoto, mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒" draft="contributed">familia: mtu mzima, mtu mzima, mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtu mzima, mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" draft="contributed">familia: mtu mzima, mtu mzima, mtoto, mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtu mzima, mtoto, mtoto</annotation>
 		<annotation cp="👨">mtu mzima | mwanamume</annotation>
 		<annotation cp="👨" type="tts">mwanamume</annotation>
 		<annotation cp="🧔">mtu | mtu mwenye ndevu | mtu: ndevu | ndevu</annotation>
@@ -1377,6 +1849,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">kifaranga kinachotazama mbele</annotation>
 		<annotation cp="🐦">ndege</annotation>
 		<annotation cp="🐦" type="tts">ndege</annotation>
+		<annotation cp="🐦‍🔥" draft="contributed">finiksi | njozi, ndege aliyejichoma, kufufuka, kuzaliwa upya</annotation>
+		<annotation cp="🐦‍🔥" type="tts" draft="contributed">finiksi</annotation>
 		<annotation cp="🐧">pengwini</annotation>
 		<annotation cp="🐧" type="tts">pengwini</annotation>
 		<annotation cp="🕊">amani | ndege | njiwa | paa</annotation>
@@ -1401,6 +1875,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">kasuku</annotation>
 		<annotation cp="🪽">angani | bawa | kuruka | malaika | mithiolojia | ndege</annotation>
 		<annotation cp="🪽" type="tts">bawa</annotation>
+		<annotation cp="🐦‍⬛" draft="contributed">kunguru | mweusi | ndege</annotation>
+		<annotation cp="🐦‍⬛" type="tts" draft="contributed">ndege mweusi</annotation>
 		<annotation cp="🪿">bata | bata bukini | honi | ndege | puuzi</annotation>
 		<annotation cp="🪿" type="tts">bata bukini</annotation>
 		<annotation cp="🐸">chura | uso | uso wa chura</annotation>
@@ -1533,6 +2009,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">kiota chenye mayai</annotation>
 		<annotation cp="🍄">mmea | uyoga</annotation>
 		<annotation cp="🍄" type="tts">uyoga</annotation>
+		<annotation cp="🍄‍🟫" draft="contributed">chakula, ukungu, mboga, asili | uyoga kahawia</annotation>
+		<annotation cp="🍄‍🟫" type="tts" draft="contributed">uyoga kahawia</annotation>
 		<annotation cp="🍇">mmea | tunda | zabibu</annotation>
 		<annotation cp="🍇" type="tts">zabibu</annotation>
 		<annotation cp="🍈">mmea | tikiti | tunda</annotation>
@@ -1543,6 +2021,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">chenza</annotation>
 		<annotation cp="🍋">limau | mmea | tunda</annotation>
 		<annotation cp="🍋" type="tts">limau</annotation>
+		<annotation cp="🍋‍🟩" draft="contributed">limau | ndimu, tunda, kitropiki</annotation>
+		<annotation cp="🍋‍🟩" type="tts" draft="contributed">ndimu</annotation>
 		<annotation cp="🍌">mmea | ndizi | tunda</annotation>
 		<annotation cp="🍌" type="tts">ndizi</annotation>
 		<annotation cp="🍍">mmea | nanasi | tunda</annotation>
@@ -2823,6 +3303,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔗" type="tts">pete ya mnyororo</annotation>
 		<annotation cp="⛓">minyororo | mnyororo</annotation>
 		<annotation cp="⛓" type="tts">minyororo</annotation>
+		<annotation cp="⛓‍💥" draft="contributed">kata, katika, myororo, pingu, uhuru | mnyororo uliokatika</annotation>
+		<annotation cp="⛓‍💥" type="tts" draft="contributed">myororo uliokatika</annotation>
 		<annotation cp="🪝">bakora | kishawishi cha mauzo | ndoano | pinda | shika | tega</annotation>
 		<annotation cp="🪝" type="tts">ndoano</annotation>
 		<annotation cp="🧰">kisanduku | kisanduku cha vifaa | kisanduku cha zana | makanika | zana</annotation>
@@ -2999,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">mshale unaoelekeza chini na juu</annotation>
 		<annotation cp="↔">mshale | mshale unaoeleza kushoto na kulia</annotation>
 		<annotation cp="↔" type="tts">mshale unaoeleza kushoto na kulia</annotation>
+		<annotation cp="↮" draft="contributed">kishale kinachoashiria kulia na kushoto</annotation>
+		<annotation cp="↮" type="tts" draft="contributed">kishale kinachoashiria kulia na kushoto</annotation>
 		<annotation cp="↩">mshale | mshale wa kulia unaopinda kushoto</annotation>
 		<annotation cp="↩" type="tts">mshale wa kulia unaopinda kushoto</annotation>
 		<annotation cp="↪">mshale | mshale wa kushoto unaopinda kulia</annotation>
@@ -3371,20 +3855,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="£" type="tts">pauni</annotation>
 		<annotation cp="¥">CNY | JPY | sarafu | yeni | yuani</annotation>
 		<annotation cp="¥" type="tts">yeni</annotation>
+		<annotation cp="₢" draft="contributed">BRB | kruzeiro | sarafu</annotation>
+		<annotation cp="₢" type="tts" draft="contributed">kruzeiro</annotation>
+		<annotation cp="₣" draft="contributed">faranga | faranga ya ufaransa | sarafu</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">faranga ya ufaransa</annotation>
+		<annotation cp="₤" draft="contributed">lira | sarafu</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
 		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | sarafu | yuro</annotation>
 		<annotation cp="€" type="tts">yuro</annotation>
+		<annotation cp="₰" draft="contributed">peni ya ujarumani | pfennig | sarafu</annotation>
+		<annotation cp="₰" type="tts" draft="contributed">peni ya ujerumani</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳" draft="contributed">ARA | austral | sarafu</annotation>
+		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
+		<annotation cp="₶" draft="contributed">livre tournois | sarafu</annotation>
+		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
+		<annotation cp="₷" draft="contributed">sarafu | spesmilo</annotation>
+		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
 		<annotation cp="₹">rupia | rupia ya india | sarafu</annotation>
 		<annotation cp="₹" type="tts">rupia ya india</annotation>
 		<annotation cp="₽">rubo | sarafu</annotation>
 		<annotation cp="₽" type="tts">rubo</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨" draft="contributed">rupii | sarafu</annotation>
+		<annotation cp="₨" type="tts" draft="contributed">rupii</annotation>
+		<annotation cp="﷼" draft="contributed">riale | sarafu</annotation>
+		<annotation cp="﷼" type="tts" draft="contributed">riale</annotation>
 		<annotation cp="¹">herufijuu | moja | weka moja juu</annotation>
 		<annotation cp="¹" type="tts">weka moja juu</annotation>
 		<annotation cp="²">herufijuu | mbili | mraba | weka mbili juu</annotation>

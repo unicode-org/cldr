@@ -537,11 +537,13 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testResolution() {
         CLDRFile german = testInfo.getCLDRFile("de", true);
+        CLDRFile bal = testInfo.getCLDRFile("bal", true);
         // Test direct lookup.
+
         String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
-        String id = german.getSourceLocaleID(xpath, null);
-        if (!id.equals("de")) {
-            errln("Expected de but was " + id + " for " + xpath);
+        String id = bal.getSourceLocaleID(xpath, null);
+        if (!id.equals("bal")) {
+            errln("Expected bal but was " + id + " for " + xpath);
         }
 
         // Test aliasing.

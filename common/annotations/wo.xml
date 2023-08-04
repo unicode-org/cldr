@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -47,14 +47,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">kanam gu am rangooñu bànneex</annotation>
 		<annotation cp="🙂">kanam | kanam gu muuñ tuuti | muuñ</annotation>
 		<annotation cp="🙂" type="tts">kanam gu muuñ tuuti</annotation>
+		<annotation cp="🙂‍↕">yëngal bopp, waaw | yëngal sa bopp ci anam gu taxaw</annotation>
+		<annotation cp="🙂‍↕" type="tts">yëngal sa bop ci anam gu taxaw</annotation>
+		<annotation cp="🙂‍↔">Yëngël sa bopp ci anam gu tëdd</annotation>
+		<annotation cp="🙂‍↔" type="tts">bopp buy yëngu ci anam gu tëdd</annotation>
 		<annotation cp="🙃">buñ juutal | kanam | kanam gu dëppu</annotation>
 		<annotation cp="🙃" type="tts">kanam gu dëppu</annotation>
+		<annotation cp="🫠">kanam buñu jaxase | melt | ndoxe | reer | seey</annotation>
+		<annotation cp="🫠" type="tts">kanam buñu jaxase</annotation>
 		<annotation cp="😉">kanam | piis | piis benn bët</annotation>
 		<annotation cp="😉" type="tts">piis benn bët</annotation>
 		<annotation cp="😊">bët | kanam | kanamu mbegte ak bët yuy muuñ | mbegte | muuñ</annotation>
 		<annotation cp="😊" type="tts">kanamu mbegte ak bët yuy muuñ</annotation>
 		<annotation cp="😇">feem | kanam | kanam guy muuñ ak serkal ci kawam | léebu fee | malaaka | muuñ | serkal ci kaw | xamul-dara</annotation>
 		<annotation cp="😇" type="tts">kanam guy muuñ ak serkal ci kawam</annotation>
+		<annotation cp="🥰">bëgg | kanam bu muuñ ak ay xol | nobaatee | xol | yaqq</annotation>
+		<annotation cp="🥰" type="tts">kanam bu muuñ ak ay xol</annotation>
 		<annotation cp="😍">bët | kanam | mbëggeel | muuñ | muuñ, kanam, xol, bët</annotation>
 		<annotation cp="😍" type="tts">muuñ, kanam, xol, bët</annotation>
 		<annotation cp="🤩">bët | biddeew | dóor-biddeew | gaññi | kanam</annotation>
@@ -69,6 +77,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">kanam guy fóon ak bët yu gëmm</annotation>
 		<annotation cp="😙">bët | fóon | kanam | kanam guy fóon ak bëti muuñ | muuñ</annotation>
 		<annotation cp="😙" type="tts">kanam guy fóon ak bëti muuñ</annotation>
+		<annotation cp="🥲">beg | buñu laal | fiyeer | kanam buy muuñ ak rongoñ | muuñ | noppalu | rongoñ</annotation>
+		<annotation cp="🥲" type="tts">kanam buy muuñ ak ragal</annotation>
 		<annotation cp="😋">bànneexu | kanam | kanam, bànneexu, ñeex, ñam | melaastiku | muuñ | neex | um</annotation>
 		<annotation cp="😋" type="tts">kanam, bànneexu, ñeex, ñam</annotation>
 		<annotation cp="😛">kanam | kanam bu ànd ak làmmiñ wuñ tàllal | làmmiñ</annotation>
@@ -85,10 +95,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤗" type="tts">kanamu kottante</annotation>
 		<annotation cp="🤭">dar-gémmiñ | kanam ak loxo bu dar gémmiñ</annotation>
 		<annotation cp="🤭" type="tts">kanam ak loxo bu dar gémmiñ</annotation>
+		<annotation cp="🫢">awe | jaaxle | kanam bu am gët yu ubbeeku ak gemmiñ buñu yaatal | ñakka gëm | ragal | tiit</annotation>
+		<annotation cp="🫢" type="tts">kanam bu am ay gët yu ubbeeku ak loxo ci gemmiñ</annotation>
+		<annotation cp="🫣">buñu teye | gis-gis | kanam bu am ay gët yuy gaawantu | néeg</annotation>
+		<annotation cp="🫣" type="tts">kanam gu am ay gët yuy gaawantu</annotation>
 		<annotation cp="🤫">kanamu shuut noppil | noppi | shuut</annotation>
 		<annotation cp="🤫" type="tts">kanamu shuut noppil</annotation>
 		<annotation cp="🤔">kanam | kanamu guy xalaat | xalaat</annotation>
 		<annotation cp="🤔" type="tts">kanamu guy xalaat</annotation>
+		<annotation cp="🫡">gurup yi | kanam guy niyoo | naaje | waaw | Waaw-key</annotation>
+		<annotation cp="🫡" type="tts">kanam guy niyoo</annotation>
 		<annotation cp="🤐">fermitiir | gémmiñ | kanam | kanam ak gémiñ guñ fermitiir</annotation>
 		<annotation cp="🤐" type="tts">kanam ak gémiñ guñ fermitiir</annotation>
 		<annotation cp="🤨">kanam ak buñ yëkkati yéen | ñaaw-njortu | ñàkka-wóolu</annotation>
@@ -99,6 +115,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">kanam gu melul nenn</annotation>
 		<annotation cp="😶">cellaaral | gémmiñ | kanam | kanam gu amul gémmiñ | tekk</annotation>
 		<annotation cp="😶" type="tts">kanam gu amul gémmiñ</annotation>
+		<annotation cp="🫥">dëpp | dofe | kanam guñu def ay tomb | luñu mënul gis | nëbb | reer</annotation>
+		<annotation cp="🫥" type="tts">kanam buñu def ay tomb</annotation>
+		<annotation cp="😶‍🌫">bopp ci niir yi | distrait | kanam ci brouillard bi | kanam ci niir yi</annotation>
+		<annotation cp="😶‍🌫" type="tts">kanam ci niir yi</annotation>
 		<annotation cp="😏">bëgg-waccu | kanam | kanam gu bëgg-waccu</annotation>
 		<annotation cp="😏" type="tts">kanam gu bëgg-waccu</annotation>
 		<annotation cp="😒">kanam | kanam gu ñàkk xorom | kontaanul | ñàkk-caaxaan</annotation>
@@ -107,8 +127,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">kanam guy regeju</annotation>
 		<annotation cp="😬">kanam | kanam guy def yëfi golo | yëfi golo</annotation>
 		<annotation cp="😬" type="tts">kanam guy def yëfi golo</annotation>
+		<annotation cp="😮‍💨">defaru | kanam guy nooyi | mbiip | nooyi | sëqqët | waxantu | yuxool</annotation>
+		<annotation cp="😮‍💨" type="tts">kanam guy nooyi</annotation>
 		<annotation cp="🤥">buy fen | kanamu | kanamu fenkat | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">kanamu fenkat</annotation>
+		<annotation cp="🫨">kanam | lox | sok | suuf suy yëngu</annotation>
+		<annotation cp="🫨" type="tts">kanam guy lox</annotation>
 		<annotation cp="😌">kanam | kanam féex | noppalu</annotation>
 		<annotation cp="😌" type="tts">kanam féex</annotation>
 		<annotation cp="😔">bari-xalaat | dejected | kanam | kanamu kuy xalaat</annotation>
@@ -131,12 +155,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤮" type="tts">kanam guy waccu</annotation>
 		<annotation cp="🤧">gu jéggi dayo | kanamu | tissooli</annotation>
 		<annotation cp="🤧" type="tts">kanamu tissooli</annotation>
+		<annotation cp="🥵">ci kanam gu xonq | kanam gu tang | tang | tangoor | yambar | yaqq</annotation>
+		<annotation cp="🥵" type="tts">kanam gu tang</annotation>
+		<annotation cp="🥶">ay galaas | kanam bu bulo | kanam bu sédd | konsélé | sédd | wow</annotation>
+		<annotation cp="🥶" type="tts">kanam gu sédd</annotation>
+		<annotation cp="🥴">gemmiñ bu ondulé | gët yu toloowul | jaxasoo | kanam gu xawa feebar | mandi</annotation>
+		<annotation cp="🥴" type="tts">kanam gu xawa feebar</annotation>
 		<annotation cp="😵">diis | kanam | kanam gu diis</annotation>
 		<annotation cp="😵" type="tts">kanam gu diis</annotation>
+		<annotation cp="😵‍💫">jaaxle | jafe-jafe | jaxasoo | kanam bu am ay gët yu rond | rond | whoa</annotation>
+		<annotation cp="😵‍💫" type="tts">kanam gu am ay gêt yu rod</annotation>
 		<annotation cp="🤯">bopp buy toj | mbettel</annotation>
 		<annotation cp="🤯" type="tts">bopp buy toj</annotation>
 		<annotation cp="🤠">kaboy | kanam | kanam gu sol mbaxane kaboy | mbaxane | sàmm-bu-jigéen</annotation>
 		<annotation cp="🤠" type="tts">kanam gu sol mbaxane kaboy</annotation>
+		<annotation cp="🥳">feet | feeté | kanamu feet | kuron | mbaxana</annotation>
+		<annotation cp="🥳" type="tts">kanam buy feetu</annotation>
+		<annotation cp="🥸">bakkan | buñu xamul | kanam | kanam gu nëbêtu | nëbêtu | weer yi</annotation>
+		<annotation cp="🥸" type="tts">kanam gu deguisewu</annotation>
 		<annotation cp="😎">bët | jant | kanam | lunet | muuñ | muuñ, kanam, nuwaarfime | neex-deret | nuwaarfime | weer | yànj</annotation>
 		<annotation cp="😎" type="tts">muuñ, kanam, nuwaarfime</annotation>
 		<annotation cp="🤓">bëgg-masin | kanam | kanamu bëñu lëk | lëk</annotation>
@@ -145,6 +181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧐" type="tts">kanam ak lunet-bennbët</annotation>
 		<annotation cp="😕">jaaxasoo | kanam | kanam gu jaaxasoo</annotation>
 		<annotation cp="😕" type="tts">kanam gu jaaxasoo</annotation>
+		<annotation cp="🫤">jaaxle | kanam gu am gemmiñ bu jagonaal | meh | wooradi | xamadi</annotation>
+		<annotation cp="🫤" type="tts">kanam bi am gemmiñ bu jagonaal</annotation>
 		<annotation cp="😟">jaaxle | kanam | kanam gu jaaxle</annotation>
 		<annotation cp="😟" type="tts">kanam gu jaaxle</annotation>
 		<annotation cp="🙁">aj-yéen | kanam | kanam gu ànd ak yéen yu xawa lemu</annotation>
@@ -159,6 +197,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">kanam gu waaru</annotation>
 		<annotation cp="😳">bu am tomb yu xonk | kanam | kanam gu am tomb yu xonk | xel mu deppaar</annotation>
 		<annotation cp="😳" type="tts">kanam gu am tomb yu xonk</annotation>
+		<annotation cp="🥺">bëti xaj | kanam guy ñaan njeggal | saraxu | yërëmandé</annotation>
+		<annotation cp="🥺" type="tts">kanam guy ñaan njegal</annotation>
+		<annotation cp="🥹">dëgërlu | fiyeer | jooy | kanam gu teye ay rongoñ | mer | tiis</annotation>
+		<annotation cp="🥹" type="tts">Kanam guy teye rongoñ</annotation>
 		<annotation cp="😦">aj ay yéen | gémmiñ | kanam | kanam gu ànd ak yéen yu lemu ak gémmiñ gu ubbiku | ubbeeku</annotation>
 		<annotation cp="😦" type="tts">kanam gu ànd ak yéen yu lemu ak gémmiñ gu ubbiku</annotation>
 		<annotation cp="😧">kanam | kanam gu xawa jaaxle | xawa jaaxle</annotation>
@@ -187,6 +229,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😩" type="tts">kanamu coono</annotation>
 		<annotation cp="😫">kanam | kanam gu sonn | sonn</annotation>
 		<annotation cp="😫" type="tts">kanam gu sonn</annotation>
+		<annotation cp="🥱">kanam guy obbali | obbali | sónn | weet</annotation>
+		<annotation cp="🥱" type="tts">kanam guy obali</annotation>
 		<annotation cp="😤">gañe | kanam | kanam gu ànd ak saxaaru bakkan | ndam</annotation>
 		<annotation cp="😤" type="tts">kanam gu ànd ak saxaaru bakkan</annotation>
 		<annotation cp="😡">dof | kanam | kanam guy puucatu | mer | puucatu | xonk</annotation>
@@ -265,8 +309,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">xol esklamaasiyoŋ bu fës</annotation>
 		<annotation cp="💔">damm | dammu | xol bu tasaaroo</annotation>
 		<annotation cp="💔" type="tts">xol bu tasaaroo</annotation>
+		<annotation cp="❤‍🔥">lakk | mbëgeel | neexaay | sacre Coeur | xol | xol buy lakk</annotation>
+		<annotation cp="❤‍🔥" type="tts">xolu safara</annotation>
+		<annotation cp="❤‍🩹">Baax | defar | gëna wer | jelaat | xol buy defar | yeesal</annotation>
+		<annotation cp="❤‍🩹" type="tts">xol buy defar</annotation>
 		<annotation cp="❤">xol | xonk xol</annotation>
 		<annotation cp="❤" type="tts">xonk xol</annotation>
+		<annotation cp="🩷">bëgg | nob | rafet | rose | xol</annotation>
+		<annotation cp="🩷" type="tts">Xol bu rose</annotation>
 		<annotation cp="🧡">oraas | xol bu oraas</annotation>
 		<annotation cp="🧡" type="tts">xol bu oraas</annotation>
 		<annotation cp="💛">mboq | xol bu mboq</annotation>
@@ -275,10 +325,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">xol bu wert</annotation>
 		<annotation cp="💙">baxa | xol bu baxa</annotation>
 		<annotation cp="💙" type="tts">xol bu baxa</annotation>
+		<annotation cp="🩵">bleu clair | cyan | sarcelle | xol | xol bleu clair</annotation>
+		<annotation cp="🩵" type="tts">xol bu bleu clair</annotation>
 		<annotation cp="💜">xol bu yolet | yolet</annotation>
 		<annotation cp="💜" type="tts">xol bu yolet</annotation>
+		<annotation cp="🤎">sokolaa | xol</annotation>
+		<annotation cp="🤎" type="tts">Xol bu sokolaa</annotation>
 		<annotation cp="🖤">iñaan | ñuul | soxor | xol bu ñuul</annotation>
 		<annotation cp="🖤" type="tts">xol bu ñuul</annotation>
+		<annotation cp="🩶">arduwaas | doomu-taal | xaalis | xol | xol bu doomu-taal</annotation>
+		<annotation cp="🩶" type="tts">xol bu doomu-taal</annotation>
+		<annotation cp="🤍">weex | xol</annotation>
+		<annotation cp="🤍" type="tts">Xol bu weex</annotation>
 		<annotation cp="💋">fóon | marku fóon | tuñ</annotation>
 		<annotation cp="💋" type="tts">marku fóon</annotation>
 		<annotation cp="💯">100 | eskoor | fees | téemeer | tombi teeméer</annotation>

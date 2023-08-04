@@ -1255,15 +1255,15 @@ public class TestExampleGenerator extends TestFmwk {
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
-                "〖Die ❬Stunde❭ ist …〗〖❌  Die ❬Zentimeter❭ ist …〗"
+                "〖Die ❬Stunde❭ ist …〗〖❌  Die ❬Tag❭ ist …〗"
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]",
-                "〖Der ❬Zentimeter❭ ist …〗〖❌  Der ❬Stunde❭ ist …〗"
+                "〖Der ❬Tag❭ ist …〗〖❌  Der ❬Stunde❭ ist …〗"
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",
-                "〖Das ❬Jahrhundert❭ ist …〗〖❌  Das ❬Stunde❭ ist …〗"
+                "〖Das ❬Jahr❭ ist …〗〖❌  Das ❬Stunde❭ ist …〗"
             },
         };
         checkMinimalPairExamples("de", tests);
@@ -1291,15 +1291,15 @@ public class TestExampleGenerator extends TestFmwk {
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"feminine\"]",
-                "〖Η ❬ημέρα❭ είναι〗〖❌  Η ❬αιώνας❭ είναι〗"
+                "〖Η ❬ημέρα❭ είναι〗〖❌  Η ❬μήνας❭ είναι〗"
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"masculine\"]",
-                "〖Ο ❬αιώνας❭ θα είναι〗〖❌  Ο ❬ημέρα❭ θα είναι〗"
+                "〖Ο ❬μήνας❭ θα είναι〗〖❌  Ο ❬ημέρα❭ θα είναι〗"
             },
             {
                 "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"neuter\"]",
-                "〖Το ❬εκατοστό❭ ήταν〗〖❌  Το ❬ημέρα❭ ήταν〗"
+                "〖Το ❬λεπτό❭ ήταν〗〖❌  Το ❬ημέρα❭ ήταν〗"
             },
         };
         checkMinimalPairExamples("el", elTests);

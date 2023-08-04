@@ -43,6 +43,8 @@ import org.unicode.cldr.util.UnitPathType;
  * @author markdavis
  */
 public class BestMinimalPairSamples {
+    private static final boolean DEBUG_WEIGHTS = false;
+
     public static final String EQUALS_NOMINATIVE = "＝nominative";
     private static final Joiner PLUS_JOINER = Joiner.on("+");
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -159,6 +161,7 @@ public class BestMinimalPairSamples {
         Multimap<String, Pair<String, String>> bestUnitPatternToCases = null;
         Multimap<String, String> unitToDistinctNominativeCase = TreeMultimap.create();
 
+        int i = 0;
         for (String longUnitId : GrammarInfo.getUnitsToAddGrammar()) {
             String possibleGender =
                     cldrFile.getStringValue(
@@ -176,6 +179,12 @@ public class BestMinimalPairSamples {
                 String formerLongUnitId = genderResults.get(possibleGender);
                 if (formerLongUnitId == null || isBetterUnit(longUnitId, formerLongUnitId)) {
                     genderResults.put(possibleGender, longUnitId);
+                    if (DEBUG_WEIGHTS) {
+                        final int sw = systemWeight(longUnitId);
+                        final int cs = categoryWeight(longUnitId);
+                        System.out.println(
+                                i++ + ") gender " + longUnitId + "; sw: " + sw + " cw: " + cs);
+                    }
                 }
             }
             if (!unitCases.isEmpty()) {
@@ -352,6 +361,14 @@ public class BestMinimalPairSamples {
 
     static final Set<String> WORSE =
             ImmutableSet.of("length-100-kilometer", "length-mile-scandinavian");
+    static final Set<String> BEST =
+            ImmutableSet.of(
+                    "duration-year",
+                    "duration-month",
+                    "duration-week",
+                    "duration-day",
+                    "duration-hour",
+                    "duration-minute");
     /**
      * better result is smaller
      *
@@ -360,15 +377,21 @@ public class BestMinimalPairSamples {
      */
     public int systemWeight(String longUnitId) {
         if (WORSE.contains(longUnitId)) {
-            return 1;
+            return 99;
         }
-        Set<UnitSystem> systems =
-                ExampleGenerator.UNIT_CONVERTER.getSystemsEnum(
-                        ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId));
-        if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-            return 0; // better
+        if (GrammarInfo.getUnitsToAddGrammar().contains(longUnitId)) {
+            if (BEST.contains(longUnitId)) {
+                return 0; // better
+            }
+            final String shortId = ExampleGenerator.UNIT_CONVERTER.getShortId(longUnitId);
+            Set<UnitSystem> systems = ExampleGenerator.UNIT_CONVERTER.getSystemsEnum(shortId);
+            if (systems.contains(UnitSystem.metric)) {
+                return 1; // better
+            } else {
+                return systems.iterator().next().ordinal() + 2;
+            }
         }
-        return 1;
+        return 99;
     }
 
     private int categoryWeight(String longUnitId) {
@@ -377,6 +400,10 @@ public class BestMinimalPairSamples {
         } else if (longUnitId.startsWith("weight")) {
             return 1;
         } else if (longUnitId.startsWith("duration")) {
+            return 2;
+        } else if (longUnitId.startsWith("area")) {
+            return 2;
+        } else if (longUnitId.startsWith("volume")) {
             return 2;
         }
         return 999;

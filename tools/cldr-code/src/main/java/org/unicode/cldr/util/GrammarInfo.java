@@ -719,6 +719,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
         return GrammarLocales.data;
     }
 
+    /** There is a BRS item to adjust the following for each release! */
     static final Set<String> INCLUDE_OTHER =
             ImmutableSet.of(
                     "g-force",
@@ -743,6 +744,16 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "decade",
                     "month",
                     "year");
+
+    static final Set<String> EXCLUDE_GRAMMAR =
+            Set.of(
+                    "dot",
+                    "astronomical-unit",
+                    "nautical-mile",
+                    "knot",
+                    "dalton",
+                    "kilocalorie",
+                    "electronvolt");
 
     public static Set<String> getSpecialsToTranslate() {
         return INCLUDE_OTHER;
@@ -770,18 +781,13 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     _data.add(unit);
                     continue;
                 }
-                Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
-
-                // v40 code added simple units that were metric
-                //                if (converter.isSimple(shortUnit)
-                //                    && !Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-                //                    _data.add(unit);
-                //                    continue;
-                //                }
-                // we now add all metric
-                if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-                    _data.add(unit);
-                    continue;
+                if (!EXCLUDE_GRAMMAR.contains(shortUnit)) {
+                    Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
+                    // we now add all SI and metric and si_acceptable and metric_adjacent
+                    if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+                        _data.add(unit);
+                        continue;
+                    }
                 }
                 missing.add(unit);
             }

@@ -1983,6 +1983,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         "british-thermal-unit-it",
                         "foodcalorie",
                         "nautical-mile",
+                        "mile-scandinavian",
                         "knot"));
 
         Map<Rational, String> result = new TreeMap<>(Comparator.reverseOrder());
@@ -2014,7 +2015,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
             for (String other : others) {
                 if (other.equals(inputUnit)
                         || other.endsWith("-person")
-                        || other.endsWith("-scandinavian")
                         || other.startsWith("100-")) { // skips
                     continue;
                 }

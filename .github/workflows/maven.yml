@@ -29,6 +29,8 @@ jobs:
         with:
           lfs: false
           fetch-depth: 0  # fetch all branches so that Spotless can resolve `origin/main`
+      - name: Lint GitHub Actions
+        run: npx yaml-lint .github/workflows/*.yml
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:
@@ -82,8 +84,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-webpack-
             webpack-
-      - name: Lint GitHub Actions
-        run: npx yaml-lint .github/workflows/*.yml
       - name: Build with Maven
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
@@ -142,7 +142,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
@@ -161,11 +160,18 @@ jobs:
         with:
           java-version: 11
           distribution: 'temurin'
-      - name: Download cldr-code.jar
-        uses: actions/download-artifact@v3
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
         with:
-          name: cldr-code
-          path: tools/cldr-code/target/
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile package --file tools/pom.xml -pl cldr-code -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run CLDR console check
         run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
   deploy:
@@ -174,6 +180,7 @@ jobs:
     needs:
       - build
       - check
+      - formatter
     runs-on: ubuntu-latest
     steps:
     - name: Download cldr-apps.zip

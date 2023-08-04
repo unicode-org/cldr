@@ -3529,14 +3529,14 @@ public class TestUnits extends TestFmwk {
             String shortUnit = converter.getShortId(longUnit);
             Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
 
-            boolean siOrMetric = !Collections.disjoint(systems, UnitSystem.SiOrMetric);
+            boolean unitsToAddGrammar = GrammarInfo.getUnitsToAddGrammar().contains(shortUnit);
 
             TranslationStatus status =
                     toTranslate.contains(longUnit)
-                            ? (siOrMetric
+                            ? (unitsToAddGrammar
                                     ? TranslationStatus.has_grammar_M
                                     : TranslationStatus.has_grammar_X)
-                            : siOrMetric
+                            : unitsToAddGrammar
                                     ? TranslationStatus.add_grammar
                                     : TranslationStatus.skip_grammar;
             shortUnitToTranslationStatus40.put(shortUnit, status);

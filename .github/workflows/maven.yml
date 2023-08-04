@@ -35,9 +35,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          key: ${{ runner.os }}-mavenspotless-${{ hashFiles('tools/**/pom.xml') }}
           restore-keys: |
-            ${{ runner.os }}-maven-
+            ${{ runner.os }}-mavenspotless-
       - name: Check Java style
         run: mvn --file=tools/pom.xml spotless:check || (echo "Style checker failed. Formatting changes can be applied by 'mvn spotless:apply'" && exit 1)
   build:
@@ -164,9 +164,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          key: ${{ runner.os }}-mavencheck-${{ hashFiles('tools/**/pom.xml') }}
           restore-keys: |
-            ${{ runner.os }}-maven-
+            ${{ runner.os }}-mavencheck-
       - name: Build with Maven
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile package --file tools/pom.xml -pl cldr-code -DskipTests=true

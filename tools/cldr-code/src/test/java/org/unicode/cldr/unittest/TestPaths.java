@@ -377,10 +377,7 @@ public class TestPaths extends TestFmwkPlus {
 
         public void show(int inclusion) {
             for (DtdType dtdType : DtdType.values()) {
-                if (dtdType == DtdType.ldmlICU
-                        || (inclusion <= 5
-                                && false)) { // keyboards/*/_platform.xml won't be in the list for
-                    // non-exhaustive runs
+                if (dtdType == DtdType.ldmlICU) {
                     continue;
                 }
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
@@ -566,7 +563,7 @@ public class TestPaths extends TestFmwkPlus {
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
-                            if (true || isVerbose()) {
+                            if (isVerbose()) {
                                 String starredPath = starrer.set(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);

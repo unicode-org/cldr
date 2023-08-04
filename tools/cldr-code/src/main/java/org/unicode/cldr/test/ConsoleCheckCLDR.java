@@ -30,6 +30,7 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.test.CheckCLDR.CompoundCheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Options;
@@ -307,21 +308,8 @@ public class ConsoleCheckCLDR {
                     "(en|ru|nl|fr|de|it|pl|es|tr|th|ja|zh|ko|ar|bg|sr|uk|ca|hr|cs|da|fil|fi|hu|id|lv|lt|no|pt|ro|sk|sl|sv|vi|el|he|fa|hi|am|af|et|is|ms|sw|zu|bn|mr|ta|eu|gl|ur|gu|kn|ml|te|zh_Hant|pt_PT|en_GB)";
         }
         String checkFilter = options[TEST_FILTER].value;
-        String subtypeFilterString = options[SUBTYPE_FILTER].value;
-        EnumSet<Subtype> subtypeFilter = null;
-        if (subtypeFilterString != null) {
-            subtypeFilter = EnumSet.noneOf(Subtype.class);
-            Matcher m = PatternCache.get(subtypeFilterString).matcher("");
-            for (Subtype value : Subtype.values()) {
-                if (m.reset(value.toString()).find() || m.reset(value.name()).find()) {
-                    subtypeFilter.add(value);
-                }
-            }
-            if (subtypeFilter.size() == 0) {
-                System.err.println("No subtype match for " + subtypeFilterString);
-                return;
-            }
-        }
+        // final String subtypeFilterString = options[SUBTYPE_FILTER].value;
+        final EnumSet<Subtype> subtypeFilter = null;
 
         errorsOnly = options[ERRORS_ONLY].doesOccur;
         boolean showMissing = MyOptions.missingPaths.option.doesOccur();
@@ -330,25 +318,14 @@ public class ConsoleCheckCLDR {
         boolean showAll = options[SHOWALL].doesOccur;
         boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur;
         String pathFilterString = options[PATH_FILTER].value;
-        Matcher pathFilter = null;
-        if (!pathFilterString.equals(".*")) {
-            pathFilter = PatternCache.get(pathFilterString).matcher("");
-        }
+        final Matcher pathFilter = null;
+        // if (!pathFilterString.equals(".*")) {
+        //     pathFilter = PatternCache.get(pathFilterString).matcher("");
+        // }
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur;
         boolean noaliases = options[NO_ALIASES].doesOccur;
 
-        Level coverageLevel = null;
-        String coverageLevelInput = options[COVERAGE].value;
-        if (coverageLevelInput != null) {
-            coverageLevel = Level.get(coverageLevelInput);
-            if (coverageLevel == Level.UNDETERMINED) {
-                throw new IllegalArgumentException(
-                        "-c"
-                                + coverageLevelInput
-                                + "\t is invalid: must be one of: "
-                                + "basic,moderate,...");
-            }
-        }
+        final Level coverageLevel = null;
 
         Organization organization =
                 options[ORGANIZATION].value == null
@@ -422,12 +399,12 @@ public class ConsoleCheckCLDR {
             }
         }
 
-        if (options[GENERATE_HTML].doesOccur) {
-            coverageLevel = Level.MODERN; // reset
-            ErrorFile.generated_html_directory = options[GENERATE_HTML].value;
-            ErrorFile.generated_html_count =
-                    FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, "count.txt");
-        }
+        // if (options[GENERATE_HTML].doesOccur) {
+        //     coverageLevel = Level.MODERN; // reset
+        //     ErrorFile.generated_html_directory = options[GENERATE_HTML].value;
+        //     ErrorFile.generated_html_count =
+        //             FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, "count.txt");
+        // }
 
         idView = options[ID_VIEW].doesOccur;
 
@@ -455,29 +432,17 @@ public class ConsoleCheckCLDR {
         Factory cldrFactory =
                 SimpleFactory.make(sourceDirectories, factoryFilter)
                         .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
-        CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
-        if (checkCldr.getFilteredTestList().size() == 0) {
-            throw new IllegalArgumentException("The filter doesn't match any tests.");
-        }
-        System.out.println("filtered tests: " + checkCldr.getFilteredTests());
+        TestCache testCache = new TestCache(); // for parallelism
+        testCache.setFactory(cldrFactory, checkFilter);
         Factory backCldrFactory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
         english = backCldrFactory.make("en", true);
 
         CheckCLDR.setDisplayInformation(english);
-        checkCldr.setEnglishFile(english);
-        setExampleGenerator(new ExampleGenerator(english, english));
         PathShower pathShower = new PathShower();
 
         // call on the files
         Set<String> locales = new TreeSet<>(baseFirstCollator);
         locales.addAll(cldrFactory.getAvailable());
-
-        List<CheckStatus> result = new ArrayList<>();
-        Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
-        Map<String, String> m = new TreeMap<>();
-        Map<String, String> options = new HashMap<>();
-        FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
-        Set<String> englishPaths = null;
 
         Set<String> fatalErrors = new TreeSet<>();
 
@@ -493,17 +458,38 @@ public class ConsoleCheckCLDR {
                 StandardCodes.make().getLocaleToLevel(organization);
 
         final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX"));
-        for (String localeID : locales) {
-            if (CLDRFile.isSupplementalName(localeID)) continue;
+        HashSet<String> ep = new HashSet<>();
+                final CLDRFile displayFile = CheckCLDR.getDisplayInformation();
+                addPrettyPaths(
+                        displayFile, pathFilter, pathHeaderFactory, noaliases, true, ep);
+                addPrettyPaths(
+                        displayFile,
+                        displayFile.getExtraPaths(),
+                        pathFilter,
+                        pathHeaderFactory,
+                        noaliases,
+                        true,
+                        ep);
+        final Set<String> englishPaths = Collections.unmodifiableSet(ep); // for robustness
+
+        locales.parallelStream().forEach(localeID -> {
+
+            List<CheckStatus> result = new ArrayList<>();
+            Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
+            Map<String, String> m = new TreeMap<>();
+            Map<String, String> options = new HashMap<>();
+            FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
+
+        if (CLDRFile.isSupplementalName(localeID)) return;
             if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
                 System.out.println("# Skipping default content locale: " + localeID);
-                continue;
+                return;
             }
 
             // We don't really need to check the POSIX locale, as it is a special purpose locale
             if (specialPurposeLocales.contains(localeID)) {
                 System.out.println("# Skipping special purpose locale: " + localeID);
-                continue;
+                return;
             }
 
             boolean isLanguageLocale =
@@ -520,10 +506,10 @@ public class ConsoleCheckCLDR {
                 level = Level.MODERN;
             }
             if (organization != null) {
-                if (locale_status == null) continue;
+                if (locale_status == null) return;
                 level = locale_status.get(localeID);
-                if (level == null) continue;
-                if (level.compareTo(Level.BASIC) < 0) continue;
+                if (level == null) return;
+                if (level.compareTo(Level.BASIC) < 0) return;
             } else if (!isLanguageLocale) {
                 // otherwise, skip all language locales
                 options.put(Options.Option.CheckCoverage_skip.getKey(), "true");
@@ -533,6 +519,9 @@ public class ConsoleCheckCLDR {
             // options.put(Options.Option.CoverageLevel_localeType.getKey(),
             // organization.toString());
             options.put(Options.Option.phase.getKey(), phase.toString());
+
+            // neded
+            options.put(Options.Option.locale.getKey(), localeID);
 
             if (SHOW_LOCALE) System.out.println();
 
@@ -554,18 +543,22 @@ public class ConsoleCheckCLDR {
                 fatalErrors.add(localeID);
                 System.out.println("FATAL ERROR: " + localeID);
                 e.printStackTrace(System.out);
-                continue;
+                return;
             }
+
+
+            TestResultBundle bundle = testCache.getBundle(new CheckCLDR.Options(options));
+
 
             // generate HTML if asked for
-            if (ErrorFile.generated_html_directory != null) {
-                String baseLanguage = localeIDParser.set(localeID).getLanguageScript();
+            // if (ErrorFile.generated_html_directory != null) {
+            //     String baseLanguage = localeIDParser.set(localeID).getLanguageScript();
 
-                if (!baseLanguage.equals(lastBaseLanguage)) {
-                    lastBaseLanguage = baseLanguage;
-                    ErrorFile.openErrorFile(localeID, baseLanguage);
-                }
-            }
+            //     if (!baseLanguage.equals(lastBaseLanguage)) {
+            //         lastBaseLanguage = baseLanguage;
+            //         ErrorFile.openErrorFile(localeID, baseLanguage);
+            //     }
+            // }
 
             if (user != null) {
                 file = new CLDRFile.TestUser(file, user, isLanguageLocale);
@@ -573,7 +566,7 @@ public class ConsoleCheckCLDR {
                     parent = new CLDRFile.TestUser(parent, user, isLanguageLocale);
                 }
             }
-            checkCldr.setCldrFileToCheck(file, new Options(options), result);
+            // checkCldr.setCldrFileToCheck(file, new Options(options), result);
 
             subtotalCount.clear();
 
@@ -624,24 +617,6 @@ public class ConsoleCheckCLDR {
                 if (pathHeader.getSectionId() != SectionId.Special) {
                     paths.add(pathHeader);
                 }
-            }
-
-            // also add the English paths
-            // initialize the first time in.
-            if (englishPaths == null) {
-                englishPaths = new HashSet<>();
-                final CLDRFile displayFile = CheckCLDR.getDisplayInformation();
-                addPrettyPaths(
-                        displayFile, pathFilter, pathHeaderFactory, noaliases, true, englishPaths);
-                addPrettyPaths(
-                        displayFile,
-                        displayFile.getExtraPaths(),
-                        pathFilter,
-                        pathHeaderFactory,
-                        noaliases,
-                        true,
-                        englishPaths);
-                englishPaths = Collections.unmodifiableSet(englishPaths); // for robustness
             }
 
             UnicodeSet missingExemplars = new UnicodeSet();
@@ -721,20 +696,20 @@ public class ConsoleCheckCLDR {
                 }
 
                 String example = "";
-                if (SHOW_EXAMPLES) {
-                    example =
-                            ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
-                    showExamples(checkCldr, prettyPath, localeID, path, value, fullPath, example);
-                }
+                // if (SHOW_EXAMPLES) {
+                //     example =
+                //             ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
+                //     showExamples(checkCldr, prettyPath, localeID, path, value, fullPath, example);
+                // }
                 if (checkFlexibleDates) {
                     fset.checkFlexibles(path, value, fullPath);
                 }
                 int limit = 1;
                 for (int jj = 0; jj < limit; ++jj) {
                     if (jj == 0) {
-                        checkCldr.check(path, fullPath, value, new Options(options), result);
+                        bundle.check(path, result, value);
                     } else {
-                        checkCldr.getExamples(path, fullPath, value, new Options(options), result);
+                        bundle.getExamples(path, value, result);
                     }
 
                     boolean showedOne = false;
@@ -867,33 +842,33 @@ public class ConsoleCheckCLDR {
             if (checkFlexibleDates) {
                 fset.showFlexibles();
             }
-            if (SHOW_EXAMPLES) {
-                // ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity
-                for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
-                    String path =
-                            "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
-                    PathHeader pathHeader = pathHeaderFactory.fromPath(path);
-                    String prettyPath = pathHeader.toString().replace('\t', '|').replace(' ', '_');
-                    if (pathFilter != null && !pathFilter.reset(path).matches()) {
-                        continue;
-                    }
-                    String fullPath = file.getStringValue(path);
-                    if (fullPath != null) {
-                        continue;
-                    }
-                    /*
-                     * TODO: fix this code. Calling getExampleHtml with value = null will always return null,
-                     * so what's this supposed to accomplish?
-                     */
-                    String example =
-                            ExampleGenerator.simplify(
-                                    exampleGenerator.getExampleHtml(path, null /* value */));
-                    showExamples(checkCldr, prettyPath, localeID, path, null, fullPath, example);
-                }
-            }
+            // if (SHOW_EXAMPLES) {
+            //     // ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity
+            //     for (String zone : StandardCodes.make().getGoodAvailableCodes("tzid")) {
+            //         String path =
+            //                 "//ldml/dates/timeZoneNames/zone[@type=\"" + zone + "\"]/exemplarCity";
+            //         PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+            //         String prettyPath = pathHeader.toString().replace('\t', '|').replace(' ', '_');
+            //         if (pathFilter != null && !pathFilter.reset(path).matches()) {
+            //             continue;
+            //         }
+            //         String fullPath = file.getStringValue(path);
+            //         if (fullPath != null) {
+            //             continue;
+            //         }
+            //         /*
+            //          * TODO: fix this code. Calling getExampleHtml with value = null will always return null,
+            //          * so what's this supposed to accomplish?
+            //          */
+            //         String example =
+            //                 ExampleGenerator.simplify(
+            //                         exampleGenerator.getExampleHtml(path, null /* value */));
+            //         showExamples(checkCldr, prettyPath, localeID, path, null, fullPath, example);
+            //     }
+            // }
             System.out.println("# Elapsed time: " + timer);
             System.out.flush();
-        }
+        });
 
         if (ErrorFile.errorFileWriter != null) {
             ErrorFile.closeErrorFile();
@@ -927,7 +902,7 @@ public class ConsoleCheckCLDR {
                 System.out.println(s + "=" + LogicalGrouping.typeCount.get(s));
             }
         }
-        checkCldr.handleFinish();
+        // checkCldr.handleFinish();
     } // end of main()
 
     static class LocaleVotingData {

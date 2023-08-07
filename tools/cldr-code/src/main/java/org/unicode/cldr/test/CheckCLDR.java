@@ -1450,7 +1450,7 @@ public abstract class CheckCLDR implements CheckAccessor {
     private static List<R3<Pattern, Subtype, Pattern>> allFilters;
 
     /** Loads the set of filters used for CheckCLDR results. */
-    private void loadFilters() {
+    private synchronized void loadFilters() {
         if (allFilters != null) return;
         allFilters = new ArrayList<>();
         RegexFileParser fileParser = new RegexFileParser();

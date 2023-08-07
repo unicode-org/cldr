@@ -34,12 +34,10 @@ A source formatter is now used, please see [spotless](./tools/README.md#spotless
 
 ### Licenses
 
-This project is released under the free and open-source [Unicode License](./LICENSE), also known as _Unicode, Inc. License Agreement - Data Files and Software_. Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
+This product is released under [LICENSE](./LICENSE)
 
-SPDX-License-Identifier: Unicode-DFS-2016
+Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
 
 ### Copyright
 
-Copyright &copy; 1991-2023 Unicode, Inc.
-All rights reserved.
-[Terms of use](https://www.unicode.org/copyright.html)
+Copyright © 2004-2023 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

@@ -283,6 +283,7 @@ public class ConsoleCheckCLDR {
                 }
             };
     private static final boolean PATH_IN_COUNT = false;
+    private static final boolean SHOW_SKIPPED = false;
 
     static Counter<ErrorType> subtotalCount = new Counter<>(true); // new ErrorCount();
     static Counter<ErrorType> totalCount = new Counter<>(true);
@@ -521,7 +522,6 @@ public class ConsoleCheckCLDR {
 
                             LocaleIDParser localeIDParser = new LocaleIDParser();
                             List<CheckStatus> result = new ArrayList<>();
-                            System.out.println(localeID);
                             Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
                             Map<String, String> m = new TreeMap<>();
                             Map<String, String> options = new HashMap<>();
@@ -532,16 +532,24 @@ public class ConsoleCheckCLDR {
                                 if (supplementalDataInfo
                                         .getDefaultContentLocales()
                                         .contains(localeID)) {
-                                    System.out.println(
-                                            "# Skipping default content locale: " + localeID);
+                                    if (SHOW_SKIPPED) {
+                                        System.out.println(
+                                                "\n# "
+                                                        + getLocaleAndName(localeID)
+                                                        + "\tSkipping default content locale");
+                                    }
                                     continue;
                                 }
 
                                 // We don't really need to check the POSIX locale, as it is a
                                 // special purpose locale
                                 if (specialPurposeLocales.contains(localeID)) {
-                                    System.out.println(
-                                            "# Skipping special purpose locale: " + localeID);
+                                    if (SHOW_SKIPPED) {
+                                        System.out.println(
+                                                "\n# "
+                                                        + getLocaleAndName(localeID)
+                                                        + "\tSkipping special purpose locale: ");
+                                    }
                                     continue;
                                 }
 
@@ -575,8 +583,6 @@ public class ConsoleCheckCLDR {
                                 // organization.toString());
                                 options.put(Options.Option.phase.getKey(), phase.toString());
 
-                                if (SHOW_LOCALE) System.out.println();
-
                                 CLDRFile file;
                                 CLDRFile englishFile = english;
                                 CLDRFile parent = null;
@@ -594,7 +600,7 @@ public class ConsoleCheckCLDR {
                                     }
                                 } catch (RuntimeException e) {
                                     fatalErrors.add(localeID);
-                                    System.out.println("FATAL ERROR: " + localeID);
+                                    System.out.println("\n# FATAL ERROR: " + localeID);
                                     e.printStackTrace(System.out);
                                     continue;
                                 }
@@ -918,7 +924,7 @@ public class ConsoleCheckCLDR {
                                         showSummary(
                                                 localeID,
                                                 level,
-                                                "Total missing from general exemplars:\t"
+                                                "Not in exemplars:\t"
                                                         + missingExemplars.size()
                                                         + "\t"
                                                         + UnicodeSetPrettyPrinter.fromIcuLocale(
@@ -989,7 +995,12 @@ public class ConsoleCheckCLDR {
                                                 example);
                                     }
                                 }
-                                System.out.println("# Elapsed time: " + timer);
+                                System.out.println(
+                                        "# "
+                                                + getLocaleAndName(localeID)
+                                                + "\tElapsed time:\t"
+                                                + timer
+                                                + "\n");
                                 System.out.flush();
                             } while (false);
                             checkCldr.handleFinish();
@@ -1003,24 +1014,20 @@ public class ConsoleCheckCLDR {
             ErrorFile.writeErrorCountsText();
             ErrorFile.writeErrorFileIndex();
         }
-        System.out.println();
         for (ErrorType type : totalCount.keySet()) {
-            System.out.println("# Total " + type + ":\t" + totalCount.getCount(type));
+            System.out.println("\n# Total " + type + ":\t" + totalCount.getCount(type));
         }
 
-        System.out.println();
-        System.out.println("# Total elapsed time: " + totalTimer);
+        System.out.println("\n# Total elapsed time: " + totalTimer);
         if (fatalErrors.size() != 0) {
             System.out.println("# FATAL ERRORS:");
         }
         long errorCount = totalCount.getCount(ErrorType.error) + fatalErrors.size();
         if (errorCount != 0) {
-            System.out.println();
-            System.out.println("<< FAILURE - Error count is " + errorCount + " . >>");
+            System.out.println("\n<< FAILURE - Error count is " + errorCount + " . >>");
             System.exit(-1);
         } else {
-            System.out.println();
-            System.out.println("<< SUCCESS - No errors found. >>");
+            System.out.println("\n<< SUCCESS - No errors found. >>");
         }
         if (LogicalGrouping.GET_TYPE_COUNTS) {
             for (String s : LogicalGrouping.typeCount.keySet()) {

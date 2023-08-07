@@ -679,15 +679,17 @@ public abstract class CheckCLDR implements CheckAccessor {
         // Shortlist error filters for this locale.
         loadFilters();
         String locale = cldrFileToCheck.getLocaleID();
-        filtersForLocale.clear();
-        for (R3<Pattern, Subtype, Pattern> filter : allFilters) {
-            if (filter.get0() == null || !filter.get0().matcher(locale).matches()) continue;
-            Subtype subtype = filter.get1();
-            List<Pattern> xpaths = filtersForLocale.get(subtype);
-            if (xpaths == null) {
-                filtersForLocale.put(subtype, xpaths = new ArrayList<>());
+        synchronized (filtersForLocale) {
+            filtersForLocale.clear();
+            for (R3<Pattern, Subtype, Pattern> filter : allFilters) {
+                if (filter.get0() == null || !filter.get0().matcher(locale).matches()) continue;
+                Subtype subtype = filter.get1();
+                List<Pattern> xpaths = filtersForLocale.get(subtype);
+                if (xpaths == null) {
+                    filtersForLocale.put(subtype, xpaths = new ArrayList<>());
+                }
+                xpaths.add(filter.get2());
             }
-            xpaths.add(filter.get2());
         }
         return this;
     }

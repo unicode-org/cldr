@@ -70,7 +70,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:version-->
     <!--@METADATA-->
 <!ATTLIST type iana CDATA #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/^[A-Za-z]+(/[A-Za-z_\-]+)+$ -->
     <!--@VALUE-->
 
 <!ELEMENT attribute EMPTY >

@@ -346,9 +346,9 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnits() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         String staticMeterExample =
-                "〖1 meter ≡ 1,000 millimeter〗〖1 meter ≈ 1.0936 yard (US/UK)〗〖1 meter ≡ 1 / 1,000 kilometer〗〖1 meter ≈ 621.4 × 10ˆ-6 mile (US/UK)〗";
+                "〖1 meter ≡ 1,000 millimeter〗〖1 meter ≈ 1.0936 yard (US/UK)〗〖1 meter ≡ 1/1000 kilometer〗〖1 meter ≈ 621.37×10ˆ-6 mile (US/UK)〗";
         String staticMeterExampleJp =
-                "〖1 meter ≡ 1,000 millimeter〗〖1 meter ≡ 3.025 jo-jp (JP)〗〖1 meter ≈ 1.0936 yard (US/UK)〗〖1 meter ≈ 0.0023341 ri-jp (JP)〗〖1 meter ≡ 1 / 1,000 kilometer〗〖1 meter ≈ 621.4 × 10ˆ-6 mile (US/UK)〗";
+                "〖1 meter ≡ 1,000 millimeter〗〖1 meter ≡ 3.025 jo-jp (JP)〗〖1 meter ≈ 1.0936 yard (US/UK)〗〖1 meter ≈ 0.0023341 ri-jp (JP)〗〖1 meter ≡ 1/1000 kilometer〗〖1 meter ≈ 621.37×10ˆ-6 mile (US/UK)〗";
         String staticMeterExampleRi =
                 "〖1 ri-jp (JP) ≡ 1,296 jo-jp (JP)〗〖1 ri-jp (JP) ≈ 468.54 yard (US/UK)〗〖1 ri-jp (JP) ≈ 428.43 meter〗〖1 ri-jp (JP) ≈ 0.42843 kilometer〗〖1 ri-jp (JP) ≈ 0.26621 mile (US/UK)〗";
 
@@ -1101,42 +1101,42 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "one",
                 "accusative",
-                "〖❬1❭ Tag〗〖❬… für 1❭ Tag❬ …❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ Tag〗〖❬… für 1❭ Tag❬ …❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "one",
                 "dative",
-                "〖❬1❭ Tag〗〖❬… mit 1❭ Tag❬ …❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ Tag〗〖❬… mit 1❭ Tag❬ …❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "one",
                 "genitive",
-                "〖❬1❭ Tages〗〖❬Anstatt 1❭ Tages❬ …❭〗〖❌  ❬… für 1❭ Tages❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ Tages〗〖❬Anstatt 1❭ Tages❬ …❭〗〖❌  ❬… für 1❭ Tages❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "one",
                 "nominative",
-                "〖❬1❭ Tag〗〖❬1❭ Tag❬ kostet (kosten) € 3,50.❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ Tag〗〖❬1❭ Tag❬ kostet (kosten) € 3,50.❭〗〖❌  ❬Anstatt 1❭ Tag❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "accusative",
-                "〖❬1,5❭ Tage〗〖❬… für 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1,5❭ Tage〗〖❬… für 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "dative",
-                "〖❬1,5❭ Tagen〗〖❬… mit 1,5❭ Tagen❬ …❭〗〖❌  ❬… für 1,5❭ Tagen❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1,5❭ Tagen〗〖❬… mit 1,5❭ Tagen❬ …❭〗〖❌  ❬… für 1,5❭ Tagen❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "genitive",
-                "〖❬1,5❭ Tage〗〖❬Anstatt 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1,5❭ Tage〗〖❬Anstatt 1,5❭ Tage❬ …❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "nominative",
-                "〖❬1,5❭ Tage〗〖❬1,5❭ Tage❬ kostet (kosten) € 3,50.❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1,5❭ Tage〗〖❬1,5❭ Tage❬ kostet (kosten) € 3,50.❭〗〖❌  ❬… mit 1,5❭ Tage❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
         };
         checkInflectedUnitExamples("de", deTests);
@@ -1144,32 +1144,32 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "one",
                 "accusative",
-                "〖❬1❭ ημέρα〗〖❬… ανά 1❭ ημέρα❬ …❭〗〖❌  ❬… αξίας 1❭ ημέρα❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ ημέρα〗〖❬… ανά 1❭ ημέρα❬ …❭〗〖❌  ❬… αξίας 1❭ ημέρα❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "one",
                 "genitive",
-                "〖❬1❭ ημέρας〗〖❬… αξίας 1❭ ημέρας❬ …❭〗〖❌  ❬… ανά 1❭ ημέρας❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ ημέρας〗〖❬… αξίας 1❭ ημέρας❬ …❭〗〖❌  ❬… ανά 1❭ ημέρας❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "one",
                 "nominative",
-                "〖❬1❭ ημέρα〗〖❬Η απόσταση είναι 1❭ ημέρα❬ …❭〗〖❌  ❬… αξίας 1❭ ημέρα❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬1❭ ημέρα〗〖❬Η απόσταση είναι 1❭ ημέρα❬ …❭〗〖❌  ❬… αξίας 1❭ ημέρα❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "accusative",
-                "〖❬0,9❭ ημέρες〗〖❬… ανά 0,9❭ ημέρες❬ …❭〗〖❌  ❬… αξίας 0,9❭ ημέρες❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬0,9❭ ημέρες〗〖❬… ανά 0,9❭ ημέρες❬ …❭〗〖❌  ❬… αξίας 0,9❭ ημέρες❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "genitive",
-                "〖❬0,9❭ ημερών〗〖❬… αξίας 0,9❭ ημερών❬ …❭〗〖❌  ❬… ανά 0,9❭ ημερών❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬0,9❭ ημερών〗〖❬… αξίας 0,9❭ ημερών❬ …❭〗〖❌  ❬… ανά 0,9❭ ημερών❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
             {
                 "other",
                 "nominative",
-                "〖❬0,9❭ ημέρες〗〖❬Η απόσταση είναι 0,9❭ ημέρες❬ …❭〗〖❌  ❬… αξίας 0,9❭ ημέρες❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1 / 7 week〗"
+                "〖❬0,9❭ ημέρες〗〖❬Η απόσταση είναι 0,9❭ ημέρες❬ …❭〗〖❌  ❬… αξίας 0,9❭ ημέρες❬ …❭〗〖〗〖1 day ≡ 24 hour〗〖1 day ≡ 1/7 week〗"
             },
         };
         checkInflectedUnitExamples("el", elTests);

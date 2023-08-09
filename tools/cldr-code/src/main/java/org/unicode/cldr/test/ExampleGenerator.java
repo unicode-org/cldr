@@ -1244,7 +1244,7 @@ public class ExampleGenerator {
             String relatedUnit = relatedUnitInfo.getValue();
             Set<UnitSystem> systems = UNIT_CONVERTER.getSystemsEnum(relatedUnit);
             String relation = "≡";
-            String relatedValueDisplay = relatedValue.toString(FormatStyle.basic);
+            String relatedValueDisplay = relatedValue.toString(FormatStyle.approx);
             if (relatedValueDisplay.startsWith("~")) {
                 relation = "≈";
                 relatedValueDisplay = relatedValueDisplay.substring(1);

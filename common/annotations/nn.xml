@@ -97,7 +97,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="]" type="tts">slutthakeparentes</annotation>
 		<annotation cp="}">høgre krøllparentes | klammeparentes | krøllparentes | parentes | sluttparentes</annotation>
 		<annotation cp="}" type="tts">høgre krøllparentes</annotation>
-		<annotation cp="〈">parentes | spissparentes | startparentes | startvinkelparentes | vinkelparentes</annotation>
+		<annotation cp="〈">parentes | spissparentes | startparentes | startvinkelparentes | venstre vinkelparentes | vinkelparentes</annotation>
 		<annotation cp="〈" type="tts">↑↑↑</annotation>
 		<annotation cp="〉">høgre vinkelparentes | parentes | sluttparentes | sluttvinkelparentes | spissparentes | vinkelparentes</annotation>
 		<annotation cp="〉" type="tts">sluttvinkelparentes</annotation>
@@ -105,7 +105,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="《" type="tts">dobbel startvinkelparentes</annotation>
 		<annotation cp="》">dobbel sluttvinkelparentes | dobbelparentes | høgre dobbel vinkelparentes | parentes | sluttparentes | spissparentes | vinkelparentes</annotation>
 		<annotation cp="》" type="tts">dobbel sluttvinkelparentes</annotation>
-		<annotation cp="「">↑↑↑</annotation>
+		<annotation cp="「">hjørneparentes | parentes | starthjørneparentes | startparentes | venstre hjørneparentes</annotation>
 		<annotation cp="「" type="tts">starthjørneparentes</annotation>
 		<annotation cp="」">hjørneparentes | høgre hjørneparentes | parentes | slutthjørneparentes | sluttparentes</annotation>
 		<annotation cp="」" type="tts">slutthjørneparentes</annotation>
@@ -119,7 +119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="】" type="tts">svart sluttlinseparentes</annotation>
 		<annotation cp="〔">parentes | skjelpaddeskal | skjelpaddeskalparentes | startparentes | venstre skjelpaddeskalparentes</annotation>
 		<annotation cp="〔" type="tts">venstre skjelpaddeskalparentes</annotation>
-		<annotation cp="〕">høgre skjelpaddeparentes | parentes | skjelpaddeskal | skjelpaddeskalparentes | sluttparentes</annotation>
+		<annotation cp="〕">høgre skjelpaddeparentes | høgre skjelpaddeskalparentes | parentes | skjelpaddeskal | skjelpaddeskalparentes | sluttparentes</annotation>
 		<annotation cp="〕" type="tts">høgre skjelpaddeskalparentes</annotation>
 		<annotation cp="〖">hol parentes | hol startlinseparentes | linseparentes | parentes | startparentes | venstre hol linseparentes</annotation>
 		<annotation cp="〖" type="tts">hol startlinseparentes</annotation>
@@ -357,13 +357,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∈" type="tts">↑↑↑</annotation>
 		<annotation cp="∉">element | er ikkje element i</annotation>
 		<annotation cp="∉" type="tts">er ikkje element i</annotation>
-		<annotation cp="∋">element | inneheld</annotation>
+		<annotation cp="∋">element | inneheld | inneheld som medlem</annotation>
 		<annotation cp="∋" type="tts">inneheld som medlem</annotation>
 		<annotation cp="∎">↑↑↑</annotation>
 		<annotation cp="∎" type="tts">↑↑↑</annotation>
-		<annotation cp="∏">logikk | matte | produkt av n faktorar | produktserie | produktteikn</annotation>
+		<annotation cp="∏">logikk | matte | produkt | produkt av n faktorar | produktserie | produktteikn</annotation>
 		<annotation cp="∏" type="tts">↑↑↑</annotation>
-		<annotation cp="∑">↑↑↑</annotation>
+		<annotation cp="∑">matte | sum | sum av ei rekkje | sum av n ledd | summering</annotation>
 		<annotation cp="∑" type="tts">sum av ei rekkje</annotation>
 		<annotation cp="+">addere | leggje til | pluss | plussteikn</annotation>
 		<annotation cp="+" type="tts">plussteikn</annotation>
@@ -429,7 +429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∪" type="tts">↑↑↑</annotation>
 		<annotation cp="∫">integralteikn</annotation>
 		<annotation cp="∫" type="tts">integralteikn</annotation>
-		<annotation cp="∬">↑↑↑</annotation>
+		<annotation cp="∬">dobbelt integral | dobbeltintegraltegn | dobbeltintegralteikn | kalkulus | matematisk analyse</annotation>
 		<annotation cp="∬" type="tts">dobbeltintegralteikn</annotation>
 		<annotation cp="∮">↑↑↑</annotation>
 		<annotation cp="∮" type="tts">↑↑↑</annotation>
@@ -483,7 +483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≺" type="tts">kjem før</annotation>
 		<annotation cp="≻">kjem etter | matte | mengdeoperator</annotation>
 		<annotation cp="≻" type="tts">kjem etter</annotation>
-		<annotation cp="⊁">Kjem ikkje etter | matte | mengdeoperator</annotation>
+		<annotation cp="⊁">kjem ikkje etter | Kjem ikkje etter | matte | mengdeoperator</annotation>
 		<annotation cp="⊁" type="tts">kjem ikkje etter</annotation>
 		<annotation cp="⊂">delmengd av | inklusjonsteikn | matematiske teikn | mengdelære</annotation>
 		<annotation cp="⊂" type="tts">delmengd av</annotation>
@@ -659,7 +659,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◙" type="tts">fylt kvadrat rundt hol sirkel</annotation>
 		<annotation cp="◜">sirkelboge | sirkelboge øvre venstre kvadrant</annotation>
 		<annotation cp="◜" type="tts">sirkelboge øvre venstre kvadrant</annotation>
-		<annotation cp="◝">sirkelboge | sirkelbue øvre høgre kvadrant</annotation>
+		<annotation cp="◝">sirkelboge | sirkelboge øvre høgre kvadrant | sirkelbue øvre høgre kvadrant</annotation>
 		<annotation cp="◝" type="tts">sirkelboge øvre høgre kvadrant</annotation>
 		<annotation cp="◞">sirkelboge | sirkelboge nedre høgre kvadrant</annotation>
 		<annotation cp="◞" type="tts">sirkelboge nedre høgre kvadrant</annotation>
@@ -1687,7 +1687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: vaksen, vaksen, barn</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒">familie: vaksen, vaksen, barn, barn</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: vaksen, vaksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧒">familie: vaksen, barn</annotation>
+		<annotation cp="🧑‍🧒">familie: vaksen, barn | familie: voksen, barn</annotation>
 		<annotation cp="🧑‍🧒" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🧒‍🧒">familie: vaksen, barn, barn</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: vaksen, barn, barn</annotation>
@@ -2829,7 +2829,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪁" type="tts">papirdrake</annotation>
 		<annotation cp="🔫">leiketøysvåpen | pistol | vasspistol</annotation>
 		<annotation cp="🔫" type="tts">vasspistol</annotation>
-		<annotation cp="🎱">8 | åttarkule | åtte | biljard | spel</annotation>
+		<annotation cp="🎱">8 | åttarkule | åtte | biljard | biljardkule | spel</annotation>
 		<annotation cp="🎱" type="tts">biljardkule</annotation>
 		<annotation cp="🔮">krystallkule | spådom | spådomar</annotation>
 		<annotation cp="🔮" type="tts">↑↑↑</annotation>
@@ -3465,7 +3465,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↗" type="tts">pil opp-høgre</annotation>
 		<annotation cp="➡">aust | høgrepil | pil | pil høgre | retning</annotation>
 		<annotation cp="➡" type="tts">pil høgre</annotation>
-		<annotation cp="↘">pil | pil ned-høgre | retning | søraust</annotation>
+		<annotation cp="↘">pil | pil ned -høgre | pil ned-høgre | retning | søraust</annotation>
 		<annotation cp="↘" type="tts">pil ned -høgre</annotation>
 		<annotation cp="⬇">↑↑↑</annotation>
 		<annotation cp="⬇" type="tts">↑↑↑</annotation>
@@ -3795,7 +3795,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="⬛">↑↑↑</annotation>
 		<annotation cp="⬛" type="tts">↑↑↑</annotation>
-		<annotation cp="⬜">firkant | geometrisk | kvadrat | stort kvitt kvadrat</annotation>
+		<annotation cp="⬜">firkant | geometrisk | kvadrat | stor kvit firkant | stort kvitt kvadrat</annotation>
 		<annotation cp="⬜" type="tts">stor kvit firkant</annotation>
 		<annotation cp="◼">↑↑↑</annotation>
 		<annotation cp="◼" type="tts">↑↑↑</annotation>

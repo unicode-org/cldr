@@ -241,7 +241,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↷" type="tts">akụ ọkara okirikiri elu na atụgharịa n’aka ekpe</annotation>
 		<annotation cp="↸">akụ toro ogologo n’eche ihu ebe ugwu</annotation>
 		<annotation cp="↸" type="tts">akụ toro ogologo n’eche ihu ebe ugwu</annotation>
-		<annotation cp="↹">ahịrị | aka ekpe | aka nri | akụ | akụ aka ekpe n’elu nke aka nri</annotation>
+		<annotation cp="↹">ahịrị | aka ekpe | aka nri | akụ | akụ aka ekpe n’elu nke aka nri | akụ aka ekpe n’elu nke aka nri nwere ahịrị</annotation>
 		<annotation cp="↹" type="tts">akụ aka ekpe n’elu nke aka nri nwere ahịrị</annotation>
 		<annotation cp="↺">akụ okirikiri na atụgharịa n’aka nri</annotation>
 		<annotation cp="↺" type="tts">akụ okirikiri na atụgharịa n’aka nri</annotation>
@@ -249,7 +249,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↻" type="tts">akụ okirikiri na atụgharịa n’aka ekpe</annotation>
 		<annotation cp="↼">gbagoro | nko aka ekpe gbagoro elu</annotation>
 		<annotation cp="↼" type="tts">nko aka ekpe gbagoro elu</annotation>
-		<annotation cp="↽">nko aka ekpe gabdara ala</annotation>
+		<annotation cp="↽">nko aka ekpe gabdara ala | nko aka ekpe gadara ala</annotation>
 		<annotation cp="↽" type="tts">nko aka ekpe gadara ala</annotation>
 		<annotation cp="↾">nko | nko aka elu n’aga n’aka nri</annotation>
 		<annotation cp="↾" type="tts">nko aka elu n’aga n’aka nri</annotation>
@@ -307,7 +307,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇙" type="tts">akụ ahịrị abụo n’aga ebe ndida anyanwụ</annotation>
 		<annotation cp="⇚">akụ ahịrị atọ n’aga aka ekpe</annotation>
 		<annotation cp="⇚" type="tts">akụ ahịrị atọ n’aga aka ekpe</annotation>
-		<annotation cp="⇛">akụ ahịrị atọ n’aga aka ekpe</annotation>
+		<annotation cp="⇛">akụ ahịrị atọ n’aga aka ekpe | akụ ahịrị atọ n’aga aka nri</annotation>
 		<annotation cp="⇛" type="tts">akụ ahịrị atọ n’aga aka nri</annotation>
 		<annotation cp="⇜">akụ rịgọrịgọ n’aga aka ekpe</annotation>
 		<annotation cp="⇜" type="tts">akụ rịgọrịgọ n’aga aka ekpe</annotation>
@@ -341,13 +341,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇪" type="tts">akụ nwere oghere n’agbago elu si n’ahịrị</annotation>
 		<annotation cp="⇵">akụ n’agbada ala nke aka ekpe n’agbago elu</annotation>
 		<annotation cp="⇵" type="tts">akụ n’agbada ala nke aka ekpe n’agbago elu</annotation>
-		<annotation cp="∀">enyere | keọbụla | kezuruọha | maka nke niile | nke niile</annotation>
+		<annotation cp="∀">enyere | keọbụla | kezuruọha | maka nke niile | nke niile | nke nille</annotation>
 		<annotation cp="∀" type="tts">nke nille</annotation>
 		<annotation cp="∂">difrensha | ọkara difrensha</annotation>
 		<annotation cp="∂" type="tts">ọkara difrensha</annotation>
 		<annotation cp="∃">enwere</annotation>
 		<annotation cp="∃" type="tts">enwere</annotation>
-		<annotation cp="∅">mgbakọ na mwepụ | okpokoro set | opereto set</annotation>
+		<annotation cp="∅">mgbakọ na mwepụ | okpokoro set | opereto set | set ghere oghe</annotation>
 		<annotation cp="∅" type="tts">set ghere oghe</annotation>
 		<annotation cp="∆">mmụba | triangul</annotation>
 		<annotation cp="∆" type="tts">mmụba</annotation>
@@ -421,7 +421,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∣" type="tts">n’ekewa</annotation>
 		<annotation cp="∥">ahịrị abụọ nọkọtara ọnụ</annotation>
 		<annotation cp="∥" type="tts">ahịrị abụọ nọkọtara ọnụ</annotation>
-		<annotation cp="∧">ac | atque | logik na | weji</annotation>
+		<annotation cp="∧">ac | atque | logik na | nwere nghọta ma | weji</annotation>
 		<annotation cp="∧" type="tts">nwere nghọta ma</annotation>
 		<annotation cp="∩">intersection | set</annotation>
 		<annotation cp="∩" type="tts">intersection</annotation>
@@ -449,7 +449,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∾" type="tts">s ntụgharị umengwụ</annotation>
 		<annotation cp="≃">hatara na ntụgharị | mgbakọ na mwepụ | ntụgharị</annotation>
 		<annotation cp="≃" type="tts">hatara na ntụgharị</annotation>
-		<annotation cp="≅">congruence | ihe ruru nhata | isomorphism | mgbakọ na mwepụ | nhata</annotation>
+		<annotation cp="≅">congruence | ihe ruru nhata | isomorphism | mgbakọ na mwepụ | nhata | ruru nhata</annotation>
 		<annotation cp="≅" type="tts">ruru nhata</annotation>
 		<annotation cp="≈">ofokwa nhara</annotation>
 		<annotation cp="≈" type="tts">ofokwa nhara</annotation>
@@ -623,7 +623,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◇" type="tts">dayamọnd ghere oghe</annotation>
 		<annotation cp="◈">dayamọnd ghere oghe nwere dayamọnd emejuru</annotation>
 		<annotation cp="◈" type="tts">dayamọnd ghere oghe nwere dayamọnd emejuru</annotation>
-		<annotation cp="◉">anya azu | okirikiri nke emejuru n’otu akụkụ | okirikiri ntụpọ | okiriri | ward</annotation>
+		<annotation cp="◉">anya azu | okirikiri nke emejuru n’otu akụkụ | okirikiri ntụpọ | okiriri | okiriri ghere oghe nwere okiriri emejuru | ward</annotation>
 		<annotation cp="◉" type="tts">okiriri ghere oghe nwere okiriri emejuru</annotation>
 		<annotation cp="◊">diamond | lozenge | rhombus</annotation>
 		<annotation cp="◊" type="tts">lozenge</annotation>
@@ -991,7 +991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">obi ntiwa</annotation>
 		<annotation cp="❤‍🔥">agụụ mmekọahụ | ịhụnanya | mkpụrụobi | mkpụrụobi n’ere ọkụ | n’ere ọkụ | obi dị nsọ</annotation>
 		<annotation cp="❤‍🔥" type="tts">mkpụrụobi n’ere ọkụ</annotation>
-		<annotation cp="❤‍🩹">dị mma | na-adịmma | na-agbake | na-edozi | nwere ahụike | nwere mmedo</annotation>
+		<annotation cp="❤‍🩹">dị mma | mkpụrụobi nwere mmedo | na-adịmma | na-agbake | na-edozi | nwere ahụike | nwere mmedo</annotation>
 		<annotation cp="❤‍🩹" type="tts">mkpụrụobi nwere mmedo</annotation>
 		<annotation cp="❤">obi | obi ọbara</annotation>
 		<annotation cp="❤" type="tts">obi ọbara</annotation>
@@ -1237,9 +1237,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋‍♀" type="tts">nwanyị na-ewelite aka</annotation>
 		<annotation cp="🧏">accessibility | inu | nti | onye ntị chiri</annotation>
 		<annotation cp="🧏" type="tts">onye ntị chiri</annotation>
-		<annotation cp="🧏‍♂">ntị chiri | nwoke</annotation>
+		<annotation cp="🧏‍♂">ntị chiri | nwoke | nwoke ntị chiri</annotation>
 		<annotation cp="🧏‍♂" type="tts">nwoke ntị chiri</annotation>
-		<annotation cp="🧏‍♀">ntị chiri | nwanyị</annotation>
+		<annotation cp="🧏‍♀">ntị chiri | nwanyị | nwanyị ntị chiri</annotation>
 		<annotation cp="🧏‍♀" type="tts">nwanyị ntị chiri</annotation>
 		<annotation cp="🙇">hulata | ndo | ogbugbu | onye na-ehulata ala</annotation>
 		<annotation cp="🙇" type="tts">onye na-ehulata ala</annotation>
@@ -1259,7 +1259,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷‍♂" type="tts">nwoke na-egosi nhatanha aka</annotation>
 		<annotation cp="🤷‍♀">adịghị iche | amaghị | ekweghị ekwe | gosi nhà | nwanyị | nwanyị na-egosi nhatanha aka</annotation>
 		<annotation cp="🤷‍♀" type="tts">nwanyị na-egosi nhatanha aka</annotation>
-		<annotation cp="🧑‍⚕">ahụike | dọkịta | nọọsụ | onye dọkịta | ọrụ ahụike</annotation>
+		<annotation cp="🧑‍⚕">ahụike | dọkịta | nọọsụ | onye dọkịta | onye ọrụ ahụike | ọrụ ahụike</annotation>
 		<annotation cp="🧑‍⚕" type="tts">onye ọrụ ahụike</annotation>
 		<annotation cp="👨‍⚕">dọkịta | nletaahụike | nọọsụ | nwoke | nwoke ọrụ ahụike | onye dọkịta</annotation>
 		<annotation cp="👨‍⚕" type="tts">nwoke ọrụ ahụike</annotation>
@@ -1297,11 +1297,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍🍳" type="tts">nwanyị na-esi</annotation>
 		<annotation cp="🧑‍🔧">onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
 		<annotation cp="🧑‍🔧" type="tts">onye na-arụzi ụgbọala</annotation>
-		<annotation cp="👨‍🔧">nwoke | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
+		<annotation cp="👨‍🔧">nwoke | nwoke onye na-arụzi ụgbọala | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
 		<annotation cp="👨‍🔧" type="tts">nwoke onye na-arụzi ụgbọala</annotation>
-		<annotation cp="👩‍🔧">nwanyị | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
+		<annotation cp="👩‍🔧">nwanyị | nwanyị na-arụzi ụgbọala | onye na-arụzi ụgbọala | onye ọrụ ngwaọkụ | onyeazụmaahịa | plọmba</annotation>
 		<annotation cp="👩‍🔧" type="tts">nwanyị na-arụzi ụgbọala</annotation>
-		<annotation cp="🧑‍🏭">ọgbakọ | onyeọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
+		<annotation cp="🧑‍🏭">ọgbakọ | onyeọrụ | onyeọrụ ụlọ ọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
 		<annotation cp="🧑‍🏭" type="tts">onyeọrụ ụlọ ọrụ</annotation>
 		<annotation cp="👨‍🏭">nwoke | nwoke onyeọrụ ụlọ ọrụ | ọgbakọ | onyeọrụ | ụlọ ọrụ | ụlọọrụ</annotation>
 		<annotation cp="👨‍🏭" type="tts">nwoke onyeọrụ ụlọ ọrụ</annotation>
@@ -1315,9 +1315,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍💼" type="tts">nwanyị onye ọrụ ọfịịsị</annotation>
 		<annotation cp="🧑‍🔬">injinia | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
 		<annotation cp="🧑‍🔬" type="tts">ọkammụta sayensi</annotation>
-		<annotation cp="👨‍🔬">injinia | nwoke | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
+		<annotation cp="👨‍🔬">injinia | nwoke | nwoke ọkammụta sayensi | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
 		<annotation cp="👨‍🔬" type="tts">nwoke ọkammụta sayensi</annotation>
-		<annotation cp="👩‍🔬">injinia | nwanyị | nwoke | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
+		<annotation cp="👩‍🔬">injinia | nwanyị | nwanyị ọkammụta sayensi | nwoke | ọkammụta ndụ | ọkammụta ọgwụ | ọkammụta phizisi | ọkammụta sayensi</annotation>
 		<annotation cp="👩‍🔬" type="tts">nwanyị ọkammụta sayensi</annotation>
 		<annotation cp="🧑‍💻">koda | ngwanrò | onye mmepụta | onye teknụụzụ | onyenrụpụta</annotation>
 		<annotation cp="🧑‍💻" type="tts">onye teknụụzụ</annotation>
@@ -1403,11 +1403,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤵‍♂" type="tts">nwoke yi uwe tuxedo</annotation>
 		<annotation cp="🤵‍♀">nwanyị | nwanyị yi uwe tuxedo | tuxedo</annotation>
 		<annotation cp="🤵‍♀" type="tts">nwanyị yi uwe tuxedo</annotation>
-		<annotation cp="👰">agbàmakwụkwọ | akwà nkochi ihu | nwanyị na-agba akwụkwọ | onye | onye yi akwa nkochi ihu</annotation>
+		<annotation cp="👰">agbàmakwụkwọ | akwà nkochi ihu | nwanyị na-agba akwụkwọ | nwanyị na-agba akwụkwọ yi akwa nkochi ihu | onye | onye yi akwa nkochi ihu</annotation>
 		<annotation cp="👰" type="tts">nwanyị na-agba akwụkwọ yi akwa nkochi ihu</annotation>
-		<annotation cp="👰‍♂">akwà nkochi ihu | mwoke yi akwà nkochi ihu | nwoke</annotation>
+		<annotation cp="👰‍♂">akwà nkochi ihu | mwoke yi akwà nkochi ihu | nwoke | nwoke yi akwà nkochi ihu</annotation>
 		<annotation cp="👰‍♂" type="tts">nwoke yi akwà nkochi ihu</annotation>
-		<annotation cp="👰‍♀">akwà nkochi ihu | nwanyị | nwanyị yi akwà nkochi ihu</annotation>
+		<annotation cp="👰‍♀">akwà nkochi ihu | nwanyị | nwanyị nkochi ihu | nwanyị yi akwà nkochi ihu</annotation>
 		<annotation cp="👰‍♀" type="tts">nwanyị nkochi ihu</annotation>
 		<annotation cp="🤰">dị ime | nwanyị | nwanyị dị ime</annotation>
 		<annotation cp="🤰" type="tts">nwanyị dị ime</annotation>
@@ -1417,11 +1417,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫄" type="tts">onye di ime</annotation>
 		<annotation cp="🤱">ara | enyemụara | na-eleta nwa | nwa</annotation>
 		<annotation cp="🤱" type="tts">enyemụara</annotation>
-		<annotation cp="👩‍🍼">n’enye nri | nwa | nwanyị</annotation>
+		<annotation cp="👩‍🍼">n’enye nri | nwa | nwanyị | nwanyị n’enye nwa nri</annotation>
 		<annotation cp="👩‍🍼" type="tts">nwanyị n’enye nwa nri</annotation>
-		<annotation cp="👨‍🍼">n’enye nri | nwa | nwoke</annotation>
+		<annotation cp="👨‍🍼">n’enye nri | nwa | nwoke | nwoke n’enye nwa nri</annotation>
 		<annotation cp="👨‍🍼" type="tts">nwoke n’enye nwa nri</annotation>
-		<annotation cp="🧑‍🍼">n’enye nri | nwa | onye</annotation>
+		<annotation cp="🧑‍🍼">n’enye nri | nwa | onye | onye n’enye nwa nri</annotation>
 		<annotation cp="🧑‍🍼" type="tts">onye n’enye nwa nri</annotation>
 		<annotation cp="👼">akarọakọ | arọrarọ | ihu | mmụọ ọma | mụo ọma nwata ọhụrụ | nwata ọhụrụ</annotation>
 		<annotation cp="👼" type="tts">mụo ọma nwata ọhụrụ</annotation>
@@ -1435,7 +1435,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦸" type="tts">dike</annotation>
 		<annotation cp="🦸‍♂">di mma | dike nwoke | ike | nwoke | odogwu</annotation>
 		<annotation cp="🦸‍♂" type="tts">dike nwoke</annotation>
-		<annotation cp="🦸‍♀">di mma | dike nwanyi | ike | nwanyị | odogwu nwanyị</annotation>
+		<annotation cp="🦸‍♀">di mma | dike nwanyi | dike nwanyị | ike | nwanyị | odogwu nwanyị</annotation>
 		<annotation cp="🦸‍♀" type="tts">dike nwanyị</annotation>
 		<annotation cp="🦹">ihe ojoo | ike | omempụ | onye ọjọọ</annotation>
 		<annotation cp="🦹" type="tts">onye ọjọọ</annotation>
@@ -1513,11 +1513,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧍‍♀" type="tts">nwanyị na-eguzo</annotation>
 		<annotation cp="🧎">gbu ikpere n’ala | igbu ikpere n’ala | onye gbu ikpere n’ala</annotation>
 		<annotation cp="🧎" type="tts">onye gbu ikpere n’ala</annotation>
-		<annotation cp="🧎‍♂">gbu ikpere n’ala | nwoke</annotation>
+		<annotation cp="🧎‍♂">gbu ikpere n’ala | nwoke | nwoke gbu ikpere n’ala</annotation>
 		<annotation cp="🧎‍♂" type="tts">nwoke gbu ikpere n’ala</annotation>
-		<annotation cp="🧎‍♀">gbu ikpere n’ala | nwanyị</annotation>
+		<annotation cp="🧎‍♀">gbu ikpere n’ala | nwanyị | nwanyị gbu ikpere n’ala</annotation>
 		<annotation cp="🧎‍♀" type="tts">nwanyị gbu ikpere n’ala</annotation>
-		<annotation cp="🧑‍🦯">kpuru ìsì | nweta | onye nwere mkpara ọcha</annotation>
+		<annotation cp="🧑‍🦯">kpuru ìsì | nweta | onye ji mkpara ọcha | onye nwere mkpara ọcha</annotation>
 		<annotation cp="🧑‍🦯" type="tts">onye ji mkpara ọcha</annotation>
 		<annotation cp="👨‍🦯">kpuru ìsì | nweta | nwoke | nwoke ji mkpara ọcha</annotation>
 		<annotation cp="👨‍🦯" type="tts">nwoke ji mkpara ọcha</annotation>
@@ -2015,7 +2015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍉" type="tts">mkpụrụosisi mmirimelọn</annotation>
 		<annotation cp="🍊">mkpụrụosisi | oroma | Tangerinụ</annotation>
 		<annotation cp="🍊" type="tts">Tangerinụ</annotation>
-		<annotation cp="🍋">mkpụrụosisi | oroma | oroma nkịrịsị</annotation>
+		<annotation cp="🍋">mkpụrụosisi | oroma | oroma lemọn | oroma nkịrịsị</annotation>
 		<annotation cp="🍋" type="tts">oroma lemọn</annotation>
 		<annotation cp="🍋‍🟩">mmiri mkpụrụ osisi, mkpụrụ osisi, ebe okpomọkụ | oroma nkịrịsị</annotation>
 		<annotation cp="🍋‍🟩" type="tts">oroma nkịrịsị</annotation>
@@ -3841,7 +3841,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">ọkọlọtọ ọcha</annotation>
 		<annotation cp="🏳‍🌈">egwurugwu | ọkọlọtọ egwurugwu</annotation>
 		<annotation cp="🏳‍🌈" type="tts">ọkọlọtọ egwurugwu</annotation>
-		<annotation cp="🏳‍⚧">ndị na-agbanwe okike | ọcha | odo odo | ọkọlọtọ | pịnkị</annotation>
+		<annotation cp="🏳‍⚧">ndị na-agbanwe okike | ọcha | odo odo | ọkọlọtọ | ọkọlọtọ ndị na-agbanwe okike ha | pịnkị</annotation>
 		<annotation cp="🏳‍⚧" type="tts">ọkọlọtọ ndị na-agbanwe okike ha</annotation>
 		<annotation cp="🏴‍☠">akụ | Jolly Roger | nwakpo | ọkọlọtọ ndị ohi oké osimiri | onye ohi oké osimiri</annotation>
 		<annotation cp="🏴‍☠" type="tts">ọkọlọtọ ndị ohi oké osimiri</annotation>

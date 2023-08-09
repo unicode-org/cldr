@@ -359,7 +359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈" type="tts">element i</annotation>
 		<annotation cp="∉">element | er ikke element i</annotation>
 		<annotation cp="∉" type="tts">er ikke element i</annotation>
-		<annotation cp="∋">element | inneholder</annotation>
+		<annotation cp="∋">element | inneholder | inneholder som medlem</annotation>
 		<annotation cp="∋" type="tts">inneholder som medlem</annotation>
 		<annotation cp="∎">q.e.d | qed | slutt på bevis</annotation>
 		<annotation cp="∎" type="tts">slutt på bevis</annotation>
@@ -399,11 +399,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁻" type="tts">hevet minustegn</annotation>
 		<annotation cp="∓">minus-eller-pluss | minus-pluss | pluss-minus</annotation>
 		<annotation cp="∓" type="tts">minus-pluss</annotation>
-		<annotation cp="∕">skråstrek for divisjon / skråstrek</annotation>
+		<annotation cp="∕">skråstrek for divisjon | skråstrek for divisjon / skråstrek</annotation>
 		<annotation cp="∕" type="tts">skråstrek for divisjon</annotation>
 		<annotation cp="⁄">skråstrek | skråstrek for brøk</annotation>
 		<annotation cp="⁄" type="tts">skråstrek for brøk</annotation>
-		<annotation cp="∗">asterisk | operator | stjerne | stjerneoperator</annotation>
+		<annotation cp="∗">asterisk | asteriskoperator | operator | stjerne | stjerneoperator</annotation>
 		<annotation cp="∗" type="tts">asteriskoperator</annotation>
 		<annotation cp="∘">komposisjon | operator | ringoperator</annotation>
 		<annotation cp="∘" type="tts">ringoperator</annotation>
@@ -715,7 +715,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😀" type="tts">glisefjes</annotation>
 		<annotation cp="😃">åpen | fjes | glisende fjes med vidåpne øyne | latter | munn | smil | smilefjes</annotation>
 		<annotation cp="😃" type="tts">glisende fjes med vidåpne øyne</annotation>
-		<annotation cp="😄">latter | med tenner | morsomt | smil | smilefjes | smilefjes med åpen munn og smilende øyne</annotation>
+		<annotation cp="😄">glisende fjes med smilende øyne | latter | med tenner | morsomt | smil | smilefjes | smilefjes med åpen munn og smilende øyne</annotation>
 		<annotation cp="😄" type="tts">glisende fjes med smilende øyne</annotation>
 		<annotation cp="😁">fjes | glis | glisefjes med smilende øyne | latter | lol | smil | smilefjes</annotation>
 		<annotation cp="😁" type="tts">glisefjes med smilende øyne</annotation>
@@ -1305,9 +1305,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🔧" type="tts">kvinnelig mekaniker</annotation>
 		<annotation cp="🧑‍🏭">arbeider | fabrikk | industri | industriarbeider | produksjon</annotation>
 		<annotation cp="🧑‍🏭" type="tts">industriarbeider</annotation>
-		<annotation cp="👨‍🏭">arbeider | fabrikk | industri | mann | produksjon</annotation>
+		<annotation cp="👨‍🏭">arbeider | fabrikk | industri | mann | mannlig industriarbeider | produksjon</annotation>
 		<annotation cp="👨‍🏭" type="tts">mannlig industriarbeider</annotation>
-		<annotation cp="👩‍🏭">arbeider | fabrikk | industri | kvinne | produksjon</annotation>
+		<annotation cp="👩‍🏭">arbeider | fabrikk | industri | kvinne | kvinnelig industriarbeider | produksjon</annotation>
 		<annotation cp="👩‍🏭" type="tts">kvinnelig industriarbeider</annotation>
 		<annotation cp="🧑‍💼">kontor | kontorarbeider | leder | næringsliv</annotation>
 		<annotation cp="🧑‍💼" type="tts">kontorarbeider</annotation>
@@ -1873,7 +1873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">papegøye</annotation>
 		<annotation cp="🪽">engleaktig | fly | flyr | fugl | mytologi | vinge</annotation>
 		<annotation cp="🪽" type="tts">vinge</annotation>
-		<annotation cp="🐦‍⬛">dyr | fugl | kråke | ravn</annotation>
+		<annotation cp="🐦‍⬛">dyr | fugl | kråke | ravn | svart fugl</annotation>
 		<annotation cp="🐦‍⬛" type="tts">svart fugl</annotation>
 		<annotation cp="🪿">dum | fjærkre | fugl | gås | tute</annotation>
 		<annotation cp="🪿" type="tts">gås</annotation>

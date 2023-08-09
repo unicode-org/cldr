@@ -242,13 +242,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↷" type="tts">↑↑↑</annotation>
 		<annotation cp="↸">↑↑↑</annotation>
 		<annotation cp="↸" type="tts">↑↑↑</annotation>
-		<annotation cp="↹">links | Ofeil | rechts | Strich | über Pfeil nach rechts auf Strich</annotation>
+		<annotation cp="↹">links | Ofeil | Pfeil nach links auf Strich zulaufend über Pfeil nach rechts auf Strich zulaufend | rechts | Strich | über Pfeil nach rechts auf Strich</annotation>
 		<annotation cp="↹" type="tts">↑↑↑</annotation>
 		<annotation cp="↺">↑↑↑</annotation>
 		<annotation cp="↺" type="tts">↑↑↑</annotation>
 		<annotation cp="↻">↑↑↑</annotation>
 		<annotation cp="↻" type="tts">↑↑↑</annotation>
-		<annotation cp="↼">Harpune | Harpune nach oben mit Zacken nach oben</annotation>
+		<annotation cp="↼">Harpune | Harpune nach links mit Zacken nach oben | Harpune nach oben mit Zacken nach oben</annotation>
 		<annotation cp="↼" type="tts">↑↑↑</annotation>
 		<annotation cp="↽">↑↑↑</annotation>
 		<annotation cp="↽" type="tts">↑↑↑</annotation>
@@ -256,11 +256,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↾" type="tts">↑↑↑</annotation>
 		<annotation cp="↿">Harpune | Harpune nach oben mit Zacken nach links</annotation>
 		<annotation cp="↿" type="tts">↑↑↑</annotation>
-		<annotation cp="⇀">Harpune | Harpune nach oben mit Zacken nach oben</annotation>
+		<annotation cp="⇀">Harpune | Harpune nach oben mit Zacken nach oben | Harpune nach rechts mit Zacken nach oben</annotation>
 		<annotation cp="⇀" type="tts">↑↑↑</annotation>
-		<annotation cp="⇁">Harpune | Harpune nach oben mit Zacken nach unten</annotation>
+		<annotation cp="⇁">Harpune | Harpune nach oben mit Zacken nach unten | Harpune nach rechts mit Zacken nach unten</annotation>
 		<annotation cp="⇁" type="tts">↑↑↑</annotation>
-		<annotation cp="⇂">Harpune | Harpune nach oben mit Zacken nach oben</annotation>
+		<annotation cp="⇂">Harpune | Harpune nach oben mit Zacken nach oben | Harpune nach unten mit Zacken nach rechts</annotation>
 		<annotation cp="⇂" type="tts">↑↑↑</annotation>
 		<annotation cp="⇃">Harpune | Harpune nach unten mit Zacken nach links</annotation>
 		<annotation cp="⇃" type="tts">↑↑↑</annotation>
@@ -400,7 +400,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∓" type="tts">↑↑↑</annotation>
 		<annotation cp="∕">Divisionsstrich | Längsstrich | Slash | Strich</annotation>
 		<annotation cp="∕" type="tts">↑↑↑</annotation>
-		<annotation cp="⁄">Bruchsstrich | Schrägstrich | Strich</annotation>
+		<annotation cp="⁄">Bruchsstrich | Bruchstrich | Schrägstrich | Strich</annotation>
 		<annotation cp="⁄" type="tts">↑↑↑</annotation>
 		<annotation cp="∗">Stern | Sternchen | Sternchen-Operator</annotation>
 		<annotation cp="∗" type="tts">↑↑↑</annotation>
@@ -410,13 +410,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∙" type="tts">↑↑↑</annotation>
 		<annotation cp="√">↑↑↑</annotation>
 		<annotation cp="√" type="tts">↑↑↑</annotation>
-		<annotation cp="∝">proportional | Proportionalität</annotation>
+		<annotation cp="∝">proportional | proportional zu | Proportionalität</annotation>
 		<annotation cp="∝" type="tts">↑↑↑</annotation>
 		<annotation cp="∞">↑↑↑</annotation>
 		<annotation cp="∞" type="tts">↑↑↑</annotation>
 		<annotation cp="∟">Mathematik | rechter Winkel</annotation>
 		<annotation cp="∟" type="tts">↑↑↑</annotation>
-		<annotation cp="∠">Mathemaik | Winkel</annotation>
+		<annotation cp="∠">Mathemaik | Winkel | Winkel-Zeichen</annotation>
 		<annotation cp="∠" type="tts">↑↑↑</annotation>
 		<annotation cp="∣">teilen | Teilt-Zeichen</annotation>
 		<annotation cp="∣" type="tts">↑↑↑</annotation>
@@ -450,13 +450,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∾" type="tts">↑↑↑</annotation>
 		<annotation cp="≃">Asymptote | asymptotisch gleich | Mathematik</annotation>
 		<annotation cp="≃" type="tts">↑↑↑</annotation>
-		<annotation cp="≅">fast gleich | Mathematik | ungefähr gleich</annotation>
+		<annotation cp="≅">fast gleich | Mathematik | ungefähr gleich | ungefähr-gleich</annotation>
 		<annotation cp="≅" type="tts">↑↑↑</annotation>
 		<annotation cp="≈">fast gleich wie | Näherung | ungefähr gleich | Ungefähr-Zeichen</annotation>
 		<annotation cp="≈" type="tts">fast gleich wie</annotation>
 		<annotation cp="≌">alles gleich | Mathematik</annotation>
 		<annotation cp="≌" type="tts">↑↑↑</annotation>
-		<annotation cp="≒">Bild von | ungefähr gleich</annotation>
+		<annotation cp="≒">Bild von | ungefähr gleich | ungefähr gleich oder Bild von</annotation>
 		<annotation cp="≒" type="tts">↑↑↑</annotation>
 		<annotation cp="≖">gleich | Mathematik | Ring | Ring im Gleichheitszeichen</annotation>
 		<annotation cp="≖" type="tts">↑↑↑</annotation>
@@ -478,7 +478,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≫" type="tts">viel grösser als</annotation>
 		<annotation cp="≬">↑↑↑</annotation>
 		<annotation cp="≬" type="tts">↑↑↑</annotation>
-		<annotation cp="≳">äquivalent | grösser als | Mathematik</annotation>
+		<annotation cp="≳">äquivalent | grösser als | grösser als oder äquivalent | Mathematik</annotation>
 		<annotation cp="≳" type="tts">grösser als oder äquivalent</annotation>
 		<annotation cp="≺">Mathematik | vorangehend</annotation>
 		<annotation cp="≺" type="tts">↑↑↑</annotation>
@@ -624,7 +624,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◇" type="tts">weisses Karo</annotation>
 		<annotation cp="◈">weisses Karo mit kleinem schwarzem Karo</annotation>
 		<annotation cp="◈" type="tts">weisses Karo mit kleinem schwarzem Karo</annotation>
-		<annotation cp="◉">Bullauge | kleiner schwarzer Kreis | konzentrische Kreise | Kreis</annotation>
+		<annotation cp="◉">Bullauge | kleiner schwarzer Kreis | konzentrische Kreise | Kreis | weisser Kreis mit kleinem schwarzem Kreis</annotation>
 		<annotation cp="◉" type="tts">weisser Kreis mit kleinem schwarzem Kreis</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
@@ -804,7 +804,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">↑↑↑</annotation>
 		<annotation cp="😬">↑↑↑</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
-		<annotation cp="😮‍💨">ausatmen | besorgt | flüstern | Huch! | pfeifen | Puh! | seufzen | stöhnen</annotation>
+		<annotation cp="😮‍💨">ausatmen | ausatmendes Gesicht | besorgt | flüstern | Huch! | pfeifen | Puh! | seufzen | stöhnen</annotation>
 		<annotation cp="😮‍💨" type="tts">ausatmendes Gesicht</annotation>
 		<annotation cp="🤥">↑↑↑</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
@@ -1520,7 +1520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🦯">Barrierefreiheit | blind | Person mit Langstock</annotation>
 		<annotation cp="🧑‍🦯" type="tts">↑↑↑</annotation>
-		<annotation cp="👨‍🦯">Mann mit Gehstock</annotation>
+		<annotation cp="👨‍🦯">Mann mit Gehstock | Mann mit Langstock</annotation>
 		<annotation cp="👨‍🦯" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🦯">↑↑↑</annotation>
 		<annotation cp="👩‍🦯" type="tts">↑↑↑</annotation>
@@ -2082,7 +2082,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">Ingwerwurzel</annotation>
 		<annotation cp="🫛">Bohne | Edamame | Erbse | Gemüse | Hülsenfrüchte</annotation>
 		<annotation cp="🫛" type="tts">Erbse</annotation>
-		<annotation cp="🍄‍🟫">braun | Gemüse | Natur | Pilz | Wald</annotation>
+		<annotation cp="🍄‍🟫">braun | brauner Pilz | Gemüse | Natur | Pilz | Wald</annotation>
 		<annotation cp="🍄‍🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="🍞">↑↑↑</annotation>
 		<annotation cp="🍞" type="tts">↑↑↑</annotation>
@@ -3300,7 +3300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">↑↑↑</annotation>
 		<annotation cp="🔗">↑↑↑</annotation>
 		<annotation cp="🔗" type="tts">↑↑↑</annotation>
-		<annotation cp="⛓‍💥">befreien | Freiheit | kaputt | Kette | losreissen | reissen</annotation>
+		<annotation cp="⛓‍💥">befreien | Freiheit | kaputt | kaputte Kette | Kette | losreissen | reissen</annotation>
 		<annotation cp="⛓‍💥" type="tts">kaputte Kette</annotation>
 		<annotation cp="⛓">↑↑↑</annotation>
 		<annotation cp="⛓" type="tts">↑↑↑</annotation>
@@ -3528,7 +3528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">↑↑↑</annotation>
 		<annotation cp="🔯">↑↑↑</annotation>
 		<annotation cp="🔯" type="tts">↑↑↑</annotation>
-		<annotation cp="🪯">↑↑↑</annotation>
+		<annotation cp="🪯">Khanda | Khanda-Emblem | Religion | Schwert | Sikhismus</annotation>
 		<annotation cp="🪯" type="tts">Khanda-Emblem</annotation>
 		<annotation cp="♈">↑↑↑</annotation>
 		<annotation cp="♈" type="tts">↑↑↑</annotation>
@@ -3872,7 +3872,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₱" type="tts">↑↑↑</annotation>
 		<annotation cp="₳">ARA | Austral | Währung</annotation>
 		<annotation cp="₳" type="tts">↑↑↑</annotation>
-		<annotation cp="₶">Livre tournois | Währung</annotation>
+		<annotation cp="₶">Livre tournois | Livre tournoise | Währung</annotation>
 		<annotation cp="₶" type="tts">↑↑↑</annotation>
 		<annotation cp="₷">Spesmilo | Währung</annotation>
 		<annotation cp="₷" type="tts">↑↑↑</annotation>

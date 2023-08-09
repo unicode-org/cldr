@@ -509,9 +509,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⊚" type="tts">ring-operator med ring</annotation>
 		<annotation cp="⊛">asterisk | operator | stjerne | stjerne-operator med ring</annotation>
 		<annotation cp="⊛" type="tts">stjerne-operator med ring</annotation>
-		<annotation cp="⊞">kvadrat med plus | ligner addition | matematik</annotation>
+		<annotation cp="⊞">firkant med plus | kvadrat med plus | ligner addition | matematik</annotation>
 		<annotation cp="⊞" type="tts">firkant med plus</annotation>
-		<annotation cp="⊟">kvadrat med minus | ligner subtraktion | matematik</annotation>
+		<annotation cp="⊟">firkant med minus | kvadrat med minus | ligner subtraktion | matematik</annotation>
 		<annotation cp="⊟" type="tts">firkant med minus</annotation>
 		<annotation cp="⊥">eet | falsum | op | vinkelret op</annotation>
 		<annotation cp="⊥" type="tts">falsum</annotation>
@@ -559,7 +559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="■" type="tts">udfyldt kvadrat</annotation>
 		<annotation cp="□">hult kvadrat</annotation>
 		<annotation cp="□" type="tts">hult kvadrat</annotation>
-		<annotation cp="▢">hul kvadrat med afrundede hjørner</annotation>
+		<annotation cp="▢">hul kvadrat med afrundede hjørner | hult kvadrat med afrundede hjørner</annotation>
 		<annotation cp="▢" type="tts">hult kvadrat med afrundede hjørner</annotation>
 		<annotation cp="▣">hult kvadrat, der indeholder udfyldt kvadrat</annotation>
 		<annotation cp="▣" type="tts">hult kvadrat, der indeholder udfyldt kvadrat</annotation>
@@ -1329,7 +1329,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍💻" type="tts">kvindelig IT-medarbejder</annotation>
 		<annotation cp="🧑‍🎤">entertainer | popsanger | rock | rocksanger | sanger | sangsolist | skuespiller | stjerne</annotation>
 		<annotation cp="🧑‍🎤" type="tts">sanger</annotation>
-		<annotation cp="👨‍🎤">entertainer | karaoke | mand | sang | sanger | skuespiller | stjerne | synge</annotation>
+		<annotation cp="👨‍🎤">entertainer | karaoke | mand | mandlig sanger | sang | sanger | skuespiller | stjerne | synge</annotation>
 		<annotation cp="👨‍🎤" type="tts">mandlig sanger</annotation>
 		<annotation cp="👩‍🎤">entertainer | karaoke | kvinde | sang | sangerinde | skuespiller | stjerne | synge</annotation>
 		<annotation cp="👩‍🎤" type="tts">sangerinde</annotation>
@@ -1527,9 +1527,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🦯" type="tts">kvinde med blindestok</annotation>
 		<annotation cp="🧑‍🦼">adgang | adgangsforhold | handicap | kørestol | person i elkørestol</annotation>
 		<annotation cp="🧑‍🦼" type="tts">person i elkørestol</annotation>
-		<annotation cp="👨‍🦼">adgang | adgangsforhold | handicap | kørestol | mand | mand i elkørestol</annotation>
+		<annotation cp="👨‍🦼">adgang | adgangsforhold | handicap | kørestol | mand | mand i elektrisk kørestol | mand i elkørestol</annotation>
 		<annotation cp="👨‍🦼" type="tts">mand i elektrisk kørestol</annotation>
-		<annotation cp="👩‍🦼">adgang | adgangsforhold | handicap | kørestol | kvinde | kvinde i elkørestol</annotation>
+		<annotation cp="👩‍🦼">adgang | adgangsforhold | handicap | kørestol | kvinde | kvinde i elektrisk kørestol | kvinde i elkørestol</annotation>
 		<annotation cp="👩‍🦼" type="tts">kvinde i elektrisk kørestol</annotation>
 		<annotation cp="🧑‍🦽">adgang | adgangsforhold | handicap | kørestol | person i manuel kørestol</annotation>
 		<annotation cp="🧑‍🦽" type="tts">person i manuel kørestol</annotation>
@@ -1685,13 +1685,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">knus</annotation>
 		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
 		<annotation cp="👪" type="tts">familie</annotation>
-		<annotation cp="🧑‍🧑‍🧒">barn | familie | forældre | menneske | voksen | voksne</annotation>
+		<annotation cp="🧑‍🧑‍🧒">barn | familie | familie: voksen, voksen, barn | forældre | menneske | voksen | voksne</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: voksen, voksen, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">barn | børn | familie | forældre | menneske | voksen | voksne</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">barn | børn | familie | familie: voksen, voksen, barn, barn | forældre | menneske | voksen | voksne</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: voksen, voksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧒">barn | familie | forælder | menneske | voksen</annotation>
+		<annotation cp="🧑‍🧒">barn | familie | familie: voksen, barn | forælder | menneske | voksen</annotation>
 		<annotation cp="🧑‍🧒" type="tts">familie: voksen, barn</annotation>
-		<annotation cp="🧑‍🧒‍🧒">barn | børn | familie | forælder | menneske | voksen</annotation>
+		<annotation cp="🧑‍🧒‍🧒">barn | børn | familie | familie: voksen, barn, barn | forælder | menneske | voksen</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: voksen, barn, barn</annotation>
 		<annotation cp="👣">fødder | fodspor</annotation>
 		<annotation cp="👣" type="tts">fodspor</annotation>
@@ -3781,7 +3781,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚫" type="tts">sort cirkel</annotation>
 		<annotation cp="⚪">cirkel | geometrisk | hvid cirkel</annotation>
 		<annotation cp="⚪" type="tts">hvid cirkel</annotation>
-		<annotation cp="🟥">kvadrat | rød</annotation>
+		<annotation cp="🟥">kvadrat | rød | rødt kvadrat</annotation>
 		<annotation cp="🟥" type="tts">rødt kvadrat</annotation>
 		<annotation cp="🟧">kvadrat | orange</annotation>
 		<annotation cp="🟧" type="tts">orange kvadrat</annotation>

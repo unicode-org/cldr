@@ -520,7 +520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊰" type="tts">precede bajo relación</annotation>
 		<annotation cp="⊱">matemáticas | operador de conjuntos | posterior bajo relación</annotation>
 		<annotation cp="⊱" type="tts">posterior bajo relación</annotation>
-		<annotation cp="⋭">matemáticas | no contenido como subgrupo normal o igual | teoría de grupo</annotation>
+		<annotation cp="⋭">matemáticas | no contenido como subgrupo normal o igual | no contiene como subgrupo normal o igual a | teoría de grupo</annotation>
 		<annotation cp="⋭" type="tts">↑↑↑</annotation>
 		<annotation cp="⊶">↑↑↑</annotation>
 		<annotation cp="⊶" type="tts">↑↑↑</annotation>
@@ -550,15 +550,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⋮" type="tts">↑↑↑</annotation>
 		<annotation cp="⋯">elipsis | elipsis horizontal en mitad de la línea</annotation>
 		<annotation cp="⋯" type="tts">elipsis horizontal en mitad de la línea</annotation>
-		<annotation cp="⋰">↑↑↑</annotation>
+		<annotation cp="⋰">elipsis | elipsis diagonal hacia arriba dercha | elipsis en diagonal hacia la derecha | matemáticas</annotation>
 		<annotation cp="⋰" type="tts">elipsis diagonal hacia arriba dercha</annotation>
 		<annotation cp="⋱">elipsis | elipsis diagonal hacia abajo derecha | matemáticas</annotation>
 		<annotation cp="⋱" type="tts">elipsis diagonal hacia abajo derecha</annotation>
 		<annotation cp="■">↑↑↑</annotation>
 		<annotation cp="■" type="tts">↑↑↑</annotation>
-		<annotation cp="□">cuadro vacío</annotation>
+		<annotation cp="□">cuadrado vacío | cuadro vacío</annotation>
 		<annotation cp="□" type="tts">cuadrado vacío</annotation>
-		<annotation cp="▢">cuadrado vacío con bordes redondeados</annotation>
+		<annotation cp="▢">cuadrado hueco con esquinas redondeadas | cuadrado vacío con bordes redondeados</annotation>
 		<annotation cp="▢" type="tts">↑↑↑</annotation>
 		<annotation cp="▣">cuadrado vacío conteniendo cuadrado relleno</annotation>
 		<annotation cp="▣" type="tts">cuadrado vacío conteniendo cuadrado relleno</annotation>
@@ -624,7 +624,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◇" type="tts">rombo vacío</annotation>
 		<annotation cp="◈">rombo vacío conteniendo un rombo relleno</annotation>
 		<annotation cp="◈" type="tts">rombo vacío conteniendo un rombo relleno</annotation>
-		<annotation cp="◉">↑↑↑</annotation>
+		<annotation cp="◉">círculo punteado | círculo vacío con círculo relleno dentro | círculo vacío conteniendo un círculo relleno | círculos concéntricos rellenos | división | ojo de pez</annotation>
 		<annotation cp="◉" type="tts">círculo vacío conteniendo un círculo relleno</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
@@ -702,7 +702,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⩽" type="tts">↑↑↑</annotation>
 		<annotation cp="⪍">↑↑↑</annotation>
 		<annotation cp="⪍" type="tts">↑↑↑</annotation>
-		<annotation cp="⪚">desigualdad | matemáticas | signo de igual de doble línea y mayor que</annotation>
+		<annotation cp="⪚">desigualdad | doble línea sobre mayor que | matemáticas | signo de igual de doble línea y mayor que</annotation>
 		<annotation cp="⪚" type="tts">↑↑↑</annotation>
 		<annotation cp="⪺">posterior a arriba de casi igual</annotation>
 		<annotation cp="⪺" type="tts">posterior a arriba de casi igual</annotation>
@@ -736,7 +736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😉" type="tts">cara guiñando el ojo</annotation>
 		<annotation cp="😊">cara | cara feliz con ojos sonrientes | ojos sonrientes | sonrisa</annotation>
 		<annotation cp="😊" type="tts">cara feliz con ojos sonrientes</annotation>
-		<annotation cp="😇">↑↑↑</annotation>
+		<annotation cp="😇">ángel | aureola | cara | cara sonriendo con aureola | cara sonriente con aureola | inocente | sonriente con aureola | sonrisa</annotation>
 		<annotation cp="😇" type="tts">cara sonriente con aureola</annotation>
 		<annotation cp="🥰">↑↑↑</annotation>
 		<annotation cp="🥰" type="tts">↑↑↑</annotation>
@@ -764,7 +764,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😜" type="tts">↑↑↑</annotation>
 		<annotation cp="🤪">↑↑↑</annotation>
 		<annotation cp="🤪" type="tts">↑↑↑</annotation>
-		<annotation cp="😝">↑↑↑</annotation>
+		<annotation cp="😝">asco | broma | cara | cara con los ojos bien cerrados y sacando la lengua | cara con ojos cerrados y sacando la lengua | horrible | lengua | sacar la lengua</annotation>
 		<annotation cp="😝" type="tts">cara con ojos cerrados y sacando la lengua</annotation>
 		<annotation cp="🤑">↑↑↑</annotation>
 		<annotation cp="🤑" type="tts">↑↑↑</annotation>
@@ -1400,7 +1400,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧕" type="tts">↑↑↑</annotation>
 		<annotation cp="🤵">↑↑↑</annotation>
 		<annotation cp="🤵" type="tts">↑↑↑</annotation>
-		<annotation cp="🤵‍♂">↑↑↑</annotation>
+		<annotation cp="🤵‍♂">esmoquin | hombre | hombre con esmoquin | hombre con esmoquín</annotation>
 		<annotation cp="🤵‍♂" type="tts">hombre con esmoquín</annotation>
 		<annotation cp="🤵‍♀">↑↑↑</annotation>
 		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
@@ -1518,7 +1518,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧎‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🧎‍♀">↑↑↑</annotation>
 		<annotation cp="🧎‍♀" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🦯">accesibilidad | ciego | invidente | persona con bastón blanco</annotation>
+		<annotation cp="🧑‍🦯">accesibilidad | ciego | invidente | persona con bastón | persona con bastón blanco</annotation>
 		<annotation cp="🧑‍🦯" type="tts">↑↑↑</annotation>
 		<annotation cp="👨‍🦯">accesibilidad | ciego | hombre | hombre con bastón blanco | invidente</annotation>
 		<annotation cp="👨‍🦯" type="tts">hombre con bastón blanco</annotation>
@@ -2082,7 +2082,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">↑↑↑</annotation>
 		<annotation cp="🫛">↑↑↑</annotation>
 		<annotation cp="🫛" type="tts">↑↑↑</annotation>
-		<annotation cp="🍄‍🟫">champiñones | comida | cremini | hongo | hongo café | hongos | vegetal</annotation>
+		<annotation cp="🍄‍🟫">champiñones | comida | cremini | hongo | hongo café | hongo portabello | hongos | vegetal</annotation>
 		<annotation cp="🍄‍🟫" type="tts">hongo portabello</annotation>
 		<annotation cp="🍞">↑↑↑</annotation>
 		<annotation cp="🍞" type="tts">↑↑↑</annotation>

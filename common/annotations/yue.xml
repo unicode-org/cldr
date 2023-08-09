@@ -727,10 +727,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">有開心眼淚嘅臉</annotation>
 		<annotation cp="🙂">咪咪笑嘅臉 | 微笑 | 臉</annotation>
 		<annotation cp="🙂" type="tts">咪咪笑嘅臉</annotation>
-		<annotation cp="🙂‍↕">好呀 | 罨頭</annotation>
-		<annotation cp="🙂‍↕" type="tts">罨頭</annotation>
-		<annotation cp="🙂‍↔">唔使 | 唔好 | 擰頭</annotation>
-		<annotation cp="🙂‍↔" type="tts">擰頭</annotation>
 		<annotation cp="🙃">上下倒轉 | 上下倒轉嘅臉 | 臉</annotation>
 		<annotation cp="🙃" type="tts">上下倒轉嘅臉</annotation>
 		<annotation cp="🫠">消失 | 液體 | 溶 | 溶咗嘅臉 | 熔咗</annotation>
@@ -813,6 +809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">講大話嘅臉</annotation>
 		<annotation cp="🫨">地震 | 臉 | 震動 | 顫抖 | 顫抖嘅臉 | 驚訝</annotation>
 		<annotation cp="🫨" type="tts">顫抖嘅臉</annotation>
+		<annotation cp="🙂‍↔">唔使 | 唔好 | 擰頭</annotation>
+		<annotation cp="🙂‍↔" type="tts">擰頭</annotation>
+		<annotation cp="🙂‍↕">好呀 | 罨頭</annotation>
+		<annotation cp="🙂‍↕" type="tts">罨頭</annotation>
 		<annotation cp="😌">放鬆 | 放鬆嘅臉 | 臉</annotation>
 		<annotation cp="😌" type="tts">放鬆嘅臉</annotation>
 		<annotation cp="😔">憂心 | 憂心嘅臉 | 沮喪 | 臉</annotation>
@@ -1179,14 +1179,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">成人</annotation>
 		<annotation cp="👱">金色頭髮 | 金色頭髮嘅人</annotation>
 		<annotation cp="👱" type="tts">金色頭髮嘅人</annotation>
-		<annotation cp="🧑‍🧒">家庭：一大一細</annotation>
-		<annotation cp="🧑‍🧒" type="tts">家庭：一大一細</annotation>
-		<annotation cp="🧑‍🧒‍🧒">家庭：一大兩細</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">家庭：一大兩細</annotation>
-		<annotation cp="🧑‍🧑‍🧒">家庭：兩大一細</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">家庭：兩大一細</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">家庭：兩大兩細</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">家庭：兩大兩細</annotation>
 		<annotation cp="👨">男人</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">留鬚嘅人 | 鬚</annotation>
@@ -1681,8 +1673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">吻</annotation>
 		<annotation cp="💑">夫婦｜愛 | 夫婦同心</annotation>
 		<annotation cp="💑" type="tts">夫婦同心</annotation>
-		<annotation cp="👪">家庭</annotation>
-		<annotation cp="👪" type="tts">家庭</annotation>
 		<annotation cp="🗣">剪影 | 臉 | 講 | 講野 | 講野嘅頭 | 頭</annotation>
 		<annotation cp="🗣" type="tts">講野嘅頭</annotation>
 		<annotation cp="👤">剪影 | 胸像 | 胸像剪影</annotation>
@@ -1691,6 +1681,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👥" type="tts">兩個胸像嘅剪影</annotation>
 		<annotation cp="🫂">多謝 | 您好 | 抱抱 | 拜拜 | 擁抱</annotation>
 		<annotation cp="🫂" type="tts">擁抱</annotation>
+		<annotation cp="👪">家庭</annotation>
+		<annotation cp="👪" type="tts">家庭</annotation>
+		<annotation cp="🧑‍🧑‍🧒">家庭：兩大一細</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">家庭：兩大一細</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">家庭：兩大兩細</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">家庭：兩大兩細</annotation>
+		<annotation cp="🧑‍🧒">家庭：一大一細</annotation>
+		<annotation cp="🧑‍🧒" type="tts">家庭：一大一細</annotation>
+		<annotation cp="🧑‍🧒‍🧒">家庭：一大兩細</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">家庭：一大兩細</annotation>
 		<annotation cp="👣">印 | 服裝 | 腳印</annotation>
 		<annotation cp="👣" type="tts">腳印</annotation>
 		<annotation cp="🦰">生薑 | 紅色嘅頭 | 紅色頭髮</annotation>
@@ -1847,8 +1847,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">正面雞仔</annotation>
 		<annotation cp="🐦">雀仔</annotation>
 		<annotation cp="🐦" type="tts">雀仔</annotation>
-		<annotation cp="🐦‍🔥">奇幻, 火鳥, 重生, 轉世 | 鳳凰</annotation>
-		<annotation cp="🐦‍🔥" type="tts">鳳凰</annotation>
 		<annotation cp="🐧">企鵝 | 雀仔</annotation>
 		<annotation cp="🐧" type="tts">企鵝</annotation>
 		<annotation cp="🕊">和平 | 雀 | 飛 | 鴿</annotation>
@@ -1877,6 +1875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">黑雀</annotation>
 		<annotation cp="🪿">家禽 | 絲質 | 雀 | 鵝 | 鵝鳴</annotation>
 		<annotation cp="🪿" type="tts">鵝</annotation>
+		<annotation cp="🐦‍🔥">奇幻, 火鳥, 重生, 轉世 | 鳳凰</annotation>
+		<annotation cp="🐦‍🔥" type="tts">鳳凰</annotation>
 		<annotation cp="🐸">臉 | 青蛙 | 青蛙臉</annotation>
 		<annotation cp="🐸" type="tts">青蛙臉</annotation>
 		<annotation cp="🐊">鱷魚</annotation>
@@ -2007,8 +2007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">有蛋嘅雀巢</annotation>
 		<annotation cp="🍄">毒菌 | 蘑菇</annotation>
 		<annotation cp="🍄" type="tts">蘑菇</annotation>
-		<annotation cp="🍄‍🟫">啡色蘑菇 | 食物、真菌、自然、蔬菜</annotation>
-		<annotation cp="🍄‍🟫" type="tts">啡色蘑菇</annotation>
 		<annotation cp="🍇">提子 | 生果</annotation>
 		<annotation cp="🍇" type="tts">提子</annotation>
 		<annotation cp="🍈">生果 | 蜜瓜</annotation>
@@ -2083,6 +2081,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">姜根</annotation>
 		<annotation cp="🫛">毛豆 | 蔬菜 | 豆 | 豆莢 | 豆類 | 豌豆 | 豌豆莢</annotation>
 		<annotation cp="🫛" type="tts">豌豆莢</annotation>
+		<annotation cp="🍄‍🟫">啡色蘑菇 | 食物、真菌、自然、蔬菜</annotation>
+		<annotation cp="🍄‍🟫" type="tts">啡色蘑菇</annotation>
 		<annotation cp="🍞">麵包</annotation>
 		<annotation cp="🍞" type="tts">麵包</annotation>
 		<annotation cp="🥐">法國 | 牛角包 | 牛角卷 | 食物 | 麵包</annotation>
@@ -3299,10 +3299,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">探測拐杖</annotation>
 		<annotation cp="🔗">連結</annotation>
 		<annotation cp="🔗" type="tts">連結</annotation>
-		<annotation cp="⛓">鏈</annotation>
-		<annotation cp="⛓" type="tts">鏈</annotation>
 		<annotation cp="⛓‍💥">斷, 斷開, 鏈, 手扣, 自由 | 斷鏈</annotation>
 		<annotation cp="⛓‍💥" type="tts">斷鏈</annotation>
+		<annotation cp="⛓">鏈</annotation>
+		<annotation cp="⛓" type="tts">鏈</annotation>
 		<annotation cp="🪝">勾 | 圈套 | 彎 | 彎曲 | 賣點 | 趕上</annotation>
 		<annotation cp="🪝" type="tts">勾</annotation>
 		<annotation cp="🧰">工具 | 工具箱 | 技工 | 箱</annotation>

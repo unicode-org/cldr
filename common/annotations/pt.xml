@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">rosto chorando de rir</annotation>
 		<annotation cp="🙂">rosto | rosto levemente sorridente | sorriso</annotation>
 		<annotation cp="🙂" type="tts">rosto levemente sorridente</annotation>
-		<annotation cp="🙂‍↕">cabeça balançando na vertical | confirmação, sim</annotation>
-		<annotation cp="🙂‍↕" type="tts">cabeça balançando na vertical</annotation>
-		<annotation cp="🙂‍↔">cabeça balançando na horizontal | cabeça virando de um lado para o outro | não, balançar | negar</annotation>
-		<annotation cp="🙂‍↔" type="tts">cabeça virando de um lado para o outro</annotation>
 		<annotation cp="🙃">rosto de cabeça para baixo | rosto invertido</annotation>
 		<annotation cp="🙃" type="tts">rosto de cabeça para baixo</annotation>
 		<annotation cp="🫠">derreter | desaparecer | dissolver | líquido | rosto derretendo</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">rosto de mentiroso</annotation>
 		<annotation cp="🫨">choque | rosto | terremoto | tremendo | vibração</annotation>
 		<annotation cp="🫨" type="tts">rosto tremendo</annotation>
+		<annotation cp="🙂‍↔">cabeça balançando na horizontal | cabeça virando de um lado para o outro | não, balançar | negar</annotation>
+		<annotation cp="🙂‍↔" type="tts">cabeça virando de um lado para o outro</annotation>
+		<annotation cp="🙂‍↕">cabeça balançando na vertical | confirmação, sim</annotation>
+		<annotation cp="🙂‍↕" type="tts">cabeça balançando na vertical</annotation>
 		<annotation cp="😌">alívio | rosto | rosto aliviado</annotation>
 		<annotation cp="😌" type="tts">rosto aliviado</annotation>
 		<annotation cp="😔">deprimido | desanimado | rosto</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">pessoa</annotation>
 		<annotation cp="👱">cabelo | loiro | louro | pessoa loira | pessoa loura | pessoa: cabelo louro</annotation>
 		<annotation cp="👱" type="tts">pessoa: cabelo louro</annotation>
-		<annotation cp="🧑‍🧒">família: adulto, criança</annotation>
-		<annotation cp="🧑‍🧒" type="tts">família: adulto, criança</annotation>
-		<annotation cp="🧑‍🧒‍🧒">família: adulto, criança, criança</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">família: adulto, criança, criança</annotation>
-		<annotation cp="🧑‍🧑‍🧒">família: adulto, adulto, criança</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">família: adulto, adulto, criança</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">família: adulto, adulto, criança, criança</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">família: adulto, adulto, criança, criança</annotation>
 		<annotation cp="👨">adulto | homem</annotation>
 		<annotation cp="👨" type="tts">homem</annotation>
 		<annotation cp="🧔">barba | barbudo | homem | homem: barba | pessoa</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">beijo</annotation>
 		<annotation cp="💑">casal apaixonado | casal com um coração | coração | pessoas | romance</annotation>
 		<annotation cp="💑" type="tts">casal apaixonado</annotation>
-		<annotation cp="👪">família | filho | mãe | pai | pessoas</annotation>
-		<annotation cp="👪" type="tts">família</annotation>
 		<annotation cp="🗣">cabeça | falando | silhueta | voz</annotation>
 		<annotation cp="🗣" type="tts">silhueta falando</annotation>
 		<annotation cp="👤">busto | pessoas | silhueta | silhueta de busto</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">silhueta de bustos</annotation>
 		<annotation cp="🫂">abraço | adeus | obrigado | olá | pessoas se abraçando</annotation>
 		<annotation cp="🫂" type="tts">pessoas se abraçando</annotation>
+		<annotation cp="👪">família | filho | mãe | pai | pessoas</annotation>
+		<annotation cp="👪" type="tts">família</annotation>
+		<annotation cp="🧑‍🧑‍🧒">família: adulto, adulto, criança</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">família: adulto, adulto, criança</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">família: adulto, adulto, criança, criança</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">família: adulto, adulto, criança, criança</annotation>
+		<annotation cp="🧑‍🧒">família: adulto, criança</annotation>
+		<annotation cp="🧑‍🧒" type="tts">família: adulto, criança</annotation>
+		<annotation cp="🧑‍🧒‍🧒">família: adulto, criança, criança</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">família: adulto, criança, criança</annotation>
 		<annotation cp="👣">corpo | gravura | pé | pegadas</annotation>
 		<annotation cp="👣" type="tts">pegadas</annotation>
 		<annotation cp="🦰">cabelo vermelho | ruivo</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">pintinho de frente</annotation>
 		<annotation cp="🐦">animal | pássaro</annotation>
 		<annotation cp="🐦" type="tts">pássaro</annotation>
-		<annotation cp="🐦‍🔥">fantasia | fênix | pássaro de fogo | reencarnação | reincarnação | renascimento</annotation>
-		<annotation cp="🐦‍🔥" type="tts">fênix</annotation>
 		<annotation cp="🐧">animal | pinguim</annotation>
 		<annotation cp="🐧" type="tts">pinguim</annotation>
 		<annotation cp="🕊">animal | ave branca | pássaro | paz | pomba | pomba branca</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">pássaro preto</annotation>
 		<annotation cp="🪿">ave | bobo | ganso | grasno | pássaro</annotation>
 		<annotation cp="🪿" type="tts">ganso</annotation>
+		<annotation cp="🐦‍🔥">fantasia | fênix | pássaro de fogo | reencarnação | reincarnação | renascimento</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fênix</annotation>
 		<annotation cp="🐸">animal | rosto | rosto de sapo | sapo</annotation>
 		<annotation cp="🐸" type="tts">sapo</annotation>
 		<annotation cp="🐊">animal | crocodilo</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">ninho com ovos</annotation>
 		<annotation cp="🍄">champignon | cogumelo</annotation>
 		<annotation cp="🍄" type="tts">cogumelo</annotation>
-		<annotation cp="🍄‍🟫">cogumelo marrom | comida, fungo, natureza, vegetal</annotation>
-		<annotation cp="🍄‍🟫" type="tts">cogumelo marrom</annotation>
 		<annotation cp="🍇">fruta | uvas</annotation>
 		<annotation cp="🍇" type="tts">uvas</annotation>
 		<annotation cp="🍈">fruta | melão</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">gengibre</annotation>
 		<annotation cp="🫛">edamame | ervilha | feijão | leguminosa | vagem | vegetal</annotation>
 		<annotation cp="🫛" type="tts">vagem</annotation>
+		<annotation cp="🍄‍🟫">cogumelo marrom | comida, fungo, natureza, vegetal</annotation>
+		<annotation cp="🍄‍🟫" type="tts">cogumelo marrom</annotation>
 		<annotation cp="🍞">pão | pão de forma</annotation>
 		<annotation cp="🍞" type="tts">pão</annotation>
 		<annotation cp="🥐">comida | croissant | pão</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">bengala para cegos</annotation>
 		<annotation cp="🔗">corrente | link</annotation>
 		<annotation cp="🔗" type="tts">link</annotation>
-		<annotation cp="⛓">corrente | correntes</annotation>
-		<annotation cp="⛓" type="tts">correntes</annotation>
 		<annotation cp="⛓‍💥">corrente quebrada | quebrar, quebrando, corrente, algema, liberdade</annotation>
 		<annotation cp="⛓‍💥" type="tts">corrente quebrada</annotation>
+		<annotation cp="⛓">corrente | correntes</annotation>
+		<annotation cp="⛓" type="tts">correntes</annotation>
 		<annotation cp="🪝">atração para venda | bandido | curva | gancho | pegar | prender</annotation>
 		<annotation cp="🪝" type="tts">gancho</annotation>
 		<annotation cp="🧰">caixa | caixa de ferramentas | ferramenta | mecânico</annotation>

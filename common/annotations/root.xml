@@ -737,11 +737,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">E10-838</annotation>
 		<annotation cp="🙂">E10-902</annotation>
 		<annotation cp="🙂" type="tts">E10-902</annotation>
-		<annotation cp="🙂‍↕">E15.1-002</annotation> <!-- 1F642 200D 2195: head shaking vertically -->
-		<annotation cp="🙂‍↕" type="tts">E15.1-002</annotation>
-		<!-- Generated lines from Emoji Data v15.1, using GenerateCldrData.java -->
-		<annotation cp="🙂‍↔">E15.1-001</annotation> <!-- 1F642 200D 2194: head shaking horizontally -->
-		<annotation cp="🙂‍↔" type="tts">E15.1-001</annotation>
 		<annotation cp="🙃">E10-903</annotation>
 		<annotation cp="🙃" type="tts">E10-903</annotation>
 		<!-- Generated lines from Emoji Data v14, using GenerateCldrData.java -->
@@ -826,6 +821,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<!-- Generated lines from Emoji Data v15, using GenerateCldrData.java -->
 		<annotation cp="🫨">E15-001</annotation> <!-- 1FAE8: shaking face -->
 		<annotation cp="🫨" type="tts">E15-001</annotation>
+		<!-- Generated lines from Emoji Data v15.1, using GenerateCldrData.java -->
+		<annotation cp="🙂‍↔">E15.1-001</annotation> <!-- 1F642 200D 2194: head shaking horizontally -->
+		<annotation cp="🙂‍↔" type="tts">E15.1-001</annotation>
+		<annotation cp="🙂‍↕">E15.1-002</annotation> <!-- 1F642 200D 2195: head shaking vertically -->
+		<annotation cp="🙂‍↕" type="tts">E15.1-002</annotation>
 		<annotation cp="😌">E10-848</annotation>
 		<annotation cp="😌" type="tts">E10-848</annotation>
 		<annotation cp="😔">E10-856</annotation>
@@ -1192,14 +1192,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">E10-1122</annotation>
 		<annotation cp="👱">E10-558</annotation>
 		<annotation cp="👱" type="tts">E10-558</annotation>
-		<annotation cp="🧑‍🧒">E15.1-005</annotation> <!-- 1F9D1 200D 1F9D2: family: adult, child -->
-		<annotation cp="🧑‍🧒" type="tts">E15.1-005</annotation>
-		<annotation cp="🧑‍🧒‍🧒">E15.1-006</annotation> <!-- 1F9D1 200D 1F9D2 200D 1F9D2: family: adult, child, child -->
-		<annotation cp="🧑‍🧒‍🧒" type="tts">E15.1-006</annotation>
-		<annotation cp="🧑‍🧑‍🧒">E15.1-003</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2: family: adult, adult, child -->
-		<annotation cp="🧑‍🧑‍🧒" type="tts">E15.1-003</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">E15.1-004</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2 200D 1F9D2: family: adult, adult, child, child -->
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">E15.1-004</annotation>
 		<annotation cp="👨">E10-549</annotation>
 		<annotation cp="👨" type="tts">E10-549</annotation>
 		<annotation cp="🧔">E10-1125</annotation>
@@ -1695,8 +1687,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">E10-588</annotation>
 		<annotation cp="💑">E10-590</annotation>
 		<annotation cp="💑" type="tts">E10-590</annotation>
-		<annotation cp="👪">E10-551</annotation>
-		<annotation cp="👪" type="tts">E10-551</annotation>
 		<annotation cp="🗣">E10-826</annotation>
 		<annotation cp="🗣" type="tts">E10-826</annotation>
 		<annotation cp="👤">E10-545</annotation>
@@ -1705,6 +1695,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">E10-546</annotation>
 		<annotation cp="🫂">E13-026</annotation>
 		<annotation cp="🫂" type="tts">E13-026</annotation>
+		<annotation cp="👪">E10-551</annotation>
+		<annotation cp="👪" type="tts">E10-551</annotation>
+		<annotation cp="🧑‍🧑‍🧒">E15.1-003</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2: family: adult, adult, child -->
+		<annotation cp="🧑‍🧑‍🧒" type="tts">E15.1-003</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">E15.1-004</annotation> <!-- 1F9D1 200D 1F9D1 200D 1F9D2 200D 1F9D2: family: adult, adult, child, child -->
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">E15.1-004</annotation>
+		<annotation cp="🧑‍🧒">E15.1-005</annotation> <!-- 1F9D1 200D 1F9D2: family: adult, child -->
+		<annotation cp="🧑‍🧒" type="tts">E15.1-005</annotation>
+		<annotation cp="🧑‍🧒‍🧒">E15.1-006</annotation> <!-- 1F9D1 200D 1F9D2 200D 1F9D2: family: adult, child, child -->
+		<annotation cp="🧑‍🧒‍🧒" type="tts">E15.1-006</annotation>
 		<annotation cp="👣">E10-544</annotation>
 		<annotation cp="👣" type="tts">E10-544</annotation>
 		<annotation cp="🦰">E11-033</annotation>
@@ -1861,8 +1861,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">E10-482</annotation>
 		<annotation cp="🐦">E10-483</annotation>
 		<annotation cp="🐦" type="tts">E10-483</annotation>
-		<annotation cp="🐦‍🔥">E15.1-007</annotation> <!-- 1F426 200D 1F525: phoenix -->
-		<annotation cp="🐦‍🔥" type="tts">E15.1-007</annotation>
 		<annotation cp="🐧">E10-484</annotation>
 		<annotation cp="🐧" type="tts">E10-484</annotation>
 		<annotation cp="🕊">E10-763</annotation>
@@ -1891,6 +1889,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">E15-011</annotation>
 		<annotation cp="🪿">E15-010</annotation> <!-- 1FABF: goose -->
 		<annotation cp="🪿" type="tts">E15-010</annotation>
+		<annotation cp="🐦‍🔥">E15.1-007</annotation> <!-- 1F426 200D 1F525: phoenix -->
+		<annotation cp="🐦‍🔥" type="tts">E15.1-007</annotation>
 		<annotation cp="🐸">E10-501</annotation>
 		<annotation cp="🐸" type="tts">E10-501</annotation>
 		<annotation cp="🐊">E10-455</annotation>
@@ -2021,8 +2021,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">E14-023</annotation>
 		<annotation cp="🍄">E10-265</annotation>
 		<annotation cp="🍄" type="tts">E10-265</annotation>
-		<annotation cp="🍄‍🟫">E15.1-009</annotation> <!-- 1F344 200D 1F7EB: brown mushroom -->
-		<annotation cp="🍄‍🟫" type="tts">E15.1-009</annotation>
 		<annotation cp="🍇">E10-268</annotation>
 		<annotation cp="🍇" type="tts">E10-268</annotation>
 		<annotation cp="🍈">E10-269</annotation>
@@ -2097,6 +2095,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">E15-014</annotation>
 		<annotation cp="🫛">E15-015</annotation> <!-- 1FADB: pea pod -->
 		<annotation cp="🫛" type="tts">E15-015</annotation>
+		<annotation cp="🍄‍🟫">E15.1-009</annotation> <!-- 1F344 200D 1F7EB: brown mushroom -->
+		<annotation cp="🍄‍🟫" type="tts">E15.1-009</annotation>
 		<annotation cp="🍞">E10-291</annotation>
 		<annotation cp="🍞" type="tts">E10-291</annotation>
 		<annotation cp="🥐">E10-1068</annotation>
@@ -3313,10 +3313,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">E12–035</annotation>
 		<annotation cp="🔗">E10-723</annotation>
 		<annotation cp="🔗" type="tts">E10-723</annotation>
-		<annotation cp="⛓">E10-106</annotation>
-		<annotation cp="⛓" type="tts">E10-106</annotation>
 		<annotation cp="⛓‍💥">E15.1-010</annotation> <!-- 26D3 200D 1F4A5: broken chain -->
 		<annotation cp="⛓‍💥" type="tts">E15.1-010</annotation>
+		<annotation cp="⛓">E10-106</annotation>
+		<annotation cp="⛓" type="tts">E10-106</annotation>
 		<annotation cp="🪝">E13-065</annotation>
 		<annotation cp="🪝" type="tts">E13-065</annotation>
 		<annotation cp="🧰">E11-058</annotation>

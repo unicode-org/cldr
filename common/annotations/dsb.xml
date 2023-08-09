@@ -727,10 +727,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">woblico ze łdzami wjasela</annotation>
 		<annotation cp="🙂">smjejkotajucy | smjejkotanje | tšošku se smjejkotajuce woblico | tšošku se smjejuce woblico | woblico</annotation>
 		<annotation cp="🙂" type="tts">tšošku se smjejuce woblico</annotation>
-		<annotation cp="🙂‍↕">jo | nygaś</annotation>
-		<annotation cp="🙂‍↕" type="tts">woblico, kenž nyga</annotation>
-		<annotation cp="🙂‍↔">ně | z głowu wiś</annotation>
-		<annotation cp="🙂‍↔" type="tts">woblico, kenž z głowu wijo</annotation>
 		<annotation cp="🙃">na głowje stojaś | woblico | znak stojece woblico</annotation>
 		<annotation cp="🙃" type="tts">znak stojece woblico</annotation>
 		<annotation cp="🫠">běžecy | rozběžaś | rozbězěce woblico | se rozpušćiś | se zgubiś</annotation>
@@ -813,6 +809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">łdgajuce woblico</annotation>
 		<annotation cp="🫨">šok | tśěsć se | tśěskotaś | tśěskotate woblico | woblico | zemjerdžanje</annotation>
 		<annotation cp="🫨" type="tts">tśěskotate woblico</annotation>
+		<annotation cp="🙂‍↔">ně | z głowu wiś</annotation>
+		<annotation cp="🙂‍↔" type="tts">woblico, kenž z głowu wijo</annotation>
+		<annotation cp="🙂‍↕">jo | nygaś</annotation>
+		<annotation cp="🙂‍↕" type="tts">woblico, kenž nyga</annotation>
 		<annotation cp="😌">woblico | wólažcone woblico | wólažcony | zacynjonej wócy</annotation>
 		<annotation cp="😌" type="tts">wólažcone woblico</annotation>
 		<annotation cp="😔">rozmyslowate woblico | rozmyslowaty | wjelgin rozmyslowate woblico | woblico</annotation>
@@ -1179,14 +1179,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">dorosćony</annotation>
 		<annotation cp="👱">swětła wósoba | swětłe włosy | woblico | wósoba: swětłe włosy</annotation>
 		<annotation cp="👱" type="tts">wósoba: swětłe włosy</annotation>
-		<annotation cp="🧑‍🧒">familija: dorosćony, góle</annotation>
-		<annotation cp="🧑‍🧒" type="tts">familija: dorosćony a góle</annotation>
-		<annotation cp="🧑‍🧒‍🧒">familija: dorosćony, góleśi, źiśi</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">familija: dorosćony a góleśi</annotation>
-		<annotation cp="🧑‍🧑‍🧒">familija: dorosćony, dorosćone a góle</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">familija: dorosćonej a góle</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">familija: dorosćony, dorosćonej, dorosćone, góleśi a źiśi</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familija: dorosćonej a góleśi</annotation>
 		<annotation cp="👨">muski</annotation>
 		<annotation cp="👨" type="tts">muski</annotation>
 		<annotation cp="🧔">broda | muski: broda wósoba z brodu | wósoba: broda</annotation>
@@ -1681,8 +1673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">se póškajucy pórik</annotation>
 		<annotation cp="💑">lubosć | pórik | pórik z wutšobku</annotation>
 		<annotation cp="💑" type="tts">pórik z wutšobku</annotation>
-		<annotation cp="👪">familija | góle | mama | nan</annotation>
-		<annotation cp="👪" type="tts">familija</annotation>
 		<annotation cp="🗣">głowa | powědajuca głowa | powědajucy | powědaś | silueta | woblico</annotation>
 		<annotation cp="🗣" type="tts">powědajuca głowa</annotation>
 		<annotation cp="👤">bista | bista w silueśe | silueta | silueta wósoby</annotation>
@@ -1691,6 +1681,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👥" type="tts">silueta wósobowu</annotation>
 		<annotation cp="🫂">bóžemje | měj se derje | měj źěk | se wobejmjecej wósobje | witaj | wobejmjeś se</annotation>
 		<annotation cp="🫂" type="tts">se wobejmjecej wósobje</annotation>
+		<annotation cp="👪">familija | góle | mama | nan</annotation>
+		<annotation cp="👪" type="tts">familija</annotation>
+		<annotation cp="🧑‍🧑‍🧒">familija: dorosćony, dorosćone a góle</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">familija: dorosćonej a góle</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">familija: dorosćony, dorosćonej, dorosćone, góleśi a źiśi</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familija: dorosćonej a góleśi</annotation>
+		<annotation cp="🧑‍🧒">familija: dorosćony, góle</annotation>
+		<annotation cp="🧑‍🧒" type="tts">familija: dorosćony a góle</annotation>
+		<annotation cp="🧑‍🧒‍🧒">familija: dorosćony, góleśi, źiśi</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">familija: dorosćony a góleśi</annotation>
 		<annotation cp="👣">noga | stopje | wótśišć | wótśišća stopowu</annotation>
 		<annotation cp="👣" type="tts">stopje</annotation>
 		<annotation cp="🦰">cerwjene włose | cerwjene włosy | cerwjenowłosatyI cerwjenowłosak</annotation>
@@ -1847,8 +1847,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">kurje wótprědka</annotation>
 		<annotation cp="🐦">gołub | papagaj | ptašk | šwon</annotation>
 		<annotation cp="🐦" type="tts">ptašk</annotation>
-		<annotation cp="🐦‍🔥">fantazija | reinkarnacija | wognjowy ptašk | znowanaroźenje</annotation>
-		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐧">pinguin | zwěrje</annotation>
 		<annotation cp="🐧" type="tts">pinguin</annotation>
 		<annotation cp="🕊">gołub | leśeś | lětaś | měr | ptašk | zwěrje</annotation>
@@ -1877,6 +1875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">carny ptašk</annotation>
 		<annotation cp="🪿">głupe | gus | pjerina | ptašk | tšubiś</annotation>
 		<annotation cp="🪿" type="tts">gus</annotation>
+		<annotation cp="🐦‍🔥">fantazija | reinkarnacija | wognjowy ptašk | znowanaroźenje</annotation>
+		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐸">głowa | głowa žaby | žaba</annotation>
 		<annotation cp="🐸" type="tts">žaba</annotation>
 		<annotation cp="🐊">krokodil | zwěrje</annotation>
@@ -2007,8 +2007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">gnězdo z jajkoma</annotation>
 		<annotation cp="🍄">grib | muchoradło</annotation>
 		<annotation cp="🍄" type="tts">muchoradło</annotation>
-		<annotation cp="🍄‍🟫">griby | pśiroda | zelenina | zežywidło</annotation>
-		<annotation cp="🍄‍🟫" type="tts">bruny grib</annotation>
 		<annotation cp="🍇">płod | sad | wino | winowa granka</annotation>
 		<annotation cp="🍇" type="tts">winowa granka</annotation>
 		<annotation cp="🍈">melona | mjodowa melona | płod | sad</annotation>
@@ -2083,6 +2081,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">ingwer</annotation>
 		<annotation cp="🫛">boby | edamame | groch | tšuka | tšuka grocha | tšukowe płody | zelenina</annotation>
 		<annotation cp="🫛" type="tts">tšuka grocha</annotation>
+		<annotation cp="🍄‍🟫">griby | pśiroda | zelenina | zežywidło</annotation>
+		<annotation cp="🍄‍🟫" type="tts">bruny grib</annotation>
 		<annotation cp="🍞">klěb | pjacywo | pokšyta</annotation>
 		<annotation cp="🍞" type="tts">klěb</annotation>
 		<annotation cp="🥐">croissant | Francojska | pjacywo | snědanje</annotation>
@@ -3299,10 +3299,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">běły kij</annotation>
 		<annotation cp="🔗">cłonki rjeśaza | dwa cłonka | symbol zwězanja</annotation>
 		<annotation cp="🔗" type="tts">symbol zwězanja</annotation>
-		<annotation cp="⛓">rjeśaz | rjeśaze | zelezo</annotation>
-		<annotation cp="⛓" type="tts">rjeśaze</annotation>
 		<annotation cp="⛓‍💥">lichota | pyta | rjeśaz | roztergnuś | złamaś</annotation>
 		<annotation cp="⛓‍💥" type="tts">roztergnjony rjeśaz</annotation>
+		<annotation cp="⛓">rjeśaz | rjeśaze | zelezo</annotation>
+		<annotation cp="⛓" type="tts">rjeśaze</annotation>
 		<annotation cp="🪝">kokulka | ryby łojś | wuda | wuźiś</annotation>
 		<annotation cp="🪝" type="tts">kokulka</annotation>
 		<annotation cp="🧰">kašćik ze źěłowym rědom | mechanikaŕ | źěłowy rěd</annotation>

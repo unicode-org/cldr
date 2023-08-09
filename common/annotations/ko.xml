@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">기쁨의 눈물을 흘리는 얼굴</annotation>
 		<annotation cp="🙂">미소 | 살짝 미소 짓는 얼굴 | 얼굴</annotation>
 		<annotation cp="🙂" type="tts">살짝 미소 짓는 얼굴</annotation>
-		<annotation cp="🙂‍↕">고개를 끄덕이다, 예, 긍정, 주억거리다 | 끄덕끄덕</annotation>
-		<annotation cp="🙂‍↕" type="tts">끄덕끄덕</annotation>
-		<annotation cp="🙂‍↔">도리도리 | 부정, 아니요, 고개를 흔들다</annotation>
-		<annotation cp="🙂‍↔" type="tts">도리도리</annotation>
 		<annotation cp="🙃">거꾸로 된 얼굴 | 뒤집힘 | 얼굴 | 위아래</annotation>
 		<annotation cp="🙃" type="tts">거꾸로 된 얼굴</annotation>
 		<annotation cp="🫠">녹아 내리는 얼굴</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">거짓말하는 얼굴</annotation>
 		<annotation cp="🫨">떨고 있음 | 얼굴 | 요동치는 얼굴 | 요동침 | 지진 | 충격</annotation>
 		<annotation cp="🫨" type="tts">요동치는 얼굴</annotation>
+		<annotation cp="🙂‍↔">도리도리 | 부정, 아니요, 고개를 흔들다</annotation>
+		<annotation cp="🙂‍↔" type="tts">도리도리</annotation>
+		<annotation cp="🙂‍↕">고개를 끄덕이다, 예, 긍정, 주억거리다 | 끄덕끄덕</annotation>
+		<annotation cp="🙂‍↕" type="tts">끄덕끄덕</annotation>
 		<annotation cp="😌">안도 | 안심한 얼굴 | 얼굴 | 표정</annotation>
 		<annotation cp="😌" type="tts">안심한 얼굴</annotation>
 		<annotation cp="😔">낙담 | 낙담한 얼굴 | 수심 어린 얼굴 | 수심에 찬 얼굴 | 얼굴</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">사람</annotation>
 		<annotation cp="👱">금발 | 금발인 사람</annotation>
 		<annotation cp="👱" type="tts">금발인 사람</annotation>
-		<annotation cp="🧑‍🧒">가족: 성인, 아이</annotation>
-		<annotation cp="🧑‍🧒" type="tts">가족: 성인, 아이</annotation>
-		<annotation cp="🧑‍🧒‍🧒">가족: 성인, 아이, 아이</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">가족: 성인, 아이, 아이</annotation>
-		<annotation cp="🧑‍🧑‍🧒">가족: 성인, 성인, 아이</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">가족: 성인, 성인, 아이</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">가족: 성인, 성인, 아이, 아이</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">가족: 성인, 성인, 아이, 아이</annotation>
 		<annotation cp="👨">남성 | 남자 | 성인</annotation>
 		<annotation cp="👨" type="tts">남자</annotation>
 		<annotation cp="🧔">사람 | 수염 | 수염 난 사람</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">키스</annotation>
 		<annotation cp="💑">사랑 | 연애 | 연애 중 | 연인</annotation>
 		<annotation cp="💑" type="tts">연인</annotation>
-		<annotation cp="👪">가족 | 사람들 | 아빠 | 아이 | 엄마</annotation>
-		<annotation cp="👪" type="tts">가족</annotation>
 		<annotation cp="🗣">말하고 있는 옆얼굴 | 말함 | 실루엣 | 얼굴</annotation>
 		<annotation cp="🗣" type="tts">말하고 있는 옆얼굴</annotation>
 		<annotation cp="👤">사람 | 사람 그림자 | 상반신 | 상체</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">사람들 그림자</annotation>
 		<annotation cp="🫂">고마워 | 안녕 | 잘 가 | 포옹 | 포옹하는 사람</annotation>
 		<annotation cp="🫂" type="tts">포옹하는 사람</annotation>
+		<annotation cp="👪">가족 | 사람들 | 아빠 | 아이 | 엄마</annotation>
+		<annotation cp="👪" type="tts">가족</annotation>
+		<annotation cp="🧑‍🧑‍🧒">가족: 성인, 성인, 아이</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">가족: 성인, 성인, 아이</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">가족: 성인, 성인, 아이, 아이</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">가족: 성인, 성인, 아이, 아이</annotation>
+		<annotation cp="🧑‍🧒">가족: 성인, 아이</annotation>
+		<annotation cp="🧑‍🧒" type="tts">가족: 성인, 아이</annotation>
+		<annotation cp="🧑‍🧒‍🧒">가족: 성인, 아이, 아이</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">가족: 성인, 아이, 아이</annotation>
 		<annotation cp="👣">발 | 발바닥 | 발자국 | 족적</annotation>
 		<annotation cp="👣" type="tts">발자국</annotation>
 		<annotation cp="🦰">빨간 머리 | 적갈색</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">정면을 향해 날개를 편 병아리</annotation>
 		<annotation cp="🐦">동물 | 새</annotation>
 		<annotation cp="🐦" type="tts">새</annotation>
-		<annotation cp="🐦‍🔥">불사조 | 판타지, 불새, 부활, 환생</annotation>
-		<annotation cp="🐦‍🔥" type="tts">불사조</annotation>
 		<annotation cp="🐧">동물 | 펭귄</annotation>
 		<annotation cp="🐧" type="tts">펭귄</annotation>
 		<annotation cp="🕊">비둘기 | 새 | 평화</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">검은 새</annotation>
 		<annotation cp="🪿">가금 | 거위 | 꽥꽥 | 바보 같은 | 새</annotation>
 		<annotation cp="🪿" type="tts">거위</annotation>
+		<annotation cp="🐦‍🔥">불사조 | 판타지, 불새, 부활, 환생</annotation>
+		<annotation cp="🐦‍🔥" type="tts">불사조</annotation>
 		<annotation cp="🐸">개구리 | 개구리 얼굴 | 동물</annotation>
 		<annotation cp="🐸" type="tts">개구리 얼굴</annotation>
 		<annotation cp="🐊">동물 | 악어</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">알이 들어 있는 둥지</annotation>
 		<annotation cp="🍄">나무 | 버섯 | 식물</annotation>
 		<annotation cp="🍄" type="tts">버섯</annotation>
-		<annotation cp="🍄‍🟫">갈색 양송이 버섯 | 음식, 버섯, 자연, 채소</annotation>
-		<annotation cp="🍄‍🟫" type="tts">갈색 양송이 버섯</annotation>
 		<annotation cp="🍇">과일 | 포도</annotation>
 		<annotation cp="🍇" type="tts">포도</annotation>
 		<annotation cp="🍈">과일 | 멜론 | 야채 | 채소</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">생강 뿌리</annotation>
 		<annotation cp="🫛">꼬투리 | 완두콩 | 채소 | 콩 | 콩과 | 풋콩</annotation>
 		<annotation cp="🫛" type="tts">완두콩 꼬투리</annotation>
+		<annotation cp="🍄‍🟫">갈색 양송이 버섯 | 음식, 버섯, 자연, 채소</annotation>
+		<annotation cp="🍄‍🟫" type="tts">갈색 양송이 버섯</annotation>
 		<annotation cp="🍞">빵 | 식빵</annotation>
 		<annotation cp="🍞" type="tts">빵</annotation>
 		<annotation cp="🥐">빵 | 식품 | 크루아상 | 프랑스</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">시각장애인 지팡이</annotation>
 		<annotation cp="🔗">링크 | 링크 표시</annotation>
 		<annotation cp="🔗" type="tts">링크</annotation>
-		<annotation cp="⛓">사슬 | 쇠사슬 | 체인</annotation>
-		<annotation cp="⛓" type="tts">쇠사슬</annotation>
 		<annotation cp="⛓‍💥">끊어진 쇠사슬 | 끊어진, 부서진, 사슬, 수갑, 족쇄, 자유</annotation>
 		<annotation cp="⛓‍💥" type="tts">끊어진 쇠사슬</annotation>
+		<annotation cp="⛓">사슬 | 쇠사슬 | 체인</annotation>
+		<annotation cp="⛓" type="tts">쇠사슬</annotation>
 		<annotation cp="🪝">갈고리 | 걸리게 하다 | 고리 | 곡선 | 팔리는</annotation>
 		<annotation cp="🪝" type="tts">갈고리</annotation>
 		<annotation cp="🧰">공구 | 공구통 | 공구함 | 정비공</annotation>

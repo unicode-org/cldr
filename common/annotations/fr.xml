@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">visage riant aux larmes</annotation>
 		<annotation cp="🙂">sourire | visage avec un léger sourire</annotation>
 		<annotation cp="🙂" type="tts">visage avec un léger sourire</annotation>
-		<annotation cp="🙂‍↕">hochement de tête, oui | tête secouée verticalement</annotation>
-		<annotation cp="🙂‍↕" type="tts">tête secouée verticalement</annotation>
-		<annotation cp="🙂‍↔">non, secouer | tête secouée horizontalement</annotation>
-		<annotation cp="🙂‍↔" type="tts">tête secouée horizontalement</annotation>
 		<annotation cp="🙃">renversée | tête | tête à l’envers</annotation>
 		<annotation cp="🙃" type="tts">tête à l’envers</annotation>
 		<annotation cp="🫠">disparaître | fondre | liquéfié | liquide | se dissoudre | visage qui fond</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">visage de menteur</annotation>
 		<annotation cp="🫨">choc | secoué | tremblement de terre | vibration | visage secoué</annotation>
 		<annotation cp="🫨" type="tts">visage secoué</annotation>
+		<annotation cp="🙂‍↔">non, secouer | tête secouée horizontalement</annotation>
+		<annotation cp="🙂‍↔" type="tts">tête secouée horizontalement</annotation>
+		<annotation cp="🙂‍↕">hochement de tête, oui | tête secouée verticalement</annotation>
+		<annotation cp="🙂‍↕" type="tts">tête secouée verticalement</annotation>
 		<annotation cp="😌">soulagement | visage | visage soulagé</annotation>
 		<annotation cp="😌" type="tts">visage soulagé</annotation>
 		<annotation cp="😔">déçu | pensif | visage</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">adulte</annotation>
 		<annotation cp="👱">blond | cheveux | personne blonde</annotation>
 		<annotation cp="👱" type="tts">personne blonde</annotation>
-		<annotation cp="🧑‍🧒">famille : adulte, enfant | famille monoparentale</annotation>
-		<annotation cp="🧑‍🧒" type="tts">famille : adulte, enfant</annotation>
-		<annotation cp="🧑‍🧒‍🧒">famille : adulte, enfant, enfant | famille monoparentale</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">famille : adulte, enfant, enfant</annotation>
-		<annotation cp="🧑‍🧑‍🧒">famille : adulte, adulte, enfant</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">famille : adulte, adulte, enfant</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">famille : adulte, adulte, enfant, enfant</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">famille : adulte, adulte, enfant, enfant</annotation>
 		<annotation cp="👨">homme</annotation>
 		<annotation cp="👨" type="tts">homme</annotation>
 		<annotation cp="🧔">barbe | personne barbue</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">bisou</annotation>
 		<annotation cp="💑">amour | cœur | couple | couple avec cœur</annotation>
 		<annotation cp="💑" type="tts">couple avec cœur</annotation>
-		<annotation cp="👪">enfant | famille | mère | père</annotation>
-		<annotation cp="👪" type="tts">famille</annotation>
 		<annotation cp="🗣">parler | silhouette | tête qui parle</annotation>
 		<annotation cp="🗣" type="tts">tête qui parle</annotation>
 		<annotation cp="👤">buste | silhouette de buste</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">silhouettes de bustes</annotation>
 		<annotation cp="🫂">au revoir | bonjour | câlin | étreinte | gratitude</annotation>
 		<annotation cp="🫂" type="tts">étreinte</annotation>
+		<annotation cp="👪">enfant | famille | mère | père</annotation>
+		<annotation cp="👪" type="tts">famille</annotation>
+		<annotation cp="🧑‍🧑‍🧒">famille : adulte, adulte, enfant</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">famille : adulte, adulte, enfant</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">famille : adulte, adulte, enfant, enfant</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">famille : adulte, adulte, enfant, enfant</annotation>
+		<annotation cp="🧑‍🧒">famille : adulte, enfant | famille monoparentale</annotation>
+		<annotation cp="🧑‍🧒" type="tts">famille : adulte, enfant</annotation>
+		<annotation cp="🧑‍🧒‍🧒">famille : adulte, enfant, enfant | famille monoparentale</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">famille : adulte, enfant, enfant</annotation>
 		<annotation cp="👣">pied | traces de pas</annotation>
 		<annotation cp="👣" type="tts">traces de pas</annotation>
 		<annotation cp="🦰">cheveux roux | rouquin | rouquine</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">poussin de face</annotation>
 		<annotation cp="🐦">animal | oiseau</annotation>
 		<annotation cp="🐦" type="tts">oiseau</annotation>
-		<annotation cp="🐦‍🔥">cendres | mythologie | phénix | renaissance | renaître</annotation>
-		<annotation cp="🐦‍🔥" type="tts">phénix</annotation>
 		<annotation cp="🐧">animal | oiseau | pingouin</annotation>
 		<annotation cp="🐧" type="tts">pingouin</annotation>
 		<annotation cp="🕊">animal | colombe | oiseau</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">oiseau noir</annotation>
 		<annotation cp="🪿">bête | cacarder | oie | oiseau | volaille</annotation>
 		<annotation cp="🪿" type="tts">oie</annotation>
+		<annotation cp="🐦‍🔥">cendres | mythologie | phénix | renaissance | renaître</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phénix</annotation>
 		<annotation cp="🐸">animal | grenouille | tête</annotation>
 		<annotation cp="🐸" type="tts">grenouille</annotation>
 		<annotation cp="🐊">animal | crocodile | reptile</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nid avec œufs</annotation>
 		<annotation cp="🍄">champignon | plante</annotation>
 		<annotation cp="🍄" type="tts">champignon</annotation>
-		<annotation cp="🍄‍🟫">champignon | champignon marron | fongus | nature | nourriture</annotation>
-		<annotation cp="🍄‍🟫" type="tts">champignon marron</annotation>
 		<annotation cp="🍇">fruit | raisin</annotation>
 		<annotation cp="🍇" type="tts">raisin</annotation>
 		<annotation cp="🍈">fruit | melon</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">racine de gingembre</annotation>
 		<annotation cp="🫛">cosse de petits pois | edamame | fève | haricot | légume | légumineuse | pois</annotation>
 		<annotation cp="🫛" type="tts">cosse de petits pois</annotation>
+		<annotation cp="🍄‍🟫">champignon | champignon marron | fongus | nature | nourriture</annotation>
+		<annotation cp="🍄‍🟫" type="tts">champignon marron</annotation>
 		<annotation cp="🍞">miche | pain</annotation>
 		<annotation cp="🍞" type="tts">pain</annotation>
 		<annotation cp="🥐">croissant | pain | viennoiserie</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">canne blanche</annotation>
 		<annotation cp="🔗">chaînons | maillons</annotation>
 		<annotation cp="🔗" type="tts">chaînons</annotation>
-		<annotation cp="⛓">chaîne | chaînes</annotation>
-		<annotation cp="⛓" type="tts">chaînes</annotation>
 		<annotation cp="⛓‍💥">chaîne | chaîne brisée | chaîne cassée | chaîne rompue | liberté</annotation>
 		<annotation cp="⛓‍💥" type="tts">chaîne brisée</annotation>
+		<annotation cp="⛓">chaîne | chaînes</annotation>
+		<annotation cp="⛓" type="tts">chaînes</annotation>
 		<annotation cp="🪝">accrocher | appâter | attraper | crochet | ferrer | hameçonner</annotation>
 		<annotation cp="🪝" type="tts">crochet</annotation>
 		<annotation cp="🧰">boîte à outils | coffre | mécanique | outil</annotation>

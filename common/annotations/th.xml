@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">ร้องไห้ดีใจ</annotation>
 		<annotation cp="🙂">ยิ้ม | หน้า | หน้ายิ้มบางๆ</annotation>
 		<annotation cp="🙂" type="tts">หน้ายิ้มบางๆ</annotation>
-		<annotation cp="🙂‍↕">ผงกหัว | เห็นด้วย, ใช่</annotation>
-		<annotation cp="🙂‍↕" type="tts">พยักหน้า</annotation>
-		<annotation cp="🙂‍↔">ไม่, สั่น | ส่ายหัว</annotation>
-		<annotation cp="🙂‍↔" type="tts">ส่ายหน้า</annotation>
 		<annotation cp="🙃">กลับหัว | หน้า | หน้ากลับหัว</annotation>
 		<annotation cp="🙃" type="tts">หน้ากลับหัว</annotation>
 		<annotation cp="🫠">ของเหลว | ใบหน้าละลาย | ละลาย | สูญสลาย | หายไป</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">ขี้โกหก</annotation>
 		<annotation cp="🫨">ช็อค | ใบหน้า | ใบหน้าสั่น | แผ่นดินไหว | สั่น | สั่นสะเทือน</annotation>
 		<annotation cp="🫨" type="tts">ใบหน้าสั่น</annotation>
+		<annotation cp="🙂‍↔">ไม่, สั่น | ส่ายหัว</annotation>
+		<annotation cp="🙂‍↔" type="tts">ส่ายหน้า</annotation>
+		<annotation cp="🙂‍↕">ผงกหัว | เห็นด้วย, ใช่</annotation>
+		<annotation cp="🙂‍↕" type="tts">พยักหน้า</annotation>
 		<annotation cp="😌">โล่งใจ | หน้า</annotation>
 		<annotation cp="😌" type="tts">โล่งใจ</annotation>
 		<annotation cp="😔">คิดมาก | คิดไม่ตก | ผิดหวัง | หน้า</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">คน</annotation>
 		<annotation cp="👱">คนผมทอง | ผม | ผมทอง</annotation>
 		<annotation cp="👱" type="tts">คนผมทอง</annotation>
-		<annotation cp="🧑‍🧒">ครอบครัว: ผู้ใหญ่, ลูก</annotation>
-		<annotation cp="🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก</annotation>
-		<annotation cp="🧑‍🧒‍🧒">ครอบครัว: ผู้ใหญ่, ลูก, ลูก</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก, เด็ก</annotation>
-		<annotation cp="🧑‍🧑‍🧒">ครอบครัว: พ่อ, แม่, ลูก</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">ครอบครัว: พ่อ, แม่, ลูก, ลูก</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก, เด็ก</annotation>
 		<annotation cp="👨">คน | ผู้ชาย</annotation>
 		<annotation cp="👨" type="tts">ผู้ชาย</annotation>
 		<annotation cp="🧔">คน | ผู้ชาย | ผู้ชายมีเครา | มีเครา | หนวดเครา</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">จูบ</annotation>
 		<annotation cp="💑">คู่รัก | รักกัน | โรแมนติก</annotation>
 		<annotation cp="💑" type="tts">คู่รัก</annotation>
-		<annotation cp="👪">คน | ครอบครัว | เด็ก | พ่อ | แม่</annotation>
-		<annotation cp="👪" type="tts">ครอบครัว</annotation>
 		<annotation cp="🗣">คน | เงา | เงาคนกำลังพูด | พูด</annotation>
 		<annotation cp="🗣" type="tts">เงาคนกำลังพูด</annotation>
 		<annotation cp="👤">คน | เงาครึ่งตัวคนเดียว</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">เงาครึ่งตัว 2 คน</annotation>
 		<annotation cp="🫂">กอด | ขอบคุณ | คนกอดกัน | ลาก่อน | สวัสดี</annotation>
 		<annotation cp="🫂" type="tts">คนกอดกัน</annotation>
+		<annotation cp="👪">คน | ครอบครัว | เด็ก | พ่อ | แม่</annotation>
+		<annotation cp="👪" type="tts">ครอบครัว</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ครอบครัว: พ่อ, แม่, ลูก</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ครอบครัว: พ่อ, แม่, ลูก, ลูก</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, ผู้ใหญ่, เด็ก, เด็ก</annotation>
+		<annotation cp="🧑‍🧒">ครอบครัว: ผู้ใหญ่, ลูก</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ครอบครัว: ผู้ใหญ่, ลูก, ลูก</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ครอบครัว: ผู้ใหญ่, เด็ก, เด็ก</annotation>
 		<annotation cp="👣">เท้า | รอยเท้า | อวัยวะ</annotation>
 		<annotation cp="👣" type="tts">รอยเท้า</annotation>
 		<annotation cp="🦰">ผมแดง | หัวแดง</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">ลูกเจี๊ยบยืนหันหน้า</annotation>
 		<annotation cp="🐦">นก | สัตว์</annotation>
 		<annotation cp="🐦" type="tts">นก</annotation>
-		<annotation cp="🐦‍🔥">เทพนิยาย, ไฟ, เกิดใหม่, กลับชาติ | นกฟินิกซ์</annotation>
-		<annotation cp="🐦‍🔥" type="tts">นกฟินิกซ์</annotation>
 		<annotation cp="🐧">เพนกวิน | สัตว์</annotation>
 		<annotation cp="🐧" type="tts">เพนกวิน</annotation>
 		<annotation cp="🕊">นก | นกพิราบขาว | บิน | สันติภาพ</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">นกสีดำ</annotation>
 		<annotation cp="🪿">ก้าบ | ทึ่ม | นก | สัตว์ปีก | ห่าน</annotation>
 		<annotation cp="🪿" type="tts">ห่าน</annotation>
+		<annotation cp="🐦‍🔥">เทพนิยาย, ไฟ, เกิดใหม่, กลับชาติ | นกฟินิกซ์</annotation>
+		<annotation cp="🐦‍🔥" type="tts">นกฟินิกซ์</annotation>
 		<annotation cp="🐸">กบ | หน้า</annotation>
 		<annotation cp="🐸" type="tts">กบ</annotation>
 		<annotation cp="🐊">จระเข้ | สัตว์</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">รังนกที่มีไข่</annotation>
 		<annotation cp="🍄">พืช | เห็ด</annotation>
 		<annotation cp="🍄" type="tts">เห็ด</annotation>
-		<annotation cp="🍄‍🟫">เห็ดสีน้ำตาล | อาหาร, เชื้อรา, ธรรมชาติ, ผัก</annotation>
-		<annotation cp="🍄‍🟫" type="tts">เห็ดสีน้ำตาล</annotation>
 		<annotation cp="🍇">ผลไม้ | องุ่น</annotation>
 		<annotation cp="🍇" type="tts">องุ่น</annotation>
 		<annotation cp="🍈">ผลไม้ | เมลอน</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">ขิง</annotation>
 		<annotation cp="🫛">ถั่ว | ถั่วแระญี่ปุ่น | ผัก | ฝัก | ฝักถั่ว | พืชถั่ว | เมล็ดถั่ว</annotation>
 		<annotation cp="🫛" type="tts">ฝักถั่ว</annotation>
+		<annotation cp="🍄‍🟫">เห็ดสีน้ำตาล | อาหาร, เชื้อรา, ธรรมชาติ, ผัก</annotation>
+		<annotation cp="🍄‍🟫" type="tts">เห็ดสีน้ำตาล</annotation>
 		<annotation cp="🍞">ก้อนขนมปัง | ขนมปัง</annotation>
 		<annotation cp="🍞" type="tts">ขนมปัง</annotation>
 		<annotation cp="🥐">ขนม | ขนมปัง | ครัวซอง | อาหาร</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">ไม้เท้านำทาง</annotation>
 		<annotation cp="🔗">ลิงก์ | สัญลักษณ์การลิงก์</annotation>
 		<annotation cp="🔗" type="tts">สัญลักษณ์การลิงก์</annotation>
-		<annotation cp="⛓">โซ่</annotation>
-		<annotation cp="⛓" type="tts">โซ่</annotation>
 		<annotation cp="⛓‍💥">โซ่ขาด | แตก, หัก, ตรวน, กุญแจมือ, อิสรภาพ</annotation>
 		<annotation cp="⛓‍💥" type="tts">โซ่ขาด</annotation>
+		<annotation cp="⛓">โซ่</annotation>
+		<annotation cp="⛓" type="tts">โซ่</annotation>
 		<annotation cp="🪝">งอ | จับ | ดักปลา | ตะขอ</annotation>
 		<annotation cp="🪝" type="tts">ตะขอ</annotation>
 		<annotation cp="🧰">กล่องเครื่องมือ | เครื่องมือ | เครื่องมือช่าง | ช่างกล | หีบ</annotation>

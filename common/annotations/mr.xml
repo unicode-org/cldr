@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">आनंदाश्रूंसह चेहरा</annotation>
 		<annotation cp="🙂">चेहरा | स्मित करणारा चेहरा | हास्य</annotation>
 		<annotation cp="🙂" type="tts">स्मित करणारा चेहरा</annotation>
-		<annotation cp="🙂‍↕">हलविणे, होय | होकारार्थी मान हलविणे</annotation>
-		<annotation cp="🙂‍↕" type="tts">होकारार्थी मान हलविणे</annotation>
-		<annotation cp="🙂‍↔">नकारार्थी मान हलविणे | नाही, हलविणे</annotation>
-		<annotation cp="🙂‍↔" type="tts">नकारार्थी मान हलविणे</annotation>
 		<annotation cp="🙃">उलटा चेहरा | चेहरा | वरील बाजू खाली | वरील बाजू खाली असलेला चेहरा</annotation>
 		<annotation cp="🙃" type="tts">उलटा चेहरा</annotation>
 		<annotation cp="🫠">अदृश्य होणे | द्रव्य | विरघळणारा चेहरा | विरघळणे | विसर्जन होणे</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">खोटारडा चेहरा</annotation>
 		<annotation cp="🫨">कंपन | कंपी | चेहरा | धक्का | भूकंप</annotation>
 		<annotation cp="🫨" type="tts">कंपी चेहरा</annotation>
+		<annotation cp="🙂‍↔">नकारार्थी मान हलविणे | नाही, हलविणे</annotation>
+		<annotation cp="🙂‍↔" type="tts">नकारार्थी मान हलविणे</annotation>
+		<annotation cp="🙂‍↕">हलविणे, होय | होकारार्थी मान हलविणे</annotation>
+		<annotation cp="🙂‍↕" type="tts">होकारार्थी मान हलविणे</annotation>
 		<annotation cp="😌">चिंतामुक्त | चेहरा</annotation>
 		<annotation cp="😌" type="tts">चिंतामुक्त चेहरा</annotation>
 		<annotation cp="😔">उदास | चेहरा</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">तरूण</annotation>
 		<annotation cp="👱">केस | सोनेरी | सोनेरी केसांची व्यक्ती</annotation>
 		<annotation cp="👱" type="tts">सोनेरी केसांची व्यक्ती</annotation>
-		<annotation cp="🧑‍🧒" draft="contributed">कुटुंब: प्रौढ, लहान मूल</annotation>
-		<annotation cp="🧑‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, मूल</annotation>
-		<annotation cp="🧑‍🧒‍🧒" draft="contributed">कुटुंब: प्रौढ, मूल, लहान मूल</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, मूल, लहान मूल</annotation>
-		<annotation cp="🧑‍🧑‍🧒" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, प्रौढ, मूल</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल, लहान मूल</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल, लहान मूल</annotation>
 		<annotation cp="👨">पुरूष</annotation>
 		<annotation cp="👨" type="tts">पुरूष</annotation>
 		<annotation cp="🧔">दाढी | दाढी असलेली व्यक्ती | पुरुष | व्यक्ती</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">चुंबन</annotation>
 		<annotation cp="💑">जोडी | प्रेम | मध्यभागी हृदय असलेले जोडपे | मध्यभागी ह्रदय असलेले जोडपे</annotation>
 		<annotation cp="💑" type="tts">मध्यभागी ह्रदय असलेले जोडपे</annotation>
-		<annotation cp="👪">कुटुंब</annotation>
-		<annotation cp="👪" type="tts">कुटुंब</annotation>
 		<annotation cp="🗣">चेहरा | छायाचित्र | डोके | बोलणारी व्यक्ती | बोलणे | बोला</annotation>
 		<annotation cp="🗣" type="tts">बोलणारी व्यक्ती</annotation>
 		<annotation cp="👤">अर्धप्रतिमा | छायाचित्र | छायाचित्रातील अर्धप्रतिमा | प्रकाशात दिसणारी शरीराच्या वरील भागाची आकृती</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">प्रकाशात दिसणार्‍या शरीराच्या आकृत्या</annotation>
 		<annotation cp="🫂">गुडबाय | धन्यवाद | मिठी मारणार्‍या व्यक्ती | मिठी मारणे | हॅलो</annotation>
 		<annotation cp="🫂" type="tts">मिठी मारणार्‍या व्यक्ती</annotation>
+		<annotation cp="👪">कुटुंब</annotation>
+		<annotation cp="👪" type="tts">कुटुंब</annotation>
+		<annotation cp="🧑‍🧑‍🧒" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, प्रौढ, मूल</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल, लहान मूल</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, सज्ञान, मूल, लहान मूल</annotation>
+		<annotation cp="🧑‍🧒" draft="contributed">कुटुंब: प्रौढ, लहान मूल</annotation>
+		<annotation cp="🧑‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, मूल</annotation>
+		<annotation cp="🧑‍🧒‍🧒" draft="contributed">कुटुंब: प्रौढ, मूल, लहान मूल</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">कुटुंब: प्रौढ, मूल, लहान मूल</annotation>
 		<annotation cp="👣">कपडे | ठसा | पाऊल | पावले</annotation>
 		<annotation cp="👣" type="tts">पावले</annotation>
 		<annotation cp="🦰">आले | लाल केस | लालडोके</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">चेहरा समोर असलेले कोंबडीचे पिल्लू</annotation>
 		<annotation cp="🐦">पक्षी</annotation>
 		<annotation cp="🐦" type="tts">पक्षी</annotation>
-		<annotation cp="🐦‍🔥" draft="contributed">कल्पनारम्य, फायरबर्ड, पुनर्जन्म, पुनर्जन्म | फिनिक्स</annotation>
-		<annotation cp="🐦‍🔥" type="tts">फिनिक्स</annotation>
 		<annotation cp="🐧">पक्षी | पेंग्विन</annotation>
 		<annotation cp="🐧" type="tts">पेंग्विन</annotation>
 		<annotation cp="🕊">उडणे | कबुतर | पक्षी | शांतता</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">काळा पक्षी</annotation>
 		<annotation cp="🪿">कुक्पकुट | गूस | पक्षी | मूर्ख | हॉंक</annotation>
 		<annotation cp="🪿" type="tts">गूस</annotation>
+		<annotation cp="🐦‍🔥" draft="contributed">कल्पनारम्य, फायरबर्ड, पुनर्जन्म, पुनर्जन्म | फिनिक्स</annotation>
+		<annotation cp="🐦‍🔥" type="tts">फिनिक्स</annotation>
 		<annotation cp="🐸">चेहरा | बेडकाचा चेहरा</annotation>
 		<annotation cp="🐸" type="tts">बेडकाचा चेहरा</annotation>
 		<annotation cp="🐊">मगर</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">अंडी असलेले घरटे</annotation>
 		<annotation cp="🍄">अळंबी | आळंबे | मशरूम</annotation>
 		<annotation cp="🍄" type="tts">आळंबे</annotation>
-		<annotation cp="🍄‍🟫" draft="contributed">अन्न, बुरशी, निसर्ग, भाजीपाला | तपकिरी मशरूम</annotation>
-		<annotation cp="🍄‍🟫" type="tts" draft="contributed">तपकिरी मशरूम</annotation>
 		<annotation cp="🍇">द्राक्ष | द्राक्षे | फळ</annotation>
 		<annotation cp="🍇" type="tts">द्राक्षे</annotation>
 		<annotation cp="🍈">खरबूज | फळ</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">आले</annotation>
 		<annotation cp="🫛">कडधान्ये | घेवडा | बिन्स | भाजी | मटार | शेंगा</annotation>
 		<annotation cp="🫛" type="tts">मटार</annotation>
+		<annotation cp="🍄‍🟫" draft="contributed">अन्न, बुरशी, निसर्ग, भाजीपाला | तपकिरी मशरूम</annotation>
+		<annotation cp="🍄‍🟫" type="tts" draft="contributed">तपकिरी मशरूम</annotation>
 		<annotation cp="🍞">ब्रेड | ब्रेडचा तुकडा | वडी</annotation>
 		<annotation cp="🍞" type="tts">ब्रेड</annotation>
 		<annotation cp="🥐">क्रेसेंट रोल | क्रॉइसंट | क्रोसेंट | खाद्य | फ्रेंच | ब्रेड</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">अंधांची काठी</annotation>
 		<annotation cp="🔗">साखळी</annotation>
 		<annotation cp="🔗" type="tts">साखळी</annotation>
-		<annotation cp="⛓">चेन</annotation>
-		<annotation cp="⛓" type="tts">चेन</annotation>
 		<annotation cp="⛓‍💥" draft="contributed">तुटलेली साखळी | तोडणे, तोडणे, साखळी, कफ, स्वातंत्र्य</annotation>
 		<annotation cp="⛓‍💥" type="tts" draft="contributed">तुटलेली साखळी</annotation>
+		<annotation cp="⛓">चेन</annotation>
+		<annotation cp="⛓" type="tts">चेन</annotation>
 		<annotation cp="🪝">पकडणे | फासळ | बाक | वळण | विक्री बिंदू | हूक</annotation>
 		<annotation cp="🪝" type="tts">हूक</annotation>
 		<annotation cp="🧰">चेस्ट | टूल | टूलबॉक्स | मेकॅनिक</annotation>

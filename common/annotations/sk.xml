@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">plačem od smiechu</annotation>
 		<annotation cp="🙂">tvár | úsmev | usmievajúca sa tvár</annotation>
 		<annotation cp="🙂" type="tts">usmievajúca sa tvár</annotation>
-		<annotation cp="🙂‍↕">prikývnutie, áno | prikyvujúca hlava</annotation>
-		<annotation cp="🙂‍↕" type="tts">prikyvujúca hlava</annotation>
-		<annotation cp="🙂‍↔">hlava krútiaca sa zo strany na stranu | nie, krútenie</annotation>
-		<annotation cp="🙂‍↔" type="tts">hlava krútiaca sa zo strany na stranu</annotation>
 		<annotation cp="🙃">otočená | prevrátená | tvár</annotation>
 		<annotation cp="🙃" type="tts">prevrátená tvár</annotation>
 		<annotation cp="🫠">rozpustiť | roztiecť | roztopená tvár | roztopiť | zmiznúť</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">tvár s dlhým nosom</annotation>
 		<annotation cp="🫨">roztrasená tvár | šok | trasenie | tvár | vibrovanie | zemetrasenie</annotation>
 		<annotation cp="🫨" type="tts">roztrasená tvár</annotation>
+		<annotation cp="🙂‍↔">hlava krútiaca sa zo strany na stranu | nie, krútenie</annotation>
+		<annotation cp="🙂‍↔" type="tts">hlava krútiaca sa zo strany na stranu</annotation>
+		<annotation cp="🙂‍↕">prikývnutie, áno | prikyvujúca hlava</annotation>
+		<annotation cp="🙂‍↕" type="tts">prikyvujúca hlava</annotation>
 		<annotation cp="😌">tvár | tvár vyjadrujúca úľavu | úľava | upokojená</annotation>
 		<annotation cp="😌" type="tts">tvár vyjadrujúca úľavu</annotation>
 		<annotation cp="😔">deprimovaná | tvár | zamyslená</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dospelý</annotation>
 		<annotation cp="👱">blond | svetlovlasý človek</annotation>
 		<annotation cp="👱" type="tts">svetlovlasý človek</annotation>
-		<annotation cp="🧑‍🧒">dcéra | dieťa | matka | otec | syn</annotation>
-		<annotation cp="🧑‍🧒" type="tts">rodina: dospelý, dieťa</annotation>
-		<annotation cp="🧑‍🧒‍🧒">brat | dcéra | dve deti | matka | otec | sestra | syn</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">rodina: dospelý, dieťa, dieťa</annotation>
-		<annotation cp="🧑‍🧑‍🧒">dieťa | matka | otec</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">rodina: dospelý, dospelý, dieťa</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">brat | brat a sestra | bratia | rodina | sestra | sestry | súrodenci</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">rodina: dospelý, dospelý, dieťa, dieťa</annotation>
 		<annotation cp="👨">dospelý | muž</annotation>
 		<annotation cp="👨" type="tts">muž</annotation>
 		<annotation cp="🧔">brada | bradáč | fúzatý | fúzy</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">bozk</annotation>
 		<annotation cp="💑">láska | pár | pár so srdcom | romanca | srdce</annotation>
 		<annotation cp="💑" type="tts">pár so srdcom</annotation>
-		<annotation cp="👪">dieťa | matka | otec | rodina</annotation>
-		<annotation cp="👪" type="tts">rodina</annotation>
 		<annotation cp="🗣">hlava | hovoriaca | hovoriť | silueta | tvár</annotation>
 		<annotation cp="🗣" type="tts">hovoriaca hlava</annotation>
 		<annotation cp="👤">busta | silueta | silueta busty</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">silueta búst</annotation>
 		<annotation cp="🫂">ďakujem | lúčenie | objatie | objímajúci sa ľudia | zbohom</annotation>
 		<annotation cp="🫂" type="tts">objímajúci sa ľudia</annotation>
+		<annotation cp="👪">dieťa | matka | otec | rodina</annotation>
+		<annotation cp="👪" type="tts">rodina</annotation>
+		<annotation cp="🧑‍🧑‍🧒">dieťa | matka | otec</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">rodina: dospelý, dospelý, dieťa</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">brat | brat a sestra | bratia | rodina | sestra | sestry | súrodenci</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">rodina: dospelý, dospelý, dieťa, dieťa</annotation>
+		<annotation cp="🧑‍🧒">dcéra | dieťa | matka | otec | syn</annotation>
+		<annotation cp="🧑‍🧒" type="tts">rodina: dospelý, dieťa</annotation>
+		<annotation cp="🧑‍🧒‍🧒">brat | dcéra | dve deti | matka | otec | sestra | syn</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">rodina: dospelý, dieťa, dieťa</annotation>
 		<annotation cp="👣">šľapaj | stopa | stopy | topánka</annotation>
 		<annotation cp="👣" type="tts">stopy</annotation>
 		<annotation cp="🦰">červený | hrdzavý | ryšavé vlasy</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">kurča spredu</annotation>
 		<annotation cp="🐦">vták</annotation>
 		<annotation cp="🐦" type="tts">vták</annotation>
-		<annotation cp="🐦‍🔥">fantázia | fénix | ohnivý vták | reinkarnácia | znovuzrodenie</annotation>
-		<annotation cp="🐦‍🔥" type="tts">fénix</annotation>
 		<annotation cp="🐧">tučniak</annotation>
 		<annotation cp="🐧" type="tts">tučniak</annotation>
 		<annotation cp="🕊">holubica | lietať | mier | vták</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">čierny vták</annotation>
 		<annotation cp="🪿">gagotať | hlúpy | hus | hydina | vták</annotation>
 		<annotation cp="🪿" type="tts">hus</annotation>
+		<annotation cp="🐦‍🔥">fantázia | fénix | ohnivý vták | reinkarnácia | znovuzrodenie</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fénix</annotation>
 		<annotation cp="🐸">hlava | žaba</annotation>
 		<annotation cp="🐸" type="tts">žaba</annotation>
 		<annotation cp="🐊">krokodíl</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">hniezdo s vajcami</annotation>
 		<annotation cp="🍄">hríb | huba</annotation>
 		<annotation cp="🍄" type="tts">huba</annotation>
-		<annotation cp="🍄‍🟫">hnedý hríb | jedlo, huba, príroda, zelenina</annotation>
-		<annotation cp="🍄‍🟫" type="tts">hnedý hríb</annotation>
 		<annotation cp="🍇">hrozno | ovocie | rastlina</annotation>
 		<annotation cp="🍇" type="tts">hrozno</annotation>
 		<annotation cp="🍈">cukrový melón | ovocie | rastlina</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">koreň ďumbiera</annotation>
 		<annotation cp="🫛">edamame | fazuľa | hrach | hrachový struk | struk | strukovina | zelenina</annotation>
 		<annotation cp="🫛" type="tts">hrachový struk</annotation>
+		<annotation cp="🍄‍🟫">hnedý hríb | jedlo, huba, príroda, zelenina</annotation>
+		<annotation cp="🍄‍🟫" type="tts">hnedý hríb</annotation>
 		<annotation cp="🍞">bochník | chlieb | peceň</annotation>
 		<annotation cp="🍞" type="tts">chlieb</annotation>
 		<annotation cp="🥐">croissant | francúzske | jedlo | pečivo</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">slepecká palica</annotation>
 		<annotation cp="🔗">odkaz | prepojenie | spojenie | spojovací článok</annotation>
 		<annotation cp="🔗" type="tts">spojovací článok</annotation>
-		<annotation cp="⛓">reťaz | reťaze</annotation>
-		<annotation cp="⛓" type="tts">reťaz</annotation>
 		<annotation cp="⛓‍💥">pretrhnutá, roztrhnutá, putá, sloboda | reťaz</annotation>
 		<annotation cp="⛓‍💥" type="tts">roztrhnutá reťaz</annotation>
+		<annotation cp="⛓">reťaz | reťaze</annotation>
+		<annotation cp="⛓" type="tts">reťaz</annotation>
 		<annotation cp="🪝">háčik | hák | lákadlo | nachytať | skoba</annotation>
 		<annotation cp="🪝" type="tts">hák</annotation>
 		<annotation cp="🧰">debna | kufrík na náradie | náradie | nástroje</annotation>

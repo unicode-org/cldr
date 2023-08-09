@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">twarz ze łzami radości</annotation>
 		<annotation cp="🙂">buźka | lekko uśmiechnięta twarz</annotation>
 		<annotation cp="🙂" type="tts">lekko uśmiechnięta twarz</annotation>
-		<annotation cp="🙂‍↕">głowa kiwająca się pionowo | przytaknięcie, tak</annotation>
-		<annotation cp="🙂‍↕" type="tts">głowa kiwająca się pionowo</annotation>
-		<annotation cp="🙂‍↔">głowa kręcąca się poziomo | nie, potrząśnięcie</annotation>
-		<annotation cp="🙂‍↔" type="tts">głowa kręcąca się poziomo</annotation>
 		<annotation cp="🙃">do góry nogami | odwrócona twarz</annotation>
 		<annotation cp="🙃" type="tts">odwrócona twarz</annotation>
 		<annotation cp="🫠">płynna twarz | rozpuszczająca się twarz | roztapiająca się twarz | znikająca twarz</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">twarz kłamcy</annotation>
 		<annotation cp="🫨">szok | trzęsienie ziemi | twarz | wibracje | wstrząs | wstrząśnięta twarz</annotation>
 		<annotation cp="🫨" type="tts">wstrząśnięta twarz</annotation>
+		<annotation cp="🙂‍↔">głowa kręcąca się poziomo | nie, potrząśnięcie</annotation>
+		<annotation cp="🙂‍↔" type="tts">głowa kręcąca się poziomo</annotation>
+		<annotation cp="🙂‍↕">głowa kiwająca się pionowo | przytaknięcie, tak</annotation>
+		<annotation cp="🙂‍↕" type="tts">głowa kiwająca się pionowo</annotation>
 		<annotation cp="😌">odprężona buźka | twarz z wyrazem ulgi</annotation>
 		<annotation cp="😌" type="tts">twarz z wyrazem ulgi</annotation>
 		<annotation cp="😔">zamyślona buźka | zamyślona twarz</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dorosły</annotation>
 		<annotation cp="👱">blond | osoba z włosami blond | włosy</annotation>
 		<annotation cp="👱" type="tts">osoba z włosami blond</annotation>
-		<annotation cp="🧑‍🧒">rodzina: dorosły, dziecko</annotation>
-		<annotation cp="🧑‍🧒" type="tts">rodzina: dorosły, dziecko</annotation>
-		<annotation cp="🧑‍🧒‍🧒">rodzina: dorosły, dziecko, dziecko</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">rodzina: dorosły, dziecko, dziecko</annotation>
-		<annotation cp="🧑‍🧑‍🧒">rodzina: dorosły, dorosły, dziecko</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">rodzina: dorosły, dorosły, dziecko</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">rodzina: dorosły, dorosły, dziecko, dziecko</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">rodzina: dorosły, dorosły, dziecko, dziecko</annotation>
 		<annotation cp="👨">mężczyzna</annotation>
 		<annotation cp="👨" type="tts">mężczyzna</annotation>
 		<annotation cp="🧔">broda | osoba | osoba z brodą</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">pocałunek</annotation>
 		<annotation cp="💑">miłość | para | para z sercem | pocałunek | zakochani</annotation>
 		<annotation cp="💑" type="tts">para z sercem</annotation>
-		<annotation cp="👪">dziecko | mama | matka | ojciec | rodzice | rodzina | tata</annotation>
-		<annotation cp="👪" type="tts">rodzina</annotation>
 		<annotation cp="🗣">mówiąca głowa | mówić | powiedzieć | profil | sylwetka</annotation>
 		<annotation cp="🗣" type="tts">mówiąca głowa</annotation>
 		<annotation cp="👤">osoba | sylwetka popiersia</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">sylwetki popiersi</annotation>
 		<annotation cp="🫂">cześć | do widzenia | dzięki | obejmujące się osoby | uścisk</annotation>
 		<annotation cp="🫂" type="tts">obejmujące się osoby</annotation>
+		<annotation cp="👪">dziecko | mama | matka | ojciec | rodzice | rodzina | tata</annotation>
+		<annotation cp="👪" type="tts">rodzina</annotation>
+		<annotation cp="🧑‍🧑‍🧒">rodzina: dorosły, dorosły, dziecko</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">rodzina: dorosły, dorosły, dziecko</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">rodzina: dorosły, dorosły, dziecko, dziecko</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">rodzina: dorosły, dorosły, dziecko, dziecko</annotation>
+		<annotation cp="🧑‍🧒">rodzina: dorosły, dziecko</annotation>
+		<annotation cp="🧑‍🧒" type="tts">rodzina: dorosły, dziecko</annotation>
+		<annotation cp="🧑‍🧒‍🧒">rodzina: dorosły, dziecko, dziecko</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">rodzina: dorosły, dziecko, dziecko</annotation>
 		<annotation cp="👣">odciski stóp | ślady | ślady stóp | stopy</annotation>
 		<annotation cp="👣" type="tts">ślady stóp</annotation>
 		<annotation cp="🦰">ruda | rude | rude włosy | rudy</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">kurczątko od przodu</annotation>
 		<annotation cp="🐦">ptak | ptaszek</annotation>
 		<annotation cp="🐦" type="tts">ptak</annotation>
-		<annotation cp="🐦‍🔥">fantazja, ognisty ptak, odrodzenie, reinkarnacja | feniks</annotation>
-		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐧">pingwin</annotation>
 		<annotation cp="🐧" type="tts">pingwin</annotation>
 		<annotation cp="🕊">gołąb | gołąbek</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">czarny ptak</annotation>
 		<annotation cp="🪿">drób | gęganie | gęś | głuptas | ptak</annotation>
 		<annotation cp="🪿" type="tts">gęś</annotation>
+		<annotation cp="🐦‍🔥">fantazja, ognisty ptak, odrodzenie, reinkarnacja | feniks</annotation>
+		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐸">głowa żaby | ropucha | traszka | żaba | żabka</annotation>
 		<annotation cp="🐸" type="tts">głowa żaby</annotation>
 		<annotation cp="🐊">aligator | krokodyl</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">gniazdo z jajkami</annotation>
 		<annotation cp="🍄">grzyb | muchomor | trujący</annotation>
 		<annotation cp="🍄" type="tts">grzyb</annotation>
-		<annotation cp="🍄‍🟫">brązowy grzyb | jedzenie, grzyb, natura, warzywo</annotation>
-		<annotation cp="🍄‍🟫" type="tts">brązowy grzyb</annotation>
 		<annotation cp="🍇">owoce | winogrona</annotation>
 		<annotation cp="🍇" type="tts">winogrona</annotation>
 		<annotation cp="🍈">melon | owoc</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">korzeń imbiru</annotation>
 		<annotation cp="🫛">edamam | edamame | fasola | groch | łuskać | strąk | strąk grochu | warzywo</annotation>
 		<annotation cp="🫛" type="tts">strąk grochu</annotation>
+		<annotation cp="🍄‍🟫">brązowy grzyb | jedzenie, grzyb, natura, warzywo</annotation>
+		<annotation cp="🍄‍🟫" type="tts">brązowy grzyb</annotation>
 		<annotation cp="🍞">bochenek | chleb | kawałek chleba | pieczywo</annotation>
 		<annotation cp="🍞" type="tts">chleb</annotation>
 		<annotation cp="🥐">jedzenie | pieczywo | rogal | rogalik | rogalik francuski</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">biała laska</annotation>
 		<annotation cp="🔗">hiperłącze | link | ogniwa | ogniwo | połączenie</annotation>
 		<annotation cp="🔗" type="tts">ogniwa</annotation>
-		<annotation cp="⛓">łańcuch | łańcuchy | ogniwa</annotation>
-		<annotation cp="⛓" type="tts">łańcuchy</annotation>
 		<annotation cp="⛓‍💥">zerwać, zerwanie, łańcuch, kajdany, wolność | zerwany łańcuch</annotation>
 		<annotation cp="⛓‍💥" type="tts">zerwany łańcuch</annotation>
+		<annotation cp="⛓">łańcuch | łańcuchy | ogniwa</annotation>
+		<annotation cp="⛓" type="tts">łańcuchy</annotation>
 		<annotation cp="🪝">haczyk | hak | połknąć | zakrzywiony | złapać</annotation>
 		<annotation cp="🪝" type="tts">hak</annotation>
 		<annotation cp="🧰">mechanik | narzędzie | skrzynka | skrzynka na narzędzia</annotation>

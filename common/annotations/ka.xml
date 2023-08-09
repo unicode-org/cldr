@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">სახე სიხარულის ცრემლებით</annotation>
 		<annotation cp="🙂">ოდნავ მომღიმარე სახე | სახე | ღიმილი</annotation>
 		<annotation cp="🙂" type="tts">ოდნავ მომღიმარე სახე</annotation>
-		<annotation cp="🙂‍↕">თავის დაქნევა | თავის დაქნევით დათანხმება</annotation>
-		<annotation cp="🙂‍↕" type="tts">თავის დაქნევა</annotation>
-		<annotation cp="🙂‍↔">თავის გაქნევა | თავის გაქნევით უარი</annotation>
-		<annotation cp="🙂‍↔" type="tts">თავის გაქნევა</annotation>
 		<annotation cp="🙃">ამოტრიალებული | სახე</annotation>
 		<annotation cp="🙃" type="tts">ამოტრიალებული სახე</annotation>
 		<annotation cp="🫠">გაქრება | დაითხოვს | დნება | დნება სახე | თხევადი</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">მატყუარა სახე</annotation>
 		<annotation cp="🫨">აცახცახებული სახე | ვიბრაცია | მიწისძვრა | სახე | შოკი | ცახცახი</annotation>
 		<annotation cp="🫨" type="tts">აცახცახებული სახე</annotation>
+		<annotation cp="🙂‍↔">თავის გაქნევა | თავის გაქნევით უარი</annotation>
+		<annotation cp="🙂‍↔" type="tts">თავის გაქნევა</annotation>
+		<annotation cp="🙂‍↕">თავის დაქნევა | თავის დაქნევით დათანხმება</annotation>
+		<annotation cp="🙂‍↕" type="tts">თავის დაქნევა</annotation>
 		<annotation cp="😌">სახე | შვება | შვების გამომხატველი სახე</annotation>
 		<annotation cp="😌" type="tts">შვების გამომხატველი სახე</annotation>
 		<annotation cp="😔">დამწუხრებული | კალამი | სახე | ფიქრებში ჩაძირული სახე | ფიქრიანი</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">სრულწლოვანი</annotation>
 		<annotation cp="👱">ქერა | ქერათმიანი ადამიანი</annotation>
 		<annotation cp="👱" type="tts">ქერათმიანი ადამიანი</annotation>
-		<annotation cp="🧑‍🧒">ოჯახი: ზრდასრული, ბავშვი</annotation>
-		<annotation cp="🧑‍🧒" type="tts">ოჯახი: ზრდასრული, ბავშვი</annotation>
-		<annotation cp="🧑‍🧒‍🧒">ოჯახი: ზრდასრული, ბავშვი, ბავშვი</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">ოჯახი: ზრდასრული, ბავშვი, ბავშვი</annotation>
-		<annotation cp="🧑‍🧑‍🧒">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი, ბავშვი</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი, ბავშვი</annotation>
 		<annotation cp="👨">ზრდასრული | კაცი</annotation>
 		<annotation cp="👨" type="tts">კაცი</annotation>
 		<annotation cp="🧔">წვერი | წვეროსანი</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">კოცნა</annotation>
 		<annotation cp="💑">გული | რომანტიკა | სიყვარული | წყვილი | წყვილი და გული</annotation>
 		<annotation cp="💑" type="tts">წყვილი და გული</annotation>
-		<annotation cp="👪">ბავშვი | დედა | მამა | ოჯახი</annotation>
-		<annotation cp="👪" type="tts">ოჯახი</annotation>
 		<annotation cp="🗣">თავი | ლაპარაკი | მოლაპარაკე თავი | სახე | სილუეტი</annotation>
 		<annotation cp="🗣" type="tts">მოლაპარაკე თავი</annotation>
 		<annotation cp="👤">ბიუსტი | ბიუსტის სილუეტი | სილუეტი</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">ბიუსტების სილუეტი</annotation>
 		<annotation cp="🫂">გაგიმარჯოს | გადახვევა | გამარჯობა | გაუმარჯოს | ნახვამდის | ჩახუტებული ხალხი</annotation>
 		<annotation cp="🫂" type="tts">ჩახუტებული ხალხი</annotation>
+		<annotation cp="👪">ბავშვი | დედა | მამა | ოჯახი</annotation>
+		<annotation cp="👪" type="tts">ოჯახი</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი, ბავშვი</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ოჯახი: ზრდასრული, ზრდასრული, ბავშვი, ბავშვი</annotation>
+		<annotation cp="🧑‍🧒">ოჯახი: ზრდასრული, ბავშვი</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ოჯახი: ზრდასრული, ბავშვი</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ოჯახი: ზრდასრული, ბავშვი, ბავშვი</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ოჯახი: ზრდასრული, ბავშვი, ბავშვი</annotation>
 		<annotation cp="👣">ნაკვალევი | სხეული | ტანი | ტანსაცმელი | ფეხების ნაკვალევი | ფეხის ნაკვალევი</annotation>
 		<annotation cp="👣" type="tts">ფეხების ნაკვალევი</annotation>
 		<annotation cp="🦰">ჟღალი თმა | წითელი თმა | წითური</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">პატარა წიწილა წინიდან</annotation>
 		<annotation cp="🐦">ფრინველი | ჩიტი</annotation>
 		<annotation cp="🐦" type="tts">ჩიტი</annotation>
-		<annotation cp="🐦‍🔥">ფენიქსი, ფასკუნჯი, რეინკარნაცია, ხელახლა დაბადება</annotation>
-		<annotation cp="🐦‍🔥" type="tts">ფენიქსი</annotation>
 		<annotation cp="🐧">პინგვინი | ფრინველი</annotation>
 		<annotation cp="🐧" type="tts">პინგვინი</annotation>
 		<annotation cp="🕊">მტრედი | მშვიდობა | ფრენა | ფრინველი | ჩიტი</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">შავი ჩიტი</annotation>
 		<annotation cp="🪿">ბატი | სულელი | ფრინველი | ჩერჩეტი | ჩიტი</annotation>
 		<annotation cp="🪿" type="tts">ბატი</annotation>
+		<annotation cp="🐦‍🔥">ფენიქსი, ფასკუნჯი, რეინკარნაცია, ხელახლა დაბადება</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ფენიქსი</annotation>
 		<annotation cp="🐸">ბაყაყი | ბაყაყის სახე | სახე</annotation>
 		<annotation cp="🐸" type="tts">ბაყაყის სახე</annotation>
 		<annotation cp="🐊">ნიანგი</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">ბუდე კვერცხებით</annotation>
 		<annotation cp="🍄">მცენარე | სოკო</annotation>
 		<annotation cp="🍄" type="tts">სოკო</annotation>
-		<annotation cp="🍄‍🟫">საკვები, სოკო, ბუნება, მცენარე | ყავისფერი სოკო</annotation>
-		<annotation cp="🍄‍🟫" type="tts">ყავისფერი სოკო</annotation>
 		<annotation cp="🍇">მცენარე | ყურძენი | ხილი</annotation>
 		<annotation cp="🍇" type="tts">ყურძენი</annotation>
 		<annotation cp="🍈">მცენარე | ნესვი | ხილი</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">ჯანჯაფილის ფესვი</annotation>
 		<annotation cp="🫛">ბარდა | ბოსტნეული | მარცვლეული | მუხუდო</annotation>
 		<annotation cp="🫛" type="tts">ბარდა</annotation>
+		<annotation cp="🍄‍🟫">საკვები, სოკო, ბუნება, მცენარე | ყავისფერი სოკო</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ყავისფერი სოკო</annotation>
 		<annotation cp="🍞">კვერი | პური</annotation>
 		<annotation cp="🍞" type="tts">პური</annotation>
 		<annotation cp="🥐">კრუასანი | ნამგალისებური ფუნთუშა | პური | საკვები | ფრანგული</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">თეთრი ჯოხი</annotation>
 		<annotation cp="🔗">რგოლი | ჯაჭვის რგოლი</annotation>
 		<annotation cp="🔗" type="tts">ჯაჭვის რგოლი</annotation>
-		<annotation cp="⛓">ჯაჭვი</annotation>
-		<annotation cp="⛓" type="tts">ჯაჭვი</annotation>
 		<annotation cp="⛓‍💥">გაწყვეტა, გაწყვეტილი, ჯაჭვი, ბორკილები, თავისუფლება | გაწყვეტილი ჯაჭვი</annotation>
 		<annotation cp="⛓‍💥" type="tts">გაწყვეტილი ჯაჭვი</annotation>
+		<annotation cp="⛓">ჯაჭვი</annotation>
+		<annotation cp="⛓" type="tts">ჯაჭვი</annotation>
 		<annotation cp="🪝">დაბმა | დაჭერა | კაუჭი | მოღუნული</annotation>
 		<annotation cp="🪝" type="tts">კაუჭი</annotation>
 		<annotation cp="🧰">სკივრი | ტექნიკოსი | ხელსაწყო | ხელსაწყოები</annotation>

@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">боору эзилип күлгөн бет</annotation>
 		<annotation cp="🙂">бет | күлүмсүрө | күлүмсүрөгөн бет</annotation>
 		<annotation cp="🙂" type="tts">күлүмсүрөгөн бет</annotation>
-		<annotation cp="🙂‍↕">ооба деп башты ийкөө | өйдөдөн ылдый ийилген жүз</annotation>
-		<annotation cp="🙂‍↕" type="tts">өйдөдөн ылдый ийилген жүз</annotation>
-		<annotation cp="🙂‍↔">жок, деп баш чайкоо | чайкаган жүз</annotation>
-		<annotation cp="🙂‍↔" type="tts">оңго-солго кыймылдаган жүз</annotation>
 		<annotation cp="🙃">башын ылдый | башын ылдый каратып турган бет | бет</annotation>
 		<annotation cp="🙃" type="tts">башын ылдый каратып турган бет</annotation>
 		<annotation cp="🫠">ээрип жаткан бет</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">жалганчы бет</annotation>
 		<annotation cp="🫨">бет | жер титирөө | титиреген бет | титирөө | шок</annotation>
 		<annotation cp="🫨" type="tts">титиреген бет</annotation>
+		<annotation cp="🙂‍↔">жок, деп баш чайкоо | чайкаган жүз</annotation>
+		<annotation cp="🙂‍↔" type="tts">оңго-солго кыймылдаган жүз</annotation>
+		<annotation cp="🙂‍↕">ооба деп башты ийкөө | өйдөдөн ылдый ийилген жүз</annotation>
+		<annotation cp="🙂‍↕" type="tts">өйдөдөн ылдый ийилген жүз</annotation>
 		<annotation cp="😌">бет | магдыра | магдыраган бет</annotation>
 		<annotation cp="😌" type="tts">магдыраган бет</annotation>
 		<annotation cp="😔">бет | кайгылуу | муңдуу</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">адам</annotation>
 		<annotation cp="👱">сары чач | сары чачтуу киши</annotation>
 		<annotation cp="👱" type="tts">сары чачтуу киши</annotation>
-		<annotation cp="🧑‍🧒">үй-бүлө: чоң киши, бала</annotation>
-		<annotation cp="🧑‍🧒" type="tts">үй-бүлө: чоң киши, бала</annotation>
-		<annotation cp="🧑‍🧒‍🧒">үй-бүлө: чоң киши, бала, бала</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">үй-бүлө: чоң киши, бала, бала</annotation>
-		<annotation cp="🧑‍🧑‍🧒">үй-бүлө: чоң киши, чоң киши, бала</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">үй-бүлө: чоң киши, чоң киши, бала</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">үй-бүлө: чоң киши, чоң киши, бала, бала</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">үй-бүлө: чоң киши, чоң киши, бала, бала</annotation>
 		<annotation cp="👨">киши | эркек</annotation>
 		<annotation cp="👨" type="tts">эркек</annotation>
 		<annotation cp="🧔">сакал | сакалчан киши</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">өбүшүү</annotation>
 		<annotation cp="💑">жүрөк | романтика | сүйүү | сүйүшкөн түгөйлөр | түгөйлөр</annotation>
 		<annotation cp="💑" type="tts">сүйүшкөн түгөйлөр</annotation>
-		<annotation cp="👪">ата | бала | үй-бүлө | эне</annotation>
-		<annotation cp="👪" type="tts">үй-бүлө</annotation>
 		<annotation cp="🗣">баш | бет | сөлөкөт | сүйлөө | сүйлөп жаткан баш</annotation>
 		<annotation cp="🗣" type="tts">сүйлөп жаткан баш</annotation>
 		<annotation cp="👤">бюст | бюст сөлөкөтү | сөлөкөт</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">бюсттар сөлөкөтү</annotation>
 		<annotation cp="🫂">жакшы кал | кучак | кучакташкан адамдар | рахмат | салам</annotation>
 		<annotation cp="🫂" type="tts">кучакташкан адамдар</annotation>
+		<annotation cp="👪">ата | бала | үй-бүлө | эне</annotation>
+		<annotation cp="👪" type="tts">үй-бүлө</annotation>
+		<annotation cp="🧑‍🧑‍🧒">үй-бүлө: чоң киши, чоң киши, бала</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">үй-бүлө: чоң киши, чоң киши, бала</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">үй-бүлө: чоң киши, чоң киши, бала, бала</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">үй-бүлө: чоң киши, чоң киши, бала, бала</annotation>
+		<annotation cp="🧑‍🧒">үй-бүлө: чоң киши, бала</annotation>
+		<annotation cp="🧑‍🧒" type="tts">үй-бүлө: чоң киши, бала</annotation>
+		<annotation cp="🧑‍🧒‍🧒">үй-бүлө: чоң киши, бала, бала</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">үй-бүлө: чоң киши, бала, бала</annotation>
 		<annotation cp="👣">буттун изи | дене | из | кийим</annotation>
 		<annotation cp="👣" type="tts">буттун изи</annotation>
 		<annotation cp="🦰">кызгылтым сары | кызгылтым сары чачтуу | кызыл чач</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">бери карап турган жөжө</annotation>
 		<annotation cp="🐦">куш | чымчык</annotation>
 		<annotation cp="🐦" type="tts">чымчык</annotation>
-		<annotation cp="🐦‍🔥">феникс | фэнтези, зымырык куш, кайра жаралуу, реинкарнация</annotation>
-		<annotation cp="🐦‍🔥" type="tts">феникс</annotation>
 		<annotation cp="🐧">куш | пингвин</annotation>
 		<annotation cp="🐧" type="tts">пингвин</annotation>
 		<annotation cp="🕊">көгүчкөн | тынчтык | учуу | чымчык</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">кара чымчык</annotation>
 		<annotation cp="🪿">акылсыз | каз | каздын үнү | канаттуу | куш</annotation>
 		<annotation cp="🪿" type="tts">каз</annotation>
+		<annotation cp="🐦‍🔥">феникс | фэнтези, зымырык куш, кайра жаралуу, реинкарнация</annotation>
+		<annotation cp="🐦‍🔥" type="tts">феникс</annotation>
 		<annotation cp="🐸">бака | баканын башы | баш</annotation>
 		<annotation cp="🐸" type="tts">баканын башы</annotation>
 		<annotation cp="🐊">крокодил</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">ичинде жумурткалары бар уя</annotation>
 		<annotation cp="🍄">козу карын | өсүмдүк</annotation>
 		<annotation cp="🍄" type="tts">козу карын</annotation>
-		<annotation cp="🍄‍🟫">күрөң козу карын | тамак, тепек, жаратылыш, жашылча</annotation>
-		<annotation cp="🍄‍🟫" type="tts">күрөң козу карын</annotation>
 		<annotation cp="🍇">жемиш | жүзүм | шингил</annotation>
 		<annotation cp="🍇" type="tts">жүзүм</annotation>
 		<annotation cp="🍈">жемиш | коон</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">имбир тамыры</annotation>
 		<annotation cp="🫛">буурчак | жашылча | кабыгы | эдамаме</annotation>
 		<annotation cp="🫛" type="tts">буурчак кабыгы</annotation>
+		<annotation cp="🍄‍🟫">күрөң козу карын | тамак, тепек, жаратылыш, жашылча</annotation>
+		<annotation cp="🍄‍🟫" type="tts">күрөң козу карын</annotation>
 		<annotation cp="🍞">кесим | нан</annotation>
 		<annotation cp="🍞" type="tts">нан</annotation>
 		<annotation cp="🥐">круассан | нан азыгы | тамак | француз</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">зонд таягы</annotation>
 		<annotation cp="🔗">илмек | тогоо</annotation>
 		<annotation cp="🔗" type="tts">тогоо</annotation>
-		<annotation cp="⛓">чынжыр</annotation>
-		<annotation cp="⛓" type="tts">чынжыр</annotation>
 		<annotation cp="⛓‍💥">сынган чынжыр | сындыруу, сынууда, чынжыр, кишен, эркиндик</annotation>
 		<annotation cp="⛓‍💥" type="tts">сынган чынжыр</annotation>
+		<annotation cp="⛓">чынжыр</annotation>
+		<annotation cp="⛓" type="tts">чынжыр</annotation>
 		<annotation cp="🪝">илгич</annotation>
 		<annotation cp="🪝" type="tts">илгич</annotation>
 		<annotation cp="🧰">курал | куралдар кутусу | куту | механик</annotation>

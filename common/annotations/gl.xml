@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">cara chorando de risa</annotation>
 		<annotation cp="🙂">cara | cara cun leve sorriso | sorriso</annotation>
 		<annotation cp="🙂" type="tts">cara cun leve sorriso</annotation>
-		<annotation cp="🙂‍↕">abanear | asentir | si</annotation>
-		<annotation cp="🙂‍↕" type="tts">cabeza abaneándose verticalmente</annotation>
-		<annotation cp="🙂‍↔">abanear | negar | non</annotation>
-		<annotation cp="🙂‍↔" type="tts">cabeza abaneándose horizontalmente</annotation>
 		<annotation cp="🙃">cara | cara ao revés | revés</annotation>
 		<annotation cp="🙃" type="tts">cara ao revés</annotation>
 		<annotation cp="🫠">cara derreténdose | derreterse | desaparecer | disolverse | líquido</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">cara de mentirán</annotation>
 		<annotation cp="🫨">choque | terremoto | tremor | trémulo | vibración</annotation>
 		<annotation cp="🫨" type="tts">cara tremente</annotation>
+		<annotation cp="🙂‍↔">abanear | negar | non</annotation>
+		<annotation cp="🙂‍↔" type="tts">cabeza abaneándose horizontalmente</annotation>
+		<annotation cp="🙂‍↕">abanear | asentir | si</annotation>
+		<annotation cp="🙂‍↕" type="tts">cabeza abaneándose verticalmente</annotation>
 		<annotation cp="😌">alivio | cara | cara de alivio</annotation>
 		<annotation cp="😌" type="tts">cara de alivio</annotation>
 		<annotation cp="😔">cara | cara desanimada | desánimo | pensativo | triste</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">persoa</annotation>
 		<annotation cp="👱">loiro | louro | persoa loira | persoa loura</annotation>
 		<annotation cp="👱" type="tts">persoa loura</annotation>
-		<annotation cp="🧑‍🧒">adulto | familia | neno</annotation>
-		<annotation cp="🧑‍🧒" type="tts">familia: adulto, neno</annotation>
-		<annotation cp="🧑‍🧒‍🧒">adulto | dous nenos | familia</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">familia: adulto, neno, neno</annotation>
-		<annotation cp="🧑‍🧑‍🧒">dous adultos | familia | neno</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">familia: adulto, adulto, neno</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">dous adultos | dous nenos | familia</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familia: adulto, adulto, neno, neno</annotation>
 		<annotation cp="👨">adulto | home</annotation>
 		<annotation cp="👨" type="tts">home</annotation>
 		<annotation cp="🧔">barba</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">parella bicándose</annotation>
 		<annotation cp="💑">corazón | namorados | parella | parella cun corazón</annotation>
 		<annotation cp="💑" type="tts">parella cun corazón</annotation>
-		<annotation cp="👪">familia | nai | neno | pai</annotation>
-		<annotation cp="👪" type="tts">familia</annotation>
 		<annotation cp="🗣">cabeza | cara | falar | silueta | silueta de persoa falando</annotation>
 		<annotation cp="🗣" type="tts">silueta de persoa falando</annotation>
 		<annotation cp="👤">busto | persoa | silueta | silueta dun busto</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">silueta de dous bustos</annotation>
 		<annotation cp="🫂">abrazo | adeus | aperta</annotation>
 		<annotation cp="🫂" type="tts">persoas abrazándose</annotation>
+		<annotation cp="👪">familia | nai | neno | pai</annotation>
+		<annotation cp="👪" type="tts">familia</annotation>
+		<annotation cp="🧑‍🧑‍🧒">dous adultos | familia | neno</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">familia: adulto, adulto, neno</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">dous adultos | dous nenos | familia</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familia: adulto, adulto, neno, neno</annotation>
+		<annotation cp="🧑‍🧒">adulto | familia | neno</annotation>
+		<annotation cp="🧑‍🧒" type="tts">familia: adulto, neno</annotation>
+		<annotation cp="🧑‍🧒‍🧒">adulto | dous nenos | familia</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">familia: adulto, neno, neno</annotation>
 		<annotation cp="👣">pegada | pegadas de pés | pés</annotation>
 		<annotation cp="👣" type="tts">pegadas de pés</annotation>
 		<annotation cp="🦰">cabelo | roibo | roxo | rubio</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">pitiño de fronte</annotation>
 		<annotation cp="🐦">paxaro</annotation>
 		<annotation cp="🐦" type="tts">paxaro</annotation>
-		<annotation cp="🐦‍🔥">fantasía | paxaro de fogo | reencarnación | renacemento</annotation>
-		<annotation cp="🐦‍🔥" type="tts">fénix</annotation>
 		<annotation cp="🐧">pingüín</annotation>
 		<annotation cp="🐧" type="tts">pingüín</annotation>
 		<annotation cp="🕊">ave | paz | pomba | voar</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">paxaro negro</annotation>
 		<annotation cp="🪿">ave | grallar | oca | paxaro</annotation>
 		<annotation cp="🪿" type="tts">ganso</annotation>
+		<annotation cp="🐦‍🔥">fantasía | paxaro de fogo | reencarnación | renacemento</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fénix</annotation>
 		<annotation cp="🐸">cara | cara de ra | ra</annotation>
 		<annotation cp="🐸" type="tts">ra</annotation>
 		<annotation cp="🐊">crocodilo</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">niño con ovos</annotation>
 		<annotation cp="🍄">champiñón | cogomelo</annotation>
 		<annotation cp="🍄" type="tts">cogomelo</annotation>
-		<annotation cp="🍄‍🟫">comida | fungo | natureza | vexetal</annotation>
-		<annotation cp="🍄‍🟫" type="tts">cogomelo marrón</annotation>
 		<annotation cp="🍇">acio | froita | uva | uvas</annotation>
 		<annotation cp="🍇" type="tts">uvas</annotation>
 		<annotation cp="🍈">froita | melón</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">xenxibre</annotation>
 		<annotation cp="🫛">chícharo | legume | soia | vexetal</annotation>
 		<annotation cp="🫛" type="tts">vaíña</annotation>
+		<annotation cp="🍄‍🟫">comida | fungo | natureza | vexetal</annotation>
+		<annotation cp="🍄‍🟫" type="tts">cogomelo marrón</annotation>
 		<annotation cp="🍞">pan | pan de molde</annotation>
 		<annotation cp="🍞" type="tts">pan de molde</annotation>
 		<annotation cp="🥐">almorzo | bolo | comida | croissant</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">bastón guía</annotation>
 		<annotation cp="🔗">cadea | ligazón</annotation>
 		<annotation cp="🔗" type="tts">elo</annotation>
-		<annotation cp="⛓">cadea | cadeas</annotation>
-		<annotation cp="⛓" type="tts">cadeas</annotation>
 		<annotation cp="⛓‍💥">esposas | liberdade | romper</annotation>
 		<annotation cp="⛓‍💥" type="tts">cadea rota</annotation>
+		<annotation cp="⛓">cadea | cadeas</annotation>
+		<annotation cp="⛓" type="tts">cadeas</annotation>
 		<annotation cp="🪝">anzol | enganchar | pescar</annotation>
 		<annotation cp="🪝" type="tts">gancho</annotation>
 		<annotation cp="🧰">ferramentas | mecánico</annotation>

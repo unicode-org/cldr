@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">خوشی کے آنسوؤں والا چہرہ</annotation>
 		<annotation cp="🙂">چہرہ | مدھم مسکراہٹ والا چہرہ | مسکراہٹ</annotation>
 		<annotation cp="🙂" type="tts">مدھم مسکراہٹ والا چہرہ</annotation>
-		<annotation cp="🙂‍↕">ہاں بھرنا، ہاں | ہاں میں اوپر نیچے سر ہلاتا ہوا</annotation>
-		<annotation cp="🙂‍↕" type="tts">ہاں میں اوپر نیچے سر ہلاتا ہوا</annotation>
-		<annotation cp="🙂‍↔">دائیں بائیں نہ میں سر میں ہلاتا ہوا | نہیں، سر ہلانا</annotation>
-		<annotation cp="🙂‍↔" type="tts">دائیں بائیں نہ میں سر ہلاتا ہوا</annotation>
 		<annotation cp="🙃">الٹآ | الٹا چہرہ | چہرہ</annotation>
 		<annotation cp="🙃" type="tts">الٹا چہرہ</annotation>
 		<annotation cp="🫠">پگھلتا چہرہ | پگھلنا | تحلیل ہونا | غائب ہونا | مائع</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">جھوٹ بولتا چہرہ</annotation>
 		<annotation cp="🫨">چہرہ | زلزلہ | صدمہ | لرزتا ہوا | وائبریٹ</annotation>
 		<annotation cp="🫨" type="tts">لرزتا ہوا چہرہ</annotation>
+		<annotation cp="🙂‍↔">دائیں بائیں نہ میں سر میں ہلاتا ہوا | نہیں، سر ہلانا</annotation>
+		<annotation cp="🙂‍↔" type="tts">دائیں بائیں نہ میں سر ہلاتا ہوا</annotation>
+		<annotation cp="🙂‍↕">ہاں بھرنا، ہاں | ہاں میں اوپر نیچے سر ہلاتا ہوا</annotation>
+		<annotation cp="🙂‍↕" type="tts">ہاں میں اوپر نیچے سر ہلاتا ہوا</annotation>
 		<annotation cp="😌">پُر سکون | پُر سکون چہرہ | چہرہ</annotation>
 		<annotation cp="😌" type="tts">پُر سکون چہرہ</annotation>
 		<annotation cp="😔">چہرہ | سوچ میں ڈوبا چہرہ | غمزدہ</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">شخص</annotation>
 		<annotation cp="👱">بال | بندہ | سنہرے | سنہرے بالوں والا شخص</annotation>
 		<annotation cp="👱" type="tts">سنہرے بالوں والا شخص</annotation>
-		<annotation cp="🧑‍🧒">خاندان: بالغ، بچہ</annotation>
-		<annotation cp="🧑‍🧒" type="tts">خاندان: بالغ، بچہ</annotation>
-		<annotation cp="🧑‍🧒‍🧒">خاندان: بالغ، بچہ، بچہ</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">خاندان: بالغ، بچہ، بچہ</annotation>
-		<annotation cp="🧑‍🧑‍🧒">خاندان: بالغ، بالغ، بچہ</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">خاندان: بالغ، بالغ، بچہ</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">خاندان: بالغ، بالغ، بچہ، بچہ</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">خاندان: بالغ، بالغ، بچہ، بچہ</annotation>
 		<annotation cp="👨">انسان | مرد</annotation>
 		<annotation cp="👨" type="tts">مرد</annotation>
 		<annotation cp="🧔">داڑھی | داڑھی والا شخص</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">بوسہ</annotation>
 		<annotation cp="💑">جوڑا | دل | دل اور جوڑا | رومانس</annotation>
 		<annotation cp="💑" type="tts">دل اور جوڑا</annotation>
-		<annotation cp="👪">باپ | بچہ | خاندان | ماں</annotation>
-		<annotation cp="👪" type="tts">خاندان</annotation>
 		<annotation cp="🗣">بولتا سر | بولنا | چہرہ | سر</annotation>
 		<annotation cp="🗣" type="tts">بولتا سر</annotation>
 		<annotation cp="👤">آدمی کا خاکہ | خاکہ</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">آدمیوں کے خاکے</annotation>
 		<annotation cp="🫂">الوداع | شکریہ | گلے ملتے لوگ | گلے ملنا | ہیلو</annotation>
 		<annotation cp="🫂" type="tts">گلے ملتے لوگ</annotation>
+		<annotation cp="👪">باپ | بچہ | خاندان | ماں</annotation>
+		<annotation cp="👪" type="tts">خاندان</annotation>
+		<annotation cp="🧑‍🧑‍🧒">خاندان: بالغ، بالغ، بچہ</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">خاندان: بالغ، بالغ، بچہ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">خاندان: بالغ، بالغ، بچہ، بچہ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">خاندان: بالغ، بالغ، بچہ، بچہ</annotation>
+		<annotation cp="🧑‍🧒">خاندان: بالغ، بچہ</annotation>
+		<annotation cp="🧑‍🧒" type="tts">خاندان: بالغ، بچہ</annotation>
+		<annotation cp="🧑‍🧒‍🧒">خاندان: بالغ، بچہ، بچہ</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">خاندان: بالغ، بچہ، بچہ</annotation>
 		<annotation cp="👣">جسم | قدم | قدموں کے نشانات | نشان</annotation>
 		<annotation cp="👣" type="tts">قدموں کے نشانات</annotation>
 		<annotation cp="🦰">ادرک | سرخ بال | سرخ سر</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">سامنے دیکھتا بیبی چوزہ</annotation>
 		<annotation cp="🐦">آسمان | پرنده | پرندہ | چڑیا</annotation>
 		<annotation cp="🐦" type="tts">پرنده</annotation>
-		<annotation cp="🐦‍🔥">فنتاسی، فائر برڈ، نوزائیدگی، تناسخ | فینکس</annotation>
-		<annotation cp="🐦‍🔥" type="tts">فینکس</annotation>
 		<annotation cp="🐧">پنگوئن</annotation>
 		<annotation cp="🐧" type="tts">پنگوئن</annotation>
 		<annotation cp="🕊">امن | پرندہ | فاختہ</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">سیاہ پرندہ</annotation>
 		<annotation cp="🪿">احمق | بطخ | پرندہ | ہنس | ہنس کی چیخ</annotation>
 		<annotation cp="🪿" type="tts">ہنس</annotation>
+		<annotation cp="🐦‍🔥">فنتاسی، فائر برڈ، نوزائیدگی، تناسخ | فینکس</annotation>
+		<annotation cp="🐦‍🔥" type="tts">فینکس</annotation>
 		<annotation cp="🐸">چہرہ | مینڈک</annotation>
 		<annotation cp="🐸" type="tts">مینڈک</annotation>
 		<annotation cp="🐊">جانور | مگرمچھ</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">انڈوں کے ساتھ گھونسلہ</annotation>
 		<annotation cp="🍄">پودا | کھمبی</annotation>
 		<annotation cp="🍄" type="tts">کھمبی</annotation>
-		<annotation cp="🍄‍🟫">بھورے رنگ کا مشروم | غذا، فنگس، قدرت، سبزی</annotation>
-		<annotation cp="🍄‍🟫" type="tts">بھورے رنگ کا مشروم</annotation>
 		<annotation cp="🍇">انگور | پھل</annotation>
 		<annotation cp="🍇" type="tts">انگور</annotation>
 		<annotation cp="🍈">پھل | خربوزہ</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">ادرک</annotation>
 		<annotation cp="🫛">ایڈامیم | پھلی | پھلی دانہ | پھلیاں | سبزی | مٹر</annotation>
 		<annotation cp="🫛" type="tts">مٹر کی پھلی</annotation>
+		<annotation cp="🍄‍🟫">بھورے رنگ کا مشروم | غذا، فنگس، قدرت، سبزی</annotation>
+		<annotation cp="🍄‍🟫" type="tts">بھورے رنگ کا مشروم</annotation>
 		<annotation cp="🍞">بریڈ | ڈبل روٹی | روٹی | نان</annotation>
 		<annotation cp="🍞" type="tts">ڈبل روٹی</annotation>
 		<annotation cp="🥐">خوراک | روٹی | فرنچ | ہلال نما | ہلال نما روٹی</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">نابینا افراد کیلئے چھڑی</annotation>
 		<annotation cp="🔗">تالا | جوڑ | رابطہ | لنک</annotation>
 		<annotation cp="🔗" type="tts">لنک</annotation>
-		<annotation cp="⛓">آلہ | زنجیر | زنجیریں</annotation>
-		<annotation cp="⛓" type="tts">زنجیریں</annotation>
 		<annotation cp="⛓‍💥">توڑنا، توڑنا، زنجیر، ہتھکڑی، آزادی | ٹوٹی ہوئی زنجیر</annotation>
 		<annotation cp="⛓‍💥" type="tts">ٹوٹی ہوئی زنجیر</annotation>
+		<annotation cp="⛓">آلہ | زنجیر | زنجیریں</annotation>
+		<annotation cp="⛓" type="tts">زنجیریں</annotation>
 		<annotation cp="🪝">بیچنے کا مقام | پکڑنا | پھانسنا | ترشول | خمیدہ | ہک</annotation>
 		<annotation cp="🪝" type="tts">ہک</annotation>
 		<annotation cp="🧰">اوزار | ٹُول بکس | صندوق | مکینک</annotation>

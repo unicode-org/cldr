@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">Лице със сълзи от радост</annotation>
 		<annotation cp="🙂">Леко усмихнато лице | лице | усмивка</annotation>
 		<annotation cp="🙂" type="tts">Леко усмихнато лице</annotation>
-		<annotation cp="🙂‍↕">глава, която прави вертикални движния | кимане за съгласие</annotation>
-		<annotation cp="🙂‍↕" type="tts">глава, която прави вертикални движения</annotation>
-		<annotation cp="🙂‍↔">глава, която прави хоризонтални движения | движение за несъгласие</annotation>
-		<annotation cp="🙂‍↔" type="tts">глава, която прави хоризонтални движения</annotation>
 		<annotation cp="🙃">лице | наобратно | Обърнато наобратно лице</annotation>
 		<annotation cp="🙃" type="tts">Обърнато наобратно лице</annotation>
 		<annotation cp="🫠">изчезвам | разтварям се | течен | топя се | топящо се лице</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">лъжещо лице</annotation>
 		<annotation cp="🫨">вибрирам | земетресение | лице | треперещо | шок</annotation>
 		<annotation cp="🫨" type="tts">треперещо лице</annotation>
+		<annotation cp="🙂‍↔">глава, която прави хоризонтални движения | движение за несъгласие</annotation>
+		<annotation cp="🙂‍↔" type="tts">глава, която прави хоризонтални движения</annotation>
+		<annotation cp="🙂‍↕">глава, която прави вертикални движния | кимане за съгласие</annotation>
+		<annotation cp="🙂‍↕" type="tts">глава, която прави вертикални движения</annotation>
 		<annotation cp="😌">лице | облекчен | Облекчено лице</annotation>
 		<annotation cp="😌" type="tts">Облекчено лице</annotation>
 		<annotation cp="😔">лице | обезсърчен | угрижен | Угрижено лице</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">възрастен</annotation>
 		<annotation cp="👱">блондин | блондин/ка | блондинка</annotation>
 		<annotation cp="👱" type="tts">блондин/ка</annotation>
-		<annotation cp="🧑‍🧒">семейство: възрастен, дете</annotation>
-		<annotation cp="🧑‍🧒" type="tts">семейство: възрастен, дете</annotation>
-		<annotation cp="🧑‍🧒‍🧒">семейство: възрастен, дете, дете</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">семейство: възрастен, дете, дете</annotation>
-		<annotation cp="🧑‍🧑‍🧒">семейство: възрастен, възрастен, дете</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">семейство: възрастен, възрастен, дете</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">семейство: възрастен, възрастен, дете, дете</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">семейство: възрастен, възрастен, дете, дете</annotation>
 		<annotation cp="👨">мъж</annotation>
 		<annotation cp="👨" type="tts">мъж</annotation>
 		<annotation cp="🧔">брада | човек с брада</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">целувка</annotation>
 		<annotation cp="💑">двойка | Двойка и сърце | любов | романтика | сърце</annotation>
 		<annotation cp="💑" type="tts">Двойка и сърце</annotation>
-		<annotation cp="👪">баща | дете | майка | семейство</annotation>
-		<annotation cp="👪" type="tts">семейство</annotation>
 		<annotation cp="🗣">глава | говореща | Говореща глава | лице | силует</annotation>
 		<annotation cp="🗣" type="tts">Говореща глава</annotation>
 		<annotation cp="👤">бюст | силует | Силует на бюст</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">Силуети на бюстове</annotation>
 		<annotation cp="🫂">благодаря | довиждане | здравей | прегръдка | прегръщащи се хора</annotation>
 		<annotation cp="🫂" type="tts">прегръщащи се хора</annotation>
+		<annotation cp="👪">баща | дете | майка | семейство</annotation>
+		<annotation cp="👪" type="tts">семейство</annotation>
+		<annotation cp="🧑‍🧑‍🧒">семейство: възрастен, възрастен, дете</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">семейство: възрастен, възрастен, дете</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">семейство: възрастен, възрастен, дете, дете</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">семейство: възрастен, възрастен, дете, дете</annotation>
+		<annotation cp="🧑‍🧒">семейство: възрастен, дете</annotation>
+		<annotation cp="🧑‍🧒" type="tts">семейство: възрастен, дете</annotation>
+		<annotation cp="🧑‍🧒‍🧒">семейство: възрастен, дете, дете</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">семейство: възрастен, дете, дете</annotation>
 		<annotation cp="👣">облекло | следа | стъпка | стъпки | тяло</annotation>
 		<annotation cp="👣" type="tts">стъпки</annotation>
 		<annotation cp="🦰">риж човек | рижа коса | червенокос човек</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">пиленце, гледано отпред</annotation>
 		<annotation cp="🐦">птица</annotation>
 		<annotation cp="🐦" type="tts">птица</annotation>
-		<annotation cp="🐦‍🔥">фантазия, жар-птица, прераждане | феникс</annotation>
-		<annotation cp="🐦‍🔥" type="tts">феникс</annotation>
 		<annotation cp="🐧">пингвин | птица</annotation>
 		<annotation cp="🐧" type="tts">пингвин</annotation>
 		<annotation cp="🕊">гълъб | мир | полет | птица</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">кос</annotation>
 		<annotation cp="🪿">гъска | птица I крясък I глупав</annotation>
 		<annotation cp="🪿" type="tts">гъска</annotation>
+		<annotation cp="🐦‍🔥">фантазия, жар-птица, прераждане | феникс</annotation>
+		<annotation cp="🐦‍🔥" type="tts">феникс</annotation>
 		<annotation cp="🐸">жаба | лице</annotation>
 		<annotation cp="🐸" type="tts">жаба</annotation>
 		<annotation cp="🐊">крокодил</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">гнездо с яйца</annotation>
 		<annotation cp="🍄">гъба | мухоморка</annotation>
 		<annotation cp="🍄" type="tts">гъба</annotation>
-		<annotation cp="🍄‍🟫">гъба | зеленчук | кафява печурка | природа | храна</annotation>
-		<annotation cp="🍄‍🟫" type="tts">кафява печурка</annotation>
 		<annotation cp="🍇">грозде | плод | растение</annotation>
 		<annotation cp="🍇" type="tts">грозде</annotation>
 		<annotation cp="🍈">плод | пъпеш</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">корен от джинджифил</annotation>
 		<annotation cp="🫛">боб I едамаме I бобово растение I грах I шушулка I зеленчук | грахова шушулка</annotation>
 		<annotation cp="🫛" type="tts">грахова шушулка</annotation>
+		<annotation cp="🍄‍🟫">гъба | зеленчук | кафява печурка | природа | храна</annotation>
+		<annotation cp="🍄‍🟫" type="tts">кафява печурка</annotation>
 		<annotation cp="🍞">самун | хляб</annotation>
 		<annotation cp="🍞" type="tts">хляб</annotation>
 		<annotation cp="🥐">закуска | кроасан | френско | хляб | храна</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">бял бастун</annotation>
 		<annotation cp="🔗">връзка</annotation>
 		<annotation cp="🔗" type="tts">връзка</annotation>
-		<annotation cp="⛓">верига | вериги</annotation>
-		<annotation cp="⛓" type="tts">вериги</annotation>
 		<annotation cp="⛓‍💥">белезници | верига | свобода | скъсана верига | скъсване</annotation>
 		<annotation cp="⛓‍💥" type="tts">скъсана верига</annotation>
+		<annotation cp="⛓">верига | вериги</annotation>
+		<annotation cp="⛓" type="tts">вериги</annotation>
 		<annotation cp="🪝">гега | извивка | кука | примка | търговско предимство | хващане</annotation>
 		<annotation cp="🪝" type="tts">кука</annotation>
 		<annotation cp="🧰">инструмент | кутия за инструменти | ремонт | сандък</annotation>

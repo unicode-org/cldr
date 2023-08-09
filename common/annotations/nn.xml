@@ -727,10 +727,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">↑↑↑</annotation>
 		<annotation cp="🙂">fjes | fjes som smiler litt | smil</annotation>
 		<annotation cp="🙂" type="tts">fjes som smiler litt</annotation>
-		<annotation cp="🙂‍↕">nikkande hovud | nikkar med hovudet</annotation>
-		<annotation cp="🙂‍↕" type="tts">nikkande hovud</annotation>
-		<annotation cp="🙂‍↔">ristande hovud | ristar på hovudet</annotation>
-		<annotation cp="🙂‍↔" type="tts">ristande hovud</annotation>
 		<annotation cp="🙃">↑↑↑</annotation>
 		<annotation cp="🙃" type="tts">↑↑↑</annotation>
 		<annotation cp="🫠">fjes som smeltar | forsvinn | går i oppløysing | væske</annotation>
@@ -813,6 +809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">lyg</annotation>
 		<annotation cp="🫨">andlet | ansikt | fjes | jordskjelv | rista | riste | sjokk | skjelva | skjelvande | skjelve</annotation>
 		<annotation cp="🫨" type="tts">skjelvande fjes</annotation>
+		<annotation cp="🙂‍↔">ristande hovud | ristar på hovudet</annotation>
+		<annotation cp="🙂‍↔" type="tts">ristande hovud</annotation>
+		<annotation cp="🙂‍↕">nikkande hovud | nikkar med hovudet</annotation>
+		<annotation cp="🙂‍↕" type="tts">nikkande hovud</annotation>
 		<annotation cp="😌">fjes | letta</annotation>
 		<annotation cp="😌" type="tts">letta</annotation>
 		<annotation cp="😔">alvorleg | fjes | lei seg | tankefull</annotation>
@@ -1179,14 +1179,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">vaksen</annotation>
 		<annotation cp="👱">↑↑↑</annotation>
 		<annotation cp="👱" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🧒">familie: vaksen, barn</annotation>
-		<annotation cp="🧑‍🧒" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🧒‍🧒">familie: vaksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: vaksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒">familie: vaksen, vaksen, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: vaksen, vaksen, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">familie: vaksen, vaksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: vaksen, vaksen, barn, barn</annotation>
 		<annotation cp="👨">mann | menneske | vaksen</annotation>
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
@@ -1681,8 +1673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">↑↑↑</annotation>
 		<annotation cp="💑">hjarte | kjærleik | menneske | par med hjarte | romantikk</annotation>
 		<annotation cp="💑" type="tts">par med hjarte</annotation>
-		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
-		<annotation cp="👪" type="tts">↑↑↑</annotation>
 		<annotation cp="🗣">fjes | hovud | profil | silhuett | snakkande hovud i profil | snakkar | snakke</annotation>
 		<annotation cp="🗣" type="tts">snakkande hovud i profil</annotation>
 		<annotation cp="👤">↑↑↑</annotation>
@@ -1691,6 +1681,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👥" type="tts">↑↑↑</annotation>
 		<annotation cp="🫂">farvel | hadet | hei | klem | takk</annotation>
 		<annotation cp="🫂" type="tts">↑↑↑</annotation>
+		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
+		<annotation cp="👪" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧑‍🧒">familie: vaksen, vaksen, barn</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: vaksen, vaksen, barn</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">familie: vaksen, vaksen, barn, barn</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: vaksen, vaksen, barn, barn</annotation>
+		<annotation cp="🧑‍🧒">familie: vaksen, barn</annotation>
+		<annotation cp="🧑‍🧒" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧒‍🧒">familie: vaksen, barn, barn</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: vaksen, barn, barn</annotation>
 		<annotation cp="👣">↑↑↑</annotation>
 		<annotation cp="👣" type="tts">↑↑↑</annotation>
 		<annotation cp="🦰">raudhåring | raudt hår</annotation>
@@ -1847,8 +1847,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">kylling framanfrå</annotation>
 		<annotation cp="🐦">↑↑↑</annotation>
 		<annotation cp="🐦" type="tts">↑↑↑</annotation>
-		<annotation cp="🐦‍🔥">↑↑↑</annotation>
-		<annotation cp="🐦‍🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="🐧">↑↑↑</annotation>
 		<annotation cp="🐧" type="tts">↑↑↑</annotation>
 		<annotation cp="🕊">↑↑↑</annotation>
@@ -1877,6 +1875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">↑↑↑</annotation>
 		<annotation cp="🪿">dum | fjørfe | fugl | gås | tuta | tute</annotation>
 		<annotation cp="🪿" type="tts">↑↑↑</annotation>
+		<annotation cp="🐦‍🔥">↑↑↑</annotation>
+		<annotation cp="🐦‍🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="🐸">↑↑↑</annotation>
 		<annotation cp="🐸" type="tts">↑↑↑</annotation>
 		<annotation cp="🐊">↑↑↑</annotation>
@@ -2007,8 +2007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">reir med egg</annotation>
 		<annotation cp="🍄">flugesopp | sopp</annotation>
 		<annotation cp="🍄" type="tts">↑↑↑</annotation>
-		<annotation cp="🍄‍🟫">↑↑↑</annotation>
-		<annotation cp="🍄‍🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="🍇">↑↑↑</annotation>
 		<annotation cp="🍇" type="tts">↑↑↑</annotation>
 		<annotation cp="🍈">↑↑↑</annotation>
@@ -2083,6 +2081,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">↑↑↑</annotation>
 		<annotation cp="🫛">↑↑↑</annotation>
 		<annotation cp="🫛" type="tts">↑↑↑</annotation>
+		<annotation cp="🍄‍🟫">↑↑↑</annotation>
+		<annotation cp="🍄‍🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="🍞">↑↑↑</annotation>
 		<annotation cp="🍞" type="tts">↑↑↑</annotation>
 		<annotation cp="🥐">↑↑↑</annotation>
@@ -3299,10 +3299,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">↑↑↑</annotation>
 		<annotation cp="🔗">lenkje | link | to ringar</annotation>
 		<annotation cp="🔗" type="tts">lenkje</annotation>
-		<annotation cp="⛓">↑↑↑</annotation>
-		<annotation cp="⛓" type="tts">↑↑↑</annotation>
 		<annotation cp="⛓‍💥">broten | lekke | lekkje | lenke | lenkje | ødelagt</annotation>
 		<annotation cp="⛓‍💥" type="tts">broten lenke</annotation>
+		<annotation cp="⛓">↑↑↑</annotation>
+		<annotation cp="⛓" type="tts">↑↑↑</annotation>
 		<annotation cp="🪝">boga | fange | krok | løfte | løftekrok | salspunkt</annotation>
 		<annotation cp="🪝" type="tts">↑↑↑</annotation>
 		<annotation cp="🧰">↑↑↑</annotation>

@@ -15,7 +15,6 @@ import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -39,8 +38,6 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
@@ -69,7 +66,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
@@ -1336,7 +1332,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         for (String path : ENGLISH) {
             String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
             final boolean samePath = path.equals(pathWhereFound.value);
-            final boolean sameLocale = path.equals(localeWhereFound.value);
+            final boolean sameLocale = "en".equals(localeWhereFound.value);
             if (!samePath) {
                 Level level = SDI.getCoverageLevel(path, "en");
                 if (level.compareTo(Level.MODERN) <= 0) {
@@ -1357,95 +1353,5 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             }
         }
-    }
-
-    public void testNumberingSystemsWithScripts() {
-        LanguageTagParser ltp = new LanguageTagParser();
-        LikelySubtags ls = new LikelySubtags();
-        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
-        Map<String, Multimap<String, String>> scriptToNumberingSystems = new TreeMap<>();
-        Set<String> keys = new TreeSet<>();
-        System.out.println();
-        for (String locale : STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr)) {
-            ltp.set(locale);
-            if (locale.equals("ar")) {
-                ltp.set("ar_EG"); // special number handling
-            }
-            ls.maximize(ltp);
-            String script = ltp.getScript();
-            /*
-                    <defaultNumberingSystem>arab</defaultNumberingSystem>
-                    <defaultNumberingSystem alt="latn">latn</defaultNumberingSystem>
-                    <otherNumberingSystems>
-                        <native>arab</native>
-                    </otherNumberingSystems>
-
-                    <otherNumberingSystems>
-                        <native>hanidec</native>
-                        <traditional>hans</traditional>
-                        <finance>hansfin</finance>
-                    </otherNumberingSystems>
-
-            */
-            CLDRFile cldrFile = factory.make(locale, true);
-            Multimap<String, String> options = scriptToNumberingSystems.get(script);
-            if (options == null) {
-                scriptToNumberingSystems.put(script, options = TreeMultimap.create());
-            }
-            // get defaultNumberingSystem
-            for (String path :
-                    With.toIterable(
-                            With.toSimpleIterator(
-                                    cldrFile.iterator("//ldml/numbers/defaultNumberingSystem")))) {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                String alt = parts.getAttributeValue(-1, "alt");
-                String value = cldrFile.getStringValueWithBailey(path);
-                options.put("default" + (alt == null ? "" : "-" + alt), value);
-            }
-            // get otherNumberingSystems
-            for (String path :
-                    With.toIterable(
-                            With.toSimpleIterator(
-                                    cldrFile.iterator("//ldml/numbers/otherNumberingSystems")))) {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                String alt = parts.getElement(-1);
-                String value = cldrFile.getStringValueWithBailey(path);
-                options.put(alt == null ? "" : alt, value);
-            }
-            keys.addAll(options.keySet());
-            System.out.println(
-                    locale + "\t" + script + "\t" + Joiner.on('\t').join(options.entries()));
-        }
-        System.out.println("Script\t" + Joiner.on('\t').join(keys));
-        for (Entry<String, Multimap<String, String>> entry : scriptToNumberingSystems.entrySet()) {
-            String script = entry.getKey();
-            Multimap<String, String> values = entry.getValue();
-            System.out.print(script);
-            for (String key : keys) {
-                Collection<String> value = values.get(key);
-                System.out.print(
-                        "\t"
-                                + (value == null || value.isEmpty()
-                                        ? ""
-                                        : Joiner.on('/').join(value)));
-            }
-            System.out.println();
-        }
-    }
-
-    public void testCommonHan() {
-        UnicodeSet common = new UnicodeSet();
-        for (String locale : Arrays.asList("ja", "zh", "zh_Hant", "zh_Hant_HK")) {
-            CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
-            UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
-            UnicodeSet aux = cldrFile.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
-            UnicodeSet both = new UnicodeSet(main).addAll(aux);
-            if (common.isEmpty()) {
-                common = both;
-            } else {
-                common.retainAll(both);
-            }
-        }
-        System.out.println("\n" + common.size() + "\n" + common.toPattern(false));
     }
 }

@@ -1,14 +1,12 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R4;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.EnumSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
@@ -16,6 +14,10 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
+
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R4;
 
 public class ChartUnitConversions extends Chart {
 
@@ -124,10 +126,11 @@ public class ChartUnitConversions extends Chart {
             // to sort the right items together items together, put together a sort key
             UnitSystem sortingSystem = systems.iterator().next();
             switch (sortingSystem) {
-                case si:
+            case si:
+            case si_acceptable:
                     sortingSystem = UnitSystem.metric;
                     break;
-                case uksystem:
+            case uksystem:
                     sortingSystem = UnitSystem.ussystem;
                     break;
                 default:
@@ -141,7 +144,7 @@ public class ChartUnitConversions extends Chart {
 
             final String repeatingFactor =
                     targetInfo.unitInfo.factor.toString(FormatStyle.repeating);
-            final String basicFactor = targetInfo.unitInfo.factor.toString(FormatStyle.basic);
+            final String basicFactor = targetInfo.unitInfo.factor.toString(FormatStyle.approx);
             final String repeatingOffset =
                     targetInfo.unitInfo.offset.equals(Rational.ZERO)
                             ? ""

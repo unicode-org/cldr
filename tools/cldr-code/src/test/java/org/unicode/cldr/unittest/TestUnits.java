@@ -1,30 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.Comparators;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -54,6 +29,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
@@ -111,6 +87,32 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.Comparators;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Output;
 
 public class TestUnits extends TestFmwk {
 
@@ -658,7 +660,7 @@ public class TestUnits extends TestFmwk {
                                 + "#   round to 4 decimal digits before comparing.\n"
                                 + "# Note that certain conversions are approximate, such as degrees to radians\n"
                                 + "#\n"
-                                + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestParseUnit results.\n");
+                                + "# Generation: Set GENERATE_TESTS in TestUnits.java to regenerate unitsTest.txt.\n");
                 for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
                     pw.println(entry.getValue());
                 }
@@ -1061,7 +1063,7 @@ public class TestUnits extends TestFmwk {
     private void checkSimplify(String title, Rational expected, Set<Rational> seen) {
         if (!seen.contains(expected)) {
             seen.add(expected);
-            String simpleStr = expected.toString(FormatStyle.simple);
+            String simpleStr = expected.toString(FormatStyle.formatted);
             if (SHOW_DATA) System.out.println(title + ": " + expected + " => " + simpleStr);
             Rational actual = RationalParser.BASIC.parse(simpleStr);
             assertEquals("simplify", expected, actual);
@@ -1825,7 +1827,7 @@ public class TestUnits extends TestFmwk {
                                 + "#\t\t • no formatted with the skeleton\n"
                                 + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
                                 + "#\n"
-                                + "# Generation: Set GENERATE_TESTS in TestUnits.java, and look at TestUnitPreferences results.\n");
+                                + "# Generation: Set GENERATE_TESTS in TestUnits.java to regenerate unitPreferencesTest.txt.\n");
                 Rational ONE_TENTH = Rational.of(1, 10);
 
                 // Note that for production usage, precomputed data like the
@@ -2175,7 +2177,7 @@ public class TestUnits extends TestFmwk {
 
     private Rational showDelta(final String title, Rational rational) {
         System.out.print("*CONST\t" + title);
-        System.out.print("\t" + rational.toString(FormatStyle.simple));
+        System.out.print("\t" + rational.toString(FormatStyle.formatted));
         System.out.println("\t" + rational.doubleValue());
         return rational;
     }
@@ -2225,7 +2227,7 @@ public class TestUnits extends TestFmwk {
             checkFormat(targetInfo.factor, seen);
             if (SHOW_DATA) {
                 String rFormat = targetInfo.factor.toString(FormatStyle.repeating);
-                String sFormat = targetInfo.factor.toString(FormatStyle.simple);
+                String sFormat = targetInfo.factor.toString(FormatStyle.formatted);
                 if (!rFormat.equals(sFormat)) {
                     System.out.println(
                             "\t\t"
@@ -3842,7 +3844,7 @@ public class TestUnits extends TestFmwk {
                 + related.entrySet().stream()
                         .map(
                                 x ->
-                                        x.getKey().toString(FormatStyle.basic)
+                                        x.getKey().toString(FormatStyle.approx)
                                                 + " "
                                                 + x.getValue()
                                                 + "\t#"
@@ -3989,9 +3991,9 @@ public class TestUnits extends TestFmwk {
             assertEquals(
                     test.toString()
                             + ", factors, e="
-                            + expectedFactor.toString(FormatStyle.basic)
+                            + expectedFactor.toString(FormatStyle.approx)
                             + ", a="
-                            + actual.toString(FormatStyle.basic),
+                            + actual.toString(FormatStyle.approx),
                     expectedFactor,
                     actual);
         }
@@ -4114,6 +4116,42 @@ public class TestUnits extends TestFmwk {
         @Override
         public String toString() {
             return source + (invert ? " doesn't contain " : " contains ") + contains;
+        }
+    }
+
+    public void TestRationalFormatting() {
+        Rational.RationalParser rationalParser = new RationalParser();
+        List<List<String>> tests =
+                List.of(
+                        List.of("plain", "PI", "411557987/131002976"),
+                        //
+                        List.of("approx", "125/7", "125/7"),
+                        List.of("approx", "0.0000007˙716049382", "~771.6×10ˆ-9"),
+                        List.of("approx", "PI", "~3.1416"),
+                        //
+                        List.of("repeating", "125/7", "17.˙857142"),
+                        List.of("repeating", "0.0000007˙716049382", "0.0000007˙716049382"),
+                        List.of("repeating", "PI", "12,861,187.09375/4093843"),
+                        //
+                        List.of("repeatingAll", "123456/7919", "123,456/7919"),
+                        List.of("repeatingAll", "PI", "12,861,187.09375/4093843"),
+                        //
+                        List.of("formatted", "PI", "12,861,187.09375/4093843"),
+                        //
+                        List.of("html", "PI", "<sup>12,861,187.09375</sup>/<sub>4093843<sub>"));
+        int i = 0;
+        for (List<String> test : tests) {
+            FormatStyle formatStyle = FormatStyle.valueOf(test.get(0));
+            String rawSource = test.get(1);
+            Rational source = converter.getConstants().get(rawSource);
+            if (source == null) {
+                source = rationalParser.parse(rawSource);
+            }
+            String expected = test.get(2);
+            assertEquals(
+                    ++i + ") " + formatStyle + "(" + rawSource + ")",
+                    expected,
+                    source.toString(formatStyle));
         }
     }
 }

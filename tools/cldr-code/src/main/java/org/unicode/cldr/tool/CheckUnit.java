@@ -60,7 +60,7 @@ public class CheckUnit {
         String reducedUnit = uc.getReducedUnit(metricUnit.value);
         String standardUnit = uc.getStandardUnit(metricUnit.value);
         System.out.println(
-                toValue.toString(FormatStyle.simple)
+                toValue.toString(FormatStyle.formatted)
                         + "\t"
                         + metricUnit
                         + (reducedUnit.equals(metricUnit.value) ? "" : "\t≡ " + reducedUnit)
@@ -82,7 +82,7 @@ public class CheckUnit {
                 return;
             }
             System.out.println(
-                    newRational.toString(FormatStyle.simple)
+                    newRational.toString(FormatStyle.formatted)
                             + "\t"
                             + toString
                             + "\t≡ "

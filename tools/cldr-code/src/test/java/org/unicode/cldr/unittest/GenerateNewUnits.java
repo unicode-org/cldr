@@ -135,7 +135,7 @@ public class GenerateNewUnits {
                                     + " × "
                                     + data.target
                                     + "\t"
-                                    + data.info.factor.toString(FormatStyle.basic));
+                                    + data.info.factor.toString(FormatStyle.approx));
                 }
             }
             if (TEST_PARSER) {

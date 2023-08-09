@@ -271,13 +271,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toString(String unit) {
-            return factor.toString(FormatStyle.simple)
+            return factor.toString(FormatStyle.formatted)
                     + " * "
                     + unit
                     + (offset.equals(Rational.ZERO)
                             ? ""
                             : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
-                                    + offset.abs().toString(FormatStyle.simple));
+                                    + offset.abs().toString(FormatStyle.formatted));
         }
 
         public String toDecimal() {

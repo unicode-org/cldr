@@ -12,28 +12,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localePattern draft="contributed">↑↑↑</localePattern>
+			<localeSeparator draft="contributed">↑↑↑</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
-			<language type="en" draft="unconfirmed">ingles</language>
-			<language type="lmo" draft="unconfirmed">Lombard</language>
+			<language type="en" draft="contributed">ingles</language>
+			<language type="lmo" draft="contributed">Lombard</language>
 		</languages>
 		<scripts>
-			<script type="Latn" draft="unconfirmed">Latin</script>
+			<script type="Latn" draft="contributed">Latin</script>
 		</scripts>
 		<territories>
-			<territory type="IT" draft="unconfirmed">Italia</territory>
+			<territory type="IT" draft="contributed">Italia</territory>
 		</territories>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="unconfirmed">metregh</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">↑↑↑</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="metric" draft="contributed">metregh</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">↑↑↑</codePattern>
-			<codePattern type="script" draft="unconfirmed">↑↑↑</codePattern>
-			<codePattern type="territory" draft="unconfirmed">↑↑↑</codePattern>
+			<codePattern type="language" draft="contributed">↑↑↑</codePattern>
+			<codePattern type="script" draft="contributed">↑↑↑</codePattern>
+			<codePattern type="territory" draft="contributed">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -43,10 +43,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="punctuation">[\- ‑ — , ; \: ! ? . … '’ &quot;“” « » ( ) \[ \] \{ \} @ /]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
-		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+		<quotationStart draft="contributed">↑↑↑</quotationStart>
+		<quotationEnd draft="contributed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="contributed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="contributed">↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -54,111 +54,111 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">sginer</month>
-							<month type="2" draft="unconfirmed">fevrer</month>
-							<month type="3" draft="unconfirmed">marz</month>
-							<month type="4" draft="unconfirmed">avril</month>
-							<month type="5" draft="unconfirmed">masg</month>
-							<month type="6" draft="unconfirmed">sgiugn</month>
-							<month type="7" draft="unconfirmed">luj</month>
-							<month type="8" draft="unconfirmed">avost</month>
-							<month type="9" draft="unconfirmed">setember</month>
-							<month type="10" draft="unconfirmed">otover</month>
-							<month type="11" draft="unconfirmed">november</month>
-							<month type="12" draft="unconfirmed">dicember</month>
+							<month type="1" draft="contributed">sginer</month>
+							<month type="2" draft="contributed">fevrer</month>
+							<month type="3" draft="contributed">marz</month>
+							<month type="4" draft="contributed">avril</month>
+							<month type="5" draft="contributed">masg</month>
+							<month type="6" draft="contributed">sgiugn</month>
+							<month type="7" draft="contributed">luj</month>
+							<month type="8" draft="contributed">avost</month>
+							<month type="9" draft="contributed">setember</month>
+							<month type="10" draft="contributed">otover</month>
+							<month type="11" draft="contributed">november</month>
+							<month type="12" draft="contributed">dicember</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">domenega</day>
-							<day type="mon" draft="unconfirmed">lundì</day>
-							<day type="tue" draft="unconfirmed">mardì</day>
-							<day type="wed" draft="unconfirmed">mercoldì</day>
-							<day type="thu" draft="unconfirmed">sgiovedì</day>
-							<day type="fri" draft="unconfirmed">venerdì</day>
-							<day type="sat" draft="unconfirmed">sabet</day>
+							<day type="sun" draft="contributed">domenega</day>
+							<day type="mon" draft="contributed">lundì</day>
+							<day type="tue" draft="contributed">mardì</day>
+							<day type="wed" draft="contributed">mercoldì</day>
+							<day type="thu" draft="contributed">sgiovedì</day>
+							<day type="fri" draft="contributed">venerdì</day>
+							<day type="sat" draft="contributed">sabet</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">del matin</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">de sira</dayPeriod>
+							<dayPeriod type="am" draft="contributed">del matin</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">de sira</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">d MMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
-			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
-			<regionFormat draft="unconfirmed">↑↑↑</regionFormat>
-			<regionFormat type="daylight" draft="unconfirmed">↑↑↑</regionFormat>
-			<regionFormat type="standard" draft="unconfirmed">↑↑↑</regionFormat>
-			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<hourFormat draft="contributed">↑↑↑</hourFormat>
+			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="contributed">↑↑↑</regionFormat>
+			<regionFormat type="daylight" draft="contributed">↑↑↑</regionFormat>
+			<regionFormat type="standard" draft="contributed">↑↑↑</regionFormat>
+			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<metazone type="GMT">
 				<long>
-					<standard draft="unconfirmed">Temp Medi de Greenwich</standard>
+					<standard draft="contributed">Temp Medi de Greenwich</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">↑↑↑</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal draft="unconfirmed">,</decimal>
-			<group draft="unconfirmed">’</group>
-			<percentSign draft="unconfirmed">↑↑↑</percentSign>
-			<plusSign draft="unconfirmed">↑↑↑</plusSign>
-			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+			<decimal draft="contributed">,</decimal>
+			<group draft="contributed">’</group>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

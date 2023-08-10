@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localePattern draft="contributed">↑↑↑</localePattern>
+			<localeSeparator draft="contributed">↑↑↑</localeSeparator>
 			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -30,7 +30,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="da" draft="unconfirmed">Vah Danhmwz</language>
 			<language type="de" draft="unconfirmed">Dwzyij</language>
 			<language type="el" draft="unconfirmed">Vah Hihlaz</language>
-			<language type="en" draft="unconfirmed">Yinghyij</language>
+			<language type="en" draft="contributed">Yinghyij</language>
 			<language type="eo" draft="unconfirmed">Sigaiyij</language>
 			<language type="es" draft="unconfirmed">Vah Sihbanhyaz</language>
 			<language type="et" draft="unconfirmed">Vah Aisahnizya</language>
@@ -97,7 +97,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vi" draft="unconfirmed">Vah Yeznanz</language>
 			<language type="yue" draft="unconfirmed">Yezyij</language>
 			<language type="yue" alt="menu" draft="unconfirmed">↑↑↑</language>
-			<language type="za" draft="unconfirmed">Vahcuengh</language>
+			<language type="za" draft="contributed">Vahcuengh</language>
 			<language type="zh" draft="unconfirmed">Vahgun</language>
 			<language type="zh" alt="menu" draft="unconfirmed">Bujdunghva</language>
 		</languages>
@@ -110,7 +110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Jpan" draft="unconfirmed">Yizvwnz</script>
 			<script type="Kore" draft="unconfirmed">Hanzvwnz</script>
 			<script type="Laoo" draft="unconfirmed">Saw Laojvoh</script>
-			<script type="Latn" draft="unconfirmed">Lahdinghvwnz</script>
+			<script type="Latn" draft="contributed">Lahdinghvwnz</script>
 			<script type="Mong" draft="unconfirmed">Saw Mungzguj</script>
 			<script type="Thai" draft="unconfirmed">Daivwnz</script>
 			<script type="Tibt" draft="unconfirmed">Cangvwnz</script>
@@ -176,7 +176,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CH" draft="unconfirmed">Suisw</territory>
 			<territory type="CL" draft="unconfirmed">Cili</territory>
 			<territory type="CM" draft="unconfirmed">Gahmwzlungz</territory>
-			<territory type="CN" draft="unconfirmed">Cunghgoz</territory>
+			<territory type="CN" draft="contributed">Cunghgoz</territory>
 			<territory type="CO" draft="unconfirmed">Gohlunzbijya</territory>
 			<territory type="CR" draft="unconfirmed">Gohswhdazlizgyah</territory>
 			<territory type="CU" draft="unconfirmed">Gujbah</territory>
@@ -347,14 +347,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian" draft="unconfirmed">ligmoq</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="unconfirmed">gunghci</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">yinghci</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">meijci</measurementSystemName>
+			<measurementSystemName type="metric" draft="contributed">gunghci</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">yinghci</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">meijci</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">Vah: {0}</codePattern>
-			<codePattern type="script" draft="unconfirmed">Saw: {0}</codePattern>
-			<codePattern type="territory" draft="unconfirmed">Dieg: {0}</codePattern>
+			<codePattern type="language" draft="contributed">Vah: {0}</codePattern>
+			<codePattern type="script" draft="contributed">Saw: {0}</codePattern>
+			<codePattern type="territory" draft="contributed">Dieg: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -366,10 +366,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<moreInformation draft="unconfirmed">↑↑↑</moreInformation>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
-		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+		<quotationStart draft="contributed">↑↑↑</quotationStart>
+		<quotationEnd draft="contributed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="contributed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="contributed">↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -413,55 +413,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">ndwenit</month>
-							<month type="2" draft="unconfirmed">ndwenngeih</month>
-							<month type="3" draft="unconfirmed">ndwensam</month>
-							<month type="4" draft="unconfirmed">ndwenseiq</month>
-							<month type="5" draft="unconfirmed">ndwenngux</month>
-							<month type="6" draft="unconfirmed">ndwenloeg</month>
-							<month type="7" draft="unconfirmed">ndwencaet</month>
-							<month type="8" draft="unconfirmed">ndwenbet</month>
-							<month type="9" draft="unconfirmed">ndwengouj</month>
-							<month type="10" draft="unconfirmed">ndwencib</month>
-							<month type="11" draft="unconfirmed">ndwencib’it</month>
-							<month type="12" draft="unconfirmed">ndwencibngeih</month>
+							<month type="1" draft="contributed">ndwenit</month>
+							<month type="2" draft="contributed">ndwenngeih</month>
+							<month type="3" draft="contributed">ndwensam</month>
+							<month type="4" draft="contributed">ndwenseiq</month>
+							<month type="5" draft="contributed">ndwenngux</month>
+							<month type="6" draft="contributed">ndwenloeg</month>
+							<month type="7" draft="contributed">ndwencaet</month>
+							<month type="8" draft="contributed">ndwenbet</month>
+							<month type="9" draft="contributed">ndwengouj</month>
+							<month type="10" draft="contributed">ndwencib</month>
+							<month type="11" draft="contributed">ndwencib’it</month>
+							<month type="12" draft="contributed">ndwencibngeih</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">ngoenzsinghgiz</day>
-							<day type="mon" draft="unconfirmed">singhgizit</day>
-							<day type="tue" draft="unconfirmed">singhgizngeih</day>
-							<day type="wed" draft="unconfirmed">singhgizsam</day>
-							<day type="thu" draft="unconfirmed">singhgizseiq</day>
-							<day type="fri" draft="unconfirmed">singhgizhaj</day>
-							<day type="sat" draft="unconfirmed">singhgizroek</day>
+							<day type="sun" draft="contributed">ngoenzsinghgiz</day>
+							<day type="mon" draft="contributed">singhgizit</day>
+							<day type="tue" draft="contributed">singhgizngeih</day>
+							<day type="wed" draft="contributed">singhgizsam</day>
+							<day type="thu" draft="contributed">singhgizseiq</day>
+							<day type="fri" draft="contributed">singhgizhaj</day>
+							<day type="sat" draft="contributed">singhgizroek</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">banhaet</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">banringzgvaq</dayPeriod>
+							<dayPeriod type="am" draft="contributed">banhaet</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">banringzgvaq</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="hm" draft="unconfirmed">a h:mm</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hmsv" draft="unconfirmed">v a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hmsv" draft="unconfirmed">v HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">y/M/d</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">'bi' y 'ndwen' M 'ngoenz' d</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">a h:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">v a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">v HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">y/M/d</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">'bi' y 'ndwen' M 'ngoenz' d</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -553,16 +553,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
-			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
-			<regionFormat draft="unconfirmed">{0} Sizgenh</regionFormat>
-			<regionFormat type="daylight" draft="unconfirmed">{0} Yaling Sizgenh</regionFormat>
-			<regionFormat type="standard" draft="unconfirmed">{0} Byauhcunj Sizgenh</regionFormat>
-			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<hourFormat draft="contributed">↑↑↑</hourFormat>
+			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="contributed">{0} Sizgenh</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} Yaling Sizgenh</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} Byauhcunj Sizgenh</regionFormat>
+			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<metazone type="GMT">
 				<long>
-					<standard draft="unconfirmed">Gwzlinzveihci Byauhcunj Sizgenh</standard>
+					<standard draft="contributed">Gwzlinzveihci Byauhcunj Sizgenh</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -573,37 +573,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<native>↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal draft="unconfirmed">↑↑↑</decimal>
-			<group draft="unconfirmed">↑↑↑</group>
-			<percentSign draft="unconfirmed">↑↑↑</percentSign>
-			<plusSign draft="unconfirmed">↑↑↑</plusSign>
-			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+			<decimal draft="contributed">↑↑↑</decimal>
+			<group draft="contributed">↑↑↑</group>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>

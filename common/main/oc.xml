@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localePattern draft="contributed">↑↑↑</localePattern>
+			<localeSeparator draft="contributed">↑↑↑</localeSeparator>
 			<localeKeyTypePattern draft="unconfirmed">{0} : {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -56,7 +56,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de_AT" draft="unconfirmed">↑↑↑</language>
 			<language type="de_CH" draft="unconfirmed">↑↑↑</language>
 			<language type="el" draft="unconfirmed">grèc</language>
-			<language type="en" draft="unconfirmed">anglés</language>
+			<language type="en" draft="contributed">anglés</language>
 			<language type="en_AU" draft="unconfirmed">↑↑↑</language>
 			<language type="en_CA" draft="unconfirmed">↑↑↑</language>
 			<language type="en_GB" draft="unconfirmed">↑↑↑</language>
@@ -137,7 +137,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nl" draft="unconfirmed">neerlandés</language>
 			<language type="nl_BE" draft="unconfirmed">flamenc</language>
 			<language type="nn" draft="unconfirmed">norvegian nynorsk</language>
-			<language type="oc" draft="unconfirmed">occitan</language>
+			<language type="oc" draft="contributed">occitan</language>
 			<language type="os" draft="unconfirmed">osseta</language>
 			<language type="pa" draft="unconfirmed">punjabi</language>
 			<language type="phn" draft="unconfirmed">fenician</language>
@@ -227,7 +227,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Khmr" draft="unconfirmed">kmèr</script>
 			<script type="Kore" draft="unconfirmed">corean</script>
 			<script type="Laoo" draft="unconfirmed">lao</script>
-			<script type="Latn" draft="unconfirmed">latin</script>
+			<script type="Latn" draft="contributed">latin</script>
 			<script type="Mlym" draft="unconfirmed">malayalam</script>
 			<script type="Mong" draft="unconfirmed">mongòl</script>
 			<script type="Mymr" draft="unconfirmed">birman</script>
@@ -347,7 +347,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="EG" draft="unconfirmed">Egipte</territory>
 			<territory type="EH" draft="unconfirmed">Saharà occidental</territory>
 			<territory type="ER" draft="unconfirmed">Eritrèa</territory>
-			<territory type="ES" draft="unconfirmed">Espanha</territory>
+			<territory type="ES" draft="contributed">Espanha</territory>
 			<territory type="ET" draft="unconfirmed">Etiopia</territory>
 			<territory type="EU" draft="unconfirmed">Union Europèa</territory>
 			<territory type="EZ" draft="unconfirmed">Zòna euro</territory>
@@ -357,7 +357,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FK" alt="variant" draft="unconfirmed">Malvinas</territory>
 			<territory type="FM" draft="unconfirmed">Micronesia</territory>
 			<territory type="FO" draft="unconfirmed">Illas Feròe</territory>
-			<territory type="FR" draft="unconfirmed">França</territory>
+			<territory type="FR" draft="contributed">França</territory>
 			<territory type="GA" draft="unconfirmed">Gabon</territory>
 			<territory type="GB" draft="unconfirmed">Reiaume Unit</territory>
 			<territory type="GB" alt="short" draft="unconfirmed">RU</territory>
@@ -563,14 +563,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn" draft="unconfirmed">chifras occidentalas</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="unconfirmed">↑↑↑</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">anglosajon</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">estadounidenc</measurementSystemName>
+			<measurementSystemName type="metric" draft="contributed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">anglosajon</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">estadounidenc</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">Lenga : {0}</codePattern>
-			<codePattern type="script" draft="unconfirmed">Escritura : {0}</codePattern>
-			<codePattern type="territory" draft="unconfirmed">Region : {0}</codePattern>
+			<codePattern type="language" draft="contributed">Lenga : {0}</codePattern>
+			<codePattern type="script" draft="contributed">Escritura : {0}</codePattern>
+			<codePattern type="territory" draft="contributed">Region : {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -612,10 +612,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</parseLenients>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">«</quotationStart>
-		<quotationEnd draft="unconfirmed">»</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">«</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">»</alternateQuotationEnd>
+		<quotationStart draft="contributed">«</quotationStart>
+		<quotationEnd draft="contributed">»</quotationEnd>
+		<alternateQuotationStart draft="contributed">«</alternateQuotationStart>
+		<alternateQuotationEnd draft="contributed">»</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -899,18 +899,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">de genièr</month>
-							<month type="2" draft="unconfirmed">de febrièr</month>
-							<month type="3" draft="unconfirmed">de març</month>
-							<month type="4" draft="unconfirmed">d’abril</month>
-							<month type="5" draft="unconfirmed">de mai</month>
-							<month type="6" draft="unconfirmed">de junh</month>
-							<month type="7" draft="unconfirmed">de julhet</month>
-							<month type="8" draft="unconfirmed">d’agost</month>
-							<month type="9" draft="unconfirmed">de setembre</month>
-							<month type="10" draft="unconfirmed">d’octòbre</month>
-							<month type="11" draft="unconfirmed">de novembre</month>
-							<month type="12" draft="unconfirmed">de decembre</month>
+							<month type="1" draft="contributed">de genièr</month>
+							<month type="2" draft="contributed">de febrièr</month>
+							<month type="3" draft="contributed">de març</month>
+							<month type="4" draft="contributed">d’abril</month>
+							<month type="5" draft="contributed">de mai</month>
+							<month type="6" draft="contributed">de junh</month>
+							<month type="7" draft="contributed">de julhet</month>
+							<month type="8" draft="contributed">d’agost</month>
+							<month type="9" draft="contributed">de setembre</month>
+							<month type="10" draft="contributed">d’octòbre</month>
+							<month type="11" draft="contributed">de novembre</month>
+							<month type="12" draft="contributed">de decembre</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -988,13 +988,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">ds</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">dimenge</day>
-							<day type="mon" draft="unconfirmed">diluns</day>
-							<day type="tue" draft="unconfirmed">dimars</day>
-							<day type="wed" draft="unconfirmed">dimècres</day>
-							<day type="thu" draft="unconfirmed">dijòus</day>
-							<day type="fri" draft="unconfirmed">divendres</day>
-							<day type="sat" draft="unconfirmed">dissabte</day>
+							<day type="sun" draft="contributed">dimenge</day>
+							<day type="mon" draft="contributed">diluns</day>
+							<day type="tue" draft="contributed">dimars</day>
+							<day type="wed" draft="contributed">dimècres</day>
+							<day type="thu" draft="contributed">dijòus</day>
+							<day type="fri" draft="contributed">divendres</day>
+							<day type="sat" draft="contributed">dissabte</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -1089,8 +1089,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1233,12 +1233,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">h'h' a</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">h'h'mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">HH'h'mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">h'h'mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">HH'h'mm ss 'seg'.</dateFormatItem>
-						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hmsv" draft="unconfirmed">HH'h'mm ss 'seg'. v</dateFormatItem>
+						<dateFormatItem id="hm" draft="contributed">h'h'mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">HH'h'mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="contributed">h'h'mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH'h'mm ss 'seg'.</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">HH'h'mm ss 'seg'. v</dateFormatItem>
 						<dateFormatItem id="hmv" draft="unconfirmed">h'h'mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv" draft="unconfirmed">HH'h'mm v</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1252,10 +1252,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">MM/y</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">LLLL 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
@@ -1266,7 +1266,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B" draft="unconfirmed">↑↑↑</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">↑↑↑</greatestDifference>
@@ -1984,13 +1984,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
-			<gmtFormat draft="unconfirmed">UTC{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">UTC</gmtZeroFormat>
-			<regionFormat draft="unconfirmed">ora de {0}</regionFormat>
-			<regionFormat type="daylight" draft="unconfirmed">{0} (ora d’estiu)</regionFormat>
-			<regionFormat type="standard" draft="unconfirmed">{0} (ora estandard)</regionFormat>
-			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<hourFormat draft="contributed">↑↑↑</hourFormat>
+			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
+			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
+			<regionFormat draft="contributed">ora de {0}</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} (ora d’estiu)</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} (ora estandard)</regionFormat>
+			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="unconfirmed">ora coordonada universala</standard>
@@ -3325,7 +3325,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard draft="unconfirmed">ora al meridian de Greenwich</standard>
+					<standard draft="contributed">ora al meridian de Greenwich</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -3860,9 +3860,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">↑↑↑</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="unconfirmed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="adlm">
@@ -4211,12 +4211,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="unconfirmed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="latn">
-			<decimal draft="unconfirmed">,</decimal>
-			<group draft="unconfirmed"> </group>
+			<decimal draft="contributed">,</decimal>
+			<group draft="contributed"> </group>
 			<list draft="unconfirmed">↑↑↑</list>
-			<percentSign draft="unconfirmed">↑↑↑</percentSign>
-			<plusSign draft="unconfirmed">↑↑↑</plusSign>
-			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
 			<approximatelySign draft="unconfirmed">≃</approximatelySign>
 			<exponential draft="unconfirmed">↑↑↑</exponential>
 			<superscriptingExponent draft="unconfirmed">↑↑↑</superscriptingExponent>
@@ -4727,7 +4727,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -5081,7 +5081,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
@@ -5403,7 +5403,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">#,##0 %</pattern>
+					<pattern draft="contributed">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -5877,7 +5877,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">#,##0.00¤</pattern>
+					<pattern draft="contributed">#,##0.00¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">

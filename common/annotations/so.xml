@@ -213,7 +213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↦" type="tts">falaarta midig u jeeda ee dabada ka malaasan</annotation>
 		<annotation cp="↧">falaarta hoos u jeeda ee dabada ka malaasan</annotation>
 		<annotation cp="↧" type="tts">falaarta hoos u jeeda ee dabada ka malaasan</annotation>
-		<annotation cp="↨">falaarta kor hoos ee salka leh</annotation>
+		<annotation cp="↨">falaarta kor hoos ee salka leh | falaarta kor hoose ee salka leh</annotation>
 		<annotation cp="↨" type="tts">falaarta kor hoose ee salka leh</annotation>
 		<annotation cp="↫">wareega falaarta bidixda u jeeda</annotation>
 		<annotation cp="↫" type="tts">wareega falaarta bidixda u jeeda</annotation>
@@ -275,7 +275,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇈" type="tts">labo falaar oo kor u wada jeeda</annotation>
 		<annotation cp="⇉">labo falaar oo midig u wada jeeda</annotation>
 		<annotation cp="⇉" type="tts">labo falaar oo midig u wada jeeda</annotation>
-		<annotation cp="⇊">labo falaar oo midig u wada jeeda</annotation>
+		<annotation cp="⇊">labo falaar oo hoos u wada jeeda | labo falaar oo midig u wada jeeda</annotation>
 		<annotation cp="⇊" type="tts">labo falaar oo hoos u wada jeeda</annotation>
 		<annotation cp="⇋">falaar hal gees leh oo bidix u jeeda oo dul saaran falaar hal gees leh oo midig u jeeda</annotation>
 		<annotation cp="⇋" type="tts">falaar hal gees leh oo bidix u jeeda oo dul saaran falaar hal gees leh oo midig u jeeda</annotation>
@@ -399,11 +399,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∓" type="tts">ka-jarid-ama-ku-darid</annotation>
 		<annotation cp="∕">islaash | islaashta isku qeybinta | istaroog | virgule</annotation>
 		<annotation cp="∕" type="tts">islaashta isku qeybinta</annotation>
-		<annotation cp="⁄">islaashta jajabta | istaroog | virgule</annotation>
+		<annotation cp="⁄">islaashta jajabka | islaashta jajabta | istaroog | virgule</annotation>
 		<annotation cp="⁄" type="tts">islaashta jajabka</annotation>
 		<annotation cp="∗">calaamada xidigta | xidig</annotation>
 		<annotation cp="∗" type="tts">calaamada xidigta</annotation>
-		<annotation cp="∘">calaamad | calaamada fargashiga | hal-abuur</annotation>
+		<annotation cp="∘">calaamad | calaamada fargashiga | calaamda fargashiga | hal-abuur</annotation>
 		<annotation cp="∘" type="tts">calaamda fargashiga</annotation>
 		<annotation cp="∙">calaamad | calaamada dhibicda</annotation>
 		<annotation cp="∙" type="tts">calaamada dhibicda</annotation>
@@ -421,7 +421,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∣" type="tts">isku qeybinaya</annotation>
 		<annotation cp="∥">diilmo barbaro ah</annotation>
 		<annotation cp="∥" type="tts">diilmo barbaro ah</annotation>
-		<annotation cp="∧">ac | atque | jeexid | madax falaadheedka hoos u jeeda</annotation>
+		<annotation cp="∧">ac | atque | jeexid | madax falaadheedhka hoos u jeeda | madax falaadheedka hoos u jeeda</annotation>
 		<annotation cp="∧" type="tts">madax falaadheedhka hoos u jeeda</annotation>
 		<annotation cp="∩">is goys | isku hagaajin</annotation>
 		<annotation cp="∩" type="tts">is goys</annotation>
@@ -433,7 +433,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∬" type="tts">integral laban laaban</annotation>
 		<annotation cp="∮">contour integral</annotation>
 		<annotation cp="∮" type="tts">contour integral</annotation>
-		<annotation cp="∴">macquul | sidaas darteed</annotation>
+		<annotation cp="∴">macquul | sdiaas darteed | sidaas darteed</annotation>
 		<annotation cp="∴" type="tts">sdiaas darteed</annotation>
 		<annotation cp="∵">macquul | sababtoo ah</annotation>
 		<annotation cp="∵" type="tts">sababtoo ah</annotation>
@@ -443,7 +443,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∷" type="tts">saami ahan</annotation>
 		<annotation cp="∼">calaamad | calaamada tilde</annotation>
 		<annotation cp="∼" type="tts">calaamada tilde</annotation>
-		<annotation cp="∽">calaamda tilde oo rogan | tilde</annotation>
+		<annotation cp="∽">calaamada tilde oo rogan | calaamda tilde oo rogan | tilde</annotation>
 		<annotation cp="∽" type="tts">calaamada tilde oo rogan</annotation>
 		<annotation cp="∾">s-ta caajisan ee rogan</annotation>
 		<annotation cp="∾" type="tts">s-ta caajisan ee rogan</annotation>
@@ -529,7 +529,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊿" type="tts">saddex xagaleed midig</annotation>
 		<annotation cp="⋁">disjunction | logic | n-ary logical ama</annotation>
 		<annotation cp="⋁" type="tts">n-ary logical ama</annotation>
-		<annotation cp="⋂">kala gosyka n-ary</annotation>
+		<annotation cp="⋂">kala gosyka n-ary | kala goyska n-ary</annotation>
 		<annotation cp="⋂" type="tts">kala goyska n-ary</annotation>
 		<annotation cp="⋃">calaamda set-ka | ururka | ururka n-ary | xisaabta</annotation>
 		<annotation cp="⋃" type="tts">ururka n-ary</annotation>
@@ -605,7 +605,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="▽" type="tts">seddex geesle dhex banaan oo hoos u jeeda</annotation>
 		<annotation cp="▾">seddex geesle la buuxiyay oo hoos u jeeda</annotation>
 		<annotation cp="▾" type="tts">seddex geesle la buuxiyay oo hoos u jeeda</annotation>
-		<annotation cp="▿">seddex geesle yar oo dhex banaan oo hoos u jeeda</annotation>
+		<annotation cp="▿">seddex geesle yar dhex banaan oo hoos u jeeda | seddex geesle yar oo dhex banaan oo hoos u jeeda</annotation>
 		<annotation cp="▿" type="tts">seddex geesle yar dhex banaan oo hoos u jeeda</annotation>
 		<annotation cp="◁">seddex geesle dhex banaan oo bidix u jeeda</annotation>
 		<annotation cp="◁" type="tts">seddex geesle dhex banaan oo bidix u jeeda</annotation>
@@ -623,7 +623,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◇" type="tts">dheyman dhex banaan</annotation>
 		<annotation cp="◈">dheyman dhex banaan oo uu kujiro dheyman dhexdiisa la buuxiyay</annotation>
 		<annotation cp="◈" type="tts">dheyman dhex banaan oo uu kujiro dheyman dhexdiisa la buuxiyay</annotation>
-		<annotation cp="◉">wareeg dhex dhibic ku leh</annotation>
+		<annotation cp="◉">wareeg dhex banaan oo uu kujiro wareeg dhexdiisa la buuxiyay | wareeg dhex dhibic ku leh</annotation>
 		<annotation cp="◉" type="tts">wareeg dhex banaan oo uu kujiro wareeg dhexdiisa la buuxiyay</annotation>
 		<annotation cp="◊">dheeman | qaab dheeman | rhombus</annotation>
 		<annotation cp="◊" type="tts">qaab dheeman</annotation>
@@ -633,7 +633,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◌" type="tts">dhibic la goobaabay</annotation>
 		<annotation cp="◍">wareeg dhexdiisa sida toosan loo buuxiyay</annotation>
 		<annotation cp="◍" type="tts">wareeg dhexdiisa sida toosan loo buuxiyay</annotation>
-		<annotation cp="◎">labo goobaabin o isku dhex jiraan</annotation>
+		<annotation cp="◎">goobaabino isku dhex jiraan | labo goobaabin o isku dhex jiraan</annotation>
 		<annotation cp="◎" type="tts">goobaabino isku dhex jiraan</annotation>
 		<annotation cp="●">goobaabin | goobaabin buuxiyey | goobada buuxa</annotation>
 		<annotation cp="●" type="tts">goobada buuxa</annotation>
@@ -683,7 +683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◯" type="tts">goobad duleel weeyn</annotation>
 		<annotation cp="◳">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
 		<annotation cp="◳" type="tts">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
-		<annotation cp="◷">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
+		<annotation cp="◷">afar geesle dhex banaan oo afar geesle yar ku leh midigta kore | goobaabin dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
 		<annotation cp="◷" type="tts">goobaabin dhex banaan oo afar geesle yar ku leh midigta kore</annotation>
 		<annotation cp="◿">seddex geeslaha dhinaca hoose ee midig</annotation>
 		<annotation cp="◿" type="tts">seddex geeslaha dhinaca hoose ee midig</annotation>
@@ -727,10 +727,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😂" type="tts">waji ilin farxad leh</annotation>
 		<annotation cp="🙂">dhoola cadeyn | face | waji yara dhoola cadeynaya</annotation>
 		<annotation cp="🙂" type="tts">waji yara dhoola cadeynaya</annotation>
-		<annotation cp="🙂‍↕">lux, haa | madax u luxida sida toosan</annotation>
-		<annotation cp="🙂‍↕" type="tts">madax u luxida sida toosan</annotation>
-		<annotation cp="🙂‍↔">madax u luxida sida jiifsan | maya, lux</annotation>
-		<annotation cp="🙂‍↔" type="tts">madax u luxida sida jiifsan</annotation>
 		<annotation cp="🙃">hoos u foorara | waji | waji hoos-hoos u raaraca</annotation>
 		<annotation cp="🙃" type="tts">waji hoos-hoos u raaraca</annotation>
 		<annotation cp="🫠">baaba’a | dareere | dhalaalay | qasmau | waji dhalaalaya</annotation>
@@ -813,6 +809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">waji jiifo</annotation>
 		<annotation cp="🫨">dhul gariir | face | gariir | ruxay | Ruxida madaxa | ruxitaan</annotation>
 		<annotation cp="🫨" type="tts">Ruxida madaxa</annotation>
+		<annotation cp="🙂‍↔">madax u luxida sida jiifsan | maya, lux</annotation>
+		<annotation cp="🙂‍↔" type="tts">madax u luxida sida jiifsan</annotation>
+		<annotation cp="🙂‍↕">lux, haa | madax u luxida sida toosan</annotation>
+		<annotation cp="🙂‍↕" type="tts">madax u luxida sida toosan</annotation>
 		<annotation cp="😌">caawin | waji | waji niyad jabn</annotation>
 		<annotation cp="😌" type="tts">waji niyad jabn</annotation>
 		<annotation cp="😔">caajis | diyaarsan | waji | waji caajisan</annotation>
@@ -1179,14 +1179,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">qof</annotation>
 		<annotation cp="👱">qof timo cad leh | qof: timo cad | timo | timo cad</annotation>
 		<annotation cp="👱" type="tts">qof: timo cad</annotation>
-		<annotation cp="🧑‍🧒">qoys: qof weyn, ilmo</annotation>
-		<annotation cp="🧑‍🧒" type="tts">qoys: qof weyn, ilmo</annotation>
-		<annotation cp="🧑‍🧒‍🧒">qoys: qof weyn, ilmo, ilmo</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">qoys: qof weyn, ilmo, ilmo</annotation>
-		<annotation cp="🧑‍🧑‍🧒">qoys: qof weyn, qof weyn, ilmo</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
 		<annotation cp="👨">nin | ninka | qof weyn</annotation>
 		<annotation cp="👨" type="tts">ninka</annotation>
 		<annotation cp="🧔">gar | nin | nin: gar | qof</annotation>
@@ -1681,8 +1673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">shumis</annotation>
 		<annotation cp="💑">Jaceyl | lammaane | lammaane is jecel</annotation>
 		<annotation cp="💑" type="tts">lammaane is jecel</annotation>
-		<annotation cp="👪">Qooys | Qooys caruur ah</annotation>
-		<annotation cp="👪" type="tts">Qooys caruur ah</annotation>
 		<annotation cp="🗣">farshaxan sawir mugdi ah | hadal | hadlaya | madax | Madax hadlaya | waji</annotation>
 		<annotation cp="🗣" type="tts">Madax hadlaya</annotation>
 		<annotation cp="👤">farshaxan sawir oo mugdi ah | Farshaxan sawir xabad dumar ah | Sawir muuqaal dumar qaarka hore mugdi ah | sawir muuqaal rag mugdi ah</annotation>
@@ -1691,6 +1681,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👥" type="tts">Farshaxan sawir xabad dumar oo mugdi ah</annotation>
 		<annotation cp="🫂">dad hab isi siinaya | hab siin | haloow | macsalaama | mahadsanid</annotation>
 		<annotation cp="🫂" type="tts">dad hab isi siinaya</annotation>
+		<annotation cp="👪">Qooys | Qooys caruur ah</annotation>
+		<annotation cp="👪" type="tts">Qooys caruur ah</annotation>
+		<annotation cp="🧑‍🧑‍🧒">qoys: qof weyn, qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">qoys: qof weyn, qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧒">qoys: qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧒" type="tts">qoys: qof weyn, ilmo</annotation>
+		<annotation cp="🧑‍🧒‍🧒">qoys: qof weyn, ilmo, ilmo</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">qoys: qof weyn, ilmo, ilmo</annotation>
 		<annotation cp="👣">calaamad | dharka | raad | raadad</annotation>
 		<annotation cp="👣" type="tts">raadad</annotation>
 		<annotation cp="🦰">madax cas | sinjibiil | timo cas</annotation>
@@ -1847,8 +1847,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">cunugga diggaaga hor soo eegaya</annotation>
 		<annotation cp="🐦">shimbir</annotation>
 		<annotation cp="🐦" type="tts">shimbir</annotation>
-		<annotation cp="🐦‍🔥">phoenix | qiyaali, shinbirta dabka, dib u dhalashada, naf dib ugu dhalashada jidh cusub</annotation>
-		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">shimbir | shimbir baraf</annotation>
 		<annotation cp="🐧" type="tts">shimbir baraf</annotation>
 		<annotation cp="🕊">buubid | nabad | qoolleey | shimbir</annotation>
@@ -1877,6 +1875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">shimbir madoow</annotation>
 		<annotation cp="🪿">booloboolo | haad | honk | nacasnimo | shimbiraha</annotation>
 		<annotation cp="🪿" type="tts">booloboolo</annotation>
+		<annotation cp="🐦‍🔥">phoenix | qiyaali, shinbirta dabka, dib u dhalashada, naf dib ugu dhalashada jidh cusub</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐸">rah | waji</annotation>
 		<annotation cp="🐸" type="tts">rah</annotation>
 		<annotation cp="🐊">yaxaas</annotation>
@@ -2007,19 +2007,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">buul leh ukumo</annotation>
 		<annotation cp="🍄">baaraabuq | barkin waraabe</annotation>
 		<annotation cp="🍄" type="tts">barkin waraabe</annotation>
-		<annotation cp="🍄‍🟫">boqoshaa bunni ah | cuntada, fangaska, dabiici ah, khudaar</annotation>
-		<annotation cp="🍄‍🟫" type="tts">boqoshaa bunni ah</annotation>
 		<annotation cp="🍇">canab | khudaar</annotation>
 		<annotation cp="🍇" type="tts">canab</annotation>
 		<annotation cp="🍈">khudaar | qare</annotation>
 		<annotation cp="🍈" type="tts">qare</annotation>
 		<annotation cp="🍉">khudaar | xab-xab</annotation>
 		<annotation cp="🍉" type="tts">xab-xab</annotation>
-		<annotation cp="🍊">khudaar | liin | oranji</annotation>
+		<annotation cp="🍊">khudaar | liin | liin banbeelo | oranji</annotation>
 		<annotation cp="🍊" type="tts">liin banbeelo</annotation>
 		<annotation cp="🍋">khudaar | liin bambeelmo | liin dhannaan</annotation>
 		<annotation cp="🍋" type="tts">liin dhannaan</annotation>
-		<annotation cp="🍋‍🟩">liin | liin dhanaan, miro, trobikal</annotation>
+		<annotation cp="🍋‍🟩">liin | liin dhanaan, miro, trobikal | lin</annotation>
 		<annotation cp="🍋‍🟩" type="tts">lin</annotation>
 		<annotation cp="🍌">khudaar | moos</annotation>
 		<annotation cp="🍌" type="tts">moos</annotation>
@@ -2083,6 +2081,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">xidid sinjibiil</annotation>
 		<annotation cp="🫛">digir | digirta | edamame | hadhuudh | khudradda | podska | Qubka digirta</annotation>
 		<annotation cp="🫛" type="tts">Qubka digirta</annotation>
+		<annotation cp="🍄‍🟫">boqoshaa bunni ah | cuntada, fangaska, dabiici ah, khudaar</annotation>
+		<annotation cp="🍄‍🟫" type="tts">boqoshaa bunni ah</annotation>
 		<annotation cp="🍞">gabal | rooti</annotation>
 		<annotation cp="🍞" type="tts">rooti</annotation>
 		<annotation cp="🥐">cunto | faransiis | qureec faransiis macaan | rooti duuban</annotation>
@@ -3299,10 +3299,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">usha cad indhoolaha</annotation>
 		<annotation cp="🔗">liinki</annotation>
 		<annotation cp="🔗" type="tts">liinki</annotation>
+		<annotation cp="⛓‍💥">jabi, jebin, silsilad, qeybta gacmaha ee dharka, xornimo | silsilad jabtay | silsillad jabtay</annotation>
+		<annotation cp="⛓‍💥" type="tts">silsillad jabtay</annotation>
 		<annotation cp="⛓">silsilad | silsilado</annotation>
 		<annotation cp="⛓" type="tts">silsilado</annotation>
-		<annotation cp="⛓‍💥">jabi, jebin, silsilad, qeybta gacmaha ee dharka, xornimo | silsilad jabtay</annotation>
-		<annotation cp="⛓‍💥" type="tts">silsillad jabtay</annotation>
 		<annotation cp="🪝">dabin | jilaab | qaabka wax loo gado | qabo | qallooca | qallooci</annotation>
 		<annotation cp="🪝" type="tts">jilaab</annotation>
 		<annotation cp="🧰">makaanig | qalab | shaf | tuulbogos</annotation>

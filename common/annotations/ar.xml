@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">وجه بدموع فرح</annotation>
 		<annotation cp="🙂">ابتسامة | وجه | وجه بابتسامة بسيطة</annotation>
 		<annotation cp="🙂" type="tts">وجه بابتسامة بسيطة</annotation>
-		<annotation cp="🙂‍↕">رأس يهتز عمودياً | موافقة، نعم</annotation>
-		<annotation cp="🙂‍↕" type="tts">رأس يهتز عمودياً</annotation>
-		<annotation cp="🙂‍↔">رأس يهتز أفقياً | لا، رفض</annotation>
-		<annotation cp="🙂‍↔" type="tts">رأس يهتز أفقياً</annotation>
 		<annotation cp="🙃">مقلوب | وجه</annotation>
 		<annotation cp="🙃" type="tts">وجه مقلوب</annotation>
 		<annotation cp="🫠">اختفاء | تذويب | ذوبان | سائل | وجه يذوب</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">وجه كاذب</annotation>
 		<annotation cp="🫨">اهتزاز | زلزال | صدمة | هزة أرضية | وجه يهتز | يهتز</annotation>
 		<annotation cp="🫨" type="tts">وجه يهتز</annotation>
+		<annotation cp="🙂‍↔">رأس يهتز أفقياً | لا، رفض</annotation>
+		<annotation cp="🙂‍↔" type="tts">رأس يهتز أفقياً</annotation>
+		<annotation cp="🙂‍↕">رأس يهتز عمودياً | موافقة، نعم</annotation>
+		<annotation cp="🙂‍↕" type="tts">رأس يهتز عمودياً</annotation>
 		<annotation cp="😌">مطمئن | وجه مرتاح</annotation>
 		<annotation cp="😌" type="tts">وجه مرتاح</annotation>
 		<annotation cp="😔">حزين | متأمل | مكتئب | وجه متأمل</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">بالغ</annotation>
 		<annotation cp="👱">أشقر | شخص أشقر</annotation>
 		<annotation cp="👱" type="tts">شخص أشقر</annotation>
-		<annotation cp="🧑‍🧒">أسرة: بالغ، طفل</annotation>
-		<annotation cp="🧑‍🧒" type="tts">أسرة: بالغ، طفل</annotation>
-		<annotation cp="🧑‍🧒‍🧒">أسرة: بالغ، طفل، طفلة</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">أسرة: بالغ، طفل، طفلة</annotation>
-		<annotation cp="🧑‍🧑‍🧒">أسرة: بالغ، بالغة، طفل</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">أسرة: بالغ، بالغة، طفل</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">أسرة: بالغ، بالغة، طفل، طفلة</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">أسرة: بالغ، بالغة، طفل، طفلة</annotation>
 		<annotation cp="👨">بالغ | رجل | شخص | كبير</annotation>
 		<annotation cp="👨" type="tts">رجل</annotation>
 		<annotation cp="🧔">شخص بلحية | شخص مع لحية</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">قبلة</annotation>
 		<annotation cp="💑">أشخاص | رومانسية | زوج وقلب | قلب</annotation>
 		<annotation cp="💑" type="tts">زوج وقلب</annotation>
-		<annotation cp="👪">أب | أسرة | أشخاص | أم | طفل</annotation>
-		<annotation cp="👪" type="tts">أسرة</annotation>
 		<annotation cp="🗣">تحدث | رأس | رأس تتحدث | نطق | وجه</annotation>
 		<annotation cp="🗣" type="tts">رأس تتحدث</annotation>
 		<annotation cp="👤">أشخاص | صورة | صورة ظلية</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">صورتان ظليتان</annotation>
 		<annotation cp="🫂">ترحيب | توديع | شخصان يتعانقان | شكر | عناق</annotation>
 		<annotation cp="🫂" type="tts">شخصان يتعانقان</annotation>
+		<annotation cp="👪">أب | أسرة | أشخاص | أم | طفل</annotation>
+		<annotation cp="👪" type="tts">أسرة</annotation>
+		<annotation cp="🧑‍🧑‍🧒">أسرة: بالغ، بالغة، طفل</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">أسرة: بالغ، بالغة، طفل</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">أسرة: بالغ، بالغة، طفل، طفلة</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">أسرة: بالغ، بالغة، طفل، طفلة</annotation>
+		<annotation cp="🧑‍🧒">أسرة: بالغ، طفل</annotation>
+		<annotation cp="🧑‍🧒" type="tts">أسرة: بالغ، طفل</annotation>
+		<annotation cp="🧑‍🧒‍🧒">أسرة: بالغ، طفل، طفلة</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">أسرة: بالغ، طفل، طفلة</annotation>
 		<annotation cp="👣">أثر قدم | أثر قدمين | جسم | خطى | قدم</annotation>
 		<annotation cp="👣" type="tts">أثر قدمين</annotation>
 		<annotation cp="🦰">أصهب | رأس حمراء | شعر أحمر</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">كتكوت صغير بوجه للأمام</annotation>
 		<annotation cp="🐦">طائر | عصفور</annotation>
 		<annotation cp="🐦" type="tts">طائر</annotation>
-		<annotation cp="🐦‍🔥">العنقاء | خيال، طائر النار، انبعاث، تناسخ</annotation>
-		<annotation cp="🐦‍🔥" type="tts">العنقاء</annotation>
 		<annotation cp="🐧">بطريق | طائر</annotation>
 		<annotation cp="🐧" type="tts">بطريق</annotation>
 		<annotation cp="🕊">حمامة | سلام | طائر</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">طائر أسود</annotation>
 		<annotation cp="🪿">إوز | إوزّة | ساذج | صياح | طائر | طير</annotation>
 		<annotation cp="🪿" type="tts">إوزّة</annotation>
+		<annotation cp="🐦‍🔥">العنقاء | خيال، طائر النار، انبعاث، تناسخ</annotation>
+		<annotation cp="🐦‍🔥" type="tts">العنقاء</annotation>
 		<annotation cp="🐸">حيوان | ضفدع | وجه</annotation>
 		<annotation cp="🐸" type="tts">وجه ضفدع</annotation>
 		<annotation cp="🐊">تمساح | حيوان</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">عش به بيض</annotation>
 		<annotation cp="🍄">عيش الغراب | عيش غراب | فطر | مشروم</annotation>
 		<annotation cp="🍄" type="tts">عيش الغراب</annotation>
-		<annotation cp="🍄‍🟫">طعام، فطر، طبيعة، خضار | فطر بني</annotation>
-		<annotation cp="🍄‍🟫" type="tts">فطر بني</annotation>
 		<annotation cp="🍇">عنب | فاكهة</annotation>
 		<annotation cp="🍇" type="tts">عنب</annotation>
 		<annotation cp="🍈">شمام | فاكهة</annotation>
@@ -2021,7 +2019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">يوسفي</annotation>
 		<annotation cp="🍋">فاكهة | ليمون | موالح</annotation>
 		<annotation cp="🍋" type="tts">ليمون</annotation>
-		<annotation cp="🍋‍🟩">حامض، فاكهة، إستوائي | ليم</annotation>
+		<annotation cp="🍋‍🟩">الليم | حامض، فاكهة، إستوائي | ليم</annotation>
 		<annotation cp="🍋‍🟩" type="tts">الليم</annotation>
 		<annotation cp="🍌">فاكهة | موز</annotation>
 		<annotation cp="🍌" type="tts">موز</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">جذر الزنجبيل</annotation>
 		<annotation cp="🫛">إدامامي | بازلاء | بقلة | بقوليات | حبوب | خضار | قرن بازلاء</annotation>
 		<annotation cp="🫛" type="tts">قرن بازلاء</annotation>
+		<annotation cp="🍄‍🟫">طعام، فطر، طبيعة، خضار | فطر بني</annotation>
+		<annotation cp="🍄‍🟫" type="tts">فطر بني</annotation>
 		<annotation cp="🍞">خبز | رغيف عيش | مطعم</annotation>
 		<annotation cp="🍞" type="tts">خبز</annotation>
 		<annotation cp="🥐">خبز | خبز فرنسي | خبز هلالي الشكل | كرواسون</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">عصا سير</annotation>
 		<annotation cp="🔗">حلقتان | روابط | علامة رابط</annotation>
 		<annotation cp="🔗" type="tts">علامة رابط</annotation>
-		<annotation cp="⛓">سلاسل | سلسلة</annotation>
-		<annotation cp="⛓" type="tts">سلاسل</annotation>
 		<annotation cp="⛓‍💥">سلسلة مكسورة | يكسر، كسر، سلسلة، أصفاد، حرية</annotation>
 		<annotation cp="⛓‍💥" type="tts">سلسلة مكسورة</annotation>
+		<annotation cp="⛓">سلاسل | سلسلة</annotation>
+		<annotation cp="⛓" type="tts">سلاسل</annotation>
 		<annotation cp="🪝">إبزيم | إلتقاط | خطاف | صنارة | كبشة | كلاب | مشبك | نقطة شراء</annotation>
 		<annotation cp="🪝" type="tts">خطاف</annotation>
 		<annotation cp="🧰">أداة | صدر | صندوق أدوات | ميكانيكي</annotation>

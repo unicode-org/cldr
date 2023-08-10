@@ -541,7 +541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⋆" type="tts">operator bintang</annotation>
 		<annotation cp="⋈">dasi kupu-kupu | gabungan alami | operator biner</annotation>
 		<annotation cp="⋈" type="tts">gabungan alami</annotation>
-		<annotation cp="⋒">irisan | matematika | operator himpunan | sangat lebih sedikit dari</annotation>
+		<annotation cp="⋒">irisan | irisan ganda | matematika | operator himpunan | sangat lebih sedikit dari</annotation>
 		<annotation cp="⋒" type="tts">irisan ganda</annotation>
 		<annotation cp="⋘">matematika | pertidaksamaan | sangat lebih sedikit dari</annotation>
 		<annotation cp="⋘" type="tts">sangat lebih sedikit dari</annotation>
@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">wajah gembira berurai air mata</annotation>
 		<annotation cp="🙂">muka | senyum | wajah | wajah agak tersenyum</annotation>
 		<annotation cp="🙂" type="tts">wajah agak tersenyum</annotation>
-		<annotation cp="🙂‍↕">angguk, ya | kepala mengangguk</annotation>
-		<annotation cp="🙂‍↕" type="tts">kepala mengangguk</annotation>
-		<annotation cp="🙂‍↔">kepala bergeleng | tidak, geleng</annotation>
-		<annotation cp="🙂‍↔" type="tts">kepala bergeleng</annotation>
 		<annotation cp="🙃">muka | terbalik | wajah</annotation>
 		<annotation cp="🙃" type="tts">wajah terbalik</annotation>
 		<annotation cp="🫠">cairan | larut | meleleh | menghilang | wajah meleleh</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">bohong</annotation>
 		<annotation cp="🫨">bergetar | gemetar | gempa bumi | terkejut | wajah</annotation>
 		<annotation cp="🫨" type="tts">wajah gemetar</annotation>
+		<annotation cp="🙂‍↔">kepala bergeleng | tidak, geleng</annotation>
+		<annotation cp="🙂‍↔" type="tts">kepala bergeleng</annotation>
+		<annotation cp="🙂‍↕">angguk, ya | kepala mengangguk</annotation>
+		<annotation cp="🙂‍↕" type="tts">kepala mengangguk</annotation>
 		<annotation cp="😌">lega | muka | wajah</annotation>
 		<annotation cp="😌" type="tts">wajah lega</annotation>
 		<annotation cp="😔">muka | murung | sedih | termenung | wajah | wajah merenung</annotation>
@@ -997,7 +997,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❤‍🩹" type="tts">mengobati hati terluka</annotation>
 		<annotation cp="❤">hati | hati merah</annotation>
 		<annotation cp="❤" type="tts">hati merah</annotation>
-		<annotation cp="🩷">cinta | hati | imut | merah muda | suka</annotation>
+		<annotation cp="🩷">cinta | hati | hati merah muda | imut | merah muda | suka</annotation>
 		<annotation cp="🩷" type="tts">hati merah muda</annotation>
 		<annotation cp="🧡">hati | oranye</annotation>
 		<annotation cp="🧡" type="tts">hati oranye</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">dewasa</annotation>
 		<annotation cp="👱">orang berambut pirang | orang: rambut pirang | pirang | rambut</annotation>
 		<annotation cp="👱" type="tts">orang: rambut pirang</annotation>
-		<annotation cp="🧑‍🧒">keluarga: orang dewasa, anak</annotation>
-		<annotation cp="🧑‍🧒" type="tts">keluarga: orang dewasa, anak</annotation>
-		<annotation cp="🧑‍🧒‍🧒">keluarga: orang dewasa, anak, anak</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">keluarga: orang dewasa, anak, anak</annotation>
-		<annotation cp="🧑‍🧑‍🧒">keluarga: orang dewasa, orang dewasa, anak</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">keluarga: orang dewasa, orang dewasa, anak</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">keluarga: orang dewasa, orang dewasa, anak, anak</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">keluarga: orang dewasa, orang dewasa, anak, anak</annotation>
 		<annotation cp="👨">orang dewasa | pria</annotation>
 		<annotation cp="👨" type="tts">pria</annotation>
 		<annotation cp="🧔">janggut | orang | orang: janggut</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">berciuman</annotation>
 		<annotation cp="💑">cinta | hati | pasangan | pasangan dengan hati | romantis</annotation>
 		<annotation cp="💑" type="tts">pasangan dengan hati</annotation>
-		<annotation cp="👪">anak | ayah | bapak | ibu | keluarga | mama | papa</annotation>
-		<annotation cp="👪" type="tts">keluarga</annotation>
 		<annotation cp="🗣">berbicara | bicara | kepala | siluet | wajah</annotation>
 		<annotation cp="🗣" type="tts">kepala berbicara</annotation>
 		<annotation cp="👤">bayangan | siluet foto setengah badan</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">beberapa siluet foto setengah badan</annotation>
 		<annotation cp="🫂">halo | orang berpelukan | peluk | selamat tinggal | terima kasih</annotation>
 		<annotation cp="🫂" type="tts">orang berpelukan</annotation>
+		<annotation cp="👪">anak | ayah | bapak | ibu | keluarga | mama | papa</annotation>
+		<annotation cp="👪" type="tts">keluarga</annotation>
+		<annotation cp="🧑‍🧑‍🧒">keluarga: orang dewasa, orang dewasa, anak</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">keluarga: orang dewasa, orang dewasa, anak</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">keluarga: orang dewasa, orang dewasa, anak, anak</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">keluarga: orang dewasa, orang dewasa, anak, anak</annotation>
+		<annotation cp="🧑‍🧒">keluarga: orang dewasa, anak</annotation>
+		<annotation cp="🧑‍🧒" type="tts">keluarga: orang dewasa, anak</annotation>
+		<annotation cp="🧑‍🧒‍🧒">keluarga: orang dewasa, anak, anak</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">keluarga: orang dewasa, anak, anak</annotation>
 		<annotation cp="👣">badan | jejak | kaki | tubuh</annotation>
 		<annotation cp="👣" type="tts">jejak kaki</annotation>
 		<annotation cp="🦰">cokelat kemerahan | rambut merah</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">itik bayi menghadap ke depan</annotation>
 		<annotation cp="🐦">burung</annotation>
 		<annotation cp="🐦" type="tts">burung</annotation>
-		<annotation cp="🐦‍🔥">fantasi, burung api, kelahiran kembali, reinkarnasi | phoenix</annotation>
-		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐧">burung | pinguin</annotation>
 		<annotation cp="🐧" type="tts">pinguin</annotation>
 		<annotation cp="🕊">burung | damai | merpati | terbang</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">burung hitam</annotation>
 		<annotation cp="🪿">angsa leher pendek | burung | gericau | konyol | unggas</annotation>
 		<annotation cp="🪿" type="tts">angsa leher pendek</annotation>
+		<annotation cp="🐦‍🔥">fantasi, burung api, kelahiran kembali, reinkarnasi | phoenix</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐸">katak | muka | wajah</annotation>
 		<annotation cp="🐸" type="tts">katak</annotation>
 		<annotation cp="🐊">buaya</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">sarang dengan telur</annotation>
 		<annotation cp="🍄">jamur | tanaman</annotation>
 		<annotation cp="🍄" type="tts">jamur</annotation>
-		<annotation cp="🍄‍🟫">jamur cokelat | makanan, jamur, alam, sayuran</annotation>
-		<annotation cp="🍄‍🟫" type="tts">jamur cokelat</annotation>
 		<annotation cp="🍇">anggur | buah | tanaman</annotation>
 		<annotation cp="🍇" type="tts">anggur</annotation>
 		<annotation cp="🍈">buah | melon | tanaman</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">akar jahe</annotation>
 		<annotation cp="🫛">edamame | kacang | kulit kacang | polong | sayuran</annotation>
 		<annotation cp="🫛" type="tts">kacang polong</annotation>
+		<annotation cp="🍄‍🟫">jamur cokelat | makanan, jamur, alam, sayuran</annotation>
+		<annotation cp="🍄‍🟫" type="tts">jamur cokelat</annotation>
 		<annotation cp="🍞">roti</annotation>
 		<annotation cp="🍞" type="tts">roti</annotation>
 		<annotation cp="🥐">croissant | roti | roti prancis</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">tongkat tunanetra</annotation>
 		<annotation cp="🔗">tautan</annotation>
 		<annotation cp="🔗" type="tts">tautan</annotation>
-		<annotation cp="⛓">rantai</annotation>
-		<annotation cp="⛓" type="tts">rantai</annotation>
 		<annotation cp="⛓‍💥">putus, rantai, ikatan, lepas | rantai putus</annotation>
 		<annotation cp="⛓‍💥" type="tts">rantai putus</annotation>
+		<annotation cp="⛓">rantai</annotation>
+		<annotation cp="⛓" type="tts">rantai</annotation>
 		<annotation cp="🪝">kail | kait | kurva | titik jual</annotation>
 		<annotation cp="🪝" type="tts">kait</annotation>
 		<annotation cp="🧰">kotak perkakas | mekanik | perkakas | peti</annotation>

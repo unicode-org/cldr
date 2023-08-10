@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">wyneb â dagrau hapusrwydd</annotation>
 		<annotation cp="🙂">gwenu | gwyneb | wyneb ag ychydig o wên arni</annotation>
 		<annotation cp="🙂" type="tts">wyneb ag ychydig o wên arni</annotation>
-		<annotation cp="🙂‍↕">nodio, ie | pen yn ysgwyd i fyny ac i lawr</annotation>
-		<annotation cp="🙂‍↕" type="tts">pen yn ysgwyd i fyny ac i lawr</annotation>
-		<annotation cp="🙂‍↔">na, ysgwyd | pen yn ysgwyd o ochr i ochr</annotation>
-		<annotation cp="🙂‍↔" type="tts">pen yn ysgwyd o ochr i ochr</annotation>
 		<annotation cp="🙃">ben i waered | wyneb | wyneb â’i ben i waered</annotation>
 		<annotation cp="🙃" type="tts">wyneb â’i ben i waered</annotation>
 		<annotation cp="🫠">diflannu | hydoddi | hylif | toddi | wyneb toddi</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">wyneb celwydd</annotation>
 		<annotation cp="🫨">daeargryn | dirgrynu | sioc | wyneb | wyneb sydd ysgwyd | ysgwyd</annotation>
 		<annotation cp="🫨" type="tts">wyneb sydd ysgwyd</annotation>
+		<annotation cp="🙂‍↔">na, ysgwyd | pen yn ysgwyd o ochr i ochr</annotation>
+		<annotation cp="🙂‍↔" type="tts">pen yn ysgwyd o ochr i ochr</annotation>
+		<annotation cp="🙂‍↕">nodio, ie | pen yn ysgwyd i fyny ac i lawr</annotation>
+		<annotation cp="🙂‍↕" type="tts">pen yn ysgwyd i fyny ac i lawr</annotation>
 		<annotation cp="😌">rhyddhad | wyneb | wyneb o ryddhad</annotation>
 		<annotation cp="😌" type="tts">wyneb o ryddhad</annotation>
 		<annotation cp="😔">digalon | synfyfyriol | wyneb</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">gwallt golau | person â gwallt golau</annotation>
 		<annotation cp="👱" type="tts">person â gwallt golau</annotation>
-		<annotation cp="🧑‍🧒">teulu: oedolyn, plentyn</annotation>
-		<annotation cp="🧑‍🧒" type="tts">teulu: oedolyn, plentyn</annotation>
-		<annotation cp="🧑‍🧒‍🧒">teulu: oedolyn, plentyn, plentyn</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">teulu: oedolyn, plentyn, plentyn</annotation>
-		<annotation cp="🧑‍🧑‍🧒">teulu: oedolyn, oedolyn, plentyn</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">teulu: oedolyn, oedolyn, plentyn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">teulu: oedolyn, oedolyn, plentyn, plentyn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">teulu: oedolyn, oedolyn, plentyn, plentyn</annotation>
 		<annotation cp="👨">dyn | oedolyn</annotation>
 		<annotation cp="👨" type="tts">dyn</annotation>
 		<annotation cp="🧔">barf | dyn â barf | person barfog | person: barf</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">cusan</annotation>
 		<annotation cp="💑">calon | cariad | pâr | pâr a chalon</annotation>
 		<annotation cp="💑" type="tts">pâr a chalon</annotation>
-		<annotation cp="👪">mam | plentyn | tad | teulu</annotation>
-		<annotation cp="👪" type="tts">teulu</annotation>
 		<annotation cp="🗣">pen | pen yn siarad | siarad | silwét | wyneb</annotation>
 		<annotation cp="🗣" type="tts">pen yn siarad</annotation>
 		<annotation cp="👤">penddelw | penddelw mewn silwét | silwét</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">penddelwau mewn silwét</annotation>
 		<annotation cp="🫂">cwtsh | diolch | helo | hwyl fawr | pobl yn cofleidio</annotation>
 		<annotation cp="🫂" type="tts">pobl yn cofleidio</annotation>
+		<annotation cp="👪">mam | plentyn | tad | teulu</annotation>
+		<annotation cp="👪" type="tts">teulu</annotation>
+		<annotation cp="🧑‍🧑‍🧒">teulu: oedolyn, oedolyn, plentyn</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">teulu: oedolyn, oedolyn, plentyn</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">teulu: oedolyn, oedolyn, plentyn, plentyn</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">teulu: oedolyn, oedolyn, plentyn, plentyn</annotation>
+		<annotation cp="🧑‍🧒">teulu: oedolyn, plentyn</annotation>
+		<annotation cp="🧑‍🧒" type="tts">teulu: oedolyn, plentyn</annotation>
+		<annotation cp="🧑‍🧒‍🧒">teulu: oedolyn, plentyn, plentyn</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">teulu: oedolyn, plentyn, plentyn</annotation>
 		<annotation cp="👣">corff | dilledyn | olion traed</annotation>
 		<annotation cp="👣" type="tts">olion traed</annotation>
 		<annotation cp="🦰">gwallt coch | melyngoch | pen coch</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">cyw iâr yn blaen-wynebu</annotation>
 		<annotation cp="🐦">aderyn</annotation>
 		<annotation cp="🐦" type="tts">aderyn</annotation>
-		<annotation cp="🐦‍🔥">ffantasi, aderyn tân, aileni, ailymgnawdoliad | ffenics</annotation>
-		<annotation cp="🐦‍🔥" type="tts">ffenics</annotation>
 		<annotation cp="🐧">aderyn | pengwin</annotation>
 		<annotation cp="🐧" type="tts">pengwin</annotation>
 		<annotation cp="🕊">aderyn | colomen | heddwch | hedfan</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">aderyn du</annotation>
 		<annotation cp="🪿">aderyn | ffowls | gwirion | gwydd | honc</annotation>
 		<annotation cp="🪿" type="tts">gwydd</annotation>
+		<annotation cp="🐦‍🔥">ffantasi, aderyn tân, aileni, ailymgnawdoliad | ffenics</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ffenics</annotation>
 		<annotation cp="🐸">broga | wyneb</annotation>
 		<annotation cp="🐸" type="tts">broga</annotation>
 		<annotation cp="🐊">crocodeil</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nythu gydag wyau</annotation>
 		<annotation cp="🍄">madarch | planhigyn</annotation>
 		<annotation cp="🍄" type="tts">madarch</annotation>
-		<annotation cp="🍄‍🟫">bwyd, ffwng, natur, llysieuyn | madarch brown</annotation>
-		<annotation cp="🍄‍🟫" type="tts">madarch brown</annotation>
 		<annotation cp="🍇">ffrwyth | grawnwin | planhigyn</annotation>
 		<annotation cp="🍇" type="tts">grawnwin</annotation>
 		<annotation cp="🍈">ffrwyth | melon | planhigyn</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">gwraidd sinsir</annotation>
 		<annotation cp="🫛">codlysiau | edamame | ffa | llysieuyn | pod | pys</annotation>
 		<annotation cp="🫛" type="tts">pod pys</annotation>
+		<annotation cp="🍄‍🟫">bwyd, ffwng, natur, llysieuyn | madarch brown</annotation>
+		<annotation cp="🍄‍🟫" type="tts">madarch brown</annotation>
 		<annotation cp="🍞">bara | torth</annotation>
 		<annotation cp="🍞" type="tts">bara</annotation>
 		<annotation cp="🥐">bara | brecwast | bwyd | croissant | ffrengig | rhôl cilgant</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">ffon wen</annotation>
 		<annotation cp="🔗">dolen | linc</annotation>
 		<annotation cp="🔗" type="tts">dolen</annotation>
-		<annotation cp="⛓">cadwyn | cadwyni</annotation>
-		<annotation cp="⛓" type="tts">cadwyni</annotation>
 		<annotation cp="⛓‍💥">cadwyn wedi torri | torri, yn torri, cadwyn, gefynnau, rhyddid</annotation>
 		<annotation cp="⛓‍💥" type="tts">cadwyn wedi torri</annotation>
+		<annotation cp="⛓">cadwyn | cadwyni</annotation>
+		<annotation cp="⛓" type="tts">cadwyni</annotation>
 		<annotation cp="🪝">bachyn | cromlin | dal | maglu | pwynt gwerthu | troseddwr</annotation>
 		<annotation cp="🪝" type="tts">bachyn</annotation>
 		<annotation cp="🧰">blwch offer | cist | mecanydd | offer</annotation>

@@ -87,7 +87,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤣" type="tts">riende a iscracàllios</annotation>
 		<annotation cp="😂">cara | cara cun làgrimas dae su risu | cara cun làgrimas de cuntentesa | cuntentesa | fatze | làgrimas | riende | risu</annotation>
 		<annotation cp="😂" type="tts">cara cun làgrimas de cuntentesa</annotation>
-		<annotation cp="🙂">cara | fatze | risitu | sorrisu | sorrisu atzinnadu</annotation>
+		<annotation cp="🙂">cara | cara cun sorrisu atzinnadu | fatze | risitu | sorrisu | sorrisu atzinnadu</annotation>
 		<annotation cp="🙂" type="tts">cara cun sorrisu atzinnadu</annotation>
 		<annotation cp="🙃">cara | cara a conca a giosso | cara a giosso | conca a giosso | fatze</annotation>
 		<annotation cp="🙃" type="tts">cara a conca a giosso</annotation>
@@ -97,7 +97,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😉" type="tts">cara chi faghet s’atzinnu</annotation>
 		<annotation cp="😊">arrubiada | arrubiadu | arrubiare | cara | cara risulana cun ogros risulanos | cuntenta | cuntentu | fatze | risulana | risulanu | sorrisu</annotation>
 		<annotation cp="😊" type="tts">cara risulana cun ogros risulanos</annotation>
-		<annotation cp="😇">ànghelu | cara | chìrchinu | fantasia | fatze | innotzente | risitu | risu | risulana | risulanu | sorrisu</annotation>
+		<annotation cp="😇">ànghelu | cara | cara risulana cun chìrchinu | chìrchinu | fantasia | fatze | innotzente | risitu | risu | risulana | risulanu | sorrisu</annotation>
 		<annotation cp="😇" type="tts">cara risulana cun chìrchinu</annotation>
 		<annotation cp="😶‍🌫">cara | cara in is nues | cara in sa nèula | cara in sas nues | conca in sa nèula | conca in sas nues | fatze | fatze in is nues | fatze in sas nues | isagherada | isagheradu | isbeliada | isbeliadu</annotation>
 		<annotation cp="😶‍🌫" type="tts">cara in sas nues</annotation>
@@ -111,7 +111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😠" type="tts">cara arrennegada</annotation>
 		<annotation cp="🤬">arrennegada | arrennegadu | cara cun sìmbulos subra de sa buca | frastimare | frastimos | inchieta | inchietu | irrocare | irrocos</annotation>
 		<annotation cp="🤬" type="tts">cara cun sìmbulos subra de sa buca</annotation>
-		<annotation cp="😈">cara | corros | diauleddu | diàulu | dimonieddu | dimòniu | fantasia | fatze | iscantzada | risitu | risu | risulana | risulanu | sorrisu</annotation>
+		<annotation cp="😈">cara | cara risulana cun corros | corros | diauleddu | diàulu | dimonieddu | dimòniu | fantasia | fatze | iscantzada | risitu | risu | risulana | risulanu | sorrisu</annotation>
 		<annotation cp="😈" type="tts">cara risulana cun corros</annotation>
 		<annotation cp="👿">cara | cara arrennegada cun corros | cara inchieta cun corros | diauleddu | diàulu | dimonieddu | dimòniu | fantasia | fatze</annotation>
 		<annotation cp="👿" type="tts">cara inchieta cun corros</annotation>
@@ -499,8 +499,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐥" type="tts">puddighinu pompiadu in cara</annotation>
 		<annotation cp="🐦">animale | pugione</annotation>
 		<annotation cp="🐦" type="tts">pugione</annotation>
-		<annotation cp="🐦‍🔥">fantasia | fenitze | pugione | pugione de fogu | reincarnatzione | renàschida | rinàschida</annotation>
-		<annotation cp="🐦‍🔥" type="tts">fenitze</annotation>
 		<annotation cp="🐧">animale | pinguinu | pugione</annotation>
 		<annotation cp="🐧" type="tts">pinguinu</annotation>
 		<annotation cp="🕊">animale | bolu | culumba | olia | paghe | pasca | pugione</annotation>
@@ -529,6 +527,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">pugione nieddu</annotation>
 		<annotation cp="🪿">coca | croculare | cròculu | oca | pugione | tontìghine</annotation>
 		<annotation cp="🪿" type="tts">oca</annotation>
+		<annotation cp="🐦‍🔥">fantasia | fenitze | pugione | pugione de fogu | reincarnatzione | renàschida | rinàschida</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fenitze</annotation>
 		<annotation cp="🐸">animale | cara | fatze | rana</annotation>
 		<annotation cp="🐸" type="tts">rana</annotation>
 		<annotation cp="🐊">animale | cocodrillu</annotation>
@@ -1809,10 +1809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">bàculu pro tzegos</annotation>
 		<annotation cp="🔗">cadena | duos aneddos | ligàmene</annotation>
 		<annotation cp="🔗" type="tts">ligàmene</annotation>
-		<annotation cp="⛓">cadena | cadenas</annotation>
-		<annotation cp="⛓" type="tts">cadenas</annotation>
 		<annotation cp="⛓‍💥">cadena | cadena segada | cadena truncada | libertade | segare | truncare</annotation>
 		<annotation cp="⛓‍💥" type="tts">cadena truncada</annotation>
+		<annotation cp="⛓">cadena | cadenas</annotation>
+		<annotation cp="⛓" type="tts">cadenas</annotation>
 		<annotation cp="🪝">càncaru | carabatu | crocu | gantzu | grocu | rampinu | satzu | unchinu | ùnchinu</annotation>
 		<annotation cp="🪝" type="tts">càncaru</annotation>
 		<annotation cp="🧰">ainas | cassita | cassita de is trastes | cassita de is trastos | cassita de sos trastes | cassita de sos trastos | mecànicu | trastes | trastos</annotation>

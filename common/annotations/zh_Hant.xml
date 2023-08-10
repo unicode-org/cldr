@@ -730,10 +730,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">感動</annotation>
 		<annotation cp="🙂">呆呆笑 | 笑臉</annotation>
 		<annotation cp="🙂" type="tts">呆呆笑</annotation>
-		<annotation cp="🙂‍↕">上下點頭 | 點頭，是</annotation>
-		<annotation cp="🙂‍↕" type="tts">上下點頭</annotation>
-		<annotation cp="🙂‍↔">不，搖頭 | 左右搖頭</annotation>
-		<annotation cp="🙂‍↔" type="tts">左右搖頭</annotation>
 		<annotation cp="🙃">臉上下顛倒 | 顛倒臉</annotation>
 		<annotation cp="🙃" type="tts">顛倒臉</annotation>
 		<annotation cp="🫠">液態的臉 | 溶解的臉 | 融化的臉</annotation>
@@ -816,6 +812,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">鼻子變長了</annotation>
 		<annotation cp="🫨">動搖 | 動搖的表情 | 地震 | 抖動 | 搖動 | 表情 | 震動</annotation>
 		<annotation cp="🫨" type="tts">動搖的表情</annotation>
+		<annotation cp="🙂‍↔">不，搖頭 | 左右搖頭</annotation>
+		<annotation cp="🙂‍↔" type="tts">左右搖頭</annotation>
+		<annotation cp="🙂‍↕">上下點頭 | 點頭，是</annotation>
+		<annotation cp="🙂‍↕" type="tts">上下點頭</annotation>
 		<annotation cp="😌">放鬆 | 鬆了口氣</annotation>
 		<annotation cp="😌" type="tts">鬆了口氣</annotation>
 		<annotation cp="😔">思考 | 沉思</annotation>
@@ -1182,14 +1182,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">大人</annotation>
 		<annotation cp="👱">金髮 | 金髮人</annotation>
 		<annotation cp="👱" type="tts">金髮人</annotation>
-		<annotation cp="🧑‍🧒">家庭：一大一小</annotation>
-		<annotation cp="🧑‍🧒" type="tts">家庭：一大一小</annotation>
-		<annotation cp="🧑‍🧒‍🧒">家庭：一大兩小</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">家庭：一大兩小</annotation>
-		<annotation cp="🧑‍🧑‍🧒">家庭：兩大一小</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">家庭：兩大一小</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">家庭：兩大兩小</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">家庭：兩大兩小</annotation>
 		<annotation cp="👨">男 | 男人 | 男性</annotation>
 		<annotation cp="👨" type="tts">男人</annotation>
 		<annotation cp="🧔">蓄鬍的人</annotation>
@@ -1684,8 +1676,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">親</annotation>
 		<annotation cp="💑">一對 | 男女 | 相愛</annotation>
 		<annotation cp="💑" type="tts">相愛</annotation>
-		<annotation cp="👪">家庭 | 親子</annotation>
-		<annotation cp="👪" type="tts">家庭</annotation>
 		<annotation cp="🗣">說話 | 說話的人影</annotation>
 		<annotation cp="🗣" type="tts">說話的人影</annotation>
 		<annotation cp="👤">剪影 | 肖像剪影</annotation>
@@ -1694,6 +1684,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">雙人肖像剪影</annotation>
 		<annotation cp="🫂">抱抱 | 掰掰 | 擁抱的人 | 謝謝</annotation>
 		<annotation cp="🫂" type="tts">擁抱的人</annotation>
+		<annotation cp="👪">家庭 | 親子</annotation>
+		<annotation cp="👪" type="tts">家庭</annotation>
+		<annotation cp="🧑‍🧑‍🧒">家庭：兩大一小</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">家庭：兩大一小</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">家庭：兩大兩小</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">家庭：兩大兩小</annotation>
+		<annotation cp="🧑‍🧒">家庭：一大一小</annotation>
+		<annotation cp="🧑‍🧒" type="tts">家庭：一大一小</annotation>
+		<annotation cp="🧑‍🧒‍🧒">家庭：一大兩小</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">家庭：一大兩小</annotation>
 		<annotation cp="👣">腳印 | 足跡</annotation>
 		<annotation cp="👣" type="tts">腳印</annotation>
 		<annotation cp="🦰">紅髮 | 薑黃</annotation>
@@ -1850,8 +1850,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">小雞</annotation>
 		<annotation cp="🐦">鳥</annotation>
 		<annotation cp="🐦" type="tts">鳥</annotation>
-		<annotation cp="🐦‍🔥">奇幻、火鳥、重生、轉世 | 鳳凰</annotation>
-		<annotation cp="🐦‍🔥" type="tts">鳳凰</annotation>
 		<annotation cp="🐧">企鵝</annotation>
 		<annotation cp="🐧" type="tts">企鵝</annotation>
 		<annotation cp="🕊">飛鳥 | 鳥</annotation>
@@ -1876,10 +1874,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦜" type="tts">鸚鵡</annotation>
 		<annotation cp="🪽">天使 | 神話 | 翅膀 | 飛翔 | 飛行 | 鳥</annotation>
 		<annotation cp="🪽" type="tts">翅膀</annotation>
-		<annotation cp="🐦‍⬛">渡鴉 | 烏鴉 | 白嘴鴉 | 鳥 | 黑</annotation>
+		<annotation cp="🐦‍⬛">渡鴉 | 烏鴉 | 白嘴鴉 | 鳥 | 黑 | 黑鳥</annotation>
 		<annotation cp="🐦‍⬛" type="tts">黑鳥</annotation>
 		<annotation cp="🪿">傻瓜 | 呆子 | 家禽 | 愚蠢 | 糊塗 | 飛禽 | 鳥 | 鵝 | 鵝叫聲</annotation>
 		<annotation cp="🪿" type="tts">鵝</annotation>
+		<annotation cp="🐦‍🔥">奇幻、火鳥、重生、轉世 | 鳳凰</annotation>
+		<annotation cp="🐦‍🔥" type="tts">鳳凰</annotation>
 		<annotation cp="🐸">蛙 | 青蛙</annotation>
 		<annotation cp="🐸" type="tts">青蛙</annotation>
 		<annotation cp="🐊">鱷 | 鱷魚</annotation>
@@ -2010,8 +2010,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">有蛋的巢</annotation>
 		<annotation cp="🍄">蘑菇 | 香菇</annotation>
 		<annotation cp="🍄" type="tts">蘑菇</annotation>
-		<annotation cp="🍄‍🟫">棕色蕈菇 | 食物、真菌、自然、蔬菜</annotation>
-		<annotation cp="🍄‍🟫" type="tts">棕色蕈菇</annotation>
 		<annotation cp="🍇">水果 | 葡萄</annotation>
 		<annotation cp="🍇" type="tts">葡萄</annotation>
 		<annotation cp="🍈">水果 | 瓜 | 甜瓜 | 蜜瓜 | 香瓜</annotation>
@@ -2086,6 +2084,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">薑</annotation>
 		<annotation cp="🫛">毛豆 | 蔬菜 | 豆子 | 豆莢 | 豆類 | 豌豆 | 豌豆莢</annotation>
 		<annotation cp="🫛" type="tts">豌豆莢</annotation>
+		<annotation cp="🍄‍🟫">棕色蕈菇 | 食物、真菌、自然、蔬菜</annotation>
+		<annotation cp="🍄‍🟫" type="tts">棕色蕈菇</annotation>
 		<annotation cp="🍞">吐司 | 麵包</annotation>
 		<annotation cp="🍞" type="tts">吐司</annotation>
 		<annotation cp="🥐">可頌 | 法式 | 牛角麵包 | 麵包</annotation>
@@ -3302,10 +3302,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">導盲手杖</annotation>
 		<annotation cp="🔗">連結 | 鏈結</annotation>
 		<annotation cp="🔗" type="tts">連結</annotation>
-		<annotation cp="⛓">鍊子 | 鍊條</annotation>
-		<annotation cp="⛓" type="tts">鍊條</annotation>
 		<annotation cp="⛓‍💥">斷掉、斷開、鏈條、手銬、自由 | 斷掉的鏈條</annotation>
 		<annotation cp="⛓‍💥" type="tts">斷掉的鏈條</annotation>
+		<annotation cp="⛓">鍊子 | 鍊條</annotation>
+		<annotation cp="⛓" type="tts">鍊條</annotation>
 		<annotation cp="🪝">勾 | 彎曲 | 鉤 | 鉤子 | 鉤形</annotation>
 		<annotation cp="🪝" type="tts">鉤子</annotation>
 		<annotation cp="🧰">器具 | 工具 | 工具箱 | 箱子</annotation>

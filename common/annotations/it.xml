@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">faccina con lacrime di gioia</annotation>
 		<annotation cp="🙂">faccina con sorriso accennato | mezzo sorriso | sorriso | sorriso a bocca chiusa</annotation>
 		<annotation cp="🙂" type="tts">faccina con sorriso accennato</annotation>
-		<annotation cp="🙂‍↕">annuire, sì | scuotere la testa in senso verticale</annotation>
-		<annotation cp="🙂‍↕" type="tts">scuotere la testa in senso verticale</annotation>
-		<annotation cp="🙂‍↔">no, scuotere | scuotere la testa in senso orizzontale</annotation>
-		<annotation cp="🙂‍↔" type="tts">scuotere la testa in senso orizzontale</annotation>
 		<annotation cp="🙃">capovolta | faccina | scombussolata | sottosopra</annotation>
 		<annotation cp="🙃" type="tts">faccina sottosopra</annotation>
 		<annotation cp="🫠">dissolversi | faccina che si scioglie | liquefarsi | liquido | sciogliersi | sparire | squagliarsi</annotation>
@@ -769,7 +765,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😜" type="tts">faccina che fa l’occhiolino e mostra la lingua</annotation>
 		<annotation cp="🤪">faccina impazzita | grande | occhio | piccolo</annotation>
 		<annotation cp="🤪" type="tts">faccina impazzita</annotation>
-		<annotation cp="😝">bleah | faccina | faccina con un gran sorriso che mostra la lingua | linguaccia | orribile</annotation>
+		<annotation cp="😝">bleah | faccina | faccina che strizza gli occhi e mostra la lingua | faccina con un gran sorriso che mostra la lingua | linguaccia | orribile</annotation>
 		<annotation cp="😝" type="tts">faccina che strizza gli occhi e mostra la lingua</annotation>
 		<annotation cp="🤑">avidità | faccina avida di denaro | guadagnare | ricchezza | soldi</annotation>
 		<annotation cp="🤑" type="tts">faccina avida di denaro</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">faccina bugiarda</annotation>
 		<annotation cp="🫨">faccina | shock | terremoto | tremante | tremare</annotation>
 		<annotation cp="🫨" type="tts">faccina tremante</annotation>
+		<annotation cp="🙂‍↔">no, scuotere | scuotere la testa in senso orizzontale</annotation>
+		<annotation cp="🙂‍↔" type="tts">scuotere la testa in senso orizzontale</annotation>
+		<annotation cp="🙂‍↕">annuire, sì | scuotere la testa in senso verticale</annotation>
+		<annotation cp="🙂‍↕" type="tts">scuotere la testa in senso verticale</annotation>
 		<annotation cp="😌">faccina | faccina sollevata</annotation>
 		<annotation cp="😌" type="tts">faccina sollevata</annotation>
 		<annotation cp="😔">faccina | pensierosa | scoraggiata</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">persona</annotation>
 		<annotation cp="👱">biondo | persona bionda | persone</annotation>
 		<annotation cp="👱" type="tts">persona bionda</annotation>
-		<annotation cp="🧑‍🧒">famiglia: persona adulta, minore</annotation>
-		<annotation cp="🧑‍🧒" type="tts">famiglia: persona adulta, minore</annotation>
-		<annotation cp="🧑‍🧒‍🧒">famiglia: persona adulta, minore, minore</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">famiglia: persona adulta, minore, minore</annotation>
-		<annotation cp="🧑‍🧑‍🧒">famiglia: persona adulta, persona adulta, minore</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">famiglia: persona adulta, persona adulta, minore</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">famiglia: persona adulta, persona adulta, minore, minore</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">famiglia: persona adulta, persona adulta, minore, minore</annotation>
 		<annotation cp="👨">maschio | persone | uomo</annotation>
 		<annotation cp="👨" type="tts">uomo</annotation>
 		<annotation cp="🧔">barba | persona | persona con la barba</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">bacio tra coppia</annotation>
 		<annotation cp="💑">coppia con cuore | cuore | persone | romanticismo</annotation>
 		<annotation cp="💑" type="tts">coppia con cuore</annotation>
-		<annotation cp="👪">bambino | famiglia | mamma | papà | persone</annotation>
-		<annotation cp="👪" type="tts">famiglia</annotation>
 		<annotation cp="🗣">parlare | persona | persona che parla | profilo</annotation>
 		<annotation cp="🗣" type="tts">persona che parla</annotation>
 		<annotation cp="👤">persona | profilo | profilo di persona</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">profilo di due persone</annotation>
 		<annotation cp="🫂">abbraccio | addio | ciao | grazie | persone che si abbracciano</annotation>
 		<annotation cp="🫂" type="tts">persone che si abbracciano</annotation>
+		<annotation cp="👪">bambino | famiglia | mamma | papà | persone</annotation>
+		<annotation cp="👪" type="tts">famiglia</annotation>
+		<annotation cp="🧑‍🧑‍🧒">famiglia: persona adulta, persona adulta, minore</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">famiglia: persona adulta, persona adulta, minore</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">famiglia: persona adulta, persona adulta, minore, minore</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">famiglia: persona adulta, persona adulta, minore, minore</annotation>
+		<annotation cp="🧑‍🧒">famiglia: persona adulta, minore</annotation>
+		<annotation cp="🧑‍🧒" type="tts">famiglia: persona adulta, minore</annotation>
+		<annotation cp="🧑‍🧒‍🧒">famiglia: persona adulta, minore, minore</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">famiglia: persona adulta, minore, minore</annotation>
 		<annotation cp="👣">corpo | impronta | impronta di piedi | piede</annotation>
 		<annotation cp="👣" type="tts">impronta di piedi</annotation>
 		<annotation cp="🦰">capelli rossi | pel di carota | rosso</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">pulcino visto di fronte</annotation>
 		<annotation cp="🐦">animale | uccello</annotation>
 		<annotation cp="🐦" type="tts">uccello</annotation>
-		<annotation cp="🐦‍🔥">fantasia | fenice | reincarnazione | rinascita | uccello di fuoco</annotation>
-		<annotation cp="🐦‍🔥" type="tts">fenice</annotation>
 		<annotation cp="🐧">animale | pinguino</annotation>
 		<annotation cp="🐧" type="tts">pinguino</annotation>
 		<annotation cp="🕊">colomba | pace | Pasqua | uccello | ulivo</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">merlo</annotation>
 		<annotation cp="🪿">oca | pollame | starnazzare | stupidità | uccello</annotation>
 		<annotation cp="🪿" type="tts">oca</annotation>
+		<annotation cp="🐦‍🔥">fantasia | fenice | reincarnazione | rinascita | uccello di fuoco</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fenice</annotation>
 		<annotation cp="🐸">animale | faccina | muso di rana | rana</annotation>
 		<annotation cp="🐸" type="tts">rana</annotation>
 		<annotation cp="🐊">animale | coccodrillo</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nido con uova</annotation>
 		<annotation cp="🍄">autunno | bosco | fungo</annotation>
 		<annotation cp="🍄" type="tts">fungo</annotation>
-		<annotation cp="🍄‍🟫">cibo, fungo, natura, vegetale | fungo marrone</annotation>
-		<annotation cp="🍄‍🟫" type="tts">fungo marrone</annotation>
 		<annotation cp="🍇">frutta | grappolo d’uva | uva</annotation>
 		<annotation cp="🍇" type="tts">uva</annotation>
 		<annotation cp="🍈">frutta | melone</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">radice di zenzero</annotation>
 		<annotation cp="🫛">baccello | baccello di piselli | edamame | legume | pisello | vegetale</annotation>
 		<annotation cp="🫛" type="tts">baccello di piselli</annotation>
+		<annotation cp="🍄‍🟫">cibo, fungo, natura, vegetale | fungo marrone</annotation>
+		<annotation cp="🍄‍🟫" type="tts">fungo marrone</annotation>
 		<annotation cp="🍞">pancarré | pane in cassetta</annotation>
 		<annotation cp="🍞" type="tts">pane in cassetta</annotation>
 		<annotation cp="🥐">cibo | colazione | cornetto | croissant | francese</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">bastone per non vedenti</annotation>
 		<annotation cp="🔗">collegamento | due anelli | link | simbolo link</annotation>
 		<annotation cp="🔗" type="tts">collegamento</annotation>
-		<annotation cp="⛓">catene | imprigionare | incatenare</annotation>
-		<annotation cp="⛓" type="tts">catene</annotation>
 		<annotation cp="⛓‍💥">catena spezzata | catene | libertà | manette | rompere | spezzare</annotation>
 		<annotation cp="⛓‍💥" type="tts">catena spezzata</annotation>
+		<annotation cp="⛓">catene | imprigionare | incatenare</annotation>
+		<annotation cp="⛓" type="tts">catene</annotation>
 		<annotation cp="🪝">curva | fermaglio | gancio | intrappolare | punto vendita | uncino</annotation>
 		<annotation cp="🪝" type="tts">gancio</annotation>
 		<annotation cp="🧰">attrezzi | cassetta degli attrezzi | meccanico | strumenti</annotation>
@@ -3381,7 +3381,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪣" type="tts">secchio</annotation>
 		<annotation cp="🧼">bagno | sapone | saponetta | schiuma</annotation>
 		<annotation cp="🧼" type="tts">sapone</annotation>
-		<annotation cp="🫧">bollicine | pulito | rutto | sapone | schiuma | sott’acqua | subacqueo</annotation>
+		<annotation cp="🫧">bolle | bollicine | pulito | rutto | sapone | schiuma | sott’acqua | subacqueo</annotation>
 		<annotation cp="🫧" type="tts">bolle</annotation>
 		<annotation cp="🪥">bagno | dentale | denti | igiene | pulito | spazzolino | spazzolino da denti</annotation>
 		<annotation cp="🪥" type="tts">spazzolino da denti</annotation>

@@ -729,10 +729,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😂" type="tts">нулимсаа гартал инээж буй царай</annotation>
 		<annotation cp="🙂">бага зэрэг | бага зэрэг инээмсэглэсэн царай | инээмсэглэх | царай</annotation>
 		<annotation cp="🙂" type="tts">бага зэрэг инээмсэглэсэн царай</annotation>
-		<annotation cp="🙂‍↕">дохих, тийм | толгойгоо хоёр тийш дохих</annotation>
-		<annotation cp="🙂‍↕" type="tts">толгойгоо хоёр тийш дохих</annotation>
-		<annotation cp="🙂‍↔">толгойгоо дээш доош дохих | үгүй, дохих</annotation>
-		<annotation cp="🙂‍↔" type="tts">толгойгоо дээш доош дохих</annotation>
 		<annotation cp="🙃">доошоо харсан царай | уруу харсан царай</annotation>
 		<annotation cp="🙃" type="tts">доошоо харсан царай</annotation>
 		<annotation cp="🫠">сарних | уусах | хайлж буй царай | хайлмаг | шингэн</annotation>
@@ -815,6 +811,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤥" type="tts">худалч царай</annotation>
 		<annotation cp="🫨">газар хөдлөлт | царай | цочирдох | чичиргээ | чичирч буй царай | чичрэх</annotation>
 		<annotation cp="🫨" type="tts">чичирч буй царай</annotation>
+		<annotation cp="🙂‍↔">толгойгоо дээш доош дохих | үгүй, дохих</annotation>
+		<annotation cp="🙂‍↔" type="tts">толгойгоо дээш доош дохих</annotation>
+		<annotation cp="🙂‍↕">дохих, тийм | толгойгоо хоёр тийш дохих</annotation>
+		<annotation cp="🙂‍↕" type="tts">толгойгоо хоёр тийш дохих</annotation>
 		<annotation cp="😌">тайвширсан | царай</annotation>
 		<annotation cp="😌" type="tts">тайвширсан царай</annotation>
 		<annotation cp="😔">гомдсон | царай</annotation>
@@ -1181,14 +1181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">том хүн</annotation>
 		<annotation cp="👱">үс | хүн | шаргал | шаргал үстэй хүн</annotation>
 		<annotation cp="👱" type="tts">шаргал үстэй хүн</annotation>
-		<annotation cp="🧑‍🧒">гэр бүл: насанд хүрсэн хүн, хүүхэд</annotation>
-		<annotation cp="🧑‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, хүүхэд</annotation>
-		<annotation cp="🧑‍🧒‍🧒">гэр бүл: насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
-		<annotation cp="🧑‍🧒‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
-		<annotation cp="🧑‍🧑‍🧒">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд</annotation>
-		<annotation cp="🧑‍🧑‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
 		<annotation cp="👨">хүн | эрэгтэй</annotation>
 		<annotation cp="👨" type="tts">эрэгтэй хүн</annotation>
 		<annotation cp="🧔">сахал | сахалтай хүн</annotation>
@@ -1683,8 +1675,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">үнсэлт</annotation>
 		<annotation cp="💑">дундаа зүрхтэй хосууд | хайр | хос</annotation>
 		<annotation cp="💑" type="tts">дундаа зүрхтэй хосууд</annotation>
-		<annotation cp="👪">гэр бүл</annotation>
-		<annotation cp="👪" type="tts">гэр бүл</annotation>
 		<annotation cp="🗣">сүүдэр | толгой | ярих | ярьж буй толгой</annotation>
 		<annotation cp="🗣" type="tts">ярьж буй толгой</annotation>
 		<annotation cp="👤">сүүдэр дүрс | хүний сүүдэр дүрс | цээж</annotation>
@@ -1693,6 +1683,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👥" type="tts">2 сүүдэр</annotation>
 		<annotation cp="🫂">баяртай | сайн уу | талархал | тэврэлдэж буй хүмүүс | тэврэлт</annotation>
 		<annotation cp="🫂" type="tts">тэврэлдэж буй хүмүүс</annotation>
+		<annotation cp="👪">гэр бүл</annotation>
+		<annotation cp="👪" type="tts">гэр бүл</annotation>
+		<annotation cp="🧑‍🧑‍🧒">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
+		<annotation cp="🧑‍🧒">гэр бүл: насанд хүрсэн хүн, хүүхэд</annotation>
+		<annotation cp="🧑‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, хүүхэд</annotation>
+		<annotation cp="🧑‍🧒‍🧒">гэр бүл: насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">гэр бүл: насанд хүрсэн хүн, хүүхэд, хүүхэд</annotation>
 		<annotation cp="👣">мөр | улаан | хөл | хөлийн мөр</annotation>
 		<annotation cp="👣" type="tts">хөлийн мөр</annotation>
 		<annotation cp="🦰">улаан үс | улаан үстэй толгой | улаан шаргал</annotation>
@@ -1849,8 +1849,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐥" type="tts">дэгдээхэй урд талаасаа</annotation>
 		<annotation cp="🐦">шувуу</annotation>
 		<annotation cp="🐦" type="tts">шувуу</annotation>
-		<annotation cp="🐦‍🔥">галт шувуу | уран зөгнөл, галт шувуу, дахин төрөлт, хойд дүр</annotation>
-		<annotation cp="🐦‍🔥" type="tts">галт шувуу</annotation>
 		<annotation cp="🐧">оцон шувуу</annotation>
 		<annotation cp="🐧" type="tts">оцон шувуу</annotation>
 		<annotation cp="🕊">нисэх | тагтаа | шувуу | энх тайван</annotation>
@@ -1879,6 +1877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">хар шувуу</annotation>
 		<annotation cp="🪿">галуу | гуаглах | гэрийн тэжээвэр шувуу | тэнэгхэн | шувуу</annotation>
 		<annotation cp="🪿" type="tts">галуу</annotation>
+		<annotation cp="🐦‍🔥">галт шувуу | уран зөгнөл, галт шувуу, дахин төрөлт, хойд дүр</annotation>
+		<annotation cp="🐦‍🔥" type="tts">галт шувуу</annotation>
 		<annotation cp="🐸">мэлхий | мэлхийний царай</annotation>
 		<annotation cp="🐸" type="tts">мэлхий</annotation>
 		<annotation cp="🐊">матар</annotation>
@@ -2009,8 +2009,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">өндөгтэй үүр</annotation>
 		<annotation cp="🍄">мөөг | ургамал</annotation>
 		<annotation cp="🍄" type="tts">мөөг</annotation>
-		<annotation cp="🍄‍🟫">бор мөөг | хоол хүнс, мөөгөнцөр, байгаль, хүнсний ногоо</annotation>
-		<annotation cp="🍄‍🟫" type="tts">бор мөөг</annotation>
 		<annotation cp="🍇">жимс | усан үзэм</annotation>
 		<annotation cp="🍇" type="tts">усан үзэм</annotation>
 		<annotation cp="🍈">гуа | жимс</annotation>
@@ -2085,6 +2083,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">цагаан гааны үндэс</annotation>
 		<annotation cp="🫛">буурцаг | ногоо | шар буурцаг | шош</annotation>
 		<annotation cp="🫛" type="tts">буурцаг</annotation>
+		<annotation cp="🍄‍🟫">бор мөөг | хоол хүнс, мөөгөнцөр, байгаль, хүнсний ногоо</annotation>
+		<annotation cp="🍄‍🟫" type="tts">бор мөөг</annotation>
 		<annotation cp="🍞">талх | хүнс</annotation>
 		<annotation cp="🍞" type="tts">талх</annotation>
 		<annotation cp="🥐">ороомог | өглөөний цай | талх | франц | хүнс</annotation>
@@ -3301,10 +3301,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">хараагүй хүний таяг</annotation>
 		<annotation cp="🔗">гогцоо</annotation>
 		<annotation cp="🔗" type="tts">гогцоо</annotation>
-		<annotation cp="⛓">гинж | гинжин хэлхээ</annotation>
-		<annotation cp="⛓" type="tts">гинж</annotation>
 		<annotation cp="⛓‍💥">таслах, таслах, гинж, ханцуйвч, эрх чөлөө | эвдэрсэн гинж</annotation>
 		<annotation cp="⛓‍💥" type="tts">эвдэрсэн гинж</annotation>
+		<annotation cp="⛓">гинж | гинжин хэлхээ</annotation>
+		<annotation cp="⛓" type="tts">гинж</annotation>
 		<annotation cp="🪝">барих | борлуулах цэг | дэгээ | муруй | урхидах</annotation>
 		<annotation cp="🪝" type="tts">дэгээ</annotation>
 		<annotation cp="🧰">багаж | багажны хайрцаг | механик | чээж</annotation>

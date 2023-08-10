@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -10,16 +11,23 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.TempPrintWriter;
 
 public class GenerateLikelyTestData {
+    private static final String DUMMY_SCRIPT = "Egyp";
+    private static final String DUMMY_REGION = "AQ";
     static CLDRConfig config = CLDRConfig.getInstance();
     static Map<String, String> data = config.getSupplementalDataInfo().getLikelySubtags();
     static LikelySubtags likely = new LikelySubtags();
 
     public static void main(String[] args) {
+        String test0 = "und_Ethi_ER";
+        likely.maximize(test0);
+
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + "localeIdentifiers", "likelySubtags.txt")) {
@@ -32,16 +40,12 @@ public class GenerateLikelyTestData {
                             + "# Test data for https://www.unicode.org/reports/tr35/tr35.html#Likely_Subtags\n"
                             + "#\n"
                             + "# Format:\n");
-            showLine(
-                    pw,
-                    "# Source",
-                    "AddLikely",
-                    "RemoveFavorScript",
-                    "RemoveFavorRegion (if ≠ RFS)");
+            showLine(pw, "# Source", "AddLikely", "RemoveFavorScript", "RemoveFavorRegion");
             pw.println(
                     "#   Source: a locale to which the following operations are applied.\n"
                             + "#   AddLikely: the result of the Add Likely Subtags.\n"
                             + "#   RemoveFavorScript: Remove Likely Subtags, when the script is favored.\n"
+                            + "#                      Only included when different than AddLikely.\n"
                             + "#   RemoveFavorRegion: Remove Likely Subtags, when the region is favored.\n"
                             + "#                      Only included when different than RemoveFavorScript.\n"
                             + "#\n"
@@ -71,18 +75,23 @@ public class GenerateLikelyTestData {
     // test data
 
     public static Set<String> getTestCases(Map<String, String> data) {
+        CalculatedCoverageLevels coverage = CalculatedCoverageLevels.getInstance();
         TreeSet<String> testCases = new TreeSet<>();
         // for CLDR locales, add combinations
         // collect together the scripts&regions for each language. Will filter later
         Multimap<String, String> combinations = TreeMultimap.create();
         for (String localeString : config.getCldrFactory().getAvailable()) {
+            Level effective = coverage.getEffectiveCoverageLevel(localeString);
+            if (effective == null || effective.compareTo(Level.BASIC) < 0) {
+                continue;
+            }
             CLDRLocale locale = CLDRLocale.getInstance(localeString);
             String lang = locale.getLanguage();
             CLDRLocale max = CLDRLocale.getInstance(likely.maximize(localeString));
             combinations.put(lang, max.getScript());
             combinations.put(lang, max.getCountry());
-            combinations.put(lang, "AQ"); // check odd conditions
-            combinations.put(lang, "Egyp"); // check odd conditions
+            combinations.put(lang, DUMMY_REGION); // check odd conditions
+            combinations.put(lang, DUMMY_SCRIPT); // check odd conditions
             combinations.put(lang, ""); // check odd conditions
         }
         Set<String> undCombinations = new TreeSet<>();
@@ -93,15 +102,36 @@ public class GenerateLikelyTestData {
 
         LanguageTagParser ltp = new LanguageTagParser();
         for (Entry<String, Collection<String>> entry : combinations.asMap().entrySet()) {
+            final String lang = entry.getKey();
+            System.out.println(lang);
             Set<String> items = new TreeSet<>(entry.getValue());
+            Set<String> scripts = new LinkedHashSet<>();
+            Set<String> regions = new LinkedHashSet<>();
             for (String scriptOrRegion : items) {
-                ltp.set(entry.getKey()); // clears script, region
+                ltp.set(lang); // clears script, region
                 if (scriptOrRegion.length() == 4) {
                     ltp.setScript(scriptOrRegion);
+                    scripts.add(scriptOrRegion);
                 } else {
                     ltp.setRegion(scriptOrRegion);
+                    if (!scriptOrRegion.isBlank()) {
+                        regions.add(scriptOrRegion);
+                    }
                 }
                 testCases.add(CLDRLocale.getInstance(ltp.toString()).toLanguageTag());
+            }
+            scripts.remove(DUMMY_REGION);
+            scripts.remove(DUMMY_SCRIPT);
+
+            if (!lang.equals("und")) { // record script/region combinations
+                ltp.set("und");
+                for (String script : scripts) {
+                    ltp.setScript(script);
+                    for (String region : regions) {
+                        ltp.setRegion(region);
+                        testCases.add(CLDRLocale.getInstance(ltp.toString()).toLanguageTag());
+                    }
+                }
             }
         }
         return testCases;

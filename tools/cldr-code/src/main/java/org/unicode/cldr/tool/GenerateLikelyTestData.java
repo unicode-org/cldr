@@ -134,6 +134,7 @@ public class GenerateLikelyTestData {
                 }
             }
         }
+        testCases.remove("und"); // TC accepted change to remove this, so don't test for it.
         return testCases;
     }
 

@@ -73,6 +73,23 @@ public class TestCLDRFile {
                 () -> assertEquals(status, DraftStatus.forXpath("//ldml/someLeaf" + asXpath)),
                 () -> assertEquals(status, DraftStatus.forString(status.name())),
                 () -> assertEquals(status, DraftStatus.forString(status.name().toUpperCase())));
+
+        final String oldPath1 = "//ldml/someLeaf"; // no status
+        final String oldPath2 = "//ldml/someLeaf[@draft=\"unconfirmed\"]";
+        final String oldPath3 = "//ldml/someLeaf[@draft=\"provisional\"]";
+
+        final String newPath1 = status.updateXPath(oldPath1);
+        final String newPath2 = status.updateXPath(oldPath2);
+        final String newPath3 = status.updateXPath(oldPath3);
+
+        final String expected = oldPath1 + status.asXpath(); // will be == oldPath1 for approved
+
+        // all should be the same
+        assertAll(
+                "testing " + status + ".updateXpath()",
+                () -> assertEquals(expected, newPath1),
+                () -> assertEquals(expected, newPath2),
+                () -> assertEquals(expected, newPath3));
     }
 
     /**

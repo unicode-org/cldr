@@ -243,6 +243,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 return "[@draft=\"" + name() + "\"]";
             }
         }
+
+        /** update this XPath with this draft status */
+        public String updateXPath(final String fullXpath) {
+            final XPathParts xpp = XPathParts.getFrozenInstance(fullXpath).cloneAsThawed();
+            final String oldDraft = xpp.getAttributeValue(-1, "draft");
+            if (forString(oldDraft) == this) {
+                return fullXpath; // no change;
+            }
+            if (this == approved) {
+                xpp.removeAttribute(-1, "draft");
+            } else {
+                xpp.setAttribute(-1, "draft", this.name());
+            }
+            return xpp.toString();
+        }
     }
 
     @Override

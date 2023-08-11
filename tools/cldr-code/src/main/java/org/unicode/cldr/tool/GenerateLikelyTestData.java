@@ -25,7 +25,7 @@ public class GenerateLikelyTestData {
     static LikelySubtags likely = new LikelySubtags();
 
     public static void main(String[] args) {
-        String test0 = "und_Ethi_ER";
+        String test0 = "und-Adlm-BF";
         likely.maximize(test0);
 
         try (TempPrintWriter pw =

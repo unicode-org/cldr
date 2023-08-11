@@ -183,11 +183,11 @@ public class LikelySubtags {
         boolean noRegion = region.isEmpty();
 
         // not efficient, but simple to match spec.
-        for (String region2 : noRegion ? Arrays.asList(region) : Arrays.asList(region, "")) {
-            ltp.setRegion(region2);
-            for (String script2 : noScript ? Arrays.asList(script) : Arrays.asList(script, "")) {
-                ltp.setScript(script2);
+        for (String script2 : noScript ? Arrays.asList(script) : Arrays.asList(script, "")) {
+            ltp.setScript(script2);
 
+            for (String region2 : noRegion ? Arrays.asList(region) : Arrays.asList(region, "")) {
+                ltp.setRegion(region2);
                 result = toMaximized.get(ltp.toString());
                 if (result != null) {
                     ltp.set(result);

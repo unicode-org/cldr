@@ -1059,6 +1059,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
+			<hourFormat draft="contributed">↑↑↑</hourFormat>
+			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="contributed">↑↑↑</regionFormat>
+			<regionFormat type="daylight" draft="contributed">↑↑↑</regionFormat>
+			<regionFormat type="standard" draft="contributed">↑↑↑</regionFormat>
+			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Биллибэт</exemplarCity>
 			</zone>
@@ -1221,6 +1228,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Курусуун кэмэ</generic>
 					<standard>Курусуун сүрүн кэмэ</standard>
 					<daylight>Курусуун сайыҥҥы кэмэ</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="contributed">GMT</standard>
 				</long>
 			</metazone>
 			<metazone type="India">

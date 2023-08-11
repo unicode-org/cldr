@@ -3005,6 +3005,48 @@ public class CLDRModify {
                         replace(fullPath, fullParts.toString(), value, "Downgrade to provisional");
                     }
                 });
+
+        fixList.add(
+                'G',
+                "upGrade basic paths to contributed",
+                new CLDRFilter() {
+
+                    // boolean skipLocale = false;
+                    CoverageLevel2 coverageLeveler;
+                    final CLDRFile.DraftStatus TARGET_STATUS = DraftStatus.contributed;
+                    final Level TARGET_LEVEL = Level.BASIC;
+
+                    @Override
+                    public void handleStart() {
+                        super.handleSetup();
+                        String locale = getLocaleID();
+                        // skipLocale = false;
+                        final CLDRConfig config = CLDRConfig.getInstance();
+                        coverageLeveler =
+                                CoverageLevel2.getInstance(
+                                        config.getSupplementalDataInfo(), locale);
+                    }
+
+                    @Override
+                    public void handlePath(String xpath) {
+                        // if (skipLocale) { // fast path
+                        //     return;
+                        // }
+                        if (!TARGET_LEVEL.isAtLeast(coverageLeveler.getLevel(xpath))) {
+                            return; // skip
+                        }
+                        String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                        final CLDRFile.DraftStatus oldDraft =
+                                CLDRFile.DraftStatus.forXpath(fullPath);
+                        if (oldDraft.compareTo(TARGET_STATUS) > 0) {
+                            return; // already at contributed or better
+                        }
+                        // Now we need the value
+                        final String value = cldrFileToFilter.getStringValue(xpath);
+                        final String newPath = TARGET_STATUS.updateXPath(fullPath);
+                        replace(fullPath, newPath, value, "Upgrade to " + TARGET_STATUS.name());
+                    }
+                });
     }
 
     public static String getLast2Dirs(File sourceDir1) {

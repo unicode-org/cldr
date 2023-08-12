@@ -242,6 +242,7 @@ public class LikelySubtagsTest extends TestFmwk {
                     String testTag = ltp.toString();
                     // System.out.println(testTag);
                     if (!testTag.equals("und_Hmng") && !checkAdding(testTag)) {
+                        checkAdding(testTag); // for debugging
                         continue main;
                     }
                 }

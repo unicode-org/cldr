@@ -2975,6 +2975,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_AE" to="ar_Arab_AE"/>
 		<!--{ ?; ?; United Arab Emirates } => { Arabic; Arabic; United Arab Emirates }-->
 		<likelySubtag from="und_AF" to="fa_Arab_AF"/>
+		<likelySubtag from="und_Arab_AF" to="fa_Arab_AF"/>
 		<!--{ ?; ?; Afghanistan } => { Persian; Arabic; Afghanistan }-->
 		<likelySubtag from="und_AL" to="sq_Latn_AL"/>
 		<!--{ ?; ?; Albania } => { Albanian; Latin; Albania }-->
@@ -3005,6 +3006,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_BF" to="fr_Latn_BF"/>
 		<!--{ ?; ?; Burkina Faso } => { French; Latin; Burkina Faso }-->
 		<likelySubtag from="und_BG" to="bg_Cyrl_BG"/>
+		<likelySubtag from="und_Cyrl_BG" to="bg_Cyrl_BG"/>
 		<!--{ ?; ?; Bulgaria } => { Bulgarian; Cyrillic; Bulgaria }-->
 		<likelySubtag from="und_BH" to="ar_Arab_BH"/>
 		<!--{ ?; ?; Bahrain } => { Arabic; Arabic; Bahrain }-->
@@ -3023,10 +3025,12 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_BR" to="pt_Latn_BR"/>
 		<!--{ ?; ?; Brazil } => { Portuguese; Latin; Brazil }-->
 		<likelySubtag from="und_BT" to="dz_Tibt_BT"/>
+		<likelySubtag from="und_Tibt_BT" to="dz_Tibt_BT"/>
 		<!--{ ?; ?; Bhutan } => { Dzongkha; Tibetan; Bhutan }-->
 		<likelySubtag from="und_BV" to="und_Latn_BV"/>
 		<!--{ ?; ?; Bouvet Island } => { ?; Latin; Bouvet Island }-->
 		<likelySubtag from="und_BY" to="be_Cyrl_BY"/>
+		<likelySubtag from="und_Cyrl_BY" to="be_Cyrl_BY"/>
 		<!--{ ?; ?; Belarus } => { Belarusian; Cyrillic; Belarus }-->
 		<likelySubtag from="und_CD" to="sw_Latn_CD"/>
 		<!--{ ?; ?; Congo - Kinshasa } => { Swahili; Latin; Congo - Kinshasa }-->
@@ -3081,6 +3085,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_EH" to="ar_Arab_EH"/>
 		<!--{ ?; ?; Western Sahara } => { Arabic; Arabic; Western Sahara }-->
 		<likelySubtag from="und_ER" to="ti_Ethi_ER"/>
+		<likelySubtag from="und_Ethi_ER" to="ti_Ethi_ER"/>
 		<!--{ ?; ?; Eritrea } => { Tigrinya; Ethiopic; Eritrea }-->
 		<likelySubtag from="und_ES" to="es_Latn_ES"/>
 		<!--{ ?; ?; Spain } => { Spanish; Latin; Spain }-->
@@ -3143,6 +3148,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_IQ" to="ar_Arab_IQ"/>
 		<!--{ ?; ?; Iraq } => { Arabic; Arabic; Iraq }-->
 		<likelySubtag from="und_IR" to="fa_Arab_IR"/>
+		<likelySubtag from="und_Arab_IR" to="fa_Arab_IR"/>
 		<!--{ ?; ?; Iran } => { Persian; Arabic; Iran }-->
 		<likelySubtag from="und_IS" to="is_Latn_IS"/>
 		<!--{ ?; ?; Iceland } => { Icelandic; Latin; Iceland }-->
@@ -3155,6 +3161,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_KE" to="sw_Latn_KE"/>
 		<!--{ ?; ?; Kenya } => { Swahili; Latin; Kenya }-->
 		<likelySubtag from="und_KG" to="ky_Cyrl_KG"/>
+		<likelySubtag from="und_Cyrl_KG" to="ky_Cyrl_KG"/>
 		<!--{ ?; ?; Kyrgyzstan } => { Kyrgyz; Cyrillic; Kyrgyzstan }-->
 		<likelySubtag from="und_KH" to="km_Khmr_KH"/>
 		<!--{ ?; ?; Cambodia } => { Khmer; Khmer; Cambodia }-->
@@ -3199,12 +3206,14 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_MG" to="mg_Latn_MG"/>
 		<!--{ ?; ?; Madagascar } => { Malagasy; Latin; Madagascar }-->
 		<likelySubtag from="und_MK" to="mk_Cyrl_MK"/>
+		<likelySubtag from="und_Cyrl_MK" to="mk_Cyrl_MK"/>
 		<!--{ ?; ?; North Macedonia } => { Macedonian; Cyrillic; North Macedonia }-->
 		<likelySubtag from="und_ML" to="bm_Latn_ML"/>
 		<!--{ ?; ?; Mali } => { Bambara; Latin; Mali }-->
 		<likelySubtag from="und_MM" to="my_Mymr_MM"/>
 		<!--{ ?; ?; Myanmar (Burma) } => { Burmese; Myanmar; Myanmar (Burma) }-->
 		<likelySubtag from="und_MN" to="mn_Cyrl_MN"/>
+		<likelySubtag from="und_Cyrl_MN" to="mn_Cyrl_MN"/>
 		<!--{ ?; ?; Mongolia } => { Mongolian; Cyrillic; Mongolia }-->
 		<likelySubtag from="und_MO" to="zh_Hant_MO"/>
 		<!--{ ?; ?; Macao SAR China } => { Chinese; Traditional; Macao SAR China }-->
@@ -3237,6 +3246,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_NO" to="nb_Latn_NO"/>
 		<!--{ ?; ?; Norway } => { Norwegian Bokmål; Latin; Norway }-->
 		<likelySubtag from="und_NP" to="ne_Deva_NP"/>
+		<likelySubtag from="und_Deva_NP" to="ne_Deva_NP"/>
 		<!--{ ?; ?; Nepal } => { Nepali; Devanagari; Nepal }-->
 		<likelySubtag from="und_OM" to="ar_Arab_OM"/>
 		<!--{ ?; ?; Oman } => { Arabic; Arabic; Oman }-->
@@ -3275,6 +3285,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_RO" to="ro_Latn_RO"/>
 		<!--{ ?; ?; Romania } => { Romanian; Latin; Romania }-->
 		<likelySubtag from="und_RS" to="sr_Cyrl_RS"/>
+		<likelySubtag from="und_Cyrl_RS" to="sr_Cyrl_RS"/>
 		<!--{ ?; ?; Serbia } => { Serbian; Cyrillic; Serbia }-->
 		<likelySubtag from="und_RU" to="ru_Cyrl_RU"/>
 		<!--{ ?; ?; Russia } => { Russian; Cyrillic; Russia }-->
@@ -3317,6 +3328,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_TH" to="th_Thai_TH"/>
 		<!--{ ?; ?; Thailand } => { Thai; Thai; Thailand }-->
 		<likelySubtag from="und_TJ" to="tg_Cyrl_TJ"/>
+		<likelySubtag from="und_Cyrl_TJ" to="tg_Cyrl_TJ"/>
 		<!--{ ?; ?; Tajikistan } => { Tajik; Cyrillic; Tajikistan }-->
 		<likelySubtag from="und_TK" to="tkl_Latn_TK"/>
 		<!--{ ?; ?; Tokelau } => { Tokelau; Latin; Tokelau }-->
@@ -3337,6 +3349,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_TZ" to="sw_Latn_TZ"/>
 		<!--{ ?; ?; Tanzania } => { Swahili; Latin; Tanzania }-->
 		<likelySubtag from="und_UA" to="uk_Cyrl_UA"/>
+		<likelySubtag from="und_Cyrl_UA" to="und_Cyrl_UA"/>
 		<!--{ ?; ?; Ukraine } => { Ukrainian; Cyrillic; Ukraine }-->
 		<likelySubtag from="und_UG" to="sw_Latn_UG"/>
 		<!--{ ?; ?; Uganda } => { Swahili; Latin; Uganda }-->

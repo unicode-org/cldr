@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -49,6 +50,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -63,6 +65,16 @@ import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
 public class ShowLocaleCoverage {
+
+    private static final EnumSet<CoreItems> EXCLUDED_ITEMS =
+            EnumSet.of(
+                    CoreItems.likely_subtags,
+                    CoreItems.own_regions,
+                    CoreItems.time_cycle,
+                    CoreItems.country_data);
+    private static final Set<String> EXCLUDED_LOCALES = ImmutableSet.of("prg", "ie");
+    private static final Set<Pair<CoreItems, String>> excluded =
+            new HashSet<Pair<CoreItems, String>>();
 
     private static final String TSV_BASE =
             "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/43/tsv/";
@@ -660,17 +672,30 @@ public class ShowLocaleCoverage {
                         Set<CoreItems> coverage =
                                 CoreCoverageInfo.getCoreCoverageInfo(file, detailedErrors);
                         for (CoreItems item : coverage) {
-                            foundCounter.add(item.desiredLevel, 1);
+                            if (EXCLUDED_ITEMS.contains(item)
+                                    && EXCLUDED_LOCALES.contains(locale)) {
+                                excluded.add(Pair.of(item, locale));
+                                System.err.println("CLDR-16381: Skipping " + locale + " / " + item);
+                            } else {
+                                foundCounter.add(item.desiredLevel, 1);
+                            }
                         }
                         for (Entry<CoreItems, String> entry : detailedErrors.entries()) {
                             CoreItems coreItem = entry.getKey();
                             String path = entry.getValue();
-                            specialMissingPaths.add(coreItem);
-                            // if goal (eg modern) >= itemLevel, indicate it is missing
-                            if (coreItem.desiredLevel == Level.BASIC) {
-                                starredCounter.gatherStarred(path, null);
+                            if (EXCLUDED_ITEMS.contains(coreItem)
+                                    && EXCLUDED_LOCALES.contains(locale)) {
+                                excluded.add(Pair.of(coreItem, locale));
+                                System.err.println(
+                                        "CLDR-16381: Skipping " + locale + " / " + coreItem);
+                            } else {
+                                specialMissingPaths.add(coreItem);
+                                // if goal (eg modern) >= itemLevel, indicate it is missing
+                                if (coreItem.desiredLevel == Level.BASIC) {
+                                    starredCounter.gatherStarred(path, null);
+                                }
+                                missingCounter.add(coreItem.desiredLevel, 1);
                             }
-                            missingCounter.add(coreItem.desiredLevel, 1);
                         }
                     }
 

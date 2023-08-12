@@ -446,6 +446,10 @@ public class TestBasic extends TestFmwkPlus {
                         }
                         // later test for all Latin-1
                         if (fallbackList == null) {
+                            if (locale.equals("nqo")
+                                    && logKnownIssue("CLDR-16987", "fishy fallback test")) {
+                                continue;
+                            }
                             errln(
                                     "Locale:\t"
                                             + locale

@@ -166,6 +166,8 @@ public class GenerateMaximalLocales {
                 "hi_Latn_IN",
                 "no_Latn_NO",
                 "tok_Latn_001",
+                "prg_Latn_PL",
+                "ie_Latn_EE",
             };
 
     /**
@@ -194,8 +196,6 @@ public class GenerateMaximalLocales {
                         {"ff_Adlm", "ff_Adlm_GN"},
                         {"ia", "ia_Latn_001"},
                         {"ia_Latn", "ia_Latn_001"},
-                        {"ie", "ie_Latn_001"},
-                        {"ie_Latn", "ie_Latn_001"},
                         {"io", "io_Latn_001"},
                         {"io_Latn", "io_Latn_001"},
                         {"jbo", "jbo_Latn_001"},
@@ -214,8 +214,6 @@ public class GenerateMaximalLocales {
                         {"ms_Arab", "ms_Arab_MY"},
                         {"pap", "pap_Latn_CW"},
                         {"pap_Latn", "pap_Latn_CW"},
-                        {"prg", "prg_Latn_001"},
-                        {"prg_Latn", "prg_Latn_001"},
                         {
                             "rif", "rif_Latn_MA"
                         }, // https://unicode-org.atlassian.net/browse/CLDR-14962?focusedCommentId=165053

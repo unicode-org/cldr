@@ -152,9 +152,13 @@ public class LanguageTagCanonicalizer implements StringTransform {
             if (list.size() > 1 && tagField == LanguageTagField.region) {
                 LanguageTagParser x = new LanguageTagParser().set(languageTag).setRegion("");
                 String max = LIKELY_FAVOR_REGION.maximize(x.toString());
-                String region = x.set(max).getRegion();
-                if (list.contains(region)) {
-                    newField = region;
+                if (max == null) {
+                    int debug = 0;
+                } else {
+                    String region = x.set(max).getRegion();
+                    if (list.contains(region)) {
+                        newField = region;
+                    }
                 }
             }
         }

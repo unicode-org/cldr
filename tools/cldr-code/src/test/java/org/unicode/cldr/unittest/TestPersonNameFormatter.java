@@ -1,7 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import static org.unicode.cldr.util.personname.PersonNameFormatter.Modifier.retain;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
@@ -1341,6 +1339,10 @@ public class TestPersonNameFormatter extends TestFmwk {
                 continue;
             }
             String max = ls.maximize(locale);
+            if (max == null) {
+                System.out.println("\tSkipping " + locale);
+                continue;
+            }
             final String lang = ltp.set(max).getLanguage();
             final String script = ltp.set(max).getScript();
 

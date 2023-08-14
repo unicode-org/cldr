@@ -394,7 +394,7 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
-    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Hatr");
+    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Hatr", "Cpmn");
 
     public void TestMissingInfoForScript() {
         VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();

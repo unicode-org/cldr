@@ -15,7 +15,10 @@ import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.TempPrintWriter;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 
 public class GenerateLikelyTestData {
     private static final String DUMMY_SCRIPT = "Egyp";
@@ -23,6 +26,8 @@ public class GenerateLikelyTestData {
     static CLDRConfig config = CLDRConfig.getInstance();
     static Map<String, String> data = config.getSupplementalDataInfo().getLikelySubtags();
     static LikelySubtags likely = new LikelySubtags();
+    private static final Validity VALIDITY = Validity.getInstance();
+    static Set<String> okRegions = VALIDITY.getStatusToCodes(LstrType.region).get(Status.regular);
 
     public static void main(String[] args) {
         String test0 = "und_Latn_AD";
@@ -59,6 +64,9 @@ public class GenerateLikelyTestData {
                 final String test = CLDRLocale.getInstance(testRaw).toLanguageTag();
                 final String maximize = likely.maximize(test);
                 final String max = CLDRLocale.getInstance(maximize).toLanguageTag();
+                if (max.isEmpty()) {
+                    throw new IllegalArgumentException("Empty max: " + test);
+                }
                 if (test.equals(max)) {
                     continue;
                 }
@@ -75,8 +83,12 @@ public class GenerateLikelyTestData {
 
     // test data
 
+    private static Set<String> ALLOWED_WITH_MACROREGION =
+            Set.of("ar_001", "en_001", "en_150", "es_419"); // only intentional CLDR locales
+
     public static Set<String> getTestCases(Map<String, String> data) {
         CalculatedCoverageLevels coverage = CalculatedCoverageLevels.getInstance();
+        Set<String> skipping = new TreeSet<>();
         TreeSet<String> testCases = new TreeSet<>();
         // for CLDR locales, add combinations
         // collect together the scripts&regions for each language. Will filter later
@@ -92,6 +104,11 @@ public class GenerateLikelyTestData {
             CLDRLocale locale = CLDRLocale.getInstance(localeString);
             String lang = locale.getLanguage();
             CLDRLocale max = CLDRLocale.getInstance(likely.maximize(localeString));
+            if (!okRegions.contains(max.getCountry())
+                    && !ALLOWED_WITH_MACROREGION.contains(localeString)) {
+                skipping.add(localeString);
+                continue;
+            }
             combinations.put(lang, max.getScript());
             combinations.put(lang, max.getCountry());
             combinations.put(lang, DUMMY_REGION); // check odd conditions
@@ -137,7 +154,7 @@ public class GenerateLikelyTestData {
                 }
             }
         }
-        testCases.remove("und"); // TC accepted change to remove this, so don't test for it.
+        System.out.println("Skipping " + skipping);
         return testCases;
     }
 

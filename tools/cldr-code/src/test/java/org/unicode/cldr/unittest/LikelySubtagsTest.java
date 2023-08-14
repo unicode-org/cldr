@@ -689,7 +689,7 @@ public class LikelySubtagsTest extends TestFmwk {
                 continue; // toy script
             }
             final String country = cLocale.getCountry();
-            if (!country.isEmpty()) {
+            if (!country.isEmpty() && !country.equals("001")) {
                 regions.add(country);
             }
             if (!script.isEmpty()) {
@@ -702,7 +702,11 @@ public class LikelySubtagsTest extends TestFmwk {
             }
         }
         for (String script : scripts) {
-            if (!assertTrue("contains und_" + script, likely.containsKey("und_" + script))) {}
+            if (script.equals("Latn")) {
+                assertTrue("contains und_" + script, likely.containsKey("und"));
+            } else if (!assertTrue("contains und_" + script, likely.containsKey("und_" + script))) {
+
+            }
         }
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> possibleFixes = new TreeSet<>();
@@ -722,13 +726,16 @@ public class LikelySubtagsTest extends TestFmwk {
                         biggestLang = language;
                     }
                 }
-                ltp.set(biggestLang);
-                if (ltp.getScript().isEmpty()) {
-                    String biggestMax = likely.get(biggestLang);
-                    ltp.set(biggestMax);
+                if (biggestLang != null) {
+                    ltp.set(biggestLang);
+                    if (ltp.getScript().isEmpty()) {
+                        String biggestMax = likely.get(biggestLang);
+                        ltp.set(biggestMax);
+                    }
+                    ltp.setRegion(region);
+                    possibleFixes.add(
+                            "<likelySubtag from=\"" + undRegion + "\" to=\"" + ltp + "\"/>");
                 }
-                ltp.setRegion(region);
-                possibleFixes.add("<likelySubtag from=\"" + undRegion + "\" to=\"" + ltp + "\"/>");
             }
         }
         System.out.println("\t\t" + Joiner.on("\n\t\t").join(possibleFixes));

@@ -2908,10 +2908,12 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Zulu; ?; ? } => { Zulu; Latin; South Africa }-->
 		<likelySubtag from="zza" to="zza_Latn_TR"/>
 		<!--{ Zaza; ?; ? } => { Zaza; Latin; Türkiye }-->
-		
-		<likelySubtag from="und_Latn" to="en_Latn_US"/>
+		<likelySubtag from="und" to="en_Latn_US"/>
+		<!--{ ?; ?; ? } => { English; Latin; United States }-->
 		
 		<!-- Added und_* so that all regions were handled -->
+		
+		<likelySubtag from="und_001" to="en_Latn_001"/>
 		
 		<likelySubtag from="und_AC" to="en_Latn_AC"/>
 		<likelySubtag from="und_AG" to="en_Latn_AG"/>
@@ -3125,8 +3127,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_Latn_YT" to="fr_Latn_YT"/>
 		<likelySubtag from="und_Latn_ZW" to="sn_Latn_ZW"/>		
 		<likelySubtag from="und_Tibt_BT" to="dz_Tibt_BT"/>
-		
-		<likelySubtag from="und_001" to="en_Latn_US"/>
 		
 		<likelySubtag from="und_002" to="en_Latn_NG"/>
 		<!--{ ?; ?; Africa } => { English; Latin; Nigeria }-->

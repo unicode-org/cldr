@@ -25,7 +25,7 @@ public class GenerateLikelyTestData {
     static LikelySubtags likely = new LikelySubtags();
 
     public static void main(String[] args) {
-        String test0 = "und-Adlm-BF";
+        String test0 = "und_Latn_AD";
         likely.maximize(test0);
 
         try (TempPrintWriter pw =
@@ -57,7 +57,8 @@ public class GenerateLikelyTestData {
 
             for (String testRaw : testCases) {
                 final String test = CLDRLocale.getInstance(testRaw).toLanguageTag();
-                final String max = CLDRLocale.getInstance(likely.maximize(test)).toLanguageTag();
+                final String maximize = likely.maximize(test);
+                final String max = CLDRLocale.getInstance(maximize).toLanguageTag();
                 if (test.equals(max)) {
                     continue;
                 }
@@ -85,6 +86,9 @@ public class GenerateLikelyTestData {
             if (effective == null || effective.compareTo(Level.BASIC) < 0) {
                 continue;
             }
+            if (localeString.equals("root")) {
+                continue;
+            }
             CLDRLocale locale = CLDRLocale.getInstance(localeString);
             String lang = locale.getLanguage();
             CLDRLocale max = CLDRLocale.getInstance(likely.maximize(localeString));
@@ -103,7 +107,6 @@ public class GenerateLikelyTestData {
         LanguageTagParser ltp = new LanguageTagParser();
         for (Entry<String, Collection<String>> entry : combinations.asMap().entrySet()) {
             final String lang = entry.getKey();
-            System.out.println(lang);
             Set<String> items = new TreeSet<>(entry.getValue());
             Set<String> scripts = new LinkedHashSet<>();
             Set<String> regions = new LinkedHashSet<>();

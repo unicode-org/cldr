@@ -230,7 +230,6 @@ public class LikelySubtags {
                 return true;
             }
         }
-
         return false; // couldn't maximize
     }
 

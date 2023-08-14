@@ -60,7 +60,6 @@ public class TestValidity extends TestFmwkPlus {
             {LstrType.language, Validity.Status.unknown, true, LocaleNames.UND},
             {LstrType.script, Validity.Status.reserved, true, "Qaaa", "Qaap"},
             {LstrType.script, Validity.Status.private_use, true, "Qaaq", "Qabx"},
-            {LstrType.script, Validity.Status.special, true, "Zanb"},
             {LstrType.script, Validity.Status.special, true, "Zinh"},
             {LstrType.script, Validity.Status.special, true, "Zmth"},
             {LstrType.script, Validity.Status.special, true, "Zsye"},

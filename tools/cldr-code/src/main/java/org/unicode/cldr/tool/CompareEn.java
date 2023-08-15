@@ -12,10 +12,15 @@ import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 
+@CLDRTool(
+        alias = "compare-en",
+        description = "BRS: compare en_GB and en_001",
+        url = "https://cldr.unicode.org/development/brs-copy-en_gb-to-en_001")
 public class CompareEn {
 
     enum MyOptions {
@@ -157,13 +162,13 @@ public class CompareEn {
     }
 
     private static void writeComparison() throws IOException {
-        System.out.println("Writing to: " + CLDRPaths.GEN_DIRECTORY + "comparison/en.txt");
+        System.out.println("Writing to: " + CLDRPaths.GEN_DIRECTORY + "comparison/CompareEn.tsv");
         PathHeader.Factory phf = PathHeader.getFactory();
         Values values = new Values();
 
         try (PrintWriter out =
-                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "comparison", "en.txt")) {
-            out.println("From CompareEn.java");
+                FileUtilities.openUTF8Writer(
+                        CLDRPaths.GEN_DIRECTORY + "comparison", "CompareEn.tsv")) {
             out.println(
                     "Proposed Disposition\tSection\tPage\tHeader\tCode\ten\ten_001\ten_GB\tPath");
             for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {

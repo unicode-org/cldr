@@ -1,9 +1,17 @@
 package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class TestLevel {
     @ParameterizedTest(name = "{index}: min {0},{1}")
@@ -46,5 +54,50 @@ public class TestLevel {
                 expect,
                 actual,
                 () -> String.format("Expected Level.max(%s,%s) but was %s", aa, bb, actual));
+    }
+
+    static SupplementalDataInfo sdi = null;
+
+    @BeforeAll
+    public static void setUp() throws Exception {
+        sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+    }
+
+    /** walk through all currencies looking for modern ones */
+    static final Stream<Arguments> modernCurrencies() {
+        final Set<String> all = new TreeSet<String>();
+
+        sdi.getCurrencyTerritories()
+                .forEach(
+                        (t) -> {
+                            sdi.getCurrencyDateInfo(t).stream()
+                                    // TODO: should we use RECENT_HISTORY? CLDR-16316
+                                    .filter(
+                                            di ->
+                                                    (di.isLegalTender()
+                                                            && (DateConstants.NOW.compareTo(
+                                                                            di.getStart())
+                                                                    >= 0)
+                                                            && (DateConstants.NOW.compareTo(
+                                                                            di.getEnd())
+                                                                    <= 0)))
+                                    .map(di -> di.getCurrency())
+                                    .forEach(c -> all.add(c));
+                        });
+        return all.stream().map(c -> arguments(c));
+    }
+
+    @ParameterizedTest()
+    @MethodSource("modernCurrencies")
+    public void testModernCurrencies(final String code) {
+        Level l =
+                sdi.getCoverageLevel(
+                        String.format(
+                                "//ldml/numbers/currencies/currency[@type=\"%s\"]/symbol", code),
+                        "und");
+        final Level expect = Level.MODERN;
+        assertTrue(
+                expect.isAtLeast(l),
+                () -> String.format("cov for %s is %s expected ≤ %s", code, l, expect));
     }
 }

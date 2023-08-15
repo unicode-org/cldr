@@ -36,7 +36,7 @@ A source formatter is now used, please see [spotless](./tools/README.md#spotless
 
 Copyright © 2004-2023 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
 
-This project is released under [LICENSE](./LICENSE).
+The project is released under [LICENSE](./LICENSE).
 
 Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
 

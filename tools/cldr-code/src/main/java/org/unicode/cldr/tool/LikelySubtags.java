@@ -24,6 +24,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 public class LikelySubtags {
     static final boolean DEBUG = true;
     static final String TAG_SEPARATOR = "_";
+    private static final boolean SKIP_UND = true;
 
     private boolean favorRegion = false;
     private final Map<String, String> toMaximized;
@@ -149,6 +150,10 @@ public class LikelySubtags {
         Map<String, String> extensions = ltp.getExtensions();
         Map<String, String> localeExtensions = ltp.getLocaleExtensions();
 
+        String sourceLanguage = language;
+        String sourceScript = script;
+        String sourceRegion = region;
+
         if (language.equals("")) {
             ltp.setLanguage(language = "und");
         }
@@ -183,7 +188,7 @@ public class LikelySubtags {
         boolean noRegion = region.isEmpty();
 
         // not efficient, but simple to match spec.
-        while (true) {
+        for (int count = 0; ; ++count) { // breaks down below
             for (String script2 : noScript ? Arrays.asList(script) : Arrays.asList(script, "")) {
                 ltp.setScript(script2);
 
@@ -205,11 +210,22 @@ public class LikelySubtags {
                         ltp.setVariants(variants)
                                 .setExtensions(extensions)
                                 .setLocaleExtensions(localeExtensions);
+                        if (count == 1) {
+                            System.out.println(
+                                    "2nd pass, "
+                                            + new LanguageTagParser()
+                                                    .setLanguage(sourceLanguage)
+                                                    .setScript(sourceScript)
+                                                    .setRegion(sourceRegion)
+                                            + " ==> "
+                                            + ltp);
+                        }
                         return true;
                     }
                 }
             }
-            if (ltp.getLanguage().equals("und")) {
+
+            if (SKIP_UND || ltp.getLanguage().equals("und")) {
                 break;
             } else {
                 // Otherwise repeat the loop, trying for und matches

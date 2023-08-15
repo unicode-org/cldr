@@ -30,9 +30,6 @@ public class GenerateLikelyTestData {
     static Set<String> okRegions = VALIDITY.getStatusToCodes(LstrType.region).get(Status.regular);
 
     public static void main(String[] args) {
-        String test0 = "und_Latn_AD";
-        likely.maximize(test0);
-
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + "localeIdentifiers", "likelySubtags.txt")) {
@@ -49,6 +46,7 @@ public class GenerateLikelyTestData {
             pw.println(
                     "#   Source: a locale to which the following operations are applied.\n"
                             + "#   AddLikely: the result of the Add Likely Subtags.\n"
+                            + "#                      If Add Likely Subtags fails, then “FAIL”.\n"
                             + "#   RemoveFavorScript: Remove Likely Subtags, when the script is favored.\n"
                             + "#                      Only included when different than AddLikely.\n"
                             + "#   RemoveFavorRegion: Remove Likely Subtags, when the region is favored.\n"
@@ -63,6 +61,10 @@ public class GenerateLikelyTestData {
             for (String testRaw : testCases) {
                 final String test = CLDRLocale.getInstance(testRaw).toLanguageTag();
                 final String maximize = likely.maximize(test);
+                if (maximize == null) {
+                    showLine(pw, test, "FAIL", "FAIL", "FAIL");
+                    continue;
+                }
                 final String max = CLDRLocale.getInstance(maximize).toLanguageTag();
                 if (max.isEmpty()) {
                     throw new IllegalArgumentException("Empty max: " + test);
@@ -79,6 +81,11 @@ public class GenerateLikelyTestData {
                 showLine(pw, test, max, minScript, minRegion);
             }
         }
+    }
+
+    public static void check(String test0) {
+        String check = likely.maximize(test0);
+        System.out.println(test0 + " → " + check);
     }
 
     // test data
@@ -154,6 +161,11 @@ public class GenerateLikelyTestData {
                 }
             }
         }
+        testCases.add("qaa");
+        testCases.add("qaa_Cyrl");
+        testCases.add("qaa_CH");
+        testCases.add("qaa_Cyrl_CH");
+
         System.out.println("Skipping " + skipping);
         return testCases;
     }

@@ -11,6 +11,7 @@
 # Source ;	AddLikely ;	RemoveFavorScript ;	RemoveFavorRegion
 #   Source: a locale to which the following operations are applied.
 #   AddLikely: the result of the Add Likely Subtags.
+#                      If Add Likely Subtags fails, then “FAIL”.
 #   RemoveFavorScript: Remove Likely Subtags, when the script is favored.
 #                      Only included when different than AddLikely.
 #   RemoveFavorRegion: Remove Likely Subtags, when the region is favored.
@@ -731,6 +732,10 @@ pt-MZ ;	pt-Latn-MZ ;	pt-MZ ;
 pt-PT ;	pt-Latn-PT ;	pt-PT ;	
 pt-ST ;	pt-Latn-ST ;	pt-ST ;	
 pt-TL ;	pt-Latn-TL ;	pt-TL ;	
+qaa ;	FAIL ;	 ;	
+qaa-CH ;	FAIL ;	 ;	
+qaa-Cyrl ;	FAIL ;	 ;	
+qaa-Cyrl-CH ;	FAIL ;	 ;	
 qu ;	qu-Latn-PE ;	qu ;	
 qu-AQ ;	qu-Latn-AQ ;	qu-AQ ;	
 qu-BO ;	qu-Latn-BO ;	qu-BO ;	

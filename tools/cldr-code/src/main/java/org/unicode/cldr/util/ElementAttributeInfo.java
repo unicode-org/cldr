@@ -57,6 +57,7 @@ public class ElementAttributeInfo {
                 if (result == null) {
                     result = new HashMap<>();
                     // pick short files that are in repository
+                    // Add to this when a DTD is added
                     result.put(
                             DtdType.ldml,
                             new ElementAttributeInfo(
@@ -75,14 +76,14 @@ public class ElementAttributeInfo {
                             DtdType.keyboard,
                             new ElementAttributeInfo(
                                     canonicalCommonDirectory
-                                            + "/../keyboards/android/ar-t-k0-android.xml",
+                                            + "/../keyboards/3.0/fr-t-k0-azerty.xml",
                                     DtdType.keyboard));
                     result.put(
-                            DtdType.platform,
+                            DtdType.keyboardTest,
                             new ElementAttributeInfo(
                                     canonicalCommonDirectory
-                                            + "/../keyboards/android/_platform.xml",
-                                    DtdType.keyboard));
+                                            + "/../keyboards/test/fr-t-k0-azerty-test.xml",
+                                    DtdType.keyboardTest));
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -90,7 +91,14 @@ public class ElementAttributeInfo {
                 throw new ICUUncheckedIOException(e);
             }
         }
-        return result.get(dtdType);
+        final ElementAttributeInfo eai = result.get(dtdType);
+        if (eai == null) {
+            throw new NullPointerException(
+                    "ElementAttributeInfo.getInstance(…,"
+                            + dtdType.name()
+                            + ") returns null, please update this function");
+        }
+        return eai;
     }
 
     // static {

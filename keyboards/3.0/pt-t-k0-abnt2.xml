@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<keyboard locale="pt-t-k0-abnt2" conformsTo="techpreview">
+	<locales>
+		<locale id="pt" />
+	</locales>
+	<version number="0.0.0" />
+	<names>
+		<name value="Portuguese (Brazil) (ABNT2)" />
+	</names>
+
+	<displays>
+		<display to="\m{acute}"  display="´"/>
+		<display to="\m{grave}"  display="`"/>
+		<display to="\m{umlaut}" display="¨"/>
+		<display to="\m{caret}"  display="^"/>
+		<display to="\m{tilde}"  display="~"/>
+	</displays>
+
+	<keys>
+		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+
+		<!-- TODO: using the proposed deadkey format -->
+		<key id="d-acute"  to="\m{acute}"/>
+		<key id="d-grave"  to="\m{grave}"/>
+		<key id="d-umlaut" to="\m{umlaut}"/>
+		<key id="d-caret"  to="\m{caret}"/>
+		<key id="d-tilde"  to="\m{tilde}"/>
+
+		<key id="c-cedilla"         to="ç" />
+		<key id="C-cedilla"         to="Ç" />
+
+		<key id="super-1"           to="¹" />
+		<key id="super-2"           to="²" />
+		<key id="super-3"           to="³" />
+		<key id="ordinal-feminine"  to="ª" />
+		<key id="ordinal-masculine" to="º" />
+	</keys>
+	<layers form="abnt2">
+		<layer modifier="none">
+			<row keys="apos 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+			<row keys="q w e r t y u i o p d-acute open-square" />
+			<row keys="a s d f g h j k l c-cedilla d-tilde close-square" />
+			<row keys="backslash z x c v b n m comma period semi-colon slash" />
+			<row keys="space"/>
+		</layer>
+		<layer modifier="shift">
+			<row keys="double-quote bang at hash dollar percent d-umlaut amp asterisk open-paren close-paren underscore plus" />
+			<row keys="Q W E R T Y U I O P d-grave open-curly" />
+			<row keys="A S D F G H J K L C-cedilla d-tilde close-curly" />
+			<row keys="pipe Z X C V B N M open-angle close-angle colon question" />
+			<row keys="space"/>
+		</layer>
+		<layer modifier="altR">
+			<row keys="gap super-1 super-2 super-3 pound cent not gap gap gap gap gap section" />
+			<row keys="slash question degree gap gap gap gap gap gap gap gap ordinal-feminine" />
+			<row keys="gap gap gap gap gap gap gap gap gap gap gap ordinal-masculine" />
+			<row keys="gap gap gap cruzeiro gap gap gap gap gap gap gap degree" />
+			<row keys="space"/>
+		</layer>
+	</layers>
+
+	<!-- TODO: transform! -->
+</keyboard>

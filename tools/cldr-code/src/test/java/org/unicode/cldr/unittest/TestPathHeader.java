@@ -1269,7 +1269,10 @@ public class TestPathHeader extends TestFmwkPlus {
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
         // get all the directories containing non-Ldml dtd files
         for (DtdType dtdType : DtdType.values()) {
-            if (dtdType == DtdType.ldml || dtdType == DtdType.ldmlICU) {
+            if (dtdType == DtdType.ldml
+                    || dtdType == DtdType.ldmlICU
+                    || dtdType == DtdType.keyboard
+                    || dtdType == DtdType.keyboardTest) {
                 continue;
             }
             DtdData dtdData = DtdData.getInstance(dtdType);

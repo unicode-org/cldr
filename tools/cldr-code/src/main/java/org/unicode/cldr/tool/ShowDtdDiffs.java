@@ -31,7 +31,6 @@ public class ShowDtdDiffs {
     static {
         FIRST_VERSION.put(DtdType.ldmlBCP47, "1.7.2");
         FIRST_VERSION.put(DtdType.keyboard, "22.1");
-        FIRST_VERSION.put(DtdType.platform, "22.1");
     }
 
     public static void main(String[] args) {

@@ -23,7 +23,22 @@ public class FileReaders {
         return openFile(class1, file, StandardCharsets.UTF_8);
     }
 
+    /**
+     * @param file path of file relative to class1, or, absolute file if starts with `/`
+     * @return
+     */
     public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
+        if (charset == null) {
+            charset = StandardCharsets.UTF_8;
+        }
+        if (file.startsWith("/")) {
+            try {
+                return new BufferedReader(
+                        new InputStreamReader(new FileInputStream(file), charset), 1024 * 64);
+            } catch (FileNotFoundException e) {
+                throw new IllegalArgumentException("Could not open file " + file, e);
+            }
+        }
         // URL path = null;
         // String externalForm = null;
         try {
@@ -38,9 +53,6 @@ public class FileReaders {
             // final InputStream resourceAsStream = new FileInputStream(file1);
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
             // String foo = class1.getResource(".").toString();
-            if (charset == null) {
-                charset = StandardCharsets.UTF_8;
-            }
             InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return bufferedReader;

@@ -173,6 +173,12 @@ public class LikelySubtags {
             ltp.setExtensions(Collections.<String, String>emptyMap());
         }
 
+        if (!ltp.getLanguage().equals("und")
+                && !ltp.getScript().isEmpty()
+                && !ltp.getRegion().isEmpty()) {
+            return true;
+        }
+
         // check whole
         String result = toMaximized.get(ltp.toString());
         if (result != null) {

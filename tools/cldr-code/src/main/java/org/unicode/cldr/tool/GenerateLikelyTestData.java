@@ -59,6 +59,9 @@ public class GenerateLikelyTestData {
             Set<String> testCases = getTestCases(data);
 
             for (String testRaw : testCases) {
+                if (testRaw.startsWith("qaa")) {
+                    int debug = 0;
+                }
                 final String test = CLDRLocale.getInstance(testRaw).toLanguageTag();
                 final String maximize = likely.maximize(test);
                 if (maximize == null) {
@@ -68,9 +71,6 @@ public class GenerateLikelyTestData {
                 final String max = CLDRLocale.getInstance(maximize).toLanguageTag();
                 if (max.isEmpty()) {
                     throw new IllegalArgumentException("Empty max: " + test);
-                }
-                if (test.equals(max)) {
-                    continue;
                 }
                 final String minScript =
                         CLDRLocale.getInstance(likely.setFavorRegion(false).minimize(test))

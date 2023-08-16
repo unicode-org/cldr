@@ -28,6 +28,7 @@
 			<type name="charname" description="map each character to its Unicode name" since="29" alias="name"/>
 			<type name="npinyin" description="map pinyin written with tones to the numeric form" since="29" alias="numericPinyin"/>
 			<type name="null" description="make no change in the string" since="29"/>
+			<type name="prefer" description="map legacy strings to their preferred representation" since="41" alias="preferred"/>
 			<type name="remove" description="remove every character in the string" since="29"/>
 			<type name="zawgyi" description="map Unicode to Zawgyi Myanmar encoding" since="34"/>
 			<type name="morse" description="map Unicode to Morse Code encoding" since="41"/>

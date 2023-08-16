@@ -507,6 +507,8 @@ public class TestTransforms extends TestFmwkPlus {
             return "my-Zawgyi";
         } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
             return ("Latin-ASCII");
+	} else if (id.equalsIgnoreCase("und-t-d0-prefer")) {
+	    return "Any-Preferred";
         }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);

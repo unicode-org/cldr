@@ -48,6 +48,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.GrammarInfo;
@@ -1540,12 +1541,7 @@ public class PersonNameFormatter {
 
         public NamePattern getBestMatch(
                 NameObject nameObject, FormatParameters nameFormatParameters) {
-            if (nameFormatParameters.order == null) {
-                final Order mappedOrder = localeToOrder.get(nameObject.getNameLocale());
-                nameFormatParameters =
-                        nameFormatParameters.setOrder(
-                                mappedOrder == null ? Order.givenFirst : mappedOrder);
-            }
+            nameFormatParameters = deriveNameOrder(nameObject, nameFormatParameters);
 
             NamePattern result = null;
 
@@ -1578,6 +1574,53 @@ public class PersonNameFormatter {
             }
 
             return result;
+        }
+
+        /**
+         * Follow the algorithm in tr35-personNames.md under ### Derive the name order
+         *
+         * @param nameObject
+         * @param nameFormatParameters
+         * @return nameFormatParameters, modified as necessary
+         */
+        public FormatParameters deriveNameOrder(
+                NameObject nameObject, FormatParameters nameFormatParameters) {
+            if (nameFormatParameters.order != null) {
+                return nameFormatParameters;
+            } else {
+                // Use CLDRLocale for getParent because we may update the getParent relation before
+                // ICU has a chance to.
+                Order mappedOrder = null;
+                LanguageTagParser ltp = new LanguageTagParser();
+                CLDRLocale L1 = CLDRLocale.getInstance(nameObject.getNameLocale());
+
+                while (true) {
+                    CLDRLocale L2 =
+                            CLDRLocale.getInstance(
+                                    ltp.set(L1.toString())
+                                            // should be able to set an ltp from a CLDRLocale
+                                            .setLanguage("und")
+                                            .toString()); // should be able to create a CLDRLocale
+                    // from an ltp
+                    for (CLDRLocale L : Arrays.asList(L1, L2)) {
+                        // localeToOrder maps locales to orders, so is the equivalent of looking up
+                        // first in one
+                        // then in the other. Since the same string can't be in both, the order
+                        // actually doesn't matter.
+                        localeToOrder.get(new ULocale(L.toString()));
+                        if (mappedOrder != null) {
+                            break;
+                        }
+                    }
+
+                    L1 = L1.getParent();
+                    if (L1 == null) {
+                        mappedOrder = Order.givenFirst;
+                        break;
+                    }
+                }
+                return nameFormatParameters.setOrder(mappedOrder);
+            }
         }
 
         /**

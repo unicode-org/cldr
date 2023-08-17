@@ -438,10 +438,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public Iterable<CLDRLocale> getParentIterator() {
         final CLDRLocale newThis = this;
-        return new Iterable<CLDRLocale>() {
+        return new Iterable<>() {
             @Override
             public Iterator<CLDRLocale> iterator() {
-                return new Iterator<CLDRLocale>() {
+                return new Iterator<>() {
                     CLDRLocale what = newThis;
 
                     @Override
@@ -658,5 +658,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     public boolean isParentRoot() {
         return CLDRLocale.ROOT == getParent();
+    }
+
+    public int getRank() {
+        if (this == CLDRLocale.ROOT) {
+            return 0;
+        } else {
+            return 1 + getParent().getRank();
+        }
     }
 }

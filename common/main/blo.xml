@@ -3724,8 +3724,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="zero">↑↑↑</unitPattern>
-			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="zero">{0} {1}</unitPattern>
+			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{1} {0}</unitPattern>
 		</currencyFormats>
 		<currencies>

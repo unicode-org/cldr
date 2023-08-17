@@ -4738,8 +4738,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="unconfirmed">↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">

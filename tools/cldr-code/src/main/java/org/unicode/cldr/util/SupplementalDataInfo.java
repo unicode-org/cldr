@@ -1133,6 +1133,7 @@ public class SupplementalDataInfo {
         alias_zone = Collections.unmodifiableMap(alias_zone);
         references = Collections.unmodifiableMap(references);
         likelySubtags = Collections.unmodifiableMap(likelySubtags);
+        likelyOrigins = Collections.unmodifiableMap(likelyOrigins);
         currencyToCurrencyNumberInfo = Collections.unmodifiableMap(currencyToCurrencyNumberInfo);
         territoryToCurrencyDateInfo.freeze();
         // territoryToTelephoneCodeInfo.freeze();
@@ -1866,7 +1867,26 @@ public class SupplementalDataInfo {
         private void handleLikelySubtags(XPathParts parts) {
             String from = parts.getAttributeValue(-1, "from");
             String to = parts.getAttributeValue(-1, "to");
-            likelySubtags.put(from, to);
+            String origin = parts.getAttributeValue(-1, "origin");
+            String toOld = likelySubtags.get(from);
+            if (toOld != null) {
+                if (to.equals(toOld)) {
+                    System.err.println("Likely subtags repeats from=" + from + " to= " + to);
+                } else {
+                    throw new IllegalArgumentException(
+                            "Likely subtags duplicate from="
+                                    + from
+                                    + ", overrides values: "
+                                    + toOld
+                                    + " with "
+                                    + to);
+                }
+            } else {
+                likelySubtags.put(from, to);
+                if (origin != null) {
+                    likelyOrigins.put(from, origin);
+                }
+            }
         }
 
         /**
@@ -2311,6 +2331,7 @@ public class SupplementalDataInfo {
 
     private Map<String, Pair<String, String>> references = new TreeMap<>();
     private Map<String, String> likelySubtags = new TreeMap<>();
+    private Map<String, String> likelyOrigins = new TreeMap<>();
     // make public temporarily until we resolve.
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<>();
     private Map<String, String> parentLocales = new HashMap<>();
@@ -2365,7 +2386,11 @@ public class SupplementalDataInfo {
     }
 
     public Set<String> getLanguagesForTerritoryWithPopulationData(String territory) {
-        return territoryToLanguageToPopulationData.get(territory).keySet();
+        Map<String, PopulationData> languageToPopulationMap =
+                territoryToLanguageToPopulationData.get(territory);
+        return languageToPopulationMap == null
+                ? Collections.emptySet()
+                : languageToPopulationMap.keySet();
     }
 
     public Set<BasicLanguageData> getBasicLanguageData(String language) {
@@ -3325,6 +3350,10 @@ public class SupplementalDataInfo {
 
     public Map<String, String> getLikelySubtags() {
         return likelySubtags;
+    }
+
+    public Map<String, String> getLikelyOrigins() {
+        return likelyOrigins;
     }
 
     public enum PluralType {

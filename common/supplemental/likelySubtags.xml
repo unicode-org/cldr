@@ -2910,6 +2910,224 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Zaza; ?; ? } => { Zaza; Latin; Türkiye }-->
 		<likelySubtag from="und" to="en_Latn_US"/>
 		<!--{ ?; ?; ? } => { English; Latin; United States }-->
+		
+		<!-- Added und_* so that all regions were handled -->
+		
+		<likelySubtag from="und_001" to="en_Latn_001"/>
+		
+		<likelySubtag from="und_AC" to="en_Latn_AC"/>
+		<likelySubtag from="und_AG" to="en_Latn_AG"/>
+		<likelySubtag from="und_AI" to="en_Latn_AI"/>
+		<likelySubtag from="und_AU" to="en_Latn_AU"/>
+		<likelySubtag from="und_BB" to="en_Latn_BB"/>
+		<likelySubtag from="und_BM" to="en_Latn_BM"/>
+		<likelySubtag from="und_BS" to="en_Latn_BS"/>
+		<likelySubtag from="und_BW" to="en_Latn_BW"/>
+		<likelySubtag from="und_BZ" to="en_Latn_BZ"/>
+		<likelySubtag from="und_CA" to="en_Latn_CA"/>
+		<likelySubtag from="und_CC" to="ms_Arab_CC"/>
+		<likelySubtag from="und_CK" to="en_Latn_CK"/>
+		<likelySubtag from="und_CQ" to="en_Latn_CQ"/>
+		<likelySubtag from="und_CX" to="en_Latn_CX"/>
+		<likelySubtag from="und_DG" to="en_Latn_DG"/>
+		<likelySubtag from="und_DM" to="en_Latn_DM"/>
+		<likelySubtag from="und_FJ" to="en_Latn_FJ"/>
+		<likelySubtag from="und_FK" to="en_Latn_FK"/>
+		<likelySubtag from="und_FM" to="en_Latn_FM"/>
+		<likelySubtag from="und_GB" to="en_Latn_GB"/>
+		<likelySubtag from="und_GD" to="en_Latn_GD"/>
+		<likelySubtag from="und_GG" to="en_Latn_GG"/>
+		<likelySubtag from="und_GI" to="en_Latn_GI"/>
+		<likelySubtag from="und_GM" to="en_Latn_GM"/>
+		<likelySubtag from="und_GU" to="en_Latn_GU"/>
+		<likelySubtag from="und_GY" to="en_Latn_GY"/>
+		<likelySubtag from="und_IE" to="en_Latn_IE"/>
+		<likelySubtag from="und_IM" to="en_Latn_IM"/>
+		<likelySubtag from="und_IO" to="en_Latn_IO"/>
+		<likelySubtag from="und_JE" to="en_Latn_JE"/>
+		<likelySubtag from="und_JM" to="en_Latn_JM"/>
+		<likelySubtag from="und_KI" to="en_Latn_KI"/>
+		<likelySubtag from="und_KN" to="en_Latn_KN"/>
+		<likelySubtag from="und_KY" to="en_Latn_KY"/>
+		<likelySubtag from="und_LC" to="en_Latn_LC"/>
+		<likelySubtag from="und_LR" to="en_Latn_LR"/>
+		<likelySubtag from="und_MH" to="en_Latn_MH"/>
+		<likelySubtag from="und_MP" to="en_Latn_MP"/>
+		<likelySubtag from="und_MS" to="en_Latn_MS"/>
+		<likelySubtag from="und_MW" to="en_Latn_MW"/>
+		<likelySubtag from="und_NF" to="en_Latn_NF"/>
+		<likelySubtag from="und_NG" to="en_Latn_NG"/>
+		<likelySubtag from="und_NR" to="en_Latn_NR"/>
+		<likelySubtag from="und_NU" to="en_Latn_NU"/>
+		<likelySubtag from="und_NZ" to="en_Latn_NZ"/>
+		<likelySubtag from="und_PN" to="en_Latn_PN"/>
+		<likelySubtag from="und_SB" to="en_Latn_SB"/>
+		<likelySubtag from="und_SG" to="en_Latn_SG"/>
+		<likelySubtag from="und_SH" to="en_Latn_SH"/>
+		<likelySubtag from="und_SL" to="kri_Latn_SL"/>
+		<likelySubtag from="und_SS" to="ar_Arab_SS"/>
+		<likelySubtag from="und_SX" to="en_Latn_SX"/>
+		<likelySubtag from="und_SZ" to="en_Latn_SZ"/>
+		<likelySubtag from="und_TA" to="en_Latn_TA"/>
+		<likelySubtag from="und_TC" to="en_Latn_TC"/>
+		<likelySubtag from="und_TT" to="en_Latn_TT"/>
+		<likelySubtag from="und_UM" to="en_Latn_UM"/>
+		<likelySubtag from="und_US" to="en_Latn_US"/>
+		<likelySubtag from="und_VC" to="en_Latn_VC"/>
+		<likelySubtag from="und_VG" to="en_Latn_VG"/>
+		<likelySubtag from="und_VI" to="en_Latn_VI"/>
+		<likelySubtag from="und_ZA" to="en_Latn_ZA"/>
+		<likelySubtag from="und_ZM" to="bem_Latn_ZM"/>
+		
+		<!-- Add und_script_region where the fallback from und_script would fail -->
+		
+		<likelySubtag from="und_Arab_AF" to="fa_Arab_AF"/>
+		<likelySubtag from="und_Arab_IR" to="fa_Arab_IR"/>
+		<likelySubtag from="und_Cyrl_BG" to="bg_Cyrl_BG"/>
+		<likelySubtag from="und_Cyrl_BY" to="be_Cyrl_BY"/>
+		<likelySubtag from="und_Cyrl_KG" to="ky_Cyrl_KG"/>
+		<likelySubtag from="und_Cyrl_MK" to="mk_Cyrl_MK"/>
+		<likelySubtag from="und_Cyrl_MN" to="mn_Cyrl_MN"/>
+		<likelySubtag from="und_Cyrl_RS" to="sr_Cyrl_RS"/>
+		<likelySubtag from="und_Cyrl_TJ" to="tg_Cyrl_TJ"/>
+		<likelySubtag from="und_Cyrl_UA" to="uk_Cyrl_UA"/>
+		<likelySubtag from="und_Deva_NP" to="ne_Deva_NP"/>
+		<likelySubtag from="und_Ethi_ER" to="ti_Ethi_ER"/>
+		<likelySubtag from="und_Latn_ZM" to="bem_Latn_ZM"/>
+		<likelySubtag from="und_Latn_AD" to="ca_Latn_AD"/>
+		<likelySubtag from="und_Latn_AL" to="sq_Latn_AL"/>
+		<likelySubtag from="und_Latn_AO" to="pt_Latn_AO"/>
+		<likelySubtag from="und_Latn_AR" to="es_Latn_AR"/>
+		<likelySubtag from="und_Latn_AS" to="sm_Latn_AS"/>
+		<likelySubtag from="und_Latn_AT" to="de_Latn_AT"/>
+		<likelySubtag from="und_Latn_AW" to="nl_Latn_AW"/>
+		<likelySubtag from="und_Latn_AX" to="sv_Latn_AX"/>
+		<likelySubtag from="und_Latn_AZ" to="az_Latn_AZ"/>
+		<likelySubtag from="und_Latn_BA" to="bs_Latn_BA"/>
+		<likelySubtag from="und_Latn_BE" to="nl_Latn_BE"/>
+		<likelySubtag from="und_Latn_BF" to="fr_Latn_BF"/>
+		<likelySubtag from="und_Latn_BI" to="rn_Latn_BI"/>
+		<likelySubtag from="und_Latn_BJ" to="fr_Latn_BJ"/>
+		<likelySubtag from="und_Latn_BL" to="fr_Latn_BL"/>
+		<likelySubtag from="und_Latn_BN" to="ms_Latn_BN"/>
+		<likelySubtag from="und_Latn_BO" to="es_Latn_BO"/>
+		<likelySubtag from="und_Latn_BQ" to="pap_Latn_BQ"/>
+		<likelySubtag from="und_Latn_BR" to="pt_Latn_BR"/>
+		<likelySubtag from="und_Latn_CD" to="sw_Latn_CD"/>
+		<likelySubtag from="und_Latn_CF" to="fr_Latn_CF"/>
+		<likelySubtag from="und_Latn_CG" to="fr_Latn_CG"/>
+		<likelySubtag from="und_Latn_CH" to="de_Latn_CH"/>
+		<likelySubtag from="und_Latn_CI" to="fr_Latn_CI"/>
+		<likelySubtag from="und_Latn_CL" to="es_Latn_CL"/>
+		<likelySubtag from="und_Latn_CM" to="fr_Latn_CM"/>
+		<likelySubtag from="und_Latn_CO" to="es_Latn_CO"/>
+		<likelySubtag from="und_Latn_CR" to="es_Latn_CR"/>
+		<likelySubtag from="und_Latn_CU" to="es_Latn_CU"/>
+		<likelySubtag from="und_Latn_CV" to="pt_Latn_CV"/>
+		<likelySubtag from="und_Latn_CW" to="pap_Latn_CW"/>
+		<likelySubtag from="und_Latn_CZ" to="cs_Latn_CZ"/>
+		<likelySubtag from="und_Latn_DE" to="de_Latn_DE"/>
+		<likelySubtag from="und_Latn_DJ" to="aa_Latn_DJ"/>
+		<likelySubtag from="und_Latn_DK" to="da_Latn_DK"/>
+		<likelySubtag from="und_Latn_DO" to="es_Latn_DO"/>
+		<likelySubtag from="und_Latn_EA" to="es_Latn_EA"/>
+		<likelySubtag from="und_Latn_EC" to="es_Latn_EC"/>
+		<likelySubtag from="und_Latn_EE" to="et_Latn_EE"/>
+		<likelySubtag from="und_Latn_ES" to="es_Latn_ES"/>
+		<likelySubtag from="und_Latn_FI" to="fi_Latn_FI"/>
+		<likelySubtag from="und_Latn_FO" to="fo_Latn_FO"/>
+		<likelySubtag from="und_Latn_FR" to="fr_Latn_FR"/>
+		<likelySubtag from="und_Latn_GA" to="fr_Latn_GA"/>
+		<likelySubtag from="und_Latn_GF" to="fr_Latn_GF"/>
+		<likelySubtag from="und_Latn_GH" to="ak_Latn_GH"/>
+		<likelySubtag from="und_Latn_GL" to="kl_Latn_GL"/>
+		<likelySubtag from="und_Latn_GN" to="fr_Latn_GN"/>
+		<likelySubtag from="und_Latn_GP" to="fr_Latn_GP"/>
+		<likelySubtag from="und_Latn_GQ" to="es_Latn_GQ"/>
+		<likelySubtag from="und_Latn_GT" to="es_Latn_GT"/>
+		<likelySubtag from="und_Latn_GW" to="pt_Latn_GW"/>
+		<likelySubtag from="und_Latn_HN" to="es_Latn_HN"/>
+		<likelySubtag from="und_Latn_HR" to="hr_Latn_HR"/>
+		<likelySubtag from="und_Latn_HT" to="ht_Latn_HT"/>
+		<likelySubtag from="und_Latn_HU" to="hu_Latn_HU"/>
+		<likelySubtag from="und_Latn_IC" to="es_Latn_IC"/>
+		<likelySubtag from="und_Latn_ID" to="id_Latn_ID"/>
+		<likelySubtag from="und_Latn_IS" to="is_Latn_IS"/>
+		<likelySubtag from="und_Latn_IT" to="it_Latn_IT"/>
+		<likelySubtag from="und_Latn_KE" to="sw_Latn_KE"/>
+		<likelySubtag from="und_Latn_LI" to="de_Latn_LI"/>
+		<likelySubtag from="und_Latn_LS" to="st_Latn_LS"/>
+		<likelySubtag from="und_Latn_LT" to="lt_Latn_LT"/>
+		<likelySubtag from="und_Latn_LU" to="fr_Latn_LU"/>
+		<likelySubtag from="und_Latn_LV" to="lv_Latn_LV"/>
+		<likelySubtag from="und_Latn_MC" to="fr_Latn_MC"/>
+		<likelySubtag from="und_Latn_MD" to="ro_Latn_MD"/>
+		<likelySubtag from="und_Latn_ME" to="sr_Latn_ME"/>
+		<likelySubtag from="und_Latn_MF" to="fr_Latn_MF"/>
+		<likelySubtag from="und_Latn_MG" to="mg_Latn_MG"/>
+		<likelySubtag from="und_Latn_ML" to="bm_Latn_ML"/>
+		<likelySubtag from="und_Latn_MQ" to="fr_Latn_MQ"/>
+		<likelySubtag from="und_Latn_MT" to="mt_Latn_MT"/>
+		<likelySubtag from="und_Latn_MU" to="mfe_Latn_MU"/>
+		<likelySubtag from="und_Latn_MX" to="es_Latn_MX"/>
+		<likelySubtag from="und_Latn_MY" to="ms_Latn_MY"/>
+		<likelySubtag from="und_Latn_MZ" to="pt_Latn_MZ"/>
+		<likelySubtag from="und_Latn_NA" to="af_Latn_NA"/>
+		<likelySubtag from="und_Latn_NC" to="fr_Latn_NC"/>
+		<likelySubtag from="und_Latn_NE" to="ha_Latn_NE"/>
+		<likelySubtag from="und_Latn_NI" to="es_Latn_NI"/>
+		<likelySubtag from="und_Latn_NL" to="nl_Latn_NL"/>
+		<likelySubtag from="und_Latn_NO" to="nb_Latn_NO"/>
+		<likelySubtag from="und_Latn_PA" to="es_Latn_PA"/>
+		<likelySubtag from="und_Latn_PE" to="es_Latn_PE"/>
+		<likelySubtag from="und_Latn_PF" to="fr_Latn_PF"/>
+		<likelySubtag from="und_Latn_PG" to="tpi_Latn_PG"/>
+		<likelySubtag from="und_Latn_PH" to="fil_Latn_PH"/>
+		<likelySubtag from="und_Latn_PL" to="pl_Latn_PL"/>
+		<likelySubtag from="und_Latn_PM" to="fr_Latn_PM"/>
+		<likelySubtag from="und_Latn_PR" to="es_Latn_PR"/>
+		<likelySubtag from="und_Latn_PT" to="pt_Latn_PT"/>
+		<likelySubtag from="und_Latn_PW" to="pau_Latn_PW"/>
+		<likelySubtag from="und_Latn_PY" to="gn_Latn_PY"/>
+		<likelySubtag from="und_Latn_RE" to="fr_Latn_RE"/>
+		<likelySubtag from="und_Latn_RO" to="ro_Latn_RO"/>
+		<likelySubtag from="und_Latn_RW" to="rw_Latn_RW"/>
+		<likelySubtag from="und_Latn_SC" to="fr_Latn_SC"/>
+		<likelySubtag from="und_Latn_SE" to="sv_Latn_SE"/>
+		<likelySubtag from="und_Latn_SI" to="sl_Latn_SI"/>
+		<likelySubtag from="und_Latn_SJ" to="nb_Latn_SJ"/>
+		<likelySubtag from="und_Latn_SK" to="sk_Latn_SK"/>
+		<likelySubtag from="und_Latn_SL" to="kri_Latn_SL"/>
+		<likelySubtag from="und_Latn_SM" to="it_Latn_SM"/>
+		<likelySubtag from="und_Latn_SN" to="fr_Latn_SN"/>
+		<likelySubtag from="und_Latn_SO" to="so_Latn_SO"/>
+		<likelySubtag from="und_Latn_SR" to="nl_Latn_SR"/>
+		<likelySubtag from="und_Latn_ST" to="pt_Latn_ST"/>
+		<likelySubtag from="und_Latn_SV" to="es_Latn_SV"/>
+		<likelySubtag from="und_Latn_TD" to="fr_Latn_TD"/>
+		<likelySubtag from="und_Latn_TF" to="fr_Latn_TF"/>
+		<likelySubtag from="und_Latn_TG" to="fr_Latn_TG"/>
+		<likelySubtag from="und_Latn_TK" to="tkl_Latn_TK"/>
+		<likelySubtag from="und_Latn_TL" to="pt_Latn_TL"/>
+		<likelySubtag from="und_Latn_TM" to="tk_Latn_TM"/>
+		<likelySubtag from="und_Latn_TO" to="to_Latn_TO"/>
+		<likelySubtag from="und_Latn_TR" to="tr_Latn_TR"/>
+		<likelySubtag from="und_Latn_TV" to="tvl_Latn_TV"/>
+		<likelySubtag from="und_Latn_TZ" to="sw_Latn_TZ"/>
+		<likelySubtag from="und_Latn_UG" to="sw_Latn_UG"/>
+		<likelySubtag from="und_Latn_UY" to="es_Latn_UY"/>
+		<likelySubtag from="und_Latn_UZ" to="uz_Latn_UZ"/>
+		<likelySubtag from="und_Latn_VA" to="it_Latn_VA"/>
+		<likelySubtag from="und_Latn_VE" to="es_Latn_VE"/>
+		<likelySubtag from="und_Latn_VN" to="vi_Latn_VN"/>
+		<likelySubtag from="und_Latn_VU" to="bi_Latn_VU"/>
+		<likelySubtag from="und_Latn_WF" to="fr_Latn_WF"/>
+		<likelySubtag from="und_Latn_WS" to="sm_Latn_WS"/>
+		<likelySubtag from="und_Latn_XK" to="sq_Latn_XK"/>
+		<likelySubtag from="und_Latn_YT" to="fr_Latn_YT"/>
+		<likelySubtag from="und_Latn_ZW" to="sn_Latn_ZW"/>		
+		<likelySubtag from="und_Tibt_BT" to="dz_Tibt_BT"/>
+		
 		<likelySubtag from="und_002" to="en_Latn_NG"/>
 		<!--{ ?; ?; Africa } => { English; Latin; Nigeria }-->
 		<likelySubtag from="und_003" to="en_Latn_US"/>
@@ -2982,7 +3200,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Armenia } => { Armenian; Armenian; Armenia }-->
 		<likelySubtag from="und_AO" to="pt_Latn_AO"/>
 		<!--{ ?; ?; Angola } => { Portuguese; Latin; Angola }-->
-		<likelySubtag from="und_AQ" to="und_Latn_AQ"/>
+		<likelySubtag from="und_AQ" to="en_Latn_AQ"/>
 		<!--{ ?; ?; Antarctica } => { ?; Latin; Antarctica }-->
 		<likelySubtag from="und_AR" to="es_Latn_AR"/>
 		<!--{ ?; ?; Argentina } => { Spanish; Latin; Argentina }-->
@@ -3024,7 +3242,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Brazil } => { Portuguese; Latin; Brazil }-->
 		<likelySubtag from="und_BT" to="dz_Tibt_BT"/>
 		<!--{ ?; ?; Bhutan } => { Dzongkha; Tibetan; Bhutan }-->
-		<likelySubtag from="und_BV" to="und_Latn_BV"/>
+		<likelySubtag from="und_BV" to="en_Latn_BV"/>
 		<!--{ ?; ?; Bouvet Island } => { ?; Latin; Bouvet Island }-->
 		<likelySubtag from="und_BY" to="be_Cyrl_BY"/>
 		<!--{ ?; ?; Belarus } => { Belarusian; Cyrillic; Belarus }-->
@@ -3046,7 +3264,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; China } => { Chinese; Simplified; China }-->
 		<likelySubtag from="und_CO" to="es_Latn_CO"/>
 		<!--{ ?; ?; Colombia } => { Spanish; Latin; Colombia }-->
-		<likelySubtag from="und_CP" to="und_Latn_CP"/>
+		<likelySubtag from="und_CP" to="en_Latn_CP"/>
 		<!--{ ?; ?; Clipperton Island } => { ?; Latin; Clipperton Island }-->
 		<likelySubtag from="und_CR" to="es_Latn_CR"/>
 		<!--{ ?; ?; Costa Rica } => { Spanish; Latin; Costa Rica }-->
@@ -3114,7 +3332,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Equatorial Guinea } => { Spanish; Latin; Equatorial Guinea }-->
 		<likelySubtag from="und_GR" to="el_Grek_GR"/>
 		<!--{ ?; ?; Greece } => { Greek; Greek; Greece }-->
-		<likelySubtag from="und_GS" to="und_Latn_GS"/>
+		<likelySubtag from="und_GS" to="en_Latn_GS"/>
 		<!--{ ?; ?; South Georgia & South Sandwich Islands } => { ?; Latin; South Georgia & South Sandwich Islands }-->
 		<likelySubtag from="und_GT" to="es_Latn_GT"/>
 		<!--{ ?; ?; Guatemala } => { Spanish; Latin; Guatemala }-->
@@ -3122,7 +3340,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; ?; Guinea-Bissau } => { Portuguese; Latin; Guinea-Bissau }-->
 		<likelySubtag from="und_HK" to="zh_Hant_HK"/>
 		<!--{ ?; ?; Hong Kong SAR China } => { Chinese; Traditional; Hong Kong SAR China }-->
-		<likelySubtag from="und_HM" to="und_Latn_HM"/>
+		<likelySubtag from="und_HM" to="en_Latn_HM"/>
 		<!--{ ?; ?; Heard & McDonald Islands } => { ?; Latin; Heard & McDonald Islands }-->
 		<likelySubtag from="und_HN" to="es_Latn_HN"/>
 		<!--{ ?; ?; Honduras } => { Spanish; Latin; Honduras }-->
@@ -3446,10 +3664,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Chorasmian; ? } => { Chorasmian; Chorasmian; Uzbekistan }-->
 		<likelySubtag from="und_Copt" to="cop_Copt_EG"/>
 		<!--{ ?; Coptic; ? } => { Coptic; Coptic; Egypt }-->
-		<likelySubtag from="und_Cpmn" to="und_Cpmn_CY"/>
-		<!--{ ?; Cypro-Minoan; ? } => { ?; Cypro-Minoan; Cyprus } Manually re-added, revisit in CLDR-16424 -->
-		<likelySubtag from="und_Cpmn_CY" to="und_Cpmn_CY"/>
-		<!--{ ?; Cypro-Minoan; Cyprus } => { ?; Cypro-Minoan; Cyprus } Manually re-added, revisit in CLDR-16424 -->
 		<likelySubtag from="und_Cprt" to="grc_Cprt_CY"/>
 		<!--{ ?; Cypriot; ? } => { Ancient Greek; Cypriot; Cyprus }-->
 		<likelySubtag from="und_Cyrl" to="ru_Cyrl_RU"/>
@@ -3542,7 +3756,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Hiragana; ? } => { Japanese; Hiragana; Japan }-->
 		<likelySubtag from="und_Hluw" to="hlu_Hluw_TR"/>
 		<!--{ ?; Anatolian Hieroglyphs; ? } => { Hieroglyphic Luwian; Anatolian Hieroglyphs; Türkiye }-->
-		<likelySubtag from="und_Hmng" to="hnj_Hmng_LA"/>
+		<likelySubtag from="und_Hmng" to="hnj_Hmng_US"/>
 		<!--{ ?; Pahawh Hmong; ? } => { Hmong Njua; Pahawh Hmong; Laos }-->
 		<likelySubtag from="und_Hmnp" to="hnj_Hmnp_US"/>
 		<!--{ ?; Nyiakeng Puachue Hmong; ? } => { Hmong Njua; Nyiakeng Puachue Hmong; United States }-->

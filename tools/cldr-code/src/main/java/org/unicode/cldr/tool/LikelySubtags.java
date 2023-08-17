@@ -24,6 +24,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 public class LikelySubtags {
     static final boolean DEBUG = true;
     static final String TAG_SEPARATOR = "_";
+    private static final boolean SKIP_UND = true;
 
     private boolean favorRegion = false;
     private final Map<String, String> toMaximized;
@@ -149,6 +150,10 @@ public class LikelySubtags {
         Map<String, String> extensions = ltp.getExtensions();
         Map<String, String> localeExtensions = ltp.getLocaleExtensions();
 
+        String sourceLanguage = language;
+        String sourceScript = script;
+        String sourceRegion = region;
+
         if (language.equals("")) {
             ltp.setLanguage(language = "und");
         }
@@ -168,6 +173,12 @@ public class LikelySubtags {
             ltp.setExtensions(Collections.<String, String>emptyMap());
         }
 
+        if (!ltp.getLanguage().equals("und")
+                && !ltp.getScript().isEmpty()
+                && !ltp.getRegion().isEmpty()) {
+            return true;
+        }
+
         // check whole
         String result = toMaximized.get(ltp.toString());
         if (result != null) {
@@ -183,54 +194,50 @@ public class LikelySubtags {
         boolean noRegion = region.isEmpty();
 
         // not efficient, but simple to match spec.
-        for (String region2 : noRegion ? Arrays.asList(region) : Arrays.asList(region, "")) {
-            ltp.setRegion(region2);
+        for (int count = 0; ; ++count) { // breaks down below
             for (String script2 : noScript ? Arrays.asList(script) : Arrays.asList(script, "")) {
                 ltp.setScript(script2);
 
-                result = toMaximized.get(ltp.toString());
-                if (result != null) {
-                    ltp.set(result);
-                    if (!noLanguage) {
-                        ltp.setLanguage(language);
+                for (String region2 :
+                        noRegion ? Arrays.asList(region) : Arrays.asList(region, "")) {
+                    ltp.setRegion(region2);
+                    result = toMaximized.get(ltp.toString());
+                    if (result != null) {
+                        ltp.set(result);
+                        if (!noLanguage) {
+                            ltp.setLanguage(language);
+                        }
+                        if (!noScript) {
+                            ltp.setScript(script);
+                        }
+                        if (!noRegion) {
+                            ltp.setRegion(region);
+                        }
+                        ltp.setVariants(variants)
+                                .setExtensions(extensions)
+                                .setLocaleExtensions(localeExtensions);
+                        if (count == 1) {
+                            System.out.println(
+                                    "2nd pass, "
+                                            + new LanguageTagParser()
+                                                    .setLanguage(sourceLanguage)
+                                                    .setScript(sourceScript)
+                                                    .setRegion(sourceRegion)
+                                            + " ==> "
+                                            + ltp);
+                        }
+                        return true;
                     }
-                    if (!noScript) {
-                        ltp.setScript(script);
-                    }
-                    if (!noRegion) {
-                        ltp.setRegion(region);
-                    }
-                    ltp.setVariants(variants)
-                            .setExtensions(extensions)
-                            .setLocaleExtensions(localeExtensions);
-                    return true;
                 }
             }
-        }
 
-        // now check und_script
-        if (!noScript) {
-            ltp.setLanguage("und");
-            ltp.setScript(script);
-            result = toMaximized.get(ltp.toString());
-            if (result != null) {
-                ltp.set(result);
-                if (!noLanguage) {
-                    ltp.setLanguage(language);
-                }
-                if (!noScript) {
-                    ltp.setScript(script);
-                }
-                if (!noRegion) {
-                    ltp.setRegion(region);
-                }
-                ltp.setVariants(variants)
-                        .setExtensions(extensions)
-                        .setLocaleExtensions(localeExtensions);
-                return true;
+            if (SKIP_UND || ltp.getLanguage().equals("und")) {
+                break;
+            } else {
+                // Otherwise repeat the loop, trying for und matches
+                ltp.setLanguage("und");
             }
         }
-
         return false; // couldn't maximize
     }
 

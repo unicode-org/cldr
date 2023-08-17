@@ -961,6 +961,11 @@
 
 
 
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -3178,27 +3183,29 @@ Like other CLDR operations, these operations can also be used with language tags
 <li>If the tag is a legacy language tag (marked as “Type: grandfathered” in BCP 47; see <code>&lt;variable id="$grandfathered" type="choice"&gt;</code> in the supplemental data), then return it.</li>
 <li>Remove the script code 'Zzzz' and the region code 'ZZ' if they occur.</li>
 <li>Get the components of the cleaned-up source tag <em>(language<sub>s</sub>, script<sub>s</sub>,</em> and <em>region<sub>s</sub></em>), plus any variants and extensions.</li>
+<li>If the language is not 'und' and the other two components are not empty, return the language tag composed of <em>language<sub>s</sub>_script<sub>s</sub>_region<sub>s</sub></em> + variants + extensions.</li>
 </ol>
 </li>
 <li><strong>Lookup.</strong> Look up each of the following in order, and stop on the first match:<ol>
 <li><em>language<sub>s</sub>_script<sub>s</sub>_region<sub>s</sub></em></li>
-<li><em>language<sub>s</sub>_region<sub>s</sub></em></li>
 <li><em>language<sub>s</sub>_script<sub>s</sub></em></li>
+<li><em>language<sub>s</sub>_region<sub>s</sub></em></li>
 <li><em>language<sub>s</sub></em></li>
-<li>und_<em>script<sub>s</sub></em></li>
 </ol>
 </li>
 <li><strong>Return</strong><ol>
-<li>If there is no match, either return<ol>
-<li>an error value, or</li>
-<li>the match for "und" (in APIs where a valid language tag is required).</li>
-</ol>
-</li>
+<li>If there is no match, signal an error and stop.</li>
 <li>Otherwise there is a match = <em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em></li>
 <li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is neither empty nor a macroregion, and x<sub>m</sub> otherwise.</li>
 <li>Return the language tag composed of <em>language<sub>r</sub>_script<sub>r</sub>_region<sub>r</sub></em> + variants + extensions.</li>
 </ol>
 </li>
+</ol><p>Signalling an error can be done in various ways, depending on the most consistent approach for APIs in the module. For example:</p><ol>
+<li>raise an exception</li>
+<li>return an error value (such as null)</li>
+<li>return the input (with missing fields)</li>
+<li>return the input, but "Zzzz", and/or "ZZ" substituted for empty fields.</li>
+<li>"und"</li>
 </ol><p>The lookup can be optimized. For example, if any of the tags in Step 2 are the same as previous ones in that list, they do not need to be tested.</p><p><em>Example1:</em></p><ul>
 <li>Input is ZH-ZZZZ-SG.</li>
 <li>Normalize to zh_SG.</li>
@@ -3213,21 +3220,30 @@ For example, if und_AF ⇒ fa_Arab_AF, then:</p><ul>
 </ul><p>There are a few exceptions to this goal:</p><ul>
 <li>A 'denormalized' subtag changes to the normalized form, except for certain denormalized language subtags such as 'iw' (for 'he' = Hebrew) which may occur in both the 'from' and 'to' fields of the data.
 This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</li>
-<li>A macroregion (such as West Africa = 011) may change to a specific country (Nigeria = NG).</li>
-</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags:</strong> Given a locale, remove any fields that Add Likely Subtags would add.</em></p><p>The reverse operation removes fields that would be added by the first operation.</p><ol>
-<li>First get max = AddLikelySubtags(inputLocale). If an error is signaled, return it.</li>
-<li>Remove the variants from max.</li>
+<li>A macroregion (such as West Africa = 011) <em>may</em> change to a specific country (Nigeria = NG).</li>
+</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags:</strong> Given a locale, remove any fields that Add Likely Subtags would add.</em></p><p>The reverse operation removes fields that could be added by the first operation.</p><ol>
+<li>First get max = AddLikelySubtags(inputLocale). </li>
+<li>If an error is signaled in AddLikelySubtags, signal that same error and stop.</li>
+<li>Remove the variants and extensions from max.</li>
 <li>Get the components of the max (<em>languagemax</em>, <em>scriptmax</em>, <em>regionmax</em>).</li>
 <li>Then for <em>trial</em> in {<em>languagemax</em>, <em>languagemax_regionmax</em>, <em>languagemax_scriptmax</em>}<ul>
-<li>If AddLikelySubtags(<em>trial</em>) = max, then return <em>trial</em> + variants.</li>
+<li>If AddLikelySubtags(<em>trial</em>) = max, then return <em>trial</em> + variants + extensions.</li>
 </ul>
 </li>
-<li>If you do not get a match, return max + variants.</li>
+<li>If there is no match, return max + variants + extensions.</li>
 </ol><p>Example:</p><ul>
-<li>Input is zh_Hant. Maximize to get zh_Hant_TW.</li>
+<li>Input is zh_Hant or zh_TW. </li>
+<li>Maximize to get zh_Hant_TW.</li>
 <li>zh =&gt; zh_Hans_CN. No match, so continue.</li>
-<li>zh_TW =&gt; zh_Hant_TW. Matches, so return zh_TW.</li>
-</ul><p>A variant of this favors the script over the region, thus using {language, language_script, language_region} in the above. If that variant is used, then the result in this example would be zh_Hant instead of zh_TW.</p><h3 id="LanguageMatching"><a name="language-matching" href="#LanguageMatching">Language Matching</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">languageMatching</span> ( <span class="hljs-keyword">languageMatches</span>* ) &gt;</span>
+<li>zh_TW =&gt; zh_Hant_TW. Matches, so return <strong>zh_TW</strong>.</li>
+</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags, favoring script:</strong> Given a locale, remove any fields that Add Likely Subtags would add, but favor script over region.</em></p><p>A variant of this favors the script over the region, thus using {language, language_script, language_region} in the step #4 above. 
+This variant much less commonly used, only when the script relationship is more significant to users. 
+Here is the difference:</p><p>Example:</p><ul>
+<li>Input is zh_Hant or zh_TW. </li>
+<li>Maximize to get zh_Hant_TW.</li>
+<li>zh =&gt; zh_Hans_CN. No match, so continue.</li>
+<li>zh_Hant =&gt; zh_Hant_TW. Matches, so return <strong>zh_Hant</strong>.</li>
+</ul><h3 id="LanguageMatching"><a name="language-matching" href="#LanguageMatching">Language Matching</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">languageMatching</span> ( <span class="hljs-keyword">languageMatches</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">languageMatches</span> ( <span class="hljs-keyword">paradigmLocales</span>*, <span class="hljs-keyword">matchVariable</span>*, <span class="hljs-keyword">languageMatch</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">languageMatches</span> <span class="hljs-keyword">type</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 

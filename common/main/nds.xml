@@ -1410,8 +1410,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="hm" draft="contributed">'Kl'. h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="contributed">'Kl'. H.mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">'Klock' h.mm:ss a</dateFormatItem>
-						<dateFormatItem id="hmsv" draft="contributed">'Klock' h.mm:ss a v</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">'Klock' H.mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">'Klock' h.mm:ss a v</dateFormatItem>
 						<dateFormatItem id="Hmsv" draft="contributed">'Klock' H.mm:ss v</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d. M.</dateFormatItem>
@@ -1921,7 +1921,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="contributed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AUD">

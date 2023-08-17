@@ -809,7 +809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="10000000000" count="other">¤00میلیارد</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other">↑↑↑</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AFN">

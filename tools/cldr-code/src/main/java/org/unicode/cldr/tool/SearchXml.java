@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.Counter;
@@ -38,6 +39,7 @@ public class SearchXml {
 
     private static Matcher valueMatcher;
     private static Matcher levelMatcher;
+    private static Matcher iRankMatcher;
 
     private static boolean showFiles;
     private static boolean showValues = true;
@@ -50,6 +52,7 @@ public class SearchXml {
 
     private static boolean pathExclude = false;
     private static boolean levelExclude = false;
+    private static boolean iRankExclude = false;
     private static boolean valueExclude = false;
     private static boolean fileExclude = false;
     private static boolean unique = false;
@@ -105,7 +108,12 @@ public class SearchXml {
                     .add("Verbose", null, null, "verbose output")
                     .add("recursive", null, null, "recurse directories")
                     .add("Star", null, null, "get statistics on starred paths")
-                    .add("PathHeader", null, null, "show path header and string ID");
+                    .add("PathHeader", null, null, "show path header and string ID")
+                    .add(
+                            "iRank",
+                            ".*",
+                            null,
+                            "Filter by inheritance rank, where 0 = root, ow N = inherits directly from rank N-1");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -127,6 +135,9 @@ public class SearchXml {
 
         levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
         levelExclude = exclude.value;
+
+        iRankMatcher = getMatcher(myOptions.get("iRank").getValue(), exclude);
+        iRankExclude = exclude.value;
 
         valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
@@ -249,7 +260,19 @@ public class SearchXml {
 
             if (fileMatcher != null && fileExclude == fileMatcher.reset(coreName).find()) {
                 if (verbose) {
-                    System.out.println("#" + "* Skipping " + canonicalFile);
+                    System.out.println("#" + "* -f Skipping " + canonicalFile);
+                }
+                continue;
+            }
+            if (iRankMatcher != null
+                    && iRankExclude
+                            == iRankMatcher
+                                    .reset(
+                                            String.valueOf(
+                                                    CLDRLocale.getInstance(coreName).getRank()))
+                                    .find()) {
+                if (verbose) {
+                    System.out.println("#" + "* -i Skipping " + canonicalFile);
                 }
                 continue;
             }

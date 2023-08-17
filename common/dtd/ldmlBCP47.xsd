@@ -158,7 +158,6 @@
                   
             <xs:attribute name="since"/>
                 
-            <xs:attribute name="iana"/>
         </xs:complexType>
           
     </xs:element>
@@ -203,11 +202,15 @@
             <xs:attribute name="alias"/>
                   
             <xs:attribute name="since"/>
+                  
+            <xs:attribute name="iana"/>
                 
         </xs:complexType>
           
     </xs:element>
       
+  
+  
   
   
   

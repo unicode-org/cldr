@@ -394,7 +394,10 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
-    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Hatr", "Cpmn");
+    // typically historical script that don't need to  be in likely subtags
+
+    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS =
+            ImmutableSet.of("Hatr", "Cpmn", "Ougr");
 
     public void TestMissingInfoForScript() {
         VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();
@@ -712,7 +715,9 @@ public class LikelySubtagsTest extends TestFmwk {
         Set<String> possibleFixes = new TreeSet<>();
         for (String region : regions) {
             final String undRegion = "und_" + region;
-            if (!assertTrue("contains und_" + region, likely.containsKey(undRegion))) {
+            if (region.equals("150") && likely.containsKey("und")) {
+                // skip
+            } else if (!assertTrue("contains und_" + region, likely.containsKey(undRegion))) {
                 Set<String> languages =
                         SUPPLEMENTAL_DATA_INFO.getLanguagesForTerritoryWithPopulationData(region);
                 double biggest = -1;

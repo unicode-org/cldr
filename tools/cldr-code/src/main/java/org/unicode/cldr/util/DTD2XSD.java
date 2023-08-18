@@ -70,7 +70,10 @@ public class DTD2XSD {
                     d,
                     pw,
                     null,
-                    "<!-- Note: DTD @-annotations are not currently converted to .xsd. -->\n\n" /* copyright is passthrough from .dtd */);
+                    "<!--\n"
+                            + "Note: The .xsd files are a Technology Preview. They are subject to change or removal in future CLDR versions.\n"
+                            + "Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file validation, use the DTD and CLDR tools.\n"
+                            + "-->\n\n" /* copyright is passthrough from .dtd */);
         } catch (Throwable t) {
             throw new RuntimeException("Generating .xsd for " + type, t);
         }

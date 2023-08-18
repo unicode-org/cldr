@@ -502,6 +502,10 @@ Construct the **name locale** in the following way:
 1. If the PersonName object can provide a name locale, return a locale formed from it by replacing its script by the name script.
 2. Otherwise, return the locale formed from the name base language plus name script.
 
+Construct the **name ordering locale** in the following way:
+1. If the PersonName object can provide a name locale, return it.
+2. Otherwise, return the maximal likely locale for “und-” + name script.
+
 ### Derive the formatting locale
 
 Let the **full formatting locale** be the maximal likely locale for the formatter's locale. The **formatting base language** is the base language (first subtag) of the full formatting locale, and the **formatting script** is the script code of the full formatting locale.
@@ -530,11 +534,12 @@ A PersonName object’s fields are used to derive an order, as follows:
 1. If the calling API requests sorting order, that is used.
 2. Otherwise, if the PersonName object to be formatted has a `preferredOrder` field, then return that field’s value
 3. Otherwise, use the nameOrderLocales elements to find the best match for the name locale, as follows.
-    1. For each locale L1 in the parent locale lookup chain* for the name object’s locale, do the following
+    1. For each locale L1 in the parent locale lookup chain* for the **name ordering locale**, do the following
         1. Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')
         2. For each locale L in {L1, L2}, do the following
              1. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.
              2. Otherwise if there is a precise match among the surnameFirst nameOrderLocales for L, then let the nameOrder be surnameFirst, and stop.
+    2. Otherwise, let the nameOrder be givenFirst, and stop.
 
 \* For example, here is a parent locale lookup chain:
 

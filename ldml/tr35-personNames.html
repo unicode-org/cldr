@@ -328,6 +328,8 @@
 
 
 
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -851,6 +853,9 @@ This is a stable document and may be used as reference material or cited as a no
 </ol><p>Construct the <strong>name locale</strong> in the following way:</p><ol>
 <li>If the PersonName object can provide a name locale, return a locale formed from it by replacing its script by the name script.</li>
 <li>Otherwise, return the locale formed from the name base language plus name script.</li>
+</ol><p>Construct the <strong>name ordering locale</strong> in the following way:</p><ol>
+<li>If the PersonName object can provide a name locale, return it.</li>
+<li>Otherwise, return the maximal likely locale for “und-” + name script.</li>
 </ol><h3 id="derive-the-formatting-locale">Derive the formatting locale</h3><p>Let the <strong>full formatting locale</strong> be the maximal likely locale for the formatter's locale. The <strong>formatting base language</strong> is the base language (first subtag) of the full formatting locale, and the <strong>formatting script</strong> is the script code of the full formatting locale.</p><h4 id="switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</h4><p>A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to <em>match</em> when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.</p><p>If the <strong>name script</strong> doesn't match the <strong>formatting script</strong>:</p><ol>
 <li>If the name locale has name formatting data, then set the formatting locale to the name locale. </li>
 <li>Otherwise, set the formatting locale to the maximal likely locale for the the locale formed from und, plus the name script plus the region of the nameLocale.</li>
@@ -865,7 +870,7 @@ If at least one of them doesn’t inherit their value from root, then the locale
 <li>If the calling API requests sorting order, that is used.</li>
 <li>Otherwise, if the PersonName object to be formatted has a <code>preferredOrder</code> field, then return that field’s value</li>
 <li>Otherwise, use the nameOrderLocales elements to find the best match for the name locale, as follows.<ol>
-<li>For each locale L1 in the parent locale lookup chain* for the name object’s locale, do the following<ol>
+<li>For each locale L1 in the parent locale lookup chain* for the <strong>name ordering locale</strong>, do the following<ol>
 <li>Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')</li>
 <li>For each locale L in {L1, L2}, do the following<ol>
 <li>If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.</li>
@@ -874,6 +879,7 @@ If at least one of them doesn’t inherit their value from root, then the locale
 </li>
 </ol>
 </li>
+<li>Otherwise, let the nameOrder be givenFirst, and stop.</li>
 </ol>
 </li>
 </ol><p>* For example, here is a parent locale lookup chain:</p><pre><code>de_Latn_DE ⇒ de_Latn ⇒ de_DE ⇒ de ⇒ und

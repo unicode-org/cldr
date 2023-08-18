@@ -2067,7 +2067,7 @@ public class LDMLUtilities {
     }
 
     /**
-     * Debugging method for printing out the DOM Tree Prints the specified node, recursively.
+     * Method for printing out the DOM Tree. Prints the specified node, recursively.
      *
      * @param node
      * @param out
@@ -2077,10 +2077,7 @@ public class LDMLUtilities {
             throws IOException {
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
             out.print("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
             if (copyright != null) {
@@ -2089,16 +2086,11 @@ public class LDMLUtilities {
             if (docType != null) {
                 out.print(docType);
             }
-
-            // transformer.setParameter(entityName, entityRef );
-            // transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, XLIFF_PUBLIC_NAME);
             transformer.transform(new DOMSource(node), new StreamResult(out));
         } catch (TransformerException te) {
             throw new IOException(te.getMessage());
         }
-
-        // out.close();
-    } // printDOMTree(Node, PrintWriter)
+    }
 
     // Document readMergeCache(String sourceDir, String last, String loc)
     // {

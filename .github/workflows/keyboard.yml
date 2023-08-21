@@ -1,0 +1,41 @@
+name: kbd-check
+
+on:
+  push:
+    paths:
+      - 'keyboards/**'
+      - '.github/workflows/keyboard.yml'
+  pull_request:
+    paths:
+      - 'keyboards/**'
+      - '.github/workflows/keyboard.yml'
+
+jobs:
+  keyboard-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (manual ref)
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+          ref: ${{ github.event.inputs.git-ref }}
+        if: github.event.inputs.git-ref != ''
+      - name: Cache local npm repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nodekbd-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nodekbd-
+            nodekbd-
+      - name: Install kmc
+        run: npm install -g @keymanapp/kmc@alpha
+      - name: Compile Keyboards
+        run: kmc --error-reporting build keyboards/3.0/*.xml
+      - name: Run Kbd Charts
+        run: 'cd docs/charts/keyboard && npm ci && npm run build'

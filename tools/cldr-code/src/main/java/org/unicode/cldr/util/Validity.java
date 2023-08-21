@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -24,6 +25,7 @@ public class Validity {
         private_use, // for clients of cldr with prior agreements
         unknown,
         invalid; //  (anything else)
+        public static final Set<Status> ALL = ImmutableSet.copyOf(Status.values());
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();

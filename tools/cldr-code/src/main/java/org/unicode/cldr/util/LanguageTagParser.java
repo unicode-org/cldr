@@ -327,15 +327,7 @@ public class LanguageTagParser {
      * @return true iff the language tag validates
      */
     public boolean isValid() {
-        if (legacy)
-            return true; // don't need further checking, since we already did so when parsing
-        if (!validates(language, "language")) return false;
-        if (!validates(script, "script")) return false;
-        if (!validates(region, "territory")) return false;
-        for (Iterator<String> it = variants.iterator(); it.hasNext(); ) {
-            if (!validates(it.next(), "variant")) return false;
-        }
-        return true; // passed the gauntlet
+        return LocaleValidator.isValid(this, null, null);
     }
 
     public enum Status {
@@ -346,6 +338,10 @@ public class LanguageTagParser {
     }
 
     public Status getStatus(Set<String> errors) {
+        return getStatus(errors, Collections.emptySet());
+    }
+
+    public Status getStatus(Set<String> errors, Set<Validity.Status> allowed) {
         errors.clear();
         if (!isValid()) {
             return Status.WELL_FORMED;
@@ -395,15 +391,6 @@ public class LanguageTagParser {
             return Status.CANONICAL;
         }
         return Status.MINIMAL;
-    }
-
-    /**
-     * @param subtag
-     * @param type
-     * @return true if the subtag is empty, or if it is in the registry
-     */
-    private boolean validates(String subtag, String type) {
-        return subtag.length() == 0 || standardCodes.getAvailableCodes(type).contains(subtag);
     }
 
     /**

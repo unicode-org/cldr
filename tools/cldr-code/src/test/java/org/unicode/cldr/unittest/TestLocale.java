@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.Files;
@@ -29,6 +30,7 @@ import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
@@ -36,6 +38,9 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
+import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
+import org.unicode.cldr.util.LocaleValidator.AllowedValid;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -847,6 +852,151 @@ public class TestLocale extends TestFmwkPlus {
         } catch (Exception e) {
             errln("Name for " + locale + "; " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    public void testLanguageTagParserIsValid() {
+        String[][] tests = {
+            {"en_u_ca-buddhist", ""},
+            {"en_u_ca-islamicc", "Disallowed extension=ca=islamicc, status=deprecated"},
+            {
+                "en_t_foobar-QAAA",
+                "Disallowed language=foobar, status=invalid; Disallowed script=Qaaa, status=reserved"
+            },
+            {"en_u_ca-foo", "Disallowed extension=ca=foo, status=invalid"},
+            {"en_Latn_US", ""},
+            {"en_Latn_EZ", "Disallowed region=EZ, status=macroregion"},
+            {"fri", "Disallowed language=fri, status=invalid"},
+            {"iw", "Disallowed language=iw, status=deprecated"},
+            {"en_Qaaa", "Disallowed script=Qaaa, status=reserved"},
+            {"en_SU", "Disallowed region=SU, status=deprecated"},
+            {"en_fonipa", ""},
+            {
+                "en_fonipa3-fonipa4",
+                "Disallowed variant=fonipa3, status=invalid; Disallowed variant=fonipa4, status=invalid"
+            },
+            {"en_t_en", ""},
+            {"en_t_h0_boo_bar", "Disallowed extension=h0=boo-bar, status=invalid"},
+            {"en_x_foo2_foo3", "Disallowed extension=x, status=private_use"},
+            {
+                "fartoolong",
+                "Disallowed extension=x, status=private_use; Illegal language tag: fartoolong"
+            },
+        };
+
+        LanguageTagParser ltp = new LanguageTagParser();
+        Set<String> errors = new LinkedHashSet<>();
+        for (String[] test : tests) {
+            String localeId = test[0];
+            String expected = test[1];
+            try {
+                LocaleValidator.isValid(ltp.set(localeId), null, errors);
+            } catch (Exception e) {
+                errors.add(e.getMessage());
+            }
+            assertEquals(localeId, expected, Joiner.on("; ").join(errors));
+        }
+
+        // likely subtags
+
+        LocaleValidator.AllowedValid allow001 =
+                new LocaleValidator.AllowedValid(
+                        null,
+                        LstrType.region,
+                        new LocaleValidator.AllowedMatch("001|419"),
+                        LstrType.language,
+                        new LocaleValidator.AllowedMatch("und|in|iw|ji|jw|mo|tl"));
+
+        Map<String, String> exceptions =
+                Map.of(
+                        //                "und_QO", "Disallowed region=QO, status=macroregion"
+                        );
+
+        for (Entry<String, String> entry : SUPPLEMENTAL_DATA_INFO.getLikelySubtags().entrySet()) {
+            final String key = entry.getKey();
+            final String value = entry.getValue();
+
+            String expected = CldrUtility.ifNull(exceptions.get(key), "");
+            LocaleValidator.isValid(ltp.set(key), allow001, errors);
+            assertEquals(key, expected, Joiner.on("; ").join(errors));
+            if (!expected.isEmpty()) {
+                warnln("Likely subtags, skipping " + ltp + ", " + expected);
+            }
+
+            LocaleValidator.isValid(ltp.set(value), allow001, errors);
+            assertEquals(value, "", Joiner.on("; ").join(errors));
+        }
+
+        Set<String> exceptionSet = Set.of("und_AQ", "und_GS", "und_HM", "und_BV", "und_CP");
+
+        for (String language : SUPPLEMENTAL_DATA_INFO.getLanguagesForTerritoriesPopulationData()) {
+            ltp.set(language);
+            for (String territory :
+                    SUPPLEMENTAL_DATA_INFO.getTerritoriesForPopulationData(language)) {
+                LocaleValidator.isValid(ltp.setRegion(territory), null, errors);
+                String expected =
+                        exceptionSet.contains(ltp.toString())
+                                ? "Disallowed language=und, status=unknown"
+                                : "";
+                assertEquals(ltp.toString(), expected, Joiner.on("; ").join(errors));
+                if (!expected.isEmpty()) {
+                    warnln("Language population data, skipping " + ltp + ", " + expected);
+                }
+            }
+        }
+
+        AllowedValid bcp47 =
+                new AllowedValid(
+                        null,
+                        LstrType.extension,
+                        new AllowedMatch("ca", "islamicc"),
+                        LstrType.extension,
+                        new AllowedMatch("co", "direct"),
+                        LstrType.extension,
+                        new AllowedMatch("rg", "unknown"),
+                        LstrType.extension,
+                        new AllowedMatch(
+                                "tz",
+                                "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mxstis|uaozh|uauzh|umjon|usnavajo"));
+
+        for (Entry<String, String> entry :
+                SUPPLEMENTAL_DATA_INFO.getBcp47Extension2Keys().entrySet()) {
+            String extension = entry.getKey();
+            String key = entry.getValue();
+            for (String value : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().get(key)) {
+                String expected = "";
+                switch (value) {
+                    case "PRIVATE_USE": // x0, valueType="any"
+                        value = "foobar-snafu";
+                        expected = "Disallowed extension=x0=foobar-snafu, status=deprecated";
+                        break;
+                    case "SCRIPT_CODE": // dx, valueType="multiple"
+                        value = "latn-grek";
+                        break;
+                    case "REORDER_CODE": // kr, valueType="multiple"
+                        value = "latn-grek-symbol";
+                        break;
+                    case "RG_KEY_VALUE": // rg, single
+                        value = "dezzzz";
+                        break;
+                    case "SUBDIVISION_CODE": // sd, single
+                        value = "usca";
+                        break;
+                    case "CODEPOINTS": // vt, valueType="multiple"
+                        value = "00A0-300b";
+                        break;
+                }
+                final String composite = "en-" + extension + "-" + key + "-" + value;
+                try {
+                    ltp.set(composite); // clears other fields
+                    LocaleValidator.isValid(ltp, bcp47, errors);
+                    if (!assertEquals(composite, expected, Joiner.on("; ").join(errors))) {
+                        LocaleValidator.isValid(ltp, bcp47, errors);
+                    }
+                } catch (Exception e) {
+                    assertEquals(composite, "", e.getMessage());
+                }
+            }
         }
     }
 }

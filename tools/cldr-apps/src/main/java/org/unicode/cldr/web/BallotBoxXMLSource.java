@@ -67,10 +67,28 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
                 && (xpd == null || xpd.isEmpty())) {
             /*
              * Skip vote resolution
+             *
+             * Possible bug here: diskData.getValueAtDPath may return a specific value matching the inherited
+             * value, where resolver.getWinningValue would return INHERITANCE_MARKER.
+             *
+             * Example: <annotation cp="🧑‍🦯" type="tts">Person mit Langstock</annotation> in de_CH matching
+             * the same value in de.
+             *
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-16946
              */
             value = diskData.getValueAtDPath(path);
             fullPath = diskData.getFullPathAtDPath(path);
         } else {
+            /*
+             * Bug here: for vxml, resolver.getWinningValue produces unwanted ↑↑↑ in data for some paths without votes,
+             * where diskData.getValueAtDPath would return null.
+             *
+             * Example: <language type="csw">↑↑↑</language> in mt
+             *
+             * Example: <annotation cp="🖥">↑↑↑</annotation> in cv
+             *
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-16946
+             */
             resolver = ballotBox.getResolver(path, resolver);
             value = resolver.getWinningValue();
             fullPath = getFullPathWithResolver(path, resolver);

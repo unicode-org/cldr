@@ -2,6 +2,7 @@
   <ul>
     <template v-if="loggedIn">
       <li v-if="isAdmin"><a href="#admin///">Admin Panel</a></li>
+      <li v-if="isAdmin"><a href="#generate_vxml///">Generate VXML</a></li>
       <!-- My Account only has border-top (section-header) if Admin Panel is shown -->
       <li v-if="isAdmin" class="section-header">My Account</li>
       <li v-else>My Account</li>

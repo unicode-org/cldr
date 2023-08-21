@@ -4916,9 +4916,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="jpa" to="jpa_Hebr_PS" origin="sil1"/>	<!-- Jewish Palestinian Aramaic ➡︎ Jewish Palestinian Aramaic (Hebrew, Palestinian Territories) -->
 		<likelySubtag from="jpr" to="jpr_Hebr_IL" origin="sil1"/>	<!-- Judeo-Persian ➡︎ Judeo-Persian (Hebrew, Israel) -->
 		<likelySubtag from="jqr" to="jqr_Latn_PE" origin="sil1"/>	<!-- Jaqaru ➡︎ Jaqaru (Latin, Peru) -->
-		<!-- CLDR-16405 the following two conflict with the metadata aliases treating aju as the primary child of jrb -->
-		<!-- <likelySubtag from="jrb" to="jrb_Hebr_IL" origin="sil1"/> -->	<!-- Judeo-Arabic ➡︎ Judeo-Arabic (Hebrew, Israel) -->
-		<!-- <likelySubtag from="jrb_Arab_MA" to="jrb_Arab_MA" origin="sil1"/>-->	<!-- Judeo-Arabic (Arabic, Morocco) ➡︎ Judeo-Arabic (Arabic, Morocco) -->
 		<likelySubtag from="jrr" to="jrr_Latn_NG" origin="sil1"/>	<!-- Jiru ➡︎ Jiru (Latin, Nigeria) -->
 		<likelySubtag from="jrt" to="jrt_Latn_NG" origin="sil1"/>	<!-- Jakattoe ➡︎ Jakattoe (Latin, Nigeria) -->
 		<likelySubtag from="jru" to="jru_Latn_VE" origin="sil1"/>	<!-- Japrería ➡︎ Japrería (Latin, Venezuela) -->
@@ -9127,8 +9124,9 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="jib" to="jib_Latn_NG" origin="sil1"/>	<!-- Jibu ➡︎ Jibu (Latin, Nigeria) -->
 		<likelySubtag from="jra" to="jra_Latn_VN" origin="sil1"/>	<!-- Jarai ➡︎ Jarai (Latin, Vietnam) -->
 		<likelySubtag from="jra_Khmr" to="jra_Khmr_KH" origin="sil1"/>	<!-- Jarai (Khmer) ➡︎ Jarai (Khmer, Cambodia) -->
-		<likelySubtag from="jrb" to="jrb_Hebr_IL" origin="sil1"/>	<!-- Judeo-Arabic ➡︎ Judeo-Arabic (Hebrew, Israel) -->
-		<likelySubtag from="jrb_Arab_MA" to="jrb_Arab_MA" origin="sil1"/>	<!-- Judeo-Arabic (Arabic, Morocco) ➡︎ Judeo-Arabic (Arabic, Morocco) -->
+		<!-- CLDR-16405 the following two conflict with the metadata aliases treating aju as the primary child of jrb -->
+		<!-- <likelySubtag from="jrb" to="jrb_Hebr_IL" origin="sil1"/> -->	<!-- Judeo-Arabic ➡︎ Judeo-Arabic (Hebrew, Israel) -->
+		<!-- <likelySubtag from="jrb_Arab_MA" to="jrb_Arab_MA" origin="sil1"/>-->	<!-- Judeo-Arabic (Arabic, Morocco) ➡︎ Judeo-Arabic (Arabic, Morocco) -->
 		<likelySubtag from="kad" to="kad_Latn_NG" origin="sil1"/>	<!-- Adara ➡︎ Adara (Latin, Nigeria) -->
 		<likelySubtag from="kai" to="kai_Latn_NG" origin="sil1"/>	<!-- Karekare ➡︎ Karekare (Latin, Nigeria) -->
 		<likelySubtag from="kbm" to="kbm_Latn_PG" origin="sil1"/>	<!-- Iwal ➡︎ Iwal (Latin, Papua New Guinea) -->

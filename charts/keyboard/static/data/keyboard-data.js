@@ -132,6 +132,10 @@ const _KeyboardData =
        "@_gap": "true"
       },
       {
+       "@_id": "enter",
+       "@_gap": "true"
+      },
+      {
        "@_id": "u-grave",
        "@_to": "ü"
       },

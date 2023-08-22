@@ -5,8 +5,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -16,7 +14,6 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -35,7 +32,6 @@ import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -268,74 +264,6 @@ public class TestAnnotations extends TestFmwkPlus {
                                 + shortName
                                 + "\t"
                                 + keywords);
-        }
-    }
-
-    public void TestUniqueness() {
-        if (logKnownIssue(
-                "CLDR-16947", "skip duplicate TestUniqueness in favor of CheckDisplayCollisions")) {
-            return;
-        }
-        Set<String> locales = new TreeSet<>();
-        locales.add("en");
-        locales.addAll(Annotations.getAvailable());
-        locales.remove("root");
-        /*
-         * Note: "problems" here is a work-around for what appears to be a deficiency
-         * in the function sourceLocation, involving the call stack. Seemingly sourceLocation
-         * can't handle the "->" notation used for parallelStream().forEach() if
-         * uniquePerLocale calls errln directly.
-         */
-        Set<String> problems = new HashSet<>();
-        locales.parallelStream().forEach(locale -> uniquePerLocale(locale, problems));
-        if (!problems.isEmpty()) {
-            problems.forEach(s -> errln(s));
-        }
-    }
-
-    private void uniquePerLocale(String locale, Set<String> problems) {
-        logln("uniqueness: " + locale);
-        Multimap<String, String> nameToEmoji = TreeMultimap.create();
-        AnnotationSet data = Annotations.getDataSet(locale);
-        for (String emoji : Emoji.getAllRgi()) {
-            String name = data.getShortName(emoji);
-            if (name == null) {
-                continue;
-            }
-            if (name.contains(CldrUtility.INHERITANCE_MARKER)) {
-                throw new IllegalArgumentException(
-                        CldrUtility.INHERITANCE_MARKER + " in name of " + emoji + " in " + locale);
-            }
-            nameToEmoji.put(name, emoji);
-        }
-        Multimap<String, String> duplicateNameToEmoji = null;
-        for (Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
-            String name = entry.getKey();
-            Collection<String> emojis = entry.getValue();
-            if (emojis.size() > 1) {
-                synchronized (problems) {
-                    if (problems.add(
-                            "Duplicate name in "
-                                    + locale
-                                    + ": “"
-                                    + name
-                                    + "” for "
-                                    + Joiner.on(" & ").join(emojis))) {
-                        int debug = 0;
-                    }
-                }
-                if (duplicateNameToEmoji == null) {
-                    duplicateNameToEmoji = TreeMultimap.create();
-                }
-                duplicateNameToEmoji.putAll(name, emojis);
-            }
-        }
-        if (isVerbose() && duplicateNameToEmoji != null && !duplicateNameToEmoji.isEmpty()) {
-            System.out.println("\nCollisions");
-            for (Entry<String, String> entry : duplicateNameToEmoji.entries()) {
-                String emoji = entry.getValue();
-                System.out.println(locale + "\t" + eng.getShortName(emoji) + "\t" + emoji);
-            }
         }
     }
 

@@ -79,6 +79,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bfd">富特文</language>
 			<language type="bfq">巴达加文</language>
 			<language type="bg">保加利亚文</language>
+			<language type="bgc">哈里亚纳文</language>
 			<language type="bgn">西俾路支文</language>
 			<language type="bho">博杰普尔文</language>
 			<language type="bi">比斯拉马文</language>
@@ -1002,7 +1003,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">以色列</territory>
 			<territory type="IM">曼岛</territory>
 			<territory type="IN">印度</territory>
-			<territory type="IO" draft="provisional">英属印度洋领地</territory>
+			<territory type="IO">英属印度洋领地</territory>
+			<territory type="IO" alt="biot">↑↑↑</territory>
+			<territory type="IO" alt="chagos">查哥斯群岛</territory>
 			<territory type="IQ">伊拉克</territory>
 			<territory type="IR">伊朗</territory>
 			<territory type="IS">冰岛</territory>
@@ -1255,11 +1258,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">公历</type>
 			<type key="calendar" type="hebrew">希伯来历</type>
 			<type key="calendar" type="indian">印度国历</type>
-			<type key="calendar" type="islamic" draft="provisional">伊斯兰历</type>
-			<type key="calendar" type="islamic-civil" draft="provisional">伊斯兰民用历</type>
+			<type key="calendar" type="islamic">伊斯兰历</type>
+			<type key="calendar" type="islamic-civil">伊斯兰民用历</type>
 			<type key="calendar" type="islamic-rgsa" draft="provisional">伊斯兰新月历</type>
 			<type key="calendar" type="islamic-tbla" draft="provisional">伊斯兰天文历</type>
-			<type key="calendar" type="islamic-umalqura" draft="provisional">乌姆库拉历</type>
+			<type key="calendar" type="islamic-umalqura">乌姆库拉历</type>
 			<type key="calendar" type="iso8601">国际标准 ISO 8601</type>
 			<type key="calendar" type="japanese">日本历</type>
 			<type key="calendar" type="persian">波斯历</type>
@@ -8666,6 +8669,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p-24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="10p-27">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-30">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
@@ -8694,6 +8703,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p27">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p30">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
@@ -8988,8 +9003,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 卡路里</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="provisional">卡路里</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>卡路里</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>↑↑↑</displayName>
@@ -9064,16 +9079,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -9328,6 +9343,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9532,6 +9551,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p-24">
 				<unitPrefixPattern>么{0}</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="10p-27">
+				<unitPrefixPattern>ronto {0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-30">
+				<unitPrefixPattern>quecto {0}</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>十{0}</unitPrefixPattern>
 			</compoundUnit>
@@ -9561,6 +9586,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>尧{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p27">
+				<unitPrefixPattern>ronna {0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p30">
+				<unitPrefixPattern>quetta {0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
 				<unitPrefixPattern>二进制千{0}</unitPrefixPattern>
@@ -9854,8 +9885,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 卡</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="provisional">大卡</displayName>
-				<unitPattern count="other" draft="provisional">{0} 大卡</unitPattern>
+				<displayName>大卡</displayName>
+				<unitPattern count="other">{0} 大卡</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>千焦耳</displayName>
@@ -9930,16 +9961,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} 像素/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="provisional">每厘米点数</displayName>
-				<unitPattern count="other" draft="provisional">{0} 点/厘米</unitPattern>
+				<displayName>每厘米点数</displayName>
+				<unitPattern count="other">{0} 点/厘米</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="provisional">每吋点数</displayName>
-				<unitPattern count="other" draft="provisional">{0} 点/吋</unitPattern>
+				<displayName>每吋点数</displayName>
+				<unitPattern count="other">{0} 点/吋</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="provisional">圆点</displayName>
-				<unitPattern count="other" draft="provisional">{0} 个圆点</unitPattern>
+				<displayName>圆点</displayName>
+				<unitPattern count="other">{0} 个圆点</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>地球半径</displayName>
@@ -10194,6 +10225,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>节</displayName>
 				<unitPattern count="other">{0} 节</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName>蒲福氏风级</displayName>
+				<unitPattern count="other">蒲福氏风级 {0} 级</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10398,6 +10433,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="10p-24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
+			<compoundUnit type="10p-27">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-30">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
@@ -10426,6 +10467,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p27">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p30">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
@@ -10720,8 +10767,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>↑↑↑</displayName>
@@ -10796,16 +10843,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -11060,6 +11107,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -11311,6 +11362,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="compatibility">{0} — 相容性</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — 包围</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — 扩充</characterLabelPattern>
+		<characterLabelPattern type="facing-left">{0} 向左</characterLabelPattern>
+		<characterLabelPattern type="facing-right">{0} 向右</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} - 古代</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — 其他</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — 其他</characterLabelPattern>
@@ -11478,135 +11531,137 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
+		<parameterDefault parameter="formality">↑↑↑</parameterDefault>
+		<parameterDefault parameter="length">↑↑↑</parameterDefault>
 		<nativeSpaceReplacement xml:space="preserve"/>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {credentials} {given2}</namePattern>
+			<namePattern>{surname} {given} {credentials} {given2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {credentials} {given2-initial}</namePattern>
+			<namePattern>{surname} {given} {credentials} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram}</namePattern>
+			<namePattern>{surname-monogram}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram}</namePattern>
+			<namePattern>{given-informal-monogram}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2-initial}</namePattern>
+			<namePattern>{surname} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given}</namePattern>
+			<namePattern>{surname} {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname}{title}</namePattern>
+			<namePattern>{surname}{title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {credentials} {given2}</namePattern>
+			<namePattern>{surname} {given} {credentials} {given2}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {credentials} {given2-initial}</namePattern>
+			<namePattern>{surname} {given} {credentials} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2-initial}</namePattern>
+			<namePattern>{surname} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
 			<nameField type="given">大文</nameField>
@@ -11632,27 +11687,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="credentials">太平绅士</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
-			<nameField type="given" draft="provisional">凯晴</nameField>
+			<nameField type="given">凯晴</nameField>
 		</sampleName>
 		<sampleName item="foreignGS">
-			<nameField type="given" draft="provisional">永翘</nameField>
-			<nameField type="surname" draft="provisional">黄</nameField>
+			<nameField type="given">永翘</nameField>
+			<nameField type="surname">黄</nameField>
 		</sampleName>
 		<sampleName item="foreignGGS">
-			<nameField type="given" draft="provisional">永强</nameField>
-			<nameField type="given2" draft="provisional">德安</nameField>
-			<nameField type="surname" draft="provisional">吴</nameField>
+			<nameField type="given">永强</nameField>
+			<nameField type="given2">德安</nameField>
+			<nameField type="surname">吴</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">先生</nameField>
-			<nameField type="given" draft="provisional">大文</nameField>
-			<nameField type="given-informal" draft="provisional">小二</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
-			<nameField type="generation" draft="provisional">小</nameField>
-			<nameField type="credentials" draft="provisional">博士</nameField>
+			<nameField type="title">先生</nameField>
+			<nameField type="given">大文</nameField>
+			<nameField type="given-informal">小二</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">↑↑↑</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="generation">小</nameField>
+			<nameField type="credentials">博士</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

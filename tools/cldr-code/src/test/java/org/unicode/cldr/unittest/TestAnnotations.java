@@ -134,17 +134,17 @@ public class TestAnnotations extends TestFmwkPlus {
             {"👩‍👩‍👧", "family: woman, woman, girl", "family | woman | girl"},
             {"👦🏻", "boy: light skin tone", "boy | young | light skin tone"},
             {"👩🏿", "woman: dark skin tone", "adult | woman | dark skin tone"},
-            {"👨‍⚖", "man judge", "justice | man | judge | scales"},
+            {"👨‍⚖", "man judge", "judge | justice | law | man | scales"},
             {
                 "👨🏿‍⚖",
                 "man judge: dark skin tone",
-                "justice | man | judge | scales | dark skin tone"
+                "judge | justice | law | man | scales | dark skin tone"
             },
-            {"👩‍⚖", "woman judge", "judge | justice | scales | woman"},
+            {"👩‍⚖", "woman judge", "judge | justice | law | scales | woman"},
             {
                 "👩🏼‍⚖",
                 "woman judge: medium-light skin tone",
-                "judge | justice | scales | woman | medium-light skin tone"
+                "judge | justice | law | scales | woman | medium-light skin tone"
             },
             {"👮", "police officer", "cop | officer | police"},
             {"👮🏿", "police officer: dark skin tone", "cop | officer | police | dark skin tone"},

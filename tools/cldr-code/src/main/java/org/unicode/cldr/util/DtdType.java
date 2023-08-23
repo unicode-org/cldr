@@ -30,8 +30,8 @@ public enum DtdType {
             "validity"),
     ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null, "bcp47"),
     // keyboard 3.0
-    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "42.0", null, "../keyboards/3.0"),
-    keyboardTest("keyboards/dtd/ldmlKeyboardTest.dtd", "42.0", null, "../keyboards/test");
+    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "44.0", null, "../keyboards/3.0"),
+    keyboardTest("keyboards/dtd/ldmlKeyboardTest.dtd", "44.0", null, "../keyboards/test");
     public static final Set<DtdType> STANDARD_SET =
             ImmutableSet.of(ldmlBCP47, supplementalData, ldml, keyboard);
 

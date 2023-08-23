@@ -229,6 +229,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestPersonNameFormatter",
                     "org.unicode.cldr.unittest.TestCompactNumbers",
                     "org.unicode.cldr.unittest.TestPathLookup",
+                    "org.unicode.cldr.unittest.TestDataTest",
                     //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
                     "org.unicode.cldr.api.AllTests",
                 },

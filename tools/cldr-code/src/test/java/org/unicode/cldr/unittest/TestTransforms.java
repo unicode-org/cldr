@@ -46,6 +46,7 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -405,9 +406,8 @@ public class TestTransforms extends TestFmwkPlus {
             checkTransformID(entry.getKey(), entry.getValue());
         }
 
-        // Only run the rest in exhaustive mode since it requires CLDR_ARCHIVE_DIRECTORY.
-        if (getInclusion() <= 5) {
-            return;
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            return; // skipped
         }
 
         Set<String> removedTransforms = new HashSet<>();

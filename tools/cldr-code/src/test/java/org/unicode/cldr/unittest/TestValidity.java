@@ -644,7 +644,8 @@ public class TestValidity extends TestFmwkPlus {
                     LstrType.legacy,
                     LstrType.redundant,
                     LstrType.usage,
-                    LstrType.zone);
+                    LstrType.zone,
+                    LstrType.extension);
     final Set<LstrType> EXPECTED_UNSORTED = ImmutableSet.of(LstrType.unit);
 
     public void testOrder() {

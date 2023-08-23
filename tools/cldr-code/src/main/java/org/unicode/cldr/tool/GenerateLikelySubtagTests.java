@@ -21,6 +21,10 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
+        if (true) {
+            throw new IllegalArgumentException(
+                    "This tool should not be used in its current state.");
+        }
         out =
                 FileUtilities.openUTF8Writer(
                         CLDRPaths.GEN_DIRECTORY,
@@ -42,8 +46,7 @@ public class GenerateLikelySubtagTests {
                             + CldrUtility.LINE_SEPARATOR
                             + "  <likelySubtags>");
         }
-        SupplementalDataInfo supplementalData =
-                SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
         Map<String, String> likelySubtags = supplementalData.getLikelySubtags();
 
         if (OUTPUT_STYLE == OutputStyle.C) {

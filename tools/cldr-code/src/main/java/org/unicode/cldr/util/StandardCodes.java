@@ -962,6 +962,7 @@ public class StandardCodes {
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
         variant(),
+        extension(),
         extlang(true, false),
         legacy(true, false),
         redundant(true, false),

@@ -75,6 +75,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -1196,9 +1197,7 @@ public class TestBasic extends TestFmwkPlus {
 
     public void TestBasicDTDCompatibility() {
 
-        if (logKnownIssue(
-                "cldrbug:16393",
-                "Comment out until we detect whether to enable cldr-archive for unit tests")) {
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
             return;
         }
 
@@ -1390,9 +1389,7 @@ public class TestBasic extends TestFmwkPlus {
                     Collections.EMPTY_SET,
                     elementsWithoutSpecial);
 
-            if (logKnownIssue(
-                    "cldrbug:16393",
-                    "Comment out test until cldr-archive is signaled for unit tests on CI")) {
+            if (!TestCLDRPaths.canUseArchiveDirectory()) {
                 return;
             }
 

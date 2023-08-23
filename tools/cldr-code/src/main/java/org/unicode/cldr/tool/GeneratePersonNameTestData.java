@@ -9,7 +9,6 @@ import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Locale;
@@ -42,7 +41,8 @@ public class GeneratePersonNameTestData {
     static final Comparator<String> LENGTH_FIRST =
             Comparator.comparingInt(String::length)
                     .reversed()
-                    .thenComparing(Collator.getInstance(Locale.ROOT));
+                    .thenComparing(Collator.getInstance(Locale.ROOT))
+                    .thenComparing(Comparator.naturalOrder());
 
     enum Options {
         none,
@@ -52,12 +52,20 @@ public class GeneratePersonNameTestData {
     public static void main(String[] args) {
         File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
         Factory factory = CLDR_CONFIG.getCldrFactory();
-        Matcher localeMatcher = Pattern.compile(".").matcher("");
+
+        Matcher localeMatcher = null;
+        if (args.length >= 1) {
+            localeMatcher = Pattern.compile(args[0]).matcher("");
+        }
+
+        FormatParameters testParameters =
+                FormatParameters.from(
+                        "order=surnameFirst; length=long; usage=monogram; formality=informal");
 
         ULocale undLocale = new ULocale("und");
 
         for (String locale : factory.getAvailable()) {
-            if (!localeMatcher.reset(locale).lookingAt()) {
+            if (localeMatcher != null && !localeMatcher.reset(locale).lookingAt()) {
                 continue;
             }
 
@@ -66,20 +74,20 @@ public class GeneratePersonNameTestData {
                 CLDRFile unresolved = cldrFile.getUnresolved();
 
                 // Check that we have person data
-
-                String givenOrder =
-                        unresolved.getStringValue(
-                                "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
-                if (givenOrder == null) {
-                    continue; // skip unless we have person data
+                {
+                    String givenOrder =
+                            unresolved.getStringValue(
+                                    "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
+                    if (givenOrder == null) {
+                        continue; // skip unless we have person data
+                    }
+                    String surnameOrder =
+                            unresolved.getStringValue(
+                                    "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
+                    if (surnameOrder == null) {
+                        continue; // skip unless we have person data
+                    }
                 }
-                String surnameOrder =
-                        unresolved.getStringValue(
-                                "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
-                if (surnameOrder == null) {
-                    continue; // skip unless we have person data
-                }
-
                 Map<SampleType, SimpleNameObject> names;
                 PersonNameFormatter formatter;
                 try {
@@ -135,7 +143,7 @@ public class GeneratePersonNameTestData {
                 output.write("\n");
                 writeChoices("field", Field.ALL, output);
                 writeChoices("modifiers", Modifier.ALL, output);
-                writeChoices("options", Arrays.asList(Options.values()), output);
+                writeChoices("order", Order.ALL, output);
                 writeChoices("length", Length.ALL, output);
                 writeChoices("usage", Usage.ALL, output);
                 writeChoices("formality", Formality.ALL, output);
@@ -143,9 +151,15 @@ public class GeneratePersonNameTestData {
                 for (Entry<SampleType, SimpleNameObject> entry : names.entrySet()) {
                     // write the name information
                     SampleType sampleType = entry.getKey();
+                    if (!sampleType.isNative() && otherLocale == null) {
+                        continue;
+                    }
+                    final SimpleNameObject nameObject = entry.getValue();
+
                     output.write("\n");
+                    output.write("# " + sampleType + "\n");
                     for (Entry<ModifiedField, String> x :
-                            entry.getValue().getModifiedFieldToValue().entrySet()) {
+                            nameObject.getModifiedFieldToValue().entrySet()) {
                         output.write("name ; " + x.getKey() + "; " + x.getValue() + "\n");
                     }
 
@@ -156,8 +170,6 @@ public class GeneratePersonNameTestData {
                     if (sampleType.isNative()) {
                         output.write("name ; " + "locale" + "; " + myLocale + "\n");
                         nameOrder = myOrder;
-                    } else if (otherLocale == null) {
-                        continue;
                     } else {
                         output.write("name ; " + "locale" + "; " + otherLocale + "\n");
                         nameOrder = otherOrder;
@@ -165,48 +177,62 @@ public class GeneratePersonNameTestData {
 
                     // Group the formatted names, longest first
 
-                    Multimap<String, String> valueToSource =
+                    Multimap<String, FormatParameters> valueToSources =
                             TreeMultimap.create(LENGTH_FIRST, Comparator.naturalOrder());
                     for (FormatParameters parameters : FormatParameters.allCldr()) {
-                        Options options;
-                        Order order = parameters.getOrder();
 
-                        if (order == nameOrder) {
-                            options = Options.none;
-                        } else if (order == Order.sorting && nameOrder == myOrder) {
-                            options = Options.sorting;
-                        } else {
-                            continue; // skip otherwise
-                        }
+                        //                        boolean debugPoint = locale.startsWith("th") &&
+                        // parameters.equals(testParameters)
+                        //                            && sampleType == SampleType.nativeGS;
+                        //                        if (debugPoint) {
+                        //                            System.out.println(sampleType + "; " +
+                        // nameObject + "; " + testParameters);
+                        //                            int debug = 0;
+                        //                        }
 
-                        String formatted = formatter.format(entry.getValue(), parameters);
+                        String formatted =
+                                formatter
+                                        .format(nameObject, parameters)
+                                        .replace("ᵛ", ""); // remove special CLDR ST hack
+
                         if (formatted.isEmpty()) {
                             continue;
                         }
-                        valueToSource.put(
-                                formatted,
-                                options.name()
-                                        + "; "
-                                        + parameters.getLength()
-                                        + "; "
-                                        + parameters.getUsage()
-                                        + "; "
-                                        + parameters.getFormality());
+                        valueToSources.put(formatted, parameters);
                     }
                     // write out the result, and then all the parameters that give produce it.
-                    for (Entry<String, Collection<String>> entry2 :
-                            valueToSource.asMap().entrySet()) {
-                        output.write("\nexpectedResult; " + entry2.getKey() + "\n\n");
-                        entry2.getValue().forEach(x -> output.write("parameters; " + x + "\n"));
+                    for (Entry<String, Collection<FormatParameters>> entry2 :
+                            valueToSources.asMap().entrySet()) {
+                        final String expectedResult = entry2.getKey();
+                        output.write("\nexpectedResult; " + expectedResult + "\n\n");
+                        entry2.getValue()
+                                .forEach(
+                                        x -> {
+                                            output.write(
+                                                    "parameters; "
+                                                            + x.getOrder()
+                                                            + "; "
+                                                            + x.getLength()
+                                                            + "; "
+                                                            + x.getUsage()
+                                                            + "; "
+                                                            + x.getFormality()
+                                                            + "\n");
+                                        });
                     }
                     output.write("\nendName\n");
                 }
 
                 try (PrintWriter output2 = FileUtilities.openUTF8Writer(dir, locale + ".txt"); ) {
                     output2.write(
-                            "# CLDR person name formatting test data for: "
+                            "# Test data for unit conversions"
+                                    + "\n#  Copyright © 1991-2023 Unicode, Inc."
+                                    + "\n#  For terms of use, see http://www.unicode.org/copyright.html"
+                                    + "\n#  SPDX-License-Identifier: Unicode-DFS-2016"
+                                    + "\n#  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)"
+                                    + "\n#"
+                                    + "\n# CLDR person name formatting test data for: "
                                     + locale
-                                    + ""
                                     + "\n#"
                                     + "\n# Test lines have the following structure:"
                                     + "\n#"

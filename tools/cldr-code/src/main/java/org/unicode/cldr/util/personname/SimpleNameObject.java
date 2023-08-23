@@ -1,5 +1,6 @@
 package org.unicode.cldr.util.personname;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.ULocale;
@@ -160,9 +161,13 @@ public class SimpleNameObject implements NameObject {
      * Takes string in form locale=fr, given=John Bob, given2=Edwin ...
      */
     public static SimpleNameObject from(String namePattern) {
+        return from(',', namePattern);
+    }
+
+    public static SimpleNameObject from(char separator, String namePattern) {
         Map<ModifiedField, String> patternData = new LinkedHashMap<>();
         ULocale nameLocale = ULocale.ROOT;
-        for (String setting : PersonNameFormatter.SPLIT_COMMA.split(namePattern)) {
+        for (String setting : Splitter.on(separator).trimResults().split(namePattern)) {
             List<String> parts = PersonNameFormatter.SPLIT_EQUALS.splitToList(setting);
             if (parts.size() != 2) {
                 throw new IllegalArgumentException(

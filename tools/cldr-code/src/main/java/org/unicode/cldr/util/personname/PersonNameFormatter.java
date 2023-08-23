@@ -1373,6 +1373,9 @@ public class PersonNameFormatter {
             Usage usage = null;
             Formality formality = null;
             for (String part : SPLIT_SEMI.split(string)) {
+                if (part.isBlank()) {
+                    continue;
+                }
                 List<String> parts = SPLIT_EQUALS.splitToList(part);
                 if (parts.size() != 2) {
                     throw new IllegalArgumentException(
@@ -1393,6 +1396,9 @@ public class PersonNameFormatter {
                     case "formality":
                         formality = Formality.from(value);
                         break;
+                    default:
+                        throw new IllegalArgumentException(
+                                "Unknown key/value " + key + "=" + value + " in " + string);
                 }
             }
             return new FormatParameters(order, length, usage, formality);

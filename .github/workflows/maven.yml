@@ -19,9 +19,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .git
-          key: git-${{ github.base_ref }}-${{ github.head_ref }}
+          key: git-${{ github.base_ref }}-${{ github.sha }}
           restore-keys: |
-            git-${{ github.base_ref }}-${{ github.head_ref }}
+            git-${{ github.base_ref }}-${{ github.sha }}
             git-${{ github.base_ref }}
             git-
       - name: Checkout CLDR

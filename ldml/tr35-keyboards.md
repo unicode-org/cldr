@@ -710,10 +710,10 @@ _Attribute:_ `gap="true"` (optional)
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPress="a b c"` (optional) (discouraged, see [Accessibility])
+_Attribute:_ `longPress="a b c"` (optional)
 
 > The `longPress` attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the `\u{...}` notation.
-
+>
 _Attribute:_ `longPressDefault` (optional)
 
 > Indicates which of the `longPress` target characters is the default long-press target, which could be different than the first element. Ignored if not in the `longPress` list. Characters in this attribute can be escaped using the `\u{...}` notation.
@@ -721,10 +721,10 @@ _Attribute:_ `longPressDefault` (optional)
 >
 > ![keycap hint](images/keycapHint.png)
 
-_Attribute:_ `multiTap` (optional) (discouraged, see [Accessibility])
+_Attribute:_ `multiTap` (optional)
 
 > A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).
->
+>>
 > _Example:_
 >
 > ```xml
@@ -758,7 +758,11 @@ _Attribute:_ `to`
 
 _Attribute:_ `transform="no"` (optional)
 
-> The `transform` attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.
+> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `no` if the attribute is present.
+> This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
+> When the next keystroke is pressed, the prior output may then combine using other transforms.
+>
+> Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.
 >
 > For example, suppose there are the following keys, their output and one transform:
 
@@ -782,6 +786,34 @@ _Attribute:_ `transform="no"` (optional)
 > However, since there is `transform="no`" on **X**, if the user types **X** + `e` the sequence remains `^e`.
 
 * **X** + `e` → `^e`
+
+> Using markers, the same results can be obtained without need of `transform="no"` using:
+
+```xml
+<keys>
+    <key id="X" to="^\m{no_transform}"/>
+    <key id="OptX" to="^"/>
+</keys>
+…
+<transforms …>
+    <!-- this wouldn't match the key X output because of the marker -->
+    <transform from="^e" to="ê"/>
+</transforms>
+```
+
+Even better is to use a marker to indicate where transforms are desired:
+
+```xml
+<keys>
+    <key id="X" to="^"/>
+    <key id="OptX" to="^\m{transform}"/>
+</keys>
+…
+<transforms …>
+    <!-- again, this wouldn't match the key X output because of the missing marker -->
+    <transform from="^\m{transform}e" to="ê"/>
+</transforms>
+```
 
 _Attribute:_ `width="1.2"` (optional, default "1.0")
 
@@ -1523,7 +1555,7 @@ _Attribute:_ `value` (required)
 
 **Syntax Note**
 
-- Warning: UnicodeSets look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
+- Warning: UnicodeSets look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding `unicodeSet` element.
 - Multi-character strings (`{}`) are not supported, such as `[żġħ{ie}{għ}]`.
 - UnicodeSet property notation (`\p{…}` or `[:…:]`) may **NOT** be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of `$[KhmrMn]` matches all nonspacing marks in the `Khmr` script.
 - UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.
@@ -1727,10 +1759,10 @@ _Attribute:_ `from` (required)
 - **Unicode codepoint escapes**
 
     `\u1234 \u012A`
-    `\u{012a} \u{1234a}`
+    `\u{22} \u{012a} \u{1234A}`
 
-    The hex escaping is case insensitive. The value may not match a surrogate or illegal character.
-    The form
+    The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
+    The form `\u{…}` is preferred as it is the same regardless of codepoint length.
 
 - **Fixed character classes and escapes**
 
@@ -1767,11 +1799,15 @@ _Attribute:_ `from` (required)
 
     These refer to groups captured as a set, and can be referenced with the `$1` through `$9` operators in the `to=` pattern. May not be nested.
 
-- **Nested capture groups**
+- **Non-capturing groups**
 
-    `(?:thismatches) (?:[abc]([def]))|(?:[ghi])`
+    `(?:thismatches)`
 
-    Only the innermost group is allowed to be a capture group.
+- **Nested capturing groups**
+
+    `(?:[abc]([def]))|(?:[ghi])`
+
+    Capture groups may be nested, however only the innermost group is allowed to be a capture group. The outer group must be a non-capturing group.
 
 - **Disjunctions**
 
@@ -1868,7 +1904,7 @@ The following are additions to standard Regex syntax.
 
     `(?<something>)`
 
-    **Rationale:** Cognitive complexity.
+    **Rationale:** Implementation complexity.
 
 - **Assertions** other than `^`
 
@@ -1900,7 +1936,7 @@ Used in the `to=`
 
 - **Entire matched substring**
 
-    `*&`
+    `$0`
 
 - **Insert the specified capture group**
 

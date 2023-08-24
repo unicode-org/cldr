@@ -683,6 +683,10 @@
 
 
 
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1062,14 +1066,16 @@ Occurrence: optional, single</p>
 </blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
 <p>The <code>gap</code> attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with <code>width</code> to set a width.</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mediumgap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.5"</span>/&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>longPress="a b c"</code> (optional) (discouraged, see [Accessibility])</p><blockquote>
+</code></pre><p><em>Attribute:</em> <code>longPress="a b c"</code> (optional)</p><blockquote>
 <p>The <code>longPress</code> attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the <code>\u{...}</code> notation.</p>
 </blockquote><p><em>Attribute:</em> <code>longPressDefault</code> (optional)</p><blockquote>
 <p>Indicates which of the <code>longPress</code> target characters is the default long-press target, which could be different than the first element. Ignored if not in the <code>longPress</code> list. Characters in this attribute can be escaped using the <code>\u{...}</code> notation.
 For example, if the <code>longPressDefault</code> is a key whose <a href="#Element_displays">display</a> appears as <code>{</code> an implementation might render the key as follows:</p>
 <p><img src="images/keycapHint.png" alt="keycap hint"></p>
-</blockquote><p><em>Attribute:</em> <code>multiTap</code> (optional) (discouraged, see [Accessibility])</p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>multiTap</code> (optional)</p><blockquote>
 <p>A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).</p>
+<blockquote>
+</blockquote>
 <p><em>Example:</em></p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">multiTap</span>=<span class="hljs-string">"bb c d"</span>&gt;</span>
 </code></pre>
@@ -1088,7 +1094,10 @@ the modifier keys.</p>
 </blockquote><blockquote>
 <p>The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
 </blockquote><p><em>Attribute:</em> <code>transform="no"</code> (optional)</p><blockquote>
-<p>The <code>transform</code> attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.</p>
+<p>The <code>transform</code> attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be <code>no</code> if the attribute is present.
+This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
+When the next keystroke is pressed, the prior output may then combine using other transforms.</p>
+<p>Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.</p>
 <p>For example, suppose there are the following keys, their output and one transform:</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>/&gt;</span>
@@ -1108,7 +1117,27 @@ type the sequence <code>^e</code> (caret+e) as it would turn into <code>ê</code
 However, since there is <code>transform="no</code>" on <strong>X</strong>, if the user types <strong>X</strong> + <code>e</code> the sequence remains <code>^e</code>.</p>
 </blockquote><ul>
 <li><strong>X</strong> + <code>e</code> → <code>^e</code></li>
-</ul><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
+</ul><blockquote>
+<p>Using markers, the same results can be obtained without need of <code>transform="no"</code> using:</p>
+</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^\m{no_transform}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+…
+<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
+    <span class="hljs-comment">&lt;!-- this wouldn't match the key X output because of the marker --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
+</code></pre><p>Even better is to use a marker to indicate where transforms are desired:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^\m{transform}"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+…
+<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
+    <span class="hljs-comment">&lt;!-- again, this wouldn't match the key X output because of the missing marker --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
+</code></pre><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
 <p>The <code>width</code> attribute indicates that this key has a different width than other keys, by the specified number of key widths.</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.2"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-gap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"2.5"</span>/&gt;</span>
@@ -1485,7 +1514,7 @@ All ids must be unique across all types of variables.</p>
 Leading and trailing whitespace is ignored.
 Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined UnicodeSets (not sets) using <code>$[unicodeSet]</code> syntax.</p>
 </blockquote><p><strong>Syntax Note</strong></p><ul>
-<li>Warning: UnicodeSets look superficially similar to regex character classes as used in <a href="#element-transform"><code>transform</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be used directly in a transform.</li>
+<li>Warning: UnicodeSets look superficially similar to regex character classes as used in <a href="#element-transform"><code>transform</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding <code>unicodeSet</code> element.</li>
 <li>Multi-character strings (<code>{}</code>) are not supported, such as <code>[żġħ{ie}{għ}]</code>.</li>
 <li>UnicodeSet property notation (<code>\p{…}</code> or <code>[:…:]</code>) may <strong>NOT</strong> be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of <code>$[KhmrMn]</code> matches all nonspacing marks in the <code>Khmr</code> script.</li>
 <li>UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.</li>
@@ -1580,9 +1609,9 @@ Occurrence: required, multiple</p>
 </li>
 <li><p><strong>Unicode codepoint escapes</strong></p>
 <p>  <code>\u1234 \u012A</code>
-  <code>\u{012a} \u{1234a}</code></p>
-<p>  The hex escaping is case insensitive. The value may not match a surrogate or illegal character.
-  The form</p>
+  <code>\u{22} \u{012a} \u{1234A}</code></p>
+<p>  The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
+  The form <code>\u{…}</code> is preferred as it is the same regardless of codepoint length.</p>
 </li>
 <li><p><strong>Fixed character classes and escapes</strong></p>
 <p>  <code>\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0</code></p>
@@ -1610,9 +1639,12 @@ Occurrence: required, multiple</p>
 <p>  <code>([abc])([def])</code> (up to 9 groups)</p>
 <p>  These refer to groups captured as a set, and can be referenced with the <code>$1</code> through <code>$9</code> operators in the <code>to=</code> pattern. May not be nested.</p>
 </li>
-<li><p><strong>Nested capture groups</strong></p>
-<p>  <code>(?:thismatches) (?:[abc]([def]))|(?:[ghi])</code></p>
-<p>  Only the innermost group is allowed to be a capture group.</p>
+<li><p><strong>Non-capturing groups</strong></p>
+<p>  <code>(?:thismatches)</code></p>
+</li>
+<li><p><strong>Nested capturing groups</strong></p>
+<p>  <code>(?:[abc]([def]))|(?:[ghi])</code></p>
+<p>  Capture groups may be nested, however only the innermost group is allowed to be a capture group. The outer group must be a non-capturing group.</p>
 </li>
 <li><p><strong>Disjunctions</strong></p>
 <p>  <code>abc|def</code></p>
@@ -1675,7 +1707,7 @@ Occurrence: required, multiple</p>
 </li>
 <li><p><strong>Named capture groups</strong></p>
 <p>  <code>(?&lt;something&gt;)</code></p>
-<p>  <strong>Rationale:</strong> Cognitive complexity.</p>
+<p>  <strong>Rationale:</strong> Implementation complexity.</p>
 </li>
 <li><p><strong>Assertions</strong> other than <code>^</code></p>
 <p>  <code>\b</code> <code>\B</code> <code>(?&lt;!…)</code> …</p>
@@ -1694,7 +1726,7 @@ Occurrence: required, multiple</p>
 <p>  <code>$$ \$ \\</code> = <code>$ $ \</code></p>
 </li>
 <li><p><strong>Entire matched substring</strong></p>
-<p>  <code>*&amp;</code></p>
+<p>  <code>$0</code></p>
 </li>
 <li><p><strong>Insert the specified capture group</strong></p>
 <p>  <code>$1 $2 $3 …&nbsp;$9</code></p>

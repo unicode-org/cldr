@@ -12,7 +12,6 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,7 +49,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
@@ -104,21 +102,21 @@ public class ShowKeyboards {
         FileCopier.copy(
                 ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
 
-        Matcher idMatcher = PatternCache.get(idPattern).matcher("");
-        try {
-            Log.setLog(CLDRPaths.LOG_DIRECTORY + "keyboard-log.txt");
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
-        boolean layoutsOnly = MyOptions.layouts.option.doesOccur();
-        boolean repertoireOnly = MyOptions.repertoire.option.doesOccur();
+        // Matcher idMatcher = PatternCache.get(idPattern).matcher("");
+        // try {
+        //     Log.setLog(CLDRPaths.LOG_DIRECTORY + "keyboard-log.txt");
+        // } catch (IOException e) {
+        //     throw new ICUUncheckedIOException(e);
+        // }
+        // boolean layoutsOnly = MyOptions.layouts.option.doesOccur();
+        // boolean repertoireOnly = MyOptions.repertoire.option.doesOccur();
 
-        if (!repertoireOnly) {
-            showHtml(idMatcher);
-        }
-        if (!layoutsOnly) {
-            showRepertoire(idMatcher);
-        }
+        // if (!repertoireOnly) {
+        //     showHtml(idMatcher);
+        // }
+        // if (!layoutsOnly) {
+        //     showRepertoire(idMatcher);
+        // }
     }
 
     public static void showRepertoire(Matcher idMatcher) {

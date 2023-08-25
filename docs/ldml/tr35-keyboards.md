@@ -1203,7 +1203,7 @@ This element represents a specific `form` element which defines the layout of a 
 
 > *Note:* Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom `form` element.  This element is provided for two reasons:
 
-1. To document the standard hardware layouts used with CLDR for implementations. Implementations can verify the layout, and validate keyboards against the number of items per row.
+1. To formally specify the standard hardware arrangements used with CLDR for implementations. Implementations can verify the arrangement, and validate keyboards against the number of rows and the number of keys per row.
 
 2. To allow a way to customize the scancode layout for keyboards not intended to be included in the common CLDR repository.
 
@@ -1246,9 +1246,9 @@ There is an implied set of `<form>` elements corresponding to the default forms,
 
 Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these `form=` values and may not override the scanCodes.
 
-> - `touch` - Touch (non-hardware) layout. 
-> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
-> - `iso` - European 102 key layout (extra key right of left shift)
+> - `touch` - Touch (non-hardware) layout.
+> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key near right shift)
+> - `iso` - European 102 key layout (extra key near left shift)
 > - `jis` - Japanese 109 key layout
 > - `us` - ANSI 101 key layout
 
@@ -1414,7 +1414,7 @@ _Attribute:_ `keys` (required)
 
 > This is a string that lists the id of [`key` elements](#Element_key) for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the `key` documentation for more detail.
 >
-> For non-`touch` forms, the number of keys in each row may not exceed the number of scan codes defined for that row. See [`scanCodes`](#Element_scanCodes);
+> For non-`touch` forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See [`scanCodes`](#Element_scanCodes);
 
 **Example**
 

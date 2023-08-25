@@ -304,7 +304,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   <xs:element name="form">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="scanCodes"/>
+        <xs:element maxOccurs="unbounded" ref="scanCodes"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NMTOKEN"/>
@@ -319,6 +319,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   </xs:element>
   
   
+  
   <xs:element name="layers">
     <xs:complexType>
       <xs:sequence>
@@ -326,20 +327,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="layer"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
       </xs:sequence>
-      <xs:attribute name="form" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="touch"/>
-            <xs:enumeration value="us"/>
-            <xs:enumeration value="iso"/>
-            <xs:enumeration value="jis"/>
-            <xs:enumeration value="abnt2"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
+      <xs:attribute name="form" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="minDeviceWidth"/>
     </xs:complexType>
   </xs:element>
+  
   
   
   <xs:element name="layer">

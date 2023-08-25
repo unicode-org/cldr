@@ -178,6 +178,7 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT layers ( import*, layer*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST layers form NMTOKEN #REQUIRED >
+    <!--@MATCH:any-->
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 

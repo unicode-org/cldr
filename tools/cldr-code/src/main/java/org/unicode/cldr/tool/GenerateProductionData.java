@@ -35,6 +35,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GlossonymConstructor;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
@@ -317,18 +318,19 @@ public class GenerateProductionData {
                     return false;
                 }
             }
-            boolean isRoot = localeId.equals("root");
-            String directoryName = sourceFile.getParentFile().getName();
+            boolean isRoot = localeId.equals(LocaleNames.ROOT);
 
             CLDRFile cldrFileUnresolved = factory.make(localeId, false);
             CLDRFile cldrFileResolved = factory.make(localeId, true);
             boolean gotOne = false;
             Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier
             Set<String> toRetain = new TreeSet<>();
+            Set<String> toRetainSpecial = new TreeSet<>();
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
 
-            boolean isArabicSpecial = localeId.equals("ar") || localeId.startsWith("ar_");
+            final boolean specialPathsAreRequired =
+                    areSpecialPathsRequired(localeId, sourceFile.toString());
 
             String debugPath =
                     "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"]"; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
@@ -360,9 +362,8 @@ public class GenerateProductionData {
                     }
                 }
 
-                // special case for Arabic defaultNumberingSystem
-                if (isArabicSpecial && xpath.contains("/defaultNumberingSystem")) {
-                    toRetain.add(xpath);
+                if (specialPathsAreRequired && pathIsSpecial(xpath)) {
+                    toRetainSpecial.add(xpath);
                 }
 
                 // Remove items that are the same as their bailey values.
@@ -425,6 +426,9 @@ public class GenerateProductionData {
                 // past the gauntlet
                 gotOne = true;
             }
+            if (specialPathsAreRequired) {
+                addSpecialPathsIfMissing(localeId, toRetainSpecial, cldrFileResolved);
+            }
 
             // we even add empty files, but can delete them back on the directory level.
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
@@ -438,6 +442,7 @@ public class GenerateProductionData {
                 if (DEBUG) {
                     showIfNonZero(localeId, "removing", toRemove);
                     showIfNonZero(localeId, "retaining", toRetain);
+                    showIfNonZero(localeId, "retaining for special paths", toRetainSpecial);
                 }
                 if (CONSTRAINED_RESTORATION) {
                     toRetain.retainAll(toRemove); // only add paths that were there already
@@ -446,6 +451,8 @@ public class GenerateProductionData {
                         showIfNonZero(localeId, "constrained retaining", toRetain);
                     }
                 }
+                // add "special" paths even if CONSTRAINED_RESTORATION
+                toRetain.addAll(toRetainSpecial);
 
                 boolean changed0 = toRemove.removeAll(toRetain);
                 // toRemove == {a}
@@ -530,6 +537,49 @@ public class GenerateProductionData {
             ++stats.files;
             copyFiles(sourceFile, destinationFile);
             return false;
+        }
+    }
+
+    /**
+     * Are any "special paths" required to be explicitly included for this locale, in this
+     * directory?
+     *
+     * <p>Currently this requirement applies only to Arabic defaultNumberingSystem, only in
+     * common/main
+     *
+     * @param localeId the locale ID such as "ar_KM"
+     * @param directory the string describing the output directory; currently only "common/main" has
+     *     special paths
+     * @return true if required, else false
+     */
+    private static boolean areSpecialPathsRequired(String localeId, String directory) {
+        return (localeId.equals("ar") || localeId.startsWith("ar_"))
+                && directory.contains("common/main");
+    }
+
+    private static final String[] SPECIAL_PATHS =
+            new String[] {
+                "//ldml/numbers/defaultNumberingSystem",
+                "//ldml/numbers/defaultNumberingSystem[@alt=\"latn\"]"
+            };
+    private static final Set<String> SPECIAL_PATH_SET = new TreeSet<>(Arrays.asList(SPECIAL_PATHS));
+
+    /**
+     * Is the given path a "special path" required to be explicitly included?
+     *
+     * @param xpath the path
+     * @return true if this particular path is required, else false
+     */
+    private static boolean pathIsSpecial(String xpath) {
+        return SPECIAL_PATH_SET.contains(xpath);
+    }
+
+    private static void addSpecialPathsIfMissing(
+            String localeId, Set<String> toRetainSpecial, CLDRFile cldrFileResolved) {
+        for (String xpath : SPECIAL_PATH_SET) {
+            if (!toRetainSpecial.contains(xpath)) {
+                toRetainSpecial.add(xpath);
+            }
         }
     }
 

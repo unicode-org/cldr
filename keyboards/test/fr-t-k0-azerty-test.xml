@@ -6,17 +6,17 @@
     <repertoire name="chars-repertoire" chars="[á é ó]" type="gesture" /> <!-- verify that these outputs are all available from simple or gesture keys on any layer, for touch -->
     <tests name="key-tests">
         <test name="key-test">
-            <startContext to="abc\u0022..."/>
+            <startContext to="abc\u{0022}..."/>
             <!-- tests by pressing key ids -->
             <keystroke key="s"/>
-            <check result="abc\u0022...s" />
+            <check result="abc\u{0022}...s" />
             <keystroke key="t"/>
-            <check result="abc\u0022...st" />
+            <check result="abc\u{0022}...st" />
             <keystroke key="u"/>
-            <check result="abc\u0022...stu" />
+            <check result="abc\u{0022}...stu" />
             <!-- tests by specifying 'to' output char -->
             <emit to="v"/>
-            <check result="abc\u0022...stuv" />
+            <check result="abc\u{0022}...stuv" />
         </test>
     </tests>
 </keyboardTest>

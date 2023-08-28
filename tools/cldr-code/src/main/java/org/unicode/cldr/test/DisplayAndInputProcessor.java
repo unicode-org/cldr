@@ -18,11 +18,13 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -686,7 +688,15 @@ public class DisplayAndInputProcessor {
      *
      * <p>For example, if the set is {"bear", "panda", "panda bear"} (annotation was "bear | panda |
      * panda bear"), then remove "panda bear", treating it as "covered" since the set already
-     * includes "panda" and "bear".
+     * includes "panda" and "bear". Also, for example, if the set is {"bear", "panda", "PANDA
+     * BEAR"}, then remove "PANDA BEAR" even though the casing differs.
+     *
+     * <p>Since casing is complex in many languages/scripts, this method does not attempt to
+     * recognize all occurrences of case-insensitive matching. Instead, it first checks for
+     * case-sensitive (exact) matching, then it checks for case-insensitive (loose) matching
+     * according to Locale.ROOT. The intended effect is only to remove an item like "PANDA BEAR" if
+     * both "panda" and "bear" are already present as individual items. The intended effect is never
+     * to modify the casing of any item that is already present.
      *
      * @param sorted the set from which items may be removed
      */
@@ -694,6 +704,10 @@ public class DisplayAndInputProcessor {
         // for now, just do single items
         HashSet<String> toRemove = new HashSet<>();
 
+        TreeSet<String> sortedLower = new TreeSet<>();
+        for (String item : sorted) {
+            sortedLower.add(item.toLowerCase(Locale.ROOT));
+        }
         for (String item : sorted) {
             List<String> list = SPLIT_SPACE.splitToList(item);
             if (list.size() < 2) {
@@ -701,6 +715,14 @@ public class DisplayAndInputProcessor {
             }
             if (sorted.containsAll(list)) {
                 toRemove.add(item);
+            } else {
+                List<String> listLower = new ArrayList<>();
+                for (String s : list) {
+                    listLower.add(s.toLowerCase(Locale.ROOT));
+                }
+                if (sortedLower.containsAll(listLower)) {
+                    toRemove.add(item);
+                }
             }
         }
         sorted.removeAll(toRemove);

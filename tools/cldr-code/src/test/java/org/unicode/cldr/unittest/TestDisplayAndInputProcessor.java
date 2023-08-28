@@ -5,6 +5,7 @@ import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Set;
+import java.util.TreeSet;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
@@ -783,6 +784,37 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     count + ") processInput twice, " + path,
                     actualXmlFormat,
                     doubleInputProcessing);
+        }
+    }
+
+    public void TestFilterCoveredKeywords() {
+        TreeSet<String> set = new TreeSet<>();
+        set.add("bear");
+        set.add("panda");
+        set.add("panda bear");
+        DisplayAndInputProcessor.filterCoveredKeywords(set);
+        if (set.contains("panda bear")) {
+            errln("panda bear should be filtered out");
+        } else {
+            set.add("PANDA BEAR");
+            DisplayAndInputProcessor.filterCoveredKeywords(set);
+            if (set.contains("PANDA BEAR")) {
+                errln("PANDA BEAR should be filtered out");
+            }
+        }
+        set.clear();
+        set.add("bEAR");
+        set.add("Panda");
+        set.add("panda Bear");
+        DisplayAndInputProcessor.filterCoveredKeywords(set);
+        if (set.contains("panda Bear")) {
+            errln("panda Bear should be filtered out");
+        } else {
+            set.add("PandA beAR");
+            DisplayAndInputProcessor.filterCoveredKeywords(set);
+            if (set.contains("PandA beAR")) {
+                errln("PandA beAR should be filtered out");
+            }
         }
     }
 }

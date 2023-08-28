@@ -1614,6 +1614,8 @@ There are other keying behaviors that are needed particularly in handing complex
 
 Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.
 
+The marker ID is any valid `NMTOKEN` (But see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for future discussion.)
+
 Consider the following abbreviated example:
 
 ```xml
@@ -2350,8 +2352,8 @@ It is important that implementations do not by default delete more than one non-
 
     <!-- Final implicit backspace transform: Delete the final codepoint. -->
     <transformGroup>
-        <!-- (:?\m{*})*  - matches any number of contiguous markers -->
-        <transform from="(:?\m{*})*.(:?\m{*})*" /> <!-- deletes any number of markers directly on either side of the final pre-caret codepoint -->
+        <!-- (:?\m{.})*  - matches any number of contiguous markers -->
+        <transform from="(:?\m{.})*.(:?\m{.})*" /> <!-- deletes any number of markers directly on either side of the final pre-caret codepoint -->
     </transformGroup>
 </transforms>
 ```

@@ -1,7 +1,6 @@
 name: Ansible Lint
-
-on:
-  push:
+push:
+  
     paths:
       - 'tools/scripts/ansible/**'
       - '.github/workflows/ansible-lint.yml'

@@ -696,7 +696,9 @@ This element defines a mapping between an abstract key and its output. This elem
 
 _Attribute:_ `id`
 
-> The `id` attribute uniquely identifies the key. NMTOKEN, restricted to `[a-zA-Z0-9_.-]`. It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)
+> The `id` attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
 _Attribute:_ `flicks="flick-id"` (optional)
 
@@ -747,7 +749,9 @@ _Attribute:_ `switch="shift"` (optional)
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
 >
-> This attribute is an NMTOKEN, restricted to `[a-zA-Z0-9-]`
+> This attribute is an NMTOKEN.
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
 
 _Attribute:_ `to`
@@ -859,9 +863,13 @@ The `flicks` element is used to generate results from a "flick" of the finger on
 
 _Attribute:_ `id` (required)
 
-> The `id` attribute identifies the flicks. It can be any NMTOKEN matching `[A-Za-z0-9][A-Za-z0-9-]*`
+> The `id` attribute identifies the flicks. It can be any NMTOKEN.
+>
 > The `flicks` do not share a namespace with the `key`s, so it would also be allowed
 > to have `<key id="a" flicks="a"/><flicks id="a"/>`
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+
 
 **Syntax**
 

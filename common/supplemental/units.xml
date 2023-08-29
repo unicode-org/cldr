@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <unitIdComponents>
     	<unitIdComponent type="prefix" values="arc british dessert fluid light nautical xxx x curr"/>
-		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit it us equivalent cloth length jp"/>
+		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit it us energy density cloth length jp"/>
 		<unitIdComponent type="power" values="square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow9 pow10 pow11 pow12 pow13 pow14 pow15"/>
 		<unitIdComponent type="and" values="and"/>
 		<unitIdComponent type="per" values="per"/>
@@ -255,7 +255,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' systems="si metric prefixable"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000' systems="si_acceptable metric prefixable"/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325' systems="astronomical"/>
-        <convertUnit source='gasoline-equivalent' baseUnit='kilogram-per-meter-square-second' factor='33.705 * 3600 * 1000/gal_to_m3'  systems="ussystem" description="Constructed so that 1 gallon-gasoline-equivalent = 33.705 kWh as per https://www3.epa.gov/otaq/gvg/learn-more-technology.htm"/>
+        <convertUnit source='gasoline-energy-density' baseUnit='kilogram-per-meter-square-second' factor='33.705 * 3600 * 1000/gal_to_m3'  systems="ussystem" description="Constructed so that 1 gallon-gasoline-energy-density = 33.705 kWh as per https://www3.epa.gov/otaq/gvg/learn-more-technology.htm"/>
 
         <!-- pressure-per-length -->
         <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='13595.1*gravity'/>

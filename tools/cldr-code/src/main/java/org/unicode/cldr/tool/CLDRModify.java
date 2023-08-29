@@ -2118,7 +2118,8 @@ public class CLDRModify {
                         }
 
                         XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
-                        String keywordPath = keywordParts.toString();
+                        String keywordPath =
+                                CLDRFile.getDistinguishingXPath(keywordParts.toString(), null);
                         String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
 
                         // skip if keywords AND name are inherited
@@ -2132,7 +2133,7 @@ public class CLDRModify {
 
                         // skip if the name is not above root
                         String nameSourceLocale = resolved.getSourceLocaleID(xpath, null);
-                        if ("root".equals(nameSourceLocale)
+                        if (XMLSource.ROOT_ID.equals(nameSourceLocale)
                                 || XMLSource.CODE_FALLBACK_ID.equals(nameSourceLocale)) {
                             return;
                         }
@@ -2142,6 +2143,7 @@ public class CLDRModify {
                         String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
                         sorted.clear();
                         sorted.add(name);
+
                         List<String> items;
                         if (!sourceLocaleId.equals(XMLSource.ROOT_ID)
                                 && !sourceLocaleId.equals(XMLSource.CODE_FALLBACK_ID)) {
@@ -2149,6 +2151,9 @@ public class CLDRModify {
                             sorted.addAll(items);
                         }
                         DisplayAndInputProcessor.filterCoveredKeywords(sorted);
+                        // TODO: Also filter items that are duplicates except for case
+                        // Reference: https://unicode-org.atlassian.net/browse/CLDR-16972
+                        // DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
                         String newKeywordValue = Joiner.on(" | ").join(sorted);
                         if (!newKeywordValue.equals(keywordValue)) {
                             replace(keywordPath, keywordPath, newKeywordValue);

@@ -1094,7 +1094,7 @@ The strongest is the mu key, then the ms key, then the rg key. Beyond that the r
 The **ms** value is used in the following way.
 
 1. Find the corresponding Key-Value row in the table below.
-2. Get the unit preferences for the locale, category, and usage.
+2. Get the unit preferences for the **locale**, **category**, and **usage**.
 3. If any of the units in that set have a measurement system that doesn’t match the -u-ms- value, get unit preferences again, but using the fallback region instead of the locale's region.
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
@@ -1104,7 +1104,7 @@ The **ms** value is used in the following way.
 | ms-uksystem | uksystem                    | UK                                   |
 
 **Example A: xx-SE-u-ms-metric, length, road**
-1. Fetch the data from `<unitPreferences category="length" usage="road">`` for xx-SE
+1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE
 ```
 <unitPreference regions="SE">mile-scandinavian</unitPreference>
 <unitPreference regions="SE">kilometer</unitPreference>
@@ -1112,15 +1112,15 @@ The **ms** value is used in the following way.
 <unitPreference regions="SE" geq="10" skeleton="precision-increment/10">meter</unitPreference>
 <unitPreference regions="SE" skeleton="precision-increment/1">meter</unitPreference>
 ```
-2. Meter is metric, mile-scandinavian is metric_adjacent so they both match the key-value ms-metric, so no change is made.
+2. Meter is **metric**, mile-scandinavian is **metric_adjacent** so they both match the key-value ms-**metric**, so no change is made.
 
 **Example B: xx-GB-u-ms-ussystem, volume, fluid**
-1. Fetch the data from  `<unitPreferences category="volume" usage="fluid">` for xx-GB
+1. Fetch the data from `<unitPreferences category="volume" usage="fluid">` for xx-GB
 ```
 <unitPreference regions="GB">gallon-imperial</unitPreference>
 <unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
 ```
-2. At least one of {gallon-imperial, fluid-ounce-imperial} is not ussystem so the locale is shifted to xx-US, and uses the following:
+2. At least one of {gallon-imperial, fluid-ounce-imperial} does not match ms-**ussystem** so the locale is shifted to xx-**US**, and uses the following:
 ```
 <unitPreference regions="US">gallon</unitPreference>
 <unitPreference regions="US">quart</unitPreference>

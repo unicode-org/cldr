@@ -246,6 +246,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         "zun",
                         "zza");
 
+        Set<String> removalsForLateBasics =
+                Set.of(
+                        "blo", "eo", "ie", "kxv", "lij", "lmo", "nds", "prg", "szl", "tok", "vec",
+                        "vmw", "xnr", "za");
+
         warnln(
                 "Locale names added for translation; revisit each release:\n"
                         + Joiner.on("\n")
@@ -283,6 +288,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> localesForNames = new TreeSet<>();
         localesForNames.addAll(mainLocales);
         localesForNames.addAll(additionsToTranslate);
+        localesForNames.removeAll(removalsForLateBasics);
         localesForNames = ImmutableSet.copyOf(localesForNames);
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);

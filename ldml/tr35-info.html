@@ -315,6 +315,14 @@
 
 
 
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1059,45 +1067,56 @@ For example the following values can be suffixes in a simple_unit identifier suc
 <td>Fahrenheit</td>
 <td>because the likely region for en with no region is US</td>
 </tr>
-</tbody></table><p>The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.</p><table>
+</tbody></table><p>The <strong>ms</strong> value is used in the following way.</p><ol>
+<li>Find the corresponding Key-Value row in the table below.</li>
+<li>Get the unit preferences for the <strong>locale</strong>, <strong>category</strong>, and <strong>usage</strong>.</li>
+<li>If any of the units in that set have a measurement system that doesn’t match the -u-ms- value, get unit preferences again, but using the fallback region instead of the locale's region.</li>
+</ol><table>
 <thead>
 <tr>
 <th>Key-Value</th>
-<th>Region for Unit Preferences</th>
+<th>Unit Systems Match</th>
+<th>Fallback Region for Unit Preferences</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>ms-metric</td>
+<td>metric OR metric_adjacent</td>
 <td>001</td>
 </tr>
 <tr>
 <td>ms-ussystem</td>
+<td>ussystem</td>
 <td>US</td>
 </tr>
 <tr>
 <td>ms-uksystem</td>
+<td>uksystem</td>
 <td>UK</td>
 </tr>
-</tbody></table><p>Thus <em>for the purposes of unit preferences</em> the following behave identically:</p><table>
-<thead>
-<tr>
-<th>Locale</th>
-<th>Equivalents</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>en-GB-ms-ussystem</td>
-<td>en-US, en</td>
-</tr>
-<tr>
-<td>en-US-ms-uksystem</td>
-<td>en-GB</td>
-</tr>
-<tr>
-<td>en-ms-uksystem</td>
-<td>en-GB</td>
-</tr>
-</tbody></table><p>APIs should clearly allow for both the use of unit preferences with the above process, and for the <em>invariant use</em> of a unit measure.
+</tbody></table><p><strong>Example A: xx-SE-u-ms-metric, length, road</strong></p><ol>
+<li>Fetch the data from <code>&lt;unitPreferences category="length" usage="road"&gt;</code> for xx-SE</li>
+</ol><pre><code>&lt;unitPreference regions="SE"&gt;mile-scandinavian&lt;/unitPreference&gt;
+&lt;unitPreference regions="SE"&gt;kilometer&lt;/unitPreference&gt;
+&lt;unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50"&gt;meter&lt;/unitPreference&gt;
+&lt;unitPreference regions="SE" geq="10" skeleton="precision-increment/10"&gt;meter&lt;/unitPreference&gt;
+&lt;unitPreference regions="SE" skeleton="precision-increment/1"&gt;meter&lt;/unitPreference&gt;
+</code></pre><ol start="2">
+<li>Meter is <strong>metric</strong>, mile-scandinavian is <strong>metric_adjacent</strong> so they both match the key-value ms-<strong>metric</strong>, so no change is made.</li>
+</ol><p><strong>Example B: xx-GB-u-ms-ussystem, volume, fluid</strong></p><ol>
+<li>Fetch the data from <code>&lt;unitPreferences category="volume" usage="fluid"&gt;</code> for xx-GB</li>
+</ol><pre><code>&lt;unitPreference regions="GB"&gt;gallon-imperial&lt;/unitPreference&gt;
+&lt;unitPreference regions="GB"&gt;fluid-ounce-imperial&lt;/unitPreference&gt;
+</code></pre><ol start="2">
+<li>At least one of {gallon-imperial, fluid-ounce-imperial} does not match ms-<strong>ussystem</strong> so the locale is shifted to xx-<strong>US</strong>, and uses the following:</li>
+</ol><pre><code>&lt;unitPreference regions="US"&gt;gallon&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;quart&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;pint&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;cup&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;fluid-ounce&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;tablespoon&lt;/unitPreference&gt;
+&lt;unitPreference regions="US"&gt;teaspoon&lt;/unitPreference&gt;
+</code></pre><p>APIs should clearly allow for both the use of unit preferences with the above process, and for the <em>invariant use</em> of a unit measure.
 That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them.
 For example, in showing the weather, an application may want to show:</p><p>High today: 68°F (20°C)</p><p>To do that, the application needs to show the first value with the locale information, and then (a) query what the alternative is, and show the temperature in that.
 As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a usage parameter is set.</p><h3 id="Unit_Preferences_Data"><a name="unit-preferences-data" href="#Unit_Preferences_Data">Unit Preferences Data</a></h3><p>The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:</p><ul>

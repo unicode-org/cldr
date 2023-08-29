@@ -687,6 +687,7 @@
 
 
 
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1541,7 +1542,7 @@ The <code>unicodeSet</code> element may not be referenced by <a href="#element-k
 <li>Reordering combining marks. The order required for underlying storage may differ considerably from the desired typing order. In addition, a keyboard may want to allow for different typing orders.</li>
 <li>Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.</li>
 <li>Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.</li>
-</ul><h4 id="markers">Markers</h4><p>Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.</p><p>Consider the following abbreviated example:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{circ_marker}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"^"</span> /&gt;</span>
+</ul><h4 id="markers">Markers</h4><p>Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.</p><p>The marker ID is any valid <code>NMTOKEN</code> (But see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for future discussion.)</p><p>Consider the following abbreviated example:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{circ_marker}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"^"</span> /&gt;</span>
 …
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"circ_key"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{circ_marker}"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"e"</span> /&gt;</span>
@@ -2071,8 +2072,8 @@ endif
 
     <span class="hljs-comment">&lt;!-- Final implicit backspace transform: Delete the final codepoint. --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
-        <span class="hljs-comment">&lt;!-- (:?\m{*})*  - matches any number of contiguous markers --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"(:?\m{*})*.(:?\m{*})*"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- deletes any number of markers directly on either side of the final pre-caret codepoint --&gt;</span>
+        <span class="hljs-comment">&lt;!-- (:?\m{.})*  - matches any number of contiguous markers --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"(:?\m{.})*.(:?\m{.})*"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- deletes any number of markers directly on either side of the final pre-caret codepoint --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><hr><h2 id="Invariants"><a name="invariants" href="#Invariants">Invariants</a></h2><p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.

@@ -2333,7 +2333,7 @@ public class TestUnits extends TestFmwk {
         final Set<String> longUntranslatedUnitIds =
                 converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
 
-        ImmutableSet<String> onlyEnglish = ImmutableSet.of("pressure-gasoline-equivalent");
+        ImmutableSet<String> onlyEnglish = ImmutableSet.of("pressure-gasoline-energy-density");
         assertSameCollections(
                 "root unit IDs",
                 "English",
@@ -3973,7 +3973,7 @@ public class TestUnits extends TestFmwk {
 
     public void testEquivalents() {
         List<List<String>> tests =
-                List.of(List.of("gallon-gasoline-equivalent", "33.705", "kilowatt-hour"));
+                List.of(List.of("gallon-gasoline-energy-density", "33.705", "kilowatt-hour"));
         for (List<String> test : tests) {
             final String unit1 = test.get(0);
             final Rational expectedFactor = Rational.of(test.get(1));

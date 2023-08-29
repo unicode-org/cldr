@@ -1850,7 +1850,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "temperature-rankine",
                                         "duration-fortnight",
                                         "mass-slug",
-                                        "pressure-gasoline-equivalent",
+                                        "pressure-gasoline-energy-density",
                                         "length-rin",
                                         "length-sun",
                                         "length-shaku-length",

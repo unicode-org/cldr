@@ -503,46 +503,36 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern calendar100 =
                 PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
 
+        // Warning: shorter strings must come AFTER longer ones. Can process with MinimizeRegex to
+        // reorder
         final Pattern language100 =
                 PatternCache.get(
-                        "("
-                                + "blo|kxv|skr|vmw|xnr|"
-                                + "ach|aeb?|afh|ak[kz]|aln|ang|apc|ar[coqswyz]|ase|avk|"
-                                + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgc|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
-                                + "ca[dry]|cch|ch[bgnp]|cic|cop|cps|crh?|csb|"
-                                + "de[ln]|din|doi|dtp|dum|dyu|"
-                                + "eg[ly]|elx|enm|esu|ext|"
-                                + "fa[nt]|fit|fr[cmoprs]|"
-                                + "ga[gny]|gb[az]|glk|gmh|go[hmnt]|gr[bc]|gu[cr]|"
-                                + "ha[ik]|hi[ft]|ho|hsn|"
-                                + "i[ek]|izh|"
-                                + "jam|jpr|jrb|jut|"
-                                + "ka[aw]|kbl|ken|kgp?|kh[ow]|kiu|ko[is]|kr[ij]|kut|"
-                                + "la[hm]|lfn|li[jv]|lmo|lo[lu]|ltg|lui|lz[hz]|"
-                                + "ma[fn]|md[er]|mga|mnc|mrj|mus|mw[rv]|mye|"
-                                + "nan|nds(_NL)?|njo|no[nv]?|nwc|ny[mo]|nzi|"
-                                + "oj|osa|ota|"
-                                + "pal|pap|pcd|pd[ct]|peo|pfl|phn|pi|pms|pnt|pon|pro|"
-                                + "qug|"
-                                + "ra[jpr]|rgn|rif|rom|rtm|ru[eg]|"
-                                + "sa[msz]|sbp|sd[ch]|se[eil]|sg[as]|shu?|sid|sl[iy]|sog|srr|stq|su[sx]|syc|szl|"
-                                + "tcy|ter|tiv|tk[lr]|tl[iy]?|tmh|tog|tpi|tru|ts[di]|ttt|tw|"
-                                + "uga|"
-                                + "ve[cp]|vls|vmf||vot|vro|"
-                                + "was|wbp|wuu|"
-                                + "xmf|"
-                                + "ya[op]|yrl|"
-                                + "zap?|zbl|ze[an]|"
-                                + "gil|tlh|gil|tlh|tet|ro_MD|ss|new|ba|iu|suk|kmb|rup|sms|udm|lus|gn|ada|kbd|kcg|eka|"
-                                + "dak|nap|bin|arn|kfo|ch|ab|fa_AF|kac|ty|tvl|arp|aa|ng|hup|wa|min|ilo|kru|hil|sat|bho|"
-                                + "jbo|pag|tig|bi|tyv|pcm|ace|tum|mh|fon|chk|awa|root|hz|chm|mdf|kaj|nr|dar|shn|zun|"
-                                + "cho|li|moh|nso|sw_CD|srn|lad|ve|gaa|pam|ale|sma|sba|lua|kha|sc|nv|men|cv|quc|pap|bla|"
-                                + "kj|anp|an|niu|mni|dv|swb|pau|gor|nqo|krc|crs|gwi|zza|mad|nog|lez|byn|sad|ssy|mag|iba|"
-                                + "tpi|kum|wal|mos|dzg|gez|io|tn|snk|mai|ady|chy|mwl|sco|av|efi|war|mic|loz|scn|smj|tem|"
-                                + "dgr|mak|inh|lun|ts|fj|na|kpe|sr_ME|trv|bug|ban|xal|oc|alt|nia|myv|ain|krl|ay|"
-                                + "syr|kv|umb|cu|prg|vo|"
-                                + "atj|blt|clc|crg|crj|crk|crl|crm|crr|csw|cwd|hax|hdn|hnj|hur|ike|ikt|"
-                                + "kwk|lil|moe|ojb|ojc|ojg|ojs|ojw|oka|pqm|slh|str|tce|tgx|tht|trw|ttm)");
+                        "(" // start
+                                + "nds_NL|fa_AF|ro_MD|sr_ME|sw_CD"
+                                // Length 4
+                                + "|root"
+                                // Length 3
+                                + "|ace|ach|ada|ady|aeb|afh|agq|ain|akk|akz|ale|aln|alt|ang|ann|anp|apc|arc|arn|aro|arp|arq|ars|arw|ary|arz|asa|ase|atj|avk|awa"
+                                + "|bal|ban|bar|bax|bbc|bbj|bej|bem|bew|bez|bfd|bfq|bgc|bgn|bho|bik|bin|bjn|bkm|bla|blo|blt|bpy|bqi|bra|brh|bss|bua|bug|bum|byn|byv"
+                                + "|cad|car|cay|cch|ccp|cgg|chb|chg|chk|chm|chn|cho|chp|chy|cic|ckb|clc|cop|cps|crg|crh|crj|crk|crl|crm|crr|crs|csb|csw|cwd"
+                                + "|dak|dar|dav|del|den|dgr|din|dje|doi|dtp|dua|dum|dyo|dyu|dzg"
+                                + "|ebu|efi|egl|egy|eka|elx|enm|esu|ext|fan|fat|fit|fon|frc|frm|fro|frp|frr|frs|fur"
+                                + "|gaa|gag|gan|gay|gba|gbz|gez|gil|glk|gmh|goh|gom|gon|gor|got|grb|grc|gsw|guc|gur|guz|gwi"
+                                + "|hai|hak|haw|hax|hdn|hif|hil|hit|hnj|hsn|hup|hur|iba|ilo|inh|izh|jam|jbo|jgo|jmc|jpr|jrb|jut"
+                                + "|kaa|kab|kac|kaj|kam|kaw|kbd|kbl|kcg|kde|ken|kfo|kgp|kha|kho|khq|khw|kiu|kln|kmb|koi|kos|kpe|krc|kri|krj|krl|kru|ksb|ksf|ksh|kum|kut|kwk|kxv"
+                                + "|lad|lag|lah|lam|lez|lfn|lij|lil|liv|lkt|lmo|lol|lou|loz|lrc|ltg|lua|lui|lun|luo|lus|luy|lzh|lzz"
+                                + "|mad|maf|mag|mai|mak|man|mas|mde|mdf|mdr|men|mer|mfe|mga|mgh|mgo|mic|min|mnc|mni|moe|moh|mos|mrj|mua|mus|mwl|mwr|mwv|mye|myv|mzn"
+                                + "|nan|nap|naq|nds|new|nia|niu|njo|nmg|nog|non|nov|nqo|nso|nus|nwc|nym|nyn|nyo|nzi|oka|osa|ota"
+                                + "|pag|pal|pam|pap|pau|pcd|pcm|pdc|pdt|peo|pfl|phn|pms|pnt|pon|pqm|prg|pro|quc|qug|raj|rap|rar|rgn|rif|rof|rom|rtm|rue|rug|rup|rwk"
+                                + "|sad|sam|saq|sas|sat|saz|sba|sbp|sdc|sdh|see|seh|sei|sel|ses|sga|sgs|shi|shn|shu|sid|skr|slh|sli|sly|sma|smj|smn|sms|snk|sog|srn|srr|stq|str|suk|sus|sux|swb|syc|syr|szl"
+                                + "|tce|tcy|tem|teo|ter|tet|tgx|tht|tig|tiv|tkl|tkr|tlh|tli|tly|tmh|tog|tok|tpi|tru|trv|trw|tsd|tsi|ttm|ttt|tum|tvl|tzm"
+                                + "|udm|uga|umb|vai|vec|vep|vls|vmf|vmw|vot|vro|vun|wae|wal|war|was|wbp|wuu|xal|xmf|xnr|xog|yao|yap|yrl|zap|zbl|zea|zen|zgh|zun|zza"
+                                + "|ike|ojg|ssy|pis|twq"
+                                // Length 2
+                                + "|aa|ab|ae|ak|an|av|ay|ba|bi|bm|bo|ce|ch|cr|cu|cv|dv|dz|ee|eo|fj|gn|gv|ho|hz|ie|ii|ik|io|iu|kg|ki|kj|kl|kv|kw|lg|li|ln|lu"
+                                + "|mg|mh|na|nb|nd|ng|no|nr|nv|oc|oj|om|os|pi|rn|rw|sc|se|sg|sh|sn|ss|tl|tn|ts|tw|ty|ve|vo|wa|yi|za"
+                                // end
+                                + ")");
 
         /**
          * Recommended scripts that are allowed for comprehensive coverage. Not-recommended scripts

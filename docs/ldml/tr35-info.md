@@ -1091,21 +1091,45 @@ The strongest is the mu key, then the ms key, then the rg key. Beyond that the r
 | 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
 | 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
-The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.
+The **ms** value is used in the following way.
 
-| Key-Value   | Region for Unit Preferences |
-|-------------|-----------------------------|
-| ms-metric   | 001                         |
-| ms-ussystem | US                          |
-| ms-uksystem | UK                          |
+1. Find the corresponding Key-Value row in the table below.
+2. Get the unit preferences for the **locale**, **category**, and **usage**.
+3. If any of the units in that set have a measurement system that doesn’t match the -u-ms- value, get unit preferences again, but using the fallback region instead of the locale's region.
 
-Thus _for the purposes of unit preferences_ the following behave identically:
+| Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
+|-------------|-----------------------------|--------------------------------------|
+| ms-metric   | metric OR metric_adjacent   | 001                                  |
+| ms-ussystem | ussystem                    | US                                   |
+| ms-uksystem | uksystem                    | UK                                   |
 
-| Locale            | Equivalents |
-|-------------------|------------|
-| en-GB-ms-ussystem | en-US, en |
-| en-US-ms-uksystem | en-GB      |
-| en-ms-uksystem    | en-GB      |
+**Example A: xx-SE-u-ms-metric, length, road**
+1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE
+```
+<unitPreference regions="SE">mile-scandinavian</unitPreference>
+<unitPreference regions="SE">kilometer</unitPreference>
+<unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
+<unitPreference regions="SE" geq="10" skeleton="precision-increment/10">meter</unitPreference>
+<unitPreference regions="SE" skeleton="precision-increment/1">meter</unitPreference>
+```
+2. Meter is **metric**, mile-scandinavian is **metric_adjacent** so they both match the key-value ms-**metric**, so no change is made.
+
+**Example B: xx-GB-u-ms-ussystem, volume, fluid**
+1. Fetch the data from `<unitPreferences category="volume" usage="fluid">` for xx-GB
+```
+<unitPreference regions="GB">gallon-imperial</unitPreference>
+<unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
+```
+2. At least one of {gallon-imperial, fluid-ounce-imperial} does not match ms-**ussystem** so the locale is shifted to xx-**US**, and uses the following:
+```
+<unitPreference regions="US">gallon</unitPreference>
+<unitPreference regions="US">quart</unitPreference>
+<unitPreference regions="US">pint</unitPreference>
+<unitPreference regions="US">cup</unitPreference>
+<unitPreference regions="US">fluid-ounce</unitPreference>
+<unitPreference regions="US">tablespoon</unitPreference>
+<unitPreference regions="US">teaspoon</unitPreference>
+```
 
 APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
 That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them.

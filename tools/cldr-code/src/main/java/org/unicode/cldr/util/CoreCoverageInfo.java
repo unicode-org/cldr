@@ -97,6 +97,7 @@ public class CoreCoverageInfo {
 
     static UnicodeSet RTL = new UnicodeSet("[[:bc=R:][:bc=AL:]]").freeze();
 
+    /** Only call on L1 locales (parent = root) */
     public static Set<CoreItems> getCoreCoverageInfo(
             CLDRFile resolvedFile, Multimap<CoreItems, String> detailedErrors) {
         detailedErrors.clear();

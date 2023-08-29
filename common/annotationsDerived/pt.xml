@@ -1706,15 +1706,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🍳" type="tts">cozinheira: pele morena escura</annotation>
 		<annotation cp="👩🏿‍🍳">chef | cozinheira | mulher | pele escura</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">cozinheira: pele escura</annotation>
-		<annotation cp="🧑🏻‍🔧">comerciante | eletricista | encanador | mecânico | mecânico trabalhando | pele clara</annotation>
+		<annotation cp="🧑🏻‍🔧">eletricista | encanador | mecânico | mecânico trabalhando | pele clara | prestador de serviço</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mecânico trabalhando: pele clara</annotation>
-		<annotation cp="🧑🏼‍🔧">comerciante | eletricista | encanador | mecânico | mecânico trabalhando | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🔧">eletricista | encanador | mecânico | mecânico trabalhando | pele morena clara | prestador de serviço</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mecânico trabalhando: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🔧">comerciante | eletricista | encanador | mecânico | mecânico trabalhando | pele morena</annotation>
+		<annotation cp="🧑🏽‍🔧">eletricista | encanador | mecânico | mecânico trabalhando | pele morena | prestador de serviço</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mecânico trabalhando: pele morena</annotation>
-		<annotation cp="🧑🏾‍🔧">comerciante | eletricista | encanador | mecânico | mecânico trabalhando | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🔧">eletricista | encanador | mecânico | mecânico trabalhando | pele morena escura | prestador de serviço</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mecânico trabalhando: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🔧">comerciante | eletricista | encanador | mecânico | mecânico trabalhando | pele escura</annotation>
+		<annotation cp="🧑🏿‍🔧">eletricista | encanador | mecânico | mecânico trabalhando | pele escura | prestador de serviço</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mecânico trabalhando: pele escura</annotation>
 		<annotation cp="👨🏻‍🔧">eletricista | encanador | homem | mecânico | pele clara | prestador de serviços</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mecânico: pele clara</annotation>
@@ -2376,15 +2376,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶🏾" type="tts">Mamãe Noel: pele morena escura</annotation>
 		<annotation cp="🤶🏿">comemoração | Mamãe Noel | Natal | Noel | pele escura</annotation>
 		<annotation cp="🤶🏿" type="tts">Mamãe Noel: pele escura</annotation>
-		<annotation cp="🧑🏻‍🎄">noel | Noel, natal | pele clara</annotation>
+		<annotation cp="🧑🏻‍🎄">natal | noel | Noel | pele clara</annotation>
 		<annotation cp="🧑🏻‍🎄" type="tts">noel: pele clara</annotation>
-		<annotation cp="🧑🏼‍🎄">noel | Noel, natal | pele morena clara</annotation>
+		<annotation cp="🧑🏼‍🎄">natal | noel | Noel | pele morena clara</annotation>
 		<annotation cp="🧑🏼‍🎄" type="tts">noel: pele morena clara</annotation>
-		<annotation cp="🧑🏽‍🎄">noel | Noel, natal | pele morena</annotation>
+		<annotation cp="🧑🏽‍🎄">natal | noel | Noel | pele morena</annotation>
 		<annotation cp="🧑🏽‍🎄" type="tts">noel: pele morena</annotation>
-		<annotation cp="🧑🏾‍🎄">noel | Noel, natal | pele morena escura</annotation>
+		<annotation cp="🧑🏾‍🎄">natal | noel | Noel | pele morena escura</annotation>
 		<annotation cp="🧑🏾‍🎄" type="tts">noel: pele morena escura</annotation>
-		<annotation cp="🧑🏿‍🎄">noel | Noel, natal | pele escura</annotation>
+		<annotation cp="🧑🏿‍🎄">natal | noel | Noel | pele escura</annotation>
 		<annotation cp="🧑🏿‍🎄" type="tts">noel: pele escura</annotation>
 		<annotation cp="🦸🏻">boa | bom | herói | heroína | pele clara | super-herói | superpoder</annotation>
 		<annotation cp="🦸🏻" type="tts">super-herói: pele clara</annotation>
@@ -4204,7 +4204,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="៛" type="tts">Riel cambojano</annotation>
 		<annotation cp="₡" type="tts">Colón costarriquenho</annotation>
 		<annotation cp="₦" type="tts">Naira nigeriana</annotation>
-		<annotation cp="₧" type="tts">Peseta espanhola</annotation>
 		<annotation cp="₪" type="tts">Novo shekel israelense</annotation>
 		<annotation cp="₫" type="tts">Dong vietnamita</annotation>
 		<annotation cp="₭" type="tts">Kip laosiano</annotation>
@@ -4236,5 +4235,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
 		<annotation cp="9⃣">tecla</annotation>
 		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
+		<annotation cp="₧" type="tts">Peseta espanhola</annotation>
 	</annotations>
 </ldml>

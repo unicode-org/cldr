@@ -688,6 +688,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -770,6 +800,12 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li><a href="#Element_displays">Element: displays</a></li>
 <li><a href="#Element_display">Element: display</a></li>
 <li><a href="#Element_displayOptions">Element: displayOptions</a></li>
+<li><a href="#Element_forms">Element: forms</a></li>
+<li><a href="#Element_form">Element: form</a><ul>
+<li><a href="#implied-form-values">Implied Form Values</a></li>
+</ul>
+</li>
+<li><a href="#Element_scanCodes">Element: scanCodes</a></li>
 <li><a href="#Element_layers">Element: layers</a></li>
 <li><a href="#Element_layer">Element: layer</a></li>
 <li><a href="#Element_row">Element: row</a></li>
@@ -1306,7 +1342,67 @@ Setting <code>baseCharacter="x"</code> (for example) is a <em>hint</em> to the i
 requests U+25CC to be substituted with <code>x</code> on display.
 As a hint, the implementation may ignore this option.</p>
 <p><strong>Note</strong> that not all base characters will be suitable as bases for combining marks.</p>
-</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><hr><h3 id="Element_layers"><a name="element-layers" href="#Element_layers">Element: layers</a></h3><p>This element represents a set of <code>layer</code> elements with a specific physical form factor, whether
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><hr><h3 id="Element_forms"><a name="element-forms" href="#Element_forms">Element: forms</a></h3><p>This element represents a set of <code>form</code> elements which define the layout of a particular hardware form.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Children: <a href="#Element_import">import</a>, <a href="#Element_form">form</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, single</p>
+</small>
+</blockquote><p><em><strong>Syntax</strong></em></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">forms</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"iso"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"us"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">forms</span>&gt;</span>
+</code></pre><hr><h3 id="Element_form"><a name="element-form" href="#Element_form">Element: form</a></h3><p>This element represents a specific <code>form</code> element which defines the layout of a particular hardware form.</p><blockquote>
+<p><em>Note:</em> Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom <code>form</code> element.  This element is provided for two reasons:</p>
+</blockquote><ol>
+<li><p>To formally specify the standard hardware arrangements used with CLDR for implementations. Implementations can verify the arrangement, and validate keyboards against the number of rows and the number of keys per row.</p>
+</li>
+<li><p>To allow a way to customize the scancode layout for keyboards not intended to be included in the common CLDR repository.</p>
+</li>
+</ol><p>See <a href="#implied-form-values">Implied Form Values</a>, below.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#Element_forms">forms</a></p>
+<p>Children: <a href="#Element_scanCodes">scanCodes</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, multiple</p>
+</small>
+</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>This attribute specifies the form id. The value may not be <code>touch</code>.</p>
+</blockquote><p><em><strong>Syntax</strong></em></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"us"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"00 01 02"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"03 04 05"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre><h5 id="implied-form-values">Implied Form Values</h5><p>There is an implied set of <code>&lt;form&gt;</code> elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">forms</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/scanCodes-implied.xml"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- the version will match the current conformsTo of the file --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">forms</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+</code></pre><p>Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these <code>form=</code> values and may not override the scanCodes.</p><blockquote>
+<ul>
+<li><code>touch</code> - Touch (non-hardware) layout.</li>
+<li><code>abnt2</code> - Brazilian 103 key ABNT2 layout (iso + extra key near right shift)</li>
+<li><code>iso</code> - European 102 key layout (extra key near left shift)</li>
+<li><code>jis</code> - Japanese 109 key layout</li>
+<li><code>us</code> - ANSI 101 key layout</li>
+</ul>
+</blockquote><hr><h3 id="Element_scanCodes"><a name="element-scancodes" href="#Element_scanCodes">Element: scanCodes</a></h3><p>This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#Element_form">form</a></p>
+<p>Children: none</p>
+<p>Occurrence: required, multiple</p>
+</small>
+</blockquote><blockquote>
+<p><em>Attribute:</em> <code>codes</code> (required)</p>
+</blockquote><blockquote>
+<p>The <code>codes</code> attribute is a space-separated list of 2-digit hex bytes, each representing a scan code.</p>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"29 02 03 04 05 06 07 08 09 0A 0B 0C 0D"</span> /&gt;</span>
+</code></pre><hr><h3 id="Element_layers"><a name="element-layers" href="#Element_layers">Element: layers</a></h3><p>This element represents a set of <code>layer</code> elements with a specific physical form factor, whether
 hardware or touch layout.</p><blockquote>
 <small>
 
@@ -1329,14 +1425,7 @@ At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> elemen
 <p>A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the <code>form=</code> attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified <code>form=</code> will result in some hardware keys which have no function when pressed.</p>
 <p>When using an on-screen keyboard, if there is not a <code>&lt;layers form="touch"&gt;</code>
 element, the hardware elements can be used for on-screen use.</p>
-<p>The following values are allowed for the <code>form</code> attribute:</p>
-<ul>
-<li><code>touch</code> - Touch (non-hardware) layout.</li>
-<li><code>abnt2</code> - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)</li>
-<li><code>iso</code> - European 102 key layout (extra key right of left shift)</li>
-<li><code>jis</code> - Japanese 109 key layout</li>
-<li><code>us</code> - ANSI 101 key layout</li>
-</ul>
+<p>The value of the <code>form=</code> attribute may be <code>touch</code>, or correspond to a <code>form</code> element. See <a href="#element-form"><code>form</code></a>.</p>
 </blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
 <p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>form="touch"</code>, but is supported for hardware forms.</p>
 <p>This must be a whole number between 1 and 999, inclusive.</p>
@@ -1388,6 +1477,7 @@ whereas <code>alt</code> indicates <em>either</em> left or right alt key.
 </small>
 </blockquote><p><em>Attribute:</em> <code>keys</code> (required)</p><blockquote>
 <p>This is a string that lists the id of <a href="#Element_key"><code>key</code> elements</a> for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the <code>key</code> documentation for more detail.</p>
+<p>For non-<code>touch</code> forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See <a href="#Element_scanCodes"><code>scanCodes</code></a>;</p>
 </blockquote><p><strong>Example</strong></p><p>Here is an example of a <code>row</code> element:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"a z e r t y u i o p caret dollar"</span> /&gt;</span>
 </code></pre><hr><h3 id="Element_vkeys"><a name="element-vkeys" href="#Element_vkeys">Element: vkeys</a></h3><p>On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the top-left key (ISO D01) as being an <code>A</code> with a vkey of <code>A</code> as opposed to <code>Q</code> on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key may be identified by its vkey and the modifiers active at the time the key was pressed.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">vkeys</span>&gt;</span>
     {a set of vkey elements}

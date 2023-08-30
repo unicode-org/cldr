@@ -1,7 +1,8 @@
-#TL;DR
+# TL;DR
+
 Run GenerateTestData.java. There is still a manual step at the end
 
-#Structure
+# Structure
 
 There are currently 4 directories in common/testData.
 Each also has a _readme.txt with copyright information for all the files in that directory. 
@@ -17,9 +18,9 @@ The format of the files in the directory is either in the individual data files,
   * …
 * segmentation — curated data (not generated)
   * graphemeCluster
-   * TestSegmenter-Bengali.txt
-   * TestSegmenter-Devanagari.txt
-   * …
+    * TestSegmenter-Bengali.txt
+    * TestSegmenter-Devanagari.txt
+    * …
 * transforms — curated data (not generated)
   * am-fonipa-t-am.tx
   * am-Latn-t-am-m0-bgn.txt
@@ -29,7 +30,8 @@ The format of the files in the directory is either in the individual data files,
   * unitPreferencesTest.txt
   * unitsTest.txt
 
-#Generation
+# Generation
+
 To produce the generated data (units/ and localeIdentifiers/):
 
 * localeIdentifiers/
@@ -42,6 +44,7 @@ To produce the generated data (units/ and localeIdentifiers/):
 * units/
  * run TestUnits with -DTestUnits:GENERATE_TESTS. It will create the two files in place.
 
-#Issues
+# Issues
+
 We want to supplant the manual step with one GenerateTestData.java.
 See https://unicode-org.atlassian.net/browse/CLDR-14186

@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import java.io.File;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +37,14 @@ public class TestCLDRPaths {
                             archiveDir.getAbsolutePath()));
         }
         return true; // OK to use
+    }
+
+    @Test
+    void TestReadPrevSDI() {
+        assumeTrue(canUseArchiveDirectory());
+        SupplementalDataInfo SDI_LAST =
+                SupplementalDataInfo.getInstance(
+                        CLDRPaths.LAST_RELEASE_DIRECTORY + "common/supplemental/");
+        assertNotNull(SDI_LAST);
     }
 }

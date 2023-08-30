@@ -6,6 +6,7 @@ import org.unicode.cldr.util.DtdType;
 public class GenerateReformattedXml {
     public static void main(String[] args) {
         for (DtdType dtdType : DtdType.values()) {
+            if (dtdType.getStatus() != DtdType.DtdStatus.active) continue;
             if (args.length > 0 && !dtdType.toString().matches(args[0])) {
                 continue;
             }

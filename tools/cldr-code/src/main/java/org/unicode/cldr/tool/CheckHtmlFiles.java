@@ -214,6 +214,7 @@ public class CheckHtmlFiles {
         M4<String, String, DtdType, Boolean> typeToElements =
                 ChainedMap.of(new TreeMap(), new TreeMap(), new TreeMap(), Boolean.class);
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) continue;
             if (type == DtdType.ldmlICU) continue;
             DtdData dtdData = DtdData.getInstance(type);
             Set<Element> elements = dtdData.getElements();

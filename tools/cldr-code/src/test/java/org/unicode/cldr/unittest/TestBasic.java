@@ -225,6 +225,7 @@ public class TestBasic extends TestFmwkPlus {
         Relation<Row.R2<DtdType, String>, String> theoryAttributes =
                 Relation.of(new TreeMap<Row.R2<DtdType, String>, Set<String>>(), TreeSet.class);
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) continue;
             DtdData dtdData = DtdData.getInstance(type);
             for (Element element : dtdData.getElementFromName().values()) {
                 String name = element.getName();
@@ -1166,6 +1167,7 @@ public class TestBasic extends TestFmwkPlus {
     /** Tests that every dtd item is connected from root */
     public void TestDtdCompleteness() {
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) continue;
             DtdData dtdData = DtdData.getInstance(type);
             Set<Element> descendents = new LinkedHashSet<>();
             dtdData.getDescendents(dtdData.ROOT, descendents);
@@ -1225,6 +1227,7 @@ public class TestBasic extends TestFmwkPlus {
 
         // test all DTDs
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.getStatus() != DtdType.DtdStatus.active) continue;
             try {
                 ElementAttributeInfo oldDtd = ElementAttributeInfo.getInstance(oldCommon, dtd);
                 ElementAttributeInfo newDtd = ElementAttributeInfo.getInstance(dtd);
@@ -1333,6 +1336,7 @@ public class TestBasic extends TestFmwkPlus {
     public void TestDtdCompatibility() {
 
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) continue;
             DtdData dtdData = DtdData.getInstance(type);
             Map<String, Element> currentElementFromName = dtdData.getElementFromName();
 

@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -161,9 +161,24 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
 
+<!ELEMENT forms ( import*, form*, special* ) >
+    <!--@TECHPREVIEW-->
+
+<!ELEMENT form ( scanCodes+, special* ) >
+    <!--@TECHPREVIEW-->
+<!ATTLIST form id NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
+
+<!ELEMENT scanCodes EMPTY >
+    <!--@TECHPREVIEW-->
+<!ATTLIST scanCodes codes NMTOKENS #REQUIRED >
+    <!--@MATCH:regex/[0-9a-fA-F]{2}( [0-9a-fA-F]{2})*-->
+    <!--@VALUE-->
+
 <!ELEMENT layers ( import*, layer*, special* ) >
     <!--@TECHPREVIEW-->
-<!ATTLIST layers form (touch | us | iso | jis | abnt2) #REQUIRED >
+<!ATTLIST layers form NMTOKEN #REQUIRED >
+    <!--@MATCH:any-->
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 

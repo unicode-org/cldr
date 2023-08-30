@@ -7,7 +7,6 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 import java.io.File;
-import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Comparator;
@@ -16,11 +15,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
@@ -223,7 +222,8 @@ public class GeneratePersonNameTestData {
                     output.write("\nendName\n");
                 }
 
-                try (PrintWriter output2 = FileUtilities.openUTF8Writer(dir, locale + ".txt"); ) {
+                try (TempPrintWriter output2 =
+                        TempPrintWriter.openUTF8Writer(dir.toString(), locale + ".txt"); ) {
                     output2.write(
                             "# Test data for unit conversions"
                                     + "\n#  Copyright © 1991-2023 Unicode, Inc."

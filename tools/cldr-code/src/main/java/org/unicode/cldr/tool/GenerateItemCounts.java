@@ -197,6 +197,7 @@ public class GenerateItemCounts {
 
         SupplementalDataInfo supp = SUPPLEMENTAL_DATA_INFO;
         for (DtdType dtdType : DtdType.values()) {
+            if (dtdType.getStatus() != DtdType.DtdStatus.active) continue;
             if (dtdType == DtdType.ldmlICU) {
                 continue;
             }

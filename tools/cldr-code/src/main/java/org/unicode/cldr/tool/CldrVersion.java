@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -67,6 +69,7 @@ public enum CldrVersion {
     v42_0,
     v43_0,
     v44_0,
+    /** @see CLDRFile#GEN_VERSION */
     baseline;
 
     private final String baseDirectory;
@@ -98,6 +101,10 @@ public enum CldrVersion {
     }
 
     public static CldrVersion from(String versionString) {
+        // treat 'current' as baseline
+        if (versionString.equals(CLDRFile.GEN_VERSION) || versionString.equals(CLDRFile.GEN_VERSION + ".0")) {
+            return CldrVersion.baseline;
+        }
         return valueOf(
                 versionString.charAt(0) < 'A'
                         ? "v" + versionString.replace('.', '_')

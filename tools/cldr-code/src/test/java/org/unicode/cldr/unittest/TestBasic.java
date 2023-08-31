@@ -31,6 +31,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -61,6 +62,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdType.DtdStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
@@ -1005,6 +1007,8 @@ public class TestBasic extends TestFmwkPlus {
 
     static final Map<String, String> likelyData = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
 
+    private static final EnumSet<CldrVersion> badLdmlICUVersions = EnumSet.of(CldrVersion.v1_1_1, CldrVersion.v1_2, CldrVersion.v1_4_1, CldrVersion.v1_5_1);
+
     public void TestLikelySubtagsComplete() {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
@@ -1228,6 +1232,10 @@ public class TestBasic extends TestFmwkPlus {
         // test all DTDs
         for (DtdType dtd : DtdType.values()) {
             if (dtd.getStatus() != DtdType.DtdStatus.active) continue;
+            if (dtd.firstVersion != null && CldrVersion.LAST_RELEASE_VERSION.isOlderThan(CldrVersion.from(dtd.firstVersion))) {
+                continue; // DTD didn't exist in last release
+            }
+            if (dtd == DtdType.ldmlICU) continue;
             try {
                 ElementAttributeInfo oldDtd = ElementAttributeInfo.getInstance(oldCommon, dtd);
                 ElementAttributeInfo newDtd = ElementAttributeInfo.getInstance(dtd);
@@ -1401,16 +1409,26 @@ public class TestBasic extends TestFmwkPlus {
                 if (version == CldrVersion.unknown || version == CldrVersion.baseline) {
                     continue;
                 }
+                if (type.getStatus() != DtdStatus.active) {
+                    continue; // not active
+                }
+                if (type.firstVersion != null && version.isOlderThan(CldrVersion.from(type.firstVersion))) {
+                    continue; // didn't exist at that point
+                }
                 DtdData dtdDataOld;
                 try {
                     dtdDataOld = DtdData.getInstance(type, version.toString());
                 } catch (IllegalArgumentException e) {
                     boolean tooOld = false;
                     switch (type) {
-                        case ldmlBCP47:
                         case ldmlICU:
+                            tooOld = badLdmlICUVersions.contains(version);
+                            break;
+                        case ldmlBCP47:
                         case keyboard3:
-                            tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
+                            if (type.firstVersion != null) {
+                                tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
+                            }
                             break;
                         default:
                             break;
@@ -1419,8 +1437,8 @@ public class TestBasic extends TestFmwkPlus {
                         continue;
                     } else {
                         errln(
-                                version
-                                        + ": "
+                            "v" + version
+                                + ": "
                                         + e.getClass().getSimpleName()
                                         + ", "
                                         + e.getMessage());
@@ -1450,6 +1468,12 @@ public class TestBasic extends TestFmwkPlus {
                                 continue;
                             }
                             Element newChild = newElement.getChildNamed(oldChild.getName());
+                            // skip certain items
+                            if (version.isOlderThan(CldrVersion.v1_6_1) && newElement.getName().equals("zone") && oldChild.getName().equals("usesMetazone")) {
+                                if (logKnownIssue("CLDR-17054", "Breakage with items older than 1.6.1: " + newElement.getName() + " / " + oldChild.getName())) {
+                                    continue;
+                                }
+                            }
 
                             if (knownChildExceptions.contains(
                                     Pair.of(newElement.getName(), oldChild.getName()))) {

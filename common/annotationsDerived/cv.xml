@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2023 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="cv"/>
+	</identity>
+	<annotations>
+		<annotation cp="#⃣">брелок | брелок: #</annotation>
+		<annotation cp="#⃣" type="tts">брелок: #</annotation>
+		<annotation cp="*⃣">брелок | брелок: *</annotation>
+		<annotation cp="*⃣" type="tts">брелок: *</annotation>
+		<annotation cp="🔟">брелок | брелок: 10</annotation>
+		<annotation cp="🔟" type="tts">брелок: 10</annotation>
+		<annotation cp="🇦🇨">ялав | ялав: Вознесени утравӗ</annotation>
+		<annotation cp="🇦🇨" type="tts">ялав: Вознесени утравӗ</annotation>
+		<annotation cp="🇦🇩">ялав | ялав: Андорра</annotation>
+		<annotation cp="🇦🇩" type="tts">ялав: Андорра</annotation>
+		<annotation cp="🇦🇪">ялав | ялав: Арапсен Пӗрлешӳллӗ Эмирачӗ</annotation>
+		<annotation cp="🇦🇪" type="tts">ялав: Арапсен Пӗрлешӳллӗ Эмирачӗ</annotation>
+		<annotation cp="🇦🇫">ялав | ялав: Афганистан</annotation>
+		<annotation cp="🇦🇫" type="tts">ялав: Афганистан</annotation>
+		<annotation cp="🇦🇬">ялав | ялав: Антигуа тата Барбуда</annotation>
+		<annotation cp="🇦🇬" type="tts">ялав: Антигуа тата Барбуда</annotation>
+		<annotation cp="🇦🇮">ялав | ялав: Ангилья</annotation>
+		<annotation cp="🇦🇮" type="tts">ялав: Ангилья</annotation>
+		<annotation cp="🇦🇱">ялав | ялав: Албани</annotation>
+		<annotation cp="🇦🇱" type="tts">ялав: Албани</annotation>
+		<annotation cp="🇦🇲">ялав | ялав: Армени</annotation>
+		<annotation cp="🇦🇲" type="tts">ялав: Армени</annotation>
+		<annotation cp="🇦🇴">ялав | ялав: Ангола</annotation>
+		<annotation cp="🇦🇴" type="tts">ялав: Ангола</annotation>
+		<annotation cp="🇦🇶">ялав | ялав: Антарктида</annotation>
+		<annotation cp="🇦🇶" type="tts">ялав: Антарктида</annotation>
+		<annotation cp="🇦🇷">ялав | ялав: Аргентина</annotation>
+		<annotation cp="🇦🇷" type="tts">ялав: Аргентина</annotation>
+		<annotation cp="🇦🇸">ялав | ялав: Америка Самоа</annotation>
+		<annotation cp="🇦🇸" type="tts">ялав: Америка Самоа</annotation>
+		<annotation cp="🇦🇹">ялав | ялав: Австри</annotation>
+		<annotation cp="🇦🇹" type="tts">ялав: Австри</annotation>
+		<annotation cp="🇦🇺">ялав | ялав: Австрали</annotation>
+		<annotation cp="🇦🇺" type="tts">ялав: Австрали</annotation>
+		<annotation cp="🇦🇼">ялав | ялав: Аруба</annotation>
+		<annotation cp="🇦🇼" type="tts">ялав: Аруба</annotation>
+		<annotation cp="🇦🇽">ялав | ялав: Аланди утравӗсем</annotation>
+		<annotation cp="🇦🇽" type="tts">ялав: Аланди утравӗсем</annotation>
+		<annotation cp="🇦🇿">ялав | ялав: Азербайджан</annotation>
+		<annotation cp="🇦🇿" type="tts">ялав: Азербайджан</annotation>
+		<annotation cp="🇧🇦">ялав | ялав: Боснипе Герцеговина</annotation>
+		<annotation cp="🇧🇦" type="tts">ялав: Боснипе Герцеговина</annotation>
+		<annotation cp="🇧🇧">ялав | ялав: Барбадос</annotation>
+		<annotation cp="🇧🇧" type="tts">ялав: Барбадос</annotation>
+		<annotation cp="🇧🇩">ялав | ялав: Бангладеш</annotation>
+		<annotation cp="🇧🇩" type="tts">ялав: Бангладеш</annotation>
+		<annotation cp="🇧🇪">ялав | ялав: Бельги</annotation>
+		<annotation cp="🇧🇪" type="tts">ялав: Бельги</annotation>
+		<annotation cp="🇧🇫">ялав | ялав: Буркина-Фасо</annotation>
+		<annotation cp="🇧🇫" type="tts">ялав: Буркина-Фасо</annotation>
+		<annotation cp="🇧🇬">ялав | ялав: Болгари</annotation>
+		<annotation cp="🇧🇬" type="tts">ялав: Болгари</annotation>
+		<annotation cp="🇧🇭">ялав | ялав: Бахрейн</annotation>
+		<annotation cp="🇧🇭" type="tts">ялав: Бахрейн</annotation>
+		<annotation cp="🇧🇮">ялав | ялав: Бурунди</annotation>
+		<annotation cp="🇧🇮" type="tts">ялав: Бурунди</annotation>
+		<annotation cp="🇧🇯">ялав | ялав: Бенин</annotation>
+		<annotation cp="🇧🇯" type="tts">ялав: Бенин</annotation>
+		<annotation cp="🇧🇱">ялав | ялав: Сен-Бартелеми</annotation>
+		<annotation cp="🇧🇱" type="tts">ялав: Сен-Бартелеми</annotation>
+		<annotation cp="🇧🇲">ялав | ялав: Бермуд утравӗсем</annotation>
+		<annotation cp="🇧🇲" type="tts">ялав: Бермуд утравӗсем</annotation>
+		<annotation cp="🇧🇳">ялав | ялав: Бруней-Даруссалам</annotation>
+		<annotation cp="🇧🇳" type="tts">ялав: Бруней-Даруссалам</annotation>
+		<annotation cp="🇧🇴">ялав | ялав: Боливи</annotation>
+		<annotation cp="🇧🇴" type="tts">ялав: Боливи</annotation>
+		<annotation cp="🇧🇶">ялав | ялав: Бонэйр, Синт-Эстатиус тата Саба</annotation>
+		<annotation cp="🇧🇶" type="tts">ялав: Бонэйр, Синт-Эстатиус тата Саба</annotation>
+		<annotation cp="🇧🇷">ялав | ялав: Бразили</annotation>
+		<annotation cp="🇧🇷" type="tts">ялав: Бразили</annotation>
+		<annotation cp="🇧🇸">ялав | ялав: Пахам утравӗсем</annotation>
+		<annotation cp="🇧🇸" type="tts">ялав: Пахам утравӗсем</annotation>
+		<annotation cp="🇧🇹">ялав | ялав: Бутан</annotation>
+		<annotation cp="🇧🇹" type="tts">ялав: Бутан</annotation>
+		<annotation cp="🇧🇻">ялав | ялав: Буве утравӗ</annotation>
+		<annotation cp="🇧🇻" type="tts">ялав: Буве утравӗ</annotation>
+		<annotation cp="🇧🇼">ялав | ялав: Ботсвана</annotation>
+		<annotation cp="🇧🇼" type="tts">ялав: Ботсвана</annotation>
+		<annotation cp="🇧🇾">ялав | ялав: Беларуҫ</annotation>
+		<annotation cp="🇧🇾" type="tts">ялав: Беларуҫ</annotation>
+		<annotation cp="🇧🇿">ялав | ялав: Белиз</annotation>
+		<annotation cp="🇧🇿" type="tts">ялав: Белиз</annotation>
+		<annotation cp="🇨🇦">ялав | ялав: Канада</annotation>
+		<annotation cp="🇨🇦" type="tts">ялав: Канада</annotation>
+		<annotation cp="🇨🇨">ялав | ялав: Кокос утравӗсем</annotation>
+		<annotation cp="🇨🇨" type="tts">ялав: Кокос утравӗсем</annotation>
+		<annotation cp="🇨🇩">ялав | ялав: Конго - Киншаса</annotation>
+		<annotation cp="🇨🇩" type="tts">ялав: Конго - Киншаса</annotation>
+		<annotation cp="🇨🇫">ялав | ялав: Тӗп Африка Республики</annotation>
+		<annotation cp="🇨🇫" type="tts">ялав: Тӗп Африка Республики</annotation>
+		<annotation cp="🇨🇬">ялав | ялав: Конго - Браззавиль</annotation>
+		<annotation cp="🇨🇬" type="tts">ялав: Конго - Браззавиль</annotation>
+		<annotation cp="🇨🇭">ялав | ялав: Швейцари</annotation>
+		<annotation cp="🇨🇭" type="tts">ялав: Швейцари</annotation>
+		<annotation cp="🇨🇮">ялав | ялав: Кот-д’Ивуар</annotation>
+		<annotation cp="🇨🇮" type="tts">ялав: Кот-д’Ивуар</annotation>
+		<annotation cp="🇨🇰">ялав | ялав: Кук утравӗсем</annotation>
+		<annotation cp="🇨🇰" type="tts">ялав: Кук утравӗсем</annotation>
+		<annotation cp="🇨🇱">ялав | ялав: Чили</annotation>
+		<annotation cp="🇨🇱" type="tts">ялав: Чили</annotation>
+		<annotation cp="🇨🇲">ялав | ялав: Камерун</annotation>
+		<annotation cp="🇨🇲" type="tts">ялав: Камерун</annotation>
+		<annotation cp="🇨🇳">ялав | ялав: Китай</annotation>
+		<annotation cp="🇨🇳" type="tts">ялав: Китай</annotation>
+		<annotation cp="🇨🇴">ялав | ялав: Колумби</annotation>
+		<annotation cp="🇨🇴" type="tts">ялав: Колумби</annotation>
+		<annotation cp="🇨🇵">ялав | ялав: Клиппертон утравӗ</annotation>
+		<annotation cp="🇨🇵" type="tts">ялав: Клиппертон утравӗ</annotation>
+		<annotation cp="🇨🇷">ялав | ялав: Коста-Рика</annotation>
+		<annotation cp="🇨🇷" type="tts">ялав: Коста-Рика</annotation>
+		<annotation cp="🇨🇺">ялав | ялав: Куба</annotation>
+		<annotation cp="🇨🇺" type="tts">ялав: Куба</annotation>
+		<annotation cp="🇨🇻">ялав | ялав: Кабо-Верде</annotation>
+		<annotation cp="🇨🇻" type="tts">ялав: Кабо-Верде</annotation>
+		<annotation cp="🇨🇼">ялав | ялав: Кюрасао</annotation>
+		<annotation cp="🇨🇼" type="tts">ялав: Кюрасао</annotation>
+		<annotation cp="🇨🇽">ялав | ялав: Раштав утравӗ</annotation>
+		<annotation cp="🇨🇽" type="tts">ялав: Раштав утравӗ</annotation>
+		<annotation cp="🇨🇾">ялав | ялав: Кипр</annotation>
+		<annotation cp="🇨🇾" type="tts">ялав: Кипр</annotation>
+		<annotation cp="🇨🇿">ялав | ялав: Чехи</annotation>
+		<annotation cp="🇨🇿" type="tts">ялав: Чехи</annotation>
+		<annotation cp="🇩🇪">ялав | ялав: Германи</annotation>
+		<annotation cp="🇩🇪" type="tts">ялав: Германи</annotation>
+		<annotation cp="🇩🇬">ялав | ялав: Диего-Гарсия</annotation>
+		<annotation cp="🇩🇬" type="tts">ялав: Диего-Гарсия</annotation>
+		<annotation cp="🇩🇯">ялав | ялав: Джибути</annotation>
+		<annotation cp="🇩🇯" type="tts">ялав: Джибути</annotation>
+		<annotation cp="🇩🇰">ялав | ялав: Дани</annotation>
+		<annotation cp="🇩🇰" type="tts">ялав: Дани</annotation>
+		<annotation cp="🇩🇲">ялав | ялав: Доминика</annotation>
+		<annotation cp="🇩🇲" type="tts">ялав: Доминика</annotation>
+		<annotation cp="🇩🇴">ялав | ялав: Доминикан Республики</annotation>
+		<annotation cp="🇩🇴" type="tts">ялав: Доминикан Республики</annotation>
+		<annotation cp="🇩🇿">ялав | ялав: Алжир</annotation>
+		<annotation cp="🇩🇿" type="tts">ялав: Алжир</annotation>
+		<annotation cp="🇪🇦">ялав | ялав: Сеута тата Мелилья</annotation>
+		<annotation cp="🇪🇦" type="tts">ялав: Сеута тата Мелилья</annotation>
+		<annotation cp="🇪🇨">ялав | ялав: Эквадор</annotation>
+		<annotation cp="🇪🇨" type="tts">ялав: Эквадор</annotation>
+		<annotation cp="🇪🇪">ялав | ялав: Эстони</annotation>
+		<annotation cp="🇪🇪" type="tts">ялав: Эстони</annotation>
+		<annotation cp="🇪🇬">ялав | ялав: Египет</annotation>
+		<annotation cp="🇪🇬" type="tts">ялав: Египет</annotation>
+		<annotation cp="🇪🇭">ялав | ялав: Анӑҫ Сахара</annotation>
+		<annotation cp="🇪🇭" type="tts">ялав: Анӑҫ Сахара</annotation>
+		<annotation cp="🇪🇷">ялав | ялав: Эритрей</annotation>
+		<annotation cp="🇪🇷" type="tts">ялав: Эритрей</annotation>
+		<annotation cp="🇪🇸">ялав | ялав: Испани</annotation>
+		<annotation cp="🇪🇸" type="tts">ялав: Испани</annotation>
+		<annotation cp="🇪🇹">ялав | ялав: Эфиопи</annotation>
+		<annotation cp="🇪🇹" type="tts">ялав: Эфиопи</annotation>
+		<annotation cp="🇪🇺">ялав | ялав: Европа пӗрлешӗвӗ</annotation>
+		<annotation cp="🇪🇺" type="tts">ялав: Европа пӗрлешӗвӗ</annotation>
+		<annotation cp="🇫🇮">ялав | ялав: Финлянди</annotation>
+		<annotation cp="🇫🇮" type="tts">ялав: Финлянди</annotation>
+		<annotation cp="🇫🇯">ялав | ялав: Фиджи</annotation>
+		<annotation cp="🇫🇯" type="tts">ялав: Фиджи</annotation>
+		<annotation cp="🇫🇰">ялав | ялав: Фолкленд утравӗсем</annotation>
+		<annotation cp="🇫🇰" type="tts">ялав: Фолкленд утравӗсем</annotation>
+		<annotation cp="🇫🇲">ялав | ялав: Микронези</annotation>
+		<annotation cp="🇫🇲" type="tts">ялав: Микронези</annotation>
+		<annotation cp="🇫🇴">ялав | ялав: Фарер утравӗсем</annotation>
+		<annotation cp="🇫🇴" type="tts">ялав: Фарер утравӗсем</annotation>
+		<annotation cp="🇫🇷">ялав | ялав: Франци</annotation>
+		<annotation cp="🇫🇷" type="tts">ялав: Франци</annotation>
+		<annotation cp="🇬🇦">ялав | ялав: Габон</annotation>
+		<annotation cp="🇬🇦" type="tts">ялав: Габон</annotation>
+		<annotation cp="🇬🇧">ялав | ялав: Аслӑ Британи</annotation>
+		<annotation cp="🇬🇧" type="tts">ялав: Аслӑ Британи</annotation>
+		<annotation cp="🇬🇩">ялав | ялав: Гренада</annotation>
+		<annotation cp="🇬🇩" type="tts">ялав: Гренада</annotation>
+		<annotation cp="🇬🇪">ялав | ялав: Грузи</annotation>
+		<annotation cp="🇬🇪" type="tts">ялав: Грузи</annotation>
+		<annotation cp="🇬🇫">ялав | ялав: Франци Гвиана</annotation>
+		<annotation cp="🇬🇫" type="tts">ялав: Франци Гвиана</annotation>
+		<annotation cp="🇬🇬">ялав | ялав: Гернси</annotation>
+		<annotation cp="🇬🇬" type="tts">ялав: Гернси</annotation>
+		<annotation cp="🇬🇭">ялав | ялав: Гана</annotation>
+		<annotation cp="🇬🇭" type="tts">ялав: Гана</annotation>
+		<annotation cp="🇬🇮">ялав | ялав: Гибралтар</annotation>
+		<annotation cp="🇬🇮" type="tts">ялав: Гибралтар</annotation>
+		<annotation cp="🇬🇱">ялав | ялав: Гренланди</annotation>
+		<annotation cp="🇬🇱" type="tts">ялав: Гренланди</annotation>
+		<annotation cp="🇬🇲">ялав | ялав: Гамби</annotation>
+		<annotation cp="🇬🇲" type="tts">ялав: Гамби</annotation>
+		<annotation cp="🇬🇳">ялав | ялав: Гвиней</annotation>
+		<annotation cp="🇬🇳" type="tts">ялав: Гвиней</annotation>
+		<annotation cp="🇬🇵">ялав | ялав: Гваделупа</annotation>
+		<annotation cp="🇬🇵" type="tts">ялав: Гваделупа</annotation>
+		<annotation cp="🇬🇶">ялав | ялав: Экваториаллӑ Гвиней</annotation>
+		<annotation cp="🇬🇶" type="tts">ялав: Экваториаллӑ Гвиней</annotation>
+		<annotation cp="🇬🇷">ялав | ялав: Греци</annotation>
+		<annotation cp="🇬🇷" type="tts">ялав: Греци</annotation>
+		<annotation cp="🇬🇸">ялав | ялав: Кӑнтӑр Георги тата Сандвичев утравӗсем</annotation>
+		<annotation cp="🇬🇸" type="tts">ялав: Кӑнтӑр Георги тата Сандвичев утравӗсем</annotation>
+		<annotation cp="🇬🇹">ялав | ялав: Гватемала</annotation>
+		<annotation cp="🇬🇹" type="tts">ялав: Гватемала</annotation>
+		<annotation cp="🇬🇺">ялав | ялав: Гуам</annotation>
+		<annotation cp="🇬🇺" type="tts">ялав: Гуам</annotation>
+		<annotation cp="🇬🇼">ялав | ялав: Гвиней-Бисау</annotation>
+		<annotation cp="🇬🇼" type="tts">ялав: Гвиней-Бисау</annotation>
+		<annotation cp="🇬🇾">ялав | ялав: Гайана</annotation>
+		<annotation cp="🇬🇾" type="tts">ялав: Гайана</annotation>
+		<annotation cp="🇭🇰">ялав | ялав: Гонконг (САР)</annotation>
+		<annotation cp="🇭🇰" type="tts">ялав: Гонконг (САР)</annotation>
+		<annotation cp="🇭🇲">ялав | ялав: Херд тата Макдональд утравӗ</annotation>
+		<annotation cp="🇭🇲" type="tts">ялав: Херд тата Макдональд утравӗ</annotation>
+		<annotation cp="🇭🇳">ялав | ялав: Гондурас</annotation>
+		<annotation cp="🇭🇳" type="tts">ялав: Гондурас</annotation>
+		<annotation cp="🇭🇷">ялав | ялав: Хорвати</annotation>
+		<annotation cp="🇭🇷" type="tts">ялав: Хорвати</annotation>
+		<annotation cp="🇭🇹">ялав | ялав: Гаити</annotation>
+		<annotation cp="🇭🇹" type="tts">ялав: Гаити</annotation>
+		<annotation cp="🇭🇺">ялав | ялав: Венгри</annotation>
+		<annotation cp="🇭🇺" type="tts">ялав: Венгри</annotation>
+		<annotation cp="🇮🇨">ялав | ялав: Канар утравӗсем</annotation>
+		<annotation cp="🇮🇨" type="tts">ялав: Канар утравӗсем</annotation>
+		<annotation cp="🇮🇩">ялав | ялав: Индонези</annotation>
+		<annotation cp="🇮🇩" type="tts">ялав: Индонези</annotation>
+		<annotation cp="🇮🇪">ялав | ялав: Ирланди</annotation>
+		<annotation cp="🇮🇪" type="tts">ялав: Ирланди</annotation>
+		<annotation cp="🇮🇱">ялав | ялав: Израиль</annotation>
+		<annotation cp="🇮🇱" type="tts">ялав: Израиль</annotation>
+		<annotation cp="🇮🇲">ялав | ялав: Мэн утравӗ</annotation>
+		<annotation cp="🇮🇲" type="tts">ялав: Мэн утравӗ</annotation>
+		<annotation cp="🇮🇳">ялав | ялав: Инди</annotation>
+		<annotation cp="🇮🇳" type="tts">ялав: Инди</annotation>
+		<annotation cp="🇮🇴">ялав | ялав: Британин территори Инди океанӗре</annotation>
+		<annotation cp="🇮🇴" type="tts">ялав: Британин территори Инди океанӗре</annotation>
+		<annotation cp="🇮🇶">ялав | ялав: Ирак</annotation>
+		<annotation cp="🇮🇶" type="tts">ялав: Ирак</annotation>
+		<annotation cp="🇮🇷">ялав | ялав: Иран</annotation>
+		<annotation cp="🇮🇷" type="tts">ялав: Иран</annotation>
+		<annotation cp="🇮🇸">ялав | ялав: Исланди</annotation>
+		<annotation cp="🇮🇸" type="tts">ялав: Исланди</annotation>
+		<annotation cp="🇮🇹">ялав | ялав: Итали</annotation>
+		<annotation cp="🇮🇹" type="tts">ялав: Итали</annotation>
+		<annotation cp="🇯🇪">ялав | ялав: Джерси</annotation>
+		<annotation cp="🇯🇪" type="tts">ялав: Джерси</annotation>
+		<annotation cp="🇯🇲">ялав | ялав: Ямайка</annotation>
+		<annotation cp="🇯🇲" type="tts">ялав: Ямайка</annotation>
+		<annotation cp="🇯🇴">ялав | ялав: Иордани</annotation>
+		<annotation cp="🇯🇴" type="tts">ялав: Иордани</annotation>
+		<annotation cp="🇯🇵">ялав | ялав: Япони</annotation>
+		<annotation cp="🇯🇵" type="tts">ялав: Япони</annotation>
+		<annotation cp="🇰🇪">ялав | ялав: Кени</annotation>
+		<annotation cp="🇰🇪" type="tts">ялав: Кени</annotation>
+		<annotation cp="🇰🇬">ялав | ялав: Киргизи</annotation>
+		<annotation cp="🇰🇬" type="tts">ялав: Киргизи</annotation>
+		<annotation cp="🇰🇭">ялав | ялав: Камбоджа</annotation>
+		<annotation cp="🇰🇭" type="tts">ялав: Камбоджа</annotation>
+		<annotation cp="🇰🇮">ялав | ялав: Кирибати</annotation>
+		<annotation cp="🇰🇮" type="tts">ялав: Кирибати</annotation>
+		<annotation cp="🇰🇲">ялав | ялав: Комор утравӗсем</annotation>
+		<annotation cp="🇰🇲" type="tts">ялав: Комор утравӗсем</annotation>
+		<annotation cp="🇰🇳">ялав | ялав: Сент-Китс тата Невис</annotation>
+		<annotation cp="🇰🇳" type="tts">ялав: Сент-Китс тата Невис</annotation>
+		<annotation cp="🇰🇵">ялав | ялав: КХДР</annotation>
+		<annotation cp="🇰🇵" type="tts">ялав: КХДР</annotation>
+		<annotation cp="🇰🇷">ялав | ялав: Корей Республики</annotation>
+		<annotation cp="🇰🇷" type="tts">ялав: Корей Республики</annotation>
+		<annotation cp="🇰🇼">ялав | ялав: Кувейт</annotation>
+		<annotation cp="🇰🇼" type="tts">ялав: Кувейт</annotation>
+		<annotation cp="🇰🇾">ялав | ялав: Кайман утравӗсем</annotation>
+		<annotation cp="🇰🇾" type="tts">ялав: Кайман утравӗсем</annotation>
+		<annotation cp="🇰🇿">ялав | ялав: Казахстан</annotation>
+		<annotation cp="🇰🇿" type="tts">ялав: Казахстан</annotation>
+		<annotation cp="🇱🇦">ялав | ялав: Лаос</annotation>
+		<annotation cp="🇱🇦" type="tts">ялав: Лаос</annotation>
+		<annotation cp="🇱🇧">ялав | ялав: Ливан</annotation>
+		<annotation cp="🇱🇧" type="tts">ялав: Ливан</annotation>
+		<annotation cp="🇱🇨">ялав | ялав: Сент-Люсия</annotation>
+		<annotation cp="🇱🇨" type="tts">ялав: Сент-Люсия</annotation>
+		<annotation cp="🇱🇮">ялав | ялав: Лихтенштейн</annotation>
+		<annotation cp="🇱🇮" type="tts">ялав: Лихтенштейн</annotation>
+		<annotation cp="🇱🇰">ялав | ялав: Шри-Ланка</annotation>
+		<annotation cp="🇱🇰" type="tts">ялав: Шри-Ланка</annotation>
+		<annotation cp="🇱🇷">ялав | ялав: Либери</annotation>
+		<annotation cp="🇱🇷" type="tts">ялав: Либери</annotation>
+		<annotation cp="🇱🇸">ялав | ялав: Лесото</annotation>
+		<annotation cp="🇱🇸" type="tts">ялав: Лесото</annotation>
+		<annotation cp="🇱🇹">ялав | ялав: Литва</annotation>
+		<annotation cp="🇱🇹" type="tts">ялав: Литва</annotation>
+		<annotation cp="🇱🇺">ялав | ялав: Люксембург</annotation>
+		<annotation cp="🇱🇺" type="tts">ялав: Люксембург</annotation>
+		<annotation cp="🇱🇻">ялав | ялав: Латви</annotation>
+		<annotation cp="🇱🇻" type="tts">ялав: Латви</annotation>
+		<annotation cp="🇱🇾">ялав | ялав: Ливи</annotation>
+		<annotation cp="🇱🇾" type="tts">ялав: Ливи</annotation>
+		<annotation cp="🇲🇦">ялав | ялав: Марокко</annotation>
+		<annotation cp="🇲🇦" type="tts">ялав: Марокко</annotation>
+		<annotation cp="🇲🇨">ялав | ялав: Монако</annotation>
+		<annotation cp="🇲🇨" type="tts">ялав: Монако</annotation>
+		<annotation cp="🇲🇩">ялав | ялав: Молдова</annotation>
+		<annotation cp="🇲🇩" type="tts">ялав: Молдова</annotation>
+		<annotation cp="🇲🇪">ялав | ялав: Черногори</annotation>
+		<annotation cp="🇲🇪" type="tts">ялав: Черногори</annotation>
+		<annotation cp="🇲🇫">ялав | ялав: Сен-Мартен</annotation>
+		<annotation cp="🇲🇫" type="tts">ялав: Сен-Мартен</annotation>
+		<annotation cp="🇲🇬">ялав | ялав: Мадагаскар</annotation>
+		<annotation cp="🇲🇬" type="tts">ялав: Мадагаскар</annotation>
+		<annotation cp="🇲🇭">ялав | ялав: Маршаллов утравӗсем</annotation>
+		<annotation cp="🇲🇭" type="tts">ялав: Маршаллов утравӗсем</annotation>
+		<annotation cp="🇲🇰">ялав | ялав: Ҫурҫӗр Македони</annotation>
+		<annotation cp="🇲🇰" type="tts">ялав: Ҫурҫӗр Македони</annotation>
+		<annotation cp="🇲🇱">ялав | ялав: Мали</annotation>
+		<annotation cp="🇲🇱" type="tts">ялав: Мали</annotation>
+		<annotation cp="🇲🇲">ялав | ялав: Мьянма (Бирма)</annotation>
+		<annotation cp="🇲🇲" type="tts">ялав: Мьянма (Бирма)</annotation>
+		<annotation cp="🇲🇳">ялав | ялав: Монголи</annotation>
+		<annotation cp="🇲🇳" type="tts">ялав: Монголи</annotation>
+		<annotation cp="🇲🇴">ялав | ялав: Макао (САР)</annotation>
+		<annotation cp="🇲🇴" type="tts">ялав: Макао (САР)</annotation>
+		<annotation cp="🇲🇵">ялав | ялав: Ҫурҫӗр Мариан утравӗсем</annotation>
+		<annotation cp="🇲🇵" type="tts">ялав: Ҫурҫӗр Мариан утравӗсем</annotation>
+		<annotation cp="🇲🇶">ялав | ялав: Мартиника</annotation>
+		<annotation cp="🇲🇶" type="tts">ялав: Мартиника</annotation>
+		<annotation cp="🇲🇷">ялав | ялав: Мавритани</annotation>
+		<annotation cp="🇲🇷" type="tts">ялав: Мавритани</annotation>
+		<annotation cp="🇲🇸">ялав | ялав: Монтсеррат</annotation>
+		<annotation cp="🇲🇸" type="tts">ялав: Монтсеррат</annotation>
+		<annotation cp="🇲🇹">ялав | ялав: Мальта</annotation>
+		<annotation cp="🇲🇹" type="tts">ялав: Мальта</annotation>
+		<annotation cp="🇲🇺">ялав | ялав: Маврики</annotation>
+		<annotation cp="🇲🇺" type="tts">ялав: Маврики</annotation>
+		<annotation cp="🇲🇻">ялав | ялав: Мальдивсем</annotation>
+		<annotation cp="🇲🇻" type="tts">ялав: Мальдивсем</annotation>
+		<annotation cp="🇲🇼">ялав | ялав: Малави</annotation>
+		<annotation cp="🇲🇼" type="tts">ялав: Малави</annotation>
+		<annotation cp="🇲🇽">ялав | ялав: Мексика</annotation>
+		<annotation cp="🇲🇽" type="tts">ялав: Мексика</annotation>
+		<annotation cp="🇲🇾">ялав | ялав: Малайзи</annotation>
+		<annotation cp="🇲🇾" type="tts">ялав: Малайзи</annotation>
+		<annotation cp="🇲🇿">ялав | ялав: Мозамбик</annotation>
+		<annotation cp="🇲🇿" type="tts">ялав: Мозамбик</annotation>
+		<annotation cp="🇳🇦">ялав | ялав: Намиби</annotation>
+		<annotation cp="🇳🇦" type="tts">ялав: Намиби</annotation>
+		<annotation cp="🇳🇨">ялав | ялав: Ҫӗнӗ Каледони</annotation>
+		<annotation cp="🇳🇨" type="tts">ялав: Ҫӗнӗ Каледони</annotation>
+		<annotation cp="🇳🇪">ялав | ялав: Нигер</annotation>
+		<annotation cp="🇳🇪" type="tts">ялав: Нигер</annotation>
+		<annotation cp="🇳🇫">ялав | ялав: Норфолк утравӗ</annotation>
+		<annotation cp="🇳🇫" type="tts">ялав: Норфолк утравӗ</annotation>
+		<annotation cp="🇳🇬">ялав | ялав: Нигери</annotation>
+		<annotation cp="🇳🇬" type="tts">ялав: Нигери</annotation>
+		<annotation cp="🇳🇮">ялав | ялав: Никарагуа</annotation>
+		<annotation cp="🇳🇮" type="tts">ялав: Никарагуа</annotation>
+		<annotation cp="🇳🇱">ялав | ялав: Нидерланд</annotation>
+		<annotation cp="🇳🇱" type="tts">ялав: Нидерланд</annotation>
+		<annotation cp="🇳🇴">ялав | ялав: Норвеги</annotation>
+		<annotation cp="🇳🇴" type="tts">ялав: Норвеги</annotation>
+		<annotation cp="🇳🇵">ялав | ялав: Непал</annotation>
+		<annotation cp="🇳🇵" type="tts">ялав: Непал</annotation>
+		<annotation cp="🇳🇷">ялав | ялав: Науру</annotation>
+		<annotation cp="🇳🇷" type="tts">ялав: Науру</annotation>
+		<annotation cp="🇳🇺">ялав | ялав: Ниуэ</annotation>
+		<annotation cp="🇳🇺" type="tts">ялав: Ниуэ</annotation>
+		<annotation cp="🇳🇿">ялав | ялав: Ҫӗнӗ Зеланди</annotation>
+		<annotation cp="🇳🇿" type="tts">ялав: Ҫӗнӗ Зеланди</annotation>
+		<annotation cp="🇴🇲">ялав | ялав: Оман</annotation>
+		<annotation cp="🇴🇲" type="tts">ялав: Оман</annotation>
+		<annotation cp="🇵🇦">ялав | ялав: Панама</annotation>
+		<annotation cp="🇵🇦" type="tts">ялав: Панама</annotation>
+		<annotation cp="🇵🇪">ялав | ялав: Перу</annotation>
+		<annotation cp="🇵🇪" type="tts">ялав: Перу</annotation>
+		<annotation cp="🇵🇫">ялав | ялав: Франци Полинези</annotation>
+		<annotation cp="🇵🇫" type="tts">ялав: Франци Полинези</annotation>
+		<annotation cp="🇵🇬">ялав | ялав: Папуа — Ҫӗнӗ Гвиней</annotation>
+		<annotation cp="🇵🇬" type="tts">ялав: Папуа — Ҫӗнӗ Гвиней</annotation>
+		<annotation cp="🇵🇭">ялав | ялав: Филиппинсем</annotation>
+		<annotation cp="🇵🇭" type="tts">ялав: Филиппинсем</annotation>
+		<annotation cp="🇵🇰">ялав | ялав: Пакистан</annotation>
+		<annotation cp="🇵🇰" type="tts">ялав: Пакистан</annotation>
+		<annotation cp="🇵🇱">ялав | ялав: Польша</annotation>
+		<annotation cp="🇵🇱" type="tts">ялав: Польша</annotation>
+		<annotation cp="🇵🇲">ялав | ялав: Сен-Пьер &amp; Микелон</annotation>
+		<annotation cp="🇵🇲" type="tts">ялав: Сен-Пьер &amp; Микелон</annotation>
+		<annotation cp="🇵🇳">ялав | ялав: Питкэрн утравӗсем</annotation>
+		<annotation cp="🇵🇳" type="tts">ялав: Питкэрн утравӗсем</annotation>
+		<annotation cp="🇵🇷">ялав | ялав: Пуэрто-Рико</annotation>
+		<annotation cp="🇵🇷" type="tts">ялав: Пуэрто-Рико</annotation>
+		<annotation cp="🇵🇸">ялав | ялав: Палестинӑн территорийӗсем</annotation>
+		<annotation cp="🇵🇸" type="tts">ялав: Палестинӑн территорийӗсем</annotation>
+		<annotation cp="🇵🇹">ялав | ялав: Португали</annotation>
+		<annotation cp="🇵🇹" type="tts">ялав: Португали</annotation>
+		<annotation cp="🇵🇼">ялав | ялав: Палау</annotation>
+		<annotation cp="🇵🇼" type="tts">ялав: Палау</annotation>
+		<annotation cp="🇵🇾">ялав | ялав: Парагвай</annotation>
+		<annotation cp="🇵🇾" type="tts">ялав: Парагвай</annotation>
+		<annotation cp="🇶🇦">ялав | ялав: Катар</annotation>
+		<annotation cp="🇶🇦" type="tts">ялав: Катар</annotation>
+		<annotation cp="🇷🇪">ялав | ялав: Реюньон</annotation>
+		<annotation cp="🇷🇪" type="tts">ялав: Реюньон</annotation>
+		<annotation cp="🇷🇴">ялав | ялав: Румыни</annotation>
+		<annotation cp="🇷🇴" type="tts">ялав: Румыни</annotation>
+		<annotation cp="🇷🇸">ялав | ялав: Серби</annotation>
+		<annotation cp="🇷🇸" type="tts">ялав: Серби</annotation>
+		<annotation cp="🇷🇺">ялав | ялав: Раҫҫей</annotation>
+		<annotation cp="🇷🇺" type="tts">ялав: Раҫҫей</annotation>
+		<annotation cp="🇷🇼">ялав | ялав: Руанда</annotation>
+		<annotation cp="🇷🇼" type="tts">ялав: Руанда</annotation>
+		<annotation cp="🇸🇦">ялав | ялав: Сауд Аравийӗ</annotation>
+		<annotation cp="🇸🇦" type="tts">ялав: Сауд Аравийӗ</annotation>
+		<annotation cp="🇸🇧">ялав | ялав: Соломон утравӗсем</annotation>
+		<annotation cp="🇸🇧" type="tts">ялав: Соломон утравӗсем</annotation>
+		<annotation cp="🇸🇨">ялав | ялав: Сейшел утравӗсем</annotation>
+		<annotation cp="🇸🇨" type="tts">ялав: Сейшел утравӗсем</annotation>
+		<annotation cp="🇸🇩">ялав | ялав: Судан</annotation>
+		<annotation cp="🇸🇩" type="tts">ялав: Судан</annotation>
+		<annotation cp="🇸🇪">ялав | ялав: Швеци</annotation>
+		<annotation cp="🇸🇪" type="tts">ялав: Швеци</annotation>
+		<annotation cp="🇸🇬">ялав | ялав: Сингапур</annotation>
+		<annotation cp="🇸🇬" type="tts">ялав: Сингапур</annotation>
+		<annotation cp="🇸🇭">ялав | ялав: Сӑваплӑ Елена утравӗ</annotation>
+		<annotation cp="🇸🇭" type="tts">ялав: Сӑваплӑ Елена утравӗ</annotation>
+		<annotation cp="🇸🇮">ялав | ялав: Словени</annotation>
+		<annotation cp="🇸🇮" type="tts">ялав: Словени</annotation>
+		<annotation cp="🇸🇯">ялав | ялав: Шпицберген тата Ян-Майен</annotation>
+		<annotation cp="🇸🇯" type="tts">ялав: Шпицберген тата Ян-Майен</annotation>
+		<annotation cp="🇸🇰">ялав | ялав: Словаки</annotation>
+		<annotation cp="🇸🇰" type="tts">ялав: Словаки</annotation>
+		<annotation cp="🇸🇱">ялав | ялав: Сьерра-Леоне</annotation>
+		<annotation cp="🇸🇱" type="tts">ялав: Сьерра-Леоне</annotation>
+		<annotation cp="🇸🇲">ялав | ялав: Сан-Марино</annotation>
+		<annotation cp="🇸🇲" type="tts">ялав: Сан-Марино</annotation>
+		<annotation cp="🇸🇳">ялав | ялав: Сенегал</annotation>
+		<annotation cp="🇸🇳" type="tts">ялав: Сенегал</annotation>
+		<annotation cp="🇸🇴">ялав | ялав: Сомали</annotation>
+		<annotation cp="🇸🇴" type="tts">ялав: Сомали</annotation>
+		<annotation cp="🇸🇷">ялав | ялав: Суринам</annotation>
+		<annotation cp="🇸🇷" type="tts">ялав: Суринам</annotation>
+		<annotation cp="🇸🇸">ялав | ялав: Кӑнтӑр Судан</annotation>
+		<annotation cp="🇸🇸" type="tts">ялав: Кӑнтӑр Судан</annotation>
+		<annotation cp="🇸🇹">ялав | ялав: Сан-Томе тата Принсипи</annotation>
+		<annotation cp="🇸🇹" type="tts">ялав: Сан-Томе тата Принсипи</annotation>
+		<annotation cp="🇸🇻">ялав | ялав: Сальвадор</annotation>
+		<annotation cp="🇸🇻" type="tts">ялав: Сальвадор</annotation>
+		<annotation cp="🇸🇽">ялав | ялав: Синт-Мартен</annotation>
+		<annotation cp="🇸🇽" type="tts">ялав: Синт-Мартен</annotation>
+		<annotation cp="🇸🇾">ялав | ялав: Сири</annotation>
+		<annotation cp="🇸🇾" type="tts">ялав: Сири</annotation>
+		<annotation cp="🇸🇿">ялав | ялав: Эсватини</annotation>
+		<annotation cp="🇸🇿" type="tts">ялав: Эсватини</annotation>
+		<annotation cp="🇹🇦">ялав | ялав: Тристан-да-Кунья</annotation>
+		<annotation cp="🇹🇦" type="tts">ялав: Тристан-да-Кунья</annotation>
+		<annotation cp="🇹🇨">ялав | ялав: Тёркс тата Кайкос утравӗсем</annotation>
+		<annotation cp="🇹🇨" type="tts">ялав: Тёркс тата Кайкос утравӗсем</annotation>
+		<annotation cp="🇹🇩">ялав | ялав: Чад</annotation>
+		<annotation cp="🇹🇩" type="tts">ялав: Чад</annotation>
+		<annotation cp="🇹🇫">ялав | ялав: Франци Кӑнтӑр территорийӗсем</annotation>
+		<annotation cp="🇹🇫" type="tts">ялав: Франци Кӑнтӑр территорийӗсем</annotation>
+		<annotation cp="🇹🇬">ялав | ялав: Того</annotation>
+		<annotation cp="🇹🇬" type="tts">ялав: Того</annotation>
+		<annotation cp="🇹🇭">ялав | ялав: Таиланд</annotation>
+		<annotation cp="🇹🇭" type="tts">ялав: Таиланд</annotation>
+		<annotation cp="🇹🇯">ялав | ялав: Таджикистан</annotation>
+		<annotation cp="🇹🇯" type="tts">ялав: Таджикистан</annotation>
+		<annotation cp="🇹🇰">ялав | ялав: Токелау</annotation>
+		<annotation cp="🇹🇰" type="tts">ялав: Токелау</annotation>
+		<annotation cp="🇹🇱">ялав | ялав: Хӗвелтухӑҫ Тимор</annotation>
+		<annotation cp="🇹🇱" type="tts">ялав: Хӗвелтухӑҫ Тимор</annotation>
+		<annotation cp="🇹🇲">ялав | ялав: Туркменистан</annotation>
+		<annotation cp="🇹🇲" type="tts">ялав: Туркменистан</annotation>
+		<annotation cp="🇹🇳">ялав | ялав: Тунис</annotation>
+		<annotation cp="🇹🇳" type="tts">ялав: Тунис</annotation>
+		<annotation cp="🇹🇴">ялав | ялав: Тонга</annotation>
+		<annotation cp="🇹🇴" type="tts">ялав: Тонга</annotation>
+		<annotation cp="🇹🇷">ялав | ялав: Турци</annotation>
+		<annotation cp="🇹🇷" type="tts">ялав: Турци</annotation>
+		<annotation cp="🇹🇹">ялав | ялав: Тринидад тата Тобаго</annotation>
+		<annotation cp="🇹🇹" type="tts">ялав: Тринидад тата Тобаго</annotation>
+		<annotation cp="🇹🇻">ялав | ялав: Тувалу</annotation>
+		<annotation cp="🇹🇻" type="tts">ялав: Тувалу</annotation>
+		<annotation cp="🇹🇼">ялав | ялав: Тайвань</annotation>
+		<annotation cp="🇹🇼" type="tts">ялав: Тайвань</annotation>
+		<annotation cp="🇹🇿">ялав | ялав: Танзани</annotation>
+		<annotation cp="🇹🇿" type="tts">ялав: Танзани</annotation>
+		<annotation cp="🇺🇦">ялав | ялав: Украина</annotation>
+		<annotation cp="🇺🇦" type="tts">ялав: Украина</annotation>
+		<annotation cp="🇺🇬">ялав | ялав: Уганда</annotation>
+		<annotation cp="🇺🇬" type="tts">ялав: Уганда</annotation>
+		<annotation cp="🇺🇲">ялав | ялав: Тулашӗнчи утравӗсем (АПШ)</annotation>
+		<annotation cp="🇺🇲" type="tts">ялав: Тулашӗнчи утравӗсем (АПШ)</annotation>
+		<annotation cp="🇺🇳">ялав | ялав: Пӗрлешӳллӗ Нацисен Организацийӗ</annotation>
+		<annotation cp="🇺🇳" type="tts">ялав: Пӗрлешӳллӗ Нацисен Организацийӗ</annotation>
+		<annotation cp="🇺🇸">ялав | ялав: Пӗрлешӗннӗ Штатсем</annotation>
+		<annotation cp="🇺🇸" type="tts">ялав: Пӗрлешӗннӗ Штатсем</annotation>
+		<annotation cp="🇺🇾">ялав | ялав: Уругвай</annotation>
+		<annotation cp="🇺🇾" type="tts">ялав: Уругвай</annotation>
+		<annotation cp="🇺🇿">ялав | ялав: Узбекистан</annotation>
+		<annotation cp="🇺🇿" type="tts">ялав: Узбекистан</annotation>
+		<annotation cp="🇻🇦">ялав | ялав: Ватикан</annotation>
+		<annotation cp="🇻🇦" type="tts">ялав: Ватикан</annotation>
+		<annotation cp="🇻🇨">ялав | ялав: Сент-Винсент тата Гренадины</annotation>
+		<annotation cp="🇻🇨" type="tts">ялав: Сент-Винсент тата Гренадины</annotation>
+		<annotation cp="🇻🇪">ялав | ялав: Венесуэла</annotation>
+		<annotation cp="🇻🇪" type="tts">ялав: Венесуэла</annotation>
+		<annotation cp="🇻🇬">ялав | ялав: Британин Виргини утравӗсем</annotation>
+		<annotation cp="🇻🇬" type="tts">ялав: Британин Виргини утравӗсем</annotation>
+		<annotation cp="🇻🇮">ялав | ялав: Виргини утравӗсем (АПШ)</annotation>
+		<annotation cp="🇻🇮" type="tts">ялав: Виргини утравӗсем (АПШ)</annotation>
+		<annotation cp="🇻🇳">ялав | ялав: Вьетнам</annotation>
+		<annotation cp="🇻🇳" type="tts">ялав: Вьетнам</annotation>
+		<annotation cp="🇻🇺">ялав | ялав: Вануату</annotation>
+		<annotation cp="🇻🇺" type="tts">ялав: Вануату</annotation>
+		<annotation cp="🇼🇫">ялав | ялав: Уоллис тата Футуна</annotation>
+		<annotation cp="🇼🇫" type="tts">ялав: Уоллис тата Футуна</annotation>
+		<annotation cp="🇼🇸">ялав | ялав: Самоа</annotation>
+		<annotation cp="🇼🇸" type="tts">ялав: Самоа</annotation>
+		<annotation cp="🇽🇰">ялав | ялав: Косово</annotation>
+		<annotation cp="🇽🇰" type="tts">ялав: Косово</annotation>
+		<annotation cp="🇾🇪">ялав | ялав: Йемен</annotation>
+		<annotation cp="🇾🇪" type="tts">ялав: Йемен</annotation>
+		<annotation cp="🇾🇹">ялав | ялав: Майотта</annotation>
+		<annotation cp="🇾🇹" type="tts">ялав: Майотта</annotation>
+		<annotation cp="🇿🇦">ялав | ялав: Кӑнтӑр Африка Республики</annotation>
+		<annotation cp="🇿🇦" type="tts">ялав: Кӑнтӑр Африка Республики</annotation>
+		<annotation cp="🇿🇲">ялав | ялав: Замби</annotation>
+		<annotation cp="🇿🇲" type="tts">ялав: Замби</annotation>
+		<annotation cp="🇿🇼">ялав | ялав: Зимбабве</annotation>
+		<annotation cp="🇿🇼" type="tts">ялав: Зимбабве</annotation>
+		<annotation cp="¤">паллӑ мар валюта</annotation>
+		<annotation cp="¤" type="tts">паллӑ мар валюта</annotation>
+		<annotation cp="֏">Армяни драмӗ</annotation>
+		<annotation cp="֏" type="tts">Армяни драмӗ</annotation>
+		<annotation cp="؋">афганийӗ</annotation>
+		<annotation cp="؋" type="tts">афганийӗ</annotation>
+		<annotation cp="৳">Бангладеш таки</annotation>
+		<annotation cp="৳" type="tts">Бангладеш таки</annotation>
+		<annotation cp="฿">Таиланд барӗ</annotation>
+		<annotation cp="฿" type="tts">Таиланд барӗ</annotation>
+		<annotation cp="៛">Камбоджа риелӗ</annotation>
+		<annotation cp="៛" type="tts">Камбоджа риелӗ</annotation>
+		<annotation cp="₡">Коста-Рика колонӗ</annotation>
+		<annotation cp="₡" type="tts">Коста-Рика колонӗ</annotation>
+		<annotation cp="₦">Нигери найрӗ</annotation>
+		<annotation cp="₦" type="tts">Нигери найрӗ</annotation>
+		<annotation cp="₪">Ҫӗнӗ Израиль шекелӗ</annotation>
+		<annotation cp="₪" type="tts">Ҫӗнӗ Израиль шекелӗ</annotation>
+		<annotation cp="₫">Вьетнам донгӗ</annotation>
+		<annotation cp="₫" type="tts">Вьетнам донгӗ</annotation>
+		<annotation cp="₭">Лаос кипӗ</annotation>
+		<annotation cp="₭" type="tts">Лаос кипӗ</annotation>
+		<annotation cp="₮">Монголи тугрикӗ</annotation>
+		<annotation cp="₮" type="tts">Монголи тугрикӗ</annotation>
+		<annotation cp="₲">Парагвай гуаранӗ</annotation>
+		<annotation cp="₲" type="tts">Парагвай гуаранӗ</annotation>
+		<annotation cp="₴">Украина гривни</annotation>
+		<annotation cp="₴" type="tts">Украина гривни</annotation>
+		<annotation cp="₵">Гана седийӗ</annotation>
+		<annotation cp="₵" type="tts">Гана седийӗ</annotation>
+		<annotation cp="₸">Казах тенгейӗ</annotation>
+		<annotation cp="₸" type="tts">Казах тенгейӗ</annotation>
+		<annotation cp="₺">Турци лири</annotation>
+		<annotation cp="₺" type="tts">Турци лири</annotation>
+		<annotation cp="₼">Азербайджан маначӗ</annotation>
+		<annotation cp="₼" type="tts">Азербайджан маначӗ</annotation>
+		<annotation cp="₾">Грузи ларийӗ</annotation>
+		<annotation cp="₾" type="tts">Грузи ларийӗ</annotation>
+		<annotation cp="0⃣">брелок | брелок: 0</annotation>
+		<annotation cp="0⃣" type="tts">брелок: 0</annotation>
+		<annotation cp="1⃣">брелок | брелок: 1</annotation>
+		<annotation cp="1⃣" type="tts">брелок: 1</annotation>
+		<annotation cp="2⃣">брелок | брелок: 2</annotation>
+		<annotation cp="2⃣" type="tts">брелок: 2</annotation>
+		<annotation cp="3⃣">брелок | брелок: 3</annotation>
+		<annotation cp="3⃣" type="tts">брелок: 3</annotation>
+		<annotation cp="4⃣">брелок | брелок: 4</annotation>
+		<annotation cp="4⃣" type="tts">брелок: 4</annotation>
+		<annotation cp="5⃣">брелок | брелок: 5</annotation>
+		<annotation cp="5⃣" type="tts">брелок: 5</annotation>
+		<annotation cp="6⃣">брелок | брелок: 6</annotation>
+		<annotation cp="6⃣" type="tts">брелок: 6</annotation>
+		<annotation cp="7⃣">брелок | брелок: 7</annotation>
+		<annotation cp="7⃣" type="tts">брелок: 7</annotation>
+		<annotation cp="8⃣">брелок | брелок: 8</annotation>
+		<annotation cp="8⃣" type="tts">брелок: 8</annotation>
+		<annotation cp="9⃣">брелок | брелок: 9</annotation>
+		<annotation cp="9⃣" type="tts">брелок: 9</annotation>
+	</annotations>
+</ldml>

@@ -73,15 +73,22 @@ public class ElementAttributeInfo {
         return eai;
     }
 
-    private static void addElementAttributeInfo(Map<DtdType, ElementAttributeInfo> result, DtdType type, String path) throws IOException {
+    private static void addElementAttributeInfo(
+            Map<DtdType, ElementAttributeInfo> result, DtdType type, String path)
+            throws IOException {
         if (!new File(path).canRead()) {
-            System.err.println("ElementAttributeInfo: Warning: Sample file did not exist: " + path + " for DtdType " + type.name());
+            System.err.println(
+                    "ElementAttributeInfo: Warning: Sample file did not exist: "
+                            + path
+                            + " for DtdType "
+                            + type.name());
             return; // file doesn't exist.
         }
         result.put(type, new ElementAttributeInfo(path, type));
     }
 
-    private static Map<DtdType, ElementAttributeInfo> makeElementAttributeInfoMap(String canonicalCommonDirectory) throws IOException {
+    private static Map<DtdType, ElementAttributeInfo> makeElementAttributeInfoMap(
+            String canonicalCommonDirectory) throws IOException {
         Map<DtdType, ElementAttributeInfo> result;
         result = new HashMap<>();
         // pick short files that are in repository

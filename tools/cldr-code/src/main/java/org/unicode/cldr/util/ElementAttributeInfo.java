@@ -55,35 +55,7 @@ public class ElementAttributeInfo {
                     }
                 }
                 if (result == null) {
-                    result = new HashMap<>();
-                    // pick short files that are in repository
-                    // Add to this when a DTD is added
-                    result.put(
-                            DtdType.ldml,
-                            new ElementAttributeInfo(
-                                    canonicalCommonDirectory + "/main/root.xml", DtdType.ldml));
-                    result.put(
-                            DtdType.supplementalData,
-                            new ElementAttributeInfo(
-                                    canonicalCommonDirectory + "/supplemental/plurals.xml",
-                                    DtdType.supplementalData));
-                    result.put(
-                            DtdType.ldmlBCP47,
-                            new ElementAttributeInfo(
-                                    canonicalCommonDirectory + "/bcp47/calendar.xml",
-                                    DtdType.ldmlBCP47));
-                    result.put(
-                            DtdType.keyboard3,
-                            new ElementAttributeInfo(
-                                    canonicalCommonDirectory
-                                            + "/../keyboards/3.0/fr-t-k0-azerty.xml",
-                                    DtdType.keyboard3));
-                    result.put(
-                            DtdType.keyboardTest3,
-                            new ElementAttributeInfo(
-                                    canonicalCommonDirectory
-                                            + "/../keyboards/test/fr-t-k0-azerty-test.xml",
-                                    DtdType.keyboardTest3));
+                    result = makeElementAttributeInfoMap(canonicalCommonDirectory);
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -99,6 +71,39 @@ public class ElementAttributeInfo {
                             + ") returns null, please update this function");
         }
         return eai;
+    }
+
+    private static void addElementAttributeInfo(Map<DtdType, ElementAttributeInfo> result, DtdType type, String path) throws IOException {
+        if (!new File(path).canRead()) {
+            System.err.println("ElementAttributeInfo: Warning: Sample file did not exist: " + path + " for DtdType " + type.name());
+            return; // file doesn't exist.
+        }
+        result.put(type, new ElementAttributeInfo(path, type));
+    }
+
+    private static Map<DtdType, ElementAttributeInfo> makeElementAttributeInfoMap(String canonicalCommonDirectory) throws IOException {
+        Map<DtdType, ElementAttributeInfo> result;
+        result = new HashMap<>();
+        // pick short files that are in repository
+        // Add to this when a DTD is added
+        addElementAttributeInfo(result,
+            DtdType.ldml,
+            canonicalCommonDirectory + "/main/root.xml");
+        addElementAttributeInfo(result,
+            DtdType.supplementalData,
+            canonicalCommonDirectory + "/supplemental/plurals.xml");
+        addElementAttributeInfo(result,
+            DtdType.ldmlBCP47,
+            canonicalCommonDirectory + "/bcp47/calendar.xml");
+        addElementAttributeInfo(result,
+            DtdType.keyboard3,
+            canonicalCommonDirectory
+                + "/../keyboards/3.0/fr-t-k0-azerty.xml");
+        addElementAttributeInfo(result,
+            DtdType.keyboardTest3,
+            canonicalCommonDirectory
+                + "/../keyboards/test/fr-t-k0-azerty-test.xml");
+        return result;
     }
 
     // static {

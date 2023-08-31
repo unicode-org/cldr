@@ -3031,7 +3031,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">za {0} ponedeljka</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -5871,8 +5871,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>

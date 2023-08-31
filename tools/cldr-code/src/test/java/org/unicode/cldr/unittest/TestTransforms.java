@@ -404,7 +404,8 @@ public class TestTransforms extends TestFmwkPlus {
         }
 
         Set<String> removedTransforms = new HashSet<>();
-        removedTransforms.add("ASCII-Latin"); // http://unicode.org/cldr/trac/ticket/9163
+        removedTransforms.add(
+                "und-t-d0-ascii"); // https://unicode-org.atlassian.net/browse/CLDR-10436
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
@@ -505,8 +506,10 @@ public class TestTransforms extends TestFmwkPlus {
             return ("Zawgyi-my");
         } else if (id.equalsIgnoreCase("my-t-my-d0-zawgyi")) {
             return "my-Zawgyi";
-        } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
+        } else if (id.equalsIgnoreCase("und-t-und-latn-d0-ascii")) {
             return ("Latin-ASCII");
+        } else if (id.equalsIgnoreCase("und-latn-t-s0-ascii")) {
+            return ("ASCII-Latin");
         }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);

@@ -809,7 +809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">rai ngapusi</annotation>
 		<annotation cp="🫨">goyang-goyang | kaget | kedher | lindhu | rai</annotation>
 		<annotation cp="🫨" type="tts">rai goyang-goyang</annotation>
-		<annotation cp="🙂‍↔">gedheg | ora | gedheg</annotation>
+		<annotation cp="🙂‍↔">gedheg | ora</annotation>
 		<annotation cp="🙂‍↔" type="tts">gedheg</annotation>
 		<annotation cp="🙂‍↕">iya | manthuk</annotation>
 		<annotation cp="🙂‍↕" type="tts">manthuk</annotation>
@@ -1427,7 +1427,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼" type="tts">malaékat bayi</annotation>
 		<annotation cp="🎅">bapa | Klas | Natal | pista | Sinter Klas</annotation>
 		<annotation cp="🎅" type="tts">Sinter Klas</annotation>
-		<annotation cp="🤶">ibu | Ibu Klas | Klas | Natal | pista</annotation>
+		<annotation cp="🤶">ibu | Klas | Natal | pista</annotation>
 		<annotation cp="🤶" type="tts">Ibu Klas</annotation>
 		<annotation cp="🧑‍🎄">bapa/ibu klas | Klas | natal</annotation>
 		<annotation cp="🧑‍🎄" type="tts">bapa/ibu klas</annotation>
@@ -1683,13 +1683,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">wong rangkulan</annotation>
 		<annotation cp="👪">kluwarga</annotation>
 		<annotation cp="👪" type="tts">kluwarga</annotation>
-		<annotation cp="🧑‍🧑‍🧒">kulawarga: diwasa | diwasa | anak</annotation>
+		<annotation cp="🧑‍🧑‍🧒">anak | diwasa | kulawarga: diwasa | kulawarga: diwasa, diwasa, anak</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">kulawarga: diwasa, diwasa, anak</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">kulawarga: diwasa | diwasa | anak | anak</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">anak | diwasa | kulawarga: diwasa | kulawarga: diwasa, diwasa, anak, anak</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">kulawarga: diwasa, diwasa, anak, anak</annotation>
-		<annotation cp="🧑‍🧒">kulawarga: diwasa | anak</annotation>
+		<annotation cp="🧑‍🧒">anak | kulawarga: diwasa | kulawarga: diwasa, anak</annotation>
 		<annotation cp="🧑‍🧒" type="tts">kulawarga: diwasa, anak</annotation>
-		<annotation cp="🧑‍🧒‍🧒">kulawarga: diwasa | anak | anak</annotation>
+		<annotation cp="🧑‍🧒‍🧒">anak | kulawarga: diwasa | kulawarga: diwasa, anak, anak</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">kulawarga: diwasa, anak, anak</annotation>
 		<annotation cp="👣">klambi | tipak | tipak sikil</annotation>
 		<annotation cp="👣" type="tts">tipak sikil</annotation>
@@ -1875,7 +1875,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">manuk ireng</annotation>
 		<annotation cp="🪿">bodho | manuk | menthog | menthog njerit | unggas</annotation>
 		<annotation cp="🪿" type="tts">menthog</annotation>
-		<annotation cp="🐦‍🔥">fantasi | manuk geni | lair maneh | reinkarnasi | foniks</annotation>
+		<annotation cp="🐦‍🔥">fantasi | foniks | lair maneh | manuk geni | reinkarnasi</annotation>
 		<annotation cp="🐦‍🔥" type="tts">foniks</annotation>
 		<annotation cp="🐸">kodhok | rai</annotation>
 		<annotation cp="🐸" type="tts">kodhok</annotation>
@@ -2017,7 +2017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">jeruk keprok</annotation>
 		<annotation cp="🍋">jeruk lemon | jeruk nipis | woh-wohan</annotation>
 		<annotation cp="🍋" type="tts">jeruk lemon</annotation>
-		<annotation cp="🍋‍🟩">jeruk nipis | jeruk | woh | tropis</annotation>
+		<annotation cp="🍋‍🟩">jeruk | jeruk nipis | tropis | woh</annotation>
 		<annotation cp="🍋‍🟩" type="tts">jeruk nipis</annotation>
 		<annotation cp="🍌">gedhang | woh-wohan</annotation>
 		<annotation cp="🍌" type="tts">gedhang</annotation>
@@ -2081,7 +2081,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">jahe</annotation>
 		<annotation cp="🫛">buncis | edamame | kacang | polong | polong-polongan | sayuran</annotation>
 		<annotation cp="🫛" type="tts">kacang polong</annotation>
-		<annotation cp="🍄‍🟫">jamur soklat | panganan | jamur | alam | sayuran</annotation>
+		<annotation cp="🍄‍🟫">alam | jamur | jamur soklat | panganan | sayuran</annotation>
 		<annotation cp="🍄‍🟫" type="tts">jamur soklat</annotation>
 		<annotation cp="🍞">roti | sebata</annotation>
 		<annotation cp="🍞" type="tts">roti</annotation>
@@ -2715,7 +2715,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌊" type="tts">ombak banyu</annotation>
 		<annotation cp="🎃">halloween | jack | jack-o-lantern | lampion jack-o-lantern | lampion labu | perayaan</annotation>
 		<annotation cp="🎃" type="tts">lampion jack-o-lantern</annotation>
-		<annotation cp="🎄">Natal | perayaan | uwit | Uwit Natal</annotation>
+		<annotation cp="🎄">Natal | perayaan | uwit</annotation>
 		<annotation cp="🎄" type="tts">Uwit Natal</annotation>
 		<annotation cp="🎆">kembang api | perayaan</annotation>
 		<annotation cp="🎆" type="tts">kembang api</annotation>
@@ -3299,7 +3299,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">teken</annotation>
 		<annotation cp="🔗">sambungan rante</annotation>
 		<annotation cp="🔗" type="tts">sambungan rante</annotation>
-		<annotation cp="⛓‍💥">pedhot | tugel | rante | pasung | bebas | rante pedhot</annotation>
+		<annotation cp="⛓‍💥">bebas | pasung | pedhot | rante | tugel</annotation>
 		<annotation cp="⛓‍💥" type="tts">rante pedhot</annotation>
 		<annotation cp="⛓">rante</annotation>
 		<annotation cp="⛓" type="tts">rante</annotation>
@@ -3493,15 +3493,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔃" type="tts">panah ngadeg arahe padha ubenge jam</annotation>
 		<annotation cp="🔄">panah | tombol panah arahe walikan ubenge jam | walikan arahe srengenge | walikan ubenge jam</annotation>
 		<annotation cp="🔄" type="tts">tombol panah arahe walikan ubenge jam</annotation>
-		<annotation cp="🔙">mbalik | panah | panah MBALIK</annotation>
+		<annotation cp="🔙">mbalik | panah</annotation>
 		<annotation cp="🔙" type="tts">panah MBALIK</annotation>
-		<annotation cp="🔚">mentok | panah | panah MENTOK</annotation>
+		<annotation cp="🔚">mentok | panah</annotation>
 		<annotation cp="🔚" type="tts">panah MENTOK</annotation>
 		<annotation cp="🔛">on | panah | panah ON! | tenger</annotation>
 		<annotation cp="🔛" type="tts">panah ON!</annotation>
-		<annotation cp="🔜">gage | panah | panah SOON | soon</annotation>
+		<annotation cp="🔜">gage | panah | soon</annotation>
 		<annotation cp="🔜" type="tts">panah SOON</annotation>
-		<annotation cp="🔝">munggah | panah | panah TOP | top</annotation>
+		<annotation cp="🔝">munggah | panah | top</annotation>
 		<annotation cp="🔝" type="tts">panah TOP</annotation>
 		<annotation cp="🛐">agama | papan sembahyang | sembahyang</annotation>
 		<annotation cp="🛐" type="tts">papan sembahyang</annotation>

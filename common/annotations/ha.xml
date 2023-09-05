@@ -811,7 +811,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫨" type="tts">girgiza fuska</annotation>
 		<annotation cp="🙂‍↔">aʼa | girgiza | girgiza kai a kwance</annotation>
 		<annotation cp="🙂‍↔" type="tts">girgiza kai a kwance</annotation>
-		<annotation cp="🙂‍↕">girgiza kai a tsaye | Girgiza kai a tsaye | yarda da kai | e</annotation>
+		<annotation cp="🙂‍↕">e | girgiza kai a tsaye | Girgiza kai a tsaye | yarda da kai</annotation>
 		<annotation cp="🙂‍↕" type="tts">Girgiza kai a tsaye</annotation>
 		<annotation cp="😌">fuska | fuska mai kwancin hankali | kwancin hankali</annotation>
 		<annotation cp="😌" type="tts">fuska mai kwancin hankali</annotation>
@@ -1425,9 +1425,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🍼" type="tts">mutum mai ba jariri abinci</annotation>
 		<annotation cp="👼">fuska | jariri | jaririn malaika | labarin aljana | malaika | tatsuniya</annotation>
 		<annotation cp="👼" type="tts">jaririn malaika</annotation>
-		<annotation cp="🎅">claus | Kirsimati | santa | Santa Claus | shagali | Tsoho-da-Gemu | uba</annotation>
+		<annotation cp="🎅">claus | Kirsimati | santa | shagali | Tsoho-da-Gemu | uba</annotation>
 		<annotation cp="🎅" type="tts">Tsoho-da-Gemu</annotation>
-		<annotation cp="🤶">claus | Kirsimati | Matar | Matar Claus | shagalin biki | uwa</annotation>
+		<annotation cp="🤶">claus | Kirsimati | Matar | shagalin biki | uwa</annotation>
 		<annotation cp="🤶" type="tts">Matar Claus</annotation>
 		<annotation cp="🧑‍🎄">father Chrismas | father Christmas | kirisimati | maganan kirisimati</annotation>
 		<annotation cp="🧑‍🎄" type="tts">father Christmas</annotation>
@@ -1671,13 +1671,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">mutane na runguma</annotation>
 		<annotation cp="👪">iyali</annotation>
 		<annotation cp="👪" type="tts">iyali</annotation>
-		<annotation cp="🧑‍🧑‍🧒">iyali: manya | manya | yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒">iyali: manya | iyali: manya, manya, yara | manya | yara</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">iyali: manya, manya, yara</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">iyali: manya | manya | yara | yara</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">iyali: manya | iyali: manya, manya, yara, yara | manya | yara</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">iyali: manya, manya, yara, yara</annotation>
-		<annotation cp="🧑‍🧒">iyali: manya | yara</annotation>
+		<annotation cp="🧑‍🧒">iyali: manya | iyali: manya, yara | yara</annotation>
 		<annotation cp="🧑‍🧒" type="tts">iyali: manya, yara</annotation>
-		<annotation cp="🧑‍🧒‍🧒">iyali: manya | yara | yara</annotation>
+		<annotation cp="🧑‍🧒‍🧒">iyali: manya | iyali: manya, yara, yara | yara</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">iyali: manya, yara, yara</annotation>
 		<annotation cp="👣">buga | sawaye | sawu | sutura</annotation>
 		<annotation cp="👣" type="tts">sawaye</annotation>
@@ -1863,7 +1863,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">babban tsuntsu</annotation>
 		<annotation cp="🪿">gis | kowa | tsuntsu | wauta</annotation>
 		<annotation cp="🪿" type="tts">gis</annotation>
-		<annotation cp="🐦‍🔥">kirkirarren labari | tsuntsun wuta | sabon haihuwa | haihuwan matacce | phoenix</annotation>
+		<annotation cp="🐦‍🔥">haihuwan matacce | kirkirarren labari | phoenix | sabon haihuwa | tsuntsun wuta</annotation>
 		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐸">fuska | kwaɗo</annotation>
 		<annotation cp="🐸" type="tts">kwaɗo</annotation>
@@ -2005,7 +2005,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">tanjarin</annotation>
 		<annotation cp="🍋">ɗan itace | kayan lemo | ruwan lemo</annotation>
 		<annotation cp="🍋" type="tts">ruwan lemo</annotation>
-		<annotation cp="🍋‍🟩">kayan lemu | ʼyaʼyan itace | wurare masu zafi | lemun tsami</annotation>
+		<annotation cp="🍋‍🟩">kayan lemu | lemun tsami | wurare masu zafi | ʼyaʼyan itace</annotation>
 		<annotation cp="🍋‍🟩" type="tts">lemun tsami</annotation>
 		<annotation cp="🍌">ayaba | ɗan itace</annotation>
 		<annotation cp="🍌" type="tts">ayaba</annotation>
@@ -2069,7 +2069,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">saiwar citta</annotation>
 		<annotation cp="🫛">karen | kayan lambu | koren wake | koren wake na fis | legume | wake | wake na fis</annotation>
 		<annotation cp="🫛" type="tts">koren wake na fis</annotation>
-		<annotation cp="🍄‍🟫">abinci | naman gwari | yanayi | kayan lambu | naman kazan launin ruwan kasa</annotation>
+		<annotation cp="🍄‍🟫">abinci | kayan lambu | naman gwari | naman kazan launin ruwan kasa | yanayi</annotation>
 		<annotation cp="🍄‍🟫" type="tts">naman kazan launin ruwan kasa</annotation>
 		<annotation cp="🍞">burodi | burodi mai yanke-yanke</annotation>
 		<annotation cp="🍞" type="tts">burodi</annotation>

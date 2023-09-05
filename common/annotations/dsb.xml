@@ -809,9 +809,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">łdgajuce woblico</annotation>
 		<annotation cp="🫨">šok | tśěsć se | tśěskotaś | tśěskotate woblico | woblico | zemjerdžanje</annotation>
 		<annotation cp="🫨" type="tts">tśěskotate woblico</annotation>
-		<annotation cp="🙂‍↔">ně | woblico | kenž z głowu wijo | z głowu wiś</annotation>
+		<annotation cp="🙂‍↔">kenž z głowu wijo | ně | woblico | woblico, kenž z głowu wijo | z głowu wiś</annotation>
 		<annotation cp="🙂‍↔" type="tts">woblico, kenž z głowu wijo</annotation>
-		<annotation cp="🙂‍↕">jo | nygaś | woblico | kenž nyga</annotation>
+		<annotation cp="🙂‍↕">jo | kenž nyga | nygaś | woblico | woblico, kenž nyga</annotation>
 		<annotation cp="🙂‍↕" type="tts">woblico, kenž nyga</annotation>
 		<annotation cp="😌">woblico | wólažcone woblico | wólažcony | zacynjonej wócy</annotation>
 		<annotation cp="😌" type="tts">wólažcone woblico</annotation>
@@ -1063,9 +1063,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫳" type="tts">dłoń pokazujo dołoj</annotation>
 		<annotation cp="🫴">dłoń pokazujo górjej | kiwaś | póbitowaś | pópadnuś | pśiś</annotation>
 		<annotation cp="🫴" type="tts">dłoń pokazujo górjej</annotation>
-		<annotation cp="🫷">cakaś | high five | nalěwo | ruka | ak tłocy nalěwo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
+		<annotation cp="🫷">ak tłocy nalěwo | cakaś | high five | nalěwo | ruka | ruka, ak tłocy nalěwo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
 		<annotation cp="🫷" type="tts">ruka, ak tłocy nalěwo</annotation>
-		<annotation cp="🫸">cakaś | high five | napšawo | ruka | ak tłocy napšawo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
+		<annotation cp="🫸">ak tłocy napšawo | cakaś | high five | napšawo | ruka | ruka, ak tłocy napšawo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
 		<annotation cp="🫸" type="tts">ruka, ak tłocy napšawo</annotation>
 		<annotation cp="👌">ekscelentny | ok | ok-gesta | okay | okay-gesta | perfektny | ruka | w rěchu</annotation>
 		<annotation cp="👌" type="tts">ok-gesta</annotation>
@@ -1077,7 +1077,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✌" type="tts">dobyśaŕska gesta</annotation>
 		<annotation cp="🤞">palc | pśekśicnjony | ruka | ruka z pśekśicnjonyma palcoma</annotation>
 		<annotation cp="🤞" type="tts">ruka z pśekśicnjonyma palcoma</annotation>
-		<annotation cp="🫰">droge | lubosć | pjenjeze | ruka | z pśekśicowanym pokazowarjom a palcom | wutšoba</annotation>
+		<annotation cp="🫰">droge | lubosć | pjenjeze | ruka | ruka, z pśekśicowanym pokazowarjom a palcom | wutšoba | z pśekśicowanym pokazowarjom a palcom</annotation>
 		<annotation cp="🫰" type="tts">ruka, z pśekśicowanym pokazowarjom a palcom</annotation>
 		<annotation cp="🤟">gesta &quot;ja śi lubujom&quot; | Ja śi lubujom | ruka</annotation>
 		<annotation cp="🤟" type="tts">gesta &quot;ja śi lubujom&quot;</annotation>
@@ -1097,7 +1097,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇" type="tts">dołoj pokazujucy drugi palc</annotation>
 		<annotation cp="☝">drugi palc | górjej | górjej pokazujucy drugi palc wót prědka | górjej pokazujucy drugi plac wót prědka | palc | prědkowny bok ruki | ruka</annotation>
 		<annotation cp="☝" type="tts">górjej pokazujucy drugi palc wót prědka</annotation>
-		<annotation cp="🫵">dypk | pokazowaŕ | wusměrjony na glědajucego | ty</annotation>
+		<annotation cp="🫵">dypk | pokazowaŕ | pokazowaŕ, wusměrjony na glědajucego | ty | wusměrjony na glědajucego</annotation>
 		<annotation cp="🫵" type="tts">pokazowaŕ, wusměrjony na glědajucego</annotation>
 		<annotation cp="👍">derje | ruka górjej | tłusty palc | tłusty palc górjej</annotation>
 		<annotation cp="👍" type="tts">tłusty palc górjej</annotation>
@@ -1165,7 +1165,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">jězyk</annotation>
 		<annotation cp="👄">guba | gubje | źěl śěła</annotation>
 		<annotation cp="👄" type="tts">guba</annotation>
-		<annotation cp="🫦">flirtowaś | guba | kenž se do spódneje guby kusnjo | nerwozny | njepśijazny | starosćiwy | tšach | tšašywy</annotation>
+		<annotation cp="🫦">flirtowaś | guba | guba, kenž se do spódneje guby kusnjo | kenž se do spódneje guby kusnjo | nerwozny | njepśijazny | starosćiwy | tšach | tšašywy</annotation>
 		<annotation cp="🫦" type="tts">guba, kenž se do spódneje guby kusnjo</annotation>
 		<annotation cp="👶">góletko | woblico</annotation>
 		<annotation cp="👶" type="tts">góletko</annotation>
@@ -1487,17 +1487,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">žeńskcy combie</annotation>
 		<annotation cp="🧌">bajka | fantazija | kobołt | wogawa</annotation>
 		<annotation cp="🧌" type="tts">kobołt</annotation>
-		<annotation cp="💆">głowa | masaža | salon | woblico | wósoba | kenž dostanjo masažu głowy</annotation>
+		<annotation cp="💆">głowa | kenž dostanjo masažu głowy | masaža | salon | woblico | wósoba | wósoba, kenž dostanjo masažu głowy</annotation>
 		<annotation cp="💆" type="tts">wósoba, kenž dostanjo masažu głowy</annotation>
-		<annotation cp="💆‍♂">głowa | masaža | muski | kenž dostanjo masažu głowy | salon | woblico</annotation>
+		<annotation cp="💆‍♂">głowa | kenž dostanjo masažu głowy | masaža | muski | muski, kenž dostanjo masažu głowy | salon | woblico</annotation>
 		<annotation cp="💆‍♂" type="tts">muski, kenž dostanjo masažu głowy</annotation>
-		<annotation cp="💆‍♀">głowa | masaža | salon | woblico | žeńska | kenž dostanjo masažu głowy</annotation>
+		<annotation cp="💆‍♀">głowa | kenž dostanjo masažu głowy | masaža | salon | woblico | žeńska | žeńska, kenž dostanjo masažu głowy</annotation>
 		<annotation cp="💆‍♀" type="tts">žeńska, kenž dostanjo masažu głowy</annotation>
-		<annotation cp="💇">frizer | frizerka | frizura | wósoba | kenž dajo se włosy stśigaś</annotation>
+		<annotation cp="💇">frizer | frizerka | frizura | kenž dajo se włosy stśigaś | wósoba | wósoba, kenž dajo se włosy stśigaś</annotation>
 		<annotation cp="💇" type="tts">wósoba, kenž dajo se włosy stśigaś</annotation>
-		<annotation cp="💇‍♂">frizer | frizerka | frizura | muski | muski | kenž dajo se włosy stśigaś | nožyce | stśiganje włosow</annotation>
+		<annotation cp="💇‍♂">frizer | frizerka | frizura | kenž dajo se włosy stśigaś | muski | muski, kenž dajo se włosy stśigaś | nožyce | stśiganje włosow</annotation>
 		<annotation cp="💇‍♂" type="tts">muski, kenž dajo se włosy stśigaś</annotation>
-		<annotation cp="💇‍♀">frizer | frizerka | frizura | nožyce | stśiganje włosow | žeńska | žeńska  | kenž dajo se włosy stśigaś | žeńska | kenž dajo se włosy stśigaś</annotation>
+		<annotation cp="💇‍♀">frizer | frizerka | frizura | kenž dajo se włosy stśigaś | nožyce | stśiganje włosow | žeńska | žeńska , kenž dajo se włosy stśigaś</annotation>
 		<annotation cp="💇‍♀" type="tts">žeńska , kenž dajo se włosy stśigaś</annotation>
 		<annotation cp="🚶">chójźecy | chójźiś | pěškaŕ | pěškaŕka | pěšy duca wósoba | se pśechójźujucy</annotation>
 		<annotation cp="🚶" type="tts">pěšy duca wósoba</annotation>
@@ -1573,7 +1573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛷" type="tts">sněgakowaŕ/ka</annotation>
 		<annotation cp="🏂">sněg | snowboard | snowboarder | snowboarderka | snowboardowanje | snowborder /ka | sport</annotation>
 		<annotation cp="🏂" type="tts">snowborder /ka</annotation>
-		<annotation cp="🏌">balo | golf | golfowaŕ | grajaŕ golfa | grajaŕka golfa | wósoba | kenž golf grajo</annotation>
+		<annotation cp="🏌">balo | golf | golfowaŕ | grajaŕ golfa | grajaŕka golfa | kenž golf grajo | wósoba</annotation>
 		<annotation cp="🏌" type="tts">golfowaŕ</annotation>
 		<annotation cp="🏌‍♂">golf | golf graś | golfowaŕ | grajaŕ golfa | muski</annotation>
 		<annotation cp="🏌‍♂" type="tts">grajaŕ golfa</annotation>
@@ -1603,27 +1603,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛹‍♂" type="tts">muski z balom</annotation>
 		<annotation cp="⛹‍♀">balo | chytańca | žeńska | žeńska z balom</annotation>
 		<annotation cp="⛹‍♀" type="tts">žeńska z balom</annotation>
-		<annotation cp="🏋">wažydło | wósoba  | kenž zwiga wažydła | wósoba | kenž zwiga wažydła</annotation>
+		<annotation cp="🏋">kenž zwiga wažydła | wažydło | wósoba | wósoba, kenž zwiga wažydła</annotation>
 		<annotation cp="🏋" type="tts">wósoba, kenž zwiga wažydła</annotation>
 		<annotation cp="🏋‍♂">muski | wažydła zwigaś | zwigaŕ wažydłow</annotation>
 		<annotation cp="🏋‍♂" type="tts">zwigaŕ wažydłow</annotation>
 		<annotation cp="🏋‍♀">wažydła zwigaś | žeńska | zwigaŕka wažydłow</annotation>
 		<annotation cp="🏋‍♀" type="tts">zwigaŕka wažydłow</annotation>
-		<annotation cp="🚴">kólaso | kólasowaŕ | kólasowaŕka | kólasowaś | wósoba | kenž kólasujo</annotation>
+		<annotation cp="🚴">kenž kólasujo | kólaso | kólasowaŕ | kólasowaŕka | kólasowaś | wósoba | wósoba, kenž kólasujo</annotation>
 		<annotation cp="🚴" type="tts">wósoba, kenž kólasujo</annotation>
 		<annotation cp="🚴‍♂">kólaso | kólasowaŕ | muski kólasowaŕ</annotation>
 		<annotation cp="🚴‍♂" type="tts">kólasowaŕ</annotation>
 		<annotation cp="🚴‍♀">kólaso | kólasowaŕka | žeńska</annotation>
 		<annotation cp="🚴‍♀" type="tts">kólasowaŕka</annotation>
-		<annotation cp="🚵">górske kólaso | kólasowaś | mountainbike | mountainbikowanje | wósoba | kenž z mountainbikom jězdźi</annotation>
+		<annotation cp="🚵">górske kólaso | kenž z mountainbikom jězdźi | kólasowaś | mountainbike | mountainbikowanje | wósoba | wósoba, kenž z mountainbikom jězdźi</annotation>
 		<annotation cp="🚵" type="tts">wósoba, kenž z mountainbikom jězdźi</annotation>
 		<annotation cp="🚵‍♂">górske kólaso | górski kólasowaŕ | kólaso | mountainbikaŕ | mountainbike | muski</annotation>
 		<annotation cp="🚵‍♂" type="tts">mountainbikaŕ</annotation>
 		<annotation cp="🚵‍♀">górska kólasowaŕka | górske kólaso | kólaso | mountainbikaŕka | mountainbike | žeńska</annotation>
 		<annotation cp="🚵‍♀" type="tts">mountainbikaŕka</annotation>
-		<annotation cp="🤸">gymnastika | se na bok pśewjertujuca wósoba | se pśewjertaś | sport | turnowanje na zemi | wósoba | wósoba | kenž se na bok pśewjertujo</annotation>
+		<annotation cp="🤸">gymnastika | kenž se na bok pśewjertujo | se na bok pśewjertujuca wósoba | se pśewjertaś | sport | turnowanje na zemi | wósoba | wósoba, kenž se na bok pśewjertujo</annotation>
 		<annotation cp="🤸" type="tts">wósoba, kenž se na bok pśewjertujo</annotation>
-		<annotation cp="🤸‍♂">gymnastika | muski | muski | kenž se na bok pśewjertujo | se na bok pśewjetujucy muski | se pśewjertaś | sport | zwucowanja na zemi</annotation>
+		<annotation cp="🤸‍♂">gymnastika | kenž se na bok pśewjertujo | muski | muski, kenž se na bok pśewjertujo | se na bok pśewjetujucy muski | se pśewjertaś | sport | zwucowanja na zemi</annotation>
 		<annotation cp="🤸‍♂" type="tts">muski, kenž se na bok pśewjertujo</annotation>
 		<annotation cp="🤸‍♀">gymnastika | se na bok pśewjertujuca žeńska | se pśewjertaś | sport | žeńska | zwucowanje na zemi</annotation>
 		<annotation cp="🤸‍♀" type="tts">se na bok pśewjertujuca žeńska</annotation>
@@ -1683,13 +1683,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">se wobejmjecej wósobje</annotation>
 		<annotation cp="👪">familija | góle | mama | nan</annotation>
 		<annotation cp="👪" type="tts">familija</annotation>
-		<annotation cp="🧑‍🧑‍🧒">familija: dorosćonej a góle | familija: dorosćony | dorosćone a góle</annotation>
+		<annotation cp="🧑‍🧑‍🧒">dorosćone a góle | familija: dorosćonej a góle | familija: dorosćony</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">familija: dorosćonej a góle</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">familija: dorosćonej a góleśi | familija: dorosćony | dorosćonej | dorosćone | góleśi a źiśi</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">dorosćone | dorosćonej | familija: dorosćonej a góleśi | familija: dorosćony | góleśi a źiśi</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familija: dorosćonej a góleśi</annotation>
-		<annotation cp="🧑‍🧒">familija: dorosćony a góle | familija: dorosćony | góle</annotation>
+		<annotation cp="🧑‍🧒">familija: dorosćony | familija: dorosćony a góle | góle</annotation>
 		<annotation cp="🧑‍🧒" type="tts">familija: dorosćony a góle</annotation>
-		<annotation cp="🧑‍🧒‍🧒">familija: dorosćony a góleśi | familija: dorosćony | góleśi | źiśi</annotation>
+		<annotation cp="🧑‍🧒‍🧒">familija: dorosćony | familija: dorosćony a góleśi | góleśi | źiśi</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">familija: dorosćony a góleśi</annotation>
 		<annotation cp="👣">noga | stopje | wótśišć | wótśišća stopowu</annotation>
 		<annotation cp="👣" type="tts">stopje</annotation>
@@ -3675,7 +3675,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✳" type="tts">wósymrožkata gwězda</annotation>
 		<annotation cp="✴">gwězda | gwězda z wósym rožkami | gwězdka | rožki | wósym</annotation>
 		<annotation cp="✴" type="tts">gwězda z wósym rožkami</annotation>
-		<annotation cp="❇">błyskotanje | błyskotanje | migotanje | šćanjenje</annotation>
+		<annotation cp="❇">błyskotanje | migotanje | šćanjenje</annotation>
 		<annotation cp="❇" type="tts">błyskotanje</annotation>
 		<annotation cp="©">awtorske pšawa | c | copyright | symbol za awtorske pšawa</annotation>
 		<annotation cp="©" type="tts">copyright</annotation>

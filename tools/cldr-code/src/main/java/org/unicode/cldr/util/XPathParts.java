@@ -1211,10 +1211,17 @@ public final class XPathParts extends XPathParser
     }
 
     public static XPathParts getFrozenInstance(String path) {
-        XPathParts result =
-                cache.computeIfAbsent(
-                        path,
-                        (String forPath) -> new XPathParts().addInternal(forPath, true).freeze());
+        XPathParts result = cache.get(path);
+        if (result == null) {
+            // If we create the value in the lambda inside computeIfAbsent we lock
+            // The DtdData also caches aggressively, in a ConcurrentHashMap and
+            // also calling computeIfAbsent.
+            // With this change we might create a throw-away value (temp) ia something
+            // else won a race and added already added a value for path.
+            // But should be rare enough (we already tested if the key has a value)
+            final XPathParts temp = new XPathParts().addInternal(path, true).freeze();
+            result = cache.computeIfAbsent(path, (forPath) -> temp);
+        }
         return result;
     }
 

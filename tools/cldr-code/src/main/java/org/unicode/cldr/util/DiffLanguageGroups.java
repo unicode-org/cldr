@@ -17,6 +17,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity.Status;
 
 public class DiffLanguageGroups {
     static final String OLD = "OLD";
@@ -45,6 +47,12 @@ public class DiffLanguageGroups {
                 oldPath = args[1];
             }
         }
+        final Set<String> validRegular =
+                Sets.union(
+                        Validity.getInstance()
+                                .getStatusToCodes(LstrType.language)
+                                .get(Status.regular),
+                        Set.of("mul"));
 
         // Get OLD information
 
@@ -57,8 +65,9 @@ public class DiffLanguageGroups {
             showErrors(OLD, oldErrors);
         }
         Set<String> oldSet = getAllKeysAndValues(oldChildToParent);
-        checkAgainstCldr(OLD + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, oldSet);
-        checkAgainstCldr(OLD + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, oldSet);
+        checkAgainstReference(OLD + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, oldSet);
+        checkAgainstReference(OLD + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, oldSet);
+        checkAgainstReference(OLD + " Invalid", "", oldSet, validRegular);
 
         // get NEW information
 
@@ -71,8 +80,9 @@ public class DiffLanguageGroups {
         }
 
         Set<String> newSet = getAllKeysAndValues(newChildToParent);
-        checkAgainstCldr(NEW + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, newSet);
-        checkAgainstCldr(NEW + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, newSet);
+        checkAgainstReference(NEW + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, newSet);
+        checkAgainstReference(NEW + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, newSet);
+        checkAgainstReference(NEW + " Invalid", "", newSet, validRegular);
 
         // Show differences
 
@@ -123,7 +133,7 @@ public class DiffLanguageGroups {
         }
     }
 
-    private static void checkAgainstCldr(
+    private static void checkAgainstReference(
             String col1, String col2, Set<String> cldrLanguages, Set<String> oldSet) {
         SetView<String> missing = Sets.difference(cldrLanguages, oldSet);
         if (!missing.isEmpty()) {

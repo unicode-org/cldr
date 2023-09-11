@@ -1662,6 +1662,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
             List<String> result = new ArrayList<>();
             for (UnitSystem system : systems) {
                 switch (system) {
+                    case si_acceptable:
+                    case metric:
+                    case metric_adjacent:
+                        return "";
                     case ussystem:
                         result.add("US");
                         break;
@@ -1961,6 +1965,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         // remove unusual units
         others.removeAll(
                 Set.of(
+                        "point",
                         "fathom",
                         "carat",
                         "grain",

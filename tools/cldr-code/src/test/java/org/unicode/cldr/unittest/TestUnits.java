@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
@@ -4151,5 +4152,91 @@ public class TestUnits extends TestFmwk {
                     expected,
                     source.toString(formatStyle));
         }
+    }
+
+    public void TestSystems2() {
+        Multimap<String, UnitSystem> unitToSystems = converter.getSourceToSystems();
+        final Comparator<Iterable<UnitSystem>> systemComparator =
+                Comparators.lexicographical(Comparator.<UnitSystem>naturalOrder());
+        Multimap<UnitSystem, String> systemToUnits =
+                Multimaps.invertFrom(unitToSystems, TreeMultimap.create());
+        assertEquals("other doesn't occur", Set.of(), systemToUnits.get(UnitSystem.other));
+
+        Multimap<Set<UnitSystem>, String> systemSetToUnits =
+                TreeMultimap.create(systemComparator, Comparator.<String>naturalOrder());
+
+        // skip prefixable, since it isn't relevant
+
+        for (Entry<String, Collection<UnitSystem>> entry : unitToSystems.asMap().entrySet()) {
+            Set<UnitSystem> systemSet =
+                    ImmutableSortedSet.copyOf(
+                            Sets.difference(
+                                    new TreeSet<>(entry.getValue()),
+                                    Set.of(UnitSystem.prefixable)));
+            systemSetToUnits.put(systemSet, entry.getKey());
+        }
+        if (SHOW_SYSTEMS) {
+            System.out.println();
+            System.out.println("Set of UnitSystems\tUnits they apply to");
+        }
+
+        Set<String> ONLY_METRIC_AND_OTHERS = Set.of("second", "byte", "bit");
+        // Test some current invariants
+
+        for (Entry<Set<UnitSystem>, Collection<String>> entry :
+                systemSetToUnits.asMap().entrySet()) {
+            final Set<UnitSystem> systemSet = entry.getKey();
+            final Collection<String> unitSet = entry.getValue();
+            if (SHOW_SYSTEMS) {
+                System.out.println(systemSet + "\t" + unitSet);
+            }
+            if (systemSet.contains(UnitSystem.si)) {
+                assertNotContains(systemSet, UnitSystem.si_acceptable, unitSet);
+                assertContains(systemSet, UnitSystem.metric, unitSet);
+            }
+            if (systemSet.contains(UnitSystem.metric)) {
+                assertNotContains(systemSet, UnitSystem.metric_adjacent, unitSet);
+                if (!ONLY_METRIC_AND_OTHERS.containsAll(unitSet)) {
+                    assertNotContains(systemSet, UnitSystem.ussystem, unitSet);
+                    assertNotContains(systemSet, UnitSystem.uksystem, unitSet);
+                    assertNotContains(systemSet, UnitSystem.jpsystem, unitSet);
+                }
+            }
+        }
+        if (SHOW_SYSTEMS) {
+            System.out.print("Unit\tQuantity");
+            for (UnitSystem sys : UnitSystem.ALL) {
+                System.out.print("\t" + sys);
+            }
+            System.out.println();
+
+            for (Entry<String, Collection<UnitSystem>> entry : unitToSystems.asMap().entrySet()) {
+                final TreeSet<UnitSystem> systemSet = new TreeSet<>(entry.getValue());
+                final String unit = entry.getKey();
+                systemSetToUnits.put(systemSet, unit);
+                System.out.print(unit);
+                System.out.print("\t");
+                System.out.print(converter.getQuantityFromUnit(unit, false));
+                for (UnitSystem sys : UnitSystem.ALL) {
+                    System.out.print("\t" + (systemSet.contains(sys) ? "Y" : ""));
+                }
+                System.out.println();
+            }
+        }
+        warnln("Use -DTestUnits:SHOW_SYSTEMS to see details");
+    }
+
+    public <T> boolean assertContains(
+            final Set<T> systemSet, T unitSystem, Collection<String> units) {
+        return assertTrue(
+                units + ": " + systemSet + " contains " + unitSystem,
+                systemSet.contains(unitSystem));
+    }
+
+    public <T> boolean assertNotContains(
+            final Set<T> systemSet, T unitSystem, Collection<String> units) {
+        return assertFalse(
+                units + ": " + systemSet + " does not contain " + unitSystem,
+                systemSet.contains(unitSystem));
     }
 }

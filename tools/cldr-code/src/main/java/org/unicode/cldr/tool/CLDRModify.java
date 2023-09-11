@@ -2124,8 +2124,9 @@ public class CLDRModify {
                         // getDistinguishingXPath is called here, as needed for getSourceLocaleID further below,
                         // but further below that, for replace(), we may need the actual path, gotten
                         // directly from the file (cf. "skip" comment above), not just by removeAttribute
-                        String keywordPath =
-                                CLDRFile.getDistinguishingXPath(keywordParts.toString(), null);
+                        String keywordPath = keywordParts.toString();
+                        String distinguishingKeywordPath =
+                                CLDRFile.getDistinguishingXPath(keywordPath, null);
                         String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
 
                         // skip if keywords AND name are inherited
@@ -2146,7 +2147,7 @@ public class CLDRModify {
 
                         String name = resolved.getStringValue(xpath);
                         String keywordValue = resolved.getStringValue(keywordPath);
-                        String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
+                        String sourceLocaleId = resolved.getSourceLocaleID(distinguishingKeywordPath, null);
                         sorted.clear();
                         sorted.add(name);
 

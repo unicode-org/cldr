@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UncheckedIOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -160,6 +161,8 @@ public class GenerateProductionData {
 
         // get directories
 
+        ArrayList<File> annotationDirectories = new ArrayList<>();
+
         Arrays.asList(DtdType.values())
                 // .parallelStream()
                 // .unordered()
@@ -178,8 +181,18 @@ public class GenerateProductionData {
                                 Stats stats = new Stats();
                                 copyFilesAndReturnIsEmpty(
                                         sourceDir, destinationDir, null, isLdmlDtdType, stats);
+                                if (sourceDir.getName().startsWith("annotations")) {
+                                    annotationDirectories.add(destinationDir);
+                                }
                             }
                         });
+        for (File dir : annotationDirectories) {
+            DoubleCheckSpecialPaths(dir);
+        }
+    }
+
+    private static void DoubleCheckSpecialPaths(File dir) {
+        System.out.println("DoubleCheckSpecialPaths got " + dir);
     }
 
     private static class Stats {
@@ -222,7 +235,6 @@ public class GenerateProductionData {
      * @param factory
      * @param isLdmlDtdType
      * @param stats
-     * @param hasChildren
      * @return true if the file is an ldml file with empty content.
      */
     private static boolean copyFilesAndReturnIsEmpty(
@@ -757,7 +769,7 @@ public class GenerateProductionData {
     /**
      * Recursively checks that all children are empty (including that there are no children)
      *
-     * @param name
+     * @param locale
      * @param emptyLocales
      * @param parent2child
      * @return

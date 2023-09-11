@@ -5,6 +5,7 @@ package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.TreeMultimap;
 import com.google.myanmartools.ZawgyiDetector;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -70,15 +71,6 @@ public class DisplayAndInputProcessor {
 
     public static final UnicodeSet RTL =
             new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]").freeze();
-
-    public static final UnicodeSet TO_QUOTE =
-            new UnicodeSet(
-                            "[[:Cn:]"
-                                    + "[:Default_Ignorable_Code_Point:]"
-                                    + "[:patternwhitespace:]"
-                                    + "[:Me:][:Mn:]]" // add non-spacing marks
-                            )
-                    .freeze();
 
     public static final Pattern NUMBER_SEPARATOR_PATTERN =
             Pattern.compile("//ldml/numbers/symbols.*/(decimal|group)");
@@ -728,6 +720,28 @@ public class DisplayAndInputProcessor {
         sorted.removeAll(toRemove);
     }
 
+    /**
+     * Given a sorted list like "BEAR | Bear ｜ PANDA | Panda | panda"，filter out any items that
+     * duplicate other items aside from case, leaving only, for example, "BEAR | PANDA"
+     *
+     * @param sorted the set from which items may be removed
+     */
+    public static void filterKeywordsDifferingOnlyInCase(TreeSet<String> sorted) {
+        TreeMultimap<String, String> mapFromLower = TreeMultimap.create();
+        for (String item : sorted) {
+            mapFromLower.put(item.toLowerCase(), item);
+        }
+        TreeSet<String> toRetain = new TreeSet<>();
+        for (String lower : mapFromLower.keySet()) {
+            Set<String> variants = mapFromLower.get(lower);
+            for (String var : variants) {
+                toRetain.add(var);
+                break;
+            }
+        }
+        sorted.retainAll(toRetain);
+    }
+
     private String displayUnicodeSet(String value) {
         return pp.format(
                 new UnicodeSet(value)); // will throw exception if bad format, eg missing [...]
@@ -1039,10 +1053,6 @@ public class DisplayAndInputProcessor {
                 .matcher(fromString)
                 .replaceAll("$1" + ADLAM_NASALIZATION + "$2"); // replace quote with 𞥋
     }
-
-    static Pattern NEEDS_QUOTE1 = PatternCache.get("(\\s|$)([-\\}\\]\\&])()");
-    static Pattern NEEDS_QUOTE2 =
-            PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
     public String getCleanedUnicodeSet(UnicodeSet exemplar, ExemplarType exemplarType) {
 

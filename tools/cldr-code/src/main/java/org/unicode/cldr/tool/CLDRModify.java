@@ -2114,10 +2114,16 @@ public class CLDRModify {
                         XPathParts parts = XPathParts.getFrozenInstance(fullpath);
                         String type = parts.getAttributeValue(2, "type");
                         if (type == null) {
+                            System.out.println("Got xpath - skip: " + xpath);
                             return; // no TTS, so keywords, skip
                         }
-
+                        System.out.println("Got xpath - keep: " + xpath);
                         XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
+                        // TODO: fix keywordPath
+                        // Reference https://unicode-org.atlassian.net/browse/CLDR-17063
+                        // getDistinguishingXPath is called here, as needed for getSourceLocaleID further below,
+                        // but further below that, for replace(), we may need the actual path, gotten
+                        // directly from the file (cf. "skip" comment above), not just by removeAttribute
                         String keywordPath =
                                 CLDRFile.getDistinguishingXPath(keywordParts.toString(), null);
                         String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
@@ -2151,9 +2157,7 @@ public class CLDRModify {
                             sorted.addAll(items);
                         }
                         DisplayAndInputProcessor.filterCoveredKeywords(sorted);
-                        // TODO: Also filter items that are duplicates except for case
-                        // Reference: https://unicode-org.atlassian.net/browse/CLDR-16972
-                        // DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
+                        DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
                         String newKeywordValue = Joiner.on(" | ").join(sorted);
                         if (!newKeywordValue.equals(keywordValue)) {
                             replace(keywordPath, keywordPath, newKeywordValue);

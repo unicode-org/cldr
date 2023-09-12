@@ -131,11 +131,21 @@ public class TestTransforms extends TestFmwkPlus {
         for (String[] test : tests) {
             String cyrillic = test[0];
             String latin = test[1];
+
             String fromCyrillic = cyrillic_latin.transform(cyrillic);
-            assertEquals(++count + ") Cyrillic-Latin(" + cyrillic + ")", latin, fromCyrillic);
-            String fromLatin = latin_cyrillic.transform(cyrillic);
-            assertEquals(count + ") Latin-Cyrillic(" + cyrillic + ")", cyrillic, fromLatin);
+            assertEqualsShowHex(
+                    ++count + ") Cyrillic-Latin(" + cyrillic + ")", latin, fromCyrillic);
+
+            String fromLatin = latin_cyrillic.transform(latin);
+            assertEqualsShowHex(count + ") Latin-Cyrillic(" + latin + ")", cyrillic, fromLatin);
         }
+    }
+
+    static final Transliterator toHex =
+            Transliterator.getInstance("[[:^ASCII:][:cc:]] any-hex/perl");
+
+    private void assertEqualsShowHex(String message, String expected, String actual) {
+        assertEquals(toHex.transform(message), toHex.transform(expected), toHex.transform(actual));
     }
 
     public void TestUzbek() {

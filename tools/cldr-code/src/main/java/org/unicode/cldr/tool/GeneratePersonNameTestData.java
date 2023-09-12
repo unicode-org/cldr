@@ -211,10 +211,7 @@ public class GeneratePersonNameTestData {
                         //                        }
 
                         String formatted =
-                                formatter
-                                        .format(nameObject, parameters)
-                                        .replace("ᵛ", "") // remove two special CLDR ST hacks
-                                        .replace("ᵍ", "");
+                                formatter.formatWithoutSuperscripts(nameObject, parameters);
 
                         if (formatted.isEmpty()) {
                             continue;

@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
@@ -13,6 +14,7 @@ import java.util.Comparator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
@@ -51,6 +53,23 @@ public class GeneratePersonNameTestData {
 
     static File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
 
+    static final Set<String> REQUIRED_PATHS =
+            ImmutableSet.of(
+                    "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
+                    "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
+                    "//ldml/personNames/parameterDefault[@parameter=\"formality\"]",
+                    "//ldml/personNames/parameterDefault[@parameter=\"length\"]",
+                    "//ldml/personNames/foreignSpaceReplacement",
+                    "//ldml/personNames/nativeSpaceReplacement",
+                    "//ldml/personNames/initialPattern[@type=\"initial\"]",
+                    "//ldml/personNames/initialPattern[@type=\"initialSequence\"]",
+                    "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given\"]",
+                    "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given2\"]",
+                    "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"surname\"]",
+                    "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern"
+                    //
+                    );
+
     public static void main(String[] args) {
         Factory factory = CLDR_CONFIG.getCldrFactory();
 
@@ -59,13 +78,10 @@ public class GeneratePersonNameTestData {
             localeMatcher = Pattern.compile(args[0]).matcher("");
         }
 
-        FormatParameters testParameters =
-                FormatParameters.from(
-                        "order=surnameFirst; length=long; usage=monogram; formality=informal");
-
         ULocale undLocale = new ULocale("und");
 
-        for (String locale : factory.getAvailable()) {
+        main:
+        for (String locale : factory.getAvailableLanguages()) {
             if (localeMatcher != null && !localeMatcher.reset(locale).lookingAt()) {
                 continue;
             }
@@ -76,21 +92,20 @@ public class GeneratePersonNameTestData {
                 // draft=unconfirmed/provisional
                 CLDRFile unresolved = cldrFile.getUnresolved();
 
-                // Check that we have person data
-                {
-                    String givenOrder =
-                            unresolved.getStringValue(
-                                    "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]");
-                    if (givenOrder == null) {
-                        continue; // skip unless we have person data
-                    }
-                    String surnameOrder =
-                            unresolved.getStringValue(
-                                    "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]");
-                    if (surnameOrder == null) {
-                        continue; // skip unless we have person data
+                // Check that we have sufficient person data
+
+                if (!locale.equals("en")) {
+                    for (String path : REQUIRED_PATHS) {
+                        String value = unresolved.getStringValue(path);
+                        if (value == null) {
+                            removeTestFile(locale);
+                            continue main; // skip unless we have person data
+                        }
                     }
                 }
+
+                // Load the samples, and exit if there is a problem
+
                 Map<SampleType, SimpleNameObject> names;
                 PersonNameFormatter formatter;
                 try {
@@ -299,7 +314,11 @@ public class GeneratePersonNameTestData {
     }
 
     private static void removeTestFile(String locale) {
-        new File(dir.toString(), locale + ".txt").delete();
+        File file = new File(dir.toString(), locale + ".txt");
+        if (file.exists()) {
+            System.out.println("Removing " + file);
+            file.delete();
+        }
     }
 
     public static ULocale addRegionIfMissing(ULocale myLocale, String region) {

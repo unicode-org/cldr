@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.TempPrintWriter;
@@ -48,8 +49,9 @@ public class GeneratePersonNameTestData {
         sorting
     }
 
+    static File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
+
     public static void main(String[] args) {
-        File dir = new File(CLDRPaths.TEST_DATA, "personNameTest");
         Factory factory = CLDR_CONFIG.getCldrFactory();
 
         Matcher localeMatcher = null;
@@ -69,7 +71,9 @@ public class GeneratePersonNameTestData {
             }
 
             try {
-                CLDRFile cldrFile = factory.make(locale, true);
+                CLDRFile cldrFile =
+                        factory.make(locale, true, DraftStatus.contributed); // don't include
+                // draft=unconfirmed/provisional
                 CLDRFile unresolved = cldrFile.getUnresolved();
 
                 // Check that we have person data
@@ -93,9 +97,11 @@ public class GeneratePersonNameTestData {
                     names = PersonNameFormatter.loadSampleNames(cldrFile);
                     formatter = new PersonNameFormatter(cldrFile);
                 } catch (Exception e) {
+                    removeTestFile(locale);
                     continue;
                 }
                 if (names.isEmpty()) {
+                    removeTestFile(locale);
                     continue;
                 }
 
@@ -192,7 +198,8 @@ public class GeneratePersonNameTestData {
                         String formatted =
                                 formatter
                                         .format(nameObject, parameters)
-                                        .replace("ᵛ", ""); // remove special CLDR ST hack
+                                        .replace("ᵛ", "") // remove two special CLDR ST hacks
+                                        .replace("ᵍ", "");
 
                         if (formatted.isEmpty()) {
                             continue;
@@ -285,9 +292,14 @@ public class GeneratePersonNameTestData {
             } catch (Exception e) {
                 System.out.println("Skipping " + locale);
                 e.printStackTrace();
+                removeTestFile(locale);
                 continue;
             }
         }
+    }
+
+    private static void removeTestFile(String locale) {
+        new File(dir.toString(), locale + ".txt").delete();
     }
 
     public static ULocale addRegionIfMissing(ULocale myLocale, String region) {

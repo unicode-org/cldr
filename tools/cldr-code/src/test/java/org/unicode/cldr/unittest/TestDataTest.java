@@ -183,7 +183,8 @@ public class TestDataTest extends TestFmwkPlus {
                                     int debug = 0;
                                 }
 
-                                actual = pnf.format(sampleName, formatParameters).replace("ᵛ", "");
+                                actual =
+                                        pnf.formatWithoutSuperscripts(sampleName, formatParameters);
                             } catch (Exception e) {
                                 actual = e.getMessage();
                             }

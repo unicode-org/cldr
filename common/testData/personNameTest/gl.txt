@@ -210,7 +210,6 @@ name ; locale; gl_AQ
 expectedResult; Souto, Brais Manoel
 
 parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
 
 expectedResult; Brais Manoel Souto
 
@@ -219,6 +218,10 @@ parameters; givenFirst; long; referring; formal
 expectedResult; Souto Brais Manoel
 
 parameters; surnameFirst; long; referring; formal
+
+expectedResult; Souto, Brais M.
+
+parameters; sorting; medium; referring; formal
 
 expectedResult; Brais M. Souto
 
@@ -588,7 +591,6 @@ name ; locale; ko_AQ
 expectedResult; Meyer, Benno Hans
 
 parameters; sorting; long; referring; formal
-parameters; sorting; medium; referring; formal
 
 expectedResult; Benno Hans Meyer
 
@@ -597,6 +599,10 @@ parameters; givenFirst; long; referring; formal
 expectedResult; Meyer Benno Hans
 
 parameters; surnameFirst; long; referring; formal
+
+expectedResult; Meyer, Benno H.
+
+parameters; sorting; medium; referring; formal
 
 expectedResult; Benno H. Meyer
 

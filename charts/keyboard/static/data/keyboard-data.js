@@ -92,7 +92,7 @@ const _KeyboardData =
     },
     "displays": {
      "display": {
-      "@_to": "\\u0300",
+      "@_to": "\\u{0300}",
       "@_display": "${grave}"
      },
      "displayOptions": {
@@ -186,15 +186,15 @@ const _KeyboardData =
        "flick": [
         {
          "@_directions": "nw",
-         "@_to": "\\u1234"
+         "@_to": "\\u{1234}"
         },
         {
          "@_directions": "nw se",
-         "@_to": "\\uFFFF"
+         "@_to": "\\u{FFFF}"
         },
         {
          "@_directions": "e",
-         "@_to": "\\uFFF0"
+         "@_to": "\\u{FFF0}"
         }
        ],
        "@_id": "a"
@@ -203,15 +203,15 @@ const _KeyboardData =
        "flick": [
         {
          "@_directions": "nw",
-         "@_to": "\\u4567"
+         "@_to": "\\u{4567}"
         },
         {
          "@_directions": "nw se",
-         "@_to": "\\uFFFF"
+         "@_to": "\\u{FFFF}"
         },
         {
          "@_directions": "e",
-         "@_to": "\\uFFF0"
+         "@_to": "\\u{FFF0}"
         }
        ],
        "@_id": "b"
@@ -435,15 +435,15 @@ const _KeyboardData =
        {
         "reorder": [
          {
-          "@_from": "\\u1A60",
+          "@_from": "\\u{1A60}",
           "@_order": "127"
          },
          {
-          "@_from": "\\u1A6B",
+          "@_from": "\\u{1A6B}",
           "@_order": "42"
          },
          {
-          "@_from": "[\\u1A75-\\u1A79]",
+          "@_from": "[\\u{1A75}-\\u{1A79}]",
           "@_order": "55"
          }
         ]

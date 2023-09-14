@@ -263,7 +263,11 @@ When explicitly specified, attribute values can contain escaped characters. This
 
 ### UnicodeSet Escaping
 
-The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attribute values allow _UnicodeSet_ notation:
+The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints.
+
+Note that the `\u1234` and `\x{C1}` format escaping is not supported, only the `\u{…}` format (using `bracketedHex`).
+
+Currently, the following attribute values allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
 * `from` or `before` on the `<reorder>` element
@@ -928,7 +932,7 @@ where a flick to the Northeast then South produces two code points.
 
 ```xml
 <flicks id="a">
-    <flick directions="ne s" to="\uABCD\uDCBA" />
+    <flick directions="ne s" to="\u{ABCD}\u{DCBA}" />
 </flicks>
 ```
 
@@ -1037,7 +1041,7 @@ For combining characters, U+25CC `◌` is used as a base. It is an error to use 
 For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
 
 ```xml
-    <display to="\u0303" display="◌̃" />  <!-- \u25CC \u0303-->
+    <display to="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
 ```
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
@@ -1112,12 +1116,12 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 ```xml
 <keyboard>
     <keys>
-        <key id="a" to="a" longpress="\u0301 \u0300" />
+        <key id="a" to="a" longpress="\u{0301} \u{0300}" />
         <key id="shift" switch="shift" />
     </keys>
     <displays>
-        <display to="\u0300" display="ˋ" /> <!-- \u02CB -->
-        <display to="\u0301" display="ˊ" /> <!-- \u02CA -->
+        <display to="\u{0300}" display="ˋ" /> <!-- \u{02CB} -->
+        <display to="\u{0301}" display="ˊ" /> <!-- \u{02CA} -->
         <display id="shift"  display="⇪" /> <!-- U+21EA -->
         <display to="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
     </displays>
@@ -1679,9 +1683,9 @@ _Attribute:_ `value` (required)
 ```xml
 <variables>
   <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -->
+  <unicodeSet id="range" value="[a-z D E F G \u{200A}]" /> <!-- a through z, plus a few others -->
   <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
-  <unicodeSet id="KhmrMn" value="[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+  <unicodeSet id="KhmrMn" value="[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
 
@@ -1776,7 +1780,7 @@ If the input context changes, such as if the cursor or mouse moves the insertion
 
 Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations _may_ choose to map each marker to a [Unicode private-use character](https://www.unicode.org/glossary/#private_use_character) for use only within the implementation’s processing and temporary storage in the input context.
 
-For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  `[^\uE000-\uE009]` could be used as an expression to match a character that is not a marker, and `[Ee]\u{E000}` could match `E` or `e` followed by the first marker.
+For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  `[^\u{E000}-\u{E009}]` could be used as an expression to match a character that is not a marker, and `[Ee]\u{E000}` could match `E` or `e` followed by the first marker.
 
 Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.
 
@@ -1874,7 +1878,7 @@ _Attribute:_ `from` (required)
 
 - **Unicode codepoint escapes**
 
-    `\u1234 \u012A`
+    `\u{1234} \u{012A}`
     `\u{22} \u{012a} \u{1234A}`
 
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
@@ -1886,13 +1890,13 @@ _Attribute:_ `from` (required)
 
     The value of these classes do not change with Unicode versions.
 
-    `\s` for example is exactly `[\f\n\r\t\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]`
+    `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
     `\\` and `\$` evaluate to `\` and `$`, respectively.
 
 - **Character classes**
 
-    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u093F-\u0944\u0962\u0963]`
+    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
     - supported
     - no Unicode properties such as `\p{…}`
@@ -1995,7 +1999,7 @@ The following are additions to standard Regex syntax.
     Tooling may choose to suggest an expansion of properties, such as `\p{Mn}` to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an `import`-able file matching particularly useful Unicode properties.
 
     ```xml
-    <unicodeSet id="Mn" value="[\u034F\u0591-\u05AF\u05BD\u05C4\u05C5\…]" /> <!-- 1,985 code points -->
+    <unicodeSet id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /> <!-- 1,985 code points -->
     ```
 
 - **Backreferences**
@@ -2252,12 +2256,12 @@ Finally, the user might also type in the sequence with the tone _after_ the lowe
 We want all of these sequences to end up ordered as the first. To do this, we use the following rules:
 
 ```xml
-<reorder from="\u1A60" order="127" />      <!-- max possible order -->
-<reorder from="\u1A6B" order="42" />
-<reorder from="[\u1A75-\u1A79]" order="55" />
-<reorder before="\u1A6B" from="\u1A60\u1A45" order="10" />
-<reorder before="\u1A6B[\u1A75-\u1A79]" from="\u1A60\u1A45" order="10" />
-<reorder before="\u1A6B" from="\u1A60[\u1A75-\u1A79]\u1A45" order="10 55 10" />
+<reorder from="\u{1A60}" order="127" />      <!-- max possible order -->
+<reorder from="\u{1A6B}" order="42" />
+<reorder from="[\u{1A75}-\u{1A79}]" order="55" />
+<reorder before="\u{1A6B}" from="\u{1A60}\u{1A45}" order="10" />
+<reorder before="\u{1A6B}[\u{1A75}-\u{1A79}]" from="\u{1A60}\u{1A45}" order="10" />
+<reorder before="\u{1A6B}" from="\u{1A60}[\u{1A75}-\u{1A79}]\u{1A45}" order="10 55 10" />
 ```
 
 The first reorder is the default ordering for the _sakot_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _sakot_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _sakot_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
@@ -2293,21 +2297,21 @@ Consider this fragment from a shared reordering for the Myanmar script:
 <!-- File: "myanmar-reordering.xml" -->
 <transformGroup>
     <!-- medial-r -->
-    <reorder from="\u103C" order="20" />
+    <reorder from="\u{103C}" order="20" />
 
     <!-- [medial-wa or shan-medial-wa] -->
-    <reorder from="[\u103D\u1082]" order="25" />
+    <reorder from="[\u{103D}\u{1082}]" order="25" />
 
     <!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->
-    <reorder from="[\u103E\u1082]\u103A" order="27" />
+    <reorder from="[\u{103E}\u{1082}]\u{103A}" order="27" />
 
     <!-- [medial-ha or mon-medial-wa] -->
-    <reorder from="[\u103E\u1060]" order="27" />
+    <reorder from="[\u{103E}\u{1060}]" order="27" />
 
     <!-- [e-vowel (U+1031) or shan-e-vowel (U+1084)] -->
-    <reorder from="[\u1031\u1084]" order="30" />
+    <reorder from="[\u{1031}\u{1084}]" order="30" />
 
-    <reorder from="[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]" order="35" />
+    <reorder from="[\u{102D}\u{102E}\u{1033}-\u{1035}\u{1071}-\u{1074}\u{1085}\u{109D}\u{A9E5}]" order="35" />
 </transformGroup>
 ```
 
@@ -2317,17 +2321,17 @@ A particular Myanmar keyboard layout can have these `reorder` elements:
 <transformGroup>
     <import path="myanmar-reordering.xml"/> <!-- import the above transformGroup -->
     <!-- Kinzi -->
-    <reorder from="\u1004\u103A\u1039" order="-1" />
+    <reorder from="\u{1004}\u{103A}\u{1039}" order="-1" />
 
     <!-- e-vowel -->
-    <reorder from="\u1031" preBase="1" />
+    <reorder from="\u{1031}" preBase="1" />
 
     <!-- medial-r -->
-    <reorder from="\u103C" preBase="1" />
+    <reorder from="\u{103C}" preBase="1" />
 </transformGroup>
 ```
 
-The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u1084`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
+The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u{1084}`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
 #### Example Post-reorder transforms
 
@@ -2344,8 +2348,8 @@ First, a partial example from Khmer where split vowels are combined after reorde
     …
 </transformGroup>
 <transformGroup>
-    <transform from="\u17C1\u17B8" to="\u17BE" />
-    <transform from="\u17C1\u17B6" to="\u17C4" />
+    <transform from="\u{17C1}\u{17B8}" to="\u{17BE}" />
+    <transform from="\u{17C1}\u{17B6}" to="\u{17C4}" />
 </transformGroup>
 ```
 
@@ -2360,7 +2364,7 @@ Another partial example allows a keyboard implementation to prevent people typin
     …
 </transformGroup>
 <transformGroup>
-    <transform from="[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]"  />
+    <transform from="[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"  />
 </transformGroup>
 ```
 
@@ -2403,7 +2407,7 @@ While this character is made up of three codepoints, the following rule causes a
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="\u0915\u094D\u0936"/>
+        <transform from="\u{0915}\u{094D}\u{0936}"/>
     </transformGroup>
 </transforms>
 ```
@@ -2416,35 +2420,35 @@ A more complex example comes from a Burmese visually ordered keyboard:
 <transforms type="backspace">
     <transformGroup>
         <!-- Kinzi -->
-        <transform from="[\u1004\u101B\u105A]\u103A\u1039" />
+        <transform from="[\u{1004}\u{101B}\u{105A}]\u{103A}\u{1039}" />
 
         <!-- subjoined consonant -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}\u{1050}\u{1051}\u{105A}-\u{105D}]" />
 
         <!-- tone mark -->
-        <transform from="\u102B\u103A" />
+        <transform from="\u{102B}\u{103A}" />
 
         <!-- Handle prebases -->
         <!-- diacritics stored before e-vowel -->
-        <transform from="[\u103A-\u103F\u105E-\u1060\u1082]\u1031" to="\u1031" />
+        <transform from="[\u{103A}-\u{103F}\u{105E}-\u{1060}\u{1082}]\u{1031}" to="\u{1031}" />
 
         <!-- diacritics stored before medial r -->
-        <transform from="[\u103A-\u103B\u105E-\u105F]\u103C" to="\u103C" />
+        <transform from="[\u{103A}-\u{103B}\u{105E}-\u{105F}]\u{103C}" to="\u{103C}" />
 
         <!-- subjoined consonant before e-vowel -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{1031}" to="\u{1031}" />
 
         <!-- base consonant before e-vowel -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\m{prebase}\u1031" />
+        <transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{1031}" to="\m{prebase}\u{1031}" />
 
         <!-- subjoined consonant before medial r -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{103C}" to="\u{103C}" />
 
         <!-- base consonant before medial r -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\m{prebase}\u103C" />
+        <transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{103C}" to="\m{prebase}\u{103C}" />
 
         <!-- delete lone medial r or e-vowel -->
-        <transform from="\m{prebase}[\u1031\u103C]" />
+        <transform from="\m{prebase}[\u{1031}\u{103C}]" />
     </transformGroup>
 </transforms>
 ```
@@ -2844,7 +2848,7 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 **Example**
 
 ```xml
-<startContext to="abc\u0022"/>
+<startContext to="abc\u{0022}"/>
 ```
 
 
@@ -2961,7 +2965,7 @@ This attribute specifies the expected resultant text in a document after process
 **Example**
 
 ```xml
-<check result="abc\u0022s\u0022•éÈ"/>
+<check result="abc\u{0022}s\u{0022}•éÈ"/>
 ```
 
 
@@ -2970,22 +2974,22 @@ This attribute specifies the expected resultant text in a document after process
 ```xml
 
 <test name="spec-sample">
-    <startContext to="abc\u0022"/>
+    <startContext to="abc\u{0022}"/>
     <!-- simple, key specified by to -->
     <emit to="s"/>
-    <check result="abc\u0022s"/>
+    <check result="abc\u{0022}s"/>
     <!-- simple, key specified by id -->
     <keystroke key="doublequote"/>
-    <check result="abc\u0022s\u0022"/>
+    <check result="abc\u{0022}s\u{0022}"/>
     <!-- flick -->
     <keystroke key="s" flick="nw se"/>
-    <check result="abc\u0022s\u0022•"/>
+    <check result="abc\u{0022}s\u{0022}•"/>
     <!-- longPress -->
     <keystroke key="e" longPress="1"/>
-    <check result="abc\u0022s\u0022•é"/>
+    <check result="abc\u{0022}s\u{0022}•é"/>
     <!-- multiTap -->
     <keystroke key="E" tapCount="2"/>
-    <check result="abc\u0022s\u0022•éÈ"/>
+    <check result="abc\u{0022}s\u{0022}•éÈ"/>
 </test>
 ```
 

@@ -3,7 +3,7 @@
 <keyboardTest conformsTo="techpreview">
 	<info keyboard="ja-Latn.xml" author="Team Keyboard" name="ja-Latn-test" />
 	<repertoire name="latn-repertoire"
-		chars="[a-z A-Z 0-9 !\u0022#$%\u0026\[\]\{\}=\-|¥~\^_\u0020\u003c>,./?`@\+\*]" type="simple" />
+		chars="[a-z A-Z 0-9 !\u{0022}#$%\u{0026}\[\]\{\}=\-|¥~\^_\u{0020}\u{003c}>,./?`@\+\*]" type="simple" />
 	<tests name="tests">
 		<test name="test1">
 			<startContext to="" /> <!-- empty startContext -->

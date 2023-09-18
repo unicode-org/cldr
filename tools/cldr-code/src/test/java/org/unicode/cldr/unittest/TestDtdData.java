@@ -581,9 +581,9 @@ public class TestDtdData extends TestFmwk {
 
     public static boolean isOrderedOld(String element, DtdType type) {
         switch (type) {
-            case keyboardTest:
+            case keyboardTest3:
                 return orderedKeyboardTestElements.contains(element);
-            case keyboard:
+            case keyboard3:
                 return orderedKeyboardElements.contains(element);
             default:
                 // all others, above
@@ -756,7 +756,7 @@ public class TestDtdData extends TestFmwk {
                         || (elementName.equals("nameOrderLocalesDefault")
                                 && attribute.equals("order"));
 
-            case keyboard:
+            case keyboard3:
                 if (elementName.equals("keyboard") && attribute.equals("locale")
                         || elementName.equals("vkeys") && attribute.equals("from")
                         || elementName.equals("layers") && attribute.equals("form")
@@ -794,7 +794,7 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("display") && attribute.equals("id")
                         || elementName.equals("flicks") && attribute.equals("id")
                         || elementName.equals("flick") && attribute.equals("directions");
-            case keyboardTest:
+            case keyboardTest3:
                 return elementName.equals("tests") && attribute.equals("name")
                         || elementName.equals("test") && attribute.equals("name")
                         || elementName.equals("repertoire") && attribute.equals("name")

@@ -86,7 +86,7 @@ public class TestComparisonBuilder extends TestFmwk {
                 continue;
             }
             Builder<String> builder = new Builder<String>(Ordering.NATURAL);
-            builder.add(dtd.toString());
+            builder.add(dtd.rootElement());
             Relation<String, String> eaInfo =
                     ElementAttributeInfo.getInstance(dtd).getElement2Children();
             for (String element : eaInfo.keySet()) {

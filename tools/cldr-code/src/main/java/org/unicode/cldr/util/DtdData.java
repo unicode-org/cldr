@@ -438,7 +438,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private DtdData(DtdType type, String version) {
         this.dtdType = type;
-        this.ROOT = elementFrom(type.rootType.toString());
+        this.ROOT = elementFrom(type.rootElement());
         this.version = version;
     }
 

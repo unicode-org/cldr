@@ -1408,7 +1408,7 @@ public class TestBasic extends TestFmwkPlus {
                     switch (type) {
                         case ldmlBCP47:
                         case ldmlICU:
-                        case keyboard:
+                        case keyboard3:
                             tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
                             break;
                         default:
@@ -1549,6 +1549,7 @@ public class TestBasic extends TestFmwkPlus {
             xfr.read(myHandler.fileName, -1, true);
             logln(myHandler.fileName);
         } catch (Exception e) {
+            e.printStackTrace();
             Throwable t = e;
             StringBuilder b = new StringBuilder();
             String indent = "";

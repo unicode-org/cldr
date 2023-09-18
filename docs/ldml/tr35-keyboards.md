@@ -297,13 +297,13 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 * New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be `techpreview`.
 
 ```xml
-<keyboard conformsTo="techpreview"/>
+<keyboard3 conformsTo="techpreview"/>
 ```
 
 > _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.
 
 ```xml
-<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 ```
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
@@ -318,18 +318,18 @@ See [Element special](tr35.md#special) in Part 1.
 
 ## Element Hierarchy
 
-This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard>`.
+This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard3>`.
 
-### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
+### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard3</a>
 
 This is the top level element. All other elements defined below are under this element.
 
 **Syntax**
 
 ```xml
-<keyboard locale="{locale ID}">
+<keyboard3 locale="{locale ID}">
     {definition of the layout as described by the elements defined below}
-</keyboard>
+</keyboard3>
 ```
 
 > <small>
@@ -350,7 +350,7 @@ and it also specifies the minimum CLDR version required.
 For purposes of this current draft spec, the value should always be `techpreview`
 
 ```xml
-<keyboard … conformsTo="techpreview"/>
+<keyboard3 … conformsTo="techpreview"/>
 ```
 
 _Attribute:_ `locale` (required)
@@ -360,15 +360,15 @@ This attribute represents the primary locale of the keyboard using BCP 47 [Unico
 **Example** (for illustrative purposes only, not indicative of the real data)
 
 ```xml
-<keyboard locale="ka">
+<keyboard3 locale="ka">
   …
-</keyboard>
+</keyboard3>
 ```
 
 ```xml
-<keyboard locale="fr-CH-t-k0-azerty">
+<keyboard3 locale="fr-CH-t-k0-azerty">
   …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -388,7 +388,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [locale](#Element_locale)
 >
@@ -427,13 +427,13 @@ See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion a
 
 ```xml
 <!-- Pan Nigerian Keyboard-->
-<keyboard locale="mul-Latn-NG-t-k0-panng">
+<keyboard3 locale="mul-Latn-NG-t-k0-panng">
     <locales>
     <locale id="ha"/>
     <locale id="ig"/>
     <!-- others … -->
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -450,7 +450,7 @@ Element used to keep track of the source data version.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -469,11 +469,11 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 **Example**
 
 ```xml
-<keyboard locale="tok">
+<keyboard3 locale="tok">
     …
     <version number="1"/>
     …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -493,7 +493,7 @@ Element containing informative properties about the layout, for displaying in us
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -542,7 +542,7 @@ These names are not currently localized.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [name](#Element_name), [_special_](tr35.md#special)
 >
@@ -578,13 +578,13 @@ _Attribute:_ `value` (required)
 **Example**
 
 ```xml
-<keyboard locale="bg-t-k0-phonetic-trad">
+<keyboard3 locale="bg-t-k0-phonetic-trad">
     …
     <names>
         <name value="Bulgarian (Phonetic Traditional)" />
     </names>
     …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -601,7 +601,7 @@ An element used to keep track of layout specific settings. This element may or m
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -619,11 +619,11 @@ If this attribute is present, it must have a value of omit.
 **Example**
 
 ```xml
-<keyboard locale="bg">
+<keyboard3 locale="bg">
     …
     <settings fallback="omit" />
     …
-</keyboard>
+</keyboard3>
 ```
 
 Indicates that:
@@ -657,7 +657,7 @@ There is only a single `<keys>` element in each layout.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 > Children: [key](#Element_key), [flicks](#Element_flicks)
 > Occurrence: optional, single
 >
@@ -863,11 +863,11 @@ These implied keys are available in a data file named `keyboards/import/keys-Lat
 Thus, the implied keys behave as if the following import were present.
 
 ```xml
-<keyboard>
+<keyboard3>
     <keys>
         <import base="cldr" path="techpreview/keys-Latn-implied.xml" />
     </keys>
-</keyboard>
+</keyboard3>
 ```
 
 **Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
@@ -956,7 +956,7 @@ If two identical elements are defined, the later element will take precedence, t
 ```
 > <small>
 >
-> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
+> Parents: [displays](#Element_displays), [keyboard3](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
 >
 > Children: _none_
 >
@@ -991,7 +991,7 @@ _Attribute:_ `path` (required)
 
 <!-- contents of transforms-example.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard3.dtd">
 <transforms>
     <!-- begin imported part-->
     <transform from="`a" to="à" />
@@ -1061,7 +1061,7 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [display](#Element_display), [displayOptions](#Element_displayOptions), [_special_](tr35.md#special)
 >
@@ -1114,7 +1114,7 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 **Example**
 
 ```xml
-<keyboard>
+<keyboard3>
     <keys>
         <key id="a" to="a" longpress="\u{0301} \u{0300}" />
         <key id="shift" switch="shift" />
@@ -1125,7 +1125,7 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
         <display id="shift"  display="⇪" /> <!-- U+21EA -->
         <display to="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
     </displays>
-</keyboard>
+</keyboard3>
 ```
 
 To allow `displays` elements to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
@@ -1178,7 +1178,7 @@ This element represents a set of `form` elements which define the layout of a pa
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [form](#Element_form), [_special_](tr35.md#special)
 >
@@ -1241,11 +1241,11 @@ _Attribute:_ `id` (required)
 There is an implied set of `<form>` elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:
 
 ```xml
-<keyboard>
+<keyboard3>
     <forms>
         <import base="cldr" path="techpreview/scanCodes-implied.xml" /> <!-- the version will match the current conformsTo of the file -->
     </forms>
-</keyboard>
+</keyboard3>
 ```
 
 Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these `form=` values and may not override the scanCodes.
@@ -1291,7 +1291,7 @@ hardware or touch layout.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [layer](#Element_layer), [_special_](tr35.md#special)
 >
@@ -1345,7 +1345,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [row](#Element_row), [_special_](tr35.md#special)
 >
@@ -1444,7 +1444,7 @@ On some architectures, applications may directly interact with keys before they 
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [vkey](#Element_vkey)
 >
@@ -1491,14 +1491,14 @@ _Attribute:_ `to` (required)
 This example shows some of the mappings for a French keyboard layout:
 
 ```xml
-<keyboard>
+<keyboard3>
     <vkeys>
 		  <vkey from="Q" to="A" />
 		  <vkey from="W" to="Z" />
 		  <vkey from="A" to="Q" />
 		  <vkey from="Z" to="W" />
     </vkeys>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -1507,7 +1507,7 @@ This example shows some of the mappings for a French keyboard layout:
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeSet)
 >
@@ -1710,7 +1710,7 @@ There can be multiple `<transforms>` elements, but only one for each `type`.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [transformGroup](#Element_transformGroup)
 >
@@ -2547,32 +2547,32 @@ The following are the design principles for the IDs.
 
 ```xml
 <!-- Serbian Latin -->
-<keyboard locale="sr-Latn"/>
+<keyboard3 locale="sr-Latn"/>
 ```
 
 ```xml
 <!-- Serbian Cyrillic -->
-<keyboard locale="sr-Cyrl"/>
+<keyboard3 locale="sr-Cyrl"/>
 ```
 
 ```xml
 <!-- Pan Nigerian Keyboard-->
-<keyboard locale="mul-Latn-NG-t-k0-panng">
+<keyboard3 locale="mul-Latn-NG-t-k0-panng">
     <locales>
     <locale id="ha"/>
     <locale id="ig"/>
     <!-- others … -->
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 ```xml
 <!-- Finnish Keyboard including Skolt Sami -->
-<keyboard locale="fi-t-k0-smi">
+<keyboard3 locale="fi-t-k0-smi">
     <locales>
     <locale id="sms"/>
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -2654,7 +2654,7 @@ Footnotes:
 
 Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.
 
-Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
+Test data files have a separate DTD, named `ldmlKeyboardTest3.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
 
 Sample test data files are located in the `keyboards/test` subdirectory.
 
@@ -2664,7 +2664,7 @@ The following describes the structure of a keyboard test file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
 ```
 
 The top level element is named `keyboardTest`.
@@ -2680,14 +2680,14 @@ This is the top level element.
 
 _Attribute:_ `conformsTo` (required)
 
-The `conformsTo` attribute here is the same as on the [`<keyboard>`](#Element_Keyboard) element.
+The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#Element_Keyboard) element.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
-<keyboardTest conformsTo="techpreview">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
     …
-</keyboardTest>
+</keyboardTest3>
 ```
 
 ### Test Element: info

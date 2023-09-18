@@ -2091,6 +2091,9 @@ public class CLDRModify {
                     TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
                     CLDRFile resolved;
 
+                    Set<String> fakeKeywordPaths = new TreeSet<>();
+                    Set<String> realKeywordPaths = new TreeSet<>();
+
                     @Override
                     public void handleStart() {
                         String localeID = cldrFileToFilter.getLocaleID();
@@ -2114,12 +2117,14 @@ public class CLDRModify {
                         XPathParts parts = XPathParts.getFrozenInstance(fullpath);
                         String type = parts.getAttributeValue(2, "type");
                         if (type == null) {
+                            realKeywordPaths.add(xpath);
                             return; // no TTS, so keywords, skip
                         }
-
                         XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
-                        String keywordPath =
-                                CLDRFile.getDistinguishingXPath(keywordParts.toString(), null);
+                        String keywordPath = keywordParts.toString();
+                        fakeKeywordPaths.add(keywordPath);
+                        String distinguishingKeywordPath =
+                                CLDRFile.getDistinguishingXPath(keywordPath, null);
                         String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
 
                         // skip if keywords AND name are inherited
@@ -2140,7 +2145,7 @@ public class CLDRModify {
 
                         String name = resolved.getStringValue(xpath);
                         String keywordValue = resolved.getStringValue(keywordPath);
-                        String sourceLocaleId = resolved.getSourceLocaleID(keywordPath, null);
+                        String sourceLocaleId = resolved.getSourceLocaleID(distinguishingKeywordPath, null);
                         sorted.clear();
                         sorted.add(name);
 
@@ -2151,12 +2156,28 @@ public class CLDRModify {
                             sorted.addAll(items);
                         }
                         DisplayAndInputProcessor.filterCoveredKeywords(sorted);
-                        // TODO: Also filter items that are duplicates except for case
-                        // Reference: https://unicode-org.atlassian.net/browse/CLDR-16972
-                        // DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
+                        DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
                         String newKeywordValue = Joiner.on(" | ").join(sorted);
                         if (!newKeywordValue.equals(keywordValue)) {
                             replace(keywordPath, keywordPath, newKeywordValue);
+                        }
+                    }
+
+                    @Override
+                    public void handleEnd() {
+                        if (fakeKeywordPaths.isEmpty() || realKeywordPaths.isEmpty()) {
+                            throw new RuntimeException("fake/real EMPTY loc: " + cldrFileToFilter.getLocaleID());
+                        }
+                        if (!fakeKeywordPaths.equals(realKeywordPaths)) {
+                            fakeKeywordPaths.removeAll(realKeywordPaths);
+                            realKeywordPaths.removeAll(fakeKeywordPaths);
+                            for (String p : fakeKeywordPaths) {
+                                System.out.println("ONLY fake: " + p + " loc: " + cldrFileToFilter.getLocaleID());
+                            }
+                            for (String p : realKeywordPaths) {
+                                System.out.println("ONLY real: " + p + " loc: " + cldrFileToFilter.getLocaleID());
+                            }
+                            // throw new RuntimeException("fake/real diff  loc: " + cldrFileToFilter.getLocaleID());
                         }
                     }
                 });

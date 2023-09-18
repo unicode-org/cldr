@@ -2122,6 +2122,7 @@ public class CLDRModify {
                         }
                         XPathParts keywordParts = parts.cloneAsThawed().removeAttribute(2, "type");
                         String keywordPath = keywordParts.toString();
+                        keywordPath = cldrFileToFilter.getFullXPath(keywordPath);
                         fakeKeywordPaths.add(keywordPath);
                         String distinguishingKeywordPath =
                                 CLDRFile.getDistinguishingXPath(keywordPath, null);
@@ -2145,7 +2146,8 @@ public class CLDRModify {
 
                         String name = resolved.getStringValue(xpath);
                         String keywordValue = resolved.getStringValue(keywordPath);
-                        String sourceLocaleId = resolved.getSourceLocaleID(distinguishingKeywordPath, null);
+                        String sourceLocaleId =
+                                resolved.getSourceLocaleID(distinguishingKeywordPath, null);
                         sorted.clear();
                         sorted.add(name);
 
@@ -2166,18 +2168,28 @@ public class CLDRModify {
                     @Override
                     public void handleEnd() {
                         if (fakeKeywordPaths.isEmpty() || realKeywordPaths.isEmpty()) {
-                            throw new RuntimeException("fake/real EMPTY loc: " + cldrFileToFilter.getLocaleID());
+                            throw new RuntimeException(
+                                    "fake/real EMPTY loc: " + cldrFileToFilter.getLocaleID());
                         }
                         if (!fakeKeywordPaths.equals(realKeywordPaths)) {
                             fakeKeywordPaths.removeAll(realKeywordPaths);
                             realKeywordPaths.removeAll(fakeKeywordPaths);
                             for (String p : fakeKeywordPaths) {
-                                System.out.println("ONLY fake: " + p + " loc: " + cldrFileToFilter.getLocaleID());
+                                System.out.println(
+                                        "ONLY fake: "
+                                                + p
+                                                + " loc: "
+                                                + cldrFileToFilter.getLocaleID());
                             }
                             for (String p : realKeywordPaths) {
-                                System.out.println("ONLY real: " + p + " loc: " + cldrFileToFilter.getLocaleID());
+                                System.out.println(
+                                        "ONLY real: "
+                                                + p
+                                                + " loc: "
+                                                + cldrFileToFilter.getLocaleID());
                             }
-                            // throw new RuntimeException("fake/real diff  loc: " + cldrFileToFilter.getLocaleID());
+                            // throw new RuntimeException("fake/real diff loc: " +
+                            // cldrFileToFilter.getLocaleID());
                         }
                     }
                 });

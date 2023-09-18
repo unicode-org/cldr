@@ -454,7 +454,7 @@ public class TestDtdData extends TestFmwk {
     /** paths that can be empty elements. Each item starts with '!' because of showPath. */
     static final Set<String> ALLOWED_EMPTY_NO_VALUE_PATHS =
             Collections.unmodifiableSet(
-                    new HashSet<>(Arrays.asList("!//keyboardTest/tests/test/backspace")));
+                    new HashSet<>(Arrays.asList("!//keyboardTest3/tests/test/backspace")));
 
     // TESTING CODE
     static final Set<String> orderedElements =
@@ -757,7 +757,7 @@ public class TestDtdData extends TestFmwk {
                                 && attribute.equals("order"));
 
             case keyboard3:
-                if (elementName.equals("keyboard") && attribute.equals("locale")
+                if (elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("vkeys") && attribute.equals("from")
                         || elementName.equals("layers") && attribute.equals("form")
                         || elementName.equals("layers") && attribute.equals("minDeviceWidth")
@@ -776,7 +776,7 @@ public class TestDtdData extends TestFmwk {
                 }
                 // fall through to old keyboard
                 return attribute.equals("_q")
-                        || elementName.equals("keyboard") && attribute.equals("locale")
+                        || elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("keyMap") && attribute.equals("modifiers")
                         || elementName.equals("key") && attribute.equals("flicks")
                         || elementName.equals("transforms") && attribute.equals("type")

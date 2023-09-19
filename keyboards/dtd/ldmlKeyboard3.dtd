@@ -93,8 +93,8 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT display EMPTY >
     <!--@TECHPREVIEW-->
-<!ATTLIST display id CDATA #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+<!ATTLIST display id NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
 <!ATTLIST display to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@ALLOWS_UESC-->
@@ -115,10 +115,10 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT key EMPTY >
     <!--@TECHPREVIEW-->
-<!ATTLIST key id CDATA #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+<!ATTLIST key id NMTOKEN #REQUIRED >
+    <!--@MATCH:any-->
 <!ATTLIST key flicks NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+    <!--@MATCH:any-->
 <!ATTLIST key gap (true) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key to CDATA #IMPLIED >
@@ -139,7 +139,7 @@ Please view the subcommittee page for the most recent information.
 <!ATTLIST key stretch (true) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key switch NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST key transform (no) #IMPLIED >
     <!--@VALUE-->
@@ -150,7 +150,7 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT flicks ( flick+, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST flicks id NMTOKEN #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+    <!--@MATCH:any-->
 
 <!ELEMENT flick EMPTY >
     <!--@TECHPREVIEW-->
@@ -185,7 +185,7 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT layer ( row+, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST layer id NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+    <!--@MATCH:any-->
 <!ATTLIST layer modifier NMTOKENS #IMPLIED >
     <!--@MATCH:regex/(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)-->
 

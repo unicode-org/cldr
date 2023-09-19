@@ -1099,7 +1099,8 @@ Occurrence: optional, single</p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
 </blockquote><p><strong>Note</strong>: The <code>id</code> attribute is required.</p><p><strong>Note</strong>: <em>at least one of</em> <code>switch</code>, <code>gap</code>, or <code>to</code> are required.</p><p><em>Attribute:</em> <code>id</code></p><blockquote>
-<p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN, restricted to <code>[a-zA-Z0-9_.-]</code>. It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)</p>
+<p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).</p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
 </blockquote><p><em>Attribute:</em> <code>flicks="flick-id"</code> (optional)</p><blockquote>
 <p>The <code>flicks</code> attribute indicates that this key makes use of a <a href="#Element_flicks"><code>flicks</code></a> set with the specified id.</p>
 </blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
@@ -1127,7 +1128,8 @@ This is used, for example, on the spacebar. Note that <code>stretch=</code> is i
 Note that a key may have both a <code>switch=</code> and a <code>to=</code> attribute, indicating that the key outputs prior to switching layers.
 Also note that <code>switch=</code> is ignored for hardware layouts: their shifting is controlled via
 the modifier keys.</p>
-<p>This attribute is an NMTOKEN, restricted to <code>[a-zA-Z0-9-]</code></p>
+<p>This attribute is an NMTOKEN.</p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
 </blockquote><p><em>Attribute:</em> <code>to</code></p><blockquote>
 <p>The <code>to</code> attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
 </blockquote><blockquote>
@@ -1211,9 +1213,10 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
-<p>The <code>id</code> attribute identifies the flicks. It can be any NMTOKEN matching <code>[A-Za-z0-9][A-Za-z0-9-]*</code>
-The <code>flicks</code> do not share a namespace with the <code>key</code>s, so it would also be allowed
+<p>The <code>id</code> attribute identifies the flicks. It can be any NMTOKEN.</p>
+<p>The <code>flicks</code> do not share a namespace with the <code>key</code>s, so it would also be allowed
 to have <code>&lt;key id="a" flicks="a"/&gt;&lt;flicks id="a"/&gt;</code></p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
 </blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>

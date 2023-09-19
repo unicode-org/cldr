@@ -4,6 +4,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -815,6 +816,51 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             if (set.contains("PandA beAR")) {
                 errln("PandA beAR should be filtered out");
             }
+        }
+    }
+
+    private class KeywordCaseTestData {
+        String[] array, expectedArray;
+
+        KeywordCaseTestData(String[] array, String[] expectedArray) {
+            this.array = array;
+            this.expectedArray = expectedArray;
+        }
+
+        boolean filtersAsExpected() {
+            TreeSet<String> set = new TreeSet<>(Arrays.asList(array));
+            TreeSet<String> expectedSet = new TreeSet<>(Arrays.asList(expectedArray));
+            DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(set);
+            if (set.equals(expectedSet)) {
+                return true;
+            } else {
+                errln("Resulting set " + set + " differs from expected set " + expectedSet);
+                return false;
+            }
+        }
+    }
+
+    public void TestFilterKeywordsDifferingOnlyInCase() {
+        String[] array = new String[] {"BEAR", "Bear", "PANDA", "Panda", "panda"};
+        String[] expectedArray = new String[] {"BEAR", "PANDA"};
+        KeywordCaseTestData dat = new KeywordCaseTestData(array, expectedArray);
+        if (!dat.filtersAsExpected()) {
+            errln("Resulting set differs from expected set 1");
+        }
+        array =
+                new String[] {
+                    "gebou", "Japannees", "japanse poskantoor", "Japanse poskantoor", "pos"
+                };
+        expectedArray = new String[] {"gebou", "Japannees", "Japanse poskantoor", "pos"};
+        dat = new KeywordCaseTestData(array, expectedArray);
+        if (!dat.filtersAsExpected()) {
+            errln("Resulting set differs from expected set 2");
+        }
+        array = new String[] {"Aa", "Bb", "Cc", "Dd", "行"}; // should not change
+        expectedArray = array;
+        dat = new KeywordCaseTestData(array, expectedArray);
+        if (!dat.filtersAsExpected()) {
+            errln("Resulting set differs from expected set 3");
         }
     }
 }

@@ -61,7 +61,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST keystroke key NMTOKEN #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST keystroke flick NMTOKENS #IMPLIED >
     <!--@MATCH:any-->

@@ -181,12 +181,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   <xs:element name="display">
     <xs:complexType>
-      <xs:attribute name="id"/>
+      <xs:attribute name="id" type="xs:NMTOKEN"/>
       <xs:attribute name="to"/>
       <xs:attribute name="display" use="required"/>
     </xs:complexType>
   </xs:element>
-  
   
   
   
@@ -217,7 +216,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   <xs:element name="key">
     <xs:complexType>
-      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="flicks" type="xs:NMTOKEN"/>
       <xs:attribute name="gap">
         <xs:simpleType>
@@ -344,7 +343,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="modifier" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
   
   
   <xs:element name="row">

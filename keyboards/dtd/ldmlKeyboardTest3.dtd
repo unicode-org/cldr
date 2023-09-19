@@ -13,9 +13,9 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboardTest ( info, repertoire*, tests*, special* ) >
+<!ELEMENT keyboardTest3 ( info, repertoire*, tests*, special* ) >
     <!--@TECHPREVIEW-->
-<!ATTLIST keyboardTest conformsTo (techpreview) #REQUIRED >
+<!ATTLIST keyboardTest3 conformsTo (techpreview) #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
 

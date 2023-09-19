@@ -4897,7 +4897,7 @@ public class SupplementalDataInfo {
             } else {
                 Set<DtdType> temp = EnumSet.noneOf(DtdType.class);
                 for (String s : WHITESPACE_SPLTTER.split(dtds)) {
-                    temp.add(DtdType.valueOf(s));
+                    temp.add(DtdType.fromElement(s));
                 }
                 this.dtds = Collections.unmodifiableSet(temp);
             }

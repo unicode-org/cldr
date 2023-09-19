@@ -16,7 +16,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   Please view the subcommittee page for the most recent information.
   <https://cldr.unicode.org/index/keyboard-workgroup>
 --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="keyboard">
+  <xs:element name="keyboard3">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
@@ -192,6 +192,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
+  
   <xs:element name="displayOptions">
     <xs:complexType>
       <xs:attribute name="baseCharacter"/>
@@ -343,6 +344,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="modifier" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
+  
   
   
   <xs:element name="row">

@@ -2020,7 +2020,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                             + ", systemId: "
                             + systemId);
             commentStack++;
-            target.dtdType = DtdType.valueOf(name);
+            target.dtdType = DtdType.fromElement(name);
             target.dtdData = dtdData = DtdData.getInstance(target.dtdType);
         }
 

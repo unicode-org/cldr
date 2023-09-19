@@ -491,7 +491,7 @@ public final class XPathParts extends XPathParser
                  * Use it to set dtdData.
                  */
                 File dir = CLDRConfig.getInstance().getCldrBaseDirectory();
-                dtdData = DtdData.getInstance(DtdType.valueOf(element), dir);
+                dtdData = DtdData.getInstance(DtdType.fromElement(element), dir);
             } catch (Exception e) {
                 dtdData = null;
             }

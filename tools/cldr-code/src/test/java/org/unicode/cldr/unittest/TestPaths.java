@@ -538,7 +538,7 @@ public class TestPaths extends TestFmwkPlus {
                             //                        parts.set(path);
                             //                        removeNonDistinguishing(parts, dtdData,
                             // counter, removed, nonFinalValues);
-                            if (type != DtdType.keyboardTest
+                            if (type != DtdType.keyboardTest3
                                     || !logKnownIssue(
                                             "CLDR-15034",
                                             "keyboardTest data appears as duplicate xpaths")) {

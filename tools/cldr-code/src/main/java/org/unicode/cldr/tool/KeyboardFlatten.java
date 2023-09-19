@@ -199,7 +199,7 @@ public class KeyboardFlatten {
                 sfac.newSchema(
                         new File(
                                 CLDRConfig.getInstance().getCldrBaseDirectory(),
-                                DtdType.keyboard.getXsdPath()));
+                                DtdType.keyboard3.getXsdPath()));
         dfactory.setSchema(schema);
         // Set other attributes here as needed
         // applyAttributes(dfactory, attributes);
